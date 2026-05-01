@@ -1,0 +1,83 @@
+{
+  "version": "0.1",
+  "description": "Canonical team definition for agent-team-team. Defines the standard rosters and work-class adjustments. Deploy targets read this to determine which officers to deploy and how to configure them per project.",
+  "rosters": {
+    "default": [
+      { "officer": "MAJOR_PLINY", "rank": "major" },
+      { "officer": "NESTOR", "rank": "captain" },
+      { "officer": "CAPTAIN_PLINY", "rank": "captain" },
+      { "officer": "DAEDALUS", "rank": "captain" },
+      { "officer": "ARGUS", "rank": "captain" },
+      { "officer": "STRABO", "rank": "captain" },
+      { "officer": "ADA", "rank": "captain" },
+      { "officer": "VERA", "rank": "captain" },
+      { "officer": "CATO", "rank": "captain" },
+      { "officer": "CURATOR", "rank": "captain" },
+      { "officer": "HERALD", "rank": "lieutenant" },
+      { "officer": "SCOUT", "rank": "lieutenant" }
+    ],
+    "minimal": [
+      { "officer": "MAJOR_PLINY", "rank": "major" },
+      { "officer": "DAEDALUS", "rank": "captain" },
+      { "officer": "ADA", "rank": "captain" },
+      { "officer": "VERA", "rank": "captain" }
+    ],
+    "user-level": [
+      { "officer": "MAJOR_PLINY", "rank": "major" },
+      { "officer": "NESTOR", "rank": "captain" },
+      { "officer": "DAEDALUS", "rank": "captain" },
+      { "officer": "ARGUS", "rank": "captain" },
+      { "officer": "ADA", "rank": "captain" },
+      { "officer": "VERA", "rank": "captain" },
+      { "officer": "CATO", "rank": "captain" },
+      { "officer": "CURATOR", "rank": "captain" }
+    ]
+  },
+  "work_class_adjustments": {
+    "web-app": {
+      "add": [],
+      "remove": [],
+      "rationale": "Default roster. No removals."
+    },
+    "cli-tool": {
+      "add": [],
+      "remove": ["STRABO", "HERALD"],
+      "rationale": "Researcher seat overhead for a small CLI; web search inline is fine. No intake queue at this scale."
+    },
+    "library": {
+      "add": [],
+      "remove": [],
+      "rationale": "Default. No removals."
+    },
+    "docs-site": {
+      "add": [],
+      "remove": ["STRABO", "HERALD", "CURATOR"],
+      "rationale": "Curator's catalog work is for evolving codebases; docs sites are mostly static."
+    },
+    "data-pipeline": {
+      "add": [],
+      "remove": [],
+      "rationale": "Default. No removals."
+    },
+    "ml-model": {
+      "add": [],
+      "remove": [],
+      "rationale": "Researcher seat (STRABO) is more useful for ML, not less."
+    },
+    "infrastructure": {
+      "add": [],
+      "remove": [],
+      "rationale": "Default. No removals."
+    },
+    "meta-team": {
+      "add": [],
+      "remove": [],
+      "rationale": "Self-install pattern. Surface 'you may not need a project-level team if your project IS agent-team-team' to the user."
+    },
+    "mixed": {
+      "add": [],
+      "remove": [],
+      "rationale": "Default. No removals. The escape from project-identity-uncertain bootstraps lands here."
+    }
+  }
+}

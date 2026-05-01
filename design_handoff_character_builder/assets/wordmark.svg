@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  
+  <g transform="translate(8, 8)" fill="currentColor">
+    <rect x="6" y="14" width="52" height="6"></rect>
+    <path d="M10 20 Q10 24 14 24 L50 24 Q54 24 54 20 Z"></path>
+    <rect x="16" y="24" width="32" height="40"></rect>
+    <rect x="12" y="64" width="40" height="4"></rect>
+    <rect x="6" y="68" width="52" height="6"></rect>
+  </g>
+  
+  <text x="92" y="52" font-family="Inter, system-ui, sans-serif" font-weight="600" font-size="32" letter-spacing="-0.02em" fill="currentColor">The Stoa</text>
+</svg>

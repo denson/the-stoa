@@ -1,0 +1,23 @@
+{
+  "name": "DAEDALUS",
+  "archetype": "architect-archetype",
+  "rank": "captain",
+  "nickname": "Daedalus",
+  "role_summary": "Architect; writes design.md from briefs + research.",
+  "body_path": "definitions/bodies/daedalus.md",
+  "tools": [
+    "Bash",
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "TodoWrite",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "callable_lieutenants": [],
+  "required_reading": [],
+  "consult_on_demand": [],
+  "model_tier": "opus"
+}
