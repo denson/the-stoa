@@ -20,7 +20,30 @@ The two open variables are:
 1. **Real brand fonts** — the prototype uses Inter + JetBrains Mono as substitutes. If real brand fonts ship later, swap them in `colors_and_type.css` (`--font-display`, `--font-mono`).
 2. **Real logo / wordmark** — the placeholder marks in `assets/` are stand-ins.
 
-Everything else (color tokens, rank pills, archetype accent colors, type ramp, spacing) is final.
+Everything else (color tokens, rank pills, archetype accent colors, type ramp, spacing, **light + dark mode**) is final.
+
+---
+
+## Theming (light + dark)
+
+Both modes are first-class. The prototype demonstrates a working toggle in the header (sun/moon icon).
+
+**How it works:**
+- All colors are CSS variables defined in `tokens/colors_and_type.css`.
+- Light mode is the default (`:root { … }`).
+- Dark mode activates when `<html data-theme="dark">` is set (`:root[data-theme="dark"] { … }`).
+- A `.theme-dark` class on any subtree also works, for previews / scoped overrides.
+
+**Toggle behavior to replicate:**
+1. On first load, read `localStorage.getItem("stoa-theme")`. If unset, fall back to `window.matchMedia("(prefers-color-scheme: dark)").matches`.
+2. Apply by setting `data-theme` on `<html>`.
+3. On toggle, persist the new value to `localStorage` under `stoa-theme`.
+
+**Archetype accent colors are theme-aware.** Each archetype has a [light, dark] pair (see `ui/Components.jsx > archColors`). In dark mode, accents shift to lighter, slightly desaturated variants for legibility on dark surfaces. The implementation uses a `useDark()` hook that watches `data-theme` via MutationObserver — port that to your framework's reactive theme primitive (Tailwind `dark:`, MUI palette mode, CSS Modules with a theme provider, etc.).
+
+**Rank pill colors are also theme-aware** — defined as `--rank-major-bg`, `--rank-major`, etc. in both `:root` blocks. No JS branching needed; just use the variables.
+
+**Don't:** invert greys mechanically. The dark palette has its own near-black (`#14130F`) with the same warm undertone as the light palette's papyrus white. Use the tokens as-is.
 
 ---
 
@@ -189,9 +212,9 @@ In production: lift roster + filter to a query-string state hook so views are UR
 
 ## Design Tokens
 
-All defined in `tokens/colors_and_type.css` — import that and use the variables. Highlights:
+All defined in `tokens/colors_and_type.css` — import that and use the variables. Both light and dark are defined; values below are light-mode reference. Dark equivalents are in the `:root[data-theme="dark"]` block of the same file.
 
-**Surface / foreground:**
+**Surface / foreground (light):**
 - `--bg-app` `#FAF9F6` (parchment)
 - `--bg-surface` `#FFFFFF`
 - `--bg-sunken` `#F2F0EB`
@@ -204,19 +227,20 @@ All defined in `tokens/colors_and_type.css` — import that and use the variable
 - `--accent-hover` `#233C68`
 - `--accent-soft` `#E6EBF3`
 
-**Archetype accent colors** (used as left-border on officer cards + dot in filter sidebar + ArchetypeText color):
-| Archetype | Hex |
-|---|---|
-| orchestrator | `#5B4D86` |
-| architect | `#2E6E63` |
-| verifier | `#785637` |
-| executor | `#4A6E2E` |
-| reviewer | `#6E2E4A` |
-| plan-critic | `#6E4A2E` |
-| researcher | `#2E4A6E` |
-| curator | `#4A2E6E` |
-| intake | `#6E6E2E` |
-| scout | `#2E6E4A` |
+**Archetype accent colors** (used as left-border on officer cards + dot in filter sidebar + ArchetypeText color). Each archetype has a [light, dark] pair — pick by current theme:
+
+| Archetype | Light | Dark |
+|---|---|---|
+| orchestrator | `#5B4D86` | `#9D8FCB` |
+| architect | `#2E6E63` | `#6FB5A8` |
+| verifier | `#785637` | `#C29A75` |
+| executor | `#4A6E2E` | `#8FB575` |
+| reviewer | `#6E2E4A` | `#C7889F` |
+| plan-critic | `#6E4A2E` | `#C29A75` |
+| researcher | `#2E4A6E` | `#7CA1D4` |
+| curator | `#4A2E6E` | `#A88FCB` |
+| intake | `#6E6E2E` | `#C2C275` |
+| scout | `#2E6E4A` | `#75C29A` |
 
 **Type:**
 - Display / UI: `Inter` (substitute — final font TBD).
