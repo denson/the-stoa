@@ -21,6 +21,12 @@ yarn-error.log*
 # Source of truth lives in the agent-team-team repo (definitions/);
 # regenerated on each `python -m src.bootstrap --project-root .`.
 .claude/
-agents/
 skills/
 team-definition.json
+
+# Substrate inside agents/ that's regenerable from upstream — keep ignored.
+agents/aspects/
+
+# Everything else under agents/ is per-arc artifact (specs, designs,
+# audits, verdicts, follow-ups) and IS tracked in this repo. The arc
+# pipeline record is the audit trail for project-state evolution.
