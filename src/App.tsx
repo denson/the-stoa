@@ -7,10 +7,12 @@ import {
   OfficerCard,
   RankPill,
   SkillCard,
-  palette,
+  ThemeToggle,
+  archColorFor,
 } from "./Components";
 import { Plus, Search, Settings, Edit, Copy, Code } from "lucide-react";
 import { SAMPLE_DATA } from "./data/sample";
+import { useTheme } from "./hooks/useTheme";
 import type {
   Archetype,
   ArchetypeColors,
@@ -47,8 +49,8 @@ function Header({
         position: "sticky",
         top: 0,
         zIndex: 10,
-        background: palette.bgSurface,
-        borderBottom: `1px solid ${palette.border1}`,
+        background: "var(--bg-surface)",
+        borderBottom: "1px solid var(--border-1)",
       }}
     >
       <div style={{ display: "flex", alignItems: "center", padding: "10px 24px 0" }}>
@@ -59,7 +61,7 @@ function Header({
             fontSize: 15,
             fontWeight: 600,
             marginLeft: 10,
-            color: palette.fg1,
+            color: "var(--fg-1)",
           }}
         >
           The Stoa
@@ -68,10 +70,10 @@ function Header({
           style={{
             fontFamily: "'JetBrains Mono', monospace",
             fontSize: 11,
-            color: palette.fg3,
+            color: "var(--fg-3)",
             marginLeft: 10,
             padding: "2px 8px",
-            background: palette.bgInset,
+            background: "var(--bg-inset)",
             borderRadius: 4,
           }}
         >
@@ -84,13 +86,13 @@ function Header({
               display: "flex",
               alignItems: "center",
               gap: 8,
-              background: palette.bgSunken,
-              border: `1px solid ${palette.border1}`,
+              background: "var(--bg-sunken)",
+              border: "1px solid var(--border-1)",
               borderRadius: 6,
               padding: "5px 10px",
               fontFamily: "Inter, sans-serif",
               fontSize: 12,
-              color: palette.fg3,
+              color: "var(--fg-3)",
               cursor: "pointer",
             }}
           >
@@ -100,8 +102,8 @@ function Header({
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
                 fontSize: 10,
-                background: palette.bgSurface,
-                border: `1px solid ${palette.border1}`,
+                background: "var(--bg-surface)",
+                border: "1px solid var(--border-1)",
                 padding: "1px 5px",
                 borderRadius: 3,
                 marginLeft: 14,
@@ -113,9 +115,10 @@ function Header({
           <Button variant="primary" size="sm" leading={<Plus size={13} />}>
             New agent
           </Button>
+          <ThemeToggle />
           <Settings
             size={16}
-            style={{ color: palette.fg3, cursor: "pointer", marginLeft: 4 }}
+            style={{ color: "var(--fg-3)", cursor: "pointer", marginLeft: 4 }}
           />
         </div>
       </div>
@@ -131,9 +134,9 @@ function Header({
               fontFamily: "Inter, sans-serif",
               fontSize: 13,
               fontWeight: 500,
-              color: tab === t.id ? palette.fg1 : palette.fg3,
+              color: tab === t.id ? "var(--fg-1)" : "var(--fg-3)",
               borderBottom:
-                tab === t.id ? `2px solid ${palette.accent}` : "2px solid transparent",
+                tab === t.id ? "2px solid var(--accent)" : "2px solid transparent",
               display: "flex",
               alignItems: "center",
               gap: 6,
@@ -144,7 +147,7 @@ function Header({
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
                 fontSize: 11,
-                color: tab === t.id ? palette.fg3 : palette.fg4,
+                color: tab === t.id ? "var(--fg-3)" : "var(--fg-4)",
               }}
             >
               {t.count}
@@ -175,6 +178,7 @@ function FilterSidebar({
   setArchetype: (a: Archetype | null) => void;
   archetypes: ArchetypeColors;
 }) {
+  const { dark } = useTheme();
   const rosters: { id: RosterId; label: string }[] = [
     { id: "default", label: "default · 12 officers" },
     { id: "minimal", label: "minimal · 4 officers" },
@@ -187,7 +191,7 @@ function FilterSidebar({
     fontWeight: 600,
     letterSpacing: "0.08em",
     textTransform: "uppercase",
-    color: palette.fg3,
+    color: "var(--fg-3)",
     marginBottom: 8,
   };
   const itemStyle = (active: boolean): React.CSSProperties => ({
@@ -196,8 +200,8 @@ function FilterSidebar({
     padding: "6px 10px",
     borderRadius: 6,
     cursor: "pointer",
-    background: active ? palette.accentSoft : "transparent",
-    color: active ? palette.accent : palette.fg2,
+    background: active ? "var(--accent-soft)" : "transparent",
+    color: active ? "var(--accent)" : "var(--fg-2)",
     fontWeight: active ? 500 : 400,
   });
   return (
@@ -205,8 +209,8 @@ function FilterSidebar({
       style={{
         width: 220,
         padding: "24px 16px",
-        borderRight: `1px solid ${palette.border1}`,
-        background: palette.bgSunken,
+        borderRight: "1px solid var(--border-1)",
+        background: "var(--bg-sunken)",
         minHeight: "calc(100vh - 110px)",
       }}
     >
@@ -223,7 +227,7 @@ function FilterSidebar({
         <div onClick={() => setArchetype(null)} style={itemStyle(!archetypeFilter)}>
           All
         </div>
-        {(Object.entries(archetypes) as [Archetype, string][]).map(([a, c]) => (
+        {(Object.keys(archetypes) as Archetype[]).map((a) => (
           <div
             key={a}
             onClick={() => setArchetype(a)}
@@ -234,7 +238,14 @@ function FilterSidebar({
               gap: 8,
             }}
           >
-            <span style={{ width: 8, height: 8, background: c, borderRadius: 1 }} />
+            <span
+              style={{
+                width: 8,
+                height: 8,
+                background: archColorFor(a, dark),
+                borderRadius: 1,
+              }}
+            />
             {a}
           </div>
         ))}
@@ -249,11 +260,9 @@ function FilterSidebar({
 
 function TeamView({
   officers,
-  archetypes,
   onPick,
 }: {
   officers: Officer[];
-  archetypes: ArchetypeColors;
   onPick: (o: Officer) => void;
 }) {
   const order: Record<string, number> = { major: 0, captain: 1, lieutenant: 2 };
@@ -268,7 +277,7 @@ function TeamView({
             fontSize: 24,
             fontWeight: 600,
             letterSpacing: "-0.02em",
-            color: palette.fg1,
+            color: "var(--fg-1)",
           }}
         >
           Team Overview
@@ -277,7 +286,7 @@ function TeamView({
           style={{
             fontFamily: "'JetBrains Mono', monospace",
             fontSize: 12,
-            color: palette.fg3,
+            color: "var(--fg-3)",
           }}
         >
           {officers.length} officers · default roster
@@ -291,12 +300,7 @@ function TeamView({
         }}
       >
         {sorted.map((o) => (
-          <OfficerCard
-            key={o.name}
-            officer={o}
-            archColor={archetypes[o.archetype]}
-            onClick={() => onPick(o)}
-          />
+          <OfficerCard key={o.name} officer={o} onClick={() => onPick(o)} />
         ))}
       </div>
     </div>
@@ -329,11 +333,11 @@ function InlineMD({ text }: { text: string }) {
           style={{
             fontFamily: "'JetBrains Mono', monospace",
             fontSize: "0.88em",
-            background: palette.bgInset,
-            border: `1px solid ${palette.border1}`,
+            background: "var(--bg-inset)",
+            border: "1px solid var(--border-1)",
             padding: "1px 5px",
             borderRadius: 3,
-            color: palette.fg1,
+            color: "var(--fg-1)",
           }}
         >
           {text.slice(i + 1, end)}
@@ -352,7 +356,7 @@ function InlineMD({ text }: { text: string }) {
         continue;
       }
       parts.push(
-        <strong key={`b${i}`} style={{ color: palette.fg1, fontWeight: 600 }}>
+        <strong key={`b${i}`} style={{ color: "var(--fg-1)", fontWeight: 600 }}>
           {text.slice(i + 2, end)}
         </strong>
       );
@@ -381,7 +385,7 @@ function BodyMarkdown({ text }: { text: string }) {
             fontSize: 24,
             fontWeight: 600,
             letterSpacing: "-0.02em",
-            color: palette.fg1,
+            color: "var(--fg-1)",
             marginTop: 24,
             marginBottom: 10,
           }}
@@ -397,7 +401,7 @@ function BodyMarkdown({ text }: { text: string }) {
             fontFamily: "Inter, sans-serif",
             fontSize: 18,
             fontWeight: 600,
-            color: palette.fg1,
+            color: "var(--fg-1)",
             marginTop: 22,
             marginBottom: 8,
           }}
@@ -417,7 +421,7 @@ function BodyMarkdown({ text }: { text: string }) {
           style={{
             fontFamily: "Inter, sans-serif",
             fontSize: 14.5,
-            color: palette.fg2,
+            color: "var(--fg-2)",
             lineHeight: 1.65,
             paddingLeft: 22,
             maxWidth: "68ch",
@@ -440,7 +444,7 @@ function BodyMarkdown({ text }: { text: string }) {
           style={{
             fontFamily: "Inter, sans-serif",
             fontSize: 14.5,
-            color: palette.fg2,
+            color: "var(--fg-2)",
             lineHeight: 1.65,
             maxWidth: "68ch",
             margin: "0 0 12px",
@@ -463,7 +467,7 @@ function DetailSidebar({ officer }: { officer: Officer }) {
     fontWeight: 600,
     letterSpacing: "0.08em",
     textTransform: "uppercase",
-    color: palette.fg3,
+    color: "var(--fg-3)",
     marginBottom: 8,
   };
   return (
@@ -471,8 +475,8 @@ function DetailSidebar({ officer }: { officer: Officer }) {
       style={{
         width: 260,
         padding: "24px 24px 24px 16px",
-        borderLeft: `1px solid ${palette.border1}`,
-        background: palette.bgSurface,
+        borderLeft: "1px solid var(--border-1)",
+        background: "var(--bg-surface)",
         position: "sticky",
         top: 110,
         alignSelf: "flex-start",
@@ -483,7 +487,7 @@ function DetailSidebar({ officer }: { officer: Officer }) {
     >
       <div style={sectionLabel}>
         Tools{" "}
-        <span style={{ fontFamily: "'JetBrains Mono', monospace", color: palette.fg4 }}>
+        <span style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--fg-4)" }}>
           {officer.tools.length}
         </span>
       </div>
@@ -521,7 +525,7 @@ function DetailSidebar({ officer }: { officer: Officer }) {
         style={{
           fontFamily: "'JetBrains Mono', monospace",
           fontSize: 13,
-          color: palette.fg1,
+          color: "var(--fg-1)",
           marginBottom: 20,
         }}
       >
@@ -532,7 +536,7 @@ function DetailSidebar({ officer }: { officer: Officer }) {
         style={{
           fontFamily: "'JetBrains Mono', monospace",
           fontSize: 11,
-          color: palette.fg2,
+          color: "var(--fg-2)",
           wordBreak: "break-all",
           lineHeight: 1.5,
         }}
@@ -545,12 +549,10 @@ function DetailSidebar({ officer }: { officer: Officer }) {
 
 function OfficerDetail({
   officer,
-  archColor,
   onBack,
   body,
 }: {
   officer: Officer;
-  archColor: string;
   onBack: () => void;
   body: string;
 }) {
@@ -565,7 +567,7 @@ function OfficerDetail({
           style={{
             fontFamily: "Inter, sans-serif",
             fontSize: 12,
-            color: palette.fg3,
+            color: "var(--fg-3)",
             cursor: "pointer",
             display: "inline-flex",
             alignItems: "center",
@@ -585,7 +587,7 @@ function OfficerDetail({
           }}
         >
           <RankPill rank={officer.rank} />
-          <ArchetypeText archetype={officer.archetype} color={archColor} />
+          <ArchetypeText archetype={officer.archetype} />
         </div>
         <h1
           style={{
@@ -594,7 +596,7 @@ function OfficerDetail({
             fontWeight: 700,
             fontSize: 30,
             letterSpacing: "0.01em",
-            color: palette.fg1,
+            color: "var(--fg-1)",
           }}
         >
           {officer.name}
@@ -603,7 +605,7 @@ function OfficerDetail({
           style={{
             fontFamily: "Inter, sans-serif",
             fontSize: 15,
-            color: palette.fg2,
+            color: "var(--fg-2)",
             lineHeight: 1.55,
             maxWidth: "68ch",
             marginBottom: 14,
@@ -626,7 +628,7 @@ function OfficerDetail({
             Add to roster
           </Button>
         </div>
-        <div style={{ borderTop: `1px solid ${palette.border1}`, paddingTop: 20 }}>
+        <div style={{ borderTop: "1px solid var(--border-1)", paddingTop: 20 }}>
           <BodyMarkdown text={renderedBody} />
         </div>
       </div>
@@ -650,7 +652,7 @@ function SkillsView({ skills }: { skills: Skill[] }) {
             fontSize: 24,
             fontWeight: 600,
             letterSpacing: "-0.02em",
-            color: palette.fg1,
+            color: "var(--fg-1)",
           }}
         >
           Skill Library
@@ -659,7 +661,7 @@ function SkillsView({ skills }: { skills: Skill[] }) {
           style={{
             fontFamily: "'JetBrains Mono', monospace",
             fontSize: 12,
-            color: palette.fg3,
+            color: "var(--fg-3)",
           }}
         >
           {skills.length} skills
@@ -694,7 +696,7 @@ function MetaView({ items }: { items: MetaAspect[] }) {
           fontSize: 24,
           fontWeight: 600,
           letterSpacing: "-0.02em",
-          color: palette.fg1,
+          color: "var(--fg-1)",
         }}
       >
         Meta-aspects
@@ -704,8 +706,8 @@ function MetaView({ items }: { items: MetaAspect[] }) {
           <div
             key={m.name}
             style={{
-              background: palette.bgSurface,
-              border: `1px solid ${palette.border1}`,
+              background: "var(--bg-surface)",
+              border: "1px solid var(--border-1)",
               borderRadius: 10,
               padding: "16px 18px",
             }}
@@ -715,7 +717,7 @@ function MetaView({ items }: { items: MetaAspect[] }) {
                 fontFamily: "'JetBrains Mono', monospace",
                 fontWeight: 600,
                 fontSize: 13,
-                color: palette.fg1,
+                color: "var(--fg-1)",
                 marginBottom: 4,
               }}
             >
@@ -725,7 +727,7 @@ function MetaView({ items }: { items: MetaAspect[] }) {
               style={{
                 fontFamily: "Inter, sans-serif",
                 fontSize: 14,
-                color: palette.fg1,
+                color: "var(--fg-1)",
                 fontWeight: 500,
                 marginBottom: 6,
               }}
@@ -736,7 +738,7 @@ function MetaView({ items }: { items: MetaAspect[] }) {
               style={{
                 fontFamily: "Inter, sans-serif",
                 fontSize: 13,
-                color: palette.fg2,
+                color: "var(--fg-2)",
                 lineHeight: 1.55,
                 textWrap: "pretty",
               }}
@@ -810,23 +812,23 @@ function CommandPalette({
         onClick={(e) => e.stopPropagation()}
         style={{
           width: 560,
-          background: palette.bgSurface,
-          border: `1px solid ${palette.border1}`,
+          background: "var(--bg-surface)",
+          border: "1px solid var(--border-1)",
           borderRadius: 10,
-          boxShadow: "0 4px 12px rgba(20,18,12,0.07), 0 12px 32px rgba(20,18,12,0.05)",
+          boxShadow: "var(--shadow-3)",
           overflow: "hidden",
         }}
       >
         <div
           style={{
             padding: "14px 16px",
-            borderBottom: `1px solid ${palette.border1}`,
+            borderBottom: "1px solid var(--border-1)",
             display: "flex",
             alignItems: "center",
             gap: 10,
           }}
         >
-          <Search size={16} style={{ color: palette.fg3 }} />
+          <Search size={16} style={{ color: "var(--fg-3)" }} />
           <input
             autoFocus
             value={q}
@@ -838,7 +840,7 @@ function CommandPalette({
               outline: "none",
               fontFamily: "Inter, sans-serif",
               fontSize: 14,
-              color: palette.fg1,
+              color: "var(--fg-1)",
               background: "transparent",
             }}
           />
@@ -846,11 +848,11 @@ function CommandPalette({
             style={{
               fontFamily: "'JetBrains Mono', monospace",
               fontSize: 10,
-              background: palette.bgInset,
-              border: `1px solid ${palette.border1}`,
+              background: "var(--bg-inset)",
+              border: "1px solid var(--border-1)",
               padding: "1px 6px",
               borderRadius: 3,
-              color: palette.fg3,
+              color: "var(--fg-3)",
             }}
           >
             esc
@@ -865,7 +867,7 @@ function CommandPalette({
                 fontWeight: 600,
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
-                color: palette.fg4,
+                color: "var(--fg-4)",
                 padding: "10px 16px 4px",
               }}
             >
@@ -885,7 +887,7 @@ function CommandPalette({
                   gap: 10,
                   cursor: "pointer",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = palette.accentSoft)}
+                onMouseEnter={(e) => (e.currentTarget.style.background = "var(--accent-soft)")}
                 onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
               >
                 <span
@@ -893,7 +895,7 @@ function CommandPalette({
                     fontFamily: "'JetBrains Mono', monospace",
                     fontSize: 13,
                     fontWeight: 500,
-                    color: palette.fg1,
+                    color: "var(--fg-1)",
                   }}
                 >
                   {o.name}
@@ -903,7 +905,7 @@ function CommandPalette({
                     marginLeft: "auto",
                     fontFamily: "'JetBrains Mono', monospace",
                     fontSize: 10.5,
-                    color: palette.fg3,
+                    color: "var(--fg-3)",
                   }}
                 >
                   {o.rank} · {o.archetype}
@@ -921,9 +923,9 @@ function CommandPalette({
                 fontWeight: 600,
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
-                color: palette.fg4,
+                color: "var(--fg-4)",
                 padding: "10px 16px 4px",
-                borderTop: `1px solid ${palette.border1}`,
+                borderTop: "1px solid var(--border-1)",
               }}
             >
               Skills
@@ -938,7 +940,7 @@ function CommandPalette({
                   gap: 10,
                   cursor: "pointer",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = palette.accentSoft)}
+                onMouseEnter={(e) => (e.currentTarget.style.background = "var(--accent-soft)")}
                 onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
               >
                 <span
@@ -946,7 +948,7 @@ function CommandPalette({
                     fontFamily: "'JetBrains Mono', monospace",
                     fontSize: 13,
                     fontWeight: 500,
-                    color: palette.fg1,
+                    color: "var(--fg-1)",
                   }}
                 >
                   {s.name}
@@ -956,7 +958,7 @@ function CommandPalette({
                     marginLeft: "auto",
                     fontFamily: "'JetBrains Mono', monospace",
                     fontSize: 10.5,
-                    color: palette.fg3,
+                    color: "var(--fg-3)",
                   }}
                 >
                   {s.kind}
@@ -1004,7 +1006,7 @@ function App() {
   });
 
   return (
-    <div style={{ background: palette.bgApp, minHeight: "100vh", color: palette.fg1 }}>
+    <div style={{ background: "var(--bg-app)", minHeight: "100vh", color: "var(--fg-1)" }}>
       <Header
         tab={tab}
         onTab={(t) => {
@@ -1029,12 +1031,11 @@ function App() {
           />
         )}
         {tab === "team" && !selected && (
-          <TeamView officers={officers} archetypes={data.archetypes} onPick={setSelected} />
+          <TeamView officers={officers} onPick={setSelected} />
         )}
         {tab === "team" && selected && (
           <OfficerDetail
             officer={selected}
-            archColor={data.archetypes[selected.archetype]}
             onBack={() => setSelected(null)}
             body={data.bodyPreview}
           />

@@ -2,6 +2,11 @@
 // Components.jsx. Inline styles are preserved for design fidelity (matching the
 // hifi prototype pixel-perfectly per the handoff README); v0.2 may refactor to
 // CSS modules or Tailwind.
+//
+// Color sourcing: every theme-aware color comes from a CSS variable defined in
+// src/styles/tokens.css. The old `palette` JS const has been deleted (acb-001);
+// dark mode now toggles via :root[data-theme="dark"] alone. Archetype accent
+// colors are the only per-mode pair that lives in JS — see `archColors` below.
 
 import { useState } from "react";
 import {
@@ -18,46 +23,44 @@ import {
   FileText,
   Package,
   Users,
+  Sun,
+  Moon,
 } from "lucide-react";
 import type { LucideProps } from "lucide-react";
 import type { Officer, Skill, Rank, Archetype } from "./data/types";
+import { useTheme } from "./hooks/useTheme";
 
 // ---------------------------------------------------------------------------
-// Palette — kept in sync with src/styles/tokens.css. Inline references for
-// components that need raw hex values; see tokens.css for CSS-variable usage.
+// Archetype accent colors — [light, dark] pair per archetype.
+// Lives in the components layer (presentation concern, not data). Consumed by
+// ArchetypeText, OfficerCard, FilterSidebar via useTheme() + archColorFor().
+// data.archetypes (in src/data/sample.ts) keeps the light-only string-per-arch
+// shape for the FilterSidebar's archetype enumeration; cleanup deferred to
+// acb-002 (per ARGUS F8 disposition).
 // ---------------------------------------------------------------------------
-export const palette = {
-  bgApp: "#FAF9F6",
-  bgSurface: "#FFFFFF",
-  bgSunken: "#F2F0EB",
-  bgInset: "#ECE9E1",
-  fg1: "#1B1A17",
-  fg2: "#45433E",
-  fg3: "#76736B",
-  fg4: "#A6A39B",
-  border1: "#E4E1D8",
-  border2: "#D4D0C5",
-  border3: "#BFBAAD",
-  accent: "#2B4A7F",
-  accentHover: "#233C68",
-  accentSoft: "#E6EBF3",
-  rankMaj: "#8A6B2C",
-  rankMajBg: "#F5EBD3",
-  rankMajBorder: "#E5D6A8",
-  rankCap: "#5C5F66",
-  rankCapBg: "#ECEDEF",
-  rankCapBorder: "#D9DBDF",
-  rankLt: "#8A4A2C",
-  rankLtBg: "#F2E2D5",
-  rankLtBorder: "#E5C9B3",
-} as const;
+export const archColors: Record<Archetype, [string, string]> = {
+  orchestrator: ["#5B4D86", "#9D8FCB"],
+  architect:    ["#2E6E63", "#6FB5A8"],
+  verifier:     ["#785637", "#C29A75"],
+  executor:     ["#4A6E2E", "#8FB575"],
+  reviewer:     ["#6E2E4A", "#C7889F"],
+  "plan-critic":["#6E4A2E", "#C29A75"],
+  researcher:   ["#2E4A6E", "#7CA1D4"],
+  curator:      ["#4A2E6E", "#A88FCB"],
+  intake:       ["#6E6E2E", "#C2C275"],
+  scout:        ["#2E6E4A", "#75C29A"],
+};
+
+export function archColorFor(archetype: Archetype, dark: boolean): string {
+  return archColors[archetype][dark ? 1 : 0];
+}
 
 // ---------------------------------------------------------------------------
 // Mark (placeholder logo) — columnar/peristyle motif evoking The Stoa.
 // ---------------------------------------------------------------------------
 export function Mark({ size = 28 }: { size?: number }) {
   return (
-    <svg width={size * 0.5} height={size} viewBox="0 0 64 96" style={{ color: palette.fg1 }}>
+    <svg width={size * 0.5} height={size} viewBox="0 0 64 96" style={{ color: "var(--fg-1)" }}>
       <g fill="currentColor">
         <rect x="6" y="14" width="52" height="6" />
         <path d="M10 20 Q10 24 14 24 L50 24 Q54 24 54 20 Z" />
@@ -109,11 +112,16 @@ export function Button({
     md: { fontSize: 13, padding: "7px 13px" },
     lg: { fontSize: 14, padding: "9px 16px" },
   };
+  // Note: `--fg-on-accent` is reused for the danger variant. Per ARGUS F4 /
+  // design §0.6 disposition #4: semantically the token is named for accent
+  // buttons, but the visual impact on danger is sub-perceptible (light
+  // `#FFFFFF` is byte-identical; dark `#FAF9F6` is near-white on saturated
+  // danger-red). If a future arc adds `--fg-on-danger`, the swap is one-line.
   const variants: Record<ButtonVariant, React.CSSProperties> = {
-    primary: { background: palette.accent, color: "#fff", borderColor: palette.accent },
-    secondary: { background: "transparent", color: palette.fg1, borderColor: palette.border2 },
-    ghost: { background: "transparent", color: palette.fg1 },
-    danger: { background: "#9B3A3A", color: "#fff", borderColor: "#9B3A3A" },
+    primary: { background: "var(--accent)", color: "var(--fg-on-accent)", borderColor: "var(--accent)" },
+    secondary: { background: "transparent", color: "var(--fg-1)", borderColor: "var(--border-2)" },
+    ghost: { background: "transparent", color: "var(--fg-1)" },
+    danger: { background: "var(--danger)", color: "var(--fg-on-accent)", borderColor: "var(--danger)" },
   };
   return (
     <button onClick={onClick} style={{ ...base, ...sizes[size], ...variants[variant], ...style }}>
@@ -124,12 +132,39 @@ export function Button({
 }
 
 // ---------------------------------------------------------------------------
-// Rank pill
+// Theme toggle — sun/moon icon button. Shows the *target* mode (currently dark
+// renders <Sun/> meaning "click to go light"). Matches the JSX prototype.
+// ---------------------------------------------------------------------------
+export function ThemeToggle() {
+  const { dark, toggle } = useTheme();
+  return (
+    <button
+      onClick={toggle}
+      title={dark ? "Switch to light" : "Switch to dark"}
+      style={{
+        background: "transparent",
+        border: "1px solid var(--border-1)",
+        borderRadius: 6,
+        padding: "5px 8px",
+        cursor: "pointer",
+        color: "var(--fg-2)",
+        display: "inline-flex",
+        alignItems: "center",
+      }}
+    >
+      {dark ? <Sun size={14} /> : <Moon size={14} />}
+    </button>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Rank pill — borders use --rank-*-border tokens (added in acb-001 per
+// design §0.5 Lock 1) preserving the v0.1 warm-tint per-rank border coding.
 // ---------------------------------------------------------------------------
 const rankStyles: Record<Rank, { bg: string; fg: string; border: string }> = {
-  major: { bg: palette.rankMajBg, fg: palette.rankMaj, border: palette.rankMajBorder },
-  captain: { bg: palette.rankCapBg, fg: palette.rankCap, border: palette.rankCapBorder },
-  lieutenant: { bg: palette.rankLtBg, fg: palette.rankLt, border: palette.rankLtBorder },
+  major: { bg: "var(--rank-major-bg)", fg: "var(--rank-major)", border: "var(--rank-major-border)" },
+  captain: { bg: "var(--rank-captain-bg)", fg: "var(--rank-captain)", border: "var(--rank-captain-border)" },
+  lieutenant: { bg: "var(--rank-lieutenant-bg)", fg: "var(--rank-lieutenant)", border: "var(--rank-lieutenant-border)" },
 };
 
 export function RankPill({ rank }: { rank: Rank }) {
@@ -158,7 +193,9 @@ export function RankPill({ rank }: { rank: Rank }) {
 // ---------------------------------------------------------------------------
 // Archetype text label
 // ---------------------------------------------------------------------------
-export function ArchetypeText({ archetype, color }: { archetype: Archetype; color: string }) {
+export function ArchetypeText({ archetype }: { archetype: Archetype }) {
+  const { dark } = useTheme();
+  const color = archColorFor(archetype, dark);
   return (
     <span
       style={{
@@ -174,14 +211,17 @@ export function ArchetypeText({ archetype, color }: { archetype: Archetype; colo
 }
 
 // ---------------------------------------------------------------------------
-// Chip
+// Chip — skill variant uses --accent-soft-border (token added in acb-001 per
+// ARGUS F1 disposition) preserving the v0.1 cool-blue accent-family border.
+// Meta variant consolidates onto accent-soft-2 / fg-1 / border-2 (Colonel-
+// approved, design §0.5 Lock 2).
 // ---------------------------------------------------------------------------
 type ChipVariant = "tool" | "skill" | "meta";
 
 const chipVariants: Record<ChipVariant, { bg: string; fg: string; border: string }> = {
-  tool: { bg: palette.bgInset, fg: palette.fg2, border: palette.border1 },
-  skill: { bg: palette.accentSoft, fg: palette.accent, border: "#B7C5DA" },
-  meta: { bg: "#F1EEF7", fg: "#5B4D86", border: "#E0DAEC" },
+  tool: { bg: "var(--bg-inset)", fg: "var(--fg-2)", border: "var(--border-1)" },
+  skill: { bg: "var(--accent-soft)", fg: "var(--accent)", border: "var(--accent-soft-border)" },
+  meta: { bg: "var(--accent-soft-2)", fg: "var(--fg-1)", border: "var(--border-2)" },
 };
 
 export function Chip({
@@ -220,29 +260,34 @@ export function Chip({
 // ---------------------------------------------------------------------------
 // Officer card
 // ---------------------------------------------------------------------------
+/**
+ * Officer card. Requires a <ThemeProvider> ancestor (consumes useTheme() for
+ * archetype color resolution). When v0.3 component tests arrive, wrap with a
+ * renderWithTheme helper.
+ */
 export function OfficerCard({
   officer,
-  archColor,
   onClick,
 }: {
   officer: Officer;
-  archColor: string;
   onClick?: () => void;
 }) {
   const [hover, setHover] = useState(false);
+  const { dark } = useTheme();
+  const archColor = archColorFor(officer.archetype, dark);
   return (
     <div
       onClick={onClick}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
-        background: hover ? palette.bgApp : palette.bgSurface,
-        border: `1px solid ${palette.border1}`,
+        background: hover ? "var(--bg-inset)" : "var(--bg-surface)",
+        border: "1px solid var(--border-1)",
         borderLeft: `3px solid ${archColor}`,
         borderRadius: 10,
         padding: "16px 18px 14px",
         cursor: "pointer",
-        boxShadow: "0 1px 2px rgba(20,18,12,0.04)",
+        boxShadow: "var(--shadow-1)",
         display: "flex",
         flexDirection: "column",
         gap: 8,
@@ -251,7 +296,7 @@ export function OfficerCard({
     >
       <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
         <RankPill rank={officer.rank} />
-        <ArchetypeText archetype={officer.archetype} color={archColor} />
+        <ArchetypeText archetype={officer.archetype} />
       </div>
       <div
         style={{
@@ -259,7 +304,7 @@ export function OfficerCard({
           fontWeight: 700,
           fontSize: 14.5,
           letterSpacing: "0.02em",
-          color: palette.fg1,
+          color: "var(--fg-1)",
         }}
       >
         {officer.name}
@@ -268,7 +313,7 @@ export function OfficerCard({
         style={{
           fontFamily: "Inter, sans-serif",
           fontSize: 12.5,
-          color: palette.fg2,
+          color: "var(--fg-2)",
           lineHeight: 1.45,
           textWrap: "pretty",
         }}
@@ -290,12 +335,12 @@ export function SkillCard({ skill, onClick }: { skill: Skill; onClick?: () => vo
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
-        background: hover ? palette.bgApp : palette.bgSurface,
-        border: `1px solid ${palette.border1}`,
+        background: hover ? "var(--bg-inset)" : "var(--bg-surface)",
+        border: "1px solid var(--border-1)",
         borderRadius: 10,
         padding: "16px 18px",
         cursor: "pointer",
-        boxShadow: "0 1px 2px rgba(20,18,12,0.04)",
+        boxShadow: "var(--shadow-1)",
         display: "flex",
         flexDirection: "column",
         gap: 8,
@@ -308,7 +353,7 @@ export function SkillCard({ skill, onClick }: { skill: Skill; onClick?: () => vo
             fontFamily: "'JetBrains Mono', monospace",
             fontWeight: 600,
             fontSize: 14,
-            color: palette.fg1,
+            color: "var(--fg-1)",
           }}
         >
           {skill.name}
@@ -317,7 +362,7 @@ export function SkillCard({ skill, onClick }: { skill: Skill; onClick?: () => vo
           style={{
             fontFamily: "'JetBrains Mono', monospace",
             fontSize: 10,
-            color: palette.fg3,
+            color: "var(--fg-3)",
             textTransform: "uppercase",
             letterSpacing: "0.08em",
           }}
@@ -329,7 +374,7 @@ export function SkillCard({ skill, onClick }: { skill: Skill; onClick?: () => vo
         style={{
           fontFamily: "Inter, sans-serif",
           fontSize: 12.5,
-          color: palette.fg2,
+          color: "var(--fg-2)",
           lineHeight: 1.45,
           display: "-webkit-box",
           WebkitLineClamp: 3,
@@ -345,7 +390,7 @@ export function SkillCard({ skill, onClick }: { skill: Skill; onClick?: () => vo
             style={{
               fontFamily: "Inter, sans-serif",
               fontSize: 10.5,
-              color: palette.fg3,
+              color: "var(--fg-3)",
               marginRight: 2,
             }}
           >
@@ -381,6 +426,8 @@ export const icons = {
   file: FileText,
   package: Package,
   users: Users,
+  sun: Sun,
+  moon: Moon,
 } as const;
 
 export type IconProps = LucideProps;

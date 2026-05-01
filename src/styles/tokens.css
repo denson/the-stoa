@@ -42,14 +42,18 @@
   --accent-press:  #1B2F52;
   --accent-soft:   #E6EBF3;
   --accent-soft-2: #D2DBE9;
+  --accent-soft-border: #B7C5DA;   /* skill-chip border (cool-blue accent family) */
 
   /* Rank coding — bronze / silver / gold; subtle, not loud */
   --rank-major:      #8A6B2C;   /* gold-ink */
   --rank-major-bg:   #F5EBD3;
+  --rank-major-border: #E5D6A8;
   --rank-captain:    #5C5F66;   /* silver-ink */
   --rank-captain-bg: #ECEDEF;
+  --rank-captain-border: #D9DBDF;
   --rank-lieutenant: #8A4A2C;   /* bronze-ink */
   --rank-lieutenant-bg: #F2E2D5;
+  --rank-lieutenant-border: #E5C9B3;
 
   /* Archetype hints — low-contrast tints */
   --arch-orchestrator: #5B4D86;
@@ -149,13 +153,17 @@
   --accent-press:  #6A8FBE;
   --accent-soft:   #1F2A3E;
   --accent-soft-2: #2A3A55;
+  --accent-soft-border: #3A4F6E;   /* skill-chip border, on-hue with dark accent family */
 
   --rank-major:        #D9B96A;
   --rank-major-bg:     #2D2614;
+  --rank-major-border: #4A3F1F;
   --rank-captain:      #B6B9C0;
   --rank-captain-bg:   #232425;
+  --rank-captain-border: #3A3B3D;
   --rank-lieutenant:   #C7855E;
   --rank-lieutenant-bg:#2A1E16;
+  --rank-lieutenant-border: #4A3326;
 
   --success:    #6FAE82;
   --success-bg: #1A2A1F;
