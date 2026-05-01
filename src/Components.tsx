@@ -7,6 +7,28 @@
 // src/styles/tokens.css. The old `palette` JS const has been deleted (acb-001);
 // dark mode now toggles via :root[data-theme="dark"] alone. Archetype accent
 // colors are the only per-mode pair that lives in JS — see `archColors` below.
+//
+// ---------------------------------------------------------------------------
+// data-testid naming convention (acb-008)
+// ---------------------------------------------------------------------------
+// Every load-bearing interactive surface in the app carries a `data-testid`
+// attribute under one consistent rule so downstream Claude Code skill
+// consumers (Chrome MCP scripts, future component tests) can target elements
+// deterministically without DOM-scraping inline styles.
+//
+//   Convention: kebab-case; entity-then-id; identifiers preserved as-is.
+//
+//   • Static surfaces use the entity name alone: `theme-toggle`,
+//     `new-agent-button`, `settings-button`, `search-trigger`, `palette-input`,
+//     `back-to-team`, `filter-clear`.
+//   • Dynamic surfaces append the identifier verbatim — snake-case officer /
+//     skill names from the data layer are NOT re-cased: `officer-card-ADA`,
+//     `skill-card-format-validate`, `meta-card-fix-now-discipline`,
+//     `tab-team`, `filter-archetype-executor`, `lieutenant-chip-LINT_YAML`.
+//   • Palette result rows disambiguate by entity type:
+//     `palette-result-officer-{name}` vs `palette-result-skill-{name}`.
+//
+// See agents/specs/acb-008-skill-affordances.md §3 for the canonical table.
 
 import { useState } from "react";
 import {
@@ -139,6 +161,7 @@ export function ThemeToggle() {
   const { dark, toggle } = useTheme();
   return (
     <button
+      data-testid="theme-toggle"
       onClick={toggle}
       title={dark ? "Switch to light" : "Switch to dark"}
       style={{
@@ -277,6 +300,7 @@ export function OfficerCard({
   const archColor = archColorFor(officer.archetype, dark);
   return (
     <div
+      data-testid={`officer-card-${officer.name}`}
       onClick={onClick}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
@@ -331,6 +355,7 @@ export function SkillCard({ skill, onClick }: { skill: Skill; onClick?: () => vo
   const [hover, setHover] = useState(false);
   return (
     <div
+      data-testid={`skill-card-${skill.name}`}
       onClick={onClick}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}

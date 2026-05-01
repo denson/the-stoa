@@ -81,6 +81,7 @@ function Header({
         </span>
         <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 10 }}>
           <button
+            data-testid="search-trigger"
             onClick={onSearch}
             style={{
               display: "flex",
@@ -112,20 +113,25 @@ function Header({
               ⌘K
             </span>
           </button>
-          <Button variant="primary" size="sm" leading={<Plus size={13} />}>
-            New agent
-          </Button>
+          <span data-testid="new-agent-button" style={{ display: "inline-flex" }}>
+            <Button variant="primary" size="sm" leading={<Plus size={13} />}>
+              New agent
+            </Button>
+          </span>
           <ThemeToggle />
-          <Settings
-            size={16}
-            style={{ color: "var(--fg-3)", cursor: "pointer", marginLeft: 4 }}
-          />
+          <span data-testid="settings-button" style={{ display: "inline-flex", alignItems: "center" }}>
+            <Settings
+              size={16}
+              style={{ color: "var(--fg-3)", cursor: "pointer", marginLeft: 4 }}
+            />
+          </span>
         </div>
       </div>
       <div style={{ display: "flex", padding: "4px 24px 0", gap: 0, marginTop: 6 }}>
         {tabs.map((t) => (
           <div
             key={t.id}
+            data-testid={`tab-${t.id}`}
             onClick={() => onTab(t.id)}
             style={{
               padding: "12px 14px",
@@ -224,12 +230,17 @@ function FilterSidebar({
       </div>
       <div style={labelStyle}>Archetype</div>
       <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-        <div onClick={() => setArchetype(null)} style={itemStyle(!archetypeFilter)}>
+        <div
+          data-testid="filter-clear"
+          onClick={() => setArchetype(null)}
+          style={itemStyle(!archetypeFilter)}
+        >
           All
         </div>
         {(Object.keys(archetypes) as Archetype[]).map((a) => (
           <div
             key={a}
+            data-testid={`filter-archetype-${a}`}
             onClick={() => setArchetype(a)}
             style={{
               ...itemStyle(archetypeFilter === a),
@@ -501,9 +512,9 @@ function DetailSidebar({ officer }: { officer: Officer }) {
           <div style={sectionLabel}>Callable lieutenants</div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginBottom: 20 }}>
             {officer.lieutenants.map((l) => (
-              <Chip key={l} variant="skill">
-                {l}
-              </Chip>
+              <span key={l} data-testid={`lieutenant-chip-${l}`} style={{ display: "inline-flex" }}>
+                <Chip variant="skill">{l}</Chip>
+              </span>
             ))}
           </div>
         </>
@@ -563,6 +574,7 @@ function OfficerDetail({
     <div style={{ flex: 1, display: "flex", overflow: "auto" }}>
       <div style={{ flex: 1, padding: "24px 32px", maxWidth: 920, overflow: "auto" }}>
         <div
+          data-testid="back-to-team"
           onClick={onBack}
           style={{
             fontFamily: "Inter, sans-serif",
@@ -705,6 +717,7 @@ function MetaView({ items }: { items: MetaAspect[] }) {
         {items.map((m) => (
           <div
             key={m.name}
+            data-testid={`meta-card-${m.name}`}
             style={{
               background: "var(--bg-surface)",
               border: "1px solid var(--border-1)",
@@ -830,6 +843,7 @@ function CommandPalette({
         >
           <Search size={16} style={{ color: "var(--fg-3)" }} />
           <input
+            data-testid="palette-input"
             autoFocus
             value={q}
             onChange={(e) => setQ(e.target.value)}
@@ -876,6 +890,7 @@ function CommandPalette({
             {oMatches.map((o) => (
               <div
                 key={o.name}
+                data-testid={`palette-result-officer-${o.name}`}
                 onClick={() => {
                   onPickOfficer(o);
                   onClose();
@@ -933,6 +948,7 @@ function CommandPalette({
             {sMatches.map((s) => (
               <div
                 key={s.name}
+                data-testid={`palette-result-skill-${s.name}`}
                 style={{
                   padding: "7px 16px",
                   display: "flex",
@@ -978,6 +994,7 @@ function CommandPalette({
 
 function App() {
   const data = SAMPLE_DATA;
+  const { dark } = useTheme();
   const [tab, setTab] = useState<Tab>("team");
   const [selected, setSelected] = useState<Officer | null>(null);
   const [paletteOpen, setPaletteOpen] = useState(false);
@@ -994,6 +1011,53 @@ function App() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
+
+  /**
+   * window.STOA_STATE — read-only-by-convention runtime state bridge for
+   * downstream Claude Code skill consumers (acb-007 agent-design-tutor and
+   * future Chrome MCP scripts). Mirrors the small set of top-level React
+   * state fields the skill needs to drive the app deterministically without
+   * DOM-scraping inline styles.
+   *
+   * Shape:
+   *   {
+   *     dark: boolean,                        // theme mode, from useTheme()
+   *     currentTab: "team" | "skills" | "meta",
+   *     selectedOfficer: Officer | null,      // null when on the team grid
+   *     roster: RosterId,                     // active roster filter
+   *     archetypeFilter: Archetype | null,    // active archetype chip, or null
+   *   }
+   *
+   * Contract:
+   *   • Read-only by convention. Consumers MUST NOT mutate the object;
+   *     mutations would be silently overwritten on the next render anyway.
+   *     If a future arc needs a write API, that's a separate dispatch
+   *     (`window.STOA_DISPATCH`); explicitly out of scope for acb-008.
+   *   • Single-object replace per render — observers can detect changes via
+   *     reference equality (`prev !== window.STOA_STATE`). We do not mutate
+   *     in place. Each effect run produces a fresh object literal.
+   *   • Timing: this effect runs after React's commit phase, so consumers
+   *     reading STOA_STATE synchronously immediately after dispatching a UI
+   *     event (e.g., right after `element.click()`) will see the prior
+   *     snapshot. Wait one microtask (`await Promise.resolve()` or
+   *     `setTimeout(0)`) — or observe for reference inequality on the next
+   *     tick — before reading.
+   *
+   * The `(window as any)` cast is intentional v1; consumers read this from
+   * plain JS where TS typing is not needed. Adding an ambient declaration
+   * (`declare global { interface Window { STOA_STATE: ... } }`) is
+   * explicitly out of scope per acb-008 §4 — follow-up if a TS consumer
+   * emerges.
+   */
+  useEffect(() => {
+    (window as any).STOA_STATE = {
+      dark,
+      currentTab: tab,
+      selectedOfficer: selected,
+      roster,
+      archetypeFilter,
+    };
+  }, [dark, tab, selected, roster, archetypeFilter]);
 
   const officers = data.officers.filter((o) => {
     if (archetypeFilter && o.archetype !== archetypeFilter) return false;
