@@ -1,5 +1,15 @@
 import { useEffect, useState } from "react";
 import {
+  Link,
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from "react-router";
+import {
   ArchetypeText,
   Button,
   Chip,
@@ -20,6 +30,76 @@ import type {
   Officer,
   Skill,
 } from "./data/types";
+
+// ---------------------------------------------------------------------------
+// URL helpers (acb-009)
+// ---------------------------------------------------------------------------
+
+type RosterId = "default" | "minimal" | "user-level" | "custom";
+
+const ROSTER_IDS: RosterId[] = ["default", "minimal", "user-level", "custom"];
+
+/**
+ * Derive the current top-level tab from the URL pathname.
+ * `/` and `/officer/...` → "team"; `/skills` and `/skill/...` → "skills";
+ * `/meta` and `/meta/...` → "meta"; otherwise "team" (fallback for `*`).
+ */
+function tabFromPath(pathname: string): Tab {
+  if (pathname === "/skills" || pathname.startsWith("/skill/")) return "skills";
+  if (pathname === "/meta" || pathname.startsWith("/meta/")) return "meta";
+  return "team";
+}
+
+function parseRosterParam(s: string | null): RosterId {
+  if (s && (ROSTER_IDS as string[]).includes(s)) return s as RosterId;
+  return "default";
+}
+
+function parseArchetypeParam(
+  s: string | null,
+  archetypes: ArchetypeColors
+): Archetype | null {
+  if (!s) return null;
+  if (Object.prototype.hasOwnProperty.call(archetypes, s)) return s as Archetype;
+  return null;
+}
+
+/**
+ * Build a canonical query-string suffix from the current search params,
+ * stripping defaults so the common case (`?roster=default`, no archetype)
+ * produces an empty string. Used at navigate sites to preserve the active
+ * filter when changing path.
+ */
+function buildPreservedQuery(searchParams: URLSearchParams): string {
+  const next = new URLSearchParams();
+  const r = searchParams.get("roster");
+  if (r && r !== "default" && (ROSTER_IDS as string[]).includes(r)) {
+    next.set("roster", r);
+  }
+  const a = searchParams.get("archetype");
+  if (a) next.set("archetype", a);
+  const s = next.toString();
+  return s ? `?${s}` : "";
+}
+
+/**
+ * Returns a copy of `params` with default-valued entries removed
+ * (`roster=default`, empty `archetype=`). Used at navigate sites to keep the
+ * URL canonically minimal — `?roster=default` is implicit, so omitting it
+ * makes deep-links stable across roster picker tweaks.
+ *
+ * Subtlety (acb-009 spec §9.7): if a user types `?roster=default` manually,
+ * the app honors it on initial load; on the next setSearchParams call (e.g.,
+ * toggling archetype), `roster=default` gets stripped — URL converges to
+ * canonical-minimal form. Documented; not a bug.
+ */
+function stripDefaultSearchParams(params: URLSearchParams): URLSearchParams {
+  const next = new URLSearchParams(params);
+  if (next.get("roster") === "default") next.delete("roster");
+  const a = next.get("archetype");
+  if (!a) next.delete("archetype");
+  return next;
+}
 
 // ---------------------------------------------------------------------------
 // Header
@@ -168,8 +248,6 @@ function Header({
 // ---------------------------------------------------------------------------
 // Filter sidebar
 // ---------------------------------------------------------------------------
-
-type RosterId = "default" | "minimal" | "user-level" | "custom";
 
 function FilterSidebar({
   rosterId,
@@ -653,7 +731,13 @@ function OfficerDetail({
 // Skills view
 // ---------------------------------------------------------------------------
 
-function SkillsView({ skills }: { skills: Skill[] }) {
+function SkillsView({
+  skills,
+  onPick,
+}: {
+  skills: Skill[];
+  onPick?: (s: Skill) => void;
+}) {
   return (
     <div style={{ flex: 1, padding: "24px 28px", overflow: "auto" }}>
       <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 18 }}>
@@ -687,7 +771,11 @@ function SkillsView({ skills }: { skills: Skill[] }) {
         }}
       >
         {skills.map((s) => (
-          <SkillCard key={s.name} skill={s} />
+          <SkillCard
+            key={s.name}
+            skill={s}
+            onClick={onPick ? () => onPick(s) : undefined}
+          />
         ))}
       </div>
     </div>
@@ -698,7 +786,13 @@ function SkillsView({ skills }: { skills: Skill[] }) {
 // Meta-aspects view
 // ---------------------------------------------------------------------------
 
-function MetaView({ items }: { items: MetaAspect[] }) {
+function MetaView({
+  items,
+  onPick,
+}: {
+  items: MetaAspect[];
+  onPick?: (m: MetaAspect) => void;
+}) {
   return (
     <div style={{ flex: 1, padding: "24px 28px", overflow: "auto" }}>
       <h1
@@ -718,11 +812,13 @@ function MetaView({ items }: { items: MetaAspect[] }) {
           <div
             key={m.name}
             data-testid={`meta-card-${m.name}`}
+            onClick={onPick ? () => onPick(m) : undefined}
             style={{
               background: "var(--bg-surface)",
               border: "1px solid var(--border-1)",
               borderRadius: 10,
               padding: "16px 18px",
+              cursor: onPick ? "pointer" : "default",
             }}
           >
             <div
@@ -775,12 +871,14 @@ function CommandPalette({
   officers,
   skills,
   onPickOfficer,
+  onPickSkill,
 }: {
   open: boolean;
   onClose: () => void;
   officers: Officer[];
   skills: Skill[];
   onPickOfficer: (o: Officer) => void;
+  onPickSkill: (s: Skill) => void;
 }) {
   const [q, setQ] = useState("");
   useEffect(() => {
@@ -949,6 +1047,10 @@ function CommandPalette({
               <div
                 key={s.name}
                 data-testid={`palette-result-skill-${s.name}`}
+                onClick={() => {
+                  onPickSkill(s);
+                  onClose();
+                }}
                 style={{
                   padding: "7px 16px",
                   display: "flex",
@@ -989,17 +1091,226 @@ function CommandPalette({
 }
 
 // ---------------------------------------------------------------------------
+// Route components (acb-009)
+// ---------------------------------------------------------------------------
+
+function filterOfficers(
+  officers: Officer[],
+  roster: RosterId,
+  archetypeFilter: Archetype | null
+): Officer[] {
+  return officers.filter((o) => {
+    if (archetypeFilter && o.archetype !== archetypeFilter) return false;
+    if (roster === "default") return true;
+    if (roster === "minimal")
+      return ["MAJOR_PLINY", "DAEDALUS", "ADA", "VERA"].includes(o.name);
+    if (roster === "user-level")
+      return !["CAPTAIN_PLINY", "CURATOR", "HERALD", "SCOUT"].includes(o.name);
+    return false; // custom: empty start
+  });
+}
+
+function TeamRoute({
+  officers,
+  archetypes,
+}: {
+  officers: Officer[];
+  archetypes: ArchetypeColors;
+}) {
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const roster = parseRosterParam(searchParams.get("roster"));
+  const archetypeFilter = parseArchetypeParam(searchParams.get("archetype"), archetypes);
+  const filtered = filterOfficers(officers, roster, archetypeFilter);
+
+  // Set/clear filter params with default-stripping. Reads current params
+  // freshly via the closure of `searchParams` (re-resolved each render);
+  // no useCallback churn (acb-009 ARGUS Override 2).
+  function setRoster(r: RosterId) {
+    const next = new URLSearchParams(searchParams);
+    next.set("roster", r);
+    setSearchParams(stripDefaultSearchParams(next));
+  }
+  function setArchetype(a: Archetype | null) {
+    const next = new URLSearchParams(searchParams);
+    if (a) next.set("archetype", a);
+    else next.delete("archetype");
+    setSearchParams(stripDefaultSearchParams(next));
+  }
+
+  return (
+    <>
+      <FilterSidebar
+        rosterId={roster}
+        setRoster={setRoster}
+        archetypeFilter={archetypeFilter}
+        setArchetype={setArchetype}
+        archetypes={archetypes}
+      />
+      <TeamView
+        officers={filtered}
+        onPick={(o) => navigate(`/officer/${o.name}${buildPreservedQuery(searchParams)}`)}
+      />
+    </>
+  );
+}
+
+function OfficerRoute({
+  officers,
+  body,
+}: {
+  officers: Officer[];
+  body: string;
+}) {
+  const { name } = useParams<{ name: string }>();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const officer = officers.find((o) => o.name === name);
+
+  if (!officer) {
+    return (
+      <div style={{ flex: 1, padding: "32px 28px" }}>
+        <div
+          style={{
+            fontFamily: "Inter, sans-serif",
+            fontSize: 14,
+            color: "var(--fg-2)",
+            marginBottom: 12,
+          }}
+        >
+          Officer <code>{name}</code> not found.
+        </div>
+        <Link
+          to="/"
+          style={{
+            fontFamily: "Inter, sans-serif",
+            fontSize: 13,
+            color: "var(--accent)",
+          }}
+        >
+          ← Back to Team
+        </Link>
+      </div>
+    );
+  }
+
+  return (
+    <OfficerDetail
+      officer={officer}
+      onBack={() => navigate(`/${buildPreservedQuery(searchParams)}`)}
+      body={body}
+    />
+  );
+}
+
+function SkillPlaceholder() {
+  const { name } = useParams<{ name: string }>();
+  return (
+    <div style={{ flex: 1, padding: "32px 28px" }}>
+      <h1
+        style={{
+          margin: "0 0 8px",
+          fontFamily: "'JetBrains Mono', monospace",
+          fontWeight: 700,
+          fontSize: 22,
+          color: "var(--fg-1)",
+        }}
+      >
+        Skill: {name}
+      </h1>
+      <div
+        style={{
+          fontFamily: "Inter, sans-serif",
+          fontSize: 13,
+          color: "var(--fg-3)",
+          marginBottom: 14,
+        }}
+      >
+        Skill detail not yet implemented.
+      </div>
+      <Link
+        to="/skills"
+        style={{
+          fontFamily: "Inter, sans-serif",
+          fontSize: 13,
+          color: "var(--accent)",
+        }}
+      >
+        ← Back to Skills
+      </Link>
+    </div>
+  );
+}
+
+function MetaPlaceholder() {
+  const { name } = useParams<{ name: string }>();
+  return (
+    <div style={{ flex: 1, padding: "32px 28px" }}>
+      <h1
+        style={{
+          margin: "0 0 8px",
+          fontFamily: "'JetBrains Mono', monospace",
+          fontWeight: 700,
+          fontSize: 22,
+          color: "var(--fg-1)",
+        }}
+      >
+        Meta-aspect: {name}
+      </h1>
+      <div
+        style={{
+          fontFamily: "Inter, sans-serif",
+          fontSize: 13,
+          color: "var(--fg-3)",
+          marginBottom: 14,
+        }}
+      >
+        Meta-aspect detail not yet implemented.
+      </div>
+      <Link
+        to="/meta"
+        style={{
+          fontFamily: "Inter, sans-serif",
+          fontSize: 13,
+          color: "var(--accent)",
+        }}
+      >
+        ← Back to Meta-aspects
+      </Link>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // App
 // ---------------------------------------------------------------------------
 
 function App() {
   const data = SAMPLE_DATA;
   const { dark } = useTheme();
-  const [tab, setTab] = useState<Tab>("team");
-  const [selected, setSelected] = useState<Officer | null>(null);
   const [paletteOpen, setPaletteOpen] = useState(false);
-  const [roster, setRoster] = useState<RosterId>("default");
-  const [archetypeFilter, setArchetypeFilter] = useState<Archetype | null>(null);
+
+  // URL-driven state — single source of truth (acb-009).
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+
+  const tab: Tab = tabFromPath(location.pathname);
+  const roster: RosterId = parseRosterParam(searchParams.get("roster"));
+  const archetypeFilter: Archetype | null = parseArchetypeParam(
+    searchParams.get("archetype"),
+    data.archetypes
+  );
+
+  // Resolve `selected` from the URL pathname for STOA_STATE bridge purposes.
+  // `useParams()` only populates inside routed children; resolving here via
+  // a regex against the pathname keeps the bridge value-correct at the App
+  // level. (See acb-009 design §6 / R7.) Returns the same Officer reference
+  // across renders for the same URL — effect deps stay identity-stable.
+  const officerNameMatch = location.pathname.match(/^\/officer\/([^/?]+)/);
+  const selected: Officer | null = officerNameMatch
+    ? data.officers.find((o) => o.name === officerNameMatch[1]) ?? null
+    : null;
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -1028,11 +1339,18 @@ function App() {
    *     archetypeFilter: Archetype | null,    // active archetype chip, or null
    *   }
    *
+   * Source of truth (post-acb-009): URL is canonical for currentTab,
+   *   selectedOfficer, roster, and archetypeFilter — read via useLocation,
+   *   useSearchParams, and a pathname-regex resolution for selectedOfficer
+   *   (since useParams only populates inside routed children). `dark`
+   *   continues to come from useTheme(). The exposed shape and contract
+   *   surfaces below are unchanged from acb-008.
+   *
    * Contract:
    *   • Read-only by convention. Consumers MUST NOT mutate the object;
    *     mutations would be silently overwritten on the next render anyway.
    *     If a future arc needs a write API, that's a separate dispatch
-   *     (`window.STOA_DISPATCH`); explicitly out of scope for acb-008.
+   *     (`window.STOA_DISPATCH`); explicitly out of scope for acb-008/009.
    *   • Single-object replace per render — observers can detect changes via
    *     reference equality (`prev !== window.STOA_STATE`). We do not mutate
    *     in place. Each effect run produces a fresh object literal.
@@ -1059,23 +1377,13 @@ function App() {
     };
   }, [dark, tab, selected, roster, archetypeFilter]);
 
-  const officers = data.officers.filter((o) => {
-    if (archetypeFilter && o.archetype !== archetypeFilter) return false;
-    if (roster === "default") return true;
-    if (roster === "minimal")
-      return ["MAJOR_PLINY", "DAEDALUS", "ADA", "VERA"].includes(o.name);
-    if (roster === "user-level")
-      return !["CAPTAIN_PLINY", "CURATOR", "HERALD", "SCOUT"].includes(o.name);
-    return false; // custom: empty start
-  });
-
   return (
     <div style={{ background: "var(--bg-app)", minHeight: "100vh", color: "var(--fg-1)" }}>
       <Header
         tab={tab}
         onTab={(t) => {
-          setTab(t);
-          setSelected(null);
+          const path = t === "team" ? "/" : `/${t}`;
+          navigate(`${path}${buildPreservedQuery(searchParams)}`);
         }}
         onSearch={() => setPaletteOpen(true)}
         counts={{
@@ -1085,37 +1393,47 @@ function App() {
         }}
       />
       <div style={{ display: "flex", alignItems: "stretch" }}>
-        {tab === "team" && !selected && (
-          <FilterSidebar
-            rosterId={roster}
-            setRoster={setRoster}
-            archetypeFilter={archetypeFilter}
-            setArchetype={setArchetypeFilter}
-            archetypes={data.archetypes}
+        <Routes>
+          <Route
+            path="/"
+            element={<TeamRoute officers={data.officers} archetypes={data.archetypes} />}
           />
-        )}
-        {tab === "team" && !selected && (
-          <TeamView officers={officers} onPick={setSelected} />
-        )}
-        {tab === "team" && selected && (
-          <OfficerDetail
-            officer={selected}
-            onBack={() => setSelected(null)}
-            body={data.bodyPreview}
+          <Route
+            path="/officer/:name"
+            element={<OfficerRoute officers={data.officers} body={data.bodyPreview} />}
           />
-        )}
-        {tab === "skills" && <SkillsView skills={data.skills} />}
-        {tab === "meta" && <MetaView items={data.metaAspects} />}
+          <Route
+            path="/skills"
+            element={
+              <SkillsView
+                skills={data.skills}
+                onPick={(s) => navigate(`/skill/${s.name}`)}
+              />
+            }
+          />
+          <Route path="/skill/:name" element={<SkillPlaceholder />} />
+          <Route
+            path="/meta"
+            element={
+              <MetaView
+                items={data.metaAspects}
+                onPick={(m) => navigate(`/meta/${m.name}`)}
+              />
+            }
+          />
+          <Route path="/meta/:name" element={<MetaPlaceholder />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </div>
       <CommandPalette
         open={paletteOpen}
         onClose={() => setPaletteOpen(false)}
         officers={data.officers}
         skills={data.skills}
-        onPickOfficer={(o) => {
-          setTab("team");
-          setSelected(o);
-        }}
+        onPickOfficer={(o) =>
+          navigate(`/officer/${o.name}${buildPreservedQuery(searchParams)}`)
+        }
+        onPickSkill={(s) => navigate(`/skill/${s.name}`)}
       />
     </div>
   );
