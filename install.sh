@@ -10,18 +10,27 @@
 # Per the architecture spec (three-role-recursive-architecture.md §8): this is
 # the TEMPLATE. MAJOR_POLYBIUS rewrites a session-specific install per user
 # conversation at deploy time. This script does only the non-conversational
-# mechanical deploy. It does NOT run `bw init`, deploy CAPTAINs, create skills,
-# or write the paste-instruction; POLYBIUS handles those interactively with the
-# Colonel in the loop.
+# mechanical deploy: drops the two MAJOR role files, deploys the 10 CAPTAIN
+# sub-agent envelopes (unless --no-captains), and optionally appends a
+# marker-bounded reference block to CLAUDE.md when the consent flag is set.
+# It does NOT run `bw init`, create skills, or write the paste-instruction;
+# POLYBIUS handles those interactively with the Colonel in the loop.
 #
 # Usage:
-#   ./install.sh --target user [--modify-claude-md] [--dry-run]
-#   ./install.sh --target project --project-dir <path> [--modify-claude-md] [--dry-run]
+#   ./install.sh --target user [--modify-claude-md] [--no-captains] [--dry-run]
+#   ./install.sh --target project --project-dir <path> [--modify-claude-md] [--no-captains] [--dry-run]
 #   ./install.sh --help
 #
 # Idempotency: re-running with the same flags is safe. Files are overwritten
 # in place; CLAUDE.md appends are guarded by a marker check so the reference is
 # added at most once.
+#
+# CAPTAIN envelopes: by default the script deploys the 10 CAPTAIN_*.md sub-agent
+# envelopes from this directory to <target>/.claude/agents/. At project-tier the
+# files are suffixed with _<sanitized-project> (e.g. CAPTAIN_DAEDALUS_my_project.md)
+# and the {{NAME_SUFFIX}} slot in the YAML frontmatter's `name:` field is filled
+# accordingly; at user-tier the files are unsuffixed and {{NAME_SUFFIX}} expands
+# to empty. Pass --no-captains to skip CAPTAIN deployment.
 #
 # Dry-run: --dry-run prints every action without writing anything.
 
@@ -33,11 +42,28 @@ TARGET=""
 PROJECT_DIR=""
 MODIFY_CLAUDE_MD=0
 DRY_RUN=0
+WITH_CAPTAINS=1
 
 # Source files live next to this script.
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SRC_POLYBIUS="${SCRIPT_DIR}/MAJOR_POLYBIUS.md"
 SRC_PLINY="${SCRIPT_DIR}/MAJOR_PLINY.md"
+
+# The 10 CAPTAIN envelope source files. Order is the gauntlet pipeline order
+# (DAEDALUS through CATO) followed by the support seats; ordering only affects
+# log output, not correctness.
+CAPTAIN_NAMES=(
+  DAEDALUS
+  ARGUS
+  ADA
+  VERA
+  CATO
+  STRABO
+  BARTLEBY
+  HERALD
+  CURATOR
+  PLINY
+)
 
 # Marker line written into CLAUDE.md when --modify-claude-md is used; presence
 # of this marker is how subsequent runs detect that the reference is already
@@ -95,6 +121,10 @@ while [ "$#" -gt 0 ]; do
       DRY_RUN=1
       shift
       ;;
+    --no-captains)
+      WITH_CAPTAINS=0
+      shift
+      ;;
     -h|--help)
       usage 0
       ;;
@@ -112,12 +142,22 @@ case "$TARGET" in
   user)
     DEST_DIR="${HOME}/.claude"
     DEST_CLAUDE_MD="${HOME}/.claude/CLAUDE.md"
+    DEST_AGENTS_DIR="${HOME}/.claude/agents"
+    PROJECT_SLUG=""
+    NAME_SUFFIX=""
     ;;
   project)
     [ -n "$PROJECT_DIR" ] || err "--project-dir is required when --target=project"
     [ -d "$PROJECT_DIR" ] || err "project directory does not exist: $PROJECT_DIR"
     DEST_DIR="${PROJECT_DIR}/.claude"
     DEST_CLAUDE_MD="${PROJECT_DIR}/CLAUDE.md"
+    DEST_AGENTS_DIR="${PROJECT_DIR}/.claude/agents"
+    # Project slug = basename(project-dir) with hyphens and dots normalized to
+    # underscores. This becomes both the file-suffix and the {{NAME_SUFFIX}}
+    # value in CAPTAIN frontmatter so MAJOR_PLINY can dispatch by the deployed
+    # name.
+    PROJECT_SLUG="$(basename "$PROJECT_DIR" | tr '.-' '__')"
+    NAME_SUFFIX="_${PROJECT_SLUG}"
     ;;
   *)
     err "--target must be 'user' or 'project' (got: $TARGET)"
@@ -127,12 +167,22 @@ esac
 [ -f "$SRC_POLYBIUS" ] || err "source file not found: $SRC_POLYBIUS"
 [ -f "$SRC_PLINY" ]    || err "source file not found: $SRC_PLINY"
 
+if [ "$WITH_CAPTAINS" -eq 1 ]; then
+  for name in "${CAPTAIN_NAMES[@]}"; do
+    [ -f "${SCRIPT_DIR}/CAPTAIN_${name}.md" ] || err "source file not found: ${SCRIPT_DIR}/CAPTAIN_${name}.md"
+  done
+fi
+
 # ----- plan ------------------------------------------------------------------
 
 echo "agent-substrate install — plan"
 echo "  target           : $TARGET"
 echo "  destination dir  : $DEST_DIR"
 echo "  modify CLAUDE.md : $([ "$MODIFY_CLAUDE_MD" -eq 1 ] && echo "yes (consent flag set)" || echo "no")"
+echo "  deploy CAPTAINs  : $([ "$WITH_CAPTAINS" -eq 1 ] && echo "yes (10 envelopes to ${DEST_AGENTS_DIR})" || echo "no (--no-captains)")"
+if [ "$WITH_CAPTAINS" -eq 1 ] && [ -n "$NAME_SUFFIX" ]; then
+  echo "  CAPTAIN suffix   : ${NAME_SUFFIX} (project slug: ${PROJECT_SLUG})"
+fi
 echo "  dry-run          : $([ "$DRY_RUN" -eq 1 ] && echo "yes" || echo "no")"
 echo
 
@@ -149,7 +199,33 @@ fi
 run_or_print "cp \"$SRC_POLYBIUS\" \"$DEST_DIR/MAJOR_POLYBIUS.md\""
 run_or_print "cp \"$SRC_PLINY\" \"$DEST_DIR/MAJOR_PLINY.md\""
 
-# 3. Optionally append reference to CLAUDE.md (informed consent required).
+# 3. Deploy CAPTAIN sub-agent envelopes (default on; --no-captains skips).
+if [ "$WITH_CAPTAINS" -eq 1 ]; then
+  if [ ! -d "$DEST_AGENTS_DIR" ]; then
+    run_or_print "mkdir -p \"$DEST_AGENTS_DIR\""
+  else
+    log "agents directory already exists: $DEST_AGENTS_DIR"
+  fi
+
+  for name in "${CAPTAIN_NAMES[@]}"; do
+    src="${SCRIPT_DIR}/CAPTAIN_${name}.md"
+    dest="${DEST_AGENTS_DIR}/CAPTAIN_${name}${NAME_SUFFIX}.md"
+
+    # Substitute {{NAME_SUFFIX}} in the YAML frontmatter `name:` field.
+    # At user-tier NAME_SUFFIX is empty; at project-tier it is _<project-slug>.
+    # sed handles the transform; the source file is unchanged.
+    if [ "$DRY_RUN" -eq 1 ]; then
+      echo "[dry-run] deploy: $src -> $dest (substitute {{NAME_SUFFIX}} -> '${NAME_SUFFIX}')"
+    else
+      sed "s/{{NAME_SUFFIX}}/${NAME_SUFFIX}/g" "$src" > "$dest"
+      echo "deployed: $dest"
+    fi
+  done
+else
+  log "CAPTAIN deployment skipped (--no-captains)"
+fi
+
+# 4. Optionally append reference to CLAUDE.md (informed consent required).
 if [ "$MODIFY_CLAUDE_MD" -eq 1 ]; then
   if [ -f "$DEST_CLAUDE_MD" ] && grep -Fq "$CLAUDE_MD_MARKER" "$DEST_CLAUDE_MD" 2>/dev/null; then
     log "CLAUDE.md already references POLYBIUS — skipping append (idempotent)"
