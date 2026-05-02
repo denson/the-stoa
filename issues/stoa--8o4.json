@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-02T23:32:46Z",
+  "description": "Surfaced during Arc 14 regression check.\n\nRepro: from inside a project directory, run `./install.sh --target project --project-dir . --dry-run`. The plan reports `CAPTAIN suffix : __ (slug: _)` and would deploy files like `CAPTAIN_DAEDALUS__.md`.\n\nCause: install.sh:223 computes `PROJECT_SLUG=\"$(basename \"$PROJECT_DIR\" | tr '.-' '__')\"`. When `PROJECT_DIR=\".\"`, `basename \".\"` returns `.`, then `tr` converts the dot to `_`. The expected slug would be the actual containing-directory name (e.g., `widget_builder`).\n\nConcrete fix: resolve the path before basename:\n`PROJECT_SLUG=\"$(basename \"$(cd \"$PROJECT_DIR\" \u0026\u0026 pwd)\" | tr '.-' '__')\"`\n\nAffects ONBOARDING.md scenarios 1 + 2 (both teach `--project-dir .`); the rendered output in those scenarios shows the expected slug (`widget_builder`, `agent_character_builder`) which masks the bug. Scope-deferred from Arc 14 to keep that diff focused on sub-project work; pick this up as a small standalone fix-up.",
+  "id": "stoa--8o4",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "[BUG] install.sh project mode: --project-dir . produces slug '_' instead of the actual basename",
+  "type": "bug",
+  "updated_at": "2026-05-02T23:32:46Z"
+}
