@@ -6,9 +6,15 @@
   "description": "",
   "id": "stoa--vgn",
   "labels": [],
+  "comments": [
+    {
+      "text": "Arc 14 shipped at commit 3324c14.\n\nPhase A surface (sub-project naming/location decision): PRINCIPAL confirmed shape (a) — sub-project lives at \u003cparent\u003e/\u003csubproject-slug\u003e/, sharing parent's git repo and bw, disambiguated by _\u003cslug\u003e suffix on every agent file. Sub-project working files (not just envelopes) live in the same directory.\n\nDeliverables landed:\n- install.sh: --target subproject --parent-dir \u003cpath\u003e --subproject \u003cslug\u003e mode (validation, idempotency, dry-run, next-step guidance)\n- MAJOR_POLYBIUS.md §10: sub-project spawning section (trigger recognition, walk-through, asymmetric bw visibility recursive, hand-off)\n- ONBOARDING.md Scenario 5: design-tier sub-project under The Stoa (roster-redesign + Reese in human-loop seat)\n- templates/consent-prompts.md Prompt 7: sub-project-spawn consent\n- templates/paste-instruction-template.md: small ROLE_FILE_PATH note for sub-project tier\n\nPhase F smoke test: synthetic parent w/ git+bw+parent-tier substrate; all directive Part E conditions verified (install runs clean, suffixed files at expected paths, dry-run works, parent CLAUDE.md sha256 unchanged, parent .claude/MAJOR_*.md untouched, bw NOT re-initialized, sub-project sees parent's tickets, no templates dir under sub-project, validation rejects --modify-claude-md / bad slugs / missing parent-dir).\n\nVoice audit clean — only COLONEL matches are deliberate reserved-rank discussion in MAJOR_POLYBIUS.md.\n\nPre-existing bug surfaced during regression check (--project-dir . produces slug '_'), scoped out of Arc 14 to keep the diff focused, ticketed at stoa--8o4 with a concrete fix sketch.\n\nv2 architecture is now end-to-end deployable: substrate (Arcs 1-7) + propagation/consolidation (Arcs 8 + Z) + The Stoa rebuild (Arcs 9-13) + recursive sub-project capability (Arc 14). PRINCIPAL may want to mark this milestone (planning v2 spec update / retrospective / possibly v2.1 capture if anything from Arcs 1-14 surfaced empirical revisions to the spec itself).",
+      "timestamp": "2026-05-02T23:34:13Z"
+    }
+  ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 14 — sub-project spawning mechanism (final v2 arc)",
   "type": "epic",
-  "updated_at": "2026-05-02T23:09:27Z"
+  "updated_at": "2026-05-02T23:34:13Z"
 }
