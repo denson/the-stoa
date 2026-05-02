@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-02T21:03:36Z",
+  "description": "",
+  "id": "stoa--hi5",
+  "labels": [],
+  "priority": 1,
+  "status": "open",
+  "title": "[EPIC] Arc 11 — sample.ts swap to consume generated v2 data",
+  "type": "epic",
+  "updated_at": "2026-05-02T21:03:36Z"
+}
