@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-02T22:06:30Z",
+  "description": "",
+  "id": "stoa--0zo",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "Fix agent display name to use mnemonic only (rank pill already conveys rank)",
+  "type": "bug",
+  "updated_at": "2026-05-02T22:06:30Z"
+}
