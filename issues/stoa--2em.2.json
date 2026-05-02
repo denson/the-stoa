@@ -2,6 +2,7 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-02T20:39:57Z",
   "created": "2026-05-02T20:38:09Z",
   "description": "After adding types-v2.ts, run npm run build in app/ and verify no TypeScript errors. Existing v1 consumers (App.tsx, Components.tsx, sample.ts) must continue to compile.",
   "id": "stoa--2em.2",
@@ -14,7 +15,7 @@
     }
   ],
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "Smoke test — app TypeScript build clean after Arc 9",
   "type": "task",
   "updated_at": "2026-05-02T20:39:57Z"
