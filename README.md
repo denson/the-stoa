@@ -26,17 +26,17 @@ When a user runs the install script, this repo's contents get distributed to the
 
 ## Status
 
-**Arc 5 landed.** The 10 CAPTAIN envelopes have been re-authored against the v2 architecture spec, completing the substrate's voice-grounding pass. Combined with Arc 4 (which re-authored the MAJOR role files), the entire deployable substrate now uses **PRINCIPAL** for the human's descriptive role and reserves **COLONEL** for a future high-autonomy agent rank — the terminology debt v1 carried (using "Colonel" as the human's title) is fully retired. The empirical signal that motivated v2 is captured in user-beadwork `u--7yg.20`. v1 role files are preserved for reference at [`v1-historical/`](./v1-historical/).
+**Arc 6 landed — substrate redesign from v2 complete.** `ONBOARDING.md` and the three `templates/*.md` files have been re-authored against the v2 architecture spec, completing the substrate-redesign-from-v2 sequence (Arcs 4–6). Combined with Arc 4 (MAJOR role files) and Arc 5 (the 10 CAPTAIN envelopes), the entire deployable substrate — role files, sub-agent envelopes, onboarding flow, and templates — now uses **PRINCIPAL** for the human's descriptive role and reserves **COLONEL** for a future high-autonomy agent rank. The terminology debt v1 carried (using "Colonel" as the human's title) is fully retired across the canonical substrate. The empirical signal that motivated v2 is captured in user-beadwork `u--7yg.20`. v1 versions of all re-authored files are preserved for reference at [`v1-historical/`](./v1-historical/).
 
 Deliverables on `main`:
 
 - [`MAJOR_POLYBIUS.md`](./MAJOR_POLYBIUS.md) — Chief-of-Staff role file (re-authored Arc 4 against v2; supersedes [Arc 1 + Arc 2 v1 version](./v1-historical/MAJOR_POLYBIUS.md))
 - [`MAJOR_PLINY.md`](./MAJOR_PLINY.md) — Orchestrator role file (re-authored Arc 4 against v2; supersedes [Arc 1 v1 version](./v1-historical/MAJOR_PLINY.md))
 - [`install.sh`](./install.sh) — template installer (Arc 1; extended in Arc 3 to deploy CAPTAIN envelopes via `{{NAME_SUFFIX}}` substitution)
-- [`templates/paste-instruction-template.md`](./templates/paste-instruction-template.md) — MAJOR_PLINY activation template (Arc 2; settles spec §10 open question 1 on string-substitution)
-- [`templates/onboarding-questions.md`](./templates/onboarding-questions.md) — interview floor + rationale (Arc 2)
-- [`templates/consent-prompts.md`](./templates/consent-prompts.md) — wording for sensitive-action consent (Arc 2)
-- [`ONBOARDING.md`](./ONBOARDING.md) — end-to-end narrative walkthrough across four scenarios (Arc 2)
+- [`templates/paste-instruction-template.md`](./templates/paste-instruction-template.md) — MAJOR_PLINY activation template (re-authored Arc 6 against v2; supersedes [Arc 2 v1 version](./v1-historical/templates/paste-instruction-template.md); string-substitution mechanism settled in spec §8)
+- [`templates/onboarding-questions.md`](./templates/onboarding-questions.md) — interview floor + rationale (re-authored Arc 6 against v2; supersedes [Arc 2 v1 version](./v1-historical/templates/onboarding-questions.md))
+- [`templates/consent-prompts.md`](./templates/consent-prompts.md) — wording for sensitive-action consent (re-authored Arc 6 against v2; supersedes [Arc 2 v1 version](./v1-historical/templates/consent-prompts.md))
+- [`ONBOARDING.md`](./ONBOARDING.md) — end-to-end narrative walkthrough across four scenarios (re-authored Arc 6 against v2; supersedes [Arc 2 v1 version](./v1-historical/ONBOARDING.md))
 - The 10 CAPTAIN envelopes (re-authored Arc 5 against v2; supersedes Arc 3 v1 versions preserved at [`v1-historical/CAPTAIN_*.md`](./v1-historical/)) — see roster below
 
 The post-v2 arc sequence (per architecture spec §14):
@@ -46,8 +46,8 @@ The post-v2 arc sequence (per architecture spec §14):
 - **Arc 3 (done, v1):** 10 CAPTAIN envelopes + `install.sh` extension to deploy them
 - **Arc 4 (done, v2):** Re-author `MAJOR_POLYBIUS.md` + `MAJOR_PLINY.md` from v2 spec; PRINCIPAL/HUMAN voice throughout
 - **Arc 5 (done, v2):** Re-author the 10 CAPTAIN envelopes from v2 spec; rank-table headers, spec-authority pointers, PRINCIPAL/HUMAN voice grounded throughout; structural tool restrictions per spec §9 (ARGUS / CATO no `Write`/`Edit`; BARTLEBY / HERALD / CAPTAIN_PLINY no `WebSearch`/`WebFetch`; CAPTAIN_PLINY also no `Write`/`Edit`)
-- (next) **Arc 6:** Update Arc directives, ONBOARDING.md, templates/ from v2
-- **Arc 7:** `install.sh` improvements (Windows portability, deploy `templates/`, next-step guidance after install)
+- **Arc 6 (done, v2):** Re-author `ONBOARDING.md` + 3 `templates/*.md` files from v2 spec; PRINCIPAL/HUMAN voice grounded throughout including dialogue; substitution slots and consent-prompt structure preserved; v1 versions archived under `v1-historical/`. Substrate-redesign-from-v2 (Arcs 4–6) complete.
+- (next) **Arc 7:** `install.sh` improvements (Windows portability, deploy `templates/`, next-step guidance after install)
 - **Arc 8:** Refactor existing wrong-shape deploys in `agent-team-team` and `agent-character-builder`
 - **Arc 9:** The Stoa data-model + display alignment (in `agent-character-builder`)
 - **Arc 10:** Sub-project spawning mechanism
