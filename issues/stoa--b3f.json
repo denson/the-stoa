@@ -2,6 +2,7 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-02T22:22:15Z",
   "created": "2026-05-02T21:07:42Z",
   "description": "Every `npm run gen-data` (and therefore every `npm run dev`/`npm run build` via prebuild/predev) rewrites the `Generated:` timestamp at line 5 of app/src/data/generated/agents.ts. Result: every developer touching the app produces a one-line dirty diff they didn't intend, and the committed file's timestamp is meaningless (drifts with whoever last built).\n\nConcrete plan:\n1. Drop the timestamp comment entirely (cleanest), OR\n2. Replace it with a deterministic fingerprint (e.g., sha256 of concatenated substrate file contents) so the line only changes when the substrate actually changes.\n\nOption 1 is preferred — the regeneration-command and source-of-truth comments in the header already convey 'when is this regenerated', and git history shows when the artifact last changed.",
   "id": "stoa--b3f",
@@ -14,7 +15,7 @@
     }
   ],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "Arc 10 followup: gen-data timestamp churn pollutes git diff on every build",
   "type": "bug",
   "updated_at": "2026-05-02T22:22:15Z"
