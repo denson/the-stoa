@@ -2,6 +2,7 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-02T22:22:27Z",
   "created": "2026-05-02T22:14:54Z",
   "description": "",
   "id": "stoa--jdj",
@@ -13,8 +14,8 @@
     }
   ],
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "[EPIC] Arc 13 — Vitest scaffold + stoa--b3f cleanup",
   "type": "epic",
-  "updated_at": "2026-05-02T22:22:26Z"
+  "updated_at": "2026-05-02T22:22:27Z"
 }
