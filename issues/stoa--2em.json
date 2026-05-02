@@ -6,9 +6,15 @@
   "description": "Per substrate/arcs/arc-9-build-directive.md. Narrow scope: define v2 rank ladder + PRINCIPAL framework as additive TypeScript types in app/src/data/. No adapter (Arc 10), no sample wiring (Arc 11), no display (Arc 12), no tests (Arc 13). Existing v1 types remain untouched and consumers continue to compile.",
   "id": "stoa--2em",
   "labels": [],
+  "comments": [
+    {
+      "text": "Arc 9 done. Deliverable: app/src/data/types-v2.ts (additive). Children: stoa--2em.1 (types written), stoa--2em.2 (smoke build PASS), stoa--2em.3 (grep audit PASS for new code; pre-existing sample.ts strings folded into Arc 11). Carry-forward filed for Arc 11 voice cleanup. Existing React app compiles + bundles unchanged. Autonomous-ship per u--7yg.11.",
+      "timestamp": "2026-05-02T20:40:12Z"
+    }
+  ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 9 — v2 TypeScript types + data model",
   "type": "epic",
-  "updated_at": "2026-05-02T20:38:02Z"
+  "updated_at": "2026-05-02T20:40:12Z"
 }
