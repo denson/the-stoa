@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-02T20:50:14Z",
+  "description": "",
+  "id": "stoa--y0w.4",
+  "labels": [],
+  "parent": "stoa--y0w",
+  "priority": 1,
+  "status": "open",
+  "title": "Wire build pipeline (gen-data, prebuild, predev) in app/package.json",
+  "type": "task",
+  "updated_at": "2026-05-02T20:50:14Z"
+}
