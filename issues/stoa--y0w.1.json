@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-02T20:50:13Z",
+  "description": "",
+  "id": "stoa--y0w.1",
+  "labels": [],
+  "parent": "stoa--y0w",
+  "priority": 1,
+  "status": "open",
+  "title": "Install zod, gray-matter, tsx as devDependencies in app/",
+  "type": "task",
+  "updated_at": "2026-05-02T20:50:13Z"
+}
