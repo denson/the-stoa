@@ -20,6 +20,7 @@
 # Usage:
 #   ./install.sh --target user [--modify-claude-md] [--no-captains] [--no-templates] [--dry-run]
 #   ./install.sh --target project --project-dir <path> [--modify-claude-md] [--no-captains] [--no-templates] [--dry-run]
+#   ./install.sh --target subproject --parent-dir <path> --subproject <slug> [--no-captains] [--dry-run]
 #   ./install.sh --help
 #
 # Idempotency: re-running with the same flags is safe. Files are overwritten
@@ -43,7 +44,19 @@
 # <target>/.claude/templates/. These are POLYBIUS's runtime working tools
 # (paste-instruction template, onboarding-questions, consent-prompts) — shared
 # tooling, not agent-shaped, deployed unsuffixed at both tiers. Pass
-# --no-templates to skip.
+# --no-templates to skip. (Subproject mode never deploys templates — the
+# sub-project shares its parent's runtime tooling; see below.)
+#
+# Subproject mode: --target subproject deploys a sub-project under an existing
+# parent project. Required flags: --parent-dir <path-to-parent-project> and
+# --subproject <slug>. The sub-project lives at <parent>/<subproject>/, sharing
+# the parent's git repo and beadwork. Both MAJOR_POLYBIUS.md and MAJOR_PLINY.md
+# are deployed with the _<subproject> filename suffix (parallel to CAPTAINs);
+# all 10 CAPTAINs are deployed with the same suffix. Subproject mode does NOT
+# modify any CLAUDE.md (parent's stays as-is; sub-project does not get its own),
+# does NOT redeploy templates (sub-project reads parent's at <parent>/.claude/
+# templates/), and does NOT run bw init (sub-project shares parent's bw repo).
+# --modify-claude-md and --templates-related flags are rejected in this mode.
 #
 # Dry-run: --dry-run prints every action without writing anything.
 
@@ -53,6 +66,8 @@ set -euo pipefail
 
 TARGET=""
 PROJECT_DIR=""
+PARENT_DIR=""
+SUBPROJECT=""
 MODIFY_CLAUDE_MD=0
 DRY_RUN=0
 WITH_CAPTAINS=1
@@ -127,13 +142,23 @@ run_or_print() {
 while [ "$#" -gt 0 ]; do
   case "$1" in
     --target)
-      [ "$#" -ge 2 ] || err "--target requires a value (user|project)"
+      [ "$#" -ge 2 ] || err "--target requires a value (user|project|subproject)"
       TARGET="$2"
       shift 2
       ;;
     --project-dir)
       [ "$#" -ge 2 ] || err "--project-dir requires a path"
       PROJECT_DIR="$2"
+      shift 2
+      ;;
+    --parent-dir)
+      [ "$#" -ge 2 ] || err "--parent-dir requires a path"
+      PARENT_DIR="$2"
+      shift 2
+      ;;
+    --subproject)
+      [ "$#" -ge 2 ] || err "--subproject requires a slug"
+      SUBPROJECT="$2"
       shift 2
       ;;
     --modify-claude-md)
@@ -163,7 +188,13 @@ done
 
 # ----- validation ------------------------------------------------------------
 
-[ -n "$TARGET" ] || err "--target is required (user|project)"
+[ -n "$TARGET" ] || err "--target is required (user|project|subproject)"
+
+# Tracks whether MAJOR_POLYBIUS.md / MAJOR_PLINY.md should be deployed with the
+# _<slug> filename suffix. True only in subproject mode — at user-tier and
+# project-tier the MAJORs land unsuffixed (the project's CLAUDE.md auto-loads
+# them by canonical name).
+SUFFIX_MAJORS=0
 
 case "$TARGET" in
   user)
@@ -188,8 +219,48 @@ case "$TARGET" in
     PROJECT_SLUG="$(basename "$PROJECT_DIR" | tr '.-' '__')"
     NAME_SUFFIX="_${PROJECT_SLUG}"
     ;;
+  subproject)
+    [ -n "$PARENT_DIR" ]  || err "--parent-dir is required when --target=subproject"
+    [ -n "$SUBPROJECT" ]  || err "--subproject is required when --target=subproject"
+    [ -d "$PARENT_DIR" ]  || err "parent directory does not exist: $PARENT_DIR"
+    # Sanity-check the parent dir actually looks like a deployed project — we
+    # don't require it, but a missing .claude/ on the parent is a strong hint
+    # the human pointed at the wrong path.
+    if [ ! -d "${PARENT_DIR}/.claude" ]; then
+      echo "install.sh: warning: parent directory has no .claude/ — is ${PARENT_DIR} actually a deployed project? proceeding anyway." >&2
+    fi
+    # Subproject slug validation: must be a safe single-segment directory name.
+    # Reject empty, path separators, leading dots, and parent-traversal forms.
+    case "$SUBPROJECT" in
+      ""|.|..)             err "invalid --subproject slug: $SUBPROJECT" ;;
+      */*|*\\*)            err "--subproject slug must not contain path separators: $SUBPROJECT" ;;
+      .*)                  err "--subproject slug must not start with '.': $SUBPROJECT" ;;
+    esac
+    case "$SUBPROJECT" in
+      *[!A-Za-z0-9._-]*)   err "--subproject slug must contain only [A-Za-z0-9._-]: $SUBPROJECT" ;;
+    esac
+    # Subproject mode incompatible with --modify-claude-md: the sub-project
+    # does not get its own CLAUDE.md, and the parent's must not be touched.
+    [ "$MODIFY_CLAUDE_MD" -eq 0 ] || err "--modify-claude-md is not valid with --target=subproject (sub-project does not get its own CLAUDE.md, and the parent's must not be modified by this run)"
+    # Subproject mode forces no-templates: the sub-project shares the parent's
+    # runtime tooling at <parent>/.claude/templates/. If the user explicitly
+    # passed --no-templates that's harmless and consistent; if they didn't,
+    # we silently force it (the default would be to deploy templates).
+    WITH_TEMPLATES=0
+    DEST_DIR="${PARENT_DIR}/${SUBPROJECT}/.claude"
+    DEST_CLAUDE_MD=""  # not used in subproject mode
+    DEST_AGENTS_DIR="${PARENT_DIR}/${SUBPROJECT}/.claude/agents"
+    DEST_TEMPLATES_DIR=""  # not used in subproject mode
+    # Sub-project slug = SUBPROJECT with hyphens and dots normalized to
+    # underscores. Same rule as project mode so the suffix is a valid agent
+    # name component (CAPTAIN frontmatter `name:` can't contain hyphens or
+    # dots in the slug part). The directory itself keeps the raw slug.
+    PROJECT_SLUG="$(echo "$SUBPROJECT" | tr '.-' '__')"
+    NAME_SUFFIX="_${PROJECT_SLUG}"
+    SUFFIX_MAJORS=1
+    ;;
   *)
-    err "--target must be 'user' or 'project' (got: $TARGET)"
+    err "--target must be 'user', 'project', or 'subproject' (got: $TARGET)"
     ;;
 esac
 
@@ -213,13 +284,28 @@ fi
 
 echo "agent-substrate install — plan"
 echo "  target           : $TARGET"
+if [ "$TARGET" = "subproject" ]; then
+  echo "  parent dir       : $PARENT_DIR"
+  echo "  subproject slug  : $SUBPROJECT"
+fi
 echo "  destination dir  : $DEST_DIR"
-echo "  modify CLAUDE.md : $([ "$MODIFY_CLAUDE_MD" -eq 1 ] && echo "yes (consent flag set)" || echo "no")"
+if [ "$TARGET" = "subproject" ]; then
+  echo "  modify CLAUDE.md : no (subproject mode never modifies CLAUDE.md)"
+else
+  echo "  modify CLAUDE.md : $([ "$MODIFY_CLAUDE_MD" -eq 1 ] && echo "yes (consent flag set)" || echo "no")"
+fi
+if [ "$SUFFIX_MAJORS" -eq 1 ]; then
+  echo "  MAJOR files      : suffixed (MAJOR_POLYBIUS${NAME_SUFFIX}.md, MAJOR_PLINY${NAME_SUFFIX}.md)"
+fi
 echo "  deploy CAPTAINs  : $([ "$WITH_CAPTAINS" -eq 1 ] && echo "yes (10 envelopes to ${DEST_AGENTS_DIR})" || echo "no (--no-captains)")"
 if [ "$WITH_CAPTAINS" -eq 1 ] && [ -n "$NAME_SUFFIX" ]; then
-  echo "  CAPTAIN suffix   : ${NAME_SUFFIX} (project slug: ${PROJECT_SLUG})"
+  echo "  CAPTAIN suffix   : ${NAME_SUFFIX} (slug: ${PROJECT_SLUG})"
 fi
-echo "  deploy templates : $([ "$WITH_TEMPLATES" -eq 1 ] && echo "yes (${#TEMPLATE_NAMES[@]} files to ${DEST_TEMPLATES_DIR})" || echo "no (--no-templates)")"
+if [ "$TARGET" = "subproject" ]; then
+  echo "  deploy templates : no (subproject shares parent's at ${PARENT_DIR}/.claude/templates/)"
+else
+  echo "  deploy templates : $([ "$WITH_TEMPLATES" -eq 1 ] && echo "yes (${#TEMPLATE_NAMES[@]} files to ${DEST_TEMPLATES_DIR})" || echo "no (--no-templates)")"
+fi
 echo "  dry-run          : $([ "$DRY_RUN" -eq 1 ] && echo "yes" || echo "no")"
 echo
 
@@ -233,8 +319,29 @@ else
 fi
 
 # 2. Copy MAJOR_POLYBIUS.md and MAJOR_PLINY.md (overwrite-on-existing — idempotent).
-run_or_print "cp \"$SRC_POLYBIUS\" \"$DEST_DIR/MAJOR_POLYBIUS.md\""
-run_or_print "cp \"$SRC_PLINY\" \"$DEST_DIR/MAJOR_PLINY.md\""
+# In subproject mode the filenames carry the _<subproject> suffix so the
+# parent project's deployed-name space and the sub-project's are visibly
+# distinct when both appear in the same directory tree (e.g., during ls of
+# the parent's working tree). The {{NAME_SUFFIX}} sed substitution is applied
+# defensively so that if these files later grow placeholders parallel to the
+# CAPTAINs, no separate code path is needed; today the source files contain
+# no {{NAME_SUFFIX}} placeholder so the substitution is a no-op.
+if [ "$SUFFIX_MAJORS" -eq 1 ]; then
+  DEST_POLYBIUS="${DEST_DIR}/MAJOR_POLYBIUS${NAME_SUFFIX}.md"
+  DEST_PLINY="${DEST_DIR}/MAJOR_PLINY${NAME_SUFFIX}.md"
+else
+  DEST_POLYBIUS="${DEST_DIR}/MAJOR_POLYBIUS.md"
+  DEST_PLINY="${DEST_DIR}/MAJOR_PLINY.md"
+fi
+if [ "$DRY_RUN" -eq 1 ]; then
+  echo "[dry-run] deploy: $SRC_POLYBIUS -> $DEST_POLYBIUS (substitute {{NAME_SUFFIX}} -> '${NAME_SUFFIX}')"
+  echo "[dry-run] deploy: $SRC_PLINY -> $DEST_PLINY (substitute {{NAME_SUFFIX}} -> '${NAME_SUFFIX}')"
+else
+  sed "s/{{NAME_SUFFIX}}/${NAME_SUFFIX}/g" "$SRC_POLYBIUS" > "$DEST_POLYBIUS"
+  sed "s/{{NAME_SUFFIX}}/${NAME_SUFFIX}/g" "$SRC_PLINY"    > "$DEST_PLINY"
+  echo "deployed: $DEST_POLYBIUS"
+  echo "deployed: $DEST_PLINY"
+fi
 
 # 3. Deploy CAPTAIN sub-agent envelopes (default on; --no-captains skips).
 if [ "$WITH_CAPTAINS" -eq 1 ]; then
@@ -336,17 +443,37 @@ if [ "$DRY_RUN" -eq 0 ]; then
       ACTIVATE_DIR="any project directory (this install is user-tier — available everywhere)"
       PASTE_PATH="<project>/HUMAN_paste-orchestrator-instruction.md (per-project, written at first use)"
       ;;
+    subproject)
+      ACTIVATE_DIR="${PARENT_DIR}/${SUBPROJECT}"
+      PASTE_PATH="${PARENT_DIR}/${SUBPROJECT}/HUMAN_paste-orchestrator-instruction.md (written by sub-project POLYBIUS at first use)"
+      ;;
   esac
 
   echo
   echo "Next steps:"
-  echo "  1. cd into the activation dir: ${ACTIVATE_DIR}"
-  echo "  2. Open Claude Code:           claude"
-  echo "  3. Say \"POLYBIUS\" or \"chief of staff\" — the chief-of-staff"
-  echo "     role file loads and walks you through onboarding."
-  echo
-  echo "After onboarding completes, MAJOR_POLYBIUS keeps the latest activation"
-  echo "paste at:"
-  echo "  ${PASTE_PATH}"
-  echo "for re-paste recovery after a /compact or /clear."
+  if [ "$TARGET" = "subproject" ]; then
+    echo "  1. cd into the sub-project dir:         ${ACTIVATE_DIR}"
+    echo "  2. Open Claude Code:                    claude"
+    echo "  3. Invoke the sub-project's POLYBIUS by name (the sub-project does not"
+    echo "     get its own CLAUDE.md, so auto-load is intentionally not wired):"
+    echo "     \"Read .claude/MAJOR_POLYBIUS${NAME_SUFFIX}.md and assume the role.\""
+    echo
+    echo "The sub-project shares the parent's git repo and bw — no bw init needed."
+    echo "Templates live at ${PARENT_DIR}/.claude/templates/ (sub-project reads"
+    echo "from there; nothing was deployed under ${DEST_DIR}/templates/)."
+    echo
+    echo "Once the sub-project's POLYBIUS is up, it will write its activation paste"
+    echo "for the sub-project's MAJOR_PLINY at:"
+    echo "  ${PASTE_PATH}"
+  else
+    echo "  1. cd into the activation dir: ${ACTIVATE_DIR}"
+    echo "  2. Open Claude Code:           claude"
+    echo "  3. Say \"POLYBIUS\" or \"chief of staff\" — the chief-of-staff"
+    echo "     role file loads and walks you through onboarding."
+    echo
+    echo "After onboarding completes, MAJOR_POLYBIUS keeps the latest activation"
+    echo "paste at:"
+    echo "  ${PASTE_PATH}"
+    echo "for re-paste recovery after a /compact or /clear."
+  fi
 fi

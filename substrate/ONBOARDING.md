@@ -7,7 +7,7 @@ Narrative walkthroughs of MAJOR_POLYBIUS conducting onboarding. Two purposes:
 
 Architecture authority: `user-beadwork/plans/three-role-recursive-architecture.md` (v2). Onboarding flow lives in spec §8; the role's responsibilities live in `MAJOR_POLYBIUS.md` §5.
 
-Four scenarios below cover the common and the load-bearing-rare paths:
+Five scenarios below cover the common and the load-bearing-rare paths:
 
 | # | Scenario | What's being tested |
 |---|---|---|
@@ -15,6 +15,7 @@ Four scenarios below cover the common and the load-bearing-rare paths:
 | 2 | Returning PRINCIPAL with prior beadwork | reading state before asking; refreshing intent |
 | 3 | PRINCIPAL who explicitly wants user-tier + project-tier | the higher-stakes consent moment; user-tier `CLAUDE.md` modification |
 | 4 | Compact-or-clear recovery — MAJOR_PLINY lost its role | the load-bearing CHIEF-OF-STAFF responsibility (`MAJOR_POLYBIUS.md` §6); on-disk-paste re-activation |
+| 5 | Sub-project spawn — design-tier sub-project under The Stoa | the recursive sub-project capability (`MAJOR_POLYBIUS.md` §10); `install.sh --target subproject`; cross-tier handoff to a different human collaborator |
 
 Each scenario shows the dialog and the file/tool actions that go with it. PRINCIPAL lines are in *italics* (and use the human's name once onboarding has learned it); POLYBIUS's lines are in plain text; tool actions are in `code blocks`.
 
@@ -363,6 +364,156 @@ End of scenario 4. POLYBIUS has:
 - Verified the on-disk paste-instruction is current (no refresh needed)
 - Directed Avery to the fastest recovery path (re-paste the one-line pointer from disk)
 - Acknowledged the surface point came from Avery rather than from POLYBIUS's own monitoring; named the discipline
+
+---
+
+## Scenario 5 — Sub-project spawn (design-tier under The Stoa)
+
+Denson is mid-arc on The Stoa with the parent project's POLYBIUS. The team has just shipped Arc 14 (sub-project spawning); the next surface coming up is a focused redesign of the roster pane — the part of The Stoa that visualizes the rank ladder. The work needs design-specific tooling (mockups, color exploration, typography), a different domain (visual design vs application code), and a designer Denson knows is willing to drive the visual pass — Reese — who has not used the substrate before.
+
+This is the spec-canonical sub-project case (planning v2 §5: design work on a specific UI component spinning up a sub-team with design-specific tools and a designer in the human-loop seat). Two trip-wires fire immediately (own tools, own human collaborator); the third (own domain) follows once Denson and POLYBIUS talk it through.
+
+**Denson:** *POLYBIUS, the roster pane needs a real design pass. I want to bring in Reese to drive it. Mockups, color study, typography study. I'd rather not mix that work into the main Stoa branch.*
+
+POLYBIUS reads the working state and identifies the trip-wires before responding.
+
+```
+$ pwd
+/home/denso/claude_projects/the-stoa
+$ git log --oneline -3
+6f97bd4 arcs: file Arc 14 build directive — sub-project spawning mechanism (final v2 arc)
+7619195 install.sh: backup existing CLAUDE.md before --modify-claude-md append
+8a2dde8 Arc 13: Vitest scaffold + stoa--b3f gen-data idempotency fix
+$ ls .claude/agents/ | head -3
+CAPTAIN_ADA_the_stoa.md
+CAPTAIN_ARGUS_the_stoa.md
+CAPTAIN_BARTLEBY_the_stoa.md
+$ bw list 2>&1 | head -5
+○ stoa--vgn  P1 [EPIC] Arc 14 — sub-project spawning mechanism (final v2 arc)
+✓ stoa--xyz  P2 Arc 13 — Vitest scaffold landed
+...
+```
+
+**POLYBIUS:** That's a sub-project signal — three of the trip-wires from §10.1 fire on this:
+
+- **Own tools.** Visual design tools (mockup software, color/typography references, design-system snippets) aren't part of The Stoa's runtime; the parent CAPTAIN roster doesn't have the right shape for a visual pass.
+- **Own domain.** Visual design vocabulary (hierarchy, contrast, rhythm, type scale) is different from the application-code conventions the parent team is tuned for; mixing them dilutes both.
+- **Own human collaborator.** Reese is the right person to drive visual decisions; routing every visual question through you would be wasteful.
+
+The substrate spawned for exactly this case. Two things to settle first:
+
+1. **Slug.** The sub-project lives at `~/claude_projects/the-stoa/<slug>/`. I'd suggest `roster-redesign` — concrete to the surface, kebab-case, agent files would suffix `_roster_redesign`. Other shapes work too (`design-pass`, `pane-redesign`, etc.). What do you want to call it?
+2. **POLYBIUS at sub-project tier.** install.sh deploys both MAJORs at sub-project tier. The sub-project's POLYBIUS is invoked by name when Reese (the sub-project's human collaborator) wants a chief-of-staff seat at sub-project tier — which I think you'll want here, since Reese is going to be conversing with the system regularly. The sub-project's MAJOR_PLINY runs the design pipeline; the sub-project's POLYBIUS runs Reese's CHIEF-OF-STAFF seat.
+
+**Denson:** *`roster-redesign` works. Yes to a separate POLYBIUS for Reese — I want her conversing with the system directly, not through me.*
+
+**POLYBIUS:** Good. Three things will happen next: (1) `install.sh --target subproject` deploys the sub-project substrate under `the-stoa/roster-redesign/`; (2) I write the sub-project's MAJOR_PLINY activation paste-instruction; (3) Reese activates the sub-project's POLYBIUS by name in her own terminal session and that POLYBIUS onboards her into the sub-project tier.
+
+Consent check before I run install.sh: the sub-project creates a real directory `roster-redesign/` inside `the-stoa/` and 12 new files under `roster-redesign/.claude/`. Those become part of the parent's git history (same repo, same `main` branch). Parent's `CLAUDE.md` is NOT touched, parent's `.claude/` is NOT touched, bw is NOT re-initialized — sub-project shares parent's bw repo (same `stoa--` prefix). OK to proceed?
+
+**Denson:** *Yes.*
+
+POLYBIUS announces the command before running it.
+
+**POLYBIUS:** I'm going to run:
+
+```
+./substrate/install.sh --target subproject \
+  --parent-dir . \
+  --subproject roster-redesign
+```
+
+That deploys `MAJOR_POLYBIUS_roster_redesign.md`, `MAJOR_PLINY_roster_redesign.md`, and 10 `CAPTAIN_*_roster_redesign.md` files under `roster-redesign/.claude/`. No CLAUDE.md modification. No template redeploy. No bw init.
+
+**Denson:** *Go ahead.*
+
+```
+$ ./substrate/install.sh --target subproject --parent-dir . --subproject roster-redesign
+agent-substrate install — plan
+  target           : subproject
+  parent dir       : .
+  subproject slug  : roster-redesign
+  destination dir  : ./roster-redesign/.claude
+  modify CLAUDE.md : no (subproject mode never modifies CLAUDE.md)
+  MAJOR files      : suffixed (MAJOR_POLYBIUS_roster_redesign.md, MAJOR_PLINY_roster_redesign.md)
+  deploy CAPTAINs  : yes (10 envelopes to ./roster-redesign/.claude/agents)
+  CAPTAIN suffix   : _roster_redesign (slug: roster_redesign)
+  deploy templates : no (subproject shares parent's at ./.claude/templates/)
+  dry-run          : no
+
+deployed: ./roster-redesign/.claude/MAJOR_POLYBIUS_roster_redesign.md
+deployed: ./roster-redesign/.claude/MAJOR_PLINY_roster_redesign.md
+deployed: ./roster-redesign/.claude/agents/CAPTAIN_DAEDALUS_roster_redesign.md
+... (10 CAPTAINs total)
+
+install.sh: done (applied)
+
+Next steps:
+  1. cd into the sub-project dir:         ./roster-redesign
+  2. Open Claude Code:                    claude
+  3. Invoke the sub-project's POLYBIUS by name (the sub-project does not
+     get its own CLAUDE.md, so auto-load is intentionally not wired):
+     "Read .claude/MAJOR_POLYBIUS_roster_redesign.md and assume the role."
+```
+
+**POLYBIUS:** Sub-project substrate deployed. Now the activation paste-instruction for the sub-project's MAJOR_PLINY. I'll fill the template with sub-project-tier slot values:
+
+- `PROJECT_NAME`: `roster-redesign` (the sub-project, not the parent)
+- `SESSION_INTENT`: `Visual design pass on The Stoa's roster pane — mockups, color study, typography study. Reese in the human-loop seat.`
+- `BW_PREFIX`: `stoa` (sub-project shares parent's bw — same prefix, same repo)
+- `ROLE_FILE_PATH`: `.claude/MAJOR_PLINY_roster_redesign.md`
+- `PENDING_DIRECTIVES`: (none yet — Reese will file the sub-project's first arc directive)
+- `ON_DISK_PATH`: `HUMAN_paste-orchestrator-instruction.md` at the sub-project's directory root
+
+Writing it to `roster-redesign/HUMAN_paste-orchestrator-instruction.md`.
+
+```
+$ cat roster-redesign/HUMAN_paste-orchestrator-instruction.md
+Read .claude/MAJOR_PLINY_roster_redesign.md and assume the orchestrator role for roster-redesign.
+
+Your immediate intent for this session: Visual design pass on The Stoa's roster pane — mockups, color study, typography study. Reese in the human-loop seat.
+
+Check beadwork (stoa-- prefix) for pending directives from MAJOR_POLYBIUS.
+
+If compaction or /clear erases your role, re-read this paste from HUMAN_paste-orchestrator-instruction.md in the project root.
+```
+
+**POLYBIUS:** Paste-instruction is on disk. The hand-off to Reese has two steps and runs in two separate terminals:
+
+1. **Reese's POLYBIUS terminal** (her chief-of-staff seat at sub-project tier). She opens a new terminal in `the-stoa/roster-redesign/`, runs `claude`, and pastes:
+
+   ```
+   Read .claude/MAJOR_POLYBIUS_roster_redesign.md and assume the role.
+   ```
+
+   The sub-project's POLYBIUS activates. It runs its §9 activation checklist against the sub-project's `.claude/`, reads the parent's bw (same repo, same `stoa--` prefix), and onboards Reese into the sub-project tier — which is a smaller version of the §5 onboarding because the substrate is already deployed and bw is already initialized. The sub-project's POLYBIUS will interview Reese for her first design intent, then write the sub-project's first arc directive into bw.
+
+2. **Reese's PLINY terminal** (sub-project orchestrator), opened by Reese after onboarding. She opens another terminal in `the-stoa/roster-redesign/`, runs `claude`, and pastes:
+
+   ```
+   Read HUMAN_paste-orchestrator-instruction.md and execute.
+   ```
+
+   The sub-project's MAJOR_PLINY activates and starts running the design pipeline against whatever first arc the sub-project's POLYBIUS filed.
+
+**POLYBIUS:** From this point I (parent POLYBIUS, your CHIEF-OF-STAFF) standby at parent tier. The asymmetric beadwork visibility (§10.3) means I can read sub-project tickets — they're tagged with the same `stoa--` prefix in the same bw repo — but the sub-project's POLYBIUS does not see parent-tier-only context by default. If you want to route a parent-tier directive into the sub-project, reference the sub-project ticket explicitly so the sub-project POLYBIUS reads it correctly.
+
+**Denson:** *Understood. I'll send Reese the activation pointer and the path. Anything else?*
+
+**POLYBIUS:** One operational note. Sub-projects live in the parent's working tree, so `roster-redesign/` and its files become part of the parent's git history. If the design-pass artifacts (mockup PNGs, color study files, etc.) shouldn't be in git, gitignore them at the sub-project level — `roster-redesign/.gitignore` is the right place. Also: when this design pass is done, you can leave the sub-project substrate in place (no harm — it'll pick up again if a future redesign happens) or remove the `roster-redesign/` directory entirely (clean removal, sub-project leaves no trace in parent's `.claude/`). Both are valid.
+
+End of scenario 5. POLYBIUS has:
+
+- Recognized three sub-project trip-wires from `MAJOR_POLYBIUS.md` §10.1 and named them explicitly
+- Walked Denson through slug naming and the POLYBIUS-at-sub-project-tier choice
+- Got per-action consent for the directory creation under the parent
+- Run `install.sh --target subproject --parent-dir . --subproject roster-redesign` (substrate deploy)
+- Written the sub-project's MAJOR_PLINY paste-instruction to `roster-redesign/HUMAN_paste-orchestrator-instruction.md`
+- Surfaced both terminal handoffs to Reese (sub-project POLYBIUS first, then sub-project MAJOR_PLINY)
+- Named the asymmetric-visibility implication for cross-tier directives
+- Flagged the gitignore consideration for design artifacts
+
+The sub-project's POLYBIUS, once activated by Reese, runs its own onboarding (smaller than §5 — substrate already deployed, bw already initialized). It interviews Reese for sub-project intent, files the sub-project's first arc directive in bw, and writes a sub-project-tier paste-instruction for the sub-project's MAJOR_PLINY. From there the sub-project pipeline runs the same gauntlet shape as parent tier — `DAEDALUS_roster_redesign → ARGUS_roster_redesign → ADA_roster_redesign → VERA_roster_redesign → CATO_roster_redesign` — with the design domain in mind.
 
 ---
 

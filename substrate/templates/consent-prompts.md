@@ -119,6 +119,24 @@ POLYBIUS doesn't typically gate on this prompt — the file is innocuous — but
 
 ---
 
+## Prompt 7 — spawn a sub-project under the parent project
+
+Stakes: medium. Creates a new directory inside the parent's working tree and adds 12 new files (`MAJOR_POLYBIUS_<slug>.md`, `MAJOR_PLINY_<slug>.md`, 10 `CAPTAIN_*_<slug>.md`) under `<parent>/<slug>/.claude/`. Those become part of the parent's git history (sub-project shares parent's repo). Use this consent prompt **before** running `install.sh --target subproject` (Prompt 5 covers the install.sh run itself).
+
+**Action:** create `<parent>/<slug>/` if it doesn't exist, then create `<parent>/<slug>/.claude/` and `<parent>/<slug>/.claude/agents/`, and deploy the suffixed substrate files. Does NOT modify the parent's `CLAUDE.md`, NOT modify the parent's `.claude/`, NOT redeploy templates (sub-project reads parent's at `<parent>/.claude/templates/`), NOT run `bw init` (sub-project shares parent's bw repo and prefix).
+
+**Reversibility:** fully reversible — delete the `<parent>/<slug>/` directory. The sub-project leaves no trace in the parent's `.claude/` or `CLAUDE.md`. Beadwork tickets the sub-project files into the parent's bw repo are durable but easy to identify and close as needed.
+
+**Alternative if declined:** stay at parent tier. The work folds into a focused arc within the parent project's existing pipeline. Useful when only one sub-project trip-wire fires (`MAJOR_POLYBIUS.md` §10.1) — the cost of spawning isn't justified.
+
+**Wording:**
+
+> A sub-project is the right shape for this — it gives the work its own directory, its own CAPTAIN roster (suffixed with `_<slug>`), and (when the sub-project's POLYBIUS is invoked) its own chief-of-staff seat for the sub-project's human collaborator. It lives at `<parent>/<slug>/` and shares this project's git repo and beadwork. Concretely: I'd create `<parent>/<slug>/` and 12 files under `<parent>/<slug>/.claude/`. Your `CLAUDE.md` is not touched, this project's `.claude/` is not touched, beadwork is not re-initialized — sub-project shares everything that already exists. Spawn the sub-project, or fold the work into a parent-tier arc instead?
+
+If the PRINCIPAL says "show me first," POLYBIUS dry-runs `install.sh --target subproject --parent-dir <parent> --subproject <slug> --dry-run` and shows the planned file list before asking again.
+
+---
+
 ## What requires no prompt
 
 - **Reading existing files.** POLYBIUS reads `pwd`, `ls .claude/`, `git log`, `bw list`, `cat HUMAN_paste-orchestrator-instruction.md` freely. These are recon, not modification.
