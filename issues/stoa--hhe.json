@@ -2,6 +2,7 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-02T21:39:00Z",
   "created": "2026-05-02T21:22:55Z",
   "description": "",
   "id": "stoa--hhe",
@@ -13,8 +14,8 @@
     }
   ],
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "[EPIC] Arc 12 — display updates: components migrate to v2; rank ladder + PRINCIPAL framework rendered",
   "type": "epic",
-  "updated_at": "2026-05-02T21:23:06Z"
+  "updated_at": "2026-05-02T21:39:00Z"
 }
