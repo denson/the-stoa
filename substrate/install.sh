@@ -212,11 +212,13 @@ case "$TARGET" in
     DEST_CLAUDE_MD="${PROJECT_DIR}/CLAUDE.md"
     DEST_AGENTS_DIR="${PROJECT_DIR}/.claude/agents"
     DEST_TEMPLATES_DIR="${PROJECT_DIR}/.claude/templates"
-    # Project slug = basename(project-dir) with hyphens and dots normalized to
-    # underscores. This becomes both the file-suffix and the {{NAME_SUFFIX}}
-    # value in CAPTAIN frontmatter so MAJOR_PLINY can dispatch by the deployed
-    # name.
-    PROJECT_SLUG="$(basename "$PROJECT_DIR" | tr '.-' '__')"
+    # Project slug = basename(resolved-absolute-path) with hyphens and dots
+    # normalized to underscores. This becomes both the file-suffix and the
+    # {{NAME_SUFFIX}} value in CAPTAIN frontmatter so MAJOR_PLINY can dispatch
+    # by the deployed name. Resolve to absolute path first so --project-dir .
+    # produces the actual containing-directory name (e.g. widget_builder)
+    # rather than an underscore (basename "." returns "."). Fixes stoa--8o4.
+    PROJECT_SLUG="$(basename "$(cd "$PROJECT_DIR" && pwd)" | tr '.-' '__')"
     NAME_SUFFIX="_${PROJECT_SLUG}"
     ;;
   subproject)
