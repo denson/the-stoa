@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-02T20:50:14Z",
+  "description": "",
+  "id": "stoa--y0w.5",
+  "labels": [],
+  "parent": "stoa--y0w",
+  "priority": 1,
+  "status": "open",
+  "title": "Generate app/src/data/generated/agents.ts (committed artifact)",
+  "type": "task",
+  "updated_at": "2026-05-02T20:50:14Z"
+}
