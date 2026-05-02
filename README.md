@@ -17,28 +17,35 @@ This repo is not the spec. It is the implementation of the spec.
 
 When a user runs the install script, this repo's contents get distributed to the appropriate tier:
 
-- **`MAJOR_POLYBIUS.md`** — Chief-of-Staff role file. The seat that converses with humans, holds durable memory via beadwork, writes instructions for the orchestrator.
+- **`MAJOR_POLYBIUS.md`** — Chief-of-Staff role file. The seat that converses with humans, holds durable memory via beadwork, writes instructions for the orchestrator. Contains the executable onboarding procedure POLYBIUS runs when first activated.
 - **`MAJOR_PLINY.md`** — Orchestrator role file. The seat that runs the team via Agent-tool dispatch.
 - **`install.sh`** — Template install script. POLYBIUS customizes the actual run-time install per user feedback.
-- **Supporting files** — anything else POLYBIUS or MAJOR_PLINY needs at runtime (skills, templates, default configs).
+- **`templates/`** — substitution-slot artifacts POLYBIUS uses during onboarding (paste-instruction template, interview questions, consent prompts).
+- **`ONBOARDING.md`** — narrative walkthrough of what onboarding looks like; doubles as a tabletop test harness for fresh POLYBIUS sessions.
+- **Supporting files** — anything else POLYBIUS or MAJOR_PLINY needs at runtime (skills, additional templates, default configs).
 
 ## Status
 
-**Arc 1 landed.** The three core deliverables are in this repo on `main`:
+**Arc 2 landed.** Onboarding flow now lives inside POLYBIUS. Deliverables on `main`:
 
-- [`MAJOR_POLYBIUS.md`](./MAJOR_POLYBIUS.md) — Chief-of-Staff role file
+- [`MAJOR_POLYBIUS.md`](./MAJOR_POLYBIUS.md) — Chief-of-Staff role file (extended in Arc 2 with the executable onboarding procedure in §4)
 - [`MAJOR_PLINY.md`](./MAJOR_PLINY.md) — Orchestrator role file
 - [`install.sh`](./install.sh) — minimal template installer
+- [`templates/paste-instruction-template.md`](./templates/paste-instruction-template.md) — MAJOR_PLINY activation template; settles spec §10 open question 1 on string-substitution as the templating mechanism
+- [`templates/onboarding-questions.md`](./templates/onboarding-questions.md) — interview floor + rationale per question
+- [`templates/consent-prompts.md`](./templates/consent-prompts.md) — wording for sensitive-action consent
+- [`ONBOARDING.md`](./ONBOARDING.md) — end-to-end narrative walkthrough across four scenarios
 
-Per the planning doc §12, work is broken into five small incremental arcs:
+Per the planning doc §12, work is broken into small incremental arcs:
 
 - **Arc 1 (done):** Core deployable — `MAJOR_POLYBIUS.md` + `MAJOR_PLINY.md` + minimal `install.sh`
-- Arc 2 (next): POLYBIUS's interactive onboarding flow
-- Arc 3: Refactor existing wrong-shape deploys in `agent-team-team` and `agent-character-builder`
-- Arc 4: Sub-project spawning mechanism
-- Arc 5: Officer rename sweep (CAPTAIN_* prefix consistency)
+- **Arc 2 (done):** POLYBIUS's interactive onboarding flow + templates + walkthrough
+- (next) CAPTAIN envelope authoring — DAEDALUS, ARGUS, ADA, VERA, CATO, BARTLEBY, STRABO, HERALD, CURATOR, CAPTAIN_PLINY. Identified in the Arc 2 directive as a separate arc; sequencing relative to the original §12 plan TBD.
+- Refactor existing wrong-shape deploys in `agent-team-team` and `agent-character-builder` (was Arc 3 in original §12)
+- Sub-project spawning mechanism (was Arc 4)
+- Officer rename sweep — `CAPTAIN_*` prefix consistency (was Arc 5)
 
-Each arc is small enough to ship cleanly. See planning doc §12 for sequencing rationale.
+Each arc is small enough to ship cleanly. See planning doc §12 for the original sequencing rationale; the Arc 2 directive flagged that arc numbering will be revisited after Arc 2 lands.
 
 ## Testing the install
 
