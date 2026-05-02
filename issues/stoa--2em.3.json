@@ -7,9 +7,15 @@
   "id": "stoa--2em.3",
   "labels": [],
   "parent": "stoa--2em",
+  "comments": [
+    {
+      "text": "PASS for new work. grep -i colonel against app/src/data/types-v2.ts: 22 matches, all deliberate (the COLONEL Rank literal, the ColonelSlot type name, JSDoc explaining the reserved-future-agent semantics + calling out v1's Colonel-as-human error). No reflexive Colonel-as-human leakage in new code. Pre-existing v1 sample.ts has three Colonel-as-human strings (L11 MAJOR_PLINY role, L91 HERALD role, L110 tier2-project-onboarding skill description) — those are v1 sample-data content debt, scoped to Arc 11 (sample.ts swap to v2 shape). Per directive Out of scope: 'Modifying existing v1 types — leave them; they're consumed by sample.ts + components which are out of scope until Arc 11/12'. Folding the sample.ts string cleanup into Arc 11 keeps Arc 9 diff scope-pure.",
+      "timestamp": "2026-05-02T20:40:02Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "grep -i colonel audit — every match must be deliberate",
   "type": "task",
-  "updated_at": "2026-05-02T20:38:11Z"
+  "updated_at": "2026-05-02T20:40:02Z"
 }
