@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-02T20:38:02Z",
+  "description": "Per substrate/arcs/arc-9-build-directive.md. Narrow scope: define v2 rank ladder + PRINCIPAL framework as additive TypeScript types in app/src/data/. No adapter (Arc 10), no sample wiring (Arc 11), no display (Arc 12), no tests (Arc 13). Existing v1 types remain untouched and consumers continue to compile.",
+  "id": "stoa--2em",
+  "labels": [],
+  "priority": 1,
+  "status": "open",
+  "title": "[EPIC] Arc 9 — v2 TypeScript types + data model",
+  "type": "epic",
+  "updated_at": "2026-05-02T20:38:02Z"
+}
