@@ -11,14 +11,15 @@
 # the TEMPLATE. MAJOR_POLYBIUS rewrites a session-specific install per user
 # conversation at deploy time. This script does only the non-conversational
 # mechanical deploy: drops the two MAJOR role files, deploys the 10 CAPTAIN
-# sub-agent envelopes (unless --no-captains), and optionally appends a
-# marker-bounded reference block to CLAUDE.md when the consent flag is set.
-# It does NOT run `bw init`, create skills, or write the paste-instruction;
-# POLYBIUS handles those interactively with the Colonel in the loop.
+# sub-agent envelopes (unless --no-captains), deploys the templates/ runtime
+# tooling (unless --no-templates), and optionally appends a marker-bounded
+# reference block to CLAUDE.md when the consent flag is set. It does NOT run
+# `bw init`, create skills, or write the paste-instruction; POLYBIUS handles
+# those interactively with the PRINCIPAL in the loop.
 #
 # Usage:
-#   ./install.sh --target user [--modify-claude-md] [--no-captains] [--dry-run]
-#   ./install.sh --target project --project-dir <path> [--modify-claude-md] [--no-captains] [--dry-run]
+#   ./install.sh --target user [--modify-claude-md] [--no-captains] [--no-templates] [--dry-run]
+#   ./install.sh --target project --project-dir <path> [--modify-claude-md] [--no-captains] [--no-templates] [--dry-run]
 #   ./install.sh --help
 #
 # Idempotency: re-running with the same flags is safe. Files are overwritten
@@ -32,6 +33,12 @@
 # accordingly; at user-tier the files are unsuffixed and {{NAME_SUFFIX}} expands
 # to empty. Pass --no-captains to skip CAPTAIN deployment.
 #
+# Templates: by default the script deploys templates/*.md from this directory to
+# <target>/.claude/templates/. These are POLYBIUS's runtime working tools
+# (paste-instruction template, onboarding-questions, consent-prompts) — shared
+# tooling, not agent-shaped, deployed unsuffixed at both tiers. Pass
+# --no-templates to skip.
+#
 # Dry-run: --dry-run prints every action without writing anything.
 
 set -euo pipefail
@@ -43,11 +50,21 @@ PROJECT_DIR=""
 MODIFY_CLAUDE_MD=0
 DRY_RUN=0
 WITH_CAPTAINS=1
+WITH_TEMPLATES=1
 
 # Source files live next to this script.
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SRC_POLYBIUS="${SCRIPT_DIR}/MAJOR_POLYBIUS.md"
 SRC_PLINY="${SCRIPT_DIR}/MAJOR_PLINY.md"
+SRC_TEMPLATES_DIR="${SCRIPT_DIR}/templates"
+
+# Template filenames POLYBIUS uses at runtime. Shared tooling — deployed
+# unsuffixed at both user-tier and project-tier.
+TEMPLATE_NAMES=(
+  paste-instruction-template.md
+  onboarding-questions.md
+  consent-prompts.md
+)
 
 # The 10 CAPTAIN envelope source files. Order is the gauntlet pipeline order
 # (DAEDALUS through CATO) followed by the support seats; ordering only affects
@@ -125,6 +142,10 @@ while [ "$#" -gt 0 ]; do
       WITH_CAPTAINS=0
       shift
       ;;
+    --no-templates)
+      WITH_TEMPLATES=0
+      shift
+      ;;
     -h|--help)
       usage 0
       ;;
@@ -143,6 +164,7 @@ case "$TARGET" in
     DEST_DIR="${HOME}/.claude"
     DEST_CLAUDE_MD="${HOME}/.claude/CLAUDE.md"
     DEST_AGENTS_DIR="${HOME}/.claude/agents"
+    DEST_TEMPLATES_DIR="${HOME}/.claude/templates"
     PROJECT_SLUG=""
     NAME_SUFFIX=""
     ;;
@@ -152,6 +174,7 @@ case "$TARGET" in
     DEST_DIR="${PROJECT_DIR}/.claude"
     DEST_CLAUDE_MD="${PROJECT_DIR}/CLAUDE.md"
     DEST_AGENTS_DIR="${PROJECT_DIR}/.claude/agents"
+    DEST_TEMPLATES_DIR="${PROJECT_DIR}/.claude/templates"
     # Project slug = basename(project-dir) with hyphens and dots normalized to
     # underscores. This becomes both the file-suffix and the {{NAME_SUFFIX}}
     # value in CAPTAIN frontmatter so MAJOR_PLINY can dispatch by the deployed
@@ -173,6 +196,13 @@ if [ "$WITH_CAPTAINS" -eq 1 ]; then
   done
 fi
 
+if [ "$WITH_TEMPLATES" -eq 1 ]; then
+  [ -d "$SRC_TEMPLATES_DIR" ] || err "source templates directory not found: $SRC_TEMPLATES_DIR"
+  for tname in "${TEMPLATE_NAMES[@]}"; do
+    [ -f "${SRC_TEMPLATES_DIR}/${tname}" ] || err "source file not found: ${SRC_TEMPLATES_DIR}/${tname}"
+  done
+fi
+
 # ----- plan ------------------------------------------------------------------
 
 echo "agent-substrate install — plan"
@@ -183,6 +213,7 @@ echo "  deploy CAPTAINs  : $([ "$WITH_CAPTAINS" -eq 1 ] && echo "yes (10 envelop
 if [ "$WITH_CAPTAINS" -eq 1 ] && [ -n "$NAME_SUFFIX" ]; then
   echo "  CAPTAIN suffix   : ${NAME_SUFFIX} (project slug: ${PROJECT_SLUG})"
 fi
+echo "  deploy templates : $([ "$WITH_TEMPLATES" -eq 1 ] && echo "yes (${#TEMPLATE_NAMES[@]} files to ${DEST_TEMPLATES_DIR})" || echo "no (--no-templates)")"
 echo "  dry-run          : $([ "$DRY_RUN" -eq 1 ] && echo "yes" || echo "no")"
 echo
 
@@ -225,7 +256,28 @@ else
   log "CAPTAIN deployment skipped (--no-captains)"
 fi
 
-# 4. Optionally append reference to CLAUDE.md (informed consent required).
+# 4. Deploy templates/ runtime tooling (default on; --no-templates skips).
+# Templates are POLYBIUS's working tools — paste-instruction template,
+# onboarding-questions, consent-prompts. Deployed unsuffixed at both tiers
+# (they're shared tooling, not agent-shaped). Re-deploys overwrite in place,
+# which is idempotent for unchanged source.
+if [ "$WITH_TEMPLATES" -eq 1 ]; then
+  if [ ! -d "$DEST_TEMPLATES_DIR" ]; then
+    run_or_print "mkdir -p \"$DEST_TEMPLATES_DIR\""
+  else
+    log "templates directory already exists: $DEST_TEMPLATES_DIR"
+  fi
+
+  for tname in "${TEMPLATE_NAMES[@]}"; do
+    src="${SRC_TEMPLATES_DIR}/${tname}"
+    dest="${DEST_TEMPLATES_DIR}/${tname}"
+    run_or_print "cp \"$src\" \"$dest\""
+  done
+else
+  log "templates deployment skipped (--no-templates)"
+fi
+
+# 5. Optionally append reference to CLAUDE.md (informed consent required).
 if [ "$MODIFY_CLAUDE_MD" -eq 1 ]; then
   if [ -f "$DEST_CLAUDE_MD" ] && grep -Fq "$CLAUDE_MD_MARKER" "$DEST_CLAUDE_MD" 2>/dev/null; then
     log "CLAUDE.md already references POLYBIUS — skipping append (idempotent)"
@@ -252,3 +304,32 @@ fi
 
 echo
 echo "install.sh: done ($([ "$DRY_RUN" -eq 1 ] && echo "dry-run, no writes" || echo "applied"))"
+
+# 6. Next-step guidance on a real (non-dry-run) install. Tells the human what
+# they actually do next, so they aren't left staring at a "done" line wondering
+# how to activate the substrate. Suppressed in dry-run because nothing was
+# actually deployed.
+if [ "$DRY_RUN" -eq 0 ]; then
+  case "$TARGET" in
+    project)
+      ACTIVATE_DIR="$PROJECT_DIR"
+      PASTE_PATH="${PROJECT_DIR}/HUMAN_paste-orchestrator-instruction.md"
+      ;;
+    user)
+      ACTIVATE_DIR="any project directory (this install is user-tier — available everywhere)"
+      PASTE_PATH="<project>/HUMAN_paste-orchestrator-instruction.md (per-project, written at first use)"
+      ;;
+  esac
+
+  echo
+  echo "Next steps:"
+  echo "  1. cd into the activation dir: ${ACTIVATE_DIR}"
+  echo "  2. Open Claude Code:           claude"
+  echo "  3. Say \"POLYBIUS\" or \"chief of staff\" — the chief-of-staff"
+  echo "     role file loads and walks you through onboarding."
+  echo
+  echo "After onboarding completes, MAJOR_POLYBIUS keeps the latest activation"
+  echo "paste at:"
+  echo "  ${PASTE_PATH}"
+  echo "for re-paste recovery after a /compact or /clear."
+fi

@@ -26,13 +26,13 @@ When a user runs the install script, this repo's contents get distributed to the
 
 ## Status
 
-**Arc 6 landed — substrate redesign from v2 complete.** `ONBOARDING.md` and the three `templates/*.md` files have been re-authored against the v2 architecture spec, completing the substrate-redesign-from-v2 sequence (Arcs 4–6). Combined with Arc 4 (MAJOR role files) and Arc 5 (the 10 CAPTAIN envelopes), the entire deployable substrate — role files, sub-agent envelopes, onboarding flow, and templates — now uses **PRINCIPAL** for the human's descriptive role and reserves **COLONEL** for a future high-autonomy agent rank. The terminology debt v1 carried (using "Colonel" as the human's title) is fully retired across the canonical substrate. The empirical signal that motivated v2 is captured in user-beadwork `u--7yg.20`. v1 versions of all re-authored files are preserved for reference at [`v1-historical/`](./v1-historical/).
+**Arc 7 landed — `install.sh` improvements.** The deployable now ships templates alongside role files (`templates/*.md` → `<target>/.claude/templates/`), prints next-step guidance after a successful install (so the human isn't left staring at a "done" line wondering how to activate), documents Windows-bash portability for PowerShell users, and retires the last reflexive "Colonel" reference from the install script (resolves `as--meq`). Combined with Arcs 4–6 (substrate redesign from v2), the substrate is now both v2-aligned in voice and end-to-end deployable: role files + 10 CAPTAIN envelopes + 3 runtime templates land in one mechanical step, and the human gets clear pointers for what to do next. v1 versions of all re-authored files remain preserved at [`v1-historical/`](./v1-historical/) for reference.
 
 Deliverables on `main`:
 
 - [`MAJOR_POLYBIUS.md`](./MAJOR_POLYBIUS.md) — Chief-of-Staff role file (re-authored Arc 4 against v2; supersedes [Arc 1 + Arc 2 v1 version](./v1-historical/MAJOR_POLYBIUS.md))
 - [`MAJOR_PLINY.md`](./MAJOR_PLINY.md) — Orchestrator role file (re-authored Arc 4 against v2; supersedes [Arc 1 v1 version](./v1-historical/MAJOR_PLINY.md))
-- [`install.sh`](./install.sh) — template installer (Arc 1; extended in Arc 3 to deploy CAPTAIN envelopes via `{{NAME_SUFFIX}}` substitution)
+- [`install.sh`](./install.sh) — template installer (Arc 1; extended in Arc 3 to deploy CAPTAIN envelopes via `{{NAME_SUFFIX}}` substitution; extended again in Arc 7 to deploy `templates/`, print next-step guidance, document Windows portability, and retire residual v1 voice)
 - [`templates/paste-instruction-template.md`](./templates/paste-instruction-template.md) — MAJOR_PLINY activation template (re-authored Arc 6 against v2; supersedes [Arc 2 v1 version](./v1-historical/templates/paste-instruction-template.md); string-substitution mechanism settled in spec §8)
 - [`templates/onboarding-questions.md`](./templates/onboarding-questions.md) — interview floor + rationale (re-authored Arc 6 against v2; supersedes [Arc 2 v1 version](./v1-historical/templates/onboarding-questions.md))
 - [`templates/consent-prompts.md`](./templates/consent-prompts.md) — wording for sensitive-action consent (re-authored Arc 6 against v2; supersedes [Arc 2 v1 version](./v1-historical/templates/consent-prompts.md))
@@ -47,8 +47,8 @@ The post-v2 arc sequence (per architecture spec §14):
 - **Arc 4 (done, v2):** Re-author `MAJOR_POLYBIUS.md` + `MAJOR_PLINY.md` from v2 spec; PRINCIPAL/HUMAN voice throughout
 - **Arc 5 (done, v2):** Re-author the 10 CAPTAIN envelopes from v2 spec; rank-table headers, spec-authority pointers, PRINCIPAL/HUMAN voice grounded throughout; structural tool restrictions per spec §9 (ARGUS / CATO no `Write`/`Edit`; BARTLEBY / HERALD / CAPTAIN_PLINY no `WebSearch`/`WebFetch`; CAPTAIN_PLINY also no `Write`/`Edit`)
 - **Arc 6 (done, v2):** Re-author `ONBOARDING.md` + 3 `templates/*.md` files from v2 spec; PRINCIPAL/HUMAN voice grounded throughout including dialogue; substitution slots and consent-prompt structure preserved; v1 versions archived under `v1-historical/`. Substrate-redesign-from-v2 (Arcs 4–6) complete.
-- (next) **Arc 7:** `install.sh` improvements (Windows portability, deploy `templates/`, next-step guidance after install)
-- **Arc 8:** Refactor existing wrong-shape deploys in `agent-team-team` and `agent-character-builder`
+- **Arc 7 (done):** `install.sh` improvements — `templates/` deployment alongside role files (default on; `--no-templates` opts out), next-step guidance printed on successful install (suppressed in `--dry-run`), Windows-bash portability documented in this README, and the residual `Colonel` reference at install.sh:17 retired (resolves `as--meq`).
+- (next) **Arc 8:** Refactor existing wrong-shape deploys in `agent-team-team` and `agent-character-builder`
 - **Arc 9:** The Stoa data-model + display alignment (in `agent-character-builder`)
 - **Arc 10:** Sub-project spawning mechanism
 
@@ -79,41 +79,73 @@ Note on naming: CAPTAIN_PLINY shares a mnemonic with MAJOR_PLINY by design — t
 - At user-tier: `~/.claude/agents/CAPTAIN_<MNEMONIC>.md`, with `{{NAME_SUFFIX}}` substituted with empty string.
 - `--no-captains` skips deployment (POLYBIUS may want to deploy CAPTAINs interactively in some onboarding flows).
 
+It also deploys POLYBIUS's runtime templates:
+
+- The three files under [`templates/`](./templates/) (`paste-instruction-template.md`, `onboarding-questions.md`, `consent-prompts.md`) land at `<target>/.claude/templates/<filename>`. Unsuffixed at both tiers — they are shared tooling, not agent-shaped.
+- `--no-templates` skips this step (default: deploy).
+
 ## Testing the install
 
 `install.sh` is the template POLYBIUS customizes per session at deploy time; it does only the non-conversational mechanical deploy. To exercise it manually on a throwaway directory before any real install:
 
 ```bash
-# 1. Show usage
+# 1. Show usage (includes --no-captains, --no-templates, --modify-claude-md, --dry-run)
 ./install.sh --help
 
-# 2. Dry-run against a throwaway project directory (no writes)
+# 2. Dry-run against a throwaway project directory (no writes; suppresses
+#    next-step guidance because nothing was actually deployed)
 TMP=$(mktemp -d)
 ./install.sh --target project --project-dir "$TMP" --modify-claude-md --dry-run
 
-# 3. Real install into the throwaway directory
+# 3. Real install into the throwaway directory; prints next-step guidance
+#    after the "done" line.
 ./install.sh --target project --project-dir "$TMP" --modify-claude-md
-ls "$TMP/.claude/"           # MAJOR_POLYBIUS.md, MAJOR_PLINY.md, agents/
+ls "$TMP/.claude/"           # MAJOR_POLYBIUS.md, MAJOR_PLINY.md, agents/, templates/
 ls "$TMP/.claude/agents/"    # 10 CAPTAIN_*_<slug>.md files
+ls "$TMP/.claude/templates/" # paste-instruction-template.md, onboarding-questions.md, consent-prompts.md
 cat "$TMP/CLAUDE.md"         # POLYBIUS reference appended
 
 # 4. Verify CAPTAIN frontmatter substitution worked
 head -3 "$TMP/.claude/agents/CAPTAIN_DAEDALUS_$(basename $TMP | tr '.-' '__').md"
 # expected: name: CAPTAIN_DAEDALUS_<slug>
 
-# 5. Idempotency check — running again is a no-op for the CLAUDE.md append
+# 5. Idempotency check — running again is a no-op for the CLAUDE.md append,
+#    re-overwrites templates/agents in place (no duplicates), still prints
+#    next-step guidance.
 ./install.sh --target project --project-dir "$TMP" --modify-claude-md
-cat "$TMP/CLAUDE.md"         # unchanged (marker check skipped the append)
+cat "$TMP/CLAUDE.md"               # unchanged (marker check skipped the append)
 ls "$TMP/.claude/agents/" | wc -l  # still 10
+ls "$TMP/.claude/templates/" | wc -l  # still 3
 
 # 6. Skip CAPTAIN deployment if needed
 ./install.sh --target project --project-dir "$TMP" --no-captains --dry-run
 
-# 7. Clean up
+# 7. Skip templates deployment if needed
+./install.sh --target project --project-dir "$TMP" --no-templates --dry-run
+
+# 8. Clean up
 rm -rf "$TMP"
 ```
 
-User-tier installs target `~/.claude/` and deploy CAPTAINs as `CAPTAIN_*.md` (unsuffixed). The `--modify-claude-md` flag is opt-in; without it, the script drops the role files but leaves `CLAUDE.md` untouched. The `--no-captains` flag opts out of CAPTAIN deployment.
+User-tier installs target `~/.claude/` and deploy CAPTAINs as `CAPTAIN_*.md` (unsuffixed) and templates as `~/.claude/templates/<filename>`. The `--modify-claude-md` flag is opt-in; without it, the script drops the role files but leaves `CLAUDE.md` untouched. The `--no-captains` and `--no-templates` flags opt out of those respective steps.
+
+### Windows-bash portability
+
+`install.sh` is a Bash script. On Windows, run it from a real Bash environment — Git Bash works out of the box. Two ways to invoke it:
+
+**Git Bash (recommended).** Open Git Bash, `cd` to the repo, and run as on any Unix shell:
+
+```bash
+./install.sh --target project --project-dir "$(pwd)" --modify-claude-md
+```
+
+**PowerShell.** PowerShell's bare `bash` may resolve to the WSL relay, which fails when no WSL distro is installed. Invoke Git Bash explicitly to bypass that path:
+
+```powershell
+& "C:\Program Files\Git\bin\bash.exe" install.sh --target project --project-dir "$PWD" --modify-claude-md
+```
+
+Both invocations produce identical results — the script is the same; only the shell that hosts it differs.
 
 ## Repo conventions
 
