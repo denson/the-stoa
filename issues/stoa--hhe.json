@@ -6,9 +6,15 @@
   "description": "",
   "id": "stoa--hhe",
   "labels": [],
+  "comments": [
+    {
+      "text": "Phase A surfaced and approved (chat, 2026-05-02):\n\n1. **Description field** — option (b): body-first-paragraph synthesis stays canonical; lift deriveRoleSummary from sample.ts:74 to app/src/data/derive.ts. No back-edits to types-v2 / gen-data.\n2. **COLONEL slot UX** — dimmed card, label \"Reserved for future agent rank — no current inhabitants\", one-sentence tooltip distinguishing PRINCIPAL (human) vs COLONEL (agent rank). Visible by default.\n3. **Human-name source** — hardcode \"Denson\" in App.tsx with a code comment pointing at the git-config swap-out path.\n\nProceeding Phases B–F autonomously per u--7yg.11. Smoke gates the ship; acb-001/008/009 must continue functioning.",
+      "timestamp": "2026-05-02T21:23:06Z"
+    }
+  ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 12 — display updates: components migrate to v2; rank ladder + PRINCIPAL framework rendered",
   "type": "epic",
-  "updated_at": "2026-05-02T21:22:55Z"
+  "updated_at": "2026-05-02T21:23:06Z"
 }
