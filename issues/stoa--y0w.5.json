@@ -2,14 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-02T20:55:33Z",
   "created": "2026-05-02T20:50:14Z",
   "description": "",
   "id": "stoa--y0w.5",
   "labels": [],
   "parent": "stoa--y0w",
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "Generate app/src/data/generated/agents.ts (committed artifact)",
   "type": "task",
-  "updated_at": "2026-05-02T20:50:14Z"
+  "updated_at": "2026-05-02T20:55:33Z"
 }
