@@ -2,14 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-02T21:07:03Z",
   "created": "2026-05-02T21:03:41Z",
   "description": "",
   "id": "stoa--hi5.3",
   "labels": [],
   "parent": "stoa--hi5",
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "Voice grep audit + close stoa--ggy",
   "type": "task",
-  "updated_at": "2026-05-02T21:03:41Z"
+  "updated_at": "2026-05-02T21:07:03Z"
 }
