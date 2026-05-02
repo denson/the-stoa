@@ -1,4 +1,8 @@
-# agent-substrate
+# substrate
+
+> **Note:** This was the standalone `agent-substrate` repo. As of 2026-05-02 (Arc Z) it lives as the `substrate/` subtree of [the-stoa](https://github.com/denson/the-stoa). See the [top-level README](../README.md) for the unified-repo overview. The content below describes the deployable itself and is otherwise unchanged.
+
+---
 
 The deployable substrate for the three-role recursive agent architecture. Contains the role files (`MAJOR_POLYBIUS.md`, `MAJOR_PLINY.md`), the install script, and supporting deliverables that get deployed to user-tier and project-tier directories.
 

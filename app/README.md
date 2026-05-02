@@ -1,10 +1,14 @@
-# The Stoa: agent-character-builder
+# The Stoa
 
 > *Where teams of AI agents are designed, not assembled.*
 
+> **Note:** This was the standalone `agent-character-builder` repo. As of 2026-05-02 (Arc Z) it lives as the `app/` subtree of [the-stoa](https://github.com/denson/the-stoa) — colocated with the canonical substrate it edits. See the [top-level README](../README.md) for the unified-repo overview. The content below is otherwise the original app README; the Quickstart `git clone` line is updated for the new repo.
+
+---
+
 A web app for browsing, composing, and authoring AI agent teams. Building agents *with* character — distinct roles, personalities, disciplines — not stupid robots.
 
-The data layer is [agent-team-team](https://github.com/denson/agent-team-team) (JSON metadata + markdown bodies). This app is the visual + interactive layer on top.
+The data layer (post-Arc-10) reads the canonical substrate from `../substrate/`; v0.1 still uses an inline sample dataset.
 
 ## Status
 
@@ -13,8 +17,8 @@ The data layer is [agent-team-team](https://github.com/denson/agent-team-team) (
 ## Quickstart
 
 ```bash
-git clone https://github.com/denson/agent-character-builder
-cd agent-character-builder
+git clone https://github.com/denson/the-stoa
+cd the-stoa/app
 npm install
 npm run dev
 ```
