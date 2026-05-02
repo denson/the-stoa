@@ -6,9 +6,15 @@
   "description": "",
   "id": "stoa--0zo",
   "labels": [],
+  "comments": [
+    {
+      "text": "Shipped in 2415972. Three components (AgentDetail h1, AgentCard, CommandPalette result row) now render agent.mnemonic instead of agentSlug. URL routes / testids / body-source path retain rank-prefixed slug. TypeScript clean, dev server starts on :5182.",
+      "timestamp": "2026-05-02T22:09:13Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "Fix agent display name to use mnemonic only (rank pill already conveys rank)",
   "type": "bug",
-  "updated_at": "2026-05-02T22:06:30Z"
+  "updated_at": "2026-05-02T22:09:13Z"
 }
