@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-02T22:15:03Z",
+  "description": "",
+  "id": "stoa--jdj.4",
+  "labels": [],
+  "parent": "stoa--jdj",
+  "priority": 1,
+  "status": "open",
+  "title": "Arc 13: author generated agents.ts shape-invariant test",
+  "type": "task",
+  "updated_at": "2026-05-02T22:15:03Z"
+}
