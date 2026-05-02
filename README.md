@@ -26,27 +26,33 @@ When a user runs the install script, this repo's contents get distributed to the
 
 ## Status
 
-**Arc 3 landed.** The 10 CAPTAIN envelopes ship with the substrate; `install.sh` deploys them. Deliverables on `main`:
+**Arc 4 landed.** The MAJOR role files have been re-authored against the v2 architecture spec. v2 corrects v1's terminology debt (which used "Colonel" as the title for the human served by the system); the canonical role files now use **PRINCIPAL** for the human's descriptive role and reserve **COLONEL** for a future high-autonomy agent rank. The empirical signal that motivated v2 is captured in user-beadwork `u--7yg.20`. v1 role files are preserved for reference at [`v1-historical/`](./v1-historical/).
 
-- [`MAJOR_POLYBIUS.md`](./MAJOR_POLYBIUS.md) — Chief-of-Staff role file (Arc 1; extended in Arc 2 with the executable onboarding procedure in §4)
-- [`MAJOR_PLINY.md`](./MAJOR_PLINY.md) — Orchestrator role file (Arc 1)
+Deliverables on `main`:
+
+- [`MAJOR_POLYBIUS.md`](./MAJOR_POLYBIUS.md) — Chief-of-Staff role file (re-authored Arc 4 against v2; supersedes [Arc 1 + Arc 2 v1 version](./v1-historical/MAJOR_POLYBIUS.md))
+- [`MAJOR_PLINY.md`](./MAJOR_PLINY.md) — Orchestrator role file (re-authored Arc 4 against v2; supersedes [Arc 1 v1 version](./v1-historical/MAJOR_PLINY.md))
 - [`install.sh`](./install.sh) — template installer (Arc 1; extended in Arc 3 to deploy CAPTAIN envelopes via `{{NAME_SUFFIX}}` substitution)
 - [`templates/paste-instruction-template.md`](./templates/paste-instruction-template.md) — MAJOR_PLINY activation template (Arc 2; settles spec §10 open question 1 on string-substitution)
 - [`templates/onboarding-questions.md`](./templates/onboarding-questions.md) — interview floor + rationale (Arc 2)
 - [`templates/consent-prompts.md`](./templates/consent-prompts.md) — wording for sensitive-action consent (Arc 2)
 - [`ONBOARDING.md`](./ONBOARDING.md) — end-to-end narrative walkthrough across four scenarios (Arc 2)
-- The 10 CAPTAIN envelopes (Arc 3) — see roster below
+- The 10 CAPTAIN envelopes (Arc 3) — see roster below; **note: still v1-shape, scheduled for re-authoring in Arc 5**
 
-Per the planning doc §12, work is broken into small incremental arcs:
+The post-v2 arc sequence (per architecture spec §14):
 
-- **Arc 1 (done):** Core deployable — `MAJOR_POLYBIUS.md` + `MAJOR_PLINY.md` + minimal `install.sh`
-- **Arc 2 (done):** POLYBIUS's interactive onboarding flow + templates + walkthrough
-- **Arc 3 (done):** 10 CAPTAIN envelopes + `install.sh` extension to deploy them
-- (next) Refactor existing wrong-shape deploys in `agent-team-team` and `agent-character-builder` (was Arc 3 in original §12)
-- Sub-project spawning mechanism (was Arc 4)
-- Officer body refresh — role-name reassignments and rank prefix consistency in existing project deploys (was Arc 5)
+- **Arc 1 (done, v1):** Core deployable — `MAJOR_POLYBIUS.md` + `MAJOR_PLINY.md` + minimal `install.sh`
+- **Arc 2 (done, v1):** POLYBIUS's interactive onboarding flow + templates + walkthrough
+- **Arc 3 (done, v1):** 10 CAPTAIN envelopes + `install.sh` extension to deploy them
+- **Arc 4 (done, v2):** Re-author `MAJOR_POLYBIUS.md` + `MAJOR_PLINY.md` from v2 spec; PRINCIPAL/HUMAN voice throughout
+- (next) **Arc 5:** Re-author the 10 CAPTAIN envelopes from v2 spec
+- **Arc 6:** Update Arc directives, ONBOARDING.md, templates/ from v2
+- **Arc 7:** `install.sh` improvements (Windows portability, deploy `templates/`, next-step guidance after install)
+- **Arc 8:** Refactor existing wrong-shape deploys in `agent-team-team` and `agent-character-builder`
+- **Arc 9:** The Stoa data-model + display alignment (in `agent-character-builder`)
+- **Arc 10:** Sub-project spawning mechanism
 
-Each arc is small enough to ship cleanly. See planning doc §12 for the original sequencing rationale; arc numbering was revisited after Arc 2 to insert CAPTAIN envelope authoring before the project-deploy refactors.
+Each arc is small enough to ship cleanly. See architecture spec §14 for full sequencing rationale.
 
 ## The 10 CAPTAIN roster
 
