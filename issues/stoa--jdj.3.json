@@ -2,14 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-02T22:22:15Z",
   "created": "2026-05-02T22:15:03Z",
   "description": "",
   "id": "stoa--jdj.3",
   "labels": [],
   "parent": "stoa--jdj",
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "Arc 13: author derive.ts tests",
   "type": "task",
-  "updated_at": "2026-05-02T22:15:03Z"
+  "updated_at": "2026-05-02T22:22:15Z"
 }
