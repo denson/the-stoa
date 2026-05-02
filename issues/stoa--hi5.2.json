@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-02T21:03:41Z",
+  "description": "",
+  "id": "stoa--hi5.2",
+  "labels": [],
+  "parent": "stoa--hi5",
+  "priority": 1,
+  "status": "open",
+  "title": "Verify build/dev/browse pass with v2-sourced officers",
+  "type": "task",
+  "updated_at": "2026-05-02T21:03:41Z"
+}
