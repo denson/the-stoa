@@ -2,6 +2,7 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-02T20:40:02Z",
   "created": "2026-05-02T20:38:11Z",
   "description": "After Arc 9 work: grep -ri colonel against app/src/data/. Every match must be deliberate (the COLONEL Rank literal, ColonelSlot type, JSDoc explaining the reserved-rank semantics). No reflexive Colonel-as-human leakage.",
   "id": "stoa--2em.3",
@@ -14,7 +15,7 @@
     }
   ],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "grep -i colonel audit — every match must be deliberate",
   "type": "task",
   "updated_at": "2026-05-02T20:40:02Z"
