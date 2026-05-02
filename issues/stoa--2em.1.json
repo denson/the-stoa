@@ -7,9 +7,15 @@
   "id": "stoa--2em.1",
   "labels": [],
   "parent": "stoa--2em",
+  "comments": [
+    {
+      "text": "Done. types-v2.ts written at app/src/data/types-v2.ts. Encodes: Rank (HUMAN | COLONEL | MAJOR | CAPTAIN | LIEUTENANT), AgentRank (Exclude\u003cRank,'HUMAN'\u003e), Agent, Human (descriptiveRole hardcoded 'PRINCIPAL'), RankSlot, HumanSlot, ColonelSlot (agents: readonly [] — type-level reserved-empty), AgentSlot, RosterSlot (discriminated union), StoaDataV2. JSDoc on every type. Additive — v1 types in ./types.ts untouched.",
+      "timestamp": "2026-05-02T20:39:51Z"
+    }
+  ],
   "priority": 1,
   "status": "in_progress",
   "title": "Add app/src/data/types-v2.ts with v2 rank ladder + PRINCIPAL framework",
   "type": "task",
-  "updated_at": "2026-05-02T20:38:14Z"
+  "updated_at": "2026-05-02T20:39:51Z"
 }
