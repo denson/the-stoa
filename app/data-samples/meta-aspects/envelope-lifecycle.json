@@ -1,0 +1,9 @@
+{
+  "name": "envelope-lifecycle",
+  "title": "Three-layer model + envelope-gap rule",
+  "summary": "The envelope/letter/skill three-layer model. Every agent's envelope at ./claude/agents/<NAME>.md defines its tools; the envelope-gap rule: if the brief asks for work the envelope can't fulfill, return the gap flag rather than improvising.",
+  "audience": [
+    "all"
+  ],
+  "body_path": "definitions/bodies/meta-envelope-lifecycle.md"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "inter-agent-comms",
+  "title": "bw beadwork as message bus + async re-check + three-channel rules",
+  "summary": "How agents communicate: bw is the durable message bus; async re-check at gates; three channels (verdicts on own ticket, breadcrumbs anywhere, requests through PLINY); sub-team packaging-up pattern.",
+  "audience": [
+    "all"
+  ],
+  "body_path": "definitions/bodies/meta-inter-agent-comms.md"
+}

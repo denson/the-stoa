@@ -1,0 +1,20 @@
+{
+  "name": "HERALD",
+  "archetype": "intake-archetype",
+  "rank": "lieutenant",
+  "nickname": "Herald",
+  "role_summary": "Intake lieutenant; turns Colonel requests into structured briefs + bw tickets.",
+  "body_path": "definitions/bodies/herald.md",
+  "tools": [
+    "Bash",
+    "Read",
+    "Write",
+    "Grep",
+    "Glob",
+    "TodoWrite"
+  ],
+  "callable_lieutenants": [],
+  "required_reading": [],
+  "consult_on_demand": [],
+  "model_tier": "opus"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "SCOUT",
+  "archetype": "scout-archetype",
+  "rank": "lieutenant",
+  "nickname": "Scout",
+  "role_summary": "Codebase recon lieutenant; focused searches when an officer needs repo-local facts.",
+  "body_path": "definitions/bodies/scout.md",
+  "tools": [
+    "Bash",
+    "Read",
+    "Grep",
+    "Glob",
+    "TodoWrite"
+  ],
+  "callable_lieutenants": [],
+  "required_reading": [],
+  "consult_on_demand": [],
+  "model_tier": "opus"
+}

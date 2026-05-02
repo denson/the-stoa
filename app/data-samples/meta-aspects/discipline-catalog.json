@@ -1,0 +1,9 @@
+{
+  "name": "discipline-catalog",
+  "title": "Canonical T/P/X/M discipline index",
+  "summary": "Index of all team disciplines. T = team-internal, P = pair-programmer, X = cross-cutting, M = meta-install.",
+  "audience": [
+    "all"
+  ],
+  "body_path": "definitions/bodies/meta-discipline-catalog.md"
+}

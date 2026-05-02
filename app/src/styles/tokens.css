@@ -1,0 +1,271 @@
+/* =========================================================
+   The Stoa — Design Tokens
+   Modern dev-tool aesthetic with classical restraint.
+   Light + dark mode; both first-class.
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
+
+/* ---- Fonts (Google Fonts substitution; see README) ---- */
+:root {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-serif: "Cormorant Garamond", "Iowan Old Style", Georgia, serif; /* sparingly, for editorial flourishes only */
+}
+
+/* =========================================================
+   COLOR — light mode (default)
+   Warm-paper neutrals + a single calm accent.
+   ========================================================= */
+:root {
+  /* Surfaces */
+  --bg-app:        #FAF9F6;   /* near-white, warm — "papyrus" */
+  --bg-surface:    #FFFFFF;   /* card */
+  --bg-sunken:     #F2F0EB;   /* sidebar / inset */
+  --bg-inset:      #ECE9E1;   /* secondary inset, code blocks */
+
+  /* Text */
+  --fg-1: #1B1A17;   /* primary text */
+  --fg-2: #45433E;   /* secondary text */
+  --fg-3: #76736B;   /* tertiary, captions, metadata */
+  --fg-4: #A6A39B;   /* placeholder, disabled */
+  --fg-on-accent: #FFFFFF;
+
+  /* Borders / dividers */
+  --border-1: #E4E1D8;   /* default */
+  --border-2: #D4D0C5;   /* stronger */
+  --border-3: #BFBAAD;   /* focus rings, prominent */
+
+  /* Accent — "ink-blue", calm and editorial */
+  --accent:        #2B4A7F;
+  --accent-hover:  #233C68;
+  --accent-press:  #1B2F52;
+  --accent-soft:   #E6EBF3;
+  --accent-soft-2: #D2DBE9;
+  --accent-soft-border: #B7C5DA;   /* skill-chip border (cool-blue accent family) */
+
+  /* Rank coding — bronze / silver / gold; subtle, not loud */
+  --rank-major:      #8A6B2C;   /* gold-ink */
+  --rank-major-bg:   #F5EBD3;
+  --rank-major-border: #E5D6A8;
+  --rank-captain:    #5C5F66;   /* silver-ink */
+  --rank-captain-bg: #ECEDEF;
+  --rank-captain-border: #D9DBDF;
+  --rank-lieutenant: #8A4A2C;   /* bronze-ink */
+  --rank-lieutenant-bg: #F2E2D5;
+  --rank-lieutenant-border: #E5C9B3;
+
+  /* Archetype hints — low-contrast tints */
+  --arch-orchestrator: #5B4D86;
+  --arch-architect:    #2E6E63;
+  --arch-verifier:     #785637;
+  --arch-executor:     #4A6E2E;
+  --arch-reviewer:     #6E2E4A;
+  --arch-critic:       #6E4A2E;
+  --arch-researcher:   #2E4A6E;
+  --arch-curator:      #4A2E6E;
+  --arch-intake:       #6E6E2E;
+  --arch-scout:        #2E6E4A;
+
+  /* Semantic */
+  --success:    #2F6B43;
+  --success-bg: #E2EEE5;
+  --warning:    #946322;
+  --warning-bg: #F5E8D1;
+  --danger:     #9B3A3A;
+  --danger-bg:  #F2DDDD;
+  --info:       #2B4A7F;
+  --info-bg:    #E6EBF3;
+
+  /* Shadows — soft and minimal; dev-tool, not dramatic */
+  --shadow-1: 0 1px 2px rgba(20, 18, 12, 0.04), 0 1px 1px rgba(20, 18, 12, 0.03);
+  --shadow-2: 0 2px 4px rgba(20, 18, 12, 0.05), 0 4px 8px rgba(20, 18, 12, 0.04);
+  --shadow-3: 0 4px 12px rgba(20, 18, 12, 0.07), 0 12px 32px rgba(20, 18, 12, 0.05);
+  --shadow-focus: 0 0 0 3px rgba(43, 74, 127, 0.18);
+
+  /* Radii */
+  --radius-1: 4px;    /* chips, small buttons */
+  --radius-2: 6px;    /* default — buttons, inputs */
+  --radius-3: 10px;   /* cards */
+  --radius-4: 16px;   /* large surfaces */
+  --radius-pill: 999px;
+
+  /* Spacing scale (rem-locked, 4px base) */
+  --space-1: 0.25rem;  /*  4 */
+  --space-2: 0.5rem;   /*  8 */
+  --space-3: 0.75rem;  /* 12 */
+  --space-4: 1rem;     /* 16 */
+  --space-5: 1.5rem;   /* 24 */
+  --space-6: 2rem;     /* 32 */
+  --space-7: 3rem;     /* 48 */
+  --space-8: 4rem;     /* 64 */
+
+  /* Type scale — restrained, 5 sizes max for app surfaces */
+  --fs-xs:  12px;   /* metadata, chips */
+  --fs-sm:  13px;   /* secondary body, table cells */
+  --fs-md:  14px;   /* primary body in dense UI */
+  --fs-lg:  16px;   /* prose body */
+  --fs-h3:  20px;
+  --fs-h2:  28px;
+  --fs-h1:  36px;
+  --fs-display: 56px;  /* hero / section headers; sparingly */
+
+  --lh-tight:  1.15;
+  --lh-snug:   1.3;
+  --lh-normal: 1.5;
+  --lh-loose:  1.65;
+
+  --tracking-tight:  -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.02em;
+  --tracking-caps:   0.08em;
+
+  /* Motion — quick, not bouncy */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out:      cubic-bezier(0.2, 0, 0.2, 1);
+  --dur-fast:   120ms;
+  --dur-base:   180ms;
+  --dur-slow:   260ms;
+}
+
+/* =========================================================
+   COLOR — dark mode
+   Near-black, not pure black; warm undertone preserved.
+   ========================================================= */
+:root[data-theme="dark"], .theme-dark {
+  --bg-app:     #14130F;
+  --bg-surface: #1B1A16;
+  --bg-sunken:  #100F0C;
+  --bg-inset:   #221F1A;
+
+  --fg-1: #EDEAE0;
+  --fg-2: #BAB6A8;
+  --fg-3: #87837A;
+  --fg-4: #5C5953;
+  --fg-on-accent: #FAF9F6;
+
+  --border-1: #2B2823;
+  --border-2: #3A372F;
+  --border-3: #524E43;
+
+  --accent:        #7CA1D4;
+  --accent-hover:  #93B4DE;
+  --accent-press:  #6A8FBE;
+  --accent-soft:   #1F2A3E;
+  --accent-soft-2: #2A3A55;
+  --accent-soft-border: #3A4F6E;   /* skill-chip border, on-hue with dark accent family */
+
+  --rank-major:        #D9B96A;
+  --rank-major-bg:     #2D2614;
+  --rank-major-border: #4A3F1F;
+  --rank-captain:      #B6B9C0;
+  --rank-captain-bg:   #232425;
+  --rank-captain-border: #3A3B3D;
+  --rank-lieutenant:   #C7855E;
+  --rank-lieutenant-bg:#2A1E16;
+  --rank-lieutenant-border: #4A3326;
+
+  --success:    #6FAE82;
+  --success-bg: #1A2A1F;
+  --warning:    #D6A057;
+  --warning-bg: #2A2114;
+  --danger:     #D17878;
+  --danger-bg:  #2A1818;
+  --info:       #7CA1D4;
+  --info-bg:    #1F2A3E;
+
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --shadow-3: 0 8px 24px rgba(0, 0, 0, 0.6);
+  --shadow-focus: 0 0 0 3px rgba(124, 161, 212, 0.3);
+}
+
+/* =========================================================
+   SEMANTIC ELEMENT STYLES
+   ========================================================= */
+html, body {
+  background: var(--bg-app);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  font-size: var(--fs-md);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+h1, .h1 {
+  font-family: var(--font-sans);
+  font-size: var(--fs-h1);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg-1);
+  margin: 0;
+}
+h2, .h2 {
+  font-size: var(--fs-h2); font-weight: 600;
+  line-height: var(--lh-snug); letter-spacing: var(--tracking-tight);
+  color: var(--fg-1); margin: 0;
+}
+h3, .h3 {
+  font-size: var(--fs-h3); font-weight: 600;
+  line-height: var(--lh-snug); color: var(--fg-1); margin: 0;
+}
+p, .p {
+  font-size: var(--fs-lg); line-height: var(--lh-loose);
+  color: var(--fg-2); margin: 0;
+  text-wrap: pretty;
+}
+small, .small {
+  font-size: var(--fs-sm); color: var(--fg-3);
+}
+.caption {
+  font-size: var(--fs-xs);
+  color: var(--fg-3);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  font-weight: 600;
+}
+
+code, kbd, pre, .mono {
+  font-family: var(--font-mono);
+  font-feature-settings: "calt" 0, "liga" 0;
+}
+code, .code-inline {
+  font-size: 0.92em;
+  background: var(--bg-inset);
+  border: 1px solid var(--border-1);
+  border-radius: var(--radius-1);
+  padding: 1px 5px;
+  color: var(--fg-1);
+}
+.officer-name {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+}
+.skill-name {
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+/* Editorial display — used only on covers/marketing/section headers */
+.display-serif {
+  font-family: var(--font-serif);
+  font-size: var(--fs-display);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  font-style: italic;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur-fast) var(--ease-standard);
+}
+a:hover { border-bottom-color: currentColor; }
+
+::selection { background: var(--accent-soft-2); color: var(--fg-1); }

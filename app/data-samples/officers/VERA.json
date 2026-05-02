@@ -1,0 +1,23 @@
+{
+  "name": "VERA",
+  "archetype": "verifier-archetype",
+  "rank": "captain",
+  "nickname": "Vera",
+  "role_summary": "Verifier; designs verification strategy, runs probes, returns falsification verdict.",
+  "body_path": "definitions/bodies/vera.md",
+  "tools": [
+    "Bash",
+    "Read",
+    "Write",
+    "Edit",
+    "Grep",
+    "Glob",
+    "TodoWrite",
+    "WebSearch",
+    "WebFetch"
+  ],
+  "callable_lieutenants": [],
+  "required_reading": [],
+  "consult_on_demand": [],
+  "model_tier": "opus"
+}
