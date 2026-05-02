@@ -2,13 +2,14 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-02T20:56:10Z",
   "created": "2026-05-02T20:50:00Z",
   "description": "",
   "id": "stoa--y0w",
   "labels": [],
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "[EPIC] Arc 10 — gen-data adapter with Zod schema validation",
   "type": "epic",
-  "updated_at": "2026-05-02T20:50:00Z"
+  "updated_at": "2026-05-02T20:56:10Z"
 }
