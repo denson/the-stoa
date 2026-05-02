@@ -3,265 +3,191 @@
 **Audience:** the fresh Claude Code session opened to build Arc 9 deliverables.
 **Authored by:** user-tier Chief-of-Staff (POLYBIUS-equivalent) + the PRINCIPAL (Denson Smith).
 **Status:** active directive.
-**Builds on:** Arc 8 (commit `52b08ae` directive in agent-substrate; commit `da5520d` in agent-character-builder applied v2 substrate to that project).
+**Builds on:** Arc Z (consolidation into `the-stoa`, 2026-05-02).
 
-**You are MAJOR_PLINY for the agent-substrate Arc 9 engagement.** The user-tier Chief-of-Staff (POLYBIUS-equivalent) wrote this directive; you receive it and execute. Per v2 §4, MAJOR_PLINY is the orchestrator role — top-level Claude Code session at MAJOR rank.
+**Note on supersedure:** The original mega-Arc-9 plan (data model + adapter + display + tests + Vitest in one arc, against agent-substrate as a separate repo) is now archived at `substrate/arcs/superseded/arc-9-build-directive-mega-original.md`. Per PRINCIPAL direction 2026-05-02, the mega-plan was split into 5 smaller arcs (Arc 9-13). This is the canonical Arc 9 directive: narrow scope, TypeScript types + data model only, against the unified `the-stoa` repo.
 
-Read `MAJOR_PLINY.md` (this directive's home repo, agent-substrate's Arc-4 v2-shape file) and assume the orchestrator role.
+**You are MAJOR_PLINY for the the-stoa Arc 9 engagement.** The user-tier Chief-of-Staff (POLYBIUS-equivalent) wrote this directive; you receive it and execute. Per planning v2 §4, MAJOR_PLINY is the orchestrator role.
 
-**Your one job for this engagement:** update agent-character-builder (The Stoa) to align with v2 architecture. Specifically: data model, gen-data adapter that reads from agent-substrate canonical, sample data wiring, display logic, and Vitest scaffold. Then return cleanly.
+Read `substrate/MAJOR_PLINY.md` (the v2-shape orchestrator role file, came in via Arc Z subtree merge from agent-substrate Arc 4) and assume the orchestrator role.
 
-**Open Claude Code in `~/claude_projects/agent-character-builder/`** (not agent-substrate) — the work happens there. Directive lives in agent-substrate per the established pattern (read from `~/claude_projects/agent-substrate/arcs/arc-9-build-directive.md`).
+**Open Claude Code in `~/claude_projects/the-stoa/`** (the unified repo's root). Operate from there; the work touches `app/` primarily.
 
-**Substrate state going in:**
-- `agent-character-builder/.claude/` has v2-shape substrate already deployed (Arc 8 landed it). MAJOR_POLYBIUS, MAJOR_PLINY, 10 CAPTAIN envelopes, templates/ all present.
-- `agent-character-builder/CLAUDE.md` references MAJOR_POLYBIUS.md
-- The React app continues to function (verified by Arc 8's smoke test); this arc must preserve that
-
----
-
-## Architectural context (for external reviewers — Codex/Gemini second-opinion this directive)
-
-Brief recap of the v2 architecture this directive depends on. Full spec at:
-https://github.com/denson/user-beadwork/blob/main/plans/three-role-recursive-architecture.md
-
-**The five ranks:**
-- HUMAN — actual humans (the human is the PRINCIPAL — descriptive role)
-- COLONEL — RESERVED for a future high-autonomy agent rank above MAJOR; not currently populated
-- MAJOR — top-level Claude Code session (POLYBIUS = chief-of-staff; PLINY = orchestrator)
-- CAPTAIN — sub-agents in `.claude/agents/`
-- LIEUTENANT — skills in `skills/`
-
-**Naming convention** (per v2 §3):
-- File: `RANK_MNEMONIC[_<project>].md`
-- Three pieces: rank + mnemonic name + descriptive role
-- For humans: HUMAN rank, name (when known), PRINCIPAL descriptive role
-
-**The Stoa's job:**
-The Stoa (agent-character-builder) is the visualization/edit web app for the canonical agent definitions in agent-substrate. The Stoa is NOT a runtime — agents run in Claude Code sessions. The Stoa is the editor for canonical agents that get deployed via install.sh.
-
-**Source-of-truth model:**
-- agent-substrate is canonical
-- The Stoa reads from agent-substrate's role files
-- Edits in The Stoa (future feature) modify agent-substrate; install.sh re-runs propagate to project deploys
-- Per-project overrides are NOT supported; specialization is via sub-projects (Arc 10)
+**Your one job for this engagement:** add v2 TypeScript types to `the-stoa/app/src/data/` encoding the v2 rank ladder + PRINCIPAL framework. Additive — don't break existing types or consuming code. The React app must continue to function. Then return cleanly.
 
 ---
 
 ## Read first
 
-1. **`plans/three-role-recursive-architecture.md` in user-beadwork — v2 spec.**
-   - §3 (naming + PRINCIPAL framework) — drives data model design
-   - §9 (Roster table) — what each agent's structural properties are
-   - §11 (The Stoa) — explicit data-model implications
+1. **Planning v2 spec** at `~/claude_projects/user-beadwork/plans/three-role-recursive-architecture.md`:
+   - §2 (the five ranks — including reserved COLONEL)
+   - §3 (naming convention + PRINCIPAL framework)
+   - §11 (The Stoa — data-model implications)
 
-2. **agent-substrate canonical role files** (the source the adapter will read):
-   - `~/claude_projects/agent-substrate/MAJOR_POLYBIUS.md`
-   - `~/claude_projects/agent-substrate/MAJOR_PLINY.md`
-   - `~/claude_projects/agent-substrate/CAPTAIN_*.md` (10 files)
-   
-   These are the v2-shape canonical envelopes (re-authored in Arcs 4-5). Read 1-2 of them to understand the format the adapter will parse.
+2. **the-stoa repo state:**
+   - `the-stoa/substrate/` — canonical role files (MAJOR_POLYBIUS, MAJOR_PLINY, 10 CAPTAINs, templates/, install.sh)
+   - `the-stoa/app/` — React/Vite app
+   - `the-stoa/app/src/data/` — current data types + sample data (this is what you'll be extending)
 
-3. **agent-character-builder current state:**
-   - `src/data/sample.ts` — current inline sample data (v1-shape; needs v2 update + adapter)
-   - `src/data/types.ts` (or similar) — current TypeScript types
-   - `src/Components.tsx` and `src/App.tsx` — current display logic
-   - `package.json` — what's installed, what scripts exist
-   - `vite.config.ts` — Vite configuration
-   - Existing tests if any (npm test or vitest run to check)
+3. **The existing data types in `app/src/data/`:**
+   - Read `types.ts` (or whatever file holds the type defs) to understand the v1 shape
+   - Read `sample.ts` (or equivalent) to understand current data
+   - **Don't break these.** Arc 9 is additive — new v2 types alongside existing v1 types. Arc 11 swaps sample.ts to the new shape; Arc 12 swaps display.
 
-4. **Existing acb-* beadwork in agent-character-builder** — check `bw list --all` for context on Phase 1 work that shipped (acb-001 dark mode, acb-008 skill affordances, acb-009 router-url-state). Don't touch those; just orient.
-
-5. **`u--7yg` design inputs:**
+4. **`u--7yg` design inputs:**
    - `u--7yg.13` (three-role architecture)
-   - `u--7yg.20` (terminology fix — Colonel → PRINCIPAL/HUMAN/COLONEL-reserved)
-   - `u--7yg.21` (`.claude/`-gitignored discipline; relevant since we're operating in a project where that's true)
+   - `u--7yg.20` (terminology fix — Colonel → reserved-future-rank; PRINCIPAL is human's role)
+   - `u--7yg.22` (Arc Z operational lessons — for general cross-repo discipline awareness)
 
 ---
 
 ## What Arc 9 is
 
-Per v2 §11 + acb-002's original intent (now superseded by this arc): make The Stoa accurately reflect canonical agent-substrate. Today The Stoa shows hard-coded sample data (v1 shape, with old roster + Colonel terminology). After Arc 9, The Stoa shows live v2-shape canonical agents read from agent-substrate.
+Per planning v2 §11, The Stoa's data model needs to encode the v2 rank ladder. Arc 9 is the **narrow first step**: define the TypeScript types only. No adapter yet (Arc 10). No sample-data wiring (Arc 11). No display updates (Arc 12). No tests (Arc 13).
 
-This is a substantively bigger arc than Arcs 4-7 (which were focused substrate-internal work). Arc 9 spans:
-- TypeScript type system (data model)
-- Build-time data generation (adapter)
-- React component logic (display)
-- Test infrastructure (Vitest)
-- Build pipeline integration (Vite + the gen-data step)
+The smaller-chunks discipline (per `u--7yg.15` + the empirical signal that mega-arcs surface defects late): each arc surfaces issues earlier and lets us learn before the next dispatch.
 
 ---
 
 ## Deliverables
 
-### 1. Data model update (`src/data/types.ts` or equivalent)
+### 1. v2 TypeScript types in `app/src/data/`
 
-TypeScript types encoding the v2 rank ladder + PRINCIPAL framework:
+Add the v2 type definitions. Suggested file: `app/src/data/types-v2.ts` (additive — exists alongside whatever v1 types are in the existing file).
+
+Encode at minimum:
 
 ```typescript
-// Conceptual shape — actual definition is your call
-type Rank = 'HUMAN' | 'COLONEL' | 'MAJOR' | 'CAPTAIN' | 'LIEUTENANT';
+// the rank ladder (planning v2 §2)
+export type Rank = 'HUMAN' | 'COLONEL' | 'MAJOR' | 'CAPTAIN' | 'LIEUTENANT';
 
-type Agent = {
-  rank: Rank;
-  mnemonic: string;        // e.g., "POLYBIUS", "DAEDALUS"
-  descriptiveRole: string; // e.g., "CHIEF-OF-STAFF", "ARCHITECT"
-  body: string;            // markdown body content from the role file
-  tools: string[];         // from frontmatter
-  disciplines: string[];   // referenced disciplines (u--7yg.* IDs)
-  filename: string;        // canonical filename (without _<project> suffix)
-  // ... other fields needed for display
+// agent record (planning v2 §3)
+export type Agent = {
+  rank: Exclude<Rank, 'HUMAN'>;  // agents are MAJOR or below
+  mnemonic: string;               // e.g., "POLYBIUS", "DAEDALUS"
+  descriptiveRole: string;        // e.g., "CHIEF-OF-STAFF", "ARCHITECT"
+  body: string;                   // markdown body content
+  tools: string[];                // from frontmatter
+  filename: string;               // canonical filename without project suffix
+  // ...add fields the planning doc + role files require
 };
 
-type Human = {
+// human record (planning v2 §3 PRINCIPAL framework)
+export type Human = {
   rank: 'HUMAN';
-  name?: string;           // learned through onboarding
-  descriptiveRole: 'PRINCIPAL';
+  name?: string;                  // learned through onboarding
+  descriptiveRole: 'PRINCIPAL';   // hardcoded — PRINCIPAL is the only human role
 };
 
-type RankSlot = {
+// rank slot — for display (planning v2 §11)
+export type RankSlot = {
   rank: Rank;
-  reserved?: boolean;      // true for COLONEL
-  agents: Agent[];
+  reserved?: boolean;             // true for COLONEL
+  agents: Agent[];                // empty array for COLONEL until populated
+};
+
+// reserved-COLONEL semantics: type-level enforcement that the COLONEL slot
+// is currently empty (until a future agent rank claims it)
+export type ColonelSlot = RankSlot & {
+  rank: 'COLONEL';
+  reserved: true;
+  agents: [];  // empty tuple — typescript enforces zero agents at COLONEL rank for now
 };
 ```
 
-The COLONEL rank gets a slot but may have zero agents (reserved). The display should make this visible (rank exists; empty for now).
+JSDoc each type so they're self-documenting (especially the COLONEL reserved-rank semantics — it's the most non-obvious part of the model).
 
-### 2. gen-data adapter (`scripts/gen-data.ts` or equivalent)
+### 2. Don't break existing code
 
-A TypeScript script that reads agent-substrate's role files and emits the data structure The Stoa consumes. Design choices:
+The React app must compile and run after Arc 9. Means:
+- Existing `types.ts` (or equivalent) stays as is
+- Existing `sample.ts` stays as is, still consumes v1 types
+- Existing components stay as is, still consume v1 types
+- New v2 types coexist; nothing imports them yet (Arc 10 starts using them)
 
-- **Source path:** read from `~/claude_projects/agent-substrate/` by default, configurable via env var (e.g., `VITE_AGENT_SUBSTRATE_PATH`). Document this in package.json scripts.
-- **Format parser:** role files are markdown with optional YAML frontmatter. Extract frontmatter (rank, tools, etc.) + body content + parse the role identity from the filename pattern.
-- **Output:** TypeScript file at `src/data/generated/agents.ts` (or similar), git-ignored if regenerated at build time.
-- **Build-time invocation:** add a script to `package.json` that runs gen-data before vite build / vite dev.
+### 3. README note (optional but helpful)
 
-Decisions you make should be defensible against external review (Codex/Gemini). Document them inline in gen-data.ts comments.
+If `app/src/data/` has a README or similar, append a brief note explaining the v1/v2 transition: "v2 types live in types-v2.ts; will replace v1 types as Arcs 10-12 wire the adapter, sample data, and display."
 
-### 3. Sample data wiring
+### 4. Smoke test
 
-Replace inline `src/data/sample.ts` with the adapter-generated equivalent. Two paths:
-- **(a)** Generated TypeScript file replaces sample.ts entirely; sample.ts goes away
-- **(b)** sample.ts re-exports from generated; gradually migrates
-
-Either is fine. Minimum: app reads from generated data, not from hard-coded inline data.
-
-### 4. Display updates (`src/Components.tsx`, `src/App.tsx`)
-
-Update the display to render the v2 rank ladder:
-- Show all five ranks (HUMAN, COLONEL, MAJOR, CAPTAIN, LIEUTENANT)
-- COLONEL slot displays as reserved/empty (e.g., grayed out, "Reserved for future agent rank")
-- HUMAN slot displays the human PRINCIPAL (currently just "Denson the PRINCIPAL" or hardcoded for the dev environment; Arc 11+ might learn this dynamically)
-- Agent cards display with mnemonic + descriptive role + rank prefix in the filename
-
-The existing UX (officer overview, archetype filter, command palette, etc.) should continue to work — just with v2 data.
-
-### 5. Vitest scaffold
-
-Add Vitest as the test runner (if not already configured). Tests for:
-- gen-data adapter: given a sample role file, parses correctly into the Agent type
-- Data model invariants (e.g., COLONEL slot is always reserved)
-- Display logic smoke tests (a representative component renders without crashing)
-
-This is foundation; full test coverage is downstream work.
-
-### 6. Build pipeline
-
-Verify:
-- `npm run dev` starts Vite cleanly with adapter-generated data
-- `npm run build` produces a working production bundle
-- `npm test` runs the Vitest suite
-
-### 7. Smoke test
-
-After all changes:
-- React app continues to function (load the dev server, browse the team view, click an agent, verify routing works per acb-009)
-- Display shows v2 ranks (visible HUMAN at top, COLONEL reserved-empty, MAJOR with POLYBIUS + PLINY, CAPTAIN with the 10 envelopes, LIEUTENANT with skills if applicable)
-- No regression in acb-001 (dark mode), acb-008 (testid affordances), acb-009 (router-url-state)
+After adding the new types:
+- `cd app/ && npm run build` (or `npm run dev` then check the page loads) — verify TypeScript compiles cleanly with no errors
+- `npm test` if Vitest is configured (it isn't yet — Arc 13 — so skip)
+- Manual: open the dev server, browse the app, confirm acb-001/008/009 work continues to function
 
 ---
 
 ## Definition of done
 
-- All deliverables above committed to `agent-character-builder` main
-- React app continues to function (smoke test passes)
-- `npm test` passes
-- gen-data adapter reads from agent-substrate cleanly
-- Display renders v2 rank ladder with COLONEL reserved-empty, HUMAN as PRINCIPAL framework
-- bw beadwork epic for Arc 9 closed (file in agent-substrate per established pattern)
-- Pushed to origin
+- v2 type definitions exist in `app/src/data/` (in `types-v2.ts` or equivalent)
+- Existing v1 types + sample data + components untouched
+- TypeScript compiles cleanly (`npm run build` succeeds)
+- React app continues to function (smoke test)
+- bw beadwork epic for Arc 9 closed (file in the-stoa with the freshly-initialized prefix)
+- Committed + pushed to `the-stoa` main (autonomous-ship per `u--7yg.11`)
 
 ---
 
 ## Out of scope
 
-- **Sub-project spawning** — Arc 10
-- **Stoa edit functionality** (write-back to canonical) — separate future arc; Arc 9 is read-only display
-- **Re-authoring substrate** — Arcs 4-7 already shipped them
-- **Architecture changes** — v2 is the spec; don't deviate
-- **Modifying the substrate or install.sh** — Arc 9 consumes canonical; doesn't modify it
-
----
-
-## Voice discipline
-
-Less load-bearing than Arcs 4-6 (which were prose) but still relevant:
-- Prop names, label strings, UI text should use v2 vocabulary (PRINCIPAL not Colonel; ranks in correct order)
-- TypeScript type names should be v2-aligned
-- Comment voice in code matches v2 register
-
-`grep -i "colonel"` after work: any matches are deliberate (e.g., the label for the reserved COLONEL slot in the rank ladder display).
+- **gen-data adapter** — Arc 10 (uses Zod to parse role files into v2 types)
+- **Sample data wiring** — Arc 11 (swap sample.ts to v2 types, optionally adapter-generated)
+- **Display updates** — Arc 12 (components consume v2 types, render rank ladder + COLONEL reserved-empty slot + PRINCIPAL framework)
+- **Vitest scaffold** — Arc 13
+- **Sub-project spawning** — Arc 14
+- **Modifying existing v1 types** — leave them; they're consumed by sample.ts + components which are out of scope until Arc 11/12
 
 ---
 
 ## Beadwork
 
-`bw` is initialized in agent-substrate (`as-` prefix). File a new epic for Arc 9:
+`bw` is **not yet initialized in the-stoa** (per Arc Z's brief — defer to first arc that operates here). Arc 9 initializes bw:
 
 ```bash
-cd ~/claude_projects/agent-substrate
-bw create "[EPIC] Arc 9 — Stoa data model + display + gen-data adapter aligned with v2" -t epic -p 1
+cd ~/claude_projects/the-stoa
+bw init --prefix stoa-
 ```
 
-File children for each deliverable. Close as you go. Push beadwork branch from agent-substrate when done.
+Then file the Arc 9 epic:
 
-The PROJECT-LEVEL beadwork in agent-character-builder (acb- prefix) stays untouched per visibility asymmetry (`u--7yg.14`); this is system-architecture work routed through agent-substrate.
+```bash
+bw create "[EPIC] Arc 9 — v2 TypeScript types + data model" -t epic -p 1
+```
+
+File children for: types-v2.ts, smoke test pass, optional README note. Close as you go. Push the beadwork branch alongside main.
 
 ---
 
 ## Discipline
 
-- HITL default (v2 §7)
-- Principal-as-router (`u--7yg.1`)
+- HITL default (planning v2 §7) — supervising via user-tier CoS in Claude Desktop
+- Principal-as-router (`u--7yg.1`) — surface only project-direction calls
 - Verify-then-execute (`u--7yg.10`, `u--7yg.18`)
-- One job per agent (`u--7yg.17`) — your one job is Arc 9
+- One job per agent (`u--7yg.17`) — your one job is Arc 9; resist scope creep into Arc 10's adapter
 - Wait-for-quiescence (`u--7yg.15`)
-- Autonomous-ship on clean PASS (`u--7yg.11`)
-- Voice discipline (v2 §6)
+- Autonomous-ship on clean PASS (`u--7yg.11`) — push is part of the ship sequence
+- Voice discipline (planning v2 §6) — prop names, type names, comments use v2 vocabulary (PRINCIPAL not Colonel; ranks in correct order)
 
-**Special concern: don't break the React app.** acb-001 + acb-008 + acb-009 work shipped recently. The smoke test before commit is load-bearing.
+**`grep -i "colonel"` after work:** any matches should be deliberate (e.g., the COLONEL Rank literal, the ColonelSlot type, JSDoc explaining that COLONEL is reserved). No reflexive Colonel-as-human leakage.
 
 ---
 
 ## Operating mode
 
-**Human-in-the-loop** (v2 §7). Surface for input at:
-- Adapter design choices that have ambiguity (parser format, source path config, build pipeline integration)
-- Display design choices (how to render the reserved COLONEL slot specifically — visual treatment)
-- Smoke test results before commit
-- Done
+**Human-in-the-loop** (planning v2 §7). Surface for input at:
+- (a) ambiguity that needs PRINCIPAL input — likely places: how exactly to encode the reserved-COLONEL semantics in TypeScript (literal type, branded type, etc.); whether to add fields to the Agent type beyond what the v2 spec explicitly names
+- (b) work product ready for review (optional — autonomous push for clean self-validation)
+- (c) done
 
-For Arc 9: this is a substantive arc; surface more than you would for routine work. The build session may want to phase: Phase A (data model + types), Phase B (adapter), Phase C (display + sample wiring), Phase D (Vitest + smoke test). Surface between phases if any uncertainty.
+For Arc 9: this is a small focused arc (types only). If your TypeScript type design feels straightforward against v2 §3, autonomous push is correct. If you have a real design ambiguity (e.g., "the v2 spec says X but it's not clear how to encode that in TypeScript"), surface.
 
 ---
 
 ## How to surface back
 
 Either:
-- Comment on a beadwork ticket in agent-substrate (`as--*`)
+- Comment on a beadwork ticket in this repo (`stoa--*`)
 - Write a short hand-back report; PRINCIPAL will relay
-
-For Arc 9 specifically: hand-back reports useful especially for design decisions in the adapter (so PRINCIPAL can review the parser approach, source-path strategy, etc.).
 
 Standby, run.
