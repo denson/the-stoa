@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-02T20:40:09Z",
+  "description": "When Arc 11 swaps app/src/data/sample.ts to the v2 shape, three pre-existing v1 strings need to be reauthored against the PRINCIPAL framework (no 'Colonel' to mean the human): L11 MAJOR_PLINY role ('conversational with the Colonel'), L91 HERALD role ('turns Colonel requests'), L110 tier2-project-onboarding description ('Colonel review'). Surfaced during Arc 9 grep audit (stoa--2em.3); deferred to Arc 11 to keep Arc 9 diff scope-pure.",
+  "id": "stoa--ggy",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "Arc 11: retire Colonel-as-human strings in sample.ts",
+  "type": "task",
+  "updated_at": "2026-05-02T20:40:09Z"
+}
