@@ -7,9 +7,15 @@
   "id": "stoa--b3f",
   "labels": [],
   "parent": "stoa--jdj",
+  "comments": [
+    {
+      "text": "Resolved by Arc 13. emitTypeScript() in app/scripts/gen-data-lib.ts no longer emits the Generated: \u003cISO\u003e line; header now contains only the auto-generated marker, regen command, and source-of-truth note. Verified byte-idempotent: two consecutive npm run gen-data calls produce diff-free output.",
+      "timestamp": "2026-05-02T22:22:15Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "Arc 10 followup: gen-data timestamp churn pollutes git diff on every build",
   "type": "bug",
-  "updated_at": "2026-05-02T22:14:57Z"
+  "updated_at": "2026-05-02T22:22:15Z"
 }
