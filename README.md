@@ -26,7 +26,7 @@ When a user runs the install script, this repo's contents get distributed to the
 
 ## Status
 
-**Arc 4 landed.** The MAJOR role files have been re-authored against the v2 architecture spec. v2 corrects v1's terminology debt (which used "Colonel" as the title for the human served by the system); the canonical role files now use **PRINCIPAL** for the human's descriptive role and reserve **COLONEL** for a future high-autonomy agent rank. The empirical signal that motivated v2 is captured in user-beadwork `u--7yg.20`. v1 role files are preserved for reference at [`v1-historical/`](./v1-historical/).
+**Arc 5 landed.** The 10 CAPTAIN envelopes have been re-authored against the v2 architecture spec, completing the substrate's voice-grounding pass. Combined with Arc 4 (which re-authored the MAJOR role files), the entire deployable substrate now uses **PRINCIPAL** for the human's descriptive role and reserves **COLONEL** for a future high-autonomy agent rank — the terminology debt v1 carried (using "Colonel" as the human's title) is fully retired. The empirical signal that motivated v2 is captured in user-beadwork `u--7yg.20`. v1 role files are preserved for reference at [`v1-historical/`](./v1-historical/).
 
 Deliverables on `main`:
 
@@ -37,7 +37,7 @@ Deliverables on `main`:
 - [`templates/onboarding-questions.md`](./templates/onboarding-questions.md) — interview floor + rationale (Arc 2)
 - [`templates/consent-prompts.md`](./templates/consent-prompts.md) — wording for sensitive-action consent (Arc 2)
 - [`ONBOARDING.md`](./ONBOARDING.md) — end-to-end narrative walkthrough across four scenarios (Arc 2)
-- The 10 CAPTAIN envelopes (Arc 3) — see roster below; **note: still v1-shape, scheduled for re-authoring in Arc 5**
+- The 10 CAPTAIN envelopes (re-authored Arc 5 against v2; supersedes Arc 3 v1 versions preserved at [`v1-historical/CAPTAIN_*.md`](./v1-historical/)) — see roster below
 
 The post-v2 arc sequence (per architecture spec §14):
 
@@ -45,8 +45,8 @@ The post-v2 arc sequence (per architecture spec §14):
 - **Arc 2 (done, v1):** POLYBIUS's interactive onboarding flow + templates + walkthrough
 - **Arc 3 (done, v1):** 10 CAPTAIN envelopes + `install.sh` extension to deploy them
 - **Arc 4 (done, v2):** Re-author `MAJOR_POLYBIUS.md` + `MAJOR_PLINY.md` from v2 spec; PRINCIPAL/HUMAN voice throughout
-- (next) **Arc 5:** Re-author the 10 CAPTAIN envelopes from v2 spec
-- **Arc 6:** Update Arc directives, ONBOARDING.md, templates/ from v2
+- **Arc 5 (done, v2):** Re-author the 10 CAPTAIN envelopes from v2 spec; rank-table headers, spec-authority pointers, PRINCIPAL/HUMAN voice grounded throughout; structural tool restrictions per spec §9 (ARGUS / CATO no `Write`/`Edit`; BARTLEBY / HERALD / CAPTAIN_PLINY no `WebSearch`/`WebFetch`; CAPTAIN_PLINY also no `Write`/`Edit`)
+- (next) **Arc 6:** Update Arc directives, ONBOARDING.md, templates/ from v2
 - **Arc 7:** `install.sh` improvements (Windows portability, deploy `templates/`, next-step guidance after install)
 - **Arc 8:** Refactor existing wrong-shape deploys in `agent-team-team` and `agent-character-builder`
 - **Arc 9:** The Stoa data-model + display alignment (in `agent-character-builder`)
@@ -58,18 +58,18 @@ Each arc is small enough to ship cleanly. See architecture spec §14 for full se
 
 The CAPTAINs are the team MAJOR_PLINY dispatches via the `Agent` tool. Each is a sub-agent envelope at `.claude/agents/`. Each has exactly one job (`u--7yg.17`); merging seats reliably drops jobs.
 
-| File | Mnemonic | Role | What they do |
-|---|---|---|---|
-| [`CAPTAIN_DAEDALUS.md`](./CAPTAIN_DAEDALUS.md) | DAEDALUS | ARCHITECT | writes design specs from briefs; flags self-assessed weak points |
-| [`CAPTAIN_ARGUS.md`](./CAPTAIN_ARGUS.md) | ARGUS | PLAN-CRITIC | cold-audits designs; surfaces load-bearing risks; **does not propose fixes** (no `Write`/`Edit` tools, structurally) |
-| [`CAPTAIN_ADA.md`](./CAPTAIN_ADA.md) | ADA | EXECUTOR | builds — code, file edits, scripted work; does not self-verify or self-review |
-| [`CAPTAIN_VERA.md`](./CAPTAIN_VERA.md) | VERA | VERIFIER | designs verification strategy from the design's probes; runs them against the build; returns falsification verdict |
-| [`CAPTAIN_CATO.md`](./CAPTAIN_CATO.md) | CATO | REVIEWER | cold-reads the diff for craft, hygiene, consistency, security, scope; meta-verifier of VERA |
-| [`CAPTAIN_STRABO.md`](./CAPTAIN_STRABO.md) | STRABO | SCOUT | external/web search and research; produces cited research artifact for design input |
-| [`CAPTAIN_BARTLEBY.md`](./CAPTAIN_BARTLEBY.md) | BARTLEBY | FILE-CLERK | internal repo recon; returns `file:line` citations without interpretation |
-| [`CAPTAIN_HERALD.md`](./CAPTAIN_HERALD.md) | HERALD | INTAKE | turns a vague request into a structured brief draft with named ambiguities |
-| [`CAPTAIN_CURATOR.md`](./CAPTAIN_CURATOR.md) | CURATOR | SYNTHESIST | cross-ticket synthesis, retrospectives, plan revisions |
-| [`CAPTAIN_PLINY.md`](./CAPTAIN_PLINY.md) | PLINY | SPEC-CHECKER | embedded mechanical spec-vs-result check; **distinct from MAJOR_PLINY** orchestrator (different ranks, different jobs) |
+| File | Mnemonic | Role | What they do | Tool restrictions |
+|---|---|---|---|---|
+| [`CAPTAIN_DAEDALUS.md`](./CAPTAIN_DAEDALUS.md) | DAEDALUS | ARCHITECT | writes design specs from briefs; flags self-assessed weak points | — |
+| [`CAPTAIN_ARGUS.md`](./CAPTAIN_ARGUS.md) | ARGUS | PLAN-CRITIC | cold-audits designs; surfaces load-bearing risks; **does not propose fixes** | no `Write`/`Edit` |
+| [`CAPTAIN_ADA.md`](./CAPTAIN_ADA.md) | ADA | EXECUTOR | builds — code, file edits, scripted work; does not self-verify or self-review | — |
+| [`CAPTAIN_VERA.md`](./CAPTAIN_VERA.md) | VERA | VERIFIER | designs verification strategy from the design's probes; runs them against the build; returns falsification verdict | — |
+| [`CAPTAIN_CATO.md`](./CAPTAIN_CATO.md) | CATO | REVIEWER | cold-reads the diff for craft, hygiene, consistency, security, scope; meta-verifier of VERA | no `Write`/`Edit` |
+| [`CAPTAIN_STRABO.md`](./CAPTAIN_STRABO.md) | STRABO | SCOUT | external/web search and research; produces cited research artifact for design input | — |
+| [`CAPTAIN_BARTLEBY.md`](./CAPTAIN_BARTLEBY.md) | BARTLEBY | FILE_CLERK | internal repo recon; returns `file:line` citations without interpretation | no `WebSearch`/`WebFetch` |
+| [`CAPTAIN_HERALD.md`](./CAPTAIN_HERALD.md) | HERALD | INTAKE | turns a vague request into a structured brief draft with named ambiguities | no `WebSearch`/`WebFetch` |
+| [`CAPTAIN_CURATOR.md`](./CAPTAIN_CURATOR.md) | CURATOR | SYNTHESIST | cross-ticket synthesis, retrospectives, plan revisions | — |
+| [`CAPTAIN_PLINY.md`](./CAPTAIN_PLINY.md) | PLINY | SPEC-CHECKER | embedded mechanical spec-vs-result check; **distinct from MAJOR_PLINY** orchestrator (different ranks, different jobs) | no `Write`/`Edit`, no `WebSearch`/`WebFetch` |
 
 Note on naming: CAPTAIN_PLINY shares a mnemonic with MAJOR_PLINY by design — the architect spec keeps them as separate seats per the one-job-per-agent discipline. NESTOR (the would-be sub-agent dispatcher in earlier designs) does not appear; the role moves to MAJOR_PLINY at the top-level session tier (sub-agents cannot dispatch sub-agents — `u--7yg.12`).
 
