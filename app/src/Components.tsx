@@ -316,7 +316,7 @@ export function AgentCard({
           color: "var(--fg-1)",
         }}
       >
-        {slug}
+        {agent.mnemonic}
       </div>
       <div
         style={{

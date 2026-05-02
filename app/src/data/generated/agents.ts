@@ -2,7 +2,7 @@
 //
 // Regenerate with: `npm run gen-data` (also auto-runs via predev/prebuild).
 // Source of truth: canonical role files in `substrate/` at repo root.
-// Generated: 2026-05-02T21:36:37.933Z
+// Generated: 2026-05-02T22:07:25.385Z
 
 import type { StoaDataV2 } from "../types-v2";
 export const stoaData: StoaDataV2 = {

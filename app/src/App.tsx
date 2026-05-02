@@ -901,7 +901,6 @@ function AgentDetail({
   onBack: () => void;
 }) {
   const summary = deriveRoleSummary(agent.body);
-  const slug = agentSlug(agent);
   return (
     <div style={{ flex: 1, display: "flex", overflow: "auto" }}>
       <div style={{ flex: 1, padding: "24px 32px", maxWidth: 920, overflow: "auto" }}>
@@ -943,7 +942,7 @@ function AgentDetail({
             color: "var(--fg-1)",
           }}
         >
-          {slug}
+          {agent.mnemonic}
         </h1>
         <div
           style={{
@@ -1273,7 +1272,7 @@ function CommandPalette({
                       color: "var(--fg-1)",
                     }}
                   >
-                    {slug}
+                    {a.mnemonic}
                   </span>
                   <span
                     style={{
