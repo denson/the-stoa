@@ -70,6 +70,8 @@ npm run dev
 
 Open the URL Vite prints (defaults to `http://localhost:5173/`; auto-bumps if the port is busy). v0.1 ships visual browse + officer detail + skill library + ⌘K command palette over an inline sample dataset; subsequent arcs wire it to the canonical substrate above.
 
+A build-time **`gen-data` adapter** (`app/scripts/gen-data.ts`) reads the canonical role files in `substrate/`, validates their frontmatter against a Zod schema, and emits a typed module at `app/src/data/generated/agents.ts`. It runs automatically before `npm run dev` and `npm run build` (`predev` / `prebuild` hooks); regenerate manually with `npm run gen-data`. Override the source path with `AGENT_SUBSTRATE_PATH=<dir>`.
+
 ## Deployment posture
 
 Localhost-only for the foreseeable future. No staging, no production hosting, no auth surface beyond the user's own machine. The unified-repo decision is downstream of this posture: there's no deployment-side cost to colocating the editor with the canonical, and the same-repo relationship makes adapter wiring (Arc 10) trivially relative-path.

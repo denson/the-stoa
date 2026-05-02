@@ -5,6 +5,9 @@
   "type": "module",
   "description": "The Stoa: where teams of AI agents are designed, not assembled.",
   "scripts": {
+    "gen-data": "tsx scripts/gen-data.ts",
+    "predev": "npm run gen-data",
+    "prebuild": "npm run gen-data",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
@@ -20,7 +23,10 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react-swc": "^3.7.2",
+    "gray-matter": "^4.0.3",
+    "tsx": "^4.21.0",
     "typescript": "^5.7.2",
-    "vite": "^6.0.7"
+    "vite": "^6.0.7",
+    "zod": "^4.4.2"
   }
 }
