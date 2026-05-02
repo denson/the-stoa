@@ -2,14 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-02T20:55:33Z",
   "created": "2026-05-02T20:50:14Z",
   "description": "",
   "id": "stoa--y0w.6",
   "labels": [],
   "parent": "stoa--y0w",
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "Smoke test: gen-data, build, dev, idempotency, env-var override",
   "type": "task",
-  "updated_at": "2026-05-02T20:50:14Z"
+  "updated_at": "2026-05-02T20:55:33Z"
 }
