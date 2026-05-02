@@ -2,14 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-02T21:07:03Z",
   "created": "2026-05-02T21:03:40Z",
   "description": "",
   "id": "stoa--hi5.1",
   "labels": [],
   "parent": "stoa--hi5",
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "Rewrite app/src/data/sample.ts as v2-\u003ev1 transform shim",
   "type": "task",
-  "updated_at": "2026-05-02T21:03:40Z"
+  "updated_at": "2026-05-02T21:07:03Z"
 }
