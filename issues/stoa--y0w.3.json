@@ -2,14 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-02T20:55:33Z",
   "created": "2026-05-02T20:50:14Z",
   "description": "",
   "id": "stoa--y0w.3",
   "labels": [],
   "parent": "stoa--y0w",
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "Author adapter script in app/scripts/gen-data.ts",
   "type": "task",
-  "updated_at": "2026-05-02T20:50:14Z"
+  "updated_at": "2026-05-02T20:55:33Z"
 }
