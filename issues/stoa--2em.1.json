@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-02T20:38:07Z",
+  "description": "Encode Rank ladder (HUMAN | COLONEL | MAJOR | CAPTAIN | LIEUTENANT), Agent record, Human record (descriptiveRole hardcoded 'PRINCIPAL'), RankSlot, and ColonelSlot with type-level reserved-empty enforcement. JSDoc each type. Additive — coexists with v1 types.",
+  "id": "stoa--2em.1",
+  "labels": [],
+  "parent": "stoa--2em",
+  "priority": 1,
+  "status": "open",
+  "title": "Add app/src/data/types-v2.ts with v2 rank ladder + PRINCIPAL framework",
+  "type": "task",
+  "updated_at": "2026-05-02T20:38:07Z"
+}
