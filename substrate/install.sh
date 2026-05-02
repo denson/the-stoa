@@ -26,6 +26,12 @@
 # in place; CLAUDE.md appends are guarded by a marker check so the reference is
 # added at most once.
 #
+# CLAUDE.md safety: when --modify-claude-md is given AND the target CLAUDE.md
+# exists, the script copies it to <CLAUDE.md>.bak BEFORE the append, so the
+# pre-modification content is recoverable in-run if anything goes wrong. The
+# backup is single-shot (overwritten on each subsequent run); git is the
+# long-term archive — the .bak file is for "oops" recovery only.
+#
 # CAPTAIN envelopes: by default the script deploys the 10 CAPTAIN_*.md sub-agent
 # envelopes from this directory to <target>/.claude/agents/. At project-tier the
 # files are suffixed with _<sanitized-project> (e.g. CAPTAIN_DAEDALUS_my_project.md)
@@ -290,10 +296,21 @@ ${CLAUDE_MD_MARKER}
 This environment hosts the three-role agent substrate. The Chief-of-Staff role is defined in \`.claude/MAJOR_POLYBIUS.md\`. When the user invokes \"POLYBIUS\" or \"chief of staff\", read that file and assume the role.
 "
     if [ "$DRY_RUN" -eq 1 ]; then
+      if [ -f "$DEST_CLAUDE_MD" ]; then
+        echo "[dry-run] would back up existing CLAUDE.md to: $DEST_CLAUDE_MD.bak"
+      fi
       echo "[dry-run] would append POLYBIUS reference block to: $DEST_CLAUDE_MD"
       echo "[dry-run] block contents:"
       printf '%s\n' "$BLOCK" | sed 's/^/[dry-run]   /'
     else
+      # Back up existing CLAUDE.md before any modification — safety net so the
+      # pre-modification file is recoverable if the append produces unexpected
+      # content. Single-shot backup (overwritten on each run); git history is
+      # the long-term archive.
+      if [ -f "$DEST_CLAUDE_MD" ]; then
+        cp "$DEST_CLAUDE_MD" "$DEST_CLAUDE_MD.bak"
+        echo "backed up existing CLAUDE.md to: $DEST_CLAUDE_MD.bak"
+      fi
       printf '%s\n' "$BLOCK" >> "$DEST_CLAUDE_MD"
       echo "appended POLYBIUS reference to: $DEST_CLAUDE_MD"
     fi
