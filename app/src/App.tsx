@@ -10,38 +10,194 @@ import {
   useSearchParams,
 } from "react-router";
 import {
-  ArchetypeText,
+  AgentCard,
   Button,
   Chip,
+  HumanCard,
   Mark,
-  OfficerCard,
   RankPill,
+  ReservedColonelCard,
+  RoleText,
   SkillCard,
   ThemeToggle,
-  archColorFor,
 } from "./Components";
 import { Plus, Search, Settings, Edit, Copy, Code } from "lucide-react";
-import { SAMPLE_DATA } from "./data/sample";
+import { stoaData } from "./data/generated/agents";
+import { metaAspects, skills } from "./data/display-extras";
+import { agentSlug, deriveRoleSummary } from "./data/derive";
+import { roleColorFor } from "./data/colors";
 import { useTheme } from "./hooks/useTheme";
 import type {
-  Archetype,
-  ArchetypeColors,
-  MetaAspect,
-  Officer,
-  Skill,
-} from "./data/types";
+  Agent,
+  Human,
+  RosterSlot,
+  StoaDataV2,
+} from "./data/types-v2";
+import type { MetaAspect, Skill } from "./data/display-extras";
 
 // ---------------------------------------------------------------------------
-// URL helpers (acb-009)
+// Constants — the human's name source (Arc 12 Colonel-call: hardcoded).
+// ---------------------------------------------------------------------------
+
+/**
+ * The PRINCIPAL's name as displayed in the HUMAN slot. Hardcoded for the
+ * single-user localhost-only posture. To swap to a derived value, replace
+ * this with a build-time read of `git config user.name` (e.g., expose it
+ * via Vite's `define` config) or a small `~/.config/the-stoa/name.txt`
+ * lookup at startup.
+ */
+const PRINCIPAL_NAME = "Denson";
+
+/**
+ * Roster preset slugs (filename minus `.md`) — used by the FilterSidebar's
+ * roster picker. These are agent identifiers, not display strings.
+ */
+const MINIMAL_AGENTS = [
+  "MAJOR_PLINY",
+  "CAPTAIN_DAEDALUS",
+  "CAPTAIN_ADA",
+  "CAPTAIN_VERA",
+];
+const USER_LEVEL_EXCLUDE = [
+  "CAPTAIN_PLINY",
+  "CAPTAIN_CURATOR",
+  "CAPTAIN_HERALD",
+  "CAPTAIN_STRABO",
+];
+
+// ---------------------------------------------------------------------------
+// Roster + role helpers
 // ---------------------------------------------------------------------------
 
 type RosterId = "default" | "minimal" | "user-level" | "custom";
 
 const ROSTER_IDS: RosterId[] = ["default", "minimal", "user-level", "custom"];
 
+function parseRosterParam(s: string | null): RosterId {
+  if (s && (ROSTER_IDS as string[]).includes(s)) return s as RosterId;
+  return "default";
+}
+
+function parseRoleParam(s: string | null, allRoles: string[]): string | null {
+  if (!s) return null;
+  return allRoles.includes(s) ? s : null;
+}
+
+/**
+ * The HUMAN-rank slot, augmented with the hardcoded PRINCIPAL name. The
+ * generated v2 data leaves `name` unset (gen-data has no source for it);
+ * we attach it at the App layer per Arc 12 Colonel call.
+ */
+function humanWithName(slot: RosterSlot): RosterSlot {
+  if (slot.rank !== "HUMAN") return slot;
+  return {
+    ...slot,
+    agents: slot.agents.map((h) =>
+      ({ ...(h as Human), name: PRINCIPAL_NAME } as Human),
+    ),
+  };
+}
+
+/**
+ * Hydrate the v2 roster with the human name. The generated data is
+ * deliberately name-free; this single point hydrates it before the
+ * ladder, palette, and detail routes consume it.
+ */
+function hydrateRoster(data: StoaDataV2): StoaDataV2 {
+  return { ...data, roster: data.roster.map(humanWithName) };
+}
+
+/**
+ * Returns the unique descriptive roles in the roster, in canonical
+ * rank-ladder encounter order (HUMAN → COLONEL → MAJOR → CAPTAIN → LIEUTENANT;
+ * within rank, the order they appear in the data — alphabetical-by-mnemonic
+ * per gen-data's emit order).
+ */
+function uniqueRoles(roster: RosterSlot[]): string[] {
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const slot of roster) {
+    for (const inhabitant of slot.agents) {
+      const role = inhabitant.descriptiveRole;
+      if (!seen.has(role)) {
+        seen.add(role);
+        out.push(role);
+      }
+    }
+  }
+  return out;
+}
+
+/**
+ * Returns true when the roster preset includes this agent slug.
+ */
+function rosterIncludes(rosterId: RosterId, slug: string): boolean {
+  if (rosterId === "default") return true;
+  if (rosterId === "minimal") return MINIMAL_AGENTS.includes(slug);
+  if (rosterId === "user-level") return !USER_LEVEL_EXCLUDE.includes(slug);
+  return false; // custom: empty start
+}
+
+/**
+ * Apply roster + role filters to the v2 roster. Returns a filtered roster
+ * preserving slot identity (so all five ranks remain visible as structural
+ * sections, even when their agent list is empty after filtering). The
+ * COLONEL slot is hidden when a role filter is active (it has no agents
+ * so role filtering would always exclude it; explicit hiding keeps the
+ * ladder coherent under a filter).
+ */
+function filterRoster(
+  roster: RosterSlot[],
+  rosterId: RosterId,
+  roleFilter: string | null,
+): RosterSlot[] {
+  const out: RosterSlot[] = [];
+  for (const slot of roster) {
+    if (slot.rank === "HUMAN") {
+      if (roleFilter && roleFilter !== "PRINCIPAL") continue;
+      out.push(slot);
+    } else if (slot.rank === "COLONEL") {
+      if (roleFilter) continue;
+      out.push(slot);
+    } else {
+      // MAJOR | CAPTAIN | LIEUTENANT — slot is structurally AgentSlot.
+      // TS does not collapse the RankSlot base `agents` type
+      // (ReadonlyArray<Agent | Human>) intersected with AgentSlot's
+      // `agents: Agent[]` down to `Agent[]` automatically, so we narrow
+      // the agents array via assertion before filtering.
+      const slotAgents = slot.agents as Agent[];
+      const filtered = slotAgents.filter((a) => {
+        const slug = agentSlug(a);
+        if (!rosterIncludes(rosterId, slug)) return false;
+        if (roleFilter && a.descriptiveRole !== roleFilter) return false;
+        return true;
+      });
+      out.push({ ...slot, agents: filtered } as RosterSlot);
+    }
+  }
+  return out;
+}
+
+/**
+ * Flat list of agents from a (filtered) roster — used by the command palette
+ * and counts. Excludes HUMAN and reserved-COLONEL slots.
+ */
+function flattenAgents(roster: RosterSlot[]): Agent[] {
+  const out: Agent[] = [];
+  for (const slot of roster) {
+    if (slot.rank === "HUMAN" || slot.rank === "COLONEL") continue;
+    for (const a of slot.agents) out.push(a);
+  }
+  return out;
+}
+
+// ---------------------------------------------------------------------------
+// URL helpers (acb-009)
+// ---------------------------------------------------------------------------
+
 /**
  * Derive the current top-level tab from the URL pathname.
- * `/` and `/officer/...` → "team"; `/skills` and `/skill/...` → "skills";
+ * `/` and `/agent/...` → "team"; `/skills` and `/skill/...` → "skills";
  * `/meta` and `/meta/...` → "meta"; otherwise "team" (fallback for `*`).
  */
 function tabFromPath(pathname: string): Tab {
@@ -50,23 +206,9 @@ function tabFromPath(pathname: string): Tab {
   return "team";
 }
 
-function parseRosterParam(s: string | null): RosterId {
-  if (s && (ROSTER_IDS as string[]).includes(s)) return s as RosterId;
-  return "default";
-}
-
-function parseArchetypeParam(
-  s: string | null,
-  archetypes: ArchetypeColors
-): Archetype | null {
-  if (!s) return null;
-  if (Object.prototype.hasOwnProperty.call(archetypes, s)) return s as Archetype;
-  return null;
-}
-
 /**
  * Build a canonical query-string suffix from the current search params,
- * stripping defaults so the common case (`?roster=default`, no archetype)
+ * stripping defaults so the common case (`?roster=default`, no role)
  * produces an empty string. Used at navigate sites to preserve the active
  * filter when changing path.
  */
@@ -76,28 +218,28 @@ function buildPreservedQuery(searchParams: URLSearchParams): string {
   if (r && r !== "default" && (ROSTER_IDS as string[]).includes(r)) {
     next.set("roster", r);
   }
-  const a = searchParams.get("archetype");
-  if (a) next.set("archetype", a);
+  const role = searchParams.get("role");
+  if (role) next.set("role", role);
   const s = next.toString();
   return s ? `?${s}` : "";
 }
 
 /**
  * Returns a copy of `params` with default-valued entries removed
- * (`roster=default`, empty `archetype=`). Used at navigate sites to keep the
+ * (`roster=default`, empty `role=`). Used at navigate sites to keep the
  * URL canonically minimal — `?roster=default` is implicit, so omitting it
  * makes deep-links stable across roster picker tweaks.
  *
  * Subtlety (acb-009 spec §9.7): if a user types `?roster=default` manually,
  * the app honors it on initial load; on the next setSearchParams call (e.g.,
- * toggling archetype), `roster=default` gets stripped — URL converges to
+ * toggling role), `roster=default` gets stripped — URL converges to
  * canonical-minimal form. Documented; not a bug.
  */
 function stripDefaultSearchParams(params: URLSearchParams): URLSearchParams {
   const next = new URLSearchParams(params);
   if (next.get("roster") === "default") next.delete("roster");
-  const a = next.get("archetype");
-  if (!a) next.delete("archetype");
+  const r = next.get("role");
+  if (!r) next.delete("role");
   return next;
 }
 
@@ -246,27 +388,28 @@ function Header({
 }
 
 // ---------------------------------------------------------------------------
-// Filter sidebar
+// Filter sidebar — roster preset + role filter (replaces v1's archetype filter
+// per Arc 11 hand-back #1 / Arc 12 §5).
 // ---------------------------------------------------------------------------
 
 function FilterSidebar({
   rosterId,
   setRoster,
-  archetypeFilter,
-  setArchetype,
-  archetypes,
+  roleFilter,
+  setRole,
+  allRoles,
 }: {
   rosterId: RosterId;
   setRoster: (r: RosterId) => void;
-  archetypeFilter: Archetype | null;
-  setArchetype: (a: Archetype | null) => void;
-  archetypes: ArchetypeColors;
+  roleFilter: string | null;
+  setRole: (r: string | null) => void;
+  allRoles: string[];
 }) {
   const { dark } = useTheme();
   const rosters: { id: RosterId; label: string }[] = [
-    { id: "default", label: "default · 12 officers" },
-    { id: "minimal", label: "minimal · 4 officers" },
-    { id: "user-level", label: "user-level · 8 officers" },
+    { id: "default", label: "default · 12 agents" },
+    { id: "minimal", label: "minimal · 4 agents" },
+    { id: "user-level", label: "user-level · 8 agents" },
     { id: "custom", label: "custom · start from scratch" },
   ];
   const labelStyle: React.CSSProperties = {
@@ -306,22 +449,22 @@ function FilterSidebar({
           </div>
         ))}
       </div>
-      <div style={labelStyle}>Archetype</div>
+      <div style={labelStyle}>Role</div>
       <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
         <div
           data-testid="filter-clear"
-          onClick={() => setArchetype(null)}
-          style={itemStyle(!archetypeFilter)}
+          onClick={() => setRole(null)}
+          style={itemStyle(!roleFilter)}
         >
           All
         </div>
-        {(Object.keys(archetypes) as Archetype[]).map((a) => (
+        {allRoles.map((role) => (
           <div
-            key={a}
-            data-testid={`filter-archetype-${a}`}
-            onClick={() => setArchetype(a)}
+            key={role}
+            data-testid={`filter-role-${role}`}
+            onClick={() => setRole(role)}
             style={{
-              ...itemStyle(archetypeFilter === a),
+              ...itemStyle(roleFilter === role),
               display: "flex",
               alignItems: "center",
               gap: 8,
@@ -331,11 +474,11 @@ function FilterSidebar({
               style={{
                 width: 8,
                 height: 8,
-                background: archColorFor(a, dark),
+                background: roleColorFor(role, dark),
                 borderRadius: 1,
               }}
             />
-            {a}
+            {role.toLowerCase()}
           </div>
         ))}
       </div>
@@ -344,21 +487,59 @@ function FilterSidebar({
 }
 
 // ---------------------------------------------------------------------------
-// Team view
+// Rank ladder view — replaces v1's TeamView. Renders all five ranks
+// (HUMAN → COLONEL → MAJOR → CAPTAIN → LIEUTENANT) as stacked sections
+// per planning v2 §11. Section headers carry the rank pill + a count;
+// empty sections show a "no inhabitants" placeholder so the ladder's
+// shape is visible even under filters.
 // ---------------------------------------------------------------------------
 
-function TeamView({
-  officers,
-  onPick,
+function RankSectionHeader({
+  rank,
+  count,
 }: {
-  officers: Officer[];
-  onPick: (o: Officer) => void;
+  rank: RosterSlot["rank"];
+  count: number;
 }) {
-  const order: Record<string, number> = { major: 0, captain: 1, lieutenant: 2 };
-  const sorted = [...officers].sort((a, b) => order[a.rank] - order[b.rank]);
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: 10,
+        margin: "20px 0 10px",
+        paddingBottom: 6,
+        borderBottom: "1px solid var(--border-1)",
+      }}
+    >
+      <RankPill rank={rank} />
+      <span
+        style={{
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: 11,
+          color: "var(--fg-3)",
+        }}
+      >
+        {count}
+      </span>
+    </div>
+  );
+}
+
+function RankLadderView({
+  roster,
+  rosterId,
+  onPickAgent,
+  totalAgentCount,
+}: {
+  roster: RosterSlot[];
+  rosterId: RosterId;
+  onPickAgent: (agent: Agent) => void;
+  totalAgentCount: number;
+}) {
   return (
     <div style={{ flex: 1, padding: "24px 28px", overflow: "auto" }}>
-      <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 18 }}>
+      <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 6 }}>
         <h1
           style={{
             margin: 0,
@@ -378,26 +559,99 @@ function TeamView({
             color: "var(--fg-3)",
           }}
         >
-          {officers.length} officers · default roster
+          {totalAgentCount} agents · {rosterId} roster
         </span>
       </div>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
-          gap: 14,
-        }}
-      >
-        {sorted.map((o) => (
-          <OfficerCard key={o.name} officer={o} onClick={() => onPick(o)} />
-        ))}
-      </div>
+      {roster.map((slot) => (
+        <RankSection key={slot.rank} slot={slot} onPickAgent={onPickAgent} />
+      ))}
     </div>
   );
 }
 
+function RankSection({
+  slot,
+  onPickAgent,
+}: {
+  slot: RosterSlot;
+  onPickAgent: (agent: Agent) => void;
+}) {
+  if (slot.rank === "HUMAN") {
+    const humans = slot.agents as Human[];
+    return (
+      <section data-testid="rank-section-HUMAN">
+        <RankSectionHeader rank="HUMAN" count={humans.length} />
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
+            gap: 14,
+          }}
+        >
+          {humans.map((h) => (
+            <HumanCard key={h.descriptiveRole} human={h} />
+          ))}
+        </div>
+      </section>
+    );
+  }
+  if (slot.rank === "COLONEL") {
+    return (
+      <section data-testid="rank-section-COLONEL">
+        <RankSectionHeader rank="COLONEL" count={0} />
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
+            gap: 14,
+          }}
+        >
+          <ReservedColonelCard />
+        </div>
+      </section>
+    );
+  }
+  // MAJOR | CAPTAIN | LIEUTENANT
+  const agents = slot.agents as Agent[];
+  return (
+    <section data-testid={`rank-section-${slot.rank}`}>
+      <RankSectionHeader rank={slot.rank} count={agents.length} />
+      {agents.length === 0 ? (
+        <div
+          style={{
+            fontFamily: "Inter, sans-serif",
+            fontSize: 13,
+            color: "var(--fg-3)",
+            padding: "12px 0",
+          }}
+        >
+          {slot.rank === "LIEUTENANT"
+            ? "No skills authored yet."
+            : "No agents at this rank under the current filter."}
+        </div>
+      ) : (
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
+            gap: 14,
+          }}
+        >
+          {agents.map((a) => (
+            <AgentCard
+              key={agentSlug(a)}
+              agent={a}
+              onClick={() => onPickAgent(a)}
+            />
+          ))}
+        </div>
+      )}
+    </section>
+  );
+}
+
 // ---------------------------------------------------------------------------
-// Officer detail (with markdown body renderer)
+// Agent detail (with markdown body renderer)
 // ---------------------------------------------------------------------------
 
 function InlineMD({ text }: { text: string }) {
@@ -549,7 +803,7 @@ function BodyMarkdown({ text }: { text: string }) {
   return <div>{out}</div>;
 }
 
-function DetailSidebar({ officer }: { officer: Officer }) {
+function DetailSidebar({ agent }: { agent: Agent }) {
   const sectionLabel: React.CSSProperties = {
     fontFamily: "Inter, sans-serif",
     fontSize: 10.5,
@@ -559,6 +813,9 @@ function DetailSidebar({ officer }: { officer: Officer }) {
     color: "var(--fg-3)",
     marginBottom: 8,
   };
+  const lieutenants = agent.callableLieutenants ?? [];
+  const reading = agent.requiredReading ?? [];
+  const tier = agent.modelTier ?? "opus";
   return (
     <aside
       style={{
@@ -577,19 +834,19 @@ function DetailSidebar({ officer }: { officer: Officer }) {
       <div style={sectionLabel}>
         Tools{" "}
         <span style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--fg-4)" }}>
-          {officer.tools.length}
+          {agent.tools.length}
         </span>
       </div>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginBottom: 20 }}>
-        {officer.tools.map((t) => (
+        {agent.tools.map((t) => (
           <Chip key={t}>{t}</Chip>
         ))}
       </div>
-      {officer.lieutenants.length > 0 && (
+      {lieutenants.length > 0 && (
         <>
           <div style={sectionLabel}>Callable lieutenants</div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginBottom: 20 }}>
-            {officer.lieutenants.map((l) => (
+            {lieutenants.map((l) => (
               <span key={l} data-testid={`lieutenant-chip-${l}`} style={{ display: "inline-flex" }}>
                 <Chip variant="skill">{l}</Chip>
               </span>
@@ -597,11 +854,11 @@ function DetailSidebar({ officer }: { officer: Officer }) {
           </div>
         </>
       )}
-      {officer.reading.length > 0 && (
+      {reading.length > 0 && (
         <>
           <div style={sectionLabel}>Required reading</div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginBottom: 20 }}>
-            {officer.reading.map((r) => (
+            {reading.map((r) => (
               <Chip key={r} variant="meta">
                 {r}
               </Chip>
@@ -618,9 +875,9 @@ function DetailSidebar({ officer }: { officer: Officer }) {
           marginBottom: 20,
         }}
       >
-        {officer.tier}
+        {tier}
       </div>
-      <div style={sectionLabel}>Body path</div>
+      <div style={sectionLabel}>Body source</div>
       <div
         style={{
           fontFamily: "'JetBrains Mono', monospace",
@@ -630,24 +887,21 @@ function DetailSidebar({ officer }: { officer: Officer }) {
           lineHeight: 1.5,
         }}
       >
-        definitions/bodies/{officer.name.toLowerCase()}.md
+        substrate/{agent.filename}
       </div>
     </aside>
   );
 }
 
-function OfficerDetail({
-  officer,
+function AgentDetail({
+  agent,
   onBack,
-  body,
 }: {
-  officer: Officer;
+  agent: Agent;
   onBack: () => void;
-  body: string;
 }) {
-  const renderedBody = body
-    .replace(/\{\{OFFICER_NAME\}\}/g, officer.name)
-    .replace(/\{\{NICKNAME\}\}/g, officer.nickname);
+  const summary = deriveRoleSummary(agent.body);
+  const slug = agentSlug(agent);
   return (
     <div style={{ flex: 1, display: "flex", overflow: "auto" }}>
       <div style={{ flex: 1, padding: "24px 32px", maxWidth: 920, overflow: "auto" }}>
@@ -676,8 +930,8 @@ function OfficerDetail({
             marginBottom: 6,
           }}
         >
-          <RankPill rank={officer.rank} />
-          <ArchetypeText archetype={officer.archetype} />
+          <RankPill rank={agent.rank} />
+          <RoleText role={agent.descriptiveRole} />
         </div>
         <h1
           style={{
@@ -689,7 +943,7 @@ function OfficerDetail({
             color: "var(--fg-1)",
           }}
         >
-          {officer.name}
+          {slug}
         </h1>
         <div
           style={{
@@ -702,7 +956,7 @@ function OfficerDetail({
             textWrap: "pretty",
           }}
         >
-          {officer.role}
+          {summary}
         </div>
         <div style={{ display: "flex", gap: 8, marginBottom: 24, flexWrap: "wrap" }}>
           <Button variant="secondary" size="sm" leading={<Edit size={13} />}>
@@ -719,10 +973,10 @@ function OfficerDetail({
           </Button>
         </div>
         <div style={{ borderTop: "1px solid var(--border-1)", paddingTop: 20 }}>
-          <BodyMarkdown text={renderedBody} />
+          <BodyMarkdown text={agent.body} />
         </div>
       </div>
-      <DetailSidebar officer={officer} />
+      <DetailSidebar agent={agent} />
     </div>
   );
 }
@@ -868,16 +1122,16 @@ function MetaView({
 function CommandPalette({
   open,
   onClose,
-  officers,
+  agents,
   skills,
-  onPickOfficer,
+  onPickAgent,
   onPickSkill,
 }: {
   open: boolean;
   onClose: () => void;
-  officers: Officer[];
+  agents: Agent[];
   skills: Skill[];
-  onPickOfficer: (o: Officer) => void;
+  onPickAgent: (a: Agent) => void;
   onPickSkill: (s: Skill) => void;
 }) {
   const [q, setQ] = useState("");
@@ -891,11 +1145,17 @@ function CommandPalette({
   }, [open, onClose]);
   if (!open) return null;
   const norm = q.toLowerCase();
-  const oMatches = officers
-    .filter(
-      (o) =>
-        o.name.toLowerCase().includes(norm) || o.role.toLowerCase().includes(norm)
-    )
+  const aMatches = agents
+    .filter((a) => {
+      const slug = agentSlug(a).toLowerCase();
+      const role = a.descriptiveRole.toLowerCase();
+      const summary = deriveRoleSummary(a.body).toLowerCase();
+      return (
+        slug.includes(norm) ||
+        role.includes(norm) ||
+        summary.includes(norm)
+      );
+    })
     .slice(0, 5);
   const sMatches = skills
     .filter(
@@ -945,7 +1205,7 @@ function CommandPalette({
             autoFocus
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            placeholder="Search officers, skills, meta-aspects…"
+            placeholder="Search agents, skills, meta-aspects…"
             style={{
               flex: 1,
               border: "none",
@@ -970,7 +1230,7 @@ function CommandPalette({
             esc
           </span>
         </div>
-        {oMatches.length > 0 && (
+        {aMatches.length > 0 && (
           <>
             <div
               style={{
@@ -983,48 +1243,51 @@ function CommandPalette({
                 padding: "10px 16px 4px",
               }}
             >
-              Officers
+              Agents
             </div>
-            {oMatches.map((o) => (
-              <div
-                key={o.name}
-                data-testid={`palette-result-officer-${o.name}`}
-                onClick={() => {
-                  onPickOfficer(o);
-                  onClose();
-                }}
-                style={{
-                  padding: "7px 16px",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 10,
-                  cursor: "pointer",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = "var(--accent-soft)")}
-                onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
-              >
-                <span
-                  style={{
-                    fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: 13,
-                    fontWeight: 500,
-                    color: "var(--fg-1)",
+            {aMatches.map((a) => {
+              const slug = agentSlug(a);
+              return (
+                <div
+                  key={slug}
+                  data-testid={`palette-result-agent-${slug}`}
+                  onClick={() => {
+                    onPickAgent(a);
+                    onClose();
                   }}
-                >
-                  {o.name}
-                </span>
-                <span
                   style={{
-                    marginLeft: "auto",
-                    fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: 10.5,
-                    color: "var(--fg-3)",
+                    padding: "7px 16px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 10,
+                    cursor: "pointer",
                   }}
+                  onMouseEnter={(e) => (e.currentTarget.style.background = "var(--accent-soft)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                 >
-                  {o.rank} · {o.archetype}
-                </span>
-              </div>
-            ))}
+                  <span
+                    style={{
+                      fontFamily: "'JetBrains Mono', monospace",
+                      fontSize: 13,
+                      fontWeight: 500,
+                      color: "var(--fg-1)",
+                    }}
+                  >
+                    {slug}
+                  </span>
+                  <span
+                    style={{
+                      marginLeft: "auto",
+                      fontFamily: "'JetBrains Mono', monospace",
+                      fontSize: 10.5,
+                      color: "var(--fg-3)",
+                    }}
+                  >
+                    {a.rank} · {a.descriptiveRole.toLowerCase()}
+                  </span>
+                </div>
+              );
+            })}
           </>
         )}
         {sMatches.length > 0 && (
@@ -1094,34 +1357,19 @@ function CommandPalette({
 // Route components (acb-009)
 // ---------------------------------------------------------------------------
 
-function filterOfficers(
-  officers: Officer[],
-  roster: RosterId,
-  archetypeFilter: Archetype | null
-): Officer[] {
-  return officers.filter((o) => {
-    if (archetypeFilter && o.archetype !== archetypeFilter) return false;
-    if (roster === "default") return true;
-    if (roster === "minimal")
-      return ["MAJOR_PLINY", "DAEDALUS", "ADA", "VERA"].includes(o.name);
-    if (roster === "user-level")
-      return !["CAPTAIN_PLINY", "CURATOR", "HERALD", "SCOUT"].includes(o.name);
-    return false; // custom: empty start
-  });
-}
-
 function TeamRoute({
-  officers,
-  archetypes,
+  data,
+  allRoles,
 }: {
-  officers: Officer[];
-  archetypes: ArchetypeColors;
+  data: StoaDataV2;
+  allRoles: string[];
 }) {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
-  const roster = parseRosterParam(searchParams.get("roster"));
-  const archetypeFilter = parseArchetypeParam(searchParams.get("archetype"), archetypes);
-  const filtered = filterOfficers(officers, roster, archetypeFilter);
+  const rosterId = parseRosterParam(searchParams.get("roster"));
+  const roleFilter = parseRoleParam(searchParams.get("role"), allRoles);
+  const filtered = filterRoster(data.roster, rosterId, roleFilter);
+  const totalAgentCount = flattenAgents(filtered).length;
 
   // Set/clear filter params with default-stripping. Reads current params
   // freshly via the closure of `searchParams` (re-resolved each render);
@@ -1131,43 +1379,42 @@ function TeamRoute({
     next.set("roster", r);
     setSearchParams(stripDefaultSearchParams(next));
   }
-  function setArchetype(a: Archetype | null) {
+  function setRole(r: string | null) {
     const next = new URLSearchParams(searchParams);
-    if (a) next.set("archetype", a);
-    else next.delete("archetype");
+    if (r) next.set("role", r);
+    else next.delete("role");
     setSearchParams(stripDefaultSearchParams(next));
   }
 
   return (
     <>
       <FilterSidebar
-        rosterId={roster}
+        rosterId={rosterId}
         setRoster={setRoster}
-        archetypeFilter={archetypeFilter}
-        setArchetype={setArchetype}
-        archetypes={archetypes}
+        roleFilter={roleFilter}
+        setRole={setRole}
+        allRoles={allRoles}
       />
-      <TeamView
-        officers={filtered}
-        onPick={(o) => navigate(`/officer/${o.name}${buildPreservedQuery(searchParams)}`)}
+      <RankLadderView
+        roster={filtered}
+        rosterId={rosterId}
+        totalAgentCount={totalAgentCount}
+        onPickAgent={(a) =>
+          navigate(`/agent/${agentSlug(a)}${buildPreservedQuery(searchParams)}`)
+        }
       />
     </>
   );
 }
 
-function OfficerRoute({
-  officers,
-  body,
-}: {
-  officers: Officer[];
-  body: string;
-}) {
-  const { name } = useParams<{ name: string }>();
+function AgentRoute({ data }: { data: StoaDataV2 }) {
+  const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const officer = officers.find((o) => o.name === name);
+  const allAgents = flattenAgents(data.roster);
+  const agent = allAgents.find((a) => agentSlug(a) === slug);
 
-  if (!officer) {
+  if (!agent) {
     return (
       <div style={{ flex: 1, padding: "32px 28px" }}>
         <div
@@ -1178,7 +1425,7 @@ function OfficerRoute({
             marginBottom: 12,
           }}
         >
-          Officer <code>{name}</code> not found.
+          Agent <code>{slug}</code> not found.
         </div>
         <Link
           to="/"
@@ -1195,10 +1442,9 @@ function OfficerRoute({
   }
 
   return (
-    <OfficerDetail
-      officer={officer}
+    <AgentDetail
+      agent={agent}
       onBack={() => navigate(`/${buildPreservedQuery(searchParams)}`)}
-      body={body}
     />
   );
 }
@@ -1286,7 +1532,9 @@ function MetaPlaceholder() {
 // ---------------------------------------------------------------------------
 
 function App() {
-  const data = SAMPLE_DATA;
+  const data = hydrateRoster(stoaData);
+  const allAgents = flattenAgents(data.roster);
+  const allRoles = uniqueRoles(data.roster);
   const { dark } = useTheme();
   const [paletteOpen, setPaletteOpen] = useState(false);
 
@@ -1296,20 +1544,21 @@ function App() {
   const navigate = useNavigate();
 
   const tab: Tab = tabFromPath(location.pathname);
-  const roster: RosterId = parseRosterParam(searchParams.get("roster"));
-  const archetypeFilter: Archetype | null = parseArchetypeParam(
-    searchParams.get("archetype"),
-    data.archetypes
+  const rosterId: RosterId = parseRosterParam(searchParams.get("roster"));
+  const roleFilter: string | null = parseRoleParam(
+    searchParams.get("role"),
+    allRoles,
   );
 
-  // Resolve `selected` from the URL pathname for STOA_STATE bridge purposes.
-  // `useParams()` only populates inside routed children; resolving here via
-  // a regex against the pathname keeps the bridge value-correct at the App
-  // level. (See acb-009 design §6 / R7.) Returns the same Officer reference
-  // across renders for the same URL — effect deps stay identity-stable.
-  const officerNameMatch = location.pathname.match(/^\/officer\/([^/?]+)/);
-  const selected: Officer | null = officerNameMatch
-    ? data.officers.find((o) => o.name === officerNameMatch[1]) ?? null
+  // Resolve `selectedAgent` from the URL pathname for STOA_STATE bridge
+  // purposes. `useParams()` only populates inside routed children;
+  // resolving here via a regex against the pathname keeps the bridge
+  // value-correct at the App level. (See acb-009 design §6 / R7.)
+  // Returns the same Agent reference across renders for the same URL —
+  // effect deps stay identity-stable.
+  const slugMatch = location.pathname.match(/^\/agent\/([^/?]+)/);
+  const selectedAgent: Agent | null = slugMatch
+    ? allAgents.find((a) => agentSlug(a) === slugMatch[1]) ?? null
     : null;
 
   useEffect(() => {
@@ -1330,52 +1579,45 @@ function App() {
    * state fields the skill needs to drive the app deterministically without
    * DOM-scraping inline styles.
    *
-   * Shape:
+   * Shape (Arc 12, v2):
    *   {
    *     dark: boolean,                        // theme mode, from useTheme()
    *     currentTab: "team" | "skills" | "meta",
-   *     selectedOfficer: Officer | null,      // null when on the team grid
-   *     roster: RosterId,                     // active roster filter
-   *     archetypeFilter: Archetype | null,    // active archetype chip, or null
+   *     selectedAgent: Agent | null,          // null when on the team grid
+   *     roster: RosterId,                     // active roster preset
+   *     roleFilter: string | null,            // active role chip, or null
    *   }
    *
+   * Migration note: pre-Arc-12 the bridge exposed `selectedOfficer` (v1
+   * Officer shape) and `archetypeFilter`. Both renamed to v2 vocabulary.
+   * The shape is otherwise unchanged.
+   *
    * Source of truth (post-acb-009): URL is canonical for currentTab,
-   *   selectedOfficer, roster, and archetypeFilter — read via useLocation,
-   *   useSearchParams, and a pathname-regex resolution for selectedOfficer
+   *   selectedAgent, roster, and roleFilter — read via useLocation,
+   *   useSearchParams, and a pathname-regex resolution for selectedAgent
    *   (since useParams only populates inside routed children). `dark`
-   *   continues to come from useTheme(). The exposed shape and contract
-   *   surfaces below are unchanged from acb-008.
+   *   continues to come from useTheme().
    *
    * Contract:
    *   • Read-only by convention. Consumers MUST NOT mutate the object;
    *     mutations would be silently overwritten on the next render anyway.
-   *     If a future arc needs a write API, that's a separate dispatch
-   *     (`window.STOA_DISPATCH`); explicitly out of scope for acb-008/009.
    *   • Single-object replace per render — observers can detect changes via
    *     reference equality (`prev !== window.STOA_STATE`). We do not mutate
-   *     in place. Each effect run produces a fresh object literal.
+   *     in place.
    *   • Timing: this effect runs after React's commit phase, so consumers
    *     reading STOA_STATE synchronously immediately after dispatching a UI
    *     event (e.g., right after `element.click()`) will see the prior
-   *     snapshot. Wait one microtask (`await Promise.resolve()` or
-   *     `setTimeout(0)`) — or observe for reference inequality on the next
-   *     tick — before reading.
-   *
-   * The `(window as any)` cast is intentional v1; consumers read this from
-   * plain JS where TS typing is not needed. Adding an ambient declaration
-   * (`declare global { interface Window { STOA_STATE: ... } }`) is
-   * explicitly out of scope per acb-008 §4 — follow-up if a TS consumer
-   * emerges.
+   *     snapshot. Wait one microtask before reading.
    */
   useEffect(() => {
     (window as any).STOA_STATE = {
       dark,
       currentTab: tab,
-      selectedOfficer: selected,
-      roster,
-      archetypeFilter,
+      selectedAgent,
+      roster: rosterId,
+      roleFilter,
     };
-  }, [dark, tab, selected, roster, archetypeFilter]);
+  }, [dark, tab, selectedAgent, rosterId, roleFilter]);
 
   return (
     <div style={{ background: "var(--bg-app)", minHeight: "100vh", color: "var(--fg-1)" }}>
@@ -1387,26 +1629,26 @@ function App() {
         }}
         onSearch={() => setPaletteOpen(true)}
         counts={{
-          team: data.officers.length,
-          skills: data.skills.length,
-          meta: data.metaAspects.length,
+          team: allAgents.length,
+          skills: skills.length,
+          meta: metaAspects.length,
         }}
       />
       <div style={{ display: "flex", alignItems: "stretch" }}>
         <Routes>
           <Route
             path="/"
-            element={<TeamRoute officers={data.officers} archetypes={data.archetypes} />}
+            element={<TeamRoute data={data} allRoles={allRoles} />}
           />
           <Route
-            path="/officer/:name"
-            element={<OfficerRoute officers={data.officers} body={data.bodyPreview} />}
+            path="/agent/:slug"
+            element={<AgentRoute data={data} />}
           />
           <Route
             path="/skills"
             element={
               <SkillsView
-                skills={data.skills}
+                skills={skills}
                 onPick={(s) => navigate(`/skill/${s.name}`)}
               />
             }
@@ -1416,7 +1658,7 @@ function App() {
             path="/meta"
             element={
               <MetaView
-                items={data.metaAspects}
+                items={metaAspects}
                 onPick={(m) => navigate(`/meta/${m.name}`)}
               />
             }
@@ -1428,10 +1670,10 @@ function App() {
       <CommandPalette
         open={paletteOpen}
         onClose={() => setPaletteOpen(false)}
-        officers={data.officers}
-        skills={data.skills}
-        onPickOfficer={(o) =>
-          navigate(`/officer/${o.name}${buildPreservedQuery(searchParams)}`)
+        agents={allAgents}
+        skills={skills}
+        onPickAgent={(a) =>
+          navigate(`/agent/${agentSlug(a)}${buildPreservedQuery(searchParams)}`)
         }
         onPickSkill={(s) => navigate(`/skill/${s.name}`)}
       />

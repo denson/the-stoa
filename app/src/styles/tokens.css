@@ -44,7 +44,15 @@
   --accent-soft-2: #D2DBE9;
   --accent-soft-border: #B7C5DA;   /* skill-chip border (cool-blue accent family) */
 
-  /* Rank coding — bronze / silver / gold; subtle, not loud */
+  /* Rank coding — five ranks (planning v2 §2). HUMAN sits above the agent
+     ranks; COLONEL is the reserved-empty rank, deliberately dimmed; the
+     agent ranks (MAJOR/CAPTAIN/LIEUTENANT) keep the v0.1 gold/silver/bronze. */
+  --rank-human:      #2B4A7F;   /* ink-blue, matches accent */
+  --rank-human-bg:   #E6EBF3;
+  --rank-human-border: #B7C5DA;
+  --rank-colonel:    #76736B;   /* fg-3 dim — reserved-empty */
+  --rank-colonel-bg: #ECE9E1;
+  --rank-colonel-border: #D4D0C5;
   --rank-major:      #8A6B2C;   /* gold-ink */
   --rank-major-bg:   #F5EBD3;
   --rank-major-border: #E5D6A8;
@@ -54,18 +62,6 @@
   --rank-lieutenant: #8A4A2C;   /* bronze-ink */
   --rank-lieutenant-bg: #F2E2D5;
   --rank-lieutenant-border: #E5C9B3;
-
-  /* Archetype hints — low-contrast tints */
-  --arch-orchestrator: #5B4D86;
-  --arch-architect:    #2E6E63;
-  --arch-verifier:     #785637;
-  --arch-executor:     #4A6E2E;
-  --arch-reviewer:     #6E2E4A;
-  --arch-critic:       #6E4A2E;
-  --arch-researcher:   #2E4A6E;
-  --arch-curator:      #4A2E6E;
-  --arch-intake:       #6E6E2E;
-  --arch-scout:        #2E6E4A;
 
   /* Semantic */
   --success:    #2F6B43;
@@ -155,6 +151,12 @@
   --accent-soft-2: #2A3A55;
   --accent-soft-border: #3A4F6E;   /* skill-chip border, on-hue with dark accent family */
 
+  --rank-human:        #7CA1D4;
+  --rank-human-bg:     #1F2A3E;
+  --rank-human-border: #3A4F6E;
+  --rank-colonel:      #87837A;
+  --rank-colonel-bg:   #221F1A;
+  --rank-colonel-border: #3A372F;
   --rank-major:        #D9B96A;
   --rank-major-bg:     #2D2614;
   --rank-major-border: #4A3F1F;
@@ -239,11 +241,6 @@ code, .code-inline {
   border-radius: var(--radius-1);
   padding: 1px 5px;
   color: var(--fg-1);
-}
-.officer-name {
-  font-family: var(--font-mono);
-  font-weight: 600;
-  letter-spacing: var(--tracking-wide);
 }
 .skill-name {
   font-family: var(--font-mono);

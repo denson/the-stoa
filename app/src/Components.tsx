@@ -1,15 +1,14 @@
-// Reusable UI components for The Stoa. Ported from the design handoff bundle's
-// Components.jsx. Inline styles are preserved for design fidelity (matching the
-// hifi prototype pixel-perfectly per the handoff README); v0.2 may refactor to
-// CSS modules or Tailwind.
+// Reusable UI components for The Stoa. Inline styles are preserved for design
+// fidelity (matching the hifi prototype pixel-perfectly per the handoff README);
+// a future arc may refactor to CSS modules or Tailwind.
 //
 // Color sourcing: every theme-aware color comes from a CSS variable defined in
-// src/styles/tokens.css. The old `palette` JS const has been deleted (acb-001);
-// dark mode now toggles via :root[data-theme="dark"] alone. Archetype accent
-// colors are the only per-mode pair that lives in JS — see `archColors` below.
+// src/styles/tokens.css. Dark mode toggles via :root[data-theme="dark"] alone.
+// The role accent colors (per descriptiveRole, light/dark pair) live in JS —
+// see src/data/colors.ts.
 //
 // ---------------------------------------------------------------------------
-// data-testid naming convention (acb-008)
+// data-testid naming convention (acb-008, updated for v2 vocabulary in Arc 12)
 // ---------------------------------------------------------------------------
 // Every load-bearing interactive surface in the app carries a `data-testid`
 // attribute under one consistent rule so downstream Claude Code skill
@@ -20,15 +19,20 @@
 //
 //   • Static surfaces use the entity name alone: `theme-toggle`,
 //     `new-agent-button`, `settings-button`, `search-trigger`, `palette-input`,
-//     `back-to-team`, `filter-clear`.
-//   • Dynamic surfaces append the identifier verbatim — snake-case officer /
-//     skill names from the data layer are NOT re-cased: `officer-card-ADA`,
-//     `skill-card-format-validate`, `meta-card-fix-now-discipline`,
-//     `tab-team`, `filter-archetype-executor`, `lieutenant-chip-LINT_YAML`.
+//     `back-to-team`, `filter-clear`, `colonel-reserved-card`.
+//   • Dynamic surfaces append the identifier verbatim — agent slugs
+//     (filename minus `.md`, e.g. `MAJOR_PLINY`, `CAPTAIN_ADA`) are NOT
+//     re-cased: `agent-card-MAJOR_PLINY`, `skill-card-format-validate`,
+//     `meta-card-fix-now-discipline`, `tab-team`, `filter-role-EXECUTOR`,
+//     `lieutenant-chip-LINT_YAML`, `human-card-PRINCIPAL`.
 //   • Palette result rows disambiguate by entity type:
-//     `palette-result-officer-{name}` vs `palette-result-skill-{name}`.
+//     `palette-result-agent-{slug}` vs `palette-result-skill-{name}`.
 //
-// See agents/specs/acb-008-skill-affordances.md §3 for the canonical table.
+// Migration note (Arc 12): v1 testids `officer-card-*` and
+// `filter-archetype-*` were renamed to `agent-card-*` and `filter-role-*`
+// to match v2 vocabulary; the descriptive-role identifier is the v2 string
+// (SCREAMING-KEBAB-CASE, e.g. `EXECUTOR`, `CHIEF-OF-STAFF`), not the v1
+// archetype enum (lowercase `executor`).
 
 import { useState } from "react";
 import {
@@ -49,33 +53,11 @@ import {
   Moon,
 } from "lucide-react";
 import type { LucideProps } from "lucide-react";
-import type { Officer, Skill, Rank, Archetype } from "./data/types";
+import type { Agent, Human, Rank } from "./data/types-v2";
+import type { Skill } from "./data/display-extras";
 import { useTheme } from "./hooks/useTheme";
-
-// ---------------------------------------------------------------------------
-// Archetype accent colors — [light, dark] pair per archetype.
-// Lives in the components layer (presentation concern, not data). Consumed by
-// ArchetypeText, OfficerCard, FilterSidebar via useTheme() + archColorFor().
-// data.archetypes (in src/data/sample.ts) keeps the light-only string-per-arch
-// shape for the FilterSidebar's archetype enumeration; cleanup deferred to
-// acb-002 (per ARGUS F8 disposition).
-// ---------------------------------------------------------------------------
-export const archColors: Record<Archetype, [string, string]> = {
-  orchestrator: ["#5B4D86", "#9D8FCB"],
-  architect:    ["#2E6E63", "#6FB5A8"],
-  verifier:     ["#785637", "#C29A75"],
-  executor:     ["#4A6E2E", "#8FB575"],
-  reviewer:     ["#6E2E4A", "#C7889F"],
-  "plan-critic":["#6E4A2E", "#C29A75"],
-  researcher:   ["#2E4A6E", "#7CA1D4"],
-  curator:      ["#4A2E6E", "#A88FCB"],
-  intake:       ["#6E6E2E", "#C2C275"],
-  scout:        ["#2E6E4A", "#75C29A"],
-};
-
-export function archColorFor(archetype: Archetype, dark: boolean): string {
-  return archColors[archetype][dark ? 1 : 0];
-}
+import { roleColorFor } from "./data/colors";
+import { agentSlug, deriveRoleSummary } from "./data/derive";
 
 // ---------------------------------------------------------------------------
 // Mark (placeholder logo) — columnar/peristyle motif evoking The Stoa.
@@ -181,13 +163,16 @@ export function ThemeToggle() {
 }
 
 // ---------------------------------------------------------------------------
-// Rank pill — borders use --rank-*-border tokens (added in acb-001 per
-// design §0.5 Lock 1) preserving the v0.1 warm-tint per-rank border coding.
+// Rank pill — covers all five v2 ranks (planning v2 §2). Border tokens added
+// in acb-001 (MAJOR/CAPTAIN/LIEUTENANT) and Arc 12 (HUMAN/COLONEL) preserve
+// the warm-tint per-rank coding.
 // ---------------------------------------------------------------------------
 const rankStyles: Record<Rank, { bg: string; fg: string; border: string }> = {
-  major: { bg: "var(--rank-major-bg)", fg: "var(--rank-major)", border: "var(--rank-major-border)" },
-  captain: { bg: "var(--rank-captain-bg)", fg: "var(--rank-captain)", border: "var(--rank-captain-border)" },
-  lieutenant: { bg: "var(--rank-lieutenant-bg)", fg: "var(--rank-lieutenant)", border: "var(--rank-lieutenant-border)" },
+  HUMAN:      { bg: "var(--rank-human-bg)",      fg: "var(--rank-human)",      border: "var(--rank-human-border)" },
+  COLONEL:    { bg: "var(--rank-colonel-bg)",    fg: "var(--rank-colonel)",    border: "var(--rank-colonel-border)" },
+  MAJOR:      { bg: "var(--rank-major-bg)",      fg: "var(--rank-major)",      border: "var(--rank-major-border)" },
+  CAPTAIN:    { bg: "var(--rank-captain-bg)",    fg: "var(--rank-captain)",    border: "var(--rank-captain-border)" },
+  LIEUTENANT: { bg: "var(--rank-lieutenant-bg)", fg: "var(--rank-lieutenant)", border: "var(--rank-lieutenant-border)" },
 };
 
 export function RankPill({ rank }: { rank: Rank }) {
@@ -214,11 +199,13 @@ export function RankPill({ rank }: { rank: Rank }) {
 }
 
 // ---------------------------------------------------------------------------
-// Archetype text label
+// Role text label — renders the agent's descriptiveRole as a small accent.
+// Replaces v1's ArchetypeText: the v2 descriptiveRole supersedes the v1
+// archetype enum (Arc 11 hand-back #1, Arc 12 retirement).
 // ---------------------------------------------------------------------------
-export function ArchetypeText({ archetype }: { archetype: Archetype }) {
+export function RoleText({ role }: { role: string }) {
   const { dark } = useTheme();
-  const color = archColorFor(archetype, dark);
+  const color = roleColorFor(role, dark);
   return (
     <span
       style={{
@@ -228,16 +215,14 @@ export function ArchetypeText({ archetype }: { archetype: Archetype }) {
         textTransform: "lowercase",
       }}
     >
-      {archetype}-archetype
+      {role.toLowerCase()}-role
     </span>
   );
 }
 
 // ---------------------------------------------------------------------------
-// Chip — skill variant uses --accent-soft-border (token added in acb-001 per
-// ARGUS F1 disposition) preserving the v0.1 cool-blue accent-family border.
-// Meta variant consolidates onto accent-soft-2 / fg-1 / border-2 (Colonel-
-// approved, design §0.5 Lock 2).
+// Chip — skill variant uses --accent-soft-border; meta variant consolidates
+// onto accent-soft-2 / fg-1 / border-2 (design §0.5 Lock 2).
 // ---------------------------------------------------------------------------
 type ChipVariant = "tool" | "skill" | "meta";
 
@@ -281,33 +266,33 @@ export function Chip({
 }
 
 // ---------------------------------------------------------------------------
-// Officer card
+// Agent card — replaces v1 OfficerCard. Consumes v2 Agent directly; the
+// one-line role summary is synthesized from agent.body via deriveRoleSummary
+// (Arc 12 Colonel-call decision: synthesis path, no description field on
+// types-v2). Slug (filename minus `.md`) drives both the testid and the URL.
 // ---------------------------------------------------------------------------
-/**
- * Officer card. Requires a <ThemeProvider> ancestor (consumes useTheme() for
- * archetype color resolution). When v0.3 component tests arrive, wrap with a
- * renderWithTheme helper.
- */
-export function OfficerCard({
-  officer,
+export function AgentCard({
+  agent,
   onClick,
 }: {
-  officer: Officer;
+  agent: Agent;
   onClick?: () => void;
 }) {
   const [hover, setHover] = useState(false);
   const { dark } = useTheme();
-  const archColor = archColorFor(officer.archetype, dark);
+  const accent = roleColorFor(agent.descriptiveRole, dark);
+  const slug = agentSlug(agent);
+  const summary = deriveRoleSummary(agent.body);
   return (
     <div
-      data-testid={`officer-card-${officer.name}`}
+      data-testid={`agent-card-${slug}`}
       onClick={onClick}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
         background: hover ? "var(--bg-inset)" : "var(--bg-surface)",
         border: "1px solid var(--border-1)",
-        borderLeft: `3px solid ${archColor}`,
+        borderLeft: `3px solid ${accent}`,
         borderRadius: 10,
         padding: "16px 18px 14px",
         cursor: "pointer",
@@ -319,8 +304,8 @@ export function OfficerCard({
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-        <RankPill rank={officer.rank} />
-        <ArchetypeText archetype={officer.archetype} />
+        <RankPill rank={agent.rank} />
+        <RoleText role={agent.descriptiveRole} />
       </div>
       <div
         style={{
@@ -331,7 +316,7 @@ export function OfficerCard({
           color: "var(--fg-1)",
         }}
       >
-        {officer.name}
+        {slug}
       </div>
       <div
         style={{
@@ -342,7 +327,113 @@ export function OfficerCard({
           textWrap: "pretty",
         }}
       >
-        {officer.role}
+        {summary}
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Human card — the PRINCIPAL framework (planning v2 §3). Visually distinct
+// from agent cards: ink-blue accent stripe, inline "the human served by the
+// system" caption, no click target (humans don't have detail pages).
+// ---------------------------------------------------------------------------
+export function HumanCard({ human }: { human: Human }) {
+  const accent = "var(--rank-human)";
+  return (
+    <div
+      data-testid={`human-card-${human.descriptiveRole}`}
+      style={{
+        background: "var(--bg-surface)",
+        border: "1px solid var(--border-1)",
+        borderLeft: `3px solid ${accent}`,
+        borderRadius: 10,
+        padding: "16px 18px 14px",
+        boxShadow: "var(--shadow-1)",
+        display: "flex",
+        flexDirection: "column",
+        gap: 8,
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+        <RankPill rank="HUMAN" />
+        <RoleText role={human.descriptiveRole} />
+      </div>
+      <div
+        style={{
+          fontFamily: "'JetBrains Mono', monospace",
+          fontWeight: 700,
+          fontSize: 14.5,
+          letterSpacing: "0.02em",
+          color: "var(--fg-1)",
+        }}
+      >
+        {human.name ?? "(name not yet captured)"}
+      </div>
+      <div
+        style={{
+          fontFamily: "Inter, sans-serif",
+          fontSize: 12.5,
+          color: "var(--fg-2)",
+          lineHeight: 1.45,
+          textWrap: "pretty",
+        }}
+      >
+        The human served by the system. PRINCIPAL is the only role a human
+        occupies; agents rank below.
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Reserved-COLONEL card — the empty rank slot (planning v2 §2). COLONEL is
+// a reserved future agent rank; no agent currently inhabits it. The card is
+// dimmed and non-interactive; the tooltip distinguishes the human PRINCIPAL
+// from the reserved agent rank (the v1-vs-v2 vocabulary correction).
+// ---------------------------------------------------------------------------
+export function ReservedColonelCard() {
+  return (
+    <div
+      data-testid="colonel-reserved-card"
+      title="COLONEL is a reserved agent rank (between MAJOR and HUMAN). No agent currently holds it. Distinct from PRINCIPAL, which is the human's role."
+      style={{
+        background: "var(--bg-sunken)",
+        border: "1px dashed var(--border-2)",
+        borderRadius: 10,
+        padding: "16px 18px 14px",
+        boxShadow: "none",
+        display: "flex",
+        flexDirection: "column",
+        gap: 8,
+        opacity: 0.75,
+        cursor: "help",
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+        <RankPill rank="COLONEL" />
+      </div>
+      <div
+        style={{
+          fontFamily: "'JetBrains Mono', monospace",
+          fontWeight: 600,
+          fontSize: 13.5,
+          letterSpacing: "0.02em",
+          color: "var(--fg-3)",
+        }}
+      >
+        Reserved
+      </div>
+      <div
+        style={{
+          fontFamily: "Inter, sans-serif",
+          fontSize: 12.5,
+          color: "var(--fg-3)",
+          lineHeight: 1.45,
+          textWrap: "pretty",
+        }}
+      >
+        Reserved for future agent rank — no current inhabitants.
       </div>
     </div>
   );
