@@ -6,9 +6,15 @@
   "description": "",
   "id": "stoa--jdj",
   "labels": [],
+  "comments": [
+    {
+      "text": "Arc 13 verdict: PASS.\n\nDeliverables:\n- Vitest 4.1.5 installed; configured (node env) in vite.config.ts; test scripts wired in package.json\n- gen-data.ts split into thin script entry + gen-data-lib.ts (pure pipeline, exported)\n- 41 baseline tests authored across 3 files:\n  - app/scripts/__tests__/gen-data.test.ts: 22 tests\n  - app/src/data/__tests__/derive.test.ts: 11 tests\n  - app/src/data/__tests__/generated.test.ts: 8 tests\n- stoa--b3f resolved: timestamp dropped from emitter; npm run gen-data is byte-idempotent\n\nSmoke:\n- npm test: 41/41 pass\n- npm run build: clean (test files not bundled into dist/assets)\n- npm run dev: vite starts cleanly\n- npm run gen-data: byte-equal across consecutive runs\n- npm run typecheck: silent pass\n- voice audit (grep -i colonel app/scripts app/src/data/__tests__): all matches deliberate (v2 rank labels, COLONEL-slot test names, single v1-correction comment)\n\nOut of scope per directive (deferred): component-level tests, CI integration, scripts/ tsconfig, coverage expansion.",
+      "timestamp": "2026-05-02T22:22:26Z"
+    }
+  ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 13 — Vitest scaffold + stoa--b3f cleanup",
   "type": "epic",
-  "updated_at": "2026-05-02T22:14:54Z"
+  "updated_at": "2026-05-02T22:22:26Z"
 }
