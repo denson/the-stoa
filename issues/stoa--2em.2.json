@@ -7,9 +7,15 @@
   "id": "stoa--2em.2",
   "labels": [],
   "parent": "stoa--2em",
+  "comments": [
+    {
+      "text": "PASS. cd app/ \u0026\u0026 npm run build → tsc -b clean, vite production bundle built (271.13 kB / 84.22 kB gzip). Existing v1 consumers (App.tsx, Components.tsx, sample.ts) compile unchanged.",
+      "timestamp": "2026-05-02T20:39:57Z"
+    }
+  ],
   "priority": 1,
   "status": "open",
   "title": "Smoke test — app TypeScript build clean after Arc 9",
   "type": "task",
-  "updated_at": "2026-05-02T20:38:09Z"
+  "updated_at": "2026-05-02T20:39:57Z"
 }
