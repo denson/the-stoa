@@ -2,13 +2,14 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-03T00:04:32Z",
   "created": "2026-05-03T00:00:20Z",
   "description": "",
   "id": "stoa--jmh",
   "labels": [],
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "[EPIC] Arc 15 — substrate disciplines propagation (v2.1 first capture)",
   "type": "epic",
-  "updated_at": "2026-05-03T00:00:20Z"
+  "updated_at": "2026-05-03T00:04:32Z"
 }
