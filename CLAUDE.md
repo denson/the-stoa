@@ -16,14 +16,15 @@ Specifically:
 
 ## What this repo is
 
-The Stoa is a recursive three-role agent architecture (POLYBIUS chief-of-staff, PLINY orchestrator, CAPTAINs as specialized sub-agents) built on top of beadworks (`bw`) as durable substrate. Authored by Denson Smith.
+The Stoa — a recursive three-role agent architecture for Claude Code, built on `bw` (beadwork) as durable cross-session substrate. Authored by Denson Smith. MIT-licensed.
 
-- `substrate/` — the deployable: role files, the install script, supporting templates, LIEUTENANT skills, historical artifacts. This is what `install.sh` drops onto a target project or user-tier.
-- `app/` — The Stoa: a React/Vite web app for visualizing and editing agent rosters, built against the canonical substrate.
-- `docs/case-study/` — long-form working-notebook narrative authored for the beadworks team. The peer-engineer explanation of why the architecture is shaped the way it is.
-- `docs/case-study/architecture-kg.html` — interactive knowledge graph (standalone HTML, React + Babel) that visualizes the information flow; paired with the case-study markdown alongside it.
+**For the canonical elevator pitch, the agent-routing table for follow-up questions, and the three-way branch (visual tour / install / read deeper), read `SKILL.md` at the repo root.** That is the entry point for any agent landing here cold; this CLAUDE.md just hands off to it.
 
-The architecture spec — what gets deployed and why — lives outside this repo at `user-beadwork/plans/three-role-recursive-architecture.md` (v2).
+Repo layout in brief:
+- `substrate/` — the deployable (role files, install script, templates, skills). What `install.sh` drops onto a target project or user-tier.
+- `app/` — The Stoa: a React/Vite web app for visualizing and editing agent rosters.
+- `docs/case-study/` — long-form working-notebook narrative + paired interactive knowledge graph (`architecture-kg.html`).
+- The architecture spec — what gets deployed and why — lives outside this repo at `user-beadwork/plans/three-role-recursive-architecture.md` (v2).
 
 ---
 

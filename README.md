@@ -1,6 +1,16 @@
 # the-stoa
 
-The unified repo for the three-role agent substrate and **The Stoa** — the visualization-and-edit web app on top of it. Localhost-only deployment posture.
+> **The Stoa** is a recursive three-role agent architecture for Claude Code, built on `bw` (beadwork) as durable cross-session substrate.
+>
+> Three seats, repeated at every tier (user / project / sub-project): a **chief-of-staff** (POLYBIUS) that converses with the human and holds memory across sessions, an **orchestrator** (PLINY) that dispatches the team and reconciles their verdicts, and a team of **specialized sub-agents** (CAPTAINs) each with one focused job — architect, plan-critic, executor, verifier, reviewer, etc. (ten in the current roster). The recursion is the architectural commitment — same shape at every scope, no special-casing.
+>
+> Two operational modes coexist: a formal multi-stage **gauntlet** for hardening work toward production, and **pair-programming** where the human actively co-drives and collaborates with the agents to get to a prototype worth iterating on. Without the pair-programming mode, the gauntlet would over-engineer drafts — running formal verification, review, and spec-checking on sketches that hadn't yet figured out what they were. Adding pair-programming for the discovery phase is what unlocked token-efficient exploration before the gauntlet's hardening machinery kicks in. Clean PASS ships autonomously — no routing every commit through the human.
+>
+> MIT-licensed; deployable onto your own work.
+
+### → [Open the interactive knowledge graph](https://denson.github.io/the-stoa/case-study/architecture-kg.html)
+
+The visualization is the fastest way in. Three modes (Pair Programming / Hardening Flow / Recursion); click around. Long-form companion: [`docs/case-study/case-study.md`](docs/case-study/case-study.md).
 
 **Author:** Denson Smith.
 
@@ -8,7 +18,7 @@ The unified repo for the three-role agent substrate and **The Stoa** — the vis
 
 Just cloned this and want a guided tour?
 
-1. Open this repo in **Claude Code Desktop** (Chrome MCP unlocks the interactive visual tour; the CLI works too with text-only narration).
+1. Open this repo in **Claude Code** (Desktop or CLI both work; Desktop with Chrome MCP unlocks the live-driven visual tour, CLI gets the same narration with a clickable link to the standalone).
 2. Ask Claude something like *"what is this?"* — the agent reads `SKILL.md` at the repo root and routes you.
 3. Recommended path: visual tour first (`/stoa-intro`), then guided install (`/install-stoa`) if you want to deploy the substrate to one of your projects.
 

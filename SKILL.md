@@ -20,23 +20,46 @@ If the PRINCIPAL has a specific concrete ask (*"install this on my widget-builde
 
 ---
 
-## 30-second pitch
+## Elevator pitch
 
-The Stoa is a recursive three-role agent architecture built on top of beadworks (`bw`) as durable substrate. Three seats, repeated at every tier:
+When the PRINCIPAL asks an open-ended *"what is this?"* / *"explain The Stoa"*, lead with this. Verbatim is fine for cold encounters; condense or rearrange if mid-stream. **Do NOT recite the case study** — this is the canonical short version.
 
-- **POLYBIUS** (chief-of-staff) — converses with the human, holds durable memory across sessions, writes activation directives.
-- **PLINY** (orchestrator) — runs structured pipelines, dispatches CAPTAINs, ships on clean PASS without routing through the human.
-- **CAPTAINs** (specialized sub-agents) — one focused job each: architect, plan-critic, executor, verifier, reviewer, scout, file-clerk, intake, synthesist, spec-checker.
+> The Stoa is a recursive three-role agent architecture for Claude Code, built on `bw` (beadwork) as durable cross-session substrate.
+>
+> Three seats, repeated at every tier (user / project / sub-project): a chief-of-staff (POLYBIUS) that converses with the human and holds memory across sessions, an orchestrator (PLINY) that dispatches the team and reconciles their verdicts, and a team of specialized sub-agents (CAPTAINs) each with one focused job — architect, plan-critic, executor, verifier, reviewer, etc. (ten in the current roster). The recursion is the architectural commitment — same shape at every scope, no special-casing.
+>
+> Two operational modes coexist: a formal multi-stage gauntlet for hardening work toward production, and pair-programming where the human actively co-drives and collaborates with the agents to get to a prototype worth iterating on. Without the pair-programming mode, the gauntlet would over-engineer drafts — running formal verification, review, and spec-checking on sketches that hadn't yet figured out what they were. Adding pair-programming for the discovery phase is what unlocked token-efficient exploration before the gauntlet's hardening machinery kicks in. Clean PASS ships autonomously — no routing every commit through the human.
+>
+> MIT-licensed; deployable onto your own work.
 
-The recursion is the architectural commitment: the same three-seat pattern appears at user-tier, project-tier, and sub-project-tier — disambiguated by name suffix, sharing parent's git + bw. Higher tiers see down into lower tiers; lower tiers do not see up by default. That asymmetric visibility is what makes the recursion *useful* rather than just symmetric replication.
+After the pitch, offer the three-way branch (visual tour / install / read deeper) per the section below.
 
-Two operational modes coexist:
-- **Formal gauntlet** — POLYBIUS authors a directive, PLINY runs `DAEDALUS → ARGUS → ADA → VERA → CATO`, autonomous-ship on clean PASS. The production pipeline.
-- **Pair programming for prototyping** — POLYBIUS authors a specialized pair-programmer Major, the PRINCIPAL pairs with it directly to sketch a prototype, then POLYBIUS hands the prototype to PLINY's gauntlet for hardening. The fast-exploration mode.
+---
 
-This repo holds the deployable substrate (`substrate/`), a visualization-and-edit web app called The Stoa (`app/`), and a paired reference set under `docs/case-study/` — the long-form working-notebook narrative (`case-study.md`) alongside the interactive knowledge graph that visualizes the information flow (`architecture-kg.html`).
+## Where to find more (for the agent reading this skill)
 
-The architecture is described in detail in the case study; the disciplines that produced it are recorded as `u--7yg` empirical-record children in the [user-beadwork](https://github.com/denson/user-beadwork) sibling repo.
+When the PRINCIPAL asks follow-up questions after the pitch, route to the right reference rather than improvising or reciting from memory. Map:
+
+| Question shape | Read |
+|---|---|
+| *"What's bw?"* / *"How does beadwork work?"* | The bw repo (separate project). Web-search the current URL — don't trust training-data URLs for tools that may have moved. Don't answer from pitch context alone; the pitch only names bw as a dependency. |
+| *"What's POLYBIUS / PLINY exactly?"* | `substrate/MAJOR_POLYBIUS.md` / `substrate/MAJOR_PLINY.md` — the role files (spec-authoritative). |
+| *"What does CAPTAIN_X do?"* | `substrate/CAPTAIN_X.md` for the specific officer envelope. |
+| *"How does the gauntlet pipeline work?"* | Case study §6 (Information flow with cycles). |
+| *"Why three roles, not one?"* | Case study §3. |
+| *"How does trust distribute across the seats?"* | Case study §3.5 (Three trust patterns). |
+| *"What's the recursion claim, in detail?"* | Case study §4 (Why recursion) + §7 (Asymmetric visibility). |
+| *"Why does role-file voice matter?"* | Case study §5 (voice discipline is structural). |
+| *"Tell me more about the two operational modes."* | Case study §6.5. |
+| *"What disciplines fell out of this?"* | Case study §8 — the 22-child `u--7yg` empirical record at `user-beadwork/u--7yg`. |
+| *"Show me a worked example."* | Case study §9 (Arc 14 sub-project spawning, end-to-end). |
+| *"Where's it going?"* / *"Hypergraph?"* | Case study §10. |
+| *"What's the architecture spec?"* | `user-beadwork/plans/three-role-recursive-architecture.md` (sibling repo). |
+| *"What's shipped since the case study was authored?"* | Case study Appendix at the end of `docs/case-study/case-study.md` — names Arcs 15-19 with pointers. |
+| *"How do I install this on my project?"* | Route to `skills/install-stoa/` — don't try to walk the install procedure from this skill. |
+| *"Show me the visualization."* | Route to `skills/stoa-intro/` — don't try to describe the modes from prose. |
+
+When you don't have a pre-mapped answer to a follow-up, **say so honestly** rather than improvising. *"I don't know off the top of my head — let me check the case study"* is better than confabulation.
 
 ---
 

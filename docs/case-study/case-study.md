@@ -356,4 +356,21 @@ This is the load-bearing demonstration: *the system explains itself by using its
 
 ---
 
-*This case study is a living document. As the architecture evolves and as we hear back from you, it will update. The version you're reading is anchored to the v2 fully-landed state at the-stoa commit `f6c45a5` and user-beadwork commit `42fb253`.*
+*This case study is a living document. As the architecture evolves and as we hear back from you, it will update. The version you're reading is anchored to the v2 fully-landed state at the-stoa commit `f6c45a5` and user-beadwork commit `42fb253`. Subsequent arcs are summarized in the appendix below; the substrate itself continues to evolve.*
+
+---
+
+## Appendix — What's shipped since this case study was authored
+
+The case study captures the architecture at ~Arc 14-15 (v2 fully landed). Subsequent arcs continued to ship, evolving substrate and adding distribution surface. Pointer-set for where the post-Arc-14 work is documented (so an agent or engineer landing here doesn't have to reconstruct the gap):
+
+- **Arc 15 — Substrate disciplines propagation.** Fix-now and external directive review for multi-concern arcs were promoted from PRINCIPAL-personal-setup into the substrate. Already listed in §8 above. Substrate edits at `substrate/MAJOR_POLYBIUS.md` §4.8 and §5.4.
+- **Arc 16 — CAPTAIN_PLINY → CAPTAIN_ZENO rename.** The embedded spec-checker seat got its own mnemonic (role-collapse trap fix; voice discipline §5 applied to naming). The case study references CAPTAIN_ZENO throughout; historical context in §3.
+- **Arc 16.1 — bw command syntax in role files.** Added explicit teaching for `bw comment <id> "text"` (positional, no `-m` flag — empirical bug caught when both POLYBIUS and PLINY emitted comments as literal `> -m`). Substrate edits at `substrate/MAJOR_POLYBIUS.md` §7.3 and `substrate/MAJOR_PLINY.md` §6.1.
+- **Arc 17 + 17.1 — POLYBIUS authoring capabilities + Stoa LIEUTENANT slot.** POLYBIUS can now author specialized pair-programmer Majors directly via the `agent-author` skill (`substrate/skills/agent-author/`); `install.sh` deploys skills alongside role files. The Stoa app at `app/` renders LIEUTENANT skills as first-class roster slots. This is the operational underpinning for the pair-programming mode (§6.5).
+- **Arc 18 — Async polling capability + consent discipline.** POLYBIUS and PLINY now have explicit handling for long-running async coordination via bw + cron. POLYBIUS sets its own polling cron at engagement start (with PRINCIPAL consent); PLINY follows surface-and-wait discipline. Substrate edits at `substrate/MAJOR_POLYBIUS.md` §7.4 and `substrate/MAJOR_PLINY.md` §6.2; consent prompt at `substrate/templates/consent-prompts.md`.
+- **Arc 19 (and patches 19.1–19.8) — Distribution-readiness entry-point skills.** Made the repo cold-cloneable via MIT license, root `SKILL.md` (the about skill — elevator pitch + agent-routing table), root `CLAUDE.md` (auto-discovery hook), `skills/stoa-intro/SKILL.md` (visual Chrome-MCP tour with proactive-control-release discipline), `skills/install-stoa/SKILL.md` (guided substrate install with dry-run-first). The cold-clone flow is the user-facing entry to everything described in this case study.
+
+**For specific officer behavior detail:** read the role files at `substrate/MAJOR_*.md` and `substrate/CAPTAIN_*.md` directly — they are spec-authoritative.
+
+**For the empirical record:** the 22-child `u--7yg` epic at `user-beadwork/u--7yg` is the canonical trail of every observation that hardened into a discipline.
