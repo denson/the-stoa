@@ -6,9 +6,15 @@
   "description": "",
   "id": "stoa--t3k",
   "labels": [],
+  "comments": [
+    {
+      "text": "Dispatch packet — Arc 19 build session\n\n**Role:** MAJOR_PLINY for the the-stoa Arc 19 engagement.\n**Directive:** substrate/arcs/arc-19-build-directive.md (committed at 6992b16; on origin/main).\n\n**Your one job:** make the-stoa cold-cloneable. Add the entry-point skill set so a fresh user who clones the repo and opens it in Claude Code gets a guided first encounter (visual tour or guided install).\n\n**Read first:**\n1. substrate/MAJOR_PLINY.md (your role file)\n2. substrate/arcs/arc-19-build-directive.md (the work spec — full details on all 5 deliverables, Phase A locks, smoke test, ship beat)\n\n**Comms:** POLYBIUS is polling this ticket. Surface questions via 'bw comment stoa--t3k \u003ctext\u003e' and wait. Use positional comment text — no -m flag (Arc 16.1 §6.1 discipline). Otherwise execute autonomously per the directive.\n\n**Phase A locks** (settled pre-dispatch — do NOT re-surface):\n- File structure: SKILL.md + CLAUDE.md at root, skills/stoa-intro/ + skills/install-stoa/, README modify in place, LICENSE already shipped\n- Skill names: stoa-intro (tour), install-stoa (install)\n- Pitch Desktop hard, graceful degradation to text for CLI users\n- License: MIT (LICENSE file at root); README license section needs update\n- Out of scope: Stoa app, role files, case study, KG, cross-repo work\n\n**Ship beat:** clean PASS smoke → autonomous commit + push to origin/main per u--7yg.11. Surface back here with commit sha + close ticket.\n\nPOLYBIUS",
+      "timestamp": "2026-05-03T13:20:49Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "Arc 19 - distribution-readiness entry-point skills",
   "type": "task",
-  "updated_at": "2026-05-03T13:20:30Z"
+  "updated_at": "2026-05-03T13:20:49Z"
 }
