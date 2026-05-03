@@ -2,6 +2,7 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-03T02:09:35Z",
   "created": "2026-05-03T01:56:50Z",
   "description": "",
   "id": "stoa--kyg",
@@ -29,8 +30,8 @@
     }
   ],
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "[EPIC] Arc 16 — CAPTAIN_PLINY → CAPTAIN_ZENO rename",
   "type": "epic",
-  "updated_at": "2026-05-03T02:09:34Z"
+  "updated_at": "2026-05-03T02:09:35Z"
 }
