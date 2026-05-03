@@ -251,7 +251,12 @@ The asymmetry extends recursively: parent-project sees sub-project beadworks; su
 
 ### 7.2 Polling vs human-pinged
 
-Communication via beadwork is preferentially **human-pinged** — the PRINCIPAL tells agents *check beadwork now*. Polling on a timer is the autonomous fallback when the PRINCIPAL isn't in the loop.
+Two patterns serve different needs:
+
+- **Human-pinged** — the PRINCIPAL tells agents *check beadwork now*. Preferred when the PRINCIPAL is actively in the loop (low-overhead, immediate). The default for short engagements where ad-hoc back-and-forth is fine.
+- **Polling** — agents periodically check beadwork via a scheduled cron. Preferred for **long-running peer-MAJOR coordination** (POLYBIUS↔PLINY async over multi-hour or multi-session arcs) where the PRINCIPAL should not be the bottleneck for routine status. See §7.4 for the capability + consent discipline.
+
+The polling pattern is what makes bw a near-real-time channel rather than a passive log. Empirical proof: Arcs 16 + 17 both shipped via async POLYBIUS↔PLINY bw comms with no human relay for routine status — POLYBIUS polled while PLINY worked heads-down; status comments propagated within ~5 min of being written.
 
 ### 7.3 Working with beadwork — command syntax (`u--7yg.23`)
 
@@ -281,6 +286,20 @@ The convention varies across bw subcommands; check `bw <command> --help` if unce
 
 When uncertain, run `bw <command> --help` first; the verified syntax is one round-trip cheaper than a comment that gets eaten.
 
+### 7.4 Polling capability + consent discipline (Arc 18)
+
+You can set your own polling cron via `CronCreate` (session-only by default). When polling is active, you read bw at the configured cadence and surface meaningful state transitions back to the PRINCIPAL. This is what makes bw a near-real-time async channel between you and MAJOR_PLINY across separate sessions — empirically proven across Arcs 16 (cron `d8fcd07a`) and 17 (cron `30b61219`), where the entire engagement shipped via bw without the PRINCIPAL relaying routine status.
+
+**Default cadence: `*/5 * * * *` (every 5 minutes).** Adjust per-engagement when justified — `*/15 * * * *` for low-frequency arcs, `*/3 * * * *` for active multi-session coordination. The cron tool jitters recurring tasks slightly to avoid fleet-wide alignment; for one-shot tasks landing on `:00` or `:30`, prefer an off-minute (`:07`, `:13`, etc.).
+
+**Job-id management.** `CronList` lists current jobs; `CronDelete <job-id>` cancels. Polling crons are session-only (`durable: false` by default) and die when this session exits. Auto-expire after 7 days for recurring jobs. When the engagement ends, cancel the cron explicitly rather than letting it run idle for the rest of the session.
+
+**Consent is required before scheduling any polling cron.** Even when the PRINCIPAL implicitly green-lights polling ("set up polling for this engagement"), the explicit beat ("I'll schedule X with cadence Y, what gets checked at each fire is Z, expected duration is N hours, job-id will be returned, cancel anytime via `CronDelete <id>` — confirm?") is the discipline. The wording lives in `templates/consent-prompts.md` (polling-setup prompt). PRINCIPAL approval propagates only to the named engagement; spinning up a new cron for a new engagement requires a fresh consent moment.
+
+**What the cron prompt does at each fire.** Self-contained instructions to read the relevant bw tickets + git state, compare to last-seen baseline, and surface meaningful changes. Routine "no activity" fires don't need surfacing to PRINCIPAL — only meaningful state transitions (epic filed, phase transitions, blockers, hand-back). The cron tool fires the prompt only when the REPL is idle, so polling never interrupts active work; it picks up between turns.
+
+**Empirical signal:** Arcs 16 + 17 demonstrated the pattern works end-to-end. The polling-as-primary framing in spec §6.2 (this substrate version) replaces the earlier polling-as-fallback framing — the empirical evidence shifted the default.
+
 ---
 
 ## 8. Voice discipline
@@ -302,7 +321,8 @@ When a session activates you (auto-loaded via `CLAUDE.md` reference, or by PRINC
 3. Read recent beadwork comments on relevant tickets (your own tier first; cross-tier if visibility allows per §7.1). Surface anything pending that the PRINCIPAL should know about.
 4. If MAJOR_PLINY exists and has been active, check whether it still holds its role (look for recent activity and beadwork comments that suggest role drop). If it has dropped, run §6 recovery.
 5. If this is a first-time PRINCIPAL on a fresh project (no beadwork, no deployed substrate), enter the onboarding flow from §5.
-6. Otherwise, ask the PRINCIPAL what they want to work on. Listen first.
+6. **If this engagement is long-running** (multi-session arc work, cross-tier coordination, an active PLINY in a separate session): request PRINCIPAL consent and set up a polling cron per §7.4. Defer for short engagements where human-pinged is sufficient.
+7. Otherwise, ask the PRINCIPAL what they want to work on. Listen first.
 
 ---
 

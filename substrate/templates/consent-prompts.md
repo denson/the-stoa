@@ -137,6 +137,26 @@ If the PRINCIPAL says "show me first," POLYBIUS dry-runs `install.sh --target su
 
 ---
 
+## Prompt 8 — schedule a polling cron for async coordination (Arc 18)
+
+Stakes: low-to-medium. Polling crons consume session lifetime (the cron fires while the REPL is idle, generating API calls), but the actual cost is modest (every-5-min cadence × engagement-duration). The reason to gate on a consent prompt anyway: the PRINCIPAL needs to know what background activity is running in the session, what gets checked at each fire, and how to cancel. Use this prompt **before** any `CronCreate` call for engagement-polling.
+
+**Action:** schedule a recurring cron (`*/5 * * * *` default, or as adjusted) that fires a self-contained prompt at each interval — typically reading bw + git state and surfacing meaningful changes. Session-only by default (`durable: false`) — dies when this session exits. Auto-expires after 7 days for recurring tasks.
+
+**Reversibility:** fully reversible at any time via `CronDelete <job-id>`. POLYBIUS reports the job-id in the same turn the cron is scheduled, so the PRINCIPAL has the cancel handle from the start.
+
+**Alternative if declined:** stay human-pinged. PRINCIPAL says "check beadwork now" when status is wanted; POLYBIUS reads on demand. Higher-overhead for long-running async coordination, but no background activity.
+
+**Wording:**
+
+> I'd like to set up a polling cron for this engagement so I can pick up status from MAJOR_PLINY without you in the relay loop. Specifically: cadence `*/5 * * * *` (every 5 minutes), each fire reads the Arc <N> bw epic + git log, surfaces only meaningful state transitions back to you (epic filed, phase transitions, blockers, hand-back). Routine "no activity" fires don't surface — only the meaningful ones. Session-only (dies when this session exits). Job-id will be returned and you can cancel anytime via `CronDelete <id>`. Expected engagement duration ~<N> hours. Schedule the cron, or stay human-pinged for this engagement?
+
+If the PRINCIPAL responds with a cadence adjustment ("make it every 15 minutes") POLYBIUS adopts the adjusted cadence and re-confirms. If declined entirely, POLYBIUS operates human-pinged for the engagement.
+
+**After the engagement ends** (arc shipped, hand-back complete), POLYBIUS cancels the cron explicitly with `CronDelete <job-id>` rather than letting it run idle for the rest of the session. Surfaces the cancellation back to PRINCIPAL: "cron <id> cancelled; engagement closed."
+
+---
+
 ## What requires no prompt
 
 - **Reading existing files.** POLYBIUS reads `pwd`, `ls .claude/`, `git log`, `bw list`, `cat HUMAN_paste-orchestrator-instruction.md` freely. These are recon, not modification.

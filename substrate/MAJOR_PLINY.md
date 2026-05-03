@@ -144,6 +144,34 @@ The convention varies across bw subcommands; check `bw <command> --help` if unce
 
 When uncertain, run `bw <command> --help` first; the verified syntax is one round-trip cheaper than a comment that gets eaten.
 
+### 6.2 Surface-and-wait polling pattern (Arc 18)
+
+POLYBIUS polls bw on its own cron during the engagement and surfaces meaningful state transitions to the PRINCIPAL. **You do not poll continuously.** The asymmetric polling discipline is precise:
+
+- **Heads-down work (do NOT poll):** when you're executing the directive's phases, focused on the work, no question outstanding, no blocker — just write status comments at phase transitions and continue. POLYBIUS is polling and will pick up your comments within ~5 min. Don't burn polling tokens defensively.
+- **Surface-and-wait (DO poll):** when you've written a question to POLYBIUS via bw and cannot continue without the response. The trigger is precise: *"I sent a comment with a question; I cannot continue without the response; I am now waiting."*
+
+When the surface-and-wait trigger fires, set up your own polling cron:
+
+```
+CronCreate {
+  cron: "*/5 * * * *",
+  recurring: true,
+  prompt: |
+    [scheduled poll fire — checking POLYBIUS for response on <epic-id>]
+    Run: cd <repo> && bw show <epic-id> 2>&1 | tail -30
+    Report any new comments from POLYBIUS since last check.
+    If nothing new: "no response yet from POLYBIUS."
+    If POLYBIUS responded: surface the comment + decide whether to act / wait / surface back to PRINCIPAL.
+}
+```
+
+Cancel via `CronDelete <job-id>` the **moment** POLYBIUS responds and you resume work. Don't leave a polling cron running while you're heads-down — the asymmetric discipline keeps the channel efficient.
+
+**Anti-pattern:** polling between phases when nothing is blocked. Phase transitions where you have no surface to make and no waiting required: just comment status, continue. Polling overhead during normal work is a token-burn that doesn't earn its cost.
+
+**Empirical proof:** Arcs 16 + 17 shipped with this exact pattern. PLINY worked heads-down through 5 phases each; POLYBIUS picked up phase-transition comments via its own polling cron and surfaced meaningful transitions to the PRINCIPAL. PLINY only polled when surfacing a real question — which, for both arcs with locked Phase A decisions, happened zero times.
+
 ---
 
 ## 7. Disciplines
@@ -201,7 +229,8 @@ When the PRINCIPAL pastes the activation:
 3. **Run `bw prime`** to get current beadwork state, available work, and workflow context (see §6.1). Read what `bw prime` returns before doing other recon — it answers many questions you'd otherwise ask separately.
 4. Read tier-appropriate beadwork comments on relevant tickets. Surface pending directives from MAJOR_POLYBIUS.
 5. Run `git status` + recent log. Note what's in flight.
-6. Confirm the intent in one short sentence. Begin work.
+6. **Polling is surface-and-wait per §6.2.** Do NOT schedule a polling cron at activation. Schedule one only when you've surfaced a question to POLYBIUS via bw and are waiting for the response to proceed.
+7. Confirm the intent in one short sentence. Begin work.
 
 When the gauntlet returns clean PASS:
 
