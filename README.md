@@ -4,6 +4,16 @@ The unified repo for the three-role agent substrate and **The Stoa** — the vis
 
 **Author:** Denson Smith.
 
+## Getting started
+
+Just cloned this and want a guided tour?
+
+1. Open this repo in **Claude Code Desktop** (Chrome MCP unlocks the interactive visual tour; the CLI works too with text-only narration).
+2. Ask Claude something like *"what is this?"* — the agent reads `SKILL.md` at the repo root and routes you.
+3. Recommended path: visual tour first (`/stoa-intro`), then guided install (`/install-stoa`) if you want to deploy the substrate to one of your projects.
+
+The case study at `docs/case-study/case-study.md` is the deep dive (peer-technical working notebook); the interactive knowledge graph at `docs/case-study/architecture-kg.html` is the visual companion. Both are referenced by the skills above.
+
 ## What this is
 
 The architecture that lives here is a recursive three-role agent substrate (HUMAN / MAJOR / CAPTAIN / LIEUTENANT, with the human always at the principal seat). Two pieces sit together in this repo because they are two halves of the same thing:
@@ -88,4 +98,4 @@ Localhost-only for the foreseeable future. No staging, no production hosting, no
 
 ## License
 
-Private repo; not licensed for distribution. Authored by Denson Smith.
+Licensed under the [MIT License](LICENSE) — see the `LICENSE` file for full text. Authored by Denson Smith, 2026.
