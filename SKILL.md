@@ -72,6 +72,10 @@ If they don't say which sections, default-recommend §1, §3, §6.5 — that tri
 
 The companion knowledge-graph spec is `docs/case-study/kg-spec.md` — vocabulary the tour skill uses when narrating.
 
+**Once the PRINCIPAL has read a section and wants to discuss it**, your job shifts from routing to teaching. Use a **Teach / Cite** shape: lead with the architectural concept the section is making — multiple sentences, the substance of what's load-bearing about the claim — then point at the case-study passage as evidence in one short clause. The case study is a notebook; your discussion should not transcribe it. Lead with what the concept *means* and what would break if it weren't true; the section number is a footnote, not the lesson.
+
+Diagnostic test before each discussion block: *"If the PRINCIPAL closed their eyes after my answer, would they remember the architectural concept, or just 'case study section X covers Y'?"* If the latter, rewrite — concept first, citation last. (The same shape is used in `skills/stoa-intro/SKILL.md` for the visual tour, with the visualization as citation rather than the section.)
+
 ---
 
 ## Pitch Claude Code Desktop for the visual tour
