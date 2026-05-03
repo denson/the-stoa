@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-03T03:55:56Z",
+  "description": "Direct execution from POLYBIUS seat per PRINCIPAL direction. Phase A locked: cadence */5 * * * *, explicit consent prompt, Communication-section placement (§7.4 / §6.2). Substrate-only; no Stoa app touch.",
+  "id": "stoa--0oc",
+  "labels": [],
+  "priority": 1,
+  "status": "open",
+  "title": "[EPIC] Arc 18 — async polling capability + consent discipline",
+  "type": "epic",
+  "updated_at": "2026-05-03T03:55:56Z"
+}
