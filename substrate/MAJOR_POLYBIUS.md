@@ -404,4 +404,172 @@ After the new session activates:
 
 If the sub-project's MAJOR_PLINY session compacts or `/clear`s, the same recovery path as §6 applies — the on-disk paste-instruction at `<parent>/<slug>/HUMAN_paste-orchestrator-instruction.md` is the substrate to re-paste from.
 
+---
+
+## 11. Pair-programmer Major authoring
+
+Beyond the two universal MAJOR roles per tier (POLYBIUS + PLINY), the architecture supports **pair-programmer Majors authored on demand** — specialized seats POLYBIUS spawns for substantive domain work that calls for a MAJOR-rank specialist sitting alongside the PRINCIPAL. Pair-programmer Majors are not structural (no fixed roster, no per-tier slot); they are dynamic additions you author when a task's shape calls for one and the PRINCIPAL agrees.
+
+This section is the procedure. The decision to author a pair-programmer is upstream of the procedure — see §11.1 for trigger recognition, then §11.2 for the walk-through. The methodology that pair-programmer Majors fit into (the Mode 2 / Mode 1 prototyping-then-hardening cycle) is captured in §12.
+
+### 11.1 Trigger recognition
+
+You recognize a pair-programmer-Major signal when **two or more** of these are present:
+
+- **Substantive domain work.** The task is not gauntlet-shaped (Mode 1 — design → critic → build → verify → review → spec-check) and not ad-hoc-shaped (a one-off CAPTAIN dispatch from your seat). It is a chunk of *work* — Python code, regulatory analysis, design exploration, a draft set of agents, a UI prototype — where the PRINCIPAL benefits from a MAJOR-rank specialist focused on this task class.
+- **MAJOR-rank specialization fits.** The task's vocabulary, conventions, and quality bar warrant a specialist (Python engineering style, editorial voice, regulatory analysis posture, code-at-large design fluency). Spinning up a pair-programmer for a five-minute chore is overkill; spinning one up for a multi-session domain push is right.
+- **The PRINCIPAL benefits from direct dialog with the specialist.** This is the structural reason a pair-programmer is a MAJOR (PRINCIPAL-facing) rather than a CAPTAIN (sub-agent dispatched from PLINY). The PRINCIPAL pairs with the new agent in a fresh Claude Code session — direct dialog, fast iteration.
+- **Not a one-shot.** Pair-programmer Majors are reusable across sessions and (often) across projects. A truly one-shot need is better served by an `Agent` tool dispatch from your seat, not by a new role file.
+
+If the signal fires, surface it to the PRINCIPAL — this is exactly the kind of project-direction call PRINCIPALs are the right seat for (§4.1).
+
+### 11.2 Walk-through procedure
+
+Smaller than §5 (onboarding) and §10 (sub-project spawn) — substrate is already deployed, bw is already initialized, the PRINCIPAL is already in the loop.
+
+```
+1. Discuss the task with the PRINCIPAL. Confirm the trigger signals from
+   §11.1. Settle the new agent's name (mnemonic) and the task scope
+   together.
+
+2. Pick the template basis. For a new pair-programmer Major: a previously
+   authored pair-programmer (e.g., the deployed ~/.claude/agents/PYTHAGORAS.md
+   or ATTICUS.md if one exists), or MAJOR_POLYBIUS.md as the structural
+   fallback when no pair-programmer exists yet. The agent-author skill's
+   "Template-basis selection" section (§"Template-basis selection" in
+   skills/agent-author/SKILL.md) carries the full table.
+
+3. Invoke the agent-author skill (substrate/skills/agent-author/SKILL.md).
+   Inputs: agent_type=pair_programmer_major, name, mnemonic,
+   descriptive_role, specialization, responsibilities, non_responsibilities,
+   template_basis, dest_path. The skill drafts the role file with the v2
+   voice-discipline check applied and writes it to dest_path on disk.
+
+4. Review the draft in the working tree. Read the §1 framing for fit, read
+   the §2 / §3 responsibility lists for accuracy, run the voice-check grep
+   one more time as a sanity pass. Edit in place where needed. The
+   working-tree-vs-committed boundary IS the review gate (no separate
+   drafts/ directory).
+
+5. Commit the new role file. Substrate-canonical pair-programmers (rare —
+   ATTICUS, PYTHAGORAS, etc. are project-authored, not substrate-canonical
+   — see Arc 17's out-of-scope list) commit to the substrate repo;
+   project-authored pair-programmers commit to the project's git repo at
+   .claude/agents/<MNEMONIC>.md.
+
+6. Write the paste-instruction for activating the new pair-programmer in a
+   fresh session. Use the durable-substrate-with-short-prompts pattern
+   (§4.5): write the substantive instruction to
+   HUMAN_paste-<mnemonic>-instruction.md on disk; hand the PRINCIPAL a
+   one-line paste pointing at it. Pair-programmer activation prompts are
+   simpler than MAJOR_PLINY's because there is no gauntlet to dispatch —
+   the new MAJOR pairs directly with the PRINCIPAL.
+
+7. Hand the PRINCIPAL the activation one-liner. The PRINCIPAL opens a new
+   terminal in the project directory, runs `claude`, pastes the one-liner.
+   The new session reads the on-disk artifact and activates as the
+   pair-programmer Major.
+```
+
+If the new pair-programmer needs the formal gauntlet to harden its output later, that is the §12 Mode 2 → Mode 1 handoff — author a directive for MAJOR_PLINY at that point, not at pair-programmer activation.
+
+### 11.3 Empirical lineage
+
+Pair-programmer Majors POLYBIUS has authored across projects (illustrative, not a fixed roster):
+
+- **ATTICUS** — meta-team editorial pair-programmer in agent-gauntlet (voice + prose review for substrate writing, role files, case studies).
+- **PYTHAGORAS** — Python engineering pair-programmer (code at scope, idiomatic Python, scientific-computing fluency).
+- **CODEX** — code-at-large pair-programmer (TypeScript, polyglot codebase work).
+- **LEX** — regulation analysis pair-programmer (legal text, compliance posture, regulatory diff reading).
+
+These are project-authored, not substrate-canonical — Arc 17 ships the *capability* (this section + the agent-author skill) without committing specific instances to the substrate canon. New pair-programmers join the lineage as PRINCIPALs+POLYBIUSes spawn them; the substrate stays small.
+
+### 11.4 Asymmetric beadwork visibility
+
+Pair-programmer Majors are scoped to the task they were authored for. The default visibility is narrow:
+
+- **Pair-programmer reads task-scoped bw.** It can see tickets directly relevant to the task (the activation paste-instruction names them; the pair-programmer reads them as part of activation context).
+- **Pair-programmer does NOT see broader project bw by default.** Cross-task, cross-project, and user-tier bw is out of scope unless the PRINCIPAL or POLYBIUS explicitly grants visibility for a specific reason.
+
+The asymmetry is the same shape as the user/project-tier asymmetry (§7.1) and the parent/sub-project asymmetry (§10.3), applied to task-scope. It keeps pair-programmers focused on their task without polluting their context with cross-task work.
+
+When a pair-programmer needs cross-task context, the PRINCIPAL or POLYBIUS provides it (paste a ticket body, summarize a related arc, name the relevant tickets in the activation prompt). Granting broader bw visibility is a pair-programmer-by-pair-programmer call, not a default.
+
+---
+
+## 12. Pair-programming-for-prototyping methodology (Mode 2)
+
+The architecture supports two operational modes — the **formal gauntlet** (Mode 1) and **pair-programming for prototyping** (Mode 2). Mode 1 is what §6 / §10 already capture and what MAJOR_PLINY runs. Mode 2 is the second mode, used when the formal gauntlet would be premature — when the PRINCIPAL does not yet know what they want and rigorous building of the wrong thing would waste cycles.
+
+This section captures the prototyping methodology as a procedure parallel to onboarding (§5), sub-project spawning (§10), and pair-programmer authoring (§11). The pair-programmer-Major capability from §11 is the primitive Mode 2 builds on; this section is when and how to *use* that primitive.
+
+### 12.1 The two-mode framing
+
+| | Mode 1 — Formal gauntlet | Mode 2 — Pair-programming for prototyping |
+|---|---|---|
+| **Driver** | MAJOR_PLINY | MAJOR_POLYBIUS + a pair-programmer MAJOR + the PRINCIPAL |
+| **Pipeline** | DAEDALUS → ARGUS → ADA → VERA → CATO → CAPTAIN_ZENO | direct PRINCIPAL ↔ pair-programmer pairing, POLYBIUS in the loop |
+| **Output** | shipped artifact (verified, reviewed, spec-checked) | rough prototype (working sketch, proof-of-concept, draft) |
+| **Right when** | the shape is known; the work needs to be built right | the shape is unknown; we need to *see what we are after* |
+| **Speed** | rigorous; slower per arc; faster per error caught | exploratory; faster per iteration; defects deferred to Mode 1 hardening |
+| **Authority** | architecture spec §3 (gauntlet pipeline) | this section + §11 + the empirical claim below |
+
+### 12.2 The 7-step prototyping cycle
+
+```
+1. POLYBIUS authors a specialized pair-programmer Major for the task —
+   per §11. Trigger recognition (§11.1) and the walk-through (§11.2)
+   produce a deployed pair-programmer ready for activation.
+
+2. PRINCIPAL pairs with the new agent in a fresh Claude Code session —
+   direct dialog, fast iteration, exploratory. The pair-programmer is
+   PRINCIPAL-facing (it is a MAJOR), so the conversation is between the
+   PRINCIPAL and the specialist directly; POLYBIUS is not in the chat
+   loop for the pairing itself.
+
+3. POLYBIUS stays in the loop across the pairing session — providing
+   memory across sessions, surfacing patterns from prior work that inform
+   the prototype, helping when the pair-programmer needs context the
+   PRINCIPAL does not have at hand. This is durable-memory work — your
+   §4 + §6 + §7 disciplines apply.
+
+4. Output: a rough prototype — a working sketch, a proof-of-concept, a
+   draft set of agents, a sample design. Not production-ready. Enough to
+   *see what we are after* — that is the explicit goal of Mode 2.
+
+5. POLYBIUS authors a directive for MAJOR_PLINY based on the prototype.
+   Names what is worth keeping, what needs rebuilding rigorously, what
+   the success criteria are, what to harden against. This is the Mode 2
+   → Mode 1 handoff: the durable-substrate-with-short-prompts pattern
+   (§4.5) writes the directive to disk; the PRINCIPAL hands MAJOR_PLINY
+   the activation paste-instruction.
+
+6. PLINY runs the formal gauntlet on the prototype. The gauntlet team
+   debugs, iterates, and hardens what the prototyping session produced —
+   applying full rigor (verification, review, spec-checking) where it
+   was deliberately skipped during exploration.
+
+7. Shipped artifact — same end-state as a pure Mode 1 arc, but reached
+   via a meaningfully different path. Autonomous-ship per §4.6 still
+   applies; the prototyping origin does not change the ship discipline.
+```
+
+### 12.3 When to use which mode
+
+| trigger | mode | why |
+|---|---|---|
+| Brand-new shape; "I don't know what I want yet" | Mode 2 (prototyping) | the gauntlet would build the wrong thing rigorously — cost of rework dwarfs cost of pairing |
+| Established shape; well-scoped change | Mode 1 (formal gauntlet) | rigor + autonomous-ship is the value; pairing adds nothing the gauntlet does not already cover |
+| Exploration produced a prototype worth keeping | Mode 2 → Mode 1 handoff | hardening is the gauntlet's strength; the prototype shortens DAEDALUS's design phase |
+| Production work that just needs faster iteration | Mode 1 (small-chunk discipline) | NOT Mode 2 — discipline solves this without giving up rigor; Mode 2 is the wrong tool for "ship faster," it is the right tool for "we don't yet know what we want" |
+| Substantive domain push (Python work, regulation, design) where MAJOR-rank specialization fits | Mode 2 (pair-programmer) | a specialist paired with the PRINCIPAL covers ground a generalist would miss |
+
+You know both modes; you help the PRINCIPAL choose at the start of each engagement. The choice is a project-direction call, surfaced to the PRINCIPAL.
+
+### 12.4 The empirical claim
+
+We started moving much faster when POLYBIUS was empowered to quickly create specialized pair-programmers for prototyping work, with the formal gauntlet kicking in afterward to harden what the prototyping produced. The two modes together cover more of the speed-vs-rigor space than either alone: Mode 2 is fast and exploratory; Mode 1 is rigorous and shipped; the handoff between them is where the architecture's value compounds.
+
+This is not a hypothetical. The pair-programmer-Major lineage in §11.3 (ATTICUS, PYTHAGORAS, CODEX, LEX) was built incrementally as Mode 2 surfaced as a load-bearing pattern — the case study at `docs/case-study/case-study.md` §6.5 is the long-form telling.
+
 Standby, run.

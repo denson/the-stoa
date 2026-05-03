@@ -12,15 +12,17 @@
 # conversation at deploy time. This script does only the non-conversational
 # mechanical deploy: drops the two MAJOR role files, deploys the 10 CAPTAIN
 # sub-agent envelopes (unless --no-captains), deploys the templates/ runtime
-# tooling (unless --no-templates), and optionally appends a marker-bounded
-# reference block to CLAUDE.md when the consent flag is set. It does NOT run
-# `bw init`, create skills, or write the paste-instruction; POLYBIUS handles
-# those interactively with the PRINCIPAL in the loop.
+# tooling (unless --no-templates), deploys LIEUTENANT skills under
+# <DEST>/.claude/skills/ (always — POLYBIUS invokes them via the Skill tool;
+# no opt-out flag), and optionally appends a marker-bounded reference block
+# to CLAUDE.md when the consent flag is set. It does NOT run `bw init` or
+# write the paste-instruction; POLYBIUS handles those interactively with the
+# PRINCIPAL in the loop.
 #
 # Usage:
-#   ./install.sh --target user [--modify-claude-md] [--no-captains] [--no-templates] [--dry-run]
-#   ./install.sh --target project --project-dir <path> [--modify-claude-md] [--no-captains] [--no-templates] [--dry-run]
-#   ./install.sh --target subproject --parent-dir <path> --subproject <slug> [--no-captains] [--dry-run]
+#   ./install.sh --target user [--modify-claude-md] [--no-captains] [--no-templates] [--prune-obsolete] [--dry-run]
+#   ./install.sh --target project --project-dir <path> [--modify-claude-md] [--no-captains] [--no-templates] [--prune-obsolete] [--dry-run]
+#   ./install.sh --target subproject --parent-dir <path> --subproject <slug> [--no-captains] [--prune-obsolete] [--dry-run]
 #   ./install.sh --help
 #
 # Idempotency: re-running with the same flags is safe. Files are overwritten
@@ -47,6 +49,25 @@
 # --no-templates to skip. (Subproject mode never deploys templates — the
 # sub-project shares its parent's runtime tooling; see below.)
 #
+# Skills: the script deploys skills/<name>/ subdirectories from this directory
+# to <target>/.claude/skills/<name>/. Skills are LIEUTENANT-tier helpers
+# POLYBIUS invokes via the Skill tool — agent-author for drafting new role
+# files, etc. Skills are deployed unsuffixed at every tier (including
+# subproject — Claude Code loads skills from <project>/.claude/skills/ or
+# ~/.claude/skills/, NOT from a parent directory, so a subproject must have
+# its own skills/ dir to invoke them). There is no --no-skills opt-out:
+# skills are universal helpers and skipping the deploy leaves POLYBIUS unable
+# to use them.
+#
+# Staleness detection: after deploying, the script scans the destination for
+# files no longer in the substrate source — typically left over from a
+# renamed CAPTAIN, removed template, or removed skill. By default this is
+# warn-only (lists obsolete files for the human to rm manually). Pass
+# --prune-obsolete to remove them automatically. MAJOR_*.md files are
+# deliberately not scanned (pair-programmer Majors land in the same agents/
+# directory and cannot be reliably distinguished from substrate-canonical
+# MAJORs by filename alone).
+#
 # Subproject mode: --target subproject deploys a sub-project under an existing
 # parent project. Required flags: --parent-dir <path-to-parent-project> and
 # --subproject <slug>. The sub-project lives at <parent>/<subproject>/, sharing
@@ -72,12 +93,14 @@ MODIFY_CLAUDE_MD=0
 DRY_RUN=0
 WITH_CAPTAINS=1
 WITH_TEMPLATES=1
+PRUNE_OBSOLETE=0
 
 # Source files live next to this script.
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SRC_POLYBIUS="${SCRIPT_DIR}/MAJOR_POLYBIUS.md"
 SRC_PLINY="${SCRIPT_DIR}/MAJOR_PLINY.md"
 SRC_TEMPLATES_DIR="${SCRIPT_DIR}/templates"
+SRC_SKILLS_DIR="${SCRIPT_DIR}/skills"
 
 # Template filenames POLYBIUS uses at runtime. Shared tooling — deployed
 # unsuffixed at both user-tier and project-tier.
@@ -101,6 +124,16 @@ CAPTAIN_NAMES=(
   HERALD
   CURATOR
   ZENO
+)
+
+# LIEUTENANT skill source directories (under skills/). Each is a directory
+# containing SKILL.md (and optionally other files) — the whole subtree is
+# copied to <DEST>/.claude/skills/<name>/. Always deployed (no opt-out flag);
+# Claude Code loads skills from <project>/.claude/skills/ or
+# ~/.claude/skills/, so a deployed substrate that omits skills leaves
+# POLYBIUS unable to invoke them.
+SKILL_NAMES=(
+  agent-author
 )
 
 # Marker line written into CLAUDE.md when --modify-claude-md is used; presence
@@ -177,6 +210,10 @@ while [ "$#" -gt 0 ]; do
       WITH_TEMPLATES=0
       shift
       ;;
+    --prune-obsolete)
+      PRUNE_OBSOLETE=1
+      shift
+      ;;
     -h|--help)
       usage 0
       ;;
@@ -202,6 +239,7 @@ case "$TARGET" in
     DEST_CLAUDE_MD="${HOME}/.claude/CLAUDE.md"
     DEST_AGENTS_DIR="${HOME}/.claude/agents"
     DEST_TEMPLATES_DIR="${HOME}/.claude/templates"
+    DEST_SKILLS_DIR="${HOME}/.claude/skills"
     PROJECT_SLUG=""
     NAME_SUFFIX=""
     ;;
@@ -212,6 +250,7 @@ case "$TARGET" in
     DEST_CLAUDE_MD="${PROJECT_DIR}/CLAUDE.md"
     DEST_AGENTS_DIR="${PROJECT_DIR}/.claude/agents"
     DEST_TEMPLATES_DIR="${PROJECT_DIR}/.claude/templates"
+    DEST_SKILLS_DIR="${PROJECT_DIR}/.claude/skills"
     # Project slug = basename(resolved-absolute-path) with hyphens and dots
     # normalized to underscores. This becomes both the file-suffix and the
     # {{NAME_SUFFIX}} value in CAPTAIN frontmatter so MAJOR_PLINY can dispatch
@@ -253,6 +292,7 @@ case "$TARGET" in
     DEST_CLAUDE_MD=""  # not used in subproject mode
     DEST_AGENTS_DIR="${PARENT_DIR}/${SUBPROJECT}/.claude/agents"
     DEST_TEMPLATES_DIR=""  # not used in subproject mode
+    DEST_SKILLS_DIR="${PARENT_DIR}/${SUBPROJECT}/.claude/skills"
     # Sub-project slug = SUBPROJECT with hyphens and dots normalized to
     # underscores. Same rule as project mode so the suffix is a valid agent
     # name component (CAPTAIN frontmatter `name:` can't contain hyphens or
@@ -282,6 +322,15 @@ if [ "$WITH_TEMPLATES" -eq 1 ]; then
   done
 fi
 
+# Skills are always deployed (no opt-out flag); source-side existence check
+# fires unconditionally. Each skill must be a directory containing SKILL.md
+# at minimum; other files (helper scripts, templates) are copied wholesale.
+[ -d "$SRC_SKILLS_DIR" ] || err "source skills directory not found: $SRC_SKILLS_DIR"
+for sname in "${SKILL_NAMES[@]}"; do
+  [ -d "${SRC_SKILLS_DIR}/${sname}" ] || err "source skill directory not found: ${SRC_SKILLS_DIR}/${sname}"
+  [ -f "${SRC_SKILLS_DIR}/${sname}/SKILL.md" ] || err "source skill SKILL.md not found: ${SRC_SKILLS_DIR}/${sname}/SKILL.md"
+done
+
 # ----- plan ------------------------------------------------------------------
 
 echo "agent-substrate install — plan"
@@ -308,6 +357,8 @@ if [ "$TARGET" = "subproject" ]; then
 else
   echo "  deploy templates : $([ "$WITH_TEMPLATES" -eq 1 ] && echo "yes (${#TEMPLATE_NAMES[@]} files to ${DEST_TEMPLATES_DIR})" || echo "no (--no-templates)")"
 fi
+echo "  deploy skills    : yes (${#SKILL_NAMES[@]} skills to ${DEST_SKILLS_DIR})"
+echo "  prune obsolete   : $([ "$PRUNE_OBSOLETE" -eq 1 ] && echo "yes (--prune-obsolete)" || echo "no (warn-only)")"
 echo "  dry-run          : $([ "$DRY_RUN" -eq 1 ] && echo "yes" || echo "no")"
 echo
 
@@ -392,7 +443,36 @@ else
   log "templates deployment skipped (--no-templates)"
 fi
 
-# 5. Optionally append reference to CLAUDE.md (informed consent required).
+# 5. Deploy LIEUTENANT skills (always; A1 lock-in — no opt-out flag).
+# Skills land at <DEST>/.claude/skills/<name>/. Each skill subtree is copied
+# wholesale (cp -R) so SKILL.md plus any helper files / sub-templates ride
+# along. Unsuffixed at every tier (skills are universal, not project-named);
+# subproject mode deploys here too because Claude Code loads skills from the
+# active project's .claude/skills/ — it doesn't walk up to a parent.
+if [ ! -d "$DEST_SKILLS_DIR" ]; then
+  run_or_print "mkdir -p \"$DEST_SKILLS_DIR\""
+else
+  log "skills directory already exists: $DEST_SKILLS_DIR"
+fi
+
+for sname in "${SKILL_NAMES[@]}"; do
+  src_skill="${SRC_SKILLS_DIR}/${sname}"
+  dest_skill="${DEST_SKILLS_DIR}/${sname}"
+  if [ "$DRY_RUN" -eq 1 ]; then
+    echo "[dry-run] deploy skill: $src_skill/ -> $dest_skill/ (cp -R)"
+  else
+    # Remove any pre-existing dest skill subtree before re-copying so a
+    # removed file inside the skill (e.g., a deleted helper) does not
+    # linger. The skill-level prune is targeted (only the named skill);
+    # cross-skill staleness is handled in step 7.
+    rm -rf "$dest_skill"
+    mkdir -p "$dest_skill"
+    cp -R "$src_skill"/. "$dest_skill"/
+    echo "deployed skill: $dest_skill"
+  fi
+done
+
+# 6. Optionally append reference to CLAUDE.md (informed consent required).
 if [ "$MODIFY_CLAUDE_MD" -eq 1 ]; then
   if [ -f "$DEST_CLAUDE_MD" ] && grep -Fq "$CLAUDE_MD_MARKER" "$DEST_CLAUDE_MD" 2>/dev/null; then
     log "CLAUDE.md already references POLYBIUS — skipping append (idempotent)"
@@ -428,10 +508,125 @@ else
   log "CLAUDE.md modification skipped (no --modify-claude-md flag; consent not given)"
 fi
 
+# 7. Staleness detection (stoa--w1t). Scans deployed dirs for files no longer
+# in the substrate source — typically left over from a renamed CAPTAIN,
+# removed template, or removed skill. Default is warn-only (lists obsolete
+# paths so the human can rm manually if preferred); --prune-obsolete enables
+# automatic removal.
+#
+# Scope:
+# - CAPTAIN_*.md files in DEST_AGENTS_DIR whose mnemonic is no longer in
+#   CAPTAIN_NAMES (suffix-aware: at user-tier the file is CAPTAIN_<MNEM>.md;
+#   at project/subproject-tier it is CAPTAIN_<MNEM>${NAME_SUFFIX}.md).
+# - Files in DEST_TEMPLATES_DIR not in TEMPLATE_NAMES.
+# - Subdirectories of DEST_SKILLS_DIR not in SKILL_NAMES.
+#
+# Deliberately NOT scanned:
+# - MAJOR_*.md files. Pair-programmer Majors (PYTHAGORAS, ATTICUS, etc.)
+#   land in the same agents/ directory and cannot be reliably distinguished
+#   from substrate-canonical MAJORs by filename. The renamed-MAJOR case is
+#   rare; manual rm is the safer path.
+# - Categories the current run did not deploy. If --no-captains was passed,
+#   the user explicitly opted out of managing CAPTAINs this run; treating
+#   their other CAPTAIN files as "obsolete" creates noise. Skills always
+#   scan (no opt-out flag exists for skills).
+#
+# The scan is read-only inspection unless --prune-obsolete is set, so
+# running it in dry-run mode is safe; removal in dry-run prints the rm
+# command without executing.
+obsolete_files=()
+
+if [ "$WITH_CAPTAINS" -eq 1 ] && [ -d "$DEST_AGENTS_DIR" ]; then
+  shopt -s nullglob
+  for f in "${DEST_AGENTS_DIR}/CAPTAIN_"*"${NAME_SUFFIX}.md"; do
+    base=$(basename "$f")
+    mnemonic="${base#CAPTAIN_}"
+    mnemonic="${mnemonic%${NAME_SUFFIX}.md}"
+    found=0
+    for n in "${CAPTAIN_NAMES[@]}"; do
+      if [ "$n" = "$mnemonic" ]; then
+        found=1
+        break
+      fi
+    done
+    if [ "$found" -eq 0 ]; then
+      obsolete_files+=("$f")
+    fi
+  done
+  shopt -u nullglob
+fi
+
+if [ "$WITH_TEMPLATES" -eq 1 ] && [ -n "$DEST_TEMPLATES_DIR" ] && [ -d "$DEST_TEMPLATES_DIR" ]; then
+  shopt -s nullglob
+  for f in "${DEST_TEMPLATES_DIR}"/*; do
+    [ -f "$f" ] || continue
+    base=$(basename "$f")
+    found=0
+    for t in "${TEMPLATE_NAMES[@]}"; do
+      if [ "$t" = "$base" ]; then
+        found=1
+        break
+      fi
+    done
+    if [ "$found" -eq 0 ]; then
+      obsolete_files+=("$f")
+    fi
+  done
+  shopt -u nullglob
+fi
+
+if [ -d "$DEST_SKILLS_DIR" ]; then
+  shopt -s nullglob
+  for d in "${DEST_SKILLS_DIR}"/*/; do
+    base=$(basename "$d")
+    found=0
+    for s in "${SKILL_NAMES[@]}"; do
+      if [ "$s" = "$base" ]; then
+        found=1
+        break
+      fi
+    done
+    if [ "$found" -eq 0 ]; then
+      obsolete_files+=("${d%/}")
+    fi
+  done
+  shopt -u nullglob
+fi
+
+if [ "${#obsolete_files[@]}" -gt 0 ]; then
+  echo
+  echo "Obsolete files detected at destination (not in current substrate):"
+  for f in "${obsolete_files[@]}"; do
+    echo "  - $f"
+  done
+  echo
+  echo "Note: at user-tier the destination may contain files from other"
+  echo "substrates (e.g., agent-gauntlet skills installed via plugin) or"
+  echo "manual additions. Review the list before running --prune-obsolete;"
+  echo "this script cannot distinguish a substrate-rename leftover from a"
+  echo "deliberate cross-substrate install. The stoa--w1t case (renamed"
+  echo "CAPTAIN_PLINY → CAPTAIN_ZENO) is the canonical removal target."
+  if [ "$PRUNE_OBSOLETE" -eq 1 ]; then
+    echo
+    echo "Removing (--prune-obsolete):"
+    for f in "${obsolete_files[@]}"; do
+      if [ "$DRY_RUN" -eq 1 ]; then
+        echo "[dry-run] rm -rf \"$f\""
+      else
+        rm -rf "$f"
+        echo "  removed: $f"
+      fi
+    done
+  else
+    echo
+    echo "Run with --prune-obsolete to remove, or rm manually."
+  fi
+fi
+
 echo
 echo "install.sh: done ($([ "$DRY_RUN" -eq 1 ] && echo "dry-run, no writes" || echo "applied"))"
 
-# 6. Next-step guidance on a real (non-dry-run) install. Tells the human what
+# 8. Next-step guidance on a real (non-dry-run) install. Tells the human what
 # they actually do next, so they aren't left staring at a "done" line wondering
 # how to activate the substrate. Suppressed in dry-run because nothing was
 # actually deployed.
