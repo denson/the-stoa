@@ -27,9 +27,15 @@ The whole architecture is in the [the-stoa](https://github.com/denson/the-stoa) 
 
 ## 2. The architecture in one diagram
 
-(Embed: information-flow knowledge graph, "Static explore" mode by default. See `docs/case-study/kg-spec.md` for the full spec.)
+The companion to this section is the interactive presentation at [`docs/case-study/architecture-kg.html`](architecture-kg.html) — a single self-contained HTML file you can open in any browser. It's the fastest way to get a feel for the architecture's shape; this section sets up what to look for. Spec: `docs/case-study/kg-spec.md`.
 
-The diagram is interactive. Hover for tooltips, click for detail, and switch modes (Static explore / Information-flow / Recursion / Tour) using the controls. If you want a guided tour, **POLYBIUS can walk you through it** — see §12.
+The presentation has three modes:
+
+- **Pair Programming** (default landing) — the everyday operational shape: PRINCIPAL at top, POLYBIUS just below, PLINY's decision-gate medallion at center, the CAPTAIN ring around it, BEADWORK substrate at the bottom. Includes a 9-step animation of how a brief moves through pair-programming + handoff to the formal gauntlet.
+- **Agent Team Hardening Flow** — the formal gauntlet animated as 14 steps: PRINCIPAL → POLYBIUS → PLINY → HERALD intake → STRABO scout → BARTLEBY recon → DAEDALUS architect → ARGUS plan-critic (loop fires) → re-design → ADA executor → VERA verifier → CATO reviewer → CAPTAIN_ZENO spec-checker → autonomous ship.
+- **Recursion** — three tiers stacked vertically (USER / PROJECT / SUB-PROJECT) showing the self-similar pattern with asymmetric visibility cones and the spawn arrow that fires when a CAPTAIN flags over-scope.
+
+If you want a guided tour, **POLYBIUS can walk you through it** — see §12.
 
 The diagram is **not a DAG.** The system has cycles, decision points, and feedback loops. PLINY is a decision node; verdicts loop back when ARGUS / VERA / CATO surface defects; CAPTAIN_ZENO (the embedded spec-checker) can trigger spec-drift loops; CAPTAINs can escalate up the chain to POLYBIUS and (when needed) to PRINCIPAL.
 

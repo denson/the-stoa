@@ -8,9 +8,9 @@
 >
 > MIT-licensed; deployable onto your own work.
 
-### → [Open the interactive knowledge graph](https://denson.github.io/the-stoa/case-study/architecture-kg.html)
+### → [Open the interactive presentation](https://denson.github.io/the-stoa/case-study/architecture-kg.html)
 
-The visualization is the fastest way in. Three modes (Pair Programming / Hardening Flow / Recursion); click around. Long-form companion: [`docs/case-study/case-study.md`](docs/case-study/case-study.md).
+The fastest way in. Three modes — **Pair Programming**, **Hardening Flow**, **Recursion** — click through to see how the architecture actually behaves. Long-form companion: [`docs/case-study/case-study.md`](docs/case-study/case-study.md).
 
 **Author:** Denson Smith.
 
@@ -22,7 +22,7 @@ Just cloned this and want a guided tour?
 2. Ask Claude something like *"what is this?"* — the agent reads `SKILL.md` at the repo root and routes you.
 3. Recommended path: visual tour first (`/stoa-intro`), then guided install (`/install-stoa`) if you want to deploy the substrate to one of your projects.
 
-The case study at `docs/case-study/case-study.md` is the deep dive (peer-technical working notebook); the interactive knowledge graph at `docs/case-study/architecture-kg.html` is the visual companion. Both are referenced by the skills above.
+The case study at `docs/case-study/case-study.md` is the deep dive (peer-technical working notebook); the interactive presentation at `docs/case-study/architecture-kg.html` is the visual companion. Both are referenced by the skills above.
 
 ## What this is
 

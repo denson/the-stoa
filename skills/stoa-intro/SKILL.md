@@ -1,13 +1,13 @@
 ---
 name: stoa-intro
-description: Visual walkthrough of The Stoa architecture using the interactive knowledge graph. Uses Chrome MCP (the "Claude for Chrome" extension) to open the standalone HTML in a real Chrome tab, then hands control to the PRINCIPAL — the PRINCIPAL drives the visualization while the agent narrates; agent retakes browser control only briefly on conversational cues. If Chrome MCP isn't installed, offers an install walkthrough or a clickable file:// link with text-narration. Narrates the three modes (Pair Programming, Hardening Flow, Recursion).
+description: Visual walkthrough of The Stoa architecture using the interactive presentation. Uses Chrome MCP (the "Claude for Chrome" extension) to open the standalone HTML in a real Chrome tab, then hands control to the PRINCIPAL — the PRINCIPAL drives the presentation while the agent narrates; agent retakes browser control only briefly on conversational cues. If Chrome MCP isn't installed, offers an install walkthrough or a clickable file:// link with text-narration. Narrates the three modes (Pair Programming, Hardening Flow, Recursion).
 ---
 
 # stoa-intro — visual walkthrough of the architecture
 
 ## What this skill is for
 
-You are walking the PRINCIPAL through the interactive knowledge graph at `docs/case-study/architecture-kg.html`. The standalone is a single self-contained HTML file rendered by React + Babel inline; it has three modes — Pair Programming (default), Agent Team Hardening Flow, and Recursion — each visualizing a different cross-section of how the three-role architecture actually behaves.
+You are walking the PRINCIPAL through the interactive presentation at `docs/case-study/architecture-kg.html`. The standalone is a single self-contained HTML file rendered by React + Babel inline; it has three modes — Pair Programming (default), Agent Team Hardening Flow, and Recursion — each showing a different cross-section of how the three-role architecture actually behaves.
 
 Your job is to drive the standalone in a preview surface and narrate the modes alongside, pointing at the load-bearing visual constraints as you go: PLINY's decision basin, the dashed-red back-edges that make the gauntlet's cycles legible, the asymmetric visibility cones that make the recursion useful rather than just symmetric.
 
@@ -280,7 +280,7 @@ Close the section by pointing at the full record without listing it: *"The full 
 
 Wrap with a concrete branch:
 
-> That's the architecture. Three things you can do from here: (1) install the substrate on one of your projects (`/install-stoa`); (2) read the case study end-to-end at `docs/case-study/case-study.md`; (3) just sit with it — the repo is here, the case study is here, the KG is here, no rush. What sounds right?
+> That's the architecture. Three things you can do from here: (1) install the substrate on one of your projects (`/install-stoa`); (2) read the case study end-to-end at `docs/case-study/case-study.md`; (3) just sit with it — the repo is here, the case study is here, the presentation is here, no rush. What sounds right?
 
 Then **stop the static server.** Don't leave it running. Kill by the PID you captured in Beat 2:
 

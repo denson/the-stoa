@@ -23,7 +23,7 @@ The Stoa — a recursive three-role agent architecture for Claude Code, built on
 Repo layout in brief:
 - `substrate/` — the deployable (role files, install script, templates, skills). What `install.sh` drops onto a target project or user-tier.
 - `app/` — The Stoa: a React/Vite web app for visualizing and editing agent rosters.
-- `docs/case-study/` — long-form working-notebook narrative + paired interactive knowledge graph (`architecture-kg.html`).
+- `docs/case-study/` — long-form working-notebook narrative + paired interactive presentation (`architecture-kg.html`).
 - The architecture spec — what gets deployed and why — lives outside this repo at `user-beadwork/plans/three-role-recursive-architecture.md` (v2).
 
 ---
@@ -50,7 +50,7 @@ Forward work happens on a feature branch, not on `main`. The contributor model l
 - **Build-arc directives live at `substrate/arcs/`.** Each arc has a directive committed before dispatch and a build commit that lands the changes. The directive is the durable spec; the commit is the change.
 - **Beadwork prefix is `stoa--`.** Cross-repo discussions (architecture, retrospectives, the `u--7yg` discipline-accretion epic) live in the sibling `user-beadwork` repo with prefix `u--`.
 
-The case study (`docs/case-study/case-study.md`) and the knowledge-graph spec (`docs/case-study/kg-spec.md`) are reference material — final unless an arc explicitly revises them.
+The case study (`docs/case-study/case-study.md`) and the presentation spec (`docs/case-study/kg-spec.md` — the vocabulary the standalone HTML renders) are reference material — final unless an arc explicitly revises them.
 
 ---
 

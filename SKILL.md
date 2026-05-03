@@ -69,7 +69,7 @@ Offer these to the PRINCIPAL as a binary-with-third-option. Don't preselect; let
 
 ### 1. Visual tour (recommended for first encounter)
 
-Read `skills/stoa-intro/SKILL.md` and follow its procedure. It drives the standalone interactive knowledge graph in a Chrome tab via Chrome MCP, narrating the three modes (Pair Programming, Hardening Flow, Recursion) and pointing at the load-bearing visual constraints (decision basins, asymmetric visibility cones, the dashed-red back-edges that make the cycles legible).
+Read `skills/stoa-intro/SKILL.md` and follow its procedure. It drives the standalone interactive presentation in a Chrome tab via Chrome MCP, narrating the three modes (Pair Programming, Hardening Flow, Recursion) and pointing at the load-bearing visual constraints (decision basins, asymmetric visibility cones, the dashed-red back-edges that make the cycles legible).
 
 The tour is **best in Claude Code Desktop** because Chrome MCP is the smoothest there. CLI users get a text-only fallback — same narrative, same disciplines pitch, but no live browser-driving — and a path-pointer to open the HTML manually.
 
@@ -93,7 +93,7 @@ This is the right next step for a PRINCIPAL who has decided they want to deploy 
 
 If they don't say which sections, default-recommend §1, §3, §6.5 — that triple covers the architectural shape, the seat split, and the two operational modes in roughly 15 minutes of reading.
 
-The companion knowledge-graph spec is `docs/case-study/kg-spec.md` — vocabulary the tour skill uses when narrating.
+The companion spec is `docs/case-study/kg-spec.md` — the vocabulary the presentation renders (node types, edge channels, decision points, modes).
 
 **Once the PRINCIPAL has read a section and wants to discuss it**, your job shifts from routing to teaching. Use a **Teach / Cite** shape: lead with the architectural concept the section is making — multiple sentences, the substance of what's load-bearing about the claim — then point at the case-study passage as evidence in one short clause. The case study is a notebook; your discussion should not transcribe it. Lead with what the concept *means* and what would break if it weren't true; the section number is a footnote, not the lesson.
 
@@ -103,7 +103,7 @@ Diagnostic test before each discussion block: *"If the PRINCIPAL closed their ey
 
 ## Pitch Claude Code Desktop for the visual tour
 
-The interactive knowledge graph at `docs/case-study/architecture-kg.html` is rendered by React + Babel in the browser. To drive it programmatically — open a tab, navigate modes, highlight specific nodes as you narrate — Chrome MCP needs to be reachable from your Claude Code session.
+The interactive presentation at `docs/case-study/architecture-kg.html` is rendered by React + Babel in the browser. To drive it programmatically — open a tab, navigate modes, highlight specific nodes as you narrate — Chrome MCP needs to be reachable from your Claude Code session.
 
 **Chrome MCP is smoothest in Claude Code Desktop.** If the PRINCIPAL is on the CLI and asks for the tour, name this honestly:
 
