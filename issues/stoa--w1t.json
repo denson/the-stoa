@@ -2,13 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-03T03:02:09Z",
+  "close_reason": "Resolved in Arc 17. install.sh now scans deployed CAPTAINs / templates / skills against substrate source (CAPTAIN_NAMES / TEMPLATE_NAMES / SKILL_NAMES); obsolete files are listed by default with the canonical use case (renamed CAPTAIN_PLINY → CAPTAIN_ZENO at user-tier) called out in the warning text. New --prune-obsolete flag removes them automatically. MAJOR_*.md files deliberately not scanned (pair-programmer Majors live in same agents/ dir, can't be reliably distinguished from substrate-canonical MAJORs by filename). See substrate/install.sh §7 (staleness detection) for the full procedure.",
   "created": "2026-05-03T02:09:21Z",
   "description": "Surfaced during Arc 16 (CAPTAIN_PLINY → CAPTAIN_ZENO rename, stoa--kyg).\ninstall.sh deploys role files + CAPTAIN envelopes by overwriting the\ntarget paths, but does not remove files at the destination that are no\nlonger in the source. After Arc 16's rename + user-tier deploy, both\n~/.claude/agents/CAPTAIN_PLINY.md (obsolete) and CAPTAIN_ZENO.md (current)\nexist at user-tier — the PRINCIPAL has to manually rm the stale one.\n\nConcrete next-step plan:\n- Compare the deployed agents directory contents against the substrate's\n  CAPTAIN_NAMES array\n- Files in the deployed dir that match CAPTAIN_*.md (or\n  CAPTAIN_*_\u003cslug\u003e.md in project mode) but whose mnemonic is not in\n  CAPTAIN_NAMES → surface as candidates for removal\n- Removal requires informed-consent gate (parallel to --modify-claude-md):\n  default off; explicit --remove-stale flag enables it; --dry-run shows\n  what would be removed\n- Same logic applies to MAJOR_POLYBIUS.md / MAJOR_PLINY.md (less common,\n  but the \"rename of a MAJOR\" case is parallel)\n- Tier-aware: only operate on the deployed tier's directory, never reach\n  into a different tier's\n\nBlocker: none. This is a straightforward extension of install.sh that\nneeds design + implementation. Could be a small focused arc (Arc 17 or\nlater — out of the substrate-completeness sequence Arcs 16/17/18 already\nqueued).\n\nWon't block any current work; the manual-deletion workaround is one rm\nper rename. But this is the exact kind of fix-now-cost-near-zero gap the\nfix-now discipline (§4.8) targets, so the ticket exists with a plan\nrather than a handwave.",
   "id": "stoa--w1t",
   "labels": [],
   "priority": 3,
-  "status": "open",
+  "status": "closed",
   "title": "install.sh leaves obsolete deployed files in place after a rename",
   "type": "bug",
-  "updated_at": "2026-05-03T02:09:21Z"
+  "updated_at": "2026-05-03T03:02:09Z"
 }
