@@ -116,6 +116,34 @@ When you finish an arc:
 - If the gauntlet returned clean PASS and the brief carries no override flags, autonomous commit + push (`u--7yg.11`)
 - If anything is flagged for PRINCIPAL eyeball, hand back to POLYBIUS via beadwork — do not push
 
+### 6.1 Working with beadwork — command syntax (`u--7yg.23`)
+
+Beadwork is the durable substrate, but only if you write to it correctly. Two empirical-signal items every orchestrator should know:
+
+**Run `bw prime` at session start.** It returns the project's beadwork conventions, your current state (branch, last commit, work-in-progress), and the next unblocked work — far more context than reading the role file alone gives. Run `bw prime` before any substantive bw operation.
+
+**The `-m` flag does not exist in bw — comment text is POSITIONAL.** Git muscle memory says `git commit -m "message"`. Bw is different:
+
+```
+✓ bw comment <id> "your message text here"
+✗ bw comment <id> -m "your message text here"   # THE -m IS CAPTURED AS THE LITERAL TEXT
+```
+
+If you write `bw comment stoa--abc -m "starting §1"`, the comment that lands in bw is literally `-m` — the actual message body gets dropped. Empirical signal: this happened to both POLYBIUS and PLINY on first try in Arc 16 (`u--7yg.23`).
+
+The convention varies across bw subcommands; check `bw <command> --help` if uncertain:
+
+| command | text input mechanism |
+|---|---|
+| `bw comment <id> "text"` | **positional** |
+| `bw create "title" -t TYPE -p N -d "description"` | title positional; `-d`/`--description` flag for description |
+| `bw close <id> --reason "text"` | `--reason` flag (not `-m`) |
+| `bw show <id>` | no text input |
+| `bw list [-t TYPE -p N --grep TEXT]` | filter flags |
+| `bw update <id> [--due DATE --label LABEL]` | flag-based |
+
+When uncertain, run `bw <command> --help` first; the verified syntax is one round-trip cheaper than a comment that gets eaten.
+
 ---
 
 ## 7. Disciplines
@@ -170,9 +198,10 @@ When the PRINCIPAL pastes the activation:
 
 1. Read `MAJOR_PLINY.md` (this file). Confirm rank/mnemonic/role.
 2. Read the session-specific intent (paste content or on-disk artifact).
-3. Read tier-appropriate beadwork. Surface pending directives from MAJOR_POLYBIUS.
-4. Run `git status` + recent log. Note what's in flight.
-5. Confirm the intent in one short sentence. Begin work.
+3. **Run `bw prime`** to get current beadwork state, available work, and workflow context (see §6.1). Read what `bw prime` returns before doing other recon — it answers many questions you'd otherwise ask separately.
+4. Read tier-appropriate beadwork comments on relevant tickets. Surface pending directives from MAJOR_POLYBIUS.
+5. Run `git status` + recent log. Note what's in flight.
+6. Confirm the intent in one short sentence. Begin work.
 
 When the gauntlet returns clean PASS:
 

@@ -253,6 +253,34 @@ The asymmetry extends recursively: parent-project sees sub-project beadworks; su
 
 Communication via beadwork is preferentially **human-pinged** — the PRINCIPAL tells agents *check beadwork now*. Polling on a timer is the autonomous fallback when the PRINCIPAL isn't in the loop.
 
+### 7.3 Working with beadwork — command syntax (`u--7yg.23`)
+
+Beadwork is the durable substrate, but only if you can write to it correctly. Two empirical-signal items every agent should know:
+
+**Run `bw prime` at session start.** It returns the project's beadwork conventions, your current state (branch, last commit, work-in-progress), and the next unblocked work — far more context than reading the role file alone gives. The `bw onboard` output (a shorter snippet) is also a quick reference. Run `bw prime` before any substantive bw operation.
+
+**The `-m` flag does not exist in bw — comment text is POSITIONAL.** Git muscle memory says `git commit -m "message"`. Bw is different:
+
+```
+✓ bw comment <id> "your message text here"
+✗ bw comment <id> -m "your message text here"   # THE -m IS CAPTURED AS THE LITERAL TEXT
+```
+
+If you write `bw comment stoa--abc -m "starting §1"`, the comment that lands in bw is literally `-m` — the actual message body gets dropped. Empirical signal: this happened to both POLYBIUS and PLINY on first try in Arc 16 (`u--7yg.23`).
+
+The convention varies across bw subcommands; check `bw <command> --help` if uncertain:
+
+| command | text input mechanism |
+|---|---|
+| `bw comment <id> "text"` | **positional** |
+| `bw create "title" -t TYPE -p N -d "description"` | title positional; `-d`/`--description` flag for description |
+| `bw close <id> --reason "text"` | `--reason` flag (not `-m`) |
+| `bw show <id>` | no text input |
+| `bw list [-t TYPE -p N --grep TEXT]` | filter flags |
+| `bw update <id> [--due DATE --label LABEL]` | flag-based |
+
+When uncertain, run `bw <command> --help` first; the verified syntax is one round-trip cheaper than a comment that gets eaten.
+
 ---
 
 ## 8. Voice discipline
@@ -270,10 +298,11 @@ Your role file uses PRINCIPAL/HUMAN throughout because role-file voice is struct
 When a session activates you (auto-loaded via `CLAUDE.md` reference, or by PRINCIPAL prompt), do this on the first turn:
 
 1. Confirm your seat in one short sentence: "I'm MAJOR_POLYBIUS, the CHIEF-OF-STAFF for this <tier>." Don't recite the whole role file.
-2. Read recent beadwork (your own tier first; cross-tier if visibility allows). Surface anything pending that the PRINCIPAL should know about.
-3. If MAJOR_PLINY exists and has been active, check whether it still holds its role (look for recent activity and beadwork comments that suggest role drop). If it has dropped, run §6 recovery.
-4. If this is a first-time PRINCIPAL on a fresh project (no beadwork, no deployed substrate), enter the onboarding flow from §5.
-5. Otherwise, ask the PRINCIPAL what they want to work on. Listen first.
+2. **Run `bw prime`** to get current beadwork state, workflow context, and available work. (If `bw` isn't initialized for this tier yet, that's a step §5 will handle during onboarding.) Read what `bw prime` returns before asking the PRINCIPAL questions whose answers it already gave.
+3. Read recent beadwork comments on relevant tickets (your own tier first; cross-tier if visibility allows per §7.1). Surface anything pending that the PRINCIPAL should know about.
+4. If MAJOR_PLINY exists and has been active, check whether it still holds its role (look for recent activity and beadwork comments that suggest role drop). If it has dropped, run §6 recovery.
+5. If this is a first-time PRINCIPAL on a fresh project (no beadwork, no deployed substrate), enter the onboarding flow from §5.
+6. Otherwise, ask the PRINCIPAL what they want to work on. Listen first.
 
 ---
 
