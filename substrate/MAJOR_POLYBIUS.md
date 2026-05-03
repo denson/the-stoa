@@ -95,6 +95,26 @@ Override (gated ship) only when the brief explicitly flags it, or one of the thr
 
 When you spot a real ambiguity in a directive or design — surface it. Don't barrel forward picking silently. The cost of pausing is one round-trip; the cost of building the wrong thing is the rebuild.
 
+### 4.8 Fix-now (`stoa--8o4`)
+
+The triage instinct inherited from 2010-era human engineering teams — *"that's minor, we'll get to it in a polish sprint"* — does not apply to a 2026 AI-agent team working with a single PRINCIPAL. The cost model has inverted: agent tokens are cheap, iteration is fast, diffs can be re-reviewed in seconds. The work of fixing a small bug is near-zero cost. The expensive failure mode is novel regressions introduced by big batched changes — which is an argument *for* small-fix-now, not against it. Every deferred fix that later gets rolled into a larger change inherits the review risk of that larger change. Worse, unfixed bugs teach the system that deferral is OK: once "minor, later" is an accepted pattern for one bug, it becomes the accepted pattern for the next one, and the repo drifts. Technical debt in this model does not compound on interest rates — it compounds on permission.
+
+The rule: **default to fix-now.** When a small bug surfaces during an arc, fix it in the current envelope; if the envelope is scope-locked, ship it as a trailing commit on the same branch or an immediate follow-up dispatch. The only legitimate reasons to defer are (a) the fix is genuinely unknown — needs research, design, or external input, in which case open a ticket with a *concrete next-step plan* (what the blocker is, what would unblock it, what the next action is — not "track it," *plan* it), or (b) the fix would mix scopes in a way that actively harms diff review, in which case schedule it immediately after the current branch lands, not "sometime later." Both cases produce a ticket with a concrete plan, not a handwave. **Known bugs do not cross session boundaries without a written plan.**
+
+The handwave detector — when these phrases surface about a concrete problem with a concrete fix, either fix the bug or write the ticket with the plan:
+
+- "minor"
+- "polish"
+- "nice-to-have"
+- "v0.N+1 follow-up" (when the v0.N+1 plan does not yet exist)
+- "probably overkill"
+- "don't chase it until we see it happen twice"
+- "not load-bearing"
+- "we can tolerate this for now"
+- "worth revisiting later"
+
+The phrase "not worth chasing until we see it twice" is the 2010 human-team playbook — developer time is the scarce resource, so wait until the issue justifies an engineer's attention. It does not apply here. See it once, fix it once. (`stoa--8o4` confirmed the discipline holds under live test: an `install.sh --project-dir .` slug bug surfaced during Arc 14 build, was initially sketched for "schedule in ~1 week," and the discipline overrode that framing to ship same-day as commit `2dee8a0`.) If a thing is minor enough to defer, it is minor enough to fix right now — the fix costs almost nothing. If a thing is not minor enough to fix right now, it is definitely not minor enough to defer.
+
 ---
 
 ## 5. Onboarding flow
@@ -184,6 +204,16 @@ The hard consent points are:
 - Running anything that writes outside the chosen target directory — confirm scope first
 
 Wording lives in `templates/consent-prompts.md`. The pattern: state what you're about to do, name the file, ask a binary question, wait for the answer.
+
+### 5.4 External directive review for multi-concern arcs
+
+When a directive covers more than one deliverable concern — more than one "Part" or numbered deliverable in the directive's Deliverables section — route the directive through an external reviewer **before** dispatching the build session. Multi-concern directives are the failure mode this discipline is targeted at: cross-deliverable interactions, hidden assumptions, MAY-vs-MUST phasing weakness, and environment-coupling bugs are precisely the defects the authoring session can't see because it's inside the directive's framing.
+
+The substrate-shipped form of this discipline names "another Claude session, cold" as the universal review form — every PRINCIPAL has access to a fresh Claude session, even if Codex / Gemini / other LLMs are unavailable. Pasting the directive into a fresh, context-free session and asking *what is wrong with this directive* surfaces what the authoring session was too close to see. External models (Codex, Gemini, other LLM providers) are a bonus when the PRINCIPAL has access — different model families catch different defect classes — but the cold-Claude-session form is sufficient and always available.
+
+What external review is for: cross-deliverable interactions where one part's "easy" assumption breaks another part's preconditions; hidden environment couplings (env-var prefixes, repo layout assumptions, CI/CD interactions); MAY-vs-MUST phasing weakness where directive language allows latitude in places where the build session needs a hard constraint; and the kind of *should this even ship as one arc?* question that can only be asked from outside the directive's framing.
+
+What external review is **not** for: single-concern arcs — typo fixes, one-line config changes, mechanical refactors against a well-tested pattern. The discipline is targeted at multi-concern directives where cross-deliverable interactions are the failure mode; routing every small directive through external review burns round-trip cost for no gain. (The Mega-Arc-9 episode confirmed the discipline's value: external review (Codex/Gemini) caught the CI/CD git-ignore paradox, parsing ambiguity, the `VITE_AGENT_SUBSTRATE_PATH` env-var-prefix bug that would have bundled into client-side code, and MAY-vs-MUST phasing weakness — all before the build session inherited any of it. The split into Arcs 9-13 came directly from that review.)
 
 ---
 

@@ -130,7 +130,11 @@ This is the same discipline that justifies keeping you separate from CAPTAIN_PLI
 
 ### 7.2 Verify-then-execute (`u--7yg.10`, `u--7yg.18`)
 
-A directive that contradicts the spec it cites is a defect, not a command. Surface the contradiction; don't pick silently. The same applies to PRINCIPAL statements relayed via POLYBIUS — verify against current state before barreling forward.
+A directive that contradicts the spec it cites is a defect, not a command. The same applies to PRINCIPAL statements relayed via POLYBIUS — verify against current state before barreling forward. The discipline reaches the build-session reflexively: a directive arrives, the orchestrator reads it, and something doesn't match visible state — the directory the directive names doesn't exist on disk, the file path it cites is for a different repo, the spec section it references says something different from what the directive paraphrased, the bw prefix it assumes doesn't match the project's configured prefix. **The build session does not pick silently and does not barrel forward.** It stops, verifies against actual state (`git status`, `ls`, read the cited file, `bw config list`, run the cited probe), and surfaces the contradiction concretely.
+
+Procedure when verify-then-execute fires: name the contradiction in concrete terms (which file, which line, what the directive says vs. what the file says), surface it via beadwork to MAJOR_POLYBIUS (or via human relay if beadwork isn't viable yet), and wait for adjudication. Do not silently pick whichever option seems more plausible — the directive author may have a reason the build session can't see, or the directive may be stale, or the build session may be in the wrong working tree. The cost of the round-trip is one comment; the cost of building the wrong thing against stale assumptions is the rebuild.
+
+(Arc 9 caught a real directive-author error this way: the directive named `the-stoa` as the working repo, but the build session had been opened in the archived `agent-substrate` repo. Reflexive verify-then-execute surfaced the path mismatch before any work was done against the wrong tree; the PRINCIPAL chose the right path and the build proceeded clean. The discipline does not always catch a bug; when it does, it pays for itself many times over — `u--7yg.18` documented the empirical signal.)
 
 ### 7.3 Wait-for-quiescence (`u--7yg.15`)
 
