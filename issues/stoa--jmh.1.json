@@ -2,14 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-03T00:04:12Z",
   "created": "2026-05-03T00:00:25Z",
   "description": "",
   "id": "stoa--jmh.1",
   "labels": [],
   "parent": "stoa--jmh",
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "Arc 15 §4.8 — fix-now discipline added to MAJOR_POLYBIUS.md",
   "type": "feature",
-  "updated_at": "2026-05-03T00:00:25Z"
+  "updated_at": "2026-05-03T00:04:12Z"
 }
