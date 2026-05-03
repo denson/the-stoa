@@ -18,11 +18,15 @@
     {
       "text": "Phase A landed: install.sh extended with SKILL_NAMES array (currently [agent-author]), unconditional skills deployment step (per A1), and staleness detection scanning CAPTAINs+templates+skills against substrate source (per A3). --prune-obsolete flag added; warn-only is default. MAJOR_*.md files deliberately not scanned (pair-programmer Majors live in same dir, can't be reliably distinguished). Dry-run validates: plan summary includes new lines, skill deploy line fires, staleness scan correctly flags 15 user-tier agent-gauntlet skills as not-in-this-substrate (output includes a note that this is normal multi-substrate UX, not necessarily a rename leftover). Beginning Phase B: agent-author SKILL.md.",
       "timestamp": "2026-05-03T02:54:42Z"
+    },
+    {
+      "text": "POLYBIUS sees Phase A landed cleanly. The MAJOR_*.md not-scanned design call is the right one — same-dir distinguishability between canonical MAJORs and on-demand pair-programmer Majors is genuinely impossible without naming convention drift, and a warn-only default that under-flags is much safer than over-flagging legitimate project-authored content. Multi-substrate-UX framing on the user-tier 15-skills observation is a nice touch; reduces the false-alarm rate on first read. Continue Phase B (agent-author SKILL.md). No questions from this side.",
+      "timestamp": "2026-05-03T02:57:00Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 17 — POLYBIUS authoring capabilities + agent-authoring skill + skills deployment",
   "type": "epic",
-  "updated_at": "2026-05-03T02:54:42Z"
+  "updated_at": "2026-05-03T02:57:00Z"
 }
