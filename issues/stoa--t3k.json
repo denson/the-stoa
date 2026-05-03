@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-03T13:39:55Z",
+  "close_reason": "Arc 19 shipped at commit ad06293; pushed to origin/main; smoke passed 5/5 beats; design/ refinement applied per POLYBIUS adjudication.",
   "created": "2026-05-03T13:20:30Z",
   "description": "",
   "id": "stoa--t3k",
@@ -33,8 +35,8 @@
     }
   ],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "Arc 19 - distribution-readiness entry-point skills",
   "type": "task",
-  "updated_at": "2026-05-03T13:39:54Z"
+  "updated_at": "2026-05-03T13:39:55Z"
 }
