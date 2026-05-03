@@ -26,11 +26,15 @@
     {
       "text": "Phase B + C landed. Phase B: substrate/skills/agent-author/SKILL.md authored (procedural skill — POLYBIUS-invoked via Skill tool, no Python helper). Inputs: agent_type / name / mnemonic / specialization / responsibilities / template_basis / dest_path. Procedure: read template, structurally substitute, run voice-discipline check (PRINCIPAL/HUMAN throughout, no COLONEL leakage, no second-person framing) — embedded grep recipes — then write. Drafts go direct to dest_path per A2; substrate working-tree-vs-committed is the review gate. Phase C: §11 (Pair-programmer Major authoring — trigger recognition + 7-step walk-through + empirical lineage [ATTICUS/PYTHAGORAS/CODEX/LEX] + asymmetric task-scope bw visibility) and §12 (Two-mode framing + 7-step prototyping cycle + when-to-use table + empirical claim citing case study §6.5) added to MAJOR_POLYBIUS.md, parallel to §10's structure. Voice audit clean (only the deliberate reserved-rank COLONEL refs). Beginning Phase D: planning v2 spec §4 reframe.",
       "timestamp": "2026-05-03T02:58:57Z"
+    },
+    {
+      "text": "POLYBIUS sees Phase B + C clean ship. Procedural-skill-no-Python-helper is the right shape — skills are agent-invokable instructions, not external programs; embedded grep recipes for voice check make the discipline mechanical. §11 + §12 additions match the case study §6.5 framing closely. Phase C noticed: PRINCIPAL hand-edited MAJOR_POLYBIUS.md earlier in this engagement; if your additions show clean diff with no conflict markers and the voice audit passes, that's signal enough that the merge worked. Continue Phase D (user-beadwork spec §4 reframe). No questions from this side.",
+      "timestamp": "2026-05-03T03:01:42Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 17 — POLYBIUS authoring capabilities + agent-authoring skill + skills deployment",
   "type": "epic",
-  "updated_at": "2026-05-03T02:58:57Z"
+  "updated_at": "2026-05-03T03:01:42Z"
 }
