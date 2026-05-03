@@ -2,13 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-03T03:49:11Z",
+  "close_reason": "Shipped at commit be88fe4. types-v2 Skill type + discriminated RosterSlot landed; gen-data reads substrate/skills/\u003cname\u003e/SKILL.md; Stoa app LIEUTENANT slot renders agent-author (the one currently-deployed skill); detail route /#/skill/\u003cname\u003e renders SKILL.md body. Build clean, 41/41 tests pass, voice clean. Phase A locks (new Skill type, cards + detail route) executed as authored. Direct execution from POLYBIUS seat per PRINCIPAL direction (Arc 16.1 precedent).",
   "created": "2026-05-03T03:36:52Z",
   "description": "Direct execution from POLYBIUS seat per PRINCIPAL direction. Phase A locked: new Skill type + discriminated RosterSlot; cards + detail route. Directive at substrate/arcs/arc-17-1-build-directive.md (commit will be in next push).",
   "id": "stoa--cq9",
   "labels": [],
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "[EPIC] Arc 17.1 — Stoa LIEUTENANT slot rendering",
   "type": "epic",
-  "updated_at": "2026-05-03T03:36:52Z"
+  "updated_at": "2026-05-03T03:49:11Z"
 }
