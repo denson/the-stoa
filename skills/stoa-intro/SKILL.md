@@ -125,15 +125,20 @@ You will quote phrases from these as you narrate; you will not transcribe them. 
 
 ## Narration shape — teach concepts, cite the visualization
 
-Beats 5, 6, 7 walk the three modes. Every narration block follows a **Teach / Cite** shape:
+Beats 5, 6, 7 walk the three modes. Every narration block has two parts:
 
-> **Teach:** [The architectural claim — what's load-bearing, what consequence it has, what would break if it weren't true]. Multiple sentences. The teaching is the substance.
->
-> **Cite:** [Where on the screen the claim is visually shown]. One short clause. Evidence, not the subject.
+1. **A teaching paragraph** — the architectural claim, what's load-bearing about it, what would break if it weren't true. Multiple sentences. The substance.
+2. **A short visual cite** — where on the screen the claim shows up. One clause, woven into the end of the prose with an italicized em-dash continuation. Evidence, not the subject.
+
+Example shape:
+
+> The orchestrator is a decision gate that catches every CAPTAIN verdict and routes — forward, loop back, or escalate. That's why the architecture has cycles, not a forward DAG: this seat is where the cycles trip. *— visible on screen as the medallion shape at center, distinct from the rectangular CAPTAIN cards around it.*
 
 The visual is **never the subject** of a sentence. The architectural concept always leads. The visualization is a footnote the listener can verify against — not the lesson itself.
 
-There are two adjacent activities, and they produce very different takeaways:
+**Critical: never emit the literal words "Teach:" or "Cite:" in your narration.** Those were authoring labels in earlier drafts of this skill — they're not script labels, they're not headers, they don't belong in your spoken text. If you find yourself starting a sentence with "Teach: ..." or "Cite: ...", you've leaked structural meta-text into the narration. Rewrite as natural prose with the visual as an italicized continuation, per the example above.
+
+There are two adjacent activities that produce very different takeaways:
 
 | Genre | What the agent does | What the listener leaves with |
 |---|---|---|
@@ -142,7 +147,7 @@ There are two adjacent activities, and they produce very different takeaways:
 
 The visualization is the *same* in both — the narration shape is what differs.
 
-**Diagnostic test before each Teach block.** Ask yourself: *"If the PRINCIPAL closed their eyes right now, would they remember the architectural concept, or just the visual element?"* If the answer is the visual, rewrite — lead with the concept; demote the visual to a side-citation.
+**Diagnostic test before each block.** Ask yourself: *"If the PRINCIPAL closed their eyes right now, would they remember the architectural concept, or just the visual element?"* If the answer is the visual, rewrite — lead with the concept; demote the visual to an italicized continuation.
 
 This shape applies to Beats 5–8. Beats 1–4 (setup) and Beat 9 (close + cleanup) are procedural and don't need it.
 
@@ -189,19 +194,15 @@ Same engagement model, but you have no commands to issue at all. The PRINCIPAL h
 
 This is the default landing mode. It shows the architecture's everyday operational shape with PLINY's decision basin at the center.
 
-Following the Teach / Cite shape:
+Concept-led narration blocks (no literal labels in your output — see narration-shape section above):
 
-1. **Teach:** Three load-bearing seats, split on one-job-per-agent (`u--7yg.17`). POLYBIUS converses with the PRINCIPAL and holds durable memory across sessions. PLINY dispatches CAPTAINs and reconciles their verdicts. CAPTAINs each carry a single specialty — architect, plan-critic, executor, verifier, reviewer, etc. The v1 architecture tried merging these and the merged seats reliably dropped jobs; the empirical fix was the split.
-   **Cite:** the three rank-coded clusters on screen — PRINCIPAL at top in HUMAN-rank shape, POLYBIUS + PLINY at MAJOR rank, the CAPTAIN ring around PLINY.
+1. Three load-bearing seats, split on one-job-per-agent (`u--7yg.17`). POLYBIUS converses with the PRINCIPAL and holds durable memory across sessions. PLINY dispatches CAPTAINs and reconciles their verdicts. CAPTAINs each carry a single specialty — architect, plan-critic, executor, verifier, reviewer, etc. The v1 architecture tried merging these and the merged seats reliably dropped jobs; the empirical fix was the split. *— visible on screen as the three rank-coded clusters: PRINCIPAL at top in HUMAN-rank shape, POLYBIUS + PLINY at MAJOR rank, the CAPTAIN ring around PLINY.*
 
-2. **Teach:** PLINY is a decision gate, not a pass-through. Every CAPTAIN verdict arrives at PLINY for a route-or-loop call — forward to the next gate, loop back if a problem surfaced, or escalate if scope exceeded. That's why the architecture has cycles instead of a forward DAG: PLINY is where the cycles trip. Flattening this into a linear sequence loses the load-bearing parts.
-   **Cite:** the medallion shape distinct from the rectangular CAPTAIN cards (kg-spec §6).
+2. PLINY is a decision gate, not a pass-through. Every CAPTAIN verdict arrives at PLINY for a route-or-loop call — forward to the next gate, loop back if a problem surfaced, or escalate if scope exceeded. That's why the architecture has cycles instead of a forward DAG: PLINY is where the cycles trip. Flattening this into a linear sequence loses the load-bearing parts. *— visible on screen as the medallion shape at center, distinct from the rectangular CAPTAIN cards around it (kg-spec §6).*
 
-3. **Teach:** The PRINCIPAL ↔ POLYBIUS channel is the persistent-memory channel — what justifies POLYBIUS as a seat distinct from PLINY. Conversations compound across sessions because POLYBIUS reads bw at activation, writes as work progresses, and reads again after compaction. Without this channel, POLYBIUS would just be a relay and the PRINCIPAL could talk to PLINY directly, collapsing the CoS seat.
-   **Cite:** the thick / glowing edge between PRINCIPAL and POLYBIUS at the top of the graph (case study §3.5 Pattern 1, kg-spec §5.1).
+3. The PRINCIPAL ↔ POLYBIUS channel is the persistent-memory channel — what justifies POLYBIUS as a seat distinct from PLINY. Conversations compound across sessions because POLYBIUS reads bw at activation, writes as work progresses, and reads again after compaction. Without this channel, POLYBIUS would just be a relay and the PRINCIPAL could talk to PLINY directly, collapsing the CoS seat. *— visible on screen as the thick edge between PRINCIPAL and POLYBIUS at the top of the graph (case study §3.5 Pattern 1, kg-spec §5.1).*
 
-4. **Teach:** Tool constraints on certain CAPTAINs are structural, not incidental. ARGUS audits a design but cannot rewrite it. CATO reviews a diff but cannot patch it. BARTLEBY recons the repo but has no web access. The seats that *surface* problems are deliberately separated from the seats that *fix* them — if ARGUS could fix what it surfaced, the audit would collapse into the build, and the independent verification would be lost.
-   **Cite:** the small "no edit" badges on ARGUS / CATO / ZENO and "no web" badges on BARTLEBY / HERALD / ZENO.
+4. Tool constraints on certain CAPTAINs are structural, not incidental. ARGUS audits a design but cannot rewrite it. CATO reviews a diff but cannot patch it. BARTLEBY recons the repo but has no web access. The seats that *surface* problems are deliberately separated from the seats that *fix* them — if ARGUS could fix what it surfaced, the audit would collapse into the build, and the independent verification would be lost. *— visible on screen as the small "no edit" badges on ARGUS / CATO / ZENO and "no web" badges on BARTLEBY / HERALD / ZENO.*
 
 The PRINCIPAL drives — they can play the 9-step animation themselves, step through it, or stay paused and ask questions. **Do not auto-advance to Mode 2.** Wait for the PRINCIPAL to click the second tab (or ask you to switch).
 
@@ -211,19 +212,15 @@ The PRINCIPAL drives — they can play the 9-step animation themselves, step thr
 
 Switch to Mode 2. This mode visualizes the 14-step gauntlet sequence with its loop-backs.
 
-Following the Teach / Cite shape:
+Concept-led narration blocks (no literal labels in your output):
 
-1. **Teach:** The formal gauntlet has six gates in sequence — DAEDALUS designs, ARGUS audits the design, ADA executes, VERA verifies the result, CATO reviews the diff, ZENO mechanically checks for spec drift. Each gate produces a verdict that returns to PLINY for a routing decision. Walking it linearly is useful first as orientation, but linear is misleading: the cycles are the actual architecture.
-   **Cite:** the forward path through the captain ring as the animation steps.
+1. The formal gauntlet has six gates in sequence — DAEDALUS designs, ARGUS audits the design, ADA executes, VERA verifies the result, CATO reviews the diff, ZENO mechanically checks for spec drift. Each gate produces a verdict that returns to PLINY for a routing decision. Walking it linearly is useful first as orientation, but linear is misleading: the cycles are the actual architecture. *— visible on screen as the forward path through the captain ring as the animation steps.*
 
-2. **Teach:** The loop-backs are what make this an architecture, not a forward DAG. When ARGUS surfaces real risk, PLINY loops back to DAEDALUS for re-design rather than letting risky work move to ADA. When VERA fails or CATO needs revisions, PLINY loops back to ADA. The architecture protects against work moving forward when problems exist — flattening these cycles into a forward sequence would lose what's structural.
-   **Cite:** the dashed-red back-edges from PLINY → DAEDALUS and PLINY → ADA (kg-spec §3, case study §6).
+2. The loop-backs are what make this an architecture, not a forward DAG. When ARGUS surfaces real risk, PLINY loops back to DAEDALUS for re-design rather than letting risky work move to ADA. When VERA fails or CATO needs revisions, PLINY loops back to ADA. The architecture protects against work moving forward when problems exist — flattening these cycles into a forward sequence would lose what's structural. *— visible on screen as the dashed-red back-edges from PLINY → DAEDALUS and PLINY → ADA (kg-spec §3, case study §6).*
 
-3. **Teach:** ARGUS surfacing risk is the canonical loop trigger, and the no-edit constraint on ARGUS is what makes it work. ARGUS can flag a design problem but cannot rewrite the design — the trip-wire is "ARGUS verdict carries risk → PLINY decides → loop back to DAEDALUS for re-design." That structural separation is what keeps the audit independent of the build; if a single seat could both audit and fix, the verdict would collapse into the patch.
-   **Cite:** the ARGUS card with its no-edit badge, and the loop-back animation that fires when its verdict carries risk.
+3. ARGUS surfacing risk is the canonical loop trigger, and the no-edit constraint on ARGUS is what makes it work. ARGUS can flag a design problem but cannot rewrite the design — the trip-wire is "ARGUS verdict carries risk → PLINY decides → loop back to DAEDALUS for re-design." That structural separation is what keeps the audit independent of the build; if a single seat could both audit and fix, the verdict would collapse into the patch. *— visible on screen as the ARGUS card with its no-edit badge, and the loop-back animation that fires when its verdict carries risk.*
 
-4. **Teach:** When all gates return clean and no override flags fire, PLINY commits / closes the bw ticket / pushes — without routing through the PRINCIPAL. This is the *PRINCIPAL-as-router antipattern* avoided in execution: routing every clean ship through human approval turns the human into a pipeline component instead of leaving them in the strategic seat. Empirically, this discipline saved roughly half the round-trips in the recent arc sequence.
-   **Cite:** the autonomous-ship branch from the final gate in the animation (`u--7yg.1`, `u--7yg.11`).
+4. When all gates return clean and no override flags fire, PLINY commits / closes the bw ticket / pushes — without routing through the PRINCIPAL. This is the *PRINCIPAL-as-router antipattern* avoided in execution: routing every clean ship through human approval turns the human into a pipeline component instead of leaving them in the strategic seat. Empirically, this discipline saved roughly half the round-trips in the recent arc sequence. *— visible on screen as the autonomous-ship branch from the final gate in the animation (`u--7yg.1`, `u--7yg.11`).*
 
 Pause for questions. Stay on whatever step / gate the PRINCIPAL is engaged with; they drive when to advance, when to loop back, and when to switch to Mode 3. **Do not auto-advance.**
 
@@ -233,19 +230,15 @@ Pause for questions. Stay on whatever step / gate the PRINCIPAL is engaged with;
 
 Switch to Mode 3. This mode shows the multi-tier stack — user-tier, project-tier, sub-project-tier — with the same three-seat shape replicated at each tier.
 
-Following the Teach / Cite shape:
+Concept-led narration blocks (no literal labels in your output):
 
-1. **Teach:** The same three-role pattern (POLYBIUS / PLINY / CAPTAINs) appears at every tier. User-tier covers all of one PRINCIPAL's projects. Project-tier scopes to a single project. Sub-project-tier handles work that needs its own tools, domain, or collaborator. The architectural commitment is that the system extends cleanly without bifurcating: there's no special "outer" architecture and "inner" architecture — just the same shape replicated at different scopes.
-   **Cite:** the three stacked tiers in the visualization, each containing the same POLYBIUS + PLINY + CAPTAIN-ring pattern.
+1. The same three-role pattern (POLYBIUS / PLINY / CAPTAINs) appears at every tier. User-tier covers all of one PRINCIPAL's projects. Project-tier scopes to a single project. Sub-project-tier handles work that needs its own tools, domain, or collaborator. The architectural commitment is that the system extends cleanly without bifurcating: there's no special "outer" architecture and "inner" architecture — just the same shape replicated at different scopes. *— visible on screen as the three stacked tiers, each containing the same POLYBIUS + PLINY + CAPTAIN-ring pattern.*
 
-2. **Teach:** Visibility is asymmetric, and that asymmetry is what makes recursion *useful* rather than just symmetric replication. Higher-tier POLYBIUS sees down into lower-tier work — can read the lower tier's bw, can supervise without interrupting. Lower-tier POLYBIUS does NOT see up by default — keeps the lower tier focused on its own scope. Symmetric visibility would collapse the tiers into one noisy context; the asymmetry is what keeps them coherent and connected.
-   **Cite:** the visibility-cone indicators between tiers (case study §7, kg-spec §4.1).
+2. Visibility is asymmetric, and that asymmetry is what makes recursion *useful* rather than just symmetric replication. Higher-tier POLYBIUS sees down into lower-tier work — can read the lower tier's bw, can supervise without interrupting. Lower-tier POLYBIUS does NOT see up by default — keeps the lower tier focused on its own scope. Symmetric visibility would collapse the tiers into one noisy context; the asymmetry is what keeps them coherent and connected. *— visible on screen as the visibility-cone indicators between tiers (case study §7, kg-spec §4.1).*
 
-3. **Teach:** Lower-tier seats are name-suffixed to disambiguate (`MAJOR_POLYBIUS_<subproject>`, `CAPTAIN_DAEDALUS_<subproject>`). Same parent git repo, same bw substrate, different role-file namespace — that's the Arc 14 mechanism. The substrate flows down through naming, not through nesting; sub-projects share the durable layer with the parent rather than spinning up an isolated one.
-   **Cite:** the name-suffixed labels on the sub-project tier seats.
+3. Lower-tier seats are name-suffixed to disambiguate (`MAJOR_POLYBIUS_<subproject>`, `CAPTAIN_DAEDALUS_<subproject>`). Same parent git repo, same bw substrate, different role-file namespace — that's the Arc 14 mechanism. The substrate flows down through naming, not through nesting; sub-projects share the durable layer with the parent rather than spinning up an isolated one. *— visible on screen as the name-suffixed labels on the sub-project tier seats.*
 
-4. **Teach:** A sub-project spawns when work hits the trip-wires that signal it needs its own scope: own tools, own domain, own collaborator. Two-of-three fires the recommendation. Below the threshold, work stays in the parent project; above, the team triggers a spawn that creates a new tier with its own POLYBIUS and a roster focused on the new scope. The spawn pattern is what keeps the team from collapsing under cross-domain pressure.
-   **Cite:** the "OVER-SCOPE DETECTED" callout if visible in the standalone (case study §10, `MAJOR_POLYBIUS.md` §10.1).
+4. A sub-project spawns when work hits the trip-wires that signal it needs its own scope: own tools, own domain, own collaborator. Two-of-three fires the recommendation. Below the threshold, work stays in the parent project; above, the team triggers a spawn that creates a new tier with its own POLYBIUS and a roster focused on the new scope. The spawn pattern is what keeps the team from collapsing under cross-domain pressure. *— visible on screen as the "OVER-SCOPE DETECTED" callout if shown in the standalone (case study §10, `MAJOR_POLYBIUS.md` §10.1).*
 
 Pause for questions. The PRINCIPAL can keep exploring Mode 3 freely, switch back to earlier modes if something resurfaces, or signal they want to wrap. Follow their lead.
 
