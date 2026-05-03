@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-03T00:00:25Z",
+  "description": "",
+  "id": "stoa--jmh.5",
+  "labels": [],
+  "parent": "stoa--jmh",
+  "priority": 2,
+  "status": "open",
+  "title": "Arc 15 — smoke test (install.sh --dry-run, markdown, heading grep)",
+  "type": "chore",
+  "updated_at": "2026-05-03T00:00:25Z"
+}
