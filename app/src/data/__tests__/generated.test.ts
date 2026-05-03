@@ -67,9 +67,9 @@ describe("the generated v2 roster", () => {
       "CURATOR",
       "DAEDALUS",
       "HERALD",
-      "PLINY",
       "STRABO",
       "VERA",
+      "ZENO",
     ]);
     for (const c of captains) {
       expect(c.rank).toBe("CAPTAIN");

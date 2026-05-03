@@ -49,7 +49,7 @@ The post-v2 arc sequence (per architecture spec §14):
 - **Arc 2 (done, v1):** POLYBIUS's interactive onboarding flow + templates + walkthrough
 - **Arc 3 (done, v1):** 10 CAPTAIN envelopes + `install.sh` extension to deploy them
 - **Arc 4 (done, v2):** Re-author `MAJOR_POLYBIUS.md` + `MAJOR_PLINY.md` from v2 spec; PRINCIPAL/HUMAN voice throughout
-- **Arc 5 (done, v2):** Re-author the 10 CAPTAIN envelopes from v2 spec; rank-table headers, spec-authority pointers, PRINCIPAL/HUMAN voice grounded throughout; structural tool restrictions per spec §9 (ARGUS / CATO no `Write`/`Edit`; BARTLEBY / HERALD / CAPTAIN_PLINY no `WebSearch`/`WebFetch`; CAPTAIN_PLINY also no `Write`/`Edit`)
+- **Arc 5 (done, v2):** Re-author the 10 CAPTAIN envelopes from v2 spec; rank-table headers, spec-authority pointers, PRINCIPAL/HUMAN voice grounded throughout; structural tool restrictions per spec §9 (ARGUS / CATO no `Write`/`Edit`; BARTLEBY / HERALD / CAPTAIN_ZENO no `WebSearch`/`WebFetch`; CAPTAIN_ZENO also no `Write`/`Edit`)
 - **Arc 6 (done, v2):** Re-author `ONBOARDING.md` + 3 `templates/*.md` files from v2 spec; PRINCIPAL/HUMAN voice grounded throughout including dialogue; substitution slots and consent-prompt structure preserved; v1 versions archived under `v1-historical/`. Substrate-redesign-from-v2 (Arcs 4–6) complete.
 - **Arc 7 (done):** `install.sh` improvements — `templates/` deployment alongside role files (default on; `--no-templates` opts out), next-step guidance printed on successful install (suppressed in `--dry-run`), Windows-bash portability documented in this README, and the residual `Colonel` reference at install.sh:17 retired (resolves `as--meq`).
 - (next) **Arc 8:** Refactor existing wrong-shape deploys in `agent-team-team` and `agent-character-builder`
@@ -73,9 +73,9 @@ The CAPTAINs are the team MAJOR_PLINY dispatches via the `Agent` tool. Each is a
 | [`CAPTAIN_BARTLEBY.md`](./CAPTAIN_BARTLEBY.md) | BARTLEBY | FILE_CLERK | internal repo recon; returns `file:line` citations without interpretation | no `WebSearch`/`WebFetch` |
 | [`CAPTAIN_HERALD.md`](./CAPTAIN_HERALD.md) | HERALD | INTAKE | turns a vague request into a structured brief draft with named ambiguities | no `WebSearch`/`WebFetch` |
 | [`CAPTAIN_CURATOR.md`](./CAPTAIN_CURATOR.md) | CURATOR | SYNTHESIST | cross-ticket synthesis, retrospectives, plan revisions | — |
-| [`CAPTAIN_PLINY.md`](./CAPTAIN_PLINY.md) | PLINY | SPEC-CHECKER | embedded mechanical spec-vs-result check; **distinct from MAJOR_PLINY** orchestrator (different ranks, different jobs) | no `Write`/`Edit`, no `WebSearch`/`WebFetch` |
+| [`CAPTAIN_ZENO.md`](./CAPTAIN_ZENO.md) | ZENO | SPEC-CHECKER | embedded mechanical spec-vs-result check | no `Write`/`Edit`, no `WebSearch`/`WebFetch` |
 
-Note on naming: CAPTAIN_PLINY shares a mnemonic with MAJOR_PLINY by design — the architect spec keeps them as separate seats per the one-job-per-agent discipline. NESTOR (the would-be sub-agent dispatcher in earlier designs) does not appear; the role moves to MAJOR_PLINY at the top-level session tier (sub-agents cannot dispatch sub-agents — `u--7yg.12`).
+Note on naming: CAPTAIN_ZENO is the embedded spec-checker (this seat was renamed from CAPTAIN_PLINY in Arc 16 to eliminate the role-collapse trap from sharing a mnemonic with MAJOR_PLINY). NESTOR (the would-be sub-agent dispatcher in earlier designs) does not appear; the role moves to MAJOR_PLINY at the top-level session tier (sub-agents cannot dispatch sub-agents — `u--7yg.12`).
 
 `install.sh` deploys these envelopes at install time:
 

@@ -50,9 +50,9 @@ export type AgentRank = Exclude<Rank, "HUMAN">;
  * - {@link descriptiveRole} — what the agent does in plain words; e.g.
  *                             "CHIEF-OF-STAFF", "ARCHITECT"
  *
- * The same mnemonic may appear at different ranks (e.g. `MAJOR_PLINY` the
- * orchestrator and `CAPTAIN_PLINY` the spec-checker). Different ranks =
- * different agents, even when the mnemonic is shared.
+ * Different ranks identify different agents — the type system treats
+ * (rank, mnemonic) as the agent identity, so distinct ranks always produce
+ * distinct agents.
  */
 export type Agent = {
   /** The agent's rank. Always non-HUMAN. */

@@ -100,7 +100,7 @@ CAPTAIN_NAMES=(
   BARTLEBY
   HERALD
   CURATOR
-  PLINY
+  ZENO
 )
 
 # Marker line written into CLAUDE.md when --modify-claude-md is used; presence

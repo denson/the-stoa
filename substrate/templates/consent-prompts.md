@@ -79,7 +79,7 @@ Stakes: low if the project has no prior beadwork; medium if there's existing wor
 
 **Wording:**
 
-> Next step is to deploy the team — the `CAPTAIN_*.md` envelopes (DAEDALUS, ARGUS, ADA, VERA, CATO, BARTLEBY, STRABO, HERALD, CURATOR, CAPTAIN_PLINY) into `.claude/agents/`. Without these, MAJOR_PLINY can still run, but the structured pipeline doesn't have its full roster. Deploy the full team, or run with whatever's already there?
+> Next step is to deploy the team — the `CAPTAIN_*.md` envelopes (DAEDALUS, ARGUS, ADA, VERA, CATO, BARTLEBY, STRABO, HERALD, CURATOR, CAPTAIN_ZENO) into `.claude/agents/`. Without these, MAJOR_PLINY can still run, but the structured pipeline doesn't have its full roster. Deploy the full team, or run with whatever's already there?
 
 ---
 

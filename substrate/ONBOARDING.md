@@ -178,7 +178,7 @@ CAPTAIN_STRABO_agent_character_builder.md
 CAPTAIN_BARTLEBY_agent_character_builder.md
 CAPTAIN_HERALD_agent_character_builder.md
 CAPTAIN_CURATOR_agent_character_builder.md
-CAPTAIN_PLINY_agent_character_builder.md
+CAPTAIN_ZENO_agent_character_builder.md
 $ bw list 2>&1 | head -10
 ○ acb-101 P2 Character profile UI v0.2 — final pass
 ○ acb-100 P2 [EPIC] v0.2 ship
