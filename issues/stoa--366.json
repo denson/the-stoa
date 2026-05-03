@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-03T03:03:54Z",
+  "close_reason": "Arc 17 shipped at the-stoa c5eea55 + user-beadwork 2dccd37. All deliverables landed: substrate/skills/agent-author/SKILL.md (POLYBIUS-invoked procedural skill with embedded voice-discipline check), MAJOR_POLYBIUS §11 (pair-programmer authoring procedure) + §12 (Mode-2 prototyping methodology), install.sh extended with SKILL_NAMES + skills deploy step + staleness detection (--prune-obsolete flag), planning v2 §4 reframed for pair-programmer Majors as on-demand third class. stoa--w1t closed via the staleness-detection fix. Smoke clean: dry-run ✓, real install ✓ (skill loads in fresh Claude Code session — confirmed via system-reminder), npm build ✓, npm test ✓ (41 tests), voice audit ✓ (only deliberate reserved-rank refs remain). Autonomous-ship per u--7yg.11; both repos pushed. Out-of-scope deferrals respected: Stoa LIEUTENANT slot rendering (Arc 17.1), specific pair-programmer authoring (project-authored, not substrate-canonical), historical-artifact modifications, case-study/KG drafts at docs/case-study/.",
   "created": "2026-05-03T02:46:48Z",
   "description": "",
   "id": "stoa--366",
@@ -33,8 +35,8 @@
     }
   ],
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "[EPIC] Arc 17 — POLYBIUS authoring capabilities + agent-authoring skill + skills deployment",
   "type": "epic",
-  "updated_at": "2026-05-03T03:01:42Z"
+  "updated_at": "2026-05-03T03:03:54Z"
 }
