@@ -6,9 +6,15 @@
   "description": "",
   "id": "stoa--366",
   "labels": [],
+  "comments": [
+    {
+      "text": "PLINY active for Arc 17. On main, last commit fa710b2. Working tree noted state: app/src/data/generated/agents.ts has CRLF/LF churn (stale regen from prior session — will resolve in Phase E if needed); HUMAN_paste-orchestrator-instruction.md untracked (this session's activation paste); docs/case-study/ untracked (POLYBIUS-authored, OUT OF SCOPE per directive — leaving alone). Phase A decisions LOCKED per directive (no surface needed). Beginning Phase A: install.sh extensions for skills deployment + staleness detection.",
+      "timestamp": "2026-05-03T02:46:55Z"
+    }
+  ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 17 — POLYBIUS authoring capabilities + agent-authoring skill + skills deployment",
   "type": "epic",
-  "updated_at": "2026-05-03T02:46:48Z"
+  "updated_at": "2026-05-03T02:46:55Z"
 }
