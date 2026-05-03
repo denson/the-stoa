@@ -37,17 +37,24 @@ Beat 1 detects Chrome MCP and branches accordingly. Beats 2, 3, 9 assume Chrome 
 
 Try a low-cost Chrome MCP call: `mcp__Claude_in_Chrome__tabs_context_mcp`. If it returns a tabs list, Chrome MCP is reachable — proceed to Beat 2.
 
-If the call errors (extension not installed, not paired with this Claude Code session, etc.), surface a 3-option branch to the PRINCIPAL:
+If the call errors (extension not installed, not paired with this Claude Code session, etc.), do these two things **before** writing the surface message:
+
+1. **Construct the absolute `file://` URL for the standalone, eagerly.** Run `pwd` (or check the cwd from your environment) to get the cloned repo's absolute path. Concatenate with `/docs/case-study/architecture-kg.html`. Convert backslashes to forward slashes on Windows. The result must look like `file:///C:/Users/.../the-stoa/docs/case-study/architecture-kg.html` on Windows or `file:///home/.../the-stoa/docs/case-study/architecture-kg.html` on Unix — three slashes after `file:`, forward slashes throughout, no spaces unencoded (escape any spaces in the path as `%20`).
+2. **Verify the file exists** at that path with a quick `ls` or equivalent. If it doesn't, the cloned repo is incomplete and you need to surface that to the PRINCIPAL — don't ship a link to a non-existent file.
+
+Now surface the 3-option branch with the link **already included in option (b)** so the PRINCIPAL can click it on the first response without an extra round-trip:
 
 > Chrome MCP isn't reachable from this session — that's the live-browser tour. Three options:
 >
 > **(a) Walk me through installing it** — I'll search for the current install instructions and walk you through it. Once installed and paired with this session, we resume the tour with Chrome driving.
 >
-> **(b) Open the standalone directly** — I'll give you a clickable link to the visualization; you open it in your own browser, and I narrate alongside while you click through the modes yourself.
+> **(b) Open the standalone directly** — here's a clickable link: [architecture-kg.html](file:///C:/Users/.../the-stoa/docs/case-study/architecture-kg.html). Click it, the file opens in your default browser, and I narrate alongside while you click through the three modes yourself using the tabs at the top of the page.
 >
 > **(c) Pause for now** — the case study and the standalone are right here in the repo; come back when you have time.
 >
 > Which?
+
+The link in (b) **must be a real markdown link** (`[label](file:///absolute/path/...)`), not a relative path or a code-fence path. Relative paths like `docs/case-study/architecture-kg.html` are NOT clickable in the Claude Code chat surface — they render as text. The whole point of option (b) is that the PRINCIPAL gets a one-click path to the visualization without any further conversation; a relative path defeats that.
 
 If they pick **(a)** — install walkthrough:
 
@@ -57,13 +64,13 @@ If they pick **(a)** — install walkthrough:
 
 If they pick **(b)** — clickable link + text-narration:
 
-1. Construct an absolute `file://` URL pointing at the cloned repo's standalone HTML. Use `pwd` (or equivalent) to get the repo's absolute path; concatenate with `/docs/case-study/architecture-kg.html`. On Windows, the URL form is `file:///C:/path/to/.../architecture-kg.html` (forward slashes, three slashes after `file:`). On Unix, `file:///path/to/.../architecture-kg.html`.
-2. Surface as a markdown link in your reply: `[architecture-kg.html](file:///...)`. The PRINCIPAL clicks; the file opens in their default browser.
-3. Jump to the **Text fallback** section near the end of this file for the rest of the procedure.
+The link is already in their hands from the surface message. Confirm they've opened it (briefly: *"let me know when the visualization is up in your browser"*) and jump to the **Text fallback** section near the end of this file for the rest of the procedure.
 
 If they pick **(c)** — pause cleanly. No further action; the tour is paused.
 
 Do NOT pretend Chrome MCP is reachable when it isn't. Honest branching is the discipline.
+
+Do NOT surface a relative path (like `docs/case-study/architecture-kg.html`) as if it were the link. The reader has to manually navigate to it; that's a UX failure, not a fallback. Always construct the absolute `file://` URL.
 
 ---
 
