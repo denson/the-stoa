@@ -1,6 +1,6 @@
 ---
 name: stoa-intro
-description: Visual walkthrough of The Stoa architecture using the interactive knowledge graph. Drives Chrome MCP to render the standalone HTML and narrates the three modes (Pair Programming, Hardening Flow, Recursion). Pitches Claude Code Desktop hard; falls back to text narration with paths if Chrome MCP isn't available.
+description: Visual walkthrough of The Stoa architecture using the interactive knowledge graph. Uses Claude Preview (primary; works in Desktop and CLI) or Chrome MCP (fallback) to render the standalone HTML and narrate the three modes (Pair Programming, Hardening Flow, Recursion). Falls back to text narration with paths if neither preview tool is reachable.
 ---
 
 # stoa-intro — visual walkthrough of the architecture
@@ -9,7 +9,7 @@ description: Visual walkthrough of The Stoa architecture using the interactive k
 
 You are walking the PRINCIPAL through the interactive knowledge graph at `docs/case-study/architecture-kg.html`. The standalone is a single self-contained HTML file rendered by React + Babel inline; it has three modes — Pair Programming (default), Agent Team Hardening Flow, and Recursion — each visualizing a different cross-section of how the three-role architecture actually behaves.
 
-Your job is to drive the standalone (in a Chrome tab via Chrome MCP) and narrate the modes alongside, pointing at the load-bearing visual constraints as you go: PLINY's decision basin, the dashed-red back-edges that make the gauntlet's cycles legible, the asymmetric visibility cones that make the recursion useful rather than just symmetric.
+Your job is to drive the standalone in a preview surface and narrate the modes alongside, pointing at the load-bearing visual constraints as you go: PLINY's decision basin, the dashed-red back-edges that make the gauntlet's cycles legible, the asymmetric visibility cones that make the recursion useful rather than just symmetric.
 
 The signals that this skill is the right thing to load:
 - The PRINCIPAL said *"give me the tour,"* *"show me the architecture,"* *"walk me through it visually."*
@@ -20,59 +20,83 @@ If they want to install instead, route to `skills/install-stoa/SKILL.md`. If the
 
 ---
 
-## Pitch Claude Code Desktop hard
+## Preview surfaces — primary, fallback, and text-only
 
-The tour works best in Claude Code Desktop because Chrome MCP is reachable from there with minimum friction. Before any other beat, name this:
+The tour can drive the standalone via three different preview surfaces, in this priority order:
 
-> The visual tour drives an interactive knowledge graph in a Chrome tab via Chrome MCP. That works smoothly in **Claude Code Desktop**; from the CLI I can still walk you through the same three modes, but I'll point you at the HTML to open in a browser yourself rather than driving it for you. Want the live-driven tour (Desktop), or the text-narration version (CLI fallback)?
+1. **Claude Preview** *(primary)* — the built-in `mcp__Claude_Preview__*` tools. Works in Claude Code Desktop AND the CLI. Repo ships `.claude/launch.json` with a `stoa-kg` server config so `preview_start("stoa-kg")` works out of the box. Screenshots come back inline in the chat — narration and visualization end up in the same scrollback.
+2. **Chrome MCP** *(fallback)* — the `mcp__Claude_in_Chrome__*` tools. Desktop only; requires the Chrome MCP extension installed and connected. Drives a real Chrome window the PRINCIPAL can also interact with directly.
+3. **Text-only narration** *(last resort)* — narrate the modes from the case study; the PRINCIPAL opens the HTML in their own browser. Works in any session regardless of preview tooling.
 
-If they're already on Desktop, continue to Beat 1. If they're on the CLI and want to switch sessions, pause; if they want the text fallback, jump to the **Text fallback** section near the end of this file.
-
----
-
-## Beat 1 — pre-flight check for Chrome MCP
-
-Even on Desktop, Chrome MCP might not be enabled. Before spinning up the static server, verify the MCP surface is reachable:
-
-Try a low-cost Chrome MCP call (e.g., `mcp__Claude_in_Chrome__tabs_context_mcp` if available). If it returns a tabs list, Chrome MCP is up — continue. If it errors with a not-available / not-configured signal, surface to the PRINCIPAL:
-
-> Chrome MCP isn't reachable from this session — likely not enabled in your Claude Code Desktop settings. Two options: (1) enable Chrome MCP and restart this session, then come back here; (2) fall through to the text-narration tour now. Which?
-
-Don't pretend to drive a browser you can't drive. The text fallback is real and useful; offering it is honest.
+Beat 1 detects which is available; Beats 2, 3, 9 have a Path A (Preview) and a Path B (Chrome MCP); the **Text fallback** section near the end covers the third case. Beats 4–8 (the actual narration content) are tool-agnostic — they don't change based on which surface is driving.
 
 ---
 
-## Beat 2 — spin up a static server
+## Beat 1 — capability detection
 
-Chrome MCP can't load `file://` URLs reliably; the standalone needs to be served via HTTP. Use Python's built-in HTTP server (no dependency to install):
+Detect which preview surface is reachable, in priority order:
 
-```
-cd docs/case-study && python -m http.server 8765
-```
+**Try Claude Preview first.** Run `mcp__Claude_Preview__preview_list` (a no-arg, low-cost call). If it returns a list (empty or otherwise) without an MCP-not-available error, Claude Preview is reachable — go to Beat 2 with **Path A**. Most users land here regardless of whether they're on Desktop or CLI.
 
-Run this in the background (or in a separate process). Wait ~2 seconds for it to come up. Verify with:
+**If Claude Preview isn't reachable, try Chrome MCP.** Run `mcp__Claude_in_Chrome__tabs_context_mcp`. If it returns a tabs list, Chrome MCP is up — go to Beat 2 with **Path B**. Less common but supported.
 
-```
-curl -sI http://localhost:8765/ | head -1
-```
+**If neither is reachable**, surface honestly:
 
-If the response is `HTTP/1.0 200 OK` or similar, the server is live. If port 8765 is already in use, pick a different port (8766, 8767, ...) and adjust the URL in Beat 3 accordingly.
+> I can't reach Claude Preview or Chrome MCP from this session, so I can't drive the visualization for you live. I can still walk you through the three modes from the case study while you open `docs/case-study/architecture-kg.html` in your own browser — same narrative, you switch modes manually. Want that, or would you rather pause and come back later in a session where preview tools are reachable?
 
-Note for later: you will stop this server in Beat 9 when the tour ends. Keep the process handle or PID so the cleanup is mechanical, not a hunt.
+Pick their answer. Do NOT pretend to drive a browser you can't drive. If they accept, jump to the **Text fallback** section near the end of this file.
 
 ---
 
-## Beat 3 — open the standalone in a new Chrome tab
+## Beat 2 — start the preview server
 
-Via Chrome MCP, navigate to:
+### Path A — Claude Preview
+
+Call `mcp__Claude_Preview__preview_start` with `name: "stoa-kg"`. The repo ships `.claude/launch.json` with that config (Python http.server on port 8769 serving `docs/case-study/`). Capture the returned `serverId` — you'll pass it to every subsequent Preview call.
+
+If the call errors because Python isn't installed, surface honestly: *"Python isn't on PATH; the preview server needs it. I can fall through to the text-narration tour, or you can install Python and re-run."* If the call errors for other reasons (port collision, etc.), surface the error and offer to fall back to text or Chrome MCP.
+
+### Path B — Chrome MCP
+
+Spin up the Python static server manually:
 
 ```
-http://localhost:8765/architecture-kg.html
+cd docs/case-study && python -m http.server 8769
 ```
 
-Wait 3-5 seconds for React + Babel to compile and the graph to render. The default landing should be Mode 1 (Pair Programming). If the page loads but the graph doesn't appear, check the browser console — Babel transforms can fail silently on some Chrome configurations.
+Run this in the background. Wait ~2 seconds for it to come up; verify with:
 
-Once the graph is rendered, you're ready to narrate.
+```
+curl -sI http://localhost:8769/ | head -1
+```
+
+`HTTP/1.0 200 OK` means it's live. If port 8769 is already in use, pick another (8770, 8771, …) and adjust the URL in Beat 3. **Capture the PID** so cleanup in Beat 9 is mechanical, not a hunt — `pkill` can fail silently across bash environments; on Windows, prefer `taskkill /F /PID <pid>`.
+
+---
+
+## Beat 3 — open the standalone
+
+### Path A — Claude Preview
+
+Navigate to the standalone via `mcp__Claude_Preview__preview_eval`:
+
+```
+window.location.href = '/architecture-kg.html'
+```
+
+Wait 3–5 seconds for React + Babel to compile, then `mcp__Claude_Preview__preview_screenshot` to confirm the graph rendered. The default landing is Mode 1 (Pair Programming) — you should see PRINCIPAL at top, POLYBIUS below, PLINY's medallion at center surrounded by the CAPTAIN ring, BEADWORK substrate at the bottom.
+
+For mode switching during Beats 5–7, use `preview_click` with `selector: ".mode-tab:nth-child(N)"` (where N is 1 / 2 / 3). The mode tabs are reliable click targets.
+
+### Path B — Chrome MCP
+
+Open a new tab and navigate to:
+
+```
+http://localhost:8769/architecture-kg.html
+```
+
+Wait 3–5 seconds for React + Babel to compile and the graph to render. Same expected default-landing as above. Switch modes during Beats 5–7 via Chrome MCP click on the same `.mode-tab:nth-child(N)` selector (or by clicking the tab text directly).
 
 ---
 
@@ -216,29 +240,40 @@ Wrap with a concrete branch:
 
 > That's the architecture. Three things you can do from here: (1) install the substrate on one of your projects (`/install-stoa`); (2) read the case study end-to-end at `docs/case-study/case-study.md`; (3) just sit with it — the repo is here, the case study is here, the KG is here, no rush. What sounds right?
 
-Then **stop the static server.** Don't leave it running:
+Then **stop the preview server.** Don't leave it running:
+
+### Path A — Claude Preview
 
 ```
-pkill -f "http.server 8765"
+mcp__Claude_Preview__preview_stop(serverId)
 ```
 
-(Or kill by the PID you captured in Beat 2, whichever is more reliable in your shell.)
+Server lifecycle is managed; no PID hunt. If the call errors, surface and move on — the leftover server expires when the Claude Code session ends.
 
-Verify it stopped:
+### Path B — Chrome MCP
+
+Kill by the PID you captured in Beat 2:
+
+- Windows (PowerShell or Git Bash): `taskkill //F //PID <pid>`
+- Unix-like: `kill <pid>`
+
+Avoid `pkill -f "http.server"` — it can fail silently across bash environments (empirically observed during the Arc 19 cold-clone test). Verify the server stopped:
 
 ```
-curl -sI http://localhost:8765/ 2>&1 | head -1
+curl -sI http://localhost:8769/ 2>&1 | head -1
 ```
 
-Should now return a connection-refused error. If it didn't stop, surface the leftover process to the PRINCIPAL so they can kill it manually — don't leave background processes running silently.
+Should return a connection-refused error. If the server didn't stop, surface the leftover process to the PRINCIPAL so they can kill it manually — don't leave background processes running silently.
+
+### Hand off
 
 If the PRINCIPAL chose `/install-stoa`, hand off there. If they chose the case study, point at the file and stand down. If they want to pause, stand down — the tour is complete.
 
 ---
 
-## Text fallback section (Chrome MCP not reachable)
+## Text fallback section (neither preview surface reachable)
 
-When Chrome MCP isn't available — CLI session, MCP not enabled, browser issue — the tour still runs, just without the live-driving. The narrative is the same.
+When neither Claude Preview nor Chrome MCP is available — older Claude Code without the Preview MCP, no Chrome MCP extension installed, locked-down environment — the tour still runs, just without the live-driving. The narrative is the same.
 
 > Open `docs/case-study/architecture-kg.html` in any modern browser (double-click works on most platforms, or `open` / `xdg-open` from a terminal). It's a single self-contained HTML file — no server needed for static viewing. I'll narrate alongside while you switch between the modes using the controls in the top of the page.
 
@@ -250,11 +285,11 @@ If the standalone HTML doesn't open in the PRINCIPAL's browser (rare — it's pl
 
 ## What this skill must NOT do
 
-- **Do not open the tour in a browser tab without first checking Chrome MCP availability.** The pre-flight beat is non-negotiable; failing fast is better than half-driving a broken MCP surface.
-- **Do not leave the static server running after the tour ends.** Beat 9 cleanup is part of the tour. If it didn't run because the tour was interrupted, surface the leftover process to the PRINCIPAL.
+- **Do not start a preview server without first detecting which surface is available.** Beat 1 (capability detection) is non-negotiable; failing fast is better than half-driving a broken MCP surface.
+- **Do not leave the static server running after the tour ends.** Beat 9 cleanup is part of the tour. For Path A, `preview_stop(serverId)` is the call. For Path B, kill by PID with `taskkill` (Windows) or `kill` (Unix). If cleanup didn't run because the tour was interrupted, surface the leftover process to the PRINCIPAL.
 - **Do not auto-launch the install skill at the end.** The PRINCIPAL picks the next step; you walk them through whichever they pick.
 - **Do not recite the case study end-to-end.** The case study is reference material; the tour is the narrated visual. Quote phrases, point at sections, don't transcribe.
-- **Do not pretend Chrome MCP works when it doesn't.** Honest fallback to text is much better than half-faking the live tour.
+- **Do not pretend a preview surface works when it doesn't.** Honest fallback to text is much better than half-faking the live tour.
 - **Do not refer to the human as "the user."** PRINCIPAL or, once a name is captured, the name. Voice discipline (`u--7yg.20`).
 
 ---
@@ -264,5 +299,6 @@ If the standalone HTML doesn't open in the PRINCIPAL's browser (rare — it's pl
 - The standalone HTML this tour drives: `docs/case-study/architecture-kg.html`
 - The KG vocabulary spec: `docs/case-study/kg-spec.md`
 - The narrative the modes visualize: `docs/case-study/case-study.md`
+- The Claude Preview launch config (Path A): `.claude/launch.json` (server name: `stoa-kg`)
 - The architecture spec (outside this repo): `user-beadwork/plans/three-role-recursive-architecture.md` (v2)
 - The empirical record of disciplines: `user-beadwork/u--7yg` epic
