@@ -31,6 +31,7 @@ import type {
   Agent,
   Human,
   RosterSlot,
+  Skill as V2Skill,
   StoaDataV2,
 } from "./data/types-v2";
 import type { MetaAspect, Skill } from "./data/display-extras";
@@ -117,6 +118,8 @@ function uniqueRoles(roster: RosterSlot[]): string[] {
   const seen = new Set<string>();
   const out: string[] = [];
   for (const slot of roster) {
+    // Skills (LIEUTENANT slot) don't have descriptiveRole — they're invoked by name.
+    if (slot.rank === "LIEUTENANT") continue;
     for (const inhabitant of slot.agents) {
       const role = inhabitant.descriptiveRole;
       if (!seen.has(role)) {
@@ -159,20 +162,23 @@ function filterRoster(
     } else if (slot.rank === "COLONEL") {
       if (roleFilter) continue;
       out.push(slot);
+    } else if (slot.rank === "LIEUTENANT") {
+      // Skills don't have descriptiveRole; under a role filter, hide the
+      // LIEUTENANT slot entirely (no skill matches a role-name predicate).
+      // Roster preset filtering doesn't apply to skills (rosters are agent
+      // presets — see rosterIncludes()), so pass skills through unchanged
+      // when no role filter is active.
+      if (roleFilter) continue;
+      out.push(slot);
     } else {
-      // MAJOR | CAPTAIN | LIEUTENANT — slot is structurally AgentSlot.
-      // TS does not collapse the RankSlot base `agents` type
-      // (ReadonlyArray<Agent | Human>) intersected with AgentSlot's
-      // `agents: Agent[]` down to `Agent[]` automatically, so we narrow
-      // the agents array via assertion before filtering.
-      const slotAgents = slot.agents as Agent[];
-      const filtered = slotAgents.filter((a) => {
+      // MAJOR | CAPTAIN — slot is structurally AgentSlot.
+      const filtered = slot.agents.filter((a) => {
         const slug = agentSlug(a);
         if (!rosterIncludes(rosterId, slug)) return false;
         if (roleFilter && a.descriptiveRole !== roleFilter) return false;
         return true;
       });
-      out.push({ ...slot, agents: filtered } as RosterSlot);
+      out.push({ ...slot, agents: filtered });
     }
   }
   return out;
@@ -185,7 +191,9 @@ function filterRoster(
 function flattenAgents(roster: RosterSlot[]): Agent[] {
   const out: Agent[] = [];
   for (const slot of roster) {
-    if (slot.rank === "HUMAN" || slot.rank === "COLONEL") continue;
+    // HUMAN, COLONEL, and LIEUTENANT slots have no Agent inhabitants
+    // (Humans, reserved-empty, and Skills respectively).
+    if (slot.rank !== "MAJOR" && slot.rank !== "CAPTAIN") continue;
     for (const a of slot.agents) out.push(a);
   }
   return out;
@@ -530,11 +538,13 @@ function RankLadderView({
   roster,
   rosterId,
   onPickAgent,
+  onPickSkill,
   totalAgentCount,
 }: {
   roster: RosterSlot[];
   rosterId: RosterId;
   onPickAgent: (agent: Agent) => void;
+  onPickSkill: (skill: V2Skill) => void;
   totalAgentCount: number;
 }) {
   return (
@@ -563,7 +573,12 @@ function RankLadderView({
         </span>
       </div>
       {roster.map((slot) => (
-        <RankSection key={slot.rank} slot={slot} onPickAgent={onPickAgent} />
+        <RankSection
+          key={slot.rank}
+          slot={slot}
+          onPickAgent={onPickAgent}
+          onPickSkill={onPickSkill}
+        />
       ))}
     </div>
   );
@@ -572,12 +587,14 @@ function RankLadderView({
 function RankSection({
   slot,
   onPickAgent,
+  onPickSkill,
 }: {
   slot: RosterSlot;
   onPickAgent: (agent: Agent) => void;
+  onPickSkill: (skill: V2Skill) => void;
 }) {
   if (slot.rank === "HUMAN") {
-    const humans = slot.agents as Human[];
+    const humans = slot.agents;
     return (
       <section data-testid="rank-section-HUMAN">
         <RankSectionHeader rank="HUMAN" count={humans.length} />
@@ -611,8 +628,54 @@ function RankSection({
       </section>
     );
   }
-  // MAJOR | CAPTAIN | LIEUTENANT
-  const agents = slot.agents as Agent[];
+  if (slot.rank === "LIEUTENANT") {
+    // Arc 17.1: LIEUTENANT slot carries skills (not agents). Render skill
+    // cards in the same visual rhythm as agent cards. SkillCard expects the
+    // display-extras Skill shape (kind + callable_by); we adapt the v2 Skill
+    // (which has just name + description + body) by setting kind="skill" and
+    // callable_by=[] — both reasonable defaults for substrate-shipped skills.
+    const skillsList = slot.skills;
+    return (
+      <section data-testid="rank-section-LIEUTENANT">
+        <RankSectionHeader rank="LIEUTENANT" count={skillsList.length} />
+        {skillsList.length === 0 ? (
+          <div
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: 13,
+              color: "var(--fg-3)",
+              padding: "12px 0",
+            }}
+          >
+            No skills authored yet.
+          </div>
+        ) : (
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
+              gap: 14,
+            }}
+          >
+            {skillsList.map((s) => (
+              <SkillCard
+                key={s.name}
+                skill={{
+                  name: s.name,
+                  kind: "skill",
+                  description: s.description,
+                  callable_by: [],
+                }}
+                onClick={() => onPickSkill(s)}
+              />
+            ))}
+          </div>
+        )}
+      </section>
+    );
+  }
+  // MAJOR | CAPTAIN
+  const agents = slot.agents;
   return (
     <section data-testid={`rank-section-${slot.rank}`}>
       <RankSectionHeader rank={slot.rank} count={agents.length} />
@@ -625,9 +688,7 @@ function RankSection({
             padding: "12px 0",
           }}
         >
-          {slot.rank === "LIEUTENANT"
-            ? "No skills authored yet."
-            : "No agents at this rank under the current filter."}
+          No agents at this rank under the current filter.
         </div>
       ) : (
         <div
@@ -1401,6 +1462,9 @@ function TeamRoute({
         onPickAgent={(a) =>
           navigate(`/agent/${agentSlug(a)}${buildPreservedQuery(searchParams)}`)
         }
+        onPickSkill={(s) =>
+          navigate(`/skill/${s.name}${buildPreservedQuery(searchParams)}`)
+        }
       />
     </>
   );
@@ -1448,41 +1512,106 @@ function AgentRoute({ data }: { data: StoaDataV2 }) {
   );
 }
 
-function SkillPlaceholder() {
+function SkillPlaceholder({ data }: { data: StoaDataV2 }) {
   const { name } = useParams<{ name: string }>();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+
+  // Arc 17.1: look the skill up in the v2 LIEUTENANT slot. If found, render
+  // its full SKILL.md body. If not found, fall back to the legacy
+  // "not yet implemented" message (covers display-extras hardcoded skills
+  // that aren't yet in substrate).
+  const lieutenantSlot = data.roster.find((s) => s.rank === "LIEUTENANT");
+  const v2Skill =
+    lieutenantSlot && lieutenantSlot.rank === "LIEUTENANT"
+      ? lieutenantSlot.skills.find((s) => s.name === name)
+      : undefined;
+
   return (
-    <div style={{ flex: 1, padding: "32px 28px" }}>
-      <h1
-        style={{
-          margin: "0 0 8px",
-          fontFamily: "'JetBrains Mono', monospace",
-          fontWeight: 700,
-          fontSize: 22,
-          color: "var(--fg-1)",
-        }}
-      >
-        Skill: {name}
-      </h1>
-      <div
-        style={{
-          fontFamily: "Inter, sans-serif",
-          fontSize: 13,
-          color: "var(--fg-3)",
-          marginBottom: 14,
-        }}
-      >
-        Skill detail not yet implemented.
+    <div style={{ flex: 1, display: "flex", overflow: "auto" }}>
+      <div style={{ flex: 1, padding: "24px 32px", maxWidth: 920, overflow: "auto" }}>
+        <div
+          data-testid="back-to-team"
+          onClick={() => navigate(`/${buildPreservedQuery(searchParams)}`)}
+          style={{
+            fontFamily: "Inter, sans-serif",
+            fontSize: 12,
+            color: "var(--fg-3)",
+            cursor: "pointer",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 5,
+            marginBottom: 14,
+          }}
+        >
+          ← Back to Team
+        </div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 10,
+            flexWrap: "wrap",
+            marginBottom: 6,
+          }}
+        >
+          <RankPill rank="LIEUTENANT" />
+        </div>
+        <h1
+          style={{
+            margin: "0 0 8px",
+            fontFamily: "'JetBrains Mono', monospace",
+            fontWeight: 700,
+            fontSize: 22,
+            color: "var(--fg-1)",
+          }}
+          data-testid="skill-detail-name"
+        >
+          {name}
+        </h1>
+        {v2Skill ? (
+          <>
+            <div
+              style={{
+                fontFamily: "Inter, sans-serif",
+                fontSize: 13,
+                color: "var(--fg-2)",
+                marginBottom: 18,
+                lineHeight: 1.55,
+              }}
+            >
+              {v2Skill.description}
+            </div>
+            <div style={{ borderTop: "1px solid var(--border-1)", paddingTop: 20 }}>
+              <BodyMarkdown text={v2Skill.body} />
+            </div>
+          </>
+        ) : (
+          <>
+            <div
+              style={{
+                fontFamily: "Inter, sans-serif",
+                fontSize: 13,
+                color: "var(--fg-3)",
+                marginBottom: 14,
+              }}
+            >
+              Skill not found in substrate (may be a legacy display-extras
+              entry that has not yet been migrated to a SKILL.md file).
+            </div>
+            <Link
+              to="/skills"
+              style={{
+                fontFamily: "Inter, sans-serif",
+                fontSize: 13,
+                color: "var(--accent)",
+              }}
+            >
+              ← Back to Skills
+            </Link>
+          </>
+        )}
       </div>
-      <Link
-        to="/skills"
-        style={{
-          fontFamily: "Inter, sans-serif",
-          fontSize: 13,
-          color: "var(--accent)",
-        }}
-      >
-        ← Back to Skills
-      </Link>
     </div>
   );
 }
@@ -1652,7 +1781,7 @@ function App() {
               />
             }
           />
-          <Route path="/skill/:name" element={<SkillPlaceholder />} />
+          <Route path="/skill/:name" element={<SkillPlaceholder data={data} />} />
           <Route
             path="/meta"
             element={

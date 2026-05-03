@@ -129,14 +129,57 @@ export type Human = {
 };
 
 /**
+ * A skill (LIEUTENANT) record (planning v2 §2 — LIEUTENANT rank;
+ * Arc 17 — skills deployment).
+ *
+ * Skills are reusable helpers invoked by any rank. Unlike agents, they
+ * don't have a mnemonic-vs-descriptive-role distinction — a skill just
+ * has a name (matching its directory under `substrate/skills/`) and a
+ * description from the SKILL.md frontmatter. Skills are not dispatched
+ * via the `Agent` tool; they're invoked by name as helpers.
+ *
+ * Added in Arc 17.1 (Stoa LIEUTENANT slot rendering).
+ */
+export type Skill = {
+  /** Always `"LIEUTENANT"`. Discriminator for the slot-level union. */
+  rank: "LIEUTENANT";
+
+  /**
+   * Skill name in canonical lowercase-kebab form, e.g. `"agent-author"`,
+   * `"format-validate"`, `"runner"`. Matches the directory name under
+   * `substrate/skills/`.
+   */
+  name: string;
+
+  /** Plain-words description of what the skill does, from frontmatter. */
+  description: string;
+
+  /** Markdown body of the SKILL.md file (everything after frontmatter). */
+  body: string;
+
+  /**
+   * Canonical filename without project suffix — always `SKILL.md` for
+   * skills, but kept here for parallel structure with {@link Agent.filename}.
+   */
+  filename: string;
+
+  /**
+   * Project suffix when this skill is deployed against a specific project
+   * (rare for skills — they're typically tier-universal). Omit for
+   * user-tier deploys.
+   */
+  projectScope?: string;
+};
+
+/**
  * A slot in the rank ladder, used by The Stoa's display layer
  * (planning v2 §11) to show all ranks including the reserved-empty
  * COLONEL rank.
  *
  * For the rank-specific specializations that carry stronger type-level
- * guarantees, see {@link HumanSlot}, {@link ColonelSlot}, and
- * {@link AgentSlot}. {@link RosterSlot} is the discriminated union over
- * those three.
+ * guarantees, see {@link HumanSlot}, {@link ColonelSlot},
+ * {@link AgentSlot}, and {@link LieutenantSlot}. {@link RosterSlot} is
+ * the discriminated union over those four.
  */
 export type RankSlot = {
   rank: Rank;
@@ -146,13 +189,6 @@ export type RankSlot = {
    * by any agent. Currently only the COLONEL slot uses this.
    */
   reserved?: boolean;
-
-  /**
-   * Inhabitants of the slot. For the HUMAN rank this is a list of
-   * {@link Human}s; for agent ranks it is a list of {@link Agent}s; for
-   * COLONEL it is an empty tuple.
-   */
-  agents: ReadonlyArray<Agent | Human>;
 };
 
 /**
@@ -186,20 +222,38 @@ export type ColonelSlot = RankSlot & {
 };
 
 /**
- * A non-COLONEL agent rank slot (MAJOR, CAPTAIN, or LIEUTENANT).
+ * A MAJOR or CAPTAIN slot — carries agents, not skills. (LIEUTENANT slot
+ * uses {@link LieutenantSlot} since skills are categorically different
+ * from agents — no mnemonic, no dispatch surface.)
  */
 export type AgentSlot = RankSlot & {
-  rank: "MAJOR" | "CAPTAIN" | "LIEUTENANT";
+  rank: "MAJOR" | "CAPTAIN";
   reserved?: false;
   agents: Agent[];
 };
 
 /**
- * Discriminated union of all slot kinds. The ladder's display layer
- * (Arc 12) iterates over an array of these in canonical top-to-bottom
- * order: HUMAN, COLONEL, MAJOR, CAPTAIN, LIEUTENANT.
+ * The LIEUTENANT rank slot — carries skills, not agents. Skills are
+ * categorically different from agents (planning v2 §2; Arc 17.1):
+ * reusable helpers without a mnemonic / descriptive-role split, no
+ * dispatch surface, just invoked by name.
  */
-export type RosterSlot = HumanSlot | ColonelSlot | AgentSlot;
+export type LieutenantSlot = RankSlot & {
+  rank: "LIEUTENANT";
+  reserved?: false;
+  skills: Skill[];
+};
+
+/**
+ * Discriminated union of all slot kinds. The ladder's display layer
+ * iterates over an array of these in canonical top-to-bottom order:
+ * HUMAN, COLONEL, MAJOR, CAPTAIN, LIEUTENANT.
+ *
+ * Each slot kind carries its own inhabitant array (agents / skills /
+ * empty tuple) so the type system reflects the structural differences
+ * between agents and skills.
+ */
+export type RosterSlot = HumanSlot | ColonelSlot | AgentSlot | LieutenantSlot;
 
 /**
  * Top-level v2 data shape: the ranked roster plus any document-level

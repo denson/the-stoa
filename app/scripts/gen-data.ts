@@ -56,8 +56,9 @@ try {
   console.log(`[gen-data] wrote ${outputPath}`);
   console.log(
     `[gen-data] roster: ${summary.majorCount} MAJOR(s), ` +
-      `${summary.captainCount} CAPTAIN(s); ` +
-      `COLONEL reserved-empty; HUMAN stub; LIEUTENANT empty`,
+      `${summary.captainCount} CAPTAIN(s), ` +
+      `${summary.skillCount} LIEUTENANT(s); ` +
+      `COLONEL reserved-empty; HUMAN stub`,
   );
 } catch (err) {
   console.error(err instanceof Error ? err.message : String(err));

@@ -33,6 +33,7 @@ describe("the generated v2 roster", () => {
 
   it("seats one anonymous PRINCIPAL in the HUMAN slot", () => {
     const human = slotFor("HUMAN");
+    if (human.rank !== "HUMAN") throw new Error("HUMAN slot discriminator wrong");
     expect(human.agents).toHaveLength(1);
     expect(human.agents[0]).toEqual({
       rank: "HUMAN",
@@ -42,23 +43,26 @@ describe("the generated v2 roster", () => {
 
   it("renders the COLONEL slot as reserved-empty (planning v2 §2)", () => {
     const colonel = slotFor("COLONEL");
-    expect((colonel as { reserved?: boolean }).reserved).toBe(true);
+    if (colonel.rank !== "COLONEL") throw new Error("COLONEL slot discriminator wrong");
+    expect(colonel.reserved).toBe(true);
     expect(colonel.agents).toEqual([]);
   });
 
   it("seats POLYBIUS and PLINY at MAJOR rank", () => {
-    const majors = slotFor("MAJOR").agents as Agent[];
-    const mnemonics = majors.map((a) => a.mnemonic).sort();
+    const slot = slotFor("MAJOR");
+    if (slot.rank !== "MAJOR") throw new Error("MAJOR slot discriminator wrong");
+    const mnemonics = slot.agents.map((a) => a.mnemonic).sort();
     expect(mnemonics).toEqual(["PLINY", "POLYBIUS"]);
-    for (const m of majors) {
+    for (const m of slot.agents) {
       expect(m.rank).toBe("MAJOR");
     }
   });
 
   it("seats the canonical 10 CAPTAINs", () => {
-    const captains = slotFor("CAPTAIN").agents as Agent[];
-    const mnemonics = captains.map((a) => a.mnemonic).sort();
-    expect(captains).toHaveLength(10);
+    const slot = slotFor("CAPTAIN");
+    if (slot.rank !== "CAPTAIN") throw new Error("CAPTAIN slot discriminator wrong");
+    const mnemonics = slot.agents.map((a) => a.mnemonic).sort();
+    expect(slot.agents).toHaveLength(10);
     expect(mnemonics).toEqual([
       "ADA",
       "ARGUS",
@@ -71,13 +75,28 @@ describe("the generated v2 roster", () => {
       "VERA",
       "ZENO",
     ]);
-    for (const c of captains) {
+    for (const c of slot.agents) {
       expect(c.rank).toBe("CAPTAIN");
     }
   });
 
-  it("leaves the LIEUTENANT slot empty (skills not yet authored in substrate)", () => {
-    expect(slotFor("LIEUTENANT").agents).toEqual([]);
+  it("populates the LIEUTENANT slot with at least one skill (Arc 17.1)", () => {
+    const slot = slotFor("LIEUTENANT");
+    if (slot.rank !== "LIEUTENANT") {
+      throw new Error("LIEUTENANT slot rank discriminator did not match");
+    }
+    // Arc 17 deployed agent-author; Arc 17.1 made the gen-data adapter
+    // read it. Don't over-specify count — substrate may grow more skills.
+    expect(slot.skills.length).toBeGreaterThan(0);
+    const names = slot.skills.map((s) => s.name);
+    expect(names).toContain("agent-author");
+    for (const skill of slot.skills) {
+      expect(skill.rank).toBe("LIEUTENANT");
+      expect(skill.name).toMatch(/^[a-z][a-z0-9-]*$/); // kebab-case
+      expect(skill.description.length).toBeGreaterThan(0);
+      expect(skill.body.length).toBeGreaterThan(0);
+      expect(skill.filename).toBe("SKILL.md");
+    }
   });
 
   it("gives every agent a non-empty body and a descriptive role", () => {

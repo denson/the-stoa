@@ -340,9 +340,13 @@ describe("assembleStoaData", () => {
 
     const data = assembleStoaData([major, captain]);
 
-    expect(data.roster.find((s) => s.rank === "MAJOR")?.agents).toEqual([major]);
-    expect(data.roster.find((s) => s.rank === "CAPTAIN")?.agents).toEqual([captain]);
-    expect(data.roster.find((s) => s.rank === "LIEUTENANT")?.agents).toEqual([]);
+    const majorSlot = data.roster.find((s) => s.rank === "MAJOR");
+    const captainSlot = data.roster.find((s) => s.rank === "CAPTAIN");
+    const lieutenantSlot = data.roster.find((s) => s.rank === "LIEUTENANT");
+    expect(majorSlot?.rank === "MAJOR" ? majorSlot.agents : null).toEqual([major]);
+    expect(captainSlot?.rank === "CAPTAIN" ? captainSlot.agents : null).toEqual([captain]);
+    // LIEUTENANT slot now carries `skills` (Arc 17.1 — discriminated RosterSlot).
+    expect(lieutenantSlot?.rank === "LIEUTENANT" ? lieutenantSlot.skills : null).toEqual([]);
   });
 
   it("produces output that validates against stoaDataV2Schema", () => {
@@ -395,6 +399,7 @@ describe("generate", () => {
       fileCount: 2,
       majorCount: 1,
       captainCount: 1,
+      skillCount: 0,
     });
 
     const written = fs.readFileSync(outputPath, "utf8");

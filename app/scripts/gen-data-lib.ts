@@ -22,11 +22,14 @@ import matter from "gray-matter";
 import {
   agentSchema,
   frontmatterSchema,
+  skillFrontmatterSchema,
+  skillSchema,
   stoaDataV2Schema,
 } from "./schemas.js";
 import type {
   Agent,
   AgentRank,
+  Skill,
   StoaDataV2,
 } from "../src/data/types-v2.js";
 import { z } from "zod";
@@ -63,6 +66,46 @@ export function discoverRoleFiles(dir: string): RoleFile[] {
     });
   }
   files.sort((a, b) => a.filename.localeCompare(b.filename));
+  return files;
+}
+
+/**
+ * A LIEUTENANT skill discovered under `substrate/skills/<name>/SKILL.md`.
+ * The directory name is the canonical skill name (Arc 17.1).
+ */
+export type SkillFile = {
+  /** Always `SKILL.md` — the canonical filename for skills. */
+  filename: string;
+  /** Absolute path to the SKILL.md file. */
+  fullPath: string;
+  /** Skill name from the parent directory (e.g. `agent-author`). */
+  name: string;
+};
+
+/**
+ * Discover skills under `<substrate>/skills/<name>/SKILL.md`.
+ *
+ * Returns empty array if the `skills/` directory doesn't exist (substrate
+ * may be deployed without skills authored). Subdirectories without a
+ * `SKILL.md` are skipped silently.
+ */
+export function discoverSkillFiles(dir: string): SkillFile[] {
+  const skillsDir = path.join(dir, "skills");
+  if (!fs.existsSync(skillsDir)) return [];
+
+  const entries = fs.readdirSync(skillsDir, { withFileTypes: true });
+  const files: SkillFile[] = [];
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+    const skillMdPath = path.join(skillsDir, entry.name, "SKILL.md");
+    if (!fs.existsSync(skillMdPath)) continue;
+    files.push({
+      filename: "SKILL.md",
+      fullPath: skillMdPath,
+      name: entry.name,
+    });
+  }
+  files.sort((a, b) => a.name.localeCompare(b.name));
   return files;
 }
 
@@ -141,11 +184,61 @@ export function buildAgent(file: RoleFile): Agent {
   return agent;
 }
 
+/**
+ * Build a Skill record from a discovered SKILL.md file (Arc 17.1).
+ *
+ * Reads the file, validates frontmatter against {@link skillFrontmatterSchema},
+ * extracts the body, and returns a {@link Skill} record. Throws with a
+ * descriptive error if frontmatter is malformed or the directory name
+ * disagrees with the frontmatter `name`.
+ */
+export function buildSkill(file: SkillFile): Skill {
+  const raw = fs.readFileSync(file.fullPath, "utf8");
+  const parsed = matter(raw);
+  const body = parsed.content;
+
+  const fmResult = skillFrontmatterSchema.safeParse(parsed.data);
+  if (!fmResult.success) {
+    throw new Error(
+      `[skills/${file.name}/SKILL.md] frontmatter validation failed:\n` +
+        z.prettifyError(fmResult.error),
+    );
+  }
+
+  // The directory name is the source of truth for the canonical skill name.
+  // If the frontmatter `name` disagrees, surface as an error rather than
+  // silently picking one — that's a skill-authoring defect to fix at source.
+  if (fmResult.data.name !== file.name) {
+    throw new Error(
+      `[skills/${file.name}/SKILL.md] frontmatter name (${fmResult.data.name}) ` +
+        `does not match directory name (${file.name}). Fix one to match the other.`,
+    );
+  }
+
+  const skill: Skill = {
+    rank: "LIEUTENANT",
+    name: fmResult.data.name,
+    description: fmResult.data.description,
+    body,
+    filename: file.filename,
+  };
+
+  // Self-check the assembled record against the output schema.
+  const check = skillSchema.safeParse(skill);
+  if (!check.success) {
+    throw new Error(
+      `[skills/${file.name}/SKILL.md] assembled Skill record fails schema:\n` +
+        z.prettifyError(check.error),
+    );
+  }
+  return skill;
+}
+
 // ---------------------------------------------------------------------------
 // Roster assembly
 // ---------------------------------------------------------------------------
 
-export function assembleStoaData(agents: Agent[]): StoaDataV2 {
+export function assembleStoaData(agents: Agent[], skills: Skill[] = []): StoaDataV2 {
   const majors = agents.filter((a) => a.rank === "MAJOR");
   const captains = agents.filter((a) => a.rank === "CAPTAIN");
 
@@ -168,9 +261,10 @@ export function assembleStoaData(agents: Agent[]): StoaDataV2 {
       },
       { rank: "MAJOR", agents: majors },
       { rank: "CAPTAIN", agents: captains },
-      // LIEUTENANTs (skills) — substrate currently carries none; slot is
-      // visible but empty until skills are authored.
-      { rank: "LIEUTENANT", agents: [] },
+      // LIEUTENANTs (skills) — Arc 17.1 makes the slot real. Empty array
+      // is valid (substrate may have no skills authored); typically populated
+      // from substrate/skills/<name>/SKILL.md.
+      { rank: "LIEUTENANT", skills },
     ],
   };
   return data;
@@ -207,6 +301,7 @@ export type GenerateResult = {
   fileCount: number;
   majorCount: number;
   captainCount: number;
+  skillCount: number;
 };
 
 /**
@@ -221,7 +316,12 @@ export function generate(opts: GenerateOptions): GenerateResult {
     );
   }
   const agents = files.map(buildAgent);
-  const data = assembleStoaData(agents);
+
+  // Skills are optional — substrate may have none. Empty array is fine.
+  const skillFiles = discoverSkillFiles(opts.substratePath);
+  const skills = skillFiles.map(buildSkill);
+
+  const data = assembleStoaData(agents, skills);
 
   const result = stoaDataV2Schema.safeParse(data);
   if (!result.success) {
@@ -238,5 +338,6 @@ export function generate(opts: GenerateOptions): GenerateResult {
     fileCount: files.length,
     majorCount: agents.filter((a) => a.rank === "MAJOR").length,
     captainCount: agents.filter((a) => a.rank === "CAPTAIN").length,
+    skillCount: skills.length,
   };
 }
