@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-03T03:36:52Z",
+  "description": "Direct execution from POLYBIUS seat per PRINCIPAL direction. Phase A locked: new Skill type + discriminated RosterSlot; cards + detail route. Directive at substrate/arcs/arc-17-1-build-directive.md (commit will be in next push).",
+  "id": "stoa--cq9",
+  "labels": [],
+  "priority": 1,
+  "status": "open",
+  "title": "[EPIC] Arc 17.1 — Stoa LIEUTENANT slot rendering",
+  "type": "epic",
+  "updated_at": "2026-05-03T03:36:52Z"
+}
