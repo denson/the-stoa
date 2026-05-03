@@ -2,13 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-03T04:00:45Z",
+  "close_reason": "Shipped at commit e71e794 (the-stoa) + plans commit on user-beadwork. POLYBIUS §7.4 polling capability + PLINY §6.2 surface-and-wait pattern + activation checklist updates + templates/consent-prompts.md Prompt 8 + planning v2 spec §6.2 reframe. Phase A locks executed as authored. Direct execution from POLYBIUS seat per Arc 16.1/17.1 precedent. Substrate-completeness sequence (16/16.1/17/17.1/18) now complete.",
   "created": "2026-05-03T03:55:56Z",
   "description": "Direct execution from POLYBIUS seat per PRINCIPAL direction. Phase A locked: cadence */5 * * * *, explicit consent prompt, Communication-section placement (§7.4 / §6.2). Substrate-only; no Stoa app touch.",
   "id": "stoa--0oc",
   "labels": [],
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "[EPIC] Arc 18 — async polling capability + consent discipline",
   "type": "epic",
-  "updated_at": "2026-05-03T03:55:56Z"
+  "updated_at": "2026-05-03T04:00:45Z"
 }
