@@ -1,6 +1,6 @@
 ---
 name: stoa-intro
-description: Visual walkthrough of The Stoa architecture using the interactive knowledge graph. Drives Chrome MCP (the "Claude for Chrome" browser extension) to render the standalone HTML in a real Chrome tab the PRINCIPAL can also interact with directly. If Chrome MCP isn't installed, offers an install walkthrough or a clickable file:// link to the standalone for browser-side viewing with text-narration alongside. Narrates the three modes (Pair Programming, Hardening Flow, Recursion).
+description: Visual walkthrough of The Stoa architecture using the interactive knowledge graph. Uses Chrome MCP (the "Claude for Chrome" extension) to open the standalone HTML in a real Chrome tab, then hands control to the PRINCIPAL — the PRINCIPAL drives the visualization while the agent narrates; agent retakes browser control only briefly on conversational cues. If Chrome MCP isn't installed, offers an install walkthrough or a clickable file:// link with text-narration. Narrates the three modes (Pair Programming, Hardening Flow, Recursion).
 ---
 
 # stoa-intro — visual walkthrough of the architecture
@@ -22,7 +22,7 @@ If they want to install instead, route to `skills/install-stoa/SKILL.md`. If the
 
 ## How the tour drives the visualization
 
-The tour drives the standalone via **Chrome MCP** — the official "Claude for Chrome" browser extension. Chrome MCP gives the PRINCIPAL a real Chrome tab they can also interact with directly: scroll, zoom, click around independently of the agent's narration. That live-browser quality is load-bearing for an exploratory tour.
+The tour uses **Chrome MCP** — the official "Claude for Chrome" browser extension — to open the standalone in a real Chrome tab, and then **hands control to the PRINCIPAL.** The agent's job is the live commentary; the PRINCIPAL clicks through modes, plays animations, and hovers nodes themselves. Agent retakes browser control only briefly on explicit cues from the PRINCIPAL or the conversation (see *Driving discipline* below). This shifts the experience from "watch the agent demo" to "explore with a guide" — more engaging, less passive, and matches what an interactive visualization is *for*.
 
 If Chrome MCP isn't installed (or isn't reachable from this session), the skill offers two alternative paths:
 
@@ -92,7 +92,7 @@ curl -sI http://localhost:8769/ | head -1
 
 ---
 
-## Beat 3 — open the standalone in a new Chrome tab
+## Beat 3 — open the standalone, then hand off to the PRINCIPAL
 
 Via Chrome MCP, navigate to:
 
@@ -100,11 +100,15 @@ Via Chrome MCP, navigate to:
 http://localhost:8769/architecture-kg.html
 ```
 
-Wait 3–5 seconds for React + Babel to compile and the graph to render. The default landing should be Mode 1 (Pair Programming) — you should see PRINCIPAL at top, POLYBIUS below, PLINY's medallion at center surrounded by the CAPTAIN ring, BEADWORK substrate at the bottom. If the page loads but the graph doesn't appear, check the browser console — Babel transforms can fail silently on some Chrome configurations.
+Wait 3–5 seconds for React + Babel to compile and the graph to render. Take one quick screenshot to confirm the default landing — Mode 1 (Pair Programming) — is showing, with PRINCIPAL at top, POLYBIUS below, PLINY's medallion at center surrounded by the CAPTAIN ring, and BEADWORK substrate at the bottom. If the page loads but the graph doesn't appear, check the browser console — Babel transforms can fail silently on some Chrome configurations.
 
-For mode switching during Beats 5–7, click the mode tabs at top via Chrome MCP — `.mode-tab:nth-child(2)` switches to Hardening Flow, `:nth-child(3)` to Recursion. Or click by tab text directly.
+Once the page is up and Mode 1 is rendered, **immediately hand control to the PRINCIPAL.** Surface this:
 
-Once the graph is rendered and Mode 1 is showing, you're ready to narrate.
+> The visualization is up in your Chrome tab. Click around — try the three mode tabs at the top (Pair Programming / Hardening Flow / Recursion), play the animation, hover the nodes for tooltips. I'll narrate the architecture as you go. Tell me what you're looking at and I'll match the commentary, or just say *"next mode"* / *"show me X"* / *"play it"* and I'll pick it up.
+
+From here on, you don't issue Chrome MCP commands by default. The PRINCIPAL drives; you narrate. See the *Driving discipline* section below for when to retake control.
+
+The mode-tab CSS selectors, in case you need them later for retake actions: `.mode-tab:nth-child(1)` (Pair Programming), `:nth-child(2)` (Hardening Flow), `:nth-child(3)` (Recursion). Or click by tab text directly.
 
 ---
 
@@ -144,6 +148,43 @@ This shape applies to Beats 5–8. Beats 1–4 (setup) and Beat 9 (close + clean
 
 ---
 
+## Driving discipline — open, release, narrate, retake on explicit cue
+
+**The load-bearing rule: release control as soon as the page is open, without being asked.**
+
+Once Beat 3's navigate + render-confirm screenshot is done, the PRINCIPAL is driving. You do NOT issue any further Chrome MCP commands by default. The PRINCIPAL doesn't need to ask you to stop. They don't need to click the Chrome extension's "Stop Claude" button (which is empirically buggy in current builds — the user reported it doesn't reliably stop autonomous driving). Your default state, from Beat 3's hand-off message onward, is **narrating, not driving.**
+
+This is non-negotiable. If you keep clicking through modes after Beat 3 without an explicit conversational cue, you've broken the engagement model — the PRINCIPAL is supposed to be exploring with a guide, not watching a demo.
+
+### When to retake control
+
+Retake — and only briefly — on **explicit conversational cues** from the PRINCIPAL. Triggers:
+
+- *"Switch to mode 2"* / *"show me the recursion view"* / *"next one"* / *"go back to mode 1"* — issue the click via Chrome MCP, announce it briefly, return to narrating
+- *"Play it"* / *"step through"* / *"step forward"* — click the corresponding transport button
+- *"Which one is BARTLEBY?"* / *"where's the BEADWORK substrate?"* — you may scroll-to or briefly highlight the element via Chrome MCP if helpful, then release
+- *"Show me the loop firing"* — dynamic demonstration; one focused action, then release
+
+Triggers that are NOT cues to retake control:
+- A pause in conversation (the PRINCIPAL is reading the graph)
+- A Teach/Cite block ending (don't pre-position the next mode; let them stay if they want)
+- Your own assessment that they "should" see something next
+- The Chrome extension overlay being annoying (that's UX noise, not a control signal)
+
+### Announce retakes briefly, return immediately
+
+When retaking control, name what you're doing in one short clause and click. After the click, return narration / control:
+
+> Switching to Mode 2 — one moment. [click] OK, you're on Hardening Flow now; the loop-backs are the load-bearing visual here. Click the play button when you want to watch the gauntlet step through, or hover any captain for a tooltip first.
+
+Don't accumulate control across multiple commands. Don't click the next thing after the click the PRINCIPAL asked for. The rhythm is: PRINCIPAL signals → one focused agent action → PRINCIPAL drives again.
+
+### When the PRINCIPAL is on the file:// link path (Chrome MCP not reachable)
+
+Same engagement model, but you have no commands to issue at all. The PRINCIPAL has the standalone open in their own browser; you narrate based on what they describe and ask them to switch modes when conversation calls for it. The asymmetry from the Chrome MCP path: you can't take control even when the conversation invites it. Your job is purely commentary.
+
+---
+
 ## Beat 5 — walk Mode 1: Pair Programming
 
 This is the default landing mode. It shows the architecture's everyday operational shape with PLINY's decision basin at the center.
@@ -162,7 +203,7 @@ Following the Teach / Cite shape:
 4. **Teach:** Tool constraints on certain CAPTAINs are structural, not incidental. ARGUS audits a design but cannot rewrite it. CATO reviews a diff but cannot patch it. BARTLEBY recons the repo but has no web access. The seats that *surface* problems are deliberately separated from the seats that *fix* them — if ARGUS could fix what it surfaced, the audit would collapse into the build, and the independent verification would be lost.
    **Cite:** the small "no edit" badges on ARGUS / CATO / ZENO and "no web" badges on BARTLEBY / HERALD / ZENO.
 
-If the standalone supports a 9-step animation in Mode 1, optionally play it. Pause for PRINCIPAL questions before moving to Mode 2.
+The PRINCIPAL drives — they can play the 9-step animation themselves, step through it, or stay paused and ask questions. **Do not auto-advance to Mode 2.** Wait for the PRINCIPAL to click the second tab (or ask you to switch).
 
 ---
 
@@ -184,7 +225,7 @@ Following the Teach / Cite shape:
 4. **Teach:** When all gates return clean and no override flags fire, PLINY commits / closes the bw ticket / pushes — without routing through the PRINCIPAL. This is the *PRINCIPAL-as-router antipattern* avoided in execution: routing every clean ship through human approval turns the human into a pipeline component instead of leaving them in the strategic seat. Empirically, this discipline saved roughly half the round-trips in the recent arc sequence.
    **Cite:** the autonomous-ship branch from the final gate in the animation (`u--7yg.1`, `u--7yg.11`).
 
-Pause for questions. If the PRINCIPAL is engaged on a specific gate, stay there; if they want to keep moving, advance to Mode 3.
+Pause for questions. Stay on whatever step / gate the PRINCIPAL is engaged with; they drive when to advance, when to loop back, and when to switch to Mode 3. **Do not auto-advance.**
 
 ---
 
@@ -206,7 +247,7 @@ Following the Teach / Cite shape:
 4. **Teach:** A sub-project spawns when work hits the trip-wires that signal it needs its own scope: own tools, own domain, own collaborator. Two-of-three fires the recommendation. Below the threshold, work stays in the parent project; above, the team triggers a spawn that creates a new tier with its own POLYBIUS and a roster focused on the new scope. The spawn pattern is what keeps the team from collapsing under cross-domain pressure.
    **Cite:** the "OVER-SCOPE DETECTED" callout if visible in the standalone (case study §10, `MAJOR_POLYBIUS.md` §10.1).
 
-Pause for questions.
+Pause for questions. The PRINCIPAL can keep exploring Mode 3 freely, switch back to earlier modes if something resurfaces, or signal they want to wrap. Follow their lead.
 
 ---
 
@@ -285,12 +326,15 @@ If the standalone HTML doesn't open in the PRINCIPAL's browser (rare — it's pl
 
 ## What this skill must NOT do
 
+- **Do not keep driving the browser after Beat 3's hand-off.** The PRINCIPAL drives; you narrate. Default state from Beat 3 onward is *not driving*. Don't wait for the PRINCIPAL to ask you to stop, and don't rely on the Chrome extension's "Stop Claude" button (it's empirically unreliable in current builds). Releasing control is your responsibility, not theirs.
+- **Do not auto-advance through modes.** The PRINCIPAL clicks the next tab when they're ready, or asks you to switch. You don't pre-position, anticipate, or run ahead.
 - **Do not start the static server without first detecting Chrome MCP availability.** Beat 1 is non-negotiable; failing fast and offering install / clickable-link / pause options is better than half-driving a broken Chrome MCP surface.
 - **Do not leave the static server running after the tour ends.** Beat 9 cleanup is part of the tour. Kill by the PID captured in Beat 2 with `taskkill` (Windows) or `kill` (Unix). If cleanup didn't run because the tour was interrupted, surface the leftover PID to the PRINCIPAL.
 - **Do not auto-launch the install skill at the end.** The PRINCIPAL picks the next step; you walk them through whichever they pick.
 - **Do not recite the case study end-to-end.** The case study is reference material; the tour is the narrated visual. Quote phrases, point at sections, don't transcribe.
 - **Do not pretend Chrome MCP works when it doesn't.** Honest branching to install walkthrough or clickable-link fallback is much better than half-faking the live tour.
 - **Do not hardcode Chrome Web Store URLs in the install walkthrough.** Web-search for the current install path at the time of need. Training-data URLs go stale.
+- **Do not surface a relative path as the "clickable link."** Always construct the absolute `file://` URL and surface it as a markdown link. Relative paths render as text in the chat — they're not clickable.
 - **Do not refer to the human as "the user."** PRINCIPAL or, once a name is captured, the name. Voice discipline (`u--7yg.20`).
 
 ---
