@@ -134,18 +134,33 @@ Pause for questions.
 
 ## Beat 8 — disciplines pitch
 
-Pick 2-3 high-leverage `u--7yg` disciplines from case study §8 based on what the PRINCIPAL has reacted to during the walk. Suggested defaults if you have no signal:
+Pick 2-3 high-leverage disciplines from the empirical record (case study §8) based on what the PRINCIPAL has reacted to during the walk.
 
-- **`u--7yg.17` One job per agent.** Merged seats reliably drop jobs. CoS / orchestrator / specialists each get their own seat. The reason POLYBIUS, PLINY, and CAPTAIN_ZENO are three distinct files even when their jobs *seem* adjacent.
-- **`u--7yg.20` Voice discipline.** Role-file voice is structural, not decorative. The v1→v2 redesign was the receipt for not having this discipline at v1 (case study §5).
-- **`u--7yg.11` Autonomous-ship on clean PASS.** Clean verdicts → PLINY commits / closes bw / pushes. No PRINCIPAL routing. Roughly half the round-trips in the recent arc sequence saved by this discipline.
+**Frame the section explicitly as a few examples from the empirical record** — these are illustrations, not the full list (which has 22 children under `u--7yg` in the user-beadwork sibling repo). Open with framing like:
+
+> Three example disciplines from the empirical record — pulled to illustrate what you've just seen on the graph:
+
+or
+
+> A few representative disciplines that map to the architecture you're looking at:
+
+The framing makes clear these are pulled from a larger trail. Without it, listing tickets reads as a log file dropped into a presentation rather than narrative-with-citations.
+
+**Lead with the discipline name; cite the ticket ID inline in parentheses as a side-citation, not as a section header.** The reader is hearing about disciplines, not browsing a ticket database. Bad: `u--7yg.17 — One job per agent`. Good: `**One job per agent** (u--7yg.17)`.
+
+Suggested defaults if you have no signal:
+
+- **One job per agent** (`u--7yg.17`). Merged seats reliably drop jobs. CoS / orchestrator / specialists each get their own seat. The reason POLYBIUS, PLINY, and CAPTAIN_ZENO are three distinct files even when their jobs *seem* adjacent.
+- **Voice discipline** (`u--7yg.20`). Role-file voice is structural, not decorative. The v1→v2 redesign was the receipt for not having this discipline at v1 (case study §5).
+- **Autonomous-ship on clean PASS** (`u--7yg.11`). Clean verdicts → PLINY commits / closes bw / pushes. No PRINCIPAL routing. Roughly half the round-trips in the recent arc sequence saved by this discipline.
 
 Tailor based on PRINCIPAL signal:
-- If they reacted to the loop-backs in Mode 2 → `u--7yg.10` / `u--7yg.18` (verify-then-execute).
-- If they reacted to the recursion in Mode 3 → `u--7yg.12` (sub-agents cannot dispatch — the runtime constraint that produces the architectural shape).
+
+- If they reacted to the loop-backs in Mode 2 → **Verify-then-execute** (`u--7yg.10` / `u--7yg.18`).
+- If they reacted to the recursion in Mode 3 → **Sub-agents cannot dispatch** (`u--7yg.12`) — the runtime constraint that produces the architectural shape.
 - If they pushed back on something → name the discipline that captures the pushback empirically. There's likely a `u--7yg` for it.
 
-Don't list all 22 disciplines. The full record lives in `user-beadwork/u--7yg`; pointer is enough.
+Close the section by pointing at the full record without listing it: *"The full 22-child trail lives at `user-beadwork/u--7yg` — these are three examples, not the catalog."* That keeps the empirical-rigor signal without dumping the rest as noise.
 
 ---
 
