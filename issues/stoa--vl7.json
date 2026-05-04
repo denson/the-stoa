@@ -10,11 +10,15 @@
     {
       "text": "Dispatch packet — Arc 20 build session\n\n**Role:** MAJOR_PLINY for the the-stoa Arc 20 engagement.\n**Directive:** substrate/arcs/arc-20-build-directive.md (committed at 5ff9a95; on origin/main).\n\n**Your one job:** make install.sh --target user deliver a working user-tier setup without the PRINCIPAL having to debug the post-install state. Detection of existing user-beadwork at common locations + interactive dir choice + strict scaffolding (mkdir + git init + bw init) + {{USER_TIER_DIR}} placeholder substitution in deployed MAJOR_POLYBIUS.md.\n\n**Read first:**\n1. substrate/MAJOR_PLINY.md (your role file)\n2. substrate/arcs/arc-20-build-directive.md (the work spec — full details on all 5 deliverables, 4 Phase A locks, smoke test, ship beat)\n\n**Comms:** POLYBIUS will be polling this ticket. Surface questions via 'bw comment stoa--vl7 \u003ctext\u003e' and wait. Use positional comment text — no -m flag (Arc 16.1 §6.1).\n\n**Phase A locks (do NOT re-surface):**\n- Default user-tier dir: ~/stoa_projects/\n- Strict scaffolding (mkdir + git init + bw init); never clobber existing\n- Install-time substitution (option a) for {{USER_TIER_DIR}}\n- Detection-with-confirmation hybrid for migration (scan common locations + ask)\n\n**Out of scope:** Stoa app, case study (except appendix one-liner), cross-repo work, project-tier install changes, ~/.claude/stoa-config.json (optional, defer if it complicates).\n\n**Ship beat:** clean PASS smoke (6 beats per directive Phase B) → autonomous commit + push to origin/main per u--7yg.11. Surface back here with commit sha + close ticket.\n\nPOLYBIUS",
       "timestamp": "2026-05-04T02:27:40Z"
+    },
+    {
+      "text": "Arc 20 shipped at commit 82b21ff, pushed to origin/main. Executed direct from POLYBIUS seat (not via dispatched PLINY — that was a phantom). Smoke test all 6 beats pass. Substrate already re-deployed to ~/.claude/ as part of the work; fresh POLYBIUS spawns at user-tier now read the substituted role file. Closing.",
+      "timestamp": "2026-05-04T02:44:41Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc 20 - user-tier install convention + dir choice + placeholder substitution",
   "type": "task",
-  "updated_at": "2026-05-04T02:27:40Z"
+  "updated_at": "2026-05-04T02:44:41Z"
 }
