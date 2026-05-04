@@ -89,6 +89,7 @@ TARGET=""
 PROJECT_DIR=""
 PARENT_DIR=""
 SUBPROJECT=""
+USER_TIER_DIR=""        # Arc 20: user-tier directory (where user-beadwork lives + claude_projects sit)
 MODIFY_CLAUDE_MD=0
 DRY_RUN=0
 WITH_CAPTAINS=1
@@ -170,6 +171,168 @@ run_or_print() {
   fi
 }
 
+# ----- Arc 20: user-tier directory detection + scaffolding -------------------
+#
+# The user-tier chief-of-staff (POLYBIUS) needs a directory under which it
+# operates: where user-beadwork (durable memory) lives, and where cross-project
+# coordination happens. Common conventions vary by user (~/stoa_projects/,
+# ~/claude_projects/, ~/projects/, ~/Code/, custom).
+#
+# detect_user_beadwork: scan four common locations for an existing
+# user-beadwork that is git-init'd and bw-init'd. bw's marker is the
+# 'beadwork' orphan branch (not a .bw/ directory — bw stores ticket data
+# on that branch, leaving main for repo-shaped artifacts). Echoes parent
+# paths of detected user-beadwork dirs (one per line). Empty stdout = no
+# matches.
+detect_user_beadwork() {
+  for parent in "${HOME}/stoa_projects" "${HOME}/claude_projects" "${HOME}/projects" "${HOME}/Code"; do
+    candidate="${parent}/user-beadwork"
+    if [ -d "$candidate" ] && [ -d "$candidate/.git" ]; then
+      if git -C "$candidate" rev-parse --verify --quiet beadwork >/dev/null 2>&1; then
+        echo "$parent"
+      fi
+    fi
+  done
+}
+
+# resolve_path: expand leading ~ to $HOME and convert to absolute path.
+# Used to canonicalize user input from interactive prompt or --user-tier-dir.
+resolve_path() {
+  case "$1" in
+    "~"|"~/")     echo "$HOME" ;;
+    "~/"*)        echo "${HOME}/${1#~/}" ;;
+    /*)           echo "$1" ;;
+    *)            echo "$(cd "$(dirname "$1")" 2>/dev/null && pwd)/$(basename "$1")" ;;
+  esac
+}
+
+# choose_user_tier_dir: detection-with-confirmation hybrid prompt for the
+# user-tier directory. Sets the global USER_TIER_DIR variable on success.
+# Skipped if --user-tier-dir was already passed on the command line OR if
+# stdin is not a TTY (non-interactive shell — fall back to default).
+choose_user_tier_dir() {
+  if [ -n "$USER_TIER_DIR" ]; then
+    log "user-tier dir provided via --user-tier-dir: $USER_TIER_DIR"
+    return 0
+  fi
+
+  candidates="$(detect_user_beadwork)"
+  num_candidates=$(echo -n "$candidates" | grep -c '^' || true)
+
+  if [ "$num_candidates" -eq 1 ]; then
+    found_parent="$candidates"
+    if [ -t 0 ] && [ -t 1 ]; then
+      printf "Found existing user-beadwork at %s/user-beadwork/\n" "$found_parent" >&2
+      printf "Use this as your user-tier directory? Your user-tier dir would be %s. [Y/n] " "$found_parent" >&2
+      read -r answer
+      case "$answer" in
+        ""|y|Y|yes|Yes|YES) USER_TIER_DIR="$found_parent" ;;
+        *) USER_TIER_DIR="" ;;  # fall through to default-prompt below
+      esac
+    else
+      # Non-interactive: pick the detected one
+      USER_TIER_DIR="$found_parent"
+      log "non-interactive: using detected user-beadwork parent: $USER_TIER_DIR"
+    fi
+  elif [ "$num_candidates" -gt 1 ]; then
+    if [ -t 0 ] && [ -t 1 ]; then
+      printf "Found multiple existing user-beadwork directories:\n" >&2
+      i=1
+      while IFS= read -r line; do
+        [ -n "$line" ] || continue
+        printf "  %d) %s/user-beadwork/\n" "$i" "$line" >&2
+        i=$((i+1))
+      done <<EOF
+$candidates
+EOF
+      printf "  %d) create new at ~/stoa_projects/\n" "$i" >&2
+      printf "Pick a number [1-%d]: " "$i" >&2
+      read -r answer
+      # Map answer to selection
+      sel_num=1
+      USER_TIER_DIR=""
+      while IFS= read -r line; do
+        [ -n "$line" ] || continue
+        if [ "$answer" = "$sel_num" ]; then
+          USER_TIER_DIR="$line"
+          break
+        fi
+        sel_num=$((sel_num+1))
+      done <<EOF
+$candidates
+EOF
+      # If "create new" picked OR no match
+      if [ -z "$USER_TIER_DIR" ] && [ "$answer" = "$i" ]; then
+        USER_TIER_DIR=""  # fall through to default-prompt
+      fi
+    else
+      # Non-interactive with multiple matches: pick first
+      USER_TIER_DIR="$(echo "$candidates" | head -1)"
+      log "non-interactive: multiple candidates; picking first: $USER_TIER_DIR"
+    fi
+  fi
+
+  # If still unset (zero candidates, OR user declined detected option, OR user picked "create new"):
+  if [ -z "$USER_TIER_DIR" ]; then
+    if [ -t 0 ] && [ -t 1 ]; then
+      printf "Where do you want your user-tier directory? [default: ~/stoa_projects/] " >&2
+      read -r answer
+      if [ -z "$answer" ]; then
+        USER_TIER_DIR="${HOME}/stoa_projects"
+      else
+        USER_TIER_DIR="$(resolve_path "$answer")"
+      fi
+    else
+      USER_TIER_DIR="${HOME}/stoa_projects"
+      log "non-interactive: defaulting to $USER_TIER_DIR"
+    fi
+  fi
+
+  # Canonicalize: ensure absolute path, no trailing slash
+  USER_TIER_DIR="$(resolve_path "$USER_TIER_DIR")"
+  USER_TIER_DIR="${USER_TIER_DIR%/}"
+  echo "user-tier dir: $USER_TIER_DIR"
+}
+
+# scaffold_user_tier: create the directory + initialize user-beadwork as a
+# git+bw repo. Idempotent: skip steps that are already done. Never clobbers
+# existing user-beadwork.
+scaffold_user_tier() {
+  [ -n "$USER_TIER_DIR" ] || err "scaffold_user_tier called without USER_TIER_DIR set"
+
+  if [ ! -d "$USER_TIER_DIR" ]; then
+    run_or_print "mkdir -p \"$USER_TIER_DIR\""
+    log "created user-tier directory: $USER_TIER_DIR"
+  else
+    log "user-tier directory already exists: $USER_TIER_DIR"
+  fi
+
+  bw_dir="${USER_TIER_DIR}/user-beadwork"
+  bw_initialized=0
+  if [ -d "$bw_dir" ] && [ -d "$bw_dir/.git" ]; then
+    if git -C "$bw_dir" rev-parse --verify --quiet beadwork >/dev/null 2>&1; then
+      bw_initialized=1
+    fi
+  fi
+  if [ "$bw_initialized" -eq 1 ]; then
+    log "user-beadwork already exists at $bw_dir (git+bw initialized) — skipping init"
+  elif [ -d "$bw_dir" ]; then
+    log "user-beadwork directory exists at $bw_dir but is not fully initialized — surface to PRINCIPAL"
+    echo "install.sh: warning: $bw_dir exists but lacks .git/ or the 'beadwork' bw orphan branch. Skipping init to avoid clobbering. PRINCIPAL: verify state and run 'cd $bw_dir && git init && bw init' manually if appropriate." >&2
+  else
+    if [ "$DRY_RUN" -eq 1 ]; then
+      echo "[dry-run] mkdir -p \"$bw_dir\""
+      echo "[dry-run] cd \"$bw_dir\" && git init"
+      echo "[dry-run] cd \"$bw_dir\" && bw init"
+    else
+      mkdir -p "$bw_dir"
+      ( cd "$bw_dir" && git init >/dev/null 2>&1 && bw init >/dev/null 2>&1 ) \
+        || err "failed to initialize user-beadwork at $bw_dir (git init or bw init failed)"
+      echo "initialized user-beadwork at $bw_dir (git + bw)"
+    fi
+  fi
+}
+
 # ----- argument parsing ------------------------------------------------------
 
 while [ "$#" -gt 0 ]; do
@@ -192,6 +355,16 @@ while [ "$#" -gt 0 ]; do
     --subproject)
       [ "$#" -ge 2 ] || err "--subproject requires a slug"
       SUBPROJECT="$2"
+      shift 2
+      ;;
+    --user-tier-dir)
+      # Arc 20: optional override for user-tier directory choice. If passed,
+      # skip the interactive detection-with-confirmation prompt. The path is
+      # the parent directory under which user-beadwork lives (and where
+      # cross-project state for the user-tier chief-of-staff seat operates).
+      # Resolved to absolute path during validation.
+      [ "$#" -ge 2 ] || err "--user-tier-dir requires a path"
+      USER_TIER_DIR="$2"
       shift 2
       ;;
     --modify-claude-md)
@@ -242,6 +415,11 @@ case "$TARGET" in
     DEST_SKILLS_DIR="${HOME}/.claude/skills"
     PROJECT_SLUG=""
     NAME_SUFFIX=""
+    # Arc 20: choose user-tier dir (interactive prompt or --user-tier-dir override),
+    # then scaffold it (mkdir + init user-beadwork as git+bw repo if not already).
+    # USER_TIER_DIR will be substituted into MAJOR_POLYBIUS.md at deploy time.
+    choose_user_tier_dir
+    scaffold_user_tier
     ;;
   project)
     [ -n "$PROJECT_DIR" ] || err "--project-dir is required when --target=project"
@@ -386,12 +564,32 @@ else
   DEST_POLYBIUS="${DEST_DIR}/MAJOR_POLYBIUS.md"
   DEST_PLINY="${DEST_DIR}/MAJOR_PLINY.md"
 fi
+# Arc 20: also substitute {{USER_TIER_DIR}} placeholder. At user-tier this is
+# the chosen user-tier dir from choose_user_tier_dir (above). At project-tier
+# and subproject-tier, USER_TIER_DIR is empty — substituting empty here would
+# corrupt the file, so the placeholder stays literal at project/subproject tiers
+# (the role file's user-tier paths are operationally relevant only at user-tier;
+# project-tier MAJOR_POLYBIUS doesn't need them resolved).
+# Use a sed delimiter ('|') that doesn't appear in filesystem paths, so we can
+# substitute paths (which contain '/') without per-character escaping. '|' is
+# illegal in Windows paths and rare elsewhere; defensive guard surfaces if a
+# user-tier path includes it.
+if [ -n "$USER_TIER_DIR" ]; then
+  case "$USER_TIER_DIR" in
+    *"|"*) err "user-tier dir contains '|' which conflicts with sed delimiter; pick another path" ;;
+  esac
+fi
+
 if [ "$DRY_RUN" -eq 1 ]; then
-  echo "[dry-run] deploy: $SRC_POLYBIUS -> $DEST_POLYBIUS (substitute {{NAME_SUFFIX}} -> '${NAME_SUFFIX}')"
+  echo "[dry-run] deploy: $SRC_POLYBIUS -> $DEST_POLYBIUS (substitute {{NAME_SUFFIX}} -> '${NAME_SUFFIX}'$([ -n "$USER_TIER_DIR" ] && echo ", {{USER_TIER_DIR}} -> '${USER_TIER_DIR}'"))"
   echo "[dry-run] deploy: $SRC_PLINY -> $DEST_PLINY (substitute {{NAME_SUFFIX}} -> '${NAME_SUFFIX}')"
 else
-  sed "s/{{NAME_SUFFIX}}/${NAME_SUFFIX}/g" "$SRC_POLYBIUS" > "$DEST_POLYBIUS"
-  sed "s/{{NAME_SUFFIX}}/${NAME_SUFFIX}/g" "$SRC_PLINY"    > "$DEST_PLINY"
+  if [ -n "$USER_TIER_DIR" ]; then
+    sed -e "s/{{NAME_SUFFIX}}/${NAME_SUFFIX}/g" -e "s|{{USER_TIER_DIR}}|${USER_TIER_DIR}|g" "$SRC_POLYBIUS" > "$DEST_POLYBIUS"
+  else
+    sed "s/{{NAME_SUFFIX}}/${NAME_SUFFIX}/g" "$SRC_POLYBIUS" > "$DEST_POLYBIUS"
+  fi
+  sed "s/{{NAME_SUFFIX}}/${NAME_SUFFIX}/g" "$SRC_PLINY" > "$DEST_PLINY"
   echo "deployed: $DEST_POLYBIUS"
   echo "deployed: $DEST_PLINY"
 fi

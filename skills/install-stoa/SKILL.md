@@ -88,7 +88,38 @@ Phrase the choice for the PRINCIPAL with the trade-offs visible:
 >
 > First-time installs usually start with **project-tier** — lower stakes, easier to remove if you change your mind. Which fits your case?
 
-Don't preselect. If they say "user," go to Beat 4 with the user-tier flag set. If "project" or "sub-project," continue to Beat 4 to get the path.
+Don't preselect. If they say "user," go to **Beat 3a** (user-tier directory choice) before Beat 4. If "project" or "sub-project," skip Beat 3a and continue to Beat 4 to get the path.
+
+### Beat 3a — user-tier directory choice (only if `--target user`)
+
+The user-tier chief-of-staff (POLYBIUS) operates from a "home directory" — the parent dir under which `user-beadwork` (durable memory) lives, and where you'll typically open Claude Code for cross-project work.
+
+The install script's user-tier flow does this automatically (Arc 20: `substrate/install.sh --target user` runs detection-with-confirmation). But preview it for the PRINCIPAL so the prompt isn't a surprise.
+
+**The flow install.sh runs:**
+
+1. **Detection** — scans common locations for an existing `user-beadwork/` (with `.git/` and a `beadwork` orphan branch — bw's marker):
+   - `~/stoa_projects/user-beadwork/`
+   - `~/claude_projects/user-beadwork/`
+   - `~/projects/user-beadwork/`
+   - `~/Code/user-beadwork/`
+2. **If exactly one found:** prompt *"Found existing user-beadwork at `<path>`. Use this? Your user-tier dir would be `<parent>`. [Y/n]"*. Y → install records that parent. N → fall through to default-prompt.
+3. **If multiple found:** list all + a "create new" option; PRINCIPAL picks.
+4. **If none found:** prompt *"Where do you want your user-tier directory? [default: ~/stoa_projects/]"*. Accept input or default.
+5. **Scaffolding (if not using existing):** `mkdir -p <chosen-dir>` + `git init` in `<chosen-dir>/user-beadwork/` + `bw init`. Strict — never clobbers existing.
+6. **Substitution:** install records the chosen path and substitutes `{{USER_TIER_DIR}}` in deployed `~/.claude/MAJOR_POLYBIUS.md` so the role file's references resolve to the actual path.
+
+**To skip the interactive prompt** (e.g., when PRINCIPAL knows what they want):
+
+```
+substrate/install.sh --target user --user-tier-dir ~/my-chosen-dir --modify-claude-md
+```
+
+**What you (the agent) should do in this beat:**
+
+- Surface the upcoming prompt to the PRINCIPAL: *"The install will detect any existing user-beadwork on common paths and offer to use it; if none found, it'll ask where you want your user-tier directory (default `~/stoa_projects/`). Want me to proceed with the interactive flow, or do you already know the path you want — in which case I'll pass `--user-tier-dir <path>`?"*
+- If they have a specific path: pass it via `--user-tier-dir`.
+- If they don't: just run the install and let the interactive flow guide them. The `Y/n` and the path prompt run on the PRINCIPAL's terminal during install.sh execution.
 
 ### Beat 4 — ask: target path (project / sub-project tiers only)
 
