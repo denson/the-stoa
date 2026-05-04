@@ -6,6 +6,7 @@
     "stoa--blg",
     "stoa--ivc",
     "stoa--m5m",
+    "stoa--mdb",
     "stoa--xh2"
   ],
   "created": "2026-05-04T21:39:16Z",
@@ -22,5 +23,5 @@
   "status": "open",
   "title": "[ARC] Arc 21 — POLYBIUS-pair coordination protocol + downstream-handoff discipline",
   "type": "epic",
-  "updated_at": "2026-05-04T21:51:10Z"
+  "updated_at": "2026-05-04T21:59:49Z"
 }
