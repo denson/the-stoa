@@ -114,6 +114,10 @@
     {
       "text": "[ADA Phase 5 complete] MAJOR_PLINY.md +new §5.1 'Operating-mode awareness in the dispatch brief' (HITL surface mid-arc OK; autonomous heads-down + universal escalation triggers; per-seat override; cross-refs MAJOR_POLYBIUS §13 + operating-disciplines §10 + §11). F.4 audit: 9 hits, all consistent with new substrate (no .bw/ refs, no upward-write claims; mostly bw-syntax docs and 'user-beadwork' / 'user-tier' compound terms in role-file descriptors). Zero edits needed. All 10 CAPTAIN files (DAEDALUS/ARGUS/ADA/VERA/CATO/ZENO/BARTLEBY/HERALD/STRABO/CURATOR) updated with the operating-mode-flag sentence at end of §2 'The brief you receive'.",
       "timestamp": "2026-05-04T23:47:51Z"
+    },
+    {
+      "text": "[ADA verdict PASS] 2026-05-04T23:45:30Z. 14 files modified + 3 new = 17 total in worktree on stoa--pbz/arc-21-build branch. Phase 1-5 complete. Polling-cron-prompt-template.md = 135 lines (in 120-180 hard constraint). Voice clean. In-arc cross-refs verified. Bug fix VERIFIED on install.sh project-no-CLAUDE.md path (case 3 now prints paste-trigger). Secondary install.sh fix: project-tier MAJOR is unsuffixed (only subproject suffixes MAJORs). Dispatching VERA next for Phase C smoke (beats 1-11).",
+      "timestamp": "2026-05-04T23:47:51Z"
     }
   ],
   "priority": 2,
