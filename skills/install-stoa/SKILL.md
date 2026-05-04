@@ -92,34 +92,39 @@ Don't preselect. If they say "user," go to **Beat 3a** (user-tier directory choi
 
 ### Beat 3a — user-tier directory choice (only if `--target user`)
 
-The user-tier chief-of-staff (POLYBIUS) operates from a "home directory" — the parent dir under which `user-beadwork` (durable memory) lives, and where you'll typically open Claude Code for cross-project work.
+The right framing is: **"where do your Claude Code projects already live?"** That's where Stoa installs — POLYBIUS (the user-tier chief-of-staff) operates from this directory and needs to see your projects laterally to coordinate them. If you don't already have a Claude Code projects directory, the install creates `~/stoa_projects/` as the sensible default.
 
-The install script's user-tier flow does this automatically (Arc 20: `substrate/install.sh --target user` runs detection-with-confirmation). But preview it for the PRINCIPAL so the prompt isn't a surprise.
+This is your dialog as the agent — drive it conversationally before invoking install.sh, then pass the chosen path via `--user-tier-dir <path>`. install.sh has a built-in interactive fallback for users who run it directly (without going through this skill), but when YOU run the install you should be the one asking, not silently relying on install.sh's prompts.
 
-**The flow install.sh runs:**
+**Conversational pattern:**
 
-1. **Detection** — scans common locations for an existing `user-beadwork/` (with `.git/` and a `beadwork` orphan branch — bw's marker):
-   - `~/stoa_projects/user-beadwork/`
-   - `~/claude_projects/user-beadwork/`
-   - `~/projects/user-beadwork/`
-   - `~/Code/user-beadwork/`
-2. **If exactly one found:** prompt *"Found existing user-beadwork at `<path>`. Use this? Your user-tier dir would be `<parent>`. [Y/n]"*. Y → install records that parent. N → fall through to default-prompt.
-3. **If multiple found:** list all + a "create new" option; PRINCIPAL picks.
-4. **If none found:** prompt *"Where do you want your user-tier directory? [default: ~/stoa_projects/]"*. Accept input or default.
-5. **Scaffolding (if not using existing):** `mkdir -p <chosen-dir>` + `git init` in `<chosen-dir>/user-beadwork/` + `bw init`. Strict — never clobbers existing.
-6. **Substitution:** install records the chosen path and substitutes `{{USER_TIER_DIR}}` in deployed `~/.claude/MAJOR_POLYBIUS.md` so the role file's references resolve to the actual path.
+1. **Open with the question:**
+   > Where do you keep your Claude Code projects? Stoa installs there so POLYBIUS (the user-tier chief-of-staff) can see all of them — it operates from that parent directory and needs to be able to navigate into each project laterally to coordinate them. The recommended default for new users is `~/stoa_projects/`, but if you already have an existing projects dir (like `~/projects/`, `~/Code/`, `~/dev/`, or anything else), tell me that instead and Stoa installs alongside.
 
-**To skip the interactive prompt** (e.g., when PRINCIPAL knows what they want):
+2. **Wait for the PRINCIPAL's answer.** They'll say one of:
+   - A specific path (e.g., `~/projects`, `~/dev`, `~/code`, custom)
+   - "Use the default" / "stoa_projects is fine" → `~/stoa_projects/`
+   - "I don't have one" → `~/stoa_projects/`
+   - Something ambiguous → ask follow-up
 
-```
-substrate/install.sh --target user --user-tier-dir ~/my-chosen-dir --modify-claude-md
-```
+3. **Sanity-check the answer.** Quick `ls` on the chosen path:
+   - Does it exist? (If not, OK — install will create it.)
+   - Does it contain other Claude-related projects? (Good signal it's the right dir.)
+   - Does it contain an existing `user-beadwork/` with the `beadwork` orphan branch? (Even better — install will detect + reuse, won't clobber.)
 
-**What you (the agent) should do in this beat:**
+4. **Confirm + invoke install.sh:**
+   ```
+   substrate/install.sh --target user --user-tier-dir <chosen-path> --modify-claude-md
+   ```
+   Add `--dry-run` first per the install-stoa skill's general dry-run-first discipline.
 
-- Surface the upcoming prompt to the PRINCIPAL: *"The install will detect any existing user-beadwork on common paths and offer to use it; if none found, it'll ask where you want your user-tier directory (default `~/stoa_projects/`). Want me to proceed with the interactive flow, or do you already know the path you want — in which case I'll pass `--user-tier-dir <path>`?"*
-- If they have a specific path: pass it via `--user-tier-dir`.
-- If they don't: just run the install and let the interactive flow guide them. The `Y/n` and the path prompt run on the PRINCIPAL's terminal during install.sh execution.
+**What install.sh does behind the scenes** (so you can explain if PRINCIPAL asks):
+
+- **Detection** at common locations (`~/stoa_projects/`, `~/claude_projects/`, `~/projects/`, `~/Code/`) for existing `user-beadwork/` (must have `.git/` + a `beadwork` orphan branch — bw's marker). If you passed `--user-tier-dir`, the interactive prompt is skipped entirely.
+- **Strict scaffolding** at the chosen path (only if `user-beadwork/` doesn't already exist there): `mkdir -p <chosen-path>` + `git init` in `<chosen-path>/user-beadwork/` + `bw init`. Never clobbers existing.
+- **Substitution** of `{{USER_TIER_DIR}}` placeholder in deployed `~/.claude/MAJOR_POLYBIUS.md` with the resolved absolute path. The role file at user-tier becomes machine-specific after install; the substrate source stays generic.
+
+**Edge case — PRINCIPAL has multiple candidate dirs.** If they have Claude-related projects scattered across, e.g., both `~/projects/` and `~/dev/`, surface that explicitly: *"I see Claude-related work in both `~/projects/` and `~/dev/` — Stoa installs in one place. Which is the canonical 'where my projects live' for you? Or shall I create a new home at `~/stoa_projects/`?"*
 
 ### Beat 4 — ask: target path (project / sub-project tiers only)
 

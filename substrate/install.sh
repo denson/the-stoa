@@ -219,11 +219,24 @@ choose_user_tier_dir() {
   candidates="$(detect_user_beadwork)"
   num_candidates=$(echo -n "$candidates" | grep -c '^' || true)
 
+  # Frame the question as "where do your Claude Code projects live?" — POLYBIUS operates
+  # from the user-tier directory and needs to see all your projects to coordinate them.
+  # The right answer is wherever you already keep Claude Code projects; if you don't have
+  # an existing projects directory, the install creates ~/stoa_projects/ as the default.
+  if [ -t 0 ] && [ -t 1 ]; then
+    printf "\n" >&2
+    printf "Where do your Claude Code projects live?\n" >&2
+    printf "Stoa installs there — POLYBIUS (the user-tier chief-of-staff) operates from this\n" >&2
+    printf "directory and needs to see your projects laterally to coordinate them.\n" >&2
+    printf "\n" >&2
+  fi
+
   if [ "$num_candidates" -eq 1 ]; then
     found_parent="$candidates"
     if [ -t 0 ] && [ -t 1 ]; then
-      printf "Found existing user-beadwork at %s/user-beadwork/\n" "$found_parent" >&2
-      printf "Use this as your user-tier directory? Your user-tier dir would be %s. [Y/n] " "$found_parent" >&2
+      printf "Detected existing user-beadwork at %s/user-beadwork/.\n" "$found_parent" >&2
+      printf "This looks like where your Claude Code projects already live.\n" >&2
+      printf "Install Stoa with %s as your user-tier dir? [Y/n] " "$found_parent" >&2
       read -r answer
       case "$answer" in
         ""|y|Y|yes|Yes|YES) USER_TIER_DIR="$found_parent" ;;
@@ -236,7 +249,9 @@ choose_user_tier_dir() {
     fi
   elif [ "$num_candidates" -gt 1 ]; then
     if [ -t 0 ] && [ -t 1 ]; then
-      printf "Found multiple existing user-beadwork directories:\n" >&2
+      printf "Detected multiple existing user-beadwork directories — these are likely\n" >&2
+      printf "existing places where your Claude Code projects live. Pick one, or pick\n" >&2
+      printf "'create new' to install Stoa fresh:\n" >&2
       i=1
       while IFS= read -r line; do
         [ -n "$line" ] || continue
@@ -275,7 +290,11 @@ EOF
   # If still unset (zero candidates, OR user declined detected option, OR user picked "create new"):
   if [ -z "$USER_TIER_DIR" ]; then
     if [ -t 0 ] && [ -t 1 ]; then
-      printf "Where do you want your user-tier directory? [default: ~/stoa_projects/] " >&2
+      printf "Tell me where your Claude Code projects live.\n" >&2
+      printf "If you have an existing projects directory (e.g., ~/projects/, ~/dev/,\n" >&2
+      printf "~/Code/), enter that path — Stoa installs there alongside your projects.\n" >&2
+      printf "If you don't have one yet, the default ~/stoa_projects/ will be created.\n" >&2
+      printf "Path [default ~/stoa_projects/]: " >&2
       read -r answer
       if [ -z "$answer" ]; then
         USER_TIER_DIR="${HOME}/stoa_projects"
