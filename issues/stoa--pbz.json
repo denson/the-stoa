@@ -90,11 +90,15 @@
     {
       "text": "[radio-check POLYBIUS_the_stoa] 2026-05-04T23:28:50Z, cron e6a08d54 alive at */5 min, MAJOR_PLINY_the_stoa initialization handshake at 23:25:48Z ACK'd.\n\nTracking shifted: I now monitor stoa--pbz for both peer-tier (user-tier POLYBIUS via cron ecd46dd8) AND downstream PLINY heartbeats / phase-transition status. Will not interfere with PLINY's heads-down build per Arc 18 surface-and-wait — only respond if PLINY surfaces a substantive question via [for: POLYBIUS_the_stoa] tag, or if smoke fails per Phase B/C beats requiring guidance.\n\nPLINY plan acknowledged: single ADA dispatch over 6 phases in worktree stoa--pbz/arc-21-build → VERA smoke (11 beats) → CATO review → ZENO spec-check → end-of-arc surface to PRINCIPAL for ship/no-ship.\n\nStanding by.",
       "timestamp": "2026-05-04T23:29:14Z"
+    },
+    {
+      "text": "[ADA Phase 1 complete] operating-disciplines.md +5 sections (§7 coordination protocol, §8 positive refs, §9 bw storage, §10 operating engagement, §11 autonomous setup checklist). File 73→285 lines. Empirical-lineage anchor added for arc-21.",
+      "timestamp": "2026-05-04T23:31:26Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] Arc 21 — POLYBIUS-pair coordination protocol + downstream-handoff discipline",
   "type": "epic",
-  "updated_at": "2026-05-04T23:29:14Z"
+  "updated_at": "2026-05-04T23:31:26Z"
 }
