@@ -6,9 +6,15 @@
   "description": "",
   "id": "stoa--o6k",
   "labels": [],
+  "comments": [
+    {
+      "text": "Session handoff for the next POLYBIUS-equivalent seat picking up where this session left off.\n\n**Read in this order:**\n\n1. **Handoff brief (action-shaped, fast):** docs/sessions/2026-05-03-stoa-v0.1.0-shipped.md — TL;DR + live state + locked decisions + pending priorities + activation procedure. Single read, ~150 lines. Tells the next POLYBIUS what to do.\n\n2. **Sectioned retrospective (longer, semantic-chunked):** docs/sessions/2026-05-03-stoa-v0.1.0-shipped--retro.md — 16 sections of the session's working trail, each a self-contained chunk (Phase / Goal / Exchanges / Decisions / Artifacts / Failure modes / Discipline). For deeper context on WHY decisions landed where they did. Also designed for hypergraph / vector-DB ingestion in the upcoming ariadne-core-workspace.\n\n**TL;DR (also in the brief):** Stoa v0.1.0 SHIPPED + repo PUBLIC + GH Pages LIVE. Arc 19 sequence (10 commits) closed cleanly. Board is clean — no in-flight tickets, no active polling crons, no open arcs. Manuel ping is out for first external feedback. Next priority = install Stoa into C:\\Users\\denso\\claude_projects\\ariadne-core-workspace + author custom agents (the project PRINCIPAL paused to build Stoa distribution-readiness for).\n\n**Anchor commits:**\n- 63c0604 — handoff brief\n- 7dea2a3 — sectioned retrospective\n- d375987 — last substantive code commit (Arc 19.10, KG→presentation rename)\n- v0.1.0 release tagged at d375987\n\n**Live URLs:**\n- Repo (public): https://github.com/denson/the-stoa\n- Interactive presentation: https://denson.github.io/the-stoa/case-study/architecture-kg.html\n- Case study (Jekyll): https://denson.github.io/the-stoa/case-study/case-study.html\n- v0.1.0 release: https://github.com/denson/the-stoa/releases/tag/v0.1.0\n\n**Activation:**\n1. Read substrate/MAJOR_POLYBIUS.md (or ~/.claude/MAJOR_POLYBIUS.md if user-tier)\n2. bw prime in the-stoa to surface this ticket\n3. Read the handoff brief\n4. Surface online to PRINCIPAL: 'POLYBIUS online. Stoa v0.1.0 shipped, board clean, next priority is the ariadne-core-workspace install. Ready when you are.'\n\nAuthored 2026-05-03 by user-tier CoS-equivalent seat ending this session.",
+      "timestamp": "2026-05-04T01:21:27Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "Session handoff 2026-05-03 — Stoa v0.1.0 shipped + Arc 19 sequence closed",
   "type": "task",
-  "updated_at": "2026-05-04T01:21:04Z"
+  "updated_at": "2026-05-04T01:21:27Z"
 }
