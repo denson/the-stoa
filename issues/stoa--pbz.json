@@ -98,11 +98,15 @@
     {
       "text": "[ADA Phase 2 complete] MAJOR_POLYBIUS.md edits at 7 sites: §3 +alternate-routing bullet, §5.1 +5.1.1 positive-references, §5.5 new (filename-by-mode + cheatsheet ref), §7.1 read+write rules table, §7.4 +template-by-name + coordination-engagement cross-ref, §7.5 +orphan-branch storage prepend, §9 step 2 +three-state init pathway, §13 new (HITL/Autonomous engagement). File 611-\u003e730 lines.",
       "timestamp": "2026-05-04T23:34:34Z"
+    },
+    {
+      "text": "[ADA Phase 3 complete] Three new templates: polling-cron-prompt-template.md (135 lines, in 120-180 hard constraint), activation-paste-cheatsheet.md (55 lines), autonomous-mode-activation-template.md (86 lines). Voice clean. No empirical anchor cites ariadne--m20 directly per directive.",
+      "timestamp": "2026-05-04T23:37:20Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] Arc 21 — POLYBIUS-pair coordination protocol + downstream-handoff discipline",
   "type": "epic",
-  "updated_at": "2026-05-04T23:34:34Z"
+  "updated_at": "2026-05-04T23:37:20Z"
 }
