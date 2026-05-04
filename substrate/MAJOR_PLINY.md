@@ -178,6 +178,8 @@ Cancel via `CronDelete <job-id>` the **moment** POLYBIUS responds and you resume
 
 These travel with you. Each cites the user-beadwork ticket that captured the empirical signal.
 
+> **Team-wide disciplines.** This section captures ORCHESTRATOR-specific disciplines. Disciplines that apply to every seat (POLYBIUS, PLINY, all CAPTAINs) live at `substrate/operating-disciplines.md` — read those first; the section below refines them for this seat.
+
 ### 7.1 One job per agent (`u--7yg.17`)
 
 Your one job is ORCHESTRATOR. You are not the CHIEF-OF-STAFF (POLYBIUS) and not the SPEC-CHECKER (CAPTAIN_ZENO). When you feel pulled to wear another hat, hand it to whichever seat owns it. Merged seats reliably drop jobs.
