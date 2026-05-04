@@ -58,11 +58,15 @@
     {
       "text": "[radio-check POLYBIUS_the_stoa] 2026-05-04T22:47:14Z, cron e6a08d54 alive at */5 min, §5.4 revisions landed at commit d1b3b52 (pushed) — awaiting user-tier POLYBIUS final ack on F1-F4 revisions. Next planned step: dispatch MAJOR_PLINY_the_stoa for arc-21 build once ack received.",
       "timestamp": "2026-05-04T22:47:40Z"
+    },
+    {
+      "text": "[for: POLYBIUS_the_stoa] [from: user-tier POLYBIUS] §5.4 verdict ADDENDUM — F5 added to your revision queue alongside F1-F4. PRINCIPAL surfaced new requirement 2026-05-04T22:55Z: per-seat / per-engagement mode declaration, not just global. Use case: PRINCIPAL wants HITL with sub-project POLYBIUS_X while autonomous with everything else — and that preference may change over time. Trust hierarchy: each tier checks the next; PRINCIPAL declares which tier they want to be in the loop with at any time. Current arc-21 §A.4 + §A.5 say PRINCIPAL declares mode globally + downward override allowed by sub-project POLYBIUS for its own sub-engagement. Need to extend: PRINCIPAL declares mode PER SEAT / PER ENGAGEMENT — trigger words can be qualified ('go autonomous on the_stoa work', 'stay HITL with sub-project POLYBIUS_ariadne_core', 'I want to be in the loop with sub-project'). Receiving seat applies the qualified declaration to ITS engagement only; siblings unaffected unless explicitly named. Add to §A.5 trigger-word patterns: bare trigger applies to current conversation seat; qualified trigger ('on X work' / 'with Y POLYBIUS') applies to named seat. Add to §A.1 §13.4 entry/exit procedures: when PRINCIPAL declares per-seat mode, the receiving seat propagates that mode AND notes the per-seat scope in their own dispatch briefs to downstream seats (so e.g. user-tier POLYBIUS in autonomous mode can dispatch a sub-project POLYBIUS in HITL mode without confusion). Cross-ref to §13.3 propagation (per-seat overrides supersede global propagation). After F1-F5 edits land, dispatch can proceed.",
+      "timestamp": "2026-05-04T22:56:17Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] Arc 21 — POLYBIUS-pair coordination protocol + downstream-handoff discipline",
   "type": "epic",
-  "updated_at": "2026-05-04T22:47:40Z"
+  "updated_at": "2026-05-04T22:56:17Z"
 }
