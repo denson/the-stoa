@@ -20,7 +20,7 @@ Bidirectional radio-check protocol applies between you and POLYBIUS_the_stoa per
 
 bw command syntax: `bw comment <id> "text"` — positional, no `-m` flag. `bw close <id> --reason "text"` — `--reason` is a flag.
 
-Cross-tier coordination convention per §D.4 of this directive: when you need cross-project context (e.g., ariadne lived-experience anchors that are not in the-stoa's bw), post `[for: user-tier POLYBIUS]` tagged comments on a relevant `stoa--` ticket. User-tier POLYBIUS polls via unified cron and responds within ~5 min.
+Cross-tier coordination convention per §D.2 of this directive: when you need cross-project context (e.g., ariadne lived-experience anchors that are not in the-stoa's bw), post `[for: user-tier POLYBIUS]` tagged comments on a relevant `stoa--` ticket. User-tier POLYBIUS polls via unified cron and responds within ~5 min.
 
 PRINCIPAL is exception-handler — project-direction calls, ship/no-ship, substance disagreement after one round, authorship/copyright/Denson-final-say content, irreducible ambiguity, peer silence > 60 min, arc closes.
 
@@ -140,7 +140,7 @@ Closes: stoa--mdb (META).
 
 3. **§13.2 Trigger words for mode transitions** — verbatim from §A5 above. Include both HITL→Autonomous and Autonomous→HITL trigger lists.
 
-4. **§13.3 Mode propagation across nested tiers** — verbatim concept from §A4. Add: "When you (POLYBIUS) declare autonomous on an engagement, propagate to every downstream seat you dispatch: include `operating-mode: autonomous` in the dispatch brief for MAJOR_PLINY, every CAPTAIN, every pair-programmer Major. Sub-project POLYBIUS receives the mode through its activation paste-instruction; if you spawn a sub-project during an autonomous engagement, the sub-project inherits autonomous." Plus the downward-override clause (sub-project may declare HITL for its sub-engagement; reverse override requires explicit PRINCIPAL).
+4. **§13.3 Mode propagation across nested tiers** — verbatim concept from §A4. Add: "When you (POLYBIUS) declare autonomous on an engagement, propagate to every downstream seat you dispatch: include `operating-mode: autonomous` in the dispatch brief for MAJOR_PLINY, every CAPTAIN, every pair-programmer Major. Sub-project POLYBIUS receives the mode through its activation paste-instruction; if you spawn a sub-project during an autonomous engagement, the sub-project inherits autonomous." Plus the downward-override clause (sub-project may declare HITL for its sub-engagement; reverse override requires explicit PRINCIPAL). Plus the mid-engagement clause: **"Mode changes propagate at dispatch boundaries — if a downstream seat is already running when you (or PRINCIPAL) declare a new mode, the new mode applies to your NEXT dispatch, not the in-flight one. Mid-task mode flips are not supported; the running seat completes its current engagement under whichever mode it activated with. The new mode takes effect on the next CAPTAIN dispatch, the next PLINY activation, or the next sub-project spawn — whichever comes first."**
 
 5. **§13.4 Mode entry / exit procedures** — when you detect a HITL→Autonomous trigger:
    - Run the autonomous-mode-setup checklist (`operating-disciplines.md` §11 — see §B.1).
@@ -210,12 +210,12 @@ Six-step setup procedure that any POLYBIUS instance runs on Autonomous-mode entr
    - Missed-check escalation > 60 min.
    - Closure handshake on ticket close.
 
-3. **Cross-tier coordination convention** per `operating-disciplines.md` §7.4 (§D.4 of this directive):
+3. **Cross-tier coordination convention** per `operating-disciplines.md` §7.4 (§D.2 of this directive):
    - `[for: <upper-seat>]` tag on own-bw comments to request cross-project context.
    - Upper seat polls down; you never write up.
    - PRINCIPAL is exception-handler.
 
-4. **Bw write-boundary discipline** per `operating-disciplines.md` §7.5 (§D.2 of this directive):
+4. **Bw write-boundary discipline** per `operating-disciplines.md` §7.5 (§C.1 of this directive — §7.5 subsection lives inside the §C.1 deliverable):
    - Each tier writes own bw + downward; never upward.
    - Coordination meets in the lower tier's bw.
 
@@ -281,7 +281,7 @@ Closes: stoa--ivc, stoa--ay1, stoa--cc0, stoa--blg (write boundaries half — ro
    - Cost framing per stoa--cc0 (~Nx fewer fires, modestly bigger context per fire).
    - Cadence-flexibility trade-off (one shared cadence; split per-engagement if cadences diverge).
 
-5. **§7.4 Cross-tier coordination routing** (subsection here, full text in §D.4):
+5. **§7.4 Cross-tier coordination routing** (subsection here, full text in §D.2):
    - One-line summary + cross-ref to §7.4 of this `operating-disciplines.md` block (the full routing-convention text).
 
 6. **§7.5 Cross-tier write boundaries** — covers stoa--blg:
@@ -589,6 +589,8 @@ Universal-team framing of bw storage model:
 - If the line discusses cross-tier write boundaries OR makes a claim about which tier PLINY writes to → assess against new §7.1 write rules. If consistent, no edit. If inconsistent, surface proposed edit before applying.
 - If the line implies `.bw/` directory storage → fix per §F.3 (orphan branch).
 - If the line is consistent with current state → no edit.
+
+**Surfacing target (autonomous-mode aware):** "surface" in this audit means **post a `bw comment` on `stoa--pbz`** with the proposed edit + line context. POLYBIUS_the_stoa reviews on the next poll fire and either approves (you apply) or surfaces substance disagreement. **Do not surface to PRINCIPAL** unless POLYBIUS_the_stoa explicitly flags substance disagreement after one round. This is the autonomous-mode escalation routing per `MAJOR_POLYBIUS.md` §13 (which lands in §A.1 of this directive).
 
 **Acceptance:** surface result via:
 
