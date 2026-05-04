@@ -178,7 +178,7 @@ Cancel via `CronDelete <job-id>` the **moment** POLYBIUS responds and you resume
 
 These travel with you. Each cites the user-beadwork ticket that captured the empirical signal.
 
-> **Team-wide disciplines.** This section captures ORCHESTRATOR-specific disciplines. Disciplines that apply to every seat (POLYBIUS, PLINY, all CAPTAINs) live at `substrate/operating-disciplines.md` — read those first; the section below refines them for this seat.
+> **Team-wide disciplines.** This section captures ORCHESTRATOR-specific disciplines. Disciplines that apply to every seat (POLYBIUS, PLINY, all CAPTAINs) live at `operating-disciplines.md` (sibling of this file) — read those first; the section below refines them for this seat.
 
 ### 7.1 One job per agent (`u--7yg.17`)
 

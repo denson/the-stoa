@@ -100,6 +100,7 @@ PRUNE_OBSOLETE=0
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SRC_POLYBIUS="${SCRIPT_DIR}/MAJOR_POLYBIUS.md"
 SRC_PLINY="${SCRIPT_DIR}/MAJOR_PLINY.md"
+SRC_OPERATING_DISCIPLINES="${SCRIPT_DIR}/operating-disciplines.md"
 SRC_TEMPLATES_DIR="${SCRIPT_DIR}/templates"
 SRC_SKILLS_DIR="${SCRIPT_DIR}/skills"
 
@@ -503,8 +504,9 @@ case "$TARGET" in
     ;;
 esac
 
-[ -f "$SRC_POLYBIUS" ] || err "source file not found: $SRC_POLYBIUS"
-[ -f "$SRC_PLINY" ]    || err "source file not found: $SRC_PLINY"
+[ -f "$SRC_POLYBIUS" ]              || err "source file not found: $SRC_POLYBIUS"
+[ -f "$SRC_PLINY" ]                 || err "source file not found: $SRC_PLINY"
+[ -f "$SRC_OPERATING_DISCIPLINES" ] || err "source file not found: $SRC_OPERATING_DISCIPLINES"
 
 if [ "$WITH_CAPTAINS" -eq 1 ]; then
   for name in "${CAPTAIN_NAMES[@]}"; do
@@ -611,6 +613,24 @@ else
   sed "s/{{NAME_SUFFIX}}/${NAME_SUFFIX}/g" "$SRC_PLINY" > "$DEST_PLINY"
   echo "deployed: $DEST_POLYBIUS"
   echo "deployed: $DEST_PLINY"
+fi
+
+# 2b. Deploy operating-disciplines.md — team-wide disciplines doc referenced
+# from MAJOR_POLYBIUS §4 and MAJOR_PLINY §7. Lands as a sibling of the MAJOR
+# files at <DEST_DIR>/operating-disciplines.md so the role-file references
+# (which use the bare name "operating-disciplines.md") resolve in the deployed
+# location. Same path semantics as the source repo (substrate/operating-
+# disciplines.md is a sibling of substrate/MAJOR_*.md). Universal — deployed
+# at all three target modes (user, project, subproject); each tier needs its
+# own local copy because Claude Code role-file path resolution is relative to
+# where the role file lives. No suffix on the filename: this is a shared doc,
+# not a role file.
+DEST_OPERATING_DISCIPLINES="${DEST_DIR}/operating-disciplines.md"
+if [ "$DRY_RUN" -eq 1 ]; then
+  echo "[dry-run] deploy: $SRC_OPERATING_DISCIPLINES -> $DEST_OPERATING_DISCIPLINES"
+else
+  cp "$SRC_OPERATING_DISCIPLINES" "$DEST_OPERATING_DISCIPLINES"
+  echo "deployed: $DEST_OPERATING_DISCIPLINES"
 fi
 
 # 3. Deploy CAPTAIN sub-agent envelopes (default on; --no-captains skips).
