@@ -102,11 +102,15 @@
     {
       "text": "[ADA Phase 3 complete] Three new templates: polling-cron-prompt-template.md (135 lines, in 120-180 hard constraint), activation-paste-cheatsheet.md (55 lines), autonomous-mode-activation-template.md (86 lines). Voice clean. No empirical anchor cites ariadne--m20 directly per directive.",
       "timestamp": "2026-05-04T23:37:20Z"
+    },
+    {
+      "text": "[ADA Phase 4 complete] install.sh next-steps restructured into mode-aware ACTIVATION block; bug fix verified across all 4 mode permutations (--target user, --target project --modify-claude-md, --target project NO --modify-claude-md, --target subproject). Found and corrected secondary bug: paste path for --target project should use unsuffixed MAJOR_POLYBIUS.md (not NAME_SUFFIX-suffixed); install.sh now gates paste-path correctly via SUFFIX_MAJORS. Voice fixes: 3 'the user' bare-prose hits in install.sh comments rewritten to 'the human' or 'PRINCIPAL'. paste-instruction-template.md negative-framing audit: pre-edit hits = 0, post-edit hits = 0 (zero rewrites, zero preserved-with-justification needed).",
+      "timestamp": "2026-05-04T23:40:51Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] Arc 21 — POLYBIUS-pair coordination protocol + downstream-handoff discipline",
   "type": "epic",
-  "updated_at": "2026-05-04T23:37:20Z"
+  "updated_at": "2026-05-04T23:40:51Z"
 }
