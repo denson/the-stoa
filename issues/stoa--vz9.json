@@ -10,11 +10,15 @@
     {
       "text": "Substrate edit landed at e117171 on main. Three files: substrate/operating-disciplines.md (new, ~110 lines covering 6 disciplines), MAJOR_POLYBIUS.md +2 lines (cross-ref), MAJOR_PLINY.md +2 lines (cross-ref). Not pushed yet (PRINCIPAL approval needed for the-stoa public push). Two follow-ups remain on this epic: (1) re-run install.sh at ariadne-core-workspace + ariadne-core tiers so deployed instances pick up the new doc; (2) ariadne--m20 follow-up to remove the now-redundant 'Anti-patterns absorbed from human SWE culture' section from ariadne CLAUDE.md once propagated.",
       "timestamp": "2026-05-04T20:31:18Z"
+    },
+    {
+      "text": "Install-side fix landed at e5c2854 and pushed. install.sh now deploys operating-disciplines.md to \u003cDEST_DIR\u003e/ at all three target modes; role-file cross-refs use sibling-of-this-file path that works in both source and deployed locations. Verified via dry-run. Next follow-up: re-run install.sh at deployed tiers (workspace + ariadne-core sub-project) so the doc lands and the cross-refs resolve.",
+      "timestamp": "2026-05-04T20:37:31Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Promote universal operating disciplines from project CLAUDE.md to substrate",
   "type": "epic",
-  "updated_at": "2026-05-04T20:31:18Z"
+  "updated_at": "2026-05-04T20:37:31Z"
 }
