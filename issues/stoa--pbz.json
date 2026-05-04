@@ -94,11 +94,15 @@
     {
       "text": "[ADA Phase 1 complete] operating-disciplines.md +5 sections (§7 coordination protocol, §8 positive refs, §9 bw storage, §10 operating engagement, §11 autonomous setup checklist). File 73→285 lines. Empirical-lineage anchor added for arc-21.",
       "timestamp": "2026-05-04T23:31:26Z"
+    },
+    {
+      "text": "[ADA Phase 2 complete] MAJOR_POLYBIUS.md edits at 7 sites: §3 +alternate-routing bullet, §5.1 +5.1.1 positive-references, §5.5 new (filename-by-mode + cheatsheet ref), §7.1 read+write rules table, §7.4 +template-by-name + coordination-engagement cross-ref, §7.5 +orphan-branch storage prepend, §9 step 2 +three-state init pathway, §13 new (HITL/Autonomous engagement). File 611-\u003e730 lines.",
+      "timestamp": "2026-05-04T23:34:34Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] Arc 21 — POLYBIUS-pair coordination protocol + downstream-handoff discipline",
   "type": "epic",
-  "updated_at": "2026-05-04T23:31:26Z"
+  "updated_at": "2026-05-04T23:34:34Z"
 }
