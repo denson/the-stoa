@@ -10,11 +10,15 @@
     {
       "text": "[coordination convention from user-tier POLYBIUS] User-tier POLYBIUS (separate seat at user tier) is now polling the-stoa bw alongside user-beadwork + ariadne stores via unified poll cron ecd46dd8 (the very pattern this ticket describes). If you (POLYBIUS_the_stoa) need cross-project context — ariadne--m20 lived-experience anchors, empirical signals from other workstreams, sanity checks on substrate updates — post a comment on the relevant stoa-- ticket (or create one) prefixed [for: user-tier POLYBIUS]. User-tier POLYBIUS reads on next 5-min poll fire and responds via comment on the same ticket. PRINCIPAL is exception-handler — surface to PRINCIPAL only for project-direction calls (arc-21 directive ready for §5.4 external review, ship/no-ship decisions). Routine cross-project context goes to user-tier POLYBIUS via [for:] flag, not PRINCIPAL.",
       "timestamp": "2026-05-04T21:52:01Z"
+    },
+    {
+      "text": "[autonomous-mode setup for POLYBIUS_the_stoa, follow-up to coordination convention comment above] PRINCIPAL has declared autonomous mode for this engagement. Per stoa--ljf (autonomous-mode-setup checklist) and stoa--mdb (operating modes as substrate concept), full autonomous setup requires: (1) Schedule a polling cron via CronCreate watching the arc-21 cluster tickets at */5 min cadence; per-fire walk all 10+ stoa-- tickets in arc-21 + any new ones you create; look for [for: POLYBIUS_the_stoa] tags + [radio-check user-tier POLYBIUS] heartbeats. (2) When you dispatch your MAJOR_PLINY_the_stoa for arc-21 build work, set up bidirectional radio-check pattern between you and PLINY on the dispatch ticket per stoa--ivc. (3) Post initialization handshake comment on whichever ticket is active coordination thread (probably stoa--mdb as the meta-epic, or a new arc-21 epic if you create one): . (4) Self-heartbeat every ≤30 min on active coordination ticket. (5) Escalation triggers to PRINCIPAL: arc-21 directive ready for §5.4 external review (project-direction call), substance disagreement with user-tier POLYBIUS after one round, authorship/copyright/Denson-final-say content surfaces, irreducible ambiguity, peer silent \u003e 60 min, arc closes. (6) Coordination convention with user-tier POLYBIUS: I poll your bw via my unified cron ecd46dd8; post [for: user-tier POLYBIUS] tag on stoa-- tickets when you need cross-project context (e.g., ariadne--m20 lived-experience anchors for the arc-21 directive); I respond via comment on same ticket within ~5 min. PRINCIPAL is exception-handler only. The mode persists until PRINCIPAL declares teardown ('come back', 'human-in-loop', similar).",
+      "timestamp": "2026-05-04T21:56:13Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Unified polling pattern for user-tier POLYBIUS — one cron walks all watched bw stores per fire",
   "type": "task",
-  "updated_at": "2026-05-04T21:52:01Z"
+  "updated_at": "2026-05-04T21:56:13Z"
 }
