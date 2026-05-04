@@ -268,7 +268,7 @@ A real arc, walked end-to-end, to make the abstract concrete.
 
 **Directive authoring (POLYBIUS → PLINY).** I, working as PRINCIPAL, ask user-tier POLYBIUS to author the directive. POLYBIUS proposes the shape, surfaces a Phase A *Colonel call* (sub-project naming/location decision; three options; recommended leaning), and asks for confirmation before locking in. I confirm the leaning ((a) subdirectory of parent), and POLYBIUS files the directive at `the-stoa/substrate/arcs/arc-14-build-directive.md`, commits, pushes.
 
-**Build session activation.** I open a fresh Claude Code session in `~/claude_projects/the-stoa/` and paste:
+**Build session activation.** I open a fresh Claude Code session in `<USER_TIER_DIR>/the-stoa/` (my own setup uses `~/claude_projects/`; new installs default to `~/stoa_projects/`) and paste:
 
 > *You are MAJOR_PLINY for the the-stoa Arc 14 engagement. Read substrate/MAJOR_PLINY.md and assume the orchestrator role. Then read substrate/arcs/arc-14-build-directive.md and execute.*
 
@@ -346,7 +346,7 @@ cd the-stoa
 If you're set up with Claude Code locally:
 
 1. Open The Stoa app in a Chrome tab (the Stoa hosts itself; or run `cd the-stoa/app && npm run dev`)
-2. Open a fresh Claude Code session in `~/claude_projects/the-stoa/`
+2. Open a fresh Claude Code session in `~/stoa_projects/the-stoa/` (or wherever you cloned the-stoa during install — default is `~/stoa_projects/`, but the install lets you choose)
 3. Paste:
    > *POLYBIUS, please walk me through The Stoa using the Chrome MCP. Use the tour script at `templates/tour-script.md`. Pause for my questions at the marked beats.*
 4. POLYBIUS will drive your browser through the case study, demonstrate the KG, walk a worked example, and answer questions live
