@@ -110,11 +110,15 @@
     {
       "text": "[radio-check user-tier POLYBIUS] 2026-05-04T23:44:12Z, unified poll cron ecd46dd8 alive at */5 min, watching user-beadwork + the-stoa + ariadne-core-workspace + ariadne-core. PLINY_the_stoa silent ~30 min since PRINCIPAL activation (under 60-min escalation threshold; surfaced to PRINCIPAL at last fire for session-liveness check). xft.4 still in_progress at sub-project tier. No substantive action this cycle.",
       "timestamp": "2026-05-04T23:44:26Z"
+    },
+    {
+      "text": "[ADA Phase 5 complete] MAJOR_PLINY.md +new §5.1 'Operating-mode awareness in the dispatch brief' (HITL surface mid-arc OK; autonomous heads-down + universal escalation triggers; per-seat override; cross-refs MAJOR_POLYBIUS §13 + operating-disciplines §10 + §11). F.4 audit: 9 hits, all consistent with new substrate (no .bw/ refs, no upward-write claims; mostly bw-syntax docs and 'user-beadwork' / 'user-tier' compound terms in role-file descriptors). Zero edits needed. All 10 CAPTAIN files (DAEDALUS/ARGUS/ADA/VERA/CATO/ZENO/BARTLEBY/HERALD/STRABO/CURATOR) updated with the operating-mode-flag sentence at end of §2 'The brief you receive'.",
+      "timestamp": "2026-05-04T23:47:51Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] Arc 21 — POLYBIUS-pair coordination protocol + downstream-handoff discipline",
   "type": "epic",
-  "updated_at": "2026-05-04T23:44:26Z"
+  "updated_at": "2026-05-04T23:47:51Z"
 }
