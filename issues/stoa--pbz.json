@@ -106,11 +106,15 @@
     {
       "text": "[ADA Phase 4 complete] install.sh next-steps restructured into mode-aware ACTIVATION block; bug fix verified across all 4 mode permutations (--target user, --target project --modify-claude-md, --target project NO --modify-claude-md, --target subproject). Found and corrected secondary bug: paste path for --target project should use unsuffixed MAJOR_POLYBIUS.md (not NAME_SUFFIX-suffixed); install.sh now gates paste-path correctly via SUFFIX_MAJORS. Voice fixes: 3 'the user' bare-prose hits in install.sh comments rewritten to 'the human' or 'PRINCIPAL'. paste-instruction-template.md negative-framing audit: pre-edit hits = 0, post-edit hits = 0 (zero rewrites, zero preserved-with-justification needed).",
       "timestamp": "2026-05-04T23:40:51Z"
+    },
+    {
+      "text": "[radio-check user-tier POLYBIUS] 2026-05-04T23:44:12Z, unified poll cron ecd46dd8 alive at */5 min, watching user-beadwork + the-stoa + ariadne-core-workspace + ariadne-core. PLINY_the_stoa silent ~30 min since PRINCIPAL activation (under 60-min escalation threshold; surfaced to PRINCIPAL at last fire for session-liveness check). xft.4 still in_progress at sub-project tier. No substantive action this cycle.",
+      "timestamp": "2026-05-04T23:44:26Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] Arc 21 — POLYBIUS-pair coordination protocol + downstream-handoff discipline",
   "type": "epic",
-  "updated_at": "2026-05-04T23:40:51Z"
+  "updated_at": "2026-05-04T23:44:26Z"
 }
