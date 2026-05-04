@@ -2,6 +2,7 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-04T02:44:41Z",
   "created": "2026-05-04T02:27:20Z",
   "description": "",
   "id": "stoa--vl7",
@@ -17,7 +18,7 @@
     }
   ],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "Arc 20 - user-tier install convention + dir choice + placeholder substitution",
   "type": "task",
   "updated_at": "2026-05-04T02:44:41Z"
