@@ -62,20 +62,28 @@ Where a discipline applies to any seat coordinating async via bw — it goes in 
 
 MAJOR_POLYBIUS §12 already defines two operational MODES (formal-gauntlet / pair-programming-prototyping). Those describe WHAT the team is doing. Operating ENGAGEMENT (HITL / Autonomous) describes HOW PRINCIPAL participates. The two axes are independent: a Mode 1 gauntlet can run in HITL or Autonomous; a Mode 2 prototyping cycle can run in HITL or Autonomous. The new §13 lives alongside §12, not nested inside it.
 
-### A4. Autonomous propagates downward, HITL is the default — LOCKED
+### A4. Autonomous propagates downward, HITL is the default, mode is declarable per-seat — LOCKED
 
 When PRINCIPAL declares autonomous on a seat, that seat propagates to every downstream seat it dispatches (its PLINY-when-dispatched, its CAPTAINs-when-dispatched, its sub-project POLYBIUSes). Sub-project POLYBIUS may DECLARE HITL for its own sub-engagement (downward override is allowed; the sub-engagement reverts to PRINCIPAL-active). A sub-project going autonomous when its parent is HITL is unusual and requires explicit PRINCIPAL declaration.
+
+**Per-seat mode declaration:** PRINCIPAL may declare mode for a SPECIFIC seat / engagement, not globally. Use case: PRINCIPAL wants HITL with sub-project POLYBIUS_X while autonomous with everything else, and that preference may change over time. A qualified trigger word ("on the_stoa work", "with sub-project POLYBIUS_X") applies to the named seat only; siblings are unaffected unless explicitly named. A bare trigger applies to the seat in the conversation where it's said. The receiving seat carries the qualified scope into its downstream dispatches (so user-tier POLYBIUS in autonomous mode can dispatch a sub-project POLYBIUS in HITL mode without confusion). Per-seat declarations supersede global propagation when both are in effect.
 
 The default for any new engagement is HITL. Autonomous is explicitly declared via trigger words (§A.5).
 
 ### A5. Trigger words for mode transitions — LOCKED
 
-PRINCIPAL declares mode via natural language. Recognized triggers:
+PRINCIPAL declares mode via natural language. Recognized triggers come in two forms — bare (applies to current seat) and qualified (applies to named seat):
 
-- **HITL → Autonomous:** "go autonomous", "step back", "you can handle this", "I'll be away", "work autonomously until X", "step back so long as things are working"
-- **Autonomous → HITL:** "come back", "I want to be in the loop", "pause autonomous", "let me decide each step", "human-in-loop"
+- **HITL → Autonomous (bare):** "go autonomous", "step back", "you can handle this", "I'll be away", "work autonomously until X", "step back so long as things are working"
+- **Autonomous → HITL (bare):** "come back", "I want to be in the loop", "pause autonomous", "let me decide each step", "human-in-loop"
+- **Qualified (per-seat):** any of the above, scoped with "on <project> work" or "with <seat>" or "for <ticket>". Examples: "go autonomous on the_stoa work", "stay HITL with sub-project POLYBIUS_X", "I want to be in the loop with sub-project POLYBIUS_ariadne_core", "human-in-loop for stoa--pbz".
 
-When detected, the receiving seat runs the autonomous-mode-setup checklist (§B) on entry, or the teardown procedure on exit. Teardown: cancel polling crons (`CronDelete`), post final radio-check standing-down, return to chat-first interaction.
+**Resolution rules:**
+- Bare trigger → applies to the seat in the conversation where PRINCIPAL said it. Receiving seat propagates to its downstream dispatches.
+- Qualified trigger → applies to the named seat only. The seat that receives the trigger (which may be a different seat than the named one) routes the declaration: if the named seat is the receiver, apply directly; if the named seat is downstream, set the per-seat mode in the next dispatch brief to that seat; if the named seat is at a different tier, post a `[for: <named-seat>]` comment on a relevant ticket so the named seat picks up the declaration on its next poll.
+- Per-seat declarations supersede global propagation. If user-tier POLYBIUS is autonomous globally but PRINCIPAL says "stay HITL with sub-project POLYBIUS_X", the sub-project gets HITL even though autonomous would otherwise propagate downward.
+
+When detected, the receiving seat runs the autonomous-mode-setup checklist (§B) on entry, or the teardown procedure on exit. Teardown: cancel polling crons (`CronDelete`) for the affected scope, post final radio-check standing-down on coordination tickets in scope, return affected seats to chat-first interaction. Per-seat teardown affects only the named seat's coordination crons; sibling seats keep their own crons.
 
 ### A6. Adaptive cadence — bounded staleness, named explicitly — LOCKED
 
@@ -140,17 +148,19 @@ Closes: stoa--mdb (META).
 
 3. **§13.2 Trigger words for mode transitions** — verbatim from §A5 above. Include both HITL→Autonomous and Autonomous→HITL trigger lists.
 
-4. **§13.3 Mode propagation across nested tiers** — verbatim concept from §A4. Add: "When you (POLYBIUS) declare autonomous on an engagement, propagate to every downstream seat you dispatch: include `operating-mode: autonomous` in the dispatch brief for MAJOR_PLINY, every CAPTAIN, every pair-programmer Major. Sub-project POLYBIUS receives the mode through its activation paste-instruction; if you spawn a sub-project during an autonomous engagement, the sub-project inherits autonomous." Plus the downward-override clause (sub-project may declare HITL for its sub-engagement; reverse override requires explicit PRINCIPAL). Plus the mid-engagement clause: **"Mode changes propagate at dispatch boundaries — if a downstream seat is already running when you (or PRINCIPAL) declare a new mode, the new mode applies to your NEXT dispatch, not the in-flight one. Mid-task mode flips are not supported; the running seat completes its current engagement under whichever mode it activated with. The new mode takes effect on the next CAPTAIN dispatch, the next PLINY activation, or the next sub-project spawn — whichever comes first."**
+4. **§13.3 Mode propagation across nested tiers** — verbatim concept from §A4. Add: "When you (POLYBIUS) declare autonomous on an engagement, propagate to every downstream seat you dispatch: include `operating-mode: autonomous` in the dispatch brief for MAJOR_PLINY, every CAPTAIN, every pair-programmer Major. Sub-project POLYBIUS receives the mode through its activation paste-instruction; if you spawn a sub-project during an autonomous engagement, the sub-project inherits autonomous." Plus the downward-override clause (sub-project may declare HITL for its sub-engagement; reverse override requires explicit PRINCIPAL). Plus the mid-engagement clause: **"Mode changes propagate at dispatch boundaries — if a downstream seat is already running when you (or PRINCIPAL) declare a new mode, the new mode applies to your NEXT dispatch, not the in-flight one. Mid-task mode flips are not supported; the running seat completes its current engagement under whichever mode it activated with. The new mode takes effect on the next CAPTAIN dispatch, the next PLINY activation, or the next sub-project spawn — whichever comes first."** Plus the per-seat override clause: **"PRINCIPAL may declare mode for a specific named seat (qualified trigger per §13.2) — that declaration supersedes global propagation for the named seat. When you receive a per-seat mode declaration via PRINCIPAL or via a `[for: <self>]` relay from a peer, you (a) apply it to the named seat if the named seat is yourself, OR (b) include the per-seat scope in your next dispatch brief to the named seat if it's downstream, OR (c) relay via a `[for: <named-seat>]` comment on a relevant ticket if the named seat is at a different tier you can't dispatch to directly. Carry the per-seat scope marker (`scope: <seat-name>` or `scope: <engagement-name>`) in the dispatch brief so the receiving seat knows the mode is scoped, not global. Sibling seats are unaffected unless explicitly named."**
 
-5. **§13.4 Mode entry / exit procedures** — when you detect a HITL→Autonomous trigger:
-   - Run the autonomous-mode-setup checklist (`operating-disciplines.md` §11 — see §B.1).
-   - Surface to PRINCIPAL with the setup completion summary + cron id + escalation triggers.
-   - Begin polling.
+5. **§13.4 Mode entry / exit procedures** — when you detect a HITL→Autonomous trigger (bare or qualified):
+   - **Resolve scope first.** Bare trigger → applies to current seat (you). Qualified trigger ("on X work" / "with Y POLYBIUS" / "for Z ticket") → applies to the named seat. If named seat is you, proceed as bare. If named seat is downstream, set per-seat mode in next dispatch brief to that seat (do not run setup yourself for a downstream-only declaration). If named seat is at a different tier you cannot dispatch directly, relay via `[for: <named-seat>]` comment on a relevant ticket.
+   - **For bare or self-qualified trigger:** run the autonomous-mode-setup checklist (`operating-disciplines.md` §11 — see §B.1). Surface to PRINCIPAL with setup completion summary + cron id + escalation triggers + scope (global or per-seat name). Begin polling.
+   - **For downstream-qualified trigger:** record the per-seat mode in your dispatch-brief construction; do not start your own polling cron unless you ALSO need autonomous for your seat. Surface to PRINCIPAL: "Per-seat declaration noted: <seat-name> will be dispatched in <mode> on next dispatch."
 
-   When you detect an Autonomous→HITL trigger:
-   - `CronDelete` your polling cron(s).
-   - Post final `[radio-check <self> standing down]` on every active coordination ticket.
-   - Confirm to PRINCIPAL: "back in the loop; teardown complete".
+   When you detect an Autonomous→HITL trigger (bare or qualified):
+   - **Resolve scope** as above.
+   - **For bare or self-qualified:** `CronDelete` your polling cron(s) for this engagement. Post final `[radio-check <self> standing down]` on the affected coordination ticket(s). Confirm to PRINCIPAL: "back in the loop; teardown complete; scope: <global | per-seat name>".
+   - **For downstream-qualified:** record HITL mode for the named seat in next dispatch brief. Do not tear down your own crons for a downstream-only declaration. Confirm: "<seat-name> will be dispatched in HITL on next dispatch; my own seat unchanged."
+
+   **Per-seat declarations supersede global propagation.** If you are running globally autonomous and PRINCIPAL declares HITL for a downstream seat, that downstream seat gets HITL even though autonomous would otherwise propagate. Carry the per-seat scope marker in the dispatch brief.
 
 6. **Cross-ref** to `operating-disciplines.md` §10 for the universal-team framing of operating modes (lands in §A.4 of this directive).
 
@@ -165,8 +175,10 @@ Closes: stoa--mdb (META).
 Universal-team framing of the two engagements. Same conceptual content as MAJOR_POLYBIUS §13.1 + §13.2 + §13.3 but framed for ANY seat (not just POLYBIUS):
 
 - The two-axis framing (Mode 1/2 vs HITL/Autonomous).
-- Trigger words (PRINCIPAL declares; receiving seat acts).
+- Trigger words come in two forms — bare (applies to the seat receiving the declaration) and qualified ("on <project>" / "with <seat>" / "for <ticket>" — applies to the named seat). Examples of both forms in a small table.
 - Propagation rule: autonomous mode is inherited by downstream dispatches; sub-engagements may downward-override to HITL.
+- **Per-seat declarations supersede global propagation.** PRINCIPAL may declare mode for a specific named seat at any time; that declaration overrides what would otherwise propagate from upstream. The receiving seat carries the per-seat scope marker (`scope: <seat-name>`) in its dispatch brief to the named seat. Sibling seats are unaffected.
+- Mode changes propagate at dispatch boundaries only; mid-task mode flips are not supported (running seats complete current engagement under whichever mode they activated with).
 - Cross-ref pointer to MAJOR_POLYBIUS §13 (POLYBIUS-tier framing) and `operating-disciplines.md` §11 (the checklist that operationalizes the entry procedure).
 
 #### A.3 `substrate/MAJOR_PLINY.md` — operating-mode awareness
