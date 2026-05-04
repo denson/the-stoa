@@ -1,0 +1,26 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [
+    "stoa--ay1",
+    "stoa--blg",
+    "stoa--ivc",
+    "stoa--m5m",
+    "stoa--xh2"
+  ],
+  "created": "2026-05-04T21:39:16Z",
+  "description": "Bundles five substrate updates surfaced empirically during ariadne--m20 (closed 2026-05-04 at a161630). Two parts:\n\nPART A — POLYBIUS-pair coordination protocol\n- stoa--ivc — radio-check pattern (peer-failure detection, heartbeats, missed-check escalation, closure handshake)\n- stoa--ay1 — adaptive polling cadence (active */2 / default */5 / quiet */15)\n- stoa--blg — explicit cross-tier write boundaries (read AND write asymmetry, downward-only)\n\nLands in: substrate/operating-disciplines.md (new §7 coordination section), substrate/MAJOR_POLYBIUS.md §7.1 (write rules) + §7.4 (cross-ref), substrate/templates/polling-cron-prompt-template.md (new).\n\nPART B — Downstream-handoff discipline\n- stoa--xh2 — activation paste-filename divergence (project unsuffixed vs subproject suffixed); install.sh next-steps + cheatsheet\n- stoa--m5m — positive-references-only when authoring paste-instructions for downstream agents\n\nLands in: substrate/MAJOR_POLYBIUS.md §5.1 + new §5.5, substrate/templates/activation-paste-cheatsheet.md (new), substrate/install.sh next-steps block, substrate/operating-disciplines.md §8 (positive-references universal).\n\nDirective: substrate/arcs/arc-21-build-directive.md (POLYBIUS authors + commits before dispatch).\n\nMulti-concern → §5.4 external review (CAPTAIN_ARGUS cold-audit) before dispatching MAJOR_PLINY.\n\nEmpirical anchors come from ariadne--m20 thread — radio-check protocol was demonstrated live (initialization handshake + heartbeats + closure), cadence churn was felt during active sections, write-boundaries violation was caught by PRINCIPAL real-time, the the-stoa install paste failure was the original surfacing moment for stoa--xh2, and 'NOT user-beadwork' negative seeding triggered stoa--m5m.",
+  "id": "stoa--pbz",
+  "labels": [],
+  "comments": [
+    {
+      "text": "Directive drafted at substrate/arcs/arc-21-build-directive.md, committed to main at c1e2d21 (501 lines).\n\n§5.4 external review: CAPTAIN_ARGUS cold-audit dispatched and returned SURFACE verdict (4 load-bearing tightenings + 4 acceptance-coverage clarifications, no rework). All revisions incorporated:\n\nLOAD-BEARING TIGHTENINGS:\n1. §7.1 Exception clause reconciliation — preserve as READ-only exception, never write (A.2 revised)\n2. A4 cadence-up race condition named explicitly — worst-case staleness bounded by current cadence; dual-channel mitigation (cadence-tag + [cadence: active] comment) added\n3. B.3 cheatsheet category fix — column is 'Activation pattern' not 'Activation paste'; auto-load cases use SAY-trigger not paste; install.sh A7 restructured to two activation patterns\n4. B.7 verify-by-skim weakness fixed — concrete grep patterns + classified-acceptance criteria (B.6 same fix)\n\nACCEPTANCE-COVERAGE FIXES:\n- stoa--ivc cron-prompts-by-name → A.3 now updates §7.4 prose to reference template by name\n- stoa--blg bidirectional cross-ref → A.1 §7.3 ↔ MAJOR_POLYBIUS §7.1 explicit pointer pair\n- stoa--m5m grep coverage → Phase B beat 8 added (negative-framing grep on rewritten templates post-edit)\n- stoa--xh2 item 3 (install.sh seeds paste file) → explicit Out-of-Scope note (deliberate defer to v0.2)\n\nCRITICAL BUG-FIX SURFACED: install.sh lines 870-913 currently lump --target project (no --modify-claude-md) into the say-trigger branch, which silently fails. B.5 now requires fixing this.\n\nEDIT-ORDER CONSTRAINT: operating-disciplines.md edits (A.1, B.4) must land before MAJOR_POLYBIUS.md cross-refs (A.2, A.3, B.1, B.2). Phase B smoke beat 2 explicitly checks in-arc cross-refs as high-risk class.\n\nVOICE GREP PRECISION: regex specified, exemption rule (comment-marked template slots only), whole-file hygiene over diff-only.\n\nA4 POLLING TEMPLATE EXAMPLE: switched from ariadne--m20 (cross-tier-unreadable from this build session) to hypothetical sketch.\n\nReady for MAJOR_PLINY dispatch awaiting PRINCIPAL go-ahead.",
+      "timestamp": "2026-05-04T21:51:10Z"
+    }
+  ],
+  "priority": 2,
+  "status": "open",
+  "title": "[ARC] Arc 21 — POLYBIUS-pair coordination protocol + downstream-handoff discipline",
+  "type": "epic",
+  "updated_at": "2026-05-04T21:51:10Z"
+}
