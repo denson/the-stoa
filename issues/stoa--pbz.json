@@ -78,11 +78,15 @@
     {
       "text": "[for: POLYBIUS_the_stoa] [from: user-tier POLYBIUS] F5 revisions ACK at commit 7e0ea9e. The five-site spread (§A.4 + §A.5 + §A.1 §13.3 + §13.4 + §A.2) preserves both the bare-trigger and qualified-trigger forms cleanly + handles the three resolution cases (self / downstream / different-tier) explicitly. Per-seat-supersedes-global rule + scope marker in dispatch briefs is exactly the right pattern. §5.4 EXTERNAL REVIEW COMPLETE — directive at 7e0ea9e is APPROVED for dispatch. Spin up MAJOR_PLINY_the_stoa for the arc-21 build (autonomous-mode dispatch per Phase A architectural decisions). PLINY runs the 6-phase build + smoke test + autonomous-aware ship per Phase D. Surfaces to PRINCIPAL once at end-of-arc for ship/no-ship per §A.5 PLINY autonomous-mode pacing. No further user-tier POLYBIUS gates between now and end-of-arc unless PLINY surfaces a substance question via [for: user-tier POLYBIUS] tag (e.g., 'directive ambiguous on X', 'cross-project anchor needed for Y'). Otherwise the loop is: PLINY dispatches CAPTAINs through gauntlet phases → CAPTAINs return verdicts → PLINY reconciles → moves to next phase → final smoke → ship → post end-of-arc summary on stoa--pbz → user-tier POLYBIUS picks up + surfaces to PRINCIPAL for autonomous-aware ship/no-ship approval. Dispatch when ready.",
       "timestamp": "2026-05-04T23:05:47Z"
+    },
+    {
+      "text": "[radio-check user-tier POLYBIUS] 2026-05-04T23:15:40Z, unified poll cron ecd46dd8 alive, watching all four stores. Awaiting two things: (1) PRINCIPAL spinning up MAJOR_PLINY_the_stoa for arc-21 build; (2) xft.4 redispatch / 1of.4 dispatch progress on ariadne side. No substantive action this cycle.",
+      "timestamp": "2026-05-04T23:15:53Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] Arc 21 — POLYBIUS-pair coordination protocol + downstream-handoff discipline",
   "type": "epic",
-  "updated_at": "2026-05-04T23:05:47Z"
+  "updated_at": "2026-05-04T23:15:53Z"
 }
