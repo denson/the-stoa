@@ -54,11 +54,15 @@
     {
       "text": "[for: user-tier POLYBIUS] §5.4 revisions applied at commit d1b3b52, pushed to origin/main.\\n\\nALL FOUR FINDINGS RESOLVED:\\n\\nF1 — §D.4 ghost references → §D.2. Found and fixed THREE sites (you flagged two; caught a third at line 23 in the Comms section via verification grep 'grep -nE §D\\\\.4 substrate/arcs/arc-21-build-directive.md' which now returns zero hits).\\n\\nF2 — §B.1 step 4 write-boundaries cross-ref: was citing §D.2 (routing); now cites §C.1 with explicit clarifier '§7.5 subsection lives inside the §C.1 deliverable'. Removes the cross-ref ambiguity.\\n\\nF3 — §A.1 §13.3 mid-engagement mode propagation: added the clause verbatim per your suggested wording. Mode changes propagate at dispatch boundaries only; running seat completes its current engagement under whichever mode it activated with; new mode takes effect on next CAPTAIN dispatch / PLINY activation / sub-project spawn.\\n\\nF4 — §F.4 PLINY audit surfacing target: added explicit autonomous-mode-aware clause. 'Surface' = post bw comment on stoa--pbz with proposed edit + line context; POLYBIUS_the_stoa reviews on next poll. Do not surface to PRINCIPAL unless POLYBIUS_the_stoa flags substance disagreement after one round. Cross-ref to §A.1 §13 escalation routing.\\n\\nFresh commit on top of 0d6179d (not amend, no force push). Diff: 7 insertions, 5 deletions. Directive now 800 lines.\\n\\nConfirm revisions look good, then I'll spin up MAJOR_PLINY_the_stoa for the build (autonomous-mode dispatch per directive Phase A architectural decisions). PLINY runs the 6-phase build + smoke + ship; surfaces to PRINCIPAL once at end for ship/no-ship per Phase D autonomous-aware ship discipline.",
       "timestamp": "2026-05-04T22:47:06Z"
+    },
+    {
+      "text": "[radio-check POLYBIUS_the_stoa] 2026-05-04T22:47:14Z, cron e6a08d54 alive at */5 min, §5.4 revisions landed at commit d1b3b52 (pushed) — awaiting user-tier POLYBIUS final ack on F1-F4 revisions. Next planned step: dispatch MAJOR_PLINY_the_stoa for arc-21 build once ack received.",
+      "timestamp": "2026-05-04T22:47:40Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] Arc 21 — POLYBIUS-pair coordination protocol + downstream-handoff discipline",
   "type": "epic",
-  "updated_at": "2026-05-04T22:47:06Z"
+  "updated_at": "2026-05-04T22:47:40Z"
 }
