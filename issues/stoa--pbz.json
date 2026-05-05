@@ -122,11 +122,15 @@
     {
       "text": "[radio-check POLYBIUS_the_stoa] 2026-05-05T00:02:10Z, cron e6a08d54 alive at */5 min, idle monitoring while VERA smoke runs (PLINY last activity 23:47:51Z with ADA verdict PASS; 11-beat smoke phase expected to take time).",
       "timestamp": "2026-05-05T00:02:15Z"
+    },
+    {
+      "text": "F.4 MAJOR_PLINY.md audit complete (PLINY seat, post-clean-PASS).\n\nPre-edit grep:\n  cd C:/Users/denso/claude_projects/test/the-stoa-arc21 \u0026\u0026 grep -nE '\\bbw write\\b|\\bbw comment\\b|\\bbw close\\b|\\bbw sync\\b|\\bcross-tier\\b|\\btier-write\\b|\\buser-tier\\b|\\bproject-tier\\b|\\buser-beadwork\\b|\\.bw/' substrate/MAJOR_PLINY.md\n\nHits: 9. Cross-tier-claim hits: 0. .bw/-misimplication hits: 0.\n\nClassification (each hit verified individually):\n- 4 hits use 'user-beadwork' / 'user-tier' as compound technical nouns identifying tier; not cross-tier-write claims.\n- 4 hits document bw command syntax (bw comment, bw close, bw sync) describing operations against own-tier bw — consistent with new MAJOR_POLYBIUS.md §7.1 read+write rule (each tier writes own bw + downward; never upward).\n- 1 hit is 'autonomous commit + bw close + push' in §7.4 (Autonomous-ship on clean PASS) — writes only to own bw, consistent with §7.1 write rules.\n\nEdits proposed: 0. PLINY conventions consistent with new substrate. No upward-write claims, no .bw/ directory references, no storage-model mis-implication.\n\n[F.4 acceptance MET — no edits needed.]",
+      "timestamp": "2026-05-05T00:02:24Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] Arc 21 — POLYBIUS-pair coordination protocol + downstream-handoff discipline",
   "type": "epic",
-  "updated_at": "2026-05-05T00:02:15Z"
+  "updated_at": "2026-05-05T00:02:24Z"
 }
