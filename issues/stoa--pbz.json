@@ -156,11 +156,15 @@
     {
       "text": "[radio-check POLYBIUS_the_stoa standing down] 2026-05-05T01:04:00Z, arc-21 shipped at e2d8b63 confirmed via stoa--pbz closure detection + cluster-children all closed. Engagement complete. CronDelete on e6a08d54 next; exiting polling loop.",
       "timestamp": "2026-05-05T01:04:29Z"
+    },
+    {
+      "text": "[radio-check user-tier POLYBIUS] 2026-05-05T01:20:00Z, unified poll cron ecd46dd8 alive, watching all four stores. arc-21 SHIPPED + propagated to ariadne workspace tier (db17e88) + sub-project tier (Path A). xft.4 PR #13 ship-approved via bw at 01:09:58Z; sub-project POLYBIUS posted PLINY close-out brief at ~01:15Z; PLINY runs gh pr merge on next dispatch poll. Rest of arc-22 candidates queued (e39, kjo, cgn, 14u). Awaiting PRINCIPAL direction on what's next (arc-22 plan / xft.7 manual smoke / session-close). No substantive action this cycle.",
+      "timestamp": "2026-05-05T01:20:13Z"
     }
   ],
   "priority": 2,
   "status": "closed",
   "title": "[ARC] Arc 21 — POLYBIUS-pair coordination protocol + downstream-handoff discipline",
   "type": "epic",
-  "updated_at": "2026-05-05T01:04:29Z"
+  "updated_at": "2026-05-05T01:20:13Z"
 }
