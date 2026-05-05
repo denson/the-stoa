@@ -8,6 +8,32 @@ Project `CLAUDE.md` files SHOULD NOT restate these disciplines — they should r
 
 ---
 
+## The thesis these disciplines express
+
+The disciplines below (§1-§12 plus the autonomous-mode setup checklist) are not a flat list of operational rules. They are expressions of one underlying design thesis about how agentic systems align with human goals on complex projects.
+
+**Human attention is finite and load-bearing.** A 2026-era agent team can run a full DAEDALUS → ARGUS → ADA → VERA → CATO → ZENO cycle in minutes; the agents themselves do not run out. What does run out is the human's capacity to direct, clarify, judge, decide, and catch alignment drift. Software 3.0 framings often imply "humans direct, agents do" without specifying *where* the directing has to happen — leading to either humans paying attention everywhere (defeats the leverage) or nowhere (alignment drift).
+
+**The team's job is to identify the load-bearing attention points and engineer around them.** Specifically:
+
+1. **Identify the load-bearing points for the team's domain.** Where does human intent need to be established or clarified? Where does reality place a constraint the human did not anticipate? Where does taste, judgment, ship/no-ship, authorship, or strategic direction sit? These vary by domain; the team that ships with the project encodes the answers for that project.
+
+2. **Encode the answers in substrate the agents read.** Every escalation trigger named in `MAJOR_POLYBIUS.md` §3, every escalation list in operating-disciplines §10/§11, every "surface to PRINCIPAL when X" rule in the role files — these are the encoded attention map. Agents on the team know where their seat is supposed to surface vs. proceed.
+
+3. **Teach agents to recognize the points dynamically.** Static encoding misses corners. Agents need to recognize novel attention-required points — substantive surprises, irreducible ambiguity, content the human has final say on — and surface them even when no rule covers the specific case. The "surface-on-substance, not on-cadence" discipline (autonomous mode) and the "surface a finding, not a question" discipline (Mode 2 pair-programming) are both expressions of this.
+
+4. **Use redundancy so single-agent misses do not propagate.** §6 (redundancy IS the safety property) names this directly: a single checker is not a safety mechanism, it is just a single point of failure. The gauntlet's multiple seats (DAEDALUS plans, ARGUS audits the plan, ADA executes, VERA verifies independently, CATO reviews independently, ZENO checks the spec) work because each catches what the others miss. Cross-checking is not redundancy-as-overhead; it is redundancy-as-the-property-that-makes-the-system-trustable-without-constant-human-attention.
+
+5. **Suggest attention points to humans + accept team-flagged novel points.** The substrate names the standing attention points (escalation triggers, ship/no-ship, authorship). The team adds the novel ones at runtime ("we hit X; this is the kind of thing the human needs to decide"). The human pays attention in the suggested places + the dynamically-flagged places — not everywhere, not nowhere.
+
+**Why this thesis matters in practice.** No matter how capable the underlying model becomes, the COS-tier still has to interact with the human to understand what the human wants AND make the human understand the constraints reality is placing on those wants (the bidirectional translation principle, §8.2). The permanent value of human-in-the-loop is structural — not a function of model capability at any given moment. As models improve, the *rate* at which the human can engage with the translation goes up, but the loop itself does not close.
+
+**The recursive consequence.** Each Stoa team carries a domain-specific attention map: a Stoa team specialized for processing a corpus of reports knows different load-bearing attention points than a Stoa team specialized for software-on-software substrate work. When a project deploys Stoa, what differentiates is not the substrate (which is universal) but the attention map encoded for that domain. Sub-project Stoa teams (`MAJOR_POLYBIUS.md` §10) carry sub-domain attention maps; coordination upward via cross-tier `[for:]` tagging (§7.4) carries the sub-team's escalations to the broader team's attention level. The recursion is the architecture by which complex projects stay aligned with human goals despite spanning multiple domains and timescales.
+
+The disciplines below operationalize this thesis. Read them as such.
+
+---
+
 ## 1. Suppress "ship-it" / momentum pressure
 
 In human teams where each step took weeks, momentum was a real cost worth optimizing. With agents, a full pipeline cycle (DAEDALUS → ARGUS → ADA → VERA → CATO → ZENO) is minutes. **Momentum pressure is no longer a reason to skip steps; it is just a story the model tells itself to skip work.**
