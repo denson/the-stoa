@@ -142,9 +142,13 @@ The radio-check + adaptive-cadence + unified-poll + write-boundary disciplines s
 
 ---
 
-## 8. Positive references only when authoring downstream briefs
+## 8. Authoring downstream artifacts
 
-When authoring any artifact a downstream agent will consume — activation paste-instructions, dispatch directives, brief comments, follow-up CAPTAIN prompts — reference only POSITIVE resources the agent should use. Never reference resources they shouldn't reach for, even with `NOT` or `EXCEPT` qualifiers.
+Two disciplines apply whenever you author an artifact a downstream agent will consume — activation paste-instructions, dispatch directives, brief comments, follow-up CAPTAIN prompts, skill files, test scenarios, scaffolded CLI/API documentation. The first (§8.1) constrains voice; the second (§8.2) constrains completeness. Both apply to every surface; both are universal across seats authoring artifacts.
+
+### 8.1 Positive references only
+
+Reference only POSITIVE resources the agent should use. Never reference resources they shouldn't reach for, even with `NOT` or `EXCEPT` qualifiers.
 
 Why: the downstream agent reads everything in the brief as real, in-scope context. A negative qualifier mentions the resource as a real thing, defeating bounded-context properties (§7.5 cross-tier scoping or task-scoping). Under pressure (looking for context, ambiguous task, trying to be helpful), the agent rationalizes the now-known thing as a legitimate exception.
 
@@ -160,6 +164,32 @@ The discipline: when you draft a brief, before the agent reads it, audit every l
 Empirical anchor: 2026-05-04 — a project-tier install paste said "Run `bw prime` in this directory (NOT user-beadwork)." The "NOT user-beadwork" parenthetical seeded awareness of user-tier bw into a project-tier session that wouldn't otherwise have known it existed. PRINCIPAL caught and corrected before the activated session reached for the wrong store.
 
 Universality: this applies to anyone authoring a downstream brief — POLYBIUS authoring activation pastes (`MAJOR_POLYBIUS.md` §5.1), PLINY authoring dispatch directives, CAPTAINs authoring follow-up briefs, pair-programmer Majors authoring their own follow-ups. Single discipline; many surfaces.
+
+### 8.2 Scaffolding and guardrails
+
+**Framing.** Agents are jagged. "Smart enough to figure it out from a sparse prompt" does not reliably hold in practice, even on tasks that look obviously within capability. The path to reliability and reproducibility is heavier scaffolding now — pre-resolved decisions, worked examples, specified failure modes, sample data shapes — with judgment latitude preserved only where judgment is the actual job. The scaffolding library accretes over time; the scaffolding itself is the durable product, not the agent's "intelligence" working on a thin prompt.
+
+This sits in deliberate tension with the maxim that the unit of distribution is "what you copy-paste to your agent." Both are true: the unit IS text, and the text needs to be richly structured to produce reliable execution. Sparse prompts are aspirational; scaffolded prompts are operational.
+
+**Five rules when authoring an artifact a downstream agent will consume:**
+
+1. **Pre-resolve decisions that have a correct answer.** The agent does not benefit from "you choose between option A and option B" if option B is genuinely better — that is the author dodging a decision and inviting the agent to pick the worse path. If you know the right call, make it. Save the agent's judgment budget for places it is actually needed.
+
+2. **Provide worked examples.** Not "pick a query relevant to the document" — give a sample query against likely content with a sample expected response shape, so the agent has something to verify against and a template to extend from. Worked examples are dramatically more useful than abstract guidance.
+
+3. **Specify failure modes and specific handling.** Not "if it errors, surface to PRINCIPAL" — "if you see error pattern X, the cause is usually Y; first try Z; if Z does not resolve, then surface to PRINCIPAL with these specific details." Generic error-handling guidance produces generic error reports; specific guidance produces actionable findings.
+
+4. **Show JSON/data shapes.** What does a successful response look like — keys, types, an example value? What do the finite likely error responses look like? The agent then knows what success and the common failures look like instead of guessing or relying on unstated heuristics.
+
+5. **Preserve judgment latitude where judgment is the actual job.** Diagnosing an unfamiliar failure that does not match a listed mode; choosing how to summarize findings for a human reader; deciding when a partial-pass result still merits ship-vs-no-ship escalation. Do not pre-script those — that is where the agent earns its capability.
+
+**The recursive scaffolding pattern.** Each time an agent stumbles in a corner the brief did not cover, fold the finding back into the brief. The scaffolding accretes. Briefs that survive multiple dispatches converge on something close to a complete operations manual; briefs that fail expose where scaffolding was missing, and the failure mode gets noted for next time.
+
+**The bidirectional-translation principle.** Humans cannot fully specify intent up front — they discover what they want by seeing the work. Reality cannot be fully described to humans up front — agents surface constraints humans did not anticipate. Models cannot autonomously close that loop; they can only run the loop when the COS-tier structure exists to translate both directions. Scaffolding aids the COS-tier in that translation; it does not replace it. The permanent value of human-in-the-loop is structural, not a function of how smart the models are at any given moment. No matter how capable the underlying model, the COS still has to interact with the human to understand what the human wants AND make the human understand the constraints reality is placing on those wants.
+
+**Empirical anchor.** Codified 2026-05-05 during the ariadne-core team_test smoke setup. PRINCIPAL surfaced the over-delegation pattern in a brief that asked the agent to "decide install option 1 vs 2" when option 2 (`uv tool install`) was knowably correct, and similar hand-waving across verification queries, failure-mode handling, and data-shape expectations. The five rules above generalize from those specific over-delegations to the discipline that should apply to every artifact-authoring surface.
+
+Universality: same as §8.1. Anyone authoring downstream briefs / skills / dispatch envelopes / test scenarios / CLI documentation / API documentation — POLYBIUS, PLINY, CAPTAINs, pair-programmer Majors, anyone writing for an agent reader.
 
 ---
 
