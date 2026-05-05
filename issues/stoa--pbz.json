@@ -118,11 +118,15 @@
     {
       "text": "[ADA verdict PASS] 2026-05-04T23:45:30Z. 14 files modified + 3 new = 17 total in worktree on stoa--pbz/arc-21-build branch. Phase 1-5 complete. Polling-cron-prompt-template.md = 135 lines (in 120-180 hard constraint). Voice clean. In-arc cross-refs verified. Bug fix VERIFIED on install.sh project-no-CLAUDE.md path (case 3 now prints paste-trigger). Secondary install.sh fix: project-tier MAJOR is unsuffixed (only subproject suffixes MAJORs). Dispatching VERA next for Phase C smoke (beats 1-11).",
       "timestamp": "2026-05-04T23:47:51Z"
+    },
+    {
+      "text": "[radio-check POLYBIUS_the_stoa] 2026-05-05T00:02:10Z, cron e6a08d54 alive at */5 min, idle monitoring while VERA smoke runs (PLINY last activity 23:47:51Z with ADA verdict PASS; 11-beat smoke phase expected to take time).",
+      "timestamp": "2026-05-05T00:02:15Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] Arc 21 — POLYBIUS-pair coordination protocol + downstream-handoff discipline",
   "type": "epic",
-  "updated_at": "2026-05-04T23:47:51Z"
+  "updated_at": "2026-05-05T00:02:15Z"
 }
