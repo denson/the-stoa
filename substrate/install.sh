@@ -110,6 +110,9 @@ TEMPLATE_NAMES=(
   paste-instruction-template.md
   onboarding-questions.md
   consent-prompts.md
+  polling-cron-prompt-template.md
+  activation-paste-cheatsheet.md
+  autonomous-mode-activation-template.md
 )
 
 # The 10 CAPTAIN envelope source files. Order is the gauntlet pipeline order
