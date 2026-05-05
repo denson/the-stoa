@@ -14,6 +14,8 @@
     "stoa--vz9",
     "stoa--xh2"
   ],
+  "closed_at": "2026-05-05T01:00:26Z",
+  "close_reason": "Arc 21 shipped at e2d8b63",
   "created": "2026-05-04T21:39:16Z",
   "description": "Bundles five substrate updates surfaced empirically during ariadne--m20 (closed 2026-05-04 at a161630). Two parts:\n\nPART A — POLYBIUS-pair coordination protocol\n- stoa--ivc — radio-check pattern (peer-failure detection, heartbeats, missed-check escalation, closure handshake)\n- stoa--ay1 — adaptive polling cadence (active */2 / default */5 / quiet */15)\n- stoa--blg — explicit cross-tier write boundaries (read AND write asymmetry, downward-only)\n\nLands in: substrate/operating-disciplines.md (new §7 coordination section), substrate/MAJOR_POLYBIUS.md §7.1 (write rules) + §7.4 (cross-ref), substrate/templates/polling-cron-prompt-template.md (new).\n\nPART B — Downstream-handoff discipline\n- stoa--xh2 — activation paste-filename divergence (project unsuffixed vs subproject suffixed); install.sh next-steps + cheatsheet\n- stoa--m5m — positive-references-only when authoring paste-instructions for downstream agents\n\nLands in: substrate/MAJOR_POLYBIUS.md §5.1 + new §5.5, substrate/templates/activation-paste-cheatsheet.md (new), substrate/install.sh next-steps block, substrate/operating-disciplines.md §8 (positive-references universal).\n\nDirective: substrate/arcs/arc-21-build-directive.md (POLYBIUS authors + commits before dispatch).\n\nMulti-concern → §5.4 external review (CAPTAIN_ARGUS cold-audit) before dispatching MAJOR_PLINY.\n\nEmpirical anchors come from ariadne--m20 thread — radio-check protocol was demonstrated live (initialization handshake + heartbeats + closure), cadence churn was felt during active sections, write-boundaries violation was caught by PRINCIPAL real-time, the the-stoa install paste failure was the original surfacing moment for stoa--xh2, and 'NOT user-beadwork' negative seeding triggered stoa--m5m.",
   "id": "stoa--pbz",
@@ -149,8 +151,8 @@
     }
   ],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "[ARC] Arc 21 — POLYBIUS-pair coordination protocol + downstream-handoff discipline",
   "type": "epic",
-  "updated_at": "2026-05-05T00:46:14Z"
+  "updated_at": "2026-05-05T01:00:26Z"
 }
