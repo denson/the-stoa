@@ -2,13 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-05T21:40:39Z",
+  "close_reason": "Landed via 7134c92 — §8 restructured into §8.1 (positive references) + §8.2 (scaffolding and guardrails) on main.",
   "created": "2026-05-05T21:39:28Z",
   "description": "Codify the scaffolding-and-guardrails principles surfaced during the ariadne-core team_test smoke setup (2026-05-05). PRINCIPAL articulated five rules for authoring artifacts downstream agents consume; the principles need to be substrate so every future POLYBIUS / PLINY / brief author inherits them on install.\n\n## What the section says (short)\n\nKarpathy's \"agent figures it out from a sparse prompt\" assumption does not reliably hold in practice. Path to reliability is heavier scaffolding now — pre-resolved decisions, worked examples, specified failure modes, sample data shapes — with judgment latitude preserved only where judgment is the actual job. The scaffolding library accretes; the scaffolding itself is the durable product.\n\nFive rules:\n\n1. Pre-resolve decisions that have a correct answer.\n2. Provide worked examples (commands, queries, expected response shapes).\n3. Specify failure modes and specific handling.\n4. Show JSON/data shapes for success and finite error sets.\n5. Preserve judgment latitude where judgment is the actual job.\n\nPlus: recursive scaffolding pattern (each stumble folds back into the brief) + bidirectional translation principle (human-in-loop is structural, not a function of model capability).\n\n## Where it lands\n\n`substrate/operating-disciplines.md` — restructure §8 from \"Positive references only when authoring downstream briefs\" to broader \"Authoring downstream artifacts,\" with:\n  - §8.1 Positive references only (existing content, unchanged)\n  - §8.2 Scaffolding and guardrails (new)\n\nCross-references to current §8 still resolve. No renumbering elsewhere in the doc.\n\n## Empirical anchor\n\n2026-05-05 ariadne-core team_test smoke setup. The over-delegation pattern (brief that asked the agent to \"decide install option 1 vs 2\" when option 2 was knowably correct) generalizes into the rules above.",
   "id": "stoa--b47",
   "labels": [],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "Add scaffolding-and-guardrails authoring discipline to operating-disciplines.md",
   "type": "task",
-  "updated_at": "2026-05-05T21:39:28Z"
+  "updated_at": "2026-05-05T21:40:39Z"
 }
