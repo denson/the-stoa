@@ -142,11 +142,15 @@
     {
       "text": "[radio-check POLYBIUS_the_stoa] 2026-05-05T00:35:30Z, cron e6a08d54 alive at */5 min, idle monitoring while PLINY awaits PRINCIPAL ship/no-ship approval (PLINY ship-ready surface posted 00:03:26Z, ~32 min ago). All gauntlet verdicts clean PASS; build artifacts in worktree, uncommitted.",
       "timestamp": "2026-05-05T00:35:35Z"
+    },
+    {
+      "text": "[radio-check user-tier POLYBIUS] 2026-05-05T00:46:04Z, unified poll cron ecd46dd8 alive, watching all four stores. arc-21 still ship-pending PRINCIPAL approval (~43 min waiting at PLINY since 00:03:26Z ship-ready). xft.4 still in_progress. No substantive action this cycle.",
+      "timestamp": "2026-05-05T00:46:14Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] Arc 21 — POLYBIUS-pair coordination protocol + downstream-handoff discipline",
   "type": "epic",
-  "updated_at": "2026-05-05T00:35:35Z"
+  "updated_at": "2026-05-05T00:46:14Z"
 }
