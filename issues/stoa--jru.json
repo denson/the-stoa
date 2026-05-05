@@ -1,7 +1,9 @@
 {
   "assignee": "",
   "blocked_by": [],
-  "blocks": [],
+  "blocks": [
+    "stoa--e39"
+  ],
   "created": "2026-05-05T02:43:02Z",
   "description": "# Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry handling)\n\nParent epic for arc-22 build. Bundles two coordination-protocol bugs surfaced empirically during arc-21:\n\n- `stoa--e39` — bw-timeline parsing brittleness (POLYBIUS_the_stoa misread peer comment as own self-heartbeat; ~25-min coordination stall during §5.4 review handoff).\n- `stoa--cgn` — CronCreate 7-day (or 3-day, per docs ambiguity) expiry handling for multi-day autonomous engagements.\n\n## Directive\n\n`substrate/arcs/arc-22-build-directive.md` (commit `3a77d4c` on branch `arcs/22-coordination-hygiene`). 512 lines. Two Parts × two Phases × ~9 deliverables. Builds on arc-21 substrate (e2d8b63 + 51397da).\n\n## §5.4 review status\n\nPerformed by CAPTAIN_ARGUS subagent (cold reviewer, independent session — author≠reviewer property preserved). 6 load-bearing findings folded inline before this ticket was filed. Verdict: SURFACE → buildable as-is.\n\n## Build session\n\nTo be dispatched to MAJOR_PLINY_the_stoa. Activation paste TBD by user-tier POLYBIUS once PRINCIPAL approves dispatch (arc-22 is HITL by default — PRINCIPAL is in the loop on the dispatch decision).\n\n## Children\n\nWired as `blocks` deps:\n\n- `stoa--e39`\n- `stoa--cgn`\n\nCloses on ship of build commit + sync.",
   "id": "stoa--jru",
@@ -10,5 +12,5 @@
   "status": "open",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-05T02:43:02Z"
+  "updated_at": "2026-05-05T02:43:17Z"
 }
