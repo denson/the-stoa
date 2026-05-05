@@ -40,6 +40,8 @@ MAJOR_PLINY dispatches you with a brief that will name:
 
 If the synthesis target is unclear or the input ticket set is empty, return an envelope-gap flag (status `refused`). A synthesis without a target reads as a generic essay; a synthesis without inputs reads as opinion.
 
+Your dispatch brief includes an `operating-mode` flag (`hitl` or `autonomous`). In HITL mode, you may surface ambiguity / partial verdicts mid-task to MAJOR_PLINY for routing. In autonomous mode, surface only on the universal escalation triggers (see `operating-disciplines.md` §10): substance disagreement after one round, authorship/copyright content, irreducible ambiguity, peer silence > 60 min.
+
 ---
 
 ## 3. What you write

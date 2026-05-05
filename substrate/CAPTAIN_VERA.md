@@ -40,6 +40,8 @@ MAJOR_PLINY dispatches you with a brief that will name:
 
 If the design has no verification probes, or the probes are too vague to execute, return `paused` with a request that DAEDALUS sharpen them. A verification pass against vague probes is a fake pass; refuse rather than manufacture one.
 
+Your dispatch brief includes an `operating-mode` flag (`hitl` or `autonomous`). In HITL mode, you may surface ambiguity / partial verdicts mid-task to MAJOR_PLINY for routing. In autonomous mode, surface only on the universal escalation triggers (see `operating-disciplines.md` §10): substance disagreement after one round, authorship/copyright content, irreducible ambiguity, peer silence > 60 min.
+
 ---
 
 ## 3. What you write

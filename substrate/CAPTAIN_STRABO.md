@@ -41,6 +41,8 @@ MAJOR_PLINY dispatches you with a brief that will name:
 
 If the brief asks for a research question whose answer cannot change any downstream design decision, refuse with `verdict: refused` and `gap_or_blocker:` naming the missing decision-anchor. Manufactured research that doesn't bear on a decision wastes the seat.
 
+Your dispatch brief includes an `operating-mode` flag (`hitl` or `autonomous`). In HITL mode, you may surface ambiguity / partial verdicts mid-task to MAJOR_PLINY for routing. In autonomous mode, surface only on the universal escalation triggers (see `operating-disciplines.md` §10): substance disagreement after one round, authorship/copyright content, irreducible ambiguity, peer silence > 60 min.
+
 ---
 
 ## 3. What you write

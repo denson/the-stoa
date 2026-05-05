@@ -482,7 +482,7 @@ case "$TARGET" in
     # does not get its own CLAUDE.md, and the parent's must not be touched.
     [ "$MODIFY_CLAUDE_MD" -eq 0 ] || err "--modify-claude-md is not valid with --target=subproject (sub-project does not get its own CLAUDE.md, and the parent's must not be modified by this run)"
     # Subproject mode forces no-templates: the sub-project shares the parent's
-    # runtime tooling at <parent>/.claude/templates/. If the user explicitly
+    # runtime tooling at <parent>/.claude/templates/. If the human explicitly
     # passed --no-templates that's harmless and consistent; if they didn't,
     # we silently force it (the default would be to deploy templates).
     WITH_TEMPLATES=0
@@ -719,7 +719,7 @@ if [ "$MODIFY_CLAUDE_MD" -eq 1 ]; then
 ${CLAUDE_MD_MARKER}
 ## Chief-of-Staff (MAJOR_POLYBIUS)
 
-This environment hosts the three-role agent substrate. The Chief-of-Staff role is defined in \`.claude/MAJOR_POLYBIUS.md\`. When the user invokes \"POLYBIUS\" or \"chief of staff\", read that file and assume the role.
+This environment hosts the three-role agent substrate. The Chief-of-Staff role is defined in \`.claude/MAJOR_POLYBIUS.md\`. When the PRINCIPAL invokes \"POLYBIUS\" or \"chief of staff\", read that file and assume the role.
 "
     if [ "$DRY_RUN" -eq 1 ]; then
       if [ -f "$DEST_CLAUDE_MD" ]; then
@@ -764,7 +764,7 @@ fi
 #   from substrate-canonical MAJORs by filename. The renamed-MAJOR case is
 #   rare; manual rm is the safer path.
 # - Categories the current run did not deploy. If --no-captains was passed,
-#   the user explicitly opted out of managing CAPTAINs this run; treating
+#   the human explicitly opted out of managing CAPTAINs this run; treating
 #   their other CAPTAIN files as "obsolete" creates noise. Skills always
 #   scan (no opt-out flag exists for skills).
 #
@@ -883,30 +883,76 @@ if [ "$DRY_RUN" -eq 0 ]; then
       ;;
   esac
 
+  # Mode-aware ACTIVATION block. Two activation patterns per
+  # MAJOR_POLYBIUS.md §5.5 + substrate/templates/activation-paste-cheatsheet.md:
+  #   - say-trigger: --target user, OR --target project --modify-claude-md
+  #   - paste-trigger: --target project (no --modify-claude-md), OR --target subproject
+  # The previous version of this block lumped --target project (no --modify-claude-md)
+  # into the say-trigger branch by gating only on $TARGET = subproject. That was the
+  # arc-21 bug fix: project-mode without --modify-claude-md does not wire CLAUDE.md
+  # auto-load, so saying POLYBIUS does nothing — activation IS the literal paste.
   echo
-  echo "Next steps:"
-  if [ "$TARGET" = "subproject" ]; then
-    echo "  1. cd into the sub-project dir:         ${ACTIVATE_DIR}"
-    echo "  2. Open Claude Code:                    claude"
-    echo "  3. Invoke the sub-project's POLYBIUS by name (the sub-project does not"
-    echo "     get its own CLAUDE.md, so auto-load is intentionally not wired):"
-    echo "     \"Read .claude/MAJOR_POLYBIUS${NAME_SUFFIX}.md and assume the role.\""
+  if [ "$TARGET" = "subproject" ] || ( [ "$TARGET" = "project" ] && [ "$MODIFY_CLAUDE_MD" -eq 0 ] ); then
+    # Paste-trigger pattern.
+    # MAJOR filename suffixing is asymmetric with CAPTAIN suffixing: MAJORs
+    # are suffixed only at sub-project tier, unsuffixed at project tier even
+    # when CAPTAINs are suffixed there. The activation paste must match the
+    # deployed filename, so gate on $TARGET = subproject (the only mode that
+    # suffixes MAJORs) rather than on NAME_SUFFIX.
+    if [ "$TARGET" = "subproject" ]; then
+      ROLE_DESCRIPTOR="sub-project"
+      MAJOR_PATH=".claude/MAJOR_POLYBIUS${NAME_SUFFIX}.md"
+    else
+      ROLE_DESCRIPTOR="project"
+      MAJOR_PATH=".claude/MAJOR_POLYBIUS.md"
+    fi
+    echo "========================================"
+    echo "  ACTIVATION (copy line 3 into a new"
+    echo "  Claude Code session in ${ACTIVATE_DIR})"
+    echo "========================================"
     echo
-    echo "The sub-project shares the parent's git repo and bw — no bw init needed."
-    echo "Templates live at ${PARENT_DIR}/.claude/templates/ (sub-project reads"
-    echo "from there; nothing was deployed under ${DEST_DIR}/templates/)."
+    echo "  1. cd into ${ACTIVATE_DIR}"
+    echo "  2. Open Claude Code:  claude"
+    echo "  3. Paste:"
     echo
-    echo "Once the sub-project's POLYBIUS is up, it will write its activation paste"
-    echo "for the sub-project's MAJOR_PLINY at:"
-    echo "  ${PASTE_PATH}"
+    echo "     Read ${MAJOR_PATH} and assume"
+    echo "     the role for this ${ROLE_DESCRIPTOR}."
+    echo
+    echo "========================================"
+    echo
+    if [ "$TARGET" = "subproject" ]; then
+      echo "The sub-project shares the parent's git repo and bw — no bw init needed."
+      echo "Templates live at ${PARENT_DIR}/.claude/templates/ (sub-project reads"
+      echo "from there; nothing was deployed under ${DEST_DIR}/templates/)."
+      echo
+      echo "Once the sub-project's POLYBIUS is up, it will write its activation paste"
+      echo "for the sub-project's MAJOR_PLINY at:"
+      echo "  ${PASTE_PATH}"
+    else
+      echo "Activation is the literal paste — there is no CLAUDE.md auto-load wired"
+      echo "in this mode (--modify-claude-md was not passed). For the say-trigger"
+      echo "experience, re-run install.sh with --modify-claude-md."
+      echo
+      echo "After onboarding completes, MAJOR_POLYBIUS keeps the latest MAJOR_PLINY"
+      echo "activation paste at:"
+      echo "  ${PASTE_PATH}"
+      echo "for re-paste recovery after a /compact or /clear."
+    fi
   else
-    echo "  1. cd into the activation dir: ${ACTIVATE_DIR}"
-    echo "  2. Open Claude Code:           claude"
-    echo "  3. Say \"POLYBIUS\" or \"chief of staff\" — the chief-of-staff"
-    echo "     role file loads and walks you through onboarding."
+    # Say-trigger pattern (--target user, OR --target project --modify-claude-md).
+    echo "========================================"
+    echo "  ACTIVATION"
+    echo "========================================"
     echo
-    echo "After onboarding completes, MAJOR_POLYBIUS keeps the latest activation"
-    echo "paste at:"
+    echo "  1. cd into ${ACTIVATE_DIR}"
+    echo "  2. Open Claude Code:  claude"
+    echo "  3. Say \"POLYBIUS\" or \"chief of staff\" — the role auto-loads"
+    echo "     via CLAUDE.md and walks you through onboarding."
+    echo
+    echo "========================================"
+    echo
+    echo "After onboarding completes, MAJOR_POLYBIUS keeps the latest MAJOR_PLINY"
+    echo "activation paste at:"
     echo "  ${PASTE_PATH}"
     echo "for re-paste recovery after a /compact or /clear."
   fi

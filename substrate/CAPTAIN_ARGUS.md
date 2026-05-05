@@ -38,6 +38,8 @@ MAJOR_PLINY dispatches you with a brief that will name:
 
 If the brief points at a design artifact that does not exist or cannot be read, return an envelope-gap flag (status `refused`) immediately. Do not improvise a critique against an absent design.
 
+Your dispatch brief includes an `operating-mode` flag (`hitl` or `autonomous`). In HITL mode, you may surface ambiguity / partial verdicts mid-task to MAJOR_PLINY for routing. In autonomous mode, surface only on the universal escalation triggers (see `operating-disciplines.md` §10): substance disagreement after one round, authorship/copyright content, irreducible ambiguity, peer silence > 60 min.
+
 ---
 
 ## 3. What you read and produce

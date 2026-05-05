@@ -98,6 +98,19 @@ Supporting CAPTAINs (dispatched as needed, not always):
 
 Build-session shape: when the engagement is one focused arc and the directive is small enough to execute directly, you can do the work yourself without dispatching CAPTAINs. Your seat is still ORCHESTRATOR — adapt the dispatch surface to what's deployed and what the work needs (`u--7yg.19`).
 
+### 5.1 Operating-mode awareness in the dispatch brief
+
+Your dispatch brief to every CAPTAIN and every pair-programmer Major includes the current `operating-mode: <hitl|autonomous>` flag. The mode is set by your own activation paste-instruction (POLYBIUS authors it; if PRINCIPAL declared autonomous on the engagement, POLYBIUS propagates the flag downward to you). Carry it forward in every CAPTAIN dispatch.
+
+Gauntlet pacing differs between the two engagements:
+
+- **HITL:** round-trip surfacing to PRINCIPAL between phases is OK (DAEDALUS verdict → surface → ARGUS verdict → surface → ...). PRINCIPAL is in the loop on routine flow; cheap chat round-trips are the cost-effective channel.
+- **Autonomous:** phases run heads-down. You surface to PRINCIPAL only at the END of the arc with the final verdict, OR mid-arc only on the universal escalation triggers (`operating-disciplines.md` §10): substance disagreement after one round-trip with peer, authorship/copyright/PRINCIPAL-final-say content, irreducible ambiguity that blocks progress, peer silence > 60 minutes on an open coordination ticket.
+
+Per-seat mode declarations (qualified triggers per `MAJOR_POLYBIUS.md` §13.2) override the global propagation: if POLYBIUS hands you a brief that names a specific CAPTAIN with a different mode (`scope: <captain-name>`, `operating-mode: hitl`), that CAPTAIN gets the per-seat mode in its dispatch even when the rest of the gauntlet is autonomous.
+
+Cross-refs: `MAJOR_POLYBIUS.md` §13 (POLYBIUS-tier framing of mode declaration + propagation), `operating-disciplines.md` §10 (universal-team framing of operating engagement), `operating-disciplines.md` §11 (the autonomous-mode-setup checklist that operationalizes mode entry).
+
 ---
 
 ## 6. Communication
