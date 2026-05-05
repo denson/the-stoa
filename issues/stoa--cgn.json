@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-05T00:02:17Z",
+  "description": "## Empirical signal (2026-05-04, surfaced by CATO during arc-21 review)\n\nCATO flagged during Arc 21 spec review: CronCreate has a 7-day expiry per current Claude Code docs. The polling-cron-prompt template at `substrate/templates/polling-cron-prompt-template.md` (135 lines, in 120-180 hard constraint) does not address re-creation across the expiry boundary.\n\nA multi-day autonomous engagement that exceeds 7 days will silently lose its polling cron at the 7-day mark — peer goes silent without anyone noticing until the radio-check threshold (60 min default) finally fires from the SURVIVING peer's side. By then the dead cron has been silent for ~6 days and any work that depended on its polling is stuck.\n\n## What would unblock\n\nDesign choice: where does renewal logic live?\n- Inside the fire-loop (each fire, check if the cron is approaching expiry; CronDelete + CronCreate before threshold)\n- Separate weekly cron (one of the polling crons watches all the others' expiry dates)\n- Triggered from autonomous-mode-setup-complete handshake (POLYBIUS schedules a renewal at day 6 from the start)\n\nThe first option is most localized but adds complexity to every fire. The third is cleanest but requires the substrate to expose the cron's start-time.\n\n## Concrete next step\n\nSpike: read CronList output to see what fields are exposed (cron-id, schedule, age, next-fire). If start-time or age is visible, fire-loop self-renewal is implementable in ~15 lines added to the polling-cron-prompt template. If not, the third option needs a separate one-shot CronCreate at setup-complete time, which is a small edit to operating-disciplines.md §11 step 1.\n\n## Why this is a follow-up not an in-arc fix\n\nArc 21 directive is locked + externally reviewed; substrate as it stands is correct relative to the directive. CronCreate expiry is a real concern but requires DESIGN (where does renewal live?), not just a single-line edit. Filing as a planned follow-up per CLAUDE.md fix-known-bugs-immediately rule (concrete next-step plan, not handwave).\n\nAnchor: arc-21 build session, 2026-05-04. CATO verdict for stoa--pbz. Polling-cron template lives at substrate/templates/polling-cron-prompt-template.md.",
+  "id": "stoa--cgn",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "CronCreate 7-day expiry handling for autonomous-mode polling crons",
+  "type": "task",
+  "updated_at": "2026-05-05T00:02:17Z"
+}
