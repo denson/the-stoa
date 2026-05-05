@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-05T22:27:09Z",
+  "description": "Add the unifying thesis that frames why the team-wide operating disciplines exist as they do.\n\nTwo edits:\n\n(1) operating-disciplines.md — add a top-of-doc framing section AFTER the existing 'framing throughout' paragraph (currently lines 5-7) and BEFORE §1. Names the design thesis: human attention is finite and load-bearing; the team's job is to identify the load-bearing points for its domain, encode them in substrate, teach agents to recognize them, use redundancy so single-agent misses do not propagate, and surface novel attention-required points dynamically. Recasts §1-§12 as expressions of that thesis.\n\n(2) MAJOR_POLYBIUS.md §3 ('What you don't do') — add a new positive-framing item (or insert a parallel §3.5 / §3 closer) that names the COS as the seat that operationalizes 'where is human attention required' for its specific domain. The ask-for-clarification + surface-novel-attention-points jobs become the explicit locus.\n\nRationale: the thesis currently lives between the lines of operating-disciplines §1-§12 and MAJOR_POLYBIUS §3 escalation triggers, but is not stated as the load-bearing premise. PRINCIPAL articulated 2026-05-05 in conversation: 'where is human attention required?' is what Karpathy left out of the software 3.0 framing; using information science to identify and encode the load-bearing attention points is the bridge between 'smart models exist' and 'complex projects ship reliably.' Worth folding explicitly so future POLYBIUS instances inherit the thesis on activation, not just the procedural disciplines.",
+  "id": "stoa--pao",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "Substrate: codify the where-is-human-attention-required thesis (operating-disciplines + MAJOR_POLYBIUS §3)",
+  "type": "task",
+  "updated_at": "2026-05-05T22:27:09Z"
+}
