@@ -3,7 +3,7 @@
 **Audience:** the fresh Claude Code session opened to build Arc 22 deliverables (MAJOR_PLINY_the_stoa).
 **Authored by:** user-tier MAJOR_POLYBIUS + the PRINCIPAL (Denson Smith).
 **Status:** active directive. Pre-dispatch §5.4 cold review performed by CAPTAIN_ARGUS (subagent dispatched by user-tier POLYBIUS — independent session, no context contamination from authoring). 6 load-bearing findings (F1: empirical-expiry probe, F2: slug normalization vs slot values, F3: `[for:]` expansion ownership, F4: non-POLYBIUS comment scope, F5: matrix coverage gap for forward-looking fields, F6: renewal-failure-mode acceptance) + 4 minor surfaced; all 6 load-bearing findings folded inline before commit. Audit verdict: SURFACE (buildable with author judgment, not structurally broken).
-**Bw ticket:** `stoa--pbz2` (parent epic — to be created at dispatch with both children wired as `blocks` deps). Children: `stoa--e39`, `stoa--cgn`.
+**Bw ticket:** `stoa--jru` (parent epic — to be created at dispatch with both children wired as `blocks` deps). Children: `stoa--e39`, `stoa--cgn`.
 **Builds on:** Arc 21 (the-stoa main `e2d8b63` + `51397da`). Arc 21 landed the autonomous-mode protocol stack (radio-check, adaptive cadence, unified polling, write boundaries, routing, mode propagation). Arc 22 closes two correctness bugs in that stack that surfaced empirically during arc-21 coordination itself.
 
 **Your one job:** harden the POLYBIUS-pair coordination protocol against two failure modes observed during arc-21:
@@ -22,7 +22,7 @@ This is a small arc: 2 Parts × 2 Phases × ~8 deliverables. Much smaller than a
 
 PRINCIPAL is in HITL mode for this engagement (default; not declared autonomous). You (PLINY_the_stoa) work head-down on the deliverables and surface back at end-of-arc with the ship summary, OR mid-arc on universal escalation triggers (substance disagreement, authorship/copyright, irreducible ambiguity, peer-silence > 60 min on coordination tickets).
 
-If you choose to set up a polling cron for self-coordination on `stoa--pbz2`, that is your call — record the cron id in your initialization handshake. If you do not need one (small arc, fits in one session), do not set one up.
+If you choose to set up a polling cron for self-coordination on `stoa--jru`, that is your call — record the cron id in your initialization handshake. If you do not need one (small arc, fits in one session), do not set one up.
 
 bw command syntax: `bw comment <id> "text"` — positional, no `-m` flag. `bw close <id> --reason "text"` — `--reason` is a flag.
 
@@ -104,7 +104,7 @@ The choice depends on what `CronList` actually exposes AND on the actual expiry 
 3. `CronList` and capture the FULL output structure for the new cron. Inspect every field: does it expose `start_time` / `created_at` / `age` (backward-looking) OR `expires_at` / `next_fire` / `valid_until` (forward-looking) OR neither?
 4. Search the current Claude Code docs for the actual cron expiry duration (the cgn ticket says 7 days; recent docs cite 3 days in places). Record the empirically-confirmed expiry from whatever authoritative source you find. If docs are still ambiguous, file the ambiguity in your build log and use the SHORTER documented value (conservative).
 5. `CronDelete` the throwaway.
-6. Record the field list AND the confirmed expiry duration in your build log (in your bw comment on `stoa--pbz2`).
+6. Record the field list AND the confirmed expiry duration in your build log (in your bw comment on `stoa--jru`).
 
 **Decision matrix (locked, expanded with forward-looking row):**
 
@@ -114,11 +114,11 @@ The choice depends on what `CronList` actually exposes AND on the actual expiry 
 | Forward-looking (expires-at / next-fire / valid-until) | Option 1 (in-fire check based on time-until-expiry) — strictly simpler than backward-looking | Same location as above; STEP 7 reads `expires_at - now < {{RENEWAL_BUFFER_HOURS}}` instead of `now - start_time > {{RENEWAL_THRESHOLD}}` |
 | Both backward AND forward fields exposed | Option 1 with forward-looking comparison (preferred — avoids age-arithmetic fencepost errors) | Same |
 | Neither (cron metadata fully opaque) | Option 3 (setup-time scheduled renewal) | `operating-disciplines.md` §11 — new step 1.5 ("schedule a one-shot renewal cron at +<expiry-1day>") |
-| `CronUpdate` or equivalent in-place renewal primitive exists | Surface to user-tier POLYBIUS via `[for: user-tier-polybius] [from: polybius-the-stoa]` on `stoa--pbz2` | Decision routes through user-tier POLYBIUS; do not pick unilaterally — this is a strictly-better path that may justify scope adjustment |
+| `CronUpdate` or equivalent in-place renewal primitive exists | Surface to user-tier POLYBIUS via `[for: user-tier-polybius] [from: polybius-the-stoa]` on `stoa--jru` | Decision routes through user-tier POLYBIUS; do not pick unilaterally — this is a strictly-better path that may justify scope adjustment |
 
 Option 2 is rejected up-front: separate watcher cron adds an entirely new coordination dependency (the watcher's own expiry, the watcher's polling cost, the watcher's failure modes). Options 1 and 3 keep the renewal logic local to the engagement that owns the cron — strictly simpler.
 
-Genuinely-unexpected states (e.g., `CronList` returns no entries, fields are present but undocumented, the empirical expiry probe reveals inconsistency between docs and tool behavior) surface to user-tier POLYBIUS via `[for: user-tier-polybius] [from: polybius-the-stoa]` on `stoa--pbz2` — do not pick on your own.
+Genuinely-unexpected states (e.g., `CronList` returns no entries, fields are present but undocumented, the empirical expiry probe reveals inconsistency between docs and tool behavior) surface to user-tier POLYBIUS via `[for: user-tier-polybius] [from: polybius-the-stoa]` on `stoa--jru` — do not pick on your own.
 
 ### A5. Cron-renewal buffer — LOCKED (expressed as buffer, not absolute day)
 
@@ -310,14 +310,14 @@ Closes: `stoa--cgn`.
 3. **Empirical-expiry confirmation:** search current Claude Code docs (use WebSearch — your training data is out of date per CLAUDE.md) for the actual cron expiry duration. Cross-reference at least two sources: official `code.claude.com/docs/scheduled-tasks` AND community sources. If they disagree, use the SHORTER documented value (conservative) and record the ambiguity in your build log.
 4. Check for `CronUpdate` or equivalent in-place renewal primitive in the available tool set (use ToolSearch with `cron` keywords).
 5. `CronDelete` the throwaway.
-6. Record in your build log on `stoa--pbz2`: (a) the full CronList field list, (b) the empirically-confirmed expiry duration with source citations, (c) presence/absence of CronUpdate-equivalent.
+6. Record in your build log on `stoa--jru`: (a) the full CronList field list, (b) the empirically-confirmed expiry duration with source citations, (c) presence/absence of CronUpdate-equivalent.
 
 **Decision per §A4 matrix:**
 
 - Backward-looking fields exposed → Option 1 (deliverable 2.2), backward-arithmetic variant.
 - Forward-looking fields exposed → Option 1 (deliverable 2.2), forward-arithmetic variant — STRICTLY simpler; prefer this if both forward and backward are present.
 - Neither → Option 3 (deliverable 2.3).
-- CronUpdate-equivalent exists → surface via `[for: user-tier-polybius] [from: polybius-the-stoa]` on `stoa--pbz2`; this is a strictly-better path that may justify scope adjustment.
+- CronUpdate-equivalent exists → surface via `[for: user-tier-polybius] [from: polybius-the-stoa]` on `stoa--jru`; this is a strictly-better path that may justify scope adjustment.
 - Genuinely-unexpected state (no entries returned, undocumented fields, docs vs tool inconsistency) → surface via the same routing.
 
 #### 2.2 IF Option 1: in-fire renewal check
@@ -450,7 +450,7 @@ Part 2 (stoa--cgn) — CronCreate 7-day expiry:
     [OR operating-disciplines.md §11 step 1.5: setup-time renewal]
   - MAJOR_POLYBIUS.md §13.4: renewal-mechanism confirm-on-entry note
 
-Closes stoa--e39, stoa--cgn, stoa--pbz2."
+Closes stoa--e39, stoa--cgn, stoa--jru."
 ```
 
 Push to origin/main on clean PASS. The arc directive itself (`substrate/arcs/arc-22-build-directive.md`) was committed by user-tier POLYBIUS before dispatch — don't include it in your commit.
@@ -471,7 +471,7 @@ Push to origin/main on clean PASS. The arc directive itself (`substrate/arcs/arc
 ## Surface back when done
 
 ```
-bw comment stoa--pbz2 "Arc 22 shipped at commit <sha>, pushed to origin/main.
+bw comment stoa--jru "Arc 22 shipped at commit <sha>, pushed to origin/main.
 
 Smoke test passed:
   - Voice grep clean (no Colonel / the user outside templates).
@@ -491,15 +491,15 @@ Files modified:
     [STEP 7 OR end-note pointing to §11 step 1.5])
   - substrate/templates/autonomous-mode-activation-template.md (author-tag)
 
-Closes stoa--e39, stoa--cgn, stoa--pbz2."
+Closes stoa--e39, stoa--cgn, stoa--jru."
 ```
 
 Then close the children + parent:
 
 ```
-bw close stoa--e39 --reason "Landed via Arc 22 / stoa--pbz2"
-bw close stoa--cgn --reason "Landed via Arc 22 / stoa--pbz2"
-bw close stoa--pbz2 --reason "Arc 22 shipped at <sha>"
+bw close stoa--e39 --reason "Landed via Arc 22 / stoa--jru"
+bw close stoa--cgn --reason "Landed via Arc 22 / stoa--jru"
+bw close stoa--jru --reason "Arc 22 shipped at <sha>"
 bw sync
 ```
 
