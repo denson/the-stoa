@@ -1,5 +1,5 @@
 {
-  "assignee": "",
+  "assignee": "denson",
   "blocked_by": [],
   "blocks": [],
   "created": "2026-05-07T05:41:17Z",
@@ -8,8 +8,8 @@
   "labels": [],
   "parent": "stoa--7kg",
   "priority": 3,
-  "status": "open",
+  "status": "in_progress",
   "title": "Activation reflex: auto-clean worktreeconfig regression on bw prime failure",
   "type": "task",
-  "updated_at": "2026-05-07T05:41:17Z"
+  "updated_at": "2026-05-07T05:41:22Z"
 }
