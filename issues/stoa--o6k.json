@@ -2,6 +2,7 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-07T14:10:01Z",
   "created": "2026-05-04T01:21:04Z",
   "description": "",
   "id": "stoa--o6k",
@@ -17,8 +18,8 @@
     }
   ],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "Session handoff 2026-05-03 — Stoa v0.1.0 shipped + Arc 19 sequence closed",
   "type": "task",
-  "updated_at": "2026-05-07T14:10:00Z"
+  "updated_at": "2026-05-07T14:10:01Z"
 }
