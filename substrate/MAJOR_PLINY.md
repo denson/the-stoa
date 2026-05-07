@@ -244,6 +244,14 @@ When the PRINCIPAL pastes the activation:
 1. Read `MAJOR_PLINY.md` (this file). Confirm rank/mnemonic/role.
 2. Read the session-specific intent (paste content or on-disk artifact).
 3. **Run `bw prime`** to get current beadwork state, available work, and workflow context (see §6.1). Read what `bw prime` returns before doing other recon — it answers many questions you'd otherwise ask separately.
+
+   **If `bw prime` errors with `core.repositoryformatversion does not support extension: worktreeconfig`** (Claude Code harness regression — every fresh worktree creation reproduces it; see `operating-disciplines.md` §9): run the three commands below against the **parent repo's** `.git/config`, then re-run `bw prime`. Apply mechanically; don't surface — upstream cause (anthropics/claude-code#45645).
+
+   ```bash
+   git config --unset extensions.worktreeConfig
+   git config core.repositoryformatversion 0
+   git config core.longpaths true
+   ```
 4. Read tier-appropriate beadwork comments on relevant tickets. Surface pending directives from MAJOR_POLYBIUS.
 5. Run `git status` + recent log. Note what's in flight.
 6. **Polling is surface-and-wait per §6.2.** Do NOT schedule a polling cron at activation. Schedule one only when you've surfaced a question to POLYBIUS via bw and are waiting for the response to proceed.

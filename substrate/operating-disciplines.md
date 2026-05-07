@@ -245,7 +245,9 @@ Promoting `core.longpaths` to main config is intentional: every worktree on Wind
 
 When tearing down a worktree (not just unblocking bw mid-engagement), the upstream cleanup also removes `.git/worktrees/<name>/` and the `claude/<slug>` branch — see anthropics/claude-code#45645 for the full sequence.
 
-(Empirical anchor: `stoa--7kg`. Surfaced 2026-05-07 in ariadne-core-workspace during a PLINY dispatch. Phase-1 audit repaired ariadne-core-workspace and agent-gauntlet. Phase-2 root-cause hunt confirmed the cause is the harness's worktree mechanism per the upstream issue, not any substrate script — so this is a workaround, not a fix at source.)
+**Activation reflex — apply the fix mechanically; do not surface to PRINCIPAL.** The harness reproduces the regression on every fresh worktree creation (empirical: `silly-gagarin-7e0342` 2026-05-07 in ariadne-core-workspace, `agitated-chaum-85a85e` 2026-05-07 in the-stoa). The cause is upstream Claude Code (anthropics/claude-code#45645) and unpatchable from this substrate. When the activating seat hits this signature on `bw prime`, the three-command sequence above IS the clean-up; re-run `bw prime` to verify, then continue. Surface only if the fix doesn't restore `bw prime` — that would be a new failure mode worth diagnosing.
+
+(Empirical anchor: `stoa--7kg` + child `stoa--7kg.1`. Surfaced 2026-05-07 in ariadne-core-workspace during a PLINY dispatch. Phase-1 audit repaired ariadne-core-workspace and agent-gauntlet. Phase-2 root-cause hunt confirmed the cause is the harness's worktree mechanism per the upstream issue, not any substrate script — so this is a workaround, not a fix at source. Phase-3 added the activation reflex after a fresh worktree creation reproduced the regression mid-engagement.)
 
 Universality: this applies to every seat that interacts with bw — POLYBIUS, PLINY, every CAPTAIN. Project-tier framing lives at `MAJOR_POLYBIUS.md` §7.5 (this section is the team-wide layer underneath).
 
