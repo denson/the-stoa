@@ -7,9 +7,15 @@
   "id": "stoa--7kg.2",
   "labels": [],
   "parent": "stoa--7kg",
+  "comments": [
+    {
+      "text": "Frequency-signal data point from ariadne PLINY's Batch H run (2026-05-07):\n\n  ~10 worktree creations per engagement at typical Batch-H pacing.\n\nImplication for breadcrumb design: per-firing append-log shape will accumulate ~10 entries/session, scaling to dozens per active day. Design likely wants:\n\n- Dedup by date + workspace (one entry per workspace per day, not per firing).\n- OR rolling-window summary (e.g., 'reflex fired N times since YYYY-MM-DD').\n- OR explicit threshold ('alert when reflex hasn't fired in N days' as the upstream-fixed signal, rather than logging every firing).\n\nThe third shape is interesting because it inverts the question: instead of 'when did the reflex stop firing?' (requires reading all entries to detect absence), it becomes 'how long since last firing?' (a single-field check). Less data, sharper signal.\n\nSource: PLINY surface on stoa--7kg comment thread + Batch H close-out 2026-05-07.",
+      "timestamp": "2026-05-07T14:03:44Z"
+    }
+  ],
   "priority": 4,
   "status": "open",
   "title": "Audit-trail breadcrumb when worktreeconfig activation reflex fires",
   "type": "task",
-  "updated_at": "2026-05-07T05:44:53Z"
+  "updated_at": "2026-05-07T14:03:44Z"
 }
