@@ -231,6 +231,16 @@ Detection (any of the below, in order of preference):
 
 **Never `git checkout beadwork` from the main worktree.** The orphan branch's data files (`blocks/`, `issues/`, `labels/`, `parent/`, `status/`, `.bwconfig`) populate the main worktree's filesystem when checked out and persist as untracked files when switching back, polluting the project. Use `bw list` / `bw show` / `bw history` to inspect tickets without switching branches.
 
+**Windows-worktree quirk: `bw prime` fails with `core.repositoryformatversion does not support extension: worktreeconfig`.** bw (go-git v0.12.3) rejects any `extensions.*` key when `core.repositoryformatversion = 0`; modern git tolerates the mismatch silently, go-git does not. The Claude Code harness's built-in worktree mechanism (worktree paths under `<repo>/.claude/worktrees/<slug>`) writes per-worktree config (`config.worktree` containing `core.longpaths = true`), which causes git to flip `extensions.worktreeconfig = true` in the main `.git/config` without bumping the format version. Three-command fix against the **main repo's `.git/config`**, not the worktree's:
+
+    git config core.longpaths true
+    git config --unset extensions.worktreeconfig
+    git config core.repositoryformatversion 0
+
+`core.longpaths` has no reason to vary per-worktree on Windows NTFS — every worktree wants it. Promoting to main config restores semantic correctness AND unblocks go-git. Run from the main repo root (e.g. `~/claude_projects/<repo>/`), not from inside a worktree under `.claude/worktrees/`. Verify: `bw prime` succeeds.
+
+(Empirical anchor: `stoa--7kg`. Surfaced 2026-05-07 in ariadne-core-workspace during a PLINY dispatch. Phase-1 audit repaired ariadne-core-workspace and agent-gauntlet. Phase-2 root-cause hunt confirmed the cause is the Claude Code harness's worktree mechanism, not any substrate script — so this is a workaround, not a fix at source.)
+
 Universality: this applies to every seat that interacts with bw — POLYBIUS, PLINY, every CAPTAIN. Project-tier framing lives at `MAJOR_POLYBIUS.md` §7.5 (this section is the team-wide layer underneath).
 
 ---
