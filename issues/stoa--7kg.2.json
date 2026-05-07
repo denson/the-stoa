@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-07T05:44:53Z",
+  "description": "CATO follow-up surfaced during stoa--7kg.1 review of the activation-reflex commit (df826a9).\n\n## Concern\n\nThe reflex paragraph in operating-disciplines.md §9 + MAJOR_PLINY.md §9 step 3 says: when bw prime hits the worktreeconfig signature, run the three commands mechanically and don't surface to PRINCIPAL. That's correct for ergonomics — it auto-cleans without burning attention — but it's silent. If anthropics fixes anthropics/claude-code#45645 in a future Claude Code release, the reflex would keep firing on stale config until someone notices, with no audit trail of whether the upstream is still live.\n\nCATO's suggested mitigation: each time the reflex fires, leave a one-line breadcrumb noting \"worktreeconfig reflex applied \u003cdate\u003e\". That gives PRINCIPAL eventual observability.\n\n## Open design questions\n\n1. **Where does the breadcrumb land?** Options:\n   - The engagement's coordination ticket (but not every session has one).\n   - A dedicated reflex-log ticket (e.g., a long-lived \"regression observations\" ticket per project).\n   - The session's own bw activity (no formal log concept exists today).\n   - A file-on-disk breadcrumb under `.claude/` (but that pollutes the worktree).\n\n2. **What's the read-side discipline?** The breadcrumb is only useful if someone reads it — POLYBIUS during a periodic sweep? PRINCIPAL during a retrospective?\n\n3. **Volume vs. signal.** If every fresh worktree fires the reflex (which is the empirical pattern), the breadcrumbs accumulate fast. Does the breadcrumb need a frequency-threshold (e.g., one per project per day) to avoid noise?\n\n## Out of scope\n\n- Re-deriving the reflex itself (already shipped in stoa--7kg.1).\n- Filing an upstream issue against anthropics/claude-code (existing #45645 covers it).\n\n## Sequencing\n\nDefer until the reflex has fired enough times that the absence of audit trail becomes observably painful. Not blocking any active arc.",
+  "id": "stoa--7kg.2",
+  "labels": [],
+  "parent": "stoa--7kg",
+  "priority": 4,
+  "status": "open",
+  "title": "Audit-trail breadcrumb when worktreeconfig activation reflex fires",
+  "type": "task",
+  "updated_at": "2026-05-07T05:44:53Z"
+}
