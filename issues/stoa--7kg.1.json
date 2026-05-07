@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-07T05:41:17Z",
+  "description": "Convergent empirical signal from ariadne PLINY (2026-05-06): a NEW worktree (silly-gagarin-7e0342) was just spawned by Claude Code for Batch H work, and the harness re-introduced the broken pattern (extensions.worktreeConfig=true in main .git/config + per-worktree config.worktree). Confirms the regression reproduces on every fresh worktree creation, not just on installs.\n\nBrief upstream-source probe:\n- Claude Code CLI lives at ~/AppData/Roaming/npm/node_modules/@anthropic-ai/claude-code/cli.js (single ~19k-line minified bundle).\n- Patchable in principle but npm auto-update would wipe any patch.\n- MSIX desktop install is sandboxed.\n- No user-level hook event for worktree creation.\n\nConclusion: upstream-unpatchable from our position. Pivot to substrate-reflex pattern.\n\n## Scope\n\nAdd an activation-reflex pattern to substrate so that any seat (PLINY, POLYBIUS, any CAPTAIN) hitting the worktreeconfig error on bw prime applies the fix mechanically and proceeds, without surfacing to PRINCIPAL.\n\n1. **operating-disciplines.md §9.** Append an \"Activation reflex\" sentence to the existing Windows-worktree paragraph: when bw prime errors with this signature on session start, the fix is mechanical and the cause is upstream — apply the three commands and proceed; don't surface.\n\n2. **MAJOR_PLINY.md §9 (activation checklist) step 3.** Add an inline sub-bullet: if `bw prime` errors with the worktreeconfig signature, run the three commands against the parent repo's .git/config inline (don't context-switch to operating-disciplines.md to look them up), re-run bw prime, continue.\n\nUse the same camelCase + ordering as the existing operating-disciplines.md §9 paragraph (extensions.worktreeConfig camelCase; unset, format=0, longpaths=true order).\n\n## Sequencing\n\nLands on the same branch as stoa--7kg phase 2 (claude/agitated-chaum-85a85e), via the same PR (denson/the-stoa#1). Add a third commit; CATO eyeball; close.\n\n## Out of scope\n\n- Filing an upstream issue against anthropics/claude-code (the existing #45645 is already filed; user can decide whether to comment).\n- Monkey-patching cli.js.\n- Migrating to a different bw version (separate question per stoa--7kg).",
+  "id": "stoa--7kg.1",
+  "labels": [],
+  "parent": "stoa--7kg",
+  "priority": 3,
+  "status": "open",
+  "title": "Activation reflex: auto-clean worktreeconfig regression on bw prime failure",
+  "type": "task",
+  "updated_at": "2026-05-07T05:41:17Z"
+}
