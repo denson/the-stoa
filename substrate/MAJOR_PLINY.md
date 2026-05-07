@@ -157,7 +157,7 @@ The convention varies across bw subcommands; check `bw <command> --help` if unce
 
 When uncertain, run `bw <command> --help` first; the verified syntax is one round-trip cheaper than a comment that gets eaten.
 
-**`bw prime` fails with `core.repositoryformatversion does not support extension: worktreeconfig`?** This is a Windows-NTFS-worktree pitfall — the Claude Code harness's per-worktree config writes a config combination go-git rejects. Three-command fix is at `operating-disciplines.md` §9 ("Windows-worktree quirk"). Run the fix against the main repo's `.git/config`, not the worktree's.
+**`bw prime` fails with `core.repositoryformatversion does not support extension: worktreeconfig`?** This is a Windows-NTFS-worktree pitfall — bw's go-git library is v0-only and refuses the v1 state the Claude Code harness writes during worktree creation. Three-command fix is at `operating-disciplines.md` §9 ("Windows-worktree quirk"). Run the fix against the main repo's `.git/config`, not the worktree's.
 
 ### 6.2 Surface-and-wait polling pattern (Arc 18)
 

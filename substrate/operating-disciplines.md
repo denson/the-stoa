@@ -231,15 +231,21 @@ Detection (any of the below, in order of preference):
 
 **Never `git checkout beadwork` from the main worktree.** The orphan branch's data files (`blocks/`, `issues/`, `labels/`, `parent/`, `status/`, `.bwconfig`) populate the main worktree's filesystem when checked out and persist as untracked files when switching back, polluting the project. Use `bw list` / `bw show` / `bw history` to inspect tickets without switching branches.
 
-**Windows-worktree quirk: `bw prime` fails with `core.repositoryformatversion does not support extension: worktreeconfig`.** bw (go-git v0.12.3) rejects any `extensions.*` key when `core.repositoryformatversion = 0`; modern git tolerates the mismatch silently, go-git does not. The Claude Code harness's built-in worktree mechanism (worktree paths under `<repo>/.claude/worktrees/<slug>`) writes per-worktree config (`config.worktree` containing `core.longpaths = true`), which causes git to flip `extensions.worktreeconfig = true` in the main `.git/config` without bumping the format version. Three-command fix against the **main repo's `.git/config`**, not the worktree's:
+**Windows-worktree quirk: `bw prime` fails with `core.repositoryformatversion does not support extension: worktreeconfig`.** When the Claude Code harness creates a worktree (paths shaped `<repo>/.claude/worktrees/<slug>`), it enables per-worktree config — git bumps the main `.git/config` to a self-consistent v1 state: `core.repositoryformatversion = 1` and `extensions.worktreeConfig = true`. Modern git accepts that pair; bw's go-git library is v0-only and refuses any v1 repository regardless of which extensions are present, so `bw prime` aborts. Reference: [anthropics/claude-code#45645](https://github.com/anthropics/claude-code/issues/45645).
 
-    git config core.longpaths true
-    git config --unset extensions.worktreeconfig
-    git config core.repositoryformatversion 0
+Three-command fix against the **main repo's `.git/config`** (run from the main repo root, not from inside a worktree under `.claude/worktrees/`). Unset the extension first so subsequent writes land in main-repo scope unambiguously:
 
-`core.longpaths` has no reason to vary per-worktree on Windows NTFS — every worktree wants it. Promoting to main config restores semantic correctness AND unblocks go-git. Run from the main repo root (e.g. `~/claude_projects/<repo>/`), not from inside a worktree under `.claude/worktrees/`. Verify: `bw prime` succeeds.
+```bash
+git config --unset extensions.worktreeConfig
+git config core.repositoryformatversion 0
+git config core.longpaths true
+```
 
-(Empirical anchor: `stoa--7kg`. Surfaced 2026-05-07 in ariadne-core-workspace during a PLINY dispatch. Phase-1 audit repaired ariadne-core-workspace and agent-gauntlet. Phase-2 root-cause hunt confirmed the cause is the Claude Code harness's worktree mechanism, not any substrate script — so this is a workaround, not a fix at source.)
+Promoting `core.longpaths` to main config is intentional: every worktree on Windows NTFS wants longpaths enabled, so its per-worktree scope was incidental. After the three commands, `bw prime` succeeds; the orphaned `config.worktree` becomes dormant (git no longer reads it once the extension is gone).
+
+When tearing down a worktree (not just unblocking bw mid-engagement), the upstream cleanup also removes `.git/worktrees/<name>/` and the `claude/<slug>` branch — see anthropics/claude-code#45645 for the full sequence.
+
+(Empirical anchor: `stoa--7kg`. Surfaced 2026-05-07 in ariadne-core-workspace during a PLINY dispatch. Phase-1 audit repaired ariadne-core-workspace and agent-gauntlet. Phase-2 root-cause hunt confirmed the cause is the harness's worktree mechanism per the upstream issue, not any substrate script — so this is a workaround, not a fix at source.)
 
 Universality: this applies to every seat that interacts with bw — POLYBIUS, PLINY, every CAPTAIN. Project-tier framing lives at `MAJOR_POLYBIUS.md` §7.5 (this section is the team-wide layer underneath).
 
