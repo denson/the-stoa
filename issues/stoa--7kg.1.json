@@ -7,9 +7,15 @@
   "id": "stoa--7kg.1",
   "labels": [],
   "parent": "stoa--7kg",
+  "comments": [
+    {
+      "text": "Activation-reflex pattern shipped on PR denson/the-stoa#1 as commit df826a9.\n\n## Brief upstream-source probe\n\n- Claude Code CLI lives at `~/AppData/Roaming/npm/node_modules/@anthropic-ai/claude-code/cli.js` (single ~19k-line minified bundle).\n- No user-level hook fires on worktree creation; MSIX desktop install is sandboxed.\n- npm auto-update would wipe any monkey-patch.\n\nEffectively unpatchable from substrate position. Pivoted to the activation-reflex pattern as the user proposed.\n\n## Diff\n\n- `substrate/operating-disciplines.md` §9: appended \"Activation reflex\" paragraph naming both empirical reproductions (`silly-gagarin-7e0342` in ariadne-core-workspace; `agitated-chaum-85a85e` in the-stoa, both 2026-05-07), the upstream-unpatchable framing, and the rule (apply mechanically, don't surface unless the fix itself fails). Empirical-anchor parenthetical updated for phase-3 + child ticket.\n- `substrate/MAJOR_PLINY.md` §9 (activation checklist) step 3: inline sub-bullet with the three commands so PLINY can apply the reflex without context-switching mid-activation.\n\n## Pipeline\n\n- PLINY in-session edit (small surgical addition per §5 build-directly authority).\n- CATO eyeball cold-read PASS (recommendations: ship).\n\n## CATO non-blocking follow-up\n\nCATO surfaced one minor concern: the reflex auto-cleans silently, so PRINCIPAL has no observability into whether the upstream issue is still live. If anthropics fixes anthropics/claude-code#45645 in a future release, the reflex would keep firing on stale config until someone notices. Filing as `stoa--7kg.2` for a separate design pass.\n\nPR: https://github.com/denson/the-stoa/pull/1",
+      "timestamp": "2026-05-07T05:44:36Z"
+    }
+  ],
   "priority": 3,
   "status": "in_progress",
   "title": "Activation reflex: auto-clean worktreeconfig regression on bw prime failure",
   "type": "task",
-  "updated_at": "2026-05-07T05:41:22Z"
+  "updated_at": "2026-05-07T05:44:36Z"
 }
