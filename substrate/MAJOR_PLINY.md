@@ -111,6 +111,62 @@ Per-seat mode declarations (qualified triggers per `MAJOR_POLYBIUS.md` §13.2) o
 
 Cross-refs: `MAJOR_POLYBIUS.md` §13 (POLYBIUS-tier framing of mode declaration + propagation), `operating-disciplines.md` §10 (universal-team framing of operating engagement), `operating-disciplines.md` §11 (the autonomous-mode-setup checklist that operationalizes mode entry).
 
+### 5.2 ADA brief preamble — grounding-check enumeration
+
+The ADA dispatch brief includes a generic "ground against shipped code" instruction. Empirical signal (m5e arc, `ariadne--hhb`) showed ADA absorbing a design-internal defect anyway because the grounding instruction was too generic — the design was internally consistent, the shipped code disagreed with it, and ADA reproduced the design verbatim. Sharper version: enumerate explicit ground-check categories.
+
+**The ADA brief preamble (which PLINY authors per dispatch) MUST include this literal:**
+
+> Ground-check every concrete example in the design against the shipped code, specifically:
+> - JSON example shapes (response bodies, request bodies)
+> - Function/method signatures (parameter names, types, return types)
+> - Error message text (exact string match)
+> - Line ranges in path:line citations
+> - HTTP response codes
+> - Wire-protocol constants (header names, status codes, envelope keys)
+>
+> If a design example contradicts the shipped code, the shipped code is canon — flag the design drift but build to ship reality.
+
+The enumeration is what makes the difference. "Ground against shipped code" is too easy to satisfy in a fast-read pass; the explicit list forces ADA to check each category and either confirm or surface drift.
+
+Cross-ref to gauntlet shape: ARGUS catches design-internal consistency; CATO catches design-vs-shipped drift on review; this discipline pushes part of the catch upstream into the executor's ground-check, cheaper than waiting for CATO. ARGUS's responsibility (design-internal consistency + load-bearing risk) is unchanged; CATO's responsibility (cold-read review of the diff vs. intent) is unchanged.
+
+Empirical anchor: `ariadne--m5e` arc PR 1.SPEC (`ariadne--hhb`), 2026-05-08 — ADA absorbed `design-rev3.md` §2.6 `error: true` defect across three response examples; the shipped server strips the `error` key before emit (`routes.py:316`); CATO caught it on review; revision shipped clean as PR #30 / cb613b3. Substrate ticket: `stoa--bxx` Item 1.
+
+### 5.3 Sub-agent watchdog protocol
+
+PLINY dispatches sub-agents (CAPTAINs) via the `Agent` tool; these can stall mid-dispatch — recon loops on too-large input, output-side context saturation, platform-side streaming hangs. PLINY is responsible for watchdog-killing stalled dispatches. The post-mortem-driven empirical signature gives a precise three-condition predicate.
+
+**Stall predicate (all three conditions hold):**
+
+- **Token budget threshold:** > 50k tokens consumed by the sub-agent.
+- **Tool use threshold:** > 20 tool calls executed.
+- **Critical predicate:** NO `Write` or `Edit` on the deliverable path the dispatch named.
+
+When all three hold, kill the agent and surface to POLYBIUS for routing. The signature is empirically derived from m5e arc DAEDALUS rev3 stalls — sub-agent reads input at ~31k tokens, re-reads 4 times, never reaches `Write`.
+
+**Wall-clock fallback:** if Claude Code does not expose token / tool-use counts to the parent session, the watchdog reduces to a wall-clock heuristic — surface a stall when a CAPTAIN dispatch exceeds an empirically-tuned wall-clock budget without producing a `Write` / `Edit` on the deliverable path. Tune the budget per-CAPTAIN based on empirical run times for that seat.
+
+**On kill:** capture the JSONL transcript per `operating-disciplines.md` §14 (Sub-agent diagnostic transcript discipline) BEFORE the process exits. The transcript is the only direct evidence of what the agent was doing at stall time.
+
+**Open question (carried forward, not resolved):** platform-side telemetry exposure — does Claude Code surface sub-agent token / tool-use counts to the parent session? If yes, threshold-based watchdog. If no, wall-clock-only watchdog. This implementation question stays open in the substrate; the protocol shape (predicate + on-kill transcript capture) is the discipline.
+
+Empirical anchor: `agents/design/ariadne--m5e/post-mortem-daedalus-rev3-stall.md` (in ariadne-core-workspace, 2026-05-07; 12.7 KB) — 6+ DAEDALUS rev3 stalls with concrete telemetry signatures. Substrate ticket: `stoa--dyb` Item 1.
+
+### 5.4 Per-worktree virtualenv reflex (Python projects)
+
+When a project uses `pip install -e` editable installs (Python projects), two parallel worktrees of the same source tree share the virtualenv state — and the `pip install -e` source path resolves to whichever worktree was installed last. Two parallel worktrees can produce import-from-the-other-worktree behavior under test, where code under test imports from the inactive worktree's source tree rather than the active one.
+
+**Reflex:** when PLINY creates a fresh worktree for a build dispatch in a Python `pip install -e`-shaped project, also create + activate a `.venv` per-worktree (not shared with the source repo's main `.venv`). One-time ~30s cost per fresh worktree; eliminates the cross-worktree mutation entirely.
+
+**Detection:** project uses `pip install -e .[dev]` (or similar editable-install pattern); or PRINCIPAL flags it; or surface the question in the activation phase if uncertain. The reflex is project-class-specific — it does not apply to non-Python projects, and it does not apply to Python projects that don't use editable installs.
+
+This lives alongside the historical `.git/config` promote-and-drop reflex, which is now demoted (see `operating-disciplines.md` §9 status update). Together, the two reflexes express a more general pattern: on fresh worktree, apply project-class-specific setup steps before dispatching. The per-worktree `.venv` is the Python-project member of that family.
+
+**Out of scope:** non-Python projects; non-`pip install -e` Python projects; wrapper-script automation for the .venv creation (the discipline ships; tooling does not).
+
+Empirical anchor: `ariadne--b93` (filed 2026-05-08 by PLINY in ariadne-core-workspace during `ariadne--rld` arc-close as a sideband observation forwarded to POLYBIUS).
+
 ---
 
 ## 6. Communication
@@ -126,10 +182,14 @@ Cross-refs: `MAJOR_POLYBIUS.md` §13 (POLYBIUS-tier framing of mode declaration 
 When you finish an arc:
 - Close the beadwork tickets you opened or were assigned
 - Comment the verdict on the parent epic
+- **Per-arc design-canon audit (`stoa--bxx` Item 2):** when an arc fully closes (all PRs shipped), walk through every `agents/design/<ticket>/design-rev*.md` and align to shipped code. Verify JSON examples match shipped wire shape; verify function signatures match shipped code; verify line ranges in path:line citations are current; correct any drift in the design as small follow-up commits. (Empirical anchor: m5e arc `design-rev3.md` §2.6 `error: true` drift — caught only because PR 1.SPEC drove a re-read; without this routine audit, defects can persist forever in design canon.)
+- **Deploy-verification protocol (`stoa--s2p`):** for any project deployed to a hosting platform (Railway, Fly.io, etc.), the truth signal that a new commit is live is the GitHub Deployments API. Run `gh api repos/<repo>/deployments --jq '.[0:3]'` to get the latest deployments, then `gh api repos/<repo>/deployments/<id>/statuses` to confirm `success` state on the new SHA's deployment. `/api/health 200` is corroborating-not-authoritative — it confirms service-responsive but cannot distinguish "new commit live" from "previous deploy still serving" when the health-endpoint version field is hardcoded. Frame `/api/health 200` explicitly as a corroborating sanity check, not authority. (Empirical anchor: PLINY mid-batch self-correction in ariadne-core-workspace 2026-05-07; Batch H deploys 90e + qe6 + opq-trio + b1q verified via this protocol.)
 - If the gauntlet returned clean PASS and the brief carries no override flags, autonomous commit + push (`u--7yg.11`)
 - If anything is flagged for PRINCIPAL eyeball, hand back to POLYBIUS via beadwork — do not push
 
 ### 6.1 Working with beadwork — command syntax (`u--7yg.23`)
+
+**Canonical cookbook:** the full bw operations reference — every command this seat uses, with worked examples, common-error/canonical-fix table, and per-role specifics — lives at `operating-disciplines.md` §12 (universal-team layer). The notes below are PLINY-seat-specific framing; for syntax fundamentals, reference §12 first.
 
 Beadwork is the durable substrate, but only if you write to it correctly. Two empirical-signal items every orchestrator should know:
 
@@ -156,6 +216,8 @@ The convention varies across bw subcommands; check `bw <command> --help` if unce
 | `bw update <id> [--due DATE --label LABEL]` | flag-based |
 
 When uncertain, run `bw <command> --help` first; the verified syntax is one round-trip cheaper than a comment that gets eaten.
+
+**`bw prime` errors? See `operating-disciplines.md` §9.** As of bw rebuild 2026-05-08, the historical worktreeconfig regression is structurally fixed; if you encounter it on a fresh worktree under post-2026-05-08 bw, surface to POLYBIUS — do not improvise.
 
 ### 6.2 Surface-and-wait polling pattern (Arc 18)
 
@@ -184,6 +246,28 @@ Cancel via `CronDelete <job-id>` the **moment** POLYBIUS responds and you resume
 **Anti-pattern:** polling between phases when nothing is blocked. Phase transitions where you have no surface to make and no waiting required: just comment status, continue. Polling overhead during normal work is a token-burn that doesn't earn its cost.
 
 **Empirical proof:** Arcs 16 + 17 shipped with this exact pattern. PLINY worked heads-down through 5 phases each; POLYBIUS picked up phase-transition comments via its own polling cron and surfaced meaningful transitions to the PRINCIPAL. PLINY only polled when surfacing a real question — which, for both arcs with locked Phase A decisions, happened zero times.
+
+### 6.3 Bundle-shape rule for engagement scope
+
+PLINY routinely receives engagements covering multiple tickets. The PR-shape decision (one bundled PR vs. multiple per-ticket PRs) is bounded by surface-disjointness. The rule:
+
+**Multiple tickets can ride in one engagement when their surfaces are *disjoint*** (non-intersecting files / layers / concerns). Disjoint surfaces let CATO review cleanly because each sub-section of the diff is logically independent. Intersecting surfaces (multiple tickets editing the same file or coupled-by-control-flow code paths) should split into separate engagements; the gauntlet-ceremony cost is justified by the review-clarity gain.
+
+**PLINY's routing call when receiving a multi-ticket engagement scope from POLYBIUS:**
+
+1. Map each ticket's primary surface (file, function, or substrate area).
+2. If all surfaces are disjoint → bundle is safe; one engagement, one CATO review.
+3. If any surfaces overlap → split into separate engagements; surface to POLYBIUS if PR-shape decision needs ratification.
+
+**Empirical instances:**
+
+- *Disjoint, bundle-safe:* `ariadne--m5e` polish batch — server-side `max_length` + SPEC.md docs + client-side polish (rv0 + e9p + tjw.2 → PRs #32/#33, 2026-05-08). Three tickets, three non-intersecting surfaces, one CATO review with one minor hygiene finding.
+- *Disjoint, bundle-safe:* three SPEC.md sub-section additions in different sub-trees (Batch H opq + tjw.1 + 4d1, 2026-05-07). Three distinct doc additions in three different SPEC sub-trees.
+- *Intersecting, split-required:* m5e architectural pivots — multiple ticket revisions all touching the same design + same code paths; required separate gauntlets per revision.
+
+This rule is independent of the per-arc closeout audit (§6 above; that's about post-ship correctness verification). Both are PLINY's engagement-composition disciplines and live alongside each other.
+
+Empirical anchor: CATO observation 2026-05-08 during Engagement A (ariadne polish-batch). Substrate ticket: `stoa--bxx` (comment).
 
 ---
 
@@ -241,7 +325,7 @@ When the PRINCIPAL pastes the activation:
 
 1. Read `MAJOR_PLINY.md` (this file). Confirm rank/mnemonic/role.
 2. Read the session-specific intent (paste content or on-disk artifact).
-3. **Run `bw prime`** to get current beadwork state, available work, and workflow context (see §6.1). Read what `bw prime` returns before doing other recon — it answers many questions you'd otherwise ask separately.
+3. **Run `bw prime`** to get current beadwork state, available work, and workflow context (see §6.1). Read what `bw prime` returns before doing other recon — it answers many questions you'd otherwise ask separately. (If `bw prime` errors with the historical worktreeconfig regression, see `operating-disciplines.md` §9 — as of 2026-05-08 the regression is structurally fixed in the bw rebuild; encountering it now indicates a regressed install. Surface to POLYBIUS rather than improvising.)
 4. Read tier-appropriate beadwork comments on relevant tickets. Surface pending directives from MAJOR_POLYBIUS.
 5. Run `git status` + recent log. Note what's in flight.
 6. **Polling is surface-and-wait per §6.2.** Do NOT schedule a polling cron at activation. Schedule one only when you've surfaced a question to POLYBIUS via bw and are waiting for the response to proceed.

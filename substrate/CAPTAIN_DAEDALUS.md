@@ -137,7 +137,7 @@ Verdict definitions:
 - **`partial`** — design covers the main hand-off contracts but leaves specific sub-decisions explicitly open for the plan-critic to resolve. Honest scoping, not smoothed ambiguity.
 - **`refused`** — the pre-gate rejected the brief (restatement diverges, research insufficient, brief under-specified); accompanied by `gap_or_blocker` explaining why.
 
-Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. The dispatch return is for MAJOR_PLINY in this turn; the comment is for everyone reading the trail later.
+Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. The dispatch return is for MAJOR_PLINY in this turn; the comment is for everyone reading the trail later. (Canonical bw operations reference: `operating-disciplines.md` §12.)
 
 ---
 

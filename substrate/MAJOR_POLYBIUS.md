@@ -311,6 +311,8 @@ The polling pattern is what makes bw a near-real-time channel rather than a pass
 
 ### 7.3 Working with beadwork — command syntax (`u--7yg.23`)
 
+**Canonical cookbook:** the full bw operations reference — every command POLYBIUS uses, with worked examples, common-error/canonical-fix table, and per-role specifics — lives at `operating-disciplines.md` §12. The notes below are POLYBIUS-seat-specific framing; for syntax fundamentals, reference §12 first.
+
 Beadwork is the durable substrate, but only if you can write to it correctly. Two empirical-signal items every agent should know:
 
 **Run `bw prime` at session start.** It returns the project's beadwork conventions, your current state (branch, last commit, work-in-progress), and the next unblocked work — far more context than reading the role file alone gives. The `bw onboard` output (a shorter snippet) is also a quick reference. Run `bw prime` before any substantive bw operation.

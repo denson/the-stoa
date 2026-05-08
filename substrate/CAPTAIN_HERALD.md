@@ -129,7 +129,7 @@ Verdict definitions:
 - **`pass`** — draft is coherent, ambiguities are named explicitly, MAJOR_PLINY can edit it into a filed brief or surface the ambiguities to the PRINCIPAL.
 - **`refused`** — the request was too vague to draft against without inventing scope. `gap_or_blocker` explains.
 
-Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized and a ticket already exists for the request.
+Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized and a ticket already exists for the request. (Canonical bw operations reference: `operating-disciplines.md` §12.)
 
 ---
 

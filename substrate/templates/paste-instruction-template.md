@@ -79,6 +79,8 @@ Read HUMAN_paste-orchestrator-instruction.md and execute.
 
 The substantive content stays on disk — re-readable, durable, version-controllable. The chat paste is one line.
 
+**Cookbook:** the activated session reads `operating-disciplines.md` §12 (bw cookbook) for canonical bw operations. The activation paste does not duplicate cookbook content; the cookbook is part of the substrate the activated agent loads.
+
 ---
 
 ## Where the filled paste-instruction lives

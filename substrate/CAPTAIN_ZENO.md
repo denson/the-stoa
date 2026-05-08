@@ -135,7 +135,7 @@ Verdict definitions:
 - **`drift`** — at least one criterion is `partial` or `not-met`, or there are out-of-spec additions. Drifts are listed; MAJOR_PLINY routes to the right seat.
 - **`refused`** — the spec was missing, unreadable, or too vague to make criteria checkable. `gap_or_blocker` explains.
 
-Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized.
+Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
 
 ---
 

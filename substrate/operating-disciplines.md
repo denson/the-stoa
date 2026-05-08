@@ -10,7 +10,7 @@ Project `CLAUDE.md` files SHOULD NOT restate these disciplines — they should r
 
 ## The thesis these disciplines express
 
-The disciplines below (§1-§12 plus the autonomous-mode setup checklist) are not a flat list of operational rules. They are expressions of one underlying design thesis about how agentic systems align with human goals on complex projects.
+The disciplines below (§1-§14 plus the autonomous-mode setup checklist) are not a flat list of operational rules. They are expressions of one underlying design thesis about how agentic systems align with human goals on complex projects.
 
 **Human attention is finite and load-bearing.** A 2026-era agent team can run a full DAEDALUS → ARGUS → ADA → VERA → CATO → ZENO cycle in minutes; the agents themselves do not run out. What does run out is the human's capacity to direct, clarify, judge, decide, and catch alignment drift. Software 3.0 framings often imply "humans direct, agents do" without specifying *where* the directing has to happen — leading to either humans paying attention everywhere (defeats the leverage) or nowhere (alignment drift).
 
@@ -217,6 +217,32 @@ This sits in deliberate tension with the maxim that the unit of distribution is 
 
 Universality: same as §8.1. Anyone authoring downstream briefs / skills / dispatch envelopes / test scenarios / CLI documentation / API documentation — POLYBIUS, PLINY, CAPTAINs, pair-programmer Majors, anyone writing for an agent reader.
 
+### 8.3 Activation paste — which session-state to use
+
+When authoring an activation paste-instruction for a downstream agent that will resume a related engagement, the session-state choice is a four-state continuum, not a binary fresh-vs-clear. The right state depends on whether the prior context is useful, contaminating, or irrelevant — and on whether the role / cwd / cold-start needs change.
+
+The four states:
+
+| State | What it does | Cost trade-off |
+|---|---|---|
+| **Leave intact** | the existing session continues with all prior context in place; PRINCIPAL pastes the new engagement brief and the agent resumes against accumulated knowledge | zero spin-up cost; full prior context retained; transcript continues to grow |
+| **`/compact`** | summarizes the existing transcript, keeping lessons while shrinking detail; PRINCIPAL pastes the new engagement brief afterward | low spin-up cost; lessons retained as summary; loses fine-grain detail |
+| **`/clear`** | erases the transcript while preserving session infrastructure (cwd, env vars, MCP servers); PRINCIPAL re-pastes the activation | low spin-up cost; full context loss; one terminal window across engagements |
+| **Fresh session** | new terminal, new `claude` invocation, full cold-start activation flow | full spin-up cost (process launch + MCP rediscovery + CLAUDE.md autoloads); cold context; multiple terminal windows |
+
+Decision heuristic — when each state is right:
+
+- **Leave intact:** same role + same cwd + previous engagement closed cleanly + prior context directly useful. Default for tight sequential chains; e.g., PLINY who just shipped Batch X carries internalized knowledge useful for Batch X+1.
+- **`/compact`:** same role + same cwd + prior context useful but transcript getting big. Summarization keeps lessons while shrinking detail.
+- **`/clear`:** same role + same cwd + previous engagement contaminating or irrelevant. Erases what would mislead while preserving the session's infrastructure.
+- **Fresh session:** different role required, or different cwd / different project, or testing the cold-start activation flow itself, or wanting parallel streams of work running.
+
+The default bias is toward the lighter end of the continuum (leave intact, then `/compact`, then `/clear`, then fresh). Tearing down infrastructure that costs nothing to keep is the same anti-pattern as polling continuously when nothing is blocked — both burn resources for no signal. Mirrors the agent-infrastructure-stays-up-by-default principle in §11 (autonomous-mode-setup checklist) and §1 (suppress momentum pressure).
+
+Empirical anchor: 2026-05-05 (`stoa--uc7`) — Batch B activation paste (ariadne xft.7 quality cluster) was authored with "fresh session" framing when leave-intact was right; PRINCIPAL surfaced the four-state framing. The author had over-corrected from fresh-session to `/clear` after PRINCIPAL's first nudge; PRINCIPAL re-corrected to "leave the context intact or compact." The continuum is the durable abstraction.
+
+Universality: applies to any seat authoring downstream-agent activation paste-instructions — POLYBIUS authoring PLINY's activation paste (`MAJOR_POLYBIUS.md` §5.1), PLINY authoring sub-agent dispatch envelopes where applicable, pair-programmer Majors handing off to follow-up sessions.
+
 ---
 
 ## 9. bw storage model
@@ -230,6 +256,26 @@ Detection (any of the below, in order of preference):
 - `bw list` against an uninitialized store errors with a recognizable message; against an initialized store returns ticket rows.
 
 **Never `git checkout beadwork` from the main worktree.** The orphan branch's data files (`blocks/`, `issues/`, `labels/`, `parent/`, `status/`, `.bwconfig`) populate the main worktree's filesystem when checked out and persist as untracked files when switching back, polluting the project. Use `bw list` / `bw show` / `bw history` to inspect tickets without switching branches.
+
+**Windows-worktree quirk: `bw prime` fails with `core.repositoryformatversion does not support extension: worktreeconfig`.** When the Claude Code harness creates a worktree (paths shaped `<repo>/.claude/worktrees/<slug>`), it enables per-worktree config — git bumps the main `.git/config` to a self-consistent v1 state: `core.repositoryformatversion = 1` and `extensions.worktreeConfig = true`. Modern git accepts that pair; bw's go-git library is v0-only and refuses any v1 repository regardless of which extensions are present, so `bw prime` aborts. Reference: [anthropics/claude-code#45645](https://github.com/anthropics/claude-code/issues/45645).
+
+Three-command fix against the **main repo's `.git/config`** (run from the main repo root, not from inside a worktree under `.claude/worktrees/`). Unset the extension first so subsequent writes land in main-repo scope unambiguously:
+
+```bash
+git config --unset extensions.worktreeConfig
+git config core.repositoryformatversion 0
+git config core.longpaths true
+```
+
+Promoting `core.longpaths` to main config is intentional: every worktree on Windows NTFS wants longpaths enabled, so its per-worktree scope was incidental. After the three commands, `bw prime` succeeds; the orphaned `config.worktree` becomes dormant (git no longer reads it once the extension is gone).
+
+When tearing down a worktree (not just unblocking bw mid-engagement), the upstream cleanup also removes `.git/worktrees/<name>/` and the `claude/<slug>` branch — see anthropics/claude-code#45645 for the full sequence.
+
+**Historical context (regression window 2026-05-07 to 2026-05-08).** During this window the harness reproduced the regression on every fresh worktree creation (empirical: `silly-gagarin-7e0342` 2026-05-07 in ariadne-core-workspace, `agitated-chaum-85a85e` 2026-05-07 in the-stoa); the cause was upstream Claude Code (anthropics/claude-code#45645) and unpatchable from this substrate, so the operative discipline during the window was for the activating seat to apply the three-command sequence mechanically and continue. That reflex is demoted as of 2026-05-08 — see status paragraph below.
+
+**Status (2026-05-08): structurally resolved upstream.** `bw` was rebuilt locally from main on 2026-05-08; the worktreeconfig recurrence is structurally fixed. Fresh worktrees no longer reproduce the regression on `bw prime`. The three-command fix above remains documented as a recovery procedure for the rare case of an older `bw` install, but is no longer the default activation discipline. If you hit `core.repositoryformatversion does not support extension: worktreeconfig` on a fresh worktree under the post-2026-05-08 `bw` build, your install regressed — surface to POLYBIUS rather than improvising.
+
+(Empirical anchor: `stoa--7kg` + child `stoa--7kg.1`. Surfaced 2026-05-07 in ariadne-core-workspace during a PLINY dispatch. Phase-1 audit repaired ariadne-core-workspace and agent-gauntlet. Phase-2 root-cause hunt confirmed the cause is the harness's worktree mechanism per the upstream issue, not any substrate script — so this is a workaround, not a fix at source. Phase-3 added the activation reflex after a fresh worktree creation reproduced the regression mid-engagement. Phase-4 (2026-05-08): bw rebuilt from main, structural fix landed; activation reflex demoted to historical reference.)
 
 Universality: this applies to every seat that interacts with bw — POLYBIUS, PLINY, every CAPTAIN. Project-tier framing lives at `MAJOR_POLYBIUS.md` §7.5 (this section is the team-wide layer underneath).
 
@@ -314,6 +360,114 @@ The cron prompt body comes from `substrate/templates/polling-cron-prompt-templat
 **Setup-complete confirmation.** After all six are in place, post a setup-complete comment on the engagement's coordination ticket naming: cron id, cadence, escalation triggers, peer name, expected duration. Surface the same to PRINCIPAL once. From this point forward, routine status flows via bw; PRINCIPAL only sees the universal-escalation-trigger surfaces (§10) until the engagement closes or the autonomous-mode trigger is reversed.
 
 **Teardown procedure** (autonomous → HITL trigger detected): `CronDelete` the polling cron(s) for this engagement. Post final `[radio-check <self> standing down]` on the coordination ticket(s). Confirm to PRINCIPAL: "back in the loop; teardown complete; scope: <global | per-seat name>". Per-seat teardown affects only the named seat's coordination crons; sibling seats keep their own crons.
+
+---
+
+## 12. bw cookbook
+
+This section is the canonical bw operations reference for every seat that uses bw — POLYBIUS, PLINY, CAPTAINs (read-only), pair-programmer Majors. Role files reference this section; do not duplicate. When in doubt, run `bw <command> --help` first; the verified syntax is one round-trip cheaper than a comment that gets eaten.
+
+### 12.1 Core operations
+
+**Reading:**
+
+- `bw prime` — session-start workflow context. Returns the project's prefix, your current state (branch, last commit, work-in-progress), and the next unblocked work. Mandatory for top-level seats (POLYBIUS, PLINY, pair-programmer Majors); optional for CAPTAINs (which receive context through the dispatch brief).
+- `bw list` — open tickets, default truncated. Useful for a quick scan.
+- `bw list --all` — open tickets, untruncated. Use when truncation would hide the ticket you need.
+- `bw list --status open -t TYPE -p N --grep TEXT` — filter flags compose; combine as needed.
+- `bw show <id>` — full ticket including comments. Safe for any seat including read-only CAPTAINs.
+- `bw history <id>` — chronological history of changes (status, comments, close reasons). Useful for reconstruction after session loss.
+- `bw show <id> | tail -<N>` — recent comments only.
+
+**Filing tickets:**
+
+- `bw create "<title>" --priority <P1-P4> --description "<body>"` — title is positional; `--priority` and `--description` are flags. P1 (load-bearing-blocking) → P4 (cosmetic).
+- Multi-line descriptions: HEREDOC pattern. Example:
+
+  ```bash
+  bw create "Ship the v0.2 character profile UI" --priority P2 --description "$(cat <<'EOF'
+  Surfaced 2026-05-08 by PRINCIPAL.
+
+  ## Scope
+  - Wire the profile editor to the new schema.
+
+  ## Gauntlet
+  ADA + CATO eyeball.
+  EOF
+  )"
+  ```
+
+**Commenting + closing:**
+
+- `bw comment <id> "<body>"` — add comment. **Comment text is POSITIONAL; `-m` does NOT exist.** Git muscle memory says `git commit -m "message"`; bw does not. If you write `bw comment <id> -m "text"`, the literal `-m` lands as the comment body and the actual text gets dropped. See §12.2 for the canonical error.
+- `bw close <id> --reason "<text>"` — close with reason. `--reason` is the flag (not `-m`). The reason lands in `bw history`; it does not replace a substantive close-out comment in the ticket body. Use `--reason` for the canonical ship summary; use comments for follow-up context.
+
+**Dependencies:**
+
+- `bw dep add <X> blocks <Y>` — X blocks Y (Y waits on X completing). The direction matters; `blocked-by` is **NOT** a valid keyword. If you need the reverse direction, swap the args: `bw dep add <Y> blocks <X>`.
+- `bw dep remove <X> blocks <Y>` — symmetric to add.
+
+**Sync:**
+
+- `bw sync` — push to the orphan `beadwork` branch. Idempotent; safe to run after every batch of bw operations. Run it before closing a session if you've made local-only writes.
+
+### 12.2 Common errors and canonical fixes
+
+| Error | Canonical fix |
+|---|---|
+| `error: open repo: core.repositoryformatversion does not support extension: worktreeconfig` | **Historically** the three-command promote-and-drop fix at §9. **As of bw rebuild 2026-05-08 (locally rebuilt from main, structural fix shipped), this no longer recurs in fresh worktrees.** If you still see it, your local `bw` install is older than 2026-05-08 — surface to POLYBIUS rather than improvising. The §9 fix is preserved as a recovery procedure for older installs. |
+| `usage: bw dep add <id> blocks <id>` | `blocked-by` is not valid; only `blocks`. If you need the reverse direction, swap the args. |
+| Comment text appears as literal `-m` in the ticket body | You used `bw comment <id> -m "text"`; the `-m` is captured as the literal comment because comment text is positional. Re-run as `bw comment <id> "text"`. |
+| "no prime detected"-style warnings | Run `bw prime` for top-level seats. CAPTAINs can ignore — they receive context through PLINY's brief and only need read-only `bw show <id>`. |
+
+### 12.3 Conventions
+
+- **Ticket IDs** are hash-suffixes (`stoa--xxx`, `ariadne--xxx`, `acb--xxx`). The prefix is project-tier; the suffix is content-addressed.
+- **Sub-tickets** use `.1` / `.2` suffixes by convention (e.g., `stoa--7kg.1`). Conventional, not enforced by bw.
+- **Priority levels:** P1 (load-bearing-blocking) → P4 (cosmetic). P2 is the standard "ship soon" level; P3 is "queue when convenient."
+- **Description shape (substrate-canonical pattern):** problem / scope / gauntlet / out of scope / sequencing / empirical anchor. Reading the description shape gives a downstream seat enough context to estimate the work without reading every prior comment.
+- **Close comment vs `--reason`:** both useful and not redundant. `--reason` lives in `bw history` (chronological audit) and travels with the close action. A close-out comment in the ticket body lives in `bw show` (substantive ship summary). Use `--reason` for the one-line canonical ship summary; use a comment for the substantive what-shipped/what-was-found context.
+
+### 12.4 Per-role specifics
+
+- **POLYBIUS (CHIEF-OF-STAFF):** cross-workspace listing — `cd <workspace> && bw list` per workspace; priority-aware ticket routing across stores; dep-graph hygiene; sub-ticket conventions; cross-tier `[for: <upper-seat>]` tags per §7.4. POLYBIUS-seat-specific framing at `MAJOR_POLYBIUS.md` §7.3.
+- **PLINY (ORCHESTRATOR):** dispatch flow — read tickets pre-dispatch, ship-surface on close; gauntlet-shape decisions (which CAPTAINs to dispatch given the brief); parent-EPIC blocks-list pruning when child tickets close. PLINY-seat-specific framing at `MAJOR_PLINY.md` §6.1.
+- **CAPTAINs (sub-agents):** read-only patterns. `bw show <id>` to ground against the assigned ticket if the dispatch brief points at one. No `bw prime` requirement (the brief carries the context). No filing or closing — the dispatching MAJOR owns that.
+- **Pair-programmer Majors (PYTHAGORAS, ATTICUS, etc.):** when activated for project work in a bw-tracked project, the same patterns as MAJOR_PLINY apply — read tickets pre-dispatch, ship-surface on close, etc.
+
+Empirical anchor: 2026-05-08 (`stoa--v2o`) — POLYBIUS bw dep direction confusion (`blocked-by` rejected on first attempt) + PLINY freelancing on a wrong-shape `.git/config` fix during the m5e arc despite §9 documenting the correct promote-and-drop. Substrate-economics math: ~3-5K tokens per arc of fumble-recovery, recoverable by canonical cookbook reference. The cookbook is the single source of truth referenced from every bw-using role file.
+
+---
+
+## 13. Windows Python environment — set PYTHONUTF8=1 for Python invocations
+
+Agent-authored helper Python scripts on Windows have stdout encoded `cp1252` by default. Printing non-ASCII content (Greek theta in PDFs, em-dashes in print statements, accented characters in citation strings) crashes with `UnicodeEncodeError`. Two complementary fixes apply.
+
+**Per-machine fix (PRINCIPAL handles):** `setx PYTHONUTF8 1` once per machine sets the variable in the user environment; covers every Python invocation thereafter without per-script discipline. Substrate cannot do this for the PRINCIPAL — it requires a one-time environment write.
+
+**Per-script substrate discipline (agents apply):** when invoking Python on Windows during a gauntlet run, either set `PYTHONUTF8=1` in the bash environment for the invocation, OR include `sys.stdout.reconfigure(encoding='utf-8')` at the top of any helper script that may print non-ASCII content. Detected via `os.name == 'nt'` or PRINCIPAL-flagged Windows deployment.
+
+Recommended: ship both. The per-machine fix is cheapest; the per-script discipline is the durable substrate that protects future deployments where the per-machine fix hasn't been applied.
+
+Empirical anchor: `ariadne--sh7` (CLI binary fix in code; 2026-05-07) reconfigured `sys.stdout` in ariadne CLI's `main()` entry — works for the CLI binary but does not cover ad-hoc helper scripts written by PLINY/VERA/ADA during gauntlet runs. Batch G smoke #1 Test 3 crashed on `cp1252` with an em-dash in PLINY's smoke probe print statement (2026-05-07). Both manifestations are now durable: `sh7` in code, this section in substrate (`stoa--a5q`).
+
+Universality: every seat that invokes Python in a Windows-deployed gauntlet — POLYBIUS, PLINY, every CAPTAIN that runs Python helpers (VERA, ADA, etc.).
+
+---
+
+## 14. Sub-agent diagnostic transcript discipline
+
+When a sub-agent (CAPTAIN, Explore, general-purpose, etc.) is killed mid-dispatch — by watchdog (per `MAJOR_PLINY.md` §5.3) or manually by the dispatching seat — capture the JSONL transcript of the dispatch BEFORE the process exits. The transcript is the only direct evidence of what the agent was doing at stall time; reconstruction-from-memory or reconstruction-from-screenshots is fallback only.
+
+**Save target:** `.claude/diagnostics/<agent-mnemonic>-<dispatch-id>-<timestamp>.jsonl` (or analogous; substrate names the convention, project may localize). The directory is part of the project's working tree; gitignore as appropriate (transcripts are diagnostic context, not durable substrate).
+
+**Read-side discipline:** when authoring a post-mortem after a stall or kill, the JSONL transcript is first-line evidence. Reconstruction from screenshots or working memory is fallback when the transcript is unavailable. A post-mortem authored without consulting the transcript when one exists is a discipline failure — the evidence is there; use it.
+
+**Open question (carried forward, not resolved):** how the parent session captures the JSONL transcript depends on whether Claude Code exposes it natively. If it does, the discipline is "save it on every kill." If it does not, the discipline reduces to "name the convention; await platform support" and the implementation surface stays open at `stoa--dyb` Item 2. This section names the discipline shape; the implementation question is downstream of platform capability.
+
+Empirical anchor: `agents/design/ariadne--m5e/post-mortem-daedalus-rev3-stall.md` (in ariadne-core-workspace; 2026-05-07; 12.7 KB) — 6+ DAEDALUS rev3 stalls left no diagnostic trace; the post-mortem had to reconstruct from intermittent screenshots and status snapshots. Substrate fix: capture the JSONL transcript on every kill, by default. Substrate ticket: `stoa--dyb` Item 2.
+
+Universality: every seat that dispatches sub-agents (currently MAJOR_PLINY; future tiers may add).
 
 ---
 

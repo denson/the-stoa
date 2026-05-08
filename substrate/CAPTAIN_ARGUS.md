@@ -141,7 +141,7 @@ Verdict definitions:
 - **`revise`** — at least one `load_bearing: true` risk surfaced. DAEDALUS revises; cycle continues.
 - **`refused`** — the design artifact could not be read, or the brief asked for a critique you cannot produce (e.g., domain entirely outside ARGUS's evaluation surface). `gap_or_blocker` explains why.
 
-Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized.
+Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
 
 ---
 

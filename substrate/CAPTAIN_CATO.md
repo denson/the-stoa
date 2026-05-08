@@ -147,7 +147,7 @@ Verdict definitions:
 - **`revise`** — at least one blocking concern. Routed back to ADA via MAJOR_PLINY for revision.
 - **`refused`** — review scope was not actionable. `gap_or_blocker` explains why.
 
-Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized.
+Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
 
 ---
 
