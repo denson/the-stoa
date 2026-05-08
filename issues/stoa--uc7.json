@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-08T20:38:45Z",
+  "close_reason": "Shipped via PR #1 squash c37cf5a. Activation paste session-state continuum landed at operating-disciplines.md §8.3. Four states (leave intact / /compact / /clear / fresh) + decision heuristics + cost trade-offs codified per the user-tier-polybius refinement comment. Universality framing covers POLYBIUS authoring PLINY paste, PLINY authoring sub-agent dispatch, pair-programmer Major handoffs.",
   "created": "2026-05-05T23:51:55Z",
   "description": "Operational discipline surfaced 2026-05-05 by PRINCIPAL during the xft.7 quality cluster sequential gauntlet dispatches.\n\nWhen user-tier POLYBIUS authors activation pastes for sequential engagements that all use the same role file (e.g., MAJOR_PLINY_\u003cworkspace\u003e for multiple consecutive batches) AND the same cwd / project, the right pattern is to /clear the existing Claude Code session and re-paste the new engagement brief — not to instruct PRINCIPAL to open a fresh Claude Code session.\n\nWhy:\n- Same shell environment preserved (cwd, env vars, terminal state)\n- No respawn overhead (no Claude Code launch, no re-discovering MCP servers, no re-loading project CLAUDE.md autoloads)\n- One terminal window for the whole sequential queue; less window-juggling for PRINCIPAL\n- Mirrors the agent-infrastructure-stays-up-by-default principle (operating-disciplines.md §10/§11): tearing down infrastructure that costs nothing to keep is wrong; /clear is teardown-of-just-the-conversation-context, not teardown-of-the-session\n\nWhen /clear is correct:\n- Sequential dispatches against the same role file\n- Continuing work in the same project / same cwd / same auth state\n- Previous engagement closed cleanly\n\nWhen fresh session is correct:\n- Different role required\n- Different cwd / different project\n- Need to test cold-start activation flow itself\n- Want parallel streams of work running\n\nWhere in substrate:\nLikely operating-disciplines.md (universal-team layer) since this applies to any seat authoring activation pastes. Could also be a small note in MAJOR_POLYBIUS.md §5 (onboarding flow / activation patterns).\n\nRecommendation: append a short subsection to operating-disciplines.md §8.1 (positive references) or as a new subsection §8.3 (activation paste patterns), since it's a discipline applied when authoring downstream-agent activation paste-instructions.\n\nEmpirical anchor: 2026-05-05 — Batch B activation paste (xft.7 quality cluster) was authored with 'open a fresh Claude Code session' framing when PRINCIPAL wanted /clear-then-repaste. Saved as user-tier feedback memory immediately; filing here so substrate inherits it on next install.",
   "id": "stoa--uc7",
@@ -13,8 +15,8 @@
     }
   ],
   "priority": 3,
-  "status": "open",
+  "status": "closed",
   "title": "Activation pattern: /clear in existing session preferred over fresh-session for sequential dispatches against same role + cwd",
   "type": "task",
-  "updated_at": "2026-05-05T23:54:29Z"
+  "updated_at": "2026-05-08T20:38:45Z"
 }
