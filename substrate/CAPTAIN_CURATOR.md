@@ -140,7 +140,7 @@ Verdict definitions:
 - **`partial`** — main pattern named but a sub-pattern remains unresolved. Honest scoping.
 - **`refused`** — synthesis target was unclear or input ticket set was insufficient.
 
-Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized.
+Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
 
 ---
 

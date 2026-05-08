@@ -134,7 +134,7 @@ Verdict definitions:
 - **`pass`** — recon question answered; findings cited verbatim; truncation (if any) named.
 - **`refused`** — question was unboundable, repo was inaccessible, or no findings exist for a question that should have produced findings (in which case the absence is the finding — say so explicitly).
 
-Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized.
+Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
 
 ---
 

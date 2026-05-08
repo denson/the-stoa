@@ -121,7 +121,7 @@ Verdict definitions:
 - **`partial`** — implemented the main contract but left specific sub-pieces explicitly open for follow-up. Honest scoping, not an incomplete diff.
 - **`refused`** — the brief was not buildable as posed (design missing, ARGUS verdict missing, scope ambiguous). `gap_or_blocker` explains why.
 
-Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized.
+Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
 
 ---
 

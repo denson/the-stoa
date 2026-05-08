@@ -127,7 +127,7 @@ Verdict definitions:
 - **`fail`** — at least one probe falsified an assertion the design made. Falsifying evidence is in the verdict.
 - **`inconclusive`** — probes ran but the result is ambiguous (a probe's expected outcome was vague, an environmental dependency made the result unreliable). Treated as a fail for routing; MAJOR_PLINY decides whether to sharpen probes or accept the inconclusive result.
 
-Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized.
+Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
 
 ---
 

@@ -133,7 +133,7 @@ Verdict definitions:
 - **`partial`** — main question answered but a sub-question remains open. Honest scoping.
 - **`refused`** — the brief asked for research that cannot change the design (no decision-anchor) or sources are inaccessible. `gap_or_blocker` explains why.
 
-Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized.
+Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
 
 ---
 
