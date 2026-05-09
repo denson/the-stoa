@@ -279,6 +279,10 @@ When tearing down a worktree (not just unblocking bw mid-engagement), the upstre
 
 Universality: this applies to every seat that interacts with bw — POLYBIUS, PLINY, every CAPTAIN. Project-tier framing lives at `MAJOR_POLYBIUS.md` §7.5 (this section is the team-wide layer underneath).
 
+### 9.1 Substrate freshness — keeping deployed substrate in sync with the-stoa
+
+The substrate files under `<workspace>/.claude/` (role files, operating-disciplines.md, CAPTAIN envelopes, templates, skills) are deployed copies of the canonical the-stoa source. They drift silently as the-stoa evolves. The `check-substrate-updates` skill (`substrate/skills/check-substrate-updates/`) detects per-file drift between deployed and current source; `apply.sh` walks per-file consent + diff display when drift is found, with a running-agent warning when role files are touched. State is tracked at `<workspace>/.claude/.substrate-last-check`. Daily-cadence framing for POLYBIUS lives at `MAJOR_POLYBIUS.md` §14; design spec at `agents/design/stoa--lyh/design.md`.
+
 ---
 
 ## 10. Operating engagement (HITL vs Autonomous)

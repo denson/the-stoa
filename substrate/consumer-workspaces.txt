@@ -1,0 +1,13 @@
+# Consumer workspaces for the stoa substrate-update check skill.
+# One absolute path per line. Comments (#) and blank lines are ignored.
+#
+# Used by substrate/skills/check-substrate-updates/check.sh to know which
+# workspaces to scan for drift between deployed substrate files and the
+# current the-stoa source. Add a new workspace by appending its absolute
+# path here.
+#
+# v0 scope: project-tier and subproject-tier only. User-tier check is
+# future work (the {{USER_TIER_DIR}} substitution can't be reliably
+# re-derived without per-file markers).
+
+/c/Users/denso/claude_projects/ariadne-core-workspace
