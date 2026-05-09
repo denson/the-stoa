@@ -139,6 +139,7 @@ CAPTAIN_NAMES=(
 # POLYBIUS unable to invoke them.
 SKILL_NAMES=(
   agent-author
+  check-substrate-updates
 )
 
 # Marker line written into CLAUDE.md when --modify-claude-md is used; presence
