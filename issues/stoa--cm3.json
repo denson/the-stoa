@@ -78,11 +78,15 @@
     {
       "text": "DAEDALUS R1+R2 in flight — empirical: bw JSON schema is {text,timestamp} only (no author); jq absent in PATH; python 3.11 present. Picking python shape (b) — universally available, stable --json contract, no install.sh dependency bloat. Rewriting templates at §3.1 Step 3 + §5.2 §18.5 + §6.1 §5.8.3, probe p35 expected-output, §11 wording-clauses. Then R3, R4.",
       "timestamp": "2026-05-12T23:26:25Z"
+    },
+    {
+      "text": "DAEDALUS R1+R2 done — templates rewritten with python, empirically validated against live stoa--cm3 (output: '[\u003cts\u003e] \u003ctext\u003e' shape correct). Now R3 — picking shape (b) strict verbatim alignment for max CATO Phase 3 auditability. Aligning VERA + ADA prose; §8.11 contract gets explanatory note for lost-nuance items.",
+      "timestamp": "2026-05-12T23:27:33Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:26:25Z"
+  "updated_at": "2026-05-12T23:27:33Z"
 }
