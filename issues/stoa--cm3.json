@@ -142,11 +142,15 @@
     {
       "text": "Phase 1 — ARGUS re-re-audit verdict: PASS. r5 + r6 verified discharged (templates byte-for-byte identical via diff; empirically validated against live bw show stoa--cm3 --json; line 1035 reads p44; line 1054 reads p46). Sanity-grep of p35/p36/p37 surfaces only legitimate §14.1/§14.2 changelog references documenting the renumbering history. Q1 disposition: agree single-source-of-truth lift is Arc 25+ scope (Out-of-scope per directive). Q2 spot-check: no stale references in unchanged p1-p21 / p22-p31 ranges. Authorship A11 confirmed. §10 self-referential framing + §8.11 contract unchanged from prior PASS.\n\nPhase 1 CLEAN. Dispatching ADA Phase 2 on feature branch arc-24/build via Agent isolation:worktree.",
       "timestamp": "2026-05-12T23:44:28Z"
+    },
+    {
+      "text": "ADA activated on stoa--cm3 — Arc 24 Phase 2 build. Worktree at C:/Users/denso/claude_projects/the-stoa/.claude/worktrees/agent-a1d94f1194f73ffd5; branch renamed to arc-24/build. Reading design.md (1073 lines) + Arc 24 directive + child tickets odh/nvl/ioy.",
+      "timestamp": "2026-05-12T23:45:30Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:44:28Z"
+  "updated_at": "2026-05-12T23:45:30Z"
 }
