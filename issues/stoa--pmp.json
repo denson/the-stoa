@@ -31,11 +31,15 @@
     {
       "text": "DAEDALUS Phase 1 design complete. Integrated design covering all 7 substrate-prose tickets (stoa--tp1 load-bearing scaffolding + fea/nax/148/vmc/rno/14u inheriting/reinforcing) at agents/design/arc-23/design.md. Status: completed. Verdict: pass with self-flagged weak points (see §13). Top weak points: (1) wording-drift risk across the four verifier role files; (2) save-verdict _lib/ sharing is an unverified assumption with escape hatch; (3) §8.3/§8.4/§8.5 numbering deviates from A5 LOCK literal numbers — preserved existing §8.3 (activation paste from Arc 21), used §8.4 (14u) + §8.5 (148). Design decisions made: A6 free-form prose (not JSONSchema), A7 N=10x INCOMPLETE budget + ~1x UNVERIFIABLE, A8 sampling=full upstream / N=3 routine, save-verdict promoted to substrate (Option B). Ready for ARGUS audit.",
       "timestamp": "2026-05-12T18:50:31Z"
+    },
+    {
+      "text": "Phase 1 — DAEDALUS surfaced design at agents/design/arc-23/design.md (827 lines). 11 sections covering all 8 tickets; verbatim substrate prose for ~30 edits across 9 files. Design decisions made: A6 free-form prose validation (not JSONSchema); A7 10× normal probe budget for INCOMPLETE / ~1× for UNVERIFIABLE; A8 sampling=full for substrate/upstream-bound / N=3 routine; save-verdict PROMOTED into substrate/skills/save-verdict/ (Option B); 148 probe-coverage placed in op-disc §8.5 (not duplicated in MAJOR_PLINY); §8 numbering pragma — A5 LOCK names §8.3=14u/§8.4=148 but current substrate already occupies §8.3 with activation-paste from Arc 21, so DAEDALUS shifted to §8.4=14u/§8.5=148 and recommends ARGUS audit. Dispatching ARGUS for cold-audit now.",
+      "timestamp": "2026-05-12T18:51:29Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 23 — verification-discipline scaffolding + substrate canon updates",
   "type": "epic",
-  "updated_at": "2026-05-12T18:50:31Z"
+  "updated_at": "2026-05-12T18:51:29Z"
 }
