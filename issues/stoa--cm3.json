@@ -1,7 +1,9 @@
 {
   "assignee": "",
   "blocked_by": [],
-  "blocks": [],
+  "blocks": [
+    "stoa--odh"
+  ],
   "created": "2026-05-12T20:54:28Z",
   "description": "# Arc 24 — comms-hygiene substrate DNA\n\nParent epic for arc-24 build. Bundles three tickets surfaced 2026-05-12 from the ariadne PLINY confabulation incident + the subsequent architectural-mechanism discussion (Monitor as canonical orchestrator transport, bw as canonical cross-tier substrate, asymmetric two-way comms via heartbeat-and-read-before-write):\n\n- **stoa--odh** (P2) — Subagent status via bw substrate: universal heartbeat + read-before-write discipline (**LOAD-BEARING** for the asymmetric comms model)\n- **stoa--nvl** (P2) — Orchestrator background-dispatch hygiene: Monitor + bw-poll bridge + tool-loading + TaskOutput-forbidden-on-Agents\n- **stoa--ioy** (P2) — Confabulation-under-uncertainty discipline: \"uncertain, checking\" over assertion\n\n## Directive\n\nsubstrate/arcs/arc-24-build-directive.md (committed to the-stoa main with this epic). Four Phases × one gauntlet × ~20-30 substrate-prose deliverables across ~12 files. Builds on the-stoa main at Arc 23 ship commit (TBD).\n\n## Architectural decisions LOCKED pre-dispatch\n\n11 A-decisions in the directive (A1-A11). odh's discipline is load-bearing; nvl + ioy slot alongside. INCOMPLETE / UNVERIFIABLE verdict shapes (landed by Arc 23) inherited as the framework Arc 24's own verifiers use. CAPTAIN inventory taken at dispatch time (A6). Authorship attribution immutable.\n\n## Sequencing\n\n**DO NOT DISPATCH UNTIL ARC 23 (stoa--pmp) CLOSES.** Arc 23's ADA build phase edits substantially overlapping substrate files (operating-disciplines.md + every CAPTAIN role file + MAJOR_PLINY.md + MAJOR_POLYBIUS.md). Two ADAs editing the same files concurrently on different feature branches → merge conflicts on whichever lands second. Arc 24 dispatches against post-Arc-23 main so it inherits Arc 23's verification-complexity framework as part of its base.\n\n## Comms\n\nPLINY runs in autonomous mode with radio-check protocol per substrate/operating-disciplines.md §7. POLYBIUS polls the Arc 24 epic; PLINY heartbeats every ≤30 min unless surface-and-wait-blocked. PRINCIPAL is exception-handler.\n\n## Self-referential note\n\nThe discipline this arc builds IS the discipline this arc uses. CAPTAINs dispatched in Arc 24 read the *new* version of their own role files (which carry heartbeat-and-read-before-write) during verification. Worked example of substrate updating itself in flight.\n\n## Build session\n\nDispatched to MAJOR_PLINY_the_stoa via the activation paste at HUMAN_paste-pliny-arc-24-instruction.md (committed alongside this directive). PRINCIPAL fires the paste in a fresh Claude Code session AFTER Arc 23 ships.",
   "id": "stoa--cm3",
@@ -10,5 +12,5 @@
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T20:54:28Z"
+  "updated_at": "2026-05-12T20:54:32Z"
 }
