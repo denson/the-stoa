@@ -166,11 +166,15 @@
     {
       "text": "ADA state: design.md fully absorbed (1073 lines, revision-r2, ARGUS PASS at §14.2). Beginning substrate reads: operating-disciplines.md (743 lines), MAJOR_PLINY.md (414 lines), MAJOR_POLYBIUS.md (779 lines), 10 CAPTAIN files (~140-190 lines each), agent-author SKILL.md (143 lines). 14 files in scope, 4 logical commits.",
       "timestamp": "2026-05-12T23:53:57Z"
+    },
+    {
+      "text": "ADA tooling discovery — Edit tool with absolute path C:/Users/denso/claude_projects/the-stoa/substrate/operating-disciplines.md routed to MAIN CHECKOUT, not the worktree (verified: main checkout 848 lines, worktree still 743). Reverting main checkout; re-applying to worktree path. Workaround: use the worktree-prefixed absolute path explicitly for every Edit. No prior Phase-2 ADA dispatch hit this because they all died before editing.",
+      "timestamp": "2026-05-12T23:55:32Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:53:57Z"
+  "updated_at": "2026-05-12T23:55:32Z"
 }
