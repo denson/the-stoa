@@ -80,6 +80,10 @@ The discipline is universal-CAPTAIN, not seat-specific. Every CAPTAIN role file 
 
 Per odh A5 + nvl B5: CAPTAIN role files explicitly prohibit firing `Monitor` and prohibit `run_in_background: true` on Bash from within a CAPTAIN dispatch. Both are orphan-bug surfaces ([issue #23154](https://github.com/anthropics/claude-code/issues/23154)). Background work belongs to the orchestrator tier.
 
+### A3a. Heartbeat-cadence floor: 60 minutes — LOCKED at default, overridable per-dispatch
+
+Per odh A3 (recalibrated 2026-05-12 by PRINCIPAL from earlier 10-min draft): CAPTAINs that go heads-down without natural state transitions post a pull-heartbeat **at least every 60 minutes**. The 60-min floor is the universal default. Per-dispatch override allowed when the engagement justifies it — orchestrator may tighten (e.g., to 15-min for an interactive arc) or loosen (only with documented expected duration). This calibration reflects that long generative work (corpus authoring, deep design, multi-file refactor) needs a relaxed minimum; 10-min was over-engineering. Empirical anchor: 2026-05-12 ariadne ADA factory-corpus generation, where PRINCIPAL framed the floor as "at least once per hour."
+
 ### A4. operating-disciplines.md placement — DAEDALUS picks subject to constraint
 
 Post-Arc-23 op-disc carries §1-§17. The Arc 24 additions land either:
