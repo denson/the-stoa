@@ -162,11 +162,15 @@
     {
       "text": "ADA activated on stoa--cm3 — Arc 24 Phase 2 build. Worktree at C:/Users/denso/claude_projects/the-stoa/.claude/worktrees/agent-aaf53895519dfa937; branch arc-24/build (renamed from worktree-agent-aaf53895519dfa937). HEAD at 7ecdbef (Arc 23 ship) as expected. Beginning design read + child-ticket bodies.",
       "timestamp": "2026-05-12T23:53:30Z"
+    },
+    {
+      "text": "ADA state: design.md fully absorbed (1073 lines, revision-r2, ARGUS PASS at §14.2). Beginning substrate reads: operating-disciplines.md (743 lines), MAJOR_PLINY.md (414 lines), MAJOR_POLYBIUS.md (779 lines), 10 CAPTAIN files (~140-190 lines each), agent-author SKILL.md (143 lines). 14 files in scope, 4 logical commits.",
+      "timestamp": "2026-05-12T23:53:57Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:53:30Z"
+  "updated_at": "2026-05-12T23:53:57Z"
 }
