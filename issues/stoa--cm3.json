@@ -158,11 +158,15 @@
     {
       "text": "Phase 2 dispatch — dispatching CAPTAIN_ADA_the_stoa (foreground, isolation:worktree) with full design.md brief. Single ADA, single worktree, feature branch arc-24/build. ADA inherits the Arc 24 heartbeat-and-read-before-write discipline being built (self-referential per directive §self-referential note) — will heartbeat on this epic ticket at dispatch entry, every state transition, and at completion before returning.",
       "timestamp": "2026-05-12T23:52:39Z"
+    },
+    {
+      "text": "ADA activated on stoa--cm3 — Arc 24 Phase 2 build. Worktree at C:/Users/denso/claude_projects/the-stoa/.claude/worktrees/agent-aaf53895519dfa937; branch arc-24/build (renamed from worktree-agent-aaf53895519dfa937). HEAD at 7ecdbef (Arc 23 ship) as expected. Beginning design read + child-ticket bodies.",
+      "timestamp": "2026-05-12T23:53:30Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:52:39Z"
+  "updated_at": "2026-05-12T23:53:30Z"
 }
