@@ -2,6 +2,7 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [
+    "stoa--nvl",
     "stoa--odh"
   ],
   "created": "2026-05-12T20:54:28Z",
@@ -12,5 +13,5 @@
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T20:54:32Z"
+  "updated_at": "2026-05-12T20:54:33Z"
 }
