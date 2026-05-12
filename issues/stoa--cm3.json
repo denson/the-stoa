@@ -54,11 +54,15 @@
     {
       "text": "ARGUS activated on stoa--cm3 — Arc 24 Phase 1 cold-audit. Reading design + directive + child ticket bodies + current substrate state.",
       "timestamp": "2026-05-12T23:20:43Z"
+    },
+    {
+      "text": "ARGUS: audit pass 1 (inputs absorbed) — design (1073 lines), directive, op-disc §1-§17, MAJOR_PLINY/POLYBIUS sections, all 10 CAPTAIN files inventoried (ADA/ARGUS/BARTLEBY/CATO/CURATOR/DAEDALUS/HERALD/STRABO/VERA/ZENO). Surfaced 2 LOAD-BEARING defects already: jq not installed on this Windows env (Git Bash); bw JSON schema uses {text,timestamp} not {author,timestamp,body}. Continuing audit on wording-consistency contract + self-ref framing + remaining risk classes.",
+      "timestamp": "2026-05-12T23:21:50Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:20:43Z"
+  "updated_at": "2026-05-12T23:21:50Z"
 }
