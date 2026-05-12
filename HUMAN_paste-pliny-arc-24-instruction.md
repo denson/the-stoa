@@ -1,0 +1,19 @@
+Read .claude/MAJOR_PLINY.md and assume the orchestrator role for the-stoa.
+
+Your immediate intent for this session: Build Arc 24 per the build directive at substrate/arcs/arc-24-build-directive.md. Four Phases × one gauntlet × ~20-30 substrate-prose deliverables across ~12 files. The directive lands comms-hygiene as substrate DNA: subagent-status-via-bw + heartbeat-and-read-before-write discipline (universal CAPTAIN), Monitor + bw-poll bridge as canonical orchestrator transport, and "uncertain, checking" verb-level confabulation discipline (universal seat). Closes three tickets: stoa--odh (LOAD-BEARING — universal CAPTAIN heartbeat + read-before-write), stoa--nvl (orchestrator dispatch hygiene + Monitor pattern), stoa--ioy (confabulation discipline). Parent epic: stoa--cm3.
+
+**CRITICAL PRECONDITION:** Arc 23 (stoa--pmp) must be CLOSED before you dispatch. Arc 23's ADA build phase edited substantially overlapping substrate files (operating-disciplines.md, every CAPTAIN role file, MAJOR_PLINY.md, MAJOR_POLYBIUS.md). Arc 24 dispatches against post-Arc-23 main so it inherits Arc 23's verification-complexity framework + the new INCOMPLETE / UNVERIFIABLE verdict shapes as part of its base. If Arc 23 is not yet closed when you read this, post a comment on stoa--cm3 noting "blocked on Arc 23 close" and surface to POLYBIUS — do NOT proceed.
+
+Operating mode for this dispatch: AUTONOMOUS. Run all four phases heads-down (Phase 1 DAEDALUS + ARGUS, Phase 2 ADA build on feature branch arc-24/build, Phase 3 VERA + CATO + ZENO parallel verification, Phase 4 smoke + PR + merge + close). Use the Arc 24 epic stoa--cm3 for status updates as you progress. Surface to PRINCIPAL ONCE at end-of-arc with the final clean-PASS verdict for ship/no-ship. Mid-arc surfacing is reserved for the autonomous escalation triggers only: substance disagreement after one round of bw exchange, authorship/copyright/Denson-final-say content surfaces, irreducible ambiguity, POLYBIUS silent > 60 min, smoke-test failures that require POLYBIUS guidance per the directive's surface-back wording.
+
+Coordination: POLYBIUS is monitoring stoa--cm3. Bidirectional radio-check pattern applies per substrate/operating-disciplines.md §7. On dispatch, post an initialization handshake comment on stoa--cm3 confirming you've read the directive + verified Arc 23 closed + naming your polling cron id (if you choose to set one). Heartbeat one-line state on stoa--cm3 ("Phase 1 DAEDALUS dispatched" / "ARGUS PASS — ADA dispatched" / "Phase 3 VERA + CATO + ZENO returned CLEAN" / etc.). Closure handshake on stoa--cm3 close.
+
+The three child tickets are wired as 'blocks' deps on stoa--cm3. `bw show stoa--cm3` lists them. `bw show stoa--odh`, `bw show stoa--nvl`, `bw show stoa--ioy` carry full empirical anchor + discipline statement + Phase-A LOCKED architectural decisions. DAEDALUS treats each body as additional spec. Phase A architectural decisions A1-A11 are LOCKED in the directive — you do NOT surface those as design questions.
+
+**Self-referential note for this arc specifically:** the discipline you're building IS the discipline your CAPTAINs are using. As ADA edits CAPTAIN role files in Phase 2, those CAPTAINs (when dispatched in Phase 3 verification) will read the *new* version of their own role files — including the new heartbeat-and-read-before-write subsection. This is the substrate updating itself in flight; not a circular dependency. ARGUS audit during Phase 1 should confirm this is a feature, not a defect.
+
+Authorship attribution is IMMUTABLE per substrate/CLAUDE.md: all edits credit Denson Smith. No exception.
+
+Check beadwork (stoa-- prefix) for pending directives from MAJOR_POLYBIUS — start with: stoa--cm3 (the parent Arc 24 epic; the build directive at substrate/arcs/arc-24-build-directive.md is its load-bearing artifact).
+
+If compaction or /clear erases your role, re-read this paste from HUMAN_paste-pliny-arc-24-instruction.md in the project root.
