@@ -62,11 +62,15 @@
     {
       "text": "ARGUS: audit pass 2 (substrate cross-ref + wording-skeleton + probe-numbering) — confirmed insertion points across all 10 CAPTAIN files match design's claimed sections. Identified third LOAD-BEARING defect: §8.11 wording-consistency contract is internally inconsistent with the actual §8 per-CAPTAIN prose (VERA + ADA carry parenthetical extensions on read-before-write; VERA carries 'or peer CAPTAINs' phrasing; ADA varies 'spawned poll-loop' vs 'spawned process'). Also surfaced: §11 probe-numbering inconsistency (p22-p31 and p23-p32 overlap; total math '37' inconsistent with sum). Finalizing verdict.",
       "timestamp": "2026-05-12T23:23:12Z"
+    },
+    {
+      "text": "ARGUS verdict: REVISE: 4 load-bearing risks (canonical poll-loop has wrong JSON schema; jq not installed in deployed env; §8.11 contract internally inconsistent with §8 prose; §11 probe-numbering math wrong). Returning.",
+      "timestamp": "2026-05-12T23:23:21Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:23:12Z"
+  "updated_at": "2026-05-12T23:23:21Z"
 }
