@@ -74,11 +74,15 @@
     {
       "text": "DAEDALUS revision-round-1 activated on stoa--cm3 — addressing ARGUS R1-R4.",
       "timestamp": "2026-05-12T23:25:45Z"
+    },
+    {
+      "text": "DAEDALUS R1+R2 in flight — empirical: bw JSON schema is {text,timestamp} only (no author); jq absent in PATH; python 3.11 present. Picking python shape (b) — universally available, stable --json contract, no install.sh dependency bloat. Rewriting templates at §3.1 Step 3 + §5.2 §18.5 + §6.1 §5.8.3, probe p35 expected-output, §11 wording-clauses. Then R3, R4.",
+      "timestamp": "2026-05-12T23:26:25Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:25:45Z"
+  "updated_at": "2026-05-12T23:26:25Z"
 }
