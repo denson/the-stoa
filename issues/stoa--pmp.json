@@ -55,11 +55,15 @@
     {
       "text": "Phase 2 ADA build COMPLETE — feature branch arc-23/build at .claude/worktrees/arc-23-build, 9 commits (3c9f122..7640599), 9 files / 755 insertions. Touched in worktree: operating-disciplines.md (+246 lines: §6.7, §8.4, §8.5, §15, §16, §17), the four verifier CAPTAINs + STRABO + MAJOR_PLINY (+69 lines: §5.5/§5.6/§5.7/§7.8) + MAJOR_POLYBIUS (+19 lines: §15) + agents/probes/arc-23/probes.sh (49 probe checks, all pass). User-tier save-verdict SKILL.md edited (5 new schema fields, 4 new failure modes, conformance step, follow-up-ticket caveat). 14u meta-smoke-beat: install.sh dry-run lists all 8 modified files. No deviations from design. Dispatching Phase 3 VERA + CATO + ZENO in parallel.",
       "timestamp": "2026-05-12T20:48:23Z"
+    },
+    {
+      "text": "Phase 4 smoke beats COMPLETE. install.sh dry-run x3 targets all pass (14u meta-application: deploy plan lists all 8 modified files at project/subproject/user). String-discipline greps clean. probes.sh 49/49 + vera-probes.sh 73/73 PASS. Branch arc-23/build pushed (10 commits ahead of main; 07b9a7b HEAD). PR #3 opened: https://github.com/denson/the-stoa/pull/3. ARC 23 READY TO SHIP — surfacing to PRINCIPAL for ship/no-ship judgment per directive's end-of-arc surfacing rule. Pending: merge, close 7 remaining tickets (4h7 already closed), file follow-up substrate-promotion ticket per design §10.1, write TIMING_LOG entry.",
+      "timestamp": "2026-05-12T20:56:00Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 23 — verification-discipline scaffolding + substrate canon updates",
   "type": "epic",
-  "updated_at": "2026-05-12T20:48:23Z"
+  "updated_at": "2026-05-12T20:56:00Z"
 }
