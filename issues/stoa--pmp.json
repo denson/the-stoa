@@ -1,7 +1,9 @@
 {
   "assignee": "",
   "blocked_by": [],
-  "blocks": [],
+  "blocks": [
+    "stoa--4h7"
+  ],
   "created": "2026-05-12T18:31:30Z",
   "description": "",
   "id": "stoa--pmp",
@@ -10,5 +12,5 @@
   "status": "open",
   "title": "[EPIC] Arc 23 — verification-discipline scaffolding + substrate canon updates",
   "type": "epic",
-  "updated_at": "2026-05-12T18:31:30Z"
+  "updated_at": "2026-05-12T18:31:36Z"
 }
