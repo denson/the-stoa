@@ -90,11 +90,15 @@
     {
       "text": "DAEDALUS revision-r1 verdict: pass. R1-R4 addressed at design.md §3.1 Step 3 + §6.1 §5.8.3 (R1+R2: python template, schema documented, alternatives rejected); §8 lines 577/602/679/581/683 + §8.11 (R3: 10 CAPTAINs verbatim-aligned, contract rewritten strict-vs-slot); §11.1 + §11.2 + §11.3 + §11.4 + §11.5 (R4: renumbered p1-p46 consecutive unique, arithmetic 46 with explicit ID enumeration); §14 + new §14.1 verdict updated to revised. Empirical validation: rewritten python template runs against live stoa--cm3, emits [\u003cts\u003e] \u003ctext\u003e shape correctly. Returning.",
       "timestamp": "2026-05-12T23:31:10Z"
+    },
+    {
+      "text": "Phase 1 — DAEDALUS revision-r1 complete. All 4 ARGUS risks addressed:\n\nR1+R2: Rewrote canonical poll-loop template at §3.1 Step 3 + §6.1 §5.8.3 using python (universally available — bw is itself python-implemented). Empirically validated against live stoa--cm3. Probe p44 expected-output updated. Rejected alternatives documented (jq-as-substrate-dep + non-JSON parsing).\n\nR3: Aligned VERA + ADA per-CAPTAIN prose to strict-verbatim canonical form (10 CAPTAINs now byte-for-byte identical except \u003cSEAT\u003e substitution). Rewrote §8.11 contract distinguishing strict-verbatim paragraphs 1-5 (mechanical CATO diff) from named-slot template paragraphs 6-11 (slot-fit check). Lost-nuance items moved to §18 cross-refs.\n\nR4: Renumbered probes p1-p46 consecutive unique. Corrected §11.5 summary with explicit per-row ID enumeration + arithmetic-check paragraph.\n\nAuthorship A11 Denson Smith immutable. 5 §13 weak points unchanged. Three new residual questions for ARGUS re-audit (slot-boundary precision; python-portability blind-spots; p44 falsifying-evidence sufficiency).\n\nDispatching ARGUS for re-audit.",
+      "timestamp": "2026-05-12T23:32:17Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:31:10Z"
+  "updated_at": "2026-05-12T23:32:17Z"
 }
