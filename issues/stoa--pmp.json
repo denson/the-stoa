@@ -19,11 +19,15 @@
     {
       "text": "Arc 23 epic filed. Directive committed to the-stoa main at 0d097c9 (substrate/arcs/arc-23-build-directive.md). PLINY activation paste committed at ce42918 (HUMAN_paste-pliny-arc-23-instruction.md). All eight child tickets wired as 'blocks' deps: 4h7, tp1, fea, nax, 148, vmc, rno, 14u. Phase A decisions A1-A11 locked pre-dispatch. PRINCIPAL fires the paste in a fresh Claude Code session to activate MAJOR_PLINY; PLINY posts initialization handshake on this epic. POLYBIUS will monitor this epic for phase-transition heartbeats.",
       "timestamp": "2026-05-12T18:33:44Z"
+    },
+    {
+      "text": "PLINY ACTIVATION — initialization handshake.\n\nRead directive at substrate/arcs/arc-23-build-directive.md (0d097c9). Confirm: 5 phases, 8 tickets, ~30 substrate-prose edits across ~9 files, tp1 load-bearing.\n\nState: working from main repo at C:/Users/denso/claude_projects/the-stoa (HEAD ce42918). Worktree shell at .claude/worktrees/awesome-nash-190573 is empty by structure — ADA dispatches will get their own isolated worktrees via Agent isolation:worktree.\n\nMode: AUTONOMOUS. No polling cron at activation (per surface-and-wait §6.2). Will heartbeat at phase transitions (≤30 min). Surface-back only on autonomous escalation triggers per directive.\n\nBeginning Phase 0 (bw 0.13.0 upgrade) + Phase 1 (DAEDALUS dispatch) in parallel — Phase 0 is independent prerequisite per A1; needs to land before Phase 3 verification.",
+      "timestamp": "2026-05-12T18:39:02Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 23 — verification-discipline scaffolding + substrate canon updates",
   "type": "epic",
-  "updated_at": "2026-05-12T18:33:44Z"
+  "updated_at": "2026-05-12T18:39:02Z"
 }
