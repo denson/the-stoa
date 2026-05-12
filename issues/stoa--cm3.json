@@ -14,11 +14,15 @@
     {
       "text": "Arc 24 epic filed. Directive committed at d92f2e9 (substrate/arcs/arc-24-build-directive.md). PLINY activation paste committed at d92f2e9 (HUMAN_paste-pliny-arc-24-instruction.md). Three child tickets wired as 'blocks' deps: stoa--odh, stoa--nvl, stoa--ioy. Phase A decisions A1-A11 locked pre-dispatch. CRITICAL: do not dispatch until Arc 23 (stoa--pmp) closes — Arc 24's ADA build edits substantially overlapping substrate files. Arc 23 currently paused at Phase 2 entry awaiting PRINCIPAL ratification of save-verdict Option A + §8.4/§8.5 pragma.",
       "timestamp": "2026-05-12T20:55:19Z"
+    },
+    {
+      "text": "Arc 23 (stoa--pmp) CLOSED at 7ecdbef. PR #3 merged at 1ff9f3f. All 8 child tickets closed; follow-up stoa--utn filed for save-verdict substrate promotion. Substrate canon now carries verification-complexity framework + INCOMPLETE/UNVERIFIABLE verdict shapes + bw-fit matrix + layered-architecture + fork-over-upstream + agent-time-latency + N=1/estimate-axes + substrate-edit smoke beats + probe coverage fallback chains. Verifier role files (VERA / CATO / ARGUS / ZENO / STRABO) all carry quadrant-classification cross-refs. MAJOR_PLINY + MAJOR_POLYBIUS carry verdict-handling protocol + TIMING_LOG discipline. Arc 24 precondition MET — dispatchable now against post-Arc-23 main (7ecdbef). Arc 24's CAPTAINs inherit Arc 23's framework as part of their base, including the new INCOMPLETE/UNVERIFIABLE verdict shapes Arc 24's own verifiers will use as worked examples of the framework in action. PRINCIPAL fires HUMAN_paste-pliny-arc-24-instruction.md in a fresh Claude Code window to dispatch.",
+      "timestamp": "2026-05-12T22:59:41Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T20:55:19Z"
+  "updated_at": "2026-05-12T22:59:41Z"
 }
