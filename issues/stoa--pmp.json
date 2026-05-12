@@ -3,6 +3,7 @@
   "blocked_by": [],
   "blocks": [
     "stoa--148",
+    "stoa--14u",
     "stoa--4h7",
     "stoa--fea",
     "stoa--nax",
@@ -18,5 +19,5 @@
   "status": "open",
   "title": "[EPIC] Arc 23 — verification-discipline scaffolding + substrate canon updates",
   "type": "epic",
-  "updated_at": "2026-05-12T18:31:44Z"
+  "updated_at": "2026-05-12T18:31:45Z"
 }
