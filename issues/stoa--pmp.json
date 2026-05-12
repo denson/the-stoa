@@ -15,9 +15,15 @@
   "description": "# Arc 23 — verification-discipline scaffolding + substrate canon updates\n\nParent epic for arc-23 build. Bundles eight tickets surfaced during the 2026-05-12 bw → Ariadne integration + STRABO fabrication + bw scaling-wall cluster:\n\n- **stoa--4h7** (P1) — bw upgrade to 0.13.0 (substrate infrastructure)\n- **stoa--tp1** (P2) — verification-complexity awareness: 2x2 quadrant + INCOMPLETE / UNVERIFIABLE verdict shapes (**LOAD-BEARING**)\n- **stoa--fea** (P2) — VERA verifies STRABO (inherits tp1)\n- **stoa--nax** (P2) — redundant-checks discipline + N=1 generalization + estimate-axis separation\n- **stoa--148** (P3) — CATO empirical-env reproduction + probe-fallback coverage\n- **stoa--vmc** (P2) — bw-fit matrix + layered-architecture canon\n- **stoa--rno** (P3) — substrate-tier replication of two workspace memories (fork-over-upstream + agent-time-latency)\n- **stoa--14u** (P2) — substrate-edit smoke beats: install.sh deploy-plan check\n\n## Directive\n\nsubstrate/arcs/arc-23-build-directive.md (committed to the-stoa main before dispatch). Five Phases × one gauntlet × ~30 substrate-prose deliverables across ~9 files. Builds on the-stoa main 19943ec.\n\n## Architectural decisions LOCKED pre-dispatch\n\n11 A-decisions in the directive (A1-A11). tp1 is load-bearing; other tickets inherit. INCOMPLETE / UNVERIFIABLE locked as verdict-shape names (per PRINCIPAL approval on tp1's elevation comment 2026-05-12 18:24). operating-disciplines.md section numbering locked (new §6.7 / §8.3 / §8.4 / §15 / §16 / §17). save-verdict schema extension shape locked. Authorship attribution immutable.\n\n## Comms\n\nPLINY runs in autonomous mode with radio-check protocol per substrate/operating-disciplines.md §7. POLYBIUS polls the Arc 23 epic; PLINY heartbeats every ≤30 min unless surface-and-wait-blocked. PRINCIPAL is exception-handler.\n\n## Build session\n\nDispatched to MAJOR_PLINY_the_stoa via the activation paste at HUMAN_paste-orchestrator-instruction.md (rewritten for Arc 23).",
   "id": "stoa--pmp",
   "labels": [],
+  "comments": [
+    {
+      "text": "Arc 23 epic filed. Directive committed to the-stoa main at 0d097c9 (substrate/arcs/arc-23-build-directive.md). PLINY activation paste committed at ce42918 (HUMAN_paste-pliny-arc-23-instruction.md). All eight child tickets wired as 'blocks' deps: 4h7, tp1, fea, nax, 148, vmc, rno, 14u. Phase A decisions A1-A11 locked pre-dispatch. PRINCIPAL fires the paste in a fresh Claude Code session to activate MAJOR_PLINY; PLINY posts initialization handshake on this epic. POLYBIUS will monitor this epic for phase-transition heartbeats.",
+      "timestamp": "2026-05-12T18:33:44Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 23 — verification-discipline scaffolding + substrate canon updates",
   "type": "epic",
-  "updated_at": "2026-05-12T18:32:42Z"
+  "updated_at": "2026-05-12T18:33:44Z"
 }
