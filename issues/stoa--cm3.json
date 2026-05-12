@@ -118,11 +118,15 @@
     {
       "text": "DAEDALUS revision-r2 activated on stoa--cm3 — addressing ARGUS r5 + r6.",
       "timestamp": "2026-05-12T23:38:13Z"
+    },
+    {
+      "text": "DAEDALUS revision-r2 verdict: pass. r5 + r6 fixed at design.md §3.1 Step 3 (line ~143-154: SINCE env-var moved from trailing argv to env-var-prefix-before-python; both copies now diff-clean against §6.1 §5.8.3 lines 443-462; empirically validated against live stoa--cm3 — emits correct [\u003cts\u003e] \u003ctext\u003e shape) and §13.1 line 1054 (p37→p46) + §12.4 line 1035 (p35→p44). Sanity-grep p22-p37 sweep shows all remaining matches are legitimate (table-header range expressions + §14.1 changelog). §14 verdict updated to revised-r2; new §14.2 documents both fixes + 2 residual questions for ARGUS re-audit. Authorship A11 Denson Smith immutable. Returning.",
+      "timestamp": "2026-05-12T23:40:06Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:38:13Z"
+  "updated_at": "2026-05-12T23:40:06Z"
 }
