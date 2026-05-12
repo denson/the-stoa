@@ -126,11 +126,15 @@
     {
       "text": "Phase 1 — DAEDALUS revision-r2 complete. r5 fixed (SINCE='$last' moved to env-var-prefix position; both §3.1 + §6.1 templates now byte-for-byte identical per diff); empirically validated against live bw show stoa--cm3 --json. r6 fixed (line 1035 p35→p44; line 1054 p37→p46). Sanity-grep sweep of p22-p37 confirms no other stale references survive.\n\nTwo residual questions to ARGUS: (Q1) confirm single-source-of-truth lift is Arc 25+ scope vs Arc 24 in-scope; (Q2) confirm R4 renumbering didn't break references in unchanged p1-p21 / p22-p31 ranges.\n\nDispatching ARGUS re-re-audit.",
       "timestamp": "2026-05-12T23:40:53Z"
+    },
+    {
+      "text": "ARGUS re-re-audit (revision-r2) activated on stoa--cm3. Verifying r5 + r6 fixes.",
+      "timestamp": "2026-05-12T23:41:15Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:40:53Z"
+  "updated_at": "2026-05-12T23:41:15Z"
 }
