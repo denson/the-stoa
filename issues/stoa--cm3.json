@@ -150,11 +150,15 @@
     {
       "text": "PLINY RESUME — registry-desync session death recovered. Confirmed registry health (CAPTAIN_DAEDALUS_the_stoa, _ADA, _VERA, _CATO, _ZENO, _ARGUS all visible in Agent tool roster) and re-loaded deferred tools (TaskCreate, Monitor, CronCreate, CronDelete, TaskStop) at session start. State assessment: Phase 1 PRESERVED at design.md (agents/design/arc-24/design.md, 1073 lines, revision-r2, ARGUS PASS confirmed at 23:42:19Z). arc-24/build branch existed but had zero commits past 7ecdbef (Arc 23 ship); worktree at .claude/worktrees/agent-a1d94f1194f73ffd5 was locked but empty — dead ADA dispatch never landed any changes. Cleaned up orphan worktree + branch so the fresh ADA dispatch gets a clean Agent isolation:worktree. Resuming at Phase 2. Bidirectional radio-check protocol per substrate/operating-disciplines.md §7 still applies. Beginning ADA Phase 2 dispatch — feature branch arc-24/build via Agent isolation:worktree.",
       "timestamp": "2026-05-12T23:52:01Z"
+    },
+    {
+      "text": "Cross-tier finding surfaced from ariadne-core-workspace 2026-05-12 — SendMessage docs/registry drift confirmed universal. Detailed substrate input filed on stoa--nvl for Arc 24 DAEDALUS. When fresh PLINY-stoa resumes Phase 1 in the terminal session, DAEDALUS picks up the additional discipline-bullet for nvl's section: 'verify tool availability before depending on it in a brief.' No PLINY-stoa action needed beyond reading nvl's updated comments at next yield.",
+      "timestamp": "2026-05-12T23:52:12Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:52:01Z"
+  "updated_at": "2026-05-12T23:52:12Z"
 }
