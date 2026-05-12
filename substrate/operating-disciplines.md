@@ -10,7 +10,7 @@ Project `CLAUDE.md` files SHOULD NOT restate these disciplines — they should r
 
 ## The thesis these disciplines express
 
-The disciplines below (§1-§14 plus the autonomous-mode setup checklist) are not a flat list of operational rules. They are expressions of one underlying design thesis about how agentic systems align with human goals on complex projects.
+The disciplines below (§1-§17 plus the autonomous-mode setup checklist) are not a flat list of operational rules. They are expressions of one underlying design thesis about how agentic systems align with human goals on complex projects.
 
 **Human attention is finite and load-bearing.** A 2026-era agent team can run a full DAEDALUS → ARGUS → ADA → VERA → CATO → ZENO cycle in minutes; the agents themselves do not run out. What does run out is the human's capacity to direct, clarify, judge, decide, and catch alignment drift. Software 3.0 framings often imply "humans direct, agents do" without specifying *where* the directing has to happen — leading to either humans paying attention everywhere (defeats the leverage) or nowhere (alignment drift).
 
@@ -73,6 +73,42 @@ The bad pattern: reasoning "the next checker will see the same artifact, so we d
 Under the Stoa team this is enforced structurally — the gauntlet shape itself prevents single-checker passes. DAEDALUS does pre-build design; ARGUS does pre-build critique; VERA does post-build verification; CATO does post-build review; ZENO does post-build spec-check. Five distinct checkers per pass, by construction. The discipline is what justifies the team shape; the team shape is what enforces the discipline.
 
 If you find yourself reasoning toward "this deliverable is small, VERA/CATO/ZENO is overkill" — that is the bad-pattern alarm. STOP and run the full pipeline.
+
+### 6.7 Generalization discipline: N=1 conclusions are not structural lessons
+
+Every CAPTAIN-tier check in the dispatch pipeline (DAEDALUS / ARGUS / ADA / VERA / CATO / ZENO) is structurally redundant by design — multiple seats reading the same artifact from different angles. The §6 discipline names the rule against treating overlapping coverage as substitutable; this subsection names the corollary against generalizing from individual catches.
+
+#### 6.7.1 The N=1 rule
+
+When one check catches a defect (and others would have missed it, or didn't dispatch at all), the right conclusion is **"the pipeline worked"** — not **"we can drop the other checks."** A single observation where "CATO caught X that VERA didn't" or "ADA shipped clean without DAEDALUS" is one data point, not evidence that the missing seat is structurally unnecessary.
+
+Structural claims about the pipeline's safety properties require all of:
+
+1. **Multiple observations across distinct defect classes.** A single repeated catch of one defect class is not yet a pattern; the catch may be specific to that class's surface area.
+2. **Controlled comparison.** The same defect class encountered with vs. without the seat in question. Without the comparison, the observation does not separate "the seat was unnecessary" from "the seat was unnecessary FOR THIS CASE."
+3. **Substrate-level pattern.** Promoted to substrate canon via the normal accretion path (operating-disciplines.md edit), not just a one-off anecdote in a TIMING_LOG.
+
+Until those three conditions hold, the canonical pattern (full gauntlet dispatch) is the default. Per-engagement scope decisions (e.g., "this is mechanical scaffolding, ADA + CATO only") are operational choices made deliberately, not extrapolations from prior catches. The dispatching seat may scope narrowly when the engagement warrants it; the dispatching seat does NOT scope narrowly because "last time we found CATO was sufficient."
+
+Empirical anchor: 2026-05-12, `ariadne--8fd` arc Phase 4 close-out. CATO caught a load-bearing wire-shape mismatch via cold-read in a dispatch scoped as ADA+CATO-only. The initial reading was 'cold-read is structurally sufficient for this defect class.' PRINCIPAL corrected: catching something once isn't catching it every time. The reframe: "CATO caught this defect in this instance" (which is honest) vs. "cold-read alone is sufficient" (which is overreach). Substrate ticket: `stoa--nax`.
+
+#### 6.7.2 Estimate-axis separation
+
+A second corollary surfaces at the same engagement: estimation discipline must separate **agent-team throughput** (Axis A) from **upstream-substrate performance characteristics** (Axis B). The two axes have different empirical bases and different failure modes when conflated.
+
+**Axis A: Agent-team throughput.** Estimates for gauntlet-shaped agent work (DAEDALUS / ADA / VERA / CATO / etc.) held within ~3× during the 2026-05-12 calibration data. Phase 1+2+3+3.5+4+4.5+5 of the relevant arcs came in at 30-90 min of CAPTAIN-agent work against estimates of 1-4 hours. This axis is now empirically calibrated for similar-shape future work — anchor on calibration data from past arcs of the same shape.
+
+**Axis B: Upstream-substrate performance characteristics.** A bulk-seed operation estimated at ~8 min wall-clock came in at ~50-80h projected, because the underlying substrate (bw / TreeFS.Commit) has a scaling pattern that rewrites the entire tree on every commit. The estimate was off by ~500× because the estimator did not profile the substrate at relevant scale before committing. Axis B requires its own characterization: **profile the substrate at relevant scale BEFORE committing, especially for bulk operations.** Do not extrapolate from small-N behavior unless you have also characterized the scaling curve.
+
+**The discipline (when an arc involves both axes):**
+
+1. Estimate agent-team work (Axis A) — anchor on calibration data from similar-shape past arcs.
+2. Estimate upstream-substrate performance (Axis B) — profile the substrate at relevant scale before committing. Document the scaling curve in the estimate's evidence.
+3. Surface both axes separately in the engagement plan so the reviewer can pressure-test each independently.
+
+The N=1 rule (§6.7.1) and the estimate-axis-separation rule (§6.7.2) are complementary disciplines. Both target the same failure mode (drawing structural conclusions from insufficient data), at different layers.
+
+Empirical anchor: 2026-05-12, the bw → Ariadne integration arcs Phase 4 OPERATOR ACTION. Substrate ticket: `stoa--nax` (2026-05-12T17:59:55Z comment captures the axis-separation surface).
 
 ---
 
@@ -242,6 +278,50 @@ The default bias is toward the lighter end of the continuum (leave intact, then 
 Empirical anchor: 2026-05-05 (`stoa--uc7`) — Batch B activation paste (ariadne xft.7 quality cluster) was authored with "fresh session" framing when leave-intact was right; PRINCIPAL surfaced the four-state framing. The author had over-corrected from fresh-session to `/clear` after PRINCIPAL's first nudge; PRINCIPAL re-corrected to "leave the context intact or compact." The continuum is the durable abstraction.
 
 Universality: applies to any seat authoring downstream-agent activation paste-instructions — POLYBIUS authoring PLINY's activation paste (`MAJOR_POLYBIUS.md` §5.1), PLINY authoring sub-agent dispatch envelopes where applicable, pair-programmer Majors handing off to follow-up sessions.
+
+### 8.4 Substrate-edit smoke beats: install.sh deploy-plan check
+
+When an arc adds a new file under `substrate/templates/`, `substrate/skills/`, or any other location whose deploy is governed by `install.sh`'s hardcoded deploy-list arrays (`TEMPLATE_NAMES`, `CAPTAIN_NAMES`, `SKILL_NAMES`, or successors), the arc's Phase C smoke beats MUST include a beat that verifies install.sh's dry-run lists the new file in its deploy plan.
+
+Without this beat, re-installs at deployed tiers silently skip the new file. The substrate's source has the right content; the deploy mechanism doesn't know about it; downstream consumers run on the previous version forever (or until a human spots the gap during routine post-arc deploy verification, as happened on 2026-05-05 with arc-21's three new templates).
+
+**The smoke beat shape, for each new substrate file the arc adds:**
+
+```bash
+bash substrate/install.sh --dry-run --target project --project-dir <test-dir> | grep <new-file-name>
+bash substrate/install.sh --dry-run --target subproject --parent-dir <test-parent> --subproject <slug> | grep <new-file-name>
+bash substrate/install.sh --dry-run --target user | grep <new-file-name>
+```
+
+**Acceptance:** each new file appears in the dry-run deploy plan output for every applicable target mode (some files are mode-specific — e.g., templates skip subproject mode; check the install.sh source for the file class's deploy semantics before asserting which target modes apply).
+
+**If the file does NOT appear:** install.sh's hardcoded list needs updating in the same arc. Surface as a Phase C SMOKE FAIL with the exact missing file name + the install.sh fix needed (e.g., "add `new-template.md` to `TEMPLATE_NAMES` array in install.sh; 1-line addition at line ~110"). Do NOT proceed to ship; fix the install.sh wiring in the same feature branch.
+
+**Substrate-canonical implication for Arc 23 itself.** Per the §10 save-verdict location decision (Option A — user-tier extension), this arc adds no new files under `substrate/templates/` or `substrate/skills/`. The §8.4 discipline is established in the canon for future arcs to apply; Arc 23 itself does not exercise it. The follow-up substrate ticket (per §10.1) for substrate-promotion of save-verdict will be the first arc to exercise §8.4 against itself.
+
+Empirical anchor: Arc 21 commit `e2d8b63` added 3 new templates to `substrate/templates/` without updating install.sh's `TEMPLATE_NAMES`. Re-installs at deployed tiers silently skipped the new templates. Caught only during post-arc routine propagation deploy verification (`51397da` is the 3-line install.sh fix that should have landed in arc 21). Substrate ticket: `stoa--14u`.
+
+### 8.5 Probe coverage of fallback chains
+
+When a code path uses fallback resolution — env-var → file → default; configured path → discovered path → built-in default; database read → cache read → recompute — the probe set the deliverable ships with MUST independently exercise each resolution path. Probe coverage that hits only the primary path silently misses bugs in the fallback paths.
+
+The discipline is symmetric across the gauntlet:
+
+- **ADA (authoring probes)** designs the probe set with explicit per-path coverage. Each resolution-path in the fallback chain gets at least one probe that exercises ONLY that path (the others either don't apply or are deliberately broken in the probe's setup).
+- **VERA (executing probes)** records which resolution path each probe exercised. A probe set that exercises only one path's outputs while the chain has three paths surfaces as a `methodology_concerns:` entry ("probe set does not independently exercise the file-fallback path"); VERA does not silently extend the probes' scope.
+- **CATO (reviewing the diff)** flags missing-path probes as a `coverage_concern:` against VERA per the §6.4 meta-verifier discipline. The §6.8 empirical-environment discipline often triggers this case in practice: when CATO empirically probes the diff and discovers a fallback-path behavior the original probe set did not cover.
+
+Common shapes:
+
+| Pattern | Each path gets a probe |
+|---|---|
+| `GIT_COMMIT env-var → .git/HEAD read → 'unknown' default` | (a) env-var set; (b) env-var unset, .git/HEAD readable, returns sha; (c) env-var unset, .git/HEAD unreadable, returns 'unknown' |
+| `--config flag → config file in cwd → config file in home → built-in defaults` | one probe per cascade level |
+| `cache hit → DB read → recompute` | one probe per resolution path |
+
+The 2026-05-10 `rxn` `_resolve_commit_sha()` example showed the failure mode concretely: the initial probe set had an env-var-set probe (PASS) and an env-var-unset path that ASSUMED it exercised dot-git, but dot-git silently returned `'unknown'` inside worktrees → fell through to default `'unknown'` → probe still passed because `'unknown'` was the assertion. CATO's empirical reproduction (§6.8) caught it; ADA then added a probe asserting dot-git happy path (returns actual SHA, not `'unknown'`) and the fix landed.
+
+Empirical anchor: PR #34 / d83cd23, 2026-05-10. Substrate ticket: `stoa--148` Observation 2.
 
 ---
 
@@ -472,6 +552,170 @@ When a sub-agent (CAPTAIN, Explore, general-purpose, etc.) is killed mid-dispatc
 Empirical anchor: `agents/design/ariadne--m5e/post-mortem-daedalus-rev3-stall.md` (in ariadne-core-workspace; 2026-05-07; 12.7 KB) — 6+ DAEDALUS rev3 stalls left no diagnostic trace; the post-mortem had to reconstruct from intermittent screenshots and status snapshots. Substrate fix: capture the JSONL transcript on every kill, by default. Substrate ticket: `stoa--dyb` Item 2.
 
 Universality: every seat that dispatches sub-agents (currently MAJOR_PLINY; future tiers may add).
+
+---
+
+## 15. Verification-complexity awareness
+
+This section is the load-bearing framework for verifier discipline. The verifying CAPTAINs (VERA, CATO, ARGUS, ZENO) inherit from it; their role files cross-reference back here for the canonical anchor. Codified after the 2026-05-12 cluster surfaced both the verifier-spins-forever failure mode (against hard-hard claims) and the cheap-catch quadrant (hard-detect / easy-verify) where the 2026-05-12 STRABO fabrication lived. Substrate ticket: `stoa--tp1`.
+
+### 15.1 The 2x2
+
+The framework's core artifact.
+
+| | Easy to verify | Hard to verify (often NP-hard) |
+|---|---|---|
+| **Easy to detect** | Standard probe execution. Fast PASS/FAIL. | Bounded verification + explicit **INCOMPLETE** report. Examples: race conditions, performance-at-scale claims, adversarial security — bug surfaces obviously, proving the fix is sound is intractable in general. |
+| **Hard to detect** | Work is in finding what to probe; once found, verification is cheap. Example: the 2026-05-12 STRABO fabrication (claim invisible in the relay; trivially falsified by curl + grep once you knew to look). | Worst case. Concurrency bugs in distributed systems with weak guarantees, halting-problem-shaped claims, synthesis-claim overreach ("every mature project of class X has feature Y"). Verifying exhaustively is computationally or practically intractable. **THIS IS WHERE A VERIFYING AGENT SPINS FOREVER IF NOT AWARE OF THE QUADRANT** — verdict shape **UNVERIFIABLE**. |
+
+### 15.2 The discipline rule
+
+**Every verifying CAPTAIN dispatch begins with quadrant classification per claim or probe target.** The classification is brief (one sentence + quadrant label per claim) and explicit (recorded in the verdict artifact). **Verification strategy follows from classification, not from the verifier's energy level.**
+
+The cost of NOT having this awareness is the verifier-spins-forever failure mode: a verifying agent in the hard/hard quadrant attempting exhaustive verification of an intractable claim, consuming unbounded budget, and never returning a useful verdict. The framework's value is that it makes "this claim is in the intractable quadrant" a first-class verdict shape rather than an absent verdict and a hung process.
+
+### 15.3 The four verification strategies
+
+**Easy detect / Easy verify (easy-easy)** — Standard probe execution. Run the probe; PASS/FAIL based on output. No special handling. The default mechanical case.
+
+**Hard detect / Easy verify (hard-easy)** — The work is in IDENTIFYING what needs verifying. Once identified, verification is cheap. The verifier's job is to surface candidate claims for spot-check, then probe each. Example: read STRABO's research artifact for cited claims; each cited claim is a candidate probe; falsify each via re-fetch + check. **Cost is in the discovery, not the verification per se.** This is the quadrant `stoa--fea` lives in for source-code-citation claims.
+
+**Easy detect / Hard verify (easy-hard)** — Symptom is obvious; proving the fix is sound is intractable. Example: an intermittent race condition. The verifier runs a bounded battery of probes (high-iteration stress test, mutation testing, model-checking on a reduced state space). Verdict: **INCOMPLETE** — "verified across N iterations; full state space not exhausted." Operator judgment required on whether the bounded coverage is sufficient.
+
+**Hard detect / Hard verify (hard-hard)** — Both finding the claim AND verifying it are intractable. Examples: distributed-systems liveness properties, security exploits with subtle preconditions, synthesis-claim-overreach at scale. **The verifier MUST NOT attempt full verification autonomously.** Verdict: **UNVERIFIABLE** — "claim is in NP-hard / undecidable / intractable-at-scale territory; surfacing to operator for judgment." Include the verifier's quadrant classification + what bounded check WAS performed + what would be needed for full verification.
+
+### 15.4 The two new verdict shapes
+
+The current pattern across verifying CAPTAINs is PASS / FAIL / NEEDS-REVISIONS (or equivalent: pass / fail / inconclusive for VERA; pass / revise for ARGUS and CATO; pass / drift for ZENO). Two new shapes extend the set without disrupting the existing paths:
+
+**INCOMPLETE** — bounded verification performed against an easy-detect / hard-verify claim. Verdict body MUST include:
+- (a) what was checked
+- (b) what was NOT checked
+- (c) the bound used (iterations / state-space subset / time budget)
+- (d) the verifier's confidence interval (e.g., "PASS across 10,000 iterations; full state space estimated at ~10⁹ due to interleaving")
+
+Operator decides whether the bound is sufficient. **INCOMPLETE does NOT gate merge on its own**; both INCOMPLETE and UNVERIFIABLE require operator disposition. The discipline is that the verifier reports honestly rather than fail closed or run indefinitely.
+
+**UNVERIFIABLE** — hard-detect / hard-verify claim. No autonomous full-verification attempt. Verdict body MUST include:
+- (a) quadrant classification + one-sentence justification
+- (b) any sanity check that WAS performed (within ~1× normal probe budget)
+- (c) recommended next step (operator judgment / deferred verification via long-running automated suite / accept-the-risk-with-mitigations / etc.)
+
+UNVERIFIABLE also does not gate merge on its own. The verdict is honest output, not a failure.
+
+### 15.5 Time/cost-box defaults
+
+**Bounded verification is bounded, not unlimited.** Two defaults:
+
+- **INCOMPLETE-verdict bounded verification gets a default time/cost box of 10× the dispatch's normal probe budget.** Concretely: if a routine probe-set takes ~30s wall-clock and ~5k tokens, the INCOMPLETE bound is 300s / 50k tokens. Configurable per dispatch (the brief may explicitly authorize a higher bound for a load-bearing INCOMPLETE check). 10× is the anchor from the tp1 elevation comment and reflects the principle that bounded verification is genuinely more work than easy-easy probing — but a 100× or 1000× allowance starts to defeat the purpose of bounding.
+- **UNVERIFIABLE pulls the verifier out within ~1× normal probe budget.** A sanity-check is allowed; full verification is not. The verifier confirms the quadrant classification (one or two cheap probes to rule out an easier shape), records what it did, returns.
+
+**Rationale for N=10 (the INCOMPLETE multiplier).** Three considerations:
+1. **Asymmetric cost.** A passing INCOMPLETE probe with too-tight a bound is a missed catch; a passing INCOMPLETE probe with too-loose a bound is wasted tokens. Tokens are cheap; missed catches in NP-hard territory are not. The bound errs generous.
+2. **Operator-fatigue.** Every INCOMPLETE verdict surfaces to PRINCIPAL or POLYBIUS for disposition. If the bound is too tight, INCOMPLETE verdicts proliferate and the disposition queue saturates. 10× lets the verifier do real bounded work; the disposition queue stays manageable.
+3. **Easy escalation path.** If a verifier hits 10× and the verdict is still INCOMPLETE with diminishing returns, the verifier returns INCOMPLETE with the data it has. If the brief explicitly authorizes a higher budget (e.g., 100× for a load-bearing concurrency check), the verifier uses it. The default is the floor of "honest bounded work," not the ceiling.
+
+### 15.6 Six worked examples
+
+Worked examples make the framework legible.
+
+**Example 1 — Easy-easy / PASS.** VERA probes `/api/bw/projects/conan-superfan/issues` and expects HTTP 200 with non-empty `issues` array. Direct curl + jq. Pass. Standard mechanical case; the framework adds nothing beyond classification, but the classification step is what makes the framework's other quadrants legible by contrast.
+
+**Example 2 — Hard-easy / FAIL.** VERA reads STRABO research artifact claiming `internal/issue/id.go:128` contains `matches = append(matches, matches)`. Quadrant: **hard-detect** (the work is in finding which of the artifact's many cited claims to verify; the claim's wording does not flag itself as suspicious) / **easy-verify** (curl the file at the cited commit + grep for the cited line; match or fail). FAIL: the line is absent from all three commits of the file's history; the structurally-correct `append(matches, id)` is what's actually there. Falsifying evidence: the three commit SHAs + line excerpts. This is the 2026-05-12 STRABO-fabrication case.
+
+**Example 3 — Easy-hard / INCOMPLETE.** VERA verifies a fix for an intermittent concurrency bug. Quadrant: **easy-detect** (the bug reproduces under load) / **hard-verify** (full state space is intractable to exhaust). Bounded probe: 10,000 iterations of stress test against the fix. Result: PASS across all 10,000 iterations. Verdict **INCOMPLETE**: "PASS across 10,000 iterations; estimated full state space ~10⁹ due to thread-interleaving; bound used was 10× normal probe budget at ~300s wall-clock; confidence interval high for non-systematic recurrence, low for adversarial recurrence." Operator decides whether 10,000 iterations is sufficient for ship.
+
+**Example 4 — Hard-hard / UNVERIFIABLE.** STRABO research synthesis claims "every mature git-as-database project has a sidecar projection layer." Quadrant: **hard-detect** (sample bias in mature-project enumeration; how do you find the counter-examples?) / **hard-verify** (counter-example space is the set of all not-yet-discovered such projects). Verdict **UNVERIFIABLE**: cited 3 examples (git-bug, public-inbox, beads-on-Dolt); sanity-checked each individually (each has a documented sidecar projection layer); but the universal-quantifier synthesis is unbounded — verifier surfaces to operator. Recommended next step: treat the claim as a strong heuristic for the cited cases, not a universal law; document the synthesis as evidence-of-pattern, not evidence-of-completeness.
+
+**Example 5 — ARGUS easy-easy.** Design critique: "config file path is hardcoded at `/etc/foo.conf`." Concrete risk; easy-quadrant. Standard FAIL-equivalent (`load_bearing: true`, evidence-cited). No framework overhead needed; this is just a normal load-bearing risk surfaced and routed back to DAEDALUS for revision.
+
+**Example 6 — ARGUS hard-hard.** Design critique: "does this design account for all possible failure modes." Quadrant: **hard-detect** (failure-mode space is unbounded) / **hard-verify** (proving exhaustion is intractable). ARGUS classifies as hard-hard. Verdict **UNVERIFIABLE** at the design-critique level (not "the design is wrong" — the design may be fine, but ARGUS cannot exhaust the failure-mode space). ARGUS surfaces three specific failure modes considered concretely, notes the unbounded property of "all possible," recommends operator review or deferred adversarial testing as the next step. The verdict is honest output; ARGUS does not pretend to have done what it cannot do.
+
+### 15.7 Self-referential observation
+
+The framework's own discipline applies to verifying any arc that ships this framework. Each verifier (VERA, CATO, ZENO) classifies each probe per the framework. Most probes in a doc-revision arc are easy-easy (file contains string; schema accepts example; section heading present; cross-reference resolves). Some are hard-easy (wording-drift across the four verifier role files: the work is in spotting the drift across files; once spotted, the drift is mechanical to check). Almost none are easy-hard or hard-hard in doc-shaped arcs; the framework's harder quadrants emerge for verifying code-shaped deliverables with concurrency / synthesis claims.
+
+---
+
+## 16. bw-fit matrix + layered-architecture framing
+
+When choosing a project's substrate for ticket-shape state, knowledge-shape data, or hybrid use cases, consult this matrix before committing to bw. The matrix codifies the empirical bw scaling characteristics observed across the 2026-05 stoa + ariadne integration arcs.
+
+### 16.1 The bw-fit matrix
+
+| Use case shape | Fit |
+|---|---|
+| Project-management substrate, incremental over months/years, < ~5k lifetime tickets | bw is the right choice |
+| Agent-team work-tracking with rich metadata + dependencies | bw is the right choice (Stoa's own use) |
+| Investigative workflow with structured evidence + hypotheses | bw is the right choice |
+| Audit trail for a workflow with versioned commits | bw is the right choice |
+| Catalog / reference corpus / knowledge-graph at 10k+ entries | NOT bw — use direct Postgres, beads-on-Dolt, or another DB engine |
+| High-write-rate bulk ingest workloads | NOT bw — even if total corpus is small |
+| Use cases requiring concurrent multi-agent cell-level merge | NOT bw (consider beads-on-Dolt if this is a real requirement) |
+
+The wall: bw's `TreeFS.Commit` rewrites the entire tree on every commit (no incremental tree update). At ~5k tickets and beyond, this becomes superlinear (~21s/ticket observed at 11,446 tickets; ~50-80h projected for full bulk-seed of that corpus). The matrix's "right choice" rows are use cases where the commit-rate stays well below the scaling wall; the "NOT bw" rows are where the scaling wall is structurally load-bearing.
+
+### 16.2 The layered-architecture framing
+
+**bw is the write-side substrate; Ariadne is the read-side projection; hypergraph extends the projection to relational reads.** Each layer addresses a different read shape; do not force bw to be fast at reads — that is not its job in the stack.
+
+Concretely:
+
+- **bw (write-side).** Authoritative ticket-shape state. Audit-trail-grade durability. Incremental-author-friendly. Best when reads are spot-lookups against known IDs or small-set list operations. Native bw `list` / `show` / `history` are the right APIs at this layer.
+- **Ariadne (read-side projection).** A sidecar projection layer that mirrors bw's state into a queryable shape (typically SQLite + FTS5 + structured indices). Built for relational reads, full-text search, cross-ticket aggregation, and analytics queries that bw cannot serve fast at scale. The projection is eventually-consistent with bw; bw is the source of truth, Ariadne is the cached query layer.
+- **Hypergraph extension.** When the project's read shape includes many-to-many relationships across tickets / artifacts / concepts (knowledge-graph queries; multi-hop traversal; relational joins on derived attributes), the hypergraph layer sits on top of Ariadne. Same eventually-consistent pattern; richer query surface.
+
+The mental model substantive value: for any future Stoa-deployed project that needs both ticket-shape and knowledge-shape data, the projection layer is load-bearing — bw alone won't carry the knowledge-graph use case. The bw → Ariadne integration arc was proving exactly this: the bulk-seed wall was the empirical evidence that bw is for writes, Ariadne is for reads, and the two layers compose.
+
+### 16.3 Decision rule
+
+When a future POLYBIUS session is considering bw for a project, walk the matrix at §16.1 first:
+
+1. If the use case falls in a "right choice" row → bw is the right substrate. Standard stoa-deploy applies.
+2. If the use case falls in a "NOT bw" row → use the alternative named in the matrix row. Document the choice; bw is not the universal answer.
+3. If the use case spans both (ticket-shape + knowledge-shape, or write-intensive small + read-intensive large), apply the layered architecture from §16.2: bw for the write side, a projection layer for the read side. Don't force one tool to do both jobs.
+
+Empirical anchor: 2026-05-12, the bw → Ariadne integration arcs in ariadne-core-workspace. Project-tier relay at `HUMAN_relay_substrate_bw_scaling_findings_2026-05-12.md`. Research artifacts in `agents/research/bw-scaling-vs-mature-systems/` and `agents/research/bw-create-on-source-read/`. `ariadne--8fd.10` in the project-tier bw store documents the scaling-wall confirmation. Substrate ticket: `stoa--vmc`.
+
+---
+
+## 17. AI-team OSS-dep calculus + agent-time latency budget
+
+Two adjacent disciplines that surface together for any Stoa-deployed project depending on third-party open-source or designing for an agent-driven traffic profile. Replicated from workspace-tier memory files to substrate per `stoa--rno`.
+
+### 17.1 Fork-over-upstream default for AI-team OSS dependencies
+
+The AI-team OSS calculus is inverted from human-dev convention.
+
+- **For a human dev team:** fork-and-tailor is expensive (maintenance burden, drift from upstream, ongoing sync cost). Upstream-issue-filing is cheap (open ticket, wait, maybe land). Default: file the issue; minimize the fork.
+- **For an AI agent team:** fork-and-tailor is cheap (the agent can carry the diff trivially; sync is also automatable). Upstream-issue-filing is expensive coordination overhead (write the issue with discipline; wait days or weeks; possibly never resolved; blocks the project's roadmap). Default: fork-and-tailor when the dep doesn't fit the specific use case. Upstream-contribute-back is optional and post-hoc.
+
+**The discipline:** when a Stoa-deployed project hits an upstream limitation that a small patch would resolve, the default decision is **fork the dep into the project's own workspace and apply the patch**. Upstream-PR is a downstream optional step, not a precondition. The 2026-05-12 bw arc validated this empirically: a 150 LOC `TreeFS`-incremental-tree-update patch is a small fork-and-tailor surface for the AI team but a substantial upstream coordination job (RFC, maintainer review, possibly multiple rounds, possibly rejected for design-fit reasons). The project-tier choice (pivot the use case rather than fork) was viable in that specific arc because the use-case pivot was cheap; the architectural option to fork was always available and cheap.
+
+Two adjacent considerations:
+
+- **The fork is not a fork in the destructive sense.** It's a local patch applied at install / build time, with the upstream remained as the canonical source. The diff is small; sync from upstream remains automatable.
+- **Upstream contribution stays optional.** If the patch's design happens to be a clean general improvement and the maintainer is responsive, contribute it back. If not, the patch lives in the project's substrate; the project is unblocked.
+
+### 17.2 Agent-time latency budget for agent-driven traffic
+
+When a system's traffic is 100% agent-to-system (no human keystrokes in the request loop), the latency budget is **per-LLM-turn** (5-20s acceptable per round-trip), not **per-human-keystroke** (<1s expected). Optimizing for human-perceived-instant response is over-optimization for a system that won't be touched by human keystrokes.
+
+Engineering decisions shift on several axes:
+
+| Decision | Human-facing | Agent-facing |
+|---|---|---|
+| 1-2s synchronous ingest API call | unacceptable | acceptable |
+| Bulk operations spread over minutes | unacceptable | acceptable |
+| Async-queue-for-bulk plumbing | required | not needed unless wall-clock is a real bottleneck |
+| UI polish / streaming responses | high priority | lower priority than correctness / coverage |
+| Cold-start latency (process spin-up) | unacceptable | acceptable when the agent's own turn-budget absorbs it |
+
+The implication: for any Stoa-deployed project that has an agent-vs-human-consumer split, the substrate-canonical engineering trade-offs match the consumer profile. A project serving agents only does NOT inherit the human-facing latency budget; it inherits the agent-facing one, and the engineering choices follow.
+
+**Discipline:** when designing a new Stoa-deployed project, ask explicitly: who is the consumer of this traffic — humans, agents, or both? The answer drives the latency budget, the engineering choices, and where polish-effort lands. Same project-tier rule across the team.
+
+Empirical anchor: 2026-05-12, the bw → Ariadne integration arc's Phase 4 OPERATOR ACTION analysis. Workspace-tier memory files at `ariadne-core-workspace/memory/feedback_fork_over_upstream_issue.md` + `project_agent_time_latency_budget.md`. Substrate ticket: `stoa--rno`.
 
 ---
 
