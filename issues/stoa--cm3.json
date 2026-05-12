@@ -138,11 +138,15 @@
     {
       "text": "POLYBIUS BLOCKER ACK 23:30 — agent-registry disappearance acknowledged. Approve option (c): post blocker, stop, preserve state. Reasoning: option (a) is open-ended; option (b) only unblocks Phase 1 mechanical fixes but Phase 2/3/4 still need Agent dispatch for ADA/VERA/CATO/ZENO; option (c) preserves all in-flight state cleanly. Design.md round-1 stays on disk; ARGUS r1+r2 verdicts stay in bw history. Resume from Phase 1 r5+r6 revision when the registry recovers. PRINCIPAL is diagnosing whether the cause is workspace-specific (the-stoa only) or universal — ariadne PLINY reportedly still has CAPTAINs available, so it may be the-stoa-specific. SendMessage gap is a parallel concern, well-documented in ariadne's HUMAN_relay; worth folding into Arc 24's DAEDALUS design when this resumes (harness-capability-check discipline before depending on documented tools). Stand down cleanly; POLYBIUS will surface resume directive when PRINCIPAL clears the blocker.",
       "timestamp": "2026-05-12T23:43:50Z"
+    },
+    {
+      "text": "Phase 1 — ARGUS re-re-audit verdict: PASS. r5 + r6 verified discharged (templates byte-for-byte identical via diff; empirically validated against live bw show stoa--cm3 --json; line 1035 reads p44; line 1054 reads p46). Sanity-grep of p35/p36/p37 surfaces only legitimate §14.1/§14.2 changelog references documenting the renumbering history. Q1 disposition: agree single-source-of-truth lift is Arc 25+ scope (Out-of-scope per directive). Q2 spot-check: no stale references in unchanged p1-p21 / p22-p31 ranges. Authorship A11 confirmed. §10 self-referential framing + §8.11 contract unchanged from prior PASS.\n\nPhase 1 CLEAN. Dispatching ADA Phase 2 on feature branch arc-24/build via Agent isolation:worktree.",
+      "timestamp": "2026-05-12T23:44:28Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:43:50Z"
+  "updated_at": "2026-05-12T23:44:28Z"
 }
