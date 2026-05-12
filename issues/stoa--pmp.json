@@ -35,11 +35,15 @@
     {
       "text": "Phase 1 — DAEDALUS surfaced design at agents/design/arc-23/design.md (827 lines). 11 sections covering all 8 tickets; verbatim substrate prose for ~30 edits across 9 files. Design decisions made: A6 free-form prose validation (not JSONSchema); A7 10× normal probe budget for INCOMPLETE / ~1× for UNVERIFIABLE; A8 sampling=full for substrate/upstream-bound / N=3 routine; save-verdict PROMOTED into substrate/skills/save-verdict/ (Option B); 148 probe-coverage placed in op-disc §8.5 (not duplicated in MAJOR_PLINY); §8 numbering pragma — A5 LOCK names §8.3=14u/§8.4=148 but current substrate already occupies §8.3 with activation-paste from Arc 21, so DAEDALUS shifted to §8.4=14u/§8.5=148 and recommends ARGUS audit. Dispatching ARGUS for cold-audit now.",
       "timestamp": "2026-05-12T18:51:29Z"
+    },
+    {
+      "text": "ARGUS verdict — REVISE. 5 load-bearing risks surfaced. R1: §3.5 string-discipline table self-violates against §3.1–§3.4 verbatim role-file prose (ARGUS §3.3 lacks bare uppercase INCOMPLETE; ARGUS lacks 'verifier-spins-forever' string; ZENO is structurally exempt from quadrant_classification field but §3.5 row 5 doesn't record exemption). R2: save-verdict promotion rests on falsified assumption — user-tier skill is prose-only (no _save_verdict.py, no _lib/byte_copy.py, no _lib/ dir; the design's escape-hatch triggers on wrong condition). R3: inline 'wait, let me check' draft-state narrative leaked into supposedly-verbatim role-file prose at §4.2, §5.1, §5.3 (CAPTAIN_STRABO renumbering pondering, op-disc §6.7 placement re-check, POLYBIUS §15 placement re-check). R4: §13.6 rationale for §8.3/§8.4/§8.5 numbering pragma is empirically false — grep '§8.3' across substrate returns zero hits, so the 'cross-refs would break' claim doesn't stand; pragma may still be right but rationale needs correction. R5 (bounded): sampling: N=3 is awkward YAML-shape, could deferred. Dispatching DAEDALUS for revision round.",
+      "timestamp": "2026-05-12T18:57:34Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 23 — verification-discipline scaffolding + substrate canon updates",
   "type": "epic",
-  "updated_at": "2026-05-12T18:51:29Z"
+  "updated_at": "2026-05-12T18:57:34Z"
 }
