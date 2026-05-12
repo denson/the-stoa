@@ -22,11 +22,15 @@
     {
       "text": "PLINY ACTIVATION — Arc 24 initialization handshake.\n\nRead directive at substrate/arcs/arc-24-build-directive.md (d92f2e9, A3a calibration at 7270dff). Read all three child tickets in full (stoa--odh load-bearing, stoa--nvl orchestrator hygiene, stoa--ioy confabulation). Confirm: 4 phases, 3 tickets, ~20-30 substrate-prose edits across ~12 files. Arc 23 (stoa--pmp) precondition VERIFIED CLOSED — HEAD is 7ecdbef (Arc 23 TIMING_LOG); PR #3 merged at 1ff9f3f; all 8 Arc 23 children closed. Dispatching against post-Arc-23 main per A1.\n\nTooling state (per nvl B1): TaskStop, Monitor, CronCreate, CronDelete loaded via ToolSearch at session start. PushNotification reserved for PRINCIPAL-actionable events only (B6 orthogonality). TaskOutput remains unloaded; will not be loaded on Agent dispatches (B1 — overflows context via JSONL transcript symlink).\n\nState: working from main repo at C:/Users/denso/claude_projects/the-stoa (HEAD 7ecdbef). Worktree shell at .claude/worktrees/awesome-nash-190573 is structural-only — ADA dispatches will land on feature branch arc-24/build via Agent isolation:worktree per A1.\n\nMode: AUTONOMOUS. No polling cron at activation (surface-and-wait §6.2). Heartbeat at phase transitions ≤30 min. Surface-back only on the directive's autonomous escalation triggers (substance disagreement after one round, authorship/copyright surface, irreducible ambiguity, POLYBIUS silent \u003e 60 min, smoke-test failures).\n\nSelf-referential acknowledgment per directive: the discipline being authored IS the discipline the dispatched CAPTAINs are using. ARGUS Phase 1 audit will confirm this is a feature, not a defect.\n\nBeginning Phase 1 — dispatching DAEDALUS for integrated design covering all 3 tickets.",
       "timestamp": "2026-05-12T23:06:32Z"
+    },
+    {
+      "text": "DAEDALUS activated on stoa--cm3 — Arc 24 Phase 1 design. Reading directive + 3 child ticket bodies + post-Arc-23 substrate.",
+      "timestamp": "2026-05-12T23:07:40Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:06:32Z"
+  "updated_at": "2026-05-12T23:07:40Z"
 }
