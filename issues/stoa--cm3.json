@@ -106,11 +106,15 @@
     {
       "text": "ARGUS R4-verify: probe IDs p1-p46 unique, §11.5 arithmetic correct (44+1+1=46). NEW LOAD-BEARING RISK: stale probe cross-refs not updated by R4 renumbering. design.md:1035 references 'VERA's probe p35' (should be p44); design.md:1054 references 'VERA's probe p37' (should be p46). VERA Phase 3 + Phase 4 smoke routing breaks on these stale IDs.",
       "timestamp": "2026-05-12T23:34:51Z"
+    },
+    {
+      "text": "ARGUS re-audit verdict: REVISE-r2. R1-verify FAIL (§3.1 Step 3 template broken: SINCE env-var trailing the python -c closing quote becomes argv[1], not env var; KeyError SINCE empirically). R2-verify PASS (python recovery shape correct, jq + non-JSON alternatives documented). R3-verify PASS (10 CAPTAIN files strict-verbatim ¶1/2/3/4/5 modulo SEAT, slot ¶6-11 fits; §8.11 contract precise enough for mechanical CATO diff). R4-verify PARTIAL (probe IDs p1-p46 unique + §11.5 arithmetic 44+1+1=46 correct, BUT stale cross-refs at design.md:1035 'p35' and design.md:1054 'p37' from pre-renumbering remain). New residual: §3.1 Step 3 vs §6.1 §5.8.3 template-divergence (env-var placement) is itself a wording-drift defect of the kind §8.11 contract guards against — two near-identical canonical templates in different sections must be byte-for-byte identical or one will silently rot. Authorship A11 immutable confirmed. §10 self-ref framing unchanged from prior PASS. Returning.",
+      "timestamp": "2026-05-12T23:36:29Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:34:51Z"
+  "updated_at": "2026-05-12T23:36:29Z"
 }
