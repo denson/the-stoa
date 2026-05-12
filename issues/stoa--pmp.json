@@ -39,11 +39,15 @@
     {
       "text": "ARGUS verdict — REVISE. 5 load-bearing risks surfaced. R1: §3.5 string-discipline table self-violates against §3.1–§3.4 verbatim role-file prose (ARGUS §3.3 lacks bare uppercase INCOMPLETE; ARGUS lacks 'verifier-spins-forever' string; ZENO is structurally exempt from quadrant_classification field but §3.5 row 5 doesn't record exemption). R2: save-verdict promotion rests on falsified assumption — user-tier skill is prose-only (no _save_verdict.py, no _lib/byte_copy.py, no _lib/ dir; the design's escape-hatch triggers on wrong condition). R3: inline 'wait, let me check' draft-state narrative leaked into supposedly-verbatim role-file prose at §4.2, §5.1, §5.3 (CAPTAIN_STRABO renumbering pondering, op-disc §6.7 placement re-check, POLYBIUS §15 placement re-check). R4: §13.6 rationale for §8.3/§8.4/§8.5 numbering pragma is empirically false — grep '§8.3' across substrate returns zero hits, so the 'cross-refs would break' claim doesn't stand; pragma may still be right but rationale needs correction. R5 (bounded): sampling: N=3 is awkward YAML-shape, could deferred. Dispatching DAEDALUS for revision round.",
       "timestamp": "2026-05-12T18:57:34Z"
+    },
+    {
+      "text": "ARGUS PASS (re-audit) — all five R1-R5 fixes verified landed. R1: bare INCOMPLETE/UNVERIFIABLE/verifier-spins-forever present in §3.2/§3.3 with ZENO structural exemption recorded honestly. R2: Option A — user-tier-only schema extension; substrate save-verdict promotion deferred to a planning-grade follow-up ticket. R3: 4 draft-state passages stripped. R4: cross-ref-breakage claim retracted at §6.3 + §13.6; standing rationale = Arc 21 audit-drift only. R5: canonicalized to 'sampling: full' / 'sampling: 3'. Four residual bounded concerns (§8.4/§8.5 pragma, 10× multiplier calibration, §8 home fit, sampling candidate-selection) all self-flagged in design §13 with named recovery paths. No new load-bearing risks introduced. PRINCIPAL/POLYBIUS judgment call available on §8.4/§8.5 pragma vs literal A5 LOCK honoring; accepting pragma (DAEDALUS's audit-drift rationale survives ARGUS scrutiny). Dispatching ADA Phase 2 build on feature branch arc-23/build.",
+      "timestamp": "2026-05-12T19:08:29Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 23 — verification-discipline scaffolding + substrate canon updates",
   "type": "epic",
-  "updated_at": "2026-05-12T18:57:34Z"
+  "updated_at": "2026-05-12T19:08:29Z"
 }
