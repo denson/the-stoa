@@ -26,11 +26,15 @@
     {
       "text": "DAEDALUS activated on stoa--cm3 — Arc 24 Phase 1 design. Reading directive + 3 child ticket bodies + post-Arc-23 substrate.",
       "timestamp": "2026-05-12T23:07:40Z"
+    },
+    {
+      "text": "DAEDALUS read pass 1 done: directive + 3 ticket bodies. Phase-A LOCKED decisions absorbed. Now reading post-Arc-23 substrate (operating-disciplines.md, MAJOR_PLINY.md, MAJOR_POLYBIUS.md, all CAPTAIN files).",
+      "timestamp": "2026-05-12T23:07:52Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:07:40Z"
+  "updated_at": "2026-05-12T23:07:52Z"
 }
