@@ -6,6 +6,7 @@
     "stoa--4h7",
     "stoa--fea",
     "stoa--nax",
+    "stoa--rno",
     "stoa--tp1",
     "stoa--vmc"
   ],
@@ -17,5 +18,5 @@
   "status": "open",
   "title": "[EPIC] Arc 23 — verification-discipline scaffolding + substrate canon updates",
   "type": "epic",
-  "updated_at": "2026-05-12T18:31:42Z"
+  "updated_at": "2026-05-12T18:31:44Z"
 }
