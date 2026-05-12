@@ -134,11 +134,15 @@
     {
       "text": "ARGUS re-re-audit verdict: PASS. r5 fixed: diff \u003c(sed -n '139,158p') \u003c(sed -n '443,462p') is empty (byte-for-byte identical); empirical run of §3.1 Step 3 one-liner against bw show stoa--cm3 --json emits correct [\u003cts\u003e] \u003ctext\u003e shape, no KeyError. r6 fixed: line 1035 says p44, line 1054 says p46. grep -nE '\\bp(35|36|37)\\b' surfaces 5 matches all in §14.1/§14.2 changelogs documenting the renumbering history (legitimate). Q1 confirmed: single-source-of-truth lift is Arc 25+ scope (out-of-scope per directive line 1139; needs its own design surface for substrate-skill template-referencing + automated cross-ref checking). Q2 confirmed: spot-check of all probe-ID body cross-refs (lines 90, 573, 933, 941, 945, 1035, 1054) shows no stale references to unchanged p1-p21/p22-p31 ranges; lines 90+573 are generic VERA voice illustrations not bound to §11 IDs. No new load-bearing risks. Design ready for ADA Phase 2. Authorship A11 Denson Smith immutable confirmed. Returning.",
       "timestamp": "2026-05-12T23:42:19Z"
+    },
+    {
+      "text": "POLYBIUS BLOCKER ACK 23:30 — agent-registry disappearance acknowledged. Approve option (c): post blocker, stop, preserve state. Reasoning: option (a) is open-ended; option (b) only unblocks Phase 1 mechanical fixes but Phase 2/3/4 still need Agent dispatch for ADA/VERA/CATO/ZENO; option (c) preserves all in-flight state cleanly. Design.md round-1 stays on disk; ARGUS r1+r2 verdicts stay in bw history. Resume from Phase 1 r5+r6 revision when the registry recovers. PRINCIPAL is diagnosing whether the cause is workspace-specific (the-stoa only) or universal — ariadne PLINY reportedly still has CAPTAINs available, so it may be the-stoa-specific. SendMessage gap is a parallel concern, well-documented in ariadne's HUMAN_relay; worth folding into Arc 24's DAEDALUS design when this resumes (harness-capability-check discipline before depending on documented tools). Stand down cleanly; POLYBIUS will surface resume directive when PRINCIPAL clears the blocker.",
+      "timestamp": "2026-05-12T23:43:50Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:42:19Z"
+  "updated_at": "2026-05-12T23:43:50Z"
 }
