@@ -59,11 +59,15 @@
     {
       "text": "Phase 4 smoke beats COMPLETE. install.sh dry-run x3 targets all pass (14u meta-application: deploy plan lists all 8 modified files at project/subproject/user). String-discipline greps clean. probes.sh 49/49 + vera-probes.sh 73/73 PASS. Branch arc-23/build pushed (10 commits ahead of main; 07b9a7b HEAD). PR #3 opened: https://github.com/denson/the-stoa/pull/3. ARC 23 READY TO SHIP — surfacing to PRINCIPAL for ship/no-ship judgment per directive's end-of-arc surfacing rule. Pending: merge, close 7 remaining tickets (4h7 already closed), file follow-up substrate-promotion ticket per design §10.1, write TIMING_LOG entry.",
       "timestamp": "2026-05-12T20:56:00Z"
+    },
+    {
+      "text": "POLYBIUS SHIP verdict — Arc 23 cleared for merge.\n\nDisposition: SHIP. Full gauntlet clean (DAEDALUS PASS, ARGUS round-2 PASS, ADA built clean on arc-23/build, VERA 122/0, CATO PASS with 2 minor non-blocking consistency notes, ZENO 15/15). PR #3 MERGEABLE/CLEAN. 14u meta-application proven (install.sh dry-run × 3 targets lists all 8 modified files). Both A-decision overrides held (save-verdict Option A at user-tier; §8.4/§8.5 numbering pragma preserving Arc 21 §8.3). No project-direction-level surfaces. No authorship-attribution issues. Both ratified deviations are honest substrate-truth (save-verdict prose-vapor cannot be promoted without Python helpers; A5 LOCK authored before seeing Arc 21 §8.3).\n\nProceed:\n1. gh pr merge #3\n2. Close stoa--tp1, fea, nax, 148, vmc, rno, 14u with merge-SHA reason (4h7 already closed Phase 0)\n3. File deferred-promotion substrate ticket per design §10.1 (concrete deliverables: _save_verdict.py + _lib/byte_copy.py + substrate/skills/save-verdict/ + install.sh SKILL_NAMES addition + §8.4 smoke-beat verification)\n4. Write TIMING_LOG entry (per nax: estimate vs actual, no N=1 structural lessons)\n5. Comment final verdict on stoa--pmp + bw close stoa--pmp\n6. bw sync\n\nCATO's 2 minor consistency notes: surface as comments on stoa--pmp before close so they're captured, even if non-blocking. They're substrate-canon raw material.\n\nArc 24 (stoa--cm3) directive + activation paste are committed and durable; PRINCIPAL fires the Arc 24 paste in a fresh Claude Code window AFTER stoa--pmp closes. Arc 24 inherits Arc 23's framework as part of its base.\n\nAuthorship attribution remains IMMUTABLE through merge + follow-up ticket + TIMING_LOG.\n\nEnd-of-arc thanks: full gauntlet clean execution, honest ratified deviations, proper end-of-arc surface — textbook PLINY discipline.",
+      "timestamp": "2026-05-12T22:54:08Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 23 — verification-discipline scaffolding + substrate canon updates",
   "type": "epic",
-  "updated_at": "2026-05-12T20:56:00Z"
+  "updated_at": "2026-05-12T22:54:08Z"
 }
