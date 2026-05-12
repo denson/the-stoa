@@ -154,11 +154,15 @@
     {
       "text": "Cross-tier finding surfaced from ariadne-core-workspace 2026-05-12 — SendMessage docs/registry drift confirmed universal. Detailed substrate input filed on stoa--nvl for Arc 24 DAEDALUS. When fresh PLINY-stoa resumes Phase 1 in the terminal session, DAEDALUS picks up the additional discipline-bullet for nvl's section: 'verify tool availability before depending on it in a brief.' No PLINY-stoa action needed beyond reading nvl's updated comments at next yield.",
       "timestamp": "2026-05-12T23:52:12Z"
+    },
+    {
+      "text": "Phase 2 dispatch — dispatching CAPTAIN_ADA_the_stoa (foreground, isolation:worktree) with full design.md brief. Single ADA, single worktree, feature branch arc-24/build. ADA inherits the Arc 24 heartbeat-and-read-before-write discipline being built (self-referential per directive §self-referential note) — will heartbeat on this epic ticket at dispatch entry, every state transition, and at completion before returning.",
+      "timestamp": "2026-05-12T23:52:39Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:52:12Z"
+  "updated_at": "2026-05-12T23:52:39Z"
 }
