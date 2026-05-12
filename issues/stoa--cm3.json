@@ -34,11 +34,15 @@
     {
       "text": "DAEDALUS read pass 2 done: operating-disciplines.md (§1-§17), MAJOR_PLINY.md, MAJOR_POLYBIUS.md (§1-§9), CAPTAIN_VERA/CATO/ARGUS/ZENO. Confirmed §17 is last section — Arc 24 additions land at §18+. Reading remaining 6 CAPTAINs (ADA, BARTLEBY, CURATOR, DAEDALUS, HERALD, STRABO) + agent-author skill.",
       "timestamp": "2026-05-12T23:08:28Z"
+    },
+    {
+      "text": "DAEDALUS read pass 3 done: all 10 CAPTAIN files + agent-author skill + workspace memory feedback_no_confabulated_rationales.md (found at C:/Users/denso/.claude/projects/C--Users-denso-claude-projects-ariadne-core-workspace/memory/). All inputs absorbed. Beginning design draft at agents/design/arc-24/design.md.",
+      "timestamp": "2026-05-12T23:09:28Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:08:28Z"
+  "updated_at": "2026-05-12T23:09:28Z"
 }
