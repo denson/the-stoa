@@ -66,11 +66,15 @@
     {
       "text": "ARGUS verdict: REVISE: 4 load-bearing risks (canonical poll-loop has wrong JSON schema; jq not installed in deployed env; §8.11 contract internally inconsistent with §8 prose; §11 probe-numbering math wrong). Returning.",
       "timestamp": "2026-05-12T23:23:21Z"
+    },
+    {
+      "text": "Phase 1 — ARGUS verdict: REVISE. 4 load-bearing risks:\n\nR1 (LOAD-BEARING): Canonical bw-poll-loop template in design §3.1 Step 3 + §6.1 §5.8.3 references nonexistent JSON fields (.author, .body). Actual 'bw show --json' schema is {text, timestamp} only — no author field, comment text is 'text' not 'body'. ARGUS verified empirically against stoa--cm3 comments. Template ships broken — every Monitor notification fires with empty interior, silently breaking the upward-push half of the asymmetric comms architecture the arc is designed to ship.\n\nR2: jq not installed on Windows Git Bash deployment (which: no jq in PATH). Compounds R1 — template wouldn't even reach JSON-parse step. Recovery shape (jq install vs python-based template vs --json sans jq) DAEDALUS picks.\n\nR3: §8.11 wording-consistency contract is internally inconsistent with §8 prose the design itself authored. VERA (line 550) uniquely includes 'peer CAPTAINs'; VERA + ADA (lines 550, 652) uniquely add parenthetical extensions; ADA (line 656) uniquely says 'poll-loop leaks' vs 'process leaks' elsewhere. Contract violation before ADA types a character.\n\nR4: §11 probe-numbering has duplicate IDs (p22-p31 and p23-p32 overlap) + arithmetic errors (§11.5 claims 35 probes summing to 34 visible IDs, grand total claims 37 but math is 46 if each per-CAPTAIN row counts as 10).\n\nNon-findings discharged (clean): A6 inventory (10+2 confirmed), §17→§18/§19 placement, all 10 CAPTAIN insertion-points, MAJOR insertion-points, Monitor v2.1.98 web-cite verified, authorship A11 immutable clean, confabulation irony surface defended, self-referential framing defended, A8 cross-ref trade defended, 60-min N=1 calibration discharged. DAEDALUS §13 residual Q2 answered yes.\n\nDispatching DAEDALUS for revision round 1.",
+      "timestamp": "2026-05-12T23:25:03Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:23:21Z"
+  "updated_at": "2026-05-12T23:25:03Z"
 }
