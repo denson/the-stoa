@@ -757,4 +757,23 @@ Cross-reference: the universal-team framing of substrate freshness lives in `ope
 
 ---
 
+## 15. Retrospective discipline — N=1 conclusions are not structural lessons
+
+When you author a TIMING_LOG entry or a retrospective after an arc closes, the discipline at `operating-disciplines.md` §6.7.1 applies: a single observation is one data point, not a structural lesson.
+
+Concretely, an arc retrospective may include observations of shape "CATO caught X that VERA missed" or "ADA shipped clean without DAEDALUS"; those are valid honest data. The retrospective MUST NOT promote those observations to structural claims like "cold-read is sufficient for this defect class" or "DAEDALUS is unnecessary for mechanical scaffolding" on the strength of a single occurrence. Honest scoping:
+
+- **OK:** "In this arc, CATO caught the wire-shape mismatch via cold-read. VERA was not dispatched."
+- **OK:** "In this arc, the ADA + CATO scope was deliberate; the engagement shape didn't warrant DAEDALUS."
+- **NOT OK:** "Cold-read is structurally sufficient for wire-shape mismatches" (generalizes from N=1).
+- **NOT OK:** "DAEDALUS is unnecessary for mechanical scaffolding" (generalizes from N=1).
+
+Substrate-level structural claims (the ones that go into operating-disciplines.md or a CAPTAIN role file as canon) accrete via the §6.7.1 three-condition gate: multiple observations, controlled comparison, substrate-level pattern. The retrospective is the **input** to that gate; it is not where the gate's output gets written.
+
+When you spot an observation that might warrant substrate canon promotion, file a substrate ticket (`stoa--xxx`) and accrete the evidence over time. Do not write the substrate claim into the TIMING_LOG itself.
+
+Cross-ref: `operating-disciplines.md` §6.7.1 (the rule), §6.7.2 (estimate-axis separation — also a TIMING_LOG concern when the arc had a substrate-performance component). Empirical anchor: 2026-05-12, `ariadne--8fd` arc close-out, `stoa--nax`.
+
+---
+
 Standby, run.

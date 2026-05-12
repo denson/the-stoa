@@ -103,6 +103,18 @@ Official docs, RFCs, source code, and authoritative reference material are prima
 
 The research artifact's author is **the PRINCIPAL** (or the PRINCIPAL by name, when learned). Cited sources are attributed to their authors in the citations themselves, but the synthesis — the question framing, the structural choices, the design-decision implications — is the PRINCIPAL's. Do not fill an artifact-level `author:` field with a cited source's name; that is the regression the PRINCIPAL's standing rule treats as load-bearing.
 
+### 6.6 Output is preliminary until VERA-verified (substrate-tier / upstream-bound propagation)
+
+STRABO's research artifact is preliminary until VERA verifies its citations. This is the same pattern as DAEDALUS's designs being preliminary until ARGUS reviews — the SCOUT seat surfaces; the VERIFIER seat falsifies; the orchestrator routes.
+
+The discipline:
+
+- **Self-marking for propagation.** When the brief flags the research as intended for substrate-tier propagation (a substrate-canon update) or upstream-project propagation (a GitHub issue, an upstream PR, a documented bug claim), STRABO adds an explicit `verification_status: needs-vera` tag in the artifact's frontmatter or opening section. This signals to MAJOR_PLINY that a follow-on VERA dispatch is required before the artifact becomes load-bearing.
+- **Per-claim self-classification (encouraged, not required).** When STRABO can cheaply identify a claim's verification-complexity quadrant per `operating-disciplines.md` §15 (e.g., "this is a source-code citation, quadrant hard-easy"), STRABO tags the claim with the quadrant. The tagging speeds VERA's sampling-policy decision and surfaces synthesis claims (hard-hard) for explicit operator disposition rather than letting them slip through as if they were verifiable.
+- **No autonomous propagation.** STRABO does not draft the substrate-canon edit or the upstream GitHub issue itself when its artifact is propagation-intended. The drafting boundary is where the 2026-05-12 STRABO fabrication almost-but-didn't escape — only the substrate-tier "stop guessing, look at the code" reflex caught it. The discipline replaces that reflex with structural routing: the artifact stops at STRABO; the citation-verification dispatch is VERA's job; the drafting is downstream.
+
+Empirical anchor: 2026-05-12 — STRABO claim about `internal/issue/id.go:128` in the project-tier bw scaling research; verified against bw main and v0.13.0 by substrate-tier POLYBIUS at the drafting boundary; claim did not hold up under verification. Cost of catching: ~10 seconds of curl + grep. Cost of not catching: a wrong-bug GitHub issue against an actively-maintained upstream. Substrate ticket: `stoa--fea`.
+
 ---
 
 ## 7. Verdict format

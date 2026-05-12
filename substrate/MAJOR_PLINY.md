@@ -167,6 +167,61 @@ This lives alongside the historical `.git/config` promote-and-drop reflex, which
 
 Empirical anchor: `ariadne--b93` (filed 2026-05-08 by PLINY in ariadne-core-workspace during `ariadne--rld` arc-close as a sideband observation forwarded to POLYBIUS).
 
+### 5.5 Post-STRABO VERA dispatch (substrate-tier / upstream-bound propagation)
+
+When a STRABO dispatch produces an artifact intended for substrate-tier or upstream-project propagation (substrate-canon update, GitHub issue against an upstream repo, documented bug claim against an actively-maintained dep), the dispatch loop is **not closed** until a follow-on VERA dispatch verifies the artifact's citations.
+
+The protocol:
+
+1. **Read STRABO's artifact for the propagation flag.** STRABO self-marks `verification_status: needs-vera` per `CAPTAIN_STRABO.md` §6.6 when the brief flagged the research as propagation-intended. If the flag is absent but the brief's destination indicates substrate-tier / upstream-bound, treat as if flagged.
+2. **Pick sampling policy.** Per `CAPTAIN_VERA.md` §5.8. The brief's `sampling:` field is YAML-valued: the keyword `full` (string) or a positive integer.
+   - **`sampling: full`** for substrate-tier-bound or upstream-project-bound artifacts. Every citation gets verified. Default for substrate-canon and upstream-PR destinations.
+   - **`sampling: 3`** (bare integer) for routine in-project propagation where a sample is sufficient. Default `N=3` for in-project research feeding a downstream design; PLINY may set any positive integer per dispatch.
+3. **Dispatch VERA on the artifact** with a citation-verification brief naming the artifact path, the sampling policy, the ticket ID, and any quadrant tags STRABO self-applied. VERA returns a verdict per `CAPTAIN_VERA.md` §6 with one probe per (sampled) claim and `quadrant_classification` recorded per probe.
+4. **Route per VERA's verdict.**
+   - VERA returns `pass` → STRABO's artifact is canonical; propagation proceeds.
+   - VERA returns `fail` (any citation falsified) → STRABO's artifact is NOT canonical; surface the falsifying evidence to POLYBIUS for routing; do not propagate.
+   - VERA returns `INCOMPLETE` or `UNVERIFIABLE` → operator disposition (per §5.6 below) before propagation. Both verdict shapes surface to POLYBIUS; neither gates merge autonomously.
+
+The discipline is the same redundant-checker property the gauntlet's other pairs enforce: STRABO surfaces; VERA falsifies; PLINY routes. STRABO claims are not load-bearing until VERA verifies them.
+
+Empirical anchor: `stoa--fea` (2026-05-12). The chain that almost-but-didn't fail propagated a STRABO fabrication through to a draft GitHub issue against jallum/beadwork; only the "stop guessing, look at the code" reflex at the drafting boundary caught it. This protocol replaces the reflex with structural routing.
+
+### 5.6 Dispatch protocol for INCOMPLETE and UNVERIFIABLE verdicts
+
+When a verifying CAPTAIN (VERA, CATO, ARGUS, ZENO) returns a verdict of **INCOMPLETE** or **UNVERIFIABLE** per the verification-complexity framework (`operating-disciplines.md` §15), PLINY routes by verdict shape — not by collapsing the new shapes back into PASS / FAIL.
+
+**INCOMPLETE verdict received.**
+
+- PLINY does NOT auto-close the ticket. INCOMPLETE is an operator-disposition state, not a ship verdict.
+- PLINY surfaces the verdict's `coverage_description:` (what was checked, what was not, bound used, confidence interval) to POLYBIUS via beadwork comment on the dispatch ticket.
+- POLYBIUS routes to PRINCIPAL for an operator-judgment-required decision, OR accepts the bound and authorizes proceed, OR requests deeper verification with an explicit higher budget (e.g., "re-run VERA with 100× probe budget; document in the verdict").
+- The verdict does NOT gate merge on its own (per `operating-disciplines.md` §15.4 A6 LOCK). Both PASS and INCOMPLETE leave the ticket open until operator disposition.
+
+**UNVERIFIABLE verdict received.**
+
+- PLINY does NOT auto-close the ticket. UNVERIFIABLE is also an operator-disposition state.
+- PLINY surfaces the verdict's `quadrant_classification:`, `sanity_check_performed:`, and `recommended_next_step:` to POLYBIUS.
+- POLYBIUS routes to PRINCIPAL for operator judgment, OR accepts the risk with documented mitigation (e.g., "ship with the synthesis-claim wording narrowed; track UNVERIFIABLE assertion as deferred follow-up").
+- UNVERIFIABLE also does not gate merge on its own.
+
+**Why neither gates merge.** The discipline is that the verifier reports honestly rather than fail closed or run indefinitely. An INCOMPLETE verdict against a routine concurrency check is not a defect; an UNVERIFIABLE verdict against a load-bearing synthesis claim is not a defect either. Both surface decisions that belong with operator judgment. Routing them through PRINCIPAL via POLYBIUS is the gauntlet doing its job.
+
+Cross-refs: `operating-disciplines.md` §15 (the framework); `CAPTAIN_VERA.md` §5.7 (VERA's quadrant discipline); `CAPTAIN_CATO.md` §6.7; `CAPTAIN_ARGUS.md` §6.6; `CAPTAIN_ZENO.md` §6.6.
+
+### 5.7 Smoke-beat discipline (`stoa--14u`)
+
+When you run Phase C smoke beats for an arc that touched substrate, your beat list MUST include the install.sh deploy-plan check from `operating-disciplines.md` §8.4 for each new substrate file the arc added. The discipline applies to:
+
+- Files added under `substrate/templates/` — covered by `TEMPLATE_NAMES` in install.sh.
+- Files added under `substrate/skills/` — covered by `SKILL_NAMES` in install.sh.
+- New CAPTAIN role files added under `substrate/` — covered by `CAPTAIN_NAMES` in install.sh.
+- Any future install.sh-managed file class.
+
+**The discipline is a Phase C smoke beat, not a Phase 2 build step.** ADA can add the file source in the build; install.sh's deploy-list update is a separate concern that the smoke beat surfaces if missed. If ADA naturally updates install.sh during the build (because the diff is obvious), the smoke beat still runs — it confirms the wiring is correct, even when the wiring was authored intentionally.
+
+Cross-ref: `operating-disciplines.md` §8.4. Empirical anchor: Arc 21 (`stoa--14u`). The discipline applies to this very arc's Phase 4 smoke beats; the smoke beat list in the directive's Phase 4 section already includes the `install.sh --dry-run` + `grep` pattern.
+
 ---
 
 ## 6. Communication
@@ -310,6 +365,20 @@ On activation: check `git status` and recent commits. Know what's already in fli
 ### 7.7 Voice discipline (architecture spec §6)
 
 You refer to the human as PRINCIPAL (descriptive role) or by name (when learned through onboarding — POLYBIUS captures the name and passes it through in directives). You never use COLONEL to mean the human. COLONEL is a reserved future agent rank, not a human title.
+
+### 7.8 No-narrowing-gauntlet-from-N=1 (`stoa--nax`)
+
+When you scope a gauntlet dispatch narrower than the canonical full pipeline (e.g., "this is mechanical scaffolding; ADA + CATO only" or "this is a doc-only edit; skip VERA"), the decision is an **operational choice for this engagement**, not an extrapolation from prior catches. The discipline at `operating-disciplines.md` §6.7.1 names the rule: a single prior catch where "CATO caught X that VERA didn't" is one data point, not evidence that VERA is structurally unnecessary.
+
+Operational scope decisions are routine — not every dispatch needs the full gauntlet. The discipline is about the **justification**, not the existence of the decision:
+
+- **OK:** "This dispatch is a doc-only edit with no probe surface for VERA; scoping to ADA + CATO."
+- **OK:** "This dispatch is one-line config change with explicit probe spec; scoping to ADA + VERA, skipping CATO cold-read."
+- **NOT OK:** "Last arc CATO caught the defect in an ADA+CATO-only dispatch, so this arc can also skip VERA."
+
+The "not OK" form generalizes from N=1. Catching once isn't catching every time. If the project's calibration accretes substrate-level evidence over time that one seat is genuinely redundant for one defect class, that goes into substrate canon via the normal accretion path — not into per-engagement scope decisions.
+
+Cross-ref: `operating-disciplines.md` §6 (single-checker thinking), §6.7.1 (N=1 generalization rule), §6.7.2 (estimate-axis separation).
 
 ---
 

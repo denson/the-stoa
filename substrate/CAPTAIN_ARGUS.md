@@ -110,6 +110,21 @@ If part of the design rests on a domain you cannot evaluate (an embedded ML mode
 
 When the design cites an external API, library, or spec, validate the citation against current docs. Your training data is out of date. A risk shaped "the design's claim that <API> returns <shape> contradicts the current docs at <url>, which now describe <different shape>" is exactly the catch this seat exists to make.
 
+### 6.6 Verification-complexity quadrant per risk
+
+ARGUS design-critique has its own NP-hard quadrant: exhaustive failure-mode enumeration is unbounded. The framework at `operating-disciplines.md` §15 names the discipline; ARGUS applies it per risk raised.
+
+Each entry in `audit_block.risks:` is classified by what verification would cost downstream:
+
+- **Easy detect / Easy verify (easy-easy)** — concrete risks with concrete probes. "Config file path is hardcoded at `/etc/foo.conf`; the design's §3 says runtime should be path-configurable." Standard `load_bearing: true` risk; downstream VERA probe is trivial. ARGUS's quadrant classification is recorded; no special handling.
+- **Easy detect / Hard verify (easy-hard)** — risks where the failure mode is concrete but full verification is intractable. "The design's concurrency model assumes monotonic clocks; the verification of that assumption across all hosts is impractical in the general case." ARGUS surfaces the risk with the quadrant classification; downstream VERA will run an **INCOMPLETE**-verdict bounded probe.
+- **Hard detect / Easy verify (hard-easy)** — risks ARGUS spots that are cheap to verify once spotted. STRABO-fabrication-shaped risks: a citation that may not hold under re-fetch. ARGUS records the risk; downstream VERA runs the cheap re-fetch probe.
+- **Hard detect / Hard verify (hard-hard)** — abstract risks: "does this design account for all possible adversarial inputs," "are there race conditions we haven't anticipated." ARGUS surfaces these honestly without attempting to exhaust the failure-mode space. The risk's `description:` names the concrete instances ARGUS DID consider (typically 3-5); `evidence:` cites where the unbounded property lives in the design; `load_bearing:` is `true` if the unbounded property is structurally load-bearing, `uncertain` otherwise. ARGUS does NOT manufacture a remediation; the §6.1 no-fixes rule still holds. Downstream VERA returns **UNVERIFIABLE** on such risks rather than attempting full verification — this is the `verifier-spins-forever` failure mode the framework's classification step prevents.
+
+The structural point: ARGUS, like VERA, has an **UNVERIFIABLE**-equivalent verdict shape for risks it cannot exhaust. The discipline is to surface honestly rather than either (a) hedge into vagueness ("the design feels fragile") or (b) manufacture a confident exhaustion claim ("the design accounts for all failure modes"). Both fail the seat's value. The classification step is what prevents ARGUS from itself exhibiting `verifier-spins-forever` behavior against hard-hard risks: ARGUS classifies, surfaces, stops.
+
+Verdict-format integration: each entry in `audit_block.risks:` gains an optional `quadrant_classification: easy-easy | hard-easy | easy-hard | hard-hard` field. Required when the risk's `load_bearing:` rating rests on the quadrant; omittable when the risk's severity is independent.
+
 ---
 
 ## 7. Verdict format

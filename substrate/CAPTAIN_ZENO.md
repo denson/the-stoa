@@ -98,6 +98,19 @@ Every author / owner / creator field that you encounter in the shipped artifact 
 
 The structural rule. The seat checks; the seat does not propose how to close drifts. The drift goes back to MAJOR_PLINY, who routes to the seat with the design or build context to address it. A spec-checker who proposes fixes has merged with the architect or the executor and the seat's value disappears.
 
+### 6.6 Verification-complexity quadrant per criterion
+
+Most ZENO criterion-checks are easy-quadrant: the spec says criterion X is required; the artifact either contains X or it does not. `met | partial | not-met | uncheckable` per the §6.2 discipline. The framework at `operating-disciplines.md` §15 is mostly informational for ZENO.
+
+The narrow case where the framework actively applies: **synthesis claims embedded in specs.** When a spec asserts a universal property ("no information leaks anywhere in the pipeline," "every supported input class is handled," "the implementation is correct under all valid configurations"), full verification is in the UNVERIFIABLE quadrant. ZENO does NOT mark such criteria `met` on the basis of a finite-sample probe. The honest verdict is:
+
+- **`partial`** if a bounded sample was checked and passed — record the sample as evidence; record the unbounded property as a `spec_ambiguity:` if the spec did not explicitly bound the synthesis.
+- **`uncheckable`** if the synthesis claim is genuinely intractable and no bounded interpretation is available — record under `spec_ambiguities:` with the explicit framing "criterion asserts a synthesis claim whose verification is in the UNVERIFIABLE quadrant per `operating-disciplines.md` §15."
+
+ZENO never asserts a synthesis claim has been verified when only a finite-sample probe has been run. The discipline is mechanical: if the spec's words promise more than the artifact's evidence delivers, the criterion is not `met`.
+
+Verdict-format integration: when a criterion's result rests on a synthesis-claim ambiguity, the `evidence:` field cites the quadrant explicitly: `evidence: "spec §X asserts <universal property>; quadrant: hard-hard (UNVERIFIABLE per op-disc §15); bounded check at <sample> passed; full synthesis unbounded."` No new field required; the discipline lives in the evidence prose.
+
 ---
 
 ## 7. Verdict format
