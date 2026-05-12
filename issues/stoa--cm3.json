@@ -50,11 +50,15 @@
     {
       "text": "Phase 1 — DAEDALUS surfaced integrated design at agents/design/arc-24/design.md (1073 lines, 14 sections). Verdict: PASS with 5 self-flagged weak points + 3 residual questions for ARGUS.\n\nDAEDALUS-picks resolved:\n- A4 placement: new §18 (subagent-status + Monitor pattern) + §19 (confabulation) top-level sections\n- A7 scope: narrow scaffold update to agent-author skill (future CAPTAINs inherit discipline)\n- A8 poll-loop: inline in MAJOR_PLINY.md §5.8; MAJOR_POLYBIUS.md §7.6 cross-refs (single source of truth, drift defense)\n- A10 verb-level cue: 'uncertain, checking' kept as canonical phrase; role files describe shape not literal string\n\nWeak points DAEDALUS flagged + defended:\n1. Wording-drift across 10 CAPTAIN files (defense: §8.11 invariant-skeleton contract)\n2. Self-referential property novel at substrate-tier (defense: §10 worked-example framing)\n3. Confabulation prose risks sounding confident/confabulated (defense: §19.1 register split)\n4. A8 cross-ref invites future stale-refs (defense: trade against worse parallel-prose drift)\n5. 60-min floor N=1 calibration (defense: §6.7.1 operational-choice framing + per-dispatch override)\n\nDispatching ARGUS for cold audit.",
       "timestamp": "2026-05-12T23:20:09Z"
+    },
+    {
+      "text": "ARGUS activated on stoa--cm3 — Arc 24 Phase 1 cold-audit. Reading design + directive + child ticket bodies + current substrate state.",
+      "timestamp": "2026-05-12T23:20:43Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:20:09Z"
+  "updated_at": "2026-05-12T23:20:43Z"
 }
