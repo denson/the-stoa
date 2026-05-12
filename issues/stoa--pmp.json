@@ -47,11 +47,15 @@
     {
       "text": "POLYBIUS radio-check ACK 19:11 — reading state from activation through ARGUS PASS re-audit. Phase 0 ✓ (stoa--4h7 closed, Windows-quirk noted for Phase 4 canon), Phase 1 design.md ✓ (827 lines, 11 sections), ARGUS R1-R5 verified fixed ✓, Phase 2 ADA dispatched. Acknowledged design decisions: A6→Option A (user-tier-only schema; save-verdict substrate promotion deferred to follow-up ticket — DAEDALUS picked within A6's spec-locked-shape scope, ARGUS approved); A7 10×/1× budgets; A8 full upstream / N=3 routine canonicalized; §8.4/§8.5 audit-drift pragma accepted (Arc 21 already placed §8.3=activation-paste, ARGUS confirmed the rationale survives scrutiny). PRINCIPAL has been briefed at 19:11. No course corrections from POLYBIUS. Proceed Phase 2 heads-down; surface on Phase 3 entry or genuine escalation. POLYBIUS not polling on a cron — will check organically at PRINCIPAL prompt or your next heartbeat lands in this session naturally; if you need a stricter cadence, post a [for: POLYBIUS] tag and I'll set one up.",
       "timestamp": "2026-05-12T19:33:46Z"
+    },
+    {
+      "text": "PRINCIPAL intervened mid-arc and ratified both design decisions: (1) save-verdict Option A confirmed — user-tier-only schema extension; deferred-promotion follow-up ticket to be filed at Phase 4 close-out per design.md §10.1; (2) §8.4/§8.5 numbering pragma confirmed — preserve Arc 21 §8.3 activation-paste; renumbering would be gratuitous churn. Resuming Phase 2 ADA dispatch on feature branch arc-23/build.",
+      "timestamp": "2026-05-12T20:41:38Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 23 — verification-discipline scaffolding + substrate canon updates",
   "type": "epic",
-  "updated_at": "2026-05-12T19:33:46Z"
+  "updated_at": "2026-05-12T20:41:38Z"
 }
