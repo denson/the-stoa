@@ -94,11 +94,15 @@
     {
       "text": "Phase 1 — DAEDALUS revision-r1 complete. All 4 ARGUS risks addressed:\n\nR1+R2: Rewrote canonical poll-loop template at §3.1 Step 3 + §6.1 §5.8.3 using python (universally available — bw is itself python-implemented). Empirically validated against live stoa--cm3. Probe p44 expected-output updated. Rejected alternatives documented (jq-as-substrate-dep + non-JSON parsing).\n\nR3: Aligned VERA + ADA per-CAPTAIN prose to strict-verbatim canonical form (10 CAPTAINs now byte-for-byte identical except \u003cSEAT\u003e substitution). Rewrote §8.11 contract distinguishing strict-verbatim paragraphs 1-5 (mechanical CATO diff) from named-slot template paragraphs 6-11 (slot-fit check). Lost-nuance items moved to §18 cross-refs.\n\nR4: Renumbered probes p1-p46 consecutive unique. Corrected §11.5 summary with explicit per-row ID enumeration + arithmetic-check paragraph.\n\nAuthorship A11 Denson Smith immutable. 5 §13 weak points unchanged. Three new residual questions for ARGUS re-audit (slot-boundary precision; python-portability blind-spots; p44 falsifying-evidence sufficiency).\n\nDispatching ARGUS for re-audit.",
       "timestamp": "2026-05-12T23:32:17Z"
+    },
+    {
+      "text": "ARGUS re-audit (revision-r1) activated on stoa--cm3. Verifying R1-R4 fixes + scanning for new risks.",
+      "timestamp": "2026-05-12T23:32:56Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:32:17Z"
+  "updated_at": "2026-05-12T23:32:56Z"
 }
