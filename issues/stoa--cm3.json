@@ -30,11 +30,15 @@
     {
       "text": "DAEDALUS read pass 1 done: directive + 3 ticket bodies. Phase-A LOCKED decisions absorbed. Now reading post-Arc-23 substrate (operating-disciplines.md, MAJOR_PLINY.md, MAJOR_POLYBIUS.md, all CAPTAIN files).",
       "timestamp": "2026-05-12T23:07:52Z"
+    },
+    {
+      "text": "DAEDALUS read pass 2 done: operating-disciplines.md (§1-§17), MAJOR_PLINY.md, MAJOR_POLYBIUS.md (§1-§9), CAPTAIN_VERA/CATO/ARGUS/ZENO. Confirmed §17 is last section — Arc 24 additions land at §18+. Reading remaining 6 CAPTAINs (ADA, BARTLEBY, CURATOR, DAEDALUS, HERALD, STRABO) + agent-author skill.",
+      "timestamp": "2026-05-12T23:08:28Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:07:52Z"
+  "updated_at": "2026-05-12T23:08:28Z"
 }
