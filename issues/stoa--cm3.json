@@ -102,11 +102,15 @@
     {
       "text": "ARGUS R1-verify: NEW LOAD-BEARING RISK. §3.1 Step 3 (design.md:154) places SINCE=$last AFTER the closing quote of python -c, which does NOT set env var (becomes argv[1], python silently ignores). Empirically broken: KeyError SINCE. §6.1 §5.8.3 (design.md:447) places SINCE=$last BEFORE python (env-var prefix), works correctly. Two templates inconsistent; the §3 copy is broken.",
       "timestamp": "2026-05-12T23:34:10Z"
+    },
+    {
+      "text": "ARGUS R4-verify: probe IDs p1-p46 unique, §11.5 arithmetic correct (44+1+1=46). NEW LOAD-BEARING RISK: stale probe cross-refs not updated by R4 renumbering. design.md:1035 references 'VERA's probe p35' (should be p44); design.md:1054 references 'VERA's probe p37' (should be p46). VERA Phase 3 + Phase 4 smoke routing breaks on these stale IDs.",
+      "timestamp": "2026-05-12T23:34:51Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:34:10Z"
+  "updated_at": "2026-05-12T23:34:51Z"
 }
