@@ -27,11 +27,15 @@
     {
       "text": "Phase 0 complete — bw 0.13.0 installed. bw upgrade --yes fails on Windows with Access denied (running-exe self-replace race); worked around by downloading beadwork_0.13.0_windows_amd64.zip and replacing C:/Users/denso/bin/bw.exe manually. bw --version reports 0.13.0; existing dependency graph intact. stoa--4h7 closed. Substrate-canon note for Phase 4: this Windows quirk is empirical fodder for the smoke-beat / install-mechanism canon (touches the same theme as 14u). Proceeding to Phase 1 — DAEDALUS dispatch.",
       "timestamp": "2026-05-12T18:40:21Z"
+    },
+    {
+      "text": "DAEDALUS Phase 1 design complete. Integrated design covering all 7 substrate-prose tickets (stoa--tp1 load-bearing scaffolding + fea/nax/148/vmc/rno/14u inheriting/reinforcing) at agents/design/arc-23/design.md. Status: completed. Verdict: pass with self-flagged weak points (see §13). Top weak points: (1) wording-drift risk across the four verifier role files; (2) save-verdict _lib/ sharing is an unverified assumption with escape hatch; (3) §8.3/§8.4/§8.5 numbering deviates from A5 LOCK literal numbers — preserved existing §8.3 (activation paste from Arc 21), used §8.4 (14u) + §8.5 (148). Design decisions made: A6 free-form prose (not JSONSchema), A7 N=10x INCOMPLETE budget + ~1x UNVERIFIABLE, A8 sampling=full upstream / N=3 routine, save-verdict promoted to substrate (Option B). Ready for ARGUS audit.",
+      "timestamp": "2026-05-12T18:50:31Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 23 — verification-discipline scaffolding + substrate canon updates",
   "type": "epic",
-  "updated_at": "2026-05-12T18:40:21Z"
+  "updated_at": "2026-05-12T18:50:31Z"
 }
