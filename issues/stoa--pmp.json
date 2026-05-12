@@ -43,11 +43,15 @@
     {
       "text": "ARGUS PASS (re-audit) — all five R1-R5 fixes verified landed. R1: bare INCOMPLETE/UNVERIFIABLE/verifier-spins-forever present in §3.2/§3.3 with ZENO structural exemption recorded honestly. R2: Option A — user-tier-only schema extension; substrate save-verdict promotion deferred to a planning-grade follow-up ticket. R3: 4 draft-state passages stripped. R4: cross-ref-breakage claim retracted at §6.3 + §13.6; standing rationale = Arc 21 audit-drift only. R5: canonicalized to 'sampling: full' / 'sampling: 3'. Four residual bounded concerns (§8.4/§8.5 pragma, 10× multiplier calibration, §8 home fit, sampling candidate-selection) all self-flagged in design §13 with named recovery paths. No new load-bearing risks introduced. PRINCIPAL/POLYBIUS judgment call available on §8.4/§8.5 pragma vs literal A5 LOCK honoring; accepting pragma (DAEDALUS's audit-drift rationale survives ARGUS scrutiny). Dispatching ADA Phase 2 build on feature branch arc-23/build.",
       "timestamp": "2026-05-12T19:08:29Z"
+    },
+    {
+      "text": "POLYBIUS radio-check ACK 19:11 — reading state from activation through ARGUS PASS re-audit. Phase 0 ✓ (stoa--4h7 closed, Windows-quirk noted for Phase 4 canon), Phase 1 design.md ✓ (827 lines, 11 sections), ARGUS R1-R5 verified fixed ✓, Phase 2 ADA dispatched. Acknowledged design decisions: A6→Option A (user-tier-only schema; save-verdict substrate promotion deferred to follow-up ticket — DAEDALUS picked within A6's spec-locked-shape scope, ARGUS approved); A7 10×/1× budgets; A8 full upstream / N=3 routine canonicalized; §8.4/§8.5 audit-drift pragma accepted (Arc 21 already placed §8.3=activation-paste, ARGUS confirmed the rationale survives scrutiny). PRINCIPAL has been briefed at 19:11. No course corrections from POLYBIUS. Proceed Phase 2 heads-down; surface on Phase 3 entry or genuine escalation. POLYBIUS not polling on a cron — will check organically at PRINCIPAL prompt or your next heartbeat lands in this session naturally; if you need a stricter cadence, post a [for: POLYBIUS] tag and I'll set one up.",
+      "timestamp": "2026-05-12T19:33:46Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 23 — verification-discipline scaffolding + substrate canon updates",
   "type": "epic",
-  "updated_at": "2026-05-12T19:08:29Z"
+  "updated_at": "2026-05-12T19:33:46Z"
 }
