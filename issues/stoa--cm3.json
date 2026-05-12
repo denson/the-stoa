@@ -86,11 +86,15 @@
     {
       "text": "DAEDALUS R3 done — 10 CAPTAIN seats now have verbatim-aligned Read-before-write + Monitor-forbidden paragraphs; §8.11 contract rewritten with strict-verbatim vs named-slot distinction + lost-nuance items called out + CATO Phase 3 mechanical-diff audit pattern. Now R4 — renumbering p23-p32 to p32-p41, recounting totals.",
       "timestamp": "2026-05-12T23:29:15Z"
+    },
+    {
+      "text": "DAEDALUS revision-r1 verdict: pass. R1-R4 addressed at design.md §3.1 Step 3 + §6.1 §5.8.3 (R1+R2: python template, schema documented, alternatives rejected); §8 lines 577/602/679/581/683 + §8.11 (R3: 10 CAPTAINs verbatim-aligned, contract rewritten strict-vs-slot); §11.1 + §11.2 + §11.3 + §11.4 + §11.5 (R4: renumbered p1-p46 consecutive unique, arithmetic 46 with explicit ID enumeration); §14 + new §14.1 verdict updated to revised. Empirical validation: rewritten python template runs against live stoa--cm3, emits [\u003cts\u003e] \u003ctext\u003e shape correctly. Returning.",
+      "timestamp": "2026-05-12T23:31:10Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:29:15Z"
+  "updated_at": "2026-05-12T23:31:10Z"
 }
