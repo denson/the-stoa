@@ -170,11 +170,15 @@
     {
       "text": "ADA tooling discovery — Edit tool with absolute path C:/Users/denso/claude_projects/the-stoa/substrate/operating-disciplines.md routed to MAIN CHECKOUT, not the worktree (verified: main checkout 848 lines, worktree still 743). Reverting main checkout; re-applying to worktree path. Workaround: use the worktree-prefixed absolute path explicitly for every Edit. No prior Phase-2 ADA dispatch hit this because they all died before editing.",
       "timestamp": "2026-05-12T23:55:32Z"
+    },
+    {
+      "text": "ADA state: commits 1 + 2 landed. 4e4e43f operating-disciplines.md §18 + §19 (105 insertions); f2b6f9e MAJOR_PLINY §5.8 + §7.2 / MAJOR_POLYBIUS §7.6 + §4.3 (117 insertions). Beginning commit 3 — 10 CAPTAIN files with strict-verbatim alignment per design §8.11.",
+      "timestamp": "2026-05-12T23:58:39Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:55:32Z"
+  "updated_at": "2026-05-12T23:58:39Z"
 }
