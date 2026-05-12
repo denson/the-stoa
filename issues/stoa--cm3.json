@@ -114,11 +114,15 @@
     {
       "text": "Phase 1 — ARGUS re-audit verdict: REVISE-r2. R1-R4 verified addressed (4 non-findings discharged), but revision introduced 2 new load-bearing risks:\n\nr5 (LOAD-BEARING, ironic): §3.1 Step 3 canonical poll-loop template at design.md:154 has env-var SINCE='$last' placed AFTER the closing quote of python -c '...' — passes as argv[1] (silently ignored), causes KeyError at runtime. The §6.1 §5.8.3 copy at line 447 is correct. Two near-identical canonical templates with diverged shell syntax — exactly the wording-drift class §8.11 names as Arc 24's most likely defect. R1 returned in a new shape.\n\nr6: R4 renumbering (p22-p32→p32-p41, p35→p44, p36→p45, p37→p46) was applied to §11.1 + §11.5 + §14.1 but two stale cross-refs survive: line 1035 references p35 (should be p44); line 1054 references p37 (should be p46). VERA + Phase 4 smoke routing breaks on these.\n\nBoth fixes mechanical. ARGUS empirically reproduced r5 KeyError; r6 confirmed via grep cross-check. Dispatching DAEDALUS revision-r2.",
       "timestamp": "2026-05-12T23:37:42Z"
+    },
+    {
+      "text": "DAEDALUS revision-r2 activated on stoa--cm3 — addressing ARGUS r5 + r6.",
+      "timestamp": "2026-05-12T23:38:13Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:37:42Z"
+  "updated_at": "2026-05-12T23:38:13Z"
 }
