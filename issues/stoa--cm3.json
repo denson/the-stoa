@@ -58,11 +58,15 @@
     {
       "text": "ARGUS: audit pass 1 (inputs absorbed) — design (1073 lines), directive, op-disc §1-§17, MAJOR_PLINY/POLYBIUS sections, all 10 CAPTAIN files inventoried (ADA/ARGUS/BARTLEBY/CATO/CURATOR/DAEDALUS/HERALD/STRABO/VERA/ZENO). Surfaced 2 LOAD-BEARING defects already: jq not installed on this Windows env (Git Bash); bw JSON schema uses {text,timestamp} not {author,timestamp,body}. Continuing audit on wording-consistency contract + self-ref framing + remaining risk classes.",
       "timestamp": "2026-05-12T23:21:50Z"
+    },
+    {
+      "text": "ARGUS: audit pass 2 (substrate cross-ref + wording-skeleton + probe-numbering) — confirmed insertion points across all 10 CAPTAIN files match design's claimed sections. Identified third LOAD-BEARING defect: §8.11 wording-consistency contract is internally inconsistent with the actual §8 per-CAPTAIN prose (VERA + ADA carry parenthetical extensions on read-before-write; VERA carries 'or peer CAPTAINs' phrasing; ADA varies 'spawned poll-loop' vs 'spawned process'). Also surfaced: §11 probe-numbering inconsistency (p22-p31 and p23-p32 overlap; total math '37' inconsistent with sum). Finalizing verdict.",
+      "timestamp": "2026-05-12T23:23:12Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:21:50Z"
+  "updated_at": "2026-05-12T23:23:12Z"
 }
