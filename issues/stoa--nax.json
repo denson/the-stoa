@@ -4,6 +4,8 @@
     "stoa--pmp"
   ],
   "blocks": [],
+  "closed_at": "2026-05-12T22:54:58Z",
+  "close_reason": "Landed in Arc 23 merge 1ff9f3f (PR #3 — Arc 23: verification-discipline scaffolding + substrate canon updates). See substrate/arcs/arc-23-build-directive.md and agents/design/arc-23/design.md for the full design + decisions.",
   "created": "2026-05-12T06:06:59Z",
   "description": "Surfaced 2026-05-12 by PRINCIPAL during the bw-Ariadne integration arc, after POLYBIUS over-claimed structural sufficiency from a single N=1 observation.\n\n## The discipline\n\nEvery CAPTAIN-tier check in the dispatch pipeline (DAEDALUS / ARGUS / ADA / VERA / CATO / ZENO) is structurally redundant by design — multiple seats reading the same artifact from different angles. The redundancy is the safety property, not surplus to be optimized away based on single observations.\n\nWhen one check catches a defect (and others would have missed it, or didn't dispatch at all), the right conclusion is 'the pipeline worked,' not 'we can drop the other checks.'\n\n## Specific epistemological rule\n\n**Do not generalize from N=1.** A single observation where 'CATO caught X that VERA didn't' or 'ADA shipped clean without DAEDALUS' is one data point — not evidence that the missing seat is structurally unnecessary. Structural claims about the pipeline's safety properties require:\n\n- Multiple observations across distinct defect classes, AND\n- Controlled comparison (the same defect class encountered with vs. without the seat in question), AND\n- Substrate-level pattern (not just a one-off anecdote in a TIMING_LOG)\n\nUntil those conditions are met, the canonical pattern (full gauntlet dispatch) is the default. Per-engagement scope decisions (e.g., 'this is mechanical scaffolding, ADA + CATO only') are operational choices made deliberately, not extrapolations from prior catches.\n\n## Empirical anchor\n\n2026-05-12, ariadne--8fd arc Phase 4 close-out. CATO caught a load-bearing wire-shape mismatch via cold-read in a dispatch scoped as ADA+CATO-only. POLYBIUS initially framed this as 'cold-read is structurally sufficient for this defect class.' PRINCIPAL corrected: catching something once isn't catching it every time. The reframe: 'CATO caught this defect in this instance' (which is honest) vs. 'cold-read alone is sufficient' (which is overreach).\n\n## Substrate touch-points\n\n- **operating-disciplines.md** — add a section on redundancy-discipline + the N=1 generalization rule. Probably alongside or after the gauntlet-shape section.\n- **MAJOR_PLINY.md** — orchestrator's dispatch discipline. PLINY should not narrow gauntlet scope based on prior-catch observations alone; scope is an explicit deliberate decision per engagement.\n- **MAJOR_POLYBIUS.md** — POLYBIUS authoring timing logs / retrospectives should not enshrine N=1 conclusions as 'lessons learned' that imply structural claims.\n- **CAPTAIN envelopes** — every captain knows their dispatch has a purpose even when the other captains caught everything in a given run.\n\n## Gauntlet\n\nADA + CATO eyeball. Substrate doc-only edit; no code change. ~30-60 LOC across operating-disciplines.md + the role files referenced above.\n\n## Sequencing\n\nP2. Substrate hygiene. Not blocking any in-flight ariadne work; ride with the next substrate-grooming dispatch.\n\n## Out of scope\n\n- Adding more redundant checks (the existing pipeline shape is already redundant; this ticket reinforces it, doesn't expand it)\n- Eliminating any existing check (explicitly the opposite — this ticket is about not eliminating them)",
   "id": "stoa--nax",
@@ -19,8 +21,8 @@
     }
   ],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "Redundant-checks discipline: pipeline redundancy isn't surplus to optimize away",
   "type": "task",
-  "updated_at": "2026-05-12T18:31:39Z"
+  "updated_at": "2026-05-12T22:54:58Z"
 }
