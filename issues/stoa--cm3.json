@@ -230,11 +230,15 @@
     {
       "text": "Phase 4 CLEAN — all 7 smoke beats green. (1) install.sh --dry-run --target project: 14 modified files in deploy plan. (2) --target subproject: same 14 files (incl. _smoke suffix substitution). (3) --target user: same 14 files (user-tier unsuffixed). (4) heartbeat grep: 10/10 CAPTAIN files. (5) confabulation section markers: 'uncertain, checking' canonical + 3 equivalents in operating-disciplines.md §19. (6) Monitor + run_in_background forbid clauses: 1 each in all 10 CAPTAIN files. (7) p44 empirical canonical poll-loop probe (already passed in VERA Phase 3). arc-24/build pushed to origin at 556d9fd. PR #4 opened: https://github.com/denson/the-stoa/pull/4 — 'Arc 24 — comms-hygiene substrate DNA'. Surfacing to PRINCIPAL with end-of-arc clean-PASS verdict for ship/no-ship decision per activation paste autonomous-escalation contract. After PRINCIPAL ship-approval, PLINY merges via gh pr merge + closes all 3 child tickets + this epic + writes TIMING_LOG.",
       "timestamp": "2026-05-13T00:11:21Z"
+    },
+    {
+      "text": "Corrective posted on stoa--nvl — supersedes my two prior polluted comments on that ticket (caught by PRINCIPAL for mixing Anthropic agent-teams architecture into substrate scope where it doesn't apply). Three draft files in _drafts/ are the substantive DAEDALUS input for nvl/odh/ioy substrate prose: coordination-primer-monitor-and-bw.md (canonical cold-readable primer), role-file-coordination-sections.md (per-role digests for each role file), and the three ticket bodies. Substrate prose for Arc 24 describes what WE use (Monitor + bw + TaskStop + Agent + Bash); does NOT reference Anthropic's agent-teams feature scope (SendMessage, experimental flag, etc.) — that's a separate Anthropic paradigm we work parallel to, not within. PLINY-stoa terminal session: pick this up on next yield; DAEDALUS gets the corrected inputs when it dispatches for r5+r6 (or r3 fresh) round.",
+      "timestamp": "2026-05-13T02:31:25Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-13T00:11:21Z"
+  "updated_at": "2026-05-13T02:31:25Z"
 }
