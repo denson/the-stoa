@@ -210,11 +210,15 @@
     {
       "text": "CATO state: §8.11 strict-verbatim audit COMPLETE across all 10 files. 40/40 byte-for-byte checks pass (opening + read-before-write + bw-positional + Monitor-forbidden, modulo \u003cSEAT\u003e). Slot-6 ADA-extension exclusive (1 hit ADA, 0 hits all 9 others). Authorship A11 IMMUTABLE: zero frontmatter author/owner/etc. field edits in diff. §18+§19 cross-refs land cleanly. Beginning empirical probe of python poll-loop template per §6.8 + reviewing MAJOR_PLINY §7.2 / MAJOR_POLYBIUS §4.3+§7.6 + agent-author SKILL.md.",
       "timestamp": "2026-05-13T00:07:50Z"
+    },
+    {
+      "text": "VERA verdict: pass. 45 probes PASS, 0 fail, 1 INCOMPLETE (p46 by-design per Arc 23 §15 — verbatim-skeleton invariant verified across 10 files at 556d9fd; unbounded property documented). p7 probe-spec defect (verbatim regex finds 2 matches at lines 258+273 of MAJOR_PLINY.md; ^last= variant returns 1) — flagged as probe-spec imprecision NOT a build defect; recommend tighter pattern for future arcs. p44 empirical PASS — canonical poll-loop python parse executes correctly against live bw show stoa--cm3 --json; observed stdout shape [\u003cISO-8601\u003e] \u003ctext truncated@300 chars, newlines flattened\u003e matches design §11.2 verbatim. Self-referential dispatch confirmed — VERA executing under newly-authored §5.9 heartbeat-and-read-before-write discipline (feature, not defect, per directive). Returning.",
+      "timestamp": "2026-05-13T00:08:00Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-13T00:07:50Z"
+  "updated_at": "2026-05-13T00:08:00Z"
 }
