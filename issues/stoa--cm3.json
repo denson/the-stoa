@@ -178,11 +178,15 @@
     {
       "text": "ADA state: commit 3 landed at 38a96ad — 10 CAPTAIN files, 192 insertions total, strict-verbatim invariant skeleton confirmed across all 10 (canonical opening sentence + Monitor-forbidden + run_in_background-forbidden present in every file; counter-example phrasings absent). Beginning commit 4 — agent-author SKILL.md scaffold.",
       "timestamp": "2026-05-13T00:02:17Z"
+    },
+    {
+      "text": "ADA verdict: pass. Arc 24 Phase 2 build landed on arc-24/build. 4 commits: 4e4e43f operating-disciplines.md §18+§19 (105 ins); f2b6f9e MAJOR_PLINY §5.8+§7.2 / MAJOR_POLYBIUS §7.6+§4.3 (117 ins); 38a96ad 10 CAPTAIN heartbeat subsections (192 ins, strict-verbatim §8.11 invariant confirmed); 556d9fd agent-author SKILL.md scaffold (5 ins). 14 files / 419 insertions total — matches design file table exactly. Easy-easy probes p1-p43 all PASS; empirical p44 PASS (canonical poll-loop parses bw JSON correctly, emits expected stdout shape). One probe-spec note for Phase 3: design §11.1 row p7 expects 'exactly 1 match' for the poll-loop date pattern, but the canonical template (per design §3.1 + §5.8.3) contains the line twice — once at column 0 (initialization) and once at 2-space indent (loop cursor-advance), so VERA will see 2 matches; this is a probe-spec imprecision, not a build defect. Authorship A11 IMMUTABLE confirmed: zero author/owner/by fields touched across all 14 files. Tooling discovery surfaced earlier on this ticket. Worktree intact at agent-aaf53895519dfa937 for Phase 3 verifiers. Returning.",
+      "timestamp": "2026-05-13T00:04:04Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-13T00:02:17Z"
+  "updated_at": "2026-05-13T00:04:04Z"
 }
