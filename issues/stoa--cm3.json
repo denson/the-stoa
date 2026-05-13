@@ -202,11 +202,15 @@
     {
       "text": "CATO state: design §8.11 absorbed; canonical opening sentence + paragraphs 2,3,4,5 strict-verbatim contract identified; ADA's slot-6 second paragraph is the only permitted file-specific extension. Beginning mechanical byte-for-byte diff across 10 CAPTAIN files.",
       "timestamp": "2026-05-13T00:06:39Z"
+    },
+    {
+      "text": "VERA progress: p1-p45 string-match/structural probes complete. p1-p11 PASS; p12-p41 PASS (10/10 across all CAPTAINs for each of 3 grep patterns = 30 sub-checks all 1 match); p42-p43 PASS; p45 PASS (counter-example phrasings absent — all 10 files, 0 matches both patterns). p7 probe-spec defect confirmed (verbatim finds 2 lines at 258+273; ^last= variant returns 1 as intended). Moving to p44 empirical poll-loop and p46 wording-consistency.",
+      "timestamp": "2026-05-13T00:06:45Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-13T00:06:39Z"
+  "updated_at": "2026-05-13T00:06:45Z"
 }
