@@ -206,11 +206,15 @@
     {
       "text": "VERA progress: p1-p45 string-match/structural probes complete. p1-p11 PASS; p12-p41 PASS (10/10 across all CAPTAINs for each of 3 grep patterns = 30 sub-checks all 1 match); p42-p43 PASS; p45 PASS (counter-example phrasings absent — all 10 files, 0 matches both patterns). p7 probe-spec defect confirmed (verbatim finds 2 lines at 258+273; ^last= variant returns 1 as intended). Moving to p44 empirical poll-loop and p46 wording-consistency.",
       "timestamp": "2026-05-13T00:06:45Z"
+    },
+    {
+      "text": "CATO state: §8.11 strict-verbatim audit COMPLETE across all 10 files. 40/40 byte-for-byte checks pass (opening + read-before-write + bw-positional + Monitor-forbidden, modulo \u003cSEAT\u003e). Slot-6 ADA-extension exclusive (1 hit ADA, 0 hits all 9 others). Authorship A11 IMMUTABLE: zero frontmatter author/owner/etc. field edits in diff. §18+§19 cross-refs land cleanly. Beginning empirical probe of python poll-loop template per §6.8 + reviewing MAJOR_PLINY §7.2 / MAJOR_POLYBIUS §4.3+§7.6 + agent-author SKILL.md.",
+      "timestamp": "2026-05-13T00:07:50Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-13T00:06:45Z"
+  "updated_at": "2026-05-13T00:07:50Z"
 }
