@@ -198,11 +198,15 @@
     {
       "text": "ZENO activated on stoa--cm3 — Arc 24 Phase 3 spec-check. Reading directive + design §11 + diff.",
       "timestamp": "2026-05-13T00:06:25Z"
+    },
+    {
+      "text": "CATO state: design §8.11 absorbed; canonical opening sentence + paragraphs 2,3,4,5 strict-verbatim contract identified; ADA's slot-6 second paragraph is the only permitted file-specific extension. Beginning mechanical byte-for-byte diff across 10 CAPTAIN files.",
+      "timestamp": "2026-05-13T00:06:39Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-13T00:06:25Z"
+  "updated_at": "2026-05-13T00:06:39Z"
 }
