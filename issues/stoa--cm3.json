@@ -214,11 +214,15 @@
     {
       "text": "VERA verdict: pass. 45 probes PASS, 0 fail, 1 INCOMPLETE (p46 by-design per Arc 23 §15 — verbatim-skeleton invariant verified across 10 files at 556d9fd; unbounded property documented). p7 probe-spec defect (verbatim regex finds 2 matches at lines 258+273 of MAJOR_PLINY.md; ^last= variant returns 1) — flagged as probe-spec imprecision NOT a build defect; recommend tighter pattern for future arcs. p44 empirical PASS — canonical poll-loop python parse executes correctly against live bw show stoa--cm3 --json; observed stdout shape [\u003cISO-8601\u003e] \u003ctext truncated@300 chars, newlines flattened\u003e matches design §11.2 verbatim. Self-referential dispatch confirmed — VERA executing under newly-authored §5.9 heartbeat-and-read-before-write discipline (feature, not defect, per directive). Returning.",
       "timestamp": "2026-05-13T00:08:00Z"
+    },
+    {
+      "text": "ZENO verdict: criteria-met (PASS) — all 11 spec criteria (C1-C11) MET. 14 files in diff exactly match design §11.1 probe-enumerated file set (1 op-disc + 2 MAJOR + 10 CAPTAIN + 1 SKILL = 14). C3 §18+§19 present; C4 PLINY §5.8 with python template (os.environ['SINCE'] + json.load(sys.stdin) + {text,timestamp} schema); C5 POLYBIUS §7.6 cross-refs PLINY §5.8 (no inline duplicate template); C6+C7 all 10 CAPTAIN files: heartbeat subsection 1x + Monitor-forbidden 1x + run_in_background-forbidden 1x each; C8 SKILL.md has procedure-step-3 bullet + voice-check row; C9 authorship A11: zero author/owner/by field edits in any of 14 files; C10 4 commits all reference stoa--cm3 on arc-24/build; C11 no lock/.pyc/secret/design.md/orphan files. Proceed to Phase 4.",
+      "timestamp": "2026-05-13T00:08:02Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-13T00:08:00Z"
+  "updated_at": "2026-05-13T00:08:02Z"
 }
