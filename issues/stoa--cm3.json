@@ -226,11 +226,15 @@
     {
       "text": "Phase 3 CLEAN PASS — all three verifiers concur. VERA: 45/46 PASS + 1 INCOMPLETE-by-design (p46 hard-hard unbounded property, honored per §15 framework); p44 empirical poll-loop probe passes against live bw with exact expected stdout shape. CATO: 50/50 strict-verbatim §8.11 checks pass across 10 CAPTAIN files; 0 wording drift; ADA slot-6 extension uniquely present per contract; all non-findings discharged (authorship A11 IMMUTABLE clean, cross-refs resolve, §19 prose accurately summarizes empirical anchors, no scope creep). ZENO: 11/11 criteria MET; no out-of-spec additions; no drifts; honest INCOMPLETE-bound disclosure on author-field universal property (out-of-scope per design §6.2). Three concurrent follow-ups (none ship-blocking): (1) p7 probe-spec needs ^last= anchor (probe-spec, not build defect); (2) python-vs-jq rationale single-source-of-truth lift to Arc 25+ (design §13.4); (3) Edit-tool worktree-path discipline for Arc 25+ DAEDALUS. Phase 3 closed. Advancing to Phase 4 — smoke beats + PR.",
       "timestamp": "2026-05-13T00:10:00Z"
+    },
+    {
+      "text": "Phase 4 CLEAN — all 7 smoke beats green. (1) install.sh --dry-run --target project: 14 modified files in deploy plan. (2) --target subproject: same 14 files (incl. _smoke suffix substitution). (3) --target user: same 14 files (user-tier unsuffixed). (4) heartbeat grep: 10/10 CAPTAIN files. (5) confabulation section markers: 'uncertain, checking' canonical + 3 equivalents in operating-disciplines.md §19. (6) Monitor + run_in_background forbid clauses: 1 each in all 10 CAPTAIN files. (7) p44 empirical canonical poll-loop probe (already passed in VERA Phase 3). arc-24/build pushed to origin at 556d9fd. PR #4 opened: https://github.com/denson/the-stoa/pull/4 — 'Arc 24 — comms-hygiene substrate DNA'. Surfacing to PRINCIPAL with end-of-arc clean-PASS verdict for ship/no-ship decision per activation paste autonomous-escalation contract. After PRINCIPAL ship-approval, PLINY merges via gh pr merge + closes all 3 child tickets + this epic + writes TIMING_LOG.",
+      "timestamp": "2026-05-13T00:11:21Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-13T00:10:00Z"
+  "updated_at": "2026-05-13T00:11:21Z"
 }
