@@ -174,11 +174,15 @@
     {
       "text": "ADA state: commits 1 + 2 landed. 4e4e43f operating-disciplines.md §18 + §19 (105 insertions); f2b6f9e MAJOR_PLINY §5.8 + §7.2 / MAJOR_POLYBIUS §7.6 + §4.3 (117 insertions). Beginning commit 3 — 10 CAPTAIN files with strict-verbatim alignment per design §8.11.",
       "timestamp": "2026-05-12T23:58:39Z"
+    },
+    {
+      "text": "ADA state: commit 3 landed at 38a96ad — 10 CAPTAIN files, 192 insertions total, strict-verbatim invariant skeleton confirmed across all 10 (canonical opening sentence + Monitor-forbidden + run_in_background-forbidden present in every file; counter-example phrasings absent). Beginning commit 4 — agent-author SKILL.md scaffold.",
+      "timestamp": "2026-05-13T00:02:17Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-12T23:58:39Z"
+  "updated_at": "2026-05-13T00:02:17Z"
 }
