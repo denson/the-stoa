@@ -182,11 +182,15 @@
     {
       "text": "ADA verdict: pass. Arc 24 Phase 2 build landed on arc-24/build. 4 commits: 4e4e43f operating-disciplines.md §18+§19 (105 ins); f2b6f9e MAJOR_PLINY §5.8+§7.2 / MAJOR_POLYBIUS §7.6+§4.3 (117 ins); 38a96ad 10 CAPTAIN heartbeat subsections (192 ins, strict-verbatim §8.11 invariant confirmed); 556d9fd agent-author SKILL.md scaffold (5 ins). 14 files / 419 insertions total — matches design file table exactly. Easy-easy probes p1-p43 all PASS; empirical p44 PASS (canonical poll-loop parses bw JSON correctly, emits expected stdout shape). One probe-spec note for Phase 3: design §11.1 row p7 expects 'exactly 1 match' for the poll-loop date pattern, but the canonical template (per design §3.1 + §5.8.3) contains the line twice — once at column 0 (initialization) and once at 2-space indent (loop cursor-advance), so VERA will see 2 matches; this is a probe-spec imprecision, not a build defect. Authorship A11 IMMUTABLE confirmed: zero author/owner/by fields touched across all 14 files. Tooling discovery surfaced earlier on this ticket. Worktree intact at agent-aaf53895519dfa937 for Phase 3 verifiers. Returning.",
       "timestamp": "2026-05-13T00:04:04Z"
+    },
+    {
+      "text": "ADA Phase 2 returned PASS — 4 commits on arc-24/build (4e4e43f, f2b6f9e, 38a96ad, 556d9fd); 14 files / 419 insertions; matches design §11.1 file table exactly. ADA self-validated all p1-p43 string-match probes + p44 empirical poll-loop probe + p45 negative counterexample. Main checkout verified clean. Two follow-ups for Phase 3: (1) probe p7 spec needs tightening (^last= vs last= — template has line at col-0 init + 2-space indent cursor-advance; verbatim probe finds 2 matches not 1, fix in p7 not the build); (2) tooling-discovery note re: Edit-with-absolute-path routing to main checkout before being corrected to worktree-prefixed path. ADA suggests this for Arc 25+ DAEDALUS path-discipline design — Phase 3 just situational awareness. Dispatching VERA + CATO + ZENO in parallel for Phase 3 verification — all three read from worktree at .claude/worktrees/agent-aaf53895519dfa937 (locked, arc-24/build at 556d9fd).",
+      "timestamp": "2026-05-13T00:05:11Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Arc 24 — comms-hygiene substrate DNA: subagent status + dispatch hygiene + confabulation discipline",
   "type": "epic",
-  "updated_at": "2026-05-13T00:04:04Z"
+  "updated_at": "2026-05-13T00:05:11Z"
 }
