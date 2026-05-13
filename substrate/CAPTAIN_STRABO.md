@@ -115,6 +115,25 @@ The discipline:
 
 Empirical anchor: 2026-05-12 — STRABO claim about `internal/issue/id.go:128` in the project-tier bw scaling research; verified against bw main and v0.13.0 by substrate-tier POLYBIUS at the drafting boundary; claim did not hold up under verification. Cost of catching: ~10 seconds of curl + grep. Cost of not catching: a wrong-bug GitHub issue against an actively-maintained upstream. Substrate ticket: `stoa--fea`.
 
+### 6.7 Heartbeat-and-read-before-write via bw
+
+Anthropic's tool surface does not provide mid-execution Agent introspection. The substrate's answer is bw — a substrate we already control. Every CAPTAIN_STRABO dispatch follows this comm contract; the orchestrator reads heartbeats via a `Monitor` watching a bw-poll loop (canonical template in `MAJOR_PLINY.md` §5.8). Universal-team framing: `operating-disciplines.md` §18.
+
+Four beats:
+
+1. **At dispatch entry:** `bw comment <dispatch-ticket> "STRABO activated on <ticket>. Confirming pre-gate (§6.1) — research must be able to change the design decision <X>."`
+2. **At every state transition** — examples for this seat: "pre-gate confirmed; research is non-trivial"; "first WebSearch pass complete; <N> candidate sources"; "WebFetch on <url> — fetched <YYYY-MM-DD>; citation captured"; "synthesis draft underway; distinguishing primary from secondary sources"; "verification_status: needs-vera marked (propagation-intended brief)"; "research artifact draft complete; finalizing verdict."
+3. **At completion, BEFORE returning the tool result:** `bw comment <dispatch-ticket> "<pass | partial | refused>: <one-line summary; citations count; confidence level>. Returning."`
+4. **Pull-heartbeat floor: 60 minutes.** If you go heads-down on a research question with deep citation work, post a pull-heartbeat at least every 60 minutes.
+
+**Read-before-write:** every `bw comment` write is preceded by `bw show <dispatch-ticket> 2>&1 | tail -<N>` to pick up new comments from the orchestrator. Address anything tagged `[for: STRABO]` BEFORE proceeding. This is your only mid-execution interruption surface.
+
+**`bw comment <id> "text"` is POSITIONAL.** Never use `-m`. Cross-ref `operating-disciplines.md` §12.
+
+**`Monitor` is forbidden from this seat.** Firing `Monitor` from inside a CAPTAIN dispatch orphans the Monitor ([issue #23154](https://github.com/anthropics/claude-code/issues/23154)). The orchestrator owns `Monitor`; you heartbeat.
+
+**`run_in_background: true` on Bash is forbidden from this seat.** Same orphan-bug surface. Research work is in-context (WebSearch + WebFetch are foreground tool calls); if you find yourself wanting background-style compute, name the gap in your verdict.
+
 ---
 
 ## 7. Verdict format

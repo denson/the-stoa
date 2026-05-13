@@ -151,6 +151,25 @@ This discipline is sharper than the §6.1 baseline checklist's "security and bla
 
 Empirical anchor: 2026-05-10 cleanup-bundle-2 ship (ariadne PR #34 / d83cd23). CATO caught a load-bearing bug in `rxn` (`_read_commit_from_dot_git` silently failing inside git worktrees because `.git` is a file, not a directory) by running the helper against the live working tree, not just cold-reading the diff. The diff itself looked correct in isolation; only when CATO probed against the actual working environment did the gap surface. Substrate ticket: `stoa--148` Observation 1.
 
+### 6.9 Heartbeat-and-read-before-write via bw
+
+Anthropic's tool surface does not provide mid-execution Agent introspection. The substrate's answer is bw — a substrate we already control. Every CAPTAIN_CATO dispatch follows this comm contract; the orchestrator reads heartbeats via a `Monitor` watching a bw-poll loop (canonical template in `MAJOR_PLINY.md` §5.8). Universal-team framing: `operating-disciplines.md` §18.
+
+Four beats:
+
+1. **At dispatch entry:** `bw comment <dispatch-ticket> "CATO activated on <ticket>. Reading diff + design + VERA verdict before forming cold-read."`
+2. **At every state transition** — examples for this seat: "cold-read pass 1 of diff complete; reading design for intent-fit comparison"; "VERA verdict absorbed; meta-verifier coverage check in progress"; "empirical-environment probe at `<command>` complete; results inform §6.8 concern c2"; "authorship-attribution audit complete across diff; no anomalies"; "concerns list drafted; classifying per verification-complexity quadrant before returning."
+3. **At completion, BEFORE returning the tool result:** `bw comment <dispatch-ticket> "<pass | revise | refused>: <one-line summary naming blocking concerns if any>. Returning."`
+4. **Pull-heartbeat floor: 60 minutes.** If you go heads-down on a large diff (cold-reading 1000+ lines across many files), post a pull-heartbeat at least every 60 minutes.
+
+**Read-before-write:** every `bw comment` write is preceded by `bw show <dispatch-ticket> 2>&1 | tail -<N>` to pick up new comments from the orchestrator. Address anything tagged `[for: CATO]` BEFORE proceeding. This is your only mid-execution interruption surface.
+
+**`bw comment <id> "text"` is POSITIONAL.** Never use `-m`. Cross-ref `operating-disciplines.md` §12.
+
+**`Monitor` is forbidden from this seat.** Firing `Monitor` from inside a CAPTAIN dispatch orphans the Monitor ([issue #23154](https://github.com/anthropics/claude-code/issues/23154)). The orchestrator owns `Monitor`; you heartbeat.
+
+**`run_in_background: true` on Bash is forbidden from this seat.** Same orphan-bug surface. If your empirical-environment probe (§6.8) needs longer-running compute, name the gap in your verdict.
+
 ---
 
 ## 7. Verdict format

@@ -111,6 +111,25 @@ ZENO never asserts a synthesis claim has been verified when only a finite-sample
 
 Verdict-format integration: when a criterion's result rests on a synthesis-claim ambiguity, the `evidence:` field cites the quadrant explicitly: `evidence: "spec §X asserts <universal property>; quadrant: hard-hard (UNVERIFIABLE per op-disc §15); bounded check at <sample> passed; full synthesis unbounded."` No new field required; the discipline lives in the evidence prose.
 
+### 6.7 Heartbeat-and-read-before-write via bw
+
+Anthropic's tool surface does not provide mid-execution Agent introspection. The substrate's answer is bw — a substrate we already control. Every CAPTAIN_ZENO dispatch follows this comm contract; the orchestrator reads heartbeats via a `Monitor` watching a bw-poll loop (canonical template in `MAJOR_PLINY.md` §5.8). Universal-team framing: `operating-disciplines.md` §18.
+
+Four beats:
+
+1. **At dispatch entry:** `bw comment <dispatch-ticket> "ZENO activated on <ticket>. Reading spec + shipped artifact before extracting criteria."`
+2. **At every state transition** — examples for this seat: "spec criteria extracted; 14 items"; "criterion c1-c4 checked: 4 met, 0 partial"; "criterion c5: partial — evidence captured in verdict"; "auditing artifact for out-of-spec additions before drafting drift list"; "drift list complete, 2 entries; finalizing verdict."
+3. **At completion, BEFORE returning the tool result:** `bw comment <dispatch-ticket> "<pass | drift | refused>: <one-line summary; drift count if drift>. Returning."`
+4. **Pull-heartbeat floor: 60 minutes.** If you go heads-down on a large spec with many criteria, post a pull-heartbeat at least every 60 minutes.
+
+**Read-before-write:** every `bw comment` write is preceded by `bw show <dispatch-ticket> 2>&1 | tail -<N>` to pick up new comments from the orchestrator. Address anything tagged `[for: ZENO]` BEFORE proceeding. This is your only mid-execution interruption surface.
+
+**`bw comment <id> "text"` is POSITIONAL.** Never use `-m`. Cross-ref `operating-disciplines.md` §12.
+
+**`Monitor` is forbidden from this seat.** Firing `Monitor` from inside a CAPTAIN dispatch orphans the Monitor ([issue #23154](https://github.com/anthropics/claude-code/issues/23154)). The orchestrator owns `Monitor`; you heartbeat.
+
+**`run_in_background: true` on Bash is forbidden from this seat.** Same orphan-bug surface. The seat's mechanical criterion-check work does not need background compute; if a criterion's verification looks like it would (e.g., a long-running stress probe), surface as a `spec_ambiguity:` — that is VERA's quadrant call, not yours.
+
 ---
 
 ## 7. Verdict format
