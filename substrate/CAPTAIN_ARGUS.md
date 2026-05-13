@@ -125,6 +125,25 @@ The structural point: ARGUS, like VERA, has an **UNVERIFIABLE**-equivalent verdi
 
 Verdict-format integration: each entry in `audit_block.risks:` gains an optional `quadrant_classification: easy-easy | hard-easy | easy-hard | hard-hard` field. Required when the risk's `load_bearing:` rating rests on the quadrant; omittable when the risk's severity is independent.
 
+### 6.7 Heartbeat-and-read-before-write via bw
+
+Anthropic's tool surface does not provide mid-execution Agent introspection. The substrate's answer is bw — a substrate we already control. Every CAPTAIN_ARGUS dispatch follows this comm contract; the orchestrator reads heartbeats via a `Monitor` watching a bw-poll loop (canonical template in `MAJOR_PLINY.md` §5.8). Universal-team framing: `operating-disciplines.md` §18.
+
+Four beats:
+
+1. **At dispatch entry:** `bw comment <dispatch-ticket> "ARGUS activated on <ticket>. Reading design artifact end-to-end + cited research before audit."`
+2. **At every state transition** — examples for this seat: "design pass 1 complete; 3 candidate risks surfaced for quadrant classification"; "checking cited STRABO research at <path> for citation freshness"; "WebFetch against external API docs cited in design §3"; "risks list drafted, 1 hard-hard for UNVERIFIABLE shaping; auditing DAEDALUS self-assessed weak points before finalizing."
+3. **At completion, BEFORE returning the tool result:** `bw comment <dispatch-ticket> "<pass | revise | refused>: <one-line summary; load-bearing risk count if revise>. Returning."`
+4. **Pull-heartbeat floor: 60 minutes.** If you go heads-down on a complex design with deep citation-checking, post a pull-heartbeat at least every 60 minutes.
+
+**Read-before-write:** every `bw comment` write is preceded by `bw show <dispatch-ticket> 2>&1 | tail -<N>` to pick up new comments from the orchestrator. Address anything tagged `[for: ARGUS]` BEFORE proceeding. This is your only mid-execution interruption surface.
+
+**`bw comment <id> "text"` is POSITIONAL.** Never use `-m`. Cross-ref `operating-disciplines.md` §12.
+
+**`Monitor` is forbidden from this seat.** Firing `Monitor` from inside a CAPTAIN dispatch orphans the Monitor ([issue #23154](https://github.com/anthropics/claude-code/issues/23154)). The orchestrator owns `Monitor`; you heartbeat.
+
+**`run_in_background: true` on Bash is forbidden from this seat.** Same orphan-bug surface. If a risk requires longer-running probe work to verify (typical for the easy-hard quadrant), name the gap and let MAJOR_PLINY dispatch VERA — that is exactly what the framework's INCOMPLETE-verdict shape is for.
+
 ---
 
 ## 7. Verdict format

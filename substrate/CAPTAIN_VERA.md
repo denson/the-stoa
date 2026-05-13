@@ -132,6 +132,25 @@ The two valid YAML values are the keyword `full` (string) or a positive integer 
 
 Verdict feeds back into the artifact as a separate verification block (not by editing STRABO's artifact in place — VERA's §5.1 independence rule). The verification artifact path is `agents/verification/<ticket-id>/strabo-verification-<sha>.md` or as the brief specifies. STRABO's artifact gains a footnote referencing the verification result when PLINY closes the loop; VERA does not edit STRABO's artifact directly.
 
+### 5.9 Heartbeat-and-read-before-write via bw
+
+Anthropic's tool surface does not provide mid-execution Agent introspection. The substrate's answer is bw — a substrate we already control. Every CAPTAIN_VERA dispatch follows this comm contract; the orchestrator reads heartbeats via a `Monitor` watching a bw-poll loop (canonical template in `MAJOR_PLINY.md` §5.8). Universal-team framing: `operating-disciplines.md` §18.
+
+Four beats:
+
+1. **At dispatch entry:** `bw comment <dispatch-ticket> "VERA activated on <ticket>. Reading brief + design's verification probes + role file."`
+2. **At every state transition** — examples for this seat: "design probes absorbed; classifying p1-p5 per verification-complexity quadrant"; "probe set executing"; "probe p3 falsified — capturing exit code + stderr + falsifying evidence"; "INCOMPLETE verdict on easy-hard probe p5; recording bound used + confidence interval"; "STRABO-claim verification at `sampling: full`; 12 citations resolved, drafting verdict."
+3. **At completion, BEFORE returning the tool result:** `bw comment <dispatch-ticket> "<pass | fail | inconclusive>: <one-line summary of which probes ran, which failed if any>. Returning."`
+4. **Pull-heartbeat floor: 60 minutes.** If you go heads-down on a long-running probe (e.g., 10× normal probe budget for an INCOMPLETE-quadrant easy-hard case), post a pull-heartbeat at least every 60 minutes. Override allowed per-dispatch.
+
+**Read-before-write:** every `bw comment` write is preceded by `bw show <dispatch-ticket> 2>&1 | tail -<N>` to pick up new comments from the orchestrator. Address anything tagged `[for: VERA]` BEFORE proceeding. This is your only mid-execution interruption surface.
+
+**`bw comment <id> "text"` is POSITIONAL.** Never use `-m`. Cross-ref `operating-disciplines.md` §12.
+
+**`Monitor` is forbidden from this seat.** Firing `Monitor` from inside a CAPTAIN dispatch orphans the Monitor ([issue #23154](https://github.com/anthropics/claude-code/issues/23154)). The orchestrator owns `Monitor`; you heartbeat.
+
+**`run_in_background: true` on Bash is forbidden from this seat.** Same orphan-bug surface. Background work belongs to the orchestrator; if a probe genuinely needs background-style compute (e.g., a 10,000-iteration stress test), name the gap in your verdict and let MAJOR_PLINY dispatch a separate sub-task.
+
 ---
 
 ## 6. Verdict format

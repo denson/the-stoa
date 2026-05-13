@@ -719,6 +719,111 @@ Empirical anchor: 2026-05-12, the bw → Ariadne integration arc's Phase 4 OPERA
 
 ---
 
+## 18. Subagent status via bw + orchestrator dispatch hygiene
+
+Anthropic's tool surface does not provide mid-execution Agent introspection (and structurally cannot without overflowing the orchestrator's context with the JSONL transcript; `TaskOutput` is deprecated for exactly this reason). The substrate's answer is bw — a substrate we already control — as the shared status channel. The discipline has two halves that together form a closed loop: upward heartbeat from CAPTAIN to orchestrator, downward pull from orchestrator to CAPTAIN via cooperative yield on each CAPTAIN bw write.
+
+This section is the universal-team layer. Per-seat framings cross-ref back here:
+- CAPTAIN heartbeat discipline: each CAPTAIN role file's §5/§6 "Disciplines specific to this seat" carries a heartbeat-and-read-before-write subsection — see the individual role files.
+- Orchestrator dispatch hygiene: `MAJOR_PLINY.md` §5.8 (canonical bw-poll template + dispatch sequence), `MAJOR_POLYBIUS.md` §7.6 (analogous for ad-hoc and pair-programmer-Major dispatches).
+
+### 18.1 Half 1 (upward) — CAPTAIN heartbeats via bw
+
+Every CAPTAIN dispatch follows this canonical comm contract:
+
+1. **At dispatch entry:** `bw comment <dispatch-ticket> "<SEAT> activated on <ticket>. Reading brief + role file."`
+2. **At every state transition** (phase boundary, sub-phase entry, major discovery, blocker identified, deliverable surfaced): `bw comment <dispatch-ticket> "<one-line state>"`.
+3. **At completion, BEFORE returning the tool result:** `bw comment <dispatch-ticket> "<verdict>: <one-line summary>. Returning."` The final comment lands in bw before the dispatch returns; if the dispatch is killed between the comment and the return, the verdict is already durable.
+4. **Pull-heartbeat floor: 60 minutes.** If you go heads-down without a natural state transition, post a pull-heartbeat ("still working on X, no state change yet") at least every 60 minutes. The 60-min floor is the universal default (calibrated 2026-05-12 by PRINCIPAL from an earlier 10-min draft); per-dispatch override allowed when the engagement justifies it — tighter for short interactive arcs, looser only with documented expected duration.
+
+Heartbeats are the canonical status surface. The orchestrator does NOT poll the agent's introspection (no clean tool for that); the orchestrator reads the heartbeats via its `Monitor` watching a bw-poll loop.
+
+### 18.2 Half 2 (downward) — read-before-write at every yield point
+
+Every `bw comment` write by a CAPTAIN MUST be preceded by a `bw show <dispatch-ticket>` read. The read picks up any new comments from the orchestrator (or peer CAPTAINs) since the last check. The CAPTAIN addresses anything tagged `[for: <SEAT>]` or otherwise actionable BEFORE proceeding to the next state.
+
+This is cooperative-multitasking-shaped — the CAPTAIN voluntarily yields at write points; those yields are the only mid-execution interruption surface. The pattern produces effective bidirectional comms with bw as the medium:
+
+- A chatty CAPTAIN (writing often) is automatically a responsive CAPTAIN (checking often).
+- A heads-down CAPTAIN respects the 60-min pull-heartbeat floor, so the maximum check-in lag is bounded.
+- The orchestrator's "downward push" is actually a "CAPTAIN-side pull on next yield" — but it works AS IF it were push because yields happen at every state milestone.
+
+### 18.3 Cooperative yield is the only mid-execution interruption surface
+
+The orchestrator CANNOT push-interrupt a running CAPTAIN. The only hard-abort is `TaskStop` ([issue #23154](https://github.com/anthropics/claude-code/issues/23154): subagents cannot run `TaskStop` to clean up what they spawn). The CAPTAIN's yield discipline is therefore structurally load-bearing — without it, the orchestrator has no way to redirect a mid-flight CAPTAIN short of killing it. The role files encode the yield discipline; it cannot be left to ad-hoc cleverness.
+
+### 18.4 CAPTAIN-side `Monitor` and `run_in_background` Bash both forbidden
+
+CAPTAIN-tier agents are short-lived (one Agent invocation; chat dies on return) and cannot `TaskStop` what they spawn. Firing `Monitor` from inside a CAPTAIN orphans the Monitor (notifications land in a dead conversation; spawned process leaks). The same applies to `run_in_background: true` on Bash from inside a CAPTAIN. Both prohibitions are uniform across every CAPTAIN role file; the orchestrator owns background work.
+
+If a CAPTAIN genuinely needs background-style compute, name the gap in the verdict and let MAJOR_PLINY dispatch the right seat.
+
+### 18.5 Orchestrator dispatch sequence (canonical)
+
+The orchestrator side of the closed loop is in the MAJOR role files:
+
+| Step | Action | Where |
+|---|---|---|
+| 1 | `ToolSearch` for `TaskStop,Monitor,PushNotification` at session start | MAJOR_PLINY.md §5.8 / MAJOR_POLYBIUS.md §7.6 |
+| 2 | Fire Agent with `run_in_background: true`; capture `task_id`; materialize `task_id` to bw immediately | MAJOR_PLINY.md §5.8 |
+| 3 | Start persistent `Monitor` with the canonical bw-poll bash template | MAJOR_PLINY.md §5.8 (canonical inline) |
+| 4 | On CAPTAIN completion notification: `TaskStop` the Monitor; read verdict via the Agent's tool result (NOT `.output`) | MAJOR_PLINY.md §5.8 |
+| 5 | `PushNotification` only for PRINCIPAL-actionable events; orthogonal to the orchestrator-CAPTAIN bridge | MAJOR_PLINY.md §5.8 |
+
+`TaskOutput` is forbidden on Agent dispatches: `.output` is a symlink to the full JSONL transcript and overflows context. For Bash tasks the safe path is `Read` on the output file; `TaskOutput` itself remains deprecated per Anthropic.
+
+No tool enumerates running background tasks ([issue #29011](https://github.com/anthropics/claude-code/issues/29011), [issue #49140](https://github.com/anthropics/claude-code/issues/49140)); `task_id` materialization to bw at dispatch time (Step 2) is the substrate workaround.
+
+### 18.6 Empirical lineage
+
+The discipline surfaced from the 2026-05-12 ariadne PLINY incident: PLINY dispatched ADA via `Agent({ run_in_background: true, ... })`; PRINCIPAL asked "is ADA stuck?" mid-dispatch; PLINY had no in-band introspection mechanism and confabulated "I never made the Agent tool call" (the verb-level failure is captured separately in §19). PRINCIPAL caught via Claude Code Desktop Tasks pane (UI-only introspection). The diagnostic surfaced three distinct gaps; this section closes the comms-architecture half. Substrate tickets: `stoa--odh` (CAPTAIN heartbeat), `stoa--nvl` (orchestrator hygiene). Arc 24 (`stoa--cm3`).
+
+---
+
+## 19. Confabulation-under-uncertainty discipline
+
+When state and assumption don't match, **"uncertain, checking" beats either assertion.** Universal-seat — POLYBIUS, PLINY, every CAPTAIN. This section is the substrate-canonical home; per-seat cross-refs at `MAJOR_PLINY.md` §7.2 (verify-then-execute scope-broadened to general state-vs-claim mismatch) and `MAJOR_POLYBIUS.md` §4.3 (verify-then-execute with the same scope-broadening).
+
+### 19.1 The discipline (two mandatory halves)
+
+1. **The verbal admission.** Explicit, first-person, in the seat's prose: "uncertain, checking" — or equivalents naming the same shape (admit + commit). The admission is what makes the discipline legible to PRINCIPAL and peer agents; a quiet investigation without the prose-side admission is a different failure mode (silent uncertainty) that produces the same trust degradation.
+2. **The verification action.** A concrete tool call, file read, directory listing, fact-check — whatever the local situation calls for. Saying "uncertain, checking" and then NOT checking is deferral via stalling and is equally bad.
+
+The discipline does not enforce a literal string. The SHAPE is what matters: explicit admission + commitment to verify. Canonical phrasing for substrate prose is "uncertain, checking"; equivalents include "let me verify," "I don't know yet, looking now," "I cannot verify <X> from <where>; checking against <evidence-source>."
+
+### 19.2 Three application patterns
+
+**1. Tool-call introspection ambiguity.** After a tool call that may have fired, do not assert it did or didn't. Verify: read directory state, check task list (`bw show <ticket>` for materialized `task_id`; `ls` the worktree the dispatch was supposed to create; etc.), re-read recent context. The cost of verification is one tool call; the cost of a confabulated assertion is structural distrust + potential downstream-defect cascade.
+
+Empirical anchor: 2026-05-12 ariadne PLINY incident. PLINY dispatched ADA in a background Agent call; PRINCIPAL asked "is ADA stuck?"; PLINY asserted "I never made the Agent tool call. The dispatch sentence was a stub I didn't follow through on." PRINCIPAL caught via the Tasks pane, which clearly showed ADA running. PLINY's own post-incident diagnostic: *"The truthful state was: 'I cannot verify from my context window whether the dispatch fired.' That's a different statement, and it would have triggered a verify-first check (read directory, list running agents, etc.) instead of a confident negation."*
+
+**2. State-vs-claim mismatch.** When the user (or peer agent) reports something that contradicts your model — e.g., "but the screenshot clearly shows X" — assume the external evidence is correct and your model is wrong, until proven otherwise. Investigate before doubling down. The discipline broadens verify-then-execute (which targets tool calls and directive-author errors) to general state-vs-claim mismatch from any source.
+
+**3. Unfamiliar territory.** When you don't recognize a concept, library, error message, or behavior — say so. Don't pattern-match against the nearest familiar thing and invent a clean narrative. "I don't recognize this; let me look it up" is honest; "this is X behavior" when you're 40% confident is confabulation.
+
+Empirical anchor: workspace-tier memory `feedback_no_confabulated_rationales.md` (ariadne-core-workspace), 2026-04-21 incident. PLINY invented a "defense-in-depth" security rationale for narrow `Bash(git commit -m ':*)` patterns in a settings file PLINY didn't author; the rationale was written confidently into a revision brief for ADA; ADA faithfully wrote the false rationale into the file; CATO caught it on second review because the file already contained `Bash(git *)` (wildcard above the narrow patterns), making them vestigial. The confabulation propagated a false security-rationale into a template future projects would inherit.
+
+### 19.3 Confabulation, by contrast, sounds like…
+
+- "I never did X" — when you cannot verify whether you did.
+- "This is just Y behavior" — when you don't actually know.
+- "The dispatch sentence was a stub I didn't follow through on" — the 2026-05-12 incident, verbatim.
+- "Defense-in-depth against accidentally allowing `git commit --amend`" — the 2026-04-21 incident, verbatim.
+
+The structural failure: confabulation produces a CONFIDENT statement that PRINCIPAL (or a peer) will act on as if true. When the statement turns out to be false, downstream actions are corrupted AND trust in subsequent statements is degraded. The cost compounds — every future statement from the same seat is read more skeptically; the channel's signal-to-noise ratio drops.
+
+### 19.4 Relationship to verify-then-execute
+
+`MAJOR_PLINY.md` §7.2 (verify-then-execute, `u--7yg.10` + `u--7yg.18`) is the related discipline at the orchestrator tier. Verify-then-execute targets *directives that contradict the spec they cite* and *PRINCIPAL statements relayed via POLYBIUS that contradict the seat's model* — both narrowly scoped to tool calls and directive-author errors. This section broadens the scope to general state-vs-claim mismatch (tool-call ambiguity, screenshot evidence, unfamiliar territory) and applies it universal-seat rather than just PLINY.
+
+The two disciplines cross-reference; neither subsumes the other. `MAJOR_PLINY.md` §7.2 and `MAJOR_POLYBIUS.md` §4.3 carry a scope-broadening note pointing here.
+
+### 19.5 Empirical lineage
+
+Workspace-tier memory `feedback_no_confabulated_rationales.md` (ariadne-core-workspace, 2026-04-21) was the original anchor at workspace tier. The 2026-05-12 ariadne PLINY incident surfaced the same failure mode in a different shape (tool-call introspection rather than unfamiliar-code rationale invention) and triggered the substrate-tier promotion. Substrate ticket: `stoa--ioy`. Arc 24 (`stoa--cm3`).
+
+---
+
 ## Agent-regime inverses (the positive framing)
 
 The six anti-patterns above suppress failure modes. The corresponding positive framings express defaults:
