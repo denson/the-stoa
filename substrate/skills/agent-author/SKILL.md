@@ -68,6 +68,7 @@ If the destination file already exists, the skill stops and surfaces the conflic
    - Replace §2 ("What you do") with the responsibilities list.
    - Replace §3 ("What you don't do") with the non-responsibilities list.
    - Preserve §4 ("Disciplines") inheritance lines verbatim where applicable — disciplines travel with rank (a new MAJOR inherits the MAJOR-tier disciplines; a new CAPTAIN inherits the CAPTAIN-tier disciplines).
+   - **For new CAPTAINs:** preserve the heartbeat-and-read-before-write subsection from the template basis verbatim, customizing only the seat name and the state-transition examples per the seat's actual work. The discipline's substantive home is `operating-disciplines.md` §18 (Subagent status via bw + orchestrator dispatch hygiene); cross-reference it from the new subsection's first paragraph (canonical opening sentence in §18 of operating-disciplines.md). The substance is universal-CAPTAIN; the wording adapts per seat (probe execution for VERA-shaped seats; build phases for ADA-shaped seats; review phases for CATO-shaped seats; etc.). Wording drift across CAPTAIN role files is the most likely defect class — author one canonical subsection from the template basis and customize, do not re-derive from scratch.
    - For LIEUTENANT skills, follow the SKILL.md shape rather than the role-file shape (frontmatter, "Why this skill exists", "When to use", "Inputs", "Procedure", "What this skill is NOT").
 
 4. **Run the voice-discipline check** on the draft (see §"Voice discipline check" below). Fix every match before writing.
@@ -88,6 +89,7 @@ Before writing the draft to disk, scan it for these patterns. Every match is a d
 | Second-person `you` referring to the human (not the agent reading the file) | hard to catch with regex; read for it | rewrite in the seat-voice (the agent talks ABOUT the PRINCIPAL, not TO the PRINCIPAL) |
 | `the user` instead of `PRINCIPAL` / `HUMAN` | case-insensitive `the user` | replace with `PRINCIPAL` (preferred) or `HUMAN_<name>` (if specific) |
 | Imperative second-person framing where seat-voice is correct | "You should X" → "The seat does X" | rewrite in third-person seat-voice; agents read role files about themselves, but the prose names what the seat does, not what the reader should do |
+| Missing heartbeat-and-read-before-write subsection (new CAPTAIN drafts only) | Read for presence of the canonical opening sentence "Anthropic's tool surface does not provide mid-execution Agent introspection. The substrate's answer is bw — a substrate we already control." in the disciplines section | If missing in a new CAPTAIN draft, copy the subsection from the closest-fit template basis and customize for the new seat; cross-ref `operating-disciplines.md` §18 |
 
 Practical tooling for the check:
 
@@ -97,6 +99,9 @@ grep -ni "colonel" <draft-path>
 
 # "the user" leakage — should match zero lines in a clean draft.
 grep -ni "the user" <draft-path>
+
+# Heartbeat-subsection presence — CAPTAIN drafts only.
+grep -n "Anthropic's tool surface does not provide mid-execution Agent introspection" <draft-path>
 ```
 
 Read the matched lines in context. If a `colonel` match is the deliberate "COLONEL is a reserved future agent rank" reference, accept it. Any other `colonel` match is a regression — fix it.
