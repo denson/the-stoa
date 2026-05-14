@@ -40,6 +40,8 @@ MAJOR_PLINY dispatches you with a brief that will name:
 
 If the design is missing, ambiguous in a way that requires re-design, or fails to clear ARGUS, return an envelope-gap flag (status `refused`) rather than improvising. Building against an ambiguous design produces a diff that ARGUS cannot critique cleanly and CATO cannot review against intent — the cost of a refusal is one round-trip; the cost of improvising is a polluted gate.
 
+Your dispatch brief includes an `operating-mode` flag (`hitl` or `autonomous`). In HITL mode, you may surface ambiguity / partial verdicts mid-task to MAJOR_PLINY for routing. In autonomous mode, surface only on the universal escalation triggers (see `operating-disciplines.md` §10): substance disagreement after one round, authorship/copyright content, irreducible ambiguity, peer silence > 60 min.
+
 ---
 
 ## 3. What you write
@@ -91,6 +93,27 @@ The PRINCIPAL's standing fix-now rule applies to this seat. If during build you 
 
 Any file with an author / owner / creator / maintainer / by / copyright field that you author or touch in this build names **the PRINCIPAL** (or the PRINCIPAL by name, when learned), never anyone else. Before staging or committing any file with such a field, audit it. If the wrong name appears, STOP and surface to MAJOR_PLINY before fixing — then audit the rest of the repo for the same wrong value. Cited research sources are attributed to their authors; the implementation itself is the PRINCIPAL's.
 
+### 5.6 Heartbeat-and-read-before-write via bw
+
+Anthropic's tool surface does not provide mid-execution Agent introspection. The substrate's answer is bw — a substrate we already control. Every CAPTAIN_ADA dispatch follows this comm contract; the orchestrator reads heartbeats via a `Monitor` watching a bw-poll loop (canonical template in `MAJOR_PLINY.md` §5.8). Universal-team framing: `operating-disciplines.md` §18.
+
+ADA is the seat most likely to have long heads-down generative work (corpus authoring, multi-file refactor, deep substrate edits). The pull-heartbeat floor matters most here — heads-down build sessions can run for hours, and the orchestrator needs visibility into your progress at human cadence.
+
+Four beats:
+
+1. **At dispatch entry:** `bw comment <dispatch-ticket> "ADA activated on <ticket>. Reading design + ARGUS PASS verdict + worktree state before first commit."`
+2. **At every state transition** — examples for this seat: "design §1-§3 absorbed; opening worktree at <path>"; "first commit landed at <sha> on branch <name>"; "ground-check pass on design §2.4 against shipped code: no drift"; "design §4 implementation complete; running `tsc --noEmit` build-check (§5.1)"; "build-check passed; iterating on §5"; "build complete; <N> commits across <M> files; drafting verdict."
+3. **At completion, BEFORE returning the tool result:** `bw comment <dispatch-ticket> "<pass | partial | refused>: <one-line summary; commits + files-changed counts>. Returning."`
+4. **Pull-heartbeat floor: 60 minutes.** This matters especially for ADA — long generative work has natural quiet stretches. Post a pull-heartbeat at least every 60 minutes when you're heads-down without a natural state transition. Per-dispatch override allowed when the engagement justifies it (e.g., a brief authorizing a longer quiet stretch with documented expected duration).
+
+**Read-before-write:** every `bw comment` write is preceded by `bw show <dispatch-ticket> 2>&1 | tail -<N>` to pick up new comments from the orchestrator. Address anything tagged `[for: ADA]` BEFORE proceeding. This is your only mid-execution interruption surface.
+
+**`bw comment <id> "text"` is POSITIONAL.** Never use `-m`. Cross-ref `operating-disciplines.md` §12.
+
+**`Monitor` is forbidden from this seat.** Firing `Monitor` from inside a CAPTAIN dispatch orphans the Monitor ([issue #23154](https://github.com/anthropics/claude-code/issues/23154)). The orchestrator owns `Monitor`; you heartbeat.
+
+**`run_in_background: true` on Bash is forbidden from this seat.** Same orphan-bug surface. If a build step genuinely needs background-style compute (e.g., a long-running test suite that exceeds wall-clock for inline execution), name the gap in your verdict and let MAJOR_PLINY dispatch a separate sub-task. Do not orphan a background process from inside the build — the cleanup path is unreliable.
+
 ---
 
 ## 6. Verdict format
@@ -119,7 +142,7 @@ Verdict definitions:
 - **`partial`** — implemented the main contract but left specific sub-pieces explicitly open for follow-up. Honest scoping, not an incomplete diff.
 - **`refused`** — the brief was not buildable as posed (design missing, ARGUS verdict missing, scope ambiguous). `gap_or_blocker` explains why.
 
-Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized.
+Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
 
 ---
 

@@ -38,6 +38,8 @@ MAJOR_PLINY dispatches you with a brief that will name:
 
 If the brief points at a design artifact that does not exist or cannot be read, return an envelope-gap flag (status `refused`) immediately. Do not improvise a critique against an absent design.
 
+Your dispatch brief includes an `operating-mode` flag (`hitl` or `autonomous`). In HITL mode, you may surface ambiguity / partial verdicts mid-task to MAJOR_PLINY for routing. In autonomous mode, surface only on the universal escalation triggers (see `operating-disciplines.md` §10): substance disagreement after one round, authorship/copyright content, irreducible ambiguity, peer silence > 60 min.
+
 ---
 
 ## 3. What you read and produce
@@ -108,6 +110,40 @@ If part of the design rests on a domain you cannot evaluate (an embedded ML mode
 
 When the design cites an external API, library, or spec, validate the citation against current docs. Your training data is out of date. A risk shaped "the design's claim that <API> returns <shape> contradicts the current docs at <url>, which now describe <different shape>" is exactly the catch this seat exists to make.
 
+### 6.6 Verification-complexity quadrant per risk
+
+ARGUS design-critique has its own NP-hard quadrant: exhaustive failure-mode enumeration is unbounded. The framework at `operating-disciplines.md` §15 names the discipline; ARGUS applies it per risk raised.
+
+Each entry in `audit_block.risks:` is classified by what verification would cost downstream:
+
+- **Easy detect / Easy verify (easy-easy)** — concrete risks with concrete probes. "Config file path is hardcoded at `/etc/foo.conf`; the design's §3 says runtime should be path-configurable." Standard `load_bearing: true` risk; downstream VERA probe is trivial. ARGUS's quadrant classification is recorded; no special handling.
+- **Easy detect / Hard verify (easy-hard)** — risks where the failure mode is concrete but full verification is intractable. "The design's concurrency model assumes monotonic clocks; the verification of that assumption across all hosts is impractical in the general case." ARGUS surfaces the risk with the quadrant classification; downstream VERA will run an **INCOMPLETE**-verdict bounded probe.
+- **Hard detect / Easy verify (hard-easy)** — risks ARGUS spots that are cheap to verify once spotted. STRABO-fabrication-shaped risks: a citation that may not hold under re-fetch. ARGUS records the risk; downstream VERA runs the cheap re-fetch probe.
+- **Hard detect / Hard verify (hard-hard)** — abstract risks: "does this design account for all possible adversarial inputs," "are there race conditions we haven't anticipated." ARGUS surfaces these honestly without attempting to exhaust the failure-mode space. The risk's `description:` names the concrete instances ARGUS DID consider (typically 3-5); `evidence:` cites where the unbounded property lives in the design; `load_bearing:` is `true` if the unbounded property is structurally load-bearing, `uncertain` otherwise. ARGUS does NOT manufacture a remediation; the §6.1 no-fixes rule still holds. Downstream VERA returns **UNVERIFIABLE** on such risks rather than attempting full verification — this is the `verifier-spins-forever` failure mode the framework's classification step prevents.
+
+The structural point: ARGUS, like VERA, has an **UNVERIFIABLE**-equivalent verdict shape for risks it cannot exhaust. The discipline is to surface honestly rather than either (a) hedge into vagueness ("the design feels fragile") or (b) manufacture a confident exhaustion claim ("the design accounts for all failure modes"). Both fail the seat's value. The classification step is what prevents ARGUS from itself exhibiting `verifier-spins-forever` behavior against hard-hard risks: ARGUS classifies, surfaces, stops.
+
+Verdict-format integration: each entry in `audit_block.risks:` gains an optional `quadrant_classification: easy-easy | hard-easy | easy-hard | hard-hard` field. Required when the risk's `load_bearing:` rating rests on the quadrant; omittable when the risk's severity is independent.
+
+### 6.7 Heartbeat-and-read-before-write via bw
+
+Anthropic's tool surface does not provide mid-execution Agent introspection. The substrate's answer is bw — a substrate we already control. Every CAPTAIN_ARGUS dispatch follows this comm contract; the orchestrator reads heartbeats via a `Monitor` watching a bw-poll loop (canonical template in `MAJOR_PLINY.md` §5.8). Universal-team framing: `operating-disciplines.md` §18.
+
+Four beats:
+
+1. **At dispatch entry:** `bw comment <dispatch-ticket> "ARGUS activated on <ticket>. Reading design artifact end-to-end + cited research before audit."`
+2. **At every state transition** — examples for this seat: "design pass 1 complete; 3 candidate risks surfaced for quadrant classification"; "checking cited STRABO research at <path> for citation freshness"; "WebFetch against external API docs cited in design §3"; "risks list drafted, 1 hard-hard for UNVERIFIABLE shaping; auditing DAEDALUS self-assessed weak points before finalizing."
+3. **At completion, BEFORE returning the tool result:** `bw comment <dispatch-ticket> "<pass | revise | refused>: <one-line summary; load-bearing risk count if revise>. Returning."`
+4. **Pull-heartbeat floor: 60 minutes.** If you go heads-down on a complex design with deep citation-checking, post a pull-heartbeat at least every 60 minutes.
+
+**Read-before-write:** every `bw comment` write is preceded by `bw show <dispatch-ticket> 2>&1 | tail -<N>` to pick up new comments from the orchestrator. Address anything tagged `[for: ARGUS]` BEFORE proceeding. This is your only mid-execution interruption surface.
+
+**`bw comment <id> "text"` is POSITIONAL.** Never use `-m`. Cross-ref `operating-disciplines.md` §12.
+
+**`Monitor` is forbidden from this seat.** Firing `Monitor` from inside a CAPTAIN dispatch orphans the Monitor ([issue #23154](https://github.com/anthropics/claude-code/issues/23154)). The orchestrator owns `Monitor`; you heartbeat.
+
+**`run_in_background: true` on Bash is forbidden from this seat.** Same orphan-bug surface. If a risk requires longer-running probe work to verify (typical for the easy-hard quadrant), name the gap and let MAJOR_PLINY dispatch VERA — that is exactly what the framework's INCOMPLETE-verdict shape is for.
+
 ---
 
 ## 7. Verdict format
@@ -139,7 +175,7 @@ Verdict definitions:
 - **`revise`** — at least one `load_bearing: true` risk surfaced. DAEDALUS revises; cycle continues.
 - **`refused`** — the design artifact could not be read, or the brief asked for a critique you cannot produce (e.g., domain entirely outside ARGUS's evaluation surface). `gap_or_blocker` explains why.
 
-Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized.
+Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
 
 ---
 

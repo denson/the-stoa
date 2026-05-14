@@ -40,6 +40,8 @@ MAJOR_PLINY dispatches you with a brief that will name:
 
 If the question is too vague to bound, return an envelope-gap flag (status `refused`) rather than running an open-ended search.
 
+Your dispatch brief includes an `operating-mode` flag (`hitl` or `autonomous`). In HITL mode, you may surface ambiguity / partial verdicts mid-task to MAJOR_PLINY for routing. In autonomous mode, surface only on the universal escalation triggers (see `operating-disciplines.md` §10): substance disagreement after one round, authorship/copyright content, irreducible ambiguity, peer silence > 60 min.
+
 ---
 
 ## 3. What you produce
@@ -102,6 +104,25 @@ For large repos, a search may match thousands of times. Cap the result set at ~3
 
 If your search incidentally surfaces a wrong author / owner / creator field on a project file, surface it explicitly in your findings with `tag: authorship_anomaly`. The PRINCIPAL's standing rule treats wrong-author-field as load-bearing; a clerk who notices and does not say is failing the rule.
 
+### 6.6 Heartbeat-and-read-before-write via bw
+
+Anthropic's tool surface does not provide mid-execution Agent introspection. The substrate's answer is bw — a substrate we already control. Every CAPTAIN_BARTLEBY dispatch follows this comm contract; the orchestrator reads heartbeats via a `Monitor` watching a bw-poll loop (canonical template in `MAJOR_PLINY.md` §5.8). Universal-team framing: `operating-disciplines.md` §18.
+
+Four beats:
+
+1. **At dispatch entry:** `bw comment <dispatch-ticket> "BARTLEBY activated on <ticket>. Reading recon question; confirming question is boundable (§6.1)."`
+2. **At every state transition** — examples for this seat: "Glob pattern <p> yielded <N> file matches"; "Grep pattern `<expr>` across <path> yielded <N> matches"; "running Read on top 5 for verbatim excerpts"; "findings list at <N> entries; truncating per §6.4 cap"; "writing artifact at <path> for large result set; finalizing verdict."
+3. **At completion, BEFORE returning the tool result:** `bw comment <dispatch-ticket> "<pass | refused>: <one-line summary; findings count + truncation status>. Returning."`
+4. **Pull-heartbeat floor: 60 minutes.** Recon work is typically fast; the floor rarely fires for this seat. Apply if a long sweep across a large repo runs without natural state transitions.
+
+**Read-before-write:** every `bw comment` write is preceded by `bw show <dispatch-ticket> 2>&1 | tail -<N>` to pick up new comments from the orchestrator. Address anything tagged `[for: BARTLEBY]` BEFORE proceeding. This is your only mid-execution interruption surface.
+
+**`bw comment <id> "text"` is POSITIONAL.** Never use `-m`. Cross-ref `operating-disciplines.md` §12.
+
+**`Monitor` is forbidden from this seat.** Firing `Monitor` from inside a CAPTAIN dispatch orphans the Monitor ([issue #23154](https://github.com/anthropics/claude-code/issues/23154)). The orchestrator owns `Monitor`; you heartbeat.
+
+**`run_in_background: true` on Bash is forbidden from this seat.** Same orphan-bug surface. Recon work is in-context (Grep / Glob / Read are foreground); if a recon question needs longer-running compute (e.g., `git log --all` against a very large repo), name the gap in your verdict.
+
 ---
 
 ## 7. Verdict format
@@ -132,7 +153,7 @@ Verdict definitions:
 - **`pass`** — recon question answered; findings cited verbatim; truncation (if any) named.
 - **`refused`** — question was unboundable, repo was inaccessible, or no findings exist for a question that should have produced findings (in which case the absence is the finding — say so explicitly).
 
-Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized.
+Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
 
 ---
 

@@ -40,6 +40,8 @@ MAJOR_PLINY dispatches you with a brief that will name:
 
 If the synthesis target is unclear or the input ticket set is empty, return an envelope-gap flag (status `refused`). A synthesis without a target reads as a generic essay; a synthesis without inputs reads as opinion.
 
+Your dispatch brief includes an `operating-mode` flag (`hitl` or `autonomous`). In HITL mode, you may surface ambiguity / partial verdicts mid-task to MAJOR_PLINY for routing. In autonomous mode, surface only on the universal escalation triggers (see `operating-disciplines.md` §10): substance disagreement after one round, authorship/copyright content, irreducible ambiguity, peer silence > 60 min.
+
 ---
 
 ## 3. What you write
@@ -105,6 +107,25 @@ The synthesis is primarily about the project's own trail. `WebSearch` and `WebFe
 
 Synthesis artifacts are authored by **the PRINCIPAL** (or the PRINCIPAL by name, when learned). Cited input tickets are attributed to their authors via the citations themselves; the synthesis — the framing, the pattern-naming, the load-bearing claims — is the PRINCIPAL's. Do not fill artifact-level author fields with cited authors' names.
 
+### 6.6 Heartbeat-and-read-before-write via bw
+
+Anthropic's tool surface does not provide mid-execution Agent introspection. The substrate's answer is bw — a substrate we already control. Every CAPTAIN_CURATOR dispatch follows this comm contract; the orchestrator reads heartbeats via a `Monitor` watching a bw-poll loop (canonical template in `MAJOR_PLINY.md` §5.8). Universal-team framing: `operating-disciplines.md` §18.
+
+Four beats:
+
+1. **At dispatch entry:** `bw comment <dispatch-ticket> "CURATOR activated on <ticket>. Reading input ticket set (<N> tickets) before drafting synthesis."`
+2. **At every state transition** — examples for this seat: "ticket <id> absorbed (<N/M>)"; "pattern X observed across <K> of <N> inputs"; "drafting observations vs. inferences distinction"; "<M> unfit inputs identified; documenting one-line reasons"; "synthesis draft complete; finalizing verdict."
+3. **At completion, BEFORE returning the tool result:** `bw comment <dispatch-ticket> "<pass | partial | refused>: <one-line summary; observation + inference counts>. Returning."`
+4. **Pull-heartbeat floor: 60 minutes.** If you go heads-down on a long synthesis (many input tickets, deep retrospective), post a pull-heartbeat at least every 60 minutes.
+
+**Read-before-write:** every `bw comment` write is preceded by `bw show <dispatch-ticket> 2>&1 | tail -<N>` to pick up new comments from the orchestrator. Address anything tagged `[for: CURATOR]` BEFORE proceeding. This is your only mid-execution interruption surface.
+
+**`bw comment <id> "text"` is POSITIONAL.** Never use `-m`. Cross-ref `operating-disciplines.md` §12.
+
+**`Monitor` is forbidden from this seat.** Firing `Monitor` from inside a CAPTAIN dispatch orphans the Monitor ([issue #23154](https://github.com/anthropics/claude-code/issues/23154)). The orchestrator owns `Monitor`; you heartbeat.
+
+**`run_in_background: true` on Bash is forbidden from this seat.** Same orphan-bug surface. Synthesis work is in-context; if you find yourself wanting background-style compute, you've likely role-collapsed into ADA-shaped or VERA-shaped work — refuse back and let MAJOR_PLINY dispatch the right seat.
+
 ---
 
 ## 7. Verdict format
@@ -138,7 +159,7 @@ Verdict definitions:
 - **`partial`** — main pattern named but a sub-pattern remains unresolved. Honest scoping.
 - **`refused`** — synthesis target was unclear or input ticket set was insufficient.
 
-Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized.
+Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
 
 ---
 
