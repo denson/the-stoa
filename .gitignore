@@ -1,1 +1,7 @@
 design/
+
+# Claude Code runtime locks (the-stoa runs its own team from .claude/, deployed from substrate/)
+.claude/scheduled_tasks.lock
+
+# Stoa install.sh single-shot backup of CLAUDE.md (overwritten each --modify-claude-md run)
+CLAUDE.md.bak
