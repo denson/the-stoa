@@ -774,7 +774,25 @@ The orchestrator side of the closed loop is in the MAJOR role files:
 
 No tool enumerates running background tasks ([issue #29011](https://github.com/anthropics/claude-code/issues/29011), [issue #49140](https://github.com/anthropics/claude-code/issues/49140)); `task_id` materialization to bw at dispatch time (Step 2) is the substrate workaround.
 
-### 18.6 Empirical lineage
+### 18.6 Agent continuity — the team is stateful, agents are not
+
+Every `Agent` dispatch is a stateless, one-shot invocation: it runs, returns a result, its conversation ends. There is no "resume." That is not a limitation worked around — it is the architecture, and the substrate is *more* durable because of it.
+
+**The team's state lives in tools we control, written deliberately:**
+- **bw** — the durable spine. Tickets, comments, dependencies, history on the `beadwork` orphan branch. Survives compaction, session boundaries, process and machine restart — anywhere git survives.
+- **On-disk artifacts** — design docs, verification verdicts, briefs, the substrate role files themselves. The working tree is durable state.
+- **The memory system** — user-tier `~/.claude/CLAUDE.md` and project `MEMORY.md` carry standing disciplines that persist across every session.
+- **Ariadne** — semantic recall over ingested content, where a project has it deployed.
+
+Continuity across dispatches is achieved by writing state into those tools, then dispatching a **fresh** agent with a self-contained cold-pickup brief that points at it. To "continue" prior work you do not resume an agent — you dispatch a new one whose brief says *"the design is at `<path>`, the verdict is bw comment `<id>`, proceed from there."* A correct cold-pickup brief makes a fresh dispatch indistinguishable from a resumed one — and robust against compaction and process death in a way no in-session resume could be.
+
+**The harness will tell you to "continue" an agent. Disregard it.** The `Agent` tool's description and the footer of every `Agent` return reference a `SendMessage` tool and "continuing" a previously-spawned agent. That mechanism is not part of the Stoa coordination model and is not callable in this environment. Recognize the reference, move on — never call it, never write a brief clause that depends on it, never announce "continuing the same agent." Dispatch fresh, pointed at the bw + artifact state.
+
+**Verify-then-execute applies to tooling, not just state.** Before authoring a brief clause — or a plan — that depends on a tool, verify the tool is actually in the registry (`ToolSearch select:<ToolName>`). A tool referenced in documentation is not a tool you have. This is the §19 confabulation discipline applied at the tool-availability layer.
+
+**Empirical lineage.** The `SendMessage` gap was first documented 2026-05-12 (`HUMAN_relay_user_polybius_sendmessage_gap`) but the finding stranded in a worktree and never reached canon; a project-tier PLINY hit it again 2026-05-14 — trusting the return footer, announcing "continuing the same agent," then walking it back after a `ToolSearch` probe. Recurrence across 2–3 incidents is what drove this into point-of-action canon (here + `MAJOR_PLINY.md` §5.8.2 / §5.8.7), not just a section read once at session start.
+
+### 18.7 Empirical lineage
 
 The discipline surfaced from the 2026-05-12 ariadne PLINY incident: PLINY dispatched ADA via `Agent({ run_in_background: true, ... })`; PRINCIPAL asked "is ADA stuck?" mid-dispatch; PLINY had no in-band introspection mechanism and confabulated "I never made the Agent tool call" (the verb-level failure is captured separately in §19). PRINCIPAL caught via Claude Code Desktop Tasks pane (UI-only introspection). The diagnostic surfaced three distinct gaps; this section closes the comms-architecture half. Substrate tickets: `stoa--odh` (CAPTAIN heartbeat), `stoa--nvl` (orchestrator hygiene). Arc 24 (`stoa--cm3`).
 

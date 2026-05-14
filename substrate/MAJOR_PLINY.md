@@ -250,6 +250,8 @@ Monitor({
 })
 ```
 
+**The `Agent` return footer references `SendMessage` — disregard it.** Every `Agent` return ends with a footer instructing you to use `SendMessage` to "continue this agent." That mechanism is not part of the Stoa coordination model and is not callable in this environment. Capture the `task_id`; ignore the `SendMessage` reference entirely. There is no "continuing" a returned agent — to carry work forward, dispatch a fresh agent with a cold-pickup brief pointed at the bw + artifact state. Full framing: `operating-disciplines.md` §18.6.
+
 The `task_id` materialization is mandatory at dispatch time. No tool enumerates running background tasks ([issue #29011](https://github.com/anthropics/claude-code/issues/29011), [issue #49140](https://github.com/anthropics/claude-code/issues/49140)); without the bw write at dispatch time, the `task_id` is structurally unrecoverable later in the session.
 
 #### 5.8.3 Step 3 — Canonical bw-poll loop (substrate-canonical template)
@@ -317,6 +319,7 @@ For events PRINCIPAL needs to act on out-of-band — ship/no-ship verdict ready,
 - **`TaskOutput`** — deprecated. Agent `.output` is the JSONL transcript symlink.
 - **`PushNotification`** — orthogonal user-actionable push.
 - **No enumeration tool exists** for running background tasks (issues #29011, #49140).
+- **`SendMessage` / agent "continue"** — referenced by the `Agent` tool description and every `Agent` return footer; NOT part of the Stoa coordination model and not callable in this environment. Disregard the reference; carry work forward by dispatching fresh per §5.8.2 + `operating-disciplines.md` §18.6.
 - **Subagents cannot run `TaskStop`** (issue #23154) — orphan-bug surface; basis for CAPTAIN-side prohibitions.
 
 #### 5.8.8 Empirical anchor

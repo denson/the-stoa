@@ -11,3 +11,4 @@
 # re-derived without per-file markers).
 
 /c/Users/denso/claude_projects/ariadne-core-workspace
+/c/Users/denso/claude_projects/railway_stoa
