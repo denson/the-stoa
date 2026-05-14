@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-14T01:39:46Z",
+  "description": "Local clone of denso/the-stoa lives at C:\\Users\\denso\\claude_projects\\the-stoa\\ on PRINCIPAL's machine. Substrate forge for the Stoa team architecture. bw prefix: stoa--. Default branch: main.",
+  "id": "stoa--i6c",
+  "labels": [],
+  "priority": 4,
+  "status": "open",
+  "title": "[REMINDER] Local clone path for the-stoa",
+  "type": "task",
+  "updated_at": "2026-05-14T01:39:46Z"
+}
