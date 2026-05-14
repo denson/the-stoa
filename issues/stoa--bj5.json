@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-14T14:59:31Z",
+  "description": "## Problem\n\nUser-tier substrate (`~/.claude/` — MAJOR_POLYBIUS.md, MAJOR_PLINY.md, operating-disciplines.md, CAPTAIN files) has **zero drift detection**. `check-substrate-updates` is explicitly project-tier + subproject-tier only (`substrate/consumer-workspaces.txt`: \"User-tier check is future work\").\n\nPOLYBIUS is the seat whose job includes catching substrate drift — and user-tier is the one tier with no drift detection covering it. Consequence observed 2026-05-14: `~/.claude/MAJOR_POLYBIUS.md` was found 71 lines / 2 sections stale (missing §14 substrate-update-check, §15 retrospective discipline) with nothing flagging it. The seat that catches drift was itself silently drifted.\n\n## The blocker (already documented)\n\nPer the `consumer-workspaces.txt` note + `agents/design/stoa--lyh/design.md` §10.2: \"the `{{USER_TIER_DIR}}` substitution can't be reliably re-derived without per-file markers.\" check.sh/apply.sh diff deployed files against canon source, but user-tier deployed files have install.sh substitutions (`{{USER_TIER_DIR}}` -\u003e real path) that can't be cleanly reversed for the diff.\n\n## The work\n\nDesign a per-file-marker scheme (or equivalent) so check.sh / apply.sh can diff user-tier substituted files against canon — recording, per deployed file, what substitutions were applied so the diff can normalize them out. Then add user-tier to the check scope (consumer-workspaces.txt or an equivalent user-tier registry). \n\n## Origin\n\nPOLYBIUS + PRINCIPAL, 2026-05-14, during the SendMessage-canon propagation sweep — discovered all project workspaces drifted (ariadne ~2 arcs, the-stoa's own .claude/ ~20 arcs) and that user-tier had no detection at all.",
+  "id": "stoa--bj5",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "Bring user-tier substrate into check-substrate-updates drift-check scope",
+  "type": "task",
+  "updated_at": "2026-05-14T14:59:31Z"
+}
