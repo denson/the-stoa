@@ -30,11 +30,15 @@
     {
       "text": "DAEDALUS COMPLETE — pass. Design at agents/design/arc-26/design.md (795 lines). Sub-decision A3: Option A (shell extraction via awk from install.sh:140-144); replace existing SKILL_NAMES mirror at check.sh:92-95 (DEMONSTRABLY drifted right now — missing credential-discipline). CAPTAIN_NAMES/TEMPLATE_NAMES mirrors dropped in favor of substrate-dir globs (per A3 items 2-3 implicitly). 6 self-assessed weak points flagged, 2 HIGH-priority (apply.sh harvest-loop indentation coupling at apply.sh:217 — design pins per-file lines at 2-space indent to preserve seam; composite-verdict join idiom — naive bash IFS multi-char join is broken, design specifies explicit case-based form). 5 honest mismatches/open questions surfaced for ARGUS. Returning to PLINY.",
       "timestamp": "2026-05-16T09:36:49Z"
+    },
+    {
+      "text": "Phase 1: DAEDALUS PASS — design at agents/design/arc-26/design.md (795 lines). Sub-decision A3: REPLACE existing CAPTAIN_NAMES/TEMPLATE_NAMES/SKILL_NAMES mirrors with live install.sh extraction. Rationale: existing SKILL_NAMES mirror is already silently drifted (missing credential-discipline from Arc 25) — the exact failure mode Arc 26 closes. 6 self-assessed weak points, 4 residual questions for ARGUS. Highest-risk: apply.sh:217 harvest-loop format coupling (pinned 2-space indent per-file lines preserves it) + bash IFS multi-char join idiom precision bug (design specifies correct case-based form for ADA). Dispatching ARGUS now.",
+      "timestamp": "2026-05-16T09:37:07Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:36:49Z"
+  "updated_at": "2026-05-16T09:37:07Z"
 }
