@@ -90,11 +90,15 @@
     {
       "text": "Build complete + self-validated. check.sh: 884 lines (was 489; +395 net), SKILL.md: 202 lines (was 174; +28 net). All smoke tests PASS: bash -n syntax check, --help, --workspace against the-stoa (returns MISSING per expected gap), full registry scan (3 workspaces all DRIFTED with just the check.sh+SKILL.md edits). Distinct-prefix discipline working (only '  - ' DRIFTED lines emitted). Cite-comment for SKILL_NAMES live-parser present at check.sh:125-160. ONE post-design defect surfaced + fixed: uncommitted_claude_count's 'grep -v ... | wc -l' pipeline exits 1 under pipefail when grep selects nothing — defang via { grep -v ... || true; } subshell. Comment in code explains. Staging + committing now.",
       "timestamp": "2026-05-16T09:46:54Z"
+    },
+    {
+      "text": "pass: arc-26 build committed at 9953f95 on arc-26/build. 5 files changed (2525 insertions, 82 deletions). Modified: check.sh (489 -\u003e 884 lines), SKILL.md (174 -\u003e 202 lines). New: agents/design/arc-26/design.md (rev1, 795 lines, force-staged past .gitignore design/ rule), agents/design/arc-26/design-rev2.md (rev2, 1000 lines, force-staged), substrate/arcs/arc-26-build-directive.md (directive). No author-like fields in any new file; no Co-Authored-By in commit. apply.sh + install.sh + revert.sh + operating-disciplines.md + role files untouched per A8. Build self-validated: bash -n PASS, --help PASS, --workspace the-stoa PASS (correctly reports MISSING for unbacked skills), full registry scan PASS (all 3 workspaces DRIFTED with only check.sh+SKILL.md edits). One post-design defect fixed inline (uncommitted_claude_count's grep -v pipeline failed under pipefail on empty input; defang via { grep -v ... || true; } — surfaced to PLINY in verdict). Returning to PLINY.",
+      "timestamp": "2026-05-16T09:47:19Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:46:54Z"
+  "updated_at": "2026-05-16T09:47:19Z"
 }
