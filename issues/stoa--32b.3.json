@@ -79,11 +79,15 @@
     {
       "text": "VERA activated on stoa--32b.3, executing acceptance probes 1-9 against commit 85f0b4d on arc-27/build worktree.",
       "timestamp": "2026-05-16T19:27:11Z"
+    },
+    {
+      "text": "CATO activated on stoa--32b.3, cold-read of commit 85f0b4d diff (five files). Reading directive, ticket body, design, and full diff before forming verdict.",
+      "timestamp": "2026-05-16T19:27:28Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "POLYBIUS session lifecycle discipline — handoff+compaction default; new session only for POLYBIUS-mechanism changes; multi-artifact handoff shape; Ariadne-search-ready authoring",
   "type": "task",
-  "updated_at": "2026-05-16T19:27:11Z"
+  "updated_at": "2026-05-16T19:27:28Z"
 }
