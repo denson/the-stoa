@@ -47,11 +47,15 @@
     {
       "text": "DAEDALUS rev2 activated on stoa--32b.3 (autonomous mode). Applying ARGUS round 1 findings: P1-1 §16.6 §15-framing fix; P1-2 §16.6+§16.7 retro re-scope; P1-3 A2 verbatim phrase addition (Mode 3); P1-4 install.sh TEMPLATE_NAMES verified explicit array - replacing hedge with concrete ADA instruction; P2-1 epic-body caveat; P2-2 §16.5 forward-pointer (one-line scope expansion into MAJOR_POLYBIUS.md §1 - flagging in §1 charter); P2-3 §4.4 frontmatter house-style note. A1-A8 remain LOCKED. Editing design.md in place; no other surface changes.",
       "timestamp": "2026-05-16T19:22:42Z"
+    },
+    {
+      "text": "DAEDALUS rev2 PASS on stoa--32b.3. All 7 ARGUS round 1 findings applied to agents/design/arc-27/design.md. CHANGES: (P1-1) §16.6 framing-fix - §6.7.1 named as the canon-promotion gate directly; off-gate PRINCIPAL-declaration path acknowledged honestly with future-evidence-accretion required. (P1-2) §16.6 + §16.7 retro re-scoped to 'adjacent context for the broader stoa--32b epic'; primary source is now stoa--32b.3 ticket body + HANDOFF_POLYBIUS_2026-05-16.md. §21 empirical anchor updated for consistency. (P1-3) §16.2 Mode 3 point 2 - PRINCIPAL's verbatim 'available to answer questions from the new polybius indefinitely' now appears in the design narrative. (P1-4) §4.5 + new §5.7 - install.sh TEMPLATE_NAMES explicit array verified at lines 109-116; concrete ADA instruction to append handoff-doc-template.md; in-scope this arc. (P2-1) §16.7 + §5.8 commit-subject - one-line caveat that stoa--32b body predates .3 fold-in. (P2-2) §1 charter + §5.6 + Probe 9 - one-line forward-pointer to §16.5 added at end of MAJOR_POLYBIUS.md §1; scope expansion deliberate. (P2-3) §4.4 - frontmatter house-style note: new template adds 'author: Denson Smith' as new convention; future templates SHOULD adopt. FOUR files now touched (was 3): MAJOR_POLYBIUS.md (§16 + §1 forward-pointer), operating-disciplines.md (§21), templates/handoff-doc-template.md (new), install.sh (TEMPLATE_NAMES append). VERA probes 8 + 9 added. §7 weak-points updated with ARGUS-confirmed-and-fixed markers on points 2/3/5. A1-A8 LOCKED throughout. Ready for ARGUS rev2 critique.",
+      "timestamp": "2026-05-16T19:24:08Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "POLYBIUS session lifecycle discipline — handoff+compaction default; new session only for POLYBIUS-mechanism changes; multi-artifact handoff shape; Ariadne-search-ready authoring",
   "type": "task",
-  "updated_at": "2026-05-16T19:22:42Z"
+  "updated_at": "2026-05-16T19:24:08Z"
 }
