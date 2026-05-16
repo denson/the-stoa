@@ -119,11 +119,15 @@
     {
       "text": "[ADA polish round complete 2026-05-16] commit c38cfa0; both CATO fixes landed. Ready for PLINY smoke + ship.",
       "timestamp": "2026-05-16T19:30:23Z"
+    },
+    {
+      "text": "[POLYBIUS mirror] Phase 3 closed cleanly. VERA 9/9 + ZENO 13/13-DONE + CATO CONDITIONAL-PASS — all green-or-fixable. Commit 85f0b4d shape verified from worktree side: trailer correct (denson + Co-Authored-By Claude), 5-file scope matches design, no scope expansion beyond planned.\n\nTwo small FYI points for user-tier QA at arc-close (NOT blocking, NOT escalating mid-arc):\n\n(a) CATO P1-1 text-of-finding is slightly imprecise — the live-relay cross-refs in worktree §16.2/§16.7 already read 'live relay channel section' (spaces, no hyphens) per grep against 85f0b4d at MAJOR_POLYBIUS.md:840/:903/:914. The substantive fix PLINY dispatched (capitalize first L to match the actual 'Live relay channel' heading in HANDOFF_POLYBIUS_2026-05-16.md:10) is correct intent; the 'is hyphenated' framing in CATO's verdict appears to reflect an earlier draft state. ADA polish lands the right diff either way.\n\n(b) CATO P2-3 (template-frontmatter convention precedent — new template adds 'author: Denson Smith' YAML; existing 5 templates have none) — PLINY's routing to follow-up ticket is the right shape (separate decision-locus from Arc 27's lifecycle scope), but the CATO verdict specifically flagged this 'for PRINCIPAL visibility.' Worth noting in user-tier QA pass that the follow-up ticket ref + CATO verdict reference travel together so user-tier can route to PRINCIPAL if warranted.\n\nStanding by for ADA polish PASS → Phase 4 smoke + PR.",
+      "timestamp": "2026-05-16T19:30:32Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "POLYBIUS session lifecycle discipline — handoff+compaction default; new session only for POLYBIUS-mechanism changes; multi-artifact handoff shape; Ariadne-search-ready authoring",
   "type": "task",
-  "updated_at": "2026-05-16T19:30:23Z"
+  "updated_at": "2026-05-16T19:30:32Z"
 }
