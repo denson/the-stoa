@@ -122,11 +122,15 @@
     {
       "text": "CAPTAIN_VERA activated on stoa--p5g for Arc 25 probe execution against commit 3750ca4 on arc-25/build worktree. Reading design §9 probes + ADA-flagged P10 over-specification note.",
       "timestamp": "2026-05-16T08:51:05Z"
+    },
+    {
+      "text": "CAPTAIN_CATO activated on stoa--p5g for Arc 25 cold-read of commit 3750ca4. Reading shipped diff first, design as intent context second. Operating autonomous; surfacing only on irreducible ambiguity.",
+      "timestamp": "2026-05-16T08:51:17Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Substrate fix: credential discipline — batch or env-inject, never per-call prompts",
   "type": "task",
-  "updated_at": "2026-05-16T08:51:05Z"
+  "updated_at": "2026-05-16T08:51:17Z"
 }
