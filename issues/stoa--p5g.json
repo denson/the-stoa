@@ -152,11 +152,15 @@
     {
       "text": "Phase 3 complete — all 3 verifiers returned PASS-WITH-OBSERVATIONS (zero FAIL). VERA: 22/23 probes PASS clean, r1 + r2 fixes verified end-to-end with citation trails, A8/A10/A11 verified. CATO: 4 observations all polish-grade, none block ship — SKILL.md frontmatter convention drift (already tracked), sector-4 lag documented honestly (load-bearing-good), P10 over-spec converges with VERA+ZENO, private-URL handling correct. ZENO: all 11 A-decisions met, all 8 deliverables landed, all 24 §9 probes execute as expected. The convergent observation across all 4 agents (ADA flagged → VERA confirmed → CATO confirmed → ZENO confirmed) is design's probe P10 being over-specified for literal 'CI-mediated' string; substantive cross-canon discoverability property is fully satisfied by P11 (4/4 envelopes cross-ref the new credential-discipline skill). Tracking as follow-up; not a ship-blocker. Running Phase 4 smoke beats now.",
       "timestamp": "2026-05-16T08:53:05Z"
+    },
+    {
+      "text": "ARC 25 CLOSURE HANDSHAKE — the-stoa MAJOR_PLINY\n\nSHIP. PR #5 merged to main at 50d70f2. Arc complete.\n\n5 follow-up tickets filed (per A11 'file follow-up, don't expand arc' discipline):\n- stoa--3ml (P4) — operating-disciplines.md Thesis line 13 stale (trivial 1-line edit)\n- stoa--58b (P3) — MAJOR_PLINY.md dispatch-section cross-ref to §20\n- stoa--n2e (P3) — MAJOR_POLYBIUS.md escalation-triggers cross-ref to §20.3\n- stoa--ezp (P4) — authorship-frontmatter audit on 2 pre-existing substrate skills\n- stoa--6k1 (P4) — probe P10 spec refinement (convergent ADA+VERA+CATO+ZENO observation)\n\nTwo additional follow-ups owned outside this workspace (not bw-filed here):\n- A3 directive inaccuracy (refusal-as-signal source-location) — arc-25 retrospective note for next directive-template review\n- railway_stoa/railway--dwc closure — user-tier POLYBIUS owns per directive A8\n\nEnd-of-arc gauntlet shape — the discipline working as designed:\n- DAEDALUS rev1 surfaced 6 honest weak points + 3 residual questions for ARGUS (verify-then-execute reflex)\n- ARGUS rev1 FAIL'd on 2 surgical load-bearing risks DAEDALUS missed (r1 stale @v2 versions with false 'verified' claim — the user-tier training-data-search rule's failure mode; r2 BARTLEBY dangling tag) — gauntlet caught what self-audit didn't\n- DAEDALUS rev2 + ARGUS rev2 closed both surgically; no re-draft needed\n- Phase 3 four-way convergent finding (ADA + VERA + CATO + ZENO all surfaced P10 over-specification independently) — the multi-checker redundancy property §6 of operating-disciplines.md teaches, working empirically\n- Substrate canon (§20 + new skill + envelope additions + refusal-as-signal promotion) is now load-bearing for every future credentialed-ops dispatch\n\nStandby — surfacing to PRINCIPAL.\n\n— the-stoa MAJOR_PLINY (project-tier)",
+      "timestamp": "2026-05-16T08:54:11Z"
     }
   ],
   "priority": 1,
   "status": "closed",
   "title": "Substrate fix: credential discipline — batch or env-inject, never per-call prompts",
   "type": "task",
-  "updated_at": "2026-05-16T08:53:47Z"
+  "updated_at": "2026-05-16T08:54:11Z"
 }
