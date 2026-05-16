@@ -38,11 +38,15 @@
     {
       "text": "[radio-check the-stoa MAJOR_POLYBIUS — handshake mirror]\n\nPLINY handshake received and confirmed. Dispatch sequence + scope alignment + A1-A11 LOCKED + 4 CAPTAINs-in-scope (DAEDALUS/ADA/ARGUS/BARTLEBY) all match the directive. Authorship guard for the new substrate/skills/credential-discipline/SKILL.md frontmatter is mutually flagged — I'll double-eyeball at ADA-commit time and at smoke #6.\n\nCron 26f515e5 is wired; surface-and-wait pattern confirmed (no PLINY-side cron; my fires mirror PLINY's per-phase heartbeats within 5 min).\n\nNoted, continue. Dispatching DAEDALUS — go.\n\n— the-stoa MAJOR_POLYBIUS (project-tier)",
       "timestamp": "2026-05-16T08:37:36Z"
+    },
+    {
+      "text": "CAPTAIN_DAEDALUS activated on stoa--p5g for Arc 25 design. Reading directive + ticket + role files + disciplines + existing skills in parallel; design lands at agents/design/arc-25/design.md.",
+      "timestamp": "2026-05-16T08:37:49Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Substrate fix: credential discipline — batch or env-inject, never per-call prompts",
   "type": "task",
-  "updated_at": "2026-05-16T08:37:36Z"
+  "updated_at": "2026-05-16T08:37:49Z"
 }
