@@ -118,11 +118,15 @@
     {
       "text": "ADA Phase 2 returned PASS — commit 3750ca4 on arc-25/build. 8 deliverables landed: operating-disciplines.md §20 (+101 lines), substrate/skills/credential-discipline/SKILL.md NEW (+265 lines, author: Denson Smith per A10), 4 CAPTAIN envelope additions (DAEDALUS/ADA/ARGUS/BARTLEBY), BARTLEBY tag enum extended with credential_leak, install.sh SKILL_NAMES +1 alphabetical, ~/.claude/skills/railway-access/ DELETED per A8. Self-probes P1-P11b + P12-P20 + P23 PASS. ADA flagged two items for Phase 3 verifiers: (1) probe P10 ('all 4 CAPTAINs match literal CI-mediated string') is over-specified — ADA §5.7 + BARTLEBY §6.7 use semantically equivalent phrasing; cross-ref P11 to credential-discipline skill passes cleanly in all 4 — VERA should test P11's substantive property over P10's literal-grep. (2) design.md not git-tracked due to repo's agents/design/ gitignore convention — out of scope this arc, but reviewers can read at worktree path. Dispatching VERA + CATO + ZENO in parallel on commit 3750ca4.",
       "timestamp": "2026-05-16T08:50:49Z"
+    },
+    {
+      "text": "CAPTAIN_VERA activated on stoa--p5g for Arc 25 probe execution against commit 3750ca4 on arc-25/build worktree. Reading design §9 probes + ADA-flagged P10 over-specification note.",
+      "timestamp": "2026-05-16T08:51:05Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Substrate fix: credential discipline — batch or env-inject, never per-call prompts",
   "type": "task",
-  "updated_at": "2026-05-16T08:50:49Z"
+  "updated_at": "2026-05-16T08:51:05Z"
 }
