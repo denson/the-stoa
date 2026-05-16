@@ -34,11 +34,15 @@
     {
       "text": "Phase 1: DAEDALUS PASS — design at agents/design/arc-26/design.md (795 lines). Sub-decision A3: REPLACE existing CAPTAIN_NAMES/TEMPLATE_NAMES/SKILL_NAMES mirrors with live install.sh extraction. Rationale: existing SKILL_NAMES mirror is already silently drifted (missing credential-discipline from Arc 25) — the exact failure mode Arc 26 closes. 6 self-assessed weak points, 4 residual questions for ARGUS. Highest-risk: apply.sh:217 harvest-loop format coupling (pinned 2-space indent per-file lines preserves it) + bash IFS multi-char join idiom precision bug (design specifies correct case-based form for ADA). Dispatching ARGUS now.",
       "timestamp": "2026-05-16T09:37:07Z"
+    },
+    {
+      "text": "ARGUS activated on Arc 26 Phase 1 design audit. Reading design + directive + check.sh/apply.sh/install.sh before forming independent verdict.",
+      "timestamp": "2026-05-16T09:37:24Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:37:07Z"
+  "updated_at": "2026-05-16T09:37:24Z"
 }
