@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-16T08:54:02Z",
+  "description": "Trivial 1-sentence edit. substrate/operating-disciplines.md line 13 currently reads '§1-§17 plus the autonomous-mode setup checklist'. Post-arc-25 the file has §1-§20. Update to '§1-§20'. Surfaced by DAEDALUS during Arc 25 design rev1; out of A11 scope at the time; fix-now ticket for next opportunistic substrate edit. Refs: stoa--p5g (Arc 25), design follow_ups item 1.",
+  "id": "stoa--3ml",
+  "labels": [],
+  "priority": 4,
+  "status": "open",
+  "title": "operating-disciplines.md Thesis line 13 stale — references §1-§17 after Arc 25 landed §20",
+  "type": "task",
+  "updated_at": "2026-05-16T08:54:02Z"
+}
