@@ -1,4 +1,4 @@
-design/
+/design/
 
 # Claude Code runtime locks (the-stoa runs its own team from .claude/, deployed from substrate/)
 .claude/scheduled_tasks.lock
