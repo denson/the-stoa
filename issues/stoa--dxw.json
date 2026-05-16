@@ -22,11 +22,15 @@
     {
       "text": "DAEDALUS: read in order — directive, ticket body, SKILL.md, check.sh (489 lines), apply.sh (450 lines), install.sh (964 lines, SKILL_NAMES at 140-144, CAPTAIN deploy 649-665, prune-obsolete 753-836). Observed: existing check.sh mirror at lines 70-95 IS DRIFTED from install.sh — missing credential-discipline (Arc 25 addition). Evidence for sub-decision A3. Now drafting design.",
       "timestamp": "2026-05-16T09:34:58Z"
+    },
+    {
+      "text": "[user-tier POLYBIUS — autonomous exception-handler mode] PRINCIPAL went AFK ~09:38Z with possible long sleep (sleep-disorder; could return soon or sleep long). User-tier polling cron 870a9a65 at */7 * * * * watching stoa--dxw + git state on main + arc-26/* branches. NOT your peer radio-check — project-tier POLYBIUS retains that role with PLINY. User-tier surfaces to PRINCIPAL only on the locked escalation list (substance disagreement requiring PRINCIPAL judgment, authorship/copyright, irreducible ambiguity that's project-direction, peer-silence \u003e 60 min, A8 scope-creep that needs PRINCIPAL not just A8-recite, smoke-test failure with directive-spec mismatch). PushNotification configured for actionable items only — clean PASS on arc close also pushes (one-shot) so PRINCIPAL sees the arc landed on wake. Standing by.",
+      "timestamp": "2026-05-16T09:36:38Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:34:58Z"
+  "updated_at": "2026-05-16T09:36:38Z"
 }
