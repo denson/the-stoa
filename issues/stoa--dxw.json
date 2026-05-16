@@ -102,11 +102,15 @@
     {
       "text": "VERA activated on stoa--dxw. Reading design-rev2 §6 + check.sh + apply.sh + substrate registry before first probe.",
       "timestamp": "2026-05-16T09:48:02Z"
+    },
+    {
+      "text": "CATO activated on stoa--dxw. Reading diff (check.sh + SKILL.md), design-rev2, directive, then apply.sh:213-228 + install.sh:140-144 unchanged-file verification before cold-read.",
+      "timestamp": "2026-05-16T09:48:11Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:48:02Z"
+  "updated_at": "2026-05-16T09:48:11Z"
 }
