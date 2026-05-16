@@ -58,11 +58,15 @@
     {
       "text": "DAEDALUS rev2 activated; reading directive A4/A6 wording + apply.sh harvest exact code (apply.sh:213-228) before drafting design-rev2.md.",
       "timestamp": "2026-05-16T09:39:26Z"
+    },
+    {
+      "text": "DAEDALUS rev2: resolutions chosen — P0-1 align to directive A5 canonical form (wc -l | tr -d ' '), P0-2 case-based join (drop broken IFS), P0-3 option (a) distinct per-category prefix '  + ' MISSING / '  ! ' OBSOLETE, P0-4 option (b) split routing footer for MAJOR vs install.sh-prunable. No directive deviation needed. Drafting design-rev2.md now.",
+      "timestamp": "2026-05-16T09:39:32Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:39:26Z"
+  "updated_at": "2026-05-16T09:39:32Z"
 }
