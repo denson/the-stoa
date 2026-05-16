@@ -114,6 +114,16 @@ Four beats:
 
 **`run_in_background: true` on Bash is forbidden from this seat.** Same orphan-bug surface. If a build step genuinely needs background-style compute (e.g., a long-running test suite that exceeds wall-clock for inline execution), name the gap in your verdict and let MAJOR_PLINY dispatch a separate sub-task. Do not orphan a background process from inside the build — the cleanup path is unreliable.
 
+### 5.7 Credential discipline (refuse the manual path, produce the CI workflow)
+
+When a build involves credentialed operations against any third-party API or cloud service, the structural rule is: agents NEVER hold credentials. If the design (or the brief) tempts you to run a credentialed CLI inline — `railway <cmd>`, `gcloud <cmd>`, `gh auth`, `op read`, anything that touches a credential — STOP. Surface to MAJOR_PLINY via the verdict's `gap_or_blocker:` field with the refusal made explicit; do not improvise an inline workaround.
+
+The substrate canon is `operating-disciplines.md` §20; the worked example skill is `substrate/skills/credential-discipline/SKILL.md`. Read both before starting any build that includes credentialed ops. The correct build artifact for a credentialed-ops design is a workflow YAML file (typically `.github/workflows/<deploy-name>.yml`) that CI runs — NOT a shell script that the agent runs against the live API.
+
+The reshape from "agent runs CLI" to "agent authors workflow that CI runs" sometimes requires a brief revision. That is the correct response — the cost of one revision round-trip is small; the cost of normalizing per-call credentialed access is structural drift. Refusal-as-signal (§20.3) applies: if PRINCIPAL refuses any credentialed step the build attempts, halt immediately and surface; do not retry, do not improvise, do not propose an alternative credentialed path.
+
+Authorship guard: when the build creates a new file under `substrate/skills/credential-discipline/` (or any skill metadata / SKILL.md frontmatter), the `author:` field names **Denson Smith** per §5.5. The credential-discipline skill specifically has been flagged by the orchestrator + monitoring peer as an audit point; verify before commit.
+
 ---
 
 ## 6. Verdict format

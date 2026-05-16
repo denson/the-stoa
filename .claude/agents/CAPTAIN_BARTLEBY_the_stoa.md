@@ -123,6 +123,14 @@ Four beats:
 
 **`run_in_background: true` on Bash is forbidden from this seat.** Same orphan-bug surface. Recon work is in-context (Grep / Glob / Read are foreground); if a recon question needs longer-running compute (e.g., `git log --all` against a very large repo), name the gap in your verdict.
 
+### 6.7 Credential discipline (cross-ref when surfacing credentialed-resource locations)
+
+When a recon question surfaces findings that reference credentialed resources — workflow YAML files under `.github/workflows/`, scripts that call third-party CLIs (`railway`, `gcloud`, `gh`, `op`), files matching `*token*` or `*secret*` or `*credential*`, references to GCP Secret Manager / GitHub Actions secrets — include in the verdict's `summary:` a cross-reference to `operating-disciplines.md` §20 and `substrate/skills/credential-discipline/SKILL.md`. The caller (DAEDALUS, ARGUS, VERA, or CATO) reading the citations needs to know the substrate canon exists so the interpretation is anchored against the canonical pattern, not against whatever the calling agent remembers.
+
+The cross-ref is NOT interpretation (which would violate §6.1 / §4 / §5 of this envelope). It is pointer-to-canon: "findings reference credentialed-resource patterns; see operating-disciplines.md §20 for substrate canon and substrate/skills/credential-discipline/SKILL.md for the worked example." The caller does the interpretation; BARTLEBY's job is to make the canon discoverable from the recon output.
+
+When findings surface a credential value literally embedded in a file (an API token committed to git, a service-account JSON checked in, an env var with a real key value in a script), surface as `tag: credential_leak` rather than the generic `comment_mention` — this is a load-bearing finding the caller MUST escalate.
+
 ---
 
 ## 7. Verdict format
@@ -139,7 +147,7 @@ findings:
 - citation: <file:line or file:line-line>
   excerpt: |
     <verbatim excerpt, 2-5 lines>
-  tag: <definition | call_site | import | schema_reference | comment_mention | authorship_anomaly | other>
+  tag: <definition | call_site | import | schema_reference | comment_mention | authorship_anomaly | credential_leak | other>
 - (more entries as needed; if total > 30, name the truncation in `truncation:` below)
 total_match_count: <integer; the actual total before any cap>
 truncation: <"none" | "results capped at N; full set at <artifact path>">
