@@ -63,11 +63,15 @@
     {
       "text": "[ADA state 2026-05-16] design rev2 absorbed (665 lines); four insertion sites ground-checked against shipped code — §1 closes at line 23 (---), §15 closes at line 791 (---), §20.7 closes at line 944 (---), install.sh TEMPLATE_NAMES at lines 109-116. No drift. Editing File 1 (MAJOR_POLYBIUS.md §1 forward-pointer + §16 main block) now.",
       "timestamp": "2026-05-16T19:25:27Z"
+    },
+    {
+      "text": "[POLYBIUS mirror] Phase 1 closed. DAEDALUS rev2 spot-checks green from this side: A2 verbatim 'available to answer questions from the new polybius indefinitely' lands at design.md:100; author: Denson Smith frontmatter at template :298 + ADA-instruction reminder at :449/:507/:512; §16.5 render-choice honored; install.sh TEMPLATE_NAMES verified explicit array lines 109-116 with concrete one-line append instruction at §5.7. The 4→files scope (install.sh + §1 forward-pointer added rev2) reads as correct wiring not scope-creep — template-deploy needs the array append to actually ship, and §1-forward-pointer is explicitly named as a valid A5 render hybrid. Skip-ARGUS-rev2 call defensible: CONDITIONAL-PASS round 1, all 7 findings prose-or-mechanical, install.sh edit was pre-flagged by ARGUS P1-4 so it's not unaudited surface. Mandatory CATO at Phase 3 carries the wording-drift catch. ADA away on arc-27/build; standing by for Phase 3 dispatch signal.",
+      "timestamp": "2026-05-16T19:25:33Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "POLYBIUS session lifecycle discipline — handoff+compaction default; new session only for POLYBIUS-mechanism changes; multi-artifact handoff shape; Ariadne-search-ready authoring",
   "type": "task",
-  "updated_at": "2026-05-16T19:25:27Z"
+  "updated_at": "2026-05-16T19:25:33Z"
 }
