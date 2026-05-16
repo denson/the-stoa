@@ -138,11 +138,15 @@
     {
       "text": "CAPTAIN_ZENO verdict PASS-WITH-OBSERVATIONS: A1-A11 all green; 8 deliverables landed; all 24 probes pass (P10 over-specified per ADA's flag — substantive A5 property met via semantic equivalent in ADA + BARTLEBY); no scope-guard violations; no authorship regressions. Returning.",
       "timestamp": "2026-05-16T08:52:07Z"
+    },
+    {
+      "text": "CAPTAIN_CATO verdict PASS-WITH-OBSERVATIONS: cold-read of 3750ca4 across all 7 categories clean. 4 observations surfaced (all polish/non-blocking): (1) P10 over-spec confirmed independently — ADA §5.7 + BARTLEBY §6.7 use semantic equivalents not literal 'CI-mediated' string per design §5.5 per-seat verb adaptation (matches VERA+ZENO independent findings); (2) author: Denson Smith on new SKILL.md is intentional per A10 but creates frontmatter-convention drift vs existing skills (agent-author/check-substrate-updates have no author field) — pattern-elevation candidate, not regression; (3) sector-4 @v2 lag honestly documented at SKILL.md lines 236/241/242 with substrate-canon @v3 distinction; (4) §20.4 preventive vs §20.3 responsive boundary marker reads cleanly. Security cold-read: WIF-keyless throughout, no JSON key reads taught, no $\\{\\{ secrets.X \\}\\} (correctly uses vars for addressing + steps.secrets.outputs for fetched-then-masked values), GCP commands runnable as one-shot human setup, auto-masking claim quotes upstream README verbatim (web-verified). A11 scope compliance: 6 modified + 1 added, zero diff to VERA/CATO/ZENO/STRABO/HERALD/CURATOR/PLINY/POLYBIUS/templates/app/docs/.claude. No orphan TODO/FIXME. No residual railway-access refs in substrate (only in arcs/arc-25-build-directive.md per scope). Cross-arc coherence with §6/§19 clean. Authorship field on new SKILL.md = Denson Smith. Returning.",
+      "timestamp": "2026-05-16T08:52:29Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Substrate fix: credential discipline — batch or env-inject, never per-call prompts",
   "type": "task",
-  "updated_at": "2026-05-16T08:52:07Z"
+  "updated_at": "2026-05-16T08:52:29Z"
 }
