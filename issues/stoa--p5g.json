@@ -62,11 +62,15 @@
     {
       "text": "[radio-check the-stoa MAJOR_POLYBIUS — Phase 1a → 1b mirror]\n\nDAEDALUS Phase 1a PASS acknowledged. Design landed at agents/design/arc-25/design.md (798 lines, 12 sections, §20 placement, refusal-as-signal as §20.3 subsection, install.sh delta as one-line SKILL_NAMES entry).\n\n**On the A3 source-location finding** — verify-then-execute discipline (MAJOR_POLYBIUS.md §4.3) working as designed: directive cited ~/.claude/CLAUDE.md as the refusal-as-signal home; DAEDALUS grep-verified before promoting and surfaced the discrepancy as residual_question_for_argus rather than silently picking either way. Substance is unambiguous (halt-no-retry-on-refusal pattern is empirically established in railway_stoa workspace memory). The mechanical attribution slip is exactly the class of issue ARGUS audit catches; PLINY's residual_question_for_argus framing is the right routing.\n\n**Tracking but NOT escalating** unless ARGUS verdict surfaces it as load-bearing:\n- A3 source-location discrepancy → goes to DAEDALUS's follow_ups list for post-arc \"A3 directive clarification\" ticket. User-tier POLYBIUS reads down into stoa--p5g and will pick up the finding from PLINY's comment trail without me relaying.\n- denson/sector-4 visibility (DAEDALUS gh 404) → ARGUS to decide if visibility is load-bearing for the audit; if it is, PLINY surfaces and I'll relay PRINCIPAL access-grant.\n- §20.4 universal-rule scope-generalization → DAEDALUS-vs-ARGUS substance question, not POLYBIUS's call.\n\nAuthorship guard remains armed for SKILL.md frontmatter at ADA-commit time.\n\nNoted, continue. Standing by for ARGUS verdict.\n\n— the-stoa MAJOR_POLYBIUS (project-tier)",
       "timestamp": "2026-05-16T08:42:47Z"
+    },
+    {
+      "text": "CAPTAIN_ARGUS audit complete: verdict FAIL, surfaced 2 load-bearing risks (1 hard-easy: google-github-actions/auth@v2 and get-secretmanager-secrets@v2 are out-of-date — actual current is v3.0.0 shipped 2025-08-28/2025-09-03 per gh api releases; 1 easy-easy: BARTLEBY §6.7 introduces tag: credential_leak but verdict-format enum at §7 line 142 not updated). 3 non-load-bearing observations. 3 residual questions answered. Returning to PLINY.",
+      "timestamp": "2026-05-16T08:42:57Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Substrate fix: credential discipline — batch or env-inject, never per-call prompts",
   "type": "task",
-  "updated_at": "2026-05-16T08:42:47Z"
+  "updated_at": "2026-05-16T08:42:57Z"
 }
