@@ -91,11 +91,15 @@
     {
       "text": "CATO heads-down on cold-read: full diff absorbed (MAJOR_POLYBIUS.md +133, operating-disciplines.md +24, handoff-doc-template.md NEW, install.sh +1, design.md NEW). Now executing cross-ref resolution + A2 verbatim audit + §15 framing check + authorship audit + house-style comparison.",
       "timestamp": "2026-05-16T19:27:42Z"
+    },
+    {
+      "text": "ZENO complete: verdict PASS. 14 spec items (3 deliverables + 9 probes + 2 directive-A6-only items); 13 DONE, 1 N/A (Probe 7 CURRENT-regression is VERA-execution, not artifact-verifiable; out of ZENO scope per spec). No NOT-DONE, no PARTIAL, no out-of-spec additions. Returning.",
+      "timestamp": "2026-05-16T19:27:57Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "POLYBIUS session lifecycle discipline — handoff+compaction default; new session only for POLYBIUS-mechanism changes; multi-artifact handoff shape; Ariadne-search-ready authoring",
   "type": "task",
-  "updated_at": "2026-05-16T19:27:42Z"
+  "updated_at": "2026-05-16T19:27:57Z"
 }
