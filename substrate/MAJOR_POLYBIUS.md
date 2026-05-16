@@ -837,7 +837,7 @@ When Mode 2 fires:
 3. The new POLYBIUS spins up against the handoff, loads the new role file fresh, and resumes work.
 4. The previous POLYBIUS **becomes less relevant over time but may still retain important information** — it is not terminated, it decays. When PRINCIPAL stops needing the relay, the prior session times out organically. Do not ask PRINCIPAL to "shut it down"; that is not the pattern.
 
-The decay-not-termination framing is load-bearing: a previous POLYBIUS still holds in-context memory the durable substrate did not capture (specific tool-call outcomes, conversational nuance, the running-agent's pre-edit version of role files). That memory has decaying relevance but non-zero residual value during the transition window. Empirical anchor: the live-relay-channel section of `HANDOFF_POLYBIUS_2026-05-16.md` is the canonical worked example.
+The decay-not-termination framing is load-bearing: a previous POLYBIUS still holds in-context memory the durable substrate did not capture (specific tool-call outcomes, conversational nuance, the running-agent's pre-edit version of role files). That memory has decaying relevance but non-zero residual value during the transition window. Empirical anchor: the live relay channel section of `HANDOFF_POLYBIUS_2026-05-16.md` is the canonical worked example.
 
 ### 16.3 Handoff is multi-artifact, not single-doc
 
@@ -896,7 +896,7 @@ The lens is not a metaphor used to be evocative; it is a structural framing that
 
 ### 16.6 N=1 provenance + accretion path
 
-Per §15 honest-scope: PRINCIPAL declared this discipline 2026-05-16 (project-direction authority). The canon-promotion gate §15 names is `operating-disciplines.md` §6.7.1 (multiple observations + controlled comparison + substrate-level pattern); §15 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate, on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status. Substrate canon goes in now because PRINCIPAL named it; structural-lesson confidence accretes over future lifecycle events.
+Per §15 honest-scope: PRINCIPAL declared this discipline 2026-05-16 (project-direction authority). §15 defers to `operating-disciplines.md` §6.7.1 as the canon-promotion gate (multiple observations + controlled comparison + substrate-level pattern); §15 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate, on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status. Substrate canon goes in now because PRINCIPAL named it; structural-lesson confidence accretes over future lifecycle events.
 
 The supporting evidence at the time of this writing:
 
@@ -911,7 +911,7 @@ Future POLYBIUS-lifecycle events (handoffs + compactions + the rare Mode 2 new-s
 - **Parent epic + sibling future arcs.** `stoa--32b` (parent epic — the epic's body predates `stoa--32b.3`'s same-day fold-in and still reads as a TWO-child epic in its prose; `stoa--32b.3`'s specific provenance is captured in its own ticket body). `stoa--32b.1` (PRINCIPAL-gate discipline, future arc), `stoa--32b.2` (mechanical-script / agent-inspection split, future arc).
 - **Load-bearing sources for this arc's content.**
   - `stoa--32b.3` ticket body — carries PRINCIPAL's two 2026-05-16 declarations verbatim, the three-mode shape, the multi-artifact handoff enumeration, and the Ariadne-readiness forward discipline. This is the primary source.
-  - `HANDOFF_POLYBIUS_2026-05-16.md` at the-stoa root — canonical worked example of Mode 3 (live-relay-channel section); also the de-facto template the slotted form at `substrate/templates/handoff-doc-template.md` is abstracted from.
+  - `HANDOFF_POLYBIUS_2026-05-16.md` at the-stoa root — canonical worked example of Mode 3 (live relay channel section); also the de-facto template the slotted form at `substrate/templates/handoff-doc-template.md` is abstracted from.
   - `docs/sessions/2026-05-16-substrate-update-architecture-reframe--retro.md` — load-bearing source for the **broader `stoa--32b` epic** (its §7-§10 cover siblings `.1` and `.2` plus their synthesis and forward path). The lifecycle / handoff / Ariadne / collective topics this arc encodes surfaced **after** the retro was authored, in the same-day epic-capture conversation that produced `stoa--32b.3`; the retro is named here as adjacent context, not as the primary source for this arc.
 - **Within this file.**
   - §4.5 (durable-substrate-with-short-prompts) — the authoring pattern this section extends to handoffs.
