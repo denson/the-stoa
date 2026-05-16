@@ -2,13 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-16T18:01:53Z",
+  "close_reason": "Fixed: .gitignore 'design/' narrowed to '/design/' (anchor to root-only). Side-effect surfaced: agents/design/arc-23/, arc-24/, arc-25/ are untracked orphans the bug had been silently swallowing — deferred to PRINCIPAL disposition (likely follow-up ticket). the-stoa commit b56b3e3.",
   "created": "2026-05-16T09:53:47Z",
   "description": "**Surfaced 2026-05-16 by ADA during Arc 26 Phase 2 build (stoa--dxw).** ADA had to run `git add -f` to stage agents/design/arc-26/design.md + design-rev2.md because the repo's .gitignore line `design/` matches them. The current rule is over-broad: it blocks intentional arc-design artifacts that ARE meant to be committed (per the substrate's documented practice of committing arc designs alongside arc directives).\n\n## The fix\n\nNarrow .gitignore so it does not block agents/design/arc-*/ paths. Likely either:\n\n1. Replace bare `design/` with a more specific pattern (e.g., `/design/` for root-only, if the intent was to ignore a top-level `design/` scratch dir).\n2. Add an explicit unignore: `!agents/design/arc-*/`.\n\nInspect first to understand what the bare `design/` rule was originally for; the fix should preserve the original intent while unblocking arc design directories.\n\n## Why P4\n\nAnnoying but not blocking — future arcs will hit it; either we forget and re-force-add each time, or we fix once. Fix-now discipline (substrate §4.8) says fix-once is cheaper.\n\n## Cross-ref\n\n- stoa--dxw — Arc 26 ticket (where ADA surfaced this)\n- commit 9953f95 on arc-26/build — the build commit that needed git add -f",
   "id": "stoa--8x5",
   "labels": [],
   "priority": 4,
-  "status": "open",
+  "status": "closed",
   "title": "Arc 26 follow-up: .gitignore 'design/' rule too broad (forced git add -f during build)",
   "type": "task",
-  "updated_at": "2026-05-16T09:53:47Z"
+  "updated_at": "2026-05-16T18:01:53Z"
 }
