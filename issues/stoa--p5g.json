@@ -94,11 +94,15 @@
     {
       "text": "ARGUS rev2 returned PASS — both load-bearing fixes (r1 GitHub Actions @v2→@v3 with sector-4 lag documented; r2 BARTLEBY enum extension for credential_leak) landed clean with verification trails. nf2 polish included; nf1 follow-up tracked. No regressions in unchanged sections; no A11 scope creep. Phase 1 closed. Creating arc-25/build worktree + dispatching ADA on rev2 design.",
       "timestamp": "2026-05-16T08:47:02Z"
+    },
+    {
+      "text": "CAPTAIN_ADA activated on stoa--p5g for Arc 25 build on arc-25/build worktree. Reading rev2 design + ARGUS PASS verdicts; ground-checks queued for line ranges in install.sh + BARTLEBY + each CAPTAIN file before any edits.",
+      "timestamp": "2026-05-16T08:47:33Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Substrate fix: credential discipline — batch or env-inject, never per-call prompts",
   "type": "task",
-  "updated_at": "2026-05-16T08:47:02Z"
+  "updated_at": "2026-05-16T08:47:33Z"
 }
