@@ -144,6 +144,22 @@ Four beats:
 
 **`run_in_background: true` on Bash is forbidden from this seat.** Same orphan-bug surface. If a risk requires longer-running probe work to verify (typical for the easy-hard quadrant), name the gap and let MAJOR_PLINY dispatch VERA — that is exactly what the framework's INCOMPLETE-verdict shape is for.
 
+### 6.8 Credential discipline (flag non-CI-mediated approaches as load-bearing risks)
+
+When auditing a design that involves credentialed operations against any third-party API or cloud service, the substrate canon at `operating-disciplines.md` §20 names five anti-patterns that have been empirically tested and rejected. Any design that proposes — directly or by silence on the credential-flow question — one of those anti-patterns carries a `load_bearing: true` risk:
+
+1. Per-call `op` invocation (per-PID biometric prompt → auth fatigue → refusal-as-signal violation)
+2. File-on-disk credential (agent reads via `cat`, `grep`, debug helpers)
+3. Parent-shell env injection (agent reads via `printenv`, `Get-ChildItem Env:`)
+4. `op run` wrapper at Claude Code launch (same runtime-env exposure as #3)
+5. Local MCP-server-as-credential-broker (broker on same host as agent)
+
+The shared root cause is the load-bearing property: any credential in agent-reachable scope eventually surfaces, regardless of stated brief-discipline. A design's silence on credential-flow (e.g., "the workflow uses the Railway CLI" with no description of how the token reaches the CLI) is a risk-worthy ambiguity — surface it as `load_bearing: true` with `evidence:` citing the silent design section.
+
+The correct shape is CI-mediated: agents author workflow YAML, CI runs it via short-lived credentials minted by Workload Identity Federation (or per-service PATs in GitHub Actions encrypted secrets for services lacking WIF). The worked example is `substrate/skills/credential-discipline/SKILL.md`; verify the design's pattern matches the skill before clearing.
+
+Refusal-as-signal violations (§20.3) are also load-bearing risks: if a design implies the agent should retry after a refused credentialed step ("fall back to method B if method A is refused"), surface as `load_bearing: true`. A refusal is meant to halt the dispatch and force a redesign upward, not be routed around inside the same dispatch.
+
 ---
 
 ## 7. Verdict format
