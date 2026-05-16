@@ -46,11 +46,15 @@
     {
       "text": "DAEDALUS state: all primary inputs absorbed. Found load-bearing inaccuracy in A3/directive — refusal-as-signal does NOT currently live in ~/.claude/CLAUDE.md (verified by grep; CLAUDE.md only has training-data-search, authorship-attribution, fix-now, Windows-env, POLYBIUS). It empirically lives in railway_stoa workspace memory at feedback_credential_friction_script_batched.md (constraint #6) + multiple paste-cache + cross-session transcripts. Substance of refusal-as-signal is well-established and ready to promote; only the source-location attribution is wrong. Treating as brief inaccuracy not load-bearing ambiguity — proceeding with design using the empirically-verified wording. Logging as residual_question_for_argus + self-assessed weak point. install.sh requires explicit SKILL_NAMES entry (verified line 140-143 + 532-535 + 699-714); design will spec the line-N edit. Drafting now.",
       "timestamp": "2026-05-16T08:38:51Z"
+    },
+    {
+      "text": "pass: design complete at agents/design/arc-25/design.md (798 lines, 12 sections). Covers all 6 substrate touch-points + railway-access deletion. §20 placement chosen; refusal-as-signal as §20.3 subsection (rationale §3); install.sh delta is one-line SKILL_NAMES entry between check-substrate-updates and the closing paren (rationale + evidence §6). 6 self-assessed weak points (§10). 1 residual_question_for_argus: directive A3 source-location for refusal-as-signal is empirically inaccurate (rule lives in railway_stoa workspace memory, not ~/.claude/CLAUDE.md); substance is unambiguous so promotion proceeds with empirical wording; ARGUS gets the call on whether the discrepancy is load-bearing. 5 follow_ups recorded for post-arc tickets (Thesis-line update, A3 directive clarification, PLINY/POLYBIUS cross-refs, railway--dwc closure). Returning to PLINY.",
+      "timestamp": "2026-05-16T08:41:08Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Substrate fix: credential discipline — batch or env-inject, never per-call prompts",
   "type": "task",
-  "updated_at": "2026-05-16T08:38:51Z"
+  "updated_at": "2026-05-16T08:41:08Z"
 }
