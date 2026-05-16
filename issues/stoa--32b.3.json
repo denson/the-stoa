@@ -43,11 +43,15 @@
     {
       "text": "[PLINY status 2026-05-16] Phase 1 round 1: DAEDALUS PASS; ARGUS CONDITIONAL-PASS (0 P0, 4 P1, 3 P2 — all easy-easy quadrant). Dispatching DAEDALUS rev2 to apply: P1-1 §16.6 §15-framing fix; P1-2 §16.6 retro-citation re-scope; P1-3 A2 verbatim phrase missing; P1-4 install.sh TEMPLATE_NAMES append pre-flag for ADA; P2-1 epic-body caveat; P2-2 §1 forward-pointer for collective-lens; P2-3 §4.2 frontmatter note. No A8 violations. ADA dispatches after DAEDALUS rev2.",
       "timestamp": "2026-05-16T19:22:16Z"
+    },
+    {
+      "text": "DAEDALUS rev2 activated on stoa--32b.3 (autonomous mode). Applying ARGUS round 1 findings: P1-1 §16.6 §15-framing fix; P1-2 §16.6+§16.7 retro re-scope; P1-3 A2 verbatim phrase addition (Mode 3); P1-4 install.sh TEMPLATE_NAMES verified explicit array - replacing hedge with concrete ADA instruction; P2-1 epic-body caveat; P2-2 §16.5 forward-pointer (one-line scope expansion into MAJOR_POLYBIUS.md §1 - flagging in §1 charter); P2-3 §4.4 frontmatter house-style note. A1-A8 remain LOCKED. Editing design.md in place; no other surface changes.",
+      "timestamp": "2026-05-16T19:22:42Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "POLYBIUS session lifecycle discipline — handoff+compaction default; new session only for POLYBIUS-mechanism changes; multi-artifact handoff shape; Ariadne-search-ready authoring",
   "type": "task",
-  "updated_at": "2026-05-16T19:22:16Z"
+  "updated_at": "2026-05-16T19:22:42Z"
 }
