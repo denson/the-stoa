@@ -42,11 +42,15 @@
     {
       "text": "CAPTAIN_DAEDALUS activated on stoa--p5g for Arc 25 design. Reading directive + ticket + role files + disciplines + existing skills in parallel; design lands at agents/design/arc-25/design.md.",
       "timestamp": "2026-05-16T08:37:49Z"
+    },
+    {
+      "text": "DAEDALUS state: all primary inputs absorbed. Found load-bearing inaccuracy in A3/directive — refusal-as-signal does NOT currently live in ~/.claude/CLAUDE.md (verified by grep; CLAUDE.md only has training-data-search, authorship-attribution, fix-now, Windows-env, POLYBIUS). It empirically lives in railway_stoa workspace memory at feedback_credential_friction_script_batched.md (constraint #6) + multiple paste-cache + cross-session transcripts. Substance of refusal-as-signal is well-established and ready to promote; only the source-location attribution is wrong. Treating as brief inaccuracy not load-bearing ambiguity — proceeding with design using the empirically-verified wording. Logging as residual_question_for_argus + self-assessed weak point. install.sh requires explicit SKILL_NAMES entry (verified line 140-143 + 532-535 + 699-714); design will spec the line-N edit. Drafting now.",
+      "timestamp": "2026-05-16T08:38:51Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Substrate fix: credential discipline — batch or env-inject, never per-call prompts",
   "type": "task",
-  "updated_at": "2026-05-16T08:37:49Z"
+  "updated_at": "2026-05-16T08:38:51Z"
 }
