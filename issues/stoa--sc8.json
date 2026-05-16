@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-16T09:53:49Z",
+  "description": "**Surfaced 2026-05-16 by ADA during Arc 26 build (stoa--dxw).** the-stoa is itself a substrate-deployed workspace (has its own .claude/ with role files + skills), but its own absolute path is NOT in substrate/consumer-workspaces.txt. Result: `check.sh` no-args sweep skips it; drift in the-stoa's own .claude/ goes unnoticed unless someone explicitly runs `check.sh --workspace .` from the repo root.\n\n## The fix\n\nAppend `/c/Users/denso/claude_projects/the-stoa` (the canonical clone path per stoa--i6c reminder) to substrate/consumer-workspaces.txt. Verify check.sh picks it up + correctly reports CURRENT or DRIFTED for it (the self-referential case has been working in --workspace mode per ADA's Phase 2 smoke; it just isn't in the auto-swept registry).\n\n## Why P4\n\nEasy to miss when the-stoa drifts from itself (e.g., manual edits to .claude/MAJOR_*.md that don't get rolled back via substrate-update apply). Fix-now is cheap; defer cost compounds.\n\n## Cross-refs\n\n- stoa--dxw — Arc 26 ticket (where ADA surfaced this)\n- stoa--i6c — local clone path reminder\n- substrate/consumer-workspaces.txt — the registry file",
+  "id": "stoa--sc8",
+  "labels": [],
+  "priority": 4,
+  "status": "open",
+  "title": "Arc 26 follow-up: the-stoa's own .claude/ absent from consumer-workspaces registry",
+  "type": "task",
+  "updated_at": "2026-05-16T09:53:49Z"
+}
