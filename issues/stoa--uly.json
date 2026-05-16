@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-16T19:29:34Z",
+  "description": "**Surfaced 2026-05-16 by CATO Arc 27 review (P2-3).** Arc 27 added new substrate/templates/handoff-doc-template.md with YAML frontmatter `author: Denson Smith` per directive A7 + CLAUDE.md authorship discipline. The other six existing templates in substrate/templates/ have NO YAML frontmatter:\n\n- paste-instruction-template.md\n- onboarding-questions.md\n- consent-prompts.md\n- polling-cron-prompt-template.md\n- activation-paste-cheatsheet.md\n- autonomous-mode-activation-template.md\n\nTo align with the new convention (and the broader CLAUDE.md authorship discipline that requires every author-like field to say Denson Smith), each existing template should gain the same frontmatter. Trivial diff: prepend three lines to each file. No semantic change to template body or its slots. Forward-only adoption is fine; this just makes the convention consistent across the templates dir before a future reader notices the inconsistency.\n\n**Scope:** add YAML frontmatter `---\\n author: Denson Smith\\n ---` to the top of the six listed templates. Verify the Stoa app's gen-data Zod schema still validates (project CLAUDE.md notes substrate frontmatter changes need to keep the adapter valid; the templates dir likely isn't in the adapter's read scope but verify).\n\n**Empirical anchor:** Arc 27 commit 85f0b4d (added new template with frontmatter); CATO verdict round 1 finding P2-3 surfaced the inconsistency.",
+  "id": "stoa--uly",
+  "labels": [],
+  "priority": 4,
+  "status": "open",
+  "title": "Apply author: Denson Smith frontmatter to existing 6 substrate templates",
+  "type": "task",
+  "updated_at": "2026-05-16T19:29:34Z"
+}
