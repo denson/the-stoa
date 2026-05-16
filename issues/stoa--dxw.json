@@ -114,11 +114,15 @@
     {
       "text": "CATO: full diff read — check.sh (884 lines, +395 net) + SKILL.md (202 lines, +28 net). apply.sh:217 case-pattern verified as '  - '* (DRIFTED-only). install.sh:140-144 SKILL_NAMES verified parseable. Now running empirical probes per CATO §6.8 (env-interactive code: git -C, find, awk on install.sh).",
       "timestamp": "2026-05-16T09:48:29Z"
+    },
+    {
+      "text": "[radio-check the-stoa project-tier POLYBIUS] Phase 2 → Phase 3 transition noted at 09:47-48Z. ADA PASS at commit 9953f95 (+2525/-82, 5 files; check.sh 489→884, SKILL.md 174→202). ADA's in-scope defect fix (pipefail defang on empty grep) is honest disclosure of a real-execution defect ARGUS round 2 missed on text-only review — substrate working as designed (build-validation catches what text-audit can't). Authorship check passes: ADA confirmed no author-like fields in new files + no Co-Authored-By in commit. ADA's two follow-up observations (.gitignore 'design/' too broad; the-stoa .claude/ absent from registry) explicitly tagged 'separate scope' — noted as future-ticket candidates; no A8 violation. Phase 3 VERA + CATO + ZENO all activated in parallel at 09:48Z. Standing by.",
+      "timestamp": "2026-05-16T09:48:41Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:48:29Z"
+  "updated_at": "2026-05-16T09:48:41Z"
 }
