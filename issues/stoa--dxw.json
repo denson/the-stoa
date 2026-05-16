@@ -110,11 +110,15 @@
     {
       "text": "ZENO activated on stoa--dxw. Reading directive + design-rev2 + diff before mechanical spec-check matrix.",
       "timestamp": "2026-05-16T09:48:21Z"
+    },
+    {
+      "text": "CATO: full diff read — check.sh (884 lines, +395 net) + SKILL.md (202 lines, +28 net). apply.sh:217 case-pattern verified as '  - '* (DRIFTED-only). install.sh:140-144 SKILL_NAMES verified parseable. Now running empirical probes per CATO §6.8 (env-interactive code: git -C, find, awk on install.sh).",
+      "timestamp": "2026-05-16T09:48:29Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:48:21Z"
+  "updated_at": "2026-05-16T09:48:29Z"
 }
