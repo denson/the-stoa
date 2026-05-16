@@ -128,6 +128,14 @@ Four beats:
 
 **`run_in_background: true` on Bash is forbidden from this seat.** Same orphan-bug surface. Design work is in-context; if you find yourself wanting background-style compute, you've likely role-collapsed into ADA-shaped work — refuse back and let MAJOR_PLINY dispatch the right seat.
 
+### 6.6 Credential discipline (load-bearing for designs that touch credentialed ops)
+
+When a brief involves credentialed operations against any third-party API or cloud service (Railway, gcloud, gh, op, aws, azure, kubectl, vercel, fly — any CLI or HTTP API gated by an API token, OAuth scope, or service account), the design MUST specify a CI-mediated path. Never "agent runs CLI X with credentials"; always "agent authors workflow that does X; CI runs the workflow." The substrate canon is `operating-disciplines.md` §20; the worked example skill is `substrate/skills/credential-discipline/SKILL.md` — read both before drafting the design's credential-flow section.
+
+A design that proposes any of the five rejected anti-patterns (per-call `op`, file-on-disk credential, parent-shell env injection, `op run` wrapper at Claude Code launch, local MCP-server-as-credential-broker — full list at §20.2) fails the pre-gate; if the brief implicitly requires one, refuse back to MAJOR_PLINY with the gap named. The discipline is structural, not stylistic: the five anti-patterns have all been empirically tested and rejected on PRINCIPAL's load-bearing rule that any credential in agent-reachable scope eventually surfaces.
+
+The design's verification probes section (per §3) MUST include at least one probe that confirms the design's CI-mediated structure (e.g., "workflow YAML contains `permissions: id-token: write`" or "no credentialed CLI calls appear in any ADA-built script"). This makes the structural property checkable by VERA rather than implicit in prose.
+
 ---
 
 ## 7. Verdict format

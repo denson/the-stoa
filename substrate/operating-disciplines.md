@@ -842,6 +842,107 @@ Workspace-tier memory `feedback_no_confabulated_rationales.md` (ariadne-core-wor
 
 ---
 
+## 20. Credential discipline
+
+Universal-seat — POLYBIUS, PLINY, every CAPTAIN, every pair-programmer Major. When a dispatch involves credentialed operations against any third-party API or cloud service (Railway, gcloud, gh, op, aws, azure, kubectl, vercel, fly — any CLI or HTTP API gated by an API token, OAuth scope, service account, or signed credential), the discipline is structural: **agents NEVER hold credentials.** Routine credentialed work routes through CI. The empirical anchor is the 2026-05-15 → 2026-05-16 railway_stoa → sector-4 deploy arc (`stoa--p5g`), which produced this canon after testing and rejecting five named anti-patterns.
+
+### 20.1 The canonical pattern
+
+```
+[Local agent] → git push → [GitHub] → [CI workflow] → [Cloud APIs]
+   (no creds)             (Actions    (WIF mints      (creds used
+                           secrets)    short-lived     once, expire)
+                                       creds)
+```
+
+Concretely:
+
+1. **Long-lived secrets** (API keys, signing secrets, identifiers) live in a **cloud-native secrets manager**. GCP Secret Manager is the substrate's worked example (free tier covers our scale: 6 active versions per secret, 10k access ops/month). AWS Secrets Manager and Azure Key Vault are structurally equivalent substitutes; the property is "encrypted at rest, versioned, audited, accessed by CI via short-lived credential," not the specific vendor.
+
+2. **CI authenticates to the cloud via Workload Identity Federation.** GitHub Actions presents an OIDC token at workflow runtime; the cloud exchanges it for a 1-hour scoped credential that expires when the workflow exits. **No static cloud key exists anywhere — not in GitHub, not on dev machines, not on production hosts.**
+
+3. **Per-service tokens that lack WIF support** (e.g., Railway API tokens, third-party SaaS PATs) live in **GitHub Actions encrypted secrets**, decrypted only inside the workflow's bounded execution. The blast radius is the workflow run, not the agent's process tree.
+
+4. **Routing identifiers** (workload-identity provider resource name, service-account email, project IDs) live in **GitHub Actions variables** (not secrets — these are addressing information, not authorizing values; leaking them costs nothing).
+
+5. **Deployed services** receive runtime secrets as env vars set by the workflow at deploy time. Service code stays simple; no runtime calls to a secrets manager from inside the service.
+
+This is structurally what Anthropic ships in production for Claude Code's git proxy (https://www.anthropic.com/engineering/claude-code-sandboxing) — generalized to non-git credentialed services via the cloud-secrets-manager + WIF chain.
+
+### 20.2 The five rejected anti-patterns (do not propose any of these)
+
+Each was empirically tested. Each has the shared root cause: **any credential in agent-reachable scope eventually surfaces.** "Eventually" is not a probability claim — it is what happens when agents under tool-call pressure debug, grep, print env, or write helper scripts. The substrate-doc names all five so future agents do not re-derive them from theory.
+
+| # | Anti-pattern | Failure mode |
+|---|---|---|
+| 1 | **Per-call `op` invocation** (`op run --env-file=<refs> -- railway <args>` for every call) | Per-PID biometric prompt on Windows; produces dozens of unlock prompts in a multi-call session → auth fatigue → reflexive approval → refusal-as-signal violation (§20.3). Empirically broke during railway--r9z 2026-05-15: 3 actual biometric prompts + 2 refusals during ADA's resumption attempt. |
+| 2 | **File-on-disk credential** (`.railway-token` written by human, agent `cat \| export` per call) | Agent under pressure reads the file via `cat`, `grep`, `ls -la`, or a debug helper. Even `chmod 600` does not save it — the value exists in agent-readable form, so the value leaks. |
+| 3 | **Parent-shell env injection** (human exports `RAILWAY_API_TOKEN=$(op read ...)` then launches `claude`) | Agent inherits env and can leak via `printenv`, `env`, `Get-ChildItem Env:`, `echo $VAR`. Process-state introspection is normal debugging behavior — once the value is in env, it surfaces. |
+| 4 | **`op run` wrapper at Claude Code launch** (the 1Password-recommended canonical pattern; wrapper resolves all references into process.env once, then `exec claude`) | Same runtime-env exposure as anti-pattern #3 even though it eliminates the disk-at-rest exposure. The mitigation is brief-discipline ("never `printenv`"), not structure; rejected on PRINCIPAL's empirical rule that every prior agent-credential-access has eventually leaked regardless of stated discipline. |
+| 5 | **Local MCP-server-as-credential-broker** (broker process on the same host as the agent, exposing credential-fetch via MCP tool) | Broker process is on the same host as the agent; the agent can read the broker's source, infer the broker's policy, potentially inspect broker process state. The broker author becomes a new fallible-discipline surface, and the broker's source becomes load-bearing. Rejected on the structural-not-merely-fenced bar. |
+
+Three classes of pattern that are **also not the substrate default** but are not anti-patterns either — they are heavier infrastructure that may make sense at scale this team does not currently operate at:
+
+- HashiCorp Vault Cloud (HCP Vault Secrets is EOL July 2026; HCP Vault Dedicated is $360/mo — both off the table for this team's scale).
+- 1Password Connect Server (Connect-token-on-disk reintroduces the leak surface from anti-pattern #2).
+- Per-machine cloud-vault setups (heavy infrastructure, single-host blast radius).
+
+These remain available as future patterns if a project's scale ever justifies them; they are NOT what the substrate teaches as default.
+
+### 20.3 Refusal-as-signal (subsection of §20)
+
+Refusal-as-signal is structurally part of credential discipline because the empirical anchor was a refusal incident: railway--r9z 2026-05-15, where PLINY issued dozens of per-call auth prompts AND retried after PRINCIPAL refused — failure on both axes. The discipline lives here as §20.3 because the canonical pattern (§20.1) is what makes refusal-as-signal load-bearing: when an agent does have a credentialed call to make, a refusal IS the signal the pattern is wrong, not a problem to route around.
+
+**The rule:** if any tool call is refused by PRINCIPAL — or any credentialed step the agent attempts surfaces a refusal (1Password biometric refused, gcloud auth refused, gh auth refused, MCP-server denied scope) — **halt immediately and surface to the orchestrating seat via bw. Do not retry. Do not improvise a fallback. Do not propose an alternative credentialed path.** Multiple refusals = hard halt; the orchestrator decides whether to re-scope or escalate.
+
+A refusal is not a transient failure to route around; it is the substrate telling the agent the design is wrong. The correct response is the structural one: surface the refusal upward and let the design come back. Quietly retrying with different syntax, falling back to a different credentialed approach, or improvising a workaround all violate the discipline — they convert what was meant to be a halt-and-redesign signal into noise the design loop never sees.
+
+**Empirical anchor:** railway_stoa workspace memory `feedback_credential_friction_script_batched.md` (originally authored under railway--r9z, constraint #6) carried this rule as a workspace-tier discipline before substrate promotion. Multiple prior incidents (2026-05-15 r9z + per-arc paste-cache references) confirm the failure mode recurs whenever the discipline is not encoded structurally.
+
+### 20.4 Universal rule
+
+**Agents do non-credentialed work; CI or humans do credentialed setup.**
+
+The split is structural, not policy:
+
+- **Agents author** workflow YAML, write deploy scripts that CI will run, design the credential-flow diagram, audit the WIF binding, ground-check that `id-token: write` is the correct permission. Agents read the canonical pattern (§20.1), reference the worked example, write the prose. Zero credentialed calls in the agent's tool history.
+- **CI runs** the workflow that mints the short-lived credential and consumes it. The workflow is a 1-hour bounded execution; the credential expires when the workflow exits; no credential persists.
+- **Humans run** the one-shot setup that creates the WIF binding (gcloud commands) and that puts long-lived per-service tokens (Railway PAT, etc.) into GitHub Actions encrypted secrets. The human's session is also bounded; the credentialed setup happens once per service.
+
+When a brief tempts an agent to "just run `railway <cmd>` with the token to check status," the correct response is the substrate-shaped one: refuse, surface to the orchestrator, and request the work be re-scoped as "author a CI workflow that checks status as part of its smoke beats." The cost of the round-trip is one dispatch; the cost of normalizing per-call credentialed access is structural drift across every future workspace.
+
+Boundary marker against §20.3: this universal rule (§20.4) is **preventive** — the agent self-recognizes the credential-temptation in the brief and refuses-and-redirects before any credentialed call is attempted. §20.3 is **responsive** — once an external refusal has happened (PRINCIPAL refused a prompt, gcloud auth refused, MCP-server denied scope), halt immediately and surface without retry. Both fire on the same root cause (any credential in agent-reachable scope eventually surfaces) but at different points in the dispatch lifecycle; both are load-bearing.
+
+### 20.5 Railway-specific notes (canonization from railway--r9z empirical findings)
+
+Two Railway-specific patterns surfaced during railway--r9z's CI workflow first-run + revise arc that are load-bearing for any future Railway-deploy workflow. They live in the substrate doc because the empirical agent (and multiple peer agents recommending from theory) initially got both wrong.
+
+**Pattern: Railway reference variables resolve ONLY at deploy-time, not at CLI-time.** A Railway service variable defined as a reference (e.g., `DATABASE_URL_PRIVATE = ${{Postgres.DATABASE_URL}}`) resolves to its literal value only inside the deployed service's runtime container. It does NOT resolve when read via `railway variable list --service NAME --json` from an external runner — the CLI returns the KEY with a null VALUE.
+
+The canonical workaround: any CI workflow that needs the resolved value must fetch from the SOURCE service's variable list, where the variable is a literal:
+
+```bash
+# WRONG: returns null for reference-typed variables.
+railway variable get DATABASE_URL_PRIVATE --service consuming-service
+
+# RIGHT: fetch from the source where the value is a literal.
+railway variable get DATABASE_PUBLIC_URL --service Postgres
+```
+
+**Anti-pattern: `railway run --service NAME -- cmd`.** This command's name is misleading. It does NOT exec `cmd` inside the service container — it runs `cmd` on the local shell with the service's env vars injected, which means it inherits the same reference-resolution limitation (references still don't resolve, because resolution happens at container start). Multiple agents — including user-tier POLYBIUS and railway_stoa POLYBIUS — initially recommended this pattern from theory based on the misleading command name. ARGUS narrow audit caught it on railway--r9z (DAEDALUS round 2). The discipline lesson: verify Railway CLI behavior against actual docs + empirical runs; don't recommend tool-specific syntax from theoretical mental models.
+
+### 20.6 Cross-reference
+
+The new substrate-tier skill at `substrate/skills/credential-discipline/SKILL.md` carries the worked example: gcloud commands for WIF pool + provider + service account setup, GitHub Actions YAML for `google-github-actions/auth@v3` + `get-secretmanager-secrets@v3` (current-stable majors as of 2026-05-16, verified via `gh api`), Railway-specific patterns for PAT-based services that lack WIF, and the canonical worked-example workflow at `denson/sector-4/.github/workflows/deploy-dev-ariadne.yml` (run 25956772075, dev Ariadne live as of 2026-05-16; note the sector-4 workflow currently pins both actions at `@v2`, lagging upstream by ~8 months — substrate canon is `@v3`).
+
+### 20.7 Empirical lineage
+
+- `railway_stoa/railway--pam` (2026-05-13) — first surfacing of the credential-friction-as-substrate-concern observation; flagged but not actioned.
+- `railway_stoa/railway--r9z` (2026-05-15 → 2026-05-16) — empirical engagement: PLINY issued dozens of per-call auth prompts during Railway deploy work AND retried after refusal; PRINCIPAL surfaced the structural concern; the wrapper-launch pattern was proposed, drafted, then rejected on the empirical rule; the CI-mediated canonical pattern was settled; the sector-4 deploy workflow was authored as worked example (run 25956772075, dev Ariadne live).
+- `stoa--p5g` (2026-05-15 → 2026-05-16) — substrate-tier promotion: directive landed at `substrate/arcs/arc-25-build-directive.md`, design at this artifact, build at branch `arc-25/build`.
+
+---
+
 ## Agent-regime inverses (the positive framing)
 
 The six anti-patterns above suppress failure modes. The corresponding positive framings express defaults:

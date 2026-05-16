@@ -140,6 +140,7 @@ CAPTAIN_NAMES=(
 SKILL_NAMES=(
   agent-author
   check-substrate-updates
+  credential-discipline
 )
 
 # Marker line written into CLAUDE.md when --modify-claude-md is used; presence
