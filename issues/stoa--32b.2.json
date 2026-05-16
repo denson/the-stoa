@@ -7,9 +7,15 @@
   "id": "stoa--32b.2",
   "labels": [],
   "parent": "stoa--32b",
+  "comments": [
+    {
+      "text": "Sibling under stoa--32b: Child 1 is stoa--32b.1 (PRINCIPAL-gate discipline). Per the epic body, designs roughly parallel; this ticket's triage step (step 3) cross-refs Child 1's gate discipline at substrate-canon level.",
+      "timestamp": "2026-05-16T18:52:06Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "Mechanical-script / agent-inspection split — move recognition intelligence from scripts to agents",
   "type": "task",
-  "updated_at": "2026-05-16T18:51:59Z"
+  "updated_at": "2026-05-16T18:52:06Z"
 }
