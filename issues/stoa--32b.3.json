@@ -55,11 +55,15 @@
     {
       "text": "[PLINY status 2026-05-16] Phase 1 complete: DAEDALUS rev2 PASS — all 7 ARGUS findings applied; spot-check verified §15-framing fix, A2 verbatim phrase, install.sh TEMPLATE_NAMES append, §1 forward-pointer, retro re-scoping, epic-body caveat, frontmatter note all landed. Skipping ARGUS rev2 dispatch as deliberate scope choice — round 1 was CONDITIONAL-PASS (not REVISE/BLOCK), all rev2 fixes are easy-easy prose, mandatory CATO (per directive) catches wording drift post-build. Files touched grew to 4 (added install.sh TEMPLATE_NAMES append + MAJOR_POLYBIUS.md §1 forward-pointer one-line). Phase 2 (ADA) dispatching.",
       "timestamp": "2026-05-16T19:24:43Z"
+    },
+    {
+      "text": "[ADA activated 2026-05-16] on stoa--32b.3, autonomous mode, building arc-27/build per design rev2",
+      "timestamp": "2026-05-16T19:25:04Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "POLYBIUS session lifecycle discipline — handoff+compaction default; new session only for POLYBIUS-mechanism changes; multi-artifact handoff shape; Ariadne-search-ready authoring",
   "type": "task",
-  "updated_at": "2026-05-16T19:24:43Z"
+  "updated_at": "2026-05-16T19:25:04Z"
 }
