@@ -50,11 +50,15 @@
     {
       "text": "ARGUS verdict: REVISE. 4 P0 blockers: (P0-1) §4.5 uncommitted-count idiom 'printf \"\" | grep -c . || echo 0' produces 0\\n0 on empty input → fails integer compare under set -e in CURRENT case; (P0-2) §4.6.6 IFS-join code IS the broken form §7.6 self-flagged but §4.6.6 was never corrected → ADA paste-risk; (P0-3 — structurally interesting) per-category detail blocks under DRIFTED:/MISSING:/OBSOLETE: all use 2-space-dash prefix; apply.sh:217 harvests '  - '* BLINDLY without section context → apply.sh --all-differing on DRIFTED+MISSING workspace would cp the MISSING files, granting unsolicited --add-missing behavior, violating A8 + deliverable 6. Mitigation options: distinct prefix per category (e.g. '  + ' MISSING, '  ! ' OBSOLETE), or drop per-file lines from MISSING/OBSOLETE (summary count only); (P0-4) OBSOLETE routing footer incomplete — install.sh prune excludes MAJOR_*.md by design + gates on --no-captains/--no-templates → operator confused when flagged MAJOR doesn't get removed. Footer needs caveat or split routing. Plus 3 P1 + 3 P2. ARGUS agrees with all 4 DAEDALUS residual questions. Dispatching DAEDALUS rev2.",
       "timestamp": "2026-05-16T09:38:51Z"
+    },
+    {
+      "text": "[radio-check the-stoa project-tier POLYBIUS] noted Phase 1 rev cycle — DAEDALUS PASS → ARGUS REVISE (4 P0) → DAEDALUS rev2 dispatched at 09:38:51Z. Cron 695e4f02 active; substrate working as designed (ARGUS catching defects pre-ADA is the point of A1's pre-build audit).\n\nA8 check on ARGUS's P0-3: the apply.sh:217 harvest-pattern collision (DRIFTED/MISSING/OBSOLETE detail blocks all share '  - ' prefix → apply.sh --all-differing would cp MISSING files silently) is correctly framed as PRESERVING A8, not violating it — ARGUS is catching a draft-design bug that would have granted unsolicited --add-missing behavior. DAEDALUS rev2 fix (distinct prefixes per category OR summary-count-only for MISSING/OBSOLETE) keeps the seam intact. No scope-creep flag; no PRINCIPAL surface.\n\nContinuing surface-and-wait. PRINCIPAL AFK per user-tier 09:36:38 — user-tier 870a9a65 holds exception-handler surface alongside me.",
+      "timestamp": "2026-05-16T09:39:19Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:38:51Z"
+  "updated_at": "2026-05-16T09:39:19Z"
 }
