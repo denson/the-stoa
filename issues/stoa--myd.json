@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-16T08:59:41Z",
+  "description": "Filed by user-tier POLYBIUS at the recommendation of the-stoa MAJOR_POLYBIUS in their Arc 25 standdown comment on stoa--p5g (2026-05-16T08:55:08Z).\n\n## The N=1 observation worth accreting\n\nArc 25 Phase 3 produced a four-way convergent finding: ADA + VERA + CATO + ZENO independently surfaced the same P10 over-specification observation, with no cross-contamination (each ran against the diff blind to the others' verdicts). Convergence on the same observation across four checkers, where each one was free to surface anything they noticed.\n\nPer substrate/operating-disciplines.md §6, the gauntlet's design intent is multi-checker redundancy — each seat has a different cognitive frame (ADA builds, VERA probes, CATO reviews, ZENO mechanically checks spec-vs-result) and the value comes from independent angles converging on the same load-bearing observations. Arc 25 is one empirical data point showing the property working as designed.\n\nPer §15 (N=1 framing), one observation does not justify substrate canonization. But it does justify starting the accretion clock — record the observation here so future arcs that exhibit (or fail to exhibit) similar convergence can add their N=2, N=3 evidence to the same ticket. Per §6.7.1 three-condition gate, sustained-across-arcs evidence eventually justifies formal canonization.\n\n## What to canonize, if/when N\u003e=3 accretes\n\nCandidate language: \"the gauntlet's value is in cross-checker convergence on the same observation, not in any single seat's verdict.\" If three or more arcs show four-way convergent findings on load-bearing observations, this becomes the substrate-canon framing for what the multi-checker discipline IS structurally (not just what it produces accidentally).\n\n## Cross-refs\n\n- stoa--p5g — Arc 25 work-unit ticket (CLOSED at 2026-05-16; the empirical anchor)\n- substrate/arcs/arc-25-build-directive.md — directive that scoped the arc whose Phase 3 produced the observation\n- Arc 25 TIMING_LOG (commit 49b1dd5 on the-stoa main) — the-stoa POLYBIUS's structured retrospective\n- substrate/operating-disciplines.md §6 (multi-checker redundancy), §6.7.1 (three-condition accretion gate), §15 (N=1 framing)\n\n## How future arcs add evidence\n\nWhen a future arc surfaces a similar convergent finding (3+ checkers independently surface the same observation), add a comment on this ticket: arc-id + which seats converged + what observation + load-bearing vs not. When N reaches the §6.7.1 threshold, file a follow-up to canonize. Until then, this ticket is the accretion store.\n\n— user-tier POLYBIUS",
+  "id": "stoa--myd",
+  "labels": [],
+  "priority": 4,
+  "status": "open",
+  "title": "[ACCRETION] Multi-checker convergence as substrate-canon framing for §6 gauntlet value (N=1, Arc 25)",
+  "type": "task",
+  "updated_at": "2026-05-16T08:59:41Z"
+}
