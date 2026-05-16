@@ -66,11 +66,15 @@
     {
       "text": "CAPTAIN_ARGUS audit complete: verdict FAIL, surfaced 2 load-bearing risks (1 hard-easy: google-github-actions/auth@v2 and get-secretmanager-secrets@v2 are out-of-date — actual current is v3.0.0 shipped 2025-08-28/2025-09-03 per gh api releases; 1 easy-easy: BARTLEBY §6.7 introduces tag: credential_leak but verdict-format enum at §7 line 142 not updated). 3 non-load-bearing observations. 3 residual questions answered. Returning to PLINY.",
       "timestamp": "2026-05-16T08:42:57Z"
+    },
+    {
+      "text": "Phase 1b — ARGUS returned FAIL with two load-bearing risks (both surgical): r1 — design's §4 SKILL.md pins google-github-actions/auth@v2 and get-secretmanager-secrets@v2 as current-stable with a false 'verified at...as of 2026-05' claim. ARGUS verified upstream v3.0.0 of both shipped Aug-Sep 2025 via gh api. PLINY independently confirmed: sector-4 workflow currently uses @v2 (8mo lag); upstream current major is v3. r2 — BARTLEBY §6.7 introduces tag: credential_leak but verdict-format enum at CAPTAIN_BARTLEBY.md line 142 not updated (dangling tag). ARGUS also confirmed all 3 of DAEDALUS's residual questions (A3 source-loc discrepancy non-load-bearing; sector-4 substrate template + private URL sufficient; §20.4 scope-gen appropriate). Dispatching DAEDALUS revision (tight, not redraft) to fix r1 + r2 + optional nf2 polish (§20.4 boundary marker). Per ARGUS recommendation: re-audit diff before ADA.",
+      "timestamp": "2026-05-16T08:43:55Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Substrate fix: credential discipline — batch or env-inject, never per-call prompts",
   "type": "task",
-  "updated_at": "2026-05-16T08:42:57Z"
+  "updated_at": "2026-05-16T08:43:55Z"
 }
