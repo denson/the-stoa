@@ -90,11 +90,15 @@
     {
       "text": "ARGUS rev2 verdict: PASS. r1 fully fixed (auth@v3 + get-secretmanager-secrets@v3 in SKILL.md template + Key Properties + Cross-refs + 20.6; gh-api citations replace false claim; sector-4 lag honestly documented at lines 442/447/448). r2 fully fixed (line 142 enum spec'd at design line 571 with credential_leak; P11b probe added). nf2 included (20.4 boundary marker, single paragraph, preventive vs responsive). nf1 added to follow_ups item 6. Probe P17c correctly bounded (2 @v2 refs in SKILL.md). No new risks. Recommend dispatch ADA on rev2. Returning.",
       "timestamp": "2026-05-16T08:46:45Z"
+    },
+    {
+      "text": "ARGUS rev2 returned PASS — both load-bearing fixes (r1 GitHub Actions @v2→@v3 with sector-4 lag documented; r2 BARTLEBY enum extension for credential_leak) landed clean with verification trails. nf2 polish included; nf1 follow-up tracked. No regressions in unchanged sections; no A11 scope creep. Phase 1 closed. Creating arc-25/build worktree + dispatching ADA on rev2 design.",
+      "timestamp": "2026-05-16T08:47:02Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Substrate fix: credential discipline — batch or env-inject, never per-call prompts",
   "type": "task",
-  "updated_at": "2026-05-16T08:46:45Z"
+  "updated_at": "2026-05-16T08:47:02Z"
 }
