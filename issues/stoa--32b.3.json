@@ -27,11 +27,15 @@
     {
       "text": "DAEDALUS PASS on stoa--32b.3. Design written to agents/design/arc-27/design.md (~440 lines). Choices: A6.3 IN scope (operating-disciplines.md new §21, Ariadne-search-ready authoring as universal-team discipline); A6.4 IN scope (substrate/templates/handoff-doc-template.md new slotted template forward-only); §2.1 section-number = NEW §16 (not extending §6 per A8 lock); §2.2 collective-lens = §16.5 sub-section inside the new §16 (co-location with the disciplines that depend on it). Three files touched: substrate/MAJOR_POLYBIUS.md (insert ~140-line §16 after §15 closing ---), substrate/operating-disciplines.md (insert ~30-line §21 after §20.7 closing ---), substrate/templates/handoff-doc-template.md (new ~140-line file with frontmatter author: Denson Smith). Five self-assessed weak points named in §7; five residual questions for ARGUS in §8. PRINCIPAL's exact phrasing per A2 quote-blockquoted verbatim in §16.1. N=1 provenance + accretion path named in §16.6 per §15 honest-scope. A8 hard-locks honored: no sibling-arc touch, no Ariadne tooling, no retroactive edits, no §6 reopening, no bw convention restructuring. Ready for ARGUS critique.",
       "timestamp": "2026-05-16T19:18:47Z"
+    },
+    {
+      "text": "ARGUS activated on stoa--32b.3, cold-audit of arc-27/design.md round 1. Reading design end-to-end + all cited artifacts before audit. Note: dispatch brief asks ARGUS to Write verdict file; ARGUS envelope structurally lacks Write/Edit per CAPTAIN_ARGUS spec §6.1. Will return verdict in tool-return per spec §3 and surface the envelope-conflict as a finding for PLINY routing.",
+      "timestamp": "2026-05-16T19:19:29Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "POLYBIUS session lifecycle discipline — handoff+compaction default; new session only for POLYBIUS-mechanism changes; multi-artifact handoff shape; Ariadne-search-ready authoring",
   "type": "task",
-  "updated_at": "2026-05-16T19:18:47Z"
+  "updated_at": "2026-05-16T19:19:29Z"
 }
