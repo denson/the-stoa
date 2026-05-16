@@ -98,11 +98,15 @@
     {
       "text": "Phase 2: ADA PASS — commit 9953f95 on arc-26/build (5 files, +2525/-82). check.sh 489→884 lines, SKILL.md 174→202 lines. Build-checks: bash -n pass, --help pass, --workspace the-stoa pass with sane MISSING verdict. One in-scope deviation: design-rev2 §4.5 idiom 'grep -v ... | wc -l' fails under set -euo pipefail when grep selects 0 lines (pipefail propagates grep exit-1); ADA defanged with { grep -v ... || true; } | wc -l. ARGUS round 2 missed this on text-review (form reviewed not run). Semantics preserved — '0' count for empty input. Two follow-ups noted by ADA (separate scope): .gitignore line 'design/' too broad (forced git add -f); the-stoa's own .claude/ not in registry. Phase 3: dispatching VERA + CATO + ZENO in parallel.",
       "timestamp": "2026-05-16T09:47:38Z"
+    },
+    {
+      "text": "VERA activated on stoa--dxw. Reading design-rev2 §6 + check.sh + apply.sh + substrate registry before first probe.",
+      "timestamp": "2026-05-16T09:48:02Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:47:38Z"
+  "updated_at": "2026-05-16T09:48:02Z"
 }
