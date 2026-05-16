@@ -138,11 +138,15 @@
     {
       "text": "ADA polish round activated on stoa--dxw. Reading check.sh + SKILL.md before edits. 6 findings: 2 P1 wording (SKILL.md frontmatter desc, classifications-table routing); 4 P2 (--help sed-regex bug, --quiet dead flag, head-of-file comment stale, cite-comment dead line range).",
       "timestamp": "2026-05-16T09:51:16Z"
+    },
+    {
+      "text": "pass: arc-26 polish committed at 0e410e7 on arc-26/build. 2 files changed (+36/-26). All 6 CATO findings addressed: P1-1 SKILL.md frontmatter+opening rewritten for post-Arc-26 composite model; P1-2 classifications-table MISSING+OBSOLETE rows + What-the-output-is-telling-you bullets tier-branched (project vs subproject install.sh forms); P2-1 --help sed regex fixed (was 884 lines, now 26); P2-2 --quiet removed (declaration + parse + Usage line) as dead-since-Arc-26; P2-3 check.sh head-of-file comment rewritten for post-Arc-26 model; P2-4 cite-comment line range refreshed to stable anchor. One in-scope follow-on caught during self-validation: SKILL.md:45 v0-scope bullet ('No four-category drift classification ... single-bit differs answer is enough') was factually wrong post-Arc-26 (Arc 26 shipped 3 of 4 v2 categories; residual gap is attribution within DRIFTED, not category surface). Narrowed bullet to 'No attribution within DRIFTED' to match line 48's already-correct framing — per global CLAUDE.md 'see it once, fix it once'. Self-validation 7/7 PASS: bash -n, --help (26 lines, sane), --workspace the-stoa (sane MISSING verdict matches pre-polish), grep audits all return zero hits. apply.sh + install.sh + role files untouched per A8. Returning to PLINY.",
+      "timestamp": "2026-05-16T09:52:35Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:51:16Z"
+  "updated_at": "2026-05-16T09:52:35Z"
 }
