@@ -126,11 +126,15 @@
     {
       "text": "conditional-pass: arc-26 build. 2 P1 wording-precision findings (SKILL.md frontmatter description + classifications-table routing both stale/wrong-for-subproject); 2 P2 inherited-bug (--help sed-range broken since Arc 25, dumps 882 lines; --quiet flag declared but never consulted); 1 P2 stale-comment (check.sh head doc still claims CURRENT/DIFFERS-only model). Empirical run verified: awk parser correct, distinct-prefix discipline works (apply.sh:217 case-match isolates DRIFTED), wc-l idiom safe under pipefail. No P0. Returning verdict to PLINY.",
       "timestamp": "2026-05-16T09:49:56Z"
+    },
+    {
+      "text": "pass: VERA 8/8 probes PASS — P1 OBSOLETE detection + ! prefix + prunable routing; P2 MISSING + + prefix + missing footer; P3 uncommitted detection + clean integer count (no 0\\n0); P4 composite DRIFTED + MISSING + OBSOLETE token order + MAJOR-OBSOLETE manual-rm footer split; P5 CURRENT regression on all 3 workspaces (post-Arc-26 expected DRIFTED with check.sh+SKILL.md only); P6 exit 0 across all invocations; P7 apply.sh DRIFTED-only non-regression; P8 apply.sh MISSING-coupling structural fence — apply.sh did NOT deploy MISSING CAPTAIN. Mirror arrays removed from check.sh (only comment-references remain). Cite-comment at check.sh:127-146 names install.sh:140-144 + coupling + failure-mode symptom per ARGUS rev2 P1-1. ADA's grep-pipefail micro-fix verified empirically. Cleanup: the-stoa byte-equal pre-VERA; sector-4 carries 2 apply.sh auto-commits + 1 untracked CAPTAIN restore (PRINCIPAL-discretion per design §6). Returning to PLINY.",
+      "timestamp": "2026-05-16T09:50:02Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:49:56Z"
+  "updated_at": "2026-05-16T09:50:02Z"
 }
