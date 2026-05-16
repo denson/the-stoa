@@ -134,11 +134,15 @@
     {
       "text": "Phase 3 returns: VERA PASS (8/8 probes empirically, including Probe 8 apply.sh-cannot-deploy-MISSING structural fence — distinct-prefix discipline holds), ZENO PASS (7/7 deliverables DONE, 8/8 A1-A8 HONORED, 10/10 mechanical checks PASS), CATO conditional-pass with 2 P1 + 4 P2. P1-1: SKILL.md frontmatter description still v0 'CURRENT or DIFFERS' blurb (skill-discovery surface stale). P1-2: SKILL.md classifications-table routing not tier-branched (subproject operators get syntax error if they copy from table; live footer IS correct). P2-1: --help dumps 882 lines (pre-Arc-25 sed regex bug, Arc 26 made symptom 80% worse). P2-2: --quiet flag accepted but never consulted (pre-existing). P2-3: check.sh head-of-file comment lines 3-10 still v0. P2-4: parse_skill_names_from_install cite-comment names dead line range 92-95 (pre-removal location). All 6 easy-quadrant; per global CLAUDE.md 'see it once, fix it once', dispatching ADA polish round. Sector-4 cleanup: VERA marked PRINCIPAL-discretion per design §6 Probe 8 — 4 apply.sh auto-commits + 1 restored CAPTAIN file in sector-4 (deferred to project-tier POLYBIUS for routing).",
       "timestamp": "2026-05-16T09:50:46Z"
+    },
+    {
+      "text": "ADA polish round activated on stoa--dxw. Reading check.sh + SKILL.md before edits. 6 findings: 2 P1 wording (SKILL.md frontmatter desc, classifications-table routing); 4 P2 (--help sed-regex bug, --quiet dead flag, head-of-file comment stale, cite-comment dead line range).",
+      "timestamp": "2026-05-16T09:51:16Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:50:46Z"
+  "updated_at": "2026-05-16T09:51:16Z"
 }
