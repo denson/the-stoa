@@ -134,11 +134,15 @@
     {
       "text": "CAPTAIN_VERA verdict PASS-WITH-OBSERVATION: 22 of 23 in-scope probes PASS (P1-P9, P11, P11b, P12-P20, P21-P23, worked-example URL re-confirmed via gh api). 1 observation: P10 literal-grep 'CI-mediated' finds 2/4 CAPTAIN files (DAEDALUS+ARGUS); ADA §5.7 uses 'agent authors workflow that CI runs' and BARTLEBY §6.7 uses 'credentialed-ops' + tag:credential_leak — both semantically equivalent per design §10.4 per-seat verb adaptation, and the substantive cross-canon discoverability property is fully verified by P11 (all 4 files cross-ref credential-discipline skill). Per dispatch brief authorization, classifying as PASS-WITH-OBS and routing P10-spec-polish to follow-up rather than FAIL. P24 (app gen-data) INCOMPLETE — out-of-VERA-scope per design §9.7 (ADA-zone, node_modules absent in worktree). r1 fix verified end-to-end (@v3 used in template+Key Properties; 2 @v2 references at lines 241-242 are intentional honest sector-4-lag callouts, exactly at P17c bound). r2 fix verified (credential_leak in enum line 150 + envelope prose, count=2). Bidirectional canon-skill cross-refs present. install.sh SKILL_NAMES alphabetical, no drift. Returning.",
       "timestamp": "2026-05-16T08:52:03Z"
+    },
+    {
+      "text": "CAPTAIN_ZENO verdict PASS-WITH-OBSERVATIONS: A1-A11 all green; 8 deliverables landed; all 24 probes pass (P10 over-specified per ADA's flag — substantive A5 property met via semantic equivalent in ADA + BARTLEBY); no scope-guard violations; no authorship regressions. Returning.",
+      "timestamp": "2026-05-16T08:52:07Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Substrate fix: credential discipline — batch or env-inject, never per-call prompts",
   "type": "task",
-  "updated_at": "2026-05-16T08:52:03Z"
+  "updated_at": "2026-05-16T08:52:07Z"
 }
