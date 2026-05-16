@@ -46,11 +46,15 @@
     {
       "text": "ARGUS COMPLETE — verdict: REVISE (conditional-pass with 4 P0 blockers DAEDALUS must address before ADA dispatches). P0 list: (1) §4.5 uncommitted_claude_count idiom is BROKEN — grep -c on empty input outputs '0' then exits 1, so '|| echo 0' fires too, producing '0\\n0' two-line output that breaks downstream integer comparisons; (2) §4.6.6 IFS-join code as written is broken (DAEDALUS self-flagged in §7.6 but did not correct §4.6.6 — ADA paste-risk is real); (3) apply.sh --all-differing harvest pattern matches ANY '  - ' line — design adds MISSING/OBSOLETE detail blocks at the same indent, so apply.sh will now silently harvest MISSING paths and deploy them via cp, which directly violates A8 hard-locked 'apply.sh --add-missing defeats Option B'; (4) routing-footer 'install.sh --target X --project-dir Y --prune-obsolete' suggested for OBSOLETE is incomplete — install.sh's prune respects --no-captains/--no-templates opt-outs AND excludes MAJORs entirely, so the suggested command may not prune what check.sh flagged. Returning verdict block to PLINY.",
       "timestamp": "2026-05-16T09:38:02Z"
+    },
+    {
+      "text": "ARGUS verdict: REVISE. 4 P0 blockers: (P0-1) §4.5 uncommitted-count idiom 'printf \"\" | grep -c . || echo 0' produces 0\\n0 on empty input → fails integer compare under set -e in CURRENT case; (P0-2) §4.6.6 IFS-join code IS the broken form §7.6 self-flagged but §4.6.6 was never corrected → ADA paste-risk; (P0-3 — structurally interesting) per-category detail blocks under DRIFTED:/MISSING:/OBSOLETE: all use 2-space-dash prefix; apply.sh:217 harvests '  - '* BLINDLY without section context → apply.sh --all-differing on DRIFTED+MISSING workspace would cp the MISSING files, granting unsolicited --add-missing behavior, violating A8 + deliverable 6. Mitigation options: distinct prefix per category (e.g. '  + ' MISSING, '  ! ' OBSOLETE), or drop per-file lines from MISSING/OBSOLETE (summary count only); (P0-4) OBSOLETE routing footer incomplete — install.sh prune excludes MAJOR_*.md by design + gates on --no-captains/--no-templates → operator confused when flagged MAJOR doesn't get removed. Footer needs caveat or split routing. Plus 3 P1 + 3 P2. ARGUS agrees with all 4 DAEDALUS residual questions. Dispatching DAEDALUS rev2.",
+      "timestamp": "2026-05-16T09:38:51Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:38:02Z"
+  "updated_at": "2026-05-16T09:38:51Z"
 }
