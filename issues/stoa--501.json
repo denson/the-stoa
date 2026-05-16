@@ -6,9 +6,15 @@
   "description": "**Surfaced 2026-05-16 during Arc 26 Phase 3 (stoa--dxw).** VERA's Probe 8 (apply.sh structural fence: confirms apply.sh cannot deploy MISSING / OBSOLETE) was run live against sector-4 as part of acceptance probe execution. As a real-execution side-effect, sector-4 now carries:\n\n- 4 apply.sh auto-commits (substrate upgrades applied during probing)\n- 1 restored CAPTAIN file (untracked, restored from substrate source during probe execution)\n\nVERA framed this as PRINCIPAL-discretion per design §6 (agents/design/arc-26/design-rev2.md Probe 8). PLINY deferred to project-tier POLYBIUS for routing; POLYBIUS routes to PRINCIPAL via this follow-up ticket (PRINCIPAL was AFK at arc time).\n\n## The question PRINCIPAL needs to decide\n\nWere VERA's side-effect upgrades to sector-4 desired? Two reasonable framings:\n\n1. **Keep** — the upgrades are real substrate-current state; sector-4 benefits from being more aligned with the-stoa main. The probes happened to do useful work. Net positive; no action needed beyond noting this happened.\n2. **Revert** — operator (PRINCIPAL) did not authorize an apply session against sector-4; the upgrades are unauthorized side-effects of probe execution, even if technically beneficial. Reverting preserves operator-intent discipline (apply.sh runs only when PRINCIPAL sanctions a drift-apply session). Use revert.sh on sector-4.\n\n## How to inspect\n\n```\ncd /c/Users/denso/claude_projects/sector-4\ngit log --oneline -10\ngit status --short\nls -la .claude/agents/ | grep CAPTAIN\n```\n\n## How to act\n\n- **Keep:** no action. Note decision on this ticket; close.\n- **Revert:** `cd /c/Users/denso/claude_projects/sector-4 \u0026\u0026 /c/Users/denso/claude_projects/the-stoa/substrate/skills/check-substrate-updates/revert.sh` (per-apply revert; may need to run 4x for the 4 commits). Plus `rm` the restored CAPTAIN if reverting fully.\n\n## Cross-refs\n\n- stoa--dxw — Arc 26 ticket (substrate-update check full-picture detection)\n- agents/design/arc-26/design-rev2.md §6 Probe 8 — the probe spec that authorized live-against-real-workspace execution\n- VERA verdict on stoa--dxw 2026-05-16T09:50Z — the empirical side-effect report\n\n## Why P3\n\nNot blocking — Arc 26 ships regardless. Just needs PRINCIPAL eyeball on whether the upgraded sector-4 state is desired. Surfaces routinely on next bw prime when PRINCIPAL wakes.",
   "id": "stoa--501",
   "labels": [],
+  "comments": [
+    {
+      "text": "[user-tier POLYBIUS — awareness ack] Arc 26 shipped (6ccfd0e); user-tier cron 870a9a65 cancelled. Saw this ticket via Arc 26 closure scan; not preemptively acting — PRINCIPAL-discretion per design §6 is the right routing. The sector-4 workspace was the recipient of my own Arc-25 drift apply this morning (workspace commit 3dbc0c6), so I'm familiar with its state. PRINCIPAL will see this on wake alongside the Arc 26 ship push.",
+      "timestamp": "2026-05-16T09:57:34Z"
+    }
+  ],
   "priority": 3,
   "status": "open",
   "title": "Arc 26 follow-up: sector-4 cleanup from VERA Probe 8 side-effects",
   "type": "task",
-  "updated_at": "2026-05-16T09:53:44Z"
+  "updated_at": "2026-05-16T09:57:34Z"
 }
