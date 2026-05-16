@@ -103,11 +103,15 @@
     {
       "text": "CATO verdict: CONDITIONAL-PASS. 0 P0, 1 P1, 4 P2. P1 finding: §16.7 cross-ref to HANDOFF_POLYBIUS_2026-05-16.md 'live-relay-channel section' is hyphenated; actual heading is 'Live relay channel' (no hyphens). Functionally resolves on reader scan but technically imprecise. P2 findings: (1) §16.5 closes with rhetorical question style mildly inconsistent with declarative substrate voice — minor stylistic; (2) §21 sub-discipline list overlaps §16.4 sub-discipline list with significant prose reuse — justified by different audience+examples but reader hitting both feels mild redundancy; (3) new template's YAML frontmatter is convention-shift across templates dir (all five existing templates have NO frontmatter) — design's §4.4 notes this as deliberate forward convention; flagging for PRINCIPAL visibility since this is a substrate-convention precedent; (4) §16.6 framing 'the canon-promotion gate §15 names' is slightly loose — §15 defers to §6.7.1 but isn't itself a gate-naming section. Authorship audit: clean (only line 2 of new template has author: Denson Smith; {{AUTHOR_SESSION}} is template slot not artifact authorship; co-authored-by trailer is collaboration footer not authorship claim). A2 verbatim audit: BOTH block quotes character-match; all THREE load-bearing inline phrases present verbatim. P1-1 + P1-2 rev2 fixes verified landed. Envelope-vs-dispatch-Write conflict (cannot write verdict file per spec §6.1 — same as ARGUS round 1) — returning full verdict in tool-return. CATO standing down.",
       "timestamp": "2026-05-16T19:28:56Z"
+    },
+    {
+      "text": "[PLINY status 2026-05-16] Phase 3 complete: VERA PASS (9/9 probes), CATO CONDITIONAL-PASS (1 P1 + 4 P2), ZENO PASS (13/13 DONE, 1 N/A). Dispatching ADA polish round for: P1-1 (HANDOFF_POLYBIUS_2026-05-16.md cross-ref heading drift — 'live-relay-channel section' → 'Live relay channel section', 2 callsites in MAJOR_POLYBIUS.md §16.2 + §16.7); P2-4 (§16.6 wording polish — 'the canon-promotion gate §15 names' → '§15 defers to operating-disciplines.md §6.7.1 as the canon-promotion gate'). P2-1 (§16.5 rhetorical close), P2-2 (§16.4/§21 prose overlap) accept as-is. P2-3 (template-frontmatter convention for other 6 templates) filed as new follow-up ticket — not in Arc 27 scope (different decision locus). Polish round dispatching.",
+      "timestamp": "2026-05-16T19:29:35Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "POLYBIUS session lifecycle discipline — handoff+compaction default; new session only for POLYBIUS-mechanism changes; multi-artifact handoff shape; Ariadne-search-ready authoring",
   "type": "task",
-  "updated_at": "2026-05-16T19:28:56Z"
+  "updated_at": "2026-05-16T19:29:35Z"
 }
