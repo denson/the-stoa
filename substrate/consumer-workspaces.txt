@@ -13,3 +13,4 @@
 /c/Users/denso/claude_projects/ariadne-core-workspace
 /c/Users/denso/claude_projects/railway_stoa
 /c/Users/denso/claude_projects/sector-4
+/c/Users/denso/claude_projects/the-stoa

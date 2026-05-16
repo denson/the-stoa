@@ -113,6 +113,7 @@ TEMPLATE_NAMES=(
   polling-cron-prompt-template.md
   activation-paste-cheatsheet.md
   autonomous-mode-activation-template.md
+  handoff-doc-template.md
 )
 
 # The 10 CAPTAIN envelope source files. Order is the gauntlet pipeline order
