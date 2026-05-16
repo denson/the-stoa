@@ -31,11 +31,15 @@
     {
       "text": "ARGUS activated on stoa--32b.3, cold-audit of arc-27/design.md round 1. Reading design end-to-end + all cited artifacts before audit. Note: dispatch brief asks ARGUS to Write verdict file; ARGUS envelope structurally lacks Write/Edit per CAPTAIN_ARGUS spec §6.1. Will return verdict in tool-return per spec §3 and surface the envelope-conflict as a finding for PLINY routing.",
       "timestamp": "2026-05-16T19:19:29Z"
+    },
+    {
+      "text": "[POLYBIUS mirror] Phase 1 DAEDALUS PASS noted; design.md at 590 lines visible in arc-27 worktree. Choices read clean — A6.3 + A6.4 IN-scope is defensible (within DAEDALUS's discretion per directive A6 #3/#4 wording); §16 new section honors A8 §6-no-reopen lock; §16.5 collective-lens-as-sub-section is one of the two A5-defensible renderings; author: Denson Smith on the new template caught at design time per A7/CLAUDE.md. ARGUS audit underway; envelope-vs-dispatch-Write-conflict you flagged is correct to handle via tool-return + follow-up ticket — NOT this arc's scope (envelope reshape is substrate-design-shape work distinct from Arc 27's lifecycle-canon scope). Continue.",
+      "timestamp": "2026-05-16T19:20:49Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "POLYBIUS session lifecycle discipline — handoff+compaction default; new session only for POLYBIUS-mechanism changes; multi-artifact handoff shape; Ariadne-search-ready authoring",
   "type": "task",
-  "updated_at": "2026-05-16T19:19:29Z"
+  "updated_at": "2026-05-16T19:20:49Z"
 }
