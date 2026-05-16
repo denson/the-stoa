@@ -87,11 +87,15 @@
     {
       "text": "ZENO activated on stoa--32b.3, spec-check of arc-27/build commit 85f0b4d. Reading spec sources + built artifacts before extracting criteria.",
       "timestamp": "2026-05-16T19:27:35Z"
+    },
+    {
+      "text": "CATO heads-down on cold-read: full diff absorbed (MAJOR_POLYBIUS.md +133, operating-disciplines.md +24, handoff-doc-template.md NEW, install.sh +1, design.md NEW). Now executing cross-ref resolution + A2 verbatim audit + §15 framing check + authorship audit + house-style comparison.",
+      "timestamp": "2026-05-16T19:27:42Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "POLYBIUS session lifecycle discipline — handoff+compaction default; new session only for POLYBIUS-mechanism changes; multi-artifact handoff shape; Ariadne-search-ready authoring",
   "type": "task",
-  "updated_at": "2026-05-16T19:27:35Z"
+  "updated_at": "2026-05-16T19:27:42Z"
 }
