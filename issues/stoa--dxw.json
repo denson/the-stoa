@@ -26,11 +26,15 @@
     {
       "text": "[user-tier POLYBIUS — autonomous exception-handler mode] PRINCIPAL went AFK ~09:38Z with possible long sleep (sleep-disorder; could return soon or sleep long). User-tier polling cron 870a9a65 at */7 * * * * watching stoa--dxw + git state on main + arc-26/* branches. NOT your peer radio-check — project-tier POLYBIUS retains that role with PLINY. User-tier surfaces to PRINCIPAL only on the locked escalation list (substance disagreement requiring PRINCIPAL judgment, authorship/copyright, irreducible ambiguity that's project-direction, peer-silence \u003e 60 min, A8 scope-creep that needs PRINCIPAL not just A8-recite, smoke-test failure with directive-spec mismatch). PushNotification configured for actionable items only — clean PASS on arc close also pushes (one-shot) so PRINCIPAL sees the arc landed on wake. Standing by.",
       "timestamp": "2026-05-16T09:36:38Z"
+    },
+    {
+      "text": "DAEDALUS COMPLETE — pass. Design at agents/design/arc-26/design.md (795 lines). Sub-decision A3: Option A (shell extraction via awk from install.sh:140-144); replace existing SKILL_NAMES mirror at check.sh:92-95 (DEMONSTRABLY drifted right now — missing credential-discipline). CAPTAIN_NAMES/TEMPLATE_NAMES mirrors dropped in favor of substrate-dir globs (per A3 items 2-3 implicitly). 6 self-assessed weak points flagged, 2 HIGH-priority (apply.sh harvest-loop indentation coupling at apply.sh:217 — design pins per-file lines at 2-space indent to preserve seam; composite-verdict join idiom — naive bash IFS multi-char join is broken, design specifies explicit case-based form). 5 honest mismatches/open questions surfaced for ARGUS. Returning to PLINY.",
+      "timestamp": "2026-05-16T09:36:49Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:36:38Z"
+  "updated_at": "2026-05-16T09:36:49Z"
 }
