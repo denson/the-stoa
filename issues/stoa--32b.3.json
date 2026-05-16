@@ -7,9 +7,15 @@
   "id": "stoa--32b.3",
   "labels": [],
   "parent": "stoa--32b",
+  "comments": [
+    {
+      "text": "[scope fold-in 2026-05-16] PRINCIPAL surfaced an additional conceptual lens during epic-capture conversation: POLYBIUS-as-multi-version-collective. The reframe: 'POLYBIUS' = all currently-active POLYBIUS sessions (user-tier + project-tier at every workspace) + idle relay-channel POLYBIUSes + the substrate they co-author and inherit. The collective IS POLYBIUS; any specific session is one currently-active branch with one specific perspective and recency-of-context profile. Analogous to: the human is the sum of their experiences with some more front-of-mind than others.\n\nThis is folded into stoa--32b.3's scope (same locus of canon, related concepts: lifecycle + multi-artifact handoff + collective-identity). DAEDALUS may render as a sub-section within the POLYBIUS-lifecycle section in MAJOR_POLYBIUS.md, or as a peer section in §1 ('Who you serve') / §2 ('What you do') that says: 'You' is one currently-active branch of a multi-version collective; the substrate is the collective's durable memory. Both renderings are defensible; DAEDALUS picks.\n\nThe reframe explains structurally:\n- Why the substrate corpus matters (long-term memory of the collective)\n- Why decay-not-termination is the right relay-channel model (less-recent perspectives are still part of who-POLYBIUS-is)\n- Why Ariadne corpus search is the natural next infrastructure step (queryable cross-collective memory)\n- Why lifecycle-discipline + multi-artifact-handoff are coherent (they're about maintaining the collective's continuity across branch transitions)",
+      "timestamp": "2026-05-16T19:13:25Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "POLYBIUS session lifecycle discipline — handoff+compaction default; new session only for POLYBIUS-mechanism changes; multi-artifact handoff shape; Ariadne-search-ready authoring",
   "type": "task",
-  "updated_at": "2026-05-16T19:04:41Z"
+  "updated_at": "2026-05-16T19:13:25Z"
 }
