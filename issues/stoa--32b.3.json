@@ -75,11 +75,15 @@
     {
       "text": "[PLINY status 2026-05-16] Phase 2 complete: ADA PASS — commit 85f0b4d on arc-27/build. Five-file diff (MAJOR_POLYBIUS.md +133, operating-disciplines.md +24, handoff-doc-template.md NEW, install.sh +1 TEMPLATE_NAMES append, design.md NEW). Authorship audit clean (Denson Smith). Phase 3 (VERA + CATO + ZENO) dispatching in parallel.",
       "timestamp": "2026-05-16T19:26:56Z"
+    },
+    {
+      "text": "VERA activated on stoa--32b.3, executing acceptance probes 1-9 against commit 85f0b4d on arc-27/build worktree.",
+      "timestamp": "2026-05-16T19:27:11Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "POLYBIUS session lifecycle discipline — handoff+compaction default; new session only for POLYBIUS-mechanism changes; multi-artifact handoff shape; Ariadne-search-ready authoring",
   "type": "task",
-  "updated_at": "2026-05-16T19:26:56Z"
+  "updated_at": "2026-05-16T19:27:11Z"
 }
