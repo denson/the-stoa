@@ -70,11 +70,15 @@
     {
       "text": "ARGUS round 2 activated on stoa--dxw. Focused re-audit of design-rev2.md against round 1's 4 P0 + 3 P1 + 3 P2. Reading rev2 + rev1 diff + verifying apply.sh seam empirically.",
       "timestamp": "2026-05-16T09:42:09Z"
+    },
+    {
+      "text": "ARGUS round 2 COMPLETE — verdict: PASS. All 4 P0 verified resolved (P0-1 wc-l/tr-d empirically returns 0 on empty + 2 on multiline, safe under set -euo pipefail; P0-2 case-based join replaces broken IFS; P0-3 apply.sh case statement empirically only matches DRIFTED '  - ', NOT MISSING '  + ' or OBSOLETE '  ! '; P0-4 split routing footer partitions obsolete_major vs obsolete_prunable, correctly honors install.sh:766-770 deliberate-exclusion). All 3 P1 + 3 P2 verified. No regressions in untouched sections (§3 cite-comment policy, §A3 sub-decision, §4.6.7 Last-check emission, apply_substitutions A8-locked cite all intact). 3 DAEDALUS residual questions answered inline. design-rev2.md is ADA-ready. Returning verdict block to PLINY.",
+      "timestamp": "2026-05-16T09:42:39Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:42:09Z"
+  "updated_at": "2026-05-16T09:42:39Z"
 }
