@@ -95,11 +95,15 @@
     {
       "text": "ZENO complete: verdict PASS. 14 spec items (3 deliverables + 9 probes + 2 directive-A6-only items); 13 DONE, 1 N/A (Probe 7 CURRENT-regression is VERA-execution, not artifact-verifiable; out of ZENO scope per spec). No NOT-DONE, no PARTIAL, no out-of-spec additions. Returning.",
       "timestamp": "2026-05-16T19:27:57Z"
+    },
+    {
+      "text": "VERA complete: verdict PASS (9/9 probes). All easy-easy mechanical probes green. P1 lifecycle-modes classification: Scenario A → Mode 1, Scenario B → Mode 2 + Mode 3 (both correct per §16.2). P2 multi-artifact table: 6 rows present (index doc / bw tickets / retro docs / design artifacts / commits / role files+disciplines). P3 Ariadne-readiness: 4 sub-disciplines named + §21 cross-ref at MAJOR_POLYBIUS.md:872. P4 collective lens: 'The collective IS POLYBIUS' at :884, four 'explains structurally' bullets at :890-893, 'multi-version collective' at :23/:886/:892. P5 cross-refs all resolve. P6 authorship: only 'author: Denson Smith' present (handoff-doc-template.md + pre-existing credential-discipline SKILL.md). P7 CURRENT regression: from main substrate (canonical source-of-truth not-yet-shipped POV) all 4 workspaces CURRENT; from worktree substrate (arc-27/build POV) all 4 DRIFTED — which is the expected propagation surface, NOT a regression (brief's expectation has internal tension; substantive question 'does arc-27 break consumer checking?' is NO). P8 install.sh wiring: TEMPLATE_NAMES line 116, stretch verification confirms handoff-doc-template.md deploys to \u003ctarget\u003e/.claude/templates/. P9 §1 forward-pointer at :23 (well before §16 at :795), 'multi-version collective' present. Returning verdict.",
+      "timestamp": "2026-05-16T19:28:49Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "POLYBIUS session lifecycle discipline — handoff+compaction default; new session only for POLYBIUS-mechanism changes; multi-artifact handoff shape; Ariadne-search-ready authoring",
   "type": "task",
-  "updated_at": "2026-05-16T19:27:57Z"
+  "updated_at": "2026-05-16T19:28:49Z"
 }
