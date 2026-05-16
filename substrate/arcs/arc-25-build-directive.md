@@ -17,13 +17,15 @@ This is a focused arc. ~10-15 substrate-prose deliverables across ~6 files. Smal
 
 ## Comms — autonomous mode via bw, radio-check protocol
 
-POLYBIUS (user-tier CoS — note: this arc is dispatched from USER-tier POLYBIUS, not project-tier; user-tier has downward read+write into project bw) and you communicate via comments on `stoa--p5g`. PRINCIPAL is **not** the relay for routine status — beadwork is.
+PROJECT-TIER POLYBIUS (separate Claude Code session, activated from `HUMAN_paste-polybius-arc-25-instruction.md`) is your radio-check peer. You and project-tier POLYBIUS communicate via comments on `stoa--p5g`. USER-TIER POLYBIUS dispatched this arc (the empirical anchor was a user-tier engagement); user-tier may post cross-workspace context comments periodically but is NOT your radio-check peer — project-tier is. User-tier is exception-handler alongside PRINCIPAL.
+
+PRINCIPAL is **not** the relay for routine status — beadwork is.
 
 **bw command syntax** is in `substrate/MAJOR_PLINY.md` §6.1. Critical: `bw comment <id> "text"` is positional, no `--body` flag. `bw close <id> --reason "text"` — `--reason` is a flag.
 
 **Polling discipline** per `substrate/operating-disciplines.md` §7 (surface-and-wait + radio-check). On dispatch, post an initialization handshake comment on `stoa--p5g` naming your cron id (if you set one up) and your cadence. Heartbeat every ≤30 min unless surface-and-wait-blocked.
 
-POLYBIUS is in autonomous mode for this engagement. PRINCIPAL is exception-handler — project-direction calls, ship/no-ship, substance disagreement after one round, authorship/copyright/Denson-final-say content, irreducible ambiguity, peer silence > 60 min, arc closes.
+PLINY is in autonomous mode for this engagement. PRINCIPAL + user-tier POLYBIUS are exception-handlers — project-direction calls, ship/no-ship, substance disagreement after one round, authorship/copyright/Denson-final-say content, irreducible ambiguity, peer silence > 60 min, arc closes.
 
 **Note on this arc specifically:** the discipline you're building is meta-load-bearing — once landed, every future arc that touches credentialed ops will use this discipline. The CAPTAIN envelopes you edit in Phase 2 are the envelopes Phase 3 verifiers (themselves CAPTAINs) read at dispatch time. Self-referential, not circular. Same dynamic as Arc 24's heartbeat-discipline edit.
 
