@@ -94,11 +94,15 @@
     {
       "text": "pass: arc-26 build committed at 9953f95 on arc-26/build. 5 files changed (2525 insertions, 82 deletions). Modified: check.sh (489 -\u003e 884 lines), SKILL.md (174 -\u003e 202 lines). New: agents/design/arc-26/design.md (rev1, 795 lines, force-staged past .gitignore design/ rule), agents/design/arc-26/design-rev2.md (rev2, 1000 lines, force-staged), substrate/arcs/arc-26-build-directive.md (directive). No author-like fields in any new file; no Co-Authored-By in commit. apply.sh + install.sh + revert.sh + operating-disciplines.md + role files untouched per A8. Build self-validated: bash -n PASS, --help PASS, --workspace the-stoa PASS (correctly reports MISSING for unbacked skills), full registry scan PASS (all 3 workspaces DRIFTED with only check.sh+SKILL.md edits). One post-design defect fixed inline (uncommitted_claude_count's grep -v pipeline failed under pipefail on empty input; defang via { grep -v ... || true; } — surfaced to PLINY in verdict). Returning to PLINY.",
       "timestamp": "2026-05-16T09:47:19Z"
+    },
+    {
+      "text": "Phase 2: ADA PASS — commit 9953f95 on arc-26/build (5 files, +2525/-82). check.sh 489→884 lines, SKILL.md 174→202 lines. Build-checks: bash -n pass, --help pass, --workspace the-stoa pass with sane MISSING verdict. One in-scope deviation: design-rev2 §4.5 idiom 'grep -v ... | wc -l' fails under set -euo pipefail when grep selects 0 lines (pipefail propagates grep exit-1); ADA defanged with { grep -v ... || true; } | wc -l. ARGUS round 2 missed this on text-review (form reviewed not run). Semantics preserved — '0' count for empty input. Two follow-ups noted by ADA (separate scope): .gitignore line 'design/' too broad (forced git add -f); the-stoa's own .claude/ not in registry. Phase 3: dispatching VERA + CATO + ZENO in parallel.",
+      "timestamp": "2026-05-16T09:47:38Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:47:19Z"
+  "updated_at": "2026-05-16T09:47:38Z"
 }
