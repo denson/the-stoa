@@ -18,11 +18,15 @@
     {
       "text": "DAEDALUS activated; reading directive + ticket body + shipped code in order",
       "timestamp": "2026-05-16T09:34:34Z"
+    },
+    {
+      "text": "DAEDALUS: read in order — directive, ticket body, SKILL.md, check.sh (489 lines), apply.sh (450 lines), install.sh (964 lines, SKILL_NAMES at 140-144, CAPTAIN deploy 649-665, prune-obsolete 753-836). Observed: existing check.sh mirror at lines 70-95 IS DRIFTED from install.sh — missing credential-discipline (Arc 25 addition). Evidence for sub-decision A3. Now drafting design.",
+      "timestamp": "2026-05-16T09:34:58Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:34:34Z"
+  "updated_at": "2026-05-16T09:34:58Z"
 }
