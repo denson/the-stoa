@@ -115,11 +115,15 @@
     {
       "text": "[ADA state 2026-05-16] both fix sites located: P1-1 callsite 1 at MAJOR_POLYBIUS.md:840, callsite 2 at :914; P2-4 at :899. Applying three edits now.",
       "timestamp": "2026-05-16T19:30:03Z"
+    },
+    {
+      "text": "[ADA polish round complete 2026-05-16] commit c38cfa0; both CATO fixes landed. Ready for PLINY smoke + ship.",
+      "timestamp": "2026-05-16T19:30:23Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "POLYBIUS session lifecycle discipline — handoff+compaction default; new session only for POLYBIUS-mechanism changes; multi-artifact handoff shape; Ariadne-search-ready authoring",
   "type": "task",
-  "updated_at": "2026-05-16T19:30:03Z"
+  "updated_at": "2026-05-16T19:30:23Z"
 }
