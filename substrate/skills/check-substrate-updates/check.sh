@@ -1,19 +1,28 @@
 #!/usr/bin/env bash
 #
-# check.sh — substrate-update drift detection (Option Small, single-bit "differs?").
+# check.sh — substrate-update full-picture drift detection.
 #
 # Reads substrate/consumer-workspaces.txt (or one workspace passed via
-# --workspace), and for each registered workspace classifies every deployed
-# substrate file as CURRENT (byte-equal to source-after-substitutions) or
-# DIFFERS (anything else). No four-category classification — PRINCIPAL memory
-# + the workspace's git history of .claude/ is canonical for "did I change
-# this or did upstream change this."
+# --workspace), and for each registered workspace emits a composite verdict
+# across three orthogonal categories: DRIFTED (deployed file differs from
+# source-after-substitutions), MISSING (source-side file not present at its
+# expected deployed path — typically a substrate addition the workspace hasn't
+# picked up), and OBSOLETE (workspace file at a substrate-deployable path no
+# longer in source — typically a removed or renamed skill / CAPTAIN). Verdicts
+# compose (e.g. "DRIFTED + MISSING + OBSOLETE"). Per-category file lines use
+# distinct prefixes (- drifted, + missing, ! obsolete) so apply.sh's
+# --all-differing harvester only ever picks up DRIFTED. A per-workspace
+# uncommitted-.claude/-state count is surfaced separately as a pre-flight
+# warning before any apply.sh --yes invocation. Routing footer is
+# per-category-conditional and tier-branched (project / subproject). The skill
+# does NOT classify *why* a file drifted (local edit vs upstream advance vs
+# both) — PRINCIPAL memory + the workspace's git history of .claude/ remains
+# canonical for that.
 #
 # Usage:
 #   check.sh                              # scan all workspaces in registry
 #   check.sh --workspace <path>           # scan a single workspace
 #   check.sh --registry <path>            # use a non-default registry file
-#   check.sh --quiet                      # suppress per-file lines for CURRENT workspaces
 #
 # Output: human-readable per-workspace summary; exit code is always 0 on
 # successful execution. Drift is informational, not failure.
@@ -30,7 +39,6 @@ DEFAULT_REGISTRY="${SUBSTRATE_DIR}/consumer-workspaces.txt"
 
 WORKSPACE_OVERRIDE=""
 REGISTRY="$DEFAULT_REGISTRY"
-QUIET=0
 
 while [ "$#" -gt 0 ]; do
   case "$1" in
@@ -44,12 +52,12 @@ while [ "$#" -gt 0 ]; do
       REGISTRY="$2"
       shift 2
       ;;
-    --quiet)
-      QUIET=1
-      shift
-      ;;
     -h|--help)
-      sed -n '/^# check\.sh/,/^# Drift is informational.*$/p' "$0" | sed 's/^# \{0,1\}//'
+      # Sed range closes on the line ending "not failure." (the last line of
+      # the head-of-file comment block above). Don't end-pattern on a fragment
+      # that appears mid-line — sed -n /<start>/,/<end>/p only closes when the
+      # END pattern matches a whole line, otherwise it prints to EOF.
+      sed -n '/^# check\.sh/,/^# .*not failure\.$/p' "$0" | sed 's/^# \{0,1\}//'
       exit 0
       ;;
     *)
@@ -138,12 +146,14 @@ apply_substitutions() {
 # enumerated → nothing can be "missing"). OBSOLETE will over-report any
 # deployed skill directory as "no longer in source" (the deployed-side glob
 # sees the skill dir, the source-side parser returns empty, so the skill is
-# classified as not-substrate-derived). The previous hand-maintained mirror
-# at check.sh:92-95 silently drifted in Arc 25 (credential-discipline added
-# to install.sh, not to the mirror); this live-parse closes that drift
-# surface, but at the cost of a parsing-correctness surface. The cite is the
-# durable mitigation; VERA Probe 5 (CURRENT regression on the three live
-# workspaces) is the runtime smoke for it.
+# classified as not-substrate-derived). The pre-Arc-26 hand-maintained
+# SKILL_NAMES mirror (in the rationale block immediately above this function)
+# silently drifted in Arc 25 — credential-discipline was added to install.sh
+# but not to the mirror — and the bug only surfaced at apply-time, never at
+# any check.sh run between. This live-parse closes that drift surface but
+# substitutes a parsing-correctness surface. The cite is the durable
+# mitigation; VERA Probe 5 (CURRENT regression on the three live workspaces)
+# is the runtime smoke for it.
 parse_skill_names_from_install() {
   local install_sh="${SUBSTRATE_DIR}/install.sh"
   [ -f "$install_sh" ] || return 1
