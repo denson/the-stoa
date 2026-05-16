@@ -42,11 +42,15 @@
     {
       "text": "ARGUS heads-down on design audit. Verified empirically: (1) DAEDALUS-flagged IFS-join bug is REAL — design §4.6.6 code as written produces 'DRIFTED MISSING OBSOLETE' (space-separated), not 'DRIFTED + MISSING + OBSOLETE'; (2) awk parser in §2.3 correctly extracts all 3 skill names from current install.sh:140-144; (3) install.sh --prune-obsolete deliberately excludes MAJORs AND respects --no-captains / --no-templates opt-outs — this creates an asymmetry the routing footer doesn't surface. Working on final verdict block.",
       "timestamp": "2026-05-16T09:37:55Z"
+    },
+    {
+      "text": "ARGUS COMPLETE — verdict: REVISE (conditional-pass with 4 P0 blockers DAEDALUS must address before ADA dispatches). P0 list: (1) §4.5 uncommitted_claude_count idiom is BROKEN — grep -c on empty input outputs '0' then exits 1, so '|| echo 0' fires too, producing '0\\n0' two-line output that breaks downstream integer comparisons; (2) §4.6.6 IFS-join code as written is broken (DAEDALUS self-flagged in §7.6 but did not correct §4.6.6 — ADA paste-risk is real); (3) apply.sh --all-differing harvest pattern matches ANY '  - ' line — design adds MISSING/OBSOLETE detail blocks at the same indent, so apply.sh will now silently harvest MISSING paths and deploy them via cp, which directly violates A8 hard-locked 'apply.sh --add-missing defeats Option B'; (4) routing-footer 'install.sh --target X --project-dir Y --prune-obsolete' suggested for OBSOLETE is incomplete — install.sh's prune respects --no-captains/--no-templates opt-outs AND excludes MAJORs entirely, so the suggested command may not prune what check.sh flagged. Returning verdict block to PLINY.",
+      "timestamp": "2026-05-16T09:38:02Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:37:55Z"
+  "updated_at": "2026-05-16T09:38:02Z"
 }
