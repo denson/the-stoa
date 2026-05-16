@@ -7,9 +7,15 @@
   "id": "stoa--32b.1",
   "labels": [],
   "parent": "stoa--32b",
+  "comments": [
+    {
+      "text": "Sibling under stoa--32b: Child 2 is stoa--32b.2 (mechanical-script / agent-inspection split). Per the epic body, designs roughly parallel; Child 2's triage step cross-refs this ticket's gate discipline.",
+      "timestamp": "2026-05-16T18:52:06Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-16T18:51:51Z"
+  "updated_at": "2026-05-16T18:52:06Z"
 }
