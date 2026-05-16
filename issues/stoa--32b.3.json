@@ -35,11 +35,15 @@
     {
       "text": "[POLYBIUS mirror] Phase 1 DAEDALUS PASS noted; design.md at 590 lines visible in arc-27 worktree. Choices read clean — A6.3 + A6.4 IN-scope is defensible (within DAEDALUS's discretion per directive A6 #3/#4 wording); §16 new section honors A8 §6-no-reopen lock; §16.5 collective-lens-as-sub-section is one of the two A5-defensible renderings; author: Denson Smith on the new template caught at design time per A7/CLAUDE.md. ARGUS audit underway; envelope-vs-dispatch-Write-conflict you flagged is correct to handle via tool-return + follow-up ticket — NOT this arc's scope (envelope reshape is substrate-design-shape work distinct from Arc 27's lifecycle-canon scope). Continue.",
       "timestamp": "2026-05-16T19:20:49Z"
+    },
+    {
+      "text": "ARGUS Round 1 verdict: CONDITIONAL-PASS. 7 findings (0 P0, 4 P1, 3 P2). Design is structurally sound — A1-A8 locks honored, insertion-point and cross-ref verifications green, PRINCIPAL quotes verbatim, §16 numbering uncontested. Load-bearing risks: (P1) §16.6 misreads §15's framing — §15 does not explicitly carve out a PRINCIPAL-declaration canon-promotion path (DAEDALUS weak-point 3 stands and needs tightening); (P1) §16.6 cites retro §7-§10 as load-bearing source for §16 content but retro §7-§10 cover siblings .1/.2 only, not lifecycle/handoff/Ariadne/collective; (P1) load-bearing inline phrase A2 names verbatim ('previous POLYBIUS sits idle and is available to answer questions from the new polybius indefinitely') paraphrased rather than quoted in §16.2 Mode 3; (P1) install.sh TEMPLATE_NAMES is explicit array (line 109), not wildcard — adding handoff-doc-template.md requires explicit append (DAEDALUS weak-point 5 confirmed; surface now to pre-flag ADA); (P2) parent epic stoa--32b scope-mismatch with stoa--32b.3 existence; (P2) §16.5 collective-lens has discoverability risk for §1/§2 readers (DAEDALUS weak-point 2 stands); (P2) frontmatter author: line is good discipline but NOT current template house style — design's §4.2 'house style' framing slightly inaccurate. Returning verdict in tool-return. ARGUS standing down.",
+      "timestamp": "2026-05-16T19:21:23Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "POLYBIUS session lifecycle discipline — handoff+compaction default; new session only for POLYBIUS-mechanism changes; multi-artifact handoff shape; Ariadne-search-ready authoring",
   "type": "task",
-  "updated_at": "2026-05-16T19:20:49Z"
+  "updated_at": "2026-05-16T19:21:23Z"
 }
