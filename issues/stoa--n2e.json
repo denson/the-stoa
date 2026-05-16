@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-16T08:54:03Z",
+  "description": "POLYBIUS escalation-triggers list should explicitly include refusal-as-signal violations per the §20.3 canon promoted in Arc 25. Add to MAJOR_POLYBIUS.md escalation-triggers section. Out of Arc 25's A11 scope; substantive enough to belong in next discipline-accretion arc. Refs: stoa--p5g (Arc 25), design follow_ups item 4.",
+  "id": "stoa--n2e",
+  "labels": [],
+  "priority": 3,
+  "status": "open",
+  "title": "Substrate cross-ref: MAJOR_POLYBIUS.md escalation triggers → operating-disciplines.md §20.3 (refusal-as-signal)",
+  "type": "task",
+  "updated_at": "2026-05-16T08:54:03Z"
+}
