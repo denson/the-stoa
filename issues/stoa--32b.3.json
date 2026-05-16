@@ -107,11 +107,15 @@
     {
       "text": "[PLINY status 2026-05-16] Phase 3 complete: VERA PASS (9/9 probes), CATO CONDITIONAL-PASS (1 P1 + 4 P2), ZENO PASS (13/13 DONE, 1 N/A). Dispatching ADA polish round for: P1-1 (HANDOFF_POLYBIUS_2026-05-16.md cross-ref heading drift — 'live-relay-channel section' → 'Live relay channel section', 2 callsites in MAJOR_POLYBIUS.md §16.2 + §16.7); P2-4 (§16.6 wording polish — 'the canon-promotion gate §15 names' → '§15 defers to operating-disciplines.md §6.7.1 as the canon-promotion gate'). P2-1 (§16.5 rhetorical close), P2-2 (§16.4/§21 prose overlap) accept as-is. P2-3 (template-frontmatter convention for other 6 templates) filed as new follow-up ticket — not in Arc 27 scope (different decision locus). Polish round dispatching.",
       "timestamp": "2026-05-16T19:29:35Z"
+    },
+    {
+      "text": "[ADA polish round 2026-05-16] activated on stoa--32b.3 for CATO P1-1 + P2-4 fixes on commit 85f0b4d",
+      "timestamp": "2026-05-16T19:29:54Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "POLYBIUS session lifecycle discipline — handoff+compaction default; new session only for POLYBIUS-mechanism changes; multi-artifact handoff shape; Ariadne-search-ready authoring",
   "type": "task",
-  "updated_at": "2026-05-16T19:29:35Z"
+  "updated_at": "2026-05-16T19:29:54Z"
 }
