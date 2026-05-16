@@ -99,11 +99,15 @@
     {
       "text": "VERA complete: verdict PASS (9/9 probes). All easy-easy mechanical probes green. P1 lifecycle-modes classification: Scenario A → Mode 1, Scenario B → Mode 2 + Mode 3 (both correct per §16.2). P2 multi-artifact table: 6 rows present (index doc / bw tickets / retro docs / design artifacts / commits / role files+disciplines). P3 Ariadne-readiness: 4 sub-disciplines named + §21 cross-ref at MAJOR_POLYBIUS.md:872. P4 collective lens: 'The collective IS POLYBIUS' at :884, four 'explains structurally' bullets at :890-893, 'multi-version collective' at :23/:886/:892. P5 cross-refs all resolve. P6 authorship: only 'author: Denson Smith' present (handoff-doc-template.md + pre-existing credential-discipline SKILL.md). P7 CURRENT regression: from main substrate (canonical source-of-truth not-yet-shipped POV) all 4 workspaces CURRENT; from worktree substrate (arc-27/build POV) all 4 DRIFTED — which is the expected propagation surface, NOT a regression (brief's expectation has internal tension; substantive question 'does arc-27 break consumer checking?' is NO). P8 install.sh wiring: TEMPLATE_NAMES line 116, stretch verification confirms handoff-doc-template.md deploys to \u003ctarget\u003e/.claude/templates/. P9 §1 forward-pointer at :23 (well before §16 at :795), 'multi-version collective' present. Returning verdict.",
       "timestamp": "2026-05-16T19:28:49Z"
+    },
+    {
+      "text": "CATO verdict: CONDITIONAL-PASS. 0 P0, 1 P1, 4 P2. P1 finding: §16.7 cross-ref to HANDOFF_POLYBIUS_2026-05-16.md 'live-relay-channel section' is hyphenated; actual heading is 'Live relay channel' (no hyphens). Functionally resolves on reader scan but technically imprecise. P2 findings: (1) §16.5 closes with rhetorical question style mildly inconsistent with declarative substrate voice — minor stylistic; (2) §21 sub-discipline list overlaps §16.4 sub-discipline list with significant prose reuse — justified by different audience+examples but reader hitting both feels mild redundancy; (3) new template's YAML frontmatter is convention-shift across templates dir (all five existing templates have NO frontmatter) — design's §4.4 notes this as deliberate forward convention; flagging for PRINCIPAL visibility since this is a substrate-convention precedent; (4) §16.6 framing 'the canon-promotion gate §15 names' is slightly loose — §15 defers to §6.7.1 but isn't itself a gate-naming section. Authorship audit: clean (only line 2 of new template has author: Denson Smith; {{AUTHOR_SESSION}} is template slot not artifact authorship; co-authored-by trailer is collaboration footer not authorship claim). A2 verbatim audit: BOTH block quotes character-match; all THREE load-bearing inline phrases present verbatim. P1-1 + P1-2 rev2 fixes verified landed. Envelope-vs-dispatch-Write conflict (cannot write verdict file per spec §6.1 — same as ARGUS round 1) — returning full verdict in tool-return. CATO standing down.",
+      "timestamp": "2026-05-16T19:28:56Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "POLYBIUS session lifecycle discipline — handoff+compaction default; new session only for POLYBIUS-mechanism changes; multi-artifact handoff shape; Ariadne-search-ready authoring",
   "type": "task",
-  "updated_at": "2026-05-16T19:28:49Z"
+  "updated_at": "2026-05-16T19:28:56Z"
 }
