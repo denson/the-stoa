@@ -106,11 +106,15 @@
     {
       "text": "Ground-checks complete: install.sh SKILL_NAMES at lines 140-143 (exact match); BARTLEBY tag enum at line 142 (exact match); DAEDALUS/ADA/ARGUS/BARTLEBY all have last subsection of section 6 (or 5 for ADA) immediately before their section 7, so design's named §6.6/§5.7/§6.8/§6.7 placements all correct. operating-disciplines.md ends at line 866 with §19 trailing at line 843 (---); §20 goes between line 843 and line 845. Existing skills use name+description only (no author); new credential-discipline skill ADDS author: Denson Smith per A10. Starting edits now.",
       "timestamp": "2026-05-16T08:47:59Z"
+    },
+    {
+      "text": "Substrate edits complete: operating-disciplines.md §20 (1043 lines, +177); credential-discipline/SKILL.md authored (286 lines, author: Denson Smith); CAPTAIN_DAEDALUS §6.6 + CAPTAIN_ADA §5.7 + CAPTAIN_ARGUS §6.8 + CAPTAIN_BARTLEBY §6.7 envelope additions landed; CAPTAIN_BARTLEBY tag enum extended with credential_leak; install.sh SKILL_NAMES updated (alphabetical). Design copied forward to arc-25/build. Running self-probes.",
+      "timestamp": "2026-05-16T08:49:19Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Substrate fix: credential discipline — batch or env-inject, never per-call prompts",
   "type": "task",
-  "updated_at": "2026-05-16T08:47:59Z"
+  "updated_at": "2026-05-16T08:49:19Z"
 }
