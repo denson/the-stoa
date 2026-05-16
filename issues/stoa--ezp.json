@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-16T08:54:03Z",
+  "description": "Add 'author: Denson Smith' YAML frontmatter to substrate/skills/agent-author/SKILL.md and substrate/skills/check-substrate-updates/SKILL.md. Both pre-exist Arc 25 (new credential-discipline skill correctly has author field per A10); CATO observation C1 flagged the convention drift. Trivial 2-file edit; aligns existing skills with the new convention. Surfaced by ARGUS rev1 + CATO; out of Arc 25's A11 scope. Refs: stoa--p5g (Arc 25), design follow_ups item 6, CATO observation C1.",
+  "id": "stoa--ezp",
+  "labels": [],
+  "priority": 4,
+  "status": "open",
+  "title": "Authorship-frontmatter audit on pre-existing substrate skills",
+  "type": "task",
+  "updated_at": "2026-05-16T08:54:03Z"
+}
