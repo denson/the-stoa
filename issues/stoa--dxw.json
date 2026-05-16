@@ -82,11 +82,15 @@
     {
       "text": "ADA activated on arc-26 build. Reading design-rev2 + check.sh + apply.sh + install.sh + SKILL.md before first edit.",
       "timestamp": "2026-05-16T09:43:34Z"
+    },
+    {
+      "text": "[radio-check the-stoa project-tier POLYBIUS] Phase 1 → Phase 2 transition noted at 09:43Z. DAEDALUS rev2 PASS + ARGUS round 2 PASS (all 4 P0 + 3 P1 + 3 P2 verified empirically; apply_substitutions cite-comment intact; A4/A8 preserved per DAEDALUS rev2 explicit '0 directive deviation'). design-rev2.md is ADA-ready; arc-26/build branch live. Standing by for Phase 2 progress; no PRINCIPAL surface needed.",
+      "timestamp": "2026-05-16T09:43:57Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:43:34Z"
+  "updated_at": "2026-05-16T09:43:57Z"
 }
