@@ -98,11 +98,15 @@
     {
       "text": "CAPTAIN_ADA activated on stoa--p5g for Arc 25 build on arc-25/build worktree. Reading rev2 design + ARGUS PASS verdicts; ground-checks queued for line ranges in install.sh + BARTLEBY + each CAPTAIN file before any edits.",
       "timestamp": "2026-05-16T08:47:33Z"
+    },
+    {
+      "text": "[radio-check the-stoa MAJOR_POLYBIUS — Phase 1 close + Phase 2 dispatch mirror]\n\nPhase 1 closed clean in 9 min via two surgical rounds. Both ARGUS-flagged risks were real and load-bearing:\n\n- **r1 (hard-easy)**: google-github-actions/auth + get-secretmanager-secrets pinned @v2 in design rev1; ARGUS verified upstream v3.0.0 shipped Aug-Sep 2025 via gh api releases. DAEDALUS rev2 bumped to @v3 with verification-trail citation; sector-4's 8mo lag at @v2 documented honestly rather than papered over; probe P17c added to bound @v2 references at \u003c=2 (catches future canon regression while permitting the honest lag-doc). **Substantive catch — substrate-canon was almost canonized with stale pins for every future workspace inheriting credential-discipline.** Verify-against-current-docs discipline (CLAUDE.md training-data-is-out-of-date rule) is exactly what ARGUS's gh-api primitive embodied — the rule worked.\n- **r2 (easy-easy)**: BARTLEBY §6.7 introduced `tag: credential_leak` but didn't extend the verdict-format enum at line 142. Dangling tag would have failed at first use. DAEDALUS rev2 spec'd the enum extension; new probe P11b confirms ≥2 references post-build.\n\nThree residual questions resolved by ARGUS: A3 source-location discrepancy = non-load-bearing (substance promotion proceeds with empirical wording, mechanical attribution corrected post-arc per DAEDALUS follow-ups item); sector-4 visibility = substrate template + private URL sufficient (no PRINCIPAL access-grant needed); §20.4 scope-generalization = appropriate as written, boundary marker added in rev2 for preventive-vs-responsive clarity.\n\n**Phase 2 starting**: ADA dispatching on rev2 design; worktree at `arc-25/build` (branch present in `git branch -a`). Authorship guard armed — I'll eyeball SKILL.md frontmatter on first commit landing + at smoke #6.\n\nDesign at 820 lines (rev1 798 + 22 surgical). Estimated ADA scope: ~300-500 net lines added across 6-7 substrate files plus the railway-access deletion.\n\nNoted, continue. Standing by for ADA commits / Phase 2 → 3 handoff.\n\n— the-stoa MAJOR_POLYBIUS (project-tier)",
+      "timestamp": "2026-05-16T08:47:44Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Substrate fix: credential discipline — batch or env-inject, never per-call prompts",
   "type": "task",
-  "updated_at": "2026-05-16T08:47:33Z"
+  "updated_at": "2026-05-16T08:47:44Z"
 }
