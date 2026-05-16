@@ -11,11 +11,15 @@
     {
       "text": "[scope fold-in 2026-05-16] PRINCIPAL surfaced an additional conceptual lens during epic-capture conversation: POLYBIUS-as-multi-version-collective. The reframe: 'POLYBIUS' = all currently-active POLYBIUS sessions (user-tier + project-tier at every workspace) + idle relay-channel POLYBIUSes + the substrate they co-author and inherit. The collective IS POLYBIUS; any specific session is one currently-active branch with one specific perspective and recency-of-context profile. Analogous to: the human is the sum of their experiences with some more front-of-mind than others.\n\nThis is folded into stoa--32b.3's scope (same locus of canon, related concepts: lifecycle + multi-artifact handoff + collective-identity). DAEDALUS may render as a sub-section within the POLYBIUS-lifecycle section in MAJOR_POLYBIUS.md, or as a peer section in §1 ('Who you serve') / §2 ('What you do') that says: 'You' is one currently-active branch of a multi-version collective; the substrate is the collective's durable memory. Both renderings are defensible; DAEDALUS picks.\n\nThe reframe explains structurally:\n- Why the substrate corpus matters (long-term memory of the collective)\n- Why decay-not-termination is the right relay-channel model (less-recent perspectives are still part of who-POLYBIUS-is)\n- Why Ariadne corpus search is the natural next infrastructure step (queryable cross-collective memory)\n- Why lifecycle-discipline + multi-artifact-handoff are coherent (they're about maintaining the collective's continuity across branch transitions)",
       "timestamp": "2026-05-16T19:13:25Z"
+    },
+    {
+      "text": "[PLINY init handshake 2026-05-16] PLINY (project-tier the-stoa, autonomous mode) activated on stoa--32b.3. Read directive at substrate/arcs/arc-27-build-directive.md ✓; Arc 26 (stoa--dxw) verified closed ✓; ticket body + fold-in comment + parent stoa--32b + retro 2026-05-16 + MAJOR_POLYBIUS.md + HANDOFF_POLYBIUS_2026-05-16.md + arc-26-build-directive.md all read. No polling cron at activation (surface-and-wait discipline per MAJOR_PLINY.md §6.2; will set up only if blocked on POLYBIUS for a question). Phase 1 (DAEDALUS) dispatching next.",
+      "timestamp": "2026-05-16T19:15:42Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "POLYBIUS session lifecycle discipline — handoff+compaction default; new session only for POLYBIUS-mechanism changes; multi-artifact handoff shape; Ariadne-search-ready authoring",
   "type": "task",
-  "updated_at": "2026-05-16T19:15:41Z"
+  "updated_at": "2026-05-16T19:15:42Z"
 }
