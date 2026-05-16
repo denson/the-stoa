@@ -1,19 +1,28 @@
 #!/usr/bin/env bash
 #
-# check.sh — substrate-update drift detection (Option Small, single-bit "differs?").
+# check.sh — substrate-update full-picture drift detection.
 #
 # Reads substrate/consumer-workspaces.txt (or one workspace passed via
-# --workspace), and for each registered workspace classifies every deployed
-# substrate file as CURRENT (byte-equal to source-after-substitutions) or
-# DIFFERS (anything else). No four-category classification — PRINCIPAL memory
-# + the workspace's git history of .claude/ is canonical for "did I change
-# this or did upstream change this."
+# --workspace), and for each registered workspace emits a composite verdict
+# across three orthogonal categories: DRIFTED (deployed file differs from
+# source-after-substitutions), MISSING (source-side file not present at its
+# expected deployed path — typically a substrate addition the workspace hasn't
+# picked up), and OBSOLETE (workspace file at a substrate-deployable path no
+# longer in source — typically a removed or renamed skill / CAPTAIN). Verdicts
+# compose (e.g. "DRIFTED + MISSING + OBSOLETE"). Per-category file lines use
+# distinct prefixes (- drifted, + missing, ! obsolete) so apply.sh's
+# --all-differing harvester only ever picks up DRIFTED. A per-workspace
+# uncommitted-.claude/-state count is surfaced separately as a pre-flight
+# warning before any apply.sh --yes invocation. Routing footer is
+# per-category-conditional and tier-branched (project / subproject). The skill
+# does NOT classify *why* a file drifted (local edit vs upstream advance vs
+# both) — PRINCIPAL memory + the workspace's git history of .claude/ remains
+# canonical for that.
 #
 # Usage:
 #   check.sh                              # scan all workspaces in registry
 #   check.sh --workspace <path>           # scan a single workspace
 #   check.sh --registry <path>            # use a non-default registry file
-#   check.sh --quiet                      # suppress per-file lines for CURRENT workspaces
 #
 # Output: human-readable per-workspace summary; exit code is always 0 on
 # successful execution. Drift is informational, not failure.
@@ -30,7 +39,6 @@ DEFAULT_REGISTRY="${SUBSTRATE_DIR}/consumer-workspaces.txt"
 
 WORKSPACE_OVERRIDE=""
 REGISTRY="$DEFAULT_REGISTRY"
-QUIET=0
 
 while [ "$#" -gt 0 ]; do
   case "$1" in
@@ -44,12 +52,12 @@ while [ "$#" -gt 0 ]; do
       REGISTRY="$2"
       shift 2
       ;;
-    --quiet)
-      QUIET=1
-      shift
-      ;;
     -h|--help)
-      sed -n '/^# check\.sh/,/^# Drift is informational.*$/p' "$0" | sed 's/^# \{0,1\}//'
+      # Sed range closes on the line ending "not failure." (the last line of
+      # the head-of-file comment block above). Don't end-pattern on a fragment
+      # that appears mid-line — sed -n /<start>/,/<end>/p only closes when the
+      # END pattern matches a whole line, otherwise it prints to EOF.
+      sed -n '/^# check\.sh/,/^# .*not failure\.$/p' "$0" | sed 's/^# \{0,1\}//'
       exit 0
       ;;
     *)
@@ -59,42 +67,17 @@ while [ "$#" -gt 0 ]; do
   esac
 done
 
-# ----- substrate-source arrays (mirror substrate/install.sh) -----------------
-#
-# Mirrors install.sh's CAPTAIN_NAMES, TEMPLATE_NAMES, SKILL_NAMES arrays
-# (see install.sh ~lines 109–142 as of c37cf5a). Sourcing install.sh as bash
-# would execute it (it has top-level side effects); maintaining the mirror
-# here is the documented choice (design §2.3). If install.sh adds or removes
-# a name, this list must be updated to match.
-
-CAPTAIN_NAMES=(
-  DAEDALUS
-  ARGUS
-  ADA
-  VERA
-  CATO
-  STRABO
-  BARTLEBY
-  HERALD
-  CURATOR
-  ZENO
-)
-
-TEMPLATE_NAMES=(
-  paste-instruction-template.md
-  onboarding-questions.md
-  consent-prompts.md
-  polling-cron-prompt-template.md
-  activation-paste-cheatsheet.md
-  autonomous-mode-activation-template.md
-)
-
-SKILL_NAMES=(
-  agent-author
-  check-substrate-updates
-)
-
 # ----- helpers ---------------------------------------------------------------
+#
+# Arc 26: the hand-maintained CAPTAIN_NAMES / TEMPLATE_NAMES / SKILL_NAMES
+# mirrors that used to live here were removed. Source-of-truth enumeration is
+# now derived live from the substrate dir on every run — CAPTAINs and
+# templates via globs against substrate/, skills via parse_skill_names_from_install
+# (which parses install.sh:140-144's SKILL_NAMES array). The mirror approach
+# silently drifted in Arc 25 (credential-discipline was added to install.sh
+# but not to the local SKILL_NAMES mirror) — the exact failure mode Arc 26
+# closes for the operator-side equivalent. See design-rev2.md §2.2 / §2.4 for
+# the full rationale.
 
 # normalize_lf: read stdin, strip \r before \n. Used on both deployed and
 # source-after-substitutions sides before byte-compare so checkout-on-Windows
@@ -144,6 +127,47 @@ apply_substitutions() {
       cat "$source_file"
       ;;
   esac
+}
+
+# parse_skill_names_from_install: echo one skill name per line.
+# Reads substrate/install.sh and extracts the SKILL_NAMES=(...) array contents.
+#
+# CITE: parses install.sh:140-144 (SKILL_NAMES array, multi-line form). If
+# install.sh changes the array name, moves to a single-line / non-parenthesized
+# form, or uses += append syntax, this function must update its awk expression
+# to match. Cite mirror of the apply_substitutions() pattern above (cite-at-
+# the-read-site is the durable mitigation for source-side coupling — see
+# design-rev2.md §3 cite-comment policy).
+#
+# FAILURE-MODE SYMPTOM (rev2 P1-1, per ARGUS): if this awk returns empty for a
+# substrate that has skills (i.e. install.sh:140 region exists but stdout is
+# empty), the parser is broken and the run is UNTRUSTWORTHY — every MISSING
+# and OBSOLETE result will be wrong. MISSING will under-report (nothing
+# enumerated → nothing can be "missing"). OBSOLETE will over-report any
+# deployed skill directory as "no longer in source" (the deployed-side glob
+# sees the skill dir, the source-side parser returns empty, so the skill is
+# classified as not-substrate-derived). The pre-Arc-26 hand-maintained
+# SKILL_NAMES mirror (in the rationale block immediately above this function)
+# silently drifted in Arc 25 — credential-discipline was added to install.sh
+# but not to the mirror — and the bug only surfaced at apply-time, never at
+# any check.sh run between. This live-parse closes that drift surface but
+# substitutes a parsing-correctness surface. The cite is the durable
+# mitigation; VERA Probe 5 (CURRENT regression on the three live workspaces)
+# is the runtime smoke for it.
+parse_skill_names_from_install() {
+  local install_sh="${SUBSTRATE_DIR}/install.sh"
+  [ -f "$install_sh" ] || return 1
+  # awk: print every line strictly between 'SKILL_NAMES=(' and the next ')',
+  # stripping whitespace and skipping blanks/comments.
+  awk '
+    /^SKILL_NAMES=\(/ { in_arr = 1; next }
+    in_arr && /^\)/   { in_arr = 0; next }
+    in_arr            {
+      gsub(/^[[:space:]]+|[[:space:]]+$/, "")
+      if ($0 == "" || $0 ~ /^#/) next
+      print
+    }
+  ' "$install_sh"
 }
 
 # source_path_for_deployed <deployed-relative-path> <tier> <slug>
@@ -262,6 +286,15 @@ detect_tier() {
 # enumerate_deployed <workspace-abs> <tier> <slug>
 # Echoes one deployed-relative path per line for every file we expect to find
 # at standard substrate-deploy locations. Existence is checked by the caller.
+#
+# Arc 26: source-side enumeration is fully live — CAPTAINs and templates are
+# glob-derived from substrate/, skills are derived from
+# parse_skill_names_from_install (which parses install.sh:140-144). No
+# hand-maintained mirrors. The source-side set returned here IS the live
+# ground truth; if parse_skill_names_from_install ever returns empty for a
+# substrate that has skills, the parser is broken and the whole run is
+# untrustworthy (see cite-comment on that function and design-rev2.md §2.3 /
+# §4.6.3).
 enumerate_deployed() {
   local ws="$1"
   local tier="$2"
@@ -283,28 +316,206 @@ enumerate_deployed() {
 
   echo ".claude/operating-disciplines.md"
 
-  # CAPTAINs: suffixed at project/subproject, unsuffixed at user.
-  local cap
-  for cap in "${CAPTAIN_NAMES[@]}"; do
-    echo ".claude/agents/CAPTAIN_${cap}${suffix}.md"
+  # CAPTAINs: glob substrate/CAPTAIN_*.md. Suffixed at project/subproject,
+  # unsuffixed at user. Replaces the dropped CAPTAIN_NAMES mirror.
+  local capf cap_base
+  shopt -s nullglob
+  for capf in "${SUBSTRATE_DIR}/CAPTAIN_"*.md; do
+    cap_base="$(basename "$capf" .md)"   # "CAPTAIN_DAEDALUS"
+    cap_base="${cap_base#CAPTAIN_}"      # "DAEDALUS"
+    echo ".claude/agents/CAPTAIN_${cap_base}${suffix}.md"
   done
+  shopt -u nullglob
 
-  # Templates (unsuffixed at all tiers).
-  local tn
-  for tn in "${TEMPLATE_NAMES[@]}"; do
-    echo ".claude/templates/${tn}"
+  # Templates (unsuffixed at all tiers): glob substrate/templates/*. Replaces
+  # the dropped TEMPLATE_NAMES mirror.
+  local tplf
+  shopt -s nullglob
+  for tplf in "${SUBSTRATE_DIR}/templates/"*; do
+    [ -f "$tplf" ] || continue
+    echo ".claude/templates/$(basename "$tplf")"
   done
+  shopt -u nullglob
 
   # Skills: enumerate every file under each skill subtree in the source.
-  local sn rel
-  for sn in "${SKILL_NAMES[@]}"; do
+  # Skill names come from parse_skill_names_from_install (live-parsed from
+  # install.sh:140-144); the find-walk inside each named dir is source-side
+  # enumeration of per-skill files.
+  local sn rel f
+  while IFS= read -r sn; do
+    [ -n "$sn" ] || continue
     if [ -d "${SUBSTRATE_DIR}/skills/${sn}" ]; then
       while IFS= read -r f; do
         rel="${f#${SUBSTRATE_DIR}/}"
         echo ".claude/${rel}"
       done < <(find "${SUBSTRATE_DIR}/skills/${sn}" -type f)
     fi
+  done < <(parse_skill_names_from_install)
+}
+
+# enumerate_workspace_substrate_paths <workspace-abs> <tier> <slug>
+# Echoes one deployed-relative path per line for every workspace file at a
+# substrate-deployable path. Used by Pass 2 of check_workspace (OBSOLETE
+# detection). Skills are emitted at directory level (per directive A4);
+# other categories at file level.
+#
+# Files explicitly NOT enumerated (per directive A4):
+#   - .claude/.substrate-last-check         transient state file
+#   - .claude/.substrate-backups/...        apply.sh's backup tree
+#   - HUMAN_*.md                            user-added instruction files
+#   - .claude/agents/* not matching CAPTAIN_*.md  user-added pair-programmer agents
+#   - loose files directly under .claude/skills/  not deployed by install.sh
+#
+# Important precedent: install.sh's prune logic at install.sh:766-770
+# deliberately excludes MAJOR_*.md from obsolete detection (pair-programmer
+# MAJOR ambiguity). Directive A4 nonetheless specifies .claude/MAJOR_*.md is
+# in scope for check.sh's OBSOLETE detection — a deliberate divergence
+# (check.sh is informational; install.sh's prune is destructive). The
+# asymmetry surfaces to the operator via the split routing footer in
+# check_workspace (MAJOR_*.md OBSOLETE entries route to a manual-rm footer,
+# not to install.sh --prune-obsolete which would silently no-op).
+enumerate_workspace_substrate_paths() {
+  local ws="$1"
+  local tier="$2"
+  local slug="$3"
+  local suffix=""
+
+  case "$tier" in
+    project|subproject) suffix="_${slug}" ;;
+  esac
+
+  local f
+  shopt -s nullglob
+  # MAJORs: glob workspace dir. Per A4 these ARE in scope for OBSOLETE
+  # detection (asymmetry with install.sh's prune-scope, which excludes
+  # MAJORs — surfaced to operator via split routing footer).
+  for f in "${ws}/.claude/MAJOR_"*.md; do
+    echo ".claude/$(basename "$f")"
   done
+  if [ -f "${ws}/.claude/operating-disciplines.md" ]; then
+    echo ".claude/operating-disciplines.md"
+  fi
+
+  # CAPTAINs: glob workspace dir.
+  if [ -d "${ws}/.claude/agents" ]; then
+    for f in "${ws}/.claude/agents/CAPTAIN_"*.md; do
+      echo ".claude/agents/$(basename "$f")"
+    done
+  fi
+
+  # Templates: glob workspace dir.
+  if [ -d "${ws}/.claude/templates" ]; then
+    for f in "${ws}/.claude/templates/"*; do
+      [ -f "$f" ] || continue
+      echo ".claude/templates/$(basename "$f")"
+    done
+  fi
+
+  # Skills: directory-level (per A4).
+  if [ -d "${ws}/.claude/skills" ]; then
+    local d
+    for d in "${ws}/.claude/skills/"*/; do
+      echo ".claude/skills/$(basename "$d")/"
+    done
+  fi
+  shopt -u nullglob
+
+  # Suppress unused-var warning under set -u for tiers without suffix.
+  : "$suffix"
+}
+
+# is_substrate_source_present <deployed-rel-path> <tier> <slug>
+# Returns 0 if the substrate source backs this deployed path, 1 otherwise.
+# For skills: present iff the skill name is in install.sh's SKILL_NAMES
+# (live-parsed) — directory existence under substrate/skills/ is not
+# sufficient (a skill on disk under substrate/skills/ but NOT in install.sh's
+# SKILL_NAMES would be a substrate-internal inconsistency, but for OBSOLETE
+# we treat "not in install.sh's SKILL_NAMES" as "not substrate-derived").
+is_substrate_source_present() {
+  local dep="$1"
+  local tier="$2"
+  local slug="$3"
+  local rel="${dep#.claude/}"
+  case "$rel" in
+    skills/*)
+      # Extract skill name (first path segment after skills/).
+      local sname="${rel#skills/}"
+      sname="${sname%%/*}"
+      local known
+      while IFS= read -r known; do
+        [ "$known" = "$sname" ] && return 0
+      done < <(parse_skill_names_from_install)
+      return 1
+      ;;
+    *)
+      local src_rel
+      src_rel="$(source_path_for_deployed "$dep" "$tier" "$slug")"
+      [ -n "$src_rel" ] && [ -e "${SUBSTRATE_DIR}/${src_rel}" ]
+      ;;
+  esac
+}
+
+# uncommitted_claude_count <workspace-abs>
+# Echoes a non-negative integer (count of uncommitted .claude/ files,
+# excluding .substrate-last-check) or the literal "unknown" if the workspace
+# is not git-tracked or .claude/ is not under git.
+#
+# Per directive A5: workspace must be inside a git repo for this signal to
+# work; otherwise informational "unknown" is returned, not blocking.
+#
+# Implementation note: uses `git status --porcelain | grep -v ... | wc -l`
+# per directive A5 line 116 canonical form. `wc -l` returns 0 on empty input
+# (it counts newlines), so no `|| echo 0` defang needed. `tr -d ' '` strips
+# the leading whitespace BSD/GNU wc emits in some environments — same idiom
+# as the line-count extraction in check_workspace (Pass 1). Safe under
+# set -euo pipefail.
+#
+# Sibling-not-shared with apply.sh's git_uncommitted_claude (apply.sh:184-189)
+# — apply.sh returns the file LIST (multi-line for display); check.sh needs
+# only the COUNT (for the summary line). Inlined here per design-rev2.md §4.5.
+uncommitted_claude_count() {
+  local ws="$1"
+  # Must be inside a git work tree.
+  if ! git -C "$ws" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    echo "unknown"
+    return 0
+  fi
+  # .claude/ must be tracked or have any tracked files (consistent with
+  # apply.sh's git_path_active helper at apply.sh:169-182).
+  if ! git -C "$ws" ls-files .claude 2>/dev/null | grep -q .; then
+    echo "unknown"
+    return 0
+  fi
+  # Count porcelain lines, excluding .substrate-last-check. Per directive
+  # A5; wc -l is empty-input-safe (returns 0).
+  #
+  # Defect-fix (ADA, post-design-rev2): `grep -v` exits 1 when NO lines are
+  # selected (e.g. git status produces empty stdout, or the only output line
+  # is .substrate-last-check itself). Under `set -euo pipefail` that
+  # propagates to the pipeline exit and then to the calling command
+  # substitution, killing the run. Defang with `|| true` on grep — the
+  # downstream `wc -l` still correctly counts 0 lines on empty input, which
+  # is the intended return value. Surfaced upward to PLINY in the verdict.
+  git -C "$ws" status --porcelain -- .claude 2>/dev/null \
+    | { grep -v '\.substrate-last-check$' || true; } \
+    | wc -l \
+    | tr -d ' '
+}
+
+# emit_uncommitted_warning_if_needed <count> <workspace-abs>
+# If the uncommitted count is a positive integer, emit the directive-A6
+# warning text. "unknown" and "0" are no-ops.
+emit_uncommitted_warning_if_needed() {
+  local count="$1"
+  local ws_abs="$2"
+  case "$count" in
+    unknown|0) return 0 ;;
+  esac
+  # count >= 1 — emit warning per directive A6.
+  echo
+  printf "  WARNING: workspace has %s uncommitted .claude/ changes. apply.sh --yes\n" "$count"
+  echo   "  will auto-commit-then-overwrite; preserve the local edits via git history."
+  printf "  Inspect with: cd %s && git status --short .claude/\n" "$ws_abs"
 }
 
 # read_state_file <workspace-abs>
@@ -379,11 +590,25 @@ check_workspace() {
     return 0
   fi
 
-  # Enumerate deployed files and compare each.
-  local differs_files=()
-  local differs_deltas=()
+  # ----- Pass 1: DRIFTED + MISSING ------------------------------------------
+  #
+  # Walk the source-side enumeration. For each expected-deployed path:
+  #   - file absent at workspace -> MISSING (append to missing_files)
+  #   - file present, source gone (racing-edit edge) -> OBSOLETE on the
+  #     workspace side (partition by MAJOR vs prunable)
+  #   - file present, byte-equal to source-after-substitutions -> CURRENT
+  #   - file present, differs -> DRIFTED (with line-count delta)
+  #
+  # The source-side enumeration IS the live ground truth (design-rev2.md
+  # §4.6.3 / §2.3 cite-comment): if parse_skill_names_from_install ever
+  # returns empty for a substrate that has skills, the parser is broken and
+  # the whole run is untrustworthy.
+  local drifted_files=()           # was differs_files
+  local drifted_deltas=()          # was differs_deltas
+  local missing_files=()           # NEW (Arc 26)
+  local obsolete_prunable_files=() # NEW: OBSOLETE routable to install.sh --prune-obsolete
+  local obsolete_major_files=()    # NEW: OBSOLETE MAJOR_*.md (install.sh excludes from prune)
   local current_count=0
-  local missing_count=0
   local total=0
 
   local dep src_rel src_abs deployed_path
@@ -392,7 +617,7 @@ check_workspace() {
     total=$((total + 1))
     deployed_path="${ws_abs}/${dep}"
     if [ ! -f "$deployed_path" ]; then
-      missing_count=$((missing_count + 1))
+      missing_files+=("$dep")
       continue
     fi
     src_rel="$(source_path_for_deployed "$dep" "$tier" "$slug")"
@@ -403,10 +628,19 @@ check_workspace() {
     fi
     src_abs="${SUBSTRATE_DIR}/${src_rel}"
     if [ ! -f "$src_abs" ]; then
-      # Source file gone (deleted from substrate) — surface as DIFFERS so the
-      # operator notices a file that should be removed.
-      differs_files+=("$dep")
-      differs_deltas+=("source-removed")
+      # Source file gone despite being enumerated as an expected deployed.
+      # Under Arc 26's live-parsing enumeration this is now impossible for
+      # skills (parser only emits names whose source exists) and very rare
+      # for CAPTAINs/templates/MAJORs (enumerate_deployed globs the source
+      # side directly). If it ever does happen (racing-edit during a
+      # substrate-update), surface as OBSOLETE on the workspace side rather
+      # than DRIFTED. Pass 2 dedup handles the cross-pass case.
+      case "$dep" in
+        .claude/MAJOR_*.md)
+          obsolete_major_files+=("$dep") ;;
+        *)
+          obsolete_prunable_files+=("$dep") ;;
+      esac
       continue
     fi
 
@@ -429,12 +663,93 @@ check_workspace() {
       else
         sign=""
       fi
-      differs_files+=("$dep")
-      differs_deltas+=("${sign}${delta} lines")
+      drifted_files+=("$dep")
+      drifted_deltas+=("${sign}${delta} lines")
     fi
   done < <(enumerate_deployed "$ws_abs" "$tier" "$slug")
 
-  # Emit summary.
+  # ----- Pass 2: OBSOLETE (with split routing) ------------------------------
+  #
+  # Walk the workspace-side enumeration; flag files at substrate-deployable
+  # paths whose source is no longer present. Partition OBSOLETE entries into
+  # MAJOR_*.md (manual-rm — install.sh excludes from prune) and everything
+  # else (install.sh --prune-obsolete handles).
+  local ws_dep already_obsolete of
+  while IFS= read -r ws_dep; do
+    [ -n "$ws_dep" ] || continue
+
+    # Dedupe against any OBSOLETE entries Pass 1's racing-edit branch already
+    # populated. Guarded against empty-array phantom-string iteration under
+    # set -u (design-rev2.md P1-3).
+    already_obsolete=0
+    if [ "${#obsolete_prunable_files[@]}" -gt 0 ]; then
+      for of in "${obsolete_prunable_files[@]}"; do
+        [ "$of" = "$ws_dep" ] && { already_obsolete=1; break; }
+      done
+    fi
+    if [ "$already_obsolete" -eq 0 ] && [ "${#obsolete_major_files[@]}" -gt 0 ]; then
+      for of in "${obsolete_major_files[@]}"; do
+        [ "$of" = "$ws_dep" ] && { already_obsolete=1; break; }
+      done
+    fi
+    [ "$already_obsolete" -eq 1 ] && continue
+
+    if ! is_substrate_source_present "$ws_dep" "$tier" "$slug"; then
+      # Partition: MAJOR_*.md basenames go to manual-rm bucket; everything
+      # else goes to install.sh --prune-obsolete bucket. install.sh:60-69,
+      # :766-770 deliberately exclude MAJORs from prune (pair-programmer
+      # MAJOR ambiguity); emitting install.sh --prune-obsolete for a
+      # flagged-OBSOLETE MAJOR would silently no-op — actively misleading.
+      case "$ws_dep" in
+        .claude/MAJOR_*.md)
+          obsolete_major_files+=("$ws_dep")
+          ;;
+        *)
+          obsolete_prunable_files+=("$ws_dep")
+          ;;
+      esac
+    fi
+  done < <(enumerate_workspace_substrate_paths "$ws_abs" "$tier" "$slug")
+
+  # ----- Pass 3: uncommitted .claude/ state ---------------------------------
+  local uncommitted
+  uncommitted="$(uncommitted_claude_count "$ws_abs")"
+
+  # ----- Verdict computation ------------------------------------------------
+  #
+  # Per directive A6: <verdict> (<N> drifted, <M> missing, <K> obsolete; <U> uncommitted)
+  # Token order: drifted -> missing -> obsolete.
+  local n_drifted=${#drifted_files[@]}
+  local n_missing=${#missing_files[@]}
+  local n_obsolete=$(( ${#obsolete_prunable_files[@]} + ${#obsolete_major_files[@]} ))
+  local verdict_parts=()
+  local verdict
+
+  [ "$n_drifted"  -gt 0 ] && verdict_parts+=("DRIFTED")
+  [ "$n_missing"  -gt 0 ] && verdict_parts+=("MISSING")
+  [ "$n_obsolete" -gt 0 ] && verdict_parts+=("OBSOLETE")
+
+  # Join with " + " per locked directive A6 composite form. Explicit case
+  # form instead of `IFS=' + '; echo "${arr[*]}"` — bash multi-char IFS uses
+  # only the FIRST char as separator, so the IFS form would produce
+  # " "-separated tokens, not " + "-separated. Case form is unambiguous and
+  # matches the directive's literal " + " separator.
+  case "${#verdict_parts[@]}" in
+    0) verdict="CURRENT" ;;
+    1) verdict="${verdict_parts[0]}" ;;
+    2) verdict="${verdict_parts[0]} + ${verdict_parts[1]}" ;;
+    3) verdict="${verdict_parts[0]} + ${verdict_parts[1]} + ${verdict_parts[2]}" ;;
+  esac
+
+  # Format the uncommitted suffix per directive A6.
+  local uncommitted_suffix
+  if [ "$uncommitted" = "unknown" ]; then
+    uncommitted_suffix="; uncommitted-state: unknown (workspace not git-tracked)"
+  else
+    uncommitted_suffix="; ${uncommitted} uncommitted"
+  fi
+
+  # ----- Emit summary -------------------------------------------------------
   local sha
   sha="$(substrate_head_sha)"
   local state ts last_sha
@@ -442,23 +757,113 @@ check_workspace() {
   ts="${state%%|*}"
   last_sha="${state##*|}"
 
-  local n_differs=${#differs_files[@]}
-  if [ "$n_differs" -eq 0 ]; then
-    printf "%-40s CURRENT (all %d deployed files match current substrate)\n" "$label" "$current_count"
+  if [ "$verdict" = "CURRENT" ]; then
+    printf "%-40s CURRENT (0 drifted, 0 missing, 0 obsolete%s)\n" "$label" "$uncommitted_suffix"
     if [ -n "$ts" ]; then
       printf "  Last check: %s (against substrate sha %s)\n" "$ts" "$last_sha"
     fi
+    # Surface uncommitted warning even on CURRENT (per directive A6's
+    # always-emit-on-uncommitted shape).
+    emit_uncommitted_warning_if_needed "$uncommitted" "$ws_abs"
   else
-    printf "%-40s DRIFTED (%d files differ from current substrate)\n" "$label" "$n_differs"
-    local i
-    for ((i=0; i<n_differs; i++)); do
-      printf "  - %-50s (%s)\n" "${differs_files[$i]}" "${differs_deltas[$i]}"
-    done
+    printf "%-40s %s (%d drifted, %d missing, %d obsolete%s)\n" \
+      "$label" "$verdict" "$n_drifted" "$n_missing" "$n_obsolete" "$uncommitted_suffix"
+
+    # Per-category detail blocks (only for non-zero categories).
+    # PREFIX DISCIPLINE (design-rev2.md P0-3): each category uses a DISTINCT
+    # prefix so apply.sh's blind harvest of "  - "* matches ONLY DRIFTED.
+    # apply.sh stays untouched (deliverable 6) and cannot accidentally
+    # deploy MISSING files via cp at apply.sh:370.
+    #   DRIFTED:  "  - "  (two-space + dash + space) — apply.sh:218 harvests this
+    #   MISSING:  "  + "  (two-space + plus  + space) — visual: "this needs adding"
+    #   OBSOLETE: "  ! "  (two-space + bang  + space) — visual: "this needs attention"
+    if [ "$n_drifted" -gt 0 ]; then
+      echo "  DRIFTED:"
+      local i
+      for ((i=0; i<n_drifted; i++)); do
+        printf "  - %-50s (%s)\n" "${drifted_files[$i]}" "${drifted_deltas[$i]}"
+      done
+    fi
+    if [ "$n_missing" -gt 0 ]; then
+      echo "  MISSING:"
+      local m
+      for m in "${missing_files[@]}"; do
+        printf "  + %-50s (new in source)\n" "$m"
+      done
+    fi
+    if [ "$n_obsolete" -gt 0 ]; then
+      echo "  OBSOLETE:"
+      # Emit prunable first, MAJORs second — preserves visual contiguity.
+      if [ "${#obsolete_prunable_files[@]}" -gt 0 ]; then
+        local op
+        for op in "${obsolete_prunable_files[@]}"; do
+          printf "  ! %-50s (dropped from source)\n" "$op"
+        done
+      fi
+      if [ "${#obsolete_major_files[@]}" -gt 0 ]; then
+        local om
+        for om in "${obsolete_major_files[@]}"; do
+          printf "  ! %-50s (dropped from source; manual-rm — see footer)\n" "$om"
+        done
+      fi
+    fi
+
+    # State-info lines.
+    echo
     if [ -n "$ts" ]; then
-      printf "\n  Last check: %s (against substrate sha %s)\n" "$ts" "$last_sha"
+      printf "  Last check: %s (against substrate sha %s)\n" "$ts" "$last_sha"
     fi
     printf "  Current substrate HEAD: %s\n" "$sha"
-    printf "  Run 'apply.sh --workspace %s' to review and apply per-file.\n" "$ws_abs"
+
+    # Routing footer (per directive A6). Per-category-conditional — emitting
+    # an apply.sh line for a workspace with zero DRIFTED would actively
+    # confuse the operator. Tier-branched install.sh footer per design-rev2.md
+    # P2-1 (subproject uses --parent-dir + --subproject; project uses
+    # --project-dir).
+    echo
+    if [ "$n_drifted" -gt 0 ]; then
+      printf "  Run apply.sh --workspace %s for drifted.\n" "$ws_abs"
+    fi
+    if [ "$n_missing" -gt 0 ]; then
+      case "$tier" in
+        subproject)
+          local parent_dir="${ws_abs%/${slug}}"
+          printf "  Run install.sh --target subproject --parent-dir %s --subproject %s for missing.\n" \
+            "$parent_dir" "$slug"
+          ;;
+        *)
+          printf "  Run install.sh --target %s --project-dir %s for missing.\n" "$tier" "$ws_abs"
+          ;;
+      esac
+    fi
+    if [ "${#obsolete_prunable_files[@]}" -gt 0 ]; then
+      case "$tier" in
+        subproject)
+          local parent_dir2="${ws_abs%/${slug}}"
+          printf "  Run install.sh --target subproject --parent-dir %s --subproject %s --prune-obsolete for obsolete (destructive — confirm).\n" \
+            "$parent_dir2" "$slug"
+          ;;
+        *)
+          printf "  Run install.sh --target %s --project-dir %s --prune-obsolete for obsolete (destructive — confirm).\n" \
+            "$tier" "$ws_abs"
+          ;;
+      esac
+    fi
+    if [ "${#obsolete_major_files[@]}" -gt 0 ]; then
+      # MAJOR_*.md is deliberately excluded from install.sh's prune scope
+      # (install.sh:60-69, :766-770: pair-programmer MAJOR ambiguity).
+      # check.sh nonetheless surfaces flagged MAJORs per directive A4.
+      # Manual rm is the safer path; emit a dedicated routing block so the
+      # operator isn't sent to a no-op install.sh prune.
+      echo "  MAJOR_*.md OBSOLETE entries require manual rm — install.sh --prune-obsolete"
+      echo "  deliberately excludes MAJORs (pair-programmer agents share the directory)."
+      local om2
+      for om2 in "${obsolete_major_files[@]}"; do
+        printf "    rm %s/%s\n" "$ws_abs" "$om2"
+      done
+    fi
+
+    emit_uncommitted_warning_if_needed "$uncommitted" "$ws_abs"
   fi
 
   # Update state file.
