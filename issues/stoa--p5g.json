@@ -82,11 +82,15 @@
     {
       "text": "DAEDALUS rev2 returned PASS. Design 798→820 lines. r1 fixed (v2→v3 for both actions; sector-4 lag documented honestly; verification-trail cites gh-api releases probe); r2 fixed (BARTLEBY line 142 enum extension spec'd with credential_leak added); nf2 §20.4 boundary marker included; nf1 added to follow-ups item 6. Re-dispatching ARGUS on rev2 diff for confirmation.",
       "timestamp": "2026-05-16T08:46:03Z"
+    },
+    {
+      "text": "ARGUS re-activated on rev2 confirmation audit. Reading rev2 design + scoped sections DAEDALUS named as changed.",
+      "timestamp": "2026-05-16T08:46:16Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Substrate fix: credential discipline — batch or env-inject, never per-call prompts",
   "type": "task",
-  "updated_at": "2026-05-16T08:46:03Z"
+  "updated_at": "2026-05-16T08:46:16Z"
 }
