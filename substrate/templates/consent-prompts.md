@@ -1,3 +1,7 @@
+---
+author: Denson Smith
+---
+
 # Consent prompts
 
 The wording MAJOR_POLYBIUS uses when requesting informed consent for sensitive actions during onboarding (and during ongoing operation when a sensitive action arises). Consistency is the point — the same PRINCIPAL asked the same kind of question across deployments should get the same kind of phrasing, so they can build a stable mental model of what each consent point grants.
