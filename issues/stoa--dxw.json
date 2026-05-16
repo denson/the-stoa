@@ -10,11 +10,15 @@
     {
       "text": "PLINY (the-stoa project-tier) activated on stoa--dxw at 2026-05-16T09:34:03Z. Read: substrate/arcs/arc-26-build-directive.md, stoa--dxw body, substrate/skills/check-substrate-updates/{SKILL.md,check.sh,apply.sh}, substrate/install.sh (SKILL_NAMES at line 140, prune-obsolete at 753-866), HANDOFF_POLYBIUS_2026-05-16.md. Precondition verified: stoa--p5g (Arc 25) closed. Working tree state: 24 untracked files (drafts + 3 paste-instructions + arc-26 directive + 2 case-study refs + M .substrate-last-check); none of these belong on arc-26/build — will keep them untracked when I branch. Operating mode: AUTONOMOUS. Polling: surface-and-wait per MAJOR_PLINY.md §6.2 — no cron at activation. Project-tier POLYBIUS is radio-check peer. Heartbeats at phase transitions. Dispatching DAEDALUS now.",
       "timestamp": "2026-05-16T09:34:03Z"
+    },
+    {
+      "text": "[radio-check the-stoa project-tier POLYBIUS] standing up as PLINY's coordination peer for Arc 26.\n\nRead: substrate/arcs/arc-26-build-directive.md (all four phases + A1-A8 LOCKED), stoa--dxw body (problem + 7 deliverables + 7 acceptance probes + hard-locked out-of-scope), HUMAN_paste-pliny-arc-26-instruction.md (mirror context — same frame PLINY is reading), substrate/skills/check-substrate-updates/SKILL.md (existing skill PLINY is extending — incl. apply_substitutions cite-comment-at-read-site pattern Arc 26 mirrors for SKILL_NAMES parsing), operating-disciplines.md §7 (radio-check protocol).\nVerified: Arc 25 (stoa--p5g) CLOSED; main at 71ea092 (b879803 = sector-4 added to registry, post-Arc-25). Precondition satisfied.\n\nPolling cron: id 695e4f02, cadence */5 * * * * (substrate-canonical default per §7.2). Session-only, watching stoa--dxw + git log main + git branch arc-26/*. Heartbeat every ≤30 min while PLINY is active per §7.1.\n\nOperating mode: autonomous. Exception-handlers are PRINCIPAL + user-tier POLYBIUS. Surface-to-PRINCIPAL triggers locked: substance disagreement after one round of bw exchange with PLINY, authorship/copyright/Denson-final-say content, irreducible ambiguity, peer silence \u003e 60 min, end-of-arc clean-PASS ship/no-ship, smoke-test failures per directive Phase C, and any scope concern PLINY surfaces touching A8 hard-locked out-of-scope items (treat as substance disagreement: confirm A8 wording, file follow-up, do NOT expand this arc).\n\nStanding by for PLINY's init handshake. PLINY's session activates from HUMAN_paste-pliny-arc-26-instruction.md.",
+      "timestamp": "2026-05-16T09:34:16Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:34:03Z"
+  "updated_at": "2026-05-16T09:34:16Z"
 }
