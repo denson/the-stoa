@@ -943,6 +943,30 @@ The new substrate-tier skill at `substrate/skills/credential-discipline/SKILL.md
 
 ---
 
+## 21. Ariadne-search-ready authoring
+
+Every seat authors durable artifacts — bw tickets and comments (POLYBIUS, PLINY, every CAPTAIN), design docs (DAEDALUS, ARGUS), retrospective entries (POLYBIUS), commit messages (ADA, POLYBIUS), arc directives (POLYBIUS, MAJOR_PLINY pair-programmer mode), handoff docs (POLYBIUS). The discipline below applies to all of them.
+
+PRINCIPAL is setting up Ariadne tools for searching the substrate corpus across all repos. The implication for authoring discipline going forward is to write artifacts that are good both for human re-reading after compaction AND for vector retrieval against a query. The disciplines align — both want self-contained, well-titled, cross-referenced units that survive being read out of order, out of context, or in fragments.
+
+Four sub-disciplines:
+
+- **Titles matter.** bw ticket titles, retro doc titles, commit subjects, design-doc section headings should be search-friendly: distinct, specific, named-entities, no relying on context to disambiguate. A title that reads cleanly out of context retrieves cleanly out of context. Avoid `update X` / `fix the thing` / `next steps` — those collide with thousands of similar titles in the corpus. Prefer `arc-26 check.sh adds MISSING+OBSOLETE detection categories` — specific, named, distinct.
+
+- **Cross-refs matter.** Every artifact should name its related artifacts explicitly — bw ID cross-refs (`stoa--32b.3`, `u--7yg.20`), file paths (`substrate/MAJOR_POLYBIUS.md` §16.3), commit SHAs (`6ccfd0e`), retro doc paths. Implicit references that depend on the reader having recent context lose their value the moment the context decays.
+
+- **Content density matters.** Semantic-chunked sections (`## §N — <topic>` headings, each a self-contained retrieval unit, per the retro doc convention) make for better vector retrieval than long monolithic prose. A section should answer one question end-to-end without forcing the reader to scroll up for the framing or down for the punchline. The retro doc at `docs/sessions/2026-05-16-substrate-update-architecture-reframe--retro.md` is the canonical worked example.
+
+- **Authoring-for-ingestion aligns with authoring-for-compaction-recovery.** Both want self-contained, well-titled, cross-referenced units. There is no trade-off — the discipline that serves Ariadne retrieval is the same discipline that serves a POLYBIUS re-reading the doc after `/compact`.
+
+**Forward-only.** This is guidance for new artifacts authored going forward; it is not a mandate to retroactively restructure existing artifacts. Retroactive restructuring of bw tickets, commit messages, or prior retros is explicitly out of scope (per Arc 27 directive A8). When the discipline catches a new artifact that violates it, fix-now (per `MAJOR_POLYBIUS.md` §4.8); when it catches an old artifact, leave it alone — the cost of the rewrite exceeds the benefit until Ariadne search itself is operational and a specific retrieval failure motivates the fix.
+
+**POLYBIUS-specific framing.** The POLYBIUS session lifecycle uses this discipline to author multi-artifact handoffs (index doc + bw tickets + retro docs + design artifacts + commits + role files). See `substrate/MAJOR_POLYBIUS.md` §16.3 + §16.4 for the lifecycle-specific application.
+
+**Empirical anchor:** 2026-05-16 PRINCIPAL declaration during the `stoa--32b` epic-capture engagement (primary source: `stoa--32b.3` ticket body — carries PRINCIPAL's "we are setting up so you will have ariadne tools to search all work" declaration verbatim). The retro at `docs/sessions/2026-05-16-substrate-update-architecture-reframe--retro.md` is adjacent context for the broader epic; the Ariadne-readiness discipline surfaced after the retro was authored. N=1 per §6.7.1; substrate canon enters off-gate on PRINCIPAL's project-direction authority; supporting evidence accretes as future arcs author artifacts under this discipline.
+
+---
+
 ## Agent-regime inverses (the positive framing)
 
 The six anti-patterns above suppress failure modes. The corresponding positive framings express defaults:
