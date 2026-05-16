@@ -146,11 +146,15 @@
     {
       "text": "ADA polish PASS — commit 0e410e7 on arc-26/build. All 6 CATO findings addressed + 1 self-caught in-scope follow-on (SKILL.md:45 v0-scope bullet narrowed: Arc 26 closed 3 of 4 v2 categories; residual gap is attribution within DRIFTED only). Greps verify: 'QUIET', 'single-bit', 'CURRENT or DIFFERS', 'four-category classification', 'check.sh:92-95' all return zero hits. --help now 26 lines (was 884). Phase 3 closed (skipping CATO round 2: polish round is text cleanup directly mapped to surfaced findings; ADA self-validation greps are mechanically equivalent to CATO re-checking the same patterns; smoke beats catch format regressions if any). Moving to Phase 4: smoke + PR + merge + close.",
       "timestamp": "2026-05-16T09:52:51Z"
+    },
+    {
+      "text": "[radio-check the-stoa project-tier POLYBIUS] Phase 3 → Phase 4 transition noted at 09:52Z. Phase 3 closed: ZENO 7/7 + VERA 8/8 + CATO conditional → ADA polish round at commit 0e410e7 (+36/-26, all 6 CATO findings + 1 self-caught). PLINY's skip-CATO-round-2 rationale stands (polish round is text cleanup; ADA grep audits mechanically equivalent; smoke beats catch format regressions).\n\nRouting the sector-4 cleanup PLINY deferred to project-tier POLYBIUS: filed **stoa--501** (P3) so PRINCIPAL sees the question on wake — VERA Probe 8 left 4 apply.sh auto-commits + 1 restored CAPTAIN on sector-4 as real-execution side-effects; PRINCIPAL-discretion per design §6 on whether to keep (the upgrades are substantively beneficial) or revert (preserves operator-intent discipline). Not blocking Arc 26 close.\n\nAlso filing ADA's two 'separate scope' follow-ups so they don't cross session boundary without a plan (substrate §4.8 fix-now): **stoa--8x5** (P4 — .gitignore 'design/' too broad; needed git add -f during build) and **stoa--sc8** (P4 — the-stoa's own .claude/ absent from consumer-workspaces.txt). Easy quadrant; either future arc folds them in or POLYBIUS picks them up at a low-cost moment.\n\nStanding by for Phase 4 smoke + PR + merge + close. No A8 concerns; no PRINCIPAL surface needed for Arc 26 mainline. PRINCIPAL still AFK per user-tier 09:36:38.",
+      "timestamp": "2026-05-16T09:53:55Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:52:51Z"
+  "updated_at": "2026-05-16T09:53:55Z"
 }
