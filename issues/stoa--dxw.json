@@ -66,11 +66,15 @@
     {
       "text": "DAEDALUS rev2 COMPLETE — pass. design-rev2.md written (1000 lines). All 4 P0 fixes baked in: P0-1 wc-l/tr-d (directive A5 canon), P0-2 case-based join in §4.6.6 (broken IFS retired, §7.6 meta-commentary folded inline + removed from §7), P0-3 distinct per-category prefix (DRIFTED '  - ', MISSING '  + ', OBSOLETE '  ! ') + new VERA Probe 8 guards the invariant, P0-4 split routing footer (obsolete_prunable_files + obsolete_major_files partition + tier-branched install.sh footer per P2-1). All 3 P1 + 3 P2 also addressed inline. 5 self-assessed weak points (was 6 in rev1; one folded). 3 new residual questions for ARGUS round 2 (MAJOR-OBSOLETE prose shape, Probe 8 cleanup hygiene, line-number drift). NO directive deviation; A4 stays honored (MAJORs in OBSOLETE detection scope, asymmetry surfaced via routing not eliminated). Returning verdict block to PLINY.",
       "timestamp": "2026-05-16T09:41:34Z"
+    },
+    {
+      "text": "ARGUS round 2 activated on stoa--dxw. Focused re-audit of design-rev2.md against round 1's 4 P0 + 3 P1 + 3 P2. Reading rev2 + rev1 diff + verifying apply.sh seam empirically.",
+      "timestamp": "2026-05-16T09:42:09Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:41:34Z"
+  "updated_at": "2026-05-16T09:42:09Z"
 }
