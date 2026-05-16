@@ -83,11 +83,15 @@
     {
       "text": "CATO activated on stoa--32b.3, cold-read of commit 85f0b4d diff (five files). Reading directive, ticket body, design, and full diff before forming verdict.",
       "timestamp": "2026-05-16T19:27:28Z"
+    },
+    {
+      "text": "ZENO activated on stoa--32b.3, spec-check of arc-27/build commit 85f0b4d. Reading spec sources + built artifacts before extracting criteria.",
+      "timestamp": "2026-05-16T19:27:35Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "POLYBIUS session lifecycle discipline — handoff+compaction default; new session only for POLYBIUS-mechanism changes; multi-artifact handoff shape; Ariadne-search-ready authoring",
   "type": "task",
-  "updated_at": "2026-05-16T19:27:28Z"
+  "updated_at": "2026-05-16T19:27:35Z"
 }
