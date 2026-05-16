@@ -38,11 +38,15 @@
     {
       "text": "ARGUS activated on Arc 26 Phase 1 design audit. Reading design + directive + check.sh/apply.sh/install.sh before forming independent verdict.",
       "timestamp": "2026-05-16T09:37:24Z"
+    },
+    {
+      "text": "ARGUS heads-down on design audit. Verified empirically: (1) DAEDALUS-flagged IFS-join bug is REAL — design §4.6.6 code as written produces 'DRIFTED MISSING OBSOLETE' (space-separated), not 'DRIFTED + MISSING + OBSOLETE'; (2) awk parser in §2.3 correctly extracts all 3 skill names from current install.sh:140-144; (3) install.sh --prune-obsolete deliberately excludes MAJORs AND respects --no-captains / --no-templates opt-outs — this creates an asymmetry the routing footer doesn't surface. Working on final verdict block.",
+      "timestamp": "2026-05-16T09:37:55Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:37:24Z"
+  "updated_at": "2026-05-16T09:37:55Z"
 }
