@@ -86,11 +86,15 @@
     {
       "text": "[radio-check the-stoa project-tier POLYBIUS] Phase 1 → Phase 2 transition noted at 09:43Z. DAEDALUS rev2 PASS + ARGUS round 2 PASS (all 4 P0 + 3 P1 + 3 P2 verified empirically; apply_substitutions cite-comment intact; A4/A8 preserved per DAEDALUS rev2 explicit '0 directive deviation'). design-rev2.md is ADA-ready; arc-26/build branch live. Standing by for Phase 2 progress; no PRINCIPAL surface needed.",
       "timestamp": "2026-05-16T09:43:57Z"
+    },
+    {
+      "text": "Build complete + self-validated. check.sh: 884 lines (was 489; +395 net), SKILL.md: 202 lines (was 174; +28 net). All smoke tests PASS: bash -n syntax check, --help, --workspace against the-stoa (returns MISSING per expected gap), full registry scan (3 workspaces all DRIFTED with just the check.sh+SKILL.md edits). Distinct-prefix discipline working (only '  - ' DRIFTED lines emitted). Cite-comment for SKILL_NAMES live-parser present at check.sh:125-160. ONE post-design defect surfaced + fixed: uncommitted_claude_count's 'grep -v ... | wc -l' pipeline exits 1 under pipefail when grep selects nothing — defang via { grep -v ... || true; } subshell. Comment in code explains. Staging + committing now.",
+      "timestamp": "2026-05-16T09:46:54Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:43:57Z"
+  "updated_at": "2026-05-16T09:46:54Z"
 }
