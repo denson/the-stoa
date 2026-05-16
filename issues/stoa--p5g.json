@@ -74,11 +74,15 @@
     {
       "text": "CAPTAIN_DAEDALUS activated for rev2 — surgical fix of r1 (v2-\u003ev3 + sector-4 lag note + probe P17) + r2 (BARTLEBY enum extension) from ARGUS audit. Reading design rev1 in segments now.",
       "timestamp": "2026-05-16T08:44:15Z"
+    },
+    {
+      "text": "pass: rev2 complete at agents/design/arc-25/design.md (820 lines, +22 from rev1). r1 FIXED: both google-github-actions/auth and get-secretmanager-secrets bumped @v2-\u003e@v3 in §4 SKILL.md workflow template + Key Properties block + Cross-refs; sector-4 ~8mo lag at @v2 documented honestly in §4 Worked-example pointer prose; v3 verification-trail cites 'gh api repos/.../releases verified 2026-05-16' per option (a); §2.1 §20.6 and §11 cross-ref index also updated to v3; auto-masking behavior re-verified against v3 README and preserved. Probe P17 updated to @v3; new P17b added for the secrets action @v3; new P17c bounds @v2 references at \u003c=2 (catches accidental substrate-canon regression while permitting the honest sector-4-lag documentation). r2 FIXED: §5.4 (BARTLEBY envelope addition) now specs the line-142 verdict-format enum extension; final enum reads 'definition | call_site | import | schema_reference | comment_mention | authorship_anomaly | credential_leak | other'; new P11b probe added to confirm \u003e=2 references to credential_leak in CAPTAIN_BARTLEBY.md post-build. nf2 polish INCLUDED: §20.4 prose extended with explicit boundary marker distinguishing preventive (§20.4 self-recognition) vs responsive (§20.3 external refusal) at different points in the dispatch lifecycle, both load-bearing on the same root cause. nf1 ADDED to §8.1 follow-ups as item 6 (audit pre-existing substrate skills for author: Denson Smith frontmatter post-merge). §3.1 caveat + §10.3 weak-point + §12 summary refreshed to reflect rev2 status (residual questions resolved per ARGUS audit; load-bearing weak point now §10.1 Railway-prose duplication, accepted as deliberate bidirectional discoverability). Status line at top of design updated to rev2. Returning to PLINY.",
+      "timestamp": "2026-05-16T08:45:46Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Substrate fix: credential discipline — batch or env-inject, never per-call prompts",
   "type": "task",
-  "updated_at": "2026-05-16T08:44:15Z"
+  "updated_at": "2026-05-16T08:45:46Z"
 }
