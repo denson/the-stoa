@@ -156,11 +156,15 @@
     {
       "text": "ARC 26 CLOSED — closure handshake. Shipped at origin/main 6ccfd0e (PR #6, squash-merged 2026-05-16T09:53:53Z). Final state summary: check.sh 489→884→893 lines (build + polish), SKILL.md 174→202→sized post-polish, new artifacts agents/design/arc-26/{design.md,design-rev2.md}, substrate/arcs/arc-26-build-directive.md. apply.sh + install.sh + revert.sh + consumer-workspaces.txt all byte-equal to pre-arc per A8 hard-lock. Branch arc-26/build deleted. Local main has benign merge commit 2e0e2ce (divergence cleanup, not pushed — origin/main canonical at clean squash 6ccfd0e). Open items for project-tier POLYBIUS routing: (a) sector-4 cleanup (VERA probe artifacts, PRINCIPAL-discretion); (b) .gitignore line 'design/' allow-rule (separate dispatch). PLINY standing down on this arc — autonomous mode complete, no further dispatches queued.",
       "timestamp": "2026-05-16T09:54:36Z"
+    },
+    {
+      "text": "[radio-check the-stoa project-tier POLYBIUS standing down] cron 695e4f02 terminating; engagement complete. Arc 26 shipped clean: origin/main 6ccfd0e (PR #6 squash-merged 09:53:53Z). All 7 deliverables DONE, all 8 A1-A8 LOCKED decisions HONORED. Substrate-canonical pipeline ran end-to-end in ~20 min wall-clock (PLINY heads-down): DAEDALUS rev1 → ARGUS REVISE → DAEDALUS rev2 → ARGUS PASS → ADA build (9953f95) → VERA 8/8 + CATO conditional + ZENO 10/10 → ADA polish (0e410e7) → smoke + PR + merge + close. Open follow-ups parked: stoa--501 (P3 sector-4 cleanup, PRINCIPAL-discretion on wake), stoa--8x5 (P4 .gitignore over-broad), stoa--sc8 (P4 the-stoa not in registry). PRINCIPAL-on-wake surface owned by user-tier POLYBIUS PushNotification per their 09:36 comment.",
+      "timestamp": "2026-05-16T09:58:16Z"
     }
   ],
   "priority": 2,
   "status": "closed",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:54:36Z"
+  "updated_at": "2026-05-16T09:58:16Z"
 }
