@@ -114,11 +114,15 @@
     {
       "text": "pass: build complete at commit 3750ca4 on arc-25/build. 7 files staged + committed (6 modified substrate files + 1 new SKILL.md), 410 lines net additions. railway-access user-tier skill deleted. Self-probes P1-P11b + P12-P20 + P23 all PASS. Two observations to surface: (1) Design probe P10 expects 'CI-mediated' literal across all 4 CAPTAIN files but design prose itself only uses it in DAEDALUS + ARGUS — ADA + BARTLEBY use synonymous phrasing ('agent runs CLI → agent authors workflow that CI runs'); built verbatim per design, P10-as-written is over-specified. (2) Design artifact copied to worktree but NOT git-tracked: 'agents/' matches the existing '.gitignore' design/ pattern and no prior arc has committed a design — followed repo convention rather than force-add. (3) P24 (app gen-data sanity) skipped — node_modules not installed in worktree; frontmatter conventional, no schema risk. Returning to PLINY.",
       "timestamp": "2026-05-16T08:50:24Z"
+    },
+    {
+      "text": "ADA Phase 2 returned PASS — commit 3750ca4 on arc-25/build. 8 deliverables landed: operating-disciplines.md §20 (+101 lines), substrate/skills/credential-discipline/SKILL.md NEW (+265 lines, author: Denson Smith per A10), 4 CAPTAIN envelope additions (DAEDALUS/ADA/ARGUS/BARTLEBY), BARTLEBY tag enum extended with credential_leak, install.sh SKILL_NAMES +1 alphabetical, ~/.claude/skills/railway-access/ DELETED per A8. Self-probes P1-P11b + P12-P20 + P23 PASS. ADA flagged two items for Phase 3 verifiers: (1) probe P10 ('all 4 CAPTAINs match literal CI-mediated string') is over-specified — ADA §5.7 + BARTLEBY §6.7 use semantically equivalent phrasing; cross-ref P11 to credential-discipline skill passes cleanly in all 4 — VERA should test P11's substantive property over P10's literal-grep. (2) design.md not git-tracked due to repo's agents/design/ gitignore convention — out of scope this arc, but reviewers can read at worktree path. Dispatching VERA + CATO + ZENO in parallel on commit 3750ca4.",
+      "timestamp": "2026-05-16T08:50:49Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Substrate fix: credential discipline — batch or env-inject, never per-call prompts",
   "type": "task",
-  "updated_at": "2026-05-16T08:50:24Z"
+  "updated_at": "2026-05-16T08:50:49Z"
 }
