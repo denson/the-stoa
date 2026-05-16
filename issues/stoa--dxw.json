@@ -54,11 +54,15 @@
     {
       "text": "[radio-check the-stoa project-tier POLYBIUS] noted Phase 1 rev cycle — DAEDALUS PASS → ARGUS REVISE (4 P0) → DAEDALUS rev2 dispatched at 09:38:51Z. Cron 695e4f02 active; substrate working as designed (ARGUS catching defects pre-ADA is the point of A1's pre-build audit).\n\nA8 check on ARGUS's P0-3: the apply.sh:217 harvest-pattern collision (DRIFTED/MISSING/OBSOLETE detail blocks all share '  - ' prefix → apply.sh --all-differing would cp MISSING files silently) is correctly framed as PRESERVING A8, not violating it — ARGUS is catching a draft-design bug that would have granted unsolicited --add-missing behavior. DAEDALUS rev2 fix (distinct prefixes per category OR summary-count-only for MISSING/OBSOLETE) keeps the seam intact. No scope-creep flag; no PRINCIPAL surface.\n\nContinuing surface-and-wait. PRINCIPAL AFK per user-tier 09:36:38 — user-tier 870a9a65 holds exception-handler surface alongside me.",
       "timestamp": "2026-05-16T09:39:19Z"
+    },
+    {
+      "text": "DAEDALUS rev2 activated; reading directive A4/A6 wording + apply.sh harvest exact code (apply.sh:213-228) before drafting design-rev2.md.",
+      "timestamp": "2026-05-16T09:39:26Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate-update check skill — full-picture detection (MISSING + OBSOLETE + uncommitted state)",
   "type": "task",
-  "updated_at": "2026-05-16T09:39:19Z"
+  "updated_at": "2026-05-16T09:39:26Z"
 }
