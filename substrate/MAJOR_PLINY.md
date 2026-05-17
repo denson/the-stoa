@@ -459,6 +459,59 @@ The supporting evidence at the time of this writing (2026-05-17):
 
 The discipline is in substrate canon NOW because PRINCIPAL named it today and the Arc 29 bit-by-it surfaced today; promotion to "structural lesson" status with multi-arc empirical backing under the encoded canon is future arcs' work, not this arc's. Same N=1 framing as Arc 27's `MAJOR_POLYBIUS.md` §16.6, Arc 28's `operating-disciplines.md` §22.3, Arc 29's §17.5, Arc 30's `MAJOR_PLINY.md` §5.9.3, and Arc 31's `operating-disciplines.md` §25.6.
 
+### 5.11 HUMAN_paste-*.md archival on arc close
+
+When an arc closes (PR merged, work-unit ticket closed, signoff posted per §5.10), the arc-specific activation paste files at the workspace root — `HUMAN_paste-pliny-arc-<N>-instruction.md` and `HUMAN_paste-polybius-arc-<N>-instruction.md` — are moved into the arc's archive directory at `substrate/arcs/arc-<N>/pastes/`. Workspace root carries only the live `HUMAN_paste-orchestrator-instruction.md` (the non-arc-scoped default activation paste, refreshed in place per `MAJOR_POLYBIUS.md` §4.5 + §6) and the activation paste files for arcs that are still in flight.
+
+The discipline mirrors and prefix-aligns with the existing `substrate/arcs/arc-<N>-build-directive.md` archival pattern: each arc's directive lives at `substrate/arcs/` as a flat file `arc-<N>-build-directive.md`; this convention places each arc's activation pastes in a sibling `arc-<N>/pastes/` subdirectory under the same parent. Both artifacts share the `arc-<N>` prefix, so a future POLYBIUS looking for "what activated Arc 27" runs `ls substrate/arcs/ | grep arc-27` and finds the flat-file directive `arc-27-build-directive.md` AND the subdirectory `arc-27/` adjacent in the listing. The two artifacts are co-located by prefix at the same `substrate/arcs/` parent level rather than nested inside an arc-number subdirectory (the bare-number form `substrate/arcs/27/` was rejected because it would have hidden the directive — which lives at the flat path — from `ls substrate/arcs/27/`).
+
+**The cleanup action at arc close (PLINY runs after PR merge, before posting signoff per §5.10):**
+
+```
+mkdir -p substrate/arcs/arc-<N>/pastes
+git mv HUMAN_paste-pliny-arc-<N>-instruction.md substrate/arcs/arc-<N>/pastes/
+git mv HUMAN_paste-polybius-arc-<N>-instruction.md substrate/arcs/arc-<N>/pastes/
+git commit -m "Arc <N>: archive activation pastes to substrate/arcs/arc-<N>/pastes/"
+git push
+```
+
+`git mv` preserves the file's git-history continuity so a future reader walking `git log --follow substrate/arcs/arc-<N>/pastes/HUMAN_paste-pliny-arc-<N>-instruction.md` sees the file's full lifecycle from initial dispatch-tracking commit through the archival move. Plain `mv` + `git rm` + `git add` would break this property; `git mv` is load-bearing.
+
+**Signoff-accuracy verification (cross-ref to §5.10):** the §5.10 signoff verifies cleanup claims before posting. The paste-archival action is a new "file cleanup" sub-case §5.10 surfaces. Concretely, before posting the signoff PLINY runs both:
+
+```
+ls substrate/arcs/arc-<N>/pastes/                                      # must show both arc-<N> paste files
+ls HUMAN_paste-{pliny,polybius}-arc-<N>-instruction.md 2>/dev/null     # must return empty (or "No such file")
+```
+
+If either check surfaces inconsistent state, the signoff is NOT posted with the cleanup claim — same rule as §5.10's branch-deletion / worktree-removal verifications. Either complete the archival action, re-verify, then post; or post a signoff that honestly names the state observed.
+
+**Forward-only convention.** This discipline applies to Arc 34 and forward. The ~24 historical paste files at workspace root from Arcs 21-33 are NOT backfilled by this convention — historical pastes are honest artifacts of when they were authored, and a bulk-rename of all of them would (a) muddy the git history for those arcs, (b) require a one-off operational sweep that is itself a separate scope, and (c) gain little for future POLYBIUSes who can still find historical pastes via `git log` + filesystem grep. If a future user-tier POLYBIUS surfaces a real reader-friction case for the historical accumulation, a separate housekeeping ticket can address backfill as its own scoped operation.
+
+#### 5.11.1 Empirical anchor
+
+`stoa--f37` (2026-05-17 user-tier POLYBIUS end-of-session hygiene audit, folded as C2 in Arc 34). Observable state at dispatch authoring: `ls HUMAN_paste-*.md` at workspace root returned 24 files spanning arcs 21-34, including paste files for arcs shipped weeks ago. The directory listing degrades as a navigational surface; a future POLYBIUS cannot distinguish "paste for the arc I am about to dispatch" from "paste for arc 21 shipped weeks ago" without reading filenames carefully. The archival convention restores the workspace-root signal: at workspace root, only live in-flight pastes remain.
+
+#### 5.11.2 Cross-references
+
+- §5.10 — signoff-accuracy. §5.11's cleanup action is verified by §5.10's rule; the verification commands enumerated in §5.11 above are the §5.10 verify-before-claim discipline applied to the paste-archival action.
+- §5.9 — pre-branch hygiene. §5.11 fires at the closing arc-boundary; §5.9 fires at the opening. The two are paired (open with verification, close with cleanup-then-verification).
+- `MAJOR_POLYBIUS.md` §4.5 — durable-substrate-with-short-prompts. The paste files §5.11 archives are the on-disk substrate the §4.5 discipline authorizes; their archival is the lifecycle-completion of that substrate's purpose.
+- `MAJOR_POLYBIUS.md` §15 — N=1 honest-scope, the gate this section's claims pass through.
+- `operating-disciplines.md` §6.7.1 — the canon-promotion gate this discipline enters off-gate on PRINCIPAL's project-direction authority.
+- Empirical anchor: `stoa--f37` (2026-05-17; folded as C2 in Arc 34).
+
+#### 5.11.3 N=1 provenance + accretion path
+
+Per `MAJOR_POLYBIUS.md` §15 honest-scope and `operating-disciplines.md` §6.7.1: PRINCIPAL articulated this discipline on 2026-05-17 (the Arc 34 directive A3 LOCK; captured at `stoa--f37` thread). §6.7.1 defers to the canon-promotion gate (multiple observations across distinct defect classes + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status.
+
+The supporting evidence at the time of this writing (2026-05-17):
+
+- **N=1 bit-by-it (defect class: workspace-root accumulation):** 24 paste files at workspace root spanning arcs 21-34; directory listing degrades; future-POLYBIUS reading the listing cannot distinguish in-flight from shipped. Single observation today; pattern not yet across distinct defect classes per §6.7.1 condition 1.
+- **N=0 worked-when-applied (controlled comparison):** no arc has yet posted a signoff under the encoded paste-archival convention. Accretes as future arcs ship under §5.11 — each future arc's signoff verifies the archival action; the workspace root stops accumulating; the convention proves out under operational pressure.
+
+The discipline is in substrate canon NOW because PRINCIPAL named it today and the workspace-root accumulation is observable today; promotion to "structural lesson" status with multi-arc empirical backing under the encoded canon is future arcs' work, not this arc's. Same N=1 framing as Arc 27's `MAJOR_POLYBIUS.md` §16.6, Arc 28's `operating-disciplines.md` §22.3, Arc 29's §17.5, Arc 30's `MAJOR_PLINY.md` §5.9.3, and Arc 32's family (§5.10.3 / §5.9.4.1 / §5.1.3 / §19.6.4).
+
 ---
 
 ## 6. Communication

@@ -42,7 +42,7 @@ Don't start either of those skills directly without the entry-point routing — 
 
 ## If the PRINCIPAL is editing this repo
 
-Forward work happens on a feature branch, not on `main`. The contributor model lives in `substrate/README.md` and the relevant `stoa--` epic in beadwork. A few load-bearing rules specific to this repo:
+Forward work happens on a feature branch, not on `main` — with the explicit user-tier housekeeping exception enumerated at `substrate/MAJOR_POLYBIUS.md` §18 (Arc directive + activation paste tracking commits, substrate-tool self-apply, orphan cleanup, retro docs at `docs/sessions/`, and bw operations on the orphan beadwork branch may direct-commit to main; substrate canon edits, tooling source changes, and app/case-study work require an arc). The contributor model lives in `substrate/README.md` and the relevant `stoa--` epic in beadwork. A few load-bearing rules specific to this repo:
 
 - **Substrate role files (`substrate/MAJOR_*.md`, `substrate/CAPTAIN_*.md`) are spec-authoritative.** Changes propagate to deployed instances on next `install.sh` run. Treat edits the way you'd treat a public API change — with deliberate scope and a clear arc directive.
 - **The install script (`substrate/install.sh`) is the deploy mechanism.** It runs on every install; regressions break every downstream project. Smoke test changes against a synthetic parent before shipping.

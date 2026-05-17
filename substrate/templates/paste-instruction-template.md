@@ -2,9 +2,9 @@
 author: Denson Smith
 ---
 
-# Paste-instruction template — MAJOR_PLINY activation
+# Paste-instruction template — MAJOR_PLINY and MAJOR_POLYBIUS activation
 
-The template MAJOR_POLYBIUS fills per session to produce the paste-instruction that activates MAJOR_PLINY (the ORCHESTRATOR) in a fresh terminal. The static `MAJOR_PLINY.md` role file is universal; the wrapper that activates it is session-specific. POLYBIUS fills the slots from its conversation with the PRINCIPAL, writes the filled result to disk under `HUMAN_paste-orchestrator-instruction.md`, and hands the PRINCIPAL a one-line pointer.
+The template MAJOR_POLYBIUS fills per session to produce the paste-instruction that activates MAJOR_PLINY (the ORCHESTRATOR), or that user-tier MAJOR_POLYBIUS fills to activate a project-tier MAJOR_POLYBIUS, in a fresh terminal. The static role files (`MAJOR_PLINY.md`, `MAJOR_POLYBIUS.md`) are universal; the wrapper that activates them is session-specific. The filling seat (typically POLYBIUS) fills the slots from its conversation with the PRINCIPAL, writes the filled result to disk under `HUMAN_paste-<target>-instruction.md` (e.g., `HUMAN_paste-orchestrator-instruction.md` for PLINY, `HUMAN_paste-polybius-arc-<N>-instruction.md` for a POLYBIUS-targeted arc dispatch), and hands the PRINCIPAL a one-line pointer.
 
 Architecture authority: `user-beadwork/plans/three-role-recursive-architecture.md` (v2). The string-substitution mechanism is settled in §8 ("Custom paste-instruction templating mechanism") and traces back to `u--7yg.13`. The on-disk-with-short-paste pattern is the **durable-substrate-with-short-prompts** discipline (v2 §8) — substantive content lives on disk; the chat paste is one line.
 
