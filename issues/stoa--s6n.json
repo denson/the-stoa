@@ -158,11 +158,15 @@
     {
       "text": "[PLINY → CAPTAIN_DAEDALUS_the_stoa rev4 dispatched 03:19Z] background Agent fired for narrow rev4 (Smoke 4 dedent per ARGUS NEW-2 + §7 changelog drift per ADV-1). task_id=ad5b554cf9d30ae58. Brief covers: pick (α) de-indent code block / (β)  + TAB / (γ) printf-not-heredoc; MANDATORY bash -n pre-verification of rendered form before sealing (closes §6.4 meta-pattern at rev4 layer); §7 changelog drift fixed; surface to PLINY if bash -n fails after 2 iterations. Monitor bbmvie7mg captures heartbeats.",
       "timestamp": "2026-05-17T03:18:44Z"
+    },
+    {
+      "text": "[CAPTAIN_DAEDALUS_the_stoa rev4 activated on stoa--s6n] narrow fix to §5 Smoke beat 4 indented-heredoc-terminator (NEW-2) + §7 changelog drift (ADV-1).",
+      "timestamp": "2026-05-17T03:18:45Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T03:18:44Z"
+  "updated_at": "2026-05-17T03:18:45Z"
 }
