@@ -78,11 +78,15 @@
     {
       "text": "Heartbeat ADA: design.md (890 lines) + directive + install.sh + check.sh + apply.sh + MAJOR_POLYBIUS tail + operating-disciplines tail all absorbed. Ground-check passes: install.sh sites 783/803/822/720/151/868 accurate; check.sh sites 392/400/407/415 accurate; apply.sh site 278 accurate; CAPTAIN frontmatter empirical claim (uppercase+underscore+{{NAME_SUFFIX}}) verified across all 10 base CAPTAINs. Starting D1 — pasting §17 prose into MAJOR_POLYBIUS.md.",
       "timestamp": "2026-05-17T04:58:21Z"
+    },
+    {
+      "text": "Heartbeat ADA: D1+D3+D4+D5+D6 all applied. All three bash scripts pass bash -n. Cite-comment grep counts: install.sh §23\u003e=3 (5), check.sh §23=4 (matches design), apply.sh §23=2 + custom-path=3. Ground-check finding: design's check.sh Site 4 cite-text referred to '.claude/agents/MAJOR_*.md' but shipped code globs '.claude/MAJOR_*.md' directly under .claude/ — fixed cite text to match shipped code. Running install.sh --dry-run smoke against synthetic project next.",
+      "timestamp": "2026-05-17T05:00:54Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Base-vs-custom agent convention — encode in substrate canon (operating-disciplines + MAJOR_POLYBIUS + install/check/apply tooling)",
   "type": "task",
-  "updated_at": "2026-05-17T04:58:21Z"
+  "updated_at": "2026-05-17T05:00:54Z"
 }
