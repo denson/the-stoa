@@ -118,11 +118,15 @@
     {
       "text": "[from: PLINY @ 2026-05-17T19:03:02Z] Phase 3 CLOSED — all three verifiers PASS. VERA: 29/29 probes PASS (one inherited-design depth defect surfaced at §5.9.4.1). CATO: PASS w/ 3 low-severity findings (F1 template-title scope → filed as stoa--3qi follow-up; F3a verb-stack typo → fixed in trailing commit; F3b cosmetic → defer). ZENO: 5/5 DONE. Verdicts at agents/design/arc-32/{vera,cato,zeno}-verdict.md. Trailing fix commit a366953 closes depth typo + verb-stack. Phase 4 starting: smoke PASS, pushing arc-32/build now, opening PR.",
       "timestamp": "2026-05-17T19:03:02Z"
+    },
+    {
+      "text": "[from: PLINY @ 2026-05-17 — arc close signoff per §5.10 (the discipline this very arc canonifies)]\n\n**Arc 32 SHIPPED.** PR #12 squash-merged to main as 9083839. Trailing housekeeping commit 84f1f86 tracks VERA + CATO verdicts on main for the record.\n\n**Live-verified cleanup state at signoff time (per §19.6 attestation-confabulation discipline — citing observed state, not assumed-from-context state):**\n\n- `git worktree list` → only `C:/Users/denso/claude_projects/the-stoa  84f1f86 [main]` (arc-32-build worktree removed ✓)\n- `git branch | grep arc-32` → empty (local arc-32/build deleted ✓)\n- `git ls-remote --heads origin arc-32/build` → empty (remote arc-32/build deleted ✓)\n- `git log origin/main..main` → empty + `git log main..origin/main` → empty (local main = origin/main = 84f1f86 ✓)\n\n**Final commit chain:**\n- 84f1f86 — track Arc 32 VERA + CATO verdicts for the record (main housekeeping)\n- 9083839 — Arc 32 squash-merge (PR #12; all of C1+C2+C3+C4+C5+Edit 3a+Edit 4b+trailing fixes)\n- 2a476e5 — pre-arc dispatch-authoring (directive + activation pastes)\n\n**All 5 candidates DONE:**\n- C1 §5.1.1.1 cross-project sequencing leak extension (MAJOR_POLYBIUS.md)\n- C2 cron-hygiene three-carrier canon (§5.1.3 + `{{CRON_HYGIENE_CLAUSE}}` template slot + §26 universal-team cross-ref + Edit 3a §24 narrowing per ARGUS R1)\n- C3 §5.10 PLINY-signoff-accuracy (DAEDALUS picked Option α; thin cross-ref bullet at §24)\n- C4 §19.6 attestation-confabulation extension + Edit 4b §19.4 append (per ARGUS R2)\n- C5 §5.9.4 arc-build worktree convention (DAEDALUS picked Option A; self-applied via .claude/worktrees/arc-32-build)\n\n**Gauntlet:** DAEDALUS rev1 → ARGUS rev1 REVISE (6 risks) → DAEDALUS rev2 → ARGUS rev2 PASS → ADA (2 commits) → VERA 29/29 PASS + CATO PASS + ZENO 5/5 DONE → trailing fix commit (depth typo + verb-stack typo per fix-now discipline) → smoke beats PASS → push → PR #12 → squash merge → cleanup verified per §5.10.\n\n**Follow-up filed:** stoa--3qi (CATO F1: template-title scope; defer to future arc).\n\n**Self-referential observation:** Arc 32 canonified 5 disciplines and applied 3 of them to its own execution — C5 (built in separate worktree), §19.6 (this signoff cites live-verified state), §5.10 (this signoff verifies all cleanup claims before posting).",
+      "timestamp": "2026-05-17T19:04:27Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch — §5.1.1 extension + cron-hygiene canon + PLINY-signoff-accuracy + attestation-confabulation",
   "type": "task",
-  "updated_at": "2026-05-17T19:03:02Z"
+  "updated_at": "2026-05-17T19:04:27Z"
 }
