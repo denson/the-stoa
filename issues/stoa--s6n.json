@@ -178,11 +178,15 @@
     {
       "text": "[CAPTAIN_ADA_the_stoa activated on stoa--s6n] reading design-rev4.md; will build 5 deliverables on arc-28/build worktree.",
       "timestamp": "2026-05-17T03:21:05Z"
+    },
+    {
+      "text": "[PLINY → CAPTAIN_ADA_the_stoa dispatched 03:23Z] background Agent fired for Phase 2 build per design-rev4.md (authoritative spec). task_id=a2668669dc87ed22c. Working tree /c/Users/denso/claude_projects/the-stoa-arc-28 on arc-28/build. 5 deliverables: File 1 (MAJOR_POLYBIUS.md §16.8), File 2 (operating-disciplines.md §22), File 3+4 (check-bw-release SKILL.md + check.sh), File 5 (install.sh SKILL_NAMES). Brief includes the §5.2 grounding-check enumeration preamble + A6 authorship audit. Monitor bbmvie7mg captures heartbeats.",
+      "timestamp": "2026-05-17T03:21:06Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T03:21:05Z"
+  "updated_at": "2026-05-17T03:21:06Z"
 }
