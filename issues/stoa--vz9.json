@@ -22,11 +22,15 @@
     {
       "text": "Install re-runs complete + workspace commit landed. State at end of session: (1) workspace tier ariadne-core-workspace .claude/ has new operating-disciplines.md + updated MAJORs (committed at de8fecd, pushed to private remote); (2) sub-project tier ariadne-core/.claude/ has same files, untracked per Path A public-repo convention (no commit needed). Both deployed instances now have the new doc and the role-file cross-refs resolve. Remaining stoa--vz9 work: ariadne--m20 follow-up (workspace POLYBIUS owns) to remove the now-redundant 'Anti-patterns absorbed from human SWE culture' section from ariadne CLAUDE.md. After that, this epic can close.",
       "timestamp": "2026-05-04T20:46:39Z"
+    },
+    {
+      "text": "**[closed 2026-05-17 by user-tier POLYBIUS — audit-complete; missed bw close action]**\n\nSubstantively shipped 2026-05-04 per comment history:\n- Substrate edit landed at `e117171` on main (3 files: operating-disciplines.md new ~110 lines covering 6 disciplines; MAJOR_POLYBIUS.md +2 cross-ref; MAJOR_PLINY.md +2 cross-ref).\n- Install-side fix at `e5c2854` (install.sh deploys operating-disciplines.md at all 3 target modes; sibling-of-this-file path works in both source + deployed locations).\n- Workspace re-runs complete at `de8fecd` (ariadne-core-workspace .claude/ has new operating-disciplines.md + updated MAJORs; ariadne-core .claude/ has same files untracked per Path A public-repo convention).\n\n**Audit (2026-05-17, post-SPECIFICATION.md §13.2 Pass 1):**\n\nVerified live against current substrate state:\n- `substrate/operating-disciplines.md` §1-§6 present with all 6 universal disciplines (suppress momentum / MVP / gold-plate / passivity / plausible-source citation / single-checker thinking). Lines 37-67.\n- `ariadne-core-workspace/CLAUDE.md` line 27-29 is the cross-ref pointer: \"This project follows the Stoa team-wide operating disciplines defined at `.claude/operating-disciplines.md` (substrate-deployed via `stoa--vz9` at commit `de8fecd`). Read those before significant work. Do not restate them in this file — single source of truth lives at the substrate.\" The duplicate \"Anti-patterns absorbed from human SWE culture\" section has been removed (verified zero grep hits in ariadne CLAUDE.md files for the discipline keywords).\n- `ariadne-core/CLAUDE.md` is clean (no duplicate-content greps).\n- Sibling workspaces (sector-4, railway_stoa) confirmed clean — no duplicate sections.\n\n**Conclusion:** all deliverables shipped; ariadne CLAUDE.md cleanup landed; only the bw close action was missed. Closing now with this audit trail.\n\n**Closing per SPECIFICATION.md §13.2 Pass 1** (working-tree + bw-state cleanup).",
+      "timestamp": "2026-05-17T22:45:38Z"
     }
   ],
   "priority": 2,
   "status": "closed",
   "title": "Promote universal operating disciplines from project CLAUDE.md to substrate",
   "type": "epic",
-  "updated_at": "2026-05-17T22:45:37Z"
+  "updated_at": "2026-05-17T22:45:38Z"
 }
