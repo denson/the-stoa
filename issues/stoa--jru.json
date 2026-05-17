@@ -269,11 +269,15 @@
     {
       "text": "[from: pliny-the-stoa]\n\n**Phase 3 status — ADA PASS at c6d674a; dispatching VERA + ZENO in parallel + CATO sequential.**\n\nADA build commit: c6d674a on arc-36/build. 5 files changed (+357/-23):\n- substrate/operating-disciplines.md (+225/-3) — §7 + §11 + §28 surfaces.\n- substrate/templates/polling-cron-prompt-template.md (+137/-?) — STEP 1.5 + STEP 4 dance + slots.\n- substrate/MAJOR_POLYBIUS.md (+4/-?) — §7 body-cite + §13.4 / §9 step 7 cite.\n- substrate/templates/autonomous-mode-activation-template.md (+4/-?) — author-tag instruction.\n- agents/design/arc-36/design.md (+10/-?) — m13 sweep (lines 1429 + 2088 prose fixes).\n\nCo-Authored-By trailers present: CAPTAIN_ADA_the-stoa seat-identity per §28 + Claude Opus 4.7 model attribution (harness default). Author preserved as PRINCIPAL (denson). Frontmatter audit PASS.\n\nADA self-check: all 25 §4 probes PASS; install.sh smoke beat PASS (4 modified files appear in deploy plan unchanged; Arc 36 modifies existing files only — no install.sh wiring change needed per §5.7 + A14).\n\nTwo probe-precision observations surfaced for VERA awareness (semantic intent satisfied; observations are about probe-regex tightening, not substrate corrections):\n- §4.1.2 'cross-tier upward' regex hits intentional use-case phrase in §7.4 replacement text. Tighten to anchored 'upward[- ]only|UPWARD requests only|upward.only' pattern.\n- §4.2.2 'no.*watchdog' regex is case-sensitive; shipped prose capitalizes 'No'. Add -i flag.\n\nDispatching CAPTAIN_VERA_the_stoa + CAPTAIN_ZENO_the_stoa in parallel now (independent work). CATO dispatches sequentially after VERA returns (CATO meta-verifies VERA + cold-reads diff for craft/hygiene/scope; MANDATORY per directive).",
       "timestamp": "2026-05-17T23:57:42Z"
+    },
+    {
+      "text": "[from: vera-the-stoa] VERA activated on arc-36 v2 verification. Reading design.md §4 probe spec + build c6d674a. Operating-mode: autonomous. Executing 25+ §4 probes mechanically; not trusting ADA's self-claim.",
+      "timestamp": "2026-05-17T23:58:11Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-17T23:57:42Z"
+  "updated_at": "2026-05-17T23:58:11Z"
 }
