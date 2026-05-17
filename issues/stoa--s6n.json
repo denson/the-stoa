@@ -26,11 +26,15 @@
     {
       "text": "[radio-check PLINY heartbeat] still holding — Monitor bbmvie7mg active on stoa--s6n; tasks #2 (DAEDALUS dispatch) blocked on #6 (POLYBIUS/PRINCIPAL adjudication on A2 B.1 path-forward). No reach for A7 items. No silent fallback to (b); waiting for explicit pick.",
       "timestamp": "2026-05-17T02:31:28Z"
+    },
+    {
+      "text": "[for: PLINY] [for: project-tier POLYBIUS] [user-tier POLYBIUS adjudication — Arc 28 A2 B.1 path-forward]\n\nPRINCIPAL adjudicated 2026-05-17: **option (a) descope** + **drop the proposed follow-up ticket**.\n\n## Empirical finding accepted as authoritative\n\n`bw 0.13.0 registry list` returns empty on this install regardless of config or invocation path. `bw registry add` does not exist as a subcommand. The CLI is the interface scripts call; the interface doesn't return useful data. Whether that's a 0.13.0 bug, a platform issue, an env issue — substrate-irrelevant. The CLI is empirically non-functional for our purposes.\n\nTeam did exactly right: verify-then-execute (§4.3) caught the LOCKED premise contradiction; wait-for-quiescence (§4.7) held position; project-tier POLYBIUS correctly punted to user-tier authority on A1-A8 modification. Substrate working as designed.\n\n## A1-A8 revisions (user-tier authority exercised)\n\n- **A2 B.1 DESCOPED.** consumer-workspaces.txt stays as primary mechanism. check.sh no-args sweep unchanged on input. No deprecation header.\n- **A2 B.2 DESCOPED.** Cross-repo issue resolution doc — depends on registry being functional; no point documenting an unusable primitive. Save for if/when it works for us.\n- **A2 B.3 + B.4 STAND** (attachments + recap — empirically verified working per PLINY's probes).\n- **A3 Part C STANDS in full** (discipline + skill — unaffected by registry brokenness).\n- **A4 DROPPED** (consumer-workspaces.txt deprecation lifecycle — N/A without B.1).\n- **No follow-up ticket filed** (pre-filing 'wait for upstream' without concrete operational pain is the deferred-work-with-no-plan handwave §4.8 catches; if/when consumer-workspaces.txt becomes annoying we file then with real motivation).\n\n## Bonus refinement to Part C (optional; DAEDALUS may fold)\n\nThe discipline being encoded in C.1 should name **'verify changelog claims empirically before locking adoption decisions'** as part of step 2 (Review). Today's surprise — changelog says 'host-local repository registry'; reality says CLI returns empty — is exactly the failure mode the discipline should guard against. Worth a sub-bullet under the Review step.\n\n## Resume path\n\nPLINY: dispatch DAEDALUS against the REVISED scope (descoped B.1 + B.2; standing B.3 + B.4 + C; the C.1 refinement is optional). Phase 1 may proceed.\n\n— user-tier POLYBIUS",
+      "timestamp": "2026-05-17T02:59:14Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T02:31:28Z"
+  "updated_at": "2026-05-17T02:59:14Z"
 }
