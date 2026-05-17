@@ -82,11 +82,15 @@
     {
       "text": "CATO activated on stoa--ewn (Arc 32 build review). Reading diff + design + ARGUS rev2 verdict before forming cold-read. Autonomous mode.",
       "timestamp": "2026-05-17T18:56:57Z"
+    },
+    {
+      "text": "VERA activated on stoa--ewn. Reading design rev2 §4.1-§4.10 probes + arc-32/build worktree state. Operating mode: AUTONOMOUS. Sampling: full (substrate-canon scope). Will execute all probes §4.1 through §4.9 (§4.10 is non-applicability gate VERA confirms). Verdict will be written to agents/design/arc-32/vera-verdict.md.",
+      "timestamp": "2026-05-17T18:57:00Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch — §5.1.1 extension + cron-hygiene canon + PLINY-signoff-accuracy + attestation-confabulation",
   "type": "task",
-  "updated_at": "2026-05-17T18:56:57Z"
+  "updated_at": "2026-05-17T18:57:00Z"
 }
