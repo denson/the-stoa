@@ -126,11 +126,15 @@
     {
       "text": "[heartbeat PLINY] Phase 3 verifiers all PASS. VERA 7/8 (Probe 5 honest UNVERIFIABLE per §15 — Claude Code runtime registry test is session-bound; docs-based PASS pending railway_stoa accretion). CATO PASS with 5 P2 polish findings (no P0/P1): count-line spacing, \u003cslug\u003e vs \u003ccustom-slug\u003e lexical drift, two §8.1 negative-framing nits in new canon, §17.2/§23.2 table micro-asymmetry. ZENO D1-D6 all DONE. Dispatching ADA polish-commit to absorb 5 P2 findings inline before Phase 4 ship. Fixes are self-referential discipline-fidelity (canon file violates §8.1 of operating-disciplines.md — the very discipline file the convention adds to).",
       "timestamp": "2026-05-17T05:06:36Z"
+    },
+    {
+      "text": "ADA activated on Phase 3.5 polish absorption. Reading install.sh §988-990 + POLYBIUS §17.2/§17.3/§17.4 + operating-disciplines §23.2/§23.3 + design.md (parallel sites) + grounding-checking all 5 P2 findings against shipped code before first edit.",
+      "timestamp": "2026-05-17T05:06:55Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Base-vs-custom agent convention — encode in substrate canon (operating-disciplines + MAJOR_POLYBIUS + install/check/apply tooling)",
   "type": "task",
-  "updated_at": "2026-05-17T05:06:36Z"
+  "updated_at": "2026-05-17T05:06:55Z"
 }
