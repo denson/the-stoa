@@ -111,11 +111,15 @@
     {
       "text": "criteria extracted from design-rev2 §7.3: 4 ZENO probes (D1-D4). Evidence captured: D1 dir + files, D2 SKILL.md Strangeness categories section, D3 op-disc §27 (7 sub-sections), D4 §27.3 A7-boundary clause. Running self-test before finalizing verdict.",
       "timestamp": "2026-05-17T19:37:34Z"
+    },
+    {
+      "text": "CATO activated on arc-33 (stoa--32b.2). Reading diff main..arc-33/build (cb47043) + design-rev2 §7.2 + new §27 + ticket body + retro §8 before forming verdict. Running CATO-1 through CATO-6.",
+      "timestamp": "2026-05-17T19:37:40Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Mechanical-script / agent-inspection split — move recognition intelligence from scripts to agents",
   "type": "task",
-  "updated_at": "2026-05-17T19:37:34Z"
+  "updated_at": "2026-05-17T19:37:40Z"
 }
