@@ -66,11 +66,15 @@
     {
       "text": "ADA activated on stoa--ewn at 2026-05-17. Reading design rev2 (agents/design/arc-32/design.md, 805 lines) + ARGUS rev2 PASS verdict + worktree state (clean, on arc-32/build) before first commit. Operating mode: AUTONOMOUS. Build order per design weak point 6: C1 -\u003e C2 carriers -\u003e {C3+C4+C5 atomic with their reciprocal cross-refs}.",
       "timestamp": "2026-05-17T18:53:21Z"
+    },
+    {
+      "text": "ADA heartbeat: Commit 1 landed at 66bed01 on arc-32/build. C1 (POLYBIUS §5.1.1.1 cross-project leak) + C2 three carriers (POLYBIUS §5.1.3 source-of-truth, paste-instruction-template.md slot 2b/2c/2d, ops-disc.md §26 cross-ref) + Edit 3a (ops-disc.md §24 framing narrowing per ARGUS R1). Design artifacts copied into worktree at agents/design/arc-32/. Proceeding to atomic C3+C4+C5+Edit 4b commit.",
+      "timestamp": "2026-05-17T18:54:44Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch — §5.1.1 extension + cron-hygiene canon + PLINY-signoff-accuracy + attestation-confabulation",
   "type": "task",
-  "updated_at": "2026-05-17T18:53:21Z"
+  "updated_at": "2026-05-17T18:54:44Z"
 }
