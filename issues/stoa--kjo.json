@@ -118,11 +118,15 @@
     {
       "text": "pass: Arc 35 build commit 7e1d348 ships clean across all CATO focus areas (wording precision, cross-refs, scope hygiene, self-application, N=1 honesty, diff hygiene, security, consistency-with-precedent). Zero blocking findings; 2 advisories. Returning.",
       "timestamp": "2026-05-17T21:40:28Z"
+    },
+    {
+      "text": "Phase 3 closed. All 3 verifiers PASS. VERA: substantive PASS on §4.1-§4.5 + §4.8.a-e + §4.9; §4.6 baseline returned empty (probe-command formulation defect: 'git log main -1 ... \u003cSHA\u003e' produces empty under git 2.40.0.windows.1; corrected invocation confirms preservation property holds); §4.7 deferred to PLINY §5.10 signoff per Arc 35 sequencing. CATO: PASS with 2 minor non-blocking advisories. ZENO: 7/7 mechanical checks PASS (verbatim wording byte-identical modulo one acceptable trailing blank). All 3 CAPTAIN commits carry correct seat-identity trailer. Phase 4 ship + signoff dispatching now.",
+      "timestamp": "2026-05-17T21:40:56Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Per-agent git identity for commits — agents commit with their own configured git author so blame indicates the actual seat",
   "type": "epic",
-  "updated_at": "2026-05-17T21:40:28Z"
+  "updated_at": "2026-05-17T21:40:56Z"
 }
