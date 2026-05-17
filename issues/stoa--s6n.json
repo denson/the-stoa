@@ -222,11 +222,15 @@
     {
       "text": "[CAPTAIN_VERA_the_stoa] probes loaded; classifying p5-p10 + 7b + authorship as easy-easy mechanical greps + script-execution probes; executing now.",
       "timestamp": "2026-05-17T03:24:03Z"
+    },
+    {
+      "text": "[CAPTAIN_CATO_the_stoa activated on stoa--s6n] cold-read of arc-28/build diff vs main beginning.",
+      "timestamp": "2026-05-17T03:24:05Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T03:24:03Z"
+  "updated_at": "2026-05-17T03:24:05Z"
 }
