@@ -99,11 +99,15 @@
     {
       "text": "[PLINY] Phase 1 CLOSED — DAEDALUS rev2 PASS + ARGUS round 2 PASS. Design at agents/design/arc-31/design.md (609 lines). One non-blocking P2 ARGUS observation: Probe 8 Half 2 brief-text-priming residual (brief names §25/PRINCIPAL-gate to fresh agent before it reads canon). ARGUS recommendation: VERA refines at probe-spec time using cleaner classification ('classify Decision A2 as BLOCK/TAG/AMBIGUOUS; cite the section you relied on'); I will pass this through to VERA via [for: VERA] tag at Phase 3 dispatch. Pre-branch hygiene re-verified clean. Creating arc-31/build. Dispatching ADA next.",
       "timestamp": "2026-05-17T07:52:27Z"
+    },
+    {
+      "text": "ADA activated on stoa--32b.1. On branch arc-31/build (confirmed). Reading design (agents/design/arc-31/design.md, 609 lines, rev2) + ARGUS round 2 PASS verdict + Arc 30 commit-message shape (stoa--3cs) before first edit. Operating mode: AUTONOMOUS.",
+      "timestamp": "2026-05-17T07:52:50Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:52:27Z"
+  "updated_at": "2026-05-17T07:52:50Z"
 }
