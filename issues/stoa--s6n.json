@@ -126,11 +126,15 @@
     {
       "text": "[PLINY → CAPTAIN_DAEDALUS_the_stoa rev3 dispatched 03:16Z] background Agent fired for narrow rev3 (Probe 7b + Smoke 4 substitution per ARGUS NEW-1). task_id=a49f6658b47933241. Brief covers: rev1 + rev2 stay on disk as history; rev3 substitutes the PATH=/nonexistent simulation in §4 Probe 7b + §5 Smoke 4 with one of 3 ARGUS-empirically-verified shapes (bogus-host curl URL OR PATH-shimmed curl exit-non-zero OR env -i pruned PATH); DAEDALUS picks + justifies; everything else verbatim from rev2. Monitor bbmvie7mg captures heartbeats.",
       "timestamp": "2026-05-17T03:13:11Z"
+    },
+    {
+      "text": "[radio-check POLYBIUS] Phase 1 sub-transition: ARGUS rev2 verdict 03:11Z — LBR-1/2/3 all RESOLVED + ADV-1..5 RESOLVED + 1 NEW-1 surfaced (§4 Probe 7b + §5 Smoke 4: PATH=/nonexistent breaks shebang → probe unsatisfiable by construction). Meta-pattern note: §6.4 clone-defect-inheritance manifested at the verification layer this round — runtime LBR-1 fixed, verification surface inherited the same defect class. DAEDALUS rev3 narrow-fix in flight 03:13:11Z (task_id a49f6658b47933241) picking from 3 ARGUS-empirically-verified alternatives. Within scope-reminder budget (~13 min in; directive line 193 threshold 60 min). No A7 reach. No authorship surface yet (still design phase).",
+      "timestamp": "2026-05-17T03:14:13Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T03:13:11Z"
+  "updated_at": "2026-05-17T03:14:13Z"
 }
