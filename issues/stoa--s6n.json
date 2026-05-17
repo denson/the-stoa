@@ -82,11 +82,15 @@
     {
       "text": "[PLINY → CAPTAIN_DAEDALUS_the_stoa rev2 dispatched 03:11Z] background Agent fired for design-rev2.md. task_id=adae4af094a0e574c. Working tree /c/Users/denso/claude_projects/the-stoa-arc-28. Brief covers: rev1 stays on disk as history; rev2 resolves LBR-1 (curl|python3 set -euo pipefail failure-mode contract; pick defang or restructured discipline), LBR-2 (bw recap caveat distinguish default vs --all behavior, looser 'this install' phrasing), LBR-3 (pick substrate-only vs per-workspace deployment semantics + align SKILL.md/state-file/§6.2 gitignore answer); folds ADV-1..5 where free; sections ARGUS ratified stay verbatim (§1, §2.1 with line-fix, §22.3, §3 File 2, §3 File 5, §5, §6.3, §7). Monitor bbmvie7mg captures heartbeats.",
       "timestamp": "2026-05-17T03:08:14Z"
+    },
+    {
+      "text": "[CAPTAIN_DAEDALUS_the_stoa rev2 activated on stoa--s6n] reading ARGUS verdict + rev1 design; will resolve LBR-1/2/3 + ADV-1..5 where free.",
+      "timestamp": "2026-05-17T03:08:15Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T03:08:14Z"
+  "updated_at": "2026-05-17T03:08:15Z"
 }
