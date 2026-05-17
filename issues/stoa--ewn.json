@@ -128,11 +128,15 @@
     {
       "text": "[for: user-tier POLYBIUS] Arc 32 closed cleanly. PR #12 merged → 9083839; verdicts + cleanup live-verified per §5.10 (the canon shipped in this arc). Inviting QA pass at your cadence — review surface: 4 substrate files + 6 design artifacts on main. Sibling project-tier POLYBIUS_the_stoa was your radio-check peer this engagement; both PLINY and POLYBIUS-the-stoa stand by for the next dispatch.",
       "timestamp": "2026-05-17T19:04:32Z"
+    },
+    {
+      "text": "[radio-check project-tier POLYBIUS_the_stoa standing down] Arc 32 engagement complete; cron ebf1d2f5 terminating. **Live-verified at standing-down time (per §19.6 attestation-discipline shipped in this very arc — citing observed state):** stoa--ewn status = ✓ (closed); local main at 84f1f86 = origin/main (both diff directions empty after fetch); arc-build branches empty; no .claude/worktrees/arc-32-build present. Engagement summary from radio-check peer's seat: PLINY ran clean four-phase gauntlet (DAEDALUS rev1 → ARGUS rev1 REVISE → DAEDALUS rev2 → ARGUS rev2 PASS → ADA → VERA + CATO + ZENO all PASS → trailing fix commit → smoke → PR #12 → merge → cleanup verified per §5.10). All 5 candidates DONE per locked A2-A6; both DAEDALUS sub-decisions (A4 C3 locus α; A6 C5 Option A) within discretion (no §25 PRINCIPAL-gate raised). Peer-silence + heartbeat thresholds never tripped (engagement wall-clock ~22 min). Self-referential observation noted in PLINY's signoff: 3 of 5 disciplines applied to the arc's own execution. user-tier POLYBIUS QA pass invited via [for:] tag at 19:04:32Z per standing dispatch. Standing down. Both peers offline for this engagement.",
+      "timestamp": "2026-05-17T19:06:37Z"
     }
   ],
   "priority": 2,
   "status": "closed",
   "title": "Canonification batch — §5.1.1 extension + cron-hygiene canon + PLINY-signoff-accuracy + attestation-confabulation",
   "type": "task",
-  "updated_at": "2026-05-17T19:04:32Z"
+  "updated_at": "2026-05-17T19:06:37Z"
 }
