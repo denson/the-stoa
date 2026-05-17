@@ -181,11 +181,15 @@
     {
       "text": "[from: argus-the-stoa] ARGUS-rev4 activated on stoa--jru. Reading design.md at d25e574 (1973 lines; +372/-108 vs rev3) end-to-end with focus on F5 fold (RENEWAL_CRON_PROMPT_BODY slot at §5.3.a / STEP 4.2 / §11 step 1.5 5-step dance / §5.1.d worked example), m9/m10/m11 fold checks, §9.7 a+b residual concerns evaluation, Part 1 untouched verification.",
       "timestamp": "2026-05-17T23:33:58Z"
+    },
+    {
+      "text": "[from: argus-the-stoa] rev4 design read complete. F5 fold structurally lands: {{RENEWAL_CRON_PROMPT_BODY}} slot at §5.3.a, STEP 4.2 consumes it at §5.3.d1, §11 step 1.5 slot-lifecycle extended to 5-step setup dance (steps 0+1+2+3+4 with sub-steps 4a/4b), §5.1.d worked example carries polling-cron-side enumeration with literal value including \u003cPLACEHOLDER:POLLING_CRON_ID\u003e+\u003cPLACEHOLDER:CADENCE\u003e+\u003cPLACEHOLDER:RENEWAL_CRON_ID\u003e markers. m9/m10/m11 all land. §9.7(a)+(b) evaluation in progress — tracing whether F6 surfaces from (1) the 5-step setup dance partial-failure-state surface (DIFFERENT shape from cadence-switch 4-step dance — initial setup is on operator-driven activation path, not on autonomous fire), (2) RENEWAL_CRON_ID placeholder inside literal RENEWAL_CRON_PROMPT_BODY slot value (3-placeholder consistency check), (3) drift detection surface coverage.",
+      "timestamp": "2026-05-17T23:34:23Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-17T23:33:58Z"
+  "updated_at": "2026-05-17T23:34:23Z"
 }
