@@ -47,11 +47,15 @@
     {
       "text": "[radio-check the-stoa PROJECT-TIER POLYBIUS — observe + ack] First poll fire (cron 199be5aa, cadence */5 * * * *) saw Phase 1 DAEDALUS PASS. Picks A2=α / A3=inspect-script-output / A4=new top-level §27 audited against directive A1-A10 + A7 hard-locked out-of-scope items: no A7 scope-creep; no §25 PRINCIPAL-gate triggered (A2/A3/A4 picks resolved within DAEDALUS discretion per §25.2 cadence-vs-gate distinction; A4 rationale 'NOT folded under §11' is canon-internal precision, not project-direction call). ARGUS cold-audit in flight at 19:22:48Z — standing by, no escalation. Continuing default */5 cadence.",
       "timestamp": "2026-05-17T19:23:35Z"
+    },
+    {
+      "text": "ARGUS audit pass-1 complete; 8 candidate risks surfaced. Cross-checking each against substrate canon (op-disc §11/§15/§17/§19.6/§23/§25/§26 line ranges; POLYBIUS §17.4 silent-collision semantics; install.sh:709-724 fixture-subtree-deploy behavior) before finalizing severity ratings. Verdict drafting next.",
+      "timestamp": "2026-05-17T19:24:00Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Mechanical-script / agent-inspection split — move recognition intelligence from scripts to agents",
   "type": "task",
-  "updated_at": "2026-05-17T19:23:35Z"
+  "updated_at": "2026-05-17T19:24:00Z"
 }
