@@ -127,11 +127,15 @@
     {
       "text": "CATO activated on stoa--32b.1 / arc-31/build commit 1b06b61. Reading design rev2, build directive A1-A11, and full dispatch context before cold-read.",
       "timestamp": "2026-05-17T07:56:35Z"
+    },
+    {
+      "text": "Design + ADA verdict absorbed. 9 probes (all quadrant easy-easy). Reading build artifacts (6 substrate files + synthetic-directive) before probe execution.",
+      "timestamp": "2026-05-17T07:56:36Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:56:35Z"
+  "updated_at": "2026-05-17T07:56:36Z"
 }
