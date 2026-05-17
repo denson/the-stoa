@@ -39,11 +39,15 @@
     {
       "text": "## Phase 1 heartbeat — DAEDALUS PASS\n\nDAEDALUS dispatched + returned. Design at `.claude/worktrees/arc-33-build/agents/design/arc-33/design.md` (528 lines).\n\n**Picks:**\n- A2 = Option α (new substrate-tier skill at `substrate/skills/inspect-script-output/`)\n- A3 = `inspect-script-output` (verb-first naming)\n- A4 = new top-level §27 in operating-disciplines.md between line 1282 (after §26 closing `---`) and line 1283 (`## Agent-regime inverses`); NOT folded under §11 (would re-conflate cadence-axis with architecture-axis per §25.2 table)\n\n**Self-assessed weak points:** 7 surfaced at design §8 + 5 residual questions for ARGUS at §10. No PRINCIPAL-gate triggered.\n\nDispatching ARGUS cold-audit next per directive expectation that revisions are LIKELY.",
       "timestamp": "2026-05-17T19:22:29Z"
+    },
+    {
+      "text": "ARGUS activated on Arc 33 stoa--32b.2 design audit. Reading design.md (528 lines) end-to-end + cited substrate canon (op-disc §11/§15/§17/§19/§19.6/§23/§25/§26; PLINY §5.9/§5.10; POLYBIUS §17; install.sh:141-146; check-bw-release + check-substrate-updates precedents) before audit.",
+      "timestamp": "2026-05-17T19:22:48Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Mechanical-script / agent-inspection split — move recognition intelligence from scripts to agents",
   "type": "task",
-  "updated_at": "2026-05-17T19:22:29Z"
+  "updated_at": "2026-05-17T19:22:48Z"
 }
