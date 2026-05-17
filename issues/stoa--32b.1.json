@@ -27,11 +27,15 @@
     {
       "text": "directive + retro §7 absorbed; operating-disciplines.md §10/§11/§15/§18/§20/§22.3/§23.4/§24 read; CAPTAIN envelopes (DAEDALUS/ADA/VERA) + templates (autonomous-mode-activation + polling-cron-prompt) read. A3 pick: Option β (new §25). Reasoning: PRINCIPAL's retro §7 declaration explicitly frames cadence vs gate as DISTINCT axes ('autonomous mode is a *cadence* discipline ... it is NOT a *gate-override* discipline'); the conflation is precisely the failure mode being closed. Folding into §10/§11 reproduces the conflation in section structure. β is the structural fix matching the discipline. §10/§11 gain a cross-ref pointer; discoverability addressed via that pointer + §25's own discoverable heading.",
       "timestamp": "2026-05-17T07:42:31Z"
+    },
+    {
+      "text": "A6 pick: SPLIT — probe-design sub-case lands as §25.X subsection in the new D1 operating-disciplines section (carries the universal probes-mutate-real-workspaces principle); VERA envelope D2 §5.10 carries a thin seat-specific pointer back. Reasoning: (1) retro §9 explicitly named DAEDALUS-time challenge ('VERA Probe 8's design would have been challenged at DAEDALUS time') — the rule belongs upstream of VERA in operating-disciplines where DAEDALUS reads it; (2) future inspection-agent stoa--32b.2 will hit the same shape and shouldn't need to re-discover the principle in a VERA-only locus; (3) keeps VERA's §5.10 tight as 'seat-specific refusal protocol' rather than over-loaded with general probe-design principle. Drafting design now.",
+      "timestamp": "2026-05-17T07:42:46Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:42:31Z"
+  "updated_at": "2026-05-17T07:42:46Z"
 }
