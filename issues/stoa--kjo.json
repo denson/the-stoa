@@ -26,11 +26,15 @@
     {
       "text": "DAEDALUS: brief absorbed; restatement-gate drafted; directive A1-A16 confirmed LOCKED. Required reading complete: ~/.claude/CLAUDE.md authorship section (line 37 'Git commit Author: — always use the user's configured git identity, never override'); op-disc §19.6 attestation-confab; §25 PRINCIPAL-gate; §27 mechanical/agent split (precedent §28-shape); PLINY §5.9.4 worktree + §5.10 signoff-accuracy + §5.11 paste archival (precedent §5.12-shape); POLYBIUS §18 user-tier housekeeping (A3 exempts POLYBIUS commits); CAPTAIN_ADA §5.5 authorship (A6 extends here, line 92-94 in current file). All four sub-decisions (A5/A6/A7/A8) within DAEDALUS discretion; aligning with user-tier POLYBIUS leans (no PRINCIPAL-gate escalation needed). Drafting design.md next.",
       "timestamp": "2026-05-17T21:25:36Z"
+    },
+    {
+      "text": "DAEDALUS: design.md drafted at agents/design/stoa--kjo/design.md in arc-35-build worktree. §1 restatement; §2 sub-decisions (A5=CAPTAIN_\u003cMNEMONIC\u003e_the-stoa \u003ccaptain-\u003cmnemonic\u003e@the-stoa.local\u003e; A6=§28/§5.12/CAPTAIN_ADA-§5.5-extension; A7=(i) manual; A8=(a) subsection §28.5); §3 exact wording for all four canon targets (§28 body fully drafted, §5.12 body, CAPTAIN_ADA §5.5 paragraph, global CLAUDE.md bullet); §4 nine verification probes; §5 self-application plan; §6 cite-comment enumeration; §7 worked-example ADA commit message; §8 out-of-scope cite-A12; §9 five self-assessed weak points; §10 five residual questions for ARGUS. Self-assessed weak points pass per §6.2 (named brittle spots; not silently smoothed; not over-apologized). About to commit on arc-35/build with self-applied Co-Authored-By: CAPTAIN_DAEDALUS_the-stoa \u003ccaptain-daedalus@the-stoa.local\u003e trailer (A9 self-application — this commit IS the first commit that carries the convention).",
+      "timestamp": "2026-05-17T21:28:10Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Per-agent git identity for commits — agents commit with their own configured git author so blame indicates the actual seat",
   "type": "epic",
-  "updated_at": "2026-05-17T21:25:36Z"
+  "updated_at": "2026-05-17T21:28:10Z"
 }
