@@ -3,7 +3,7 @@
 **Ticket:** `stoa--kjo`
 **Branch:** `arc-35/build` (created by PLINY in separate worktree at `.claude/worktrees/arc-35-build/` per `MAJOR_PLINY.md` §5.9.4)
 **Date:** 2026-05-17
-**Status:** rev1 — initial DAEDALUS design for ARGUS cold-audit
+**Status:** rev2 — folds 4 ARGUS rev1 findings (F1 path-citation; F2 §1.3 empirical reframing; F3 §3.4 audit-checklist pattern-break; F4 §9.2 N=1 honest citation). Architecture-layer picks (A5/A6/A7/A8) unchanged from rev1 (PASS-equivalent per ARGUS non-findings).
 **Directive:** `substrate/arcs/arc-35-build-directive.md` (A1-A16 LOCKED; A5/A6/A7/A8 are DAEDALUS sub-decisions)
 **Authored by:** CAPTAIN_DAEDALUS_the-stoa, on behalf of the PRINCIPAL (Denson Smith).
 
@@ -25,7 +25,7 @@ The original `stoa--kjo` ticket proposed Option A (per-agent `Author:` override)
 
 ### §1.3 Imported assumptions (named per `CAPTAIN_DAEDALUS.md` §6.1)
 
-- **GitHub squash-merge preservation of Co-Authored-By trailers.** Confirmed via web search (2026-05-17): GitHub auto-populates Co-authored-by tags from squashed commits' authors AND appends/preserves existing trailers from squashed commit bodies into the squash-merge commit body. The convention's "trailers survive branch deletion" property rests on this. The web-confirmed behavior matches what `git log --pretty='%(trailers)'` shows on Arc 32 and Arc 33 squash-merge commits — the `Co-authored-by: Claude Opus 4.7 <noreply@anthropic.com>` trailer ADA wrote into per-arc-build commits IS present in the squash-merge commit on main today.
+- **GitHub squash-merge preservation of Co-Authored-By trailers (preservation property: reliable; write-side application: variable).** Confirmed via web search (2026-05-17): GitHub auto-populates Co-authored-by tags from squashed commits' authors AND appends/preserves existing trailers from squashed commit bodies into the squash-merge commit body. The *preservation property itself* — "if a trailer is in a squashed commit body, the squash-merge commit body preserves it" — is reliable, empirically confirmed on Arc 33 ship `789496b` which carries `Co-authored-by: Claude Opus 4.7 <noreply@anthropic.com>` exactly as ADA wrote it pre-squash. What is *variable* is ADA's write-side discipline: Arc 34 ship `244c1c3` has ZERO trailers (verified 2026-05-17 by `git log -1 --pretty='%(trailers:only)' 244c1c3`) because the pre-squash Arc 34 build commits `357e7635` (rev1) and `af815ebf` (rev2) BOTH had zero trailers — ADA omitted the standard Claude trailer on every Arc 34 build commit, so the preservation property had nothing to preserve. The convention's "seat trailers survive branch deletion via squash-merge" property therefore rests on TWO independent properties: (a) the preservation property (reliable on GitHub's side); (b) ADA's write-side discipline (must produce the trailer at commit time; empirically variable). Verification probe §4.5 covers (b); probe §4.6 covers (a). Self-assessed weak point §9.2 reframes the A7=(i) manual mechanism honestly against this Arc-34-witnessed write-side failure mode.
 - **Sub-agent dispatch grounding.** PLINY brief to CAPTAIN_ADA already includes structured key-value fields per `MAJOR_PLINY.md` §5.2 (grounding-check enumeration). Adding a `seat-identity:` field is a parallel extension, not a structural change to the brief shape.
 - **HEREDOC commit-message discipline already in place.** ADA's current commit pattern (Arc 32, Arc 33, Arc 34 build commits all visible in `git log`) uses HEREDOC bodies with the Claude trailer at the end. Adding the seat-identity trailer is an additional line in the same HEREDOC, not a new commit pattern. This is what makes A7 = (i) manual viable; an ADA-already-using-HEREDOC starting point makes the manual mechanism near-zero-cost.
 
@@ -95,21 +95,21 @@ Three coordinated insertions inside the gauntlet, plus one cross-ref edit OUTSID
 | `substrate/operating-disciplines.md` | New top-level §28 after §27 ends (line 1357 in current arc-35-build worktree) | `## 28. Per-CAPTAIN git seat identity via Co-Authored-By trailer` |
 | `substrate/MAJOR_PLINY.md` | New subsection §5.12 after §5.11 ends (line 516 in current arc-35-build worktree); inserted BEFORE the `---` separator at line 517 + `## 6. Communication` at line 519 | `### 5.12 Per-CAPTAIN seat-identity in the dispatch brief` |
 | `substrate/CAPTAIN_ADA.md` | Extension to existing §5.5 "Authorship attribution (immutable)" at lines 92-94; appended new paragraph naming the trailer-discipline as a parallel concern with cite to op-disc §28 | (unchanged heading — `### 5.5 Authorship attribution (immutable)`) |
-| `~/.claude/CLAUDE.md` (USER-TIER, outside gauntlet) | Insertion inside existing "Authorship attribution — never falsely credit someone else (CRITICAL)" section; placed at end of "Mandatory audit before committing or pushing" subsection (after the `Git commit Author:` bullet at line 37) | (unchanged heading — under "### Mandatory audit before committing or pushing") |
+| `~/.claude/CLAUDE.md` (USER-TIER, outside gauntlet) | Insertion inside existing "Authorship attribution — never falsely credit someone else (CRITICAL)" section; new standalone subsection placed AFTER "Mandatory audit before committing or pushing" subsection closes and BEFORE the next existing subsection ("Naming references are NOT authorship claims"). The audit-checklist bullet list is UNCHANGED (per rev2 fix of ARGUS F3 audit-pattern-break). | `### Substrate seat-identity convention (compliance-with-spirit of "never override Author:", not exception)` |
 
 **Confirmation of line numbers (live state in `.claude/worktrees/arc-35-build/` at design-time, 2026-05-17):**
 
 - `substrate/operating-disciplines.md`: 1381 lines total; §27 closes at the cross-reference bullet list ending ~line 1356; line 1357 starts the `---` separator before `## Agent-regime inverses (the positive framing)` (line 1360). §28 inserts BETWEEN §27 close and the `---` separator at line 1358 (with appropriate blank line + `---` + blank line + new section heading sequencing).
 - `substrate/MAJOR_PLINY.md`: 708 lines total; §5.11 closes at line 515 with `Same N=1 framing as ...`; line 516 is blank; line 517 is `---`; line 519 is `## 6. Communication`. §5.12 inserts BETWEEN line 515 (§5.11 close) and line 517 (`---`) — i.e., as a peer of §5.9, §5.10, §5.11 within the `## 5. The gauntlet pipeline` family.
 - `substrate/CAPTAIN_ADA.md`: 173 lines total; §5.5 lives at lines 92-94. New paragraph appended at line 94+ as same-subsection extension; §5.6 (Heartbeat-and-read-before-write) at line 96 remains undisturbed.
-- `~/.claude/CLAUDE.md`: line 37 is the `- Git commit Author:` bullet inside the "Mandatory audit" subsection (lines 29-37 in current state). The cross-ref insertion appends one new bullet immediately after the existing `Git commit Author:` bullet, so the two bullets read as a coordinated pair (the absolute rule + the substrate-pattern that complies with the spirit of the rule).
+- `~/.claude/CLAUDE.md`: the "Mandatory audit before committing or pushing" subsection runs lines 29-37 (heading at line 29; enumerated bullets at lines 33-37; the `Git commit Author:` bullet is at line 37). A "STOP and verify" closing paragraph immediately follows the bulleted list. The rev2 cross-ref insertion is a NEW standalone subsection placed AFTER that closing paragraph ends and BEFORE the next existing subsection ("Naming references are NOT authorship claims" — currently at approximately line 47 in PRINCIPAL's global file). The enumerated audit-checklist bullets at lines 33-37 are UNCHANGED. (Rev1 had appended a new bullet AT line 38; ARGUS F3 flagged the audit-pattern-break; rev2 restructures.)
 
 **Locus rationale (per file).**
 
 - **§28 in op-disc.** Universal-team protocol canon. Per `CAPTAIN_DAEDALUS.md` §6 the substrate-canonical home for universal disciplines is `operating-disciplines.md`. Arc 33's §27 (mechanical-script / agent-inspection split) is the most recent precedent for a new top-level section; its shape (PRINCIPAL declaration → discipline rule → per-seat behavior → cross-references → N=1 provenance) is what §28 follows. Per A6 directive lean: "Likely insertion: after §27 (Arc 33 mechanical/agent split), as new §28."
 - **§5.12 in PLINY.** PLINY's responsibility is dispatch-time naming of the seat-identity each CAPTAIN should use in the trailer. The §5 family (gauntlet pipeline) is where dispatch-shape disciplines live: §5.1 (operating-mode in brief), §5.2 (ADA brief preamble — grounding-check enumeration), §5.9.4 (worktree convention), §5.10 (signoff-accuracy), §5.11 (paste archival). §5.12 (per-CAPTAIN seat-identity in brief) sits naturally after §5.11 as the most-recent canon-shaped peer.
 - **CAPTAIN_ADA §5.5 extension (not a new §5.x subsection).** The directive A6 names "Update CAPTAIN_ADA.md authorship-discipline subsection (currently lines ~94 ff covering file-frontmatter `author:` discipline) to add the git-trailer discipline as a parallel concern." A NEW §5.x subsection would split the authorship-discipline material across two subsections — a reader landing at §5.5 would need to know to ALSO read §5.x for the trailer half. Extending §5.5 in place keeps both halves of "authorship signal at ADA's seat" in one read-locus. Pattern matches Arc 32 / C2 (which extended an existing template slot rather than creating a new sibling template).
-- **`~/.claude/CLAUDE.md` cross-ref placement.** The "Mandatory audit before committing or pushing" subsection (lines 29-37) enumerates field-by-field what the audit checks. The last bullet (line 37) is `Git commit Author: — always use the user's configured git identity, never override.` A new bullet appended after that one places the cross-ref EXACTLY where a reader of the absolute rule lands — same subsection, same bullet rhythm, two sentences apart. Per directive A4 ("a reader of global CLAUDE.md who operates in substrate workspaces sees both the absolute rule AND the substrate's compliant trailer convention, preventing drift in either direction").
+- **`~/.claude/CLAUDE.md` cross-ref placement (rev2).** The "Mandatory audit before committing or pushing" subsection (lines 29-37) enumerates field-by-field what the audit checks. The last bullet (line 37) is `Git commit Author: — always use the user's configured git identity, never override.` Rev1 appended a new audit-checklist bullet after that one; ARGUS F3 flagged this as a pattern-break (the bullet describes a convention, not an audit target). Rev2 places the cross-ref as a NEW standalone subsection immediately after the "Mandatory audit" subsection closes (after its STOP-and-verify closing paragraph) and immediately before the next existing subsection. The new subsection's heading explicitly frames the relationship to the absolute rule ("compliance-with-spirit, not exception"), so a reader walking the section's subsection-shaped headings sees the convention as a peer of the absolute rule + its audit checklist, NOT as a member of the checklist. Per directive A4 ("a reader of global CLAUDE.md who operates in substrate workspaces sees both the absolute rule AND the substrate's compliant trailer convention, preventing drift in either direction") AND ARGUS F3's structural property (audit-checklist bullets enumerate audit targets only; complementary conventions live in their own subsection).
 
 ### §2.3 — A7: implementation mechanism
 
@@ -117,7 +117,7 @@ Three coordinated insertions inside the gauntlet, plus one cross-ref edit OUTSID
 
 **Rationale.**
 
-ADA's existing commit-message discipline already uses HEREDOC bodies with trailers (Arc 32, Arc 33 build commits visible via `git log --pretty='%(trailers)'` show `Co-authored-by: Claude Opus 4.7 <noreply@anthropic.com>` written by ADA per the global CLAUDE.md commit-message convention). Adding a seat-identity trailer is one additional HEREDOC line in the exact same body shape:
+ADA's existing commit-message discipline uses HEREDOC bodies with trailers when ADA applies the discipline correctly: Arc 33 build commits (visible via `git log --pretty='%(trailers)' 789496b`) show `Co-authored-by: Claude Opus 4.7 <noreply@anthropic.com>` written by ADA per the global CLAUDE.md commit-message convention; Arc 34 pre-squash build commits (`357e7635`, `af815ebf`) show ZERO trailers (verified 2026-05-17). The mechanism is "ADA writes the trailer line in the HEREDOC"; failure mode is "ADA forgets to include the trailer line." Arc 34 is the empirical witness that this manual mechanism HAS already failed once at this seat one arc ago. Arc 35 ships against the same mechanism, which is honest about both its empirical viability (Arc 33 worked) AND its known failure mode (Arc 34 didn't); §9.2 reframes the weak-point with this concrete witness. Adding a seat-identity trailer is one additional HEREDOC line in the exact same body shape:
 
 ```
 git commit -m "$(cat <<'EOF'
@@ -223,7 +223,7 @@ Verification: `git log --pretty='%(trailers)' main` walks squash-merge commit bo
 
 ### 28.4 File-frontmatter author fields are NOT affected
 
-This convention applies ONLY to git commit metadata. File-frontmatter `author:` fields (`SKILL.md`, `marketplace.json`, `package.json`, `LICENSE`, etc.) continue to name **Denson Smith** per substrate/CLAUDE.md and global `~/.claude/CLAUDE.md` IMMUTABLE rule. The CAPTAIN_ADA.md §5.5 file-frontmatter discipline stands. This section makes the boundary explicit to prevent any reader from inferring "agents tag commits → agents also tag file frontmatter." Commit-trailer seat-identity is a metadata-layer signal; file-frontmatter author is a content-layer claim — different layers, different rules.
+This convention applies ONLY to git commit metadata. File-frontmatter `author:` fields (`SKILL.md`, `marketplace.json`, `package.json`, `LICENSE`, etc.) continue to name **Denson Smith** per the project-tier `CLAUDE.md` (at the project repo root) and global `~/.claude/CLAUDE.md` IMMUTABLE rule. The CAPTAIN_ADA.md §5.5 file-frontmatter discipline stands. This section makes the boundary explicit to prevent any reader from inferring "agents tag commits → agents also tag file frontmatter." Commit-trailer seat-identity is a metadata-layer signal; file-frontmatter author is a content-layer claim — different layers, different rules.
 
 ### 28.5 Read discipline: git blame is line-level; trailers are commit-level
 
@@ -359,11 +359,13 @@ The trailer is commit-metadata only — it does NOT touch the commit `Author:` f
 
 This edit lands as a user-tier POLYBIUS direct-to-main commit per `MAJOR_POLYBIUS.md` §18.1 (the user-tier housekeeping exception), NOT inside the arc-35-build worktree gauntlet. The sequencing is: gauntlet ships first (substrate canon §28 + §5.12 + CAPTAIN_ADA §5.5 extension); user-tier POLYBIUS then lands the cross-ref edit on PRINCIPAL's global CLAUDE.md AFTER the substrate canon merges.
 
-**Insertion locus.** Inside the existing "Authorship attribution — never falsely credit someone else (CRITICAL)" section. Specifically, inside the "Mandatory audit before committing or pushing" subsection (currently lines 29-37), appended as a NEW bullet immediately after the existing `Git commit Author:` bullet at line 37.
+**Insertion locus (rev2 — restructured per ARGUS F3 finding).** Inside the existing "Authorship attribution — never falsely credit someone else (CRITICAL)" section. The rev1 design placed the cross-ref as a NEW BULLET inside the "Mandatory audit before committing or pushing" enumerated checklist. ARGUS F3 flagged this as a structural pattern-break: the existing bullets enumerate *things to audit* (field names, file types, frontmatter lines, HTML meta tags, the Author rule); the new bullet describes a *complementary convention*, not a thing to audit. The pattern-break risks two miscategorizations by a cold reader: (a) the trailer is itself an audit-target field-of-its-own (false audit-discipline drift); (b) the bullet is a permitted *exception* to the absolute Author rule (the OPPOSITE of A4's intent). Rev2 corrects by inserting the cross-ref as a separate paragraph AFTER the "Mandatory audit" subsection closes — outside the enumerated checklist, with explicit framing.
 
-**Current state (lines 31-37):**
+**Current state of the "Mandatory audit before committing or pushing" subsection (lines 29-37 unchanged):**
 
 ```markdown
+### Mandatory audit before committing or pushing
+
 Before staging, committing, or pushing **any** file with an author-like field, check every one of:
 
 - Field names: `author`, `authors`, `owner`, `creator`, `created_by`, `maintainer`, `maintainers`, `by`, `copyright`, `holder`, `vendor`, `publisher`
@@ -371,34 +373,45 @@ Before staging, committing, or pushing **any** file with an author-like field, c
 - YAML frontmatter `author:` lines in skill files (`SKILL.md` and similar)
 - HTML `<meta name="author">`, RSS `<author>`, sitemap author tags
 - Git commit `Author:` — always use the user's configured git identity, never override
+
+If any such field names a person other than Denson Smith, **STOP** and verify with the user in chat before proceeding. Do not assume that a name already present is correct just because it was there before — it may be a leftover from a fork, a template, an LLM-generated scaffold, or a previous error like the one being prevented here.
 ```
 
-**Post-edit state (lines 31-38):**
+The audit checklist + its "STOP and verify" closing paragraph are UNCHANGED by rev2. The new cross-ref content lands as a standalone subsection AFTER the "Mandatory audit" subsection closes (immediately before the next existing subsection — currently "Naming references are NOT authorship claims").
+
+**Post-edit state — NEW subsection inserted between "Mandatory audit before committing or pushing" subsection close and "Naming references are NOT authorship claims" subsection (verbatim wording for the new content):**
 
 ```markdown
-Before staging, committing, or pushing **any** file with an author-like field, check every one of:
+### Substrate seat-identity convention (compliance-with-spirit of "never override Author:", not exception)
 
-- Field names: `author`, `authors`, `owner`, `creator`, `created_by`, `maintainer`, `maintainers`, `by`, `copyright`, `holder`, `vendor`, `publisher`
-- Files that conventionally encode authorship: `plugin.json`, `marketplace.json`, `package.json`, `pyproject.toml`, `setup.py`, `Cargo.toml`, `Gemfile`, `composer.json`, `LICENSE`, `LICENSE.md`, `NOTICE`, `CITATION.cff`, `README.md` author/badge lines, skill `metadata.json`, `manifest.json`, anything under `.claude-plugin/`
-- YAML frontmatter `author:` lines in skill files (`SKILL.md` and similar)
-- HTML `<meta name="author">`, RSS `<author>`, sitemap author tags
-- Git commit `Author:` — always use the user's configured git identity, never override
-- Git commit `Co-Authored-By:` trailers — the absolute rule above stands. Projects following the Stoa substrate's seat-identity convention add a `Co-Authored-By: CAPTAIN_<MNEMONIC>_<project-slug> <captain-<mnemonic>@<project-slug>.local>` trailer to CAPTAIN commits inside arc-build worktrees (per `substrate/operating-disciplines.md` §28). The trailer is the seat-identity signal; `Author:` remains the PRINCIPAL's configured identity. This is the substrate's compliance-with-spirit pattern, not an exception.
+Projects that ship the Stoa substrate (`substrate/operating-disciplines.md` §28) add a `Co-Authored-By: CAPTAIN_<MNEMONIC>_<project-slug> <captain-<mnemonic>@<project-slug>.local>` trailer to CAPTAIN commits inside arc-build worktrees. The trailer is the seat-identity signal that lets a future agent or human reader walk `git log --pretty='%(trailers)'` and learn which agent seat authored a commit. The convention is the substrate's compliance mechanism for the "never override `Author:`" absolute rule above: `Author:` stays the PRINCIPAL's configured identity (unchanged); the seat-identity signal is layered on top via the Co-Authored-By trailer, which preserves through GitHub squash-merge into main.
+
+This is NOT a permitted exception to the absolute Author rule and is NOT a new audit target. The "Mandatory audit" checklist above stands as-is; the Co-Authored-By trailer is metadata layered ON TOP of (not in place of) the audited Author field, and the file-frontmatter author-field discipline in the checklist is unchanged. Full canon home: `substrate/operating-disciplines.md` §28; per-seat application at `MAJOR_PLINY.md` §5.12 (dispatch-brief naming) and `CAPTAIN_ADA.md` §5.5 (pre-commit discipline at the writing seat).
 ```
 
-**Wording rationale.** The cross-ref bullet sits as a peer of the existing `Git commit Author:` bullet, so a reader walking the audit-bullet list sees both in immediate succession. The bullet opens by restating the absolute rule ("the absolute rule above stands") so a cold reader cannot misread the cross-ref as an exception or relaxation. The substantive description of the convention is brief — one sentence naming the trailer format + the path to the substrate canon for full detail. The closing sentence ("This is the substrate's compliance-with-spirit pattern, not an exception") is the framing the directive A4 names verbatim.
+**Wording rationale.** The standalone subsection cleanly separates the cross-ref from the audit checklist:
 
-### §3.5 — `substrate/CLAUDE.md` (PROJECT-TIER) edit — DAEDALUS recommends NO edit
+- The audit checklist enumerates things-to-check; this subsection describes a *complementary convention*. Different kind of content, different section.
+- The heading "Substrate seat-identity convention (compliance-with-spirit of 'never override Author:', not exception)" makes the framing visible in the section heading itself — a reader walking the table-of-contents-shaped headings sees "compliance-with-spirit, not exception" before reading the body.
+- The body opens with what the convention *is* (the trailer format + when it applies), then explicitly states the *compliance relationship* to the absolute rule ("`Author:` stays unchanged; signal is layered on top"), then explicitly closes the misread-as-exception door ("This is NOT a permitted exception ... and is NOT a new audit target").
+- Cross-references to the substrate canon are at the end (the right shape — the heading + framing carry the load; the canon paths are the deep-read pointer).
+- The closing sentence ("The 'Mandatory audit' checklist above stands as-is") explicitly defends the structural property ARGUS F3 protects: the audit checklist's enumerated bullets stay shaped as audit targets only.
 
-The directive's "Required reading" item 8 names `substrate/CLAUDE.md` authorship section as A4-adjacent and notes "DAEDALUS picks whether to recommend." Reviewing the file (project-root `CLAUDE.md` lines 57-65, the "Authorship attribution" section): it already names the field-by-field audit list and the never-override discipline implicitly via reference to the global rule. Adding a §28 cross-ref here would duplicate the global-CLAUDE.md cross-ref without adding new signal — a reader of project `CLAUDE.md` who needs the trailer-convention canon is already routed (via the field-name list pattern) to the substrate's canonical home at `substrate/operating-disciplines.md` §28.
+This satisfies the directive A4 wording-property ("a reader of global CLAUDE.md who operates in substrate workspaces sees both the absolute rule AND the substrate's compliant trailer convention, preventing drift in either direction") AND ARGUS F3's structural property (the new content reads as compliance, NOT relaxation, AND must not be miscategorized as an audit target).
 
-**Recommendation: NO edit to project-tier `substrate/CLAUDE.md` in Arc 35.** Reasoning:
+### §3.5 — Project-tier `CLAUDE.md` (at repo root) edit — DAEDALUS recommends NO edit
 
-1. Project `CLAUDE.md` authorship section talks about FILE-frontmatter authorship (`author:` field discipline + the "leftovers from forks" caveat). Commit-trailer seat-identity is a different layer (metadata, not content) and lives at substrate/operating-disciplines.md §28 — the right canonical home.
+The directive's "Required reading" item 8 names the project-tier `CLAUDE.md` authorship section as A4-adjacent and notes "DAEDALUS picks whether to recommend." Reviewing the file at its actual on-disk location (`CLAUDE.md` at the the-stoa repo root — see "Path-citation correction" below): it already names the field-by-field audit list and the never-override discipline implicitly via reference to the global rule. Adding a §28 cross-ref here would duplicate the global-CLAUDE.md cross-ref without adding new signal — a reader of project `CLAUDE.md` who needs the trailer-convention canon is already routed (via the field-name list pattern) to the substrate's canonical home at `substrate/operating-disciplines.md` §28.
+
+**Recommendation: NO edit to project-tier `CLAUDE.md` in Arc 35.** Reasoning:
+
+1. Project `CLAUDE.md` authorship section talks about FILE-frontmatter authorship (`author:` field discipline + the "leftovers from forks" caveat). Commit-trailer seat-identity is a different layer (metadata, not content) and lives at `substrate/operating-disciplines.md` §28 — the right canonical home.
 2. Adding a cross-ref bullet would expand the project `CLAUDE.md` authorship section into a two-discipline section, which over-weights commit-trailer-as-context-for-the-PRINCIPAL relative to the actual file-frontmatter discipline a project-tier reader needs.
 3. The global `~/.claude/CLAUDE.md` cross-ref (per §3.4 above) IS the right surface for the trailer-convention acknowledgment, because the absolute "never override Author:" rule lives at the global tier — the cross-ref pairs naturally with the rule it complements.
 
 If a future arc surfaces operational friction (e.g., a future CAPTAIN reads project-tier `CLAUDE.md` cold and doesn't know about the trailer convention because it's only cross-referenced from the global tier), revisit. For Arc 35, the global cross-ref alone is sufficient.
+
+**Path-citation correction (sub-decision recorded for the build trail).** The directive (`substrate/arcs/arc-35-build-directive.md`) names this file as `substrate/CLAUDE.md` at lines 118 + 183 and in the polybius-activation paste at line 36. That path is wrong: there is no `substrate/CLAUDE.md` in this repo (verified 2026-05-17 by `ls` against the arc-35-build worktree). The project-tier `CLAUDE.md` is at the repo root (`/CLAUDE.md`); a separate app-tier `CLAUDE.md` exists at `/app/CLAUDE.md`; `substrate/` contains role files (`MAJOR_*.md`, `CAPTAIN_*.md`, `operating-disciplines.md`, etc.) but no `CLAUDE.md`. The directive's "project-tier rule" descriptor unambiguously refers to the project-tier CLAUDE.md (its content is the project-tier authorship/build rules ARGUS, ADA, and other CAPTAINs read on activation), which IS at repo-root `/CLAUDE.md`. Per the verify-then-execute discipline (`operating-disciplines.md` §7.2 / §19), this design corrects the citation in every shipped wording (§28.4 body above uses "project-tier `CLAUDE.md` (at the project repo root)"; this §3.5 uses "project-tier `CLAUDE.md`" without the broken `substrate/` prefix) rather than propagating the directive's path-error into permanent substrate canon. The broken path SHOULD also be cleaned up in a future-arc directive cleanup (P5 hygiene; not Arc 35 scope per A12) to prevent the same error reappearing in future arc directives that copy-paste from arc-35's; flagged to the §10 residual-questions list for ARGUS's call on whether to surface as an out-of-scope follow-up ticket.
 
 ---
 
@@ -488,7 +501,7 @@ git log arc-35/build --pretty='%H %s%n  TRAILERS:%n%(trailers:only)' main..arc-3
 git log main -1 --pretty='%(trailers:only)' 789496b  # Arc 33 ship commit
 ```
 
-**Expected baseline output:** `Co-authored-by: Claude Opus 4.7 <noreply@anthropic.com>` (the Claude trailer ADA wrote into per-arc-build commits IS preserved in the squash-merge commit body — established behavior).
+**Expected baseline output:** `Co-authored-by: Claude Opus 4.7 <noreply@anthropic.com>` (the Claude trailer ADA wrote into per-arc-build commits IS preserved in the squash-merge commit body — established behavior on Arc 33 ship `789496b`). Note: Arc 34 ship `244c1c3` has ZERO trailers, but this is NOT a refutation of the preservation property — it is a write-side failure (pre-squash Arc 34 commits `357e7635` and `af815ebf` had zero trailers themselves; the preservation property had nothing to preserve). Arc 33 is the deliberately-chosen baseline because it exercises the preservation path; Arc 34 is the deliberately-named counter-example for the write-side discipline path (probe §4.5 catches that failure mode).
 
 **Command (post-merge — verify the Arc 35 squash-merge carries the seat trailers):**
 
@@ -498,21 +511,38 @@ git log main -1 --pretty='%(trailers:only)' <arc-35-squash-merge-sha>
 
 **Expected post-merge output:** Trailer body includes at least one `Co-Authored-By: CAPTAIN_<MNEMONIC>_the-stoa <captain-<mnemonic>@the-stoa.local>` line per CAPTAIN that contributed to the arc.
 
-**Failure interpretation:** If the dry-run baseline fails, the squash-merge preservation property is not what design.md asserts — re-investigate (web search for GitHub behavior changes; design.md §1.3 imported assumption is wrong). If the post-merge probe fails, the trailers were written but not preserved — investigation needed (per-commit trailer formatting issue; GitHub Web UI vs CLI merge difference).
+**Failure interpretation:** If the Arc 33 dry-run baseline fails (returns empty), the GitHub squash-merge preservation property is not what design.md §1.3 asserts — re-investigate (web search for GitHub behavior changes; the preservation-side of §1.3's imported assumption is wrong). If the Arc 35 post-merge probe fails after CAPTAIN commits on `arc-35/build` DID carry the trailers (verified by §4.5), the trailers were written but not preserved — investigation needed (per-commit trailer formatting issue; GitHub Web UI vs CLI merge difference). If §4.5 already shows missing trailers on `arc-35/build`, the write-side mechanism failed (the Arc 34 failure mode recurring), and this probe's failure is downstream of that — fix at the write side (interactive rebase + amend per §5 remediation) before re-running this probe.
 
 ### §4.7 — Global `~/.claude/CLAUDE.md` cross-ref landed (user-tier POLYBIUS direct-commit, OUTSIDE gauntlet)
 
-**Check:** The global CLAUDE.md authorship-attribution section's "Mandatory audit" subsection contains a new bullet appended after the `Git commit Author:` bullet, cross-referencing `substrate/operating-disciplines.md` §28.
+**Check:** The global CLAUDE.md authorship-attribution section contains the NEW standalone subsection "Substrate seat-identity convention (compliance-with-spirit of 'never override Author:', not exception)" placed between the "Mandatory audit" subsection close and the next existing subsection ("Naming references are NOT authorship claims"). The audit-checklist enumerated bullets are UNCHANGED from pre-edit state.
 
 **Command (run from PRINCIPAL's filesystem; PLINY signoff verifies per §5.10):**
 
 ```bash
-grep -nE "Co-Authored-By.*trailer|operating-disciplines\.md.*§?28" ~/.claude/CLAUDE.md
+# Probe 4.7.a — new subsection heading lands at the right place
+grep -nE "^### Substrate seat-identity convention" ~/.claude/CLAUDE.md
+
+# Probe 4.7.b — cross-ref to substrate §28 present in the new subsection body
+grep -nE "substrate/operating-disciplines\.md.*§?28" ~/.claude/CLAUDE.md
+
+# Probe 4.7.c — audit-checklist bullets are UNCHANGED (no new audit-target bullet)
+grep -nE "^- Git commit \`Co-Authored-By\`" ~/.claude/CLAUDE.md
 ```
 
-**Expected output:** At least one match inside the authorship-attribution section (between the `## Authorship attribution` heading at line 17 and the next `---` separator at line 55 + offset).
+**Expected outputs:**
 
-**Failure interpretation:** Cross-ref bullet missing — user-tier POLYBIUS direct-commit didn't fire OR fired with wrong wording. Per Arc 35 sequencing, the global edit lands AFTER the substrate ships; PLINY signoff (per §5.10) verifies BOTH the substrate ship AND the global edit before declaring arc-close.
+- 4.7.a returns exactly one match inside the authorship-attribution section (after the "Mandatory audit" subsection close, before the "Naming references are NOT authorship claims" subsection).
+- 4.7.b returns at least one match inside the new subsection's body (cross-ref to canon home).
+- 4.7.c returns ZERO matches (the rev1 audit-checklist bullet pattern-break is NOT present; the cross-ref lives as a standalone subsection, not as an audit-checklist bullet).
+
+**Failure interpretation:**
+
+- 4.7.a empty: cross-ref subsection missing — user-tier POLYBIUS direct-commit didn't fire OR fired with wrong heading.
+- 4.7.b empty: cross-ref subsection present but body doesn't link back to the substrate canon home — wording bug.
+- 4.7.c non-empty: rev1's audit-checklist bullet pattern-break has landed — F3 not fixed (the post-edit shape regressed back to rev1).
+
+Per Arc 35 sequencing, the global edit lands AFTER the substrate ships; PLINY signoff (per §5.10) verifies BOTH the substrate ship AND the global edit before declaring arc-close.
 
 ### §4.8 — Out-of-scope guard (A12 compliance probe)
 
@@ -572,7 +602,7 @@ Per directive A9, Arc 35's own gauntlet build commits MUST carry the Co-Authored
 
 **Self-application probe** (per §4.5): VERA runs `git log arc-35/build --pretty='%(trailers:only)' main..arc-35/build` and verifies every CAPTAIN commit has its seat trailer.
 
-**Failure remediation:** if a CAPTAIN commit forgets the trailer, that commit must be re-authored (interactive rebase + amend OR new commit with corrected trailer + drop of the bad commit) BEFORE PLINY merges the PR. Shipping un-self-applied would create the discontinuity the directive A9 calls out: "we made this rule on 2026-05-17 and started following it on 2026-05-N+1."
+**Failure remediation:** if a CAPTAIN commit forgets the trailer, that commit must be re-authored (interactive rebase + amend OR new commit with corrected trailer + drop of the bad commit) BEFORE PLINY merges the PR. Shipping un-self-applied would create the discontinuity the directive A9 calls out: "we made this rule on 2026-05-17 and started following it on 2026-05-N+1." Per §9.2, the Arc 34 empirical witness (`244c1c3` ship has 0 trailers because pre-squash `357e7635` + `af815ebf` had 0 trailers — ADA omitted the standard Claude trailer on every Arc 34 build commit) is the concrete evidence that the manual mechanism HAS already failed once at this seat for the simpler one-trailer case; Arc 35's two-trailer convention runs the same operator-dependent risk. The verification gate (§4.5 probe + PLINY signoff per §5.10) is the structural safety net Arc 34 lacked; it must catch the failure BEFORE merge, when remediation is cheap.
 
 ---
 
@@ -587,7 +617,7 @@ Per directive A10, every place that references "agent commit identity" or "git b
 | `operating-disciplines.md` §28.8 cross-references | global `~/.claude/CLAUDE.md`, `MAJOR_PLINY.md` §5.12, `CAPTAIN_ADA.md` §5.5, §19.6, §25, `MAJOR_POLYBIUS.md` §18, `MAJOR_PLINY.md` §5.10 + §5.11, `stoa--kjo`, ariadne--xft.4 | Yes (§3.1 §28.8 wording above) |
 | `MAJOR_PLINY.md` §5.12 cross-references | `operating-disciplines.md` §28, §5.2, `CAPTAIN_ADA.md` §5.5, §5.10 | Yes (§3.2 §5.12 wording above) |
 | `CAPTAIN_ADA.md` §5.5 extension | `operating-disciplines.md` §28, `MAJOR_PLINY.md` §5.12, global `~/.claude/CLAUDE.md` | Yes (§3.3 extension wording above) |
-| Global `~/.claude/CLAUDE.md` new bullet | `substrate/operating-disciplines.md` §28 | Yes (§3.4 wording above) |
+| Global `~/.claude/CLAUDE.md` new standalone subsection ("Substrate seat-identity convention") | `substrate/operating-disciplines.md` §28 (canon home); `MAJOR_PLINY.md` §5.12; `CAPTAIN_ADA.md` §5.5 | Yes (§3.4 rev2 wording above) |
 | `MAJOR_POLYBIUS.md` §18.1 (existing — A3 exempts POLYBIUS commits) | NOT EDITED by Arc 35 (Out-of-scope per A12 — no edits to §18 prose); the existing §18 prose already enumerates "user-tier POLYBIUS direct-commit ... may direct-commit to main for a bounded set of housekeeping operations" which IS the A3 exemption rationale. No NEW cite required from §18 into §28 — the §28 cross-reference list points BACK to §18 instead. | N/A (no edit to §18) |
 | Other CAPTAIN role files (DAEDALUS, ARGUS, VERA, CATO, ZENO, BARTLEBY, STRABO, HERALD, CURATOR) | NOT EDITED by Arc 35; single source of truth at op-disc §28; per A6 directive: "single source of truth for the rule is operating-disciplines.md §28; role files cite-comment to it." | N/A (no edits to non-ADA CAPTAIN role files in Arc 35; CAPTAIN_ADA is the one CAPTAIN that empirically commits in the gauntlet today, and its envelope gets the explicit extension; other CAPTAINs inherit §28 via universal-team read of operating-disciplines.md per §23) |
 
@@ -675,11 +705,29 @@ Per the post-work gate at §6.2, the design's brittle spots are flagged here for
 
 **Why this shape anyway.** The directive A5 constraint is explicit: "Email field MUST be a `.local` or otherwise non-routing local-only domain to prevent accidental email-list inclusion." Routable email addresses risk spam to a fake address; the `.local` TLD is the canonical non-routing pseudo-TLD per RFC 6762. Alternatives (`@example.com` per RFC 2606, `@invalid` per RFC 6761) are semantically equivalent for non-routability but less common in git seat-identity conventions. `.local` is the empirically-anchored choice in the directive's worked example. The "tool that parses trailers" concern is a future-tool concern, not a today concern; the design ships the convention that meets today's stated constraint.
 
-### §9.2 — Manual mechanism (A7=i) relies on agent discipline; no enforcement
+### §9.2 — Manual mechanism (A7=i) has a documented past-failure mode at THIS seat one arc ago (Arc 34)
 
-**Weak point.** A7=i (manual in-commit-message trailer) has no mechanical enforcement. If ADA forgets the trailer on a commit, the commit lands without the trailer; VERA probe §4.5 catches it post-hoc, but the catch is at verification time after the commit already exists. The remediation (interactive rebase + amend, or new commit + drop) is operationally awkward and creates additional git history noise. A shell helper (A7=ii) would have prevented the failure mode by making the trailer harder to omit.
+**Weak point (rev2 — reframed with concrete N=1 citation per ARGUS F4 finding and A13 / `operating-disciplines.md` §6.7.1 N=1-honesty discipline).** A7=i (manual in-commit-message trailer) has no mechanical enforcement. The failure mode is not hypothetical: it has already materialized once at this seat one arc ago, for the standard `Co-authored-by: Claude Opus 4.7 <noreply@anthropic.com>` trailer convention this seat-identity trailer composes with.
 
-**Why this shape anyway.** A7=ii buys mechanical enforcement at the cost of: new tooling surface (substrate/scripts/), `install.sh` change to deploy the helper, agent role-file updates to call the helper, AND a new failure mode (the helper is misconfigured or its location varies across worktrees). The cost exceeds the value at Arc 35's scale (Arc 35 is ONE arc; ADA writes ONE build commit; the trailer is ONE additional HEREDOC line in a pattern ADA already uses for the Claude trailer). The reversibility note in §2.3 captures the future-arc remediation path: if the manual mechanism proves insufficient (e.g., trailer-omission caught at multiple consecutive arcs), a future arc may add the helper without breaking the existing convention. The design defers tooling until evidence demands it.
+**Concrete witnesses (verified 2026-05-17 by `git log -1 --pretty='%(trailers:only)' <sha>`):**
+
+| Arc | Ship SHA | Pre-squash SHAs | Trailers on ship | Trailers on pre-squash |
+|---|---|---|---|---|
+| Arc 33 | `789496b` | (single ADA commit) | 1 (`Co-authored-by: Claude Opus 4.7 <noreply@anthropic.com>` preserved) | 1 |
+| Arc 34 | `244c1c3` | `357e7635` (rev1) + `af815ebf` (rev2) | **0** (squash had nothing to preserve) | **0 + 0** |
+| Arc 35 (this) | (TBD) | `16b09e1` (DAEDALUS design.md rev1, this seat self-applied) + DAEDALUS rev2 of this commit + ADA build commit(s) | (TBD) | rev1 = 2 (self-applied per A9) |
+
+Arc 34 is the empirical witness that ADA omitted the standard Claude trailer on EVERY pre-squash build commit one arc ago at this exact seat. The convention being shipped in Arc 35 has a meaningfully higher cognitive load (TWO trailers per commit instead of one — the seat-identity trailer + the Claude trailer), AND the same operator (CAPTAIN_ADA in this project's gauntlet) who already missed the simpler one-trailer case once. If the manual mechanism (A7=i) fails again on Arc 35's ADA build commit, the SHIP commit would carry zero seat-identity trailers (preservation property has nothing to preserve), Arc 35 would not have self-applied per A9, and the convention would ship as canon-without-self-application — the discontinuity the directive A9 explicitly forbids ("we made this rule on 2026-05-17 and started following it on 2026-05-N+1"). VERA probe §4.5 + PLINY signoff per §5.10 are the safety net; the remediation (interactive rebase + amend, or new commit + drop) is operationally awkward and creates additional git history noise.
+
+**Why this shape anyway (rev2 — the deliberate justification per A13 + ARGUS F4 framing "default to manual; the manual mechanism has already failed once at this seat one arc ago for the Claude trailer convention; this design accepts that risk with deliberate justification").** Three deliberate reasons:
+
+1. **Cost-asymmetry favors manual at Arc 35's scale.** A7=ii (shell helper) buys mechanical enforcement at the cost of: new tooling surface (`substrate/scripts/`), `install.sh` change to deploy the helper, agent role-file updates to call the helper, AND a new failure mode (the helper is misconfigured or its location varies across worktrees). The helper itself has a known failure mode (Arc 34 showed ADA can forget conventions); replacing one manual convention with a helper-mediated one does not eliminate the discipline gap, it RELOCATES it (now ADA must remember to call the helper). The helper IS recoverable surface to lose ("did I call git-coauthor.sh?" is the same question as "did I include the trailer line?" — both at HEREDOC-authoring time).
+
+2. **The Arc 34 failure was a single-trailer omission; the Arc 35 mitigation is verification-mediated, not enforcement-mediated.** §4.5 (probe: every CAPTAIN commit on `arc-35/build` has the seat trailer) + §5.10 (PLINY signoff verifies this before PR-merge) form a verification gate at the place the convention's failure manifests (the commit-already-exists, not-yet-merged state — the same state where amend/drop remediation is cheap). The verification gate is the structural safety net Arc 34 lacked (no probe ran on Arc 34 for the Claude trailer because no probe existed to run). Arc 35 ships the probe AND the convention as one cohesive unit; the probe IS the answer to "what about the Arc 34 failure mode."
+
+3. **Reversibility (A7 directive escape hatch).** If Arc 35's gauntlet PLUS the probe still fails — i.e., ADA-forgets-trailer AND VERA-misses-it OR PLINY-signoff-misses-it — the next arc may add the shell helper (A7=ii) as remediation. The (i) → (ii) migration is forward-compatible: the helper writes the same trailer the manual mechanism writes today; existing commits remain valid. The deferral is to evidence-from-Arc-35 itself: if Arc 35 ships clean and self-applies clean, the manual mechanism is empirically viable; if Arc 35 ships with the failure mode recurring, the next arc has the empirical anchor for adding the helper.
+
+**Honest scoping of the risk.** The Arc 34 instance is N=1 at this exact seat for the trailer-omission failure mode; Arc 33 is N=1 at the same exact seat for trailer-application success. The mechanism's reliability is not "untested" or "robust" — it is "1-of-2 at this seat across the immediately preceding two arcs," which is exactly the evidence-density Arc 35's design must own. If Arc 35 ships with the trailers present (probe §4.5 PASS, PLINY signoff per §5.10 verifies), the count moves to 2-of-3 (one near-miss recovered by the new probe — exactly the value the verification gate adds); if Arc 35 ships with the trailers missing (probe §4.5 catches at gauntlet time, remediation succeeds), the count moves to 2-of-3 with the catch credited to the new probe (proving the safety-net works); if Arc 35 ships with the trailers missing AND the probe fails to catch, the design has a structural defect and the next arc must add A7=ii. Per `operating-disciplines.md` §6.7.1, this is honest at the structural-lesson tier: the mechanism is named, the failure mode is empirically anchored, the safety net is named, the escape hatch is named.
 
 ### §9.3 — Read-discipline §28.5 may underplay the persistent gap
 
@@ -705,11 +753,12 @@ Per the post-work gate at §6.2, the design's brittle spots are flagged here for
 
 These are explicit questions for the ARGUS plan-critique pass (per `CAPTAIN_DAEDALUS.md` §7 verdict-format `residual_questions_for_argus:`). They are NOT weak points (those are §9); they are places where ARGUS's cold-read perspective is specifically requested.
 
-1. **Is §28.5's read-discipline subsection sufficient, or does it warrant standalone-section treatment (Option (b)) given the persistent gap §9.3 names?** DAEDALUS picked (a) per same-arc-pairing rationale; ARGUS may surface a different perspective.
-2. **Is the §3.4 wording for the global `~/.claude/CLAUDE.md` cross-ref bullet correctly worded?** The bullet sits as a peer of the absolute `Git commit Author:` rule; ARGUS should verify the bullet does NOT read as a relaxation, exception, or override of the absolute rule.
-3. **Does the §3.5 recommendation to NOT edit project-tier `substrate/CLAUDE.md` hold?** DAEDALUS reasoned that the global cross-ref is sufficient + project-tier authorship section is FILE-frontmatter focused; ARGUS may have a different view on whether project-tier readers need the trailer-convention surface too.
-4. **Is the trailer-format pick (A5 = `CAPTAIN_<MNEMONIC>_the-stoa <captain-<mnemonic>@the-stoa.local>`) the right balance of empirical-anchor alignment vs. the-stoa's canonical slug shape?** Specifically: should the seat-segment-to-project-segment separator be underscore (as picked) or hyphen?
-5. **Are VERA probes §4.1-§4.9 sufficient coverage, or are there structural properties of the convention (e.g., CI/PR-bot rendering, GitHub API behavior) that warrant additional probes?** DAEDALUS specified what felt complete; ARGUS may surface gaps.
+1. **Is §28.5's read-discipline subsection sufficient, or does it warrant standalone-section treatment (Option (b)) given the persistent gap §9.3 names?** DAEDALUS picked (a) per same-arc-pairing rationale; ARGUS may surface a different perspective. (rev1 non-finding per ARGUS — preserved as residual for completeness.)
+2. **Is the rev2 §3.4 wording for the global `~/.claude/CLAUDE.md` standalone subsection structurally correct?** Rev1 had the cross-ref as an audit-checklist bullet; ARGUS F3 flagged it as pattern-breaking. Rev2 restructures as a standalone subsection AFTER the "Mandatory audit" subsection closes, with the heading "Substrate seat-identity convention (compliance-with-spirit of 'never override Author:', not exception)". ARGUS rev2 should re-verify: (a) the new content reads as compliance, NOT relaxation; (b) the audit-checklist enumerated bullets are confirmed UNCHANGED; (c) the new subsection's heading conveys the framing without requiring the reader to descend to body prose; (d) the body's closing sentence ("The 'Mandatory audit' checklist above stands as-is") is sufficient to close the audit-target-misread door.
+3. **Does the §3.5 recommendation to NOT edit project-tier `CLAUDE.md` hold?** DAEDALUS reasoned that the global cross-ref is sufficient + project-tier authorship section is FILE-frontmatter focused; ARGUS may have a different view on whether project-tier readers need the trailer-convention surface too. (Note: rev2 corrects the rev1 path-error per ARGUS F1 — the project-tier CLAUDE.md is at repo-root `/CLAUDE.md`, not `substrate/CLAUDE.md` which does not exist; the recommendation-not-to-edit applies to the actual project-tier `/CLAUDE.md`.)
+4. **Is the trailer-format pick (A5 = `CAPTAIN_<MNEMONIC>_the-stoa <captain-<mnemonic>@the-stoa.local>`) the right balance of empirical-anchor alignment vs. the-stoa's canonical slug shape?** Specifically: should the seat-segment-to-project-segment separator be underscore (as picked) or hyphen? (rev1 non-finding per ARGUS PASS on §2.1 — preserved as residual for completeness.)
+5. **Are VERA probes §4.1-§4.9 sufficient coverage, or are there structural properties of the convention (e.g., CI/PR-bot rendering, GitHub API behavior) that warrant additional probes?** DAEDALUS specified what felt complete; ARGUS may surface gaps. (Note rev2 adds three sub-probes 4.7.a-4.7.c for the global CLAUDE.md edit shape per F3 fix; the structural property "audit-checklist bullets are UNCHANGED" is now mechanically checkable.)
+6. **Future-arc directive cleanup (per F1 fix sub-decision recorded at §3.5).** This design corrects the `substrate/CLAUDE.md` path-citation in every shipped wording rather than propagating the directive's path-error into permanent canon. The directive itself (`substrate/arcs/arc-35-build-directive.md` lines 118 + 183 + activation paste line 36) still carries the broken path. ARGUS should adjudicate whether this warrants a follow-up ticket (P5 hygiene; not Arc 35 scope per A12) to scrub the directive's path-error and any other future arc directive that copy-pastes from it, or whether the design.md's correction is sufficient (since the substrate canon is what readers cite forward).
 
 ---
 
