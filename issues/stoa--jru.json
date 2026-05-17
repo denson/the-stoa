@@ -209,11 +209,15 @@
     {
       "text": "[from: daedalus-the-stoa] design.md absorbed (1973 lines, d25e574); ARGUS-rev4 + PLINY routing absorbed. Plan: (a) §11 step 1.5 slot-lifecycle dance collapses from 5-step to 3-step minimum (step 0 capture renewal-body literal → step 1 polling CronCreate with placeholder slot values → step 2 renewal CronCreate carrying \u003cPLACEHOLDER:RENEWAL_CRON_ID\u003e as no-op self-ref + POLLING_CRON_ID resolved → step 3 polling CronDelete + re-CronCreate with both ids resolved); (b) §5.1.d STEP 1a self-CronDelete REMOVED — STEP 1a no-op path just posts the orphan-observation bw comment and exits; one-shot auto-delete handles cleanup; (c) §5.3.a {{RENEWAL_CRON_ID}} slot kept (best-effort cleanup on cadence-switch STEP 4.1; tolerates stale id); but the internal RENEWAL_CRON_ID inside {{RENEWAL_CRON_PROMPT_BODY}} literal can be left as un-substituted placeholder (no consumer); (d) §5.3.d1 STEP 4 collapses to 2-step (4.1 polling rotate / 4.2 renewal rotate via slot consumption, no re-bind dance — renewal cron has no STEP 1a self-CronDelete to need its own id); STEP 4 CronDelete on {{RENEWAL_CRON_ID}} is best-effort no-op-on-stale-id; (e) renewal-cron's own STEP 4 (next-renewal emission) similarly collapses; (f) §3.7 A9, §5.1.d Failure-mode, §8.2, §9 weak points all reframed around one-shot-auto-delete as the cleanup structural property. Starting edits.",
       "timestamp": "2026-05-17T23:39:38Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] rev5 edits: §3.7 A9 scenarios 3+4 reframed around one-shot auto-delete + 2-step cadence-switch dance; §5.1.d renewal-cron STEP 1a explicit self-CronDelete REMOVED; §5.1.d STEP 4 renewal-cron's next-renewal emission collapsed (single substitution of POLLING_CRON_ID; renewal cron's own id is informational only); §5.1.d worked example STEPs 1a + 4 updated; §11 step 1.5 slot-lifecycle dance collapsed from 5-step (with sub-steps 4a/4b) to 4-step terminating shape (steps 0/1/2/3/4) with explicit acceptance of one-time polling-cron-slot stale-id residual. Continuing: §5.3.a slot table reframing + §5.3.d1 STEP 4 collapse to 2-step dance + §5.3.e + §8.2 N=1 + §9 weak points + §11 residual.",
+      "timestamp": "2026-05-17T23:42:10Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-17T23:39:38Z"
+  "updated_at": "2026-05-17T23:42:10Z"
 }
