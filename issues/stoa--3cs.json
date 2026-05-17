@@ -66,11 +66,15 @@
     {
       "text": "DAEDALUS rev3 activated. Surgical fix of ARGUS r6 (three-carrier framing must propagate to §1.3 + §3.1 + §5.9.2) + r7 ( →  typo at §2.1 line 49). Reading design.md.",
       "timestamp": "2026-05-17T05:47:06Z"
+    },
+    {
+      "text": "pass (rev3): design.md surgical fix of ARGUS r6+r7. r6=three-carrier framing propagated from §6.2 into the rationale prose at §1.3 (the 'single load-bearing structural choice' paragraph now names all three carriers — PLINY §5.9 substantive canon + POLYBIUS §5.1.2 paste preamble + template clause expansion — with each carrier's reader-profile distinguished) and §3.1 (Option-γ rationale rewritten to three carriers with the same insurance argument; cost is now 'two short cross-ref sections,' benefit named, three-way drift surface explicitly forwarded to §6.2). For §5.9.2 cross-references-list at line 108: chose the GENTLER fix (preserve verbatim ADA-paste canon) — clarified that the §5.9 prose is the substantive source of truth and the 'other two carriers from §5.9's POV' are the paste-side redundancy enumerated in the list. This reads cleanly from inside §5.9 (no count contradiction) AND aligns with three-carrier framing globally. r7=§2.1 line 49 typo fixed (## → ### to match the §5.x subsection convention used at line 65 verbatim canon). No new content beyond targeted fixes; status line bumped to rev3. Returning.",
+      "timestamp": "2026-05-17T05:47:21Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:47:06Z"
+  "updated_at": "2026-05-17T05:47:21Z"
 }
