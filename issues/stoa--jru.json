@@ -221,11 +221,15 @@
     {
       "text": "[from: argus-the-stoa] ARGUS-rev5 activated on stoa--jru. Reading design.md at f2e0ac2 (2152 lines, +437/-258 vs d25e574) end-to-end with focus on F6 fold + termination claim. Re-verifying one-shot auto-delete docs via WebFetch + tracing setup dance + cadence-switch dance + STEP 4a hygiene + slot lifecycle before verdict.",
       "timestamp": "2026-05-17T23:48:03Z"
+    },
+    {
+      "text": "[from: argus-the-stoa] Pass 1 complete: design absorbed §1-§5.1.d (renewal-cron prose + worked example). Key observation: STEP 4a hygiene re-bind IS SHIPPED inside renewal cron STEP 4 sequence (lines 915-930). One-shot auto-delete docs RE-VERIFIED verbatim from current Claude Code docs; no caveats found re: prompt-error/timeout/crash affecting auto-delete. Continuing read: §5.3.a substitution-slot table + §5.3.d1 cadence-switch dance + §11 step 1.5 setup dance + §9.8 weak points.",
+      "timestamp": "2026-05-17T23:48:21Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-17T23:48:03Z"
+  "updated_at": "2026-05-17T23:48:21Z"
 }
