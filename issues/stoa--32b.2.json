@@ -91,11 +91,15 @@
     {
       "text": "ADA: SKILL.md (220 lines) + check.sh (~430 lines, executable bit set) shipped at substrate/skills/inspect-script-output/. Self-test PASSES (2/2 assertions): CLEAN-path emits CLEAN message; STRANGE-path emits STRANGENESS DETECTED finding citing BOTH .claude/agents/CAPTAIN_DAEDALUS_self_test.md AND .claude/agents/custom/CAPTAIN_DAEDALUS_self_test.md. Now moving to install.sh SKILL_NAMES append + operating-disciplines.md §27 insert.",
       "timestamp": "2026-05-17T19:34:35Z"
+    },
+    {
+      "text": "pass: Arc 33 build complete. 4 substrate files + 2 design files committed on arc-33/build at cb47043 (mode-fix follow-up to ad7d5fb). Self-test PASSES (2/2 assertions: CLEAN-path + STRANGE-path with finding citing both colliding files). install.sh SKILL_NAMES now has 5 entries; operating-disciplines.md §27 lands at line 1284 (7 sub-sections); SKILL.md author: Denson Smith confirmed; check.sh git index mode 100755 confirmed. Returning to PLINY.",
+      "timestamp": "2026-05-17T19:36:04Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Mechanical-script / agent-inspection split — move recognition intelligence from scripts to agents",
   "type": "task",
-  "updated_at": "2026-05-17T19:34:35Z"
+  "updated_at": "2026-05-17T19:36:04Z"
 }
