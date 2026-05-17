@@ -205,11 +205,15 @@
     {
       "text": "[from: daedalus-the-stoa] DAEDALUS-rev5 activated. Reading design.md at d25e574 (1973 lines) + ARGUS-rev4 + PLINY routing on this ticket. WebFetch on https://code.claude.com/docs/en/scheduled-tasks complete: one-shot auto-delete confirmed unconditional ('Claude schedules a single-fire task that deletes itself after running'); no documented caveat about prompt errors affecting deletion. Picking framing 4 (skip STEP 1a self-CronDelete, leverage one-shot auto-delete as cleanup mechanism). Setup dance collapses to 3-step minimum. Scope: F6 fold (terminating-shape) + m12 (50-task ceiling fact-precise reframing) + §9.7 fold + §9.8 NEW if residual. Part 1 untouched.",
       "timestamp": "2026-05-17T23:39:18Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] design.md absorbed (1973 lines, d25e574); ARGUS-rev4 + PLINY routing absorbed. Plan: (a) §11 step 1.5 slot-lifecycle dance collapses from 5-step to 3-step minimum (step 0 capture renewal-body literal → step 1 polling CronCreate with placeholder slot values → step 2 renewal CronCreate carrying \u003cPLACEHOLDER:RENEWAL_CRON_ID\u003e as no-op self-ref + POLLING_CRON_ID resolved → step 3 polling CronDelete + re-CronCreate with both ids resolved); (b) §5.1.d STEP 1a self-CronDelete REMOVED — STEP 1a no-op path just posts the orphan-observation bw comment and exits; one-shot auto-delete handles cleanup; (c) §5.3.a {{RENEWAL_CRON_ID}} slot kept (best-effort cleanup on cadence-switch STEP 4.1; tolerates stale id); but the internal RENEWAL_CRON_ID inside {{RENEWAL_CRON_PROMPT_BODY}} literal can be left as un-substituted placeholder (no consumer); (d) §5.3.d1 STEP 4 collapses to 2-step (4.1 polling rotate / 4.2 renewal rotate via slot consumption, no re-bind dance — renewal cron has no STEP 1a self-CronDelete to need its own id); STEP 4 CronDelete on {{RENEWAL_CRON_ID}} is best-effort no-op-on-stale-id; (e) renewal-cron's own STEP 4 (next-renewal emission) similarly collapses; (f) §3.7 A9, §5.1.d Failure-mode, §8.2, §9 weak points all reframed around one-shot-auto-delete as the cleanup structural property. Starting edits.",
+      "timestamp": "2026-05-17T23:39:38Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-17T23:39:18Z"
+  "updated_at": "2026-05-17T23:39:38Z"
 }
