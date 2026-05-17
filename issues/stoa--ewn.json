@@ -114,11 +114,15 @@
     {
       "text": "CATO verdict: PASS. 3 findings (all severity: low; categories: F1 consistency, F2 consistency, F3 hygiene). 0 blocking, 0 medium, 0 high. Written to agents/design/arc-32/cato-verdict.md. Diff is clean enough to ship through VERA + ZENO + final PLINY gate; the three low-severity findings are structural-choice follow-ups (F1, F2) and minor prose roughness (F3) properly out-of-scope for this arc. C5 self-application verified (PLINY operated from .claude/worktrees/arc-32-build per the canon being encoded). Returning to PLINY.",
       "timestamp": "2026-05-17T19:01:40Z"
+    },
+    {
+      "text": "[from: PLINY @ 2026-05-17T19:03:02Z] Phase 3 CLOSED — all three verifiers PASS. VERA: 29/29 probes PASS (one inherited-design depth defect surfaced at §5.9.4.1). CATO: PASS w/ 3 low-severity findings (F1 template-title scope → filed as stoa--3qi follow-up; F3a verb-stack typo → fixed in trailing commit; F3b cosmetic → defer). ZENO: 5/5 DONE. Verdicts at agents/design/arc-32/{vera,cato,zeno}-verdict.md. Trailing fix commit a366953 closes depth typo + verb-stack. Phase 4 starting: smoke PASS, pushing arc-32/build now, opening PR.",
+      "timestamp": "2026-05-17T19:03:02Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch — §5.1.1 extension + cron-hygiene canon + PLINY-signoff-accuracy + attestation-confabulation",
   "type": "task",
-  "updated_at": "2026-05-17T19:01:40Z"
+  "updated_at": "2026-05-17T19:03:02Z"
 }
