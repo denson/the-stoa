@@ -840,9 +840,58 @@ The structural failure: confabulation produces a CONFIDENT statement that PRINCI
 
 The two disciplines cross-reference; neither subsumes the other. `MAJOR_PLINY.md` §7.2 and `MAJOR_POLYBIUS.md` §4.3 carry a scope-broadening note pointing here.
 
+The attestation sub-discipline at §19.6 (Arc 32) is the specific application of §19 to attestation-at-attestation-time rather than execution-at-execution-time; readers landing at §7.2 / §4.3's pointer to §19 should follow through to §19.6 for the attestation-specific failure mode (claim is about a prior verification rather than about the current state).
+
 ### 19.5 Empirical lineage
 
 Workspace-tier memory `feedback_no_confabulated_rationales.md` (ariadne-core-workspace, 2026-04-21) was the original anchor at workspace tier. The 2026-05-12 ariadne PLINY incident surfaced the same failure mode in a different shape (tool-call introspection rather than unfamiliar-code rationale invention) and triggered the substrate-tier promotion. Substrate ticket: `stoa--ioy`. Arc 24 (`stoa--cm3`).
+
+### 19.6 Attestation-confabulation — cite live-verified state, not assumed-from-context state
+
+When attesting that a discipline check PASSED — pre-branch hygiene, cron hygiene, credential audit, dispatch-preconditions, any check the seat is claiming it has performed — the attestation MUST cite the live-verified state observed at attestation time, NOT the assumed-from-context state (e.g., the dispatch-authoring SHA carried in the directive, the upstream tool's last-reported value, a SHA the seat has not re-verified against the current working tree).
+
+**Discipline-PASS and honesty-PASS are separate properties; both required.** A check that passes empirically but is attested-by-assumption violates honesty discipline even though it passes substantively. The attestation is what makes the check legible to PRINCIPAL and to future seats reading the trail; a substantively-correct attestation citing the wrong SHA carries forward a false history of *what was actually verified*, even when the underlying state was clean.
+
+**The rule:**
+
+1. Re-run the check command at attestation time. If the directive says "verify local main = origin/main," run `git fetch origin main && git log --oneline main..origin/main && git log --oneline origin/main..main` at attestation time, not at directive-read time.
+2. Cite the SHA / state observed by the re-run, not the SHA the directive cites. The directive's SHA may be hours or days stale; the live SHA is what proves the check passed NOW.
+3. If the live state differs from the directive's premise, surface it. The directive may need a refresh; the operator needs to see the delta. Do not silently attest against the live state if the live state contradicts the directive's premise — that's the inverse failure mode (attest-the-truth-while-the-directive-is-wrong; the directive needs the correction).
+
+#### 19.6.1 Empirical anchor
+
+Arc 30 PLINY init-handshakes (2026-05-17) attested A11 pre-branch hygiene PASS by echoing the dispatch-authoring SHA (`140b398`) rather than re-verifying live at attestation time. The discipline substantively PASSED — both diff directions empty when actually checked — but the attestation form was confabulated-from-context: PLINY read `140b398` from the directive and reproduced it as the attested SHA, without running `git rev-parse HEAD` at attestation time to confirm the working tree was actually at `140b398`. PLINY's own closure synthesis caught the gap and corrected to `140b398 → 316338c parent` honestly — but the original init-handshake attestation was assumption-shaped, not verification-shaped.
+
+The two failure modes the discipline closes:
+
+- **Confabulation under attest-pressure** — the seat under social pressure to confirm the discipline check passed reaches for the available SHA (the one in the directive) rather than the verified SHA. The available SHA reads as confirmation; the verified SHA requires a tool call. The shortcut produces an attestation that LOOKS like verification but is actually inheritance from context.
+- **Stale-directive blindness** — when the directive was authored some time ago, the directive's SHA may no longer match the working tree's HEAD. Attesting against the directive's SHA papers over the gap; attesting against the live SHA surfaces it.
+
+#### 19.6.2 Relationship to verify-then-execute (§19.4) and the per-seat verify-then-execute disciplines
+
+`MAJOR_PLINY.md` §7.2 (verify-then-execute) targets directives that contradict the spec they cite. §19.6 here is a sibling discipline that fires at attestation time rather than execution time. The two cross-reference: §7.2 says "verify before executing a directive-claim against the live state"; §19.6 says "verify before attesting that a check passed, even if the check's premise came from a trusted directive." Both are state-vs-claim mismatch sub-cases; both broaden to general state-vs-claim mismatch from §19.2 pattern 2.
+
+The PLINY-specific worked example of §19.6 in action is `MAJOR_PLINY.md` §5.10 (this arc, C3) — signoff-accuracy verifies cleanup claims before posting. The signoff-accuracy discipline is the §19.6 root cause applied to the specific case of arc-close cleanup attestations.
+
+#### 19.6.3 Cross-references
+
+- §19.1 — the two mandatory halves of the parent discipline (verbal admission + verification action). §19.6 is a specialization of §19.1's verification-action requirement to the specific case of attestation prose.
+- §19.2 — the three existing application patterns. §19.6 is the fourth pattern (attestation-confabulation) with enough distinct shape to warrant its own subsection.
+- `MAJOR_PLINY.md` §7.2 + `MAJOR_POLYBIUS.md` §4.3 — verify-then-execute at the seat level. Sibling disciplines; cross-ref each other; neither subsumes.
+- `MAJOR_PLINY.md` §5.10 (this arc, C3) — PLINY-specific worked example: signoff-accuracy verifies cleanup claims before posting.
+- §6.7.1 — the N=1 canon-promotion gate this section enters off-gate on PRINCIPAL's 2026-05-17 articulation.
+- Empirical anchor: Arc 30 PLINY init-handshake attested `140b398` from the dispatch-authoring SHA rather than re-verifying live; caught in PLINY's own closure synthesis and corrected.
+
+#### 19.6.4 N=1 provenance + accretion path
+
+Per `MAJOR_POLYBIUS.md` §15 honest-scope and §6.7.1: PRINCIPAL articulated this discipline on 2026-05-17 after the Arc 30 PLINY init-handshake attestation pattern was reflected on. §6.7.1 defers to the canon-promotion gate (multiple observations across distinct defect classes + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status.
+
+The supporting evidence at the time of this writing (2026-05-17):
+
+- **N=1 bit-by-it (defect class: attestation-from-context-not-from-state):** Arc 30 PLINY init-handshake attested `140b398` (the dispatch-authoring SHA carried in the directive) without re-running `git rev-parse HEAD`. The substantive check passed (working tree was at `140b398`), but the attestation form was confabulated-from-context. Single observation today; the inverse failure mode (attest-the-stale-directive-against-a-live-tree-that-has-moved) has not surfaced yet.
+- **N=1 worked-when-applied (controlled comparison):** the project-tier POLYBIUS_the_stoa init-handshake at 2026-05-17T18:42:39Z (Arc 32 dispatch) attested the live-verified state honestly — "**Live-verified state at handshake time (per C4 attestation-discipline being canonified in this arc — citing observed state not dispatch-authoring SHA):** local main at 2a476e5 = origin/main…" Single instance of the controlled-comparison shape per §6.7.1 condition 2; accretes as future seats attest under §19.6.
+
+The discipline is in substrate canon NOW because PRINCIPAL articulated it today and the Arc 30 bit-by-it surfaced today; promotion to "structural lesson" status with multi-arc empirical backing under the encoded canon is future arcs' work, not this arc's. Same N=1 framing as Arc 27's `MAJOR_POLYBIUS.md` §16.6, Arc 28's §22.3, Arc 29's §17.5, Arc 30's `MAJOR_PLINY.md` §5.9.3, and Arc 31's §25.6.
 
 ---
 
@@ -1106,6 +1155,7 @@ The full canon — including PRINCIPAL's 2026-05-17 verbatim phrasing, the surfa
 - `MAJOR_POLYBIUS.md` §5.1.2 — the activation-paste authoring convention.
 - `substrate/templates/paste-instruction-template.md` — the template that carries the preamble in its filled output.
 - §6.7.1 (the N=1 canon-promotion gate this discipline enters off-gate on PRINCIPAL's 2026-05-17 declaration).
+- `MAJOR_PLINY.md` §5.10 — PLINY-signoff-accuracy discipline (Arc 32 / `stoa--ewn`); the closing-beat sibling to §5.9's opening-beat pre-branch hygiene. Verify cleanup claims before posting signoffs.
 - Empirical anchors: `stoa--3cs` (work-unit + 2026-05-17 scope-expansion), PR #46 + PR #8 (bit-by-it N=2), PR #9 / `stoa--ads` (worked-when-applied N=1).
 
 ---

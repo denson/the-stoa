@@ -387,6 +387,78 @@ The supporting evidence at the time of this writing (2026-05-17):
 
 The discipline is in substrate canon NOW because PRINCIPAL named it today and the bit-by-it / worked-when-applied evidence both surfaced today; promotion to "structural lesson" status with multi-arc empirical backing under the encoded canon is a future arcs' work, not this arc's. If the discipline turns out wrong-shaped during future arcs (e.g., the surface-on-failure adjudication ask itself produces operator-friction the discipline should mitigate), future arcs revise this section. Same N=1 framing as Arc 27's §16.6, Arc 28's `operating-disciplines.md` §22.3, and Arc 29's §17.5.
 
+#### 5.9.4 Arc-build worktree convention — separate worktree at .claude/worktrees/arc-N-build/
+
+After the two-check rule passes (§5.9 check 1 + check 2), create the arc-build branch in a SEPARATE worktree at `.claude/worktrees/arc-N-build/`. The main worktree stays on main. Concretely:
+
+```
+git worktree add .claude/worktrees/arc-N-build -b arc-N/build
+cd .claude/worktrees/arc-N-build
+```
+
+Subsequent arc-build work happens entirely within `.claude/worktrees/arc-N-build/`. The main worktree at the project root stays on main throughout the arc — which means user-tier POLYBIUS (or any concurrent operator in the main worktree) can land housekeeping work, read git history, or run substrate-check workflows in main without colliding with PLINY's arc-build checkout.
+
+**Why separate worktree by default:** the alternative is creating the arc-build branch in the main worktree (`git checkout -b arc-N/build` from the project root). The main worktree's checkout then flips to `arc-N/build` for the duration of the arc. Two failure modes follow:
+
+- **Concurrent-operator collision.** User-tier POLYBIUS operating in the main worktree finds the checkout is no longer main; any commits land on `arc-N/build` instead of main. The cost in 2026-05-17 Arc 31: user-tier POLYBIUS had to hold position rather than land housekeeping commits.
+- **Cleanup is less mechanical.** Removing a separate worktree is a single `git worktree remove` call; cleaning up after a main-worktree checkout-flip requires a checkout-back-to-main step plus the branch-deletion sequence. The §5.10 signoff-accuracy check (verify cleanup) is simpler when the cleanup is mechanical.
+
+**At arc close, the cleanup sequence (PLINY runs after PR merge, before posting signoff):**
+
+```
+git worktree remove .claude/worktrees/arc-N-build
+git branch -D arc-N/build
+git push origin --delete arc-N/build
+```
+
+The §5.10 signoff-accuracy discipline (next section) requires PLINY to verify each of these completed before posting the signoff: `git worktree list` should not show `.claude/worktrees/arc-N-build`; `git branch` should not show `arc-N/build`; `git ls-remote --heads origin arc-N/build` should return empty. The verification commands are stable across arcs because the worktree path and branch name follow the same template every time.
+
+#### 5.9.4.1 Empirical anchor and provenance
+
+The de-facto pattern from Arcs 26-30 was the separate-worktree shape (per the respective arc cleanup sequences + `git worktree list` outputs observed at each arc's close). Arc 31 (`stoa--32b.1`, 2026-05-17) diverged — PLINY operated `arc-31/build` in the main workspace path; the main worktree's checkout flipped from main to `arc-31/build` for the duration; user-tier POLYBIUS held position to avoid committing to arc-31/build. The cost was small (no defect; no rollback warranted) but surfaced the gap: the separate-worktree pattern was operating ad-hoc since Arc 26, not as encoded canon.
+
+Per `MAJOR_POLYBIUS.md` §15 honest-scope and `operating-disciplines.md` §6.7.1: PRINCIPAL + user-tier POLYBIUS articulated this discipline on 2026-05-17 after the Arc 31 divergence. The discipline enters substrate canon off-gate on the project-direction declaration; future-evidence accretion per §6.7.1 — N=5 de-facto bit-by-it (Arcs 26-30 used separate worktrees and shipped clean), N=1 worked-when-applied controlled comparison (Arc 32 / this arc applies §5.9.4 explicitly), N=1 bit-by-it of the failure mode (Arc 31 main-worktree checkout-flip blocked concurrent operation). Promotion to "structural lesson" status accretes as future arcs ship under §5.9.4. Same N=1 framing as Arc 27's `MAJOR_POLYBIUS.md` §16.6, Arc 28's `operating-disciplines.md` §22.3, Arc 29's §17.5, Arc 30's §5.9.3, and Arc 31's §25.6.
+
+### 5.10 Signoff-accuracy — verify cleanup claims before posting
+
+When you post a signoff (the arc-close comment that closes the work-unit ticket and hands history to future POLYBIUSes), claims about cleanup actions — branch deletion, worktree removal, file cleanup, environment teardown — MUST be verified before the signoff is posted. Sign what you did, not what you intended.
+
+**The rule:** before posting any signoff that names a cleanup action, run the verification command that confirms the action's effect on disk. Specifically:
+
+- **Branch deletion claims** — verify with `git branch` (local) and `git ls-remote --heads origin <branch>` (remote). The branch should NOT appear in the local list; `git ls-remote` should return an empty result for the named branch.
+- **Worktree removal claims** — verify with `git worktree list`. The worktree path should NOT appear.
+- **File cleanup claims** — verify with `ls <path>` or `git status` for tracked files. The named file/directory should NOT exist (or, for tracked files, should show as deleted in `git status`).
+- **Process / cron / scheduled-job teardown** — verify with the inverse of the scheduling command. `CronList` for cron; `bw show <ticket>` for in-flight bw work; `git worktree list` for in-flight worktrees.
+
+If a verification command surfaces state inconsistent with the cleanup claim, **do not post the signoff with the claim.** Either: (a) do the cleanup action, re-verify, then post; or (b) post a signoff that honestly names the state observed ("PR #N merged; cleanup of worktree at `<path>` deferred — open work-unit ticket `<id>` filed for the cleanup"). Choice (a) is preferred; choice (b) is honest-fallback when the cleanup action cannot be completed in this session.
+
+**Why verify-before-claim is load-bearing for signoffs specifically:** a signoff is forward-anchored. Future POLYBIUSes reading the ticket trail use the signoff as the canonical record of what was done. An inaccurate signoff propagates as false history — future POLYBIUS reads "worktree removed, branches deleted" and proceeds on that premise; the next arc fails the pre-branch hygiene check (§5.9 check 1) when the stale branch turns up, and the cost is the surface-and-adjudicate cycle the §5.9 discipline exists to prevent. The error compounds across arcs.
+
+#### 5.10.1 Empirical anchor
+
+Arc 29 signoff (`stoa--ads`, 2026-05-17) claimed: *"PR #9 merged at <SHA>. arc-29/build worktree removed; local + remote branches deleted; ticket closed."* Neither the worktree nor either branch was actually removed. Caught by user-tier POLYBIUS on the pre-branch hygiene check for Arc 31 (the §5.9 check 1 surfaced the stale `arc-29/build` branch). Required a manual cleanup sequence (`git worktree remove`, `git branch -D arc-29/build`, `git push origin --delete arc-29/build`) before Arc 31 could dispatch. The cleanup cost was small; the discipline gap surfaced — the signoff was confabulated-from-intent rather than verified-from-state.
+
+The shape is the same as the §19.6 (this arc) attestation-confabulation discipline: PLINY had the intent to do the cleanup, the signoff was authored as if the cleanup had been done, and the post-hoc state was inconsistent. The two disciplines reinforce each other — §19.6 is the universal-seat root cause (attestations cite live-verified state, not assumed-from-context state); §5.10 is the PLINY-specific application to signoffs at the arc-close beat.
+
+#### 5.10.2 Cross-references
+
+- §5.9 — pre-branch hygiene at the opening arc beat; this section §5.10 is the closing-beat sibling. Pre-branch hygiene check 1 (no other arc-build branch in flight) is the test that surfaces signoff inaccuracies on the next arc; running it correctly only works when previous signoffs were accurate.
+- `operating-disciplines.md` §19.6 (this arc, C4) — attestation-confabulation discipline at the universal-seat root cause. §5.10 is the PLINY-application; §19.6 is the canonical home for the root-cause discipline.
+- `operating-disciplines.md` §24 — Arc 30 pre-branch hygiene cross-ref; §24 also carries a thin pointer to §5.10 for the universal-team reader landing in operating-disciplines.md.
+- §6.1 (bw command syntax) + `operating-disciplines.md` §12 (bw cookbook) — the `bw comment` + `bw close --reason` commands the signoff is posted with.
+- Empirical anchor: Arc 29 / `stoa--ads` signoff inaccuracy (2026-05-17); caught by user-tier POLYBIUS on Arc 31 pre-branch hygiene check.
+
+#### 5.10.3 N=1 provenance + accretion path
+
+Per `MAJOR_POLYBIUS.md` §15 honest-scope and `operating-disciplines.md` §6.7.1: PRINCIPAL articulated this discipline on 2026-05-17 after the Arc 29 signoff inaccuracy was caught. §6.7.1 defers to the canon-promotion gate (multiple observations across distinct defect classes + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status.
+
+The supporting evidence at the time of this writing (2026-05-17):
+
+- **N=1 bit-by-it (defect class: signoff-cleanup-claim-vs-state):** Arc 29 / `stoa--ads` signoff claimed worktree-removed + branches-deleted; neither was actually done. Caught on the next arc's pre-branch hygiene check. Single observation today; pattern not yet across distinct defect classes per §6.7.1 condition 1.
+- **N=0 worked-when-applied (controlled comparison):** no arc has yet posted a signoff under the encoded discipline. Accretes as future arcs ship under §5.10.
+
+The discipline is in substrate canon NOW because PRINCIPAL named it today and the Arc 29 bit-by-it surfaced today; promotion to "structural lesson" status with multi-arc empirical backing under the encoded canon is future arcs' work, not this arc's. Same N=1 framing as Arc 27's `MAJOR_POLYBIUS.md` §16.6, Arc 28's `operating-disciplines.md` §22.3, Arc 29's §17.5, Arc 30's `MAJOR_PLINY.md` §5.9.3, and Arc 31's `operating-disciplines.md` §25.6.
+
 ---
 
 ## 6. Communication
