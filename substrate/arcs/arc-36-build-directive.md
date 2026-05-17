@@ -96,7 +96,7 @@ Cross-references between operating-disciplines.md §7.1 / §7.4 / §7.7 + MAJOR_
 
 ## A10 — Authorship attribution unchanged (LOCKED)
 
-File-frontmatter `author:` fields remain Denson Smith per substrate/CLAUDE.md IMMUTABLE rule. Git commit `Author:` remains PRINCIPAL per ~/.claude/CLAUDE.md. Arc 35's Co-Authored-By trailer convention applies to CAPTAIN commits in arc-36/build per §28 — verify ADA + DAEDALUS commits carry seat trailers.
+File-frontmatter `author:` fields remain Denson Smith per CLAUDE.md IMMUTABLE rule. Git commit `Author:` remains PRINCIPAL per ~/.claude/CLAUDE.md. Arc 35's Co-Authored-By trailer convention applies to CAPTAIN commits in arc-36/build per §28 — verify ADA + DAEDALUS commits carry seat trailers.
 
 ## A11 — Out-of-scope (HARD-LOCKED)
 

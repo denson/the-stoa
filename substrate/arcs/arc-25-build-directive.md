@@ -101,7 +101,7 @@ Worked example skill. Documents:
   1. **Reference variables resolve only at deploy-time, not at CLI-time.** `railway variable list/get` returns null VALUE for reference-typed variables. To get a resolved value in CI, fetch from the SOURCE service where the variable is a literal.
   2. **Anti-pattern: `railway run --service NAME -- cmd`.** This does NOT exec inside the service container — it runs on the local shell with the service's env vars injected. Same reference-resolution limitation. Named in the skill as misleading-but-syntactically-valid.
 
-Skill metadata follows existing substrate-skill conventions (check other `substrate/skills/*/SKILL.md` files for the canonical structure). Authorship: Denson Smith per substrate/CLAUDE.md.
+Skill metadata follows existing substrate-skill conventions (check other `substrate/skills/*/SKILL.md` files for the canonical structure). Authorship: Denson Smith per CLAUDE.md.
 
 ### A5. CAPTAIN envelope updates: DAEDALUS, ADA, ARGUS, BARTLEBY — LOCKED
 
@@ -133,7 +133,7 @@ The skill documents a now-rejected pattern (parent-shell-env). CI-mediated patte
 
 Stable at `.github/workflows/deploy-dev-ariadne.yml` in `github.com/denson/sector-4` main HEAD (~564 lines, validated end-to-end). The new credential-discipline skill (A4) points at that path + the GitHub URL. If denson/sector-4 is private (it is), the skill notes the visibility constraint but the URL is still load-bearing (PRINCIPAL can grant repo access if needed).
 
-### A10. Authorship attribution immutable per substrate/CLAUDE.md — LOCKED
+### A10. Authorship attribution immutable per CLAUDE.md — LOCKED
 
 All new files and edits credit Denson Smith. Skill metadata, new operating-disciplines section, any new templates. No exception.
 

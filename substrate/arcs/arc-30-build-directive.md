@@ -100,7 +100,7 @@ The cron-hygiene preamble is OUT of scope here (separate forthcoming canonificat
 
 Same pattern as Arc 26's `parse_skill_names_from_install` + Arc 28's bw-output-parse + Arc 29's base-vs-custom scoping cite-comments. Wherever the new discipline-text references existing patterns (e.g., the cron-hygiene preamble next to it, the bw command syntax in §6.1), use cite-cross-references that resolve.
 
-### A5. Authorship attribution — IMMUTABLE per substrate/CLAUDE.md
+### A5. Authorship attribution — IMMUTABLE per CLAUDE.md
 
 All edits credit Denson Smith. Arc 30 edits existing role-file + possibly template (no fresh author-like field exposure expected). Verify before commit.
 

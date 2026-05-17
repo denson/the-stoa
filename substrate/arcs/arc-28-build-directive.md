@@ -120,7 +120,7 @@ Wherever new code reads bw output formats (B.1's check.sh registry parse), place
 
 For the check-bw-release skill (C.2), the bw GitHub releases API endpoint is the coupling point; cite-comment names the endpoint.
 
-### A6. Authorship attribution — IMMUTABLE per substrate/CLAUDE.md
+### A6. Authorship attribution — IMMUTABLE per CLAUDE.md
 
 All edits credit Denson Smith. No exception. Arc 28 adds new files: `substrate/skills/check-bw-release/SKILL.md` (frontmatter), `substrate/skills/check-bw-release/check.sh` (no frontmatter; shell script). For SKILL.md frontmatter: include `author: Denson Smith` per the convention adopted at stoa--uly today. Verify all new files before commit.
 

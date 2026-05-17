@@ -115,7 +115,7 @@ Specifically: every place where the substrate references "agent commit identity"
 
 ## A11 — Authorship attribution unchanged for file frontmatter
 
-The Co-Authored-By trailer convention applies ONLY to git commit metadata. File-frontmatter `author:` fields (SKILL.md, marketplace.json, package.json, etc.) continue to name **Denson Smith** per substrate/CLAUDE.md and global ~/.claude/CLAUDE.md IMMUTABLE rule. CAPTAIN_ADA.md line 94 discipline ("any file with an author field... names the PRINCIPAL... never anyone else") stands. Arc 35 makes this explicit in the new §28 to prevent any reader from inferring "agents tag commits → agents also tag file frontmatter."
+The Co-Authored-By trailer convention applies ONLY to git commit metadata. File-frontmatter `author:` fields (SKILL.md, marketplace.json, package.json, etc.) continue to name **Denson Smith** per CLAUDE.md and global ~/.claude/CLAUDE.md IMMUTABLE rule. CAPTAIN_ADA.md line 94 discipline ("any file with an author field... names the PRINCIPAL... never anyone else") stands. Arc 35 makes this explicit in the new §28 to prevent any reader from inferring "agents tag commits → agents also tag file frontmatter."
 
 ## A12 — Out-of-scope (HARD-LOCKED)
 
@@ -180,6 +180,6 @@ If any pick exceeds DAEDALUS discretion, treat as PRINCIPAL-gate per §25 — ha
 5. `substrate/MAJOR_PLINY.md` §5.10 (signoff-accuracy) + §5.11 (Arc 34 archival; the most recent canon section shape).
 6. `substrate/MAJOR_POLYBIUS.md` §18 (Arc 34 housekeeping discipline; recent canon section precedent; also the section that exempts POLYBIUS housekeeping commits from per-CAPTAIN tagging per A3).
 7. `substrate/CAPTAIN_ADA.md` authorship-discipline section (currently file-frontmatter discipline only; A6 extends it with git-trailer discipline).
-8. `substrate/CLAUDE.md` authorship section (project-tier rule; cross-ref to global; A4-adjacent edit may apply here too if DAEDALUS deems it warranted).
+8. `CLAUDE.md` authorship section (project-tier rule; cross-ref to global; A4-adjacent edit may apply here too if DAEDALUS deems it warranted).
 9. **Arc 33's `substrate/skills/inspect-script-output/`** — precedent for a small substrate component shipping with worked example.
 10. **Arc 34's `substrate/arcs/arc-34-build-directive.md`** — bundling + self-application precedent.

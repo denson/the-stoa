@@ -124,7 +124,7 @@ If Option A picked, also encode worktree-cleanup convention: at arc close, PLINY
 
 Cross-references between C1-C5 should resolve via cite. C2 + C5 may cross-ref each other (both are PLINY-facing); C3 + C4 may cross-ref (both are honesty-discipline); C1 stands alone. Pattern same as Arc 26 / 28 / 29 / 30 / 31 cite-comments at every read-site.
 
-### A8. Authorship attribution — IMMUTABLE per substrate/CLAUDE.md
+### A8. Authorship attribution — IMMUTABLE per CLAUDE.md
 
 All edits credit Denson Smith. Arc 32 edits existing files (no new files with fresh author-like field exposure expected). Verify before commit.
 

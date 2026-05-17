@@ -119,7 +119,7 @@ Cross-references between the new substrate component + existing canon must resol
 - Other CAPTAIN envelopes (VERA particularly) → cross-ref the new skill IF DAEDALUS picks Option α
 - MAJOR_POLYBIUS.md / MAJOR_PLINY.md → minimal touch unless DAEDALUS surfaces a real need
 
-### A6. Authorship attribution — IMMUTABLE per substrate/CLAUDE.md
+### A6. Authorship attribution — IMMUTABLE per CLAUDE.md
 
 All edits credit Denson Smith. Arc 33 adds NEW skill files (SKILL.md + check script likely); the SKILL.md frontmatter MUST carry `author: Denson Smith` per Arc 27 stoa--uly convention. Verify all new files before commit.
 

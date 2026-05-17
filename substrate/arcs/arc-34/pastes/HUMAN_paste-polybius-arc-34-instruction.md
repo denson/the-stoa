@@ -49,7 +49,7 @@ If PLINY or any CAPTAIN surfaces a scope concern touching A8, treat as substance
 
 **Source-ticket closure per directive A12:** on Arc 34 ship, close source tickets in addition to stoa--y14: stoa--k36 + stoa--f37 + stoa--3qi + stoa--ize (each with cross-ref to merge commit).
 
-**Authorship attribution is IMMUTABLE per substrate/CLAUDE.md.** Arc 34 edits existing files; no fresh author-like field exposure expected.
+**Authorship attribution is IMMUTABLE per CLAUDE.md.** Arc 34 edits existing files; no fresh author-like field exposure expected.
 
 **Self-referential note:** Arc 34 canonifies disciplines that surfaced via today's stoa--ize sweep + end-of-session hygiene. C1 (user-tier-to-main) is literally about user-tier POLYBIUS direct-commit behavior the substrate hasn't yet documented. C4 (HITL-paused queue sweep) would have surfaced stoa--jru (Arc 22) much earlier had it been canon. Same substrate-shaping shape as Arcs 24-33.
 

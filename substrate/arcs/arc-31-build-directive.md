@@ -123,7 +123,7 @@ Either is defensible. Empirical anchor (sector-4 Probe 8) is a VERA probe; foldi
 
 Cross-references between D1/D2/D3/D4/D5 should resolve via cite. Cite-comment pattern from Arc 26 / 28 / 29 / 30 applies: at every read-site that references another section, point at the substantive locus.
 
-### A8. Authorship attribution — IMMUTABLE per substrate/CLAUDE.md
+### A8. Authorship attribution — IMMUTABLE per CLAUDE.md
 
 All edits credit Denson Smith. Arc 31 edits existing files (no new files with fresh author-like field exposure expected). Verify before commit.
 

@@ -125,7 +125,7 @@ The lens explains structurally:
 3. **Possibly: `substrate/operating-disciplines.md` cross-ref** — Ariadne-readiness authoring discipline (A4) applies universally; consider a short universal-team section there with cross-ref to MAJOR_POLYBIUS.md for the lifecycle-specific framing.
 4. **Possibly: `substrate/templates/handoff-doc-template.md`** — per durable-substrate-with-short-prompts pattern (§4.5). Slots per stoa--32b.3 body. The morning's `HANDOFF_POLYBIUS_2026-05-16.md` is the de-facto template; abstract into slotted form. DAEDALUS decides if this is in scope this arc or future arc.
 
-### A7. Authorship attribution — IMMUTABLE per substrate/CLAUDE.md
+### A7. Authorship attribution — IMMUTABLE per CLAUDE.md
 
 All edits credit Denson Smith. No exception. Arc 27 edits existing role files + possibly adds a new template file. If a new template is added, check the `author:` field (or any frontmatter) before commit. Per CLAUDE.md authorship discipline.
 

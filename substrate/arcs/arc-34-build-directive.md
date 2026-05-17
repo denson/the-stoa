@@ -108,7 +108,7 @@ User-tier POLYBIUS recommends Option γ.
 
 Cross-references between C1/C2/C3/C4 + adjacent canon (§5.9 + §5.10 for C2; §9 activation checklist for C4; existing CLAUDE.md feature-branch rule for C1) should resolve via cite at every read-site. Pattern same as Arc 26 / 28 / 29 / 30 / 31 / 32 / 33 cite-comments.
 
-### A7. Authorship attribution — IMMUTABLE per substrate/CLAUDE.md
+### A7. Authorship attribution — IMMUTABLE per CLAUDE.md
 
 All edits credit Denson Smith. Arc 34 edits existing files (no new files with fresh author-like field exposure expected; possibly the template fix adds author back). Verify before commit.
 

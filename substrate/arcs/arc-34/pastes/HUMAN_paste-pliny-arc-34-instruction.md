@@ -56,7 +56,7 @@ If any pick surfaces as needing PRINCIPAL judgment rather than DAEDALUS discreti
 
 **CATO is MANDATORY** for this arc (substrate canon work across 4 candidates; wording precision matters).
 
-Authorship attribution is IMMUTABLE per substrate/CLAUDE.md.
+Authorship attribution is IMMUTABLE per CLAUDE.md.
 
 **Phase 4 close handshake per §5.10 + A12:** verify cleanup actually executed; cite live-verified state in attestations; close stoa--y14 + source tickets (stoa--k36 + stoa--f37 + stoa--3qi + stoa--ize) each with cross-ref to merge commit; tag `[for: user-tier POLYBIUS]` on stoa--y14 inviting QA pass.
 

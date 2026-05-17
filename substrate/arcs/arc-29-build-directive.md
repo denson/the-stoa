@@ -109,7 +109,7 @@ D6: workspace CLAUDE.md handling — DAEDALUS picks whether to extend install.sh
 
 Wherever D3/D4/D5 scope a path/glob to "base only," place a cite-comment at the modification site referencing the base-vs-custom canon section in MAJOR_POLYBIUS.md / operating-disciplines.md. Same pattern as `apply_substitutions` cite-comment + Arc 26's `parse_skill_names_from_install` cite-comment + Arc 28's bw-output-parse cite-comments. The cite-comment surfaces the discipline at the read site, not at code-review time only.
 
-### A6. Authorship attribution — IMMUTABLE per substrate/CLAUDE.md
+### A6. Authorship attribution — IMMUTABLE per CLAUDE.md
 
 All edits credit Denson Smith. No exception. Arc 29 doesn't add new substrate files with frontmatter (edits existing canon files + tool scripts). If DAEDALUS surfaces a new skill or template, frontmatter must carry `author: Denson Smith`. Verify before commit.
 

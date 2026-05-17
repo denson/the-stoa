@@ -471,7 +471,7 @@ grep -n "^### 5\.12 Per-CAPTAIN seat-identity in the dispatch brief" substrate/M
 grep -nE "Git-commit seat-identity trailer|operating-disciplines\.md.*§?28|MAJOR_PLINY\.md.*§?5\.12" substrate/CAPTAIN_ADA.md
 ```
 
-**Expected output:** At least three matches inside the §5.5 region (between line 92 `### 5.5` heading and line 96 `### 5.6` heading + new-paragraph offset).
+**Expected output:** Each of the three distinct citation patterns ("Git-commit seat-identity trailer", `operating-disciplines.md` §28 reference, `MAJOR_PLINY.md` §5.12 reference) matches at least once inside the §5.5 region (between line 92 `### 5.5` heading and line 96 `### 5.6` heading + new-paragraph offset). Count is distinct-cite-count (each pattern present at least once), NOT grep-line-count (a single line containing all three patterns is one grep-line but three distinct cites). If verification requires per-pattern certainty, run three separate `grep -c` invocations rather than the OR-joined single grep.
 
 **Failure interpretation:** Extension paragraph missing OR cross-refs missing OR wrong target sections.
 
@@ -498,7 +498,7 @@ git log arc-35/build --pretty='%H %s%n  TRAILERS:%n%(trailers:only)' main..arc-3
 **Command (dry-run — verify the property on a PRIOR squash-merge to baseline expected behavior):**
 
 ```bash
-git log main -1 --pretty='%(trailers:only)' 789496b  # Arc 33 ship commit
+git log -1 --pretty='%(trailers:only)' 789496b  # Arc 33 ship commit
 ```
 
 **Expected baseline output:** `Co-authored-by: Claude Opus 4.7 <noreply@anthropic.com>` (the Claude trailer ADA wrote into per-arc-build commits IS preserved in the squash-merge commit body — established behavior on Arc 33 ship `789496b`). Note: Arc 34 ship `244c1c3` has ZERO trailers, but this is NOT a refutation of the preservation property — it is a write-side failure (pre-squash Arc 34 commits `357e7635` and `af815ebf` had zero trailers themselves; the preservation property had nothing to preserve). Arc 33 is the deliberately-chosen baseline because it exercises the preservation path; Arc 34 is the deliberately-named counter-example for the write-side discipline path (probe §4.5 catches that failure mode).
@@ -506,7 +506,7 @@ git log main -1 --pretty='%(trailers:only)' 789496b  # Arc 33 ship commit
 **Command (post-merge — verify the Arc 35 squash-merge carries the seat trailers):**
 
 ```bash
-git log main -1 --pretty='%(trailers:only)' <arc-35-squash-merge-sha>
+git log -1 --pretty='%(trailers:only)' <arc-35-squash-merge-sha>
 ```
 
 **Expected post-merge output:** Trailer body includes at least one `Co-Authored-By: CAPTAIN_<MNEMONIC>_the-stoa <captain-<mnemonic>@the-stoa.local>` line per CAPTAIN that contributed to the arc.
