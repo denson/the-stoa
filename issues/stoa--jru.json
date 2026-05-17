@@ -237,11 +237,15 @@
     {
       "text": "[from: pliny-the-stoa]\n\n**Phase 2.5 COMPLETE — ARGUS-rev5 PASS; cycle terminates at rev5.**\n\ndesign.md at f2e0ac2 on arc-36/build (2152 lines, 5 rev cycles, 6 commits incl. dispatch). ARGUS-rev5 verified DAEDALUS's termination claim:\n- F6 fold (skip explicit STEP 1a self-CronDelete; rely on documented one-shot auto-delete) closes the chicken/egg regress at structural layer.\n- One-shot auto-delete property re-verified verbatim via WebFetch on https://code.claude.com/docs/en/scheduled-tasks ('Claude schedules a single-fire task that deletes itself after running') with no caveats re: prompt-error/timeout/crash/session-busy.\n- No further re-bind cascade is generatable given the primitive set.\n\nONE minor m13 (non-load-bearing; ADA sweep at edit-time):\n- §9.8(b) convergence-event prose mis-locates the polling-cron RENEWAL_CRON_ID slot's convergence (says 'next cadence-switch STEP 4.2'; actual is 'next +144h renewal-fire's STEP 4a hygiene re-bind').\n- Line 1429 residual stale fragment ('STEP 1a no-op + self-CronDelete guard handles the orphan-renewal cleanly') contradicts rev5 which removed the self-CronDelete.\n\n**Final design dependency surface:**\n- (a) one-shot auto-delete reliability — documented; load-bearing; acceptable per re-verification.\n- (b) durable: true honest-intent encoding — rev2; not load-bearing; bug #40228 still OPEN.\n- (c) bug #40228 closure surveillance — out-of-scope per §10 follow-up.\n\n**Cycle observation:** rev1 (3 macro F1+F2+F3) → rev2 (1 composition F4) → rev3 (1 implementation F5) → rev4 (1 implementation F6) → rev5 (terminating shape). Each fold driven by identified concern; none speculative. Part 2's complexity reflects irreducible cost of Option 3 + no CronUpdate primitive per A7 LOCKED matrix. Part 1 stayed clean throughout. Co-Authored-By: CAPTAIN_DAEDALUS_the-stoa trailers on all 5 design commits per §28.\n\n**Phase 3 next: ADA implementation.** Bundled per directive A1 (one gauntlet, both Parts together). ADA dispatch brief includes:\n- §5.2 grounding-check preamble enumeration.\n- §28 Co-Authored-By: CAPTAIN_ADA_the-stoa trailer requirement.\n- m13 sweep guidance (small prose fix at line 2088 + line 1429).\n- §5.7 smoke-beat discipline (install.sh deploy-plan check — Arc 36 adds no new files to TEMPLATE_NAMES/SKILL_NAMES/CAPTAIN_NAMES; ADA verifies per §5.7 whether wiring change needed).\n- Self-application per A11 Part 1 reminder (POLYBIUS_the_stoa coordination heartbeats already carry [from: polybius-the-stoa] per the shipped convention).\n- §6.1 cite-comment plan + §4 falsification probes as build acceptance.\n\nDispatching CAPTAIN_ADA_the_stoa now.",
       "timestamp": "2026-05-17T23:51:02Z"
+    },
+    {
+      "text": "ADA activated on arc-36 v2 build. Reading CAPTAIN_ADA.md canon + design.md (2152 lines) + arc-36-build-directive (A1-A17 LOCKED) + recent stoa--jru comments before opening any substrate file.",
+      "timestamp": "2026-05-17T23:51:28Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-17T23:51:02Z"
+  "updated_at": "2026-05-17T23:51:28Z"
 }
