@@ -83,11 +83,15 @@
     {
       "text": "ARGUS round 2 activated on stoa--32b.1. Reading rev2 design + DAEDALUS rev2 verdict before audit.",
       "timestamp": "2026-05-17T07:51:08Z"
+    },
+    {
+      "text": "ARGUS r2 pass 1: §24 confirmed still last in operating-disciplines.md (so §25 number stays correct). Reading §11 Setup-complete structure to verify r4 paragraph-placement coherence; web-checking git clone --no-local for r2 CVE-2024-32020 claim; cross-checking design line 484 fresh-dispatch question text for contamination defense (WP4 + DAEDALUS Q1).",
+      "timestamp": "2026-05-17T07:51:22Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:51:08Z"
+  "updated_at": "2026-05-17T07:51:22Z"
 }
