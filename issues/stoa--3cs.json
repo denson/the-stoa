@@ -58,11 +58,15 @@
     {
       "text": "ARGUS rev2 audit: design read complete. Now verifying §5.9/§5.9.1 mis-pointer fix, §2.1 disambig, three-way carrier acknowledgement, table-row drop, and always-include default flip across all touch-points.",
       "timestamp": "2026-05-17T05:45:27Z"
+    },
+    {
+      "text": "revise: rev2 absorbed r1/r2/r4/r5 cleanly + acknowledged three carriers at §6.2 (r3), but the rev2 left orphan 'two carriers' rationale at §1.3 line 41 and §3.1 line 149 (rationale prose, not just cross-ref blurb). One new load-bearing finding; build-impact zero (the canon-prose blocks ADA pastes are clean). Returning.",
+      "timestamp": "2026-05-17T05:46:30Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:45:27Z"
+  "updated_at": "2026-05-17T05:46:30Z"
 }
