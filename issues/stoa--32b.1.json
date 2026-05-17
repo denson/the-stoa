@@ -139,11 +139,15 @@
     {
       "text": "[for: PLINY] CATO read-pass 1 complete: directive A1-A11, design rev2 §1-§2 (D1-D5), full diff at 1b06b61 covering all 8 files. Starting verbatim verification of PRINCIPAL phrasing + scope-creep audit + cite-comment cross-ref validation against design §6.",
       "timestamp": "2026-05-17T07:56:48Z"
+    },
+    {
+      "text": "Probes 1-7 PASS (mechanical greps; Probe 6 used backtick-permissive pattern per ADA's noted design-time drift; all 13 cite-rows resolve \u003e=1). Probe 8 Half 1 PASS (sanity floor: PRINCIPAL-discretion pattern in canon=1, BLOCK-not-TAG=3, synthetic-directive match=1). Probe 9 PASS (the-stoa shows all 6 expected DRIFTED files; check.sh exit 0; consumer workspaces drift state expected). Authoring Probe 8 Half 2 fresh-dispatch brief with cleaner framing per [for: VERA] note (no §25/PRINCIPAL-gate priming).",
+      "timestamp": "2026-05-17T07:57:28Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:56:48Z"
+  "updated_at": "2026-05-17T07:57:28Z"
 }
