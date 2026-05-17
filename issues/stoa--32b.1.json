@@ -87,11 +87,15 @@
     {
       "text": "ARGUS r2 pass 1: §24 confirmed still last in operating-disciplines.md (so §25 number stays correct). Reading §11 Setup-complete structure to verify r4 paragraph-placement coherence; web-checking git clone --no-local for r2 CVE-2024-32020 claim; cross-checking design line 484 fresh-dispatch question text for contamination defense (WP4 + DAEDALUS Q1).",
       "timestamp": "2026-05-17T07:51:22Z"
+    },
+    {
+      "text": "ARGUS r2 pass 2: r2 web-confirmed (git --no-local prevents CVE-2024-32020 hardlink optimization; trade-offs accurately named). r3-r7 verified clean. r1 substantial: Option A breaks rev1's circularity but the brief's classification-question text itself (design line 484) names '§25 (PRINCIPAL-gate discipline)' to the fresh agent and frames option (a) as 'BLOCK ... per §25' — the fresh agent is told what's being tested. WP4 names the dispatch-chain leak but not this brief-text leak. Drafting structured verdict with this nuance + 4 residual answers.",
+      "timestamp": "2026-05-17T07:51:51Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:51:22Z"
+  "updated_at": "2026-05-17T07:51:51Z"
 }
