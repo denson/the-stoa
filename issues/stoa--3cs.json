@@ -94,11 +94,15 @@
     {
       "text": "Phase 2 CLOSED. ADA commit 3ee7c50 (4 substrate files +154 lines); design.md tracked at 5991f39 (+422 lines). Phase 3 starting: dispatching VERA + CATO + ZENO in parallel.",
       "timestamp": "2026-05-17T05:50:14Z"
+    },
+    {
+      "text": "VERA activated on stoa--3cs / arc-30. Reading directive Phase B (7 probes) + design rev3 PASS + 4 substrate artifacts + bw scope-expansion comment source-of-truth. Executing all 7 probes; sampling: full (substrate canon).",
+      "timestamp": "2026-05-17T05:50:38Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:50:14Z"
+  "updated_at": "2026-05-17T05:50:38Z"
 }
