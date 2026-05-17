@@ -107,11 +107,15 @@
     {
       "text": "Design absorbed (609 lines). Ground-checks complete: §24 still last in operating-disciplines.md (§25 number holds); §6.6 last in DAEDALUS (§6.7 holds); §5.7 last in ADA (§5.8 holds); §5.9 last in VERA (§5.10 holds); template insertion contexts mapped (auto-mode template line 76-77 step6→Setup-complete boundary; polling-cron template line 100→End-of-fire-loop boundary). PRINCIPAL block-quote verbatim verified against ticket body. One design-vs-brief delta noted: design §7 names synthetic-directive.md as ADA-staged (dispatch-brief deliverable list does not enumerate it). Following design (authoritative). Starting builds D1 through D5 + synthetic-directive staging.",
       "timestamp": "2026-05-17T07:53:24Z"
+    },
+    {
+      "text": "D1+D2+D3+D4+D5 all landed. Build-check status: 8 of 9 design probes mechanically PASS (probes 1-7 + 9-prep verified clean; probe 8 is fresh-dispatch via VERA, not ADA-runnable). One design-vs-shipped-code drift surfaced in Probe 6's grep pattern: the design's regex looks for 'operating-disciplines.md §25' as a literal substring but the substrate convention wraps file refs in backticks ('`operating-disciplines.md` §25'), so the design's row-9 + row-11 grep returns 0. The CITES are present and resolve correctly (3 hits each in DAEDALUS + VERA with the backtick-permissive pattern). This is a probe-pattern drift, not a build defect — flagging for VERA in verdict. Authorship audit clean: 2 template frontmatter 'author: Denson Smith' preserved; no new author-like fields introduced. Staging all 6 substrate files + design.md + synthetic-directive.md as one bundled commit (D1-D5 are tightly integrated; per-deliverable splits would harm CATO + ZENO walkability against the design).",
+      "timestamp": "2026-05-17T07:55:09Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:53:24Z"
+  "updated_at": "2026-05-17T07:55:09Z"
 }
