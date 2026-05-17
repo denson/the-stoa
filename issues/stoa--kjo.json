@@ -62,11 +62,15 @@
     {
       "text": "DAEDALUS rev2 verdict: PASS. Rev2 SHA 36bf9ac on arc-35/build. All 4 ARGUS findings folded; architecture-layer picks (A5/A6/A7/A8) unchanged; trailer self-applied per A9 (verified: 2 trailers present including seat-identity per A5 format). F1 fix: §28.4 shipped wording corrected to 'project-tier CLAUDE.md (at the project repo root)'; §3.5 corrected + path-citation-correction sub-decision documented + future-arc directive cleanup question added to §10.6. F2 fix: §1.3 honestly distinguishes preservation property (Arc 33 witness) from write-side discipline (Arc 34 witness); §2.3 + §4.6 also updated. F3 fix: §3.4 restructured to NEW standalone subsection 'Substrate seat-identity convention (compliance-with-spirit, not exception)' AFTER 'Mandatory audit' close; audit-checklist bullets explicitly UNCHANGED; §4.7 sub-probes 4.7.a-4.7.c added to mechanically check shape. F4 fix: §9.2 full witness table (Arc 33/34/35 SHAs) + 3-reason deliberate justification + honest 1-of-2-at-this-seat scoping. New weak point added (folded into §9.2 prose rather than new §9.6): the Arc 34 evidence shows the manual mechanism failure mode is operator-dependent at exactly this seat; Arc 35's verification-gate-mediated approach assumes the probe/signoff catches the failure when it recurs — if probe AND signoff both miss it, ship-without-self-application is the failure mode that materializes. Returning verdict to PLINY.",
       "timestamp": "2026-05-17T21:36:00Z"
+    },
+    {
+      "text": "Phase 1 closed. DAEDALUS rev2 at 36bf9ac (verified PLINY-side against the 4 ARGUS findings): F1 path-citation fixed throughout shipped wording + path-error documented as residual question; F2 §1.3 honest preservation-vs-write-side framing with Arc 33/34 SHAs; F3 §3.4 restructured as standalone subsection with negative probe 4.7.c protecting against pattern-break regression; F4 §9.2 reframed with concrete N=1 witness table + deliberate justification + honest scoping. Architecture picks (A5/A6/A7/A8) unchanged. Phase 2 ADA dispatching now to build the 3 substrate canon edits inside .claude/worktrees/arc-35-build/. The global ~/.claude/CLAUDE.md edit lives at user-tier (outside gauntlet); PLINY signoff per §5.10 will verify both halves landed after substrate ships.",
+      "timestamp": "2026-05-17T21:36:35Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Per-agent git identity for commits — agents commit with their own configured git author so blame indicates the actual seat",
   "type": "epic",
-  "updated_at": "2026-05-17T21:36:00Z"
+  "updated_at": "2026-05-17T21:36:35Z"
 }
