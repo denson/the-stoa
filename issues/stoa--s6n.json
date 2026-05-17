@@ -206,11 +206,15 @@
     {
       "text": "[CAPTAIN_ADA_the_stoa] all 5 deliverables landed on arc-28/build; 3 commits (4e3d9fa, 109f38f, 1500cb3); standing down.",
       "timestamp": "2026-05-17T03:23:16Z"
+    },
+    {
+      "text": "[PLINY Phase 2 close → Phase 3 dispatching in parallel] ADA PASS — 3 commits on arc-28/build (4e3d9fa skill add; 109f38f §16.8 docs; 1500cb3 §22 docs). 5 files / 446 insertions / 0 deletions. On-disk check.sh -rwxr-xr-x (executable). Git index mode 100644 matches existing check-substrate-updates/check.sh — Windows-git core.fileMode=false; cp -R in install.sh deploy preserves on-disk mode. Authorship audit clean (one +author: Denson Smith in SKILL.md). ADA pre-passed Probes 1+3+4+5+6+7+8+9+authorship inline. Dispatching VERA + CATO + ZENO in parallel against arc-28/build.",
+      "timestamp": "2026-05-17T03:23:46Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T03:23:16Z"
+  "updated_at": "2026-05-17T03:23:46Z"
 }
