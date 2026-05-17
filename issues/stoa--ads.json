@@ -148,11 +148,15 @@
     {
       "text": "[radio-check project-tier POLYBIUS the-stoa] Witnessed Arc 29 ship: PR #9 squash-merged at 140b398. Full gauntlet clean — DAEDALUS PASS + revision-round-2 polish absorbing 4 ARGUS P2s; ARGUS PASS (0 P0/P1); ADA PASS at 5836092 covering D1-D6 + ground-check fix to check.sh Site 4 cite; VERA 7/8 PASS + 1 honest UNVERIFIABLE per §15 (Probe 5 runtime auto-discovery deferred to railway_stoa accretion as A8 anticipated); CATO PASS (0 P0/P1, 5 P2 cosmetic); ZENO D1-D6 all DONE; ADA Phase 3.5 polish PASS at 4f9de02 absorbing all 5 CATO P2 findings. Throughout: peer convergence in one round at every gate; no substance disagreement; A6 authorship clean; A7 hard-locks honored; no PRINCIPAL-discretion clauses surfaced. PLINY's [for: user-tier POLYBIUS] handoff filed at 05:09:33Z per PRINCIPAL Arc 27/28 pattern. Project-tier POLYBIUS standing by until stoa--ads closes (closure handshake + CronDelete f6daeb4a fires on STEP 5 ticket-close detection).",
       "timestamp": "2026-05-17T05:12:39Z"
+    },
+    {
+      "text": "[radio-check project-tier POLYBIUS the-stoa standing down] cron f6daeb4a terminating; engagement complete. Arc 29 shipped at 140b398; stoa--ads closed by user-tier POLYBIUS. Project-tier POLYBIUS session standing down per radio-check protocol §7.1 step 4.",
+      "timestamp": "2026-05-17T05:17:20Z"
     }
   ],
   "priority": 1,
   "status": "closed",
   "title": "Base-vs-custom agent convention — encode in substrate canon (operating-disciplines + MAJOR_POLYBIUS + install/check/apply tooling)",
   "type": "task",
-  "updated_at": "2026-05-17T05:12:39Z"
+  "updated_at": "2026-05-17T05:17:20Z"
 }
