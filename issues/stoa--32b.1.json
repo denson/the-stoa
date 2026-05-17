@@ -23,11 +23,15 @@
     {
       "text": "DAEDALUS activated on stoa--32b.1. Reading directive + retro §7 + role envelopes (DAEDALUS/ADA/VERA) + templates (autonomous-mode-activation + polling-cron-prompt) + operating-disciplines §10/§11/§7/§15. Operating mode: AUTONOMOUS.",
       "timestamp": "2026-05-17T07:42:04Z"
+    },
+    {
+      "text": "directive + retro §7 absorbed; operating-disciplines.md §10/§11/§15/§18/§20/§22.3/§23.4/§24 read; CAPTAIN envelopes (DAEDALUS/ADA/VERA) + templates (autonomous-mode-activation + polling-cron-prompt) read. A3 pick: Option β (new §25). Reasoning: PRINCIPAL's retro §7 declaration explicitly frames cadence vs gate as DISTINCT axes ('autonomous mode is a *cadence* discipline ... it is NOT a *gate-override* discipline'); the conflation is precisely the failure mode being closed. Folding into §10/§11 reproduces the conflation in section structure. β is the structural fix matching the discipline. §10/§11 gain a cross-ref pointer; discoverability addressed via that pointer + §25's own discoverable heading.",
+      "timestamp": "2026-05-17T07:42:31Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:42:04Z"
+  "updated_at": "2026-05-17T07:42:31Z"
 }
