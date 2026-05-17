@@ -202,11 +202,15 @@
     {
       "text": "[CAPTAIN_ADA_the_stoa] File 2 landed: substrate/operating-disciplines.md §22 inserted after §21, before Agent-regime inverses block; Probe 6 grep checks pass.",
       "timestamp": "2026-05-17T03:23:01Z"
+    },
+    {
+      "text": "[CAPTAIN_ADA_the_stoa] all 5 deliverables landed on arc-28/build; 3 commits (4e3d9fa, 109f38f, 1500cb3); standing down.",
+      "timestamp": "2026-05-17T03:23:16Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T03:23:01Z"
+  "updated_at": "2026-05-17T03:23:16Z"
 }
