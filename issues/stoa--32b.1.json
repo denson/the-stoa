@@ -31,11 +31,15 @@
     {
       "text": "A6 pick: SPLIT — probe-design sub-case lands as §25.X subsection in the new D1 operating-disciplines section (carries the universal probes-mutate-real-workspaces principle); VERA envelope D2 §5.10 carries a thin seat-specific pointer back. Reasoning: (1) retro §9 explicitly named DAEDALUS-time challenge ('VERA Probe 8's design would have been challenged at DAEDALUS time') — the rule belongs upstream of VERA in operating-disciplines where DAEDALUS reads it; (2) future inspection-agent stoa--32b.2 will hit the same shape and shouldn't need to re-discover the principle in a VERA-only locus; (3) keeps VERA's §5.10 tight as 'seat-specific refusal protocol' rather than over-loaded with general probe-design principle. Drafting design now.",
       "timestamp": "2026-05-17T07:42:46Z"
+    },
+    {
+      "text": "pass: design at agents/design/arc-31/design.md (495 lines, 7 sections + cite-comment table); A3=β (new §25 — structural fix matches the anti-conflation discipline); A6=SPLIT (§25.5 universal locus + CAPTAIN_VERA §5.10 pointer); 9 probes spec'd (all easy-easy; Probe 8 hybrid mechanical-grep + cold-read recognition log methodology, mechanically executable without sub-dispatch per VERA §5.1); 3 weak points named (N=1 anchor; prose-discipline-not-mechanical-enforcement; PushNotification no-debounce). 6 substrate files edited + 1 verification staging file (synthetic-directive.md) per cite-comment plan. Returning.",
+      "timestamp": "2026-05-17T07:44:28Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:42:46Z"
+  "updated_at": "2026-05-17T07:44:28Z"
 }
