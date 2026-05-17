@@ -38,11 +38,15 @@
     {
       "text": "Phase 1 DAEDALUS verdict: PASS. design.md at agents/design/stoa--kjo/design.md committed 16b09e1 with self-applied trailer (per A9). Sub-decisions: A5 = CAPTAIN_\u003cMNEMONIC\u003e_the-stoa \u003ccaptain-\u003cmnemonic\u003e@the-stoa.local\u003e; A6 = op-disc §28 + PLINY §5.12 + CAPTAIN_ADA §5.5 extension + global CLAUDE.md audit-subsection bullet; A7 = (i) manual; A8 = (a) §28.5 subsection. No PRINCIPAL-gate escalations. Phase 1 ARGUS cold-audit dispatching now.",
       "timestamp": "2026-05-17T21:29:05Z"
+    },
+    {
+      "text": "ARGUS activated on stoa--kjo. Read design.md §1-§3 (240/720 lines) + directive A1-A16 + dispatch context. Continuing read + cross-checking audit anchors (op-disc §27, PLINY §5.11, CAPTAIN_ADA §5.5, POLYBIUS §18, global CLAUDE.md §29-37). Self-applied DAEDALUS trailer on 16b09e1 verified in PLINY's dispatch heartbeat.",
+      "timestamp": "2026-05-17T21:29:33Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Per-agent git identity for commits — agents commit with their own configured git author so blame indicates the actual seat",
   "type": "epic",
-  "updated_at": "2026-05-17T21:29:05Z"
+  "updated_at": "2026-05-17T21:29:33Z"
 }
