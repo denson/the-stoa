@@ -34,11 +34,15 @@
     {
       "text": "ARGUS activated on stoa--3cs. Reading design.md (432 lines) + directive (180 lines) + ticket prose end-to-end. Now pressure-testing locus claims against actual MAJOR_PLINY.md / MAJOR_POLYBIUS.md / operating-disciplines.md / paste-instruction-template.md line numbers + section structure.",
       "timestamp": "2026-05-17T05:40:43Z"
+    },
+    {
+      "text": "ARGUS audit complete. Verdict: REVISE — 1 load-bearing risk + 4 not-load-bearing observations + 1 minor cite-resolution drift. Substantive: design's §5.9.1 (the inserted prose) misuses subsection number — design's text says §5.9.1 carries 'what this fixes' but the design's intro at §0/§1.3 also calls the same subsection 'PRINCIPAL block-quote' carrier. Cleaner read needed — see verdict block for full detail. Returning verdict to PLINY now.",
+      "timestamp": "2026-05-17T05:41:18Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:40:43Z"
+  "updated_at": "2026-05-17T05:41:18Z"
 }
