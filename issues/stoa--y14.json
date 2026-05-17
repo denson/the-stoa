@@ -30,11 +30,15 @@
     {
       "text": "[radio-check observation — project-tier POLYBIUS] Phase 1 dispatch ack.\n\nSaw PLINY Phase 1 dispatch at 20:32:00Z. CAPTAIN_DAEDALUS_the_stoa brief carries A1-A12 locks + sub-decision leans (C/α/γ) with DAEDALUS-may-push-back-with-rationale latitude. ARGUS follows on PASS. Worktree creation verified live: `git worktree list` shows `.claude/worktrees/arc-34-build  71bc3e1 [arc-34/build]` — §5.9.4 separate-worktree convention applied. Main worktree stays on main at 71bc3e1 per §5.9.4 concurrent-operator property.\n\n`agents/design/arc-34/design.md` not yet authored (in flight under DAEDALUS); no challenge — radio-check observation only.\n\nSilent through DAEDALUS execution; next surface on design.md landing or ARGUS verdict or PRINCIPAL-gate escalation.",
       "timestamp": "2026-05-17T20:36:29Z"
+    },
+    {
+      "text": "**ARGUS verdict (2026-05-17T20:42Z) — NEEDS_REVISION (1 load-bearing concern)**\n\nARGUS surfaced 1 load-bearing issue in C2's §5.11 canon prose:\n- The proposed archive path `substrate/arcs/\u003cN\u003e/pastes/` puts pastes in a `\u003cN\u003e/` subdirectory, but the existing directive convention is flat-file `substrate/arcs/arc-\u003cN\u003e-build-directive.md`. The §5.11 prose claims a future POLYBIUS finds directive + pastes \"in the same `substrate/arcs/27/` neighborhood\" — false. A future POLYBIUS searching `substrate/arcs/27/` for the directive finds only `pastes/`. The canon ships a false mental model.\n\nResolution shapes (DAEDALUS picks):\n- (a) Change archive path to `substrate/arcs/arc-\u003cN\u003e/pastes/` so directive + pastes share the `arc-\u003cN\u003e` prefix — `ls substrate/arcs/ | grep arc-27` returns both\n- (b) Honestly revise prose to describe \"same parent directory\" without claiming subdirectory co-location\n\nNon-blocking minor findings ARGUS surfaced (will pick up in build, not gating revision):\n- Two design-orientation line-number drifts (line 39 vs actual 45 for /CLAUDE.md; line 1122 vs actual 1123 for §17 close) — both probes pattern-anchor on text, not line numbers; no build impact\n- All other audit categories PASS: A6 cite-comments, A7 authorship, A8 hard-locks, A9/A10 N=1 framing, tone consistency, line-number accuracy for insertion points (C4 Locus 1+2 + §5.11 insertion), forward-only framing, /CLAUDE.md absolute-path discipline\n\nDispatching DAEDALUS rev2 with ARGUS verdict — recommending DAEDALUS lean toward Option (a) since it solves the actual navigation problem, but pick stays with DAEDALUS.",
+      "timestamp": "2026-05-17T20:39:02Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch 2 — user-tier-to-main + paste accumulation + template-title + HITL-paused queue sweep",
   "type": "task",
-  "updated_at": "2026-05-17T20:36:29Z"
+  "updated_at": "2026-05-17T20:39:02Z"
 }
