@@ -66,11 +66,15 @@
     {
       "text": "status: completed | revision_round: 2 | findings_absorbed: [1, 2, 3, 4] | finding_5: sustained without edit (ARGUS sustain on custom/ vs _custom/) | design_artifact_path: agents/design/arc-29/design.md (now 890 lines, +33 from 857) | lines_changed_approx: ~50 lines added/modified across 5 sections (§17.4, §4.1 Site 4 + rationale, §5.1 Site 3, new §5.1 Site 4, §5.3 + §8 Probe 7 grep counts, §9 step 4, §10.7 Q2). Ready for ADA. Returning.",
       "timestamp": "2026-05-17T04:56:52Z"
+    },
+    {
+      "text": "[heartbeat PLINY] Phase 1 DAEDALUS rev-2 polish complete (~+33 lines; 4 findings absorbed inline; finding_5 sustained). design.md is clean. Phase 2 dispatching CAPTAIN_ADA_the_stoa on branch arc-29/build to build D1-D6 per design.md §9 sequence (canon edits → install.sh → check.sh → apply.sh → CLAUDE.md template hook → cite-comments).",
+      "timestamp": "2026-05-17T04:57:06Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Base-vs-custom agent convention — encode in substrate canon (operating-disciplines + MAJOR_POLYBIUS + install/check/apply tooling)",
   "type": "task",
-  "updated_at": "2026-05-17T04:56:52Z"
+  "updated_at": "2026-05-17T04:57:06Z"
 }
