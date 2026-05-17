@@ -102,11 +102,15 @@
     {
       "text": "ZENO activated on stoa--kjo. Reading design.md rev2 + 3 substrate files at 7e1d348 before extracting criteria.",
       "timestamp": "2026-05-17T21:39:26Z"
+    },
+    {
+      "text": "Cold-read of diff complete; structural checks all green (A12 scope hygiene clean: 4 files only — 3 substrate + 1 design artifact; install.sh + scripts/ + project CLAUDE.md untouched; Author=PRINCIPAL on all 3 commits; trailer chain complete: ADA + 2x DAEDALUS seat-identity + Claude on each). §28 subsections 28.1-28.8 land in order; §5.12 lands cleanly at PLINY L517; §5.5 extension reads as parallel paragraph. Now cross-checking citation graph + comparing §28 shape to Arc 33 §27 precedent + verifying N=1 honesty per A13.",
+      "timestamp": "2026-05-17T21:39:52Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Per-agent git identity for commits — agents commit with their own configured git author so blame indicates the actual seat",
   "type": "epic",
-  "updated_at": "2026-05-17T21:39:26Z"
+  "updated_at": "2026-05-17T21:39:52Z"
 }
