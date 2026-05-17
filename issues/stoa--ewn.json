@@ -102,11 +102,15 @@
     {
       "text": "CATO: cold-read complete. Concerns drafted. Writing verdict to agents/design/arc-32/cato-verdict.md.",
       "timestamp": "2026-05-17T18:58:08Z"
+    },
+    {
+      "text": "VERA heartbeat: all §4.1-§4.9 probes executed; §4.10 non-applicability confirmed. Net verdict trending PASS with 3 methodology concerns to document (probe over-match due to regex \\b behavior at §5.9.4; case-sensitive probe failed on properly-capitalized 'Future-evidence' at §5.1.1.1; '---' separator probe wording vs conventional ---+blank+header pattern). Writing verdict to vera-verdict.md.",
+      "timestamp": "2026-05-17T18:58:29Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch — §5.1.1 extension + cron-hygiene canon + PLINY-signoff-accuracy + attestation-confabulation",
   "type": "task",
-  "updated_at": "2026-05-17T18:58:08Z"
+  "updated_at": "2026-05-17T18:58:29Z"
 }
