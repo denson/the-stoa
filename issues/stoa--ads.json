@@ -102,11 +102,15 @@
     {
       "text": "Heartbeat: brief + design §8 + ticket body + all 5 modified files absorbed. Classifying probes per §15 quadrant: P1-P4 easy-easy (fixture-based mechanical); P5 hard-hard (runtime auto-discovery requires new session — UNVERIFIABLE per §15); P6-P7 easy-easy (grep + diff against canon); P8 easy-easy (live check.sh against registered workspaces). Setting up synthetic fixture next.",
       "timestamp": "2026-05-17T05:03:42Z"
+    },
+    {
+      "text": "ZENO activated on stoa--ads Phase 3. Reading spec (ticket D1-D6) + shipped artifact at 5836092 before extracting criteria.",
+      "timestamp": "2026-05-17T05:03:44Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Base-vs-custom agent convention — encode in substrate canon (operating-disciplines + MAJOR_POLYBIUS + install/check/apply tooling)",
   "type": "task",
-  "updated_at": "2026-05-17T05:03:42Z"
+  "updated_at": "2026-05-17T05:03:44Z"
 }
