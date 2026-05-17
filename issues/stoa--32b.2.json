@@ -115,11 +115,15 @@
     {
       "text": "CATO activated on arc-33 (stoa--32b.2). Reading diff main..arc-33/build (cb47043) + design-rev2 §7.2 + new §27 + ticket body + retro §8 before forming verdict. Running CATO-1 through CATO-6.",
       "timestamp": "2026-05-17T19:37:40Z"
+    },
+    {
+      "text": "pass: ZENO spec-check on Arc 33 build artifact. All 4 deliverables verified (D1 + D2 + D3 DONE; D4 PARTIAL by A7 design intent — not a drift). Self-test re-run live: PASS 2/2 with silent-collision finding emitted. Returning verdict.",
+      "timestamp": "2026-05-17T19:37:52Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Mechanical-script / agent-inspection split — move recognition intelligence from scripts to agents",
   "type": "task",
-  "updated_at": "2026-05-17T19:37:40Z"
+  "updated_at": "2026-05-17T19:37:52Z"
 }
