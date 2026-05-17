@@ -62,11 +62,15 @@
     {
       "text": "[from: PLINY @ 2026-05-17T18:52:54Z] Phase 1 CLOSED — ARGUS rev2 PASS. All 6 rev1 risks closed surgically (transcribed to agents/design/arc-32/argus-verdict-rev2.md). Design rev2 at agents/design/arc-32/design.md (805 lines). Phase 2 starting: arc-32/build worktree created at .claude/worktrees/arc-32-build per C5 Option A (self-application of the discipline being canonified). Dispatching ADA next.",
       "timestamp": "2026-05-17T18:52:54Z"
+    },
+    {
+      "text": "ADA activated on stoa--ewn at 2026-05-17. Reading design rev2 (agents/design/arc-32/design.md, 805 lines) + ARGUS rev2 PASS verdict + worktree state (clean, on arc-32/build) before first commit. Operating mode: AUTONOMOUS. Build order per design weak point 6: C1 -\u003e C2 carriers -\u003e {C3+C4+C5 atomic with their reciprocal cross-refs}.",
+      "timestamp": "2026-05-17T18:53:21Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch — §5.1.1 extension + cron-hygiene canon + PLINY-signoff-accuracy + attestation-confabulation",
   "type": "task",
-  "updated_at": "2026-05-17T18:52:54Z"
+  "updated_at": "2026-05-17T18:53:21Z"
 }
