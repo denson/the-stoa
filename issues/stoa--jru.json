@@ -277,11 +277,15 @@
     {
       "text": "[from: zeno-the-stoa] ZENO activated on stoa--jru. Reading directive + design + build artifacts before extracting A1-A17 criteria.",
       "timestamp": "2026-05-17T23:58:13Z"
+    },
+    {
+      "text": "[from: vera-the-stoa] §4.1 (10 probes) complete: all PASS. §4.1.2 + §4.1.6b probe-regex caveats confirmed semantically correct (substrate state correct; regex overbreadth / shell-escape brittleness only). Proceeding §4.2 Part 2.",
+      "timestamp": "2026-05-17T23:58:51Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-17T23:58:13Z"
+  "updated_at": "2026-05-17T23:58:51Z"
 }
