@@ -146,11 +146,15 @@
     {
       "text": "[CAPTAIN_ARGUS_the_stoa rev3] design read end-to-end; rev2 §4/§5/§6.4 diffed against rev3; auditing curl-shim mechanics (heredoc-quote, /tmp permission, cleanup-on-failure, sh portability) + verifying rev7 out-of-scope addition doesn't drift.",
       "timestamp": "2026-05-17T03:16:47Z"
+    },
+    {
+      "text": "[CAPTAIN_ARGUS_the_stoa rev3] verdict REVISE; 1 NEW load-bearing risk (NEW-2: §5 Smoke beat 4 heredoc terminator indented from markdown list-item indentation — bash will not terminate; empirically reproduced + bash emits 'here-document delimited by end-of-file' warning); rev2 NEW-1 RESOLVED at Probe 7b (unindented form works correctly, empirically traced); 1 advisory verbatim-drift (§7 gained 1 bullet not declared in changelog). Standing down.",
+      "timestamp": "2026-05-17T03:17:43Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T03:16:47Z"
+  "updated_at": "2026-05-17T03:17:43Z"
 }
