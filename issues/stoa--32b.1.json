@@ -67,11 +67,15 @@
     {
       "text": "DAEDALUS rev2: r1 pick = Option A (fresh-dispatch via MAJOR_PLINY). Reasoning: structurally tighter; closes loop in-arc; Arc 26's failure was *recognition-under-load by agents WITH canon* — only a fresh sub-agent given ONLY synthetic directive + new §25 canon (NOT the design, NOT the probe spec, NOT the verdict) tests the operative property. Hybrid mechanical Half 1 retained for textual-presence sanity; Half 2 replaced with fresh-dispatch recognition. r2 pick = git clone --no-local (WebSearch confirmed: --no-local uses regular Git transport, bypasses local-optimization-with-hardlinks entirely, no CVE-2024-32020 surface; --local --no-hardlinks still uses local-optimization path; cp -r loses git semantics needed by probes). Drafting rev2 edits.",
       "timestamp": "2026-05-17T07:48:19Z"
+    },
+    {
+      "text": "pass-rev2: design at agents/design/arc-31/design.md (609 lines, +114 from rev1). All 7 ARGUS findings addressed: r1 Probe 8 = Option A fresh-dispatch via MAJOR_PLINY (general-purpose subagent, brief artifact at agents/verification/arc-31/probe-8-fresh-dispatch-brief.md authored by VERA at probe time, VERA returns status: requires-fresh-dispatch; closes recognition-under-load loop in-arc); r2 git clone --no-local replaces --local --shared (CVE-2024-32020 + alternates-corruption cited; cp -r named as git-free alternative); r3 ### N.X subsection convention explicit; r4 §11 'new paragraph immediately after Setup-complete' (bullet alternative withdrawn); r5 Probe 6 sampling: full with all 13 rows enumerated; r6 'BLOCK, not a TAG' standardized; r7 VERA §5.10 heading single-concern (refusal protocol). +1 weak point WP4 (dispatch-chain contamination — relies on MAJOR_PLINY verbatim-fidelity discipline). Rev2 changelog added near top. Returning.",
+      "timestamp": "2026-05-17T07:50:24Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:48:19Z"
+  "updated_at": "2026-05-17T07:50:24Z"
 }
