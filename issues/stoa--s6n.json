@@ -110,11 +110,15 @@
     {
       "text": "[CAPTAIN_ARGUS_the_stoa rev2] rev2 + cited files read; verification pass underway. Key findings developing: LBR-1 defang structurally present; LBR-2 caveat split correct vs bw recap --help; LBR-3 per-workspace semantics consistent across SKILL.md/check.sh; potential NEW concern around install.sh rm -rf dest_skill + state-file location at consumer-tier.",
       "timestamp": "2026-05-17T03:11:36Z"
+    },
+    {
+      "text": "[CAPTAIN_ARGUS_the_stoa rev2] verdict REVISE; 1 NEW load-bearing risk (Probe 7b + smoke beat 4 use PATH=/nonexistent which kills shebang resolution before script runs — false-positive trap for VERA); LBR-1 defang itself correct + LBR-2 + LBR-3 + ADV-1..5 all resolved; rev3 fix is narrow (substitute a curl-shim or bogus-host simulation mechanism so the script actually runs); standing down.",
+      "timestamp": "2026-05-17T03:12:19Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T03:11:36Z"
+  "updated_at": "2026-05-17T03:12:19Z"
 }
