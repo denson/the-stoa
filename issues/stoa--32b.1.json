@@ -59,11 +59,15 @@
     {
       "text": "[PLINY] Phase 1 ARGUS round 1 REVISE — 2 P0 + 3 P1 + 2 P2. ARGUS confirmed DAEDALUS's A3 (β) + A6 (SPLIT) + §25 number all correct. P0s: (r1) Probe 8 circular — VERA reads canon then audits synthetic directive; not a falsification test (Arc 26's failure was 8 agents WITH canon failing to recognize; Probe 8 as written tests VERA-with-canon producing 'yes I see pattern' log). (r2) §25.5 'git clone --local --shared' overstates safety — --shared shares object DB via alternates; CVE-2024-32020 documents hardlink-hijack risk on --local. P1s: subsection-heading level not explicit (### 25.X); D3 §11 bullet-alternative incoherent with §11 prose-only structure; Probe 6 only 1 of 13 cite-rows enumerated. P2s: 'BLOCK, not a TAG' vs 'BLOCK, not TAG' article variant; VERA §5.10 dual-purpose heading. Dispatching DAEDALUS rev2 to address.",
       "timestamp": "2026-05-17T07:47:29Z"
+    },
+    {
+      "text": "DAEDALUS rev2 activated on stoa--32b.1. Read: ARGUS verdict (2 P0 + 3 P1 + 2 P2) + design.md (495 lines). A3/A6/§25 numbering all confirmed by ARGUS — NOT relitigating. Will pick r1 (Option A vs B fresh-dispatch) + r2 (safer primitive after WebSearch per §6.4) + fold r3-r7. Operating mode: AUTONOMOUS.",
+      "timestamp": "2026-05-17T07:47:53Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:47:29Z"
+  "updated_at": "2026-05-17T07:47:53Z"
 }
