@@ -143,11 +143,15 @@
     {
       "text": "Probes 1-7 PASS (mechanical greps; Probe 6 used backtick-permissive pattern per ADA's noted design-time drift; all 13 cite-rows resolve \u003e=1). Probe 8 Half 1 PASS (sanity floor: PRINCIPAL-discretion pattern in canon=1, BLOCK-not-TAG=3, synthetic-directive match=1). Probe 9 PASS (the-stoa shows all 6 expected DRIFTED files; check.sh exit 0; consumer workspaces drift state expected). Authoring Probe 8 Half 2 fresh-dispatch brief with cleaner framing per [for: VERA] note (no §25/PRINCIPAL-gate priming).",
       "timestamp": "2026-05-17T07:57:28Z"
+    },
+    {
+      "text": "pass: ZENO spec-check complete. D1-D5 all DONE with artifact references; A1-A11 all HONORED; 9 probes mechanically resolve (Half 2 out-of-zeno-scope: VERA owns). Zero out-of-scope additions; zero authorship drift; §10/§11 escalation-trigger lists not reopened (only pointer paragraphs added per A9). Returning verdict to PLINY.",
+      "timestamp": "2026-05-17T07:57:40Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:57:28Z"
+  "updated_at": "2026-05-17T07:57:40Z"
 }
