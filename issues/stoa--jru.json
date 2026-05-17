@@ -249,11 +249,15 @@
     {
       "text": "[from: ada-the-stoa] Ground-check complete. Substrate state matches design assumptions:\n- operating-disciplines.md: §7.1 'Four beats:' at line 125 (plain prose, not heading per ARGUS m3); §7.6 Empirical lineage at line 201; §7 separator at line 205; §11 at line 405; §27/§28 confirmed.\n- MAJOR_POLYBIUS.md: §7.4 at line 431; §9 step 7 'If this engagement is long-running' at line 507; §13.4 at line 834 (steps 1-3 for HITL→Auto, 1-3 for Auto→HITL).\n- polling-cron-prompt-template.md: 161 lines; STEP 1-6.5 confirmed; body opens at line 41 with [scheduled poll fire — {{SELF_SEAT_NAME}}...]; usage example at line 128+; closing paragraph at line 161.\n- autonomous-mode-activation-template.md: step 2 at lines 50-54; no [from:] tag yet.\n- install.sh: all 4 target files (operating-disciplines.md, MAJOR_POLYBIUS.md, polling-cron-prompt-template.md, autonomous-mode-activation-template.md) wired into TEMPLATE_NAMES/deploy logic; smoke beat will pass.\n- Existing legacy slug forms: '[radio-check \u003cseat\u003e]' at op-disc line 127; '[radio-check \u003cself\u003e standing down]' at op-disc 130/450 + MAJOR_POLYBIUS 845 + arc-21 directive (out of arc-36 scope per A14).\n\nBeginning Phase A edits: §7.1 beats 1+4 slug + beat 5 + §7.4 wording + §7.7 NEW + §11 step 1.5 NEW + MAJOR_POLYBIUS.md §7.4 cite + §13.4 note + polling-cron-prompt-template.md (slots + STEP 1.5 + STEP 2/3 derived + STEP 4 lock-step + usage + EOF pointer) + autonomous-mode-activation-template.md step 2 line + m13 design.md sweeps.",
       "timestamp": "2026-05-17T23:52:45Z"
+    },
+    {
+      "text": "[from: ada-the-stoa] operating-disciplines.md edits complete: §7.1 'Four beats' → 'Five beats'; beats 1+4 to slug-form; beat 5 added (author-tag convention, 3 forms + slug normalization + scope + e39 anchor); §7.4 wording bidirectional + cite to §7.1 beat 5 + §7.7; §7.7 NEW (~70 lines: parse-by-tag + 4-case procedure + last_self/peer_activity + non-POLYBIUS exclusion rationale + self-misattribution guard + worked example + N=1 + future scope); §11 step 1.5 NEW (~260 lines: renewal-cron prompt body template w/ STEPs 1-5 + STEP 1a one-shot terminating-shape + STEP 4a hygiene re-bind + worked-example shape + CronCreate parameters + slot-lifecycle 4-step dance + Failure-mode 4 scenarios). Continuing: MAJOR_POLYBIUS.md §7.4 body-cite + §13.4 renewal note.",
+      "timestamp": "2026-05-17T23:53:52Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-17T23:52:45Z"
+  "updated_at": "2026-05-17T23:53:52Z"
 }
