@@ -62,11 +62,15 @@
     {
       "text": "DAEDALUS revision-round-2: 4 edits drafted. §17.4 casing-note paragraph added; §5.1 Site 3 'local d base' + ADA note updated; §4.1 Site 4 WITH_CAPTAINS/WITH_TEMPLATES gating wrappers + rationale + §10.7 Q2 marked resolved; §5.1 new Site 4 forward-looking MAJOR-glob cite-comment + §5.3 grep counts updated \u003e=3 to \u003e=4 + Probe 7 counts updated + §9 step 4 mention. Verifying file shape next.",
       "timestamp": "2026-05-17T04:56:35Z"
+    },
+    {
+      "text": "status: completed | revision_round: 2 | findings_absorbed: [1, 2, 3, 4] | finding_5: sustained without edit (ARGUS sustain on custom/ vs _custom/) | design_artifact_path: agents/design/arc-29/design.md (now 890 lines, +33 from 857) | lines_changed_approx: ~50 lines added/modified across 5 sections (§17.4, §4.1 Site 4 + rationale, §5.1 Site 3, new §5.1 Site 4, §5.3 + §8 Probe 7 grep counts, §9 step 4, §10.7 Q2). Ready for ADA. Returning.",
+      "timestamp": "2026-05-17T04:56:52Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Base-vs-custom agent convention — encode in substrate canon (operating-disciplines + MAJOR_POLYBIUS + install/check/apply tooling)",
   "type": "task",
-  "updated_at": "2026-05-17T04:56:35Z"
+  "updated_at": "2026-05-17T04:56:52Z"
 }
