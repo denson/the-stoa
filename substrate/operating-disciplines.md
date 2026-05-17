@@ -396,6 +396,8 @@ Two operating engagements describe HOW the PRINCIPAL participates in the team's 
 
 **Universal escalation triggers (autonomous mode):** every seat surfaces to PRINCIPAL on (a) substance disagreement after one round with peer, (b) authorship/copyright/PRINCIPAL-final-say content, (c) irreducible ambiguity that blocks progress, (d) peer silence > 60 minutes on an open coordination ticket. Routine technical decisions stay at the seat.
 
+**Cross-ref:** §25 PRINCIPAL-gate discipline — distinct from cadence. The triggers above govern *when* to surface during routine work; §25 governs *whether* PRINCIPAL input is structurally required for a step. Do not conflate.
+
 Cross-refs: `MAJOR_POLYBIUS.md` §13 (POLYBIUS-tier framing of mode declaration + propagation), `operating-disciplines.md` §11 (the checklist that operationalizes the autonomous-mode entry procedure).
 
 ---
@@ -442,6 +444,8 @@ The cron prompt body comes from `substrate/templates/polling-cron-prompt-templat
 - Never `git checkout beadwork` from the main worktree.
 
 **Setup-complete confirmation.** After all six are in place, post a setup-complete comment on the engagement's coordination ticket naming: cron id, cadence, escalation triggers, peer name, expected duration. Surface the same to PRINCIPAL once. From this point forward, routine status flows via bw; PRINCIPAL only sees the universal-escalation-trigger surfaces (§10) until the engagement closes or the autonomous-mode trigger is reversed.
+
+**Cross-ref:** §25 PRINCIPAL-gate discipline — autonomous-mode setup does NOT relax PRINCIPAL-gates. If downstream encounters a PRINCIPAL-gated clause, the workflow PAUSES per §25.3 regardless of operating engagement.
 
 **Teardown procedure** (autonomous → HITL trigger detected): `CronDelete` the polling cron(s) for this engagement. Post final `[radio-check <self> standing down]` on the coordination ticket(s). Confirm to PRINCIPAL: "back in the loop; teardown complete; scope: <global | per-seat name>". Per-seat teardown affects only the named seat's coordination crons; sibling seats keep their own crons.
 
@@ -1103,6 +1107,108 @@ The full canon — including PRINCIPAL's 2026-05-17 verbatim phrasing, the surfa
 - `substrate/templates/paste-instruction-template.md` — the template that carries the preamble in its filled output.
 - §6.7.1 (the N=1 canon-promotion gate this discipline enters off-gate on PRINCIPAL's 2026-05-17 declaration).
 - Empirical anchors: `stoa--3cs` (work-unit + 2026-05-17 scope-expansion), PR #46 + PR #8 (bit-by-it N=2), PR #9 / `stoa--ads` (worked-when-applied N=1).
+
+---
+
+## 25. PRINCIPAL-gate discipline
+
+A design clause that names PRINCIPAL as the deciding seat for a load-bearing step is a BLOCK, not a TAG. Autonomous mode does not authorize crossing it. PRINCIPAL-AFK on a PRINCIPAL-gated decision means the workflow waits.
+
+This section is distinct from §10 (operating engagement) and §11 (autonomous-mode-setup checklist): those govern *when* to surface to PRINCIPAL during routine work (cadence axis); §25 governs *whether* PRINCIPAL input is structurally required for a step (authorization axis). The two are orthogonal disciplines. The substrate conflated them prior to this section; the empirical failure mode is the Arc 26 / `stoa--501` shape (an autonomous workflow read a gate clause as a cadence-relaxable marker and proceeded past it). §25 closes that gap.
+
+### 25.1 The discipline (PRINCIPAL declaration)
+
+PRINCIPAL declared this discipline on 2026-05-16 after the `stoa--501` sector-4 REVERT (the post-hoc cleanup that closed the Arc 26 Probe 8 unauthorized-mutation loop). The declaration, verbatim:
+
+> *"Something that needs to be surfaced to a human needs to wait until the human comes back not bypassed because the human is afk."*
+
+This is project-direction authority per §6.7.1 honest-scope framing (see §25.6 for the N=1 accretion path).
+
+The load-bearing source for the conflation reframe is `docs/sessions/2026-05-16-substrate-update-architecture-reframe--retro.md` §7, where PRINCIPAL frames the two axes in their own words: *"autonomous mode is a cadence discipline … it is NOT a gate-override discipline."*
+
+### 25.2 Two-axis distinction (gate vs cadence)
+
+| Axis | Question | Locus |
+|---|---|---|
+| **Cadence** (autonomous-mode escalation) | *When* during routine work does PRINCIPAL get surfaced to? | §10 (operating engagement) + §11 (setup checklist) |
+| **Gate** (PRINCIPAL-gate authorization) | *Whether* PRINCIPAL input is structurally required for this step | §25 (this section) |
+
+Conflating the two produces the Arc 26 / `stoa--501` shape: an autonomous workflow reads a gate clause as a cadence-relaxable marker and proceeds past it. Naming the two axes separately, with separate canon sections that cross-reference each other but do not fold into one umbrella, prevents the conflation from re-occurring. §10 and §11 carry one-line pointers to §25 so operators landing in the autonomous-mode area find the gate-area within one line of reading; §25 stands as its own locus so the gate discipline does not inherit cadence-relaxation framing.
+
+### 25.3 BLOCK, not a TAG (the rule)
+
+The structural behavior: a design clause that names PRINCIPAL as the deciding seat for a load-bearing decision is a BLOCK. The workflow PAUSES at the gate until PRINCIPAL is present and provides the input. Autonomous mode does NOT skip past it. PRINCIPAL-AFK on a PRINCIPAL-gated decision means the workflow waits.
+
+The article-variant note: canon ships with "BLOCK, not a TAG" (with article) — it reads more naturally as PRINCIPAL voice; the no-article form ("BLOCK, not TAG") appears in some earlier drafts. The two forms are semantically equivalent; probes accept either as matching evidence for forward-compat.
+
+Examples of PRINCIPAL-gating clauses (positive references per §8.1, so future arcs see what TO recognize):
+
+- `PRINCIPAL-discretion per design §X`
+- `PRINCIPAL ratifies before Phase 2`
+- `blocked-on-PRINCIPAL`
+- any clause where PRINCIPAL input is structurally required for the workflow to proceed correctly
+
+Counter-examples (what is NOT a PRINCIPAL-gate, for boundary clarity): post-hoc-disposition tags ("file a P3 ticket for PRINCIPAL on wake" is a cadence-deferral, not a gate); informational surfaces ("[for: PRINCIPAL] FYI" is a notification, not a block).
+
+### 25.4 Per-seat behavior summary (cross-refs)
+
+| Seat | When PRINCIPAL-gate encountered | Cross-ref |
+|---|---|---|
+| DAEDALUS | At design time, surface gating to PRINCIPAL at design ratification (not defer to post-build cleanup). Make gate visible so ARGUS can verify framing. | `CAPTAIN_DAEDALUS.md` §6.7 |
+| ADA | At build time, refuse to build past a PRINCIPAL-gate without explicit per-execution PRINCIPAL authorization. Pause + surface. | `CAPTAIN_ADA.md` §5.8 |
+| VERA | At verification time, refuse to execute a probe past a PRINCIPAL-gate without explicit per-execution authorization. Pause + surface. | `CAPTAIN_VERA.md` §5.10 |
+
+The other seats (CATO, ZENO, BARTLEBY, STRABO, HERALD, CURATOR, MAJORs) inherit the discipline through reading this section. Their envelopes are not edited in this arc; the canon at §25 governs them through the universal-team read.
+
+### 25.5 Probe-design sub-case (probes-mutating-real-workspaces)
+
+This subsection lives in operating-disciplines (universal locus DAEDALUS reads at design time) rather than folded into CAPTAIN_VERA's envelope, because the principle generalizes beyond VERA. The empirical anchor is VERA-specific (Arc 26 Probe 8), but retro §9 names the catch-point explicitly: *"VERA Probe 8's design would have been challenged at DAEDALUS time."* The catch-point is DAEDALUS, which reads operating-disciplines (not CAPTAIN_VERA) during design. Future arcs that run mutation-style probes (the forthcoming inspection-agent at `stoa--32b.2`; future custom CAPTAINs that exercise shipping behavior) inherit this rule from the universal locus rather than re-discovering it.
+
+The rule:
+
+> Probes that would mutate a real (operator-owned) workspace require explicit per-execution operator authorization, NOT a design-time blanket "PRINCIPAL-discretion" clause.
+
+Canonical pattern (when realistic workspace state is needed):
+
+```bash
+git clone --no-local <real-workspace-path> /tmp/<probe-name>-probe
+cd /tmp/<probe-name>-probe
+# execute probe here; mutations stay in the throwaway clone
+```
+
+**Why `--no-local` specifically.** `git clone` defaults to a *local-optimization* path when source and destination are on the same filesystem: it hardlinks files under `.git/objects/` to save space. That optimization has documented safety problems:
+
+- **CVE-2024-32020 (GHSA-mvxm-9j2h-qjx7)** — hardlinked object files remain writable by the source repo's owner; an adversary with write access to the source can mutate object files post-clone and the clone observes the mutation. Fixed in git 2.45.1 / 2.44.1 / 2.43.4 / 2.42.2 / 2.41.1 / 2.40.2 / 2.39.4.
+- **`--shared`** is even weaker: it shares the object DB via `objects/info/alternates`. `git gc` / `git prune` / `git repack` on either side can corrupt the other's view. Not a separation primitive.
+- **`--local --no-hardlinks`** disables hardlinks but still traverses the local-optimization codepath (copies object files directly rather than going through git's transport layer); narrower attack surface than `--local` alone but not the cleanest separation.
+
+`--no-local` *forces git to use the regular transport protocol* even when the source is a local path. The destination clone is a fully independent object database; no hardlinks, no shared alternates, no TOCTOU surface, no CVE-2024-32020 exposure. The trade-off: slower than the local-optimization path (full object transfer rather than hardlink), and on very large repos (multi-GB git history) the difference is measurable. For typical substrate-and-app workspaces (<1GB git history), the cost is single-digit seconds — a non-issue for probe-time use.
+
+Alternative if git semantics are not needed: `cp -r <real-workspace-path> /tmp/<probe-name>-probe` — fully independent filesystem copy, no git involvement. Use `--no-local` when the probe needs git operations in the clone (status, log, commit, branch); use `cp -r` when the probe only needs the working tree's file content.
+
+The clone (or copy) is disposable; mutations never reach the real workspace. After the probe, `rm -rf /tmp/<probe-name>-probe`.
+
+### 25.6 N=1 provenance + accretion path
+
+Per §6.7.1 honest-scope: PRINCIPAL declared this discipline 2026-05-16 (project-direction authority, captured at `docs/sessions/2026-05-16-substrate-update-architecture-reframe--retro.md` §7). §6.7.1 defers to the canon-promotion gate (multiple observations + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status.
+
+Supporting evidence at the time of this writing:
+
+- `stoa--dxw` (Arc 26, CLOSED) — empirical anchor; VERA Probe 8 sector-4 mutation.
+- `stoa--501` (CLOSED, REVERT disposition) — post-hoc cleanup that demonstrated the gap.
+- `docs/sessions/2026-05-16-substrate-update-architecture-reframe--retro.md` §7 + §9 — load-bearing source; the conflation reframe.
+- Adjacent substrate evidence of the consistent "operator authorizes BEFORE execution" shape: `apply.sh` consent gates; `install.sh --dry-run`; `operating-disciplines.md` §20 credential discipline (agents NEVER hold credentials).
+
+Future arcs that encounter PRINCIPAL-gated clauses and correctly halt + escalate accrete evidence toward §6.7.1 promotion. The discipline is in NOW because PRINCIPAL named it; structural-lesson confidence accretes over future occurrences. Same N=1 framing as Arc 27's `MAJOR_POLYBIUS.md` §16.6 and Arc 28's §22.3 and Arc 29's §23.4.
+
+### 25.7 Cross-references
+
+- §10 (operating engagement — cadence axis) + §11 (autonomous-mode-setup checklist) — the cadence-discipline canon this section is explicitly distinct from.
+- §6.7.1 — the N=1 canon-promotion gate this section enters off-gate on PRINCIPAL declaration.
+- §8.1 (positive references only) — the framing for the §25.3 examples list.
+- `CAPTAIN_DAEDALUS.md` §6.7 + `CAPTAIN_ADA.md` §5.8 + `CAPTAIN_VERA.md` §5.10 — the three seat-specific behaviors.
+- `substrate/templates/autonomous-mode-activation-template.md` (pause-on-gate standing-condition paragraph after step 6) + `substrate/templates/polling-cron-prompt-template.md` (STEP 6.5) — the template hooks.
+- `stoa--dxw` (Arc 26 empirical anchor); `stoa--501` (post-hoc cleanup); `docs/sessions/2026-05-16-substrate-update-architecture-reframe--retro.md` §7 (load-bearing source).
 
 ---
 

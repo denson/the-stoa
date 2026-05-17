@@ -98,6 +98,28 @@ Surface that event to PRINCIPAL with:
 Else: silent. The cron tool fires only when the REPL is idle, so silent
 fires do not interrupt active work; they pick up between turns.
 
+STEP 6.5 — PRINCIPAL-gate detection (operating-disciplines.md §25).
+Scan aggregated state for evidence of a PRINCIPAL-gated clause that
+hasn't been adjudicated. Patterns to match (per §25.3):
+  - "PRINCIPAL-discretion per design §X"
+  - "PRINCIPAL ratifies before <phase>"
+  - "blocked-on-PRINCIPAL"
+  - any clause where PRINCIPAL input is structurally required for
+    the workflow to proceed correctly and PRINCIPAL has not yet
+    provided that input
+If matched AND not yet adjudicated by PRINCIPAL:
+  PushNotification: "PRINCIPAL-gate encountered on <ticket>; clause:
+  <verbatim>; workflow paused per §25 pending PRINCIPAL
+  authorization."
+  Do NOT advance workflow state. Do NOT mark dependent tickets as
+  unblocked. Do NOT dispatch downstream seats whose work would cross
+  the gate. The cron continues to fire (will re-detect on next pass)
+  until PRINCIPAL adjudicates the gate.
+Else: continue.
+PushNotification scope reference: operating-disciplines.md §18.5
+(PushNotification only for PRINCIPAL-actionable events; a gate-
+detection is exactly that by definition of §25.3).
+
 End of fire-loop.
 ```
 

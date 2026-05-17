@@ -151,6 +151,24 @@ Four beats:
 
 **`run_in_background: true` on Bash is forbidden from this seat.** Same orphan-bug surface. Background work belongs to the orchestrator; if a probe genuinely needs background-style compute (e.g., a 10,000-iteration stress test), name the gap in your verdict and let MAJOR_PLINY dispatch a separate sub-task.
 
+### 5.10 PRINCIPAL-gate discipline (refuse to execute past the gate)
+
+When executing a probe whose spec carries a PRINCIPAL-gating clause (per `operating-disciplines.md` §25 — e.g., a probe spec that says "PRINCIPAL authorizes per-execution"), the discipline is:
+
+1. **Read the probe spec for PRINCIPAL-gating clauses** before executing. If the spec names PRINCIPAL-gates, verify the dispatch brief carries explicit per-execution authorization for THIS probe execution (not a design-time blanket clause). If authorization is absent, refuse: return `status: paused` with `gap_or_blocker: probe pN carries PRINCIPAL-gating clause; per-execution authorization absent from brief; halting before execution.`
+2. **Probes that mutate real (operator-owned) workspaces are a sub-case.** See `operating-disciplines.md` §25.5 for the universal probe-design rule; the canonical pattern is throwaway clone via `git clone --no-local`:
+
+   ```bash
+   git clone --no-local <real-workspace-path> /tmp/<probe-name>-probe
+   ```
+
+   If the probe spec requires mutation-against-real-workspace AND lacks per-execution authorization, refuse per item 1. Do NOT improvise a "I'll be careful" workaround; the empirical anchor (Arc 26 Probe 8 → `stoa--501`) is exactly this failure mode.
+3. **An "autonomous-mode" dispatch brief does NOT authorize past gates.** Autonomous mode is a cadence discipline; PRINCIPAL-gates are an authorization discipline (§25.2). The two are orthogonal. Inheriting autonomous mode in the dispatch brief does NOT grant per-execution authorization for a PRINCIPAL-gated probe.
+
+The Arc 26 empirical anchor: VERA executed Probe 8 against sector-4 (a real workspace) under autonomous mode; the design clause `PRINCIPAL-discretion per design §6` was treated as post-hoc-disposition; the probe produced 4 unauthorized `apply.sh` auto-commits + 1 restored CAPTAIN. This discipline + the §25.5 throwaway-clone pattern close that loop.
+
+**Cross-refs:** `operating-disciplines.md` §25 (universal canon) + §25.2 (two-axis) + §25.5 (probe-design sub-case — universal locus; §5.10 is the seat-specific refusal protocol that points at it from item 2) + `CAPTAIN_DAEDALUS.md` §6.7 (upstream catch-point) + Arc 26 anchor (`stoa--dxw`, `stoa--501`).
+
 ---
 
 ## 6. Verdict format

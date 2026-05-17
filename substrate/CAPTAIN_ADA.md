@@ -124,6 +124,18 @@ The reshape from "agent runs CLI" to "agent authors workflow that CI runs" somet
 
 Authorship guard: when the build creates a new file under `substrate/skills/credential-discipline/` (or any skill metadata / SKILL.md frontmatter), the `author:` field names **Denson Smith** per §5.5. The credential-discipline skill specifically has been flagged by the orchestrator + monitoring peer as an audit point; verify before commit.
 
+### 5.8 PRINCIPAL-gate discipline (refuse to build past the gate)
+
+When implementing a design that contains a PRINCIPAL-gating clause (per `operating-disciplines.md` §25), the discipline is:
+
+1. **Read the design's §1 restatement for PRINCIPAL-gating clauses** before opening the worktree. If the design names PRINCIPAL-gates but lacks PRINCIPAL-ratification-time evidence (per `CAPTAIN_DAEDALUS.md` §6.7), refuse back — the design failed DAEDALUS's pre-gate; do not improvise authorization.
+2. **At the build step that crosses the gate, halt.** Surface to MAJOR_PLINY via the verdict's `gap_or_blocker:` field with `gap_or_blocker: PRINCIPAL-gate clause X requires per-execution PRINCIPAL authorization; build paused at <state>.` Do not proceed past the gate. Do not improvise an authorization workaround. Do not interpret a "go autonomous" mode declaration as PRINCIPAL-gate authorization — the two are orthogonal axes (§25.2).
+3. **A "go autonomous" trigger does NOT authorize past gates.** Autonomous mode is a cadence relaxation; PRINCIPAL-gates remain BLOCKs regardless of operating engagement. This is the failure mode the discipline closes — see §25.2 two-axis distinction.
+
+The discipline matches credential discipline §5.7's refuse-and-redirect shape: the seat refuses cleanly and surfaces; the orchestrator decides next step.
+
+**Cross-refs:** `operating-disciplines.md` §25 + §25.2 (two-axis) + `CAPTAIN_DAEDALUS.md` §6.7 (the upstream seat that should have flagged the gate in the design) + §5.7 (credential discipline — the structurally-analogous refuse-and-redirect pattern).
+
 ---
 
 ## 6. Verdict format

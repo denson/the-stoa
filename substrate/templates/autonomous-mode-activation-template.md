@@ -74,6 +74,17 @@ operating-disciplines.md §11 before beginning substantive work:
    `git branch -a | grep beadwork`. Never `git checkout beadwork` from
    the main worktree.
 
+PRINCIPAL-gate standing condition (operating-disciplines.md §25):
+autonomous mode does NOT relax PRINCIPAL-gates. If downstream — at
+any phase of this engagement — encounters a PRINCIPAL-gated clause
+in the directive or in any sub-dispatch (per §25.3: any clause where
+PRINCIPAL input is structurally required for the workflow to
+proceed correctly), HALT and escalate to PRINCIPAL immediately
+rather than proceed-then-flag. Autonomous-mode escalation cadence
+(§10) and PRINCIPAL-gate authorization (§25) are orthogonal
+disciplines; the cadence relaxation in autonomous mode does not
+authorize crossing gates.
+
 Once all six are in place, post a setup-complete comment on
 {{COORDINATION_TICKET}} with: cron id, cadence, escalation triggers,
 peer name, expected duration. From this point forward, routine status
