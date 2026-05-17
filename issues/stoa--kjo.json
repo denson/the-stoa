@@ -70,11 +70,15 @@
     {
       "text": "ADA activated on stoa--kjo (Phase 2 build). Branch arc-35/build confirmed at 36bf9ac (DAEDALUS rev2 PASS). Reading design.md (769 lines) + ground-checking cited line ranges (op-disc ~1356, PLINY 515, ADA 92-94) before first edit.",
       "timestamp": "2026-05-17T21:37:01Z"
+    },
+    {
+      "text": "Design absorbed (769 lines). Ground-check on all 3 insertion loci PASS against live worktree: op-disc.md line 1356 closes §27.7, line 1358 is the existing --- separator, line 1360 is ## Agent-regime inverses (insert §28 between 1359 and 1360); PLINY.md line 515 closes §5.11.3, line 517 is ---, line 519 is ## 6. Communication (insert §5.12 between 515 and 517); CAPTAIN_ADA.md lines 92-94 hold §5.5, line 96 is ### 5.6 (append trailer-paragraph after 94 before 95). No drift from design.md citations. Drafting edits now.",
+      "timestamp": "2026-05-17T21:37:25Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Per-agent git identity for commits — agents commit with their own configured git author so blame indicates the actual seat",
   "type": "epic",
-  "updated_at": "2026-05-17T21:37:01Z"
+  "updated_at": "2026-05-17T21:37:25Z"
 }
