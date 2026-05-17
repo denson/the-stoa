@@ -86,11 +86,15 @@
     {
       "text": "ADA activated on stoa--3cs / arc-30/build. Reading design rev3 + 4 target files complete. Confirmed: MAJOR_PLINY.md §5.8.8 closes line 327, --- at 329 (§5/§6 boundary); MAJOR_POLYBIUS.md §5.1.1 closes 226, §5.2 starts 228; paste-instruction-template.md template block at 41-49, prose-rule at 51, worked example at 55-86; operating-disciplines.md §23.5 closes 1084, --- at 1086, Agent-regime inverses at 1088. Starting edits.",
       "timestamp": "2026-05-17T05:48:38Z"
+    },
+    {
+      "text": "pass: arc-30/build commit 3ee7c50 landed. 4 files / 154 insertions: substrate/MAJOR_PLINY.md (§5.9 + §5.9.1 + §5.9.2 + §5.9.3, +61 lines), substrate/MAJOR_POLYBIUS.md (§5.1.2, +34 lines), substrate/templates/paste-instruction-template.md (PRE_BRANCH_HYGIENE_CLAUSE in template + prose-rule + worked-example update, +38 lines), substrate/operating-disciplines.md (§24 thin cross-ref, +21 lines). All verbatim canon blocks from design rev3 §2.2 / §3.2 / §3.3.a / §4.3 pasted as-is. No drift flags. Cross-refs verified: §6.7.1 at line 81, §12 at line 450, §24 at line 1088 in operating-disciplines.md. Did NOT add table row / per-slot rationale bullet per dispatch hard constraint. Build-only — no self-verify. Returning to PLINY for Phase 3 (VERA + CATO + ZENO).",
+      "timestamp": "2026-05-17T05:49:44Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:48:38Z"
+  "updated_at": "2026-05-17T05:49:44Z"
 }
