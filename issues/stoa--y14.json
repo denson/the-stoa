@@ -46,11 +46,15 @@
     {
       "text": "**ARGUS rev2 (2026-05-17T20:48Z) — PASS**\n\nRev2 cleanly resolves the rev1 finding. ARGUS verified:\n- Path change is structural, not cosmetic — `substrate/arcs/arc-\u003cN\u003e/pastes/` shares `arc-\u003cN\u003e` prefix with the flat directive\n- Every bare-number rev1 path-string occurrence in design is intentional describe-what-to-avoid prose (lines 40, 307, 496, 501, 503, 722)\n- Build-implications block correctly handles git-worktree dual-checkout for git mv\n- §4.2 probes match rev2 convention with explicit negative probe for rev1 residue\n- Insertion-point line numbers at MAJOR_PLINY.md:460/462/464 verified by direct read\n- A8 hard-lock reach intact\n- Filesystem precondition verified: `substrate/arcs/` currently flat (35 directive files + superseded/); arc-34/pastes/ will be the first subdir\n\nTwo minor non-blocking observations flagged for future polish (NOT triggering rev3): colloquial 'sibling' wording at design.md:247; build-order guidance lives in weak-point-6 rather than §3.\n\n**Phase 1 complete. Dispatching CAPTAIN_ADA for Phase 2 build.**",
       "timestamp": "2026-05-17T20:42:16Z"
+    },
+    {
+      "text": "**ADA build (2026-05-17T20:55Z) — PASS**\n\nCommit: `357e7635615e89304939b8826c613f2e4d51dab0` on arc-34/build (on top of dispatch `71bc3e1`).\n\n6 files modified/added + 2 git mv ops (100% similarity preserved):\n- CLAUDE.md (worktree root — C1 Carrier 2)\n- substrate/MAJOR_POLYBIUS.md (C1 §18 + C4 Locus 1 §9 step)\n- substrate/MAJOR_PLINY.md (C2 §5.11)\n- substrate/templates/handoff-doc-template.md (C4 Locus 2 three coordinated edits)\n- substrate/templates/paste-instruction-template.md (C3 line 5 + line 7)\n- agents/design/arc-34/design.md (newly tracked)\n- HUMAN_paste-pliny-arc-34-instruction.md → substrate/arcs/arc-34/pastes/...\n- HUMAN_paste-polybius-arc-34-instruction.md → substrate/arcs/arc-34/pastes/...\n\nSelf-applied probes confirm: archive contains both pastes; workspace root no longer contains them; bare-number negative probe = 0 matches (no rev1 path-shape residue). Authorship discipline intact (only pre-existing `author: Denson Smith` frontmatter).\n\n**Phase 2 complete. Dispatching VERA + CATO + ZENO parallel for Phase 3.**",
+      "timestamp": "2026-05-17T20:44:57Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch 2 — user-tier-to-main + paste accumulation + template-title + HITL-paused queue sweep",
   "type": "task",
-  "updated_at": "2026-05-17T20:42:16Z"
+  "updated_at": "2026-05-17T20:44:57Z"
 }
