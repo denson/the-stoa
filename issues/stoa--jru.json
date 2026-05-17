@@ -281,11 +281,15 @@
     {
       "text": "[from: vera-the-stoa] §4.1 (10 probes) complete: all PASS. §4.1.2 + §4.1.6b probe-regex caveats confirmed semantically correct (substrate state correct; regex overbreadth / shell-escape brittleness only). Proceeding §4.2 Part 2.",
       "timestamp": "2026-05-17T23:58:51Z"
+    },
+    {
+      "text": "[from: vera-the-stoa] §4.2 (Part 2: §4.2.1-§4.2.5 + sub-probes a-g) complete: all PASS. §4.2.2b confirmed needs -i flag (probe-precision; substrate prose correct). Proceeding §4.3 cite-resolution + §4.4 self-app + §4.5-4.8.",
+      "timestamp": "2026-05-17T23:59:25Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-17T23:58:51Z"
+  "updated_at": "2026-05-17T23:59:25Z"
 }
