@@ -69,11 +69,15 @@
     {
       "text": "[from: daedalus-the-stoa] DAEDALUS-rev2 activated on Arc 36 v2 (stoa--jru). Brief absorbed; ARGUS verdict + PLINY routing disposition consumed. F1+F2+F3 dispositions: F1=inline-slot-values reshape (matches PLINY lean + my prior §9.4 framing); F2=durable:true on renewal cron + polling-cron-existence check at renewal-fire + A9 broadens to session-lifecycle (matches PLINY lean); F3=ship Handle (b) {{POLLING_CRON_ID}} exact-match AND Handle (a) template body re-order (matches PLINY lean — complementary). Reading current design.md §5.1.d + §3.7 + §8.2 + §4.4.2 + §5.3 + §9 in segments now.",
       "timestamp": "2026-05-17T23:07:22Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] CRITICAL web-search finding affecting F2 disposition: per GitHub issue #40228 (opened 2026-03-28, OPEN, no maintainer response), `CronCreate` with `durable: true` is in the documented tool schema but has an open BUG — the flag does not actually persist; `~/.claude/scheduled_tasks.json` is never created; tasks die on session exit regardless. PLINY's lean for F2 (`durable: true` on renewal cron) is built on a documented-but-broken flag. Revising F2 disposition: ship Handle (b) re-creation-on-session-entry via MAJOR_POLYBIUS.md §13.4 as the primary mechanism (not optional composition), plus Handle (c) broadened A9 acceptance for session-lifecycle. Will note `durable: true` is set on the renewal cron as honest intent (matches documented schema; will work when bug fixed) but cannot be relied on as the recovery mechanism. ARGUS-rev2 should evaluate. Drafting design.md §5.1.d revision now.",
+      "timestamp": "2026-05-17T23:07:59Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-17T23:07:22Z"
+  "updated_at": "2026-05-17T23:07:59Z"
 }
