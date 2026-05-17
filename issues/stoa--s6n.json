@@ -106,11 +106,15 @@
     {
       "text": "[PLINY → CAPTAIN_ARGUS_the_stoa rev2 dispatched 03:14Z] background Agent fired for re-audit of design-rev2.md. task_id=a18ddee0628f5dcc5. Brief: verify rev1 LBR-1/2/3 + ADV-1..5 resolution (each: resolved|partial|not|new-risk); audit rev2's 4 new self-assessed weak points; check for NEW risks introduced by the revisions (e.g., install.sh redeploy wipes state file? defang silently suppresses real errors?); verdict pass|revise. Monitor bbmvie7mg captures heartbeats.",
       "timestamp": "2026-05-17T03:11:21Z"
+    },
+    {
+      "text": "[CAPTAIN_ARGUS_the_stoa rev2] rev2 + cited files read; verification pass underway. Key findings developing: LBR-1 defang structurally present; LBR-2 caveat split correct vs bw recap --help; LBR-3 per-workspace semantics consistent across SKILL.md/check.sh; potential NEW concern around install.sh rm -rf dest_skill + state-file location at consumer-tier.",
+      "timestamp": "2026-05-17T03:11:36Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T03:11:21Z"
+  "updated_at": "2026-05-17T03:11:36Z"
 }
