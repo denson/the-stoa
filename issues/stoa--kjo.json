@@ -110,11 +110,15 @@
     {
       "text": "VERA: 7 of 9 probes PASS (4.1, 4.2, 4.3, 4.4, 4.5, 4.8.a-e, 4.9 N/A). Probe 4.6 baseline INCONCLUSIVE (probe-definition defect: `git log main -1 --pretty=... 789496b` returns empty; substantive property satisfied when run as `git log -1 ...`). Probe 4.7 DEFERRED per Arc 35 sequencing (user-tier POLYBIUS direct-commit post-merge). Self-application: all 3 CAPTAIN commits carry seat-identity trailers. Overall: PASS with probe-4.6 methodology concern surfaced. Returning verdict.",
       "timestamp": "2026-05-17T21:39:57Z"
+    },
+    {
+      "text": "pass: all 7 mechanical checks green. §3.1/§3.2/§3.3 verbatim blocks land identically in op-disc.md §28 (L1360), MAJOR_PLINY.md §5.12 (L517), CAPTAIN_ADA.md §5.5 extension (L96) — only diff is 1 trailing blank line on §28 spec block (acceptable whitespace variance per brief). A9: all 3 CAPTAIN commits (16b09e1, 36bf9ac, 7e1d348) carry correct seat-identity + Claude trailers. A12: only 4 files touched (3 substrate + design.md); install.sh, project CLAUDE.md, app/ untouched. A11: zero file-frontmatter author: changes. Line-number drift: insertion loci match design §2.2 expectations after fan-out. Returning.",
+      "timestamp": "2026-05-17T21:40:16Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Per-agent git identity for commits — agents commit with their own configured git author so blame indicates the actual seat",
   "type": "epic",
-  "updated_at": "2026-05-17T21:39:57Z"
+  "updated_at": "2026-05-17T21:40:16Z"
 }
