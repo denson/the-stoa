@@ -114,11 +114,15 @@
     {
       "text": "ZENO activated on stoa--3cs. Reading directive + ticket + branch HEAD before extracting A1-A8 criteria for mechanical check.",
       "timestamp": "2026-05-17T05:53:49Z"
+    },
+    {
+      "text": "pass: ZENO mechanical spec-check A1-A8 all DONE. Branch HEAD actually 4e8c4485 (CATO P3 c2 polish landed post-5991f39); brief said 5991f39 — note in verdict. No drifts. Returning verdict to PLINY.",
+      "timestamp": "2026-05-17T05:54:28Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:53:49Z"
+  "updated_at": "2026-05-17T05:54:28Z"
 }
