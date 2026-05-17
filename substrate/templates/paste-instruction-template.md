@@ -43,11 +43,26 @@ Read {{ROLE_FILE_PATH}} and assume the orchestrator role for {{PROJECT_NAME}}.
 
 Your immediate intent for this session: {{SESSION_INTENT}}
 
+{{CRON_HYGIENE_CLAUSE}}
+
 {{PRE_BRANCH_HYGIENE_CLAUSE}}
 
 Check beadwork ({{BW_PREFIX}}-- prefix) for pending directives from MAJOR_POLYBIUS{{PENDING_DIRECTIVES_CLAUSE}}.
 
 If compaction or /clear erases your role, re-read this paste from {{ON_DISK_PATH}} in the project root.
+```
+
+`{{CRON_HYGIENE_CLAUSE}}` expands to the preamble below by default in every PLINY-targeted AND POLYBIUS-targeted activation paste — included by default, not gated on POLYBIUS's session-by-session judgment. POLYBIUS may suppress to empty string ONLY on explicit recognition that the activation will not plausibly need cron management (e.g., a one-shot read-only orientation paste with no polling and no agent dispatches). Default-include is the safety property: the cost of including the preamble when no orphan cron is present is one `CronList` call returning empty; the cost of omitting it on a session that does inherit an orphan cron from a prior `/clear`'d context is a surprise polling cycle the operator does not see. When the clause is suppressed to empty, the surrounding blank lines collapse.
+
+The preamble (the default expansion):
+
+```
+Cron hygiene FIRST (before any substantive work): this session may carry an
+orphaned cron from a prior /clear'd context. Run CronList; if any cron is
+present, CronDelete it. Then proceed as appropriate for the role
+(surface-and-wait per MAJOR_PLINY.md §6.2 for PLINY; cron-scheduled polling
+per operating-disciplines.md §7.2 for POLYBIUS radio-check engagements;
+or other per the role file). Defense-in-depth.
 ```
 
 `{{PRE_BRANCH_HYGIENE_CLAUSE}}` expands to the preamble below by default in every PLINY-targeted activation paste — included by default, not gated on POLYBIUS's session-by-session judgment. POLYBIUS may suppress to empty string ONLY on explicit recognition that the activation will not plausibly create an arc-build branch (e.g., a recovery paste for a documented non-arc engagement). Default-include is the safety property: the cost of including the preamble when not branching is one paragraph PLINY reads and skips; the cost of omitting it on a session that pivots to arc work mid-engagement is the bundled-squash pattern this arc exists to prevent. When the clause is suppressed to empty, the surrounding blank lines collapse.
@@ -92,6 +107,13 @@ The filled paste-instruction:
 Read .claude/MAJOR_PLINY.md and assume the orchestrator role for agent-character-builder.
 
 Your immediate intent for this session: Ship the v0.2 character profile UI per acb-101.
+
+Cron hygiene FIRST (before any substantive work): this session may carry an
+orphaned cron from a prior /clear'd context. Run CronList; if any cron is
+present, CronDelete it. Then proceed as appropriate for the role
+(surface-and-wait per MAJOR_PLINY.md §6.2 for PLINY; cron-scheduled polling
+per operating-disciplines.md §7.2 for POLYBIUS radio-check engagements;
+or other per the role file). Defense-in-depth.
 
 Pre-branch hygiene per MAJOR_PLINY.md §5.9: before creating arc-N/build, run two checks.
 

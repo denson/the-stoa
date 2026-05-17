@@ -1098,7 +1098,7 @@ Any seat that creates an arc-build branch (`arc-N/build` or equivalent) under th
 
 The full canon — including PRINCIPAL's 2026-05-17 verbatim phrasing, the surface-on-failure adjudication shape, the N=2 bit-by-it + N=1 worked-when-applied empirical anchor, and the §6.7.1 N=1 provenance + accretion path — lives at `MAJOR_PLINY.md` §5.9. The activation-paste convention that carries the preamble into every PLINY arc-build paste lives at `MAJOR_POLYBIUS.md` §5.1.2 plus the substrate-canonical template `substrate/templates/paste-instruction-template.md`.
 
-**Why thin cross-ref, not full universal-team mirror.** Under the current gauntlet pipeline, only PLINY creates arc-build branches. ADA works on a branch PLINY created; verifier and analysis CAPTAINs never touch git branch state. The universal-team framing is recorded here for completeness — if a future seat introduces branch-creating responsibilities (a hotfix CAPTAIN, a sibling-arc CAPTAIN), this section can promote to a full universal-team mirror at that point. Today, with PLINY as the only branch-creating seat, the substantive canon lives at `MAJOR_PLINY.md` §5.9 and the thin cross-ref here suffices.
+**Why thin cross-ref, not full universal-team mirror.** Under the current gauntlet pipeline, only PLINY creates arc-build branches. ADA works on a branch PLINY created; verifier and analysis CAPTAINs never touch git branch state. The universal-team framing is recorded here for completeness — if a future seat introduces branch-creating responsibilities (a hotfix CAPTAIN, a sibling-arc CAPTAIN), this section can promote to a full universal-team mirror at that point. Today, with PLINY as the only seat creating arc-build branches (POLYBIUS is paste-activated but does not create branches under the gauntlet pipeline; see §26 for the broader paste-activation framing), the substantive canon lives at `MAJOR_PLINY.md` §5.9 and the thin cross-ref here suffices.
 
 **Cross-references:**
 
@@ -1209,6 +1209,25 @@ Future arcs that encounter PRINCIPAL-gated clauses and correctly halt + escalate
 - `CAPTAIN_DAEDALUS.md` §6.7 + `CAPTAIN_ADA.md` §5.8 + `CAPTAIN_VERA.md` §5.10 — the three seat-specific behaviors.
 - `substrate/templates/autonomous-mode-activation-template.md` (pause-on-gate standing-condition paragraph after step 6) + `substrate/templates/polling-cron-prompt-template.md` (STEP 6.5) — the template hooks.
 - `stoa--dxw` (Arc 26 empirical anchor); `stoa--501` (post-hoc cleanup); `docs/sessions/2026-05-16-substrate-update-architecture-reframe--retro.md` §7 (load-bearing source).
+
+---
+
+## 26. Activation-paste cron hygiene (PLINY-primary + POLYBIUS; cross-ref)
+
+Any seat activated via an activation paste in a fresh terminal under this team's coordination model includes the cron-hygiene preamble at the top of the paste by default. The preamble tells the activated session to run `CronList` before any substantive work and `CronDelete` any cron present.
+
+The full canon — including the canonical preamble text, the default-include rule + suppression criteria, the POLYBIUS-tier authoring discipline, and the §6.7.1 N=1 provenance + accretion path — lives at `MAJOR_POLYBIUS.md` §5.1.3. The substrate-canonical template `substrate/templates/paste-instruction-template.md` carries the preamble as a `{{CRON_HYGIENE_CLAUSE}}` slot the fill mechanism inserts automatically.
+
+**Why thin cross-ref, not full universal-team mirror.** Under the current coordination model, only PLINY and POLYBIUS sessions are activated via paste-instructions into fresh terminals. CAPTAINs are dispatched one-shot by PLINY via the `Agent` tool (no paste-activation; no cron-management role). The universal-team framing is recorded here for completeness — if a future seat is paste-activated (a hotfix MAJOR, a long-running CURATOR session, a sibling-arc orchestrator), the discipline applies to that seat too. Today, with PLINY + POLYBIUS as the only paste-activated seats, the substantive canon lives at `MAJOR_POLYBIUS.md` §5.1.3 and the thin cross-ref here suffices.
+
+**Cross-references:**
+
+- `MAJOR_POLYBIUS.md` §5.1.3 — the full discipline section (source-of-truth + paste-authoring convention).
+- `substrate/templates/paste-instruction-template.md` — the template that carries the preamble via the `{{CRON_HYGIENE_CLAUSE}}` slot in its filled output.
+- `MAJOR_PLINY.md` §6.2 — the surface-and-wait default for PLINY autonomous mode (no cron).
+- §7.2 — the cron-scheduled polling default for POLYBIUS autonomous radio-check engagements.
+- §6.7.1 — the N=1 canon-promotion gate this discipline enters off-gate on multi-instance ad-hoc precedent.
+- Empirical anchors: every PLINY-targeted activation paste since Arc 26 carries the preamble ad-hoc; recent observation set `HUMAN_paste-pliny-arc-30-instruction.md`, `HUMAN_paste-pliny-arc-31-instruction.md`, `HUMAN_paste-pliny-arc-32-instruction.md` all converge on the canonical wording.
 
 ---
 
