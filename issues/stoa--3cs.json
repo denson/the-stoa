@@ -110,11 +110,15 @@
     {
       "text": "pass (CATO cold-read): substrate canon ships ship-ready. Verdict pass with 3 P3-nice-to-have observations (no P1/P2, no blocking). Full verdict block returning to PLINY.",
       "timestamp": "2026-05-17T05:53:12Z"
+    },
+    {
+      "text": "ZENO activated on stoa--3cs. Reading directive + ticket + branch HEAD before extracting A1-A8 criteria for mechanical check.",
+      "timestamp": "2026-05-17T05:53:49Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:53:12Z"
+  "updated_at": "2026-05-17T05:53:49Z"
 }
