@@ -150,6 +150,13 @@ SKILL_NAMES=(
 # installed.
 CLAUDE_MD_MARKER="<!-- agent-substrate: POLYBIUS reference -->"
 
+# Second marker for the base-vs-custom convention block (Arc 29; D6).
+# Independent from CLAUDE_MD_MARKER so the two appends are separately
+# idempotent: the existence-check uses this marker, the POLYBIUS block uses
+# its own. See substrate/operating-disciplines.md §23 + substrate/
+# MAJOR_POLYBIUS.md §17 for the discipline this block surfaces to the operator.
+CLAUDE_MD_BASE_VS_CUSTOM_MARKER="<!-- agent-substrate: base-vs-custom convention -->"
+
 # ----- helpers ---------------------------------------------------------------
 
 usage() {
@@ -752,6 +759,46 @@ else
   log "CLAUDE.md modification skipped (no --modify-claude-md flag; consent not given)"
 fi
 
+# 6b. Separate marker-bounded block: base-vs-custom convention paths (Arc 29; D6).
+# Gated by the same --modify-claude-md consent flag as the POLYBIUS reference
+# block above. Independent marker (CLAUDE_MD_BASE_VS_CUSTOM_MARKER) so the two
+# blocks are separately idempotent — operator who edits between the two blocks
+# without removing either marker re-runs cleanly. Discipline reference:
+# substrate/operating-disciplines.md §23 + substrate/MAJOR_POLYBIUS.md §17.
+if [ "$MODIFY_CLAUDE_MD" -eq 1 ]; then
+  if [ -f "$DEST_CLAUDE_MD" ] && grep -Fq "$CLAUDE_MD_BASE_VS_CUSTOM_MARKER" "$DEST_CLAUDE_MD" 2>/dev/null; then
+    log "CLAUDE.md already references base-vs-custom convention — skipping append (idempotent)"
+  else
+    BVC_BLOCK="
+
+${CLAUDE_MD_BASE_VS_CUSTOM_MARKER}
+## Customize your stoa team — base vs custom
+
+This workspace carries a BASE stoa team deployed from substrate. To customize agents, skills, or templates, author them at the conventional custom paths below. Substrate updates (\`install.sh\` re-runs, \`check-substrate-updates\` applies) leave custom files untouched.
+
+| Class | Custom path |
+|---|---|
+| Custom CAPTAINs | \`.claude/agents/custom/CAPTAIN_<MNEMONIC>_<slug>.md\` |
+| Custom skills | \`.claude/skills/custom-<skill-name>/SKILL.md\` |
+| Custom templates | \`.claude/templates/custom/*.md\` |
+
+Custom CAPTAIN \`name:\` frontmatter MUST be distinct from base agent names (Claude Code silently drops one on collision). The convention is \`name: CAPTAIN_<MNEMONIC>_<distinct-slug>\`.
+
+See \`.claude/MAJOR_POLYBIUS.md\` §17 (POLYBIUS-specific) and \`.claude/operating-disciplines.md\` §23 (universal-team framing) for the full discipline.
+"
+    if [ "$DRY_RUN" -eq 1 ]; then
+      echo "[dry-run] would append base-vs-custom convention block to: $DEST_CLAUDE_MD"
+      printf '%s\n' "$BVC_BLOCK" | sed 's/^/[dry-run]   /'
+    else
+      # Backup of CLAUDE.md already taken in the POLYBIUS-block branch above
+      # (single-shot backup per run is the existing convention); only append
+      # here.
+      printf '%s\n' "$BVC_BLOCK" >> "$DEST_CLAUDE_MD"
+      echo "appended base-vs-custom convention block to: $DEST_CLAUDE_MD"
+    fi
+  fi
+fi
+
 # 7. Staleness detection (stoa--w1t). Scans deployed dirs for files no longer
 # in the substrate source — typically left over from a renamed CAPTAIN,
 # removed template, or removed skill. Default is warn-only (lists obsolete
@@ -781,6 +828,15 @@ fi
 obsolete_files=()
 
 if [ "$WITH_CAPTAINS" -eq 1 ] && [ -d "$DEST_AGENTS_DIR" ]; then
+  # CITE: this glob is single-path-segment (NOT recursive) — it matches
+  # CAPTAIN_*.md files directly under ${DEST_AGENTS_DIR} but NOT files at
+  # ${DEST_AGENTS_DIR}/custom/CAPTAIN_*.md. That non-recursion IS the base-vs-
+  # custom scoping; see substrate/operating-disciplines.md §23 + substrate/
+  # MAJOR_POLYBIUS.md §17. If a future change makes this glob recursive
+  # (e.g., to find sub-directory CAPTAINs for some other reason), the
+  # base-vs-custom invariant breaks — custom CAPTAINs would be classified
+  # as obsolete and pruned by --prune-obsolete. The discipline is at the
+  # path-shape level: substrate tools see only base; custom is operator-owned.
   shopt -s nullglob
   for f in "${DEST_AGENTS_DIR}/CAPTAIN_"*"${NAME_SUFFIX}.md"; do
     base=$(basename "$f")
@@ -801,6 +857,13 @@ if [ "$WITH_CAPTAINS" -eq 1 ] && [ -d "$DEST_AGENTS_DIR" ]; then
 fi
 
 if [ "$WITH_TEMPLATES" -eq 1 ] && [ -n "$DEST_TEMPLATES_DIR" ] && [ -d "$DEST_TEMPLATES_DIR" ]; then
+  # CITE: this glob is single-path-segment + file-only (the `[ -f "$f" ]`
+  # filter skips directories). It does NOT recurse into
+  # ${DEST_TEMPLATES_DIR}/custom/, where custom templates live per the
+  # base-vs-custom convention (substrate/operating-disciplines.md §23 +
+  # substrate/MAJOR_POLYBIUS.md §17). If a future change makes this glob
+  # recursive, custom templates would be flagged as obsolete; the discipline
+  # is at the path-shape level.
   shopt -s nullglob
   for f in "${DEST_TEMPLATES_DIR}"/*; do
     [ -f "$f" ] || continue
@@ -823,6 +886,17 @@ if [ -d "$DEST_SKILLS_DIR" ]; then
   shopt -s nullglob
   for d in "${DEST_SKILLS_DIR}"/*/; do
     base=$(basename "$d")
+    # CITE: skip workspace-owned custom skills per the base-vs-custom convention.
+    # Claude Code skill discovery is single-level (.claude/skills/<name>/SKILL.md);
+    # custom skills use directory-name prefix `custom-` (substrate/operating-
+    # disciplines.md §23 + substrate/MAJOR_POLYBIUS.md §17). Substrate tools
+    # never touch custom paths. If this prefix-check is removed, every custom
+    # skill in the workspace would be classified as obsolete and pruned by
+    # --prune-obsolete — the silent-overwrite footgun this convention exists
+    # to prevent.
+    case "$base" in
+      custom-*) continue ;;
+    esac
     found=0
     for s in "${SKILL_NAMES[@]}"; do
       if [ "$s" = "$base" ]; then
@@ -865,6 +939,55 @@ if [ "${#obsolete_files[@]}" -gt 0 ]; then
     echo
     echo "Run with --prune-obsolete to remove, or rm manually."
   fi
+fi
+
+# 7b. Operator visibility: surface custom files that coexist at the convention
+# paths. Read-only; substrate tools never touch these. The discipline is at
+# substrate/operating-disciplines.md §23 + substrate/MAJOR_POLYBIUS.md §17.
+# Surfacing the count tells the operator "the convention is working —
+# substrate updates left your customizations alone." Silence here would
+# leave the operator wondering whether the convention is in effect.
+#
+# Gating: CAPTAIN/template count blocks gate on WITH_CAPTAINS / WITH_TEMPLATES
+# respectively, mirroring the existing CAPTAIN-staleness-scan gate (above at
+# the obsolete_files CAPTAIN loop) and the templates-staleness-scan gate
+# (above at the obsolete_files templates loop). Skills count is always-print:
+# there is no --no-skills deploy flag, so no corresponding gate exists
+# upstream. The shape preserves "opt-out means substrate stays silent" for
+# the operator who passed --no-captains or --no-templates — they get no
+# count line for the class they opted out of.
+custom_captain_count=0
+custom_template_count=0
+custom_skill_count=0
+if [ "$WITH_CAPTAINS" -eq 1 ] && [ -d "${DEST_AGENTS_DIR}/custom" ]; then
+  shopt -s nullglob
+  for f in "${DEST_AGENTS_DIR}/custom/CAPTAIN_"*.md; do
+    custom_captain_count=$((custom_captain_count + 1))
+  done
+  shopt -u nullglob
+fi
+if [ "$WITH_TEMPLATES" -eq 1 ] && [ -n "${DEST_TEMPLATES_DIR:-}" ] && [ -d "${DEST_TEMPLATES_DIR}/custom" ]; then
+  shopt -s nullglob
+  for f in "${DEST_TEMPLATES_DIR}/custom/"*; do
+    [ -f "$f" ] || continue
+    custom_template_count=$((custom_template_count + 1))
+  done
+  shopt -u nullglob
+fi
+if [ -d "$DEST_SKILLS_DIR" ]; then
+  shopt -s nullglob
+  for d in "${DEST_SKILLS_DIR}/custom-"*/; do
+    custom_skill_count=$((custom_skill_count + 1))
+  done
+  shopt -u nullglob
+fi
+total_custom=$((custom_captain_count + custom_template_count + custom_skill_count))
+if [ "$total_custom" -gt 0 ]; then
+  echo
+  echo "Custom files coexist at convention paths (not touched by substrate):"
+  [ "$custom_captain_count"  -gt 0 ] && printf '  - %-3s custom %s at %s\n' "${custom_captain_count}"  "CAPTAIN(s)"  "${DEST_AGENTS_DIR}/custom/"
+  [ "$custom_template_count" -gt 0 ] && printf '  - %-3s custom %s at %s\n' "${custom_template_count}" "template(s)" "${DEST_TEMPLATES_DIR}/custom/"
+  [ "$custom_skill_count"    -gt 0 ] && printf '  - %-3s custom %s at %s\n' "${custom_skill_count}"    "skill(s)"    "${DEST_SKILLS_DIR}/custom-*/"
 fi
 
 echo

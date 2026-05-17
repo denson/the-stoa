@@ -1029,6 +1029,62 @@ The skill exists; the operator decides whether to cron it (no cron defaults per 
 
 ---
 
+## 23. Base vs custom agents (universal-team framing)
+
+Every workspace at every nesting level carries a BASE stoa team (deployed from substrate; mechanically updatable via `install.sh` / `apply.sh`) and may optionally carry CUSTOM agents and processes (workspace-authored; substrate tools never touch them). Every seat reads this section; it carries the universal-team framing. `MAJOR_POLYBIUS.md` §17 carries the POLYBIUS-specific refinement (custom-CAPTAIN authoring discipline, name-collision footgun, daily-cadence implications).
+
+### 23.1 Source-of-truth declaration (2026-05-17, PRINCIPAL)
+
+PRINCIPAL declared the architectural model during the 2026-05-17 substrate-architecture conversation (captured at `stoa--ads` ticket body):
+
+> "We have the base team of stoa agents at every level. So even a subproject of a subproject would have a base stoa team. Then each level may or may not have customized agents and processes. When we update the stoa agents it should always be safe to update the base agents all the way down but it would be up to the user along with the team of agents to decide whether and how to update custom agents. The cost of creating a new team of custom agents is pretty low so this would be the likely path."
+
+### 23.2 The per-class path convention
+
+| Class | Base path (substrate tools manage) | Custom path (workspace owns) |
+|---|---|---|
+| MAJORs | `.claude/MAJOR_POLYBIUS*.md`, `.claude/MAJOR_PLINY*.md` | (custom MAJORs out of scope for Arc 29; future arc) |
+| Operating disciplines | `.claude/operating-disciplines.md` | (n/a) |
+| CAPTAINs | `.claude/agents/CAPTAIN_*.md` (directly under agents/) | `.claude/agents/custom/CAPTAIN_<MNEMONIC>_<slug>.md` |
+| Templates | `.claude/templates/*.md` (directly under templates/) | `.claude/templates/custom/*.md` |
+| Skills | `.claude/skills/<name>/` (where `<name>` does NOT start with `custom-`) | `.claude/skills/custom-<name>/SKILL.md` |
+
+The asymmetry (subdirectory for CAPTAINs and templates; directory-name prefix for skills) is forced by Claude Code's discovery behavior:
+
+- **CAPTAINs:** `.claude/agents/` is scanned **recursively** (https://code.claude.com/docs/en/sub-agents); subdirectory works.
+- **Skills:** `.claude/skills/<skill-name>/SKILL.md` is **single-level** (https://code.claude.com/docs/en/skills); subdirectory would not be discovered.
+- **Templates:** no Claude Code involvement; substrate-internal convention; follows CAPTAIN shape for visual parallelism.
+
+### 23.3 The discipline, by seat
+
+- **POLYBIUS:** reads this section + `MAJOR_POLYBIUS.md` §17. When the team customizes, authors land at the custom paths above. When substrate advances and a custom agent wants new behavior, the typical update path is regenerate-fresh-from-new-base (per PRINCIPAL's cost framing) rather than merge-upstream-into-customization.
+- **PLINY:** dispatches CAPTAINs by `name:` field; never assumes a filename. When a custom CAPTAIN exists, dispatching it is identical to dispatching a base CAPTAIN — the path the file lives at is irrelevant to invocation. PLINY's dispatch envelopes name the CAPTAIN by mnemonic + slug (e.g., `CAPTAIN_DEPLOYER_railway`).
+- **Every CAPTAIN:** when designing, executing, or verifying, the seat reads the workspace's actual files (base + custom) as the operational truth. The substrate-tool scoping (D3/D4/D5 below) governs what `install.sh` / `check.sh` / `apply.sh` see, NOT what the running team sees. Custom agents and base agents both run.
+- **Authoring custom files:** custom authoring is the workspace's responsibility (operator + the workspace's stoa team), via the agent-author skill or by hand. Substrate tools deploy and maintain BASE files only. Arc 30+ may extend the substrate tools to assist with custom scaffolding; this arc does not.
+
+### 23.4 N=1 provenance + accretion path
+
+Per §6.7.1 honest-scope: PRINCIPAL declared this discipline 2026-05-17 (project-direction authority, captured at `stoa--ads` thread). §6.7.1 defers to the canon-promotion gate (multiple observations + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status.
+
+The supporting evidence at the time of this writing:
+
+- PLINY's 2026-05-17 empirical verification of Claude Code auto-discovery behavior (web-fetched against https://code.claude.com/docs/en/sub-agents and https://code.claude.com/docs/en/skills) — the source-of-truth for the per-class asymmetry the convention encodes.
+- Arc 29 (`stoa--ads`) ticket body — carries PRINCIPAL's 2026-05-17 declaration verbatim.
+- The forthcoming railway_stoa custom team arc — empirical anchor; the first real workload exercising the per-class convention; dispatches AFTER this arc lands.
+
+The convention is in NOW because PRINCIPAL named it today; structural-lesson confidence accretes over future workspace customizations. If the convention turns out wrong-shaped during the railway_stoa build, future arcs revise this section. Same N=1 framing as Arc 27's `MAJOR_POLYBIUS.md` §16.6 and Arc 28's §22.3.
+
+### 23.5 Cross-references
+
+- `MAJOR_POLYBIUS.md` §17 (Base vs custom — POLYBIUS-specific refinement, including the silent-collision footgun for custom CAPTAIN authoring).
+- §6.7.1 (the N=1 canon-promotion gate this section enters off-gate on PRINCIPAL declaration).
+- §8.1 (positive references only) — the authoring discipline this section follows: it names "customize at `<custom-path>`" rather than "don't customize at `<base-path>`."
+- §8.2 (scaffolding and guardrails) — this section pre-resolves the per-class convention picks and names the silent-collision failure mode as a worked example, per the scaffolding discipline.
+- `substrate/install.sh`, `substrate/skills/check-substrate-updates/check.sh`, `substrate/skills/check-substrate-updates/apply.sh` — the three substrate tools whose scoping-to-base is governed by this section; cite-comments at every scoping site reference this section AND the POLYBIUS §17 sibling.
+- `stoa--ads` (this arc); forthcoming railway_stoa custom team arc (empirical anchor).
+
+---
+
 ## Agent-regime inverses (the positive framing)
 
 The six anti-patterns above suppress failure modes. The corresponding positive framings express defaults:
