@@ -143,6 +143,7 @@ SKILL_NAMES=(
   check-substrate-updates
   credential-discipline
   check-bw-release
+  inspect-script-output
 )
 
 # Marker line written into CLAUDE.md when --modify-claude-md is used; presence
