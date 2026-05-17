@@ -89,11 +89,15 @@
     {
       "text": "ARGUS-rev2 activated on stoa--jru. Reading revised design.md at ba9e0f6 + dispatch brief + prior verdict in bw history before audit.",
       "timestamp": "2026-05-17T23:11:51Z"
+    },
+    {
+      "text": "ARGUS-rev2: diff (+321/-71) read in full. Now verifying: (1) Part 1 untouched claim by checking diff scope, (2) §11 step 1.5 design content for F1/F2/F3 fold completeness, (3) external bug #40228 status via web, (4) §13.4 + polling-cron-template current state.",
+      "timestamp": "2026-05-17T23:12:04Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-17T23:11:51Z"
+  "updated_at": "2026-05-17T23:12:04Z"
 }
