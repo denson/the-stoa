@@ -18,11 +18,15 @@
     {
       "text": "[heartbeat PLINY] Phase 1 prep: empirical verification of A3 done via official Claude Code docs (https://code.claude.com/docs/en/sub-agents + https://code.claude.com/docs/en/skills). Findings — (1) SUBAGENTS: `.claude/agents/` scanned RECURSIVELY; identity from YAML `name:` field, NOT filename; silent name-collision drops dup. (2) SKILLS: `.claude/skills/\u003cname\u003e/SKILL.md` is SINGLE-LEVEL only (no nested-subdir scan). (3) TEMPLATES: pure substrate convention, no Claude Code constraint. (4) Authoritative — no on-disk stub test needed at design time (VERA probe 5 will still run the live test at Phase 3). IMPLICATION for D2: cannot use uniform subdirectory convention across all three classes; convention is per-class. Dispatching CAPTAIN_DAEDALUS_the_stoa with empirical findings inline in the brief.",
       "timestamp": "2026-05-17T04:48:47Z"
+    },
+    {
+      "text": "DAEDALUS activated on stoa--ads (Arc 29). Reading directive + ticket body + install.sh + check.sh + apply.sh + MAJOR_POLYBIUS.md + operating-disciplines.md + Arc 28 precedent. Empirical input pre-resolved by PLINY (per-class asymmetry locked). Restatement gate next, then design draft. Heartbeat at state transitions.",
+      "timestamp": "2026-05-17T04:49:27Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Base-vs-custom agent convention — encode in substrate canon (operating-disciplines + MAJOR_POLYBIUS + install/check/apply tooling)",
   "type": "task",
-  "updated_at": "2026-05-17T04:48:47Z"
+  "updated_at": "2026-05-17T04:49:27Z"
 }
