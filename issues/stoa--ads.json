@@ -86,11 +86,15 @@
     {
       "text": "status: completed | verdict: PASS | branch: arc-29/build | commit_sha: 5836092 | deliverables_built: D1, D2, D3, D4, D5, D6 | files_modified: substrate/MAJOR_POLYBIUS.md (+75 lines, §17 added), substrate/operating-disciplines.md (+56 lines, §23 added), substrate/install.sh (+123 lines: D6 second marker + Site 1/2/3 cite-comments + Site 3 case-skip for custom- + Site 4 op-visibility block + D6 idempotent append), substrate/skills/check-substrate-updates/check.sh (+44 lines: Sites 1/2/3/4 cite-comments + Site 3 case-skip), substrate/skills/check-substrate-updates/apply.sh (+15 lines: per-file custom-path refusal) | files_added: agents/design/arc-29/design.md | smoke results: bash -n PASS all 3 scripts; install.sh --dry-run output sensible; full lifecycle smoke (install -\u003e drop 3 custom files -\u003e re-install) PASS (custom files survived, op-visibility line printed, both CLAUDE.md markers idempotent); D3 --prune-obsolete PASS (custom files preserved); D4 check.sh against synthetic with customs reports CURRENT (no false OBSOLETE); D5 apply.sh refuses all 3 custom-path classes with explicit message; D6 negative-consent (no --modify-claude-md) PASS (no CLAUDE.md created); regression check.sh against the-stoa shows expected DRIFTED on POLYBIUS+operating-disciplines+apply.sh+check.sh (4 files, matches edits) | ground_check_drift: 1 finding — design's check.sh Site 4 cite-text said '.claude/agents/MAJOR_*.md' but shipped code globs '.claude/MAJOR_*.md' under .claude/ root (not under agents/). Fixed cite text to match ship reality. Flagged here for design follow-up. | authorship clean (A6): no author-field changes in diffs | A7 hard-locks honored: no migration, no four-category drift, no custom MAJORs, no cross-workspace, no auto-scaffolding, no sibling-ticket work | Phase 2 PASS — ready for Phase 3 verifiers (VERA + CATO + ZENO). Returning to PLINY.",
       "timestamp": "2026-05-17T05:02:12Z"
+    },
+    {
+      "text": "[heartbeat PLINY] Phase 2 ADA returned PASS — commit 5836092 on arc-29/build. D1-D6 all built. Ground-check found 1 design-vs-shipped drift (check.sh:392 MAJOR glob actually under .claude/ not .claude/agents/) — ADA built to reality + flagged. Full smoke against synthetic project workspace: install + re-install preserves all 3 custom path classes; --prune-obsolete safe; apply.sh refuses customs; CLAUDE.md markers idempotent. Cite-comments visible at all D3/D4/D5 sites (greps exceed minimums). Phase 3 dispatching VERA + CATO + ZENO in parallel.",
+      "timestamp": "2026-05-17T05:02:28Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Base-vs-custom agent convention — encode in substrate canon (operating-disciplines + MAJOR_POLYBIUS + install/check/apply tooling)",
   "type": "task",
-  "updated_at": "2026-05-17T05:02:12Z"
+  "updated_at": "2026-05-17T05:02:28Z"
 }
