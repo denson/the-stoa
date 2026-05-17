@@ -78,11 +78,15 @@
     {
       "text": "pass (rev3 confirmation): rev3 surgical fix absorbed r6 (three-carrier framing propagated to §1.3 + §3.1; §5.9.2 gentler fix at line 108 preserves verbatim canon by frame-of-reference) and r7 (§2.1 line 49 ## → ###). No new contradictions. Non-findings: §3 header retains directive's α/β/γ grammar ('both carriers' = the two D2-target paste-side carriers; PLINY §5.9 is D1 substantive-canon carrier; §3.1 makes three-carrier reading explicit immediately after) — internally coherent, not a contradiction. Design ready for build. Returning.",
       "timestamp": "2026-05-17T05:47:58Z"
+    },
+    {
+      "text": "Phase 1 CLOSED. DAEDALUS rev3 + ARGUS rev3 PASS. Three revise rounds (rev1→rev2 5 findings absorbed; rev2→rev3 surgical r6+r7). Design at agents/design/arc-30/design.md. Sub-decisions final: D1 §5.9 in MAJOR_PLINY (gauntlet-pipeline family), D2 γ (three carriers: §5.9 canon + POLYBIUS §5.1.2 + template clause; always-include default), D3 thin cross-ref at operating-disciplines §24. Phase 2 starting: ADA dispatch.",
+      "timestamp": "2026-05-17T05:48:10Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:47:58Z"
+  "updated_at": "2026-05-17T05:48:10Z"
 }
