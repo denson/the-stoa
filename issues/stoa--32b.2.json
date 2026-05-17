@@ -67,11 +67,15 @@
     {
       "text": "pass: rev2 written at .claude/worktrees/arc-33-build/agents/design/arc-33/design-rev2.md (590 lines). All 8 ARGUS findings resolved. P0-1 + P0-2 folded: scan_name_collisions reads BOTH base + custom paths, flags duplicate name: VALUES per MAJOR_POLYBIUS.md §17.4 (canon-grounded, no invented CUSTOM_ token). P1-1: §26 closing --- at L1282 / blank L1283 / ## Agent-regime inverses at L1284 (no opening ---) cited consistently across §3.3 + §6.1 + §11. P1-2: every §17.x carries file-prefix (MAJOR_POLYBIUS.md §17 for base-vs-custom; op-disc §17 not used this arc). P1-3: pick (c) runtime self-test via --self-test mode building synthetic tree in mktemp -d; no tracked fixtures ship; no install.sh exclusion pattern needed. P1-4: explicit seat-vs-probe-level β paragraph at §3.1 (rev2 §0e). P2-1: VERA-7 uses concrete 27\\.[1-7] regex. P2-2: 489-\u003e893 explicitly framed as Arc 26 ship-anchor; live 934 framed as Arc 29-downstream. 7 self-assessed weak points + 5 residual ARGUS questions surfaced at §8 + §10. Returning to PLINY.",
       "timestamp": "2026-05-17T19:28:53Z"
+    },
+    {
+      "text": "ARGUS round-2 activated on rev2 (590 lines). Reading rev2 end-to-end + verifying claimed canon citations (op-disc:1282-1284 / POLYBIUS:1088-1101 / install.sh:141-146 / 709-724 / PLINY §5.10) against live state at HEAD b600df7 before drafting verdict.",
+      "timestamp": "2026-05-17T19:30:03Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Mechanical-script / agent-inspection split — move recognition intelligence from scripts to agents",
   "type": "task",
-  "updated_at": "2026-05-17T19:28:53Z"
+  "updated_at": "2026-05-17T19:30:03Z"
 }
