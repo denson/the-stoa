@@ -131,11 +131,15 @@
     {
       "text": "Design + ADA verdict absorbed. 9 probes (all quadrant easy-easy). Reading build artifacts (6 substrate files + synthetic-directive) before probe execution.",
       "timestamp": "2026-05-17T07:56:36Z"
+    },
+    {
+      "text": "ZENO activated on stoa--32b.1. Reading spec (ticket + directive + design) and build artifact (1b06b61) before extracting criteria.",
+      "timestamp": "2026-05-17T07:56:40Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:56:36Z"
+  "updated_at": "2026-05-17T07:56:40Z"
 }
