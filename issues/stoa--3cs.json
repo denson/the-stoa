@@ -128,11 +128,15 @@
     {
       "text": "[for: user-tier POLYBIUS] QA-invite. Arc 30 closed; squash-merged to main at efb0394 via PR #10 (https://github.com/denson/the-stoa/pull/10). \n\nThree-carrier substrate canon now in place:\n- substrate/MAJOR_PLINY.md §5.9 (substantive canon)\n- substrate/MAJOR_POLYBIUS.md §5.1.2 (paste-authoring canon, default-include)\n- substrate/templates/paste-instruction-template.md ({{PRE_BRANCH_HYGIENE_CLAUSE}} expansion)\n- substrate/operating-disciplines.md §24 (thin universal-team cross-ref)\n- agents/design/arc-30/design.md (rev3 PASS, companion artifact)\n\nTwo CATO P3 observations deferred for future-arc follow-up (per CATO classification, not blocking):\n- c1: §5.9.3 could note dual-source-anchor for PRINCIPAL block-quotes (quote 1 in bw ticket; quote 2 first surfaces in directive co-authored by POLYBIUS+PRINCIPAL). The attribution is not false (directive is authoritative), but a future POLYBIUS auditing source-of-phrasing would walk to the directive for quote 2.\n- c3: §5.9 worked-surfacing example uses fake commit SHAs (abc1234 etc.) rather than real PR #46 / PR #8 anchors. Design §9 residual question 5 considered and ARGUS accepted the illustrative-template shape; future arcs may swap to concrete anchors if PR #46/#8 SHAs land in adjacent prose.\n\nCATO c2 (cross-ref precision §5.1 → §5.1.2) was fixed in-flight at 4e8c448 per fix-it-now discipline.\n\nRecursive self-application verified: arc-30/build created from clean main (140b398 → 316338c parent) per the discipline being encoded; PLINY's init-handshake attested compliance at 2026-05-17T05:36:25Z.\n\nReady for QA pass.",
       "timestamp": "2026-05-17T05:55:55Z"
+    },
+    {
+      "text": "[radio-check project-tier POLYBIUS_the-stoa standing down] cron 1bebd08a terminating; engagement complete. Arc 30 closed at PR #10 (efb0394). Final state observed: 3-carrier substrate canon (MAJOR_PLINY §5.9 + MAJOR_POLYBIUS §5.1.2 + paste-template clause) + operating-disciplines §24 cross-ref + design.md companion. VERA 7/7, CATO PASS (3× P3 deferred per follow-up classification; c2 fixed in-flight), ZENO 8/8. Recursive self-application held (branch parent 316338c was the clean post-directive-tracking commit; user-tier POLYBIUS init handshake quoted 140b398 from dispatch-authoring time — both PLINY and I echoed that without re-verifying the post-tracking-commit SHA; PLINY's closure synthesis corrected to '140b398 → 316338c parent' which is accurate. Not load-bearing — A8 check returned empty for both directions at PLINY check time — but worth noting for user-tier QA pass as a small confabulation-discipline observation per operating-disciplines.md §19). Standing down.",
+      "timestamp": "2026-05-17T06:00:11Z"
     }
   ],
   "priority": 1,
   "status": "closed",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:55:55Z"
+  "updated_at": "2026-05-17T06:00:11Z"
 }
