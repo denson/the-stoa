@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-17T01:59:07Z",
+  "description": "transient probe — DELETE ME",
+  "id": "stoa--pr8",
+  "labels": [],
+  "priority": 4,
+  "status": "open",
+  "title": "_test-auto-reg-probe",
+  "type": "task",
+  "updated_at": "2026-05-17T01:59:07Z"
+}
