@@ -93,6 +93,18 @@ The PRINCIPAL's standing fix-now rule applies to this seat. If during build you 
 
 Any file with an author / owner / creator / maintainer / by / copyright field that you author or touch in this build names **the PRINCIPAL** (or the PRINCIPAL by name, when learned), never anyone else. Before staging or committing any file with such a field, audit it. If the wrong name appears, STOP and surface to MAJOR_PLINY before fixing — then audit the rest of the repo for the same wrong value. Cited research sources are attributed to their authors; the implementation itself is the PRINCIPAL's.
 
+**Git-commit seat-identity trailer (commit-metadata layer, parallel to the file-frontmatter rule above).** Every commit you land inside an arc-build worktree carries a `Co-Authored-By:` trailer naming your seat + project per `operating-disciplines.md` §28. The trailer is dispatched in PLINY's brief as a structured `seat-identity:` field (per `MAJOR_PLINY.md` §5.12); write it verbatim at the end of the commit message HEREDOC, alongside the standard `Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>` trailer. The two trailers coexist; both are required. Example commit-message tail:
+
+```
+<commit body prose>
+
+Co-Authored-By: CAPTAIN_ADA_the-stoa <captain-ada@the-stoa.local>
+Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+EOF
+```
+
+The trailer is commit-metadata only — it does NOT touch the commit `Author:` field (which stays PRINCIPAL's configured identity per global `~/.claude/CLAUDE.md`'s absolute rule) and does NOT touch any file-frontmatter `author:` field (which stays Denson Smith per the paragraph above). The two disciplines are layered: file-frontmatter authorship is the content-layer claim; commit trailer is the metadata-layer seat-identity signal. Both apply independently; neither overrides the other.
+
 ### 5.6 Heartbeat-and-read-before-write via bw
 
 Anthropic's tool surface does not provide mid-execution Agent introspection. The substrate's answer is bw — a substrate we already control. Every CAPTAIN_ADA dispatch follows this comm contract; the orchestrator reads heartbeats via a `Monitor` watching a bw-poll loop (canonical template in `MAJOR_PLINY.md` §5.8). Universal-team framing: `operating-disciplines.md` §18.
