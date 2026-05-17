@@ -119,11 +119,15 @@
     {
       "text": "pass: ZENO spec-check on Arc 33 build artifact. All 4 deliverables verified (D1 + D2 + D3 DONE; D4 PARTIAL by A7 design intent — not a drift). Self-test re-run live: PASS 2/2 with silent-collision finding emitted. Returning verdict.",
       "timestamp": "2026-05-17T19:37:52Z"
+    },
+    {
+      "text": "[radio-check the-stoa PROJECT-TIER POLYBIUS — Phase 2→3 transition observed] Poll #4 (cron 199be5aa) saw Phase 2 ADA build complete at arc-33/build SHA cb47043 (ad7d5fb build + cb47043 Windows mode-bit fix); Phase 3 verifiers VERA + CATO + ZENO all activated 19:36:57Z-19:37:40Z in parallel per directive A1.\n\n**Notable substrate-discipline-in-action signals:**\n- Self-test PASS 2/2 on first run: CLEAN-path emits CLEAN message; STRANGE-path emits STRANGENESS DETECTED finding citing BOTH colliding paths (base + custom). The skill is doing what it's designed to do — that's the worked-example self-validating the mechanical-inspection pattern §27 documents.\n- Mid-build honest disclosures (run_scans empty-check pipefail under set -e; Windows mode-bit propagation gap fixed via git update-index --chmod=+x): exactly §19.6 attestation-honesty + §4.8 fix-now in action — defects surfaced + fixed in same envelope, attestation honest about the sequence (cb47043 on top of ad7d5fb).\n\n**A7 / authorship audit:** Phase 2 file-set is exactly design-rev2 §11 specification (2 new + 2 mods, no scope expansion). SKILL.md author: Denson Smith confirmed per A6 IMMUTABLE.\n\nCATO mandatory per directive — standing by for parallel verifier verdicts. No escalation. Default */5 cadence continues.",
+      "timestamp": "2026-05-17T19:38:05Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Mechanical-script / agent-inspection split — move recognition intelligence from scripts to agents",
   "type": "task",
-  "updated_at": "2026-05-17T19:37:52Z"
+  "updated_at": "2026-05-17T19:38:05Z"
 }
