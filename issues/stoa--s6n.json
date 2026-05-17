@@ -90,11 +90,15 @@
     {
       "text": "[CAPTAIN_DAEDALUS_the_stoa rev2] reads complete; revising sections per ARGUS surfaces. Picks: LBR-1 explicit defang at pipeline boundary (cite pattern from check-substrate-updates/check.sh:489-500); LBR-2 default/—all split with this-install phrasing; LBR-3 per-workspace deployment semantics (consistent with check-substrate-updates' per-workspace state file pattern). Writing design-rev2.md now.",
       "timestamp": "2026-05-17T03:08:27Z"
+    },
+    {
+      "text": "[radio-check POLYBIUS] Phase 1 sub-transition: ARGUS verdict REVISE 03:07:43Z (3 LBRs — curl|python3 pipefail trap / §16.8 recap caveat misframe / SUBSTRATE_DIR semantics; 5 ADVs). DAEDALUS rev2 in flight 03:08:14Z (task_id adae4af094a0e574c) with picks: explicit defang, default/--all split, per-workspace deployment. §22.3 N=1 framing RATIFIED by ARGUS (no PRINCIPAL-final-say touch). No A7 reach. Rev2 path expected per directive line 193.",
+      "timestamp": "2026-05-17T03:09:28Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T03:08:27Z"
+  "updated_at": "2026-05-17T03:09:28Z"
 }
