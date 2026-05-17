@@ -920,6 +920,45 @@ Future POLYBIUS-lifecycle events (handoffs + compactions + the rare Mode 2 new-s
   - §14 (substrate-update check) — the daily-cadence mechanism that catches when consumer-tier POLYBIUSes drift behind upstream substrate; relates to Mode 2 triggers.
   - §15 (retrospective discipline — N=1 honesty) — the gate this section's claims pass through.
 - **Universal-team framing.** `operating-disciplines.md` §21 (Ariadne-search-ready authoring, applies to every seat).
+- **§16.8 (bw 0.13.0 available primitives).** The two forward-only primitives — `bw attach` and `bw recap` — adopted from bw 0.13.0 per Arc 28 (`stoa--s6n`).
+
+### 16.8 bw 0.13.0 available primitives — attach + recap
+
+Two primitives from bw 0.13.0 are available to POLYBIUS as **forward-only options**. Neither is forced migration; existing on-disk handoff/retro/design artifacts stay where they are (per A8 forward-only convention, shared with §16.4 Ariadne-search-ready authoring).
+
+#### `bw attach` — multi-artifact ticket binding
+
+```
+bw attach <ticket-id> <file-path> [--name <stored-path>]
+```
+
+Reads `<file-path>` from disk and stores its bytes at `attachments/<ticket-id>/<stored-path>` on the beadwork ref; commits a single-line intent comment (`attach <ticket-id> <stored-path>`). The stored-path defaults to `filepath.Base` of `<file-path>`; `--name` takes a verbatim path that may contain `/`.
+
+**Use case (forward-only).** When POLYBIUS authors a multi-artifact handoff (§16.3), the index doc + linked artifacts can OPTIONALLY be bound to the parent handoff ticket via `bw attach` rather than only living on disk. The trade-off:
+
+- **on-disk:** visible via filesystem + `git diff`; familiar to PRINCIPAL review; loses cohesion if the file is moved/renamed without updating the ticket.
+- **attached:** cohesion with the ticket survives renames; less discoverable via filesystem grep; adds bytes to the beadwork ref.
+
+POLYBIUS picks per artifact. **Existing on-disk handoff/retro/design artifacts are NOT migrated retroactively** (A7 hard-lock).
+
+#### `bw recap` — cursor-driven incremental activity view
+
+```
+bw recap [WINDOW] [--since DATE] [--all] [--verbose] [--json] [--ascii] [--dry-run]
+```
+
+Summarizes beadwork activity. Default: single-repo (the cwd-detected repo). With `--all`: across every registered repo. First-time runs show the last 24 hours; subsequent runs show activity since the last recap (cursor-driven). `WINDOW` tokens accepted: `today`, `yesterday`, `week`, durations like `15m` / `1h` / `3h30m` / `24h` / `2d` / `7d` / `2w`. `--since` takes RFC3339 or `YYYY-MM-DD`. `--dry-run` shows activity without advancing the cursor. `--ascii` uses plain ASCII tree characters (effective with `--verbose`).
+
+**Use case (forward-only).** POLYBIUS picking up after `/compact` (or a fresh Mode 1 session-continue per §16.2) can run `bw recap` to see what has landed in the current repo since the previous read-point. Pairs with the handoff doc as a complementary signal: handoff says *what is the current intent*; recap says *what has happened lately*.
+
+**Caveat (`--all` only; this install, 2026-05-17).** Plain `bw recap` (no `--all`) works as documented — single-repo, cursor-driven, no dependencies on the registry. The `--all` variant requires the bw registry to be populated. On this install the registry has been empirically observed to remain empty regardless of `registry.auto=true` (per `stoa--s6n` 2026-05-17T02:00:03Z probe trail; cross-ref §22 Step 2); `--all` therefore returns no cross-repo activity here. For multi-repo recap on this install, invoke once per repo via cd-and-recap rather than relying on `--all`. When/if the registry behavior changes on this install (or this caveat is found wrong on a different install), the §22 discipline's Step 2 "verify changelog claims empirically" path updates this caveat — see `operating-disciplines.md` §22 Step 2.
+
+#### Cross-references
+
+- §16.3 (handoff is multi-artifact, not single-doc) — the conceptual parent for `bw attach`'s use case.
+- §16.2 Mode 1 (handoff + compaction) — the lifecycle event `bw recap` serves.
+- `operating-disciplines.md` §22 (bw-upgrade discipline) — the broader framing under which these primitives were adopted from bw 0.13.0.
+- `operating-disciplines.md` §12 (bw cookbook) — for full bw command syntax and per-command flag reference.
 
 ---
 
