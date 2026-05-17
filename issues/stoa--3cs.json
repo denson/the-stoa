@@ -118,11 +118,15 @@
     {
       "text": "pass: ZENO mechanical spec-check A1-A8 all DONE. Branch HEAD actually 4e8c4485 (CATO P3 c2 polish landed post-5991f39); brief said 5991f39 — note in verdict. No drifts. Returning verdict to PLINY.",
       "timestamp": "2026-05-17T05:54:28Z"
+    },
+    {
+      "text": "Phase 3 CLOSED. Verifier triple PASS:\n- VERA: 7/7 Phase B probes PASS at sampling: full\n- CATO: PASS with 3× P3 nice-to-have observations (c2 fixed in-flight at 4e8c448; c1/c3 deferred per CATO follow-up classification)\n- ZENO: 8/8 spec criteria met (A1-A8)\n\nBranch HEAD 4e8c448 (3 commits: 3ee7c50 substrate canon, 5991f39 design.md, 4e8c448 c2 polish). Phase 4 starting: smoke beats + PR + merge + close.",
+      "timestamp": "2026-05-17T05:54:58Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:54:28Z"
+  "updated_at": "2026-05-17T05:54:58Z"
 }
