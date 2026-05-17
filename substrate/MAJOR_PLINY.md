@@ -481,10 +481,12 @@ git push
 
 ```
 ls substrate/arcs/arc-<N>/pastes/                                      # must show both arc-<N> paste files
-ls HUMAN_paste-{pliny,polybius}-arc-<N>-instruction.md 2>/dev/null     # must return empty (or "No such file")
+ls HUMAN_paste-pliny-arc-<N>-instruction.md HUMAN_paste-polybius-arc-<N>-instruction.md 2>/dev/null   # must return empty (or "No such file") — two args to one ls call for shell portability (bash + PowerShell)
 ```
 
 If either check surfaces inconsistent state, the signoff is NOT posted with the cleanup claim — same rule as §5.10's branch-deletion / worktree-removal verifications. Either complete the archival action, re-verify, then post; or post a signoff that honestly names the state observed.
+
+**Self-application exception.** When the arc itself encodes or touches the archival convention (the originating canon-shipping arc, or a future arc that revises §5.11), ADA may bundle the paste archival INTO the gauntlet build commit rather than waiting for a standalone post-merge commit. The two shapes produce equivalent end-state (pastes archived; workspace root clean; `git log --follow` walks the rename); the choice is which commit carries the archival. Arc 34 (this section's originating arc) self-applied this way — the archival landed inside the gauntlet build commit alongside the §5.11 canon edit, not as a standalone post-merge commit. Both shapes are authorized under `MAJOR_POLYBIUS.md` §18.1 "Arc directive + activation paste tracking commits."
 
 **Forward-only convention.** This discipline applies to Arc 34 and forward. The ~24 historical paste files at workspace root from Arcs 21-33 are NOT backfilled by this convention — historical pastes are honest artifacts of when they were authored, and a bulk-rename of all of them would (a) muddy the git history for those arcs, (b) require a one-off operational sweep that is itself a separate scope, and (c) gain little for future POLYBIUSes who can still find historical pastes via `git log` + filesystem grep. If a future user-tier POLYBIUS surfaces a real reader-friction case for the historical accumulation, a separate housekeeping ticket can address backfill as its own scoped operation.
 
