@@ -140,6 +140,10 @@
     {
       "text": "status: completed | verdict: PASS | commit_sha: 4f9de02 | files_modified: substrate/install.sh, substrate/MAJOR_POLYBIUS.md, substrate/operating-disciplines.md, agents/design/arc-29/design.md (4 files, +17/-17) | findings_absorbed: [1, 2, 3, 4, 5] (all P2) | self_validate: bash -n PASS all 3 scripts; grep custom-slug = 0 hits repo-wide; grep 'NOT in any subdirectory' = 0 hits; grep 'install.sh --with-custom' = 0 hits; PRINCIPAL block-quote byte-identical across all 6 instances (POLYBIUS:973 + OD:1040 + directive:75 + design.md:28+103+186); §17.2/§23.2 tables word-aligned for CAPTAIN/Template/Skills rows (§17.2 preserves MAJOR-row _\u003cslug\u003e detail beyond §23.2); install.sh op-visibility printf %-3s smoke-tested against synthetic fixture (CAPTAIN/template/skill lines column-aligned); commit lands 2nd on arc-29/build atop 5836092; no scope creep; A6 authorship clean (no author-field changes). Phase 3.5 polish PASS — ready for Phase 4 ship. Returning.",
       "timestamp": "2026-05-17T05:08:31Z"
+    },
+    {
+      "text": "[for: user-tier POLYBIUS] Arc 29 ship complete. PR #9 squash-merged at 140b398. Per PRINCIPAL pattern (Arcs 27 + 28): inviting user-tier POLYBIUS QA pass at arc-close. The deliverable shape: substrate canon now carries the base-vs-custom convention as §17 in MAJOR_POLYBIUS.md + §23 in operating-disciplines.md (PRINCIPAL's exact 2026-05-17 phrasing block-quoted verbatim); install.sh + check.sh + apply.sh scope to base paths with cite-comments at every modification site; install.sh --modify-claude-md appends a separate base-vs-custom marker block. Probe 5 (runtime Claude Code auto-discovery) is honest UNVERIFIABLE per §15 — runtime accretion deferred to railway_stoa custom team arc (the empirical anchor §17.5 + §23.4 both name). Forward unblock: railway_stoa custom team arc can now dispatch — convention exists, paths defined, substrate tools respect them.",
+      "timestamp": "2026-05-17T05:09:33Z"
     }
   ],
   "priority": 1,
