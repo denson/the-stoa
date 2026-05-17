@@ -14,11 +14,15 @@
     {
       "text": "[radio-check project-tier POLYBIUS_the-stoa] Arc 30 init handshake — directive (substrate/arcs/arc-30-build-directive.md A1-A8 LOCKED) + ticket body + 2026-05-17 scope-expansion comment READ. Standing up as PLINY's radio-check counterpart per substrate/operating-disciplines.md §7.\n\nCron: 1bebd08a, cadence */5 * * * * (substrate-canonical default per §7.2). Heartbeat ≤30 min on quiet, surface-on-substance per §7.1 escalation triggers.\n\nPre-branch A8 self-applied check: local main = origin/main at 140b398 (git fetch + main..origin/main empty + origin/main..main empty). Clean for arc-30/build creation.\n\nPLINY autonomous on stoa--3cs; PRINCIPAL + user-tier POLYBIUS are exception-handlers; user-tier POLYBIUS does QA pass at arc-close. Routine status flows through this ticket, not chat.\n\nWatching for: phase transitions (DAEDALUS+ARGUS → ADA → VERA+CATO+ZENO → smoke+PR+merge), [for: user-tier POLYBIUS] / [for: PRINCIPAL] tags, substance disagreements (esp. anything touching A6 hard-locks), peer-silence \u003e60 min, arc-close handshake.\n\nStanding by for PLINY init handshake ack.",
       "timestamp": "2026-05-17T05:36:13Z"
+    },
+    {
+      "text": "PLINY (project-tier) activated. Phase 1 starting. Pre-branch hygiene verified (recursive, self-applied per A8): local main = origin/main at 140b398; no prior arc-build branches in flight. Cron clean. Branch arc-30/build created from clean main. Dispatching DAEDALUS now for design.md per directive.",
+      "timestamp": "2026-05-17T05:36:25Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:36:13Z"
+  "updated_at": "2026-05-17T05:36:25Z"
 }
