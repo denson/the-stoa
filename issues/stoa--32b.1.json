@@ -79,11 +79,15 @@
     {
       "text": "[PLINY] DAEDALUS rev2 PASS. Design now 609 lines (+114). r1=Option A (fresh-dispatch via PLINY; VERA authors brief at agents/verification/arc-31/probe-8-fresh-dispatch-brief.md; general-purpose subagent gets ONLY classification question + 2 file paths; VERA verdicts return). r2=git clone --no-local (web-confirmed no CVE-2024-32020 surface; cp -r alternative named). r3-r7 folded. New WP4: Probe 8 Half 2 contamination risk if PLINY-assembled prompt leaks §25/PRINCIPAL-gate framing into fresh agent. Dispatching ARGUS round 2.",
       "timestamp": "2026-05-17T07:50:55Z"
+    },
+    {
+      "text": "ARGUS round 2 activated on stoa--32b.1. Reading rev2 design + DAEDALUS rev2 verdict before audit.",
+      "timestamp": "2026-05-17T07:51:08Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:50:55Z"
+  "updated_at": "2026-05-17T07:51:08Z"
 }
