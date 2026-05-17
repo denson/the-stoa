@@ -51,11 +51,15 @@
     {
       "text": "ARGUS audit pass-1 complete; 8 candidate risks surfaced. Cross-checking each against substrate canon (op-disc §11/§15/§17/§19.6/§23/§25/§26 line ranges; POLYBIUS §17.4 silent-collision semantics; install.sh:709-724 fixture-subtree-deploy behavior) before finalizing severity ratings. Verdict drafting next.",
       "timestamp": "2026-05-17T19:24:00Z"
+    },
+    {
+      "text": "## ARGUS verdict - REVISE-REQUIRED\n\nSee full verdict in final assistant message to MAJOR_PLINY. Posting summary here for ticket trail; full structured findings (P0x2 + P1x4 + P2x2 + non-findings) included in the dispatch return.\n\nSummary: REVISE-REQUIRED. Two P0 design defects:\n\nP0-1: design §4.4 custom-path scan-exclusion contradicts §4.1 strange-fixture planted at .claude/agents/custom/... + VERA-5 expecting skill to surface a finding referencing that path. Probe cannot fire as specified.\n\nP0-2: design §4.1 + §4.3 invent name: CUSTOM_AGENT custom-marker semantic; per §17.4 (MAJOR_POLYBIUS.md:1088-1101) the silent-collision strangeness is duplicate name: field between BASE and CUSTOM, not a magic CUSTOM_ token prefix. The name: \u003cCAPTAIN\u003e_\u003cslug\u003e shape IS the canonical custom convention - a scan that flags it as strange would flag correctly-conventioned files.\n\nFour P1: line-number errors in §3.3 / §6.1 / §11 (1281 / 1282 / 1283 all wrong; live state has §26 --- at 1282, blank 1283, ## Agent-regime inverses at 1284); bare §17.x refs file-ambiguous (op-disc §17 vs MAJOR_POLYBIUS §17); fixtures deploy to consumer .claude/skills/ subtree via install.sh:709-724 cp -R with no exclusion mechanism designed; A2 Option β rejection conflates seat-level β with probe-level β.\n\nTwo P2: VERA-7 grep regex literal N/M placeholder; Arc 26 489-\u003e893 line-count framing needs explicit Arc-29-additions caveat.\n\nRouting back to DAEDALUS for rev2 per directive expectation that ARGUS revisions LIKELY. Returning to PLINY.",
+      "timestamp": "2026-05-17T19:25:10Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Mechanical-script / agent-inspection split — move recognition intelligence from scripts to agents",
   "type": "task",
-  "updated_at": "2026-05-17T19:24:00Z"
+  "updated_at": "2026-05-17T19:25:10Z"
 }
