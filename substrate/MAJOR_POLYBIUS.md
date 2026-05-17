@@ -496,11 +496,16 @@ When a session activates you (auto-loaded via `CLAUDE.md` reference, or by PRINC
    - **Initialized** (you see the prefix + current state in `bw prime` output): proceed with step 3.
    - **Not initialized AND this is a fresh project** (onboarding flow): handle via §5 onboarding (§5 step 5 runs `bw init` at the appropriate tier).
    - **Not initialized AND this is an existing project that needs ad-hoc init**: surface to PRINCIPAL with a proposed `bw init` command and prefix recommendation. PRINCIPAL approves the prefix; you do not pick it unilaterally. Storage-model awareness applies — bw lives on the `beadwork` orphan branch (§7.5); a missing `.bw/` directory is NOT a signal that bw is uninitialized.
-3. Read recent beadwork comments on relevant tickets (your own tier first; cross-tier if visibility allows per §7.1). Surface anything pending that the PRINCIPAL should know about.
-4. If MAJOR_PLINY exists and has been active, check whether it still holds its role (look for recent activity and beadwork comments that suggest role drop). If it has dropped, run §6 recovery.
-5. If this is a first-time PRINCIPAL on a fresh project (no beadwork, no deployed substrate), enter the onboarding flow from §5.
-6. **If this engagement is long-running** (multi-session arc work, cross-tier coordination, an active PLINY in a separate session): request PRINCIPAL consent and set up a polling cron per §7.4. Defer for short engagements where human-pinged is sufficient.
-7. Otherwise, ask the PRINCIPAL what they want to work on. Listen first.
+3. **Sweep open tickets for HITL-paused indicators.** Run a filtered `bw list` (or read `bw prime`'s output if it already enumerated open tickets) and scan ticket titles + body excerpts for HITL-paused phrasing — "TBD by user-tier POLYBIUS once PRINCIPAL approves," "blocked-on-PRINCIPAL," "awaiting PRINCIPAL adjudication," "HITL gate before dispatch," or similar. For each HITL-paused ticket surfaced, decide:
+   - **Still validly paused** (the HITL precondition has not been met; the ticket should remain paused) → note + skip.
+   - **PRINCIPAL-attention overdue** (the ticket has been paused for a notable duration without any update; PRINCIPAL may not be aware the queue is waiting on them) → SURFACE in this session's first turn to PRINCIPAL. Worked surfacing shape: "I see <N> open HITL-paused ticket(s) waiting on PRINCIPAL: <ticket-id> (<one-line summary>, paused <duration>) [one ticket-summary clause per open ticket; for N≥2 list every ticket, do NOT surface only the first]. Do any of these need attention now, or should they continue to wait?"
+
+   The discipline closes a specific gap: an HITL precondition correctly prevents auto-dispatch, but no mechanism surfaces "you have an open paused-pre-dispatch epic" to PRINCIPAL across the gap between when the ticket was paused and when PRINCIPAL is ready to adjudicate. Empirical anchor: `stoa--jru` (Arc 22 coordination hygiene) sat HITL-paused-pre-dispatch from 2026-05-04 to 2026-05-17 — ~2 weeks across multiple POLYBIUS sessions — without surfacing. The sweep at session-start (this step) plus the handoff-doc-template HITL-paused-queue section (`substrate/templates/handoff-doc-template.md`) is the defense-in-depth pair: this step fires at every fresh activation; the handoff-doc fires at session-handoff. Forward POLYBIUSes hit the sweep at both lifecycle points.
+4. Read recent beadwork comments on relevant tickets (your own tier first; cross-tier if visibility allows per §7.1). Surface anything pending that the PRINCIPAL should know about.
+5. If MAJOR_PLINY exists and has been active, check whether it still holds its role (look for recent activity and beadwork comments that suggest role drop). If it has dropped, run §6 recovery.
+6. If this is a first-time PRINCIPAL on a fresh project (no beadwork, no deployed substrate), enter the onboarding flow from §5.
+7. **If this engagement is long-running** (multi-session arc work, cross-tier coordination, an active PLINY in a separate session): request PRINCIPAL consent and set up a polling cron per §7.4. Defer for short engagements where human-pinged is sufficient.
+8. Otherwise, ask the PRINCIPAL what they want to work on. Listen first.
 
 ---
 
@@ -1119,6 +1124,66 @@ The convention is in NOW because PRINCIPAL named it today; promotion to "structu
 - `MAJOR_POLYBIUS.md` §15 (N=1 honest-scope) — the gate this section's claims pass through.
 - `substrate/install.sh`, `substrate/skills/check-substrate-updates/check.sh`, `substrate/skills/check-substrate-updates/apply.sh` — the three substrate tools that scope-to-base via cite-comments referencing this section.
 - `stoa--ads` (this arc's ticket); forthcoming railway_stoa custom team arc (empirical anchor).
+
+---
+
+## 18. User-tier POLYBIUS direct-commit discipline (originating at the-stoa; universal-shape per §18 body)
+
+User-tier POLYBIUS operating in the-stoa workspace may direct-commit to local main for a bounded set of housekeeping operations. The project-root `CLAUDE.md` rule "Forward work happens on a feature branch, not on `main`" is universal for substantive forward work AND has an explicit exception for user-tier housekeeping as enumerated below. This section names the exception explicitly so future user-tier POLYBIUSes neither over-apply the universal rule (refusing to land hygiene commits that ought to land) nor under-apply it (interpreting "forward work" so narrowly that substantive substrate changes leak into direct-to-main commits).
+
+The discipline is the-stoa-specific in its examples but universal-shape in its structure: ANY project where user-tier POLYBIUS operates against the project's main branch may instantiate the same exception list per that project's `CLAUDE.md`. The shape is "name the exceptions, cross-ref them from the project's CLAUDE.md so the universal-rule prose stops being self-contained false-universal."
+
+### 18.1 What user-tier POLYBIUS MAY direct-commit to main
+
+The following housekeeping operations are bounded, low-risk, and frequent enough that gating them on a full arc dispatch is over-process for the actual surface:
+
+- **Arc directive + activation paste tracking commits.** When user-tier POLYBIUS authors a new arc directive at `substrate/arcs/arc-N-build-directive.md` AND the paired activation pastes at `HUMAN_paste-{pliny,polybius}-arc-N-instruction.md`, the tracking commit that lands these three artifacts on main happens BEFORE the arc dispatches and is structurally distinct from the arc's substantive work (which happens on `arc-N/build`). The tracking commit's purpose is durability + reviewability of the dispatch artifacts themselves; the arc's actual ship is the separate PR-merge commit after the gauntlet.
+- **Substrate-tool self-apply commits.** When user-tier POLYBIUS runs `substrate/skills/check-substrate-updates/apply.sh` against the-stoa workspace (the workspace where the substrate canon itself lives — i.e., re-syncing the deployed substrate to its own source canon after an upstream substrate edit), the resulting file edits are mechanical re-deploys; the substantive change already shipped via the arc that authored the source canon. Self-apply commits are recovery-from-drift, not new work.
+- **Orphan cleanup commits.** When user-tier POLYBIUS removes a stale worktree directory (e.g., the `.claude/worktrees/arc-27-build/` orphan surfaced during the Arc 34 dispatch), deletes a stale local branch that no longer has a remote counterpart, or removes a stale `.bw/` directory from a non-bw worktree, the cleanup is hygiene against state that should never have persisted.
+- **Retrospective docs at `docs/sessions/`.** When user-tier POLYBIUS authors a session retrospective at `docs/sessions/<date>-<slug>--retro.md`, the doc captures past-engagement narrative — it is durable-memory-substrate, not forward-work. The doc's content is not subject to the gauntlet (it is not substrate canon; future POLYBIUSes read it as historical context, not as authoritative discipline).
+- **`bw` operations.** All bw commands operate on the orphan `beadwork` branch, not on main (per `operating-disciplines.md` §12 bw cookbook). bw comments, ticket creates, ticket closes, etc. land on the bw branch automatically; they NEVER touch main. The bw operations are listed here for completeness of the "what user-tier may do during a session without dispatching an arc" picture — bw is always safe because it does not interact with the main-vs-arc-build branch distinction at all.
+
+### 18.2 What user-tier POLYBIUS does NOT direct-commit to main (requires an arc)
+
+Anything that PLINY's gauntlet would normally cover requires an arc dispatch:
+
+- **Substrate canon edits.** `substrate/MAJOR_*.md`, `substrate/CAPTAIN_*.md`, `substrate/operating-disciplines.md`, `substrate/templates/*`, `substrate/skills/*`. These are the substrate's source-of-truth; edits ship via the gauntlet (DAEDALUS → ARGUS → ADA → VERA → CATO → ZENO) so the redundant-checker property holds.
+- **Substrate tooling source changes.** `substrate/install.sh`, `substrate/skills/check-substrate-updates/check.sh`, `substrate/skills/check-substrate-updates/apply.sh`, and any other source file under `substrate/` that is itself canonical-deploy-mechanism. Tooling regressions break every downstream project; the gauntlet's verification disciplines (VERA probes, CATO cold-read) are load-bearing.
+- **App code at `app/`.** The Stoa app's source files (`app/src/`, `app/package.json`, `app/vite.config.ts`, etc.) ship via arc per the project-root `CLAUDE.md` discipline ("substantive forward work on a feature branch"). The `gen-data` adapter, Zod schemas, and UI components are app-tier substantive work.
+- **Case-study documents at `docs/case-study/`.** Public-facing narrative + the standalone presentation HTML are brand-defining surface — the `MAJOR_POLYBIUS.md` §4.6 autonomous-ship discipline already gates these.
+- **Anything that touches an author-like field.** Per the project-root `CLAUDE.md` authorship-attribution discipline + `MAJOR_POLYBIUS.md` §15 N=1 honest-scope, any change to an `author:` / `owner:` / `creator:` / `by:` / `copyright:` field surfaces to PRINCIPAL before commit regardless of which branch.
+
+### 18.3 Bundled-squash interaction (cross-ref to MAJOR_PLINY.md §5.9)
+
+Direct-to-main housekeeping commits create local-ahead state that interacts with the pre-branch hygiene discipline at `MAJOR_PLINY.md` §5.9. Specifically, §5.9 check 2 (local main = origin/main) fails when user-tier POLYBIUS has just landed a direct-to-main commit and not yet pushed. The discipline is: **push immediately after every direct-to-main commit**, so that local main = origin/main when the next PLINY arc dispatches and the pre-branch hygiene check passes.
+
+The push-immediately discipline is load-bearing because PLINY's check 2 cannot distinguish "operator forgot to push a routine housekeeping commit" from "operator landed something the arc should pick up" — the safe default is for user-tier POLYBIUS to push before standing down or before signaling arc dispatch to PRINCIPAL. The cost of a push is one network round-trip; the cost of bundling unintended pre-existing commits into the arc squash is the bundled-squash failure mode `MAJOR_PLINY.md` §5.9 exists to prevent.
+
+### 18.4 PR-history readability — housekeeping commits visible as standalone
+
+Housekeeping commits land directly on main and appear in `git log` between arc-PR-squash commits. This is a deliberate property, not a failure mode: arc PRs carry coherent scope statements (PR titles like "Arc 33: mechanical-script / agent-inspection split — substrate pattern + worked-example deployment"); housekeeping commits carry small honest subjects ("track arc-34 directive + activation pastes (canonification batch 2)", "narrow .gitignore", etc.). A reader walking the history sees the arc PRs as the substantive ship boundaries and the housekeeping commits as the small-fixes-between-arcs that the user-tier housekeeping discipline authorizes.
+
+The alternative — bundling housekeeping into a "weekly hygiene" PR — was considered and rejected because it would re-introduce the bundled-scope problem that the §5.9 pre-branch hygiene discipline already addresses for arc-build squashes: a bundled-hygiene PR's commit subject cannot accurately describe its mixed contents, and CATO review on it is wider than the discipline's per-fix scope justifies. Per-fix direct-commits to main, each with its own narrow subject, is the readable form.
+
+### 18.5 N=1 provenance + accretion path
+
+Per `MAJOR_POLYBIUS.md` §15 honest-scope and `operating-disciplines.md` §6.7.1: PRINCIPAL declared this discipline on 2026-05-17 (project-direction authority, captured at `stoa--k36` thread + the Arc 34 directive A2 LOCK). §6.7.1 defers to the canon-promotion gate (multiple observations across distinct defect classes + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status.
+
+The supporting evidence at the time of this writing (2026-05-17):
+
+- **N=multi bit-by-it (the implicit-exception pattern):** every user-tier POLYBIUS session since the substrate's first cross-tier engagement has carried direct-to-main housekeeping commits; ~10+ today's session alone (per `stoa--k36` body). The pattern is well-established as practice; what is new is the canon making the practice explicit.
+- **N=0 worked-when-applied (controlled comparison):** no user-tier POLYBIUS session has yet operated under the explicitly-encoded discipline; accretes as future sessions ship under §18 and surface either successful application or fresh failure modes (e.g., a session that direct-commits something §18.2 should have arc-gated).
+
+The discipline is in substrate canon NOW because PRINCIPAL named it today and the implicit-exception pattern is observable across every prior session; promotion to "structural lesson" status with multi-arc empirical backing under the encoded canon is future arcs' work, not this arc's. Same N=1 framing as Arc 27's `MAJOR_POLYBIUS.md` §16.6, Arc 28's `operating-disciplines.md` §22.3, Arc 29's §17.5, Arc 30's `MAJOR_PLINY.md` §5.9.3, Arc 31's `operating-disciplines.md` §25.6, and Arc 32's `MAJOR_PLINY.md` §5.10.3 / §5.9.4.1 / `MAJOR_POLYBIUS.md` §5.1.3 / `operating-disciplines.md` §19.6.4.
+
+### 18.6 Cross-references
+
+- Project-root `CLAUDE.md` — the universal-rule prose "Forward work happens on a feature branch, not on `main`" cross-refs THIS section as the explicit-exception canon (per Arc 34 / C1 Option C composite edit).
+- `MAJOR_PLINY.md` §5.9 — pre-branch hygiene check 2 (local main = origin/main); §18.3 above names the push-immediately discipline that keeps check 2 passing.
+- `MAJOR_POLYBIUS.md` §15 — N=1 honest-scope, the gate this section's claims pass through.
+- `operating-disciplines.md` §6.7.1 — the canon-promotion gate this discipline enters off-gate on PRINCIPAL's project-direction authority.
+- `operating-disciplines.md` §12 — bw cookbook; the bw operations §18.1 names operate on the orphan `beadwork` branch, never on main.
+- Empirical anchor: `stoa--k36` (2026-05-17 user-tier POLYBIUS end-of-session hygiene audit; folded as C1 in Arc 34).
 
 ---
 

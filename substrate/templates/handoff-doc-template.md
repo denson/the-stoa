@@ -32,6 +32,7 @@ The template is for Mode 2 handoffs specifically (full multi-artifact handoff at
 | `{{RECOMMENDATION_MENU}}` | numbered menu of 3-5 likely next-actions (recommendation, not prescription) | `1. Resume sector-4 game build... 2. Apply Arc-25 drift in consumer workspaces... 3. ...` |
 | `{{LOAD_BEARING_CONTEXT}}` | per-topic sections of load-bearing engagement context — typically 1-4 sections per handoff | (free-form sections) |
 | `{{BW_REPO_TABLE}}` | markdown table: name + local path + bw prefix + last-arc commit | (table) |
+| `{{HITL_PAUSED_QUEUE}}` | enumeration of open HITL-paused-pre-dispatch tickets the next session should surface to PRINCIPAL on first turn; empty is fine (explicit "no open HITL-paused tickets" is better than silence) | `- stoa--jru (Arc 22 coordination hygiene, paused 2026-05-04 awaiting PRINCIPAL adjudication of design-rev2; surface on first turn if PRINCIPAL has bandwidth for Arc 22 disposition).` |
 | `{{STATE_SHAPES_BEHAVIOR}}` | bullet list of state facts that shape POLYBIUS behavior in the next session | `- The credential-discipline canon is now load-bearing...` |
 | `{{MEMORIES_CITE_DONT_RESTATE}}` | pointers to durable memories the next session should consult rather than re-deriving | `- Provide pastes proactively...` |
 | `{{HYGIENE_LOOSE_ENDS}}` | non-blocking loose ends the next session should know about | `- One A3 directive inaccuracy...` |
@@ -50,6 +51,7 @@ A future POLYBIUS reading this template should understand *why* each slot is fil
 - **`{{RECOMMENDATION_MENU}}`** is recommendation-not-prescription per the handoff convention. The next session may choose differently; the menu shows the reasonable next steps.
 - **`{{LOAD_BEARING_CONTEXT}}`** is the variable-shape part — what landed in the engagement, what is in-flight, what is open. The morning's `HANDOFF_POLYBIUS_2026-05-16.md` had four sections (credential arc, dev Ariadne deployment, CI workflow, bw repo table). Future handoffs will have different topics.
 - **`{{BW_REPO_TABLE}}`** is the navigation aid. A new POLYBIUS picking up cross-workspace state needs to know which bw repos exist and where they live.
+- **`{{HITL_PAUSED_QUEUE}}`** captures open work that is paused awaiting PRINCIPAL adjudication. Per `MAJOR_POLYBIUS.md` §9 step 3, the activated session sweeps for HITL-paused indicators at session-start; the handoff doc's HITL-paused-queue section pre-populates that sweep so the next session does not need to re-derive the queue from scratch. Empirical anchor: `stoa--jru` (Arc 22) sat paused-pre-dispatch from 2026-05-04 to 2026-05-17 because no carrier surfaced the open-paused state to fresh POLYBIUS sessions; both the §9 step (fresh-activation carrier) and this template section (handoff carrier) are the defense-in-depth pair Arc 34 / C4 encodes.
 - **`{{STATE_SHAPES_BEHAVIOR}}`** captures the "watch out for" items that aren't a single ticket but shape every decision the next session makes (e.g., "credential-discipline canon is now load-bearing").
 - **`{{MEMORIES_CITE_DONT_RESTATE}}`** is the cite-don't-duplicate discipline applied to memories. The durable memory layer (`~/.claude/CLAUDE.md`, project `MEMORY.md`, bw tickets) holds the substance; the handoff points.
 - **`{{HYGIENE_LOOSE_ENDS}}`** + **`{{HONEST_CAVEATS}}`** keep the handoff honest. Naming what didn't ship and what isn't captured prevents the next session from acting on a false sense of completeness.
@@ -89,6 +91,10 @@ A future POLYBIUS reading this template should understand *why* each slot is fil
 ## Where the bw repos live
 
 {{BW_REPO_TABLE}}
+
+## HITL-paused queue
+
+{{HITL_PAUSED_QUEUE}}
 
 ## State that shapes POLYBIUS behavior
 
