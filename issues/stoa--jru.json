@@ -241,11 +241,15 @@
     {
       "text": "ADA activated on arc-36 v2 build. Reading CAPTAIN_ADA.md canon + design.md (2152 lines) + arc-36-build-directive (A1-A17 LOCKED) + recent stoa--jru comments before opening any substrate file.",
       "timestamp": "2026-05-17T23:51:28Z"
+    },
+    {
+      "text": "[from: ada-the-stoa] design + directive + recent stoa--jru cycle (DAEDALUS rev1-rev5 + ARGUS-rev5 PASS) absorbed. Opening 4 substrate files (operating-disciplines.md, MAJOR_POLYBIUS.md, polling-cron-prompt-template.md, autonomous-mode-activation-template.md) for ground-check against design §5 deliverable specs before any edits.",
+      "timestamp": "2026-05-17T23:52:04Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-17T23:51:28Z"
+  "updated_at": "2026-05-17T23:52:04Z"
 }
