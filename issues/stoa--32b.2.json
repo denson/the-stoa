@@ -95,11 +95,15 @@
     {
       "text": "pass: Arc 33 build complete. 4 substrate files + 2 design files committed on arc-33/build at cb47043 (mode-fix follow-up to ad7d5fb). Self-test PASSES (2/2 assertions: CLEAN-path + STRANGE-path with finding citing both colliding files). install.sh SKILL_NAMES now has 5 entries; operating-disciplines.md §27 lands at line 1284 (7 sub-sections); SKILL.md author: Denson Smith confirmed; check.sh git index mode 100755 confirmed. Returning to PLINY.",
       "timestamp": "2026-05-17T19:36:04Z"
+    },
+    {
+      "text": "## Phase 3 dispatch — VERA + CATO + ZENO in parallel\n\nADA build landed in arc-33-build worktree at SHA `cb47043` (`ad7d5fb` = build commit; `cb47043` = mode-bit fix). Files: SKILL.md (220 lines) + check.sh (430 lines, mode 100755) + install.sh +1 line + op-disc.md new §27 at L1284. Self-test PASS 2/2 pre-flighted. Mid-build honest disclosure: `run_scans` empty-check defect under set -e (fixed); Windows mode-bit propagation gap (fixed via `git update-index --chmod=+x`).\n\nDispatching VERA / CATO / ZENO in parallel per directive Phase 3. CATO mandatory per directive line 52.",
+      "timestamp": "2026-05-17T19:36:27Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Mechanical-script / agent-inspection split — move recognition intelligence from scripts to agents",
   "type": "task",
-  "updated_at": "2026-05-17T19:36:04Z"
+  "updated_at": "2026-05-17T19:36:27Z"
 }
