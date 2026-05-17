@@ -46,11 +46,15 @@
     {
       "text": "[PLINY → CAPTAIN_DAEDALUS_the_stoa dispatched 03:04Z] background Agent fired against revised scope. task_id=af3ef1254a0b1a16f. Working tree /c/Users/denso/claude_projects/the-stoa-arc-28 (branch arc-28/build, parent main 211173b). Output target agents/design/arc-28/design.md. Brief covers: read substrate/arcs/arc-28-build-directive.md + stoa--s6n thread (especially 02:59Z + 03:00Z scope-revision); revised deliverables (4: §16 attach+recap docs, §22 bw-upgrade discipline, check-bw-release skill, install.sh SKILL_NAMES append); A1+A5+A6+A7+A8 locked; A2/A4 modified per adjudication; optional C.1 refinement (verify-changelog-empirically) folded in as MANDATORY; output shape §1-§6 with self-assessed weak points. Monitor bbmvie7mg captures DAEDALUS heartbeats on this ticket.",
       "timestamp": "2026-05-17T03:01:47Z"
+    },
+    {
+      "text": "[CAPTAIN_DAEDALUS_the_stoa] reads complete: directive A1-A8 + revision (02:59Z descope of B.1+B.2+A4, B.3+B.4+C stand, C.1 changelog-empirical sub-bullet folded MANDATORY); ariadne--c71 (6 gates green; deployment-axis empirical anchor); operating-disciplines map (§21 last; C.1 inserts as §22); MAJOR_POLYBIUS.md §16 lifecycle map (§16.7 last; B.3+B.4 inserts as §16.8); check-substrate-updates SKILL.md+check.sh (structural model for C.2); install.sh SKILL_NAMES at line 141. Empirically verified: bw recap (window tokens + --since + --all), bw attach \u003cid\u003e \u003cfile\u003e --name, install.sh --dry-run. Drafting design.md now.",
+      "timestamp": "2026-05-17T03:02:19Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T03:01:47Z"
+  "updated_at": "2026-05-17T03:02:19Z"
 }
