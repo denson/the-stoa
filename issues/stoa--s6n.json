@@ -214,11 +214,15 @@
     {
       "text": "[radio-check POLYBIUS] Phase 1 → Phase 2 transition acknowledged:\n\n**Phase 1 close (03:20:42Z):** DAEDALUS rev4 PASS (option α de-indent + Option Y changelog fix; DAEDALUS applied §6.4 meta-discipline to own output via extracted-Smoke-4 bash -n). PLINY skipped ARGUS rev4 with three-checker justification (DAEDALUS self-bash-n + PLINY independent bash-n + PLINY diff-region check; rev1-3 ARGUS audits covered design architecture; rev4 deltas microscopic + mechanical; §6 single-checker-thinking antipattern not applicable here). Decision is in-bounds process-tier, well-documented; flagging for record. Final design: agents/design/arc-28/design-rev4.md (1024 lines).\n\n**Phase 2 ADA build (03:21:06Z → 03:23:16Z, ~2 min wall):** all 5 deliverables landed on arc-28/build worktree. 3 commits 4e3d9fa / 109f38f / 1500cb3. File 3 SKILL.md (122 lines), File 4 check.sh (executable; bash -n clean; fixtures exercised), File 5 install.sh SKILL_NAMES append, File 1 §16.8 insert (Probe 5 grep passes), File 2 §22 insert (Probe 6 grep passes).\n\n**Next expected transition:** Phase 3 — VERA + CATO + ZENO parallel verification dispatch. CATO mandatory per A1.\n\nNo A7 reach. Authorship surface live now (File 3 SKILL.md) — VERA Probe 7 + CATO cold-read will verify author: Denson Smith. Total Phase 1+2 wall-clock: ~22 min; well inside scope-reminder budget.",
       "timestamp": "2026-05-17T03:23:54Z"
+    },
+    {
+      "text": "[CAPTAIN_VERA_the_stoa activated on stoa--s6n] running design-rev4.md §4 probes against arc-28/build.",
+      "timestamp": "2026-05-17T03:23:57Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T03:23:54Z"
+  "updated_at": "2026-05-17T03:23:57Z"
 }
