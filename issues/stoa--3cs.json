@@ -22,11 +22,15 @@
     {
       "text": "DAEDALUS activated on stoa--3cs / arc-30. Reading directive + ticket body + MAJOR_PLINY + operating-disciplines + paste-instruction-template + MAJOR_POLYBIUS §5 + Arc 27/28/29 pastes + prior arc design docs. Then drafting agents/design/arc-30/design.md with D1/D2/D3 sub-decision rationale + self-assessed weak points (§6.2 post-work gate). Autonomous mode; surfacing only on universal escalation triggers.",
       "timestamp": "2026-05-17T05:36:48Z"
+    },
+    {
+      "text": "DAEDALUS reads complete. Primary inputs absorbed: directive (A1-A8 LOCKED), ticket body + 2026-05-17 scope-expansion, MAJOR_PLINY (full — §5.7/§5.8 are sibling-locus precedents for new §5 family discipline subsections; §6.1 has the cron-hygiene preamble model), operating-disciplines (§6.7.1 N=1 gate, §8 authoring-downstream-artifacts as candidate D3 cross-ref or universal home, §22.3+§23.4 N=1 provenance shape), paste-instruction-template (D2 Option β candidate), MAJOR_POLYBIUS §5 + §5.1 (D2 Option α candidate, §5.1.1 explicitly out of scope per A6), Arc 27/28/29 pastes (cron-hygiene preamble + Arc 29 pre-branch hygiene preamble — natural shape confirmed), Arc 28/29 design.md (shape comparable: section-numbered, §15+§6.7.1 dual-cite N=1 honesty, weak-points enumeration at tail). Drafting design.md now.",
+      "timestamp": "2026-05-17T05:37:49Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:36:48Z"
+  "updated_at": "2026-05-17T05:37:49Z"
 }
