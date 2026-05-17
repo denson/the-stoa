@@ -54,11 +54,15 @@
     {
       "text": "ARGUS rev2 activated on stoa--ewn at 2026-05-17. Focused REV2 audit (not full re-audit). Reading rev1 verdict (own R1-R6) + rev2 design.md (805 lines) end-to-end. Will verify each of R1-R6 is genuinely closed (substance + no new risk introduced). Envelope omits Write/Edit; verdict returned as final assistant message + posted here at completion.",
       "timestamp": "2026-05-17T18:51:22Z"
+    },
+    {
+      "text": "pass: ARGUS rev2 audit complete. All 6 rev1 risks (R1-R6) verified closed by rev2 edits. R1 closed (Edit 3a substrate-target verified at ops-disc.md:1101; narrowing-clause + back-pointer to §26 + §4.6 probe present). R2 closed (Edit 4b paragraph appended at §19.4 close; cite-comment line 412 rewritten to honest 'discovery path is explicit at §19.4 rather than implicit' framing; §4.6 probe present; reader landing at §7.2/§4.3 -\u003e §19 root encounters new §19.4 paragraph naming §19.6 explicitly, discovery path mechanically followable). R3 closed (§3.3 + §3.5 BOTH name canonical post-build order §5.9.3 -\u003e §5.9.4 -\u003e §5.10 -\u003e --- -\u003e §6; §4.5 relative-ordering probes tell VERA the numeric-comparison procedure; weak point 6 explicitly acknowledges insertion-window collision as ordering hazard (b)). R4 closed (§3.1 categorical-exception paragraph at design lines 76-78 names depth-6 unreadability as structural necessity; §4.7 probe rationale rewritten to cite structural reason). R5 closed (§4.2 slot-explanation identity probe + §4.6 per-depth probes + §4.7 per-file probes + §4.6 C3\u003c-\u003eC4 reciprocal-cite content probes all present). R6 closed (§3.5 honest-qualification paragraph at design line 424 names predicate-knowability difference between §5.1.2 paste-fill-time (POLYBIUS low knowledge) and §5.9.4 branch-creation-time (PLINY high moment-of-decision / low duration); defense reframed to structural-shape not identity). 0 still-open risks; 0 new risks introduced by rev2 edits. Returning PASS verdict block to PLINY for transcription to argus-verdict-rev2.md.",
+      "timestamp": "2026-05-17T18:52:15Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch — §5.1.1 extension + cron-hygiene canon + PLINY-signoff-accuracy + attestation-confabulation",
   "type": "task",
-  "updated_at": "2026-05-17T18:51:22Z"
+  "updated_at": "2026-05-17T18:52:15Z"
 }
