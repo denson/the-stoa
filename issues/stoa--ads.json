@@ -90,11 +90,15 @@
     {
       "text": "[heartbeat PLINY] Phase 2 ADA returned PASS — commit 5836092 on arc-29/build. D1-D6 all built. Ground-check found 1 design-vs-shipped drift (check.sh:392 MAJOR glob actually under .claude/ not .claude/agents/) — ADA built to reality + flagged. Full smoke against synthetic project workspace: install + re-install preserves all 3 custom path classes; --prune-obsolete safe; apply.sh refuses customs; CLAUDE.md markers idempotent. Cite-comments visible at all D3/D4/D5 sites (greps exceed minimums). Phase 3 dispatching VERA + CATO + ZENO in parallel.",
       "timestamp": "2026-05-17T05:02:28Z"
+    },
+    {
+      "text": "VERA activated on Arc 29 Phase 3. Reading brief + design + directive + ticket probes + diff.",
+      "timestamp": "2026-05-17T05:03:08Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Base-vs-custom agent convention — encode in substrate canon (operating-disciplines + MAJOR_POLYBIUS + install/check/apply tooling)",
   "type": "task",
-  "updated_at": "2026-05-17T05:02:28Z"
+  "updated_at": "2026-05-17T05:03:08Z"
 }
