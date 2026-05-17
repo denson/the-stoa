@@ -51,11 +51,15 @@
     {
       "text": "ARGUS audit pass 1: design + directive + retro §7 + operating-disciplines (§10/§11/§15/§18/§22/§23/§24) + 3 CAPTAIN envelopes + 2 templates read. Section-number arithmetic verified: §24 still last in operating-disciplines (no sibling arc landed); §6.7 next-available in DAEDALUS; §5.8 next-available in ADA; §5.10 next-available in VERA. Pre-finding: Probe 8 methodology may be circular (VERA writes the recognition log having read the canon — not a true cold-read falsification); §25.5 subsection heading-level needs explicit specification; D4 STEP 6.5 placement coherent with STEP 5 exit semantics (closure removes the gate anyway). Drafting structured verdict next.",
       "timestamp": "2026-05-17T07:45:59Z"
+    },
+    {
+      "text": "revise: 2 P0 (Probe 8 circularity — VERA self-audits canon she just read, not a falsification test; §25.5 throwaway-clone --shared flag overstates safety per CVE-2024-32020 + shared object-DB semantics) + 3 P1 (§25.X subsection heading-level not explicitly specified in design body, only inferred from probes; D3 §11 pointer ambiguous 'paragraph or new bullet'; Probe 6 example only enumerates 1 of 13 cite-rows) + 2 P2 (smoke-beat regex variant 'BLOCK, not a TAG' vs design heading 'BLOCK, not TAG'; D2.C VERA §5.10 heading mixes two concerns 'refuse + probe-design pointer' creating dual-purpose subsection). Returning.",
+      "timestamp": "2026-05-17T07:46:28Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:45:59Z"
+  "updated_at": "2026-05-17T07:46:28Z"
 }
