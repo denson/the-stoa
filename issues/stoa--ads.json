@@ -46,11 +46,15 @@
     {
       "text": "Heartbeat: verification pass complete — file:line citations accurate (install.sh 783/803/822/868/870, check.sh 298/377/400/415, apply.sh 278/281 all match); WebFetch confirms subagent recursive scan + skill single-level + silent name-collision per design's claims; PRINCIPAL block-quote verbatim in both canon sections; §15/§6.7.1 cross-refs resolve correctly; Arc 27 §16.6 + Arc 28 §22.3 N=1 framing match. One unexpected finding: Claude Code docs say subagent name field is 'lowercase letters and hyphens' but existing base CAPTAINs use UPPERCASE_UNDERSCORE — convention violates docs but works empirically. Drafting verdict block now.",
       "timestamp": "2026-05-17T04:54:16Z"
+    },
+    {
+      "text": "PASS: 0 P0, 0 P1; design is ship-ready for ADA. 4 P2 follow-up notes posted in verdict block returning to PLINY. No load-bearing risks surfaced. Returning.",
+      "timestamp": "2026-05-17T04:54:26Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Base-vs-custom agent convention — encode in substrate canon (operating-disciplines + MAJOR_POLYBIUS + install/check/apply tooling)",
   "type": "task",
-  "updated_at": "2026-05-17T04:54:16Z"
+  "updated_at": "2026-05-17T04:54:26Z"
 }
