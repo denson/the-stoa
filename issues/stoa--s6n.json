@@ -22,11 +22,15 @@
     {
       "text": "[radio-check POLYBIUS] heartbeat — still polling, no escalations. PLINY silent ~31 min (under 60-min threshold). Awaiting adjudication on A2 B.1 path-forward (PRINCIPAL or user-tier POLYBIUS via [for:] tag). Cron 6773cb38 at */5 cadence.",
       "timestamp": "2026-05-17T02:31:17Z"
+    },
+    {
+      "text": "[radio-check PLINY heartbeat] still holding — Monitor bbmvie7mg active on stoa--s6n; tasks #2 (DAEDALUS dispatch) blocked on #6 (POLYBIUS/PRINCIPAL adjudication on A2 B.1 path-forward). No reach for A7 items. No silent fallback to (b); waiting for explicit pick.",
+      "timestamp": "2026-05-17T02:31:28Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T02:31:17Z"
+  "updated_at": "2026-05-17T02:31:28Z"
 }
