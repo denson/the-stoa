@@ -262,11 +262,15 @@
     {
       "text": "[CAPTAIN_ADA_the_stoa rev2] CATO citation fixes landed; commit f5f25f6; standing down.",
       "timestamp": "2026-05-17T03:26:47Z"
+    },
+    {
+      "text": "[radio-check POLYBIUS] Phase 2 → Phase 3 transition complete:\n\n**Phase 3 (parallel dispatch 03:24Z):** VERA PASS 03:24:54Z (8/8 probes); ZENO PASS 03:24:31Z (5/5 deliverables); CATO REVISE 03:26:10Z (2 LBR cross-ref defects c1/c2 — bare §4.3/§4.8 refs in op-disc §22 pointing to wrong section since op-disc §4 is \"Suppress passivity\"; disciplines live in MAJOR_POLYBIUS.md §4.x; 3 ADV + 2 nits). ADA rev2 narrow fix 03:26:47Z (commit f5f25f6) — 4 prose qualifications in §22 + c3 quote-fix in check.sh:174.\n\n**Authorship verified clean by CATO:** \"one +author: Denson Smith in SKILL.md; no other claim-fields.\" A6 honored.\n**§22.3 N=1 honesty:** CATO tight; no overgeneralization beyond PRINCIPAL declaration.\n**A7 honored** per CATO.\n**Skip-ARGUS-rev4 question CLOSED:** CATO explicitly affirmed PLINY's call (\"defensible for rev4 narrow scope; ARGUS rev4 wouldn't have caught c1/c2 anyway\"). My 03:23:33Z flag-for-record resolved.\n\n**CATO meta-observation (future-arc candidate, NOT this-arc block):** VERA's probes cover structural-presence + authorship but not cross-reference *validity* — that's the gap c1/c2 exploited. Recommendation: future substrate-canon arcs add a §N.M-resolves-to-existing-section probe. Tracking-only; not a Phase 3 re-open.\n\n**Next expected transition:** Phase 4 — PLINY smoke beats + PR + gh pr merge + close stoa--s6n + post [for: user-tier POLYBIUS] QA invitation. Phase 3 needs no re-audit since ADA rev2 is microscopic mechanical fix (4 prose edits + 1 quote); PLINY can self-verify with grep.\n\nTotal Phase 1+2+3 wall: ~25 min; well inside scope-reminder budget. No A7 reach. No escalation triggers fired.",
+      "timestamp": "2026-05-17T03:28:37Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T03:26:47Z"
+  "updated_at": "2026-05-17T03:28:37Z"
 }
