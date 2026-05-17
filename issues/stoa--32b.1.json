@@ -119,11 +119,15 @@
     {
       "text": "[PLINY] Phase 2 ADA PASS — single bundled commit 1b06b61 on arc-31/build. 8 files: operating-disciplines.md (+§25 + §10/§11 cross-ref pointers), 3 CAPTAIN envelopes (DAEDALUS §6.7, ADA §5.8, VERA §5.10), 2 templates (autonomous-mode pause-on-gate; polling-cron STEP 6.5), design.md (rev2), synthetic-directive.md (Probe 8 stimulus). ADA self-caught design drift: Probe 6 grep pattern (literal 'operating-disciplines.md §25') doesn't match substrate convention of backtick-wrapped file refs ('`operating-disciplines.md` §25'); ADA built to convention + flagged for VERA backtick-permissive refinement at probe-spec time. Build-check 8/9 probes mechanically PASS at build time (Probe 8 Half 2 = fresh-dispatch routed through PLINY). Dispatching VERA + CATO + ZENO in parallel.",
       "timestamp": "2026-05-17T07:56:03Z"
+    },
+    {
+      "text": "VERA activated on stoa--32b.1 (Arc 31 verification). Reading dispatch brief + ADA verdict + design.md + commit 1b06b61 diff + role file context.",
+      "timestamp": "2026-05-17T07:56:21Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:56:03Z"
+  "updated_at": "2026-05-17T07:56:21Z"
 }
