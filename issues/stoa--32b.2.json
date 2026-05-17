@@ -59,11 +59,15 @@
     {
       "text": "## Phase 1 heartbeat — ARGUS REVISE-REQUIRED → DAEDALUS rev2 dispatching\n\nARGUS cold-audit returned: **REVISE-REQUIRED** (2 P0 + 4 P1 + 2 P2).\n\n**P0 findings (must-fix before ADA):**\n- **P0-1** — Custom-path scan exclusion (§4.4) contradicts strange-fixture probe target (§4.1 + VERA-5): scan_base_path_custom_markers helper EXCLUDES custom-path scan but VERA-5 plants a file at `.claude/agents/custom/CAPTAIN_DAEDALUS_synthetic.md` and expects detection. As-written, worked example structurally cannot fire.\n- **P0-2** — `name: CUSTOM_AGENT` marker invented out of band; substrate §17.4 silent-collision semantic is duplicate `name:` field between base + custom, NOT a magic `CUSTOM_` token prefix. Detection rule grounded in an invented semantic.\n\n**P1 findings (revise in same pass):**\n- **P1-1** — Insertion-locus line numbers wrong + internally inconsistent across §3.3 / §6.1 / §11 (live state: §26 closing `---` at L1282, blank L1283, `## Agent-regime inverses` at L1284 — no `---` opening the inverses section).\n- **P1-2** — Bare §17.x cross-refs file-ambiguous (op-disc §17 = OSS-dep, NOT base-vs-custom; MAJOR_POLYBIUS §17 = base-vs-custom).\n- **P1-3** — Fixtures deploy to consumers via install.sh:709-724 `cp -R` with no exclusion mechanism; consumer-tier substrate-discovery surface gets polluted.\n- **P1-4** — A2 Option β rejection conflates seat-level β (rejected on domain grounds) with probe-level β (structurally distinct and unaddressed).\n\n**P2 findings (can ship as-is but flagging for rev2 cleanup):**\n- **P2-1** — VERA-7 grep regex carries literal `N` / `M` placeholder.\n- **P2-2** — Arc 26 \"489 → 893\" line-count anchor needs framing that live 934 is downstream of Arc 26.\n\nDispatching DAEDALUS rev2 with explicit findings list.",
       "timestamp": "2026-05-17T19:25:44Z"
+    },
+    {
+      "text": "DAEDALUS rev2 activated. Read ARGUS verdict + rev1 §1-§7 + canonical §17.4 / §23 / op-disc §26-§27-boundary / install.sh:709-724 deploy mechanism + check-bw-release skill layout. Resolutions: P0-1 + P0-2 fold together — scan_name_collisions reads BOTH base and custom paths and flags duplicate name: VALUES per §17.4 (no CUSTOM_ magic prefix; matches canon semantic). P1-1 lines: §26 closing --- at 1282 / blank 1283 / ## Agent-regime inverses at 1284 (no opening ---). P1-2: every §17.x carries file-prefix. P1-3: fixtures generated at runtime via check.sh --self-test (no tracked fixture tree; no install.sh exclusion needed; cleanest separation). P1-4: explicit seat-vs-probe-level β paragraph. Drafting rev2 now.",
+      "timestamp": "2026-05-17T19:26:29Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Mechanical-script / agent-inspection split — move recognition intelligence from scripts to agents",
   "type": "task",
-  "updated_at": "2026-05-17T19:25:44Z"
+  "updated_at": "2026-05-17T19:26:29Z"
 }
