@@ -106,11 +106,15 @@
     {
       "text": "Cold-read of diff complete; structural checks all green (A12 scope hygiene clean: 4 files only — 3 substrate + 1 design artifact; install.sh + scripts/ + project CLAUDE.md untouched; Author=PRINCIPAL on all 3 commits; trailer chain complete: ADA + 2x DAEDALUS seat-identity + Claude on each). §28 subsections 28.1-28.8 land in order; §5.12 lands cleanly at PLINY L517; §5.5 extension reads as parallel paragraph. Now cross-checking citation graph + comparing §28 shape to Arc 33 §27 precedent + verifying N=1 honesty per A13.",
       "timestamp": "2026-05-17T21:39:52Z"
+    },
+    {
+      "text": "VERA: 7 of 9 probes PASS (4.1, 4.2, 4.3, 4.4, 4.5, 4.8.a-e, 4.9 N/A). Probe 4.6 baseline INCONCLUSIVE (probe-definition defect: `git log main -1 --pretty=... 789496b` returns empty; substantive property satisfied when run as `git log -1 ...`). Probe 4.7 DEFERRED per Arc 35 sequencing (user-tier POLYBIUS direct-commit post-merge). Self-application: all 3 CAPTAIN commits carry seat-identity trailers. Overall: PASS with probe-4.6 methodology concern surfaced. Returning verdict.",
+      "timestamp": "2026-05-17T21:39:57Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Per-agent git identity for commits — agents commit with their own configured git author so blame indicates the actual seat",
   "type": "epic",
-  "updated_at": "2026-05-17T21:39:52Z"
+  "updated_at": "2026-05-17T21:39:57Z"
 }
