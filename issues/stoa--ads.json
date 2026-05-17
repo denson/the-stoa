@@ -114,11 +114,15 @@
     {
       "text": "CATO heartbeat: cold-read complete on D1-D6 + empirical probes fired (install dry-run + customs lifecycle + apply.sh refusal + check.sh CURRENT verdict + URL doc verification). PRINCIPAL block-quote byte-identical across 6 instances; cite-comments dense at every scoping site; §15/§23 cross-refs resolve; bash -n PASS all 3 scripts; authorship A6 clean (no author-field changes). Finalizing verdict block.",
       "timestamp": "2026-05-17T05:05:38Z"
+    },
+    {
+      "text": "CATO PASS: 0 P0, 0 P1, 5 P2 (cosmetic/lexical). PRINCIPAL block-quote verbatim across 6 instances. §15 N=1 honesty present + mirrors Arc 27/28 shape. A6 authorship clean. A7 hard-locks honored. Cite-comments dense at every scoping site. Empirical probes all PASS (install/customs/apply/check). Diff is ship-ready. Returning.",
+      "timestamp": "2026-05-17T05:05:52Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Base-vs-custom agent convention — encode in substrate canon (operating-disciplines + MAJOR_POLYBIUS + install/check/apply tooling)",
   "type": "task",
-  "updated_at": "2026-05-17T05:05:38Z"
+  "updated_at": "2026-05-17T05:05:52Z"
 }
