@@ -54,11 +54,15 @@
     {
       "text": "ARGUS rev2 audit activated. Reading rev2 design + cross-refs to confirm r1-r5 absorption and surface any new defects.",
       "timestamp": "2026-05-17T05:45:24Z"
+    },
+    {
+      "text": "ARGUS rev2 audit: design read complete. Now verifying §5.9/§5.9.1 mis-pointer fix, §2.1 disambig, three-way carrier acknowledgement, table-row drop, and always-include default flip across all touch-points.",
+      "timestamp": "2026-05-17T05:45:27Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:45:24Z"
+  "updated_at": "2026-05-17T05:45:27Z"
 }
