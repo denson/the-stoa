@@ -106,11 +106,15 @@
     {
       "text": "CATO activated on arc-30/build (5991f39). Cold-reading diff (main..arc-30/build, 5 files +576 lines) against directive A1-A8 + design rev3 + bw ticket source. CATO mandatory per A1 (substrate canon).",
       "timestamp": "2026-05-17T05:52:40Z"
+    },
+    {
+      "text": "pass (CATO cold-read): substrate canon ships ship-ready. Verdict pass with 3 P3-nice-to-have observations (no P1/P2, no blocking). Full verdict block returning to PLINY.",
+      "timestamp": "2026-05-17T05:53:12Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:52:40Z"
+  "updated_at": "2026-05-17T05:53:12Z"
 }
