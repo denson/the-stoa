@@ -74,11 +74,15 @@
     {
       "text": "ADA activated on stoa--ads (Arc 29 Phase 2 build). Reading design.md + directive + ARGUS PASS context + worktree state before first commit. Branch confirm + ground-check pending.",
       "timestamp": "2026-05-17T04:57:30Z"
+    },
+    {
+      "text": "Heartbeat ADA: design.md (890 lines) + directive + install.sh + check.sh + apply.sh + MAJOR_POLYBIUS tail + operating-disciplines tail all absorbed. Ground-check passes: install.sh sites 783/803/822/720/151/868 accurate; check.sh sites 392/400/407/415 accurate; apply.sh site 278 accurate; CAPTAIN frontmatter empirical claim (uppercase+underscore+{{NAME_SUFFIX}}) verified across all 10 base CAPTAINs. Starting D1 — pasting §17 prose into MAJOR_POLYBIUS.md.",
+      "timestamp": "2026-05-17T04:58:21Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Base-vs-custom agent convention — encode in substrate canon (operating-disciplines + MAJOR_POLYBIUS + install/check/apply tooling)",
   "type": "task",
-  "updated_at": "2026-05-17T04:57:30Z"
+  "updated_at": "2026-05-17T04:58:21Z"
 }
