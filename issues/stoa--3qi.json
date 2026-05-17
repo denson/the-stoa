@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-17T19:02:38Z",
+  "description": "Surfaced by CATO Arc 32 review (F1, low/consistency). Template title + preface at substrate/templates/paste-instruction-template.md lines 5-7 still scope to PLINY-only; C2 §5.1.3 now asserts dual PLINY+POLYBIUS targeting for the cron-hygiene preamble. Decision needed: rename template to a dual-target name, OR split into two templates (PLINY + POLYBIUS), OR add a paragraph clarifying that POLYBIUS-targeted pastes are filled from the same template with different slot values. Defer to follow-up arc; out-of-design-scope for Arc 32 itself. Empirical anchor: agents/design/arc-32/cato-verdict.md (F1).",
+  "id": "stoa--3qi",
+  "labels": [],
+  "priority": 3,
+  "status": "open",
+  "title": "Arc 32 follow-up: paste-instruction-template title still says 'MAJOR_PLINY activation' but C2 made cron-hygiene dual PLINY+POLYBIUS",
+  "type": "task",
+  "updated_at": "2026-05-17T19:02:38Z"
+}
