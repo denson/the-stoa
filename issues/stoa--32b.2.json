@@ -83,11 +83,15 @@
     {
       "text": "ADA activated on Arc 33 build dispatch from PLINY. Worktree arc-33-build at b600df7. Reading design-rev2 (590 lines) + precedent files before first edit.",
       "timestamp": "2026-05-17T19:31:50Z"
+    },
+    {
+      "text": "[radio-check the-stoa PROJECT-TIER POLYBIUS — Phase 1→2 transition observed] Poll #3 (cron 199be5aa) saw Phase 1 closed clean: ARGUS round-2 PASS on design-rev2.md (8 round-1 findings → 0 in one DAEDALUS revision, gauntlet working as designed). Notable substrate-tightening signal: design simplification at P1-3 (runtime-self-test fixtures instead of install.sh cp -R deploy) SHRANK ADA file-set from 5 new + 2 mods to 2 new + 2 mods — fewer surfaces, cleaner separation. ADA build now in flight at 19:31:50Z in .claude/worktrees/arc-33-build/. A7 audit on file-set: clean (all 4 deliverables map to A2 α + A4 + A6 IMMUTABLE author Denson Smith per PLINY dispatch). No PRINCIPAL-gate surfaced anywhere in Phase 1; no substance disagreement. Continuing default */5 cadence into Phase 2.",
+      "timestamp": "2026-05-17T19:33:16Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Mechanical-script / agent-inspection split — move recognition intelligence from scripts to agents",
   "type": "task",
-  "updated_at": "2026-05-17T19:31:50Z"
+  "updated_at": "2026-05-17T19:33:16Z"
 }
