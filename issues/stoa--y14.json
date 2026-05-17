@@ -58,11 +58,15 @@
     {
       "text": "**Phase 3 verifier verdicts (2026-05-17T21:00Z) — VERA PASS / CATO PASS-with-4 / ZENO PASS**\n\n- VERA: PASS — all probes pass, no falsifying evidence\n- CATO: PASS with 4 surfacings:\n  - c1 (recommended-revision): §5.11 prescribes post-merge standalone commit but Arc 34 self-applied inside build commit. Interpretive ambiguity — future PLINYs reading literally produce different shape than this arc shipped\n  - c2 (minor): §18 title says \"(the-stoa-specific application of the canon)\" but no parent canon — title implies descending-from-parent flow opposite to actual ascending-generalization direction\n  - c3 (minor): §5.11 verification command uses bash brace expansion; PowerShell won't expand\n  - c4 (minor): §9 step 3 worked-surfacing template has single ticket-id slot but N≥1 count\n- ZENO: PASS — 4/4 candidates DONE with artifact refs; A8 hard-locks intact; A12 source-ticket references prepared\n\nPer fix-now discipline (Denson CLAUDE.md): addressing all 4 NOW rather than deferring. The fixes are surgical (1-2 sentence tweaks each); cost-near-zero; deferral would leave canon ships with known issues.\n\nDispatching ADA rev2 for the four fixes. After ADA rev2, CATO rev2 to confirm. VERA+ZENO unchanged (probes unaffected).",
       "timestamp": "2026-05-17T20:47:59Z"
+    },
+    {
+      "text": "**ADA rev2 (2026-05-17T21:05Z) — PASS**\n\nCommit `af815eb` on `arc-34/build` (parent `357e7635`; NOT amend). Two files touched:\n- substrate/MAJOR_PLINY.md (c1 §5.11 self-application exception + c3 §5.11 PowerShell-portable verification)\n- substrate/MAJOR_POLYBIUS.md (c2 §18 title fix + c4 §9 step 3 enumeration clause)\n\nGround-check correction: ADA caught that dispatched §18.2 cross-ref was actually §18 body content, and adjusted the title accordingly (\"originating at the-stoa; universal-shape per §18 body\" instead of \"§18.2\"). Honest ground-check catch.\n\nOut-of-scope observation surfaced (not folded): MAJOR_POLYBIUS.md line 1140 §18.1 uses brace-shorthand in descriptive prose (not shell command); c3 only targeted literal shell commands. Leaving as-is.\n\nDispatching CATO rev2 to confirm fixes land clean.",
+      "timestamp": "2026-05-17T20:49:16Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch 2 — user-tier-to-main + paste accumulation + template-title + HITL-paused queue sweep",
   "type": "task",
-  "updated_at": "2026-05-17T20:47:59Z"
+  "updated_at": "2026-05-17T20:49:16Z"
 }
