@@ -62,11 +62,15 @@
     {
       "text": "**ADA rev2 (2026-05-17T21:05Z) — PASS**\n\nCommit `af815eb` on `arc-34/build` (parent `357e7635`; NOT amend). Two files touched:\n- substrate/MAJOR_PLINY.md (c1 §5.11 self-application exception + c3 §5.11 PowerShell-portable verification)\n- substrate/MAJOR_POLYBIUS.md (c2 §18 title fix + c4 §9 step 3 enumeration clause)\n\nGround-check correction: ADA caught that dispatched §18.2 cross-ref was actually §18 body content, and adjusted the title accordingly (\"originating at the-stoa; universal-shape per §18 body\" instead of \"§18.2\"). Honest ground-check catch.\n\nOut-of-scope observation surfaced (not folded): MAJOR_POLYBIUS.md line 1140 §18.1 uses brace-shorthand in descriptive prose (not shell command); c3 only targeted literal shell commands. Leaving as-is.\n\nDispatching CATO rev2 to confirm fixes land clean.",
       "timestamp": "2026-05-17T20:49:16Z"
+    },
+    {
+      "text": "**CATO rev2 (2026-05-17T21:08Z) — PASS**\n\nRev2 cleanly resolves all 4 rev1 concerns. CATO verified:\n- c1: §5.11 self-application exception paragraph clean — names trigger, behavior, equivalence, Arc 34 as originating instance, §18.1 authorization\n- c2: §18 title cross-ref to '§18 body' lands cleanly (universal-shape grounded in §18 second body paragraph line 1134); ADA's §18.2 → §18 body correction was sound\n- c3: new ls command portable in bash + PowerShell (empirically tested both); no other brace-expansion shell-commands in §5.11; line 1140 brace-shorthand is descriptive prose (correct scope call to leave)\n- c4: §9 step 3 enumeration clause unambiguous + style-consistent with file's [square-bracket instruction-aside] convention\n\nNo new concerns. No author-like fields touched. Single new commit on top (not amend). Rev2 ships clean.\n\n**Phase 3 complete. Phase 4 (smoke + PR + merge + signoff + close) begins.**",
+      "timestamp": "2026-05-17T20:50:39Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch 2 — user-tier-to-main + paste accumulation + template-title + HITL-paused queue sweep",
   "type": "task",
-  "updated_at": "2026-05-17T20:49:16Z"
+  "updated_at": "2026-05-17T20:50:39Z"
 }
