@@ -52,6 +52,10 @@ operating-disciplines.md §11 before beginning substantive work:
    {{COORDINATION_TICKET}} naming your cron id and cadence. Peer's
    cron id (if known): {{PEER_CRON_ID}}. Heartbeat every <=30 min.
    Escalate peer-silence > 60 min to PRINCIPAL.
+   All coordination comments use the author-tag convention from
+   operating-disciplines.md §7.1 beat 5: `[from: <self-seat-slug>]` on
+   every coordination post; `[for: <recipient-slug>] [from: <self-slug>]`
+   on addressed comments; `[radio-check <self-slug>]` on heartbeats.
 
 3. Cross-tier coordination convention (operating-disciplines.md §7.4)
    — when you need cross-project context, post `[for: <upper-seat>]`

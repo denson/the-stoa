@@ -122,12 +122,22 @@ This whole section is the universal-team layer. POLYBIUS-tier specific framings 
 
 When two seats are coordinating async via polling, neither can tell the other has stopped responding without an explicit liveness signal. The radio-check protocol gives each peer a way to detect peer-failure within a bounded time without burning attention on routine heartbeats.
 
-Four beats:
+Five beats:
 
-1. **Initialization handshake.** When two seats begin coordinating on a shared ticket, each posts a `[radio-check <seat>]` comment naming its cron id and current cadence. Both ack on first poll (a one-line "saw your radio-check; proceeding" comment). The handshake confirms both ends are polling and the channel is live.
+1. **Initialization handshake.** When two seats begin coordinating on a shared ticket, each posts a `[radio-check <self-seat-slug>]` comment naming its cron id and current cadence. Both ack on first poll (a one-line "saw your radio-check; proceeding" comment). The handshake confirms both ends are polling and the channel is live.
 2. **Routine heartbeats.** Every ≤30 minutes of session-time, each peer posts a one-line state comment on the coordination ticket. These do not require ack — they are visible-by-poll. Heartbeats are cheap; they prevent peer-silence false alarms during legitimately quiet phases.
 3. **Missed-check escalation.** If a peer is silent > 60 minutes AND the coordination ticket is open, the still-active peer surfaces "lost contact with `<peer>`" to PRINCIPAL. Peer-silence is the only universal escalation that fires automatically; everything else is event-driven.
-4. **Closure handshake.** When the coordination ticket closes, both peers post a final `[radio-check <self> standing down]` comment and run `CronDelete` on their polling cron(s) for this engagement. The closure handshake is what prevents zombie crons polling a closed ticket forever.
+4. **Closure handshake.** When the coordination ticket closes, both peers post a final `[radio-check <self-seat-slug> standing down]` comment and run `CronDelete` on their polling cron(s) for this engagement. The closure handshake is what prevents zombie crons polling a closed ticket forever.
+5. **Author-tag convention (POLYBIUS-on-POLYBIUS coordination).** Every coordination comment posted by a POLYBIUS instance carries an explicit sender tag. Three forms cover the cases:
+   - Self-heartbeat: `[radio-check <self-seat-slug>]` — form unchanged from beat 1; slug-normalization rule below applies.
+   - Cross-seat addressed: `[for: <recipient-seat-slug>] [from: <sender-seat-slug>]` — both tags mandatory. This expands the prior `[for:]` convention (currently §7.4) from cross-tier upward only (project→user) to bidirectional; `[from:]` is new in Arc 36.
+   - Own-bw substantive (not addressed to a specific peer): `[from: <self-seat-slug>]` — for status updates, gauntlet phase comments, decisions logged in own bw without a specific recipient.
+
+   **Slug normalization:** lowercase, hyphenated, no whitespace. Example slugs: `user-tier-polybius`, `polybius-the-stoa`, `polybius-ariadne-core`. The slug matches the role-file slug used by `substrate/templates/autonomous-mode-activation-template.md`. Display-form names (e.g., "user-tier POLYBIUS") may appear in prose within comment bodies; the LEADING tag always uses the slug.
+
+   **Scope:** the convention applies to POLYBIUS instances only (user-tier POLYBIUS, project-tier POLYBIUS, sub-project POLYBIUS). PLINY, CAPTAINs, and pair-programmer Majors are NOT required to author-tag — their substantive comments do not enter the timeline-arithmetic that drives radio-check / heartbeat thresholds. See §7.7 for the parsing procedure and the empirical anchor.
+
+   The convention exists so peers reading the timeline can attribute each POLYBIUS comment to its sender without inferring from timestamp + content — the inference step that failed in the 2026-05-04 stoa--e39 empirical (~25-min coordination stall during arc-21 §5.4 review handoff).
 
 ### 7.2 Adaptive polling cadence
 
@@ -169,7 +179,9 @@ Cost framing: ~Nx fewer fires than N separate crons when cadences match, modestl
 
 ### 7.4 Cross-tier coordination routing
 
-When a project-tier or sub-project POLYBIUS needs cross-project context, an empirical anchor from another project, or a sanity check that benefits from upper-tier visibility, post a comment on a relevant ticket in YOUR OWN bw prefixed with `[for: <upper-seat>]` (e.g., `[for: user-tier POLYBIUS]`). The upper-tier seat polls down via unified poll (§7.3) and responds on the same ticket within poll cadence (~5 min default). This is the cross-tier-coordination-meets-in-lower-tier pattern (§7.5 + `MAJOR_POLYBIUS.md` §7.1).
+The `[for: <recipient-seat-slug>] [from: <sender-seat-slug>]` tag pair marks an addressed POLYBIUS comment — either direction across any POLYBIUS pair. The most common use is cross-tier upward (project-tier → user-tier needing cross-project context, an empirical anchor from another project, or a sanity check that benefits from upper-tier visibility): the project-tier seat posts on a ticket in YOUR OWN bw prefixed with `[for: user-tier-polybius] [from: <self-seat-slug>]`. The upper-tier seat polls down via unified poll (§7.3) and responds on the same ticket within poll cadence (~5 min default). This is the cross-tier-coordination-meets-in-lower-tier pattern (§7.5 + `MAJOR_POLYBIUS.md` §7.1).
+
+The same tag pair is also used for in-tier peer addressing (e.g., user-tier POLYBIUS addressing project-tier POLYBIUS on a project-tier coordination ticket: `[for: polybius-the-stoa] [from: user-tier-polybius]`) — Arc 36 promoted the convention to bidirectional. The `[from:]` tag is mandatory on every addressed comment per §7.1 beat 5; see §7.7 for the parsing procedure that consumes both tags.
 
 PRINCIPAL is exception-handler:
 
@@ -201,6 +213,36 @@ User-tier descends; project-tier never ascends. The same recursive asymmetry app
 ### 7.6 Empirical lineage
 
 The radio-check + adaptive-cadence + unified-poll + write-boundary disciplines surfaced together during the ariadne--m20 autonomous-mode coordination on 2026-05-04. The lived sequence (handshake, heartbeats, write-boundary catch by PRINCIPAL, closure handshake) is the case study; this section is its codification. Promoted to substrate so every future POLYBIUS-pair coordination inherits the protocol on install rather than re-discovering it.
+
+### 7.7 bw-timeline parsing: author-attribution via tags
+
+When a POLYBIUS peer reads a bw timeline to compute "last own activity" / "last peer activity" / "missed-check threshold" (§7.1 beats 2 and 3), the attribution step is load-bearing. A misattributed comment causes silent coordination stalls — the failure mode that surfaced in the 2026-05-04 stoa--e39 empirical (project-tier POLYBIUS attributed a `[for: POLYBIUS_the_stoa]` peer comment as own self-heartbeat; ~25-min review-handoff stall before the misread was caught).
+
+**Parse-by-tag, not by inference.** Every POLYBIUS coordination comment carries a `[from: <seat-slug>]` or `[radio-check <seat-slug>]` tag per §7.1 beat 5. Read the tag first; do NOT infer authorship from timestamp, content pattern, or position. Timestamp-and-content inference is exactly what failed in the e39 empirical.
+
+**Procedure (executed per fire of the polling cron — encoded mechanically at `substrate/templates/polling-cron-prompt-template.md` STEP 1.5):**
+
+For each new comment in the timeline since the last fire, extract the leading tag and classify into one of four cases:
+
+1. **`[radio-check <slug>]`** — POLYBIUS heartbeat by `<slug>`. Slug-match against `{{SELF_SEAT_SLUG}}` and `{{PEER_SEAT_SLUG}}` (lowercase, hyphenated, whitespace-tolerant comparison): on self-match, this is own heartbeat → contributes to `last_self_activity`. On peer-match, this is peer heartbeat → contributes to `last_peer_activity`.
+
+2. **`[for: <slug-Y>] [from: <slug-X>]`** — addressed POLYBIUS comment by `<slug-X>` to `<slug-Y>`. Same slug-match procedure: `<slug-X>` self-match contributes to `last_self_activity`; `<slug-X>` peer-match contributes to `last_peer_activity`. The `<slug-Y>` recipient tag is advisory for readers — it does NOT enter timeline-arithmetic.
+
+3. **`[from: <slug-X>]`** — own-bw substantive POLYBIUS comment by `<slug-X>`, no specific recipient. Same slug-match: self-match → `last_self_activity`; peer-match → `last_peer_activity`.
+
+4. **Untagged, OR tag-slug does not match a known POLYBIUS slug** — non-POLYBIUS comment (PLINY phase status, CAPTAIN verdicts, pair-programmer outputs, legacy pre-Arc-36 POLYBIUS comments). These are SUBSTANCE comments — they do NOT enter `last_self_activity` / `last_peer_activity` timeline-arithmetic. They may be substance-load-bearing for OTHER reads (the substantive content of the comment is read for its own value); they simply do not contribute to coordination-attentiveness signals.
+
+**Compute peer-silence threshold and self-heartbeat-due timing from tagged-POLYBIUS comments only.** This is the load-bearing rule: only case-1, case-2, and case-3 (with slug-match) contribute timestamps to `last_self_activity` / `last_peer_activity`. Case-4 comments do NOT.
+
+**Why non-POLYBIUS comments are excluded.** PLINY / CAPTAIN comments are SUBSTANCE comments (gauntlet phase status, ambiguity surfaces, dispatch results) — not coordination-attribution comments. Including them in `last_peer_activity` would defeat the radio-check protocol (peer-silence threshold would never fire because PLINY comments would mask actual POLYBIUS silence). The protocol intentionally tracks POLYBIUS-on-POLYBIUS attentiveness as a separate signal from team activity-volume.
+
+**Self-misattribution guard.** Never assume the most recent comment is "yours" by timestamp proximity. Always verify by tag-slug match. The e39 empirical was precisely this misattribution shape.
+
+**Worked example (Arc 36 itself).** Arc 36 IS the first worked example under this canon. During this arc's coordination on `stoa--jru`, POLYBIUS_the_stoa's heartbeats carry `[from: polybius-the-stoa]` per §7.1 beat 5; cross-tier comments to user-tier POLYBIUS carry `[for: user-tier-polybius] [from: polybius-the-stoa]`. A peer reading the stoa--jru timeline applies this §7.7 procedure to attribute each coordination comment without inference.
+
+**N=1 provenance (per §6.7.1).** The empirical anchor is single — the 2026-05-04 stoa--e39 misread (~25-min stall). Informal-partial-adoption of `[radio-check <slug>]` tags has been in practice across Arcs 32-35 (N=4 bit-by-it of the legacy form). Worked-when-applied with full canon is N=0 prior to Arc 36; Arc 36's self-application is the first observation. Future arcs operating under §7.7 + §7.1 beat 5 either succeed and accrete the worked-when-applied count, or surface a fresh failure mode and surface back to the canon-promotion gate per §6.7.1. The fix is in canon NOW because PRINCIPAL declared (under the no-deferrals stance, 2026-05-17) and the e39 empirical is a single concrete bit-by-it; structural-lesson status accretes over future engagement-evidence per §6.7.1.
+
+**Future scope.** Extending the convention to PLINY / CAPTAIN / pair-programmer Majors (i.e., promoting case-4 attribution to first-class timeline-arithmetic) is hard-locked OUT of Arc 36 per A2.5 + A14. A future arc may extend with explicit scope expansion if a recurring gauntlet-pacing failure mode surfaces. The mechanical-enforcement layer (pre-comment hook, CI lint) is also hard-locked OUT per A14 — Arc 36 ships prose canon + parser-step template per §27's mechanical-narrow + agent-inspection pattern; mechanical enforcement is a future arc IF non-compliance recurs.
 
 ---
 
@@ -413,6 +455,181 @@ When a seat detects an autonomous-mode trigger that applies to itself (bare trig
 - MAJOR_PLINY: poll own bw + the dispatched ticket(s) during gauntlet rounds (per `MAJOR_PLINY.md` §6.2 surface-and-wait pattern).
 
 The cron prompt body comes from `substrate/templates/polling-cron-prompt-template.md`; fill the slots per the engagement.
+
+**1.5 Schedule renewal.** Polling crons created via `CronCreate` have a documented expiry of 168 hours (7 days) for recurring tasks per Claude Code docs (https://code.claude.com/docs/en/scheduled-tasks §Seven-day expiry: "Recurring tasks automatically expire 7 days after creation. The task fires one final time, then deletes itself."). To prevent silent loss of the polling cron on multi-day engagements, schedule a one-shot renewal cron at +144 hours (= 168 - 24h buffer) from polling-cron creation. The 24h buffer (= `{{RENEWAL_BUFFER_HOURS}}`) absorbs renewal-fire jitter, session-offline windows, and clock skew. (One-shot tasks are not subject to the 7-day cap — the cap applies only to recurring tasks per the docs; one-shot tasks expire when their scheduled time passes.)
+
+**Renewal-cron prompt body — engagement-specific, slot values inline.** The renewal-cron prompt body is generated at autonomous-mode-setup time with ALL slot values pre-substituted (no template-reference at fire time). The substituted body carries: every slot the polling cron carries (so a replacement polling cron can be re-created from it deterministically); the polling cron's id (`{{POLLING_CRON_ID}}` — for deterministic self-discovery at fire time); and the renewal-cron's own next-renewal scheduling parameters.
+
+Renewal-cron prompt body template (substitute at setup time, not at fire time):
+
+````
+[scheduled renewal fire — {{SELF_SEAT_SLUG}} polling-cron rotation on
+{{COORDINATION_TICKET}}; current polling cron {{POLLING_CRON_ID}};
+renewal cron self]
+
+STEP 1 — find current polling cron (deterministic).
+CronList; find the entry whose cron-id == {{POLLING_CRON_ID}}.
+(Exact-match on cron-id, not text-search on prompt-body — the CronList
+prompt-body display is truncated to ~80 chars and is not load-bearing
+for matching.) If the cron is not found in CronList: see STEP 1a.
+
+STEP 1a — polling-cron-missing branch (session-lifecycle no-op; rev5
+terminating-shape: explicit self-CronDelete REMOVED).
+If {{POLLING_CRON_ID}} is absent from CronList, this renewal cron has
+outlived its paired polling cron — almost certainly because the polling
+cron died on a session-lifecycle event (fresh conversation, /clear,
+session exit). (With F4 shipped, cadence-switch rotations of the
+polling cron also rotate THIS renewal cron in lock-step at the polling-
+cron-template STEP 4 site, so a cadence-switch can no longer be the
+cause of {{POLLING_CRON_ID}}-not-in-CronList.) The correct response is
+no-op AND exit: post a single bw comment on {{COORDINATION_TICKET}}
+noting the orphan-renewal observation, then exit. No explicit
+self-CronDelete is needed — this renewal cron was CronCreate'd with
+recurring: false (one-shot), and per Claude Code docs
+(https://code.claude.com/docs/en/scheduled-tasks "Set a one-time
+reminder" section: "Claude schedules a single-fire task that deletes
+itself after running") the cron is removed by the runtime after this
+fire completes. The polling cron will be re-created when
+{{SELF_SEAT_NAME}} next re-enters autonomous mode at the operator's
+next session activation (per MAJOR_POLYBIUS.md §9 step 7 long-running-
+engagement polling re-setup, which requests PRINCIPAL consent; OR per
+MAJOR_POLYBIUS.md §13.4 step 2 if PRINCIPAL re-issues the autonomous-
+mode trigger); that re-entry will create a fresh renewal cron paired
+with the fresh polling cron via this same §11 step 1.5. Comment to post:
+  bw comment {{COORDINATION_TICKET}} "[from: {{SELF_SEAT_SLUG}}] renewal
+  cron fired without a paired polling cron (id {{POLLING_CRON_ID}} not
+  in CronList — session-lifecycle event likely; cadence-switch path
+  ruled out by F4 lock-step rotation). Exiting; one-shot auto-delete
+  removes this cron from the session per Claude Code docs. Awaiting next
+  autonomous-mode entry per MAJOR_POLYBIUS.md §9 step 7 (PRINCIPAL
+  consent required) or §13.4 (PRINCIPAL re-trigger)."
+Exit.
+
+STEP 2 — CronCreate replacement polling cron.
+CronCreate a NEW recurring cron with cadence {{CADENCE}} and the
+polling-cron prompt body with slot values inline (the same engagement-
+specific body the original polling cron carried — slot values are pre-
+substituted into this renewal-cron prompt at setup time and carried
+inline through fire). The polling cron's {{RENEWAL_CRON_ID}} slot is
+substituted with the OLD/current paired renewal cron's id (i.e., the
+renewal cron currently executing this STEP — which will self-clean
+via one-shot auto-delete after this fire per Claude Code docs); the
+slot will be re-bound to the live <new_renewal_cron_id> in STEP 4a
+(rev5 hygiene optimization). Let the returned id be <new_polling_cron_id>.
+
+STEP 3 — CronDelete {{POLLING_CRON_ID}} (the now-superseded polling cron).
+Post on {{COORDINATION_TICKET}}:
+  bw comment {{COORDINATION_TICKET}} "[from: {{SELF_SEAT_SLUG}}] cron
+  renewed: superseded {{POLLING_CRON_ID}} with <new_polling_cron_id>;
+  cadence {{CADENCE}} unchanged."
+
+STEP 4 — CronCreate next renewal one-shot (LOCAL-TIME arithmetic).
+Compute the next-renewal fire time in LOCAL time:
+  next_renewal_local = NOW (interpreted in local tz) + 144 hours.
+Per Claude Code docs https://code.claude.com/docs/en/scheduled-tasks:
+"All times are interpreted in your local timezone." A cron expression
+emitted from UTC arithmetic would fire at the wrong wall-clock moment
+by the UTC-local offset (potentially up to ~12h off the intended +144h
+window, eroding the 24h buffer). Always compute and emit in local time.
+CronCreate a one-shot cron with cron-expression for next_renewal_local,
+recurring: false, durable: true. The prompt body for this new renewal
+is THIS SAME renewal-cron prompt body with ONE substitution:
+  - replace {{POLLING_CRON_ID}} with <new_polling_cron_id>
+The {{RENEWAL_CRON_ID}} slot inside the renewal cron's own body is no
+longer consumed at fire time (STEP 1a removed the self-CronDelete that
+was its only reader); it may be left as a placeholder marker, as its
+old value, or removed entirely — its value is now informational only
+and ADA-discretion. All other slot values carry through unchanged.
+Let the returned id be <new_renewal_cron_id>.
+
+STEP 4a — re-bind the new polling cron's {{RENEWAL_CRON_ID}} slot
+(F4 lock-step composition; best-effort framing).
+The new polling cron created in STEP 2 was substituted with a "best-
+effort cleanup id" placeholder for {{RENEWAL_CRON_ID}} (the slot's
+semantics — see polling-cron-prompt-template.md substitution-slot
+table). To keep the polling cron's cadence-switch STEP 4.1 best-effort
+`CronDelete {{RENEWAL_CRON_ID}}` pointing at the live renewal cron
+(so the explicit delete actually succeeds rather than relying on
+one-shot auto-delete as the fallback), CronDelete <new_polling_cron_id>
+and CronCreate it AGAIN with {{RENEWAL_CRON_ID}} = <new_renewal_cron_id>.
+Let the returned id be <final_polling_cron_id>. The re-bind is a
+hygiene optimization — the cron pair survives without it (STEP 4.1's
+CronDelete no-ops on the stale id; the orphan renewal cron self-cleans
+via one-shot auto-delete at +144h) — but the re-bind keeps the
+cadence-switch path tidy and avoids accumulating short-lived orphan
+renewal crons inside an engagement that cadence-switches frequently.
+SHIP STEP 4a.
+
+STEP 5 — log renewal-chain extension.
+Post on {{COORDINATION_TICKET}}:
+  bw comment {{COORDINATION_TICKET}} "[from: {{SELF_SEAT_SLUG}}] renewal
+  chain extended: new polling cron <final_polling_cron_id>; next renewal
+  cron <new_renewal_cron_id> (one-shot at +144h LOCAL, durable: true).
+  Polling cron carries new renewal id in {{RENEWAL_CRON_ID}} slot for
+  best-effort cleanup on cadence-switch; renewal cron's own
+  {{RENEWAL_CRON_ID}} slot is informational-only per terminating-shape
+  (no fire-time consumer)."
+
+Exit.
+````
+
+**Renewal-cron CronCreate parameters (load-bearing).**
+- `cron`: a 5-field expression evaluating to +144h from polling-cron creation, computed in the operator's LOCAL timezone (per Claude Code docs https://code.claude.com/docs/en/scheduled-tasks "All times are interpreted in your local timezone"). Compute the wall-clock time in local tz and emit the cron expression for that single minute. Example: if polling cron is created at local time `2026-05-17 17:50` (operator's local tz, NO Z suffix — Z would imply UTC and mis-fire by the local-UTC offset), renewal cron fires at local time `2026-05-23 17:50`; emit cron expression `50 17 23 5 *` (minute=50, hour=17, day=23, month=5, any-day-of-week). NO Z suffix on either timestamp.
+- `recurring`: `false` (one-shot — the renewal fires once, performs STEPs 1-5, and exits; the next renewal in the chain is created inside STEP 4).
+- `durable`: `true`. Documented in the `CronCreate` tool schema as "persist to .claude/scheduled_tasks.json and survive restarts." See the failure-mode acceptance below for the open bug at design time and why the design encodes `durable: true` as honest-intent rather than load-bearing recovery.
+
+Record both cron ids (initial polling cron + first renewal cron) in the radio-check initialization handshake on the coordination ticket per §7.1 beat 1. Subsequent renewal-fire rotations log to the same ticket per STEPs 3 and 5 above.
+
+**Slot-lifecycle note (terminating-shape; minimum-CronCreate-count setup).** The polling-cron template gains TWO substitution slots that support the lock-step composition with the cadence-switching pattern (per the polling-cron-prompt-template STEP 4 extension): `{{RENEWAL_CRON_ID}}` and `{{RENEWAL_CRON_PROMPT_BODY}}`. The setup-time dance populates both slots via a chicken/egg-resolving sequence.
+
+The lifecycle has two layers. Layer 1 is the prompt-body literal itself — the renewal-cron prompt body is generated at autonomous-mode setup time with all engagement-specific slot values pre-substituted (the inline-slot-values shape), then captured as a literal string. Layer 2 is the cron-id cross-references between the two crons — the renewal cron needs to know the polling cron's id (used at STEP 1 exact-match self-discovery; load-bearing); the polling cron carries the renewal cron's id as a best-effort cleanup hint in its `{{RENEWAL_CRON_ID}}` slot (used at cadence-switch STEP 4.1 to CronDelete the paired renewal cron; tolerates stale id per the terminating-shape acceptance below).
+
+**Terminating-shape — load-bearing structural property.** Earlier revisions of the renewal design grew a multi-step re-bind dance out of a chicken/egg dependency that no longer exists: the renewal cron's STEP 1a explicit self-CronDelete required the renewal cron's body to carry its own id as an inline slot value, which forced the dance to re-bind the polling cron AND the renewal cron with mutually-known ids — generating an infinite re-bind regress at the polling cron's two RENEWAL-pointing slots. With one-shot auto-delete confirmed reliable per Claude Code docs (https://code.claude.com/docs/en/scheduled-tasks "Set a one-time reminder": "Claude schedules a single-fire task that deletes itself after running"), the renewal cron's STEP 1a no longer needs an explicit self-CronDelete; the runtime removes the cron after fire completes. This removes the renewal cron's RENEWAL_CRON_ID-in-own-body dependency entirely and collapses the setup dance to 4-step minimum and the cadence-switch dance to 2-step minimum (per the polling-cron-prompt-template STEP 4).
+
+**Setup-time ordering (terminating-shape — 4-step minimum CronCreate count).** Two ids must be threaded through the dance: the renewal cron's body needs the LIVE polling cron's id (load-bearing for STEP 1 self-discovery) and the polling cron's `{{RENEWAL_CRON_ID}}` slot needs the live renewal cron's id (best-effort cleanup; tolerates staleness). The renewal cron's own id is no longer threaded into its own body (STEP 1a's explicit self-CronDelete removed; one-shot auto-delete handles cleanup). The 4-step dance is the minimum that resolves both required threadings without infinite regress.
+
+  0. Generate the renewal-cron prompt body literal text from the renewal-cron template above (the renewal-cron STEPs 1-5 block). Substitute ALL engagement-specific slot values inline EXCEPT the polling-cron cross-reference + cadence, which become PLACEHOLDERS at this stage:
+       `{{POLLING_CRON_ID}}` = `<PLACEHOLDER:POLLING_CRON_ID>`
+       `{{CADENCE}}` = `<PLACEHOLDER:CADENCE>` (for STEP 4.2 cadence-switch re-substitution at fire time)
+     The renewal cron's own `{{RENEWAL_CRON_ID}}` slot is ADA-discretion (no fire-time consumer): pass through as a placeholder, leave as the template default, or omit; the renewal cron does not consume the value at fire time. Capture the substituted-with-placeholders literal as `RENEWAL_CRON_PROMPT_BODY_LITERAL` for use in subsequent steps.
+  1. CronCreate polling cron with `{{RENEWAL_CRON_ID}}` = `<PLACEHOLDER:RENEWAL_CRON_ID>` (placeholder; re-bound in step 3) and `{{RENEWAL_CRON_PROMPT_BODY}}` = `RENEWAL_CRON_PROMPT_BODY_LITERAL`.
+     → returned id = `<polling_id_v1>`
+  2. CronCreate renewal cron with prompt body = `RENEWAL_CRON_PROMPT_BODY_LITERAL` with `<PLACEHOLDER:POLLING_CRON_ID>` → `<polling_id_v1>` and `<PLACEHOLDER:CADENCE>` → the engagement cadence. recurring: false; +144h LOCAL cron expression per the renewal-cron STEP 4 arithmetic.
+     → returned id = `<renewal_id_v1>`
+  3. CronDelete `<polling_id_v1>`; CronCreate polling cron AGAIN with the same body except `{{RENEWAL_CRON_ID}}` = `<renewal_id_v1>`. `{{RENEWAL_CRON_PROMPT_BODY}}` is the same literal from step 1 (still carries `<PLACEHOLDER:POLLING_CRON_ID>` + `<PLACEHOLDER:CADENCE>` markers — that is correct, the polling cron uses this slot ONLY for STEP 4.2 cadence-switch re-substitution, not at any current-fire-time consumer).
+     → returned id = `<final_polling_id>`
+  4. CronDelete `<renewal_id_v1>`; CronCreate renewal cron AGAIN with body = `RENEWAL_CRON_PROMPT_BODY_LITERAL` with `<PLACEHOLDER:POLLING_CRON_ID>` → `<final_polling_id>` and `<PLACEHOLDER:CADENCE>` → cadence. recurring: false; the +144h LOCAL cron expression (re-computed from "now" at step 4 — minutes of setup latency are absorbed by the 24h buffer).
+     → returned id = `<final_renewal_id>` (this is the renewal cron that goes into the radio-check initialization handshake; the `<final_polling_id>` is the polling cron)
+
+The 4-step dance is the terminating shape. Extending to 5 steps with a re-CronCreate of the polling cron AGAIN to bind `{{RENEWAL_CRON_ID}}` to `<final_renewal_id>` would return `<truly_final_polling_id>`, which the renewal cron's body does NOT carry — its STEP 1 would then fail at +144h. Fixing that requires step 6 = re-CronCreate renewal cron with `<truly_final_polling_id>`, which returns `<truly_final_renewal_id>`, which the polling cron does NOT carry. Infinite regress. The terminating shape stops at 4 steps with explicit acceptance of the one-time polling-cron-slot stale-id residual: the polling cron `<final_polling_id>` carries `{{RENEWAL_CRON_ID}}` = `<renewal_id_v1>` (DEAD; CronDeleted in step 4). At the first cadence-switch, STEP 4.1's `CronDelete {{RENEWAL_CRON_ID}}` against the dead id no-ops gracefully; the live `<final_renewal_id>` is orphaned-relative-to-the-polling-cron's-slot but self-cleans via one-shot auto-delete at +144h. The slot converges to a LIVE id only at the +144h renewal-chain extension event via the renewal cron's STEP 4a hygiene re-bind.
+
+(Implementation note: the placeholder-substitution approach above treats the prompt body as a string-templating exercise — substitute literal `<PLACEHOLDER:POLLING_CRON_ID>` and `<PLACEHOLDER:RENEWAL_CRON_ID>` markers with the returned cron ids at the moment they are known. ADA may choose any equivalent representation — `{{POLLING_CRON_ID}}`-style braces with a sentinel value, named-group regex substitution, or any other deterministic mechanism — as long as the post-substitution body contains the actual cron ids literally and the un-substituted placeholder cannot survive into a CronCreate prompt that an executing renewal cron would read.)
+
+**Failure-mode acceptance (broader than a single-failure-mode framing).** The renewal mechanism protects against the +168h cron-expiry boundary. It does NOT, by itself, protect against session-lifecycle events:
+
+1. **Cron-expiry boundary (the +168h window).** Addressed by the renewal chain: at +144h the renewal cron fires, rotates the polling cron, and schedules the next renewal at +144h-from-now. Steady-state continuous protection while the session stays alive and active.
+
+2. **Renewal-chain break across multi-day continuous outage.** If the session is offline through BOTH the renewal fire AND the +168h cron expiry that follows (only possible when an autonomous engagement is left offline for > 6 days), the polling cron expires before the next renewal fires. Recovery is via peer-side radio-check escalation per §7.1 beat 3 (> 60-min peer-silence threshold fires; peer surfaces "lost contact with `<peer>`" to PRINCIPAL).
+
+3. **Session-lifecycle event — fresh conversation, /clear, session exit.** Per Claude Code docs (Limitations section): "Starting a fresh conversation clears all session-scoped tasks. Resuming with `claude --resume` or `claude --continue` restores tasks that have not expired." Per `MAJOR_POLYBIUS.md` §7.4: polling crons are session-only (`durable: false` by default) and die when the session exits. The renewal cron uses `durable: true` as honest intent (documented tool-schema parameter; would survive session restart when working) — but is subject to the open bug at anthropics/claude-code issue #40228 (opened 2026-03-28, unresolved at design time) where `durable: true` does not currently persist.
+
+   **Recovery path (load-bearing; works regardless of the durable bug; PRINCIPAL-consent-required, NOT transparent re-bootstrap):** the polling cron is session-only by canon; when the session exits or a fresh conversation starts, both the polling cron and the renewal cron are lost. Recovery is NOT transparent. The load-bearing recovery cite is `MAJOR_POLYBIUS.md` §9 step 7 (Activation checklist long-running-engagement entry): "If this engagement is long-running (multi-session arc work, cross-tier coordination, an active PLINY in a separate session): **request PRINCIPAL consent and set up a polling cron per §7.4**." On the operator's next session activation, POLYBIUS executes §9 of the activation checklist, which (a) reads bw state, (b) detects an open coordination ticket on a long-running engagement, (c) **requests PRINCIPAL consent** to re-setup the polling cron, (d) on consent, runs the §11 setup checklist including this step 1.5, which creates a NEW polling cron paired with a NEW renewal cron. The renewal mechanism is re-bootstrapped from a clean slate. Alternative recovery path: PRINCIPAL re-issues the autonomous-mode trigger ("go autonomous on this work") — `MAJOR_POLYBIUS.md` §13.4 step 2 detects the trigger and routes through the same §11 setup checklist. Both paths converge on §11 step 1.5; both require PRINCIPAL action (consent OR trigger). Neither is transparent.
+
+   If a renewal cron from a prior session survives (durable bug eventually fixed) and fires in a session that has already created a fresh polling cron via §9 step 7 or §13.4 re-entry, STEP 1a's no-op-and-exit branch handles the orphan-renewal cleanly — the renewal cron posts the orphan-observation comment and exits; one-shot auto-delete per Claude Code docs removes the cron from the session after fire completes, so the stale chain does not perpetuate alongside the fresh chain.
+
+   The session-lifecycle failure mode is therefore NOT a multi-day outage — it is any fresh-conversation start at any time, recovered consent-mediated (not transparent) by the operator's next session activation running §9 step 7 (or by PRINCIPAL's autonomous-mode re-trigger routing §13.4 step 2). The renewal mechanism does not need to protect against it directly; it composes with the §9 step 7 / §13.4 recovery paths. STEP 1a's no-op-and-exit is the seam where the orphan-renewal-from-prior-session meets the fresh chain.
+
+4. **Cadence-switch × renewal composition.** Without the lock-step rotation fix, polling-cron-template STEP 4 cadence-switch (CronDelete old + CronCreate new at new cadence) would leave the paired renewal cron's inline `{{POLLING_CRON_ID}}` + `{{CADENCE}}` slot values stale. At +144h the renewal cron's STEP 1 exact-match would no-op AND STEP 1a would mis-classify the case as session-lifecycle (the polling cron is alive at the new id, not session-dead) AND the replacement polling cron from the cadence-switch would have no successor renewal cron. The renewal chain dies silently AND the new chain never starts. Recovery: same as scenario 3 above (peer-side radio-check on >60 min self-silence, then PRINCIPAL-consent-mediated re-setup) — but AFTER silent expiry of the new polling cron at +168h. The polling-cron-template STEP 4 lock-step rotation fix eliminates this scenario by rotating BOTH crons in lock-step: cadence-switch CronDeletes old polling AND old renewal, CronCreates new polling AND new renewal, with cross-referenced slot values populated per the slot-lifecycle note above. With the fix shipped (and the `{{RENEWAL_CRON_PROMPT_BODY}}` slot supplying the source so STEP 4.2 can CronCreate deterministically), cadence-switching composes cleanly with the renewal mechanism.
+
+   **Partial-failure-state surface of the cadence-switch dance.** The terminating-shape cadence-switch is a TWO CronCreate-operation dance per cadence-switch (STEP 4.1 polling rotate → STEP 4.2 renewal rotate; no re-bind sub-steps — one-shot auto-delete handles orphan cleanup; polling cron's `{{RENEWAL_CRON_ID}}` slot tolerates one-cycle staleness per the best-effort semantics). If the polling cron's prompt-body execution is interrupted between STEP 4.1 and STEP 4.2 (session crash, tool failure mid-fire, context exhaustion within the fire), the cron pair is left in an intermediate state — e.g., STEP 4.1 completes leaving a new polling cron alive with stale `{{RENEWAL_CRON_ID}}` pointing at the just-CronDelete'd old renewal cron, and no live paired renewal cron at all (the `<new_renewal_cron_id>` that STEP 4.2 would have created is never created). Recovery from any such partial-failure state is via the SAME peer-side radio-check escalation surface as the broader cron-mechanism-failure modes: §7.1 beat 3 — when the self-silence threshold (>60 min) trips on the polling-cron side, the peer POLYBIUS surfaces "lost contact with `<peer>`" to PRINCIPAL, and PRINCIPAL re-issues the autonomous-mode trigger (routing through `MAJOR_POLYBIUS.md` §13.4 step 2 → §11 setup checklist including step 1.5), OR the operator's next session activation runs `MAJOR_POLYBIUS.md` §9 step 7 (long-running-engagement polling re-setup; PRINCIPAL-consent-required). Either path converges on a clean §11 setup that creates a fresh polling-cron + renewal-cron pair from scratch, discarding any intermediate-state artifacts — the orphan renewal cron from the partial state self-cleans via one-shot auto-delete at +144h (terminating-shape; no explicit cleanup needed). No new recovery infrastructure is required — the broader cron-mechanism failure-mode recovery surface already covers this partial-failure-state shape. The cost is the same as scenario 3: PRINCIPAL-consent-required, not transparent; recovery latency is bounded by the >60 min peer-silence threshold + the operator's next-session activation cadence.
+
+No additional watchdog cron ships — the alternative (peer-side renewal monitoring, separate watcher cron, double-cron belt-and-suspenders) adds the same coordination-dependency problems Option 2 was rejected for in the A7 decision matrix. Bounded staleness is acceptable; protocol-induced bugs cost more. The renewal cron is the per-seat unilateral mechanism; §9 step 7 / §13.4 re-entry is the cross-session-lifecycle mechanism; polling-cron-template STEP 4 lock-step rotation is the cadence-switch composition mechanism; together they cover the failure modes the design accepts.
+
+This mirrors the per-seat-unilateral cadence-switching pattern in §7.2 ("Cadence-switching is per-seat unilateral. Each peer reads complexity tags on incoming comments and adjusts ITS OWN cron"). Each seat renews its OWN polling cron unilaterally; no cross-seat renewal coordination exists.
+
+Cross-ref to template: the polling-cron-prompt template at `substrate/templates/polling-cron-prompt-template.md` does NOT carry in-fire renewal logic — cron-expiry handling lives in this step 1.5 instead. See the end-of-file pointer note at the template for the back-cite. The template's STEP 4 cadence-switch path performs the lock-step rotation of both crons per the slot-lifecycle note above; the template's substitution-slot table carries `{{RENEWAL_CRON_ID}}` + `{{RENEWAL_CRON_PROMPT_BODY}}` to support the composition.
+
+Cross-ref to recovery paths: `MAJOR_POLYBIUS.md` §9 step 7 (long-running-engagement polling re-setup, PRINCIPAL-consent-required) is the load-bearing recovery path for session-lifecycle loss of the cron pair on the operator's next session activation while autonomous-mode is still desired. `MAJOR_POLYBIUS.md` §13.4 step 2 (autonomous-mode trigger detection → §11 setup) is the recovery path when PRINCIPAL re-issues the autonomous-mode trigger. Both converge on the §11 setup checklist including this step 1.5. The §13.4 note carried by Arc 36 closes the loop by mentioning renewal-cron presence as part of setup-complete confirmation.
 
 **2. Radio-check pattern with peer seats** (per §7.1):
 
