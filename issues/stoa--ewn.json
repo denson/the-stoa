@@ -30,11 +30,15 @@
     {
       "text": "pass: integrated design for C1-C5 written at agents/design/arc-32/design.md (655 lines). **C3 locus pick: Option α** (MAJOR_PLINY.md §5.10 alongside §5.9; PLINY does virtually all signoffs in this gauntlet; thin cross-ref bullet added to operating-disciplines.md §24 family). **C5 option pick: Option A** (require separate worktree at .claude/worktrees/arc-N-build/; encoded at MAJOR_PLINY.md §5.9.4 with cleanup convention git worktree remove + git branch -D + git push origin --delete). Both sub-decisions within DAEDALUS A4/A6 discretion; no §25 PRINCIPAL-gate raised. 7 self-assessed weak points named in design §5 — worth ARGUS attention: (1) C1's depth-5 nesting at §5.1.1.1; (2) C2 carrier-3 creates a third thin-cross-ref section in §24/§26 family; (3) C3's cleanup-categories enumeration extends beyond empirically-anchored verbs; (4) §19.6-vs-§19.2-pattern-2 distinction; (5) C5 Option A rigidity vs single empirical anchor; (6) build-order coupling C3↔C4↔C5 reciprocal cross-refs (recommended apply-order documented); (7) §24 bullet-list pre-condition assumption. Returning.",
       "timestamp": "2026-05-17T18:45:41Z"
+    },
+    {
+      "text": "ARGUS activated on stoa--ewn at 2026-05-17. Reading design artifact (655 lines) end-to-end + locked directive (A1-A11) + substrate files (POLYBIUS §5.1, PLINY §5.9, ops-disc §19/§24/§25, paste-template) before audit. Note: envelope omits Write/Edit (structural per §4); verdict returned as final assistant message per CAPTAIN standby contract — no argus-verdict.md will be written. Verdict block also posted as bw comment here at completion.",
+      "timestamp": "2026-05-17T18:46:23Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch — §5.1.1 extension + cron-hygiene canon + PLINY-signoff-accuracy + attestation-confabulation",
   "type": "task",
-  "updated_at": "2026-05-17T18:45:41Z"
+  "updated_at": "2026-05-17T18:46:23Z"
 }
