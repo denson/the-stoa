@@ -50,11 +50,15 @@
     {
       "text": "DAEDALUS rev2 complete: design.md updated in-place (655 → 805 lines; surgical edits only, no rewrite). All 6 ARGUS risks addressed. R1 (high) — added Edit 3a under §3.2 Carrier 3 specifying narrow §24 prose edit (PLINY-only-branch-creating, back-pointer to §26); §4.6 probe added. R2 (high) — added Edit 4b under §3.4 specifying §19.4 append-paragraph enumerating §19.6 as sub-discipline; cite-comment line 369 rewritten to drop transitive-inheritance confabulation; §4.6 probe added. R3 (high) — §3.3 + §3.5 both now name canonical post-build order (§5.9.3 → §5.9.4 → §5.10 → --- → §6); §4.5 rev2 probes enforce relative line-number ordering for §5.9.4 \u003c §5.10 \u003c §6; weak point 6 now explicitly acknowledges insertion-window collision as ordering hazard (b). R4 (med-high) — §3.1 categorical-exception paragraph added naming C1's depth-5 in-place-refinement shape as structural-necessity exception to provenance shape (depth-6 would be unreadable); §4.7 probe rationale rewritten to cite structural reason not probe-author convenience. R5 (med) — §4.2 slot-explanation paragraph identity probe added; §4.6 split into 7 per-depth probes catching depth-typo regressions; §4.7 split into 3 per-file probes catching all-in-one-file regression; §4.6 C3↔C4 reciprocal cross-ref content probes added matching canonical cite-phrases. R6 (med) — §3.5 rationale rewritten with explicit honest-qualification paragraph naming predicate-knowability difference between §5.1.2 (POLYBIUS at paste-fill, low knowability) and §5.9.4 (PLINY at branch-creation, high moment-of-decision knowability but low duration-knowability); defense reframed to structural-shape not identity. Authorship (A8) + out-of-scope (A9) unchanged. No residual unaddressed risks. Status line bumped to 'rev2 — addresses ARGUS rev1 R1-R6; AWAITING ARGUS rev2 audit'. Returning to PLINY.",
       "timestamp": "2026-05-17T18:50:47Z"
+    },
+    {
+      "text": "ARGUS rev2 activated on stoa--ewn at 2026-05-17. Focused REV2 audit (not full re-audit). Reading rev1 verdict (own R1-R6) + rev2 design.md (805 lines) end-to-end. Will verify each of R1-R6 is genuinely closed (substance + no new risk introduced). Envelope omits Write/Edit; verdict returned as final assistant message + posted here at completion.",
+      "timestamp": "2026-05-17T18:51:22Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch — §5.1.1 extension + cron-hygiene canon + PLINY-signoff-accuracy + attestation-confabulation",
   "type": "task",
-  "updated_at": "2026-05-17T18:50:47Z"
+  "updated_at": "2026-05-17T18:51:22Z"
 }
