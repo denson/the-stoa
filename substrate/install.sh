@@ -985,9 +985,9 @@ total_custom=$((custom_captain_count + custom_template_count + custom_skill_coun
 if [ "$total_custom" -gt 0 ]; then
   echo
   echo "Custom files coexist at convention paths (not touched by substrate):"
-  [ "$custom_captain_count"  -gt 0 ] && echo "  - ${custom_captain_count}  custom CAPTAIN(s) at ${DEST_AGENTS_DIR}/custom/"
-  [ "$custom_template_count" -gt 0 ] && echo "  - ${custom_template_count} custom template(s) at ${DEST_TEMPLATES_DIR}/custom/"
-  [ "$custom_skill_count"    -gt 0 ] && echo "  - ${custom_skill_count}  custom skill(s) at ${DEST_SKILLS_DIR}/custom-*/"
+  [ "$custom_captain_count"  -gt 0 ] && printf '  - %-3s custom %s at %s\n' "${custom_captain_count}"  "CAPTAIN(s)"  "${DEST_AGENTS_DIR}/custom/"
+  [ "$custom_template_count" -gt 0 ] && printf '  - %-3s custom %s at %s\n' "${custom_template_count}" "template(s)" "${DEST_TEMPLATES_DIR}/custom/"
+  [ "$custom_skill_count"    -gt 0 ] && printf '  - %-3s custom %s at %s\n' "${custom_skill_count}"    "skill(s)"    "${DEST_SKILLS_DIR}/custom-*/"
 fi
 
 echo

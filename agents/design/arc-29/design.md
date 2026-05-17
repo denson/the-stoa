@@ -67,8 +67,8 @@ Three file classes; three different Claude Code discovery behaviors. The naive s
 
 Claude Code identifies subagents by YAML `name:` field, NOT by filename. If a custom CAPTAIN declares `name: CAPTAIN_DAEDALUS` (same as the base), one of the two files is silently dropped from the active roster — no warning. The substrate canon (D1 §3) MUST specify:
 
-- **Custom-agent `name:` fields use a distinct slug suffix.** The convention is `name: CAPTAIN_<MNEMONIC>_<custom-slug>` (e.g., `name: CAPTAIN_DEPLOYER_railway`). The filename mirrors the name for operator legibility. The `<custom-slug>` MUST NOT match the project slug `install.sh` already uses for project-tier base agents (e.g., a workspace named `railway_stoa` already has base `CAPTAIN_DAEDALUS_railway_stoa`; a custom agent at that workspace named `CAPTAIN_DAEDALUS_railway_stoa` would collide).
-- **Worked failure-mode example (canon prose):** operator authors `.claude/agents/custom/CAPTAIN_DAEDALUS.md` with frontmatter `name: CAPTAIN_DAEDALUS`. Claude Code's scan finds both this file and `.claude/agents/CAPTAIN_DAEDALUS.md` (base); both declare the same `name:`; one is silently dropped on session start. The custom agent intermittently activates or doesn't, depending on scan order. The operator's mental model — "I added a custom agent and it's not running" — never points at the collision because Claude Code emits no warning. Fix: rename to `CAPTAIN_DAEDALUS_<custom-slug>` in both the filename and the `name:` field.
+- **Custom-agent `name:` fields use a distinct slug suffix.** The convention is `name: CAPTAIN_<MNEMONIC>_<slug>` (e.g., `name: CAPTAIN_DEPLOYER_railway`). The filename mirrors the name for operator legibility. The `<slug>` MUST NOT match the project slug `install.sh` already uses for project-tier base agents (e.g., a workspace named `railway_stoa` already has base `CAPTAIN_DAEDALUS_railway_stoa`; a custom agent at that workspace named `CAPTAIN_DAEDALUS_railway_stoa` would collide).
+- **Worked failure-mode example (canon prose):** operator authors `.claude/agents/custom/CAPTAIN_DAEDALUS.md` with frontmatter `name: CAPTAIN_DAEDALUS`. Claude Code's scan finds both this file and `.claude/agents/CAPTAIN_DAEDALUS.md` (base); both declare the same `name:`; one is silently dropped on session start. The custom agent intermittently activates or doesn't, depending on scan order. The operator's mental model — "I added a custom agent and it's not running" — never points at the collision because Claude Code emits no warning. Fix: rename to `CAPTAIN_DAEDALUS_<slug>` in both the filename and the `name:` field.
 
 ### 2.4 Rejected alternatives (named for ARGUS's cold-audit context)
 
@@ -112,9 +112,9 @@ BASE files are deployed from substrate via `install.sh` and live at canonical pa
 |---|---|
 | MAJORs | `.claude/MAJOR_POLYBIUS*.md`, `.claude/MAJOR_PLINY*.md` (subproject-tier may carry `_<slug>` suffix per `install.sh` convention) |
 | Operating disciplines | `.claude/operating-disciplines.md` |
-| CAPTAINs | `.claude/agents/CAPTAIN_<MNEMONIC>*.md` (directly under `.claude/agents/`, NOT in any subdirectory) |
-| Templates | `.claude/templates/*.md` (directly under `.claude/templates/`, NOT in any subdirectory) |
-| Skills | `.claude/skills/<skill-name>/` (where `<skill-name>` does NOT start with `custom-`) |
+| CAPTAINs | `.claude/agents/CAPTAIN_*.md` (directly under agents/) |
+| Templates | `.claude/templates/*.md` (directly under templates/) |
+| Skills | `.claude/skills/<name>/` (where `<name>` does NOT start with `custom-`) |
 
 Substrate tooling — `install.sh`, `check.sh`, `apply.sh` — scopes its globs to these paths. The cite-comment at every scoping site references this section.
 
@@ -124,7 +124,7 @@ CUSTOM files are authored by the workspace's stoa team (operator + agents). Subs
 
 | Class | Custom path convention |
 |---|---|
-| Custom CAPTAINs | `.claude/agents/custom/CAPTAIN_<MNEMONIC>_<custom-slug>.md` |
+| Custom CAPTAINs | `.claude/agents/custom/CAPTAIN_<MNEMONIC>_<slug>.md` |
 | Custom skills | `.claude/skills/custom-<skill-name>/SKILL.md` |
 | Custom templates | `.claude/templates/custom/*.md` |
 
@@ -139,7 +139,7 @@ Claude Code identifies subagents by their YAML `name:` frontmatter field, NOT by
 - Filename: `.claude/agents/custom/CAPTAIN_DEPLOYER_railway.md`
 - Frontmatter: `name: CAPTAIN_DEPLOYER_railway`
 
-For workspaces deployed at project tier (where base CAPTAINs already carry a project-slug suffix like `CAPTAIN_DAEDALUS_railway_stoa`), the custom-slug MUST be distinct from the project slug. A custom `CAPTAIN_DAEDALUS_railway_stoa` at workspace `railway_stoa` would collide with the base.
+For workspaces deployed at project tier (where base CAPTAINs already carry a project-slug suffix like `CAPTAIN_DAEDALUS_railway_stoa`), the custom slug MUST be distinct from the project slug. A custom `CAPTAIN_DAEDALUS_railway_stoa` at workspace `railway_stoa` would collide with the base.
 
 **Worked failure-mode example.** Operator authors `.claude/agents/custom/CAPTAIN_DAEDALUS.md` with frontmatter `name: CAPTAIN_DAEDALUS` at a user-tier deployment. The base `.claude/agents/CAPTAIN_DAEDALUS.md` also declares `name: CAPTAIN_DAEDALUS`. On session start, Claude Code scans both, finds two subagents with the same name, and silently drops one. The custom agent intermittently activates or doesn't, depending on scan order. The operator's mental model — "I added a custom agent and it's not running" — never points at the collision because no warning is emitted. The fix: rename to `CAPTAIN_DAEDALUS_<distinct-slug>` in both the filename AND the `name:` field.
 
@@ -206,7 +206,7 @@ The asymmetry (subdirectory for CAPTAINs and templates; directory-name prefix fo
 - **POLYBIUS:** reads this section + `MAJOR_POLYBIUS.md` §17. When the team customizes, authors land at the custom paths above. When substrate advances and a custom agent wants new behavior, the typical update path is regenerate-fresh-from-new-base (per PRINCIPAL's cost framing) rather than merge-upstream-into-customization.
 - **PLINY:** dispatches CAPTAINs by `name:` field; never assumes a filename. When a custom CAPTAIN exists, dispatching it is identical to dispatching a base CAPTAIN — the path the file lives at is irrelevant to invocation. PLINY's dispatch envelopes name the CAPTAIN by mnemonic + slug (e.g., `CAPTAIN_DEPLOYER_railway`).
 - **Every CAPTAIN:** when designing, executing, or verifying, the seat reads the workspace's actual files (base + custom) as the operational truth. The substrate-tool scoping (D3/D4/D5 below) governs what `install.sh` / `check.sh` / `apply.sh` see, NOT what the running team sees. Custom agents and base agents both run.
-- **Authoring custom files:** the workspace's stoa team authors them via standard agent-author skill or by hand. Substrate tools NEVER create or modify them. There is no `install.sh --with-custom` flag and no auto-generated custom scaffolding (out of scope per Arc 29 A7).
+- **Authoring custom files:** custom authoring is the workspace's responsibility (operator + the workspace's stoa team), via the agent-author skill or by hand. Substrate tools deploy and maintain BASE files only. Arc 30+ may extend the substrate tools to assist with custom scaffolding; this arc does not.
 
 ### 23.4 N=1 provenance + accretion path
 

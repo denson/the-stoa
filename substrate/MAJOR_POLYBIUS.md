@@ -982,9 +982,9 @@ BASE files are deployed from substrate via `install.sh` and live at canonical pa
 |---|---|
 | MAJORs | `.claude/MAJOR_POLYBIUS*.md`, `.claude/MAJOR_PLINY*.md` (subproject-tier may carry `_<slug>` suffix per `install.sh` convention) |
 | Operating disciplines | `.claude/operating-disciplines.md` |
-| CAPTAINs | `.claude/agents/CAPTAIN_<MNEMONIC>*.md` (directly under `.claude/agents/`, NOT in any subdirectory) |
-| Templates | `.claude/templates/*.md` (directly under `.claude/templates/`, NOT in any subdirectory) |
-| Skills | `.claude/skills/<skill-name>/` (where `<skill-name>` does NOT start with `custom-`) |
+| CAPTAINs | `.claude/agents/CAPTAIN_*.md` (directly under agents/) |
+| Templates | `.claude/templates/*.md` (directly under templates/) |
+| Skills | `.claude/skills/<name>/` (where `<name>` does NOT start with `custom-`) |
 
 Substrate tooling — `install.sh`, `check.sh`, `apply.sh` — scopes its globs to these paths. The cite-comment at every scoping site references this section.
 
@@ -994,7 +994,7 @@ CUSTOM files are authored by the workspace's stoa team (operator + agents). Subs
 
 | Class | Custom path convention |
 |---|---|
-| Custom CAPTAINs | `.claude/agents/custom/CAPTAIN_<MNEMONIC>_<custom-slug>.md` |
+| Custom CAPTAINs | `.claude/agents/custom/CAPTAIN_<MNEMONIC>_<slug>.md` |
 | Custom skills | `.claude/skills/custom-<skill-name>/SKILL.md` |
 | Custom templates | `.claude/templates/custom/*.md` |
 
@@ -1009,7 +1009,7 @@ Claude Code identifies subagents by their YAML `name:` frontmatter field, NOT by
 - Filename: `.claude/agents/custom/CAPTAIN_DEPLOYER_railway.md`
 - Frontmatter: `name: CAPTAIN_DEPLOYER_railway`
 
-For workspaces deployed at project tier (where base CAPTAINs already carry a project-slug suffix like `CAPTAIN_DAEDALUS_railway_stoa`), the custom-slug MUST be distinct from the project slug. A custom `CAPTAIN_DAEDALUS_railway_stoa` at workspace `railway_stoa` would collide with the base.
+For workspaces deployed at project tier (where base CAPTAINs already carry a project-slug suffix like `CAPTAIN_DAEDALUS_railway_stoa`), the custom slug MUST be distinct from the project slug. A custom `CAPTAIN_DAEDALUS_railway_stoa` at workspace `railway_stoa` would collide with the base.
 
 **Worked failure-mode example.** Operator authors `.claude/agents/custom/CAPTAIN_DAEDALUS.md` with frontmatter `name: CAPTAIN_DAEDALUS` at a user-tier deployment. The base `.claude/agents/CAPTAIN_DAEDALUS.md` also declares `name: CAPTAIN_DAEDALUS`. On session start, Claude Code scans both, finds two subagents with the same name, and silently drops one. The custom agent intermittently activates or doesn't, depending on scan order. The operator's mental model — "I added a custom agent and it's not running" — never points at the collision because no warning is emitted. The fix: rename to `CAPTAIN_DAEDALUS_<distinct-slug>` in both the filename AND the `name:` field.
 
