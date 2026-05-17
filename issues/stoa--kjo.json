@@ -98,11 +98,15 @@
     {
       "text": "CATO activated on stoa--kjo (Phase 3 verify). Worktree arc-35-build at 7e1d348. Reading design rev2 first, then diff cold, then cross-checking citation graph + scope hygiene + self-application.",
       "timestamp": "2026-05-17T21:39:20Z"
+    },
+    {
+      "text": "ZENO activated on stoa--kjo. Reading design.md rev2 + 3 substrate files at 7e1d348 before extracting criteria.",
+      "timestamp": "2026-05-17T21:39:26Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Per-agent git identity for commits — agents commit with their own configured git author so blame indicates the actual seat",
   "type": "epic",
-  "updated_at": "2026-05-17T21:39:20Z"
+  "updated_at": "2026-05-17T21:39:26Z"
 }
