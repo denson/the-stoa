@@ -18,11 +18,15 @@
     {
       "text": "**Phase 1 — DAEDALUS dispatch (2026-05-17T20:32Z)**\n\nDispatching CAPTAIN_DAEDALUS_the_stoa with brief covering:\n- Output: `agents/design/arc-34/design.md` (relative to arc-34/build worktree)\n- Scope: C1-C4 integrated design per directive Phase A locks (A1-A12)\n- Sub-decisions: A2 C1 Option C, A3 C2 Option α, A5 C4 Option γ — per user-tier POLYBIUS lean (DAEDALUS may push back with rationale if a different pick lands better)\n- §15 N=1 framing per candidate (Arc 27 §16.6 / Arc 30 §5.9.3 / Arc 32 §5.10 shape)\n- Cite-comments resolve per A6\n- Authorship: Denson Smith\n- AUTONOMOUS mode\n\nARGUS follows on PASS.",
       "timestamp": "2026-05-17T20:32:00Z"
+    },
+    {
+      "text": "[radio-check project-tier POLYBIUS] Arc 34 init handshake + ack of PLINY handshake.\n\n**Saw PLINY radio-check at 20:31:33Z; proceeding.** Pre-flight 2-check rule + §19.6 attestation honesty live-verification noted. PLINY surface-and-wait per §6.2 (no cron) noted — defense-in-depth on cron hygiene. Sideband observation about orphan worktree directories (`.claude/worktrees/arc-27-build`, `.claude/worktrees/awesome-nash-190573`) correctly NOT folded per A8 hard-lock; ack as housekeeping candidate for user-tier POLYBIUS post-arc.\n\n**My activation:** activated from HUMAN_paste-polybius-arc-34-instruction.md per user-tier POLYBIUS dispatch. Project-tier seat, the-stoa.\n\n**Cron hygiene:** CronList confirmed no orphaned crons on session start. Fresh polling cron scheduled: id **8321b28d**, cadence **`*/5 * * * *`** (substrate-canonical default per operating-disciplines.md §7.2). Per-fire procedure encodes radio-check protocol §7.1 beats + A8 hard-lock detection + PRINCIPAL-gate triggers + closure handshake. Session-only.\n\n**Read confirmed (in order per activation paste):**\n1. substrate/arcs/arc-34-build-directive.md — A1-A12 LOCKED absorbed.\n2. stoa--y14 body + dispatch-status comment.\n3. Source tickets: stoa--k36 (C1) + stoa--f37 (C2) + stoa--3qi (C3) + stoa--ize (C4 source).\n4. HUMAN_paste-pliny-arc-34-instruction.md — same content frame confirmed.\n5. substrate/MAJOR_POLYBIUS.md + MAJOR_PLINY.md §5.9/§5.10/§5.9.4 + paste-instruction-template.md + handoff-doc-template.md + operating-disciplines.md §7 + arc-32-build-directive.md.\n\n**Operating mode:** AUTONOMOUS. PRINCIPAL exception-handler only.\n\n**Watch list:**\n- Phase transitions: design.md commit → ARGUS verdict → ada commit → VERA+CATO+ZENO verdicts → smoke → PR open → signoff.\n- A8 hard-lock touches (stoa--32b.2 / stoa--ize-disposition / stoa--vz9 / stoa--kjo / u--7yg.16/.21 / ariadne--1of / s4--bbz) → substance-disagreement on attempt.\n- DAEDALUS sub-decision escalation candidates (C1 A/B/C; C2 α/β/γ; C4 α/β/γ) → if PRINCIPAL-judgment needed, halt + escalate per §25 (not silent pick).\n- Signoff-accuracy live-verify per §5.10 at arc close (worktree removed; arc-34/build local + remote deleted; source tickets closed per A12 with cross-refs).\n\nHeartbeating every ≤30 min per §7.1 beat 2 even during quiet phases. Standing by.",
+      "timestamp": "2026-05-17T20:32:05Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch 2 — user-tier-to-main + paste accumulation + template-title + HITL-paused queue sweep",
   "type": "task",
-  "updated_at": "2026-05-17T20:32:00Z"
+  "updated_at": "2026-05-17T20:32:05Z"
 }
