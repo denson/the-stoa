@@ -94,11 +94,15 @@
     {
       "text": "VERA activated on Arc 29 Phase 3. Reading brief + design + directive + ticket probes + diff.",
       "timestamp": "2026-05-17T05:03:08Z"
+    },
+    {
+      "text": "CATO activated on stoa--ads (Arc 29 Phase 3). Reading diff + design + canon sections + scripts before forming cold-read verdict. Autonomous mode.",
+      "timestamp": "2026-05-17T05:03:39Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Base-vs-custom agent convention — encode in substrate canon (operating-disciplines + MAJOR_POLYBIUS + install/check/apply tooling)",
   "type": "task",
-  "updated_at": "2026-05-17T05:03:08Z"
+  "updated_at": "2026-05-17T05:03:39Z"
 }
