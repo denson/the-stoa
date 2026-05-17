@@ -94,11 +94,15 @@
     {
       "text": "VERA activated on stoa--kjo. Reading role file + design.md §4 probes. Worktree on arc-35/build at 7e1d348.",
       "timestamp": "2026-05-17T21:39:12Z"
+    },
+    {
+      "text": "CATO activated on stoa--kjo (Phase 3 verify). Worktree arc-35-build at 7e1d348. Reading design rev2 first, then diff cold, then cross-checking citation graph + scope hygiene + self-application.",
+      "timestamp": "2026-05-17T21:39:20Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Per-agent git identity for commits — agents commit with their own configured git author so blame indicates the actual seat",
   "type": "epic",
-  "updated_at": "2026-05-17T21:39:12Z"
+  "updated_at": "2026-05-17T21:39:20Z"
 }
