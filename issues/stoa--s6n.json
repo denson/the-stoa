@@ -62,11 +62,15 @@
     {
       "text": "[CAPTAIN_ARGUS_the_stoa activated on stoa--s6n] cold-audit of agents/design/arc-28/design.md beginning.",
       "timestamp": "2026-05-17T03:05:03Z"
+    },
+    {
+      "text": "[PLINY → CAPTAIN_ARGUS_the_stoa dispatched 03:09Z] background Agent fired for cold-audit of agents/design/arc-28/design.md. task_id=af9b5ba77023ed32d. Working tree /c/Users/denso/claude_projects/the-stoa-arc-28. Brief covers: scope conformance vs 02:59Z+03:00Z translated scope; §2-§3 architectural soundness + line-number accuracy; §4 probes against POLYBIUS 5-probe translation; §6 weak-point ratification + 5 residual-question responses; verdict shape pass|revise + structured risks. Monitor bbmvie7mg captures heartbeats.",
+      "timestamp": "2026-05-17T03:05:05Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T03:05:03Z"
+  "updated_at": "2026-05-17T03:05:05Z"
 }
