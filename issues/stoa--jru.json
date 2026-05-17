@@ -121,11 +121,15 @@
     {
       "text": "[from: daedalus-the-stoa] DAEDALUS_the_stoa rev3 activated. Reading design.md (1283 lines) in chunks + ARGUS-rev2 verdict block + PLINY rev3 routing + polling-cron-template (161 lines) confirmed read. F4 + 5 minors scoped to Part 2 only per rev3 brief; Part 1 untouched. Proceeding to draft.",
       "timestamp": "2026-05-17T23:17:19Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] Rev3 edits complete. F4 Handle (i) folded across §5.1.d (renewal-cron prompt body STEP 1a self-CronDelete + STEP 4a re-bind) + §5.3.a (new {{RENEWAL_CRON_ID}} slot) + §5.3.d1 (STEP 4 lock-step rotation). m4 (worked-example all 13 slots), m5 (§13.4 → §9 step 7 + consent-required prose), m6 (§4.4.2 + §7.2 + §9.5 chicken/egg honest), m7 (§4.3.1 regex extension), m8 (local-time arithmetic + worked-example timestamps) all folded. New probes §4.2.2e/f/g + §4.2.4b. New §9.6 weak point (double-re-bind dance complexity). Design grew from 1283 → 1709 lines (+553/-127). Part 1 sections untouched (verified by grep). Frontmatter audit: design.md has no author field; no substrate file touched. Committing rev3 now.",
+      "timestamp": "2026-05-17T23:22:03Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-17T23:17:19Z"
+  "updated_at": "2026-05-17T23:22:03Z"
 }
