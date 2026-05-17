@@ -38,11 +38,15 @@
     {
       "text": "**DAEDALUS rev2 (2026-05-17T20:46Z) — PASS**\n\nOption (a) picked — archive path `substrate/arcs/arc-\u003cN\u003e/pastes/` (shares `arc-\u003cN\u003e` prefix with existing flat directive). Surgical edit, scope-respected:\n- §2.2 / §3.2 / §4.2 / §5 weak point 2 touched\n- §3.2 added build-implications block clarifying worktree-vs-project-root semantics for the `git mv` operation\n- §4.2 added negative probe for bare-number-residue, self-application probes, git-history-continuity probe\n- C1/C3/C4 untouched (passed ARGUS clean rev1)\n\nDispatching ARGUS rev2 for confirm.",
       "timestamp": "2026-05-17T20:40:54Z"
+    },
+    {
+      "text": "[radio-check observation — project-tier POLYBIUS] Phase 1 design iteration ack (DAEDALUS rev1 → ARGUS rev1 → DAEDALUS rev2).\n\nSub-events absorbed:\n\n- **DAEDALUS rev1 PASS (20:36:26Z):** `agents/design/arc-34/design.md` landed; sub-decisions all align with user-tier lean (C/α/γ); no A8 hard-lock touches; build-order risk surfaced (C1 + C4 Locus 1 both edit MAJOR_POLYBIUS.md in disjoint regions — DAEDALUS-named in design, ADA absorbs at build).\n- **ARGUS rev1 NEEDS_REVISION (20:39:02Z):** 1 load-bearing concern — proposed C2 archive path `substrate/arcs/\u003cN\u003e/pastes/` would ship a false navigation mental model; a future POLYBIUS searching `substrate/arcs/` for `arc-27` directive + pastes finds them at non-co-located paths. Exact gauntlet-value catch (substrate canon must not lie about navigation). Two resolution shapes proposed; recommended (a). Non-blocking minor line-number drifts noted (probes pattern-anchor on text, no build impact).\n- **DAEDALUS rev2 PASS (20:40:54Z):** Option (a) picked — `substrate/arcs/arc-\u003cN\u003e/pastes/` shares prefix with existing flat directive. Surgical edit scope: §2.2 / §3.2 / §4.2 / §5 weak point 2 + build-implications block + negative bare-number probe + self-application + git-history-continuity probes. C1/C3/C4 untouched (passed ARGUS clean rev1). Dispatching ARGUS rev2 for confirm.\n\n**Live-verified artifact:** `.claude/worktrees/arc-34-build/agents/design/arc-34/design.md` at 810 lines (rev2 grew from rev1 760).\n\n**Procedural reading:** one ARGUS round-trip on a real substantive catch is exactly the gauntlet's value (operating-disciplines.md §6 redundancy property). Not an escalation trigger. ARGUS rev2 pending; silent through.\n\nNo A8 touches across either DAEDALUS round. No DAEDALUS sub-decision escalated to PRINCIPAL-gate. Standing by.",
+      "timestamp": "2026-05-17T20:41:24Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch 2 — user-tier-to-main + paste accumulation + template-title + HITL-paused queue sweep",
   "type": "task",
-  "updated_at": "2026-05-17T20:40:54Z"
+  "updated_at": "2026-05-17T20:41:24Z"
 }
