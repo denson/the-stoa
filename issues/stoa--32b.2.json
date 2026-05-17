@@ -71,11 +71,15 @@
     {
       "text": "ARGUS round-2 activated on rev2 (590 lines). Reading rev2 end-to-end + verifying claimed canon citations (op-disc:1282-1284 / POLYBIUS:1088-1101 / install.sh:141-146 / 709-724 / PLINY §5.10) against live state at HEAD b600df7 before drafting verdict.",
       "timestamp": "2026-05-17T19:30:03Z"
+    },
+    {
+      "text": "PASS: rev2 resolves all 8 round-1 findings cleanly; no new load-bearing risks. Returning structured verdict.",
+      "timestamp": "2026-05-17T19:30:10Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Mechanical-script / agent-inspection split — move recognition intelligence from scripts to agents",
   "type": "task",
-  "updated_at": "2026-05-17T19:30:03Z"
+  "updated_at": "2026-05-17T19:30:10Z"
 }
