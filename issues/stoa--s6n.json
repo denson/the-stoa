@@ -86,11 +86,15 @@
     {
       "text": "[CAPTAIN_DAEDALUS_the_stoa rev2 activated on stoa--s6n] reading ARGUS verdict + rev1 design; will resolve LBR-1/2/3 + ADV-1..5 where free.",
       "timestamp": "2026-05-17T03:08:15Z"
+    },
+    {
+      "text": "[CAPTAIN_DAEDALUS_the_stoa rev2] reads complete; revising sections per ARGUS surfaces. Picks: LBR-1 explicit defang at pipeline boundary (cite pattern from check-substrate-updates/check.sh:489-500); LBR-2 default/—all split with this-install phrasing; LBR-3 per-workspace deployment semantics (consistent with check-substrate-updates' per-workspace state file pattern). Writing design-rev2.md now.",
+      "timestamp": "2026-05-17T03:08:27Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T03:08:15Z"
+  "updated_at": "2026-05-17T03:08:27Z"
 }
