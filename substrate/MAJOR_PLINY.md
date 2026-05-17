@@ -413,7 +413,7 @@ git push origin --delete arc-N/build
 
 The §5.10 signoff-accuracy discipline (next section) requires PLINY to verify each of these completed before posting the signoff: `git worktree list` should not show `.claude/worktrees/arc-N-build`; `git branch` should not show `arc-N/build`; `git ls-remote --heads origin arc-N/build` should return empty. The verification commands are stable across arcs because the worktree path and branch name follow the same template every time.
 
-#### 5.9.4.1 Empirical anchor and provenance
+##### 5.9.4.1 Empirical anchor and provenance
 
 The de-facto pattern from Arcs 26-30 was the separate-worktree shape (per the respective arc cleanup sequences + `git worktree list` outputs observed at each arc's close). Arc 31 (`stoa--32b.1`, 2026-05-17) diverged — PLINY operated `arc-31/build` in the main workspace path; the main worktree's checkout flipped from main to `arc-31/build` for the duration; user-tier POLYBIUS held position to avoid committing to arc-31/build. The cost was small (no defect; no rollback warranted) but surfaced the gap: the separate-worktree pattern was operating ad-hoc since Arc 26, not as encoded canon.
 

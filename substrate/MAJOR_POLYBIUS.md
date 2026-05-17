@@ -233,7 +233,7 @@ Worked example — anti-pattern (from the 2026-05-17 ariadne-core PLINY paste; N
 
 > "What stays out of scope: … Sector-4 corpus seed (separate follow-on; PRINCIPAL sequences after stoa+ariadne nailed down)."
 
-Even in "out of scope" framing, this paste seeded sector-4 awareness into the ariadne-core PLINY's mental map. ariadne-core PLINY then asked about "sector-4 corpus seed sequencing call" in its surface message — directly traceable to the paste's leak. The discipline §5.1.1 already encodes catches the same root cause; this sub-subsection specializes it to the cross-project category that kept surfacing.
+Even in "out of scope" framing, this paste seeded sector-4 awareness into the ariadne-core PLINY's mental map. ariadne-core PLINY then asked about "sector-4 corpus seed sequencing call" in its surface message — directly traceable to the paste's leak. The discipline §5.1.1 already encodes catches for the same root cause; this sub-subsection specializes it to the cross-project category that kept surfacing.
 
 Worked example — positive pattern: if a project-tier activation paste genuinely needs to acknowledge that an out-of-scope item exists (e.g., to explain why a deliverable is bounded the way it is), name the DISCIPLINE that excludes it rather than the resource itself:
 
