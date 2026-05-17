@@ -33,11 +33,15 @@
     {
       "text": "[from: daedalus-the-stoa]\n\nDAEDALUS_the_stoa activated on Arc 36 v2 (stoa--jru parent EPIC; stoa--e39 Part 1 + stoa--cgn Part 2). Worktree clean at arc-36/build (HEAD = e71615f). Brief read; A7 spike result consumed (Option 3 confirmed; §11 step 1.5 insertion locus for Part 2). Reading arc-22 architectural reference + current op-disc §7/§11/§27/§28 + MAJOR_POLYBIUS §7/§18 + MAJOR_PLINY §5.9-§5.12 + polling-cron-prompt-template.md + autonomous-mode-activation-template.md in parallel now.\n\nOperating mode AUTONOMOUS; will surface only on universal escalation triggers or PRINCIPAL-gate per §25. Next beat: post arc-22 read + load-bearing substrate-section absorption.",
       "timestamp": "2026-05-17T22:57:53Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa]\n\nRead-pass complete. All load-bearing inputs absorbed:\n- arc-36-build-directive.md (A1-A17 LOCKED; A5/A6 sub-decisions identified; A10 follows PLINY A7 spike → Option 3 §11 step 1.5)\n- arc-22-build-directive.md (architectural reference; deliverables 1.1-1.5 + 2.1-2.4 inherited)\n- operating-disciplines.md §7.1-§7.6 (current Coordination POLYBIUS canon; §7.4 currently says 'cross-tier UPWARD' framing for [for:]); §11 (current 6-step checklist); §27 + §28 (precedent for new-numbered-section addition + N=1 framing pattern)\n- MAJOR_POLYBIUS.md §7.1-§7.6 (write boundaries + polling cron + cross-tier routing; cite-comment surface); §13.4 (mode entry/exit procedures; arc-22 deliverable 2.4 names this as renewal-confirm-on-entry surface); §18 (user-tier housekeeping reference)\n- polling-cron-prompt-template.md (161 lines; STEPs 1-6 + 6.5; substitution-slot table has 10 slots; need to add SELF_SEAT_SLUG + PEER_SEAT_SLUG + EXPIRY_TOTAL_HOURS + RENEWAL_BUFFER_HOURS [the latter two as end-of-file pointer-context only per Option 3])\n- autonomous-mode-activation-template.md (paste template; step 2 framing is the §7.1 author-tag instruction surface per arc-22 deliverable 1.5)\n\nA5/A6 picks following user-tier POLYBIUS leans:\n- A5 = (α) new §7.7 'bw-timeline parsing: author-attribution via tags' parallel to §7.1-§7.6; §7.4 wording updated inline ('cross-tier UPWARD' → bidirectional); §7.1 fifth-beat insertion for [from:] introduction; MAJOR_POLYBIUS.md §7 cross-ref via body-paragraph cite (small surface, matches Arcs 26-35).\n- A6 = STEP 1.5 mandatory in polling-cron-prompt-template.md (parser-mechanical-execution discipline). Adds SELF_SEAT_SLUG + PEER_SEAT_SLUG slots per arc-22 A2 normalization. STEP 2/3 reference last_self_activity / last_peer_activity timestamps derived in STEP 1.5.\n- A10 = §11 step 1.5 (new) per A7 spike Option 3; polling-cron-prompt-template.md gets end-of-file pointer note (no STEP 7).\n- autonomous-mode-activation-template.md: keep arc-22 deliverable 1.5 edit (one-line author-tag instruction in §11 step 2 framing).\n\nDrafting design.md at agents/design/arc-36/design.md now. Next beat at draft complete.",
+      "timestamp": "2026-05-17T22:58:17Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-17T22:57:53Z"
+  "updated_at": "2026-05-17T22:58:17Z"
 }
