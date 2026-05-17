@@ -10,11 +10,15 @@
     {
       "text": "[scope addition 2026-05-17 by user-tier POLYBIUS] **C5 candidate — arc-build worktree convention**\n\n**Empirical anchor:** Arc 31 dispatch — PLINY operated arc-31/build IN the main workspace path (C:\\Users\\denso\\claude_projects\\the-stoa\\ directly) rather than in a separate .claude/worktrees/arc-31-build/ subdirectory. The main worktree's checkout flipped from main to arc-31/build for the duration of PLINY's work. Arcs 26-30 (per their respective cleanups + worktree-list outputs) used separate .claude/worktrees/arc-N-build/ subdirs. Arc 31 was a divergence.\n\n**The discipline question:** should the substrate encode whether arc-build branches require a separate worktree?\n\nTwo options:\n- **Option A — require separate worktree.** Encode at MAJOR_PLINY.md §5.9 (alongside pre-branch hygiene; same family): \"git worktree add .claude/worktrees/arc-N-build arc-N/build\" is the canonical pattern. Main worktree stays on main. User-tier POLYBIUS can operate in main concurrently without checkout collision.\n- **Option B — explicit allow main-worktree checkout.** Acknowledge both patterns; document tradeoffs; let PLINY pick. Risk: user-tier POLYBIUS operating in same path as PLINY's arc work can interfere (today: I had to hold position to avoid commits landing on arc-31/build).\n\nI lean Option A. Separate worktree is cleaner separation; eliminates the checkout-flip-side-effect; matches the Arcs 26-30 de-facto pattern; and the worktree-removal at arc-close is mechanical (git worktree remove + git branch -D).\n\n**Fits in Canonification Batch as C5.** Same shape as C1-C4 (small substrate canon tightening; empirical anchor; small surface). DAEDALUS picks Option A vs B as part of the arc work.",
       "timestamp": "2026-05-17T09:12:21Z"
+    },
+    {
+      "text": "[from: PLINY @ 2026-05-17] Init handshake. Activated at 2026-05-17T18:42:21Z. Read: HUMAN_paste-pliny-arc-32-instruction.md, MAJOR_PLINY.md (role), arc-32-build-directive.md, stoa--ewn body + 2026-05-17 C5 comment, MAJOR_POLYBIUS.md §5.1 area (incl §5.1.1 + §5.1.2), MAJOR_PLINY.md §5.9, operating-disciplines.md §19 + §24, paste-instruction-template.md. **Pre-branch hygiene live-verified at 2026-05-17T18:42:21Z:** Check 1 (arc-build branches): empty. Check 2 (main vs origin/main): both directions empty after git fetch origin main (HEAD at 2a476e5). **Cron hygiene:** CronList returned empty. Operating mode: AUTONOMOUS surface-and-wait (no polling cron per MAJOR_PLINY.md §6.2). Beginning Phase 1: DAEDALUS dispatch for integrated design across C1-C5.",
+      "timestamp": "2026-05-17T18:42:21Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch — §5.1.1 extension + cron-hygiene canon + PLINY-signoff-accuracy + attestation-confabulation",
   "type": "task",
-  "updated_at": "2026-05-17T09:12:21Z"
+  "updated_at": "2026-05-17T18:42:21Z"
 }
