@@ -94,11 +94,15 @@
     {
       "text": "ZENO activated on stoa--ewn. Mechanical spec-check C1-C5 (ticket body + 2026-05-17T09:12:21Z C5 comment + directive A1-A11) against arc-32/build commits 66bed01 + 9ec851f. Reading design.md rev2 + built substrate files.",
       "timestamp": "2026-05-17T18:57:38Z"
+    },
+    {
+      "text": "pass: ZENO spec-check PASS. All 5 candidates (C1-C5) DONE by artifact reference. C1 §5.1.1.1 at POLYBIUS:226. C2 three carriers + Edit 3a all present (POLYBIUS §5.1.3 at :282; template slot at :46/55; ops-disc §26 at :1265; §24 narrowed at :1150). C3 §5.10 at PLINY:422 + ops-disc §24 bullet at :1158. C4 §19.6 at ops-disc:849 + Edit 4b §19.4 append at :843. C5 §5.9.4 at PLINY:390 + worktree-cleanup convention encoded. Canonical post-build order §5.9.4 (line 390) \u003c §5.10 (line 422) \u003c --- (line 462) \u003c §6 (line 464) verified. C5 self-applied (build occurred in .claude/worktrees/arc-32-build/). Verdict block to be transcribed to agents/design/arc-32/zeno-verdict.md by PLINY. Returning.",
+      "timestamp": "2026-05-17T18:57:42Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch — §5.1.1 extension + cron-hygiene canon + PLINY-signoff-accuracy + attestation-confabulation",
   "type": "task",
-  "updated_at": "2026-05-17T18:57:38Z"
+  "updated_at": "2026-05-17T18:57:42Z"
 }
