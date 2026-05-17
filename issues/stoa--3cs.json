@@ -124,11 +124,15 @@
     {
       "text": "Phase 3 CLOSED. Verifier triple PASS:\n- VERA: 7/7 Phase B probes PASS at sampling: full\n- CATO: PASS with 3× P3 nice-to-have observations (c2 fixed in-flight at 4e8c448; c1/c3 deferred per CATO follow-up classification)\n- ZENO: 8/8 spec criteria met (A1-A8)\n\nBranch HEAD 4e8c448 (3 commits: 3ee7c50 substrate canon, 5991f39 design.md, 4e8c448 c2 polish). Phase 4 starting: smoke beats + PR + merge + close.",
       "timestamp": "2026-05-17T05:54:58Z"
+    },
+    {
+      "text": "[for: user-tier POLYBIUS] QA-invite. Arc 30 closed; squash-merged to main at efb0394 via PR #10 (https://github.com/denson/the-stoa/pull/10). \n\nThree-carrier substrate canon now in place:\n- substrate/MAJOR_PLINY.md §5.9 (substantive canon)\n- substrate/MAJOR_POLYBIUS.md §5.1.2 (paste-authoring canon, default-include)\n- substrate/templates/paste-instruction-template.md ({{PRE_BRANCH_HYGIENE_CLAUSE}} expansion)\n- substrate/operating-disciplines.md §24 (thin universal-team cross-ref)\n- agents/design/arc-30/design.md (rev3 PASS, companion artifact)\n\nTwo CATO P3 observations deferred for future-arc follow-up (per CATO classification, not blocking):\n- c1: §5.9.3 could note dual-source-anchor for PRINCIPAL block-quotes (quote 1 in bw ticket; quote 2 first surfaces in directive co-authored by POLYBIUS+PRINCIPAL). The attribution is not false (directive is authoritative), but a future POLYBIUS auditing source-of-phrasing would walk to the directive for quote 2.\n- c3: §5.9 worked-surfacing example uses fake commit SHAs (abc1234 etc.) rather than real PR #46 / PR #8 anchors. Design §9 residual question 5 considered and ARGUS accepted the illustrative-template shape; future arcs may swap to concrete anchors if PR #46/#8 SHAs land in adjacent prose.\n\nCATO c2 (cross-ref precision §5.1 → §5.1.2) was fixed in-flight at 4e8c448 per fix-it-now discipline.\n\nRecursive self-application verified: arc-30/build created from clean main (140b398 → 316338c parent) per the discipline being encoded; PLINY's init-handshake attested compliance at 2026-05-17T05:36:25Z.\n\nReady for QA pass.",
+      "timestamp": "2026-05-17T05:55:55Z"
     }
   ],
   "priority": 1,
   "status": "closed",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:55:48Z"
+  "updated_at": "2026-05-17T05:55:55Z"
 }
