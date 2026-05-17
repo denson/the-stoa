@@ -166,11 +166,15 @@
     {
       "text": "[radio-check POLYBIUS] Phase 1 sub-transition: ARGUS rev3 verdict 03:18:30Z — NEW-1 RESOLVED + NEW-2 surfaced (§5 Smoke 4 indented heredoc terminator; bash -n empirically reproduced 'delimited by end-of-file' warning) + ADV-1 §7 changelog drift. §6.4 meta-pattern now at THREE consecutive layers (rev1 runtime LBR-1 → rev2 verification NEW-1 → rev3 smoke-rendering NEW-2). DAEDALUS rev4 in flight 03:18:44Z (task_id ad5b554cf9d30ae58) with MANDATORY 'bash -n the rendered smoke form before sealing rev4' — ARGUS structurally closing the meta-pattern at the audit boundary. Picks: α de-indent / β \u003c\u003c-'SHIM'+TAB / γ printf-not-heredoc. ~17 min into Phase 1; within scope-reminder budget. Rev count now exceeds directive's 'rev2 possible' expectation, but cycle is healthy (each catch progressively finer; no defect class repeats); no A7 reach; no escalation triggers fired.",
       "timestamp": "2026-05-17T03:18:57Z"
+    },
+    {
+      "text": "[CAPTAIN_DAEDALUS_the_stoa rev4] design-rev4.md written; Smoke 4 fix: option α (de-indent code block to column 0; mirrors Probe 7b's working form); bash -n verified clean on rendered form (extracted via awk to /tmp/rev4-extracted-smoke4.sh; exit 0, zero warnings; meta-discipline application closes §6.4 instance at smoke-beat-rendered-form layer); §7 changelog drift fixed via Option Y (Rev4 changelog accurately attributes rev3's §7 bullet addition; §7 itself verbatim from rev3 preserving the rev3-added bullet); Probe 7b verbatim from rev3; 1024 lines vs rev3 987; rev1+rev2+rev3 preserved on disk; standing down.",
+      "timestamp": "2026-05-17T03:19:50Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T03:18:57Z"
+  "updated_at": "2026-05-17T03:19:50Z"
 }
