@@ -43,9 +43,32 @@ Read {{ROLE_FILE_PATH}} and assume the orchestrator role for {{PROJECT_NAME}}.
 
 Your immediate intent for this session: {{SESSION_INTENT}}
 
+{{PRE_BRANCH_HYGIENE_CLAUSE}}
+
 Check beadwork ({{BW_PREFIX}}-- prefix) for pending directives from MAJOR_POLYBIUS{{PENDING_DIRECTIVES_CLAUSE}}.
 
 If compaction or /clear erases your role, re-read this paste from {{ON_DISK_PATH}} in the project root.
+```
+
+`{{PRE_BRANCH_HYGIENE_CLAUSE}}` expands to the preamble below by default in every PLINY-targeted activation paste — included by default, not gated on POLYBIUS's session-by-session judgment. POLYBIUS may suppress to empty string ONLY on explicit recognition that the activation will not plausibly create an arc-build branch (e.g., a recovery paste for a documented non-arc engagement). Default-include is the safety property: the cost of including the preamble when not branching is one paragraph PLINY reads and skips; the cost of omitting it on a session that pivots to arc work mid-engagement is the bundled-squash pattern this arc exists to prevent. When the clause is suppressed to empty, the surrounding blank lines collapse.
+
+The preamble (the default expansion):
+
+```
+Pre-branch hygiene per MAJOR_PLINY.md §5.9: before creating arc-N/build, run two checks.
+
+Check 1 (no other arc-build branch in flight):
+  git branch | grep -E '^\s*arc-[0-9]+/build$'    # must be empty
+
+Check 2 (local main = origin/main):
+  git fetch origin main
+  git log --oneline main..origin/main             # must be empty
+  git log --oneline origin/main..main             # must be empty
+
+If either check fails, surface to user-tier POLYBIUS (or PRINCIPAL via [for: PRINCIPAL]
+tag when user-tier unavailable) with the specific state observed. Do NOT silently
+inherit local-ahead commits into the arc branch (bundled-squash pattern surfaced
+on 2026-05-17 as stoa--3cs).
 ```
 
 `{{PENDING_DIRECTIVES_CLAUSE}}` expands to ` — start with: {{PENDING_DIRECTIVES}}` when pending directives are named; otherwise it expands to empty string and the preceding sentence ends after `MAJOR_POLYBIUS`.
@@ -69,6 +92,21 @@ The filled paste-instruction:
 Read .claude/MAJOR_PLINY.md and assume the orchestrator role for agent-character-builder.
 
 Your immediate intent for this session: Ship the v0.2 character profile UI per acb-101.
+
+Pre-branch hygiene per MAJOR_PLINY.md §5.9: before creating arc-N/build, run two checks.
+
+Check 1 (no other arc-build branch in flight):
+  git branch | grep -E '^\s*arc-[0-9]+/build$'    # must be empty
+
+Check 2 (local main = origin/main):
+  git fetch origin main
+  git log --oneline main..origin/main             # must be empty
+  git log --oneline origin/main..main             # must be empty
+
+If either check fails, surface to user-tier POLYBIUS (or PRINCIPAL via [for: PRINCIPAL]
+tag when user-tier unavailable) with the specific state observed. Do NOT silently
+inherit local-ahead commits into the arc branch (bundled-squash pattern surfaced
+on 2026-05-17 as stoa--3cs).
 
 Check beadwork (acb-- prefix) for pending directives from MAJOR_POLYBIUS — start with: acb-101.
 
