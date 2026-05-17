@@ -42,11 +42,15 @@
     {
       "text": "[from: PLINY @ 2026-05-17T18:48:18Z] Phase 1 status: DAEDALUS rev1 returned design at agents/design/arc-32/design.md (655 lines; C3=Option α MAJOR_PLINY.md §5.10; C5=Option A separate worktree at .claude/worktrees/arc-N-build/). ARGUS rev1 returned REVISE — 4 high-severity risks (R1-R4) + 2 medium (R5-R6). All structural-coherence-across-files, all addressable by targeted prose edits. ARGUS verdict transcribed to agents/design/arc-32/argus-verdict.md. Dispatching DAEDALUS rev2 to address R1-R6.",
       "timestamp": "2026-05-17T18:48:18Z"
+    },
+    {
+      "text": "DAEDALUS rev2 activated on stoa--ewn. Reading argus-verdict.md + rev1 design end-to-end + substrate §19.4/§24/MAJOR_PLINY §5.9 close. Beginning surgical edits to address R1-R6.",
+      "timestamp": "2026-05-17T18:48:51Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch — §5.1.1 extension + cron-hygiene canon + PLINY-signoff-accuracy + attestation-confabulation",
   "type": "task",
-  "updated_at": "2026-05-17T18:48:18Z"
+  "updated_at": "2026-05-17T18:48:51Z"
 }
