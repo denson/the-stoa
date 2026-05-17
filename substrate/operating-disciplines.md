@@ -1085,6 +1085,27 @@ The convention is in NOW because PRINCIPAL named it today; structural-lesson con
 
 ---
 
+## 24. Arc-build branch hygiene (PLINY-primary; cross-ref)
+
+Any seat that creates an arc-build branch (`arc-N/build` or equivalent) under this team's gauntlet runs the two-check pre-branch hygiene rule before `git checkout -b`:
+
+1. **No other arc-build branch in flight.** Prior arc's branch must be merged AND deleted.
+2. **Local main = origin/main.** No unpushed commits in either direction.
+
+The full canon — including PRINCIPAL's 2026-05-17 verbatim phrasing, the surface-on-failure adjudication shape, the N=2 bit-by-it + N=1 worked-when-applied empirical anchor, and the §6.7.1 N=1 provenance + accretion path — lives at `MAJOR_PLINY.md` §5.9. The activation-paste convention that carries the preamble into every PLINY arc-build paste lives at `MAJOR_POLYBIUS.md` §5.1.2 plus the substrate-canonical template `substrate/templates/paste-instruction-template.md`.
+
+**Why thin cross-ref, not full universal-team mirror.** Under the current gauntlet pipeline, only PLINY creates arc-build branches. ADA works on a branch PLINY created; verifier and analysis CAPTAINs never touch git branch state. The universal-team framing is recorded here for completeness — if a future seat introduces branch-creating responsibilities (a hotfix CAPTAIN, a sibling-arc CAPTAIN), this section can promote to a full universal-team mirror at that point. Today, with PLINY as the only branch-creating seat, the substantive canon lives at `MAJOR_PLINY.md` §5.9 and the thin cross-ref here suffices.
+
+**Cross-references:**
+
+- `MAJOR_PLINY.md` §5.9 — the full discipline section.
+- `MAJOR_POLYBIUS.md` §5.1.2 — the activation-paste authoring convention.
+- `substrate/templates/paste-instruction-template.md` — the template that carries the preamble in its filled output.
+- §6.7.1 (the N=1 canon-promotion gate this discipline enters off-gate on PRINCIPAL's 2026-05-17 declaration).
+- Empirical anchors: `stoa--3cs` (work-unit + 2026-05-17 scope-expansion), PR #46 + PR #8 (bit-by-it N=2), PR #9 / `stoa--ads` (worked-when-applied N=1).
+
+---
+
 ## Agent-regime inverses (the positive framing)
 
 The six anti-patterns above suppress failure modes. The corresponding positive framings express defaults:

@@ -225,6 +225,40 @@ Empirical anchor: 2026-05-04 a project-tier install paste seeded "NOT user-beadw
 
 For the universal-team framing of this discipline (applies to every seat authoring downstream briefs — POLYBIUS, PLINY, every CAPTAIN, every pair-programmer Major), see `operating-disciplines.md` §8. Full table of anti-pattern / discipline pairs lives there.
 
+#### 5.1.2 PLINY-targeted activation pastes include the pre-branch hygiene preamble by default
+
+When filling the activation-paste template for a PLINY session, include the pre-branch hygiene preamble by default. The preamble names the two-check rule documented at `MAJOR_PLINY.md` §5.9 and tells PLINY to run the checks before creating the arc-build branch. Default-include means: every PLINY-targeted activation paste carries the preamble unless POLYBIUS explicitly suppresses it for a recognized non-arc engagement.
+
+**The preamble text (verbatim — paste this into every PLINY activation by default):**
+
+```
+Pre-branch hygiene per MAJOR_PLINY.md §5.9: before creating arc-N/build, run two checks.
+
+Check 1 (no other arc-build branch in flight):
+  git branch | grep -E '^\s*arc-[0-9]+/build$'    # must be empty
+
+Check 2 (local main = origin/main):
+  git fetch origin main
+  git log --oneline main..origin/main             # must be empty
+  git log --oneline origin/main..main             # must be empty
+
+If either check fails, surface to user-tier POLYBIUS (or PRINCIPAL via [for: PRINCIPAL]
+tag when user-tier unavailable) with the specific state observed. Do NOT silently
+inherit local-ahead commits into the arc branch (bundled-squash pattern surfaced
+on 2026-05-17 as stoa--3cs).
+```
+
+The preamble is included by default in every PLINY-targeted activation paste. POLYBIUS may suppress to empty ONLY on explicit recognition that the activation will not plausibly create an arc-build branch (e.g., a documented recovery paste for a non-arc engagement POLYBIUS knows is read-only or analysis-only). The cost calculus drives the default: an included preamble PLINY does not need is one paragraph PLINY reads and skips; an omitted preamble PLINY did need is the bundled-squash failure mode this discipline exists to prevent. Substrate-discipline-redundancy IS the safety property — default-include encodes the redundancy structurally rather than relying on POLYBIUS's session-by-session "will this session plausibly create a branch?" judgment, which is a semantic predicate not always knowable at template-fill time.
+
+The substrate-canonical template at `substrate/templates/paste-instruction-template.md` carries the preamble as a template section so the fill mechanism inserts it automatically. The canon section here ensures POLYBIUS understands WHY the preamble is there and does not delete it when refreshing the paste for a compact-or-clear recovery. Mid-arc recovery pastes (a re-paste that picks up an already-created arc-build branch) still carry the preamble by default — PLINY will read it, observe that the branch already exists, and skip the check naturally. The cost of the redundant read is paragraph-scale; the benefit is the redundancy property.
+
+**Cross-references:**
+
+- `MAJOR_PLINY.md` §5.9 — the two-check rule plus the surface-on-failure behavior PLINY runs.
+- `substrate/templates/paste-instruction-template.md` — the substrate-canonical template that carries the preamble in its filled output.
+- `operating-disciplines.md` §24 — the universal-team layer cross-ref (today PLINY only; future seats that create arc-build branches inherit the same discipline).
+- Empirical anchor: `stoa--3cs` (2026-05-17 N=2 bit-by-it + N=1 worked-when-applied).
+
 ### 5.2 install.sh is template-based — you customize per session
 
 `install.sh` does only the non-conversational mechanical deploys. Everything else — `bw init`, deploying officers (already in install.sh, but with the `--no-captains` opt-out), the conversational interview, paste-instruction handoff, the consent moments — is handled by you interactively.

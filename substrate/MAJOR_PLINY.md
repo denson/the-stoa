@@ -326,6 +326,67 @@ For events PRINCIPAL needs to act on out-of-band — ship/no-ship verdict ready,
 
 2026-05-12 ariadne PLINY incident — `Agent` dispatch of ADA mid-corpus-authoring without `Monitor` + task_id materialization led to a state-blind orchestrator and a confabulated assertion (verb-level failure captured at `operating-disciplines.md` §19). This section is the structural fix. Substrate ticket: `stoa--nvl`. Arc 24 (`stoa--cm3`).
 
+### 5.9 Pre-branch hygiene — the two-check rule before creating an arc-build branch
+
+Before you create a new arc-build branch (`git checkout -b arc-N/build` or equivalent), run two checks. If either fails, pause and surface — do NOT silently inherit local-ahead state into the arc branch.
+
+**The two-check rule (PRINCIPAL-articulated 2026-05-17):**
+
+1. **No other arc-build branch is in flight.** The prior arc's branch must be merged AND deleted before a new one is created. PRINCIPAL's framing:
+
+   > "at most one team working on a repo at any one time"
+   >
+   > "pliny can't create more than one branch to work with until the other is committed and merged"
+
+   Detection: `git branch | grep -E '^\s*arc-[0-9]+/build$'` should return at most the branch you are about to create (i.e., zero results before creation). Long-running PR branches that have not yet merged are a fail signal.
+
+2. **Local main equals origin/main.** No unpushed commits in either direction.
+
+   ```
+   git fetch origin main
+   git log --oneline main..origin/main      # must be empty
+   git log --oneline origin/main..main      # must be empty
+   ```
+
+   Both commands return empty on a clean working tree synchronized with origin. If `main..origin/main` is non-empty, origin has commits local does not — pull or rebase first per operator discretion. If `origin/main..main` is non-empty, local has commits origin does not — push them first under their own PR, NOT bundled into the arc branch.
+
+**On failure of either check, surface — do not silently proceed.** Post a comment on the arc's work-unit ticket tagged `[for: user-tier POLYBIUS]` (or `[for: PRINCIPAL]` when user-tier POLYBIUS is unavailable) naming the specific state observed and the adjudication ask. Worked surfacing shape:
+
+> "Pre-branch check 2 failed: `origin/main..main` shows 3 unpushed commits (`abc1234 chore: ...`, `def5678 docs: ...`, `9abcdef fix: ...`). Recommend pushing these under their own PR first so they do not get absorbed into the arc-N squash. Adjudication ask: (a) push under their own PR first then re-run check; (b) discard if not wanted; (c) something else?"
+
+The surface-on-failure behavior is load-bearing. Silently choosing one of the options (e.g., "I'll just push them") would re-introduce the exact failure mode the discipline closes — operator did not see the state; future POLYBIUS reading the git history sees a bundle they did not authorize.
+
+#### 5.9.1 What this fixes (empirical anchor)
+
+The bundled-squash pattern, observed twice on 2026-05-17:
+
+- **PR #46** (multi-project routine, the-stoa) — squash absorbed 7 pre-existing housekeeping commits; intent was multi-project routine; PR ended up at 23 files instead of the ~5 intended for the routine.
+- **PR #8** (Arc 28, the-stoa) — squash absorbed similar pre-existing housekeeping content; intent was Arc 28's bw 0.13.0 substrate adoption; the squash commit subject did not accurately describe the bundled scope.
+
+In both cases the bundled content was legitimate work — no defect, no rollback warranted. The cost is reviewability and substrate-readability: future POLYBIUSes reading git history cannot tell from the squash subject what each arc actually accomplished, and CATO review on each PR was wider than the arc scope justified.
+
+The discipline provably works when applied. Arc 29 (`stoa--ads`, PR #9) shipped clean on 2026-05-17 because the pre-branch check was baked into the Arc 29 activation paste (`HUMAN_paste-pliny-arc-29-instruction.md` — see the "Pre-branch hygiene per directive A9" block). First arc this session without the bundled-squash symptom; first empirical N=1 anchor for the discipline's effectiveness.
+
+#### 5.9.2 Cross-references
+
+- Activation paste convention: `MAJOR_POLYBIUS.md` §5.1.2 (the POLYBIUS-tier authoring-of-PLINY-pastes section) carries the convention that PLINY-targeted activation pastes include the pre-branch hygiene preamble. The substrate-canonical template `substrate/templates/paste-instruction-template.md` carries the preamble as a mandatory section the template includes. Both of those carriers say the same thing for redundancy with the substantive canon in this §5.9 — the §5.9 prose here is the substantive source of truth; the other two carriers enumerated above are the paste-side redundancy.
+- Universal-team layer: `operating-disciplines.md` §24 (cross-ref) carries the brief universal-team framing — today PLINY is the only seat that creates arc-build branches under the gauntlet pipeline; if a future seat ever does (a hotfix CAPTAIN, a sibling-arc CAPTAIN), the discipline applies to that seat too.
+- §6.1 (bw command syntax) — the `bw comment` and `[for: ...]` tag conventions used in the surface-on-failure step are documented at `operating-disciplines.md` §12 (bw cookbook) and summarized at §6.1 above.
+- `operating-disciplines.md` §6.7.1 (the N=1 canon-promotion gate) — this section enters substrate canon off-gate on PRINCIPAL's 2026-05-17 project-direction declaration; future-evidence accretion per §6.7.1 is the path to "structural lesson" status.
+- Empirical anchors: `stoa--3cs` (work-unit ticket carrying the discipline shape + 2026-05-17 scope-expansion comment + N=2 bit-by-it + N=1 worked-when-applied citations), PR #46 + PR #8 (bit-by-it cases), PR #9 (`stoa--ads` / Arc 29 — worked-when-applied case).
+
+#### 5.9.3 N=1 provenance + accretion path
+
+Per `MAJOR_POLYBIUS.md` §15 honest-scope and `operating-disciplines.md` §6.7.1: PRINCIPAL declared this discipline on 2026-05-17 (project-direction authority, captured at `stoa--3cs` thread). §6.7.1 defers to the canon-promotion gate (multiple observations across distinct defect classes + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status.
+
+The supporting evidence at the time of this writing (2026-05-17):
+
+- **N=2 bit-by-it (defect class: bundled-squash):** PR #46 (multi-project routine; ~7 pre-existing commits absorbed; 23 files instead of ~5) + PR #8 (Arc 28; pre-existing housekeeping absorbed; misleading squash subject). Two observations of the same defect class on the same day; pattern not yet across distinct defect classes per §6.7.1 condition 1.
+- **N=1 worked-when-applied (controlled comparison):** Arc 29 (`stoa--ads` / PR #9) shipped clean — the pre-branch check was baked into the activation paste; the bundled-squash symptom did not surface. Single instance of the controlled comparison per §6.7.1 condition 2; accretes as future arcs ship under the discipline.
+- **N=1 recursive self-application:** this arc (Arc 30 / `stoa--3cs` / `arc-30/build`) was created from clean main at `140b398` per directive A8; user-tier POLYBIUS verified at dispatch authoring; PLINY verified at branch creation. The discipline applied to its own canonification.
+
+The discipline is in substrate canon NOW because PRINCIPAL named it today and the bit-by-it / worked-when-applied evidence both surfaced today; promotion to "structural lesson" status with multi-arc empirical backing under the encoded canon is a future arcs' work, not this arc's. If the discipline turns out wrong-shaped during future arcs (e.g., the surface-on-failure adjudication ask itself produces operator-friction the discipline should mitigate), future arcs revise this section. Same N=1 framing as Arc 27's §16.6, Arc 28's `operating-disciplines.md` §22.3, and Arc 29's §17.5.
+
 ---
 
 ## 6. Communication
