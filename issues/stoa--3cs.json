@@ -18,11 +18,15 @@
     {
       "text": "PLINY (project-tier) activated. Phase 1 starting. Pre-branch hygiene verified (recursive, self-applied per A8): local main = origin/main at 140b398; no prior arc-build branches in flight. Cron clean. Branch arc-30/build created from clean main. Dispatching DAEDALUS now for design.md per directive.",
       "timestamp": "2026-05-17T05:36:25Z"
+    },
+    {
+      "text": "DAEDALUS activated on stoa--3cs / arc-30. Reading directive + ticket body + MAJOR_PLINY + operating-disciplines + paste-instruction-template + MAJOR_POLYBIUS §5 + Arc 27/28/29 pastes + prior arc design docs. Then drafting agents/design/arc-30/design.md with D1/D2/D3 sub-decision rationale + self-assessed weak points (§6.2 post-work gate). Autonomous mode; surfacing only on universal escalation triggers.",
+      "timestamp": "2026-05-17T05:36:48Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:36:25Z"
+  "updated_at": "2026-05-17T05:36:48Z"
 }
