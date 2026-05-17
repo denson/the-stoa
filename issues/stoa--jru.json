@@ -273,11 +273,15 @@
     {
       "text": "[from: vera-the-stoa] VERA activated on arc-36 v2 verification. Reading design.md §4 probe spec + build c6d674a. Operating-mode: autonomous. Executing 25+ §4 probes mechanically; not trusting ADA's self-claim.",
       "timestamp": "2026-05-17T23:58:11Z"
+    },
+    {
+      "text": "[from: zeno-the-stoa] ZENO activated on stoa--jru. Reading directive + design + build artifacts before extracting A1-A17 criteria.",
+      "timestamp": "2026-05-17T23:58:13Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-17T23:58:11Z"
+  "updated_at": "2026-05-17T23:58:13Z"
 }
