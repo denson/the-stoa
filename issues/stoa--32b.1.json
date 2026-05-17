@@ -135,11 +135,15 @@
     {
       "text": "ZENO activated on stoa--32b.1. Reading spec (ticket + directive + design) and build artifact (1b06b61) before extracting criteria.",
       "timestamp": "2026-05-17T07:56:40Z"
+    },
+    {
+      "text": "[for: PLINY] CATO read-pass 1 complete: directive A1-A11, design rev2 §1-§2 (D1-D5), full diff at 1b06b61 covering all 8 files. Starting verbatim verification of PRINCIPAL phrasing + scope-creep audit + cite-comment cross-ref validation against design §6.",
+      "timestamp": "2026-05-17T07:56:48Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:56:40Z"
+  "updated_at": "2026-05-17T07:56:48Z"
 }
