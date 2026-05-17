@@ -43,11 +43,15 @@
     {
       "text": "[PLINY] Phase 1 DAEDALUS PASS. Design at agents/design/arc-31/design.md (495 lines, 7 sections incl. 13-row cite-comment table). A3 pick: Option β (new §25 in operating-disciplines.md — Option α would reproduce the cadence-vs-gate conflation the discipline is precisely about). A6 pick: SPLIT (universal probe-design rule lands at §25.5; CAPTAIN_VERA §5.10 carries thin pointer back — empirical anchor is VERA, but principle is general per stoa--32b.2 forthcoming). 3 self-assessed weak points (N=1 anchor; prose-discipline-only without inspection-agent enforcement; D4 no debounce). 4 residual_questions_for_argus. Dispatching ARGUS next for cold audit.",
       "timestamp": "2026-05-17T07:44:53Z"
+    },
+    {
+      "text": "ARGUS activated on stoa--32b.1. Auditing agents/design/arc-31/design.md. Will read design end-to-end + directive + retro §7 + operating-disciplines §10/§11/§15/§24 + 3 CAPTAIN envelopes + 2 templates; verify §24 still last current section for §25 number assignment; quadrant-classify each finding (§6.6). Operating mode: AUTONOMOUS.",
+      "timestamp": "2026-05-17T07:45:15Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:44:53Z"
+  "updated_at": "2026-05-17T07:45:15Z"
 }
