@@ -50,11 +50,15 @@
     {
       "text": "PASS: 0 P0, 0 P1; design is ship-ready for ADA. 4 P2 follow-up notes posted in verdict block returning to PLINY. No load-bearing risks surfaced. Returning.",
       "timestamp": "2026-05-17T04:54:26Z"
+    },
+    {
+      "text": "[heartbeat PLINY] Phase 1 ARGUS returned PASS, 5 P2 findings (all polish — no P0/P1; design ship-ready per ARGUS recommendation). DAEDALUS picks on 5 open questions all sustained. Findings: (1) docs say name: lowercase+hyphens but substrate empirically uses uppercase+underscore — add §17.4 acknowledgment; (2) local base; consistency in check.sh design pseudocode; (3) WITH_CAPTAINS/WITH_TEMPLATES gating on new operator-visibility block; (4) check.sh:392 MAJOR glob future-proof cite-comment; (5) custom/ vs _custom/ — sustain DAEDALUS pick. Dispatching DAEDALUS for revision-round-2 (light polish) to absorb findings 1-4 inline; then Phase 2 ADA dispatches from a clean design.md.",
+      "timestamp": "2026-05-17T04:55:02Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Base-vs-custom agent convention — encode in substrate canon (operating-disciplines + MAJOR_POLYBIUS + install/check/apply tooling)",
   "type": "task",
-  "updated_at": "2026-05-17T04:54:26Z"
+  "updated_at": "2026-05-17T04:55:02Z"
 }
