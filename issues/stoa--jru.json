@@ -53,11 +53,15 @@
     {
       "text": "[from: argus-the-stoa] ARGUS activated on stoa--jru. Brief read, directive A1-A17 absorbed, PLINY A7 spike result + DAEDALUS PASS verdict + 5 self-named weak points absorbed. Reading design.md in segments + arc-22 reference + current substrate state (op-disc §7/§11/§27/§28; MAJOR_POLYBIUS §7/§13.4/§18; polling-cron-prompt-template; autonomous-mode-activation-template) in parallel now.",
       "timestamp": "2026-05-17T23:02:45Z"
+    },
+    {
+      "text": "[from: argus-the-stoa] Read complete: design.md (1033 lines) + arc-22 reference (512 lines) + current substrate state (op-disc §7/§11/§27/§28; MAJOR_POLYBIUS §7.4/§13.4; both templates). Drafting verdict now. Found one load-bearing risk DAEDALUS named (§9.4 renewal-cron state-management — concur) + 2-3 risks DAEDALUS didn't name (CronList truncation interaction with renewal self-discovery; STEP 1.5 timestamp-list build under unified-poll multi-store). One web-fetch in flight against scheduled-tasks docs to confirm task-count cap + truncation length.",
+      "timestamp": "2026-05-17T23:03:32Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-17T23:02:45Z"
+  "updated_at": "2026-05-17T23:03:32Z"
 }
