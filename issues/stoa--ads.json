@@ -106,11 +106,15 @@
     {
       "text": "ZENO activated on stoa--ads Phase 3. Reading spec (ticket D1-D6) + shipped artifact at 5836092 before extracting criteria.",
       "timestamp": "2026-05-17T05:03:44Z"
+    },
+    {
+      "text": "ZENO PASS: D1-D6 all DONE at 5836092. D1 §17 (MAJOR_POLYBIUS.md:965) + §23 (operating-disciplines.md:1032) both present with BASE/CUSTOM defs + cost-of-recreation framing + cross-refs. D2 per-class picks named in canon + carried into all 3 scripts (agents/custom/, custom-\u003cname\u003e/, templates/custom/). D3 install.sh cite-comments (5x §23 + 6x §17 hits), case-skip 'custom-*) continue' at line 898, op-visibility 'Custom files coexist' line at 987. D4 check.sh 4x §23 + 4x §17 cites + case-skip 'custom-*) continue' at line 456 + ADA drift-fix for MAJOR cite at 393-394 (matches shipped glob '.claude/MAJOR_*.md'). D5 apply.sh case refusal at 286-293 covers all 3 custom path classes + 'continue' (not exit-non-zero) per design + cite at 290. D6 CLAUDE_MD_BASE_VS_CUSTOM_MARKER defined at 158, idempotent gated append at 768-799, distinct from POLYBIUS marker. Returning.",
+      "timestamp": "2026-05-17T05:04:26Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Base-vs-custom agent convention — encode in substrate canon (operating-disciplines + MAJOR_POLYBIUS + install/check/apply tooling)",
   "type": "task",
-  "updated_at": "2026-05-17T05:03:44Z"
+  "updated_at": "2026-05-17T05:04:26Z"
 }
