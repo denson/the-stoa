@@ -1357,6 +1357,98 @@ The discipline is in NOW because PRINCIPAL named it; structural-lesson confidenc
 
 ---
 
+## 28. Per-CAPTAIN git seat identity via Co-Authored-By trailer
+
+Every commit a CAPTAIN agent lands inside an arc-build worktree (`.claude/worktrees/arc-N-build/`) during a gauntlet carries a `Co-Authored-By:` trailer that names the seat + project. The trailer is the seat-identity signal; the commit `Author:` field stays PRINCIPAL's configured identity (`<user-name> <user-email>` from the PRINCIPAL's `git config user.*`) per global `~/.claude/CLAUDE.md`'s absolute rule "Git commit `Author:` — always use the user's configured git identity, never override." This section is the substrate-canonical home; per-seat application at `MAJOR_PLINY.md` §5.12 (dispatch-brief naming) and `CAPTAIN_ADA.md` §5.5 (pre-commit discipline).
+
+### 28.1 The trailer format
+
+```
+Co-Authored-By: CAPTAIN_<MNEMONIC>_<project-slug> <captain-<mnemonic>@<project-slug>.local>
+```
+
+- **Name field** — `CAPTAIN_<MNEMONIC>_<project-slug>`. `<MNEMONIC>` is the seat's substrate name (`ADA`, `DAEDALUS`, `ARGUS`, `VERA`, `CATO`, `ZENO`, etc., per the `substrate/CAPTAIN_*.md` files). `<project-slug>` is the project's canonical slug (`the-stoa`, `ariadne-core`, etc. — hyphen-or-underscore-shaped per the project's own conventions). Underscore separator between the two segments binds them as a single name token.
+- **Email field** — `captain-<mnemonic>@<project-slug>.local`. Lowercase-hyphen local-part. The `.local` TLD is reserved by RFC 6762 for link-local mDNS; it is non-routable on the public internet, so the trailer cannot accidentally generate email to a fake address. GitHub will not match the `.local` email to any real user account, so the trailer renders as a name+email text record without a fake-avatar pollution.
+
+Worked examples for the-stoa project-tier:
+
+```
+Co-Authored-By: CAPTAIN_ADA_the-stoa <captain-ada@the-stoa.local>
+Co-Authored-By: CAPTAIN_DAEDALUS_the-stoa <captain-daedalus@the-stoa.local>
+Co-Authored-By: CAPTAIN_CATO_the-stoa <captain-cato@the-stoa.local>
+```
+
+### 28.2 Scope: CAPTAINs only
+
+**Tagged (Co-Authored-By trailer required):**
+
+- CAPTAIN_ADA build commits inside arc-build worktrees.
+- CAPTAIN_DAEDALUS commits when DAEDALUS commits design artifacts directly (e.g., the design.md that opens a gauntlet).
+- Any other CAPTAIN seat that direct-commits during the gauntlet (verdicts are usually committed as artifacts by ADA; if a CAPTAIN commits directly, tag it).
+
+**Not tagged (Author = PRINCIPAL, no trailer required):**
+
+- PLINY orchestrator commits (PLINY rarely direct-commits; merges via `gh pr merge` inherit PRINCIPAL identity).
+- User-tier POLYBIUS direct-to-main housekeeping commits per `MAJOR_POLYBIUS.md` §18.1 (directive tracking, paste tracking, substrate-tool self-apply, orphan cleanup, retro docs, bw operations on the orphan beadwork branch).
+- PRINCIPAL hand-authored commits.
+- Squash-merge commits on main (created by `gh pr merge`; carry the trailers from squashed commits via GitHub's trailer-preservation property — see §28.3).
+
+Rationale: PLINY + POLYBIUS commits are coordination + housekeeping, not authorial work. Tagging them adds noise without read-side signal. CAPTAIN commits ARE authorial work and ARE the empirical-anchor case (an ADA build commit was the misattributed source on the 2026-05-04 ariadne--xft.4 ARGUS git-blame incident).
+
+### 28.3 Squash-merge preservation
+
+GitHub's squash-merge behavior auto-populates a Co-Authored-By trailer from each squashed commit's author AND preserves any pre-existing Co-Authored-By trailers from the squashed commits' bodies into the squash-merge commit's body. The squash-merge commit on main therefore carries the trailer chain from every CAPTAIN commit that contributed to the arc, even after the `arc-N/build` branch is deleted. This is what makes the convention forward-compatible with the project's squash-merge convention (per `MAJOR_PLINY.md` §5.9 + §5.10 cleanup): seat identity survives branch deletion via the squash-merge commit body.
+
+Verification: `git log --pretty='%(trailers)' main` walks squash-merge commit bodies and reveals the seat-identity trailers from each arc.
+
+### 28.4 File-frontmatter author fields are NOT affected
+
+This convention applies ONLY to git commit metadata. File-frontmatter `author:` fields (`SKILL.md`, `marketplace.json`, `package.json`, `LICENSE`, etc.) continue to name **Denson Smith** per the project-tier `CLAUDE.md` (at the project repo root) and global `~/.claude/CLAUDE.md` IMMUTABLE rule. The CAPTAIN_ADA.md §5.5 file-frontmatter discipline stands. This section makes the boundary explicit to prevent any reader from inferring "agents tag commits → agents also tag file frontmatter." Commit-trailer seat-identity is a metadata-layer signal; file-frontmatter author is a content-layer claim — different layers, different rules.
+
+### 28.5 Read discipline: git blame is line-level; trailers are commit-level
+
+The trailer convention addresses **commit-level** seat identity. `git blame` shows **line-level** Author attribution — and `git blame` follows the commit's `Author:` field, NOT its trailers. Because `Author:` stays PRINCIPAL by §28 design, `git blame` will show PRINCIPAL as the author of every line, even lines an agent wrote. **This is intended:** `Author:` preserves the workspace's identity uniformity; the trailer is the seat-identity signal layered on top.
+
+The reading-side discipline that follows from this asymmetry:
+
+> **Do NOT infer human authorship from `git blame` output.** A line attributed to the PRINCIPAL by blame may have been written by any seat (CAPTAIN or human) committing under PRINCIPAL's identity. To learn which seat actually wrote a line, walk the commit's trailers (`git log -1 --pretty='%(trailers)' <sha>`) or trace the ticket + PR + arc-build commit chain via `bw show <ticket>` + GitHub PR history.
+
+This composes with §19.6 (attestation-confabulation): both disciplines are "cite live-verified state, not assumed-from-context state" — §19.6 at attestation time; §28.5 at git-blame-reading time. The 2026-05-04 ariadne--xft.4 ARGUS incident is an instance of the §28.5 failure mode: ARGUS read `git blame` output and asserted PRINCIPAL-authorship of a line an ADA build had written. The trailer convention does not prevent the same `git blame` output from appearing; the read discipline is what prevents the misattribution at the reading agent's end.
+
+### 28.6 Future arcs may extend
+
+This section enumerates CAPTAIN seats explicitly because they are the seats that empirically commit during the gauntlet today. The convention is shape-compatible with other seat ranks:
+
+- A future paste-activated MAJOR seat that direct-commits (a hypothetical hotfix MAJOR, a long-running CURATOR session committing curator-tier artifacts) would carry `Co-Authored-By: MAJOR_<MNEMONIC>_<project-slug> <major-<mnemonic>@<project-slug>.local>` per the same shape.
+- Currently-non-committing CAPTAINs (BARTLEBY, STRABO, HERALD, CURATOR per the substrate's `substrate/CAPTAIN_*.md` files) inherit §28 if-and-when they begin committing in future arcs.
+
+Arc 35 does not pre-emptively extend the convention to non-committing seats — empirical-anchor surface today is gauntlet CAPTAINs only.
+
+### 28.7 N=1 provenance + accretion path
+
+Per `MAJOR_POLYBIUS.md` §15 honest-scope and §6.7.1: PRINCIPAL articulated this discipline (Option β fix-shape) on 2026-05-17 after the user-tier POLYBIUS audit surfaced the load-bearing tension between `stoa--kjo`'s original Option A (per-agent `Author:` override) and global `~/.claude/CLAUDE.md`'s absolute rule "never override `Author:`." §6.7.1 defers to the canon-promotion gate (multiple observations across distinct defect classes + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status.
+
+Supporting evidence at the time of this writing (2026-05-17):
+
+- **N=1 bit-by-it (defect class: commit-level-seat-identity-absent):** 2026-05-04 ariadne--xft.4 ARGUS misattribution incident — ARGUS read `git blame` output and asserted "docstring authored by PRINCIPAL himself in commit `ebb9ecca`"; PRINCIPAL: "I am 100% sure I did not personally write that." The commit was an ADA build commit running under PRINCIPAL's git identity per standard workspace practice. Single observation today; defect class is "no commit-level seat-identity signal available to a reader walking git history."
+- **N=0 worked-when-applied (controlled comparison):** no prior arc has applied the convention; Arc 35's self-application (A9) is the first instance. Accretes as future arcs ship under §28.
+
+Same N=1 framing as Arc 27's `MAJOR_POLYBIUS.md` §16.6, Arc 28's `operating-disciplines.md` §22.3, Arc 29's §17.5, Arc 30's `MAJOR_PLINY.md` §5.9.3, Arc 31's `operating-disciplines.md` §25.6, Arc 32's family (§5.10.3 / §5.9.4.1 / §5.1.3 / §19.6.4), Arc 33's §27, and Arc 34's §18 + §5.11.
+
+### 28.8 Cross-references
+
+- Global `~/.claude/CLAUDE.md` — the absolute "never override `Author:`" rule §28 preserves; global CLAUDE.md authorship-attribution section carries a cross-ref bullet back to §28 acknowledging the substrate's compliant trailer convention.
+- `MAJOR_PLINY.md` §5.12 — dispatch-brief responsibility (PLINY names the seat-identity each CAPTAIN should use in the trailer).
+- `CAPTAIN_ADA.md` §5.5 — pre-commit discipline at the CAPTAIN seat (extension to the file-frontmatter authorship-discipline paragraph).
+- §19.6 (attestation-confabulation) — sister discipline; both are "cite live-verified state, not assumed-from-context state" — §19.6 at attestation time; §28.5 at git-blame-reading time.
+- §25 (PRINCIPAL-gate discipline) — the gate that adjudicated `stoa--kjo`'s original Option A to Option β.
+- `MAJOR_POLYBIUS.md` §18 — the exempt-categories list (user-tier POLYBIUS housekeeping commits NOT tagged per §28.2).
+- `MAJOR_PLINY.md` §5.10 (signoff-accuracy) + §5.11 (paste archival) — sibling arc-boundary disciplines; §28 fires throughout the arc-build (every CAPTAIN commit).
+- `stoa--kjo` — work-unit ticket carrying the empirical-anchor + PRINCIPAL Option A → β adjudication.
+- 2026-05-04 ariadne--xft.4 — the empirical-anchor incident (cross-repo reference).
+
+---
+
 ## Agent-regime inverses (the positive framing)
 
 The six anti-patterns above suppress failure modes. The corresponding positive framings express defaults:
