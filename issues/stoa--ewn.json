@@ -34,11 +34,15 @@
     {
       "text": "ARGUS activated on stoa--ewn at 2026-05-17. Reading design artifact (655 lines) end-to-end + locked directive (A1-A11) + substrate files (POLYBIUS §5.1, PLINY §5.9, ops-disc §19/§24/§25, paste-template) before audit. Note: envelope omits Write/Edit (structural per §4); verdict returned as final assistant message per CAPTAIN standby contract — no argus-verdict.md will be written. Verdict block also posted as bw comment here at completion.",
       "timestamp": "2026-05-17T18:46:23Z"
+    },
+    {
+      "text": "revise: 4 load-bearing structural risks (R1-R4), 1 medium (R5), 1 quadrant/honesty risk on cite-comment §3.4 line 369 (R6). Highest: R1 — design §3.2 Carrier 3 places §26 in ops-disc.md BUT existing §24 contradicts the C2-canon's framing on which seats activate via paste (POLYBIUS already is paste-activated per §24 prose; C2 reframes that as PLINY+POLYBIUS = paste-activated which is correct but §24 says 'PLINY only' currently — three-carrier mirror is inconsistent with the §24 it claims to mirror). R2 — design's §3.4 line 369 confidently asserts §7.2/§4.3 'inherit the existing back-pointer transitively' to §19.6 'per existing §19.4 prose' — INCORRECT: existing §19.4 names §19 generally as the broadening discipline, not §19.6 specifically. New §19.6 needs explicit back-pointer or §19.4 prose extension or cite-claim is confabulated. R3 — §3.5 design line 392 says §5.9.4 inserts 'after §5.9.3 closes at MAJOR_PLINY.md:388 and before the new §5.10' but §5.9.3 actually closes at line 388, line 389 is blank, line 390 is the family-boundary --- separator. §5.9.4 (sub-subsection) AND §5.10 (new top-level peer) BOTH being inserted in this single before-the--- window is structurally tense: §5.9.4 is a #### sub-subsection that ends mid-family, then a peer ### §5.10 starts before the --- boundary. ADA's apply order matters AND the design names §5.10 as new TOP-LEVEL of §5 family but §5.9.4 sits as a 5.9 sub-subsection — VERA's §4.5 probe expects §5.9.4 ABOVE §5.10 in file but neither probe enforces ordering. R4 — §15 N=1 framing in C3 §5.10.3 + C5 §5.9.4.1 cite operating-disciplines.md §6.7.1 'three-condition gate' — this resolves cleanly. BUT C1's §5.1.1.1 (depth-5 header) omits §6.7.1 cite as separate provenance section — design weak point 1's defense is honest but C1 alone among C1-C5 has no separate §15-shaped provenance subsection; it folds provenance into one closing paragraph. Inconsistency vs C2-C5. Full verdict block in final return message to PLINY.",
+      "timestamp": "2026-05-17T18:47:20Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch — §5.1.1 extension + cron-hygiene canon + PLINY-signoff-accuracy + attestation-confabulation",
   "type": "task",
-  "updated_at": "2026-05-17T18:46:23Z"
+  "updated_at": "2026-05-17T18:47:20Z"
 }
