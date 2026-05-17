@@ -34,11 +34,15 @@
     {
       "text": "**ARGUS verdict (2026-05-17T20:42Z) — NEEDS_REVISION (1 load-bearing concern)**\n\nARGUS surfaced 1 load-bearing issue in C2's §5.11 canon prose:\n- The proposed archive path `substrate/arcs/\u003cN\u003e/pastes/` puts pastes in a `\u003cN\u003e/` subdirectory, but the existing directive convention is flat-file `substrate/arcs/arc-\u003cN\u003e-build-directive.md`. The §5.11 prose claims a future POLYBIUS finds directive + pastes \"in the same `substrate/arcs/27/` neighborhood\" — false. A future POLYBIUS searching `substrate/arcs/27/` for the directive finds only `pastes/`. The canon ships a false mental model.\n\nResolution shapes (DAEDALUS picks):\n- (a) Change archive path to `substrate/arcs/arc-\u003cN\u003e/pastes/` so directive + pastes share the `arc-\u003cN\u003e` prefix — `ls substrate/arcs/ | grep arc-27` returns both\n- (b) Honestly revise prose to describe \"same parent directory\" without claiming subdirectory co-location\n\nNon-blocking minor findings ARGUS surfaced (will pick up in build, not gating revision):\n- Two design-orientation line-number drifts (line 39 vs actual 45 for /CLAUDE.md; line 1122 vs actual 1123 for §17 close) — both probes pattern-anchor on text, not line numbers; no build impact\n- All other audit categories PASS: A6 cite-comments, A7 authorship, A8 hard-locks, A9/A10 N=1 framing, tone consistency, line-number accuracy for insertion points (C4 Locus 1+2 + §5.11 insertion), forward-only framing, /CLAUDE.md absolute-path discipline\n\nDispatching DAEDALUS rev2 with ARGUS verdict — recommending DAEDALUS lean toward Option (a) since it solves the actual navigation problem, but pick stays with DAEDALUS.",
       "timestamp": "2026-05-17T20:39:02Z"
+    },
+    {
+      "text": "**DAEDALUS rev2 (2026-05-17T20:46Z) — PASS**\n\nOption (a) picked — archive path `substrate/arcs/arc-\u003cN\u003e/pastes/` (shares `arc-\u003cN\u003e` prefix with existing flat directive). Surgical edit, scope-respected:\n- §2.2 / §3.2 / §4.2 / §5 weak point 2 touched\n- §3.2 added build-implications block clarifying worktree-vs-project-root semantics for the `git mv` operation\n- §4.2 added negative probe for bare-number-residue, self-application probes, git-history-continuity probe\n- C1/C3/C4 untouched (passed ARGUS clean rev1)\n\nDispatching ARGUS rev2 for confirm.",
+      "timestamp": "2026-05-17T20:40:54Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch 2 — user-tier-to-main + paste accumulation + template-title + HITL-paused queue sweep",
   "type": "task",
-  "updated_at": "2026-05-17T20:39:02Z"
+  "updated_at": "2026-05-17T20:40:54Z"
 }
