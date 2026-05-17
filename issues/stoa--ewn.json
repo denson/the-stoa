@@ -22,11 +22,15 @@
     {
       "text": "DAEDALUS activated on stoa--ewn at 2026-05-17 (project-tier the-stoa). Reading brief + arc-32-build-directive.md + ticket body + C5 comment + role file + adjacent canon (MAJOR_POLYBIUS.md §5.1.1/§5.1.2, MAJOR_PLINY.md §5.9, operating-disciplines.md §19/§24/§25, paste-instruction-template.md, recent activation pastes). Beginning §6.1 pre-work restatement gate for an integrated design across C1-C5.",
       "timestamp": "2026-05-17T18:43:02Z"
+    },
+    {
+      "text": "DAEDALUS state: brief + locked directive (A1-A11) + ticket body + C5 comment + adjacent canon (POLYBIUS §5.1.1+§5.1.2 / PLINY §5.9 + §5.9.3 N=1 model / ops-disc §19+§24+§25 / paste-template / 3 recent activation pastes) all consumed end-to-end. §6.1 restatement gate converged (5-candidate batch with 2 DAEDALUS sub-decisions per A4+A6). **Sub-decisions:** C3 locus = Option α (MAJOR_PLINY.md alongside §5.9; PLINY does the vast majority of signoffs in this gauntlet; thin cross-ref from ops-disc §24 family). C5 option = Option A (require separate worktree at .claude/worktrees/arc-N-build/; per-arc-judgment rejected for same structural reason §5.1.2 rejected per-session paste-suppression). Both within DAEDALUS A4/A6 discretion; no §25 PRINCIPAL-gate raised. Drafting design.md now.",
+      "timestamp": "2026-05-17T18:43:26Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch — §5.1.1 extension + cron-hygiene canon + PLINY-signoff-accuracy + attestation-confabulation",
   "type": "task",
-  "updated_at": "2026-05-17T18:43:02Z"
+  "updated_at": "2026-05-17T18:43:26Z"
 }
