@@ -131,11 +131,15 @@
     {
       "text": "pass: CATO arc-33 verdict PASS clean. All 6 probes PASS (CATO-1 authorship Denson Smith; CATO-2 3-step wording consistent across retro/ticket/§27/SKILL; CATO-3 zero A7 violations; CATO-4 N=1 framing honest with explicit accretion path; CATO-5 §27 cold-read passes all four ambiguity checks; CATO-6 in-scope/out-of-scope explicit). Empirical-environment probe per §6.9: --self-test 2/2 PASS against live worktree. ZERO P0/P1/P2 findings. Returning structured verdict to PLINY.",
       "timestamp": "2026-05-17T19:38:56Z"
+    },
+    {
+      "text": "pass: VERA arc-33 verdict PASS. All 8 probes PASS: VERA-1 (skill dir contents + check.sh exec bit + git index 100755); VERA-2 (install.sh SKILL_NAMES append line 146, 1 occurrence in array); VERA-3 (op-disc §27 header at L1284 + 7 sub-sections + domain-term count 13); VERA-4 (--self-test exits 0, 2 PASS lines, temp dir cleaned via EXIT trap); VERA-5 (STRANGE-path finding cites both base + custom CAPTAIN_DAEDALUS_self_test.md); VERA-6 (all 3 scan helpers have CITE-comments to op-disc §23 + POLYBIUS §17/§17.4, SCOPE NOTE present, CLEAN tree has correctly-conventioned custom CAPTAIN_DEPLOYER_self_test_custom); VERA-7 (all cross-refs resolve: op-disc §10/§11/§19.6/§22.3/§23/§23.3/§23.5/§25/§25.3/§25.6/§27.2/§6.7.1; POLYBIUS §4.8/§16.6/§17/§17.4/§17.5; PLINY §5.9.3/§5.9.4/§5.10; 8/8 stoa-- tickets resolve); VERA-8 (DRIFTED+MISSING surface as expected when run from arc-33-build worktree: +390 lines op-disc, MISSING both inspect-script-output files). One methodology_concerns: brief expected drift on .claude/install.sh but install.sh is not a tracked .claude/ deployment target (lives only at substrate-tier root). Authorship audit PASS: SKILL.md author: Denson Smith. Returning to PLINY.",
+      "timestamp": "2026-05-17T19:40:05Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Mechanical-script / agent-inspection split — move recognition intelligence from scripts to agents",
   "type": "task",
-  "updated_at": "2026-05-17T19:38:56Z"
+  "updated_at": "2026-05-17T19:40:05Z"
 }
