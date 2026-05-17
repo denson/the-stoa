@@ -47,11 +47,15 @@
     {
       "text": "ARGUS activated on stoa--32b.1. Auditing agents/design/arc-31/design.md. Will read design end-to-end + directive + retro §7 + operating-disciplines §10/§11/§15/§24 + 3 CAPTAIN envelopes + 2 templates; verify §24 still last current section for §25 number assignment; quadrant-classify each finding (§6.6). Operating mode: AUTONOMOUS.",
       "timestamp": "2026-05-17T07:45:15Z"
+    },
+    {
+      "text": "ARGUS audit pass 1: design + directive + retro §7 + operating-disciplines (§10/§11/§15/§18/§22/§23/§24) + 3 CAPTAIN envelopes + 2 templates read. Section-number arithmetic verified: §24 still last in operating-disciplines (no sibling arc landed); §6.7 next-available in DAEDALUS; §5.8 next-available in ADA; §5.10 next-available in VERA. Pre-finding: Probe 8 methodology may be circular (VERA writes the recognition log having read the canon — not a true cold-read falsification); §25.5 subsection heading-level needs explicit specification; D4 STEP 6.5 placement coherent with STEP 5 exit semantics (closure removes the gate anyway). Drafting structured verdict next.",
+      "timestamp": "2026-05-17T07:45:59Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:45:15Z"
+  "updated_at": "2026-05-17T07:45:59Z"
 }
