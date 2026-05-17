@@ -19,11 +19,15 @@
     {
       "text": "[PLINY 2026-05-17 init] Arc 31 build dispatch active. Read: directive (substrate/arcs/arc-31-build-directive.md), ticket body + sibling cross-ref, retro §7 (load-bearing), stoa--dxw + stoa--501 (CLOSED — context), parent stoa--32b. Pre-branch hygiene PASS: no arc-build branches in flight; local main = origin/main at efb0394. Cron hygiene PASS: CronList empty (surface-and-wait per MAJOR_PLINY.md §6.2; no cron). Operating mode: AUTONOMOUS. Next: read operating-disciplines.md §7/§10/§11 + 3 CAPTAIN envelopes + 2 templates; then dispatch DAEDALUS for Phase 1 (D1-D5 integrated design). Coordinator: project-tier POLYBIUS via this ticket; user-tier POLYBIUS QA pass at arc close.",
       "timestamp": "2026-05-17T07:41:26Z"
+    },
+    {
+      "text": "DAEDALUS activated on stoa--32b.1. Reading directive + retro §7 + role envelopes (DAEDALUS/ADA/VERA) + templates (autonomous-mode-activation + polling-cron-prompt) + operating-disciplines §10/§11/§7/§15. Operating mode: AUTONOMOUS.",
+      "timestamp": "2026-05-17T07:42:04Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:41:26Z"
+  "updated_at": "2026-05-17T07:42:04Z"
 }
