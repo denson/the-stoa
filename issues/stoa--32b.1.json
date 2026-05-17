@@ -147,11 +147,15 @@
     {
       "text": "pass: ZENO spec-check complete. D1-D5 all DONE with artifact references; A1-A11 all HONORED; 9 probes mechanically resolve (Half 2 out-of-zeno-scope: VERA owns). Zero out-of-scope additions; zero authorship drift; §10/§11 escalation-trigger lists not reopened (only pointer paragraphs added per A9). Returning verdict to PLINY.",
       "timestamp": "2026-05-17T07:57:40Z"
+    },
+    {
+      "text": "pass: CATO cold-read complete on 1b06b61. PRINCIPAL phrasing verbatim at line 1123; authorship preserved (Denson Smith) on both templates; A9 scope honored (only 6 substrate files + 1 verification staging + 1 design artifact); all 13 cite-rows resolve when accounting for backtick-wrapped convention (ADA's documented build-side correction over the design's literal-substring drift); §25.3 BLOCK-vs-TAG framing unambiguous; §25.5 CVE-2024-32020 safety claim matches authoritative description; §25 itself reflexive-scope-clean (no operative gating clauses, only descriptive references); §10/§11 cross-ref pointers placed exactly per design §2.D1. Zero P0 findings. Two P2 follow-ups noted (not blocking): (1) STEP 6.5 re-notification spam is by-design per WP3 but worth a future debounce arc; (2) §25.5 throwaway-clone example uses POSIX /tmp/ path — future Windows-native probe arc may want a paired example. verdict: pass. Returning.",
+      "timestamp": "2026-05-17T07:57:53Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:57:40Z"
+  "updated_at": "2026-05-17T07:57:53Z"
 }
