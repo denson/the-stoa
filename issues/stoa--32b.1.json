@@ -63,11 +63,15 @@
     {
       "text": "DAEDALUS rev2 activated on stoa--32b.1. Read: ARGUS verdict (2 P0 + 3 P1 + 2 P2) + design.md (495 lines). A3/A6/§25 numbering all confirmed by ARGUS — NOT relitigating. Will pick r1 (Option A vs B fresh-dispatch) + r2 (safer primitive after WebSearch per §6.4) + fold r3-r7. Operating mode: AUTONOMOUS.",
       "timestamp": "2026-05-17T07:47:53Z"
+    },
+    {
+      "text": "DAEDALUS rev2: r1 pick = Option A (fresh-dispatch via MAJOR_PLINY). Reasoning: structurally tighter; closes loop in-arc; Arc 26's failure was *recognition-under-load by agents WITH canon* — only a fresh sub-agent given ONLY synthetic directive + new §25 canon (NOT the design, NOT the probe spec, NOT the verdict) tests the operative property. Hybrid mechanical Half 1 retained for textual-presence sanity; Half 2 replaced with fresh-dispatch recognition. r2 pick = git clone --no-local (WebSearch confirmed: --no-local uses regular Git transport, bypasses local-optimization-with-hardlinks entirely, no CVE-2024-32020 surface; --local --no-hardlinks still uses local-optimization path; cp -r loses git semantics needed by probes). Drafting rev2 edits.",
+      "timestamp": "2026-05-17T07:48:19Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:47:53Z"
+  "updated_at": "2026-05-17T07:48:19Z"
 }
