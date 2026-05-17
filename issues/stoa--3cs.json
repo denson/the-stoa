@@ -50,11 +50,15 @@
     {
       "text": "pass (rev2): design.md revised in place absorbing ARGUS r1-r5. r1=(a) §0+§4.4 pointers corrected to '§5.9 body, under check 1' (§5.9.1 retains empirical-anchor role only); r2=§2.1 wording explicit on §5.x → §5.(x+1) blank-line+header (no ---), §5/§6 boundary --- stays at line 329; r3=§6.2 expanded to THREE carriers (PLINY §5.9 + POLYBIUS §5.1.2 + template clause expansion), redundant-canon parity with PLINY §6.1 ↔ disciplines §12 named explicitly; r4=§3.3 restructured: Edit 3.3.b table-row dropped + per-slot rationale bullet dropped; new clause documented via prose-rule matching existing {{PENDING_DIRECTIVES_CLAUSE}} convention; explicit 'No table-row edit' note added; r5=DEFAULT FLIPPED to ALWAYS-INCLUDE per PLINY adjudication — §3.2 §5.1.2 prose + §3.3.a prose-rule + §6.1 weak-point rewrite all consistent; cost calculus + semantic-vs-structural-trigger argument named; redundancy-as-safety framing matches substrate's own value system. §9 residual question 2 + §10 D2 summary + build size estimate updated for the new edit count (~165 lines, was ~175). Status line updated to rev2. Ready for ARGUS rev2 audit.",
       "timestamp": "2026-05-17T05:44:33Z"
+    },
+    {
+      "text": "ARGUS rev2 audit activated. Reading rev2 design + cross-refs to confirm r1-r5 absorption and surface any new defects.",
+      "timestamp": "2026-05-17T05:45:24Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:44:33Z"
+  "updated_at": "2026-05-17T05:45:24Z"
 }
