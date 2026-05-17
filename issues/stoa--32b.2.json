@@ -63,11 +63,15 @@
     {
       "text": "DAEDALUS rev2 activated. Read ARGUS verdict + rev1 §1-§7 + canonical §17.4 / §23 / op-disc §26-§27-boundary / install.sh:709-724 deploy mechanism + check-bw-release skill layout. Resolutions: P0-1 + P0-2 fold together — scan_name_collisions reads BOTH base and custom paths and flags duplicate name: VALUES per §17.4 (no CUSTOM_ magic prefix; matches canon semantic). P1-1 lines: §26 closing --- at 1282 / blank 1283 / ## Agent-regime inverses at 1284 (no opening ---). P1-2: every §17.x carries file-prefix. P1-3: fixtures generated at runtime via check.sh --self-test (no tracked fixture tree; no install.sh exclusion needed; cleanest separation). P1-4: explicit seat-vs-probe-level β paragraph. Drafting rev2 now.",
       "timestamp": "2026-05-17T19:26:29Z"
+    },
+    {
+      "text": "pass: rev2 written at .claude/worktrees/arc-33-build/agents/design/arc-33/design-rev2.md (590 lines). All 8 ARGUS findings resolved. P0-1 + P0-2 folded: scan_name_collisions reads BOTH base + custom paths, flags duplicate name: VALUES per MAJOR_POLYBIUS.md §17.4 (canon-grounded, no invented CUSTOM_ token). P1-1: §26 closing --- at L1282 / blank L1283 / ## Agent-regime inverses at L1284 (no opening ---) cited consistently across §3.3 + §6.1 + §11. P1-2: every §17.x carries file-prefix (MAJOR_POLYBIUS.md §17 for base-vs-custom; op-disc §17 not used this arc). P1-3: pick (c) runtime self-test via --self-test mode building synthetic tree in mktemp -d; no tracked fixtures ship; no install.sh exclusion pattern needed. P1-4: explicit seat-vs-probe-level β paragraph at §3.1 (rev2 §0e). P2-1: VERA-7 uses concrete 27\\.[1-7] regex. P2-2: 489-\u003e893 explicitly framed as Arc 26 ship-anchor; live 934 framed as Arc 29-downstream. 7 self-assessed weak points + 5 residual ARGUS questions surfaced at §8 + §10. Returning to PLINY.",
+      "timestamp": "2026-05-17T19:28:53Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Mechanical-script / agent-inspection split — move recognition intelligence from scripts to agents",
   "type": "task",
-  "updated_at": "2026-05-17T19:26:29Z"
+  "updated_at": "2026-05-17T19:28:53Z"
 }
