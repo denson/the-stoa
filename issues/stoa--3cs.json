@@ -82,11 +82,15 @@
     {
       "text": "Phase 1 CLOSED. DAEDALUS rev3 + ARGUS rev3 PASS. Three revise rounds (rev1→rev2 5 findings absorbed; rev2→rev3 surgical r6+r7). Design at agents/design/arc-30/design.md. Sub-decisions final: D1 §5.9 in MAJOR_PLINY (gauntlet-pipeline family), D2 γ (three carriers: §5.9 canon + POLYBIUS §5.1.2 + template clause; always-include default), D3 thin cross-ref at operating-disciplines §24. Phase 2 starting: ADA dispatch.",
       "timestamp": "2026-05-17T05:48:10Z"
+    },
+    {
+      "text": "ADA activated on stoa--3cs / arc-30/build. Reading design rev3 + 4 target files complete. Confirmed: MAJOR_PLINY.md §5.8.8 closes line 327, --- at 329 (§5/§6 boundary); MAJOR_POLYBIUS.md §5.1.1 closes 226, §5.2 starts 228; paste-instruction-template.md template block at 41-49, prose-rule at 51, worked example at 55-86; operating-disciplines.md §23.5 closes 1084, --- at 1086, Agent-regime inverses at 1088. Starting edits.",
+      "timestamp": "2026-05-17T05:48:38Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:48:10Z"
+  "updated_at": "2026-05-17T05:48:38Z"
 }
