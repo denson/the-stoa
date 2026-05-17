@@ -98,11 +98,15 @@
     {
       "text": "VERA activated on stoa--3cs / arc-30. Reading directive Phase B (7 probes) + design rev3 PASS + 4 substrate artifacts + bw scope-expansion comment source-of-truth. Executing all 7 probes; sampling: full (substrate canon).",
       "timestamp": "2026-05-17T05:50:38Z"
+    },
+    {
+      "text": "pass: VERA verdict — all 7 Phase B probes PASS at sampling: full. P1 (canon §5.9): present at MAJOR_PLINY.md:329; both PRINCIPAL block-quotes verbatim (lines 337+339); both git log commands present (347+348); surface-on-failure prose explicit (353). P2 (Option γ): POLYBIUS §5.1.2 default-include present at line 228; template {{PRE_BRANCH_HYGIENE_CLAUSE}} clause + prose-rule present; NO new Substitution-slots table row (only 2 occurrences of the clause, both in template block + prose-rule). P3 (§24 cross-ref): present at operating-disciplines.md:1088; numbering §1-§24 coherent; cross-refs to §5.9. P4 (N=1 provenance): §5.9.3 carries PRINCIPAL-declaration + 2026-05-17 anchor + N=2 (PR #46 + PR #8) + N=1 worked-when-applied (Arc 29 / PR #9) + accretion path to §6.7.1. P5 (cite-comments): all 8 cross-refs resolve (MAJOR_PLINY §5.9/§6.1, MAJOR_POLYBIUS §5.1/§5.1.2/§15, operating-disciplines §6.7.1/§12/§24). P6 (doc-only): 5 files all .md; no scripts/hooks/install.sh changes. P7 (Arc 27/28/29 pastes not edited): git diff returns empty. methodology_concerns: none. Returning to PLINY.",
+      "timestamp": "2026-05-17T05:51:16Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:50:38Z"
+  "updated_at": "2026-05-17T05:51:16Z"
 }
