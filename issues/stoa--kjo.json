@@ -90,11 +90,15 @@
     {
       "text": "Phase 2 closed. ADA build commit 7e1d348 on arc-35/build. Substrate canon edits: op-disc §28 at L1360 (8 subsections L1364-L1438); PLINY §5.12 at L517; CAPTAIN_ADA §5.5 extended in place. Self-application verified: all 3 CAPTAIN commits (16b09e1 DAEDALUS rev1, 36bf9ac DAEDALUS rev2, 7e1d348 ADA build) carry the correct seat-identity trailer. Phase 3 verify dispatching VERA + CATO + ZENO in parallel.",
       "timestamp": "2026-05-17T21:38:55Z"
+    },
+    {
+      "text": "VERA activated on stoa--kjo. Reading role file + design.md §4 probes. Worktree on arc-35/build at 7e1d348.",
+      "timestamp": "2026-05-17T21:39:12Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Per-agent git identity for commits — agents commit with their own configured git author so blame indicates the actual seat",
   "type": "epic",
-  "updated_at": "2026-05-17T21:38:55Z"
+  "updated_at": "2026-05-17T21:39:12Z"
 }
