@@ -431,25 +431,33 @@ The substrate IS the deliverable. Every install.sh run at a downstream project s
 
 ### §12.3 What's open
 
-- **stoa--vz9** — substantively complete 2026-05-04; only bw close action missing.
-- **stoa--e39 + stoa--jru** — Arc 36 work-unit + parent EPIC; close on Arc 36 ship.
-- **stoa--cgn** — cron expiry handling; deferred this morning with gating criteria, but per PRINCIPAL no-deferrals stance now ships in Arc 36 v2 or Arc 37.
-- **stoa--53u** — idle-state retrospective-narrative confabulation discipline (sister to §19.6).
-- **stoa--86k** — two-team forge/shop behavioral canon.
-- **stoa--kt6** — multi-team interoperation unified canon.
-- **stoa--wad** — four-layer identity model + memories-as-alignment.
-- **stoa--ntn** — operating-mode progression canon.
-- **stoa--7e3** — handoff-author skill (draft preserved at `_drafts/skill_handoff_author.md`).
-- **stoa--cye** — orphan worktree dirs + sandbox claude branches (Phase 1D complete; bw close pending).
-- **stoa--k03** — Arc 35 P4 follow-ups (Phase 1B + 1C complete; bw close pending).
+- **stoa--e39 + stoa--jru** — Arc 36 work-unit + parent EPIC; close on Arc 36 ship per §13.3 Pass 2 (re-shaped to bundle e39 + cgn per no-deferral stance).
+- **stoa--cgn** — cron expiry handling; folds into Arc 36 v2 per §13.3 Pass 2.
+- **stoa--53u** — idle-state retrospective-narrative confabulation discipline (Arc 37 C5 per §13.4 Pass 3).
+- **stoa--86k** — two-team forge/shop behavioral canon (Arc 37 C1).
+- **stoa--kt6** — multi-team interoperation unified canon (Arc 37 C2).
+- **stoa--wad** — four-layer identity model + memories-as-alignment (Arc 37 C3).
+- **stoa--ntn** — operating-mode progression canon (Arc 37 C4).
+- **stoa--7e3** — handoff-author skill (Arc 37 C6; draft at `_drafts/skill_handoff_author.md`).
 
-### §12.4 Uncommitted working-tree state
+**Recently closed (Pass 1, 2026-05-17):**
 
-- 14 broken `substrate/CLAUDE.md` path-citations corrected across 12 arc directives (Phase 1B)
-- 3 design.md probe-formulation refinements in stoa--kjo (Phase 1C)
-- 18 stale `_drafts/` files deleted (Phase 1A); `skill_handoff_author.md` kept
-- 2 orphan worktree dirs + 2 sandbox claude branches deleted (Phase 1D)
-- 2 untracked PDFs in `docs/case-study/` awaiting disposition
+- **stoa--vz9** — closed; audit-complete from 2026-05-04 ship; missed bw close action pulled.
+- **stoa--cye** — closed; Phase 1D landed (orphan worktree dirs rmdir'd; sandbox claude/* branches deleted).
+- **stoa--k03** — closed; Items 1+2 landed at commit `bd3e03a` (path-citation sweep + design.md probe refinement).
+
+### §12.4 Working-tree state (post-Pass-1)
+
+All Pass 1 work committed + pushed (3 commits: `bd3e03a` substrate cleanup; `127f39b` spec docs; `0e76e5e` case-study PDF preservation):
+
+- 14 broken `substrate/CLAUDE.md` path-citations corrected across 12 arc directives (Phase 1B). Substrate canon was already correct; this swept dispatch-artifact residue.
+- 3 design.md probe-formulation refinements in `agents/design/stoa--kjo/design.md` (Phase 1C).
+- 18 stale `_drafts/` files deleted (Phase 1A); only `skill_handoff_author.md` remains (Arc 37 C6 source per §13.4 Pass 3).
+- 2 orphan worktree dirs (`arc-27-build` + `awesome-nash-190573`) rmdir'd; 2 sandbox `claude/*` branches deleted (Phase 1D).
+- 2 untracked PDFs in `docs/case-study/` preserved under `docs/case-study/sources/` (Phase 1E).
+- `SPECIFICATION.md` + `docs/validation/stellation-SPECIFICATION.md` committed.
+
+Working tree is clean modulo `.claude/.substrate-last-check` (auto-modified by substrate-check skill on each run; ignorable churn).
 
 ### §12.5 What's NOT yet built that the spec implies
 
