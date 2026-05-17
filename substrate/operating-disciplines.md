@@ -977,11 +977,11 @@ bw is upstream-tagged. Future bw releases will land features that touch the subs
 
 2. **Review.** Read the upstream changelog. Classify each feature by impact axis (see §22.2). Surface anything load-bearing to PRINCIPAL for project-direction before filing.
 
-   - **Verify changelog claims empirically before locking adoption decisions.** Changelog prose is the upstream's intent; CLI behavior on the install in question is the operational reality. The two can diverge — silently. Run the relevant primitives against the local install BEFORE writing directive A-decisions that LOCK the adoption shape. The verify-then-execute discipline (§4.3) is the universal framing; this sub-bullet is the bw-upgrade-specific cut.
+   - **Verify changelog claims empirically before locking adoption decisions.** Changelog prose is the upstream's intent; CLI behavior on the install in question is the operational reality. The two can diverge — silently. Run the relevant primitives against the local install BEFORE writing directive A-decisions that LOCK the adoption shape. The verify-then-execute discipline (`MAJOR_POLYBIUS.md` §4.3) is the universal framing; this sub-bullet is the bw-upgrade-specific cut.
 
      **Worked example (canonical, N=1 anchor for this discipline):** `stoa--s6n` 2026-05-17. The bw 0.13.0 changelog described a "host-local repository registry; auto-registers repos after successful commands." Arc 28's directive A2 B.1 LOCKED `bw registry list` as the replacement for `substrate/consumer-workspaces.txt`. PLINY ran a verify-then-execute probe before dispatching DAEDALUS: on this Windows install, `bw registry list` returned empty regardless of `registry.auto=true`, fresh `bw init`, every invocation path. The "silent on failure" branch was firing (confirmed against `gh pr view 125 -R jallum/beadwork`). The locked premise was empirically contradicted; user-tier POLYBIUS adjudicated descope at 02:59:14Z. The arc shipped (descoped) intact rather than building against an unusable primitive. Cross-ref: `stoa--s6n` radio-check thread (02:00:03Z + 02:03:15Z + 02:59:14Z + 03:00:04Z).
 
-3. **File tickets.** One ticket per impact axis with a concrete action. "Track bw 0.13.0" is the §4.8 anti-pattern; a ticket without a concrete next step is a handwave. If an axis has no concrete action (e.g., the feature is not relevant to any of our deployment / substrate / workspace surfaces), name that explicitly in the review note rather than filing a placeholder.
+3. **File tickets.** One ticket per impact axis with a concrete action. "Track bw 0.13.0" is the `MAJOR_POLYBIUS.md` §4.8 anti-pattern; a ticket without a concrete next step is a handwave. If an axis has no concrete action (e.g., the feature is not relevant to any of our deployment / substrate / workspace surfaces), name that explicitly in the review note rather than filing a placeholder.
 
 4. **Dispatch.** Standard arcs per workspace. Deployment-side arcs typically ship at the affected service (Railway-deployed Ariadne, etc.); substrate-side arcs ship at the-stoa via the standard gauntlet; workspace-side arcs ship at each affected workspace.
 
@@ -1019,8 +1019,8 @@ The skill exists; the operator decides whether to cron it (no cron defaults per 
 
 ### 22.5 Cross-references
 
-- §4.3 (verify-then-execute) — the universal framing the Step 2 sub-bullet specializes for bw upgrades.
-- §4.8 (fix-now) — the discipline against filing placeholder tickets in Step 3.
+- `MAJOR_POLYBIUS.md` §4.3 (verify-then-execute) — the universal framing the Step 2 sub-bullet specializes for bw upgrades.
+- `MAJOR_POLYBIUS.md` §4.8 (fix-now) — the discipline against filing placeholder tickets in Step 3.
 - §6.7.1 (the N=1 canon-promotion gate this section enters off-gate on PRINCIPAL declaration).
 - §12 (bw cookbook) — for full bw command syntax used in Step 5 verification.
 - §13 (Windows Python environment) — relevant when check-bw-release's Python JSON-parse is invoked at user-tier on Windows.

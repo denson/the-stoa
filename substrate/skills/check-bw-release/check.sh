@@ -171,7 +171,7 @@ Suggested next action: file one ticket per impact axis TOUCHED (per §22 Step 3)
 "No action needed for this axis" is a valid review note for an untouched axis.
 
 Update the baseline once tickets are filed:
-  echo '${new}' > ${STATE_FILE}
+  echo '${new}' > "${STATE_FILE}"
 EOF
 }
 
