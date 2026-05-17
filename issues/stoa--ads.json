@@ -30,11 +30,15 @@
     {
       "text": "status: completed | verdict: pass | design_artifact_path: agents/design/arc-29/design.md (857 lines) | restatement: encode the base-vs-custom agent convention as substrate canon (D1: §17 in MAJOR_POLYBIUS.md + §23 in operating-disciplines.md), pick per-class custom paths given Claude Code's per-class discovery asymmetry (D2), scope install.sh / check.sh / apply.sh to base paths via cite-comments (D3/D4/D5), and add operator-visible base-vs-custom guidance to install.sh-managed workspace CLAUDE.md (D6). | D2 locked: custom CAPTAINs at .claude/agents/custom/CAPTAIN_\u003cMNEM\u003e_\u003cslug\u003e.md (subdirectory works — recursive scan); custom skills at .claude/skills/custom-\u003cname\u003e/SKILL.md (directory-name prefix forced by single-level skill discovery); custom templates at .claude/templates/custom/*.md (substrate-internal); name-collision discipline named in §17.4 worked-example form. | D6 locked: option (b) — separate marker-bounded block alongside POLYBIUS reference; gated by same --modify-claude-md consent flag. | Top weak points worth ARGUS attention: (a) custom-skill prefix 'custom-' may collide with operator naming (low risk, no clean alternative given single-level discovery); (b) cite-comment discipline rests on grep not enforcement (Arc 26-28 precedent holds); (c) Probe 5 live Claude Code discovery deferred to VERA — substrate-design can't fire sessions. | Four open questions for ARGUS at §10.7. | Authorship clean (no new author-fields proposed; canon edits credit Denson Smith). | Returning to PLINY.",
       "timestamp": "2026-05-17T04:52:04Z"
+    },
+    {
+      "text": "[heartbeat PLINY] Phase 1 DAEDALUS returned PASS. agents/design/arc-29/design.md (857 lines) covers D1-D6. Key locked picks: D2 per-class — subagents at .claude/agents/custom/CAPTAIN_*.md (recursive scan); skills at .claude/skills/custom-\u003cname\u003e/SKILL.md (dirname-prefix, single-level forced); templates at .claude/templates/custom/ (substrate-only). D1 inserts §17 in MAJOR_POLYBIUS.md + §23 in operating-disciplines.md. D6 option (b): separate marker block in workspace CLAUDE.md. DAEDALUS surfaces 5 open questions for ARGUS adjudication (collision risk for 'custom-' prefix; install.sh verbose-vs-always; apply.sh exit-code shape; D6 option b vs c; check.sh symmetry deferred per A7). Dispatching CAPTAIN_ARGUS_the_stoa for cold-audit now.",
+      "timestamp": "2026-05-17T04:52:26Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Base-vs-custom agent convention — encode in substrate canon (operating-disciplines + MAJOR_POLYBIUS + install/check/apply tooling)",
   "type": "task",
-  "updated_at": "2026-05-17T04:52:04Z"
+  "updated_at": "2026-05-17T04:52:26Z"
 }
