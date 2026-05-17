@@ -38,11 +38,15 @@
     {
       "text": "ARGUS activated on arc-29 design audit. Reading design.md + arc-29-build-directive + ticket body + 3 install scripts + 2 canon files before forming verdict. Autonomous mode.",
       "timestamp": "2026-05-17T04:52:50Z"
+    },
+    {
+      "text": "Heartbeat: design.md + directive + ticket body + install.sh + check.sh + apply.sh all read. Verifying line-number citations + Claude Code doc accuracy + section structure of MAJOR_POLYBIUS/operating-disciplines for D1 insertion-locus claims next.",
+      "timestamp": "2026-05-17T04:53:08Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Base-vs-custom agent convention — encode in substrate canon (operating-disciplines + MAJOR_POLYBIUS + install/check/apply tooling)",
   "type": "task",
-  "updated_at": "2026-05-17T04:52:50Z"
+  "updated_at": "2026-05-17T04:53:08Z"
 }
