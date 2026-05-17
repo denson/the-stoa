@@ -90,11 +90,15 @@
     {
       "text": "pass: arc-30/build commit 3ee7c50 landed. 4 files / 154 insertions: substrate/MAJOR_PLINY.md (§5.9 + §5.9.1 + §5.9.2 + §5.9.3, +61 lines), substrate/MAJOR_POLYBIUS.md (§5.1.2, +34 lines), substrate/templates/paste-instruction-template.md (PRE_BRANCH_HYGIENE_CLAUSE in template + prose-rule + worked-example update, +38 lines), substrate/operating-disciplines.md (§24 thin cross-ref, +21 lines). All verbatim canon blocks from design rev3 §2.2 / §3.2 / §3.3.a / §4.3 pasted as-is. No drift flags. Cross-refs verified: §6.7.1 at line 81, §12 at line 450, §24 at line 1088 in operating-disciplines.md. Did NOT add table row / per-slot rationale bullet per dispatch hard constraint. Build-only — no self-verify. Returning to PLINY for Phase 3 (VERA + CATO + ZENO).",
       "timestamp": "2026-05-17T05:49:44Z"
+    },
+    {
+      "text": "Phase 2 CLOSED. ADA commit 3ee7c50 (4 substrate files +154 lines); design.md tracked at 5991f39 (+422 lines). Phase 3 starting: dispatching VERA + CATO + ZENO in parallel.",
+      "timestamp": "2026-05-17T05:50:14Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:49:44Z"
+  "updated_at": "2026-05-17T05:50:14Z"
 }
