@@ -22,11 +22,15 @@
     {
       "text": "DAEDALUS activated on stoa--ads (Arc 29). Reading directive + ticket body + install.sh + check.sh + apply.sh + MAJOR_POLYBIUS.md + operating-disciplines.md + Arc 28 precedent. Empirical input pre-resolved by PLINY (per-class asymmetry locked). Restatement gate next, then design draft. Heartbeat at state transitions.",
       "timestamp": "2026-05-17T04:49:27Z"
+    },
+    {
+      "text": "Heartbeat: directive + ticket + install.sh + check.sh + apply.sh + MAJOR_POLYBIUS §16 + operating-disciplines §8 absorbed. POLYBIUS line count 965; operating-disciplines line count 1053. Arc 28 design precedent located. Drafting design.md now (restatement gate first, then sections §0-§10).",
+      "timestamp": "2026-05-17T04:49:49Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Base-vs-custom agent convention — encode in substrate canon (operating-disciplines + MAJOR_POLYBIUS + install/check/apply tooling)",
   "type": "task",
-  "updated_at": "2026-05-17T04:49:27Z"
+  "updated_at": "2026-05-17T04:49:49Z"
 }
