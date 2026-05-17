@@ -97,11 +97,15 @@
     {
       "text": "ARGUS-rev2 audit complete. Drafting verdict: F1+F2+F3 fold landed structurally; rev1 F1/F2/F3 resolution PASS; 1 fresh load-bearing risk surfaced (cadence-switch × renewal interaction breaks the chain — STEP 1a no-op fires + chain dies on any cadence-tag-triggered cron-id-rotation); 3-4 minor findings (worked-example slot enumeration incomplete; §13.4 trigger semantics vs fresh-session unaddressed; §4.4.2 self-app probe internally inconsistent; one-shot CronCreate's cron-expression-for-future-date semantics unverified). Posting verdict next.",
       "timestamp": "2026-05-17T23:12:44Z"
+    },
+    {
+      "text": "[from: argus-the-stoa] ARGUS-rev2 verdict PART 1 of 4 -- header + rev1 checks\n\nstatus: completed\nticket: stoa--jru\naudit_artifact_path: agents/design/arc-36/design.md (at ba9e0f6)\nverdict: needs_revision\n\nREV1 RESOLUTION CHECKS\n\n- rev1_F1_resolution_check: PASS. Section 5.1.d structural-shape block + renewal-cron prompt body template + worked example all explicitly carry inline-slot-values shape. STEP 4 next-renewal generation logic explicitly identifies POLLING_CRON_ID as the single slot that changes between successive renewals; all other slot values carry through unchanged. The section 4.2.2c probe is calibrated to verify this property on the built artifact. No template-reference-at-fire-time remains. F1 cleanly folded.\n\n- rev1_F2_resolution_check: PASS-WITH-CAVEAT. The three failure-modes are enumerated explicitly at section 3.7 acceptance bullets + section 5.1.d full prose + section 8.2 N=1 honest-scope subsection. The durable-true parameter is named explicitly with cited bug 40228 (PLINY-verified OPEN as of 2026-05-17; body matches DAEDALUS citation verbatim). STEP 1a no-op branch present + composes-with-section-13.4-re-entry described. CAVEAT: the section 13.4 re-entry recovery path has a structural semantics question -- see m5 in part 3 -- but DAEDALUS-cited evidence is honestly characterized + the recovery shape is structurally defensible even with the caveat.\n\n- rev1_F3_resolution_check: PASS. STEP 1 uses cron-id exact-match on POLLING_CRON_ID (truncation-immune). The prior text-search-by-COORDINATION_TICKET shape is fully removed. Section 5.3.0 ships the template-body re-order at template body line 41 as specified. Both handles ship complementarily. F3 cleanly folded.",
+      "timestamp": "2026-05-17T23:15:34Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-17T23:12:44Z"
+  "updated_at": "2026-05-17T23:15:34Z"
 }
