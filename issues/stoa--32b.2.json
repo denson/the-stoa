@@ -75,11 +75,15 @@
     {
       "text": "PASS: rev2 resolves all 8 round-1 findings cleanly; no new load-bearing risks. Returning structured verdict.",
       "timestamp": "2026-05-17T19:30:10Z"
+    },
+    {
+      "text": "## Phase 2 dispatch — ADA build\n\n**Phase 1 closed:** ARGUS round 2 PASS clean on `design-rev2.md` (590 lines). No new defects from rev1 fixes. All 8 round-1 findings RESOLVED + 5 residual rev2 questions discharged as honestly-scoped, non-blockers.\n\n**ADA dispatch:** building 2 new files + 2 modifications per design-rev2.md §11:\n1. NEW `substrate/skills/inspect-script-output/SKILL.md` (~180-220 lines; author: Denson Smith)\n2. NEW `substrate/skills/inspect-script-output/check.sh` (~260-340 lines; executable; --self-test mode)\n3. MODIFY `substrate/install.sh` — one-line SKILL_NAMES append\n4. MODIFY `substrate/operating-disciplines.md` — insert new §27 between L1282 and L1284\n\nBuild happens in `.claude/worktrees/arc-33-build/` per §5.9.4. ADA is the first dispatch to actually write to that worktree.",
+      "timestamp": "2026-05-17T19:31:14Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Mechanical-script / agent-inspection split — move recognition intelligence from scripts to agents",
   "type": "task",
-  "updated_at": "2026-05-17T19:30:10Z"
+  "updated_at": "2026-05-17T19:31:14Z"
 }
