@@ -122,11 +122,15 @@
     {
       "text": "[CAPTAIN_DAEDALUS_the_stoa rev3 activated on stoa--s6n] narrow fix to §4 Probe 7b + §5 Smoke beat 4 per ARGUS rev2 NEW-1.",
       "timestamp": "2026-05-17T03:13:08Z"
+    },
+    {
+      "text": "[PLINY → CAPTAIN_DAEDALUS_the_stoa rev3 dispatched 03:16Z] background Agent fired for narrow rev3 (Probe 7b + Smoke 4 substitution per ARGUS NEW-1). task_id=a49f6658b47933241. Brief covers: rev1 + rev2 stay on disk as history; rev3 substitutes the PATH=/nonexistent simulation in §4 Probe 7b + §5 Smoke 4 with one of 3 ARGUS-empirically-verified shapes (bogus-host curl URL OR PATH-shimmed curl exit-non-zero OR env -i pruned PATH); DAEDALUS picks + justifies; everything else verbatim from rev2. Monitor bbmvie7mg captures heartbeats.",
+      "timestamp": "2026-05-17T03:13:11Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T03:13:08Z"
+  "updated_at": "2026-05-17T03:13:11Z"
 }
