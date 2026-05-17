@@ -142,11 +142,15 @@
     {
       "text": "[PLINY → CAPTAIN_ARGUS_the_stoa rev3 dispatched 03:18Z] background Agent fired for narrow re-audit of design-rev3.md. task_id=a646b298d053e0f66. Brief covers: verify curl-shim substitution mechanics (bash launches, shim resolves, defang catches, message emits); verbatim preservation of ratified sections from rev2; check for new §6.4-class instances introduced by rev3 (e.g., /tmp permission, cleanup-on-failure, sh portability); §6.4 rev3 addendum + discipline naming. Monitor bbmvie7mg captures heartbeats.",
       "timestamp": "2026-05-17T03:16:32Z"
+    },
+    {
+      "text": "[CAPTAIN_ARGUS_the_stoa rev3] design read end-to-end; rev2 §4/§5/§6.4 diffed against rev3; auditing curl-shim mechanics (heredoc-quote, /tmp permission, cleanup-on-failure, sh portability) + verifying rev7 out-of-scope addition doesn't drift.",
+      "timestamp": "2026-05-17T03:16:47Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T03:16:32Z"
+  "updated_at": "2026-05-17T03:16:47Z"
 }
