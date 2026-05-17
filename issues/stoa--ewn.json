@@ -110,11 +110,15 @@
     {
       "text": "VERA verdict: PASS. 29/29 probes executed against arc-32/build (commits 66bed01 + 9ec851f); all substantive intent satisfied. 3 methodology concerns flagged (probe-pattern precision: §4.2 slot-explanation uniqueness wrong, §4.5 '---' immediately-preceding wording vs conventional ---+blank+header, §4.7 case-sensitive on 'Future-evidence'). 1 substantive design-inherited defect surfaced incidentally: §5.9.4.1 at MAJOR_PLINY.md:416 is depth-4 (#### 5.9.4.1) when convention says depth-5 (##### 5.9.4.1) — ADA built per design verbatim (design.md:485 has same depth typo); flagged for CATO scope-decision, not changing VERA verdict. Full verdict at agents/design/arc-32/vera-verdict.md. Returning to PLINY.",
       "timestamp": "2026-05-17T18:59:13Z"
+    },
+    {
+      "text": "CATO verdict: PASS. 3 findings (all severity: low; categories: F1 consistency, F2 consistency, F3 hygiene). 0 blocking, 0 medium, 0 high. Written to agents/design/arc-32/cato-verdict.md. Diff is clean enough to ship through VERA + ZENO + final PLINY gate; the three low-severity findings are structural-choice follow-ups (F1, F2) and minor prose roughness (F3) properly out-of-scope for this arc. C5 self-application verified (PLINY operated from .claude/worktrees/arc-32-build per the canon being encoded). Returning to PLINY.",
+      "timestamp": "2026-05-17T19:01:40Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch — §5.1.1 extension + cron-hygiene canon + PLINY-signoff-accuracy + attestation-confabulation",
   "type": "task",
-  "updated_at": "2026-05-17T18:59:13Z"
+  "updated_at": "2026-05-17T19:01:40Z"
 }
