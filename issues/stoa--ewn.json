@@ -106,11 +106,15 @@
     {
       "text": "VERA heartbeat: all §4.1-§4.9 probes executed; §4.10 non-applicability confirmed. Net verdict trending PASS with 3 methodology concerns to document (probe over-match due to regex \\b behavior at §5.9.4; case-sensitive probe failed on properly-capitalized 'Future-evidence' at §5.1.1.1; '---' separator probe wording vs conventional ---+blank+header pattern). Writing verdict to vera-verdict.md.",
       "timestamp": "2026-05-17T18:58:29Z"
+    },
+    {
+      "text": "VERA verdict: PASS. 29/29 probes executed against arc-32/build (commits 66bed01 + 9ec851f); all substantive intent satisfied. 3 methodology concerns flagged (probe-pattern precision: §4.2 slot-explanation uniqueness wrong, §4.5 '---' immediately-preceding wording vs conventional ---+blank+header, §4.7 case-sensitive on 'Future-evidence'). 1 substantive design-inherited defect surfaced incidentally: §5.9.4.1 at MAJOR_PLINY.md:416 is depth-4 (#### 5.9.4.1) when convention says depth-5 (##### 5.9.4.1) — ADA built per design verbatim (design.md:485 has same depth typo); flagged for CATO scope-decision, not changing VERA verdict. Full verdict at agents/design/arc-32/vera-verdict.md. Returning to PLINY.",
+      "timestamp": "2026-05-17T18:59:13Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch — §5.1.1 extension + cron-hygiene canon + PLINY-signoff-accuracy + attestation-confabulation",
   "type": "task",
-  "updated_at": "2026-05-17T18:58:29Z"
+  "updated_at": "2026-05-17T18:59:13Z"
 }
