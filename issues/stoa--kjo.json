@@ -74,11 +74,15 @@
     {
       "text": "Design absorbed (769 lines). Ground-check on all 3 insertion loci PASS against live worktree: op-disc.md line 1356 closes §27.7, line 1358 is the existing --- separator, line 1360 is ## Agent-regime inverses (insert §28 between 1359 and 1360); PLINY.md line 515 closes §5.11.3, line 517 is ---, line 519 is ## 6. Communication (insert §5.12 between 515 and 517); CAPTAIN_ADA.md lines 92-94 hold §5.5, line 96 is ### 5.6 (append trailer-paragraph after 94 before 95). No drift from design.md citations. Drafting edits now.",
       "timestamp": "2026-05-17T21:37:25Z"
+    },
+    {
+      "text": "pass: 1 commit 7e1d348 across 3 substrate files (op-disc.md §28 at L1360 +92L; PLINY.md §5.12 at L517 +36L; CAPTAIN_ADA.md §5.5 extension at L96 +12L). Self-application per A9 verified: 7e1d348 carries CAPTAIN_ADA_the-stoa + Claude trailers; every CAPTAIN commit on arc-35/build (16b09e1, 36bf9ac, 7e1d348) carries its seat-identity trailer. No design-drift; no A12 violations; build-check N/A (markdown only). Returning verdict to PLINY.",
+      "timestamp": "2026-05-17T21:38:29Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Per-agent git identity for commits — agents commit with their own configured git author so blame indicates the actual seat",
   "type": "epic",
-  "updated_at": "2026-05-17T21:37:25Z"
+  "updated_at": "2026-05-17T21:38:29Z"
 }
