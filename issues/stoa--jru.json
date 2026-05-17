@@ -133,11 +133,15 @@
     {
       "text": "ARGUS-rev3 activated. Reading design.md at f5b04e1 end-to-end + git diff ba9e0f6..f5b04e1 + bw context before audit. [from: argus-the-stoa]",
       "timestamp": "2026-05-17T23:23:10Z"
+    },
+    {
+      "text": "ARGUS-rev3 mid-audit: §5.1.d + §5.3.d1 + §3.7 + §8.2 + §9.6 + probes all read. Now verifying diff scope (Part 1 untouched) + cross-ref consistency + posting verdict. [from: argus-the-stoa]",
+      "timestamp": "2026-05-17T23:23:34Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-17T23:23:10Z"
+  "updated_at": "2026-05-17T23:23:34Z"
 }
