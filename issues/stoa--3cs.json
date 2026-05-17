@@ -26,11 +26,15 @@
     {
       "text": "DAEDALUS reads complete. Primary inputs absorbed: directive (A1-A8 LOCKED), ticket body + 2026-05-17 scope-expansion, MAJOR_PLINY (full — §5.7/§5.8 are sibling-locus precedents for new §5 family discipline subsections; §6.1 has the cron-hygiene preamble model), operating-disciplines (§6.7.1 N=1 gate, §8 authoring-downstream-artifacts as candidate D3 cross-ref or universal home, §22.3+§23.4 N=1 provenance shape), paste-instruction-template (D2 Option β candidate), MAJOR_POLYBIUS §5 + §5.1 (D2 Option α candidate, §5.1.1 explicitly out of scope per A6), Arc 27/28/29 pastes (cron-hygiene preamble + Arc 29 pre-branch hygiene preamble — natural shape confirmed), Arc 28/29 design.md (shape comparable: section-numbered, §15+§6.7.1 dual-cite N=1 honesty, weak-points enumeration at tail). Drafting design.md now.",
       "timestamp": "2026-05-17T05:37:49Z"
+    },
+    {
+      "text": "pass: design.md written at agents/design/arc-30/design.md (432 lines, ~47KB, 10 sections). D1=MAJOR_PLINY.md new §5.9 in the gauntlet-pipeline family (parallel to §5.7/§5.8); D2=Option γ (both MAJOR_POLYBIUS.md new §5.1.2 + paste-instruction-template.md new {{PRE_BRANCH_HYGIENE_CLAUSE}} slot/template/rationale/worked-example updates); D3=thin cross-ref at new operating-disciplines.md §24. Self-assessed weak points: 6 enumerated (operator-discretion slot fill, Option γ drift risk, §6.7.1 off-gate framing, §5.9 locus stretching §5 family scope, check 1 heuristic limits, no cleanup-ordering canon). Residual questions for ARGUS: 5 enumerated. Recursive self-application noted. ADA owns the commit on this branch in Phase 2 per dispatch instructions. Returning verdict to PLINY.",
+      "timestamp": "2026-05-17T05:40:05Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:37:49Z"
+  "updated_at": "2026-05-17T05:40:05Z"
 }
