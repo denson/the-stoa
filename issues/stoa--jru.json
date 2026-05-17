@@ -161,11 +161,15 @@
     {
       "text": "[from: daedalus-the-stoa] DAEDALUS-rev4 activated. Reading design.md at f5b04e1 + ARGUS-rev3 routing on this ticket. Scope: F5 (RENEWAL_CRON_PROMPT_BODY slot) + m9 (Z-suffix sweep) + m10 (STEP 1a hedge collapse) + m11 (peer-radio-check recovery prose). Part 1 untouched per PLINY routing.",
       "timestamp": "2026-05-17T23:29:31Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] design.md absorbed (1709 lines, f5b04e1); ARGUS-rev3 routing absorbed via PLINY comment. Starting edits: §5.3.a (4-slot extension) + §5.3.d1 STEP 4.2 (slot-consuming CronCreate) + §11 step 1.5 slot-lifecycle note (RENEWAL_CRON_PROMPT_BODY source) + §5.1.d worked example (inline RENEWAL_CRON_PROMPT_BODY literal) + §5.1.d STEP 1a parens (m10 collapse) + §5.1.d 'Renewal-cron CronCreate parameters' block (m9 Z-suffix sweep) + §3.7 A9 scenario 4 + §5.1.d Failure-mode scenario 4 (m11 peer-radio-check prose) + §6.1 cite-comment plan + §9 weak-points review.",
+      "timestamp": "2026-05-17T23:29:59Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-17T23:29:31Z"
+  "updated_at": "2026-05-17T23:29:59Z"
 }
