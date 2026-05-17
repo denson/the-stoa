@@ -14,11 +14,15 @@
     {
       "text": "PLINY activated for Arc 35 build on the-stoa project-tier. Pre-flight: cron clean; pre-branch §5.9 checks PASS (no orphan arc-build branches; local main = origin/main at 2818fc0, which is 244c1c3 + user-tier POLYBIUS housekeeping commit per §18.1, expected per A14). Worktree created at .claude/worktrees/arc-35-build on branch arc-35/build. Operating mode: AUTONOMOUS. Phase 1 DAEDALUS dispatch starting. Will surface to PRINCIPAL ONCE at end-of-arc with final clean-PASS verdict per directive.",
       "timestamp": "2026-05-17T21:23:44Z"
+    },
+    {
+      "text": "DAEDALUS activated on stoa--kjo (Arc 35 design phase). Reading directive + ticket + required substrate files (global CLAUDE.md authorship + op-disc §19.6/§25/§27 + PLINY §5.10/§5.11 + POLYBIUS §18 + CAPTAIN_ADA authorship + project CLAUDE.md authorship + Arc 34 precedent). Will produce design.md in arc-35-build worktree.",
+      "timestamp": "2026-05-17T21:24:22Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Per-agent git identity for commits — agents commit with their own configured git author so blame indicates the actual seat",
   "type": "epic",
-  "updated_at": "2026-05-17T21:23:44Z"
+  "updated_at": "2026-05-17T21:24:22Z"
 }
