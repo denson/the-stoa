@@ -389,6 +389,19 @@ enumerate_workspace_substrate_paths() {
   # MAJORs: glob workspace dir. Per A4 these ARE in scope for OBSOLETE
   # detection (asymmetry with install.sh's prune-scope, which excludes
   # MAJORs — surfaced to operator via split routing footer).
+  #
+  # CITE: MAJOR glob is single-path-segment by design — matches MAJOR_*.md
+  # directly under .claude/ but NOT files at .claude/custom/MAJOR_*.md (a
+  # hypothetical future custom-MAJOR path). Custom MAJORs are OUT OF SCOPE
+  # per Arc 29 A7 hard-lock — the base-vs-custom convention
+  # (substrate/operating-disciplines.md §23 + substrate/MAJOR_POLYBIUS.md §17)
+  # applies to CAPTAINs + skills + templates only; the POLYBIUS/PLINY
+  # orchestrator tier is deferred to a future arc. If a future arc adds
+  # custom MAJOR support, this glob site needs the same case-skip treatment
+  # as the CAPTAIN site below (the .claude/agents/custom/ subdirectory
+  # convention) — adapted to whatever custom-MAJOR path the future arc picks.
+  # The cite is forward-looking; the glob itself is correct as written and
+  # needs no change in this arc.
   for f in "${ws}/.claude/MAJOR_"*.md; do
     echo ".claude/$(basename "$f")"
   done
@@ -398,6 +411,15 @@ enumerate_workspace_substrate_paths() {
 
   # CAPTAINs: glob workspace dir.
   if [ -d "${ws}/.claude/agents" ]; then
+    # CITE: this glob is single-path-segment (NOT recursive). It matches
+    # CAPTAIN_*.md directly under .claude/agents/ but NOT files at
+    # .claude/agents/custom/CAPTAIN_*.md (the custom convention path per
+    # substrate/operating-disciplines.md §23 + substrate/MAJOR_POLYBIUS.md §17).
+    # That non-recursion IS the base-vs-custom scoping for OBSOLETE detection.
+    # If this glob is made recursive, custom CAPTAINs would surface as OBSOLETE
+    # and the operator would be routed to --prune-obsolete (which D3 already
+    # scopes to base, so no actual deletion would occur — but the false OBSOLETE
+    # flag would mislead). The discipline is path-shape, defense at every read site.
     for f in "${ws}/.claude/agents/CAPTAIN_"*.md; do
       echo ".claude/agents/$(basename "$f")"
     done
@@ -405,6 +427,12 @@ enumerate_workspace_substrate_paths() {
 
   # Templates: glob workspace dir.
   if [ -d "${ws}/.claude/templates" ]; then
+    # CITE: single-path-segment + file-only glob (the `[ -f ]` filter skips
+    # directories, including .claude/templates/custom/ where custom templates
+    # live per the base-vs-custom convention; see
+    # substrate/operating-disciplines.md §23 + substrate/MAJOR_POLYBIUS.md §17.
+    # If a future change recurses or removes the file-only filter, custom
+    # templates would be flagged as OBSOLETE.
     for f in "${ws}/.claude/templates/"*; do
       [ -f "$f" ] || continue
       echo ".claude/templates/$(basename "$f")"
@@ -413,9 +441,21 @@ enumerate_workspace_substrate_paths() {
 
   # Skills: directory-level (per A4).
   if [ -d "${ws}/.claude/skills" ]; then
-    local d
+    # CITE: skip workspace-owned custom skills per the base-vs-custom convention.
+    # Custom skills use directory-name prefix `custom-` (forced by Claude Code's
+    # single-level skill discovery — substrate/operating-disciplines.md §23 +
+    # substrate/MAJOR_POLYBIUS.md §17). Substrate tools never see custom paths.
+    # Without this case-skip, every custom skill in the workspace would be
+    # classified as OBSOLETE on every check.sh run, polluting the verdict and
+    # routing the operator to --prune-obsolete (which D3 also scopes correctly,
+    # so no deletion — but the false OBSOLETE noise is the bug).
+    local d base
     for d in "${ws}/.claude/skills/"*/; do
-      echo ".claude/skills/$(basename "$d")/"
+      base="$(basename "$d")"
+      case "$base" in
+        custom-*) continue ;;
+      esac
+      echo ".claude/skills/${base}/"
     done
   fi
   shopt -u nullglob

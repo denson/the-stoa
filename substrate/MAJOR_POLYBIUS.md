@@ -962,4 +962,79 @@ Summarizes beadwork activity. Default: single-repo (the cwd-detected repo). With
 
 ---
 
+## 17. Base vs custom agents
+
+Every workspace at every nesting level carries a BASE stoa team and may optionally carry CUSTOM agents and processes. The two coexist on disk via a per-class path convention; substrate tools manage base; the workspace's stoa team manages custom.
+
+### 17.1 Source-of-truth declaration (2026-05-17, PRINCIPAL)
+
+PRINCIPAL declared the architectural model during the 2026-05-17 substrate-architecture conversation (captured at `stoa--ads` ticket body):
+
+> "We have the base team of stoa agents at every level. So even a subproject of a subproject would have a base stoa team. Then each level may or may not have customized agents and processes. When we update the stoa agents it should always be safe to update the base agents all the way down but it would be up to the user along with the team of agents to decide whether and how to update custom agents. The cost of creating a new team of custom agents is pretty low so this would be the likely path."
+
+Per §15 (N=1 honest-scope discipline) and `operating-disciplines.md` §6.7.1 — substrate canon enters off-gate on PRINCIPAL's project-direction declaration; supporting evidence accretes over time as future workspaces customize against the convention. Do not over-generalize beyond what PRINCIPAL named.
+
+### 17.2 What BASE files are
+
+BASE files are deployed from substrate via `install.sh` and live at canonical paths the substrate tools own. They are always safe to overwrite mechanically because the substrate source is canonical for them.
+
+| Class | Canonical base path |
+|---|---|
+| MAJORs | `.claude/MAJOR_POLYBIUS*.md`, `.claude/MAJOR_PLINY*.md` (subproject-tier may carry `_<slug>` suffix per `install.sh` convention) |
+| Operating disciplines | `.claude/operating-disciplines.md` |
+| CAPTAINs | `.claude/agents/CAPTAIN_<MNEMONIC>*.md` (directly under `.claude/agents/`, NOT in any subdirectory) |
+| Templates | `.claude/templates/*.md` (directly under `.claude/templates/`, NOT in any subdirectory) |
+| Skills | `.claude/skills/<skill-name>/` (where `<skill-name>` does NOT start with `custom-`) |
+
+Substrate tooling — `install.sh`, `check.sh`, `apply.sh` — scopes its globs to these paths. The cite-comment at every scoping site references this section.
+
+### 17.3 What CUSTOM files are
+
+CUSTOM files are authored by the workspace's stoa team (operator + agents). Substrate tools never touch them. Their lifecycle, naming, content, and discipline are owned by the workspace.
+
+| Class | Custom path convention |
+|---|---|
+| Custom CAPTAINs | `.claude/agents/custom/CAPTAIN_<MNEMONIC>_<custom-slug>.md` |
+| Custom skills | `.claude/skills/custom-<skill-name>/SKILL.md` |
+| Custom templates | `.claude/templates/custom/*.md` |
+
+The asymmetry (subdirectory for CAPTAINs and templates; directory-name prefix for skills) is forced by Claude Code's discovery behavior. CAPTAIN discovery is recursive (`.claude/agents/` scanned recursively per https://code.claude.com/docs/en/sub-agents); skill discovery is single-level (`.claude/skills/<name>/SKILL.md` only — `.claude/skills/custom/<name>/SKILL.md` would not be discovered, because `custom` would itself be the skill name). Templates have no Claude Code involvement and follow the CAPTAIN shape for visual parallelism.
+
+### 17.4 Custom CAPTAIN name discipline (silent-collision footgun)
+
+Claude Code identifies subagents by their YAML `name:` frontmatter field, NOT by filename. When two subagents within one scope (either `.claude/agents/` or `~/.claude/agents/`) declare the same `name:`, Claude Code silently keeps one and discards the other without warning.
+
+**The convention:** custom CAPTAIN `name:` fields MUST be distinct from base CAPTAIN names. Use a slug suffix:
+
+- Filename: `.claude/agents/custom/CAPTAIN_DEPLOYER_railway.md`
+- Frontmatter: `name: CAPTAIN_DEPLOYER_railway`
+
+For workspaces deployed at project tier (where base CAPTAINs already carry a project-slug suffix like `CAPTAIN_DAEDALUS_railway_stoa`), the custom-slug MUST be distinct from the project slug. A custom `CAPTAIN_DAEDALUS_railway_stoa` at workspace `railway_stoa` would collide with the base.
+
+**Worked failure-mode example.** Operator authors `.claude/agents/custom/CAPTAIN_DAEDALUS.md` with frontmatter `name: CAPTAIN_DAEDALUS` at a user-tier deployment. The base `.claude/agents/CAPTAIN_DAEDALUS.md` also declares `name: CAPTAIN_DAEDALUS`. On session start, Claude Code scans both, finds two subagents with the same name, and silently drops one. The custom agent intermittently activates or doesn't, depending on scan order. The operator's mental model — "I added a custom agent and it's not running" — never points at the collision because no warning is emitted. The fix: rename to `CAPTAIN_DAEDALUS_<distinct-slug>` in both the filename AND the `name:` field.
+
+**Casing note (docs-vs-empirical divergence).** Claude Code's published docs (https://code.claude.com/docs/en/sub-agents — "Supported frontmatter fields") describe the `name:` field as "lowercase letters and hyphens." The substrate's base CAPTAINs use uppercase + underscore (`CAPTAIN_DAEDALUS`, `CAPTAIN_ARGUS`, etc., with the workspace-slug suffix appended at install time) and have worked in production across all Arcs 1–28. Custom CAPTAINs should match the BASE convention (uppercase + underscore, with the workspace-slug suffix) rather than the docs-literal lowercase-and-hyphens form, so the name space remains visually parallel and the silent-collision discipline above operates against a single naming shape rather than two. The divergence from docs is empirical, not theoretical; if a future Claude Code release tightens the parser to reject non-lowercase names, this convention rotates and substrate seats need rename. The cross-reference for the convention table is `operating-disciplines.md` §23 below.
+
+### 17.5 N=1 provenance + accretion path
+
+Per §15 honest-scope: PRINCIPAL declared this discipline 2026-05-17 (project-direction authority, captured at `stoa--ads` thread). §15 defers to `operating-disciplines.md` §6.7.1 as the canon-promotion gate (multiple observations + controlled comparison + substrate-level pattern); §15 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status. Substrate canon goes in now because PRINCIPAL named it; structural-lesson confidence accretes over future workspace customizations.
+
+The supporting evidence at the time of this writing:
+
+- PLINY's 2026-05-17 empirical verification of Claude Code auto-discovery behavior (web-fetched against https://code.claude.com/docs/en/sub-agents and https://code.claude.com/docs/en/skills) — the source-of-truth for the per-class asymmetry that shapes the convention.
+- Arc 29 (`stoa--ads`) ticket body — carries PRINCIPAL's 2026-05-17 declaration verbatim and the deliverable list this section encodes.
+- The forthcoming railway_stoa custom team arc — empirical anchor; dispatches AFTER this convention lands; the first real workload exercising the per-class convention.
+
+The convention is in NOW because PRINCIPAL named it today; promotion to "structural lesson" status with multi-workspace empirical backing is a future arc's work, not this one's. If the convention turns out wrong-shaped during the railway_stoa build (e.g., the directory-name prefix `custom-` for skills creates a confusion the subdirectory shape would not have, or the silent-collision discipline misses a case), future arcs revise this section. Same N=1 framing as Arc 27's §16.6 and Arc 28's `operating-disciplines.md` §22.3.
+
+### 17.6 Cross-references
+
+- `operating-disciplines.md` §23 (Base vs custom — universal-team framing) — the team-wide cut of this discipline; every seat reads that section, this one is POLYBIUS-specific.
+- `MAJOR_POLYBIUS.md` §14 (substrate-update check) — the daily-cadence mechanism is what catches drift on BASE files; the check by construction does not flag CUSTOM files.
+- `MAJOR_POLYBIUS.md` §15 (N=1 honest-scope) — the gate this section's claims pass through.
+- `substrate/install.sh`, `substrate/skills/check-substrate-updates/check.sh`, `substrate/skills/check-substrate-updates/apply.sh` — the three substrate tools that scope-to-base via cite-comments referencing this section.
+- `stoa--ads` (this arc's ticket); forthcoming railway_stoa custom team arc (empirical anchor).
+
+---
+
 Standby, run.

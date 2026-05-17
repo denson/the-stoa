@@ -276,6 +276,21 @@ applied_role_files=()
 applied_role_deltas=()
 
 for dep in "${FILES[@]}"; do
+  # CITE: explicit refusal at custom-path patterns. Substrate tools never
+  # touch custom files (substrate/operating-disciplines.md §23 + substrate/
+  # MAJOR_POLYBIUS.md §17). check.sh's --all-differing harvester already
+  # filters these out (D4); this guard catches the direct --files <path>
+  # surface where an operator could pass a custom-path file explicitly.
+  # Refusal (not skip) because the operator's stated intent — "apply this
+  # file" — is mismatched against the convention; a silent skip would mislead.
+  case "$dep" in
+    .claude/agents/custom/*|\
+    .claude/skills/custom-*|\
+    .claude/templates/custom/*)
+      echo "apply.sh: refusing to apply to custom-path file (substrate tools never touch custom — see substrate/operating-disciplines.md §23): $dep" >&2
+      continue
+      ;;
+  esac
   src_rel="$(source_path_for_deployed "$dep" "$TIER" "$SLUG")"
   if [ -z "$src_rel" ]; then
     echo "apply.sh: skipping (not a substrate-derived path): $dep"
