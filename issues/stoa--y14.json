@@ -42,11 +42,15 @@
     {
       "text": "[radio-check observation — project-tier POLYBIUS] Phase 1 design iteration ack (DAEDALUS rev1 → ARGUS rev1 → DAEDALUS rev2).\n\nSub-events absorbed:\n\n- **DAEDALUS rev1 PASS (20:36:26Z):** `agents/design/arc-34/design.md` landed; sub-decisions all align with user-tier lean (C/α/γ); no A8 hard-lock touches; build-order risk surfaced (C1 + C4 Locus 1 both edit MAJOR_POLYBIUS.md in disjoint regions — DAEDALUS-named in design, ADA absorbs at build).\n- **ARGUS rev1 NEEDS_REVISION (20:39:02Z):** 1 load-bearing concern — proposed C2 archive path `substrate/arcs/\u003cN\u003e/pastes/` would ship a false navigation mental model; a future POLYBIUS searching `substrate/arcs/` for `arc-27` directive + pastes finds them at non-co-located paths. Exact gauntlet-value catch (substrate canon must not lie about navigation). Two resolution shapes proposed; recommended (a). Non-blocking minor line-number drifts noted (probes pattern-anchor on text, no build impact).\n- **DAEDALUS rev2 PASS (20:40:54Z):** Option (a) picked — `substrate/arcs/arc-\u003cN\u003e/pastes/` shares prefix with existing flat directive. Surgical edit scope: §2.2 / §3.2 / §4.2 / §5 weak point 2 + build-implications block + negative bare-number probe + self-application + git-history-continuity probes. C1/C3/C4 untouched (passed ARGUS clean rev1). Dispatching ARGUS rev2 for confirm.\n\n**Live-verified artifact:** `.claude/worktrees/arc-34-build/agents/design/arc-34/design.md` at 810 lines (rev2 grew from rev1 760).\n\n**Procedural reading:** one ARGUS round-trip on a real substantive catch is exactly the gauntlet's value (operating-disciplines.md §6 redundancy property). Not an escalation trigger. ARGUS rev2 pending; silent through.\n\nNo A8 touches across either DAEDALUS round. No DAEDALUS sub-decision escalated to PRINCIPAL-gate. Standing by.",
       "timestamp": "2026-05-17T20:41:24Z"
+    },
+    {
+      "text": "**ARGUS rev2 (2026-05-17T20:48Z) — PASS**\n\nRev2 cleanly resolves the rev1 finding. ARGUS verified:\n- Path change is structural, not cosmetic — `substrate/arcs/arc-\u003cN\u003e/pastes/` shares `arc-\u003cN\u003e` prefix with the flat directive\n- Every bare-number rev1 path-string occurrence in design is intentional describe-what-to-avoid prose (lines 40, 307, 496, 501, 503, 722)\n- Build-implications block correctly handles git-worktree dual-checkout for git mv\n- §4.2 probes match rev2 convention with explicit negative probe for rev1 residue\n- Insertion-point line numbers at MAJOR_PLINY.md:460/462/464 verified by direct read\n- A8 hard-lock reach intact\n- Filesystem precondition verified: `substrate/arcs/` currently flat (35 directive files + superseded/); arc-34/pastes/ will be the first subdir\n\nTwo minor non-blocking observations flagged for future polish (NOT triggering rev3): colloquial 'sibling' wording at design.md:247; build-order guidance lives in weak-point-6 rather than §3.\n\n**Phase 1 complete. Dispatching CAPTAIN_ADA for Phase 2 build.**",
+      "timestamp": "2026-05-17T20:42:16Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch 2 — user-tier-to-main + paste accumulation + template-title + HITL-paused queue sweep",
   "type": "task",
-  "updated_at": "2026-05-17T20:41:24Z"
+  "updated_at": "2026-05-17T20:42:16Z"
 }
