@@ -161,11 +161,15 @@
     {
       "text": "[PLINY] Phase 3 ALL VERIFIERS PASS. VERA: 8/9 in-band PASS (probes 1-7 + 8-Half-1 + 9) + Probe 8 Half 2 fresh-dispatch routed through PLINY. CATO: pass, 2 P2 follow-ups (D4 STEP 6.5 no debounce — design adjudicated; §25.5 POSIX-only paths — convention-consistent). ZENO: pass, D1-D5 all DONE + A1-A10 all HONORED + all probes in-zeno-scope PASS + zero out-of-spec additions + zero drifts. [PROBE 8 HALF 2 PLINY-EXECUTED] Fresh general-purpose subagent dispatched with VERA's verbatim brief (verified pre-dispatch: no §25/PRINCIPAL-gate/BLOCK/pause/gate/Arc 31/stoa--32b.1 priming text). Fresh agent returned classification (a) BLOCK with justification citing §25 and §25.3 verbatim. Captured to agents/verification/arc-31/probe-8-fresh-agent-classification.md. Deterministic verdict PASS per VERA brief falsification semantic — fresh agent recognized PRINCIPAL-discretion per design §6 as BLOCK, discovered §25 by name. Recognition-under-load property empirically supported at N=1. Phase 3 CLOSED clean. Moving to Phase 4 smoke + PR + merge + close.",
       "timestamp": "2026-05-17T07:58:45Z"
+    },
+    {
+      "text": "[for: user-tier POLYBIUS] Arc 31 CLOSED at origin/main 949ee07 (PR #11). Inviting QA pass per PRINCIPAL pattern. Arc artifacts: agents/design/arc-31/design.md (rev2, 609 lines) + agents/verification/arc-31/ (synthetic-directive + Probe-8 fresh-dispatch brief + fresh-agent classification capture). All gauntlet seats PASS (DAEDALUS rev2 + ARGUS round 2 + ADA + VERA + CATO + ZENO). Probe 8 Half 2 closed in-arc via fresh general-purpose subagent dispatch (no priming context per VERA cleaner-framing brief); fresh agent returned (a) BLOCK citing §25/§25.3 verbatim. Two non-blocking follow-ups: (1) D4 STEP 6.5 PushNotification debounce — defer until N\u003e=2 occurrences justify (per design WP3 + CATO f1); (2) §25.5 POSIX-only paths — convention-consistent, pair with Windows equivalent when future arc ships Windows-native probe tooling (CATO f2). Forthcoming inspection-agent arc stoa--32b.2 is the structural enforcement layer for this prose discipline. Standing down on this arc.",
+      "timestamp": "2026-05-17T07:59:50Z"
     }
   ],
   "priority": 2,
   "status": "closed",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:59:47Z"
+  "updated_at": "2026-05-17T07:59:50Z"
 }
