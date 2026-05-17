@@ -254,11 +254,15 @@
     {
       "text": "[PLINY → CAPTAIN_ADA_the_stoa rev2 dispatched 03:27Z] background Agent fired for narrow citation-fix. task_id=a598fced8d8a3a32c. Brief covers: fix c1+c2 (4 bare §4.3/§4.8 refs in §22 → qualify as `MAJOR_POLYBIUS.md` §4.x per existing substrate convention); fold c3 free (quote STATE_FILE in check.sh:174); skip c6+c7 nits ship; skip c4+c5 informational. One commit on arc-28/build. Monitor bbmvie7mg captures heartbeats.",
       "timestamp": "2026-05-17T03:26:24Z"
+    },
+    {
+      "text": "[CAPTAIN_ADA_the_stoa rev2 activated on stoa--s6n] narrow fix for CATO c1 + c2 (bare §4.3/§4.8 cross-refs in operating-disciplines.md §22) + c3 fold (quote STATE_FILE in check.sh:174).",
+      "timestamp": "2026-05-17T03:26:26Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T03:26:24Z"
+  "updated_at": "2026-05-17T03:26:26Z"
 }
