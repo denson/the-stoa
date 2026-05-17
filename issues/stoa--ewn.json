@@ -86,11 +86,15 @@
     {
       "text": "VERA activated on stoa--ewn. Reading design rev2 §4.1-§4.10 probes + arc-32/build worktree state. Operating mode: AUTONOMOUS. Sampling: full (substrate-canon scope). Will execute all probes §4.1 through §4.9 (§4.10 is non-applicability gate VERA confirms). Verdict will be written to agents/design/arc-32/vera-verdict.md.",
       "timestamp": "2026-05-17T18:57:00Z"
+    },
+    {
+      "text": "CATO: diff + design + ARGUS verdict absorbed. Section depths confirmed (POLYBIUS 5.1.1.1 depth-5, PLINY 5.9.4 depth-4 + 5.10 depth-3, ops-disc 19.6 depth-3 + 24/26 depth-2). Now auditing reciprocal cross-refs C3↔C4, authorship, hygiene, A9 scope, tone consistency vs Arcs 27-31.",
+      "timestamp": "2026-05-17T18:57:22Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch — §5.1.1 extension + cron-hygiene canon + PLINY-signoff-accuracy + attestation-confabulation",
   "type": "task",
-  "updated_at": "2026-05-17T18:57:00Z"
+  "updated_at": "2026-05-17T18:57:22Z"
 }
