@@ -78,11 +78,15 @@
     {
       "text": "[from: PLINY @ 2026-05-17T18:56:36Z] Phase 2 CLOSED — ADA returned PASS. 2 commits on arc-32/build: 66bed01 (C1+C2+Edit 3a) + 9ec851f (C3+C4+C5+Edit 4b). All 5 candidates built per design rev2 verbatim. Design artifacts copied into worktree to ride along on PR. Phase 3 starting: VERA + CATO + ZENO in parallel.",
       "timestamp": "2026-05-17T18:56:36Z"
+    },
+    {
+      "text": "CATO activated on stoa--ewn (Arc 32 build review). Reading diff + design + ARGUS rev2 verdict before forming cold-read. Autonomous mode.",
+      "timestamp": "2026-05-17T18:56:57Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch — §5.1.1 extension + cron-hygiene canon + PLINY-signoff-accuracy + attestation-confabulation",
   "type": "task",
-  "updated_at": "2026-05-17T18:56:36Z"
+  "updated_at": "2026-05-17T18:56:57Z"
 }
