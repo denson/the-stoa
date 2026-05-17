@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-17T18:28:43Z",
+  "description": "**Surfaced 2026-05-17 by user-tier POLYBIUS during end-of-session hygiene audit.**\n\nThe-stoa workspace root currently has 14+ tracked HUMAN_paste-*.md files from arcs 21 / 23 / 24 / 25 / 26 / 27 / 28 / 29 / 30 / 31 (each typically has a pliny variant + a polybius variant; arc-27 onward have both). New ones accumulate every arc dispatch. No archival or cleanup convention exists.\n\n## Observable symptom\n\n`ls HUMAN_paste-*.md` at workspace root shows a growing list that includes paste files for arcs long-since-shipped-and-closed. The directory listing degrades as a navigational surface. Future POLYBIUSes have no convention for distinguishing 'paste file from the arc I am about to dispatch' from 'paste file from arc 21 shipped weeks ago.'\n\n## Fix-shape options (operator picks)\n\n1. **Archive on arc close:** at arc-N close, PLINY moves `HUMAN_paste-{polybius,pliny}-arc-N-instruction.md` from workspace root to a substrate/arcs/\u003cN\u003e/pastes/ subdirectory (parallel to the existing substrate/arcs/arc-N-build-directive.md location). Workspace root stays clean; historical pastes still accessible via the arcs/ tree.\n\n2. **Delete on arc close:** at arc-N close, PLINY deletes the paste files from workspace root. Historical pastes recoverable via git history if ever needed. Most aggressive cleanup.\n\n3. **Leave + accept:** acknowledge the accumulation as feature not bug (historical record at workspace root, immediately visible). Document the pattern in MAJOR_POLYBIUS.md as expected.\n\nDAEDALUS picks during build. Option 1 has the cleanest separation (parallel to existing arc-directive archival pattern); Option 2 is simplest; Option 3 is null-op.\n\n## Out of scope\n\n- Migration of existing paste files (one-time backfill is a separate consideration; the ongoing-convention question is what this ticket is about)\n- HUMAN_paste-orchestrator-instruction.md (the default non-arc paste; refreshed in place by install.sh; not arc-scoped; stays at root)\n\n## Cross-refs\n\n- substrate/arcs/ (the existing arc-N-build-directive.md archival pattern that Option 1 would extend)\n- MAJOR_POLYBIUS.md §4.5 (durable-substrate-with-short-prompts pattern that authorizes the on-disk paste files in the first place)\n\n## Why P4\n\nCosmetic; no operational impact. Workspace works fine with current accumulation. Fix-shape is small but not urgent.",
+  "id": "stoa--f37",
+  "labels": [],
+  "priority": 4,
+  "status": "open",
+  "title": "HUMAN_paste-arc-N-instruction.md accumulation at workspace root — archival convention needed",
+  "type": "task",
+  "updated_at": "2026-05-17T18:28:43Z"
+}
