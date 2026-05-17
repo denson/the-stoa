@@ -133,14 +133,14 @@ Design.md hard-locks the following exclusions per A14 (so ADA does not scope-cre
 - **No install.sh changes beyond what slot-table extension may require.** The new slots (`{{SELF_SEAT_SLUG}}`, `{{PEER_SEAT_SLUG}}`) are template-internal — install.sh deploys polling-cron-prompt-template.md as-is and the slots are filled by POLYBIUS at template-substitution time, not by install.sh. No new install.sh deploy-list wiring required. (§8.4 install.sh smoke beat is non-applicable for this arc since no new substrate files are added.)
 - **No cross-tier-write-upward.** §7.5 write boundary is unchanged. §7.4 bidirectional `[for:]` is about TAG-direction (addressed-comment-meets-in-lower-tier), not write-direction.
 
-**A9 failure-mode acceptance (revised after ARGUS F2 cold-audit, rev2; extended after ARGUS F4 cold-audit, rev3).** The renewal mechanism protects against FOUR failure modes / composition scenarios, with the recovery path explicit for each (full prose at §5.1.d "Failure-mode acceptance"):
+**A9 failure-mode acceptance (revised after ARGUS F2 cold-audit, rev2; extended after ARGUS F4 cold-audit, rev3; rev5 F6 terminating-shape fold).** The renewal mechanism protects against FOUR failure modes / composition scenarios, with the recovery path explicit for each (full prose at §5.1.d "Failure-mode acceptance"):
 
 1. **Cron-expiry boundary (+168h window).** Steady-state continuous protection via the renewal chain while the session stays alive and active.
 2. **Renewal-chain break across multi-day continuous outage (> 6 days offline).** Recovery via peer-side radio-check escalation per §7.1 beat 3 (the original v1 framing — preserved).
-3. **Session-lifecycle event — fresh conversation, `/clear`, session exit (ARGUS F2 cold-audit catch).** Per Claude Code docs Limitations + `MAJOR_POLYBIUS.md` §7.4 line 437: polling crons are session-only and die when the session exits. The design encodes `durable: true` on the renewal cron as honest intent (matches documented `CronCreate` tool schema) but does NOT rely on it as load-bearing recovery — the schema-documented flag has an open unresolved bug at anthropics/claude-code issue #40228 (opened 2026-03-28) where the persist does not actually happen. Load-bearing recovery is via `MAJOR_POLYBIUS.md` §9 step 7: long-running-engagement polling re-setup. This recovery is **PRINCIPAL-consent-required**, not transparent — §9 step 7 explicitly names "request PRINCIPAL consent and set up a polling cron." The operator's fresh-session activation surfaces the re-setup to PRINCIPAL; PRINCIPAL consents (or PRINCIPAL re-issues the autonomous-mode trigger, which then routes through `MAJOR_POLYBIUS.md` §13.4 step 2 → §11 setup checklist). Either way, a fresh cron pair is created. STEP 1a of the renewal-cron prompt (the polling-cron-missing branch) handles the case where a durable-surviving renewal cron fires in a session that has already re-bootstrapped via §9 step 7 (or §13.4 trigger-detection) — no-op AND self-CronDelete cleanly so the stale renewal chain does not perpetuate. The session-lifecycle failure mode is therefore NOT a multi-day outage but any fresh-conversation start at any time; recovery is consent-mediated, not transparent. The renewal mechanism and §9 step 7 re-setup compose; STEP 1a's no-op-plus-self-delete is the seam.
-4. **Cadence-switch × renewal composition (ARGUS F4 cold-audit catch, rev3; rev4 m11 partial-failure-state recovery named).** The `substrate/templates/polling-cron-prompt-template.md` STEP 4 cadence-switch path rotates the polling cron (`CronDelete` old + `CronCreate` new at the new cadence) when a `[cadence: active|quiet]` tag is detected. Without rev3's F4 fix, this rotation would leave the paired renewal cron's inline `{{POLLING_CRON_ID}}` + `{{CADENCE}}` slot values stale — at +144h fire time, the renewal cron's STEP 1 cron-id exact-match would no-op AND STEP 1a's session-lifecycle path would fire incorrectly (the polling cron is alive at the new id, not session-lifecycle-dead), terminating the renewal chain silently AND leaving the replacement polling cron with no successor renewal cron. Rev3 fix: STEP 4 of the polling-cron template ALSO rotates the paired renewal cron — `CronDelete {{RENEWAL_CRON_ID}}` then `CronCreate` a fresh renewal cron carrying the NEW `POLLING_CRON_ID` + NEW `CADENCE` (rev4 F5: sourced from the polling cron's inline `{{RENEWAL_CRON_PROMPT_BODY}}` slot value per §5.3.a, enabling STEP 4.2 to execute deterministically). The renewal mechanism now composes cleanly with the cadence-switching pattern (§7.2 per-seat-unilateral) — each cadence-switch rotates BOTH crons in lock-step. STEP 1a's no-op branch therefore fires ONLY on the genuine session-lifecycle failure mode (scenario 3 above), and self-CronDeletes to clean up the orphan renewal cron without perpetuating a stale chain. **Partial-failure-state surface (rev4 m11):** the F4 lock-step rotation is a 4-step CronCreate dance (STEP 4.1-4.4 per §5.3.d1) — 2x the operation count of the pre-F4 single-CronCreate cadence-switch. If the polling-cron fire is interrupted between any two sub-steps, the cron pair is left in an intermediate state. Recovery is via the SAME peer-side radio-check escalation surface as the broader cron-mechanism-failure modes — §7.1 beat 3 self-silence threshold (>60 min) trips, peer surfaces "lost contact" to PRINCIPAL, PRINCIPAL re-triggers or §9 step 7 fires on next-session activation, both converging on a fresh §11 step 1.5 setup. STEP 1a's no-op-plus-self-CronDelete guard cleans up any surviving partial-state renewal cron. No new recovery infrastructure required. See §5.1.d Failure-mode scenario 4 for the full prose.
+3. **Session-lifecycle event — fresh conversation, `/clear`, session exit (ARGUS F2 cold-audit catch).** Per Claude Code docs Limitations + `MAJOR_POLYBIUS.md` §7.4 line 437: polling crons are session-only and die when the session exits. The design encodes `durable: true` on the renewal cron as honest intent (matches documented `CronCreate` tool schema) but does NOT rely on it as load-bearing recovery — the schema-documented flag has an open unresolved bug at anthropics/claude-code issue #40228 (opened 2026-03-28) where the persist does not actually happen. Load-bearing recovery is via `MAJOR_POLYBIUS.md` §9 step 7: long-running-engagement polling re-setup. This recovery is **PRINCIPAL-consent-required**, not transparent — §9 step 7 explicitly names "request PRINCIPAL consent and set up a polling cron." The operator's fresh-session activation surfaces the re-setup to PRINCIPAL; PRINCIPAL consents (or PRINCIPAL re-issues the autonomous-mode trigger, which then routes through `MAJOR_POLYBIUS.md` §13.4 step 2 → §11 setup checklist). Either way, a fresh cron pair is created. The orphan-renewal cleanup at the seam where a durable-surviving renewal cron fires in a session that has already re-bootstrapped is handled by **one-shot auto-delete** per Claude Code docs (https://code.claude.com/docs/en/scheduled-tasks: "Claude schedules a single-fire task that deletes itself after running") — the renewal cron's STEP 1a no-op path posts an orphan-observation comment and exits; the post-fire auto-delete removes the stale renewal cron without any explicit self-CronDelete needed (rev5 F6 terminating-shape fold; see §5.1.d STEP 1a rev5 collapse). The session-lifecycle failure mode is therefore NOT a multi-day outage but any fresh-conversation start at any time; recovery is consent-mediated, not transparent. The renewal mechanism and §9 step 7 re-setup compose; one-shot auto-delete is the seam.
+4. **Cadence-switch × renewal composition (ARGUS F4 cold-audit catch, rev3; rev4 m11 partial-failure-state recovery named; rev5 F6 terminating-shape fold).** The `substrate/templates/polling-cron-prompt-template.md` STEP 4 cadence-switch path rotates the polling cron (`CronDelete` old + `CronCreate` new at the new cadence) when a `[cadence: active|quiet]` tag is detected. Without rev3's F4 fix, this rotation would leave the paired renewal cron's inline `{{POLLING_CRON_ID}}` + `{{CADENCE}}` slot values stale — at +144h fire time, the renewal cron's STEP 1 cron-id exact-match would no-op AND the renewal chain would die silently. Rev3 fix: STEP 4 of the polling-cron template ALSO rotates the paired renewal cron — `CronDelete {{RENEWAL_CRON_ID}}` (best-effort cleanup; tolerates stale id — see rev5 terminating-shape note below) then `CronCreate` a fresh renewal cron carrying the NEW `POLLING_CRON_ID` + NEW `CADENCE` (rev4 F5: sourced from the polling cron's inline `{{RENEWAL_CRON_PROMPT_BODY}}` slot value per §5.3.a, enabling STEP 4.2 to execute deterministically). The renewal mechanism now composes cleanly with the cadence-switching pattern (§7.2 per-seat-unilateral) — each cadence-switch rotates BOTH crons in lock-step. **Rev5 F6 terminating-shape fold:** the rev4 4-step dance (STEP 4.1-4.4 with double re-bind for the chicken/egg of `{{RENEWAL_CRON_ID}}` cross-reference) collapses to a 2-step dance (STEP 4.1 polling rotate / STEP 4.2 renewal rotate). The collapse is structurally enabled by removing the renewal cron's STEP 1a self-CronDelete dependency on its own id (rev5 m10 collapse continued at structural layer): with one-shot auto-delete confirmed reliable per Claude Code docs, the renewal cron no longer needs to know its own id at fire time, so the polling cron's `{{RENEWAL_CRON_ID}}` slot can carry a "best-effort cleanup id that may be stale" — STEP 4.1's `CronDelete {{RENEWAL_CRON_ID}}` no-ops gracefully when the id refers to a dead renewal cron (CronDelete on a nonexistent id is a no-op per typical tool semantics; if the stale renewal cron is also still alive as an orphan, it self-cleans via one-shot auto-delete at +144h). The two re-bind sub-steps (rev4 STEP 4.3 + STEP 4.4) are dropped — the cron pair is structurally allowed to carry stale-id references without breakage because the cleanup mechanism is the one-shot auto-delete property, not the explicit self-CronDelete chain. **Partial-failure-state surface (rev4 m11; rev5 narrowed):** the rev5 2-step lock-step rotation has 2 CronCreate operations per cadence-switch (down from 4 in rev4). If the polling-cron fire is interrupted between STEP 4.1 and STEP 4.2, the cron pair is left in an intermediate state with a new polling cron alive but no paired renewal cron yet; the orphaned old renewal cron self-cleans at its +144h auto-delete and the new polling cron expires at +168h with no successor. Recovery is via the SAME peer-side radio-check escalation surface as the broader cron-mechanism-failure modes — §7.1 beat 3 self-silence threshold (>60 min) trips, peer surfaces "lost contact" to PRINCIPAL, PRINCIPAL re-triggers or §9 step 7 fires on next-session activation, both converging on a fresh §11 step 1.5 setup. One-shot auto-delete cleans up any surviving partial-state renewal cron. No new recovery infrastructure required. See §5.1.d Failure-mode scenario 4 for the full prose.
 
-This A9 broader-failure-mode-acceptance is what ARGUS-rev4 evaluates against; the rev2 framing missed the cadence-switch composition scenario per ARGUS-rev2 F4. Rev3 adds scenario 4 as a fourth composition concern STEP 4 of the polling-cron template handles directly (vs accept-as-failure-mode). Rev4 names the 4-step-dance partial-failure-state recovery explicitly (the recovery surface already exists in design via §7.1 beat 3; rev4 m11 makes the explicit naming in scenario 4 + §5.1.d Failure-mode-acceptance scenario 4 prose).
+This A9 broader-failure-mode-acceptance is what ARGUS-rev5 evaluates against; the rev2 framing missed the cadence-switch composition scenario per ARGUS-rev2 F4. Rev3 adds scenario 4 as a fourth composition concern STEP 4 of the polling-cron template handles directly (vs accept-as-failure-mode). Rev4 names the 4-step-dance partial-failure-state recovery explicitly. Rev5 collapses the 4-step dance to a 2-step dance by adopting the terminating-shape pick (skip STEP 1a self-CronDelete; rely on one-shot auto-delete per Claude Code docs — verified by WebFetch on https://code.claude.com/docs/en/scheduled-tasks "Set a one-time reminder" section: "Claude schedules a single-fire task that deletes itself after running"). The structural property the design now rests on is the one-shot auto-delete reliability; see §8.2 N=1 for the honest framing of that dependency.
 
 ### §3.8 — A16 §15 N=1 honesty acceptance
 
@@ -343,15 +343,18 @@ awk '/^\*\*1\.5/,/^\*\*2\./' substrate/operating-disciplines.md | grep -cE 'no t
 # Expected: ≥1 (explicit no-template-reference-at-fire-time property)
 ```
 
-**§4.2.2d — STEP 1a polling-cron-missing no-op + self-CronDelete branch (rev2 F2 seam; rev3 extends with self-cleanup per F4 composition)**
+**§4.2.2d — STEP 1a polling-cron-missing no-op branch (rev2 F2 seam; rev5 F6 terminating-shape: explicit self-CronDelete REMOVED, one-shot auto-delete handles cleanup)**
 
 ```bash
 awk '/^\*\*1\.5/,/^\*\*2\./' substrate/operating-disciplines.md | grep -cE 'STEP 1a|polling-cron-missing|orphan-renewal|no-op'
 # Expected: ≥2 (the STEP 1a branch present)
 
-# Rev3 self-cleanup extension: STEP 1a must self-CronDelete to prevent stale chain perpetuation:
-awk '/^\*\*1\.5/,/^\*\*2\./' substrate/operating-disciplines.md | grep -cE 'CronDelete.*self|self.*CronDelete|self-cleanup|CronDelete <self|RENEWAL_CRON_ID'
-# Expected: ≥1 (STEP 1a self-CronDeletes per rev3 F4 composition seam)
+# Rev5 F6 fold: STEP 1a no longer carries explicit self-CronDelete; relies on one-shot
+# auto-delete per Claude Code docs. The probe checks that one-shot auto-delete is named
+# as the cleanup mechanism + that the {{RENEWAL_CRON_ID}} slot's best-effort semantics
+# are surfaced:
+awk '/^\*\*1\.5/,/^\*\*2\./' substrate/operating-disciplines.md | grep -cE 'one-shot auto-delete|auto-delete|single-fire task that deletes itself|RENEWAL_CRON_ID'
+# Expected: ≥2 (one-shot auto-delete named as the cleanup mechanism + RENEWAL_CRON_ID slot named — slot is now best-effort cleanup per rev5 F6)
 ```
 
 **§4.2.2e — Renewal-cron STEP 4 specifies LOCAL-TIME arithmetic (rev3 m8)**
@@ -778,13 +781,14 @@ mechanical enforcement is a future arc IF non-compliance recurs.
 
 Insert immediately after current step 1 (Polling cron) — that is, between the existing step 1 paragraph block (lines ~409-415 + the "The cron prompt body comes from..." paragraph) and the existing `**2. Radio-check pattern...**` heading.
 
-**Structural shape (rev3 after ARGUS F1+F2+F3+F4 fold):**
+**Structural shape (rev5 after ARGUS F1+F2+F3+F4+F5+F6 fold):**
 
 - **F1 fix — inline slot values.** The renewal-cron prompt body is engagement-specific at setup time. Every slot value the renewal needs (all 13 polling-cron slots — 10 original + 2 SLUG slots from Part 1 fold + 1 RENEWAL_CRON_ID slot from rev3 F4 fold — PLUS the polling cron's id PLUS the renewal-cron's own next-renewal scheduling parameters) is substituted INTO the renewal-cron prompt body at the moment the renewal cron is `CronCreate`d. The renewal cron does not reference any template by file at fire time; the renewal cron's prompt body IS the complete substituted instruction set. State-management across session-clear / compact / fresh-session is the union of (a) the renewal cron's prompt body (durable across the cron's lifetime per the CronCreate-side of the system) and (b) the bw record of the polling-cron's id (in the §7.1 beat 1 radio-check handshake comment). No re-substitution of any template happens at fire time.
 - **F2 fix — session-lifecycle.** The renewal cron is `CronCreate`d with `durable: true`. Per the documented `CronCreate` tool schema, this flag specifies that the task persists to `.claude/scheduled_tasks.json` and survives session restarts. PER OPEN BUG (anthropics/claude-code issue #40228, opened 2026-03-28, unresolved at design time): the `durable: true` flag is documented but does NOT currently persist; tasks die on session exit regardless. The design encodes `durable: true` as honest intent (matches documented schema; works correctly once the bug is fixed without further canon revision) — but does NOT rely on it as the load-bearing recovery mechanism. Load-bearing recovery is via `MAJOR_POLYBIUS.md` §9 step 7 (long-running-engagement polling re-setup; rev3 m5 fix re-cites away from §13.4 — see m5 note below): on the operator's next session activation while autonomous-mode is desired, §9 step 7 requests PRINCIPAL consent and runs the §11 setup checklist, including this step 1.5 — which spins up a fresh renewal cron paired with the fresh polling cron. **The recovery is PRINCIPAL-consent-required, not transparent re-bootstrap** — §9 step 7 explicitly names the consent step. (Alternatively, if PRINCIPAL re-issues the autonomous-mode trigger, `MAJOR_POLYBIUS.md` §13.4 step 2 routes the same setup checklist. Both paths converge on §11 step 1.5; both require some form of PRINCIPAL action — consent OR trigger.) Session-lifecycle loss is recovered by the operator's normal autonomous-mode re-entry with PRINCIPAL in the loop.
 - **F3 fix — deterministic self-discovery.** The renewal cron carries the polling cron's id as an inline slot value (`{{POLLING_CRON_ID}}`). STEP 1 of the renewal-cron prompt body is `CronList; find cron-id == {{POLLING_CRON_ID}}` (exact-match on cron-id, not a text-search against prompt-body). The ~80-char CronList prompt-truncation observed in PLINY's A7 spike does not affect the match. Composes with the F3 Handle (a) template-body re-order at §5.3 (which helps a different consumer — peer audit reading CronList — but is not load-bearing for renewal self-discovery once F3 Handle (b) is in place).
 - **F4 fix — cadence-switch × renewal composition (rev3).** The `substrate/templates/polling-cron-prompt-template.md` STEP 4 cadence-switch path now ALSO rotates the paired renewal cron in lock-step with the polling-cron rotation. The polling-cron template's substitution-slot table gains a `{{RENEWAL_CRON_ID}}` slot (populated AFTER initial setup once the renewal cron exists — see §11 step 1.5's setup-time slot-lifecycle note below). STEP 4 of the polling-cron template performs the existing polling-cron rotation (CronDelete old + CronCreate new at the new cadence) AND additionally CronDeletes the paired renewal cron (id = `{{RENEWAL_CRON_ID}}`) + CronCreates a fresh renewal cron carrying the NEW polling-cron-id + NEW cadence as inline slot values. Without this fix, the renewal cron's STEP 1 cron-id exact-match would no-op after any cadence-switch, the renewal chain would die silently, and the replacement polling cron from the cadence-switch would have no successor renewal cron. The F4 fix makes the cadence-switching pattern (§7.2 per-seat-unilateral) compose cleanly with the renewal mechanism. The full edit-spec lives in §5.3; this bullet names the structural property §5.1.d depends on. STEP 1a's session-lifecycle no-op branch (below) is also updated in rev3 to self-CronDelete — with F4 shipped, STEP 1a fires ONLY on the genuine session-lifecycle failure mode where exiting + cleaning up is correct (don't perpetuate stale renewal chain; let §9 step 7 / §13.4 recover).
-- **F5 fix — STEP 4.2 deterministic renewal-cron CronCreate (rev4).** The F4 fix at §5.3.d1 STEP 4 requires that STEP 4.2 (rotate paired renewal cron at the new POLLING_CRON_ID + CADENCE) CronCreate a FRESH renewal cron — but the polling cron at cadence-switch fire time has no F1+F3-consistent source for the renewal-cron prompt body. F1 hard-locks template-reference-at-fire-time out; F3 hard-locks CronList-prompt-text recovery out (~80-char truncation). The F5 fix adds a `{{RENEWAL_CRON_PROMPT_BODY}}` slot to the polling-cron template's substitution-slot table; the polling cron carries the full renewal-cron prompt body as inline literal text at engagement-setup time (with `<PLACEHOLDER:POLLING_CRON_ID>` + `<PLACEHOLDER:CADENCE>` markers left for cadence-switch re-substitution). STEP 4.2 CronCreates the fresh renewal cron using this slot value, re-substituting the placeholders to the new polling-cron-id + new cadence. Cost: polling-cron prompt body grows from ~50 to ~130 lines per fire (~6,500 bytes; well within any documented `CronCreate` prompt size constraints per PLINY A7 spike + ARGUS-rev2 re-verify). Without this fix, STEP 4.2 cannot execute deterministically; with it, the F4 4-step dance (STEP 4.1 → 4.2 → 4.3 → 4.4) is fully buildable. The slot-lifecycle dance at §11 step 1.5 is extended to a 5-step sequence (step 0 captures the renewal-cron prompt body literal at setup time; step 3 inlines it into the polling cron's slot). The full edit-spec lives in §5.3.a + §5.3.d1; this bullet names the structural property §5.1.d depends on.
+- **F5 fix — STEP 4.2 deterministic renewal-cron CronCreate (rev4).** The F4 fix at §5.3.d1 STEP 4 requires that STEP 4.2 (rotate paired renewal cron at the new POLLING_CRON_ID + CADENCE) CronCreate a FRESH renewal cron — but the polling cron at cadence-switch fire time has no F1+F3-consistent source for the renewal-cron prompt body. F1 hard-locks template-reference-at-fire-time out; F3 hard-locks CronList-prompt-text recovery out (~80-char truncation). The F5 fix adds a `{{RENEWAL_CRON_PROMPT_BODY}}` slot to the polling-cron template's substitution-slot table; the polling cron carries the full renewal-cron prompt body as inline literal text at engagement-setup time (with `<PLACEHOLDER:POLLING_CRON_ID>` + `<PLACEHOLDER:CADENCE>` markers left for cadence-switch re-substitution). STEP 4.2 CronCreates the fresh renewal cron using this slot value, re-substituting the placeholders to the new polling-cron-id + new cadence. Cost: polling-cron prompt body grows from ~50 to ~130 lines per fire (~6,500 bytes; well within any documented `CronCreate` prompt size constraints per PLINY A7 spike + ARGUS-rev2 re-verify). Without this fix, STEP 4.2 cannot execute deterministically; with it, the F4 4-step dance is fully buildable. (Rev5 F6 collapse, below, reduces the dance to 2-step and supersedes the rev4 4-step framing.)
+- **F6 fix — terminating-shape collapse via one-shot auto-delete (rev5).** The rev4 F5 fold left a residual chicken/egg that ARGUS-rev4 surfaced: the rev4 5-step setup dance + rev4 4-step cadence-switch dance both required the renewal cron to carry its own id as an inline slot value (for STEP 1a explicit self-CronDelete). The cross-reference re-bind sub-steps (setup steps 4a + 4b; cadence-switch STEPs 4.3 + 4.4) generated F6-style stale-id residuals at the polling cron's `{{RENEWAL_CRON_ID}}` slot; attempting to extend the dance further to fix the residuals generates infinite re-bind regress. The F6 fix removes the renewal cron's STEP 1a explicit self-CronDelete entirely; cleanup of fired one-shot crons is handled by the documented one-shot auto-delete property per Claude Code docs (https://code.claude.com/docs/en/scheduled-tasks "Set a one-time reminder": "Claude schedules a single-fire task that deletes itself after running"). Removing the consumer that REQUIRED the renewal cron's self-id collapses the setup dance from 5-step to 4-step terminating shape + the cadence-switch dance from 4-step to 2-step terminating shape, with explicit acceptance of one-time-stale `{{RENEWAL_CRON_ID}}` residual at the polling cron's slot (bounded by one-shot auto-delete; converges at +144h renewal-chain extension via §5.1.d STEP 4a hygiene re-bind). The slot-lifecycle dance at §11 step 1.5 is the 4-step rev5 terminating shape; the cadence-switch dance at §5.3.d1 STEP 4 is the 2-step rev5 terminating shape. The full edit-spec lives in §5.1.d + §5.3.a + §5.3.d1 + §11 step 1.5; this bullet names the structural property §5.1.d depends on. The rev5 design now structurally depends on one-shot auto-delete reliability (Claude Code docs verified by WebFetch); see §8.2 N=1 framing + §9.8 residual concerns for the honest encoding of that dependency.
 
 **§11 step 1.5 prose to land:**
 
@@ -825,7 +829,8 @@ CronList; find the entry whose cron-id == {{POLLING_CRON_ID}}.
 prompt-body display is truncated to ~80 chars and is not load-bearing
 for matching.) If the cron is not found in CronList: see STEP 1a.
 
-STEP 1a — polling-cron-missing branch (session-lifecycle no-op + self-cleanup).
+STEP 1a — polling-cron-missing branch (session-lifecycle no-op; rev5
+terminating-shape: explicit self-CronDelete REMOVED).
 If {{POLLING_CRON_ID}} is absent from CronList, this renewal cron has
 outlived its paired polling cron — almost certainly because the polling
 cron died on a session-lifecycle event (fresh conversation, /clear,
@@ -833,10 +838,14 @@ session exit). (With rev3 F4 shipped, cadence-switch rotations of the
 polling cron also rotate THIS renewal cron in lock-step at the polling-
 cron-template STEP 4 site, so a cadence-switch can no longer be the
 cause of {{POLLING_CRON_ID}}-not-in-CronList.) The correct response is
-no-op AND self-cleanup: post a single bw comment on
-{{COORDINATION_TICKET}} noting the orphan-renewal observation, then
-CronDelete THIS renewal cron (self) so the stale renewal chain does
-not perpetuate. The polling cron will be re-created when
+no-op AND exit: post a single bw comment on {{COORDINATION_TICKET}}
+noting the orphan-renewal observation, then exit. No explicit
+self-CronDelete is needed — this renewal cron was CronCreate'd with
+recurring: false (one-shot), and per Claude Code docs
+(https://code.claude.com/docs/en/scheduled-tasks "Set a one-time
+reminder" section: "Claude schedules a single-fire task that deletes
+itself after running") the cron is removed by the runtime after this
+fire completes. The polling cron will be re-created when
 {{SELF_SEAT_NAME}} next re-enters autonomous mode at the operator's
 next session activation (per MAJOR_POLYBIUS.md §9 step 7 long-running-
 engagement polling re-setup, which requests PRINCIPAL consent; OR per
@@ -846,25 +855,36 @@ with the fresh polling cron via this same §11 step 1.5. Comment to post:
   bw comment {{COORDINATION_TICKET}} "[from: {{SELF_SEAT_SLUG}}] renewal
   cron fired without a paired polling cron (id {{POLLING_CRON_ID}} not
   in CronList — session-lifecycle event likely; cadence-switch path
-  ruled out by F4 lock-step rotation). Self-cleaning up; awaiting next
+  ruled out by F4 lock-step rotation). Exiting; one-shot auto-delete
+  removes this cron from the session per Claude Code docs. Awaiting next
   autonomous-mode entry per MAJOR_POLYBIUS.md §9 step 7 (PRINCIPAL
   consent required) or §13.4 (PRINCIPAL re-trigger)."
-CronDelete <self renewal-cron id — the substituted body knows
-  {{RENEWAL_CRON_ID}} from setup-time slot population per the F4
-  slot-lifecycle note below; this is the F1+F3-consistent path
-  (rev4 m10: prompt-body recognition and CronList enumeration are
-  NOT used here — they would re-open F3 truncation-fragility on the
-  ~80-char prompt-body display, and prompt-body recognition is non-
-  deterministic across the renewal cron's own multi-line literal).
-  Slot-population is the single deterministic mechanism.>
 Exit.
+
+(Rev5 F6 terminating-shape note: prior revisions of STEP 1a invoked an
+explicit CronDelete against {{RENEWAL_CRON_ID}} as a "self-cleanup"
+step. That mechanism required the renewal cron's prompt body to carry
+its own id as an inline slot value — a chicken/egg dependency that
+forced the §11 step 1.5 setup-time dance into a 5-step shape and broke
+silently if the slot value was stale (as ARGUS-rev4 F6 surfaced). The
+one-shot auto-delete property the runtime provides is the deterministic
+cleanup mechanism; STEP 1a's explicit self-CronDelete was redundant. The
+rev5 removal eliminates the chicken/egg dependency entirely and collapses
+the setup-dance to 3 steps + the cadence-switch dance to 2 steps. See
+§9.7 for the residual concerns the removal introduces — primarily the
+structural dependence on one-shot auto-delete reliability.)
 
 STEP 2 — CronCreate replacement polling cron.
 CronCreate a NEW recurring cron with cadence {{CADENCE}} and the
 polling-cron prompt body with slot values inline (the same engagement-
 specific body the original polling cron carried — slot values are pre-
 substituted into this renewal-cron prompt at setup time and carried
-inline through fire). Let the returned id be <new_polling_cron_id>.
+inline through fire). The polling cron's {{RENEWAL_CRON_ID}} slot is
+substituted with the OLD/current paired renewal cron's id (i.e., the
+renewal cron currently executing this STEP — which will self-clean
+via one-shot auto-delete after this fire per Claude Code docs); the
+slot will be re-bound to the live <new_renewal_cron_id> in STEP 4a
+(rev5 hygiene optimization). Let the returned id be <new_polling_cron_id>.
 
 STEP 3 — CronDelete {{POLLING_CRON_ID}} (the now-superseded polling cron).
 Post on {{COORDINATION_TICKET}}:
@@ -872,7 +892,8 @@ Post on {{COORDINATION_TICKET}}:
   renewed: superseded {{POLLING_CRON_ID}} with <new_polling_cron_id>;
   cadence {{CADENCE}} unchanged."
 
-STEP 4 — CronCreate next renewal one-shot (LOCAL-TIME arithmetic, rev3 m8).
+STEP 4 — CronCreate next renewal one-shot (LOCAL-TIME arithmetic, rev3 m8;
+rev5 F6 terminating-shape: chicken/egg re-bind dance collapsed).
 Compute the next-renewal fire time in LOCAL time:
   next_renewal_local = NOW (interpreted in local tz) + 144 hours.
 Per Claude Code docs https://code.claude.com/docs/en/scheduled-tasks:
@@ -882,44 +903,41 @@ by the UTC-local offset (potentially up to ~12h off the intended +144h
 window, eroding the 24h buffer). Always compute and emit in local time.
 CronCreate a one-shot cron with cron-expression for next_renewal_local,
 recurring: false, durable: true. The prompt body for this new renewal
-is THIS SAME renewal-cron prompt body with TWO substitutions:
+is THIS SAME renewal-cron prompt body with ONE substitution:
   - replace {{POLLING_CRON_ID}} with <new_polling_cron_id>
-  - replace {{RENEWAL_CRON_ID}} with <new_renewal_cron_id>
-    (populated AFTER the CronCreate returns — same setup-time slot-
-    lifecycle handling as the initial setup per §11 step 1.5's slot-
-    lifecycle note below)
-All other slot values carry through unchanged. Let the returned id be
-<new_renewal_cron_id>.
+The {{RENEWAL_CRON_ID}} slot inside the renewal cron's own body is no
+longer consumed at fire time (rev5 STEP 1a removed the self-CronDelete
+that was its only reader); it may be left as a placeholder marker, as
+its old value, or removed entirely — its value is now informational
+only and ADA-discretion. All other slot values carry through unchanged.
+Let the returned id be <new_renewal_cron_id>.
 
 STEP 4a — re-bind the new polling cron's {{RENEWAL_CRON_ID}} slot
-(F4 lock-step composition, rev3).
-The new polling cron created in STEP 2 was substituted with the OLD
-renewal-cron-id at the moment it was created (we did not yet know
-the NEW renewal-cron-id at STEP 2). To make the cadence-switch path
-in the new polling cron's STEP 4 able to find the correct paired
-renewal cron, we must now re-bind. CronDelete <new_polling_cron_id>
-(the polling cron we just made), then CronCreate it AGAIN with the
-same prompt body except with {{RENEWAL_CRON_ID}} substituted to
-<new_renewal_cron_id> instead of the old id. Let the returned id be
-<final_polling_cron_id>. (Alternative implementation note: a single
-CronCreate+CronCreate-with-self-knowledge primitive does not exist;
-the two-step CronCreate-then-CronCreate-again pattern is the
-deterministic workaround. The cost is one extra CronCreate per
-renewal; acceptable since renewals fire at +144h cadence, not per-
-poll.) If the cost of the re-bind is undesirable for a specific
-deployment, the alternative is to skip STEP 4a and accept that the
-new polling cron's cadence-switch path would invalidate only the
-PREVIOUS renewal cron (which is already CronDelete'd by upstream
-flow) — but this re-opens F4 on the first cadence-switch after
-renewal; not recommended. Ship STEP 4a.
+(F4 lock-step composition, rev3; rev5 best-effort framing).
+The new polling cron created in STEP 2 was substituted with a "best-
+effort cleanup id" placeholder for {{RENEWAL_CRON_ID}} (the slot's
+rev5 semantics — see §5.3.a slot definition). To keep the polling
+cron's cadence-switch STEP 4.1 best-effort `CronDelete {{RENEWAL_CRON_ID}}`
+pointing at the live renewal cron (so the explicit delete actually
+succeeds rather than relying on one-shot auto-delete as the fallback),
+CronDelete <new_polling_cron_id> and CronCreate it AGAIN with
+{{RENEWAL_CRON_ID}} = <new_renewal_cron_id>. Let the returned id be
+<final_polling_cron_id>. The re-bind is a hygiene optimization — the
+cron pair survives without it (STEP 4.1's CronDelete no-ops on the
+stale id; the orphan renewal cron self-cleans via one-shot auto-delete
+at +144h) — but the re-bind keeps the cadence-switch path tidy and
+avoids accumulating short-lived orphan renewal crons inside an
+engagement that cadence-switches frequently. SHIP STEP 4a.
 
 STEP 5 — log renewal-chain extension.
 Post on {{COORDINATION_TICKET}}:
   bw comment {{COORDINATION_TICKET}} "[from: {{SELF_SEAT_SLUG}}] renewal
   chain extended: new polling cron <final_polling_cron_id>; next renewal
   cron <new_renewal_cron_id> (one-shot at +144h LOCAL, durable: true).
-  Both crons mutually-aware via inline {{POLLING_CRON_ID}} /
-  {{RENEWAL_CRON_ID}} slot values for F4 cadence-switch composition."
+  Polling cron carries new renewal id in {{RENEWAL_CRON_ID}} slot for
+  best-effort cleanup on cadence-switch; renewal cron's own
+  {{RENEWAL_CRON_ID}} slot is informational-only per rev5 F6
+  terminating-shape (no fire-time consumer)."
 
 Exit.
 ```
@@ -969,7 +987,8 @@ Slot values inline at setup time:
 
 STEP 1 — find current polling cron (deterministic).
 CronList; find the entry whose cron-id == c4482646.
-(If absent → STEP 1a: post no-op comment AND CronDelete self.)
+(If absent → STEP 1a: post no-op comment AND EXIT — rev5 F6
+terminating-shape; one-shot auto-delete handles cleanup.)
 
 STEP 2 — CronCreate replacement polling cron at cadence */5 * * * *
 with the engagement-specific polling-cron prompt body (slot values
@@ -982,7 +1001,8 @@ Post on stoa--jru:
   superseded c4482646 with <new_polling_cron_id>; cadence */5 * * * *
   unchanged."
 
-STEP 4 — CronCreate next renewal one-shot (LOCAL-TIME arithmetic).
+STEP 4 — CronCreate next renewal one-shot (LOCAL-TIME arithmetic;
+rev5 collapse: only POLLING_CRON_ID substituted at fire time).
 Compute next_renewal_local = 2026-05-23 17:50 (local; 144 hours after
 the 2026-05-17 17:50 local polling-cron creation moment).
 Emit cron expression: `50 17 23 5 *` (minute=50, hour=17, day=23,
@@ -990,11 +1010,18 @@ month=5, any-day-of-week). NO Z suffix; no UTC conversion — per
 Claude Code docs all times interpreted local.
 CronCreate with cron-expression `50 17 23 5 *`, recurring: false,
 durable: true. Prompt body = THIS SAME renewal-cron prompt body with
-{{POLLING_CRON_ID}} replaced by <new_polling_cron_id>, and
-{{RENEWAL_CRON_ID}} replaced by <new_renewal_cron_id> (populated
-post-CronCreate). Let returned id be <new_renewal_cron_id>.
+{{POLLING_CRON_ID}} replaced by <new_polling_cron_id>. (The
+{{RENEWAL_CRON_ID}} slot inside this body is no longer consumed at
+fire time per rev5 F6 terminating-shape — STEP 1a has no explicit
+self-CronDelete; one-shot auto-delete handles cleanup. ADA-discretion
+on the slot's value at this re-substitution: pass through unchanged,
+clear to placeholder, or omit entirely.) Let returned id be
+<new_renewal_cron_id>.
 
-STEP 4a — re-bind new polling cron's {{RENEWAL_CRON_ID}}.
+STEP 4a — re-bind new polling cron's {{RENEWAL_CRON_ID}}
+(rev5 hygiene optimization — keeps best-effort cleanup pointing at
+live id; the cron pair survives without it via one-shot auto-delete
+fallback).
 CronDelete <new_polling_cron_id>; CronCreate same body with
 {{RENEWAL_CRON_ID}} substituted to <new_renewal_cron_id>. Let
 returned id be <final_polling_cron_id>.
@@ -1002,7 +1029,7 @@ returned id be <final_polling_cron_id>.
 STEP 5 — log:
   bw comment stoa--jru "[from: polybius-the-stoa] renewal chain
   extended: new polling cron <final_polling_cron_id>; next renewal
-  cron <new_renewal_cron_id> (one-shot at 2026-05-29 17:50 local,
+  cron <new_renewal_cron_id> (one-shot at 2026-05-23 17:50 local,
   durable: true)."
 
 Exit.
@@ -1012,9 +1039,12 @@ Exit.
 substituted inline at setup time, no template-reference at fire time;
 F2 = `durable: true` encoded as documented-schema honest intent;
 F3 = STEP 1 cron-id exact-match on `c4482646`, not text-search;
-F4 = `{{RENEWAL_CRON_ID}}` slot exists and is populated post-
-CronCreate-of-renewal for lock-step composition with §5.3 STEP 4
-cadence-switch; m8 = LOCAL-time arithmetic, cron expression
+F4 = `{{RENEWAL_CRON_ID}}` slot exists for the polling cron's best-
+effort cleanup on cadence-switch (rev5 best-effort framing); F6 = STEP 1a
+relies on one-shot auto-delete (rev5 terminating-shape; no explicit
+self-CronDelete) and STEP 4 no longer needs the chicken/egg double-
+re-bind dance — STEP 4a remains as a hygiene optimization, not a
+correctness requirement; m8 = LOCAL-time arithmetic, cron expression
 `50 17 23 5 *` not `50 17 23 5 *Z`, worked-example timestamps
 `2026-05-17 17:50` and `2026-05-23 17:50` without Z suffix per
 Claude Code local-time interpretation.)
@@ -1044,8 +1074,9 @@ CronCreate time per §11 step 1.5 slot-lifecycle step 3):
 ```
 {{RENEWAL_CRON_PROMPT_BODY}} =
 "[scheduled renewal fire — polybius-the-stoa polling-cron rotation on
-stoa--jru; current polling cron <PLACEHOLDER:POLLING_CRON_ID>; current
-renewal cron <final_renewal_id>; renewal cron self]
+stoa--jru; current polling cron <PLACEHOLDER:POLLING_CRON_ID>; renewal
+cron self — rev5 F6 terminating-shape: own id is informational-only,
+not consumed at fire time]
 
 Slot values inline at setup time:
   {{COORDINATION_TICKET}} = stoa--jru
@@ -1058,7 +1089,9 @@ Slot values inline at setup time:
   {{CRON_ID}} (polling cron's id, == {{POLLING_CRON_ID}}) =
     <PLACEHOLDER:POLLING_CRON_ID>
   {{POLLING_CRON_ID}} = <PLACEHOLDER:POLLING_CRON_ID>
-  {{RENEWAL_CRON_ID}} = <final_renewal_id>
+  {{RENEWAL_CRON_ID}} = <PLACEHOLDER:RENEWAL_CRON_ID> (rev5: no
+    fire-time consumer; pass through unchanged, ADA-discretion on
+    representation; left as placeholder here for clarity)
   {{ALARM_THRESHOLD_MINUTES}} = 60
   {{HEARTBEAT_INTERVAL_MINUTES}} = 30
   {{CADENCE}} = <PLACEHOLDER:CADENCE>
@@ -1067,13 +1100,16 @@ Slot values inline at setup time:
 
 STEP 1 — find current polling cron (deterministic).
 CronList; find the entry whose cron-id == <PLACEHOLDER:POLLING_CRON_ID>.
-(If absent → STEP 1a: post no-op comment AND CronDelete self.)
+(If absent → STEP 1a: post no-op comment AND EXIT — rev5 F6
+terminating-shape; one-shot auto-delete handles cleanup.)
 
-STEP 1a — polling-cron-missing branch (session-lifecycle no-op +
-self-cleanup). If <PLACEHOLDER:POLLING_CRON_ID> is absent from
-CronList, this renewal cron has outlived its paired polling cron —
-session-lifecycle event likely. Post the orphan-renewal observation
-comment on stoa--jru; CronDelete <final_renewal_id> (self). Exit.
+STEP 1a — polling-cron-missing branch (session-lifecycle no-op).
+If <PLACEHOLDER:POLLING_CRON_ID> is absent from CronList, this
+renewal cron has outlived its paired polling cron — session-lifecycle
+event likely. Post the orphan-renewal observation comment on stoa--jru
+and exit. No explicit self-CronDelete (rev5 F6 terminating-shape;
+one-shot auto-delete per Claude Code docs removes this cron after
+fire completes).
 
 STEP 2 — CronCreate replacement polling cron at cadence
 <PLACEHOLDER:CADENCE> with the engagement-specific polling-cron prompt
@@ -1083,12 +1119,17 @@ STEP 3 — CronDelete <PLACEHOLDER:POLLING_CRON_ID>; log on stoa--jru.
 
 STEP 4 — CronCreate next renewal one-shot at +144h LOCAL with this
 same body except <PLACEHOLDER:POLLING_CRON_ID> replaced by
-<new_polling_cron_id> and <final_renewal_id> replaced by
-<new_renewal_cron_id>. Let returned id be <new_renewal_cron_id>.
+<new_polling_cron_id>. (Rev5 F6 terminating-shape: the renewal cron's
+own {{RENEWAL_CRON_ID}} slot is no longer consumed at fire time;
+ADA-discretion on its substitution at this point — typically pass
+through unchanged.) Let returned id be <new_renewal_cron_id>.
 
-STEP 4a — re-bind new polling cron's {{RENEWAL_CRON_ID}}.
+STEP 4a — re-bind new polling cron's {{RENEWAL_CRON_ID}} (rev5
+hygiene optimization).
 CronDelete <new_polling_cron_id>; CronCreate same body with
-{{RENEWAL_CRON_ID}} substituted to <new_renewal_cron_id>.
+{{RENEWAL_CRON_ID}} substituted to <new_renewal_cron_id>. Keeps
+best-effort cleanup pointing at the live renewal cron id for the
+next cadence-switch.
 
 STEP 5 — log renewal-chain extension on stoa--jru.
 Exit."
@@ -1106,13 +1147,14 @@ substitutes it AT cadence-switch time, not at setup time. This is
 why the literal contains placeholder markers: the polling cron's
 F5-slot value is a TEMPLATE for the fresh renewal cron, with the
 two values that change on cadence-switch left as placeholders for
-re-substitution. Second, `<final_renewal_id>` IS substituted in this
-literal — the value here is the renewal cron the polling cron is
-PAIRED WITH, which is used by STEP 1a self-CronDelete; it is NOT
-the value to use when CronCreating a fresh renewal cron at
-cadence-switch — the fresh renewal cron's id will be a new value
-captured from STEP 4.2's CronCreate return and re-bound in STEP 4.4
-per the slot-lifecycle dance.)
+re-substitution. Second, the renewal cron's own `{{RENEWAL_CRON_ID}}`
+internal reference (rev4 used `<final_renewal_id>` here) is now
+ADA-discretion per rev5 F6 terminating-shape — STEP 1a no longer
+consumes it, so the literal can carry a placeholder or be left blank;
+the polling cron's TOP-LEVEL `{{RENEWAL_CRON_ID}}` slot still
+carries the paired renewal cron's id for STEP 4.1 best-effort
+cleanup, but that's the polling cron's slot, not an internal
+reference inside the renewal cron's literal body.)
 
 The polling cron's polling-prompt-template prompt body would
 therefore be ~50 lines of polling-cron STEPs (per the existing
@@ -1160,96 +1202,156 @@ radio-check initialization handshake on the coordination ticket per §7.1
 beat 1. Subsequent renewal-fire rotations log to the same ticket per
 STEPs 3 and 5 above.
 
-**Slot-lifecycle note (rev3 F4 + rev4 F5 fold).** The polling-cron
-template gains TWO substitution slots that support the F4 + F5 lock-
-step composition with the cadence-switching pattern (per §5.3 STEP 4
+**Slot-lifecycle note (rev3 F4 + rev4 F5 + rev5 F6 fold — collapsed to
+3-step minimum-CronCreate-count setup).** The polling-cron template
+gains TWO substitution slots that support the F4 + F5 lock-step
+composition with the cadence-switching pattern (per §5.3 STEP 4
 extension): `{{RENEWAL_CRON_ID}}` (rev3 F4) and
-`{{RENEWAL_CRON_PROMPT_BODY}}` (rev4 F5). Both slots have a chicken/
-egg lifecycle that is resolved through a setup-time multi-step dance.
+`{{RENEWAL_CRON_PROMPT_BODY}}` (rev4 F5). The setup-time dance
+populates both slots via a chicken/egg-resolving sequence.
 
 The lifecycle has two layers. Layer 1 is the prompt-body literal
 itself — the renewal-cron prompt body is generated at autonomous-mode
 setup time with all engagement-specific slot values pre-substituted
 (per the F1 inline-slot-values shape), then captured as a literal
-string. Layer 2 is the cron-id cross-references between the two crons
-— each cron's body needs to carry the other cron's id as an inline
-slot value, but each id only exists after its CronCreate returns.
-Both layers are resolved at setup; both layers are re-resolved at
-each cadence-switch (per STEP 4.1-4.4).
+string. Layer 2 is the cron-id cross-references between the two crons —
+the renewal cron needs to know the polling cron's id (used at STEP 1
+exact-match self-discovery; load-bearing); the polling cron carries
+the renewal cron's id as a best-effort cleanup hint in its
+`{{RENEWAL_CRON_ID}}` slot (used at cadence-switch STEP 4.1 to
+CronDelete the paired renewal cron; tolerates stale id per rev5 F6
+terminating-shape — see below).
 
-The setup ordering ships the polling cron's `{{RENEWAL_CRON_ID}}`
-slot and its `{{RENEWAL_CRON_PROMPT_BODY}}` slot with deterministic
-substitutions; the renewal cron's `{{POLLING_CRON_ID}}` slot inside
-its prompt body is substituted to the final polling cron id at the
-same setup. The re-CronCreate dance is the deterministic workaround
-for the absence of a CronUpdate primitive (per A7 spike).
+**Rev5 F6 terminating-shape collapse — load-bearing structural
+property.** The rev4 5-step setup dance + rev4 4-step cadence-switch
+dance both grew out of a chicken/egg dependency that no longer exists:
+the renewal cron's STEP 1a explicit self-CronDelete required the
+renewal cron's body to carry its own id as an inline slot value, which
+forced the dance to re-bind the polling cron AND the renewal cron with
+mutually-known ids. Per ARGUS-rev4 F6, the rev4 5-step dance left the
+polling cron's two RENEWAL-pointing slots baked to the step-2 renewal
+id which was CronDeleted in step 4 — the only way out of that regress
+without adding more re-bind steps (which generate further regress) is
+to drop the renewal cron's dependency on its own id. With one-shot
+auto-delete confirmed reliable per Claude Code docs
+(https://code.claude.com/docs/en/scheduled-tasks "Set a one-time
+reminder": "Claude schedules a single-fire task that deletes itself
+after running"), the renewal cron's STEP 1a no longer needs an
+explicit self-CronDelete; the runtime removes the cron after fire
+completes. This removes the renewal cron's RENEWAL_CRON_ID-in-own-body
+dependency entirely and collapses the setup dance to 3-step minimum
+and the cadence-switch dance to 2-step minimum (per §5.3.d1).
 
-Setup-time ordering (initial — rev4 includes RENEWAL_CRON_PROMPT_BODY
-capture):
+**Setup-time ordering (rev5 terminating-shape — 4-step minimum
+CronCreate count).** Two ids must be threaded through the dance: the
+renewal cron's body needs the LIVE polling cron's id (load-bearing
+for STEP 1 self-discovery) and the polling cron's `{{RENEWAL_CRON_ID}}`
+slot needs the live renewal cron's id (best-effort cleanup; tolerates
+staleness per rev5 F6). The renewal cron's own id is no longer
+threaded into its own body (rev5 F6: STEP 1a's explicit self-CronDelete
+removed; one-shot auto-delete handles cleanup). The 4-step dance is
+the minimum that resolves both required threadings without infinite
+regress.
+
   0. Generate the renewal-cron prompt body literal text from the
      renewal-cron template at `operating-disciplines.md` §11 step 1.5
      (the renewal-cron STEPs 1-5 block). Substitute ALL engagement-
-     specific slot values inline (per F1) EXCEPT the two cron-id
-     cross-references, which become PLACEHOLDERS at this stage:
+     specific slot values inline (per F1) EXCEPT the polling-cron
+     cross-reference + cadence, which become PLACEHOLDERS at this
+     stage:
        `{{POLLING_CRON_ID}}` = `<PLACEHOLDER:POLLING_CRON_ID>`
-       `{{RENEWAL_CRON_ID}}` = `<PLACEHOLDER:RENEWAL_CRON_ID>`
-     The substituted-with-placeholders literal is captured as
-     `RENEWAL_CRON_PROMPT_BODY_LITERAL` for use in subsequent steps.
-  1. CronCreate polling cron with `{{RENEWAL_CRON_ID}}` = `<unset>`
-     and `{{RENEWAL_CRON_PROMPT_BODY}}` = `<unset>`
-     → returned id = `<polling_id>`
-  2. Take `RENEWAL_CRON_PROMPT_BODY_LITERAL` from step 0; substitute
-     `<PLACEHOLDER:POLLING_CRON_ID>` → `<polling_id>` (the
-     `<PLACEHOLDER:RENEWAL_CRON_ID>` stays in place for STEP 1a's
-     self-CronDelete to consume). CronCreate renewal cron with this
-     substituted body as the prompt parameter.
-     → returned id = `<renewal_id>`
-  3. Take `RENEWAL_CRON_PROMPT_BODY_LITERAL` from step 0 again (the
-     un-substituted-cron-id version); substitute `<PLACEHOLDER:
-     RENEWAL_CRON_ID>` → `<renewal_id>` (leaving `<PLACEHOLDER:
-     POLLING_CRON_ID>` IN PLACE so that STEP 4.2 at cadence-switch
-     can re-substitute it to the NEW polling-cron-id). Capture this
-     substituted-with-POLLING_CRON_ID-still-placeholder literal as
-     `RENEWAL_CRON_PROMPT_BODY_FOR_POLLING_CRON_SLOT` — this is the
-     value that will be inlined as the polling cron's
-     `{{RENEWAL_CRON_PROMPT_BODY}}` slot in step 4. CronDelete
-     `<polling_id>`; CronCreate polling cron AGAIN with
-     `{{RENEWAL_CRON_ID}}` = `<renewal_id>` and
-     `{{RENEWAL_CRON_PROMPT_BODY}}` =
-     `RENEWAL_CRON_PROMPT_BODY_FOR_POLLING_CRON_SLOT` substituted
-     → returned id = `<final_polling_id>` (this is the polling cron
-     that goes into the radio-check initialization handshake)
-  4. CronDelete `<renewal_id>`; take
-     `RENEWAL_CRON_PROMPT_BODY_LITERAL` from step 0 a third time;
-     substitute BOTH `<PLACEHOLDER:POLLING_CRON_ID>` →
-     `<final_polling_id>` AND `<PLACEHOLDER:RENEWAL_CRON_ID>` →
-     `<final_renewal_id>` (the id we are ABOUT to receive — chicken/
-     egg). Since we cannot know `<final_renewal_id>` before
-     CronCreate returns it, do this in two sub-steps:
-       4a. CronCreate with `<PLACEHOLDER:POLLING_CRON_ID>` →
-           `<final_polling_id>` and `<PLACEHOLDER:RENEWAL_CRON_ID>`
-           left as placeholder → returned id = `<final_renewal_id>`.
-           (STEP 1a self-CronDelete will fail or no-op if the
-           placeholder is left in; we fix this in 4b.)
-       4b. CronDelete `<final_renewal_id>`; CronCreate AGAIN with
-           BOTH substitutions filled (`<PLACEHOLDER:POLLING_CRON_ID>`
-           → `<final_polling_id>` AND `<PLACEHOLDER:RENEWAL_CRON_ID>`
-           → `<actually_final_renewal_id>`) → returned id =
-           `<actually_final_renewal_id>` (this is the renewal cron
-           that goes into the radio-check initialization handshake)
+       `{{CADENCE}}` = `<PLACEHOLDER:CADENCE>` (for STEP 4.2 cadence-
+         switch re-substitution at fire time)
+     The renewal cron's own `{{RENEWAL_CRON_ID}}` slot is ADA-discretion
+     per rev5 F6 (no fire-time consumer): pass through as a placeholder,
+     leave as the template default, or omit; the renewal cron does not
+     consume the value at fire time. Capture the substituted-with-
+     placeholders literal as `RENEWAL_CRON_PROMPT_BODY_LITERAL` for
+     use in subsequent steps.
+  1. CronCreate polling cron with `{{RENEWAL_CRON_ID}}` =
+     `<PLACEHOLDER:RENEWAL_CRON_ID>` (placeholder; re-bound in step 3)
+     and `{{RENEWAL_CRON_PROMPT_BODY}}` =
+     `RENEWAL_CRON_PROMPT_BODY_LITERAL`.
+     → returned id = `<polling_id_v1>`
+  2. CronCreate renewal cron with prompt body =
+     `RENEWAL_CRON_PROMPT_BODY_LITERAL` with `<PLACEHOLDER:POLLING_CRON_ID>`
+     → `<polling_id_v1>` and `<PLACEHOLDER:CADENCE>` → the engagement
+     cadence. recurring: false; +144h LOCAL cron expression per §5.1.d
+     STEP 4 / §5.3.d1 STEP 4.2 arithmetic.
+     → returned id = `<renewal_id_v1>`
+  3. CronDelete `<polling_id_v1>`; CronCreate polling cron AGAIN with
+     the same body except `{{RENEWAL_CRON_ID}}` = `<renewal_id_v1>`.
+     `{{RENEWAL_CRON_PROMPT_BODY}}` is the same literal from step 1
+     (still carries `<PLACEHOLDER:POLLING_CRON_ID>` + `<PLACEHOLDER:
+     CADENCE>` markers — that is correct, the polling cron uses this
+     slot ONLY for STEP 4.2 cadence-switch re-substitution, not at any
+     current-fire-time consumer).
+     → returned id = `<final_polling_id>`
+  4. CronDelete `<renewal_id_v1>`; CronCreate renewal cron AGAIN with
+     body = `RENEWAL_CRON_PROMPT_BODY_LITERAL` with
+     `<PLACEHOLDER:POLLING_CRON_ID>` → `<final_polling_id>` and
+     `<PLACEHOLDER:CADENCE>` → cadence. recurring: false; the +144h
+     LOCAL cron expression (re-computed from "now" at step 4 — minutes
+     of setup latency are absorbed by the 24h buffer).
+     → returned id = `<final_renewal_id>` (this is the renewal cron
+     that goes into the radio-check initialization handshake; the
+     `<final_polling_id>` is the polling cron)
 
-(The multi-step CronDelete + CronCreate dance is the deterministic
-workaround for the absence of a CronUpdate primitive per A7 spike —
-same primitive limitation that motivated Option 3 in the first
-place. The rev4 F5 fold adds steps 0 + 2 + the renewal-cron prompt
-body capture, and reshapes step 3 to inline the captured literal
-into the polling cron's `{{RENEWAL_CRON_PROMPT_BODY}}` slot. The
-cost is one extra renewal-cron CronCreate-and-CronDelete pair vs the
-rev3 dance — acceptable since setup is infrequent (once per
-engagement). The renewal-cron's STEP 4 emits the same chicken/egg
-dance via STEP 4 on each +144h rotation; the polling-cron's STEP 4
-emits the analogous F4+F5 dance per §5.3.d1 STEP 4.1-4.4 on each
-cadence-switch.)
+(The 4-step dance is the rev5 terminating shape. Comparison to rev4's
+5-step dance with sub-steps 4a/4b: rev4 needed `<actually_final_renewal_id>`
+threaded into the renewal cron's own body for STEP 1a self-CronDelete,
+which forced an extra CronDelete-CronCreate-again sub-step at the final
+position AND a re-bind of the polling cron's `{{RENEWAL_CRON_ID}}`
+slot — and that re-bind itself was what ARGUS-rev4 F6 identified as
+incomplete. Rev5 removes the STEP-1a-self-CronDelete consumer entirely
+(one-shot auto-delete handles cleanup), so the renewal cron's id does
+NOT need to be threaded into anything that fires later. One fewer
+CronCreate; the renewal cron itself does not need to know its own id.)
+
+(**Where the rev5 4-step dance terminates without regress.** After
+step 4: the renewal cron `<final_renewal_id>` carries the LIVE polling
+cron id `<final_polling_id>` (load-bearing for STEP 1; ARGUS-rev4
+F6's (b) failure mode resolved — the renewal cron's STEP 1 will find
+the polling cron correctly at +144h). The polling cron `<final_polling_id>`
+carries `{{RENEWAL_CRON_ID}}` = `<renewal_id_v1>` (DEAD — CronDeleted
+in step 4). This is the rev5 trade-off named explicitly: the polling
+cron's `{{RENEWAL_CRON_ID}}` slot carries a one-time-stale id after
+setup, persisted across cadence-switches at the cadence-switch path
+(since rev5 §5.3.d1 STEP 4 does not re-bind that slot — the new
+polling cron carries forward whatever value was current at substitution
+time, which is the about-to-be-deleted old renewal id). At the next
+cadence-switch, STEP 4.1's `CronDelete {{RENEWAL_CRON_ID}}` no-ops
+gracefully against the dead id, and the live `<final_renewal_id>`
+is orphaned-but-self-cleaning via its own one-shot auto-delete at
++144h. The slot converges to a LIVE id only at the +144h renewal-chain
+extension event — per §5.1.d STEP 4a (hygiene optimization), the
+renewal cron re-CronCreates the polling cron with `{{RENEWAL_CRON_ID}}`
+= `<new_renewal_cron_id>` so the new polling cron knows the next
+renewal in the chain. The terminating property: one stale
+id at the polling cron's slot at any time, with self-cleaning via
+one-shot auto-delete bounded at +144h (which is also when the slot
+converges to a live id via the renewal-chain extension); no regress
+because no further fire-time consumer depends on the stale id. This
+is what "accept stale RENEWAL_CRON_ID in polling cron" means in the
+rev5 terminating-shape pick — exactly framing 1 from ARGUS-rev4 /
+PLINY routing, with one-shot auto-delete as the cleanup property
+that makes the acceptance bounded rather than open-ended.)
+
+(**Why no 5-step or 6-step variant.** A 5-step dance with step 5 =
+re-CronCreate polling cron a third time with
+`{{RENEWAL_CRON_ID}}` = `<final_renewal_id>` would clean up the
+one-time stale id at the polling cron's slot — but step 5 would
+return `<truly_final_polling_id>`, which the renewal cron's body
+does NOT carry. The renewal cron would then fail STEP 1 at +144h
+because it looks for `<final_polling_id>` which is dead. Fixing that
+requires step 6 = re-CronCreate renewal cron with
+`<truly_final_polling_id>` — which returns `<truly_final_renewal_id>`,
+which the polling cron does NOT carry. Infinite regress; same shape
+ARGUS-rev4 F6 identified. Rev5 stops at the 4-step dance with
+explicit acceptance of the one-time polling-cron-slot stale-id
+residual, on the load-bearing rule that one-shot auto-delete handles
+the orphan cleanly. Strict-mutual-awareness is not achievable
+without a CronUpdate primitive that does not exist.)
 
 (Implementation note: the placeholder-substitution approach above
 treats the prompt body as a string-templating exercise — substitute
@@ -1360,20 +1462,27 @@ session-lifecycle events:
    slot per §5.3.a so STEP 4.2 can CronCreate deterministically),
    cadence-switching composes cleanly with the renewal mechanism.
 
-   **Partial-failure-state surface of the F4 4-step dance (rev4 m11
-   recovery prose).** The F4 lock-step rotation at §5.3.d1 has FOUR
-   CronCreate operations per cadence-switch (STEP 4.1 polling rotate
-   → STEP 4.2 renewal rotate → STEP 4.3 polling re-bind → STEP 4.4
-   renewal re-bind) — 2x the operation count of the pre-F4 single-
-   CronCreate cadence-switch. If the polling cron's prompt-body
-   execution is interrupted between any two sub-steps (session
-   crash, tool failure mid-fire, context exhaustion within the
-   fire), the cron pair is left in an intermediate state — e.g.,
-   STEP 4.1 completes leaving a new polling cron alive with stale
-   `{{RENEWAL_CRON_ID}}` paired with a renewal cron carrying stale
-   `{{POLLING_CRON_ID}}` pointing at the now-CronDelete'd original.
-   Recovery from any such partial-failure state is via the SAME
-   peer-side radio-check escalation surface as the broader cron-
+   **Partial-failure-state surface of the F4 dance (rev4 m11 recovery
+   prose; rev5 F6 narrowing).** The rev3 F4 + rev4 lock-step rotation
+   was a FOUR CronCreate-operation dance per cadence-switch (STEP 4.1
+   polling rotate → STEP 4.2 renewal rotate → STEP 4.3 polling re-bind
+   → STEP 4.4 renewal re-bind). The rev5 F6 terminating-shape collapse
+   reduces this to TWO CronCreate operations (STEP 4.1 polling rotate
+   → STEP 4.2 renewal rotate; no re-bind sub-steps — one-shot auto-
+   delete handles orphan cleanup; polling cron's `{{RENEWAL_CRON_ID}}`
+   slot tolerates one-cycle staleness per §5.3.a best-effort semantics).
+   The partial-failure-state surface is therefore HALVED vs rev4 (2x
+   operations vs rev3's single CronCreate cadence-switch; same as a
+   pre-F4 polling-only rotation plus one renewal CronCreate). If the
+   polling cron's prompt-body execution is interrupted between STEP 4.1
+   and STEP 4.2 (session crash, tool failure mid-fire, context
+   exhaustion within the fire), the cron pair is left in an intermediate
+   state — e.g., STEP 4.1 completes leaving a new polling cron alive
+   with stale `{{RENEWAL_CRON_ID}}` pointing at the just-CronDelete'd
+   old renewal cron, and no live paired renewal cron at all (the
+   `<new_renewal_cron_id>` that STEP 4.2 would have created is never
+   created). Recovery from any such partial-failure state is via the
+   SAME peer-side radio-check escalation surface as the broader cron-
    mechanism-failure modes: §7.1 beat 3 — when the self-silence
    threshold (>60 min) trips on the polling-cron side, the peer
    POLYBIUS surfaces "lost contact with `<peer>`" to PRINCIPAL, and
@@ -1383,10 +1492,10 @@ session-lifecycle events:
    `MAJOR_POLYBIUS.md` §9 step 7 (long-running-engagement polling
    re-setup; PRINCIPAL-consent-required). Either path converges on
    a clean §11 setup that creates a fresh polling-cron + renewal-cron
-   pair from scratch, discarding any intermediate-state artifacts
-   via STEP 1a's no-op-plus-self-CronDelete guard (which fires when
-   a surviving partial-state renewal cron sees its `{{POLLING_CRON_ID}}`
-   missing from CronList post-recovery). No new recovery infrastructure
+   pair from scratch, discarding any intermediate-state artifacts —
+   the orphan renewal cron from the partial state self-cleans via
+   one-shot auto-delete at +144h (rev5 F6 terminating-shape; no
+   explicit cleanup needed). No new recovery infrastructure
    is required — the broader cron-mechanism failure-mode recovery
    surface already covers this partial-failure-state shape. The
    cost is the same as scenario 3: PRINCIPAL-consent-required, not
@@ -1496,13 +1605,13 @@ Add FOUR rows to the substitution-slots table — two SLUG slots (Part 1) immedi
 And, after the existing `{{CRON_ID}}` row:
 
 ```
-| `{{RENEWAL_CRON_ID}}` | id of the paired one-shot renewal cron scheduled per `operating-disciplines.md` §11 step 1.5 (populated AFTER initial setup per the §11 step 1.5 slot-lifecycle note — chicken/egg: the polling cron is CronCreate'd first, then the renewal cron is CronCreate'd carrying the polling cron's id, then the polling cron is CronCreate'd AGAIN with the renewal cron's id substituted into THIS slot) | `<renewal-id>` (e.g., `a1b2c3d4`) |
-| `{{RENEWAL_CRON_PROMPT_BODY}}` | full renewal-cron prompt body as inline literal text — the complete, slot-substituted body the paired renewal cron carries (per `operating-disciplines.md` §11 step 1.5 renewal-cron template, with all engagement-specific slot values pre-substituted at setup time). Sourced at autonomous-mode-setup time per §11 step 1.5 slot-lifecycle dance (renewal-cron prompt body is generated FIRST as a literal string with a placeholder `{{POLLING_CRON_ID}}` and `{{RENEWAL_CRON_ID}}` slots inside it, captured as this slot's literal value, then folded into the polling cron's body via the re-CronCreate dance). Consumed at cadence-switch by STEP 4.2 (cadence-switch renewal CronCreate) — the polling cron uses this literal body to deterministically CronCreate the fresh renewal cron at the new cadence, re-substituting the internal `{{POLLING_CRON_ID}}` placeholder to the NEW polling-cron-id captured from STEP 4.1's CronCreate return (and the internal `{{RENEWAL_CRON_ID}}` placeholder to the renewal cron's eventual new id per STEP 4.4). | `<multi-line literal — the full ~80-line renewal-cron prompt body the paired renewal cron was CronCreate'd with at setup time; see §11 step 1.5 worked example for the literal text>` |
+| `{{RENEWAL_CRON_ID}}` | id of the paired one-shot renewal cron scheduled per `operating-disciplines.md` §11 step 1.5. **Rev5 best-effort semantics:** the slot value is used at cadence-switch STEP 4.1 for `CronDelete {{RENEWAL_CRON_ID}}` as a hygiene optimization — the explicit delete keeps the cron table tidy when the slot value is fresh, and no-ops gracefully when the slot value is stale. Staleness is bounded by the renewal cron's +144h one-shot auto-delete per Claude Code docs (https://code.claude.com/docs/en/scheduled-tasks "Set a one-time reminder": single-fire tasks auto-delete after running), which guarantees orphan cleanup even when STEP 4.1's CronDelete no-ops. Populated AFTER initial setup per the §11 step 1.5 slot-lifecycle note (rev5 4-step dance; the slot may carry a one-time-stale value between setup and the first cadence-switch — see §11 step 1.5 explicit acceptance prose). | `<renewal-id>` (e.g., `a1b2c3d4`) |
+| `{{RENEWAL_CRON_PROMPT_BODY}}` | full renewal-cron prompt body as inline literal text — the complete, slot-substituted body the paired renewal cron carries (per `operating-disciplines.md` §11 step 1.5 renewal-cron template, with all engagement-specific slot values pre-substituted at setup time). Sourced at autonomous-mode-setup time per §11 step 1.5 slot-lifecycle dance (renewal-cron prompt body is generated FIRST as a literal string with placeholders for `{{POLLING_CRON_ID}}` and `{{CADENCE}}`, captured as this slot's literal value, then folded into the polling cron's body at the dance's CronCreate steps). Consumed at cadence-switch by STEP 4.2 (cadence-switch renewal CronCreate) — the polling cron uses this literal body to deterministically CronCreate the fresh renewal cron at the new cadence, re-substituting the internal `{{POLLING_CRON_ID}}` placeholder to the NEW polling-cron-id captured from STEP 4.1's CronCreate return and the internal `{{CADENCE}}` placeholder to the new cadence. The internal `{{RENEWAL_CRON_ID}}` slot inside the literal has no fire-time consumer (rev5 F6: STEP 1a no longer self-CronDeletes); ADA-discretion on representation (placeholder, default value, or omitted). | `<multi-line literal — the full ~80-line renewal-cron prompt body the paired renewal cron was CronCreate'd with at setup time; see §11 step 1.5 worked example for the literal text>` |
 ```
 
-Add a sentence to the post-table prose: "Display-form slots (`{{SELF_SEAT_NAME}}` / `{{PEER_SEAT_NAME}}`) are used in human-readable prose within comment bodies; SLUG slots are used in the LEADING author tag per `operating-disciplines.md` §7.1 beat 5. Both must be supplied at template substitution time. The `{{RENEWAL_CRON_ID}}` slot is used by STEP 4 (cadence-switch) to identify the paired renewal cron for lock-step rotation. The `{{RENEWAL_CRON_PROMPT_BODY}}` slot carries the paired renewal cron's complete prompt-body text as an inline literal — STEP 4.2 uses it to CronCreate the FRESH renewal cron at cadence-switch time without referencing any template file (preserving F1 inline-slot-values shape) and without recovering the body from CronList (preserving F3 deterministic non-text-search shape). See §11 step 1.5 slot-lifecycle note for the post-setup substitution sequence covering all 4 new slots."
+Add a sentence to the post-table prose: "Display-form slots (`{{SELF_SEAT_NAME}}` / `{{PEER_SEAT_NAME}}`) are used in human-readable prose within comment bodies; SLUG slots are used in the LEADING author tag per `operating-disciplines.md` §7.1 beat 5. Both must be supplied at template substitution time. The `{{RENEWAL_CRON_ID}}` slot is used by STEP 4.1 (cadence-switch) as a best-effort cleanup hint — it identifies the paired renewal cron for explicit CronDelete on rotation, tolerating staleness because one-shot auto-delete handles orphan cleanup as a fallback (rev5 F6 terminating-shape). The `{{RENEWAL_CRON_PROMPT_BODY}}` slot carries the paired renewal cron's complete prompt-body text as an inline literal — STEP 4.2 uses it to CronCreate the FRESH renewal cron at cadence-switch time without referencing any template file (preserving F1 inline-slot-values shape) and without recovering the body from CronList (preserving F3 deterministic non-text-search shape). See §11 step 1.5 slot-lifecycle note for the post-setup substitution sequence covering both new slots."
 
-(Rev3 F4 rationale for adding `{{RENEWAL_CRON_ID}}` as a slot rather than discovering the renewal cron via CronList text-search: same as F3 — CronList prompt-body display is truncated to ~80 chars, text-search is fragile under truncation, exact-match on cron-id is deterministic. Adding the slot is structurally consistent with F3's choice for the renewal-cron's own self-discovery of the polling cron.)
+(Rev3 F4 rationale for adding `{{RENEWAL_CRON_ID}}` as a slot rather than discovering the renewal cron via CronList text-search: same as F3 — CronList prompt-body display is truncated to ~80 chars, text-search is fragile under truncation, exact-match on cron-id is deterministic. Adding the slot is structurally consistent with F3's choice for the renewal-cron's own self-discovery of the polling cron. Rev5 reframes the slot as best-effort cleanup rather than load-bearing cross-reference; the one-shot auto-delete fallback per Claude Code docs makes the staleness bounded rather than fatal.)
 
 (Rev4 F5 rationale for adding `{{RENEWAL_CRON_PROMPT_BODY}}` as a slot rather than referencing the renewal-cron template at cadence-switch time or recovering the body from the renewal cron's CronList entry: the F1 fix hard-locks template-reference-at-fire-time out of the design (renewal-cron prompt body is engagement-specific and pre-substituted at setup); the F3 fix hard-locks CronList-prompt-text recovery out (~80-char truncation, text-search fragility). Without the slot, STEP 4.2 cannot execute deterministically — the polling cron context at cadence-switch fire time has no source for the fresh renewal cron's prompt body. Inlining the literal as a slot value is the only F1+F3-consistent path. Cost: polling-cron prompt body grows from ~50 to ~130 lines per fire (the ~80-line renewal-cron prompt body is inlined). Per Claude Code docs and PLINY's A7 spike re-verified by ARGUS-rev2, there is no documented prompt-size ceiling for arbitrary `CronCreate` prompts — the 25,000-byte ceiling applies only to `loop.md`. ~130 lines × ~50 chars ≈ 6,500 bytes; well within any reasonable bound. The cost is visible but bounded; no F1/F3 regression; deterministic STEP 4.2 execution.)
 
@@ -1579,31 +1688,39 @@ Else: continue.
 
 Without the F4 fix, this leaves the paired renewal cron's inline `{{POLLING_CRON_ID}}` + `{{CADENCE}}` slot values stale — at +144h fire time the renewal cron's STEP 1 cron-id exact-match would no-op and STEP 1a's session-lifecycle path would fire incorrectly (the polling cron is alive at the new id, not session-dead). The chain dies silently and the new polling cron has no successor renewal cron. See §5.1.d Failure-mode-acceptance scenario 4 for the full prose.
 
-Replace STEP 4 with the extended version that rotates BOTH crons in lock-step:
+Replace STEP 4 with the extended version that rotates BOTH crons in lock-step (rev5 terminating-shape collapse: 2-step dance, no chicken/egg re-bind sub-steps):
 
 ```
-STEP 4 — cadence-tag detection (with renewal-cron lock-step rotation per F4).
+STEP 4 — cadence-tag detection (with renewal-cron lock-step rotation
+per F4 + rev5 F6 terminating-shape collapse).
 Scan aggregated state for [complexity: ...] or [cadence: ...] tags posted
 since last fire.
 If a tag warrants a cadence change (active / default / quiet per
 operating-disciplines.md §7.2):
 
-  STEP 4.1 — rotate polling cron at new cadence.
+  STEP 4.1 — rotate polling cron at new cadence + best-effort cleanup
+  of paired renewal cron.
   CronDelete {{CRON_ID}}
+  CronDelete {{RENEWAL_CRON_ID}} (best-effort hygiene; no-ops gracefully
+    against stale id per rev5 F6 — see §5.3.a slot definition and
+    §11 step 1.5 terminating-shape acceptance prose. The orphan
+    renewal cron self-cleans via one-shot auto-delete at +144h if
+    this CronDelete no-ops.)
   CronCreate at the new cadence with this same prompt body (slot
   {{CRON_ID}} updated to the new id, {{CADENCE}} updated to the new
-  schedule, {{RENEWAL_CRON_ID}} unchanged for now — will be re-bound
-  in STEP 4.3 below). Let returned id be <new_polling_cron_id>.
+  schedule, {{RENEWAL_CRON_ID}} will be re-substituted at STEP 4.2
+  return — see below). Let returned id be <new_polling_cron_id>.
 
   STEP 4.2 — rotate paired renewal cron at new POLLING_CRON_ID + CADENCE.
-  CronDelete {{RENEWAL_CRON_ID}}
   CronCreate a fresh renewal cron deterministically from the inline
   literal slot value {{RENEWAL_CRON_PROMPT_BODY}} (rev4 F5):
     prompt = {{RENEWAL_CRON_PROMPT_BODY}} with internal placeholders
              re-substituted:
                {{POLLING_CRON_ID}} → <new_polling_cron_id>
                {{CADENCE}} → <new cadence>
-               {{RENEWAL_CRON_ID}} → <unset; populated in STEP 4.4>
+               {{RENEWAL_CRON_ID}} → ADA-discretion (rev5: no fire-time
+                 consumer; pass through unchanged, set to placeholder,
+                 or omit)
     cron = wall-clock for NOW + 144 hours in LOCAL timezone (m8;
            emit a 5-field expression for that minute, no UTC
            conversion — per Claude Code docs all times interpreted
@@ -1625,42 +1742,87 @@ operating-disciplines.md §7.2):
   {{RENEWAL_CRON_PROMPT_BODY}} slot is the only F1+F3-consistent
   source; STEP 4.2 consumes it directly.)
 
-  STEP 4.3 — re-bind new polling cron's {{RENEWAL_CRON_ID}} slot.
-  CronDelete <new_polling_cron_id>
-  CronCreate at the new cadence with the same body except
-  {{RENEWAL_CRON_ID}} = <new_renewal_cron_id>. Let returned id be
-  <final_polling_cron_id>.
-
-  STEP 4.4 — re-bind new renewal cron's {{POLLING_CRON_ID}} slot.
-  CronDelete <new_renewal_cron_id>
-  CronCreate the renewal cron with {{POLLING_CRON_ID}} =
-  <final_polling_cron_id>. Let returned id be <final_renewal_cron_id>.
-  (This double-re-bind dance is the same chicken/egg workaround
-  documented in operating-disciplines.md §11 step 1.5 slot-lifecycle
-  note for initial setup; the absence of a CronUpdate primitive
-  forces CronDelete + CronCreate as the only deterministic path.)
+  (Rev5 F6 terminating-shape: prior revisions had STEP 4.3 + STEP 4.4
+  re-bind sub-steps to thread <new_renewal_cron_id> back into the
+  polling cron's {{RENEWAL_CRON_ID}} slot AND <new_polling_cron_id>
+  back into the renewal cron's {{POLLING_CRON_ID}} slot. STEP 4.4 was
+  required because the renewal cron's STEP 1a self-CronDelete needed
+  the renewal cron to know its own id — but rev5 removes STEP 1a's
+  self-CronDelete (relies on one-shot auto-delete per Claude Code
+  docs). STEP 4.3 was required to keep the polling cron's
+  {{RENEWAL_CRON_ID}} slot pointing at the live renewal cron — but
+  rev5 reframes that slot as best-effort cleanup, tolerating one-time
+  staleness between cadence-switches. The polling cron's slot
+  carries <new_renewal_cron_id> from this STEP 4.2's return — which
+  is captured into the slot of the polling cron CREATED in STEP 4.1
+  via in-process substitution before STEP 4.1's CronCreate executes.
+  See "Sub-step ordering note" below for the operational detail.)
 
   STEP 4.5 — log cadence-change with lock-step pair.
   bw comment {{COORDINATION_TICKET}} "[cadence-change {{SELF_SEAT_SLUG}}]
-  switching to <new cadence>; new polling cron <final_polling_cron_id>
-  superseding {{CRON_ID}}; new renewal cron <final_renewal_cron_id>
+  switching to <new cadence>; new polling cron <new_polling_cron_id>
+  superseding {{CRON_ID}}; new renewal cron <new_renewal_cron_id>
   superseding {{RENEWAL_CRON_ID}} (one-shot at +144h LOCAL, durable:
-  true); F4 lock-step rotation per §11 step 1.5."
+  true); F4 lock-step rotation per §11 step 1.5, rev5 F6 terminating-
+  shape (2-step dance; one-shot auto-delete as orphan-cleanup
+  fallback)."
 
 Else: continue.
 ```
 
-(Rev3 F4 fix rationale per PLINY routing Handle (i) on ARGUS-rev2 verdict: lock-step rotation is the cleanest composition; symmetric to existing STEP 4 polling-cron rotation. STEP 1a no-op path now fires ONLY on genuine session-lifecycle failure mode, not on cadence-switch — which it would otherwise mis-classify. The double-re-bind dance (STEP 4.3 + STEP 4.4) is the same primitive-limitation workaround used at §11 step 1.5 setup; consistent design.)
+**Sub-step ordering note (rev5 F6 — operational detail for the in-fire
+two-CronCreate dance).** STEP 4.1 must precede STEP 4.2 because STEP
+4.2's CronCreate of the fresh renewal cron requires `<new_polling_cron_id>`
+substituted into the renewal body's `<PLACEHOLDER:POLLING_CRON_ID>`
+marker (so the new renewal cron's STEP 1 self-discovery at +144h
+finds the live polling cron). The new polling cron in STEP 4.1 is
+CronCreate'd carrying its `{{RENEWAL_CRON_ID}}` slot substituted with
+the value AT SUBSTITUTION TIME — which is the current `{{RENEWAL_CRON_ID}}`
+(the about-to-be-CronDeleted-by-STEP-4.1 old renewal cron). After
+STEP 4.1 completes:
+  - New polling cron `<new_polling_cron_id>` is alive, carrying
+    `{{RENEWAL_CRON_ID}}` = OLD renewal id (DEAD — just CronDeleted
+    in same STEP 4.1).
+  - Old polling cron (the one that just fired this STEP 4) is dead.
+  - Old renewal cron is dead.
+After STEP 4.2 completes:
+  - New renewal cron `<new_renewal_cron_id>` is alive, carrying
+    `{{POLLING_CRON_ID}}` = `<new_polling_cron_id>` (LIVE — STEP 1
+    self-discovery at +144h will find the live polling cron correctly).
+  - New polling cron's `{{RENEWAL_CRON_ID}}` slot still points at
+    the dead old renewal id. NOT re-bound (rev5 F6 terminating-
+    shape; no STEP 4.3).
 
-**§5.3.e — Update usage example block at bottom of template (rev4 extends to 4 new slots)**
+The new polling cron's slot is stale-by-one-cycle. At the next
+cadence-switch, STEP 4.1's `CronDelete {{RENEWAL_CRON_ID}}` against
+the dead old renewal id no-ops gracefully; the live new renewal cron
+`<new_renewal_cron_id>` is orphaned-relative-to-the-polling-cron's-
+slot at that point, but is cleaned up via one of two converging
+mechanisms: (1) the new renewal cron's own +144h one-shot auto-delete
+fires per Claude Code docs, OR (2) the renewal-chain extension at
+the new renewal cron's STEP 4 emits the NEXT renewal cron and re-binds
+the polling cron's slot in STEP 4a (per §5.1.d STEP 4a hygiene
+optimization). Either path makes the staleness bounded; one-shot
+auto-delete is the load-bearing guarantee.
+
+This is the rev5 trade-off named explicitly: one stale-id residual
+per cadence-switch cycle at the polling cron's `{{RENEWAL_CRON_ID}}`
+slot, in exchange for cadence-switch-dance termination (no STEP 4.3
++ STEP 4.4 re-bind regress). Same acceptance as the rev5 setup-dance
+terminating shape per §11 step 1.5; consistent design across both
+the setup and cadence-switch surfaces.
+
+(Rev3 F4 fix rationale per PLINY routing Handle (i) on ARGUS-rev2 verdict: lock-step rotation is the cleanest composition; symmetric to existing STEP 4 polling-cron rotation. Rev5 F6 terminating-shape collapse: removes the double-re-bind dance per the one-shot auto-delete property; the 2-step dance + best-effort {{RENEWAL_CRON_ID}} slot + one-shot-auto-delete orphan-cleanup is the genuine terminating shape that does not regress into further re-binds.)
+
+**§5.3.e — Update usage example block at bottom of template (rev4 extends to 4 new slots; rev5 reframes slot semantics)**
 
 Add slot values for the two new SLUG slots PLUS `{{RENEWAL_CRON_ID}}` (rev3 F4 fold) PLUS `{{RENEWAL_CRON_PROMPT_BODY}}` (rev4 F5 fold):
 
 ```
 - `{{SELF_SEAT_SLUG}}` = `polybius-the-stoa`
 - `{{PEER_SEAT_SLUG}}` = `user-tier-polybius`
-- `{{RENEWAL_CRON_ID}}` = `a1b2c3d4` (example renewal cron id — populated post-setup per §11 step 1.5 slot-lifecycle)
-- `{{RENEWAL_CRON_PROMPT_BODY}}` = `<full ~80-line renewal-cron prompt body literal, with placeholder markers for POLLING_CRON_ID and CADENCE — see operating-disciplines.md §11 step 1.5 worked example for the literal text; this slot's value is captured at autonomous-mode-setup time per the slot-lifecycle dance step 0 and inlined into the polling cron via step 3>`
+- `{{RENEWAL_CRON_ID}}` = `a1b2c3d4` (example renewal cron id — best-effort cleanup hint, may be one-cycle-stale per rev5 F6 terminating-shape; orphan cleanup via one-shot auto-delete; populated post-setup per §11 step 1.5 slot-lifecycle 4-step dance)
+- `{{RENEWAL_CRON_PROMPT_BODY}}` = `<full ~80-line renewal-cron prompt body literal, with placeholder markers for POLLING_CRON_ID and CADENCE — see operating-disciplines.md §11 step 1.5 worked example for the literal text; this slot's value is captured at autonomous-mode-setup time per the slot-lifecycle 4-step dance and inlined into the polling cron at dance step 1>`
 ```
 
 Update the example radio-check handshake comment at the very bottom of the file to use the slug-form leading tag AND name both cron ids (per §11 step 1.5 initialization handshake requirement):
@@ -1760,8 +1922,9 @@ Every cross-ref site that lands in the diff + its anchor section. ADA verifies c
 | `operating-disciplines.md` §11 step 1.5 (rev3 m8) | https://code.claude.com/docs/en/scheduled-tasks (local-time interpretation) | "per Claude Code docs: 'All times are interpreted in your local timezone.'" — rev3 m8 timezone-explicit cite for STEP 4 local-time arithmetic |
 | `polling-cron-prompt-template.md` STEP 4 (rev3 F4 extension) | `operating-disciplines.md` §11 step 1.5 | "F4 lock-step rotation per §11 step 1.5" — STEP 4 cadence-switch path cites the slot-lifecycle note + the failure-mode-acceptance scenario 4 |
 | `polling-cron-prompt-template.md` substitution-slot table (rev3 F4 extension) | `operating-disciplines.md` §11 step 1.5 | "see §11 step 1.5 slot-lifecycle note" — `{{RENEWAL_CRON_ID}}` slot's post-setup population sequence cite |
-| `polling-cron-prompt-template.md` substitution-slot table (rev4 F5 extension) | `operating-disciplines.md` §11 step 1.5 | "see §11 step 1.5 slot-lifecycle note (steps 0 + 2 + 3 + 4)" — `{{RENEWAL_CRON_PROMPT_BODY}}` slot's source-at-setup + re-substitution mechanism cite |
-| `polling-cron-prompt-template.md` STEP 4.2 (rev4 F5 extension) | `polling-cron-prompt-template.md` substitution-slot table | "the polling cron CronCreates the fresh renewal cron using `{{RENEWAL_CRON_PROMPT_BODY}}` per §5.3.a slot definition" — STEP 4.2 consumes the slot value defined in §5.3.a |
+| `polling-cron-prompt-template.md` substitution-slot table (rev4 F5 extension; rev5 reframe) | `operating-disciplines.md` §11 step 1.5 | "see §11 step 1.5 slot-lifecycle note (rev5 4-step dance: steps 0 + 1 + 2 + 3 + 4)" — `{{RENEWAL_CRON_PROMPT_BODY}}` slot's source-at-setup + re-substitution mechanism cite; `{{RENEWAL_CRON_ID}}` slot's best-effort cleanup semantics cite |
+| `polling-cron-prompt-template.md` STEP 4.2 (rev4 F5 extension; rev5 F6 collapse) | `polling-cron-prompt-template.md` substitution-slot table | "the polling cron CronCreates the fresh renewal cron using `{{RENEWAL_CRON_PROMPT_BODY}}` per §5.3.a slot definition" — STEP 4.2 consumes the slot value defined in §5.3.a; rev5 2-step dance collapse removes prior STEP 4.3 + STEP 4.4 re-bind sub-steps |
+| `polling-cron-prompt-template.md` STEP 4 + `operating-disciplines.md` §11 step 1.5 (rev5 F6 extension) | https://code.claude.com/docs/en/scheduled-tasks ("Set a one-time reminder" section) | "Per Claude Code docs: 'Claude schedules a single-fire task that deletes itself after running.'" — load-bearing citation for the rev5 terminating-shape pick (STEP 1a self-CronDelete removed; one-shot auto-delete is the cleanup mechanism; setup dance + cadence-switch dance both collapse to terminating shapes without infinite re-bind regress) |
 
 ### §6.2 — Read-site verification rule
 
@@ -1839,7 +2002,8 @@ Per `MAJOR_POLYBIUS.md` §15 honest-scope + `operating-disciplines.md` §6.7.1 c
 - **Session-lifecycle failure mode N framing (added rev2 per ARGUS F2):** a separate failure mode the v1 design framed implicitly and rev2 names explicitly: fresh-conversation / `/clear` / session exit destroys both crons regardless of the renewal mechanism. N=structural — this is documented at https://code.claude.com/docs/en/scheduled-tasks (Limitations section) as a known property of session-scoped tasks, and `MAJOR_POLYBIUS.md` §7.4 line 437 confirms substrate canon. N=0 observed-in-practice for the specific class "POLYBIUS lost a polling cron to a session-lifecycle event during an autonomous engagement on the-stoa" (the substrate has been operating for ~13 days; long-running engagements have spanned compactions but not session restarts in observed practice). N=0 worked-when-applied for the §13.4 → §11 setup re-bootstrap path being the recovery for this class — Arc 36's design names it as the recovery; future engagements will accrete observations as session-lifecycle events occur.
 - **`durable: true` open-bug provenance (rev2):** the `CronCreate` `durable: true` parameter is documented in the tool schema as "persist to `.claude/scheduled_tasks.json` and survive restarts" but has an open unresolved bug (anthropics/claude-code issue #40228, opened 2026-03-28) at design time where the flag does not currently persist. The design encodes `durable: true` as honest intent — the flag matches documented schema, and when the bug is fixed the design works correctly without further canon revision. The load-bearing recovery is `MAJOR_POLYBIUS.md` §9 step 7 long-running-engagement re-setup (PRINCIPAL-consent-required; rev3 m5 re-cited away from §13.4), not the durable flag. N=1 observation of the bug from the linked issue; the design's posture is to encode the documented-schema-honest path and not rely on the flag for recovery.
 - **Cadence-switch × renewal composition N framing (added rev3 per ARGUS F4):** a composition concern between two pieces of existing canon — the §7.2 cadence-switching pattern (per-seat-unilateral; rotate own cron on `[cadence: …]` tag detection) and the new §11 step 1.5 renewal mechanism. Without the rev3 F4 fix, any cadence-switch invalidates the paired renewal cron's inline `{{POLLING_CRON_ID}}` + `{{CADENCE}}` slot values; at +144h fire time the renewal cron mis-classifies the case as session-lifecycle (via STEP 1a) and the renewal chain dies silently. N=0 observed-in-practice for this specific composition failure (substrate has been operating ~13 days; no autonomous engagement has yet exercised both a cadence-switch AND a +144h renewal in the same engagement). N=structural for the composition concern — derivable from reading §7.2 + §11 step 1.5 side-by-side, which is exactly what ARGUS-rev2 did. N=0 worked-when-applied for the F4 fix — Arc 36's design names the fix at §5.3 polling-cron-template STEP 4 extension; future engagements that exercise both cadence-switching AND multi-day renewal will accrete the worked-when-applied evidence. The F4 fix is structurally clean (lock-step rotation of both crons via existing CronDelete + CronCreate primitives + the existing slot-lifecycle dance from §11 step 1.5 initial setup) — no new primitive required.
-- **Why the discipline is in canon NOW despite zero observation:** same PRINCIPAL no-deferrals declaration. Part 2 is structural-not-observed; PRINCIPAL declared the structural concern warrants the fix NOW rather than waiting for the multi-day engagement that triggers it (which would carry a 6-day dead-air recovery cost). The F4 fix is in the same arc because shipping the renewal mechanism without F4 would create the composition gap explicitly — accepting it as a documented failure mode (PLINY routing rejected option (iv) per fix-known-bugs-immediately discipline). Better to ship both together.
+- **One-shot auto-delete dependency N framing (added rev5 per ARGUS F6 terminating-shape fold):** the rev5 design rests structurally on the runtime's one-shot auto-delete property — Claude Code docs (https://code.claude.com/docs/en/scheduled-tasks "Set a one-time reminder" section: "Claude schedules a single-fire task that deletes itself after running") guarantee that a non-recurring scheduled task is removed by the runtime after its single fire completes. The rev5 fold removes the renewal cron's STEP 1a explicit self-CronDelete (which had forced a chicken/egg cross-reference that ARGUS-rev4 F6 surfaced as broken) and replaces it with reliance on the auto-delete property — both the setup dance + cadence-switch dance collapse to terminating shapes only because the property holds. N=0 observed-in-practice for one-shot auto-delete failure (the substrate has not had an autonomous engagement that observed a one-shot fire and verified the cron was removed from CronList post-fire — but the property is documented behavior and the docs do NOT name any caveat about prompt errors affecting deletion, so the encoding is documented-honest). N=structural for the dependency — if the runtime's auto-delete were to fail (e.g., an undocumented edge case where the cron-firing process is interrupted between prompt execution and the runtime's post-fire cleanup), the failure mode would be silent accumulation of dead one-shot crons in the session's cron-table; detection surface would be CronList output growing unboundedly across engagement, recovery would be operator-side explicit cleanup or session restart. The dependency is honestly encoded — if a future observation surfaces an auto-delete failure mode, the appropriate response is to add the explicit self-CronDelete back at STEP 1a (re-opening the F6 chicken/egg but with the trade-off then explicit) OR to ship a periodic operator-side cleanup beat. Neither is needed under the documented behavior. N=0 worked-when-applied for the rev5 terminating-shape — Arc 36's design picks the shape; future engagements that span multiple cadence-switches OR multi-day renewals will accrete worked-when-applied evidence of the auto-delete property holding (or surface the failure mode if it does not).
+- **Why the discipline is in canon NOW despite zero observation:** same PRINCIPAL no-deferrals declaration. Part 2 is structural-not-observed; PRINCIPAL declared the structural concern warrants the fix NOW rather than waiting for the multi-day engagement that triggers it (which would carry a 6-day dead-air recovery cost). The F4 + F5 + F6 fixes are all in the same arc because shipping the renewal mechanism without them would create the composition gap explicitly — accepting it as a documented failure mode (PLINY routing rejected option (iv) per fix-known-bugs-immediately discipline). Better to ship them together. The rev5 F6 terminating-shape fold is the convergence point — the design's structural dependency surface is now: one-shot auto-delete reliability (documented; rev5 dependency), `durable: true` honest-intent encoding (rev2; not load-bearing per rev3 reframe), and bug #40228 closure surveillance (out-of-scope per §10 follow-up).
 
 ### §8.3 — Same N=1 framing as Arcs 27-35
 
@@ -1873,9 +2037,11 @@ The §3.1 rationale for picking (α) over (β) rests on three properties: parall
 
 This breadcrumb is preserved (not deleted) so ARGUS-rev2 can verify the v1 → rev2 transition was actually made in §5.1.d. The §9.4 v1 framing was load-bearing because it correctly identified the failure mode; the rev2 §5.1.d structural change is what resolves it.)
 
-### §9.4a — Renewal-cron prompt-body size + readability — RESOLVED in rev3 per ARGUS-rev2 concurrence (kept as breadcrumb)
+### §9.4a — Renewal-cron prompt-body size + readability — RESOLVED in rev3 per ARGUS-rev2 concurrence (kept as breadcrumb; rev5 m12 fact-precise reframe of 50-task-ceiling math)
 
-(rev3 status: ARGUS-rev2 concurred with DAEDALUS rev2 disposition — readability-not-ceiling. The renewal-cron prompt body weighs ~50 lines per cron in the rev2 worked example; rev3 m4 enumeration of all 13 slots inline pushes the worked-example block to ~75 lines but the underlying renewal-cron PROMPT itself remains ~50 lines of executable text — the slot-table enumeration is documentation/auditing context, not part of the substituted CronCreate prompt. The 25,000-byte `loop.md` ceiling is `/loop`-specific per Claude Code docs and does not extend to arbitrary `CronCreate` prompts. The size is the load-bearing trade-off for F1+F2+F3+F4 correctness; ARGUS-rev2 concurred as non-load-bearing. No rev3 action.)
+(rev3 status: ARGUS-rev2 concurred with DAEDALUS rev2 disposition — readability-not-ceiling. The renewal-cron prompt body weighs ~50 lines per cron in the rev2 worked example; rev3 m4 enumeration of all 13 slots inline pushes the worked-example block to ~75 lines but the underlying renewal-cron PROMPT itself remains ~50 lines of executable text — the slot-table enumeration is documentation/auditing context, not part of the substituted CronCreate prompt. The 25,000-byte `loop.md` ceiling is `/loop`-specific per Claude Code docs and does not extend to arbitrary `CronCreate` prompts. The size is the load-bearing trade-off for F1+F2+F3+F4 correctness; ARGUS-rev2 concurred as non-load-bearing. No rev3 action.
+
+**Rev5 m12 fact-precise reframe of 50-task-per-session ceiling math.** Prior framings in §9.4a / §10 / surrounding citations called the 50-task-per-session CronCreate ceiling "abundant headroom" given 2 crons per engagement = 25 concurrent engagements. ARGUS-rev4 surfaced the precise reading: 25 concurrent engagements is the EXACT-FIT capacity ceiling, not abundant headroom. Per Claude Code docs (https://code.claude.com/docs/en/scheduled-tasks "Manage scheduled tasks": "A session can hold up to 50 scheduled tasks at once"), the rev5 design's 2-crons-per-engagement (polling + renewal) shape means 25 concurrent engagements is the hard ceiling — a 26th engagement would fail to CronCreate. This is hygiene-only for Arc 36 (typical engagement count per session is far below 25; the substrate has not yet had a session with > 3 concurrent engagements in observed practice), but the math is exact-fit not abundant. Surfaced for future-arc capacity-planning awareness; the 25-engagement ceiling becomes a load-bearing constraint if multi-engagement scale-out becomes a project goal.)
 
 ### §9.4b — `durable: true` open-bug-dependence — RESOLVED in rev3 per ARGUS-rev2 concurrence (kept as breadcrumb)
 
@@ -1891,23 +2057,37 @@ This breadcrumb is preserved (not deleted) so ARGUS-rev2 can verify the v1 → r
 
 The rev3 reframing makes the self-application probe internally consistent. The earlier rev2 framing's "renewal cron is expected" assertion was a residual artifact of the v1 design assumption that POLYBIUS_the_stoa would re-bootstrap mid-arc; that assumption was already wrong by rev2 (chicken/egg) but the probe text was not updated. ARGUS-rev2 m6 caught the inconsistency; rev3 fixes the probe. The fundamental observational-vs-enforced trade-off (mid-arc verification requires cross-session primitive that does not exist) is still a known limitation — ARGUS-rev2 concurred as non-load-bearing — but the probe NOW honestly names what it is and is not checking.
 
-### §9.6 — F4 fix's double-re-bind dance complexity (rev3 residual concern) — CONCURRED non-load-bearing by ARGUS-rev3 (kept as breadcrumb)
+### §9.6 — F4 fix's double-re-bind dance complexity (rev3 residual concern) — CONCURRED non-load-bearing by ARGUS-rev3; SUPERSEDED in rev5 by F6 terminating-shape collapse (kept as breadcrumb)
 
-The rev3 F4 fix at §5.3.d1 STEP 4 introduces a four-step CronCreate dance on every cadence-switch (STEP 4.1 polling rotate → STEP 4.2 renewal rotate → STEP 4.3 polling re-bind → STEP 4.4 renewal re-bind) due to the chicken/egg need to populate `{{RENEWAL_CRON_ID}}` and `{{POLLING_CRON_ID}}` cross-references between the two crons. The same dance happens at initial autonomous-mode setup (per §11 step 1.5 slot-lifecycle note). This is structurally correct (the absence of a CronUpdate primitive forces CronDelete + CronCreate as the only deterministic path; the chicken/egg cannot be resolved with a single CronCreate per cron) but adds four CronCreate operations per cadence-switch event vs the single CronCreate the rev2 design assumed. Cost: four operations vs one. Cadence-switches are infrequent (a few per multi-hour engagement), so the absolute cost is small.
+The rev3 F4 fix at §5.3.d1 STEP 4 introduced a four-step CronCreate dance on every cadence-switch (STEP 4.1 polling rotate → STEP 4.2 renewal rotate → STEP 4.3 polling re-bind → STEP 4.4 renewal re-bind) due to the chicken/egg need to populate `{{RENEWAL_CRON_ID}}` and `{{POLLING_CRON_ID}}` cross-references between the two crons. The same dance happened at initial autonomous-mode setup (per §11 step 1.5 slot-lifecycle note).
 
 **ARGUS-rev3 verdict (rev4 status):** PASS — dance shape IS the cleanest available given primitive constraints; chicken/egg inherent to CronCreate's return-id-after-prompt-fixed semantics; without CronUpdate, CronCreate + CronCreate-again is the only deterministic path; 4-step structure is minimum-op-count; complexity IS irreducible cost of A7/A10/A14 commits already locked in directive. NOT load-bearing-on-its-own (correctly-shaped solution). Breadcrumb retained so ARGUS-rev4 can verify the rev3 → rev4 transition (m11 names the partial-failure-state recovery; otherwise §9.6 remains concurred).
 
-**Why I shipped this shape anyway:** the chicken/egg is inherent to the primitive set (CronCreate returns id; no way to substitute the new id into the body in the same call). The two-step CronDelete+CronCreate dance is the same pattern used at initial setup per §11 step 1.5 slot-lifecycle note — consistent design across both setup and cadence-switch surfaces. Alternative shapes that avoid the dance re-open F3 truncation-fragility (text-search on prompt-body for cron-pair-discovery) — strictly worse. The four-CronCreate cost per cadence-switch is acceptable given cadence-switches are infrequent.
+**Rev5 status (F6 terminating-shape collapse SUPERSEDES this concern's framing):** ARGUS-rev4 F6 surfaced that the 4-step cadence-switch dance + 5-step setup dance were both leaving the polling cron's RENEWAL-pointing slots baked to dead step-2 renewal ids, with the rev4 fix incomplete. PLINY routing enumerated 4 candidate terminating shapes; DAEDALUS-rev5 picked framing 4 (skip explicit STEP 1a self-CronDelete; rely on one-shot auto-delete per Claude Code docs verified by WebFetch). This collapses the cadence-switch dance from 4-step → 2-step and the setup dance from 5-step → 4-step. The "double-re-bind dance complexity" §9.6 named is now reduced to a single-stale-id residual at the polling cron's `{{RENEWAL_CRON_ID}}` slot per cadence-switch cycle, with one-shot auto-delete as the orphan-cleanup mechanism. See §9.8 (rev5) for the new structural-dependency surface that replaces the prior dance complexity.
 
-### §9.7 — F5 fix's prompt-body-literal inlining (rev4 residual concern)
+**Why I shipped the rev3/rev4 shape (historical):** the chicken/egg was assumed inherent to the primitive set (CronCreate returns id; no way to substitute the new id into the body in the same call). The two-step CronDelete+CronCreate dance was the same pattern used at initial setup per §11 step 1.5 slot-lifecycle note — consistent design across both setup and cadence-switch surfaces. The actual terminating-shape pick (rev5) was to remove the consumer that REQUIRED knowing the renewal cron's own id (STEP 1a self-CronDelete) by replacing it with the one-shot auto-delete property. The rev3/rev4 shape was correct given the assumed primitive constraints; rev5 finds that the runtime provides a stronger primitive (one-shot auto-delete) that obsoletes one whole chicken/egg layer.
 
-The rev4 F5 fix at §5.3.a adds a `{{RENEWAL_CRON_PROMPT_BODY}}` slot to the polling-cron template, carrying the full renewal-cron prompt body as inline literal text (~80 lines per polling cron). The structural property F5 establishes is good — STEP 4.2 cadence-switch can now CronCreate the fresh renewal cron deterministically without F1 or F3 regression. Two residual concerns ARGUS-rev4 should evaluate:
+### §9.7 — F5 fix's prompt-body-literal inlining (rev4 residual concern) — CONCURRED non-load-bearing by ARGUS-rev4 (kept as breadcrumb)
+
+The rev4 F5 fix at §5.3.a adds a `{{RENEWAL_CRON_PROMPT_BODY}}` slot to the polling-cron template, carrying the full renewal-cron prompt body as inline literal text (~80 lines per polling cron). The structural property F5 establishes is good — STEP 4.2 cadence-switch can now CronCreate the fresh renewal cron deterministically without F1 or F3 regression. Two residual concerns ARGUS-rev4 evaluated:
 
 1. **Polling-cron / renewal-cron prompt-body drift across hand-edits.** If a future arc edits the renewal-cron prompt body at `operating-disciplines.md` §11 step 1.5 (extending STEPs 1-5, changing the log-comment text, adding a new STEP, etc.) but does NOT propagate the same edit into the polling-cron template's inline `{{RENEWAL_CRON_PROMPT_BODY}}` slot value (which lives outside the renewal-cron template — it's a captured literal at engagement-setup time), the polling cron's STEP 4.2 will CronCreate the fresh renewal cron with the OLD body. The drift is silent: the freshly-CronCreate'd renewal cron at the new cadence executes the OLD STEPs, not the new ones. Recovery is via the operator's next autonomous-mode setup (which re-captures the current renewal-cron template body into the slot value), but engagements that don't re-setup will run with the stale body until the next +144h renewal. Detection surface: the worked example block at §5.1.d (rev4 polling-cron-side enumeration) MUST be kept in sync with the renewal-cron prompt body template above it; if they drift visually in design.md they will drift mechanically in deployed substrate. This is the same drift surface as any duplicate-source-of-truth in canon (cite-comment plan at §6.1 exists precisely to catch this), but the F5 slot value is a literal copy of the renewal-cron template body rather than a section cite — drift detection cannot rely on cite resolution.
 
-2. **Placeholder-substitution mechanism for cadence-switch re-substitution.** The §5.1.d worked example uses `<PLACEHOLDER:POLLING_CRON_ID>` and `<PLACEHOLDER:CADENCE>` markers inside the `{{RENEWAL_CRON_PROMPT_BODY}}` literal — markers that STEP 4.2 re-substitutes at cadence-switch time. The slot-lifecycle note (§11 step 1.5 step 0) names this approach but explicitly allows ADA-discretion on the representation (named-group regex, sentinel value, `{{}}` braces with sentinel, etc.). Allowing the discretion is correct (mechanism-not-prescribed-from-design) but creates an ambiguity surface: ADA's chosen representation MUST be unambiguous against the renewal-cron prompt body's existing literal content. If ADA chooses `<PLACEHOLDER:X>` and the renewal-cron prompt body happens to contain literal `<PLACEHOLDER:X>` text in a comment or example, the substitution would fire on both occurrences. The risk is low (the renewal-cron prompt body's literal content does not naturally contain such markers), but ARGUS-rev4 may evaluate whether the slot-lifecycle note should prescribe a single canonical placeholder format (e.g., `__POLLING_CRON_ID__` with a specific sentinel) rather than ADA-discretion. The trade-off is between prescribed-format-with-low-ambiguity-risk vs ADA-discretion-with-implementation-flexibility.
+2. **Placeholder-substitution mechanism for cadence-switch re-substitution.** The §5.1.d worked example uses `<PLACEHOLDER:POLLING_CRON_ID>` and `<PLACEHOLDER:CADENCE>` markers inside the `{{RENEWAL_CRON_PROMPT_BODY}}` literal — markers that STEP 4.2 re-substitutes at cadence-switch time. The slot-lifecycle note (§11 step 1.5 step 0) names this approach but explicitly allows ADA-discretion on the representation (named-group regex, sentinel value, `{{}}` braces with sentinel, etc.). Allowing the discretion is correct (mechanism-not-prescribed-from-design) but creates an ambiguity surface: ADA's chosen representation MUST be unambiguous against the renewal-cron prompt body's existing literal content. If ADA chooses `<PLACEHOLDER:X>` and the renewal-cron prompt body happens to contain literal `<PLACEHOLDER:X>` text in a comment or example, the substitution would fire on both occurrences. The risk is low (the renewal-cron prompt body's literal content does not naturally contain such markers), but ARGUS-rev4 evaluated whether the slot-lifecycle note should prescribe a single canonical placeholder format (e.g., `__POLLING_CRON_ID__` with a specific sentinel) rather than ADA-discretion. The trade-off is between prescribed-format-with-low-ambiguity-risk vs ADA-discretion-with-implementation-flexibility.
 
-**Why I shipped this shape anyway:** F5 is the only F1+F3-consistent path for STEP 4.2 to CronCreate the fresh renewal cron deterministically. The drift concern (1) is a maintenance-discipline issue that applies to ANY inline-literal duplicate-source-of-truth in canon — Arc 36 cannot solve it structurally without re-opening F1 (template-reference-at-fire-time, which was rejected on engagement-specificity grounds) or F3 (CronList-prompt-text recovery, which was rejected on ~80-char truncation grounds). The mitigation is procedural: future arcs editing the renewal-cron prompt body MUST also update the §5.1.d worked example AND any deployed slot values (which is an operator-side recapture, not a substrate edit, since the slot value is engagement-specific). The placeholder-substitution concern (2) is genuinely an open question — I shipped ADA-discretion because the alternative (prescribing a specific format) would lock-in a representation that may not match the deployed prompt-body conventions; ARGUS-rev4 may surface a different posture.
+**ARGUS-rev4 verdict (rev5 status):** PASS on both sub-concerns. (1) drift surface: NOT load-bearing; maintenance-discipline equivalent to any duplicate-source-of-truth in canon (mitigation is procedural; review-time + grep-pattern catch reasonable; bounded recovery via operator's next autonomous-mode setup). (2) placeholder marker format: NOT load-bearing; ADA-discretion appropriate (notation inconsistency in design text is a presentation matter ADA resolves at build time; substrate-internal implementation detail). Both concurred. Breadcrumb retained.
+
+**Why I shipped this shape anyway (historical):** F5 is the only F1+F3-consistent path for STEP 4.2 to CronCreate the fresh renewal cron deterministically. The drift concern (1) is a maintenance-discipline issue that applies to ANY inline-literal duplicate-source-of-truth in canon — Arc 36 cannot solve it structurally without re-opening F1 (template-reference-at-fire-time, which was rejected on engagement-specificity grounds) or F3 (CronList-prompt-text recovery, which was rejected on ~80-char truncation grounds). The placeholder-substitution concern (2) is genuinely ADA-discretion since the substrate-internal representation does not affect the substrate's external behavior. ARGUS-rev4 concurred on both.
+
+### §9.8 — Rev5 F6 terminating-shape: one-shot auto-delete dependency + best-effort slot semantics (rev5 residual concerns)
+
+The rev5 F6 terminating-shape fold (§3.7 + §5.1.d STEP 1a + §5.3.d1 STEP 4 + §11 step 1.5 4-step dance) collapses the renewal mechanism's setup + cadence-switch dances from rev4's 5-step / 4-step shapes to rev5's 4-step / 2-step shapes. The collapse rests structurally on the runtime's one-shot auto-delete property — Claude Code docs (https://code.claude.com/docs/en/scheduled-tasks "Set a one-time reminder": "Claude schedules a single-fire task that deletes itself after running") guarantee that a non-recurring scheduled task is removed by the runtime after its single fire completes, with no documented caveat about prompt-execution affecting deletion. Two residual concerns ARGUS-rev5 should evaluate:
+
+1. **One-shot auto-delete property is undocumented as unconditional.** The docs phrase the property as a positive statement ("Claude schedules a single-fire task that deletes itself after running") but do NOT explicitly enumerate the edge cases that would prevent the auto-delete (prompt error during fire, session crash mid-fire, runtime bug, etc.). The rev5 design treats the property as load-bearing — if it fails, the failure mode is silent accumulation of dead one-shot crons in the session's cron-table; detection surface would be CronList output growing unboundedly across cadence-switches or renewal chains; recovery is operator-side explicit cleanup OR session restart (both consent-mediated, not transparent). The rev4 design did NOT rely on this property — it had an explicit STEP 1a self-CronDelete that worked regardless of runtime auto-delete behavior. The trade-off rev5 makes: better dance shape (terminating, not regress-prone) in exchange for a load-bearing dependency on a runtime property that is documented but not explicitly guaranteed-unconditional. ARGUS-rev5 may evaluate whether the property's robustness should be probed by an additional §4 falsification probe (e.g., a CronList-count-stability probe across an engagement) OR whether the documented-honest encoding is sufficient.
+
+2. **Polling cron's `{{RENEWAL_CRON_ID}}` slot may carry a one-time stale id between setup and the first cadence-switch (and between successive cadence-switches).** Per §11 step 1.5 rev5 4-step dance + §5.3.d1 STEP 4 rev5 2-step dance, the polling cron's slot is populated with the LIVE renewal cron's id at setup step 3, then becomes stale-by-one-cycle after step 4's renewal re-CronCreate. At the next cadence-switch, STEP 4.1's `CronDelete {{RENEWAL_CRON_ID}}` no-ops gracefully against the dead id; the live renewal cron is orphaned-relative-to-the-polling-cron's-slot but self-cleans via one-shot auto-delete at +144h. The trade-off rev5 accepts: at most one orphan renewal cron self-cleaning per cadence-switch cycle, in exchange for setup + cadence-switch dance termination. The orphan-count is bounded (1 per cycle), the self-clean is bounded (+144h max), and the slot converges to a live id at the next rotation that ACTUALLY rotates this slot (i.e., the next cadence-switch's STEP 4.2 returns a `<new_renewal_cron_id>` that the polling cron's CURRENT-fire substitution can use). ARGUS-rev5 may evaluate whether the bounded staleness is acceptable OR whether the strict-mutual-awareness alternative (5-step setup dance with explicit polling-cron-slot re-bind to `<final_renewal_id>` at step 5, accepting the recursive nature) should be the default ship.
+
+**Why I shipped this shape anyway:** the rev4 design hit the F6 regress that PLINY routing surfaced — any attempt to maintain strict mutual awareness between the two crons via explicit cross-reference re-bind generates infinite re-bind regress (step 5 needs step 6, step 6 needs step 7, ...). PLINY enumerated 4 candidate terminating shapes; framings 2 + 3 were ruled out (framing 2 makes the renewal-cron self-discovery broken; framing 3 re-opens F3 truncation-fragility); framing 1 + 4 both rely on a "best-effort tolerance for stale ids" property. Framing 4 (skip STEP 1a self-CronDelete entirely; rely on one-shot auto-delete) is the more aggressive terminating shape — it removes the renewal cron's `{{RENEWAL_CRON_ID}}` slot dependency ENTIRELY, not just for cadence-switch — which collapses the setup dance further than framing 1 would. WebFetch on the Claude Code docs verified the one-shot auto-delete property as documented behavior; no caveat about prompt errors. The dependency is honestly encoded per rev5 §8.2 N=1 framing; if a future observation surfaces an auto-delete failure mode, the appropriate response is to add the explicit self-CronDelete back at STEP 1a (re-opening the F6 chicken/egg but with the trade-off then explicit) OR to ship a periodic operator-side cleanup beat. Neither is needed under the documented behavior; documented-honest encoding is the appropriate posture.
 
 ---
 
@@ -1926,48 +2106,47 @@ Bullet list of related concerns Arc 36 v2 deliberately does NOT address, with on
 - **Cross-seat renewal coordination** — each seat renews its OWN cron unilaterally per §11 step 1.5 (mirror of §7.2 per-seat-unilateral cadence-switching).
 - **Cloud-cron renewal** — cloud cron is a documented limitation per arc-21 §A8; no cloud-cron renewal logic ships.
 - **anthropics/claude-code issue #40228 closure tracking (rev2 follow-up; rev3 confirmed by ARGUS-rev2 concurrence).** The `durable: true` flag has an open unresolved bug at design time (encoded as honest-intent in §5.1.d). When the bug is fixed, the renewal cron's `durable: true` would become load-bearing (rather than honest-intent only). Tracking the issue closure as a substrate-update trigger is OUT of this arc's scope — file a substrate-watch ticket post-arc (`stoa--xxx`) so the canon revision happens cleanly when the bug closes. ARGUS-rev2 concurred that this belongs in §10 follow-ups (not §14 daily-cadence canon).
-- **Cadence-switch × renewal worked-when-applied (rev3 follow-up per F4 fold).** The F4 fix at §5.3.d1 STEP 4 lock-step rotation has N=0 worked-when-applied (per §8.2 N framing) — the substrate has not yet had an engagement that exercised BOTH cadence-switching AND multi-day renewal in the same arc. Future arcs operating under shipped canon either (a) cleanly exercise both (lock-step rotation observed in CronList over the arc lifetime; renewal chain extends correctly across cadence-switch events; STEP 1a no-op never fires for cadence-switch-misattribution) or (b) surface fresh failure modes (e.g., the double-re-bind dance races against fast cadence-switches, or the slot-population sequence has a window where a cadence-switch could land mid-dance). File a substrate-watch ticket post-arc to accrete the worked-when-applied evidence as engagements naturally exercise the composition.
+- **Cadence-switch × renewal worked-when-applied (rev3 follow-up per F4 fold; rev5 narrowed per F6 terminating-shape collapse).** The F4 + F5 + F6 stack at §5.3.d1 STEP 4 lock-step rotation has N=0 worked-when-applied (per §8.2 N framing) — the substrate has not yet had an engagement that exercised BOTH cadence-switching AND multi-day renewal in the same arc. Future arcs operating under shipped canon either (a) cleanly exercise both (lock-step 2-step rotation observed in CronList over the arc lifetime; renewal chain extends correctly across cadence-switch events; orphan renewal crons self-clean via one-shot auto-delete) or (b) surface fresh failure modes (e.g., one-shot auto-delete fails to remove a fired cron, accumulating dead one-shots in the session's cron-table; OR the 2-step dance's sub-step ordering races against an interrupted polling-cron fire). File a substrate-watch ticket post-arc to accrete the worked-when-applied evidence as engagements naturally exercise the composition.
+- **One-shot auto-delete reliability worked-when-applied (rev5 follow-up per F6 terminating-shape fold).** The rev5 design rests structurally on the runtime's one-shot auto-delete property (Claude Code docs verified by WebFetch at design time: "Claude schedules a single-fire task that deletes itself after running"). N=0 observed-in-practice (the substrate has not yet had a one-shot cron fire under autonomous-mode operation in a way that was verified to be removed from CronList post-fire). Future arcs operating under §11 step 1.5 rev5 will accrete worked-when-applied evidence — either the property holds (one-shot crons are removed from CronList after fire; no accumulation observed) or surfaces a failure mode (CronList output grows unboundedly across engagement; manual cleanup needed). File a substrate-watch ticket post-arc to track. If the property fails in observed practice, the appropriate canon revision is to re-add explicit STEP 1a self-CronDelete (re-opening the F6 chicken/egg but with the trade-off then empirically justified) OR to ship a periodic operator-side cleanup beat in `MAJOR_POLYBIUS.md` §14.
 
 ---
 
-## §11 — Residual questions for ARGUS (rev4)
+## §11 — Residual questions for ARGUS (rev5)
 
 (Carried forward to the verdict's `residual_questions_for_argus:` field at dispatch return.)
 
-**Resolved in rev2 + rev3 + rev4 (kept as breadcrumbs for ARGUS-rev4 verification):**
+**Resolved in rev2 + rev3 + rev4 + rev5 (kept as breadcrumbs for ARGUS-rev5 verification):**
 
 - ~~§9.4 v1 renewal-cron prompt body state-management~~ — RESOLVED via F1 inline-slot-values reshape per §5.1.d rev2 (option (a) shipped). ARGUS-rev2 verified.
-- ~~§9.4a renewal-cron prompt-body size~~ — ARGUS-rev2 concurred readability-not-ceiling; no rev3/rev4 action.
-- ~~§9.4b `durable: true` open-bug dependence~~ — ARGUS-rev2 concurred honest-intent encoding + §10 follow-up tracking is correct posture; no rev3/rev4 action.
-- ~~§9.4c cadence-switch × renewal composition (F4)~~ — RESOLVED via F4 Handle (i) at §5.3.d1 STEP 4 lock-step rotation + new `{{RENEWAL_CRON_ID}}` slot at §5.3.a + slot-lifecycle dance at §11 step 1.5 + STEP 1a self-CronDelete. ARGUS-rev3 verified the rev2 → rev3 transition landed across §5.1.d + §5.3.a + §5.3.d1 + §3.7 + §4.4.2 + §8.2.
+- ~~§9.4a renewal-cron prompt-body size~~ — ARGUS-rev2 concurred readability-not-ceiling; rev5 m12 fact-precise reframe of 50-task-ceiling math (exact-fit at 25 engagements, not abundant headroom; hygiene-only for Arc 36).
+- ~~§9.4b `durable: true` open-bug dependence~~ — ARGUS-rev2 concurred honest-intent encoding + §10 follow-up tracking is correct posture; no rev3/rev4/rev5 action.
+- ~~§9.4c cadence-switch × renewal composition (F4)~~ — RESOLVED via F4 Handle (i) at §5.3.d1 STEP 4 lock-step rotation + new `{{RENEWAL_CRON_ID}}` slot at §5.3.a + slot-lifecycle dance at §11 step 1.5 + STEP 1a self-CronDelete. ARGUS-rev3 verified the rev2 → rev3 transition landed; ARGUS-rev4 verified additional rev3 → rev4 work on partial-failure-state recovery prose (m11).
 - ~~m4 (worked-example all slots inline)~~ — RESOLVED via §5.1.d worked-example block enumerating all 13 slot values inline. ARGUS-rev3 verified.
 - ~~m5 (§13.4 cite re-target)~~ — RESOLVED via re-cite to §9 step 7 (PRINCIPAL-consent-required). ARGUS-rev3 verified.
 - ~~m6 (§4.4.2 self-app probe internal consistency)~~ — RESOLVED via §4.4.2 rewrite naming chicken/egg honestly + §9.5 reframed + §7.2 self-app block updated. ARGUS-rev3 verified.
 - ~~m7 (§4.3.1 cite-resolution probe regex extension)~~ — RESOLVED via §4.3.1 grep pattern extended. ARGUS-rev3 verified.
-- ~~m8 (§5.1.d STEP 4 local-time arithmetic)~~ — RESOLVED via STEP 4 explicit local-time arithmetic prose + cite + worked-example local-time cron expression. ARGUS-rev3 PASS-with-residual-m9 (m9 = old illustrative block at §5.1.d "Renewal-cron CronCreate parameters" was missed in rev3 sweep; rev4 m9 fix below).
-- ~~§9.6 F4 fix's double-re-bind dance complexity~~ — CONCURRED non-load-bearing by ARGUS-rev3 (dance shape IS cleanest available given primitive constraints; complexity IS irreducible cost of A7/A10/A14 commits). §9.6 retained as breadcrumb; rev4 added the partial-failure-state recovery prose per m11 to scenario 4.
-- ~~F5 (ARGUS-rev3 signature; load-bearing local-fix)~~ — RESOLVED via `{{RENEWAL_CRON_PROMPT_BODY}}` slot added at §5.3.a + STEP 4.2 deterministic CronCreate at §5.3.d1 + §11 step 1.5 slot-lifecycle note extended to 5-step setup dance (steps 0 + 1 + 2 + 3 + 4) + §5.1.d worked example polling-cron-side enumeration + §3.7 A9 scenario 4 cite. ARGUS-rev4 verifies the rev3 → rev4 transition actually landed across §5.3.a + §5.3.d1 + §11 step 1.5 + §5.1.d + §3.7 + §6.1 + §9.7.
-- ~~m9 (m8 residual: §5.1.d "Renewal-cron CronCreate parameters" Z-suffix sweep)~~ — RESOLVED via rev4 sweep of the illustrative block to local-time arithmetic with no Z suffix.
-- ~~m10 (§5.1.d STEP 1a parens hedge collapse)~~ — RESOLVED via rev4 collapse to slot-population-only path; prompt-body-recognition + CronList-enumeration removed (F1/F3-inconsistent).
-- ~~m11 (§5.3.d1 4-step dance partial-failure-state recovery prose)~~ — RESOLVED via rev4 explicit recovery prose at §3.7 A9 scenario 4 + §5.1.d Failure-mode scenario 4 (peer-side radio-check escalation per §7.1 beat 3; same surface as broader cron-mechanism failure modes; no new infra).
+- ~~m8 (§5.1.d STEP 4 local-time arithmetic)~~ — RESOLVED via STEP 4 explicit local-time arithmetic prose + cite + worked-example local-time cron expression. ARGUS-rev3 PASS-with-residual-m9; rev4 m9 fix landed.
+- ~~§9.6 F4 fix's double-re-bind dance complexity~~ — CONCURRED non-load-bearing by ARGUS-rev3 + ARGUS-rev4; SUPERSEDED in rev5 by F6 terminating-shape collapse (dance reduced from 4-step → 2-step at cadence-switch; from 5-step → 4-step at setup). §9.6 breadcrumb retained for rev3 → rev5 transition trace.
+- ~~F5 (ARGUS-rev3 signature; load-bearing local-fix)~~ — RESOLVED via `{{RENEWAL_CRON_PROMPT_BODY}}` slot added at §5.3.a + STEP 4.2 deterministic CronCreate at §5.3.d1 + §11 step 1.5 slot-lifecycle 5-step dance (rev4) / 4-step dance (rev5 collapse) + §5.1.d worked example polling-cron-side enumeration + §3.7 A9 scenario 4 cite. ARGUS-rev4 verified rev3 → rev4 landed.
+- ~~m9 (m8 residual: §5.1.d "Renewal-cron CronCreate parameters" Z-suffix sweep)~~ — RESOLVED via rev4 sweep. ARGUS-rev4 verified.
+- ~~m10 (§5.1.d STEP 1a parens hedge collapse)~~ — RESOLVED via rev4 collapse to slot-population-only path. ARGUS-rev4 verified. Rev5 F6 fold further removes the slot-population-only path entirely (STEP 1a now exits without explicit self-CronDelete; one-shot auto-delete handles cleanup); m10's collapse direction is consistent with rev5's terminating-shape direction.
+- ~~m11 (§5.3.d1 4-step dance partial-failure-state recovery prose)~~ — RESOLVED via rev4 explicit recovery prose at §3.7 A9 scenario 4 + §5.1.d Failure-mode scenario 4. ARGUS-rev4 verified. Rev5 narrows the dance to 2-step so the partial-failure-state surface is also narrowed (2x ops vs pre-F4 collapses back to 2x ops vs rev3 single-cron, but the surface is half what rev4 had — see §3.7 A9 scenario 4 rev5 fold).
+- ~~F6 (ARGUS-rev4 signature; load-bearing terminating-shape design)~~ — RESOLVED via rev5 framing-4 pick (skip explicit STEP 1a self-CronDelete; rely on one-shot auto-delete per Claude Code docs WebFetch-verified): §5.1.d STEP 1a explicit self-CronDelete removed; §5.1.d STEP 4 collapsed (single substitution, no re-bind); §11 step 1.5 slot-lifecycle dance collapsed from 5-step to 4-step terminating shape with explicit acceptance of one-time polling-cron-slot stale-id residual; §5.3.d1 STEP 4 collapsed from 4-step to 2-step terminating shape; §5.3.a {{RENEWAL_CRON_ID}} slot semantics reframed to best-effort cleanup; §5.3.e usage example updated; §3.7 A9 scenarios 3+4 reframed around one-shot auto-delete as the cleanup mechanism; §8.2 N=1 framing extended with one-shot-auto-delete dependency honesty; §6.1 cite-table gains 1 rev5 row for the Claude Code docs citation. ARGUS-rev5 verifies the rev4 → rev5 transition landed.
+- ~~m12 (50-task-per-session ceiling exact-fit math)~~ — RESOLVED via §9.4a fact-precise reframe (25-engagement exact-fit ceiling, not abundant headroom; hygiene only).
 
-**Open for ARGUS-rev4:**
+**Open for ARGUS-rev5:**
 
-1. **§9.7 (NEW) — F5 fix's prompt-body-literal inlining residual concerns.** Two sub-concerns: (a) polling-cron / renewal-cron prompt-body drift across hand-edits (the F5 slot value is a literal copy of the renewal-cron template body, so a future-arc edit to the renewal-cron prompt body that does NOT propagate to the polling-cron slot value creates silent divergence at next cadence-switch — same drift surface as any duplicate-source-of-truth, but not catchable by cite-resolution); (b) placeholder-substitution mechanism for `<PLACEHOLDER:POLLING_CRON_ID>` / `<PLACEHOLDER:CADENCE>` markers inside the literal — slot-lifecycle note allows ADA-discretion on representation, ARGUS-rev4 may surface whether prescribing a canonical placeholder format would be safer. See §9.7 for the full framing and the "Why I shipped this shape anyway" defense.
-2. **§9.3 — A5 (α) vs (β) reader-frame.** (Unchanged from rev1 / rev2 / rev3; not load-bearing per ARGUS concurrence — recoverable within arc revision cycle.)
-3. **§9.5 — Part 2 self-application observability** (reframed per m6 rewrite). The fundamental observational-vs-enforced trade-off remains. Concurred non-load-bearing across rev1 + rev2 + rev3; mirrors Arc 35 self-application limitation.
-4. **§9.1 — STEP 1.5 prose precision under load.** (Unchanged from rev1 / rev2 / rev3; not load-bearing per ARGUS concurrence.)
-5. **§9.2 — cite-comment resolution probe precision.** (Unchanged from rev1 / rev2 / rev3; not load-bearing per ARGUS concurrence.)
+1. **§9.8 (NEW) — rev5 F6 terminating-shape: one-shot auto-delete dependency + best-effort slot semantics.** Two sub-concerns: (a) one-shot auto-delete property is documented as positive but not explicitly enumerated as unconditional (no caveat about prompt errors affecting deletion is named in docs; encoded as documented-honest; if a future observation surfaces an auto-delete failure mode, the fix is to re-add explicit STEP 1a self-CronDelete or ship a periodic operator-side cleanup beat); (b) polling cron's `{{RENEWAL_CRON_ID}}` slot may carry a one-time stale id between rotations, with one-shot auto-delete as the orphan-cleanup property (bounded staleness, bounded orphan count). See §9.8 for full framing and the "Why I shipped this shape anyway" defense.
+2. **§9.3 — A5 (α) vs (β) reader-frame.** (Unchanged from rev1 / rev2 / rev3 / rev4; not load-bearing per ARGUS concurrence — recoverable within arc revision cycle.)
+3. **§9.5 — Part 2 self-application observability** (reframed per m6 rewrite). The fundamental observational-vs-enforced trade-off remains. Concurred non-load-bearing across rev1-rev4; mirrors Arc 35 self-application limitation.
+4. **§9.1 — STEP 1.5 prose precision under load.** (Unchanged from rev1-rev4; not load-bearing per ARGUS concurrence.)
+5. **§9.2 — cite-comment resolution probe precision.** (Unchanged from rev1-rev4; not load-bearing per ARGUS concurrence.)
 
-**Rev4 fold confirmations (ARGUS-rev4 verifies the structural changes actually landed):**
+**Rev5 fold confirmations (ARGUS-rev5 verifies the structural changes actually landed):**
 
-- F5 fix: `{{RENEWAL_CRON_PROMPT_BODY}}` slot added at §5.3.a (substitution-slot table extended from 3 to 4 new slots); §5.3.d1 STEP 4.2 cadence-switch CronCreate now consumes the slot value with internal placeholder re-substitution; §11 step 1.5 slot-lifecycle note extended to 5-step setup dance documenting the renewal-cron-prompt-body capture at step 0 + inline into the polling cron's slot at step 3; §5.1.d worked example carries a polling-cron-side enumeration block showing the inline literal with placeholder markers; §3.7 A9 scenario 4 + §5.1.d Failure-mode scenario 4 cite the F5 slot for STEP 4.2 determinism; §6.1 cite-table gains 2 F5 rows.
-- m9 fix: §5.1.d "Renewal-cron CronCreate parameters" block (the illustrative example after the worked-example block) Z-suffix swept; local-time arithmetic explicit; cite to m8 + Claude Code docs added.
-- m10 fix: §5.1.d STEP 1a self-CronDelete parens collapsed to slot-population-only mechanism; prompt-body-recognition + CronList-enumeration alternatives removed (F1/F3-inconsistent per F3 truncation-fragility).
-- m11 fix: §3.7 A9 scenario 4 + §5.1.d Failure-mode scenario 4 explicitly name the F4 4-step-dance partial-failure-state surface and its recovery via peer-side radio-check escalation per §7.1 beat 3 (same surface as broader cron-mechanism failure modes; no new recovery infrastructure required).
-- §9.6 retained as breadcrumb with ARGUS-rev3 PASS marker added.
-- §9.7 NEW: F5 fix's two residual concerns documented honestly (drift surface + placeholder mechanism); ARGUS-rev4 evaluates whether either is load-bearing.
+- F6 fold: §5.1.d renewal-cron STEP 1a explicit self-CronDelete REMOVED (replaced with documented-honest reliance on one-shot auto-delete per Claude Code docs); §5.1.d renewal-cron STEP 4 collapsed (single POLLING_CRON_ID substitution; no re-bind sub-step 4a/4b dance — STEP 4a remains as hygiene optimization, not correctness requirement); §5.1.d worked examples (renewal-cron-side + polling-cron-side) STEPs 1a + 4 updated; §11 step 1.5 slot-lifecycle dance collapsed from rev4 5-step (with sub-step 4a + 4b) to rev5 4-step terminating shape (steps 0/1/2/3/4) with explicit acceptance of one-time polling-cron-slot stale-id residual; §5.3.a `{{RENEWAL_CRON_ID}}` slot semantics reframed as best-effort cleanup hint; `{{RENEWAL_CRON_PROMPT_BODY}}` slot definition updated to drop "internal `{{RENEWAL_CRON_ID}}`" consumer reference; §5.3.d1 STEP 4 cadence-switch dance collapsed from rev4 4-step (with STEP 4.3 + 4.4 re-bind) to rev5 2-step terminating shape (STEP 4.1 + 4.2 only) + sub-step ordering note documenting the in-fire chicken/egg resolution; §5.3.e usage example slot descriptions updated; §3.7 A9 scenarios 3+4 reframed around one-shot auto-delete as cleanup mechanism (scenario 4 also names the 2-step dance partial-failure-state narrowing); §8.2 N=1 framing extended with new "One-shot auto-delete dependency N framing" bullet; §6.1 cite-table gains 1 rev5 row (Claude Code docs URL for one-shot auto-delete); §9.6 retained as breadcrumb with rev5-supersession note; §9.7 retained as breadcrumb with ARGUS-rev4 PASS markers; §9.8 NEW: rev5 F6 fold's two residual concerns documented honestly (one-shot auto-delete documented-but-not-explicitly-unconditional + best-effort slot semantics one-time stale residual).
+- m12 fold: §9.4a fact-precise reframe of 50-task-per-session ceiling (exact-fit at 25 engagements, not abundant headroom; hygiene only).
 
 ---
 
-**End of design.md (rev4 — F5+m9+m10+m11 folded; Part 1 untouched per ARGUS-rev1 + rev2 + rev3 clean verdicts + PLINY routing scope-discipline across all revs; rev2 F1+F2+F3+m2+m3 PASS-verified by ARGUS-rev2; rev3 F4+m4+m5+m6+m7+m8 PASS-verified by ARGUS-rev3 with PARTIAL on F4 closed by rev4 F5 fix + residual-m9 closed by rev4 m9 sweep).**
+**End of design.md (rev5 — F6 terminating-shape + m12 folded; Part 1 untouched per ARGUS-rev1 + rev2 + rev3 + rev4 clean verdicts + PLINY routing scope-discipline across all revs; rev2 F1+F2+F3+m2+m3 PASS-verified by ARGUS-rev2; rev3 F4+m4+m5+m6+m7+m8 PASS-verified by ARGUS-rev3 with PARTIAL on F4 closed by rev4 F5 fix + residual-m9 closed by rev4 m9 sweep; rev4 F5+m9+m10+m11 PASS-verified by ARGUS-rev4 with PARTIAL on F5 closed by rev5 F6 terminating-shape fold + minor-m12 fact-precise reframe). The cycle terminates at rev5 with the F6 fold collapsing the dance complexity into a genuine terminating shape — no further re-bind regress is structurally possible given the primitive set; the design's structural dependency surface is now (a) one-shot auto-delete reliability (documented; rev5 dependency), (b) `durable: true` honest-intent encoding (rev2; not load-bearing), and (c) bug #40228 closure surveillance (out-of-scope per §10 follow-up).**
