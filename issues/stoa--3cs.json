@@ -42,11 +42,15 @@
     {
       "text": "Phase 1 progress: DAEDALUS rev1 PASS — design at agents/design/arc-30/design.md (D1=§5.9, D2=γ, D3=§24). ARGUS REVISE — r1 load-bearing (§5.9 vs §5.9.1 mis-pointer in design §0/§6.3); r2-r5 non-load-bearing (locus disambiguation, three-way drift acknowledgement, template-slot convention consistency, r5 WP1 default-include vs POLYBIUS-judges adjudication). PLINY routing: all five to DAEDALUS rev2 (cheap; matches Arc 30's own redundant-safety framing for r5).",
       "timestamp": "2026-05-17T05:42:01Z"
+    },
+    {
+      "text": "DAEDALUS rev2 activated on stoa--3cs. Absorbing ARGUS r1-r5: r1 mis-pointer fix (cleaning §0+§6.3 refs to §5.9.1 → §5.9 body), r2 §2.1 insertion locus wording, r3 §6.2 three-way drift acknowledgement, r4 slot-table row removal, r5 PLINY adjudication flip to ALWAYS-INCLUDE.",
+      "timestamp": "2026-05-17T05:42:30Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:42:01Z"
+  "updated_at": "2026-05-17T05:42:30Z"
 }
