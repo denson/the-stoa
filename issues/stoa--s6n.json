@@ -242,11 +242,15 @@
     {
       "text": "[CAPTAIN_VERA_the_stoa] verdict pass; 8 probes executed (5, 6, 7, 7b, 8, 9, 10, authorship), 8 passed; standing down.",
       "timestamp": "2026-05-17T03:24:54Z"
+    },
+    {
+      "text": "[CAPTAIN_CATO_the_stoa] verdict revise; 2 load-bearing findings (unqualified cross-refs §4.3/§4.8 in operating-disciplines.md §22 prose + §22.5 — actually live in MAJOR_POLYBIUS.md); 3 advisory + 2 nits; standing down.",
+      "timestamp": "2026-05-17T03:25:19Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T03:24:54Z"
+  "updated_at": "2026-05-17T03:25:19Z"
 }
