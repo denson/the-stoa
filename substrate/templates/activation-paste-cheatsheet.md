@@ -1,3 +1,7 @@
+---
+author: Denson Smith
+---
+
 # Activation paste cheatsheet
 
 Single-page reference for authoring the activation paste that brings up MAJOR_POLYBIUS in a fresh Claude Code session. Consult this BEFORE writing any activation paste — the asymmetry between MAJOR and CAPTAIN suffixing and between auto-load and paste-trigger modes is a real source of silent activation failures.

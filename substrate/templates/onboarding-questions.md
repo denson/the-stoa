@@ -1,3 +1,7 @@
+---
+author: Denson Smith
+---
+
 # Onboarding interview questions
 
 The questions MAJOR_POLYBIUS asks during the interview phase of onboarding (`MAJOR_POLYBIUS.md` §5 step 2), with the rationale behind each. A future POLYBIUS reading this template should understand *why* each question is asked — so it can adapt phrasing to the conversation without dropping the question's actual purpose.

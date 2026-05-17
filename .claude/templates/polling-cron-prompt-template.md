@@ -1,3 +1,7 @@
+---
+author: Denson Smith
+---
+
 # Polling-cron-prompt template
 
 The cron-prompt body POLYBIUS uses when scheduling a polling cron for a coordination engagement with a peer POLYBIUS seat — peer-to-peer async via bw, the pattern `operating-disciplines.md` §7 codifies.

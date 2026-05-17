@@ -1,3 +1,7 @@
+---
+author: Denson Smith
+---
+
 # Autonomous-mode activation template
 
 Paste-instruction template POLYBIUS instances reference when activating a downstream seat in autonomous mode. The downstream seat reads the filled paste-instruction on entry and uses it to run the autonomous-mode-setup checklist (`operating-disciplines.md` §11) before any substantive work begins.

@@ -1,3 +1,7 @@
+---
+author: Denson Smith
+---
+
 # Paste-instruction template — MAJOR_PLINY activation
 
 The template MAJOR_POLYBIUS fills per session to produce the paste-instruction that activates MAJOR_PLINY (the ORCHESTRATOR) in a fresh terminal. The static `MAJOR_PLINY.md` role file is universal; the wrapper that activates it is session-specific. POLYBIUS fills the slots from its conversation with the PRINCIPAL, writes the filled result to disk under `HUMAN_paste-orchestrator-instruction.md`, and hands the PRINCIPAL a one-line pointer.
