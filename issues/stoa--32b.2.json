@@ -27,11 +27,15 @@
     {
       "text": "DAEDALUS activated on Arc 33 stoa--32b.2. Reading directive (213 lines) + ticket body + scope-refresh + retro §8 + read-list per dispatch brief. Worktree at .claude/worktrees/arc-33-build/ confirmed; agents/design/arc-33/ does not yet exist (first Write creates).",
       "timestamp": "2026-05-17T19:19:10Z"
+    },
+    {
+      "text": "DAEDALUS: all primary input read end-to-end (directive A1-A10; ticket body + refresh comment; retro §8; op-disc §25/§19.6/§23/§6.7.1/§11/§26; PLINY §5.10; POLYBIUS §17; check-bw-release SKILL.md+check.sh; check-substrate-updates SKILL.md; install.sh:141-146 SKILL_NAMES). Picks settled: A2=α (new skill); A3=inspect-script-output; A4=new top-level §27 after §26 (NOT folded under §11 — §25 explicitly distinguishes gate from cadence axis, so the inspection-agent canon belongs at its own top-level locus parallel to §23/§25/§26). Drafting design.md now.",
+      "timestamp": "2026-05-17T19:19:41Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Mechanical-script / agent-inspection split — move recognition intelligence from scripts to agents",
   "type": "task",
-  "updated_at": "2026-05-17T19:19:10Z"
+  "updated_at": "2026-05-17T19:19:41Z"
 }
