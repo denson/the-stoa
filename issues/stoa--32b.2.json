@@ -103,11 +103,15 @@
     {
       "text": "VERA activated on arc-33 (stoa--32b.2). Reading design-rev2.md §7.1 + arc-33-build worktree (HEAD cb47043). Will execute VERA-1 through VERA-8.",
       "timestamp": "2026-05-17T19:36:57Z"
+    },
+    {
+      "text": "ZENO activated on arc-33 spec-check. Reading ticket body deliverables D1-D4 + shipped artifacts before extracting criteria.",
+      "timestamp": "2026-05-17T19:36:59Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Mechanical-script / agent-inspection split — move recognition intelligence from scripts to agents",
   "type": "task",
-  "updated_at": "2026-05-17T19:36:57Z"
+  "updated_at": "2026-05-17T19:36:59Z"
 }
