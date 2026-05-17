@@ -137,11 +137,15 @@
     {
       "text": "ARGUS-rev3 mid-audit: §5.1.d + §5.3.d1 + §3.7 + §8.2 + §9.6 + probes all read. Now verifying diff scope (Part 1 untouched) + cross-ref consistency + posting verdict. [from: argus-the-stoa]",
       "timestamp": "2026-05-17T23:23:34Z"
+    },
+    {
+      "text": "ARGUS-rev3 web validation: bug #40228 still OPEN (confirmed; cited honestly). Docs confirm 50-task ceiling per session (abundant headroom for 2-cron-per-engagement pair). Docs confirm local-timezone interpretation for cron expressions (m8 fold matches). Docs confirm 7-day recurring-task expiry + one-shot expires-when-time-passes (renewal arithmetic matches). NOTE: public scheduled-tasks docs don't surface 'durable' parameter — design's 'matches documented schema' is true at the tool-input-schema layer (per bug #40228 citation) but ambiguous at the public-docs layer; not a fresh load-bearing finding since design already acknowledges as honest-intent. Drafting verdict. [from: argus-the-stoa]",
+      "timestamp": "2026-05-17T23:24:13Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-17T23:23:34Z"
+  "updated_at": "2026-05-17T23:24:13Z"
 }
