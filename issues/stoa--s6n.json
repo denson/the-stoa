@@ -98,11 +98,15 @@
     {
       "text": "[CAPTAIN_DAEDALUS_the_stoa rev2] pass: design-rev2.md written at agents/design/arc-28/design-rev2.md (920 lines vs rev1 791); rev1 design.md preserved on disk as history. LBR-1 resolution at §2.2 + §3 File 4 (explicit defang at pipeline boundary mirroring check-substrate-updates/check.sh:489-500); LBR-2 resolution at §3 File 1 §16.8 recap caveat (documented default vs --all variant split; 'this install' phrasing); LBR-3 resolution at §2.2 + §3 File 3 + §3 File 4 (per-workspace deployment semantics; SCRIPT_DIR walk lands state file at skills-parent dir; consumer-tier path is \u003cworkspace\u003e/.claude/.bw-release-last-check). ADV-1..5 all folded for free. Self-assessed weak points at §6 = 4 (rev1 §6.3+§6.4 preserved; rev2 §6.1+§6.2 new — per-workspace baseline drift coordination; recap caveat split readability). Probe 7b added for LBR-1 defang verification. Smoke beat 4 added (same defang probe). Returning.",
       "timestamp": "2026-05-17T03:10:36Z"
+    },
+    {
+      "text": "[CAPTAIN_ARGUS_the_stoa rev2 activated on stoa--s6n] cold-audit of agents/design/arc-28/design-rev2.md beginning; verifying LBR-1/2/3 + ADV-1..5 resolution claims.",
+      "timestamp": "2026-05-17T03:11:20Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T03:10:36Z"
+  "updated_at": "2026-05-17T03:11:20Z"
 }
