@@ -223,6 +223,26 @@ Worked example:
 
 Empirical anchor: 2026-05-04 a project-tier install paste seeded "NOT user-beadwork" into a project-tier session that wouldn't otherwise have known user-tier bw existed. PRINCIPAL caught and corrected.
 
+##### 5.1.1.1 Cross-project sequencing context is user-tier-only — never leak it to project-tier seats
+
+Project-tier seats (POLYBIUS, PLINY, every CAPTAIN at project-tier or sub-project-tier) are SCOPED to their project. Cross-project sequencing — which project ships before which other project, what the next-quarter-portfolio looks like, which sibling-project corpus seeds when — is user-tier POLYBIUS's concern AND ONLY user-tier POLYBIUS's concern. Never leak cross-project sequencing into a project-tier activation paste, project-tier directive, or project-tier bw comment — not even framed as "out of scope" or "separate follow-on," because those phrasings still seed awareness of the resource the §5.1.1 discipline is supposed to exclude.
+
+The discipline is the §5.1.1 root cause specialized to cross-project context: a `NOT`-like qualifier ("X is out of scope; PRINCIPAL sequences X after Y") mentions X as a real thing, defeating the bounded-context property project-tier scoping is supposed to enforce. Under pressure (looking for context, ambiguous task, trying to be helpful), the activated project-tier session rationalizes the now-known cross-project resource as a legitimate question to ask — "should we be coordinating with X?" — and the bounded-context property is gone.
+
+Worked example — anti-pattern (from the 2026-05-17 ariadne-core PLINY paste; N=2 leak by user-tier POLYBIUS in the same day):
+
+> "What stays out of scope: … Sector-4 corpus seed (separate follow-on; PRINCIPAL sequences after stoa+ariadne nailed down)."
+
+Even in "out of scope" framing, this paste seeded sector-4 awareness into the ariadne-core PLINY's mental map. ariadne-core PLINY then asked about "sector-4 corpus seed sequencing call" in its surface message — directly traceable to the paste's leak. The discipline §5.1.1 already encodes catches for the same root cause; this sub-subsection specializes it to the cross-project category that kept surfacing.
+
+Worked example — positive pattern: if a project-tier activation paste genuinely needs to acknowledge that an out-of-scope item exists (e.g., to explain why a deliverable is bounded the way it is), name the DISCIPLINE that excludes it rather than the resource itself:
+
+> "Per §5.1.1, this paste scopes to ariadne-core work only; cross-project sequencing is user-tier concern."
+
+This sentence carries the same information ("don't reach for cross-project context") without naming the specific cross-project resource. The receiving project-tier session learns the boundary without learning what's beyond it.
+
+**Provenance (per §15 honest scope and `operating-disciplines.md` §6.7.1):** N=2 today (2026-05-17 ariadne-core PLINY routine paste + the same day's polish paste — both by user-tier POLYBIUS; both leaked sector-4 in "out of scope" framing). The §5.1.1 root-cause discipline is already in canon; this sub-subsection narrows the worked example to cross-project sequencing, which is the specific shape that kept surfacing on 2026-05-17. Future-evidence accretion per §6.7.1 — if the cross-project shape proves to be one-of-many specialization needs, future arcs may promote this to a separate §5.1.x section; until then, the sub-subsection here is the right scope.
+
 For the universal-team framing of this discipline (applies to every seat authoring downstream briefs — POLYBIUS, PLINY, every CAPTAIN, every pair-programmer Major), see `operating-disciplines.md` §8. Full table of anti-pattern / discipline pairs lives there.
 
 #### 5.1.2 PLINY-targeted activation pastes include the pre-branch hygiene preamble by default
@@ -258,6 +278,37 @@ The substrate-canonical template at `substrate/templates/paste-instruction-templ
 - `substrate/templates/paste-instruction-template.md` — the substrate-canonical template that carries the preamble in its filled output.
 - `operating-disciplines.md` §24 — the universal-team layer cross-ref (today PLINY only; future seats that create arc-build branches inherit the same discipline).
 - Empirical anchor: `stoa--3cs` (2026-05-17 N=2 bit-by-it + N=1 worked-when-applied).
+
+#### 5.1.3 PLINY-targeted and POLYBIUS-targeted activation pastes include the cron-hygiene preamble by default
+
+When filling the activation-paste template for a PLINY or POLYBIUS session, include the cron-hygiene preamble by default. The preamble tells the activated session to run `CronList` before any substantive work and `CronDelete` any cron present. Default-include means: every PLINY-targeted AND POLYBIUS-targeted activation paste carries the preamble unless POLYBIUS explicitly suppresses it for a recognized engagement that will not plausibly need cron management.
+
+The empirical anchor is the orphan-cron pattern: a `/clear`'d or compacted Claude Code context may leave a polling cron scheduled in the underlying session. The fresh activation, paste-recovered, does not see the cron in its in-context state but the cron continues to fire — producing surprise polls into beadwork tickets and burning context budget. The defense is structural: every activation paste asks the session to enumerate any present crons before starting, and to delete them. The cost when no orphan is present is one `CronList` call returning empty.
+
+**The preamble text (verbatim — paste this into every PLINY-targeted and POLYBIUS-targeted activation by default):**
+
+```
+Cron hygiene FIRST (before any substantive work): this session may carry an
+orphaned cron from a prior /clear'd context. Run CronList; if any cron is
+present, CronDelete it. Then proceed as appropriate for the role
+(surface-and-wait per MAJOR_PLINY.md §6.2 for PLINY; cron-scheduled polling
+per operating-disciplines.md §7.2 for POLYBIUS radio-check engagements;
+or other per the role file). Defense-in-depth.
+```
+
+The preamble is included by default in every PLINY-targeted AND POLYBIUS-targeted activation paste. POLYBIUS may suppress to empty ONLY on explicit recognition that the activation will not plausibly need cron management (e.g., a one-shot read-only orientation paste with no polling and no agent dispatches). The cost calculus drives the default: an included preamble where no orphan is present is one `CronList` call returning empty; an omitted preamble where an orphan IS present is a surprise polling cycle the operator does not see, against a beadwork ticket they may not be watching. Substrate-discipline-redundancy IS the safety property — default-include encodes the redundancy structurally rather than relying on POLYBIUS's session-by-session "will this session plausibly inherit an orphan cron?" judgment, which is a semantic predicate not always knowable at template-fill time.
+
+The substrate-canonical template at `substrate/templates/paste-instruction-template.md` carries the preamble as a `{{CRON_HYGIENE_CLAUSE}}` template slot so the fill mechanism inserts it automatically. The canon section here ensures POLYBIUS understands WHY the preamble is there and does not delete it when refreshing the paste for a compact-or-clear recovery. Mid-engagement recovery pastes (a re-paste after a compaction event) still carry the preamble by default — the activated session will run `CronList`, observe its own session's polling cron if running cron-scheduled, and skip the delete on recognition the cron is its own. The cost of the redundant `CronList` is sub-second; the benefit is the redundancy property.
+
+**Cross-references:**
+
+- `substrate/templates/paste-instruction-template.md` — the substrate-canonical template that carries the preamble via the `{{CRON_HYGIENE_CLAUSE}}` slot in its filled output.
+- `operating-disciplines.md` §26 — the universal-team layer cross-ref (today PLINY + POLYBIUS only; future seats that activate fresh into a project context inherit the same discipline).
+- `MAJOR_PLINY.md` §6.2 — the surface-and-wait default for PLINY autonomous mode (no cron) the preamble references.
+- `operating-disciplines.md` §7.2 — the cron-scheduled polling default for POLYBIUS autonomous radio-check engagements the preamble references.
+- Empirical anchor: ad-hoc encoded as "cron hygiene FIRST" preamble in every PLINY-targeted activation paste since Arc 26 (recent observation set: `HUMAN_paste-pliny-arc-30-instruction.md`, `HUMAN_paste-pliny-arc-31-instruction.md`, `HUMAN_paste-pliny-arc-32-instruction.md` all carry the preamble ad-hoc, with the canonical wording converging across Arc 31 + Arc 32). Multi-instance pattern; this arc lifts it from memory into structure.
+
+**Provenance (per §15 honest scope and `operating-disciplines.md` §6.7.1):** Multi-instance ad-hoc pattern (≥5 PLINY pastes carry the preamble ad-hoc), but N=0 substrate-canon-encoded today. The discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority (the same authority that placed the preamble in every paste); future arcs that ship activations through the templated `{{CRON_HYGIENE_CLAUSE}}` slot accrete evidence that the structural form is sufficient — at which point §6.7.1's three-condition gate (multiple observations + controlled comparison + substrate-level pattern) becomes assessable. Same N=1 framing as Arc 27's §16.6, Arc 28's `operating-disciplines.md` §22.3, Arc 29's §17.5, and Arc 30's §5.9.3.
 
 ### 5.2 install.sh is template-based — you customize per session
 
