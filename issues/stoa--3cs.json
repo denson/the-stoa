@@ -74,11 +74,15 @@
     {
       "text": "ARGUS rev3 confirmation pass activated. Checking r6 (three-way framing propagation to §1.3 + §3.1 + §5.9.2) + r7 (§2.1 line 49 ## → ###) cleanly absorbed without new contradictions.",
       "timestamp": "2026-05-17T05:47:47Z"
+    },
+    {
+      "text": "pass (rev3 confirmation): rev3 surgical fix absorbed r6 (three-carrier framing propagated to §1.3 + §3.1; §5.9.2 gentler fix at line 108 preserves verbatim canon by frame-of-reference) and r7 (§2.1 line 49 ## → ###). No new contradictions. Non-findings: §3 header retains directive's α/β/γ grammar ('both carriers' = the two D2-target paste-side carriers; PLINY §5.9 is D1 substantive-canon carrier; §3.1 makes three-carrier reading explicit immediately after) — internally coherent, not a contradiction. Design ready for build. Returning.",
+      "timestamp": "2026-05-17T05:47:58Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:47:47Z"
+  "updated_at": "2026-05-17T05:47:58Z"
 }
