@@ -1,2 +1,3 @@
 prefix=stoa-
+registry.auto=true
 version=2
