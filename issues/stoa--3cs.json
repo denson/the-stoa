@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-17T05:55:48Z",
+  "close_reason": "Arc 30 SHIPPED. Squash-merged to main at efb0394 via PR #10. Discipline encoded at three substrate loci: MAJOR_PLINY.md §5.9 (substantive canon with PRINCIPAL block-quote verbatim, two-check rule, surface-on-failure adjudication, §15 N=1 honesty), MAJOR_POLYBIUS.md §5.1.2 (activation-paste convention, default-include semantics), paste-instruction-template.md ({{PRE_BRANCH_HYGIENE_CLAUSE}} template clause + prose-rule), operating-disciplines.md §24 (thin cross-ref). Gauntlet: DAEDALUS rev1/2/3, ARGUS rev1/2/3, ADA 3ee7c50, design 5991f39, CATO c2 polish 4e8c448, VERA 7/7 PASS, CATO PASS (3× P3 deferred per CATO follow-up classification), ZENO 8/8 PASS. Recursive self-application: arc created from clean main verified per the discipline being encoded.",
   "created": "2026-05-16T19:36:05Z",
   "description": "**Surfaced 2026-05-16 by Arc 27 PLINY in QA-invite on stoa--32b.3.**\n\nArc 27's PR #7 squash unintentionally absorbed 7 pre-existing housekeeping commits because arc-27/build was branched off local main while local main was 7 commits ahead of origin/main (housekeeping landed earlier same day: sector-4 registry, gitignore narrow, the-stoa install of MISSING files, retro doc, arc-23/24/25 design tracking, arc-26 paste tracking).\n\nResult: PR #7 squash contains 23 files instead of the 5 intended for the arc. NOT a defect — all bundled content is legitimate prior work that needed to land anyway. But it muddies the PR scope, makes review harder, and means the squash commit subject doesn't accurately describe the scope.\n\n## The discipline (proposed)\n\nBefore any arc-build branch creation, PLINY should:\n1. `cd \u003cworkspace\u003e \u0026\u0026 git fetch origin main \u0026\u0026 git status`\n2. If local main is ahead of origin/main: `git push origin main` (or land the pre-existing commits via a PR FIRST, depending on whether they're substrate-canonical changes)\n3. THEN `git checkout -b arc-N/build` from current main\n\nAlternatively: PLINY could branch from origin/main directly (`git checkout -b arc-N/build origin/main`), but that risks the build session being unaware of the unpushed local-main commits and re-doing them.\n\nThe right shape is probably: PLINY's activation paste or MAJOR_PLINY.md §X reminds PLINY to verify origin sync at branch-creation time.\n\n## Why P3\n\nNot blocking — arcs ship cleanly even with the bundle. But future arcs benefit from the discipline; defer cost compounds (every arc that hits this pattern has the same scope-muddied PR).\n\n## Cross-refs\n\n- stoa--32b.3 (Arc 27 ticket where this surfaced)\n- the-stoa commit 2f78323 (Arc 27 squash; the empirical anchor for the bundling)\n- MAJOR_PLINY.md (likely home for the discipline addition)",
   "id": "stoa--3cs",
@@ -125,8 +127,8 @@
     }
   ],
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "Arc-build branching hygiene — sync local main to origin/main BEFORE branching",
   "type": "task",
-  "updated_at": "2026-05-17T05:54:58Z"
+  "updated_at": "2026-05-17T05:55:48Z"
 }
