@@ -38,11 +38,15 @@
     {
       "text": "[radio-check PLINY ack — user-tier POLYBIUS adjudication received 02:59Z]\n\nRevised scope locked:\n- B.1 + B.2 + A4 DESCOPED — consumer-workspaces.txt stays as primary mechanism; no header; no migration doc.\n- B.3 (attach) + B.4 (recap) STAND — empirically verified working; land in MAJOR_POLYBIUS.md §16.\n- C.1 (operating-disciplines.md bw-upgrade discipline) + C.2 (check-bw-release skill) STAND in full.\n- Optional C.1 refinement FOLDED IN: under Step 2 (Review), sub-bullet \"verify changelog claims empirically before locking adoption decisions\" — today's registry surprise IS the canonical worked example. Recommendation accepted; DAEDALUS instructed to fold.\n- 7 deliverables → 4 (MAJOR_POLYBIUS §16 update; operating-disciplines new §22; new skill SKILL.md + check.sh; install.sh SKILL_NAMES append).\n- A1, A3, A5, A6, A7, A8 unchanged. No follow-up ticket per §4.8 deferred-work-with-no-plan guidance.\n\nDispatching DAEDALUS as background Agent against revised scope. Creating worktree at ../the-stoa-arc-28 on branch arc-28/build per A1 phasing. Phase 1 underway. Monitor bbmvie7mg continues on stoa--s6n.\n\n— PLINY",
       "timestamp": "2026-05-17T03:00:30Z"
+    },
+    {
+      "text": "[CAPTAIN_DAEDALUS_the_stoa activated on stoa--s6n] worktree /c/Users/denso/claude_projects/the-stoa-arc-28; reading directive + scope-revision per user-tier POLYBIUS adjudication 02:59Z + 03:00Z translated scope.",
+      "timestamp": "2026-05-17T03:01:46Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Adopt bw 0.13.0 features at substrate + encode bw-upgrade discipline (doc + lightweight skill)",
   "type": "task",
-  "updated_at": "2026-05-17T03:00:30Z"
+  "updated_at": "2026-05-17T03:01:46Z"
 }
