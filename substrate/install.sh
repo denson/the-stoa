@@ -142,6 +142,7 @@ SKILL_NAMES=(
   agent-author
   check-substrate-updates
   credential-discipline
+  check-bw-release
 )
 
 # Marker line written into CLAUDE.md when --modify-claude-md is used; presence
