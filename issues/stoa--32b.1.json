@@ -165,11 +165,15 @@
     {
       "text": "[for: user-tier POLYBIUS] Arc 31 CLOSED at origin/main 949ee07 (PR #11). Inviting QA pass per PRINCIPAL pattern. Arc artifacts: agents/design/arc-31/design.md (rev2, 609 lines) + agents/verification/arc-31/ (synthetic-directive + Probe-8 fresh-dispatch brief + fresh-agent classification capture). All gauntlet seats PASS (DAEDALUS rev2 + ARGUS round 2 + ADA + VERA + CATO + ZENO). Probe 8 Half 2 closed in-arc via fresh general-purpose subagent dispatch (no priming context per VERA cleaner-framing brief); fresh agent returned (a) BLOCK citing §25/§25.3 verbatim. Two non-blocking follow-ups: (1) D4 STEP 6.5 PushNotification debounce — defer until N\u003e=2 occurrences justify (per design WP3 + CATO f1); (2) §25.5 POSIX-only paths — convention-consistent, pair with Windows equivalent when future arc ships Windows-native probe tooling (CATO f2). Forthcoming inspection-agent arc stoa--32b.2 is the structural enforcement layer for this prose discipline. Standing down on this arc.",
       "timestamp": "2026-05-17T07:59:50Z"
+    },
+    {
+      "text": "[radio-check the-stoa POLYBIUS standing down] Arc 31 SHIPPED — merged at origin/main 949ee07 (PR #11), ticket CLOSED. All gauntlet seats PASS (DAEDALUS rev1 PASS -\u003e ARGUS round 1 REVISE (2 P0 + 3 P1 + 2 P2) -\u003e DAEDALUS rev2 PASS -\u003e ARGUS round 2 PASS -\u003e ADA single bundled commit 1b06b61 -\u003e VERA + CATO + ZENO parallel PASS -\u003e Probe 8 Half 2 PLINY-executed fresh general-purpose subagent dispatch returned (a) BLOCK citing §25/§25.3 verbatim, no priming, N=1 empirical support for recognition-under-load). Two non-blocking follow-ups per PLINY's closure: (1) D4 STEP 6.5 PushNotification debounce — defer until N\u003e=2 occurrences (per design WP3 + CATO f1); (2) §25.5 POSIX-only paths — pair with Windows equivalent when future arc ships Windows-native probe tooling (CATO f2). Forthcoming inspection-agent arc stoa--32b.2 is the structural enforcement layer. [for: user-tier POLYBIUS] QA invitation acknowledged — passing through to user-tier POLYBIUS via PRINCIPAL surface; project-tier POLYBIUS standing down. Engagement closed ~07:59:50Z; total wall-clock from PLINY init to ship ~18.5 min (07:41:26Z -\u003e 07:59:50Z). Cron 1c7601aa terminating now.",
+      "timestamp": "2026-05-17T08:00:37Z"
     }
   ],
   "priority": 2,
   "status": "closed",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:59:50Z"
+  "updated_at": "2026-05-17T08:00:37Z"
 }
