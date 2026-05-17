@@ -30,11 +30,15 @@
     {
       "text": "DAEDALUS: design.md drafted at agents/design/stoa--kjo/design.md in arc-35-build worktree. §1 restatement; §2 sub-decisions (A5=CAPTAIN_\u003cMNEMONIC\u003e_the-stoa \u003ccaptain-\u003cmnemonic\u003e@the-stoa.local\u003e; A6=§28/§5.12/CAPTAIN_ADA-§5.5-extension; A7=(i) manual; A8=(a) subsection §28.5); §3 exact wording for all four canon targets (§28 body fully drafted, §5.12 body, CAPTAIN_ADA §5.5 paragraph, global CLAUDE.md bullet); §4 nine verification probes; §5 self-application plan; §6 cite-comment enumeration; §7 worked-example ADA commit message; §8 out-of-scope cite-A12; §9 five self-assessed weak points; §10 five residual questions for ARGUS. Self-assessed weak points pass per §6.2 (named brittle spots; not silently smoothed; not over-apologized). About to commit on arc-35/build with self-applied Co-Authored-By: CAPTAIN_DAEDALUS_the-stoa \u003ccaptain-daedalus@the-stoa.local\u003e trailer (A9 self-application — this commit IS the first commit that carries the convention).",
       "timestamp": "2026-05-17T21:28:10Z"
+    },
+    {
+      "text": "pass: DAEDALUS design.md committed at 16b09e1 on arc-35/build. Self-application verified: git log -1 shows Author = denson \u003cdensonsmith2@gmail.com\u003e (global Author: rule preserved) AND trailers = Co-Authored-By: CAPTAIN_DAEDALUS_the-stoa \u003ccaptain-daedalus@the-stoa.local\u003e + Co-Authored-By: Claude Opus 4.7 \u003cnoreply@anthropic.com\u003e. Returning to PLINY.\n\nstatus: completed\nticket: stoa--kjo\nverdict: pass\ndesign_artifact_path: agents/design/stoa--kjo/design.md\ndesign_commit_sha: 16b09e1\nsub_decision_picks:\n- A5 trailer format: CAPTAIN_\u003cMNEMONIC\u003e_the-stoa \u003ccaptain-\u003cmnemonic\u003e@the-stoa.local\u003e (underscore separator binds seat+project; hyphenated the-stoa project-slug per canonical external slug; .local TLD per RFC 6762 non-routing)\n- A6 insertion loci: op-disc §28 (new top-level after §27); PLINY §5.12 (new subsection after §5.11); CAPTAIN_ADA §5.5 extension (append paragraph to existing); global ~/.claude/CLAUDE.md authorship-attribution \"Mandatory audit\" subsection (new bullet after Git commit Author: bullet)\n- A7 implementation mechanism: (i) manual in-commit-message trailer; aligns with existing ADA HEREDOC + Claude-trailer discipline; no install.sh change; no substrate/scripts/; reversibility note carries (ii) shell-helper as future-arc remediation if needed\n- A8 read-discipline pairing: (a) subsection §28.5 inside same section as write-side; same-arc pairing makes rationale self-contained\nself_assessed_weak_points: 5 (§9.1-§9.5) — .local domain surprise; manual mechanism no enforcement; read-discipline persistent gap; cross-project extensibility asserted-not-tested; substrate-vs-global sequencing operator-dependent\nresidual_questions_for_argus: 5 (§10.1-§10.5)\nprincipal_gate_escalations: none",
+      "timestamp": "2026-05-17T21:28:39Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Per-agent git identity for commits — agents commit with their own configured git author so blame indicates the actual seat",
   "type": "epic",
-  "updated_at": "2026-05-17T21:28:10Z"
+  "updated_at": "2026-05-17T21:28:39Z"
 }
