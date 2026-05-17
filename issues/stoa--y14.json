@@ -14,11 +14,15 @@
     {
       "text": "**PLINY init handshake — Arc 34**\n\nPLINY activated at the-stoa from `HUMAN_paste-pliny-arc-34-instruction.md`. Role file + directive + work-unit ticket + 4 source tickets (stoa--k36, stoa--f37, stoa--3qi, stoa--ize) + Arc 32 precedent + C1/C4 candidate loci all read.\n\n**Pre-flight verified live (per §5.9 two-check rule + §19.6 attestation honesty):**\n- HEAD: `71bc3e1` (directive-tracking commit on top of Arc 33's `789496b`)\n- Check 1 (no arc-build branches): `git branch | grep -E '^\\s*arc-[0-9]+/build$'` → empty ✓\n- Check 2a (origin ahead): `git log --oneline main..origin/main` → empty ✓\n- Check 2b (local ahead): `git log --oneline origin/main..main` → empty ✓\n- CronList: empty (PLINY surface-and-wait per §6.2; no cron scheduled)\n\n**Operating mode:** AUTONOMOUS per directive. Heads-down through 4 phases. Surface to PRINCIPAL only at end-of-arc with clean-PASS verdict OR on universal escalation triggers (operating-disciplines.md §10).\n\n**Coordination:** project-tier POLYBIUS is radio-check peer via stoa--y14 comments. User-tier POLYBIUS will QA-pass at arc close per `[for: user-tier POLYBIUS]` invitation.\n\n**Plan (4 phases):**\n1. DAEDALUS → `agents/design/arc-34/design.md` covering C1-C4 (Option C / α / γ per user-tier lean — DAEDALUS confirms with rationale). ARGUS cold-audit.\n2. ADA build on `arc-34/build` in `.claude/worktrees/arc-34-build/` per §5.9.4.\n3. VERA + CATO (mandatory) + ZENO parallel verification.\n4. Smoke beats per Phase C, PR, gh pr merge, live-verified cleanup per §5.10, signoff, close stoa--y14 + 4 source tickets (k36 + f37 + 3qi + ize) with cross-refs.\n\n**Sideband observation (not blocking, not in scope):** `.claude/worktrees/` contains 2 orphan directories (`arc-27-build`, `awesome-nash-190573`) not registered in `git worktree list`. Disk debris from prior arcs; will surface to user-tier POLYBIUS at arc close as separate housekeeping ticket candidate, NOT folded into Arc 34 (per A8 hard-lock).\n\nCreating arc-34/build worktree now.",
       "timestamp": "2026-05-17T20:31:33Z"
+    },
+    {
+      "text": "**Phase 1 — DAEDALUS dispatch (2026-05-17T20:32Z)**\n\nDispatching CAPTAIN_DAEDALUS_the_stoa with brief covering:\n- Output: `agents/design/arc-34/design.md` (relative to arc-34/build worktree)\n- Scope: C1-C4 integrated design per directive Phase A locks (A1-A12)\n- Sub-decisions: A2 C1 Option C, A3 C2 Option α, A5 C4 Option γ — per user-tier POLYBIUS lean (DAEDALUS may push back with rationale if a different pick lands better)\n- §15 N=1 framing per candidate (Arc 27 §16.6 / Arc 30 §5.9.3 / Arc 32 §5.10 shape)\n- Cite-comments resolve per A6\n- Authorship: Denson Smith\n- AUTONOMOUS mode\n\nARGUS follows on PASS.",
+      "timestamp": "2026-05-17T20:32:00Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Canonification batch 2 — user-tier-to-main + paste accumulation + template-title + HITL-paused queue sweep",
   "type": "task",
-  "updated_at": "2026-05-17T20:31:33Z"
+  "updated_at": "2026-05-17T20:32:00Z"
 }
