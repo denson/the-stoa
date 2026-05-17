@@ -103,11 +103,15 @@
     {
       "text": "ADA activated on stoa--32b.1. On branch arc-31/build (confirmed). Reading design (agents/design/arc-31/design.md, 609 lines, rev2) + ARGUS round 2 PASS verdict + Arc 30 commit-message shape (stoa--3cs) before first edit. Operating mode: AUTONOMOUS.",
       "timestamp": "2026-05-17T07:52:50Z"
+    },
+    {
+      "text": "Design absorbed (609 lines). Ground-checks complete: §24 still last in operating-disciplines.md (§25 number holds); §6.6 last in DAEDALUS (§6.7 holds); §5.7 last in ADA (§5.8 holds); §5.9 last in VERA (§5.10 holds); template insertion contexts mapped (auto-mode template line 76-77 step6→Setup-complete boundary; polling-cron template line 100→End-of-fire-loop boundary). PRINCIPAL block-quote verbatim verified against ticket body. One design-vs-brief delta noted: design §7 names synthetic-directive.md as ADA-staged (dispatch-brief deliverable list does not enumerate it). Following design (authoritative). Starting builds D1 through D5 + synthetic-directive staging.",
+      "timestamp": "2026-05-17T07:53:24Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:52:50Z"
+  "updated_at": "2026-05-17T07:53:24Z"
 }
