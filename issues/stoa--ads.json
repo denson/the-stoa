@@ -58,11 +58,15 @@
     {
       "text": "DAEDALUS activated on stoa--ads revision-round-2 polish. Reading current design.md (857 lines) before drafting 4 P2 edits (§17.4 casing note, §5.1 Site 3 local base, §4.1 Site 4 WITH_CAPTAINS/WITH_TEMPLATES gating, new §5 Site 4 MAJOR-glob cite). No architectural change.",
       "timestamp": "2026-05-17T04:55:28Z"
+    },
+    {
+      "text": "DAEDALUS revision-round-2: 4 edits drafted. §17.4 casing-note paragraph added; §5.1 Site 3 'local d base' + ADA note updated; §4.1 Site 4 WITH_CAPTAINS/WITH_TEMPLATES gating wrappers + rationale + §10.7 Q2 marked resolved; §5.1 new Site 4 forward-looking MAJOR-glob cite-comment + §5.3 grep counts updated \u003e=3 to \u003e=4 + Probe 7 counts updated + §9 step 4 mention. Verifying file shape next.",
+      "timestamp": "2026-05-17T04:56:35Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Base-vs-custom agent convention — encode in substrate canon (operating-disciplines + MAJOR_POLYBIUS + install/check/apply tooling)",
   "type": "task",
-  "updated_at": "2026-05-17T04:55:28Z"
+  "updated_at": "2026-05-17T04:56:35Z"
 }
