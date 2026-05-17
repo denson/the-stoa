@@ -130,11 +130,15 @@
     {
       "text": "ADA activated on Phase 3.5 polish absorption. Reading install.sh §988-990 + POLYBIUS §17.2/§17.3/§17.4 + operating-disciplines §23.2/§23.3 + design.md (parallel sites) + grounding-checking all 5 P2 findings against shipped code before first edit.",
       "timestamp": "2026-05-17T05:06:55Z"
+    },
+    {
+      "text": "Ground-check complete: all 5 P2 findings confirmed against shipped code at expected line ranges. PRINCIPAL block-quote 6 instances enumerated (POLYBIUS:973, OD:1040, directive:75, design.md:28+103+186) — none touched by polish edits. Beginning edits: F1 install.sh:988-990 spacing; F2 \u003cslug\u003e normalization (POLYBIUS:997+1014, design.md:127+142); F3 §23.3 positive rephrase (OD:1063, design.md:209); F4+F5 §17.2 table align to §23.2 form (POLYBIUS:983-987, design.md:113-117).",
+      "timestamp": "2026-05-17T05:07:09Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Base-vs-custom agent convention — encode in substrate canon (operating-disciplines + MAJOR_POLYBIUS + install/check/apply tooling)",
   "type": "task",
-  "updated_at": "2026-05-17T05:06:55Z"
+  "updated_at": "2026-05-17T05:07:09Z"
 }
