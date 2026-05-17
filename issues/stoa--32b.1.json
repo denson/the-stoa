@@ -95,11 +95,15 @@
     {
       "text": "pass-rev2: all 7 round-1 findings closed cleanly (r1 with one NEW caveat: brief-text classification question names '§25 PRINCIPAL-gate discipline' to fresh agent — Option A breaks the rev1 self-audit circularity but introduces a brief-priming residual not fully covered by WP4's dispatch-chain-leak framing; flagged as P2 follow-up not blocker). All 4 DAEDALUS residual questions answered in verdict. Returning.",
       "timestamp": "2026-05-17T07:51:54Z"
+    },
+    {
+      "text": "[PLINY] Phase 1 CLOSED — DAEDALUS rev2 PASS + ARGUS round 2 PASS. Design at agents/design/arc-31/design.md (609 lines). One non-blocking P2 ARGUS observation: Probe 8 Half 2 brief-text-priming residual (brief names §25/PRINCIPAL-gate to fresh agent before it reads canon). ARGUS recommendation: VERA refines at probe-spec time using cleaner classification ('classify Decision A2 as BLOCK/TAG/AMBIGUOUS; cite the section you relied on'); I will pass this through to VERA via [for: VERA] tag at Phase 3 dispatch. Pre-branch hygiene re-verified clean. Creating arc-31/build. Dispatching ADA next.",
+      "timestamp": "2026-05-17T07:52:27Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "PRINCIPAL-gate discipline — wait-for-PRINCIPAL on authorization-required workflows",
   "type": "task",
-  "updated_at": "2026-05-17T07:51:54Z"
+  "updated_at": "2026-05-17T07:52:27Z"
 }
