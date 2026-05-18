@@ -183,8 +183,8 @@ awk '/^### 7\.1/,/^### 7\.2/' substrate/operating-disciplines.md | grep -cE '\[r
 **§4.1.2 — `operating-disciplines.md` §7.4 wording updated to bidirectional (no "UPWARD-only" framing remains)**
 
 ```bash
-awk '/^### 7\.4/,/^### 7\.5/' substrate/operating-disciplines.md | grep -iE 'upward[- ]only|cross-tier upward|UPWARD requests only'
-# Expected: zero matches (old wording fully replaced)
+awk '/^### 7\.4/,/^### 7\.5/' substrate/operating-disciplines.md | grep -E 'upward[- ]only|UPWARD requests only|^[^a-zA-Z]*upward\.only'
+# Expected: zero matches (anchored to old wording shape; case-sensitive to avoid bidirectional-prose hits; drops the over-broad bigram-fragment per Arc 41 pqn Item 1.a)
 
 awk '/^### 7\.4/,/^### 7\.5/' substrate/operating-disciplines.md | grep -cE 'bidirectional|either direction|sender to recipient'
 # Expected: ≥1 (new bidirectional framing present)
@@ -235,8 +235,9 @@ awk '/^STEP 1\.5/,/^STEP 2/' substrate/templates/polling-cron-prompt-template.md
 grep -cE '\{\{SELF_SEAT_SLUG\}\}|\{\{PEER_SEAT_SLUG\}\}' substrate/templates/polling-cron-prompt-template.md
 # Expected: ≥4 (each slot named in table once, then referenced in STEP 1.5 ≥1 time each, then in usage example ≥1 time each)
 
-awk '/^## Substitution slots/,/^---$/' substrate/templates/polling-cron-prompt-template.md | grep -cE '\| \`\{\{SELF_SEAT_SLUG\}\}\`|\| \`\{\{PEER_SEAT_SLUG\}\}\`'
-# Expected: 2 (both new slots present in the slot table itself)
+awk '/^## Substitution slots/,/^---$/' substrate/templates/polling-cron-prompt-template.md \
+  | grep -cE '\{\{SELF_SEAT_SLUG\}\}|\{\{PEER_SEAT_SLUG\}\}'
+# Expected: 2 (both new slots present in the slot table itself; pattern drops the table-row-pipe + backtick anchors per Arc 41 pqn Item 1.c — the slot-name match alone is unambiguous within the slot-table awk-bracketed region, no shell-escape fragility)
 ```
 
 **§4.1.7 — STEP 2 and STEP 3 reference derived timestamps from STEP 1.5**
@@ -303,8 +304,8 @@ awk '/^## 11\./,/^## 12\./' substrate/operating-disciplines.md | grep -cE 'one-s
 awk '/^\*\*1\.5/,/^\*\*2\./' substrate/operating-disciplines.md | grep -cE 'radio-check|peer-side|recovery|§7\.1|§C\.1'
 # Expected: ≥1 (failure-mode acceptance names peer-side radio-check escalation as recovery for failure mode 2)
 
-awk '/^\*\*1\.5/,/^\*\*2\./' substrate/operating-disciplines.md | grep -cE 'no.*watchdog|no additional'
-# Expected: ≥1 (explicitly accepts the failure mode rather than mitigating via watcher cron)
+awk '/^\*\*1\.5/,/^\*\*2\./' substrate/operating-disciplines.md | grep -ciE 'no.*watchdog|no additional'
+# Expected: ≥1 (case-insensitive to match 'No' / 'no' prose variants; explicitly accepts the failure mode rather than mitigating via watcher cron; -i added per Arc 41 pqn Item 1.b)
 
 awk '/^\*\*1\.5/,/^\*\*2\./' substrate/operating-disciplines.md | grep -cE 'session-lifecycle|fresh conversation|/clear|session exit'
 # Expected: ≥1 (rev2 F2 fold — session-lifecycle failure mode named explicitly, not just continuous-outage)
@@ -557,8 +558,12 @@ git diff main...arc-36/build -- 'beadwork/' 2>&1 | head -3
 **§4.5.3 — No Option 2 watcher-cron prose**
 
 ```bash
-grep -rE 'watcher cron|watchdog cron|separate watcher' substrate/operating-disciplines.md substrate/templates/
-# Expected: zero matches in NEW content (existing references in arc-22 directive at substrate/arcs/ are reference material and excluded)
+# Search for NEW watcher-cron prose, excluding rejection-context lines
+# (per Arc 41 pqn Item 1.d — original probe matched the anti-pattern's
+# rejection prose, not new affirmative use):
+grep -rnE 'watcher cron|watchdog cron|separate watcher' substrate/operating-disciplines.md substrate/templates/ \
+  | grep -vE 'rejected|anti-pattern|Option 2|not the substrate|do NOT'
+# Expected: zero matches (rejection-context lines excluded; only NEW watcher-cron prose surfaces)
 ```
 
 **§4.5.4 — install.sh untouched**
@@ -573,8 +578,12 @@ git diff main...arc-36/build -- substrate/install.sh
 **§4.6.1 — Voice grep clean**
 
 ```bash
-grep -rE '\b[Cc]olonel\b|\bthe user\b' substrate/operating-disciplines.md substrate/MAJOR_POLYBIUS.md substrate/templates/polling-cron-prompt-template.md substrate/templates/autonomous-mode-activation-template.md | grep -vE 'template-slot|arcs/' | head -10
-# Expected: zero non-template hits
+# Scope to git-diff +-lines added by arc-36/build relative to main
+# (per Arc 41 pqn Item 1.e — whole-file grep caught pre-existing legacy
+# `the user` references unrelated to the arc's new content):
+git diff main...arc-36/build -- substrate/operating-disciplines.md substrate/MAJOR_POLYBIUS.md substrate/templates/polling-cron-prompt-template.md substrate/templates/autonomous-mode-activation-template.md \
+  | grep -E '^\+' | grep -vE '^\+\+\+' | grep -E '\b[Cc]olonel\b|\bthe user\b'
+# Expected: zero non-template +-line hits in new arc-36 content
 ```
 
 **§4.6.2 — Author-tag example tags appear in new content**
@@ -601,9 +610,14 @@ git log arc-36/build --pretty='%H %s%n%(trailers:key=Co-Authored-By)' -n 20 | gr
 Arc 36 v2 touches no credentialed third-party API or cloud service. CronCreate / CronList / CronDelete are local Claude Code primitives (not credentialed third-party). bw operations are local git ops. No CI workflow authored; no API token, OAuth scope, or service account in scope. §6.6 credential discipline is NON-APPLICABLE to this arc; explicit gate-check probe:
 
 ```bash
-# Verify no credentialed-CLI invocation appears in any ADA-built script/template:
-grep -rE 'op (read|run)|gcloud |gh auth |aws |kubectl |vercel |railway |fly ' substrate/operating-disciplines.md substrate/MAJOR_POLYBIUS.md substrate/templates/polling-cron-prompt-template.md substrate/templates/autonomous-mode-activation-template.md
-# Expected: zero matches in arc-36's edits (existing references in unrelated sections are out-of-scope)
+# Verify no credentialed-CLI invocation appears in any arc-36 +-line edit
+# (per Arc 41 pqn Item 1.e — git-diff +-line scoping to arc-36/build content
+# only; existing references in unrelated sections are scoped out structurally
+# rather than by stale "unrelated sections" hand-wave):
+git diff main...arc-36/build -- substrate/operating-disciplines.md substrate/MAJOR_POLYBIUS.md substrate/templates/polling-cron-prompt-template.md substrate/templates/autonomous-mode-activation-template.md \
+  | grep -E '^\+' | grep -vE '^\+\+\+' \
+  | grep -E 'op (read|run)|gcloud |gh auth |aws |kubectl |vercel |railway |fly '
+# Expected: zero +-line matches in arc-36/build edits
 ```
 
 ---

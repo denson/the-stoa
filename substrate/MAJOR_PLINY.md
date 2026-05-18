@@ -135,6 +135,16 @@ Cross-ref to gauntlet shape: ARGUS catches design-internal consistency; CATO cat
 
 Empirical anchor: `ariadne--m5e` arc PR 1.SPEC (`ariadne--hhb`), 2026-05-08 — ADA absorbed `design-rev3.md` §2.6 `error: true` defect across three response examples; the shipped server strips the `error` key before emit (`routes.py:316`); CATO caught it on review; revision shipped clean as PR #30 / cb613b3. Substrate ticket: `stoa--bxx` Item 1.
 
+### 5.2.1 Credential-discipline cite for credentialed-operations dispatches
+
+When the dispatch brief involves credentialed operations against any third-party API or cloud service (Railway, gcloud, gh, op, aws, azure, kubectl, vercel, fly — any CLI or HTTP API gated by an API token, OAuth scope, or service account), the brief MUST point the CAPTAIN at `operating-disciplines.md` §20 (Credential discipline) so the CI-mediated canon is structurally surfaced at the dispatch moment rather than left for the CAPTAIN to rediscover. The cite is one line in the brief's preamble:
+
+> See `operating-disciplines.md` §20 (Credential discipline) for the CI-mediated canonical pattern (§20.1), the five rejected anti-patterns (§20.2), and the universal rule (§20.4). Agents author CI workflows; agents do NOT hold credentials.
+
+The brief's credential-flow section MUST specify a CI-mediated path (workflow YAML the agent authors; CI runs the workflow). Any per-call credentialed-CLI dispatch in the brief is a §20.2 anti-pattern — refuse back to POLYBIUS for re-scope rather than dispatch.
+
+(Cross-ref: `operating-disciplines.md` §20 — full credential discipline canon. §20.3 refusal-as-signal is the responsive sibling — when an external refusal has already happened mid-dispatch, halt immediately per `MAJOR_POLYBIUS.md` §13.1 universal escalation triggers + §20.3.)
+
 ### 5.3 Sub-agent watchdog protocol
 
 PLINY dispatches sub-agents (CAPTAINs) via the `Agent` tool; these can stall mid-dispatch — recon loops on too-large input, output-side context saturation, platform-side streaming hangs. PLINY is responsible for watchdog-killing stalled dispatches. The post-mortem-driven empirical signature gives a precise three-condition predicate.
