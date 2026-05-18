@@ -545,7 +545,10 @@ awk '/^\*\*§4\.1\.2/,/^\*\*§4\.1\.3/' agents/design/arc-36/design.md \
 
 ```bash
 awk '/^\*\*§4\.2\.2 /,/^\*\*§4\.2\.2a/' agents/design/arc-36/design.md \
-  | grep -cE 'grep -[a-z]*i[a-z]* '
+  | grep -cE 'grep -[a-zA-Z]*i[a-zA-Z]* '
+# mn3 fix-4 (Arc 42 stoa--mn3 + CAPTAIN_DAEDALUS.md §6.9 clause 2 character-class completeness):
+# original `[a-z]*` failed to match uppercase letters (e.g., `grep -ciE`); the post-fix
+# `[a-zA-Z]*` matches case-flag combinations including uppercase E.
 # Expected: ≥1 (case-insensitive flag added; allows `grep -ciE` / `grep -iE` / similar)
 # Note (R1 rev2 fix): live §4.2.2 heading uses em-dash (U+2014) not three ASCII
 # hyphens; pattern drops the literal `---` and uses trailing space to
@@ -763,8 +766,15 @@ git log arc-41/build --pretty='%an <%ae>' main..arc-41/build \
 ```bash
 git diff main...arc-41/build -- substrate/ agents/design/arc-41/ \
   | grep -E '^\+' | grep -vE '^\+\+\+' \
-  | grep -cE '\b[Cc]olonel\b|\bthe user\b'
+  | grep -cE '\b[Cc]olonel\b|\bthe user[ .,;:!?\n]'
 # Expected: 0 (no voice violations in NEW content; +-line scoping per the §4.5.4 discipline this arc ships)
+# mn3 fix-5a (Arc 42 stoa--mn3 + CAPTAIN_DAEDALUS.md §6.9 clause 1 anchor-the-regex):
+# original `\bthe user\b` false-positived on `the user-tier-POLYBIUS` (hyphenated compound
+# is a substrate-canonical noun, not a voice violation). Post-fix separator-anchored
+# character class `[ .,;:!?\n]` matches "the user" only when followed by sentence-end
+# punctuation, space, or newline — preserves voice-violation detection without FP on
+# the hyphenated compound. Rejected alternative `grep -vE 'user-tier'` exclusion does
+# not distinguish valid mentions from voice violations.
 ```
 
 **§4.12.3 — credential-discipline non-applicability (§2.8 gate)**
@@ -772,8 +782,15 @@ git diff main...arc-41/build -- substrate/ agents/design/arc-41/ \
 ```bash
 git diff main...arc-41/build -- substrate/ agents/design/arc-41/ \
   | grep -E '^\+' | grep -vE '^\+\+\+' \
+  | grep -vE 'rejected|anti-pattern|Option 2|do not propose' \
   | grep -cE 'op (read|run)|gcloud |gh auth |aws |kubectl |vercel |railway |fly '
 # Expected: 0 (no credentialed-CLI invocation in arc-41 edits; the §20 cite in §3.C2 is a REFERENCE to the discipline, not an invocation)
+# mn3 fix-5b (Arc 42 stoa--mn3 + CAPTAIN_DAEDALUS.md §6.9 clause 5 enumeration vs invocation context):
+# original probe whole-file-scoped on +-lines but over-matched on enumeration-context
+# lines that legitimately list credentialed CLIs as REJECTED patterns (e.g., substrate
+# canon documenting the credential-discipline anti-pattern enumerates these tokens).
+# Post-fix layers the §4.5.3 exclusion pattern (rejected|anti-pattern|Option 2|do not
+# propose) to filter rejection-context before counting invocations.
 ```
 
 ---
