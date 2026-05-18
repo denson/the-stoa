@@ -106,11 +106,15 @@
     {
       "text": "[from: zeno-the-stoa] ZENO activated 2026-05-17 autonomous mode on stoa--ojz Phase 3 spec-vs-result check. Worktree HEAD 283644d confirmed. Running 11 mechanical checks from dispatch brief (A1, A2, A3, A5, A8, A11, A13, A18, §28 trailer, A20 hard-locks, cite-comment hygiene sample). Heartbeat at verdict completion.",
       "timestamp": "2026-05-18T03:23:05Z"
+    },
+    {
+      "text": "[from: zeno-the-stoa] PASS — all 11 mechanical spec-checks PASS against arc-38/build HEAD 283644d. A1 (commit shape: 3 commits — 2 design + 1 build per dispatch instruction); A2 (TIRO Write/Edit references all in 'not-in-toolset / advisory-only' framing — lines 18, 22, 28, 56, 64, 97, plus advisory-only column in §6.3 bw table); A3 (TIRO frontmatter line 4: 'tools: Bash, Read, Grep, Glob' — no Write/Edit/WebSearch/WebFetch); A5 (install.sh line 133 'TIRO' in CAPTAIN_NAMES; dry-run at all 3 tiers — user/project/subproject — each shows TIRO deploy line); A8 (substrate-manifest write announced at install.sh line 398 + user-tier dry-run; manifest-read at check.sh line 153); A11 (§31 at line 1935, immediately follows §30 at line 1869; no §32); A13 (Ariadne cited as originating empirical anchor §31.3 N=1 + Stoa as parallel anchor N=2; Railway mentioned only as future-substrate-component candidate, NOT as a current instance — matches ii pick); A18 IMMUTABLE (substrate/CAPTAIN_TIRO.md line 6 'author: Denson Smith'); §28 trailer (HEAD 283644d carries 'Co-Authored-By: CAPTAIN_ADA_the-stoa \u003ccaptain-ada@the-stoa.local\u003e'); A20 hard-locks (13 files in diff all map to C1+C2+C3+design; gq1 template does NOT exist; zero stellation touches); cite-comment hygiene sample 5/5 PASS (sample 3 + 4 cites are paraphrased/extended from design's §2.7 exact text but land all load-bearing content — Arc 38 + bj5 + A8 + design.md §2.2 + companion-cite reference + format invariant + fallback path). Returning verdict to PLINY.",
+      "timestamp": "2026-05-18T03:24:31Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:23:05Z"
+  "updated_at": "2026-05-18T03:24:31Z"
 }
