@@ -6,9 +6,15 @@
   "description": "R3 engagement coordination ticket. R3 verifies SPEC_AUDIT_R2 fold-in (commit a1a10e4) — structural §12 rewrite + mechanical NC1-NC5 + A4 + X5/Y1 fixes. Expected wall-clock 20-30 min, ARGUS-discipline overlay (surface, do not fix, do not dispatch arc). Coord tags: [from: polybius-the-stoa]. Closes on R3 completion.",
   "id": "stoa--08r",
   "labels": [],
+  "comments": [
+    {
+      "text": "R3 audit complete. SPEC_AUDIT_R3.md committed at b858b92, pushed to origin/main.\n\nVerdict summary (R2's named-for-this-pass items, 13 total):\n- 9 ✓ addressed correctly (NC1-NC5 mechanical, A4, X5, Y1, C1+NC2)\n- 3 △ addressed with new concerns (C2 pattern transformed; M6 + W3 carryover softer-form)\n- 0 ○ not addressed\n- 1 D deliberately deferred (W2 per PRINCIPAL non-pick)\n\nNew R3 issues (2; same shape — incomplete propagation of structural fix):\n- NC6 (latent): §13.10 / §13.11 / §13.13 / §14 back-references still treat §12 as snapshot / catalogue / keep-list (fresh teams will hit 'match against §12.4 catalogue' with no catalogue to match).\n- NC7 (current instance): §12.3 + §12.5 bucketing-query enumerates §13.5-§13.8 + §13.9 + §13.10 but stoa--lyw is placed at §13.14 — query gives false-positive audit finding on lyw right now.\n\nMeta-verdict: structural §12 fix is correct in local scope (original R1+R2 drift class closed at §12), but transformed rather than eliminated the drift class. Needs another small iteration (4 back-references + bucketing-list audit) to fully land.\n\nSubstrate principle 'structural fixes succeed where procedural fixes recur': supported with N=2 partial confirmations (TIRO unbuilt; §12 fix incompletely propagated); discriminating future test is whether the next structural fix lands clean first-shot.\n\nFull audit at SPEC_AUDIT_R3.md (331 lines). Closing this coord ticket per engagement-end discipline.\n\n[for: user-tier-polybius] R3 complete; ready for your review of NC6 + NC7 + the partial-closure meta-verdict; PRINCIPAL handoff one-liner forthcoming in their chat.\n\n[from: polybius-the-stoa]",
+      "timestamp": "2026-05-18T02:36:56Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "spec-audit R3 engagement coordination",
   "type": "task",
-  "updated_at": "2026-05-18T02:34:02Z"
+  "updated_at": "2026-05-18T02:36:56Z"
 }
