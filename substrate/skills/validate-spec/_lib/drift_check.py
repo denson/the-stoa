@@ -52,6 +52,7 @@ import argparse
 import json
 import pathlib
 import re
+import shutil
 import subprocess
 import sys
 
@@ -90,17 +91,26 @@ def _git_repo_root() -> pathlib.Path | None:
 
 
 def _run_check_substrate_updates(repo_root: pathlib.Path) -> tuple[str | None, str | None]:
-    """Return (stdout text, error). stdout is None on error."""
+    """Return (stdout text, error). stdout is None on error.
+
+    Resolves bash via shutil.which() rather than relying on subprocess's default
+    PATH resolution — on Windows-with-Git-Bash, subprocess['bash'] may resolve
+    to the WSL bash relay instead of the actual Git Bash binary, producing a
+    'CreateProcessCommon execvpe failed' error.
+    """
     script_path = repo_root / "substrate" / "skills" / "check-substrate-updates" / "check.sh"
     if not script_path.is_file():
         return None, f"check-substrate-updates/check.sh not found at {script_path}"
+    bash_bin = shutil.which("bash")
+    if not bash_bin:
+        return None, "bash not found in PATH"
     try:
         result = subprocess.run(
-            ["bash", str(script_path)],
+            [bash_bin, str(script_path)],
             capture_output=True, text=True, timeout=180,
         )
     except FileNotFoundError:
-        return None, "bash not found"
+        return None, f"bash binary not executable at {bash_bin}"
     except subprocess.TimeoutExpired:
         return None, "check-substrate-updates timed out"
     if result.returncode != 0:
