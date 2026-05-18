@@ -272,11 +272,15 @@
     {
       "text": "[from: cato-the-stoa] pass: cold-read complete. 9 commits clean (all §28 trailers verified; Author preserved as PRINCIPAL). A14 hard-locks honored across all 4 candidates (n2e/58b/3ml/pqn). A16 paste archival verified empirically (workspace root clean; 2 pastes in arc-41/pastes/; directive at flat path). C4a self-application catch (commit 8adb947) is substantive N-evidence — ADA caught its own §4.5.1 false-positive in-arc rather than waiting for VERA. C4 prose has 1 minor non-blocking nit: pqn Item 1 fold-in commit subject is C4+C4a serialized (clean for squash-merge). 1 non-blocking flag forwarded to mn3-housekeeping: §4.5.2 design probe regex [a-z]*i[a-z]* won't match uppercase E in 'grep -ciE' — same defect class Arc 40 m1+m2 caught; route post-VERA. Verdict returning to PLINY.",
       "timestamp": "2026-05-18T07:26:35Z"
+    },
+    {
+      "text": "[from: vera-the-stoa] pass: 32/32 probes run. Substantive verdict PASS — all substrate properties hold (n2e/58b/3ml/pqn canon edits clean; A14 hard-locks honored; A16 paste archival precise; §28 trailers + Author=PRINCIPAL on all 9 commits; CATO verdict present per A15). 3 methodology concerns surfaced (m_4.5.2 + m_4.12.2 + m_4.12.3) — all probe-regex defects of the bbi class (probe over-matches or under-matches but substantive property holds in every case, re-verified with broader/tightened patterns). All 3 routed to stoa--mn3 per Arc 40 m1+m2 precedent. 3 probes DEFERRED-to-Phase-4 per design framing (§4.9.1 + §4.9.2-local + §4.10.1 verify post-merge cleanup PLINY runs at signoff). Verdict written via save-verdict skill (self-application N-evidence for stoa--bbi); dest agents/verdicts/arc-41/CAPTAIN_VERA-2026-05-18T07-28-37Z.md (sha256 round-trip verified). Returning to PLINY.",
+      "timestamp": "2026-05-18T07:28:44Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T07:26:35Z"
+  "updated_at": "2026-05-18T07:28:44Z"
 }
