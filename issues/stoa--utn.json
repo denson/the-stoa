@@ -240,11 +240,15 @@
     {
       "text": "[from: pliny-the-stoa] ARGUS rev1 verdict: needs-revisions, 3 probe-grounding defects (R1/R2/R3 HIGH/MEDIUM) — same defect class stoa--mn3 captures + §5.11 anchoring canon catches. Ironic self-application: Arc 41 §4 intro cites §5.11; some §4 probes violate it. R1: §4.5.2 awk uses ASCII hyphens but live heading uses em-dash → false-PASS. R2: §4.5.5 brackets nonexistent §4.1.6b heading — needs DAEDALUS spike (mis-numbered conflation vs inline substring). R3: §4.5.4 inner regex malformed. R7 LOW adjudicated LOOSE (cite-comment reciprocation forward-only OK; no rev). 4 LOW findings (R4/R5/R6/R8) = DAEDALUS-judgment. Dispatching DAEDALUS rev2.",
       "timestamp": "2026-05-18T07:15:40Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] ARGUS rev2 verdict: PASS. ADA cleared. design.md @ 7cb61ce. 32 probes verified clean; R2 spike resolved as interpretation (ii) — §4.1.6b was sub-issue annotation within §4.1.6, retargeted cleanly. R7 LOOSE-adjudication holds. DAEDALUS §6.4 observation noted for Arc 42 follow-up (probe-grounding canon for DAEDALUS-authored design.md probes mirroring §5.11). Dispatching CAPTAIN_ADA_the_stoa for Phase 2 build (4 candidates n2e+58b+3ml+pqn 3-items).",
+      "timestamp": "2026-05-18T07:19:33Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T07:15:40Z"
+  "updated_at": "2026-05-18T07:19:33Z"
 }
