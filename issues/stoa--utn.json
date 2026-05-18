@@ -102,11 +102,15 @@
     {
       "text": "VERA PASS 17/17: P1-P3 install.sh dry-run smoke beats green at all 3 tiers; P4 happy-path verdict write end-to-end (helper+byte_copy deployed, exit 0, sha256 round-trip); P5/P6/P7/P8 semantic exit-code paths (4/4/3/mock-ValueError); P9+P9b A17 frontmatter 7/7 substrate skills; P10/P11/P11a/P12/P13/P14/P15 canon-prose+cross-ref grep all PASS; P16 §28 trailers verified on 6 ADA + 2 DAEDALUS commits. One methodology_concern logged on P15 design regex (bare form vs canonical backtick form — substantive content match unambiguous PASS). Verdict at agents/verdicts/arc-39/CAPTAIN_VERA-2026-05-18T06-26-46Z.md (saved via deployed save-verdict skill — N-evidence for stoa--bbi self-application). Returning.",
       "timestamp": "2026-05-18T06:26:52Z"
+    },
+    {
+      "text": "pass: Arc 39 cleared for Phase 4 ship. craft + scope cold-read clean. Two minor findings (C1 install.sh pycache leak; C2 argparse leading-dash diagnostic specificity) both non-blocking + routed to follow-ups. Verdict at agents/verdicts/arc-39/CAPTAIN_CATO-2026-05-18T06-30-00Z.md (written via deployed save-verdict skill, N-evidence for stoa--bbi self-application). Returning.",
+      "timestamp": "2026-05-18T06:29:38Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T06:26:52Z"
+  "updated_at": "2026-05-18T06:29:38Z"
 }
