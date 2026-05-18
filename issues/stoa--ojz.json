@@ -26,11 +26,15 @@
     {
       "text": "[from: daedalus-the-stoa] Design draft complete at agents/design/stoa--ojz/design.md (1340 lines covering 3 candidates + universal + weak-points + out-of-scope + probes + verdict). Sub-decision picks: A5 — TIRO appended to install.sh CAPTAIN_NAMES at all 3 tiers (uniform); A8 — γ manifest at \u003cws\u003e/.claude/.substrate-manifest (tab-separated triples, header block with tier+deployed_at+substrate_sha); A9 — extend consumer-workspaces.txt comment block only (do NOT ship PRINCIPAL-machine-specific user-tier path as default entry — conservative pick); A11 — α new §31 in operating-disciplines.md after §30; A13 — ii N=2 (Ariadne + Stoa substrate parallel anchors). Plus DAEDALUS picks: TIRO toolset stays Bash/Read/Grep/Glob per A3 (do NOT add WebSearch/WebFetch — surfaced as residual_question_for_argus not PRINCIPAL-gate); TIRO cross-refs land at MAJOR_POLYBIUS §7.3 + MAJOR_PLINY §6.1 + operating-disciplines §12.4 + CAPTAIN_ADA + CAPTAIN_CATO (NOT ARGUS/VERA/ZENO/DAEDALUS — low-bw-read seats); §31 deferred-template per gq1 directive A12 — surfaced as residual_question_for_argus. 5 self-assessed weak points enumerated for ARGUS scrutiny: manifest format-invariant coupling; TIRO chicken/egg no enforcement; §31 N=2 partial self-reference; manifest new-file operator-surprise; TIRO 200-280 LOC may run long. Committing now in worktree with §28 trailer.",
       "timestamp": "2026-05-18T03:06:35Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] PASS — design.md committed at 5fc363a on arc-38/build (Author: denson PRINCIPAL preserved; Co-Authored-By: CAPTAIN_DAEDALUS_the-stoa per §28). 1340 lines covering all 3 candidates with explicit A5/A8/A9/A11/A13 picks + cite-comment plan (20 cite-sites for ADA) + A18 author-frontmatter note + A20 hard-locks re-affirmed + probe spec (8 probes total across 3 candidates) + 5 self-assessed weak points enumerated for ARGUS scrutiny. Two residual_questions_for_argus: (1) TIRO toolset WebSearch/WebFetch — DAEDALUS recommends NO per A3 default (rationale: STRABO covers external-research; bw is local subsystem; toolset-creep risk); (2) gq1 template deferred per §3.5 (rationale: first real consumer is future-arc shipping a new substrate-component; speculative template ahead of consumer is §27 make-script-comprehensive anti-pattern). Self-application observed per A14: chicken/egg for C1 surfaced as NEGATIVE empirical-anchor reinforcement (3-ticket targeted read with cookbook at hand surfaced zero friction; failure-mode anchor was a LARGE completeness audit where truncation matters; documented inline at design §1.7). Returning verdict to PLINY now.",
+      "timestamp": "2026-05-18T03:06:54Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:06:35Z"
+  "updated_at": "2026-05-18T03:06:54Z"
 }
