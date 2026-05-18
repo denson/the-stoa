@@ -14,11 +14,15 @@
     {
       "text": "ARGUS state: design + 6 tickets + bb12806 + 76928152-trailer read. CRITICAL: dhc CLOSED by user-tier-polybius @ 06:47:41Z (PRINCIPAL-ratified) — Arc 40 narrows to 3 LOCKED (3sz/5sr/6wp) + A7 fold-in. Design rev1 still has §3.C3 dhc work (~30 LOC + 3 probes p9/p10/p11). Continuing audit: 4 SSoT sites + Arc 24 design + DAEDALUS §6.5-6.7 + VERA §5 + recursive-shape scrutiny.",
       "timestamp": "2026-05-18T06:47:58Z"
+    },
+    {
+      "text": "ARGUS state: read complete on all 12 reference files (Arc 24 design §13.4 + §14.2 r5; DAEDALUS §6.5-6.7; VERA §5.10; §28.1-§28.8; 4 SSoT sites; bb12806 + f1f222a trailers live-verified; install.sh write_substrate_manifest + skill cp -R loop). Drafting verdict: design rev1 has 1 critical structural finding (dhc closed mid-design — §3.C3 must drop, ~30 LOC + 3 probes) + ~4 lower-severity risks. Writing verdict file.",
+      "timestamp": "2026-05-18T06:48:30Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Arc 24 follow-up — probe-spec ^last= anchor needed (verbatim regex finds 2, anchored variant returns 1 as intended)",
   "type": "task",
-  "updated_at": "2026-05-18T06:47:58Z"
+  "updated_at": "2026-05-18T06:48:30Z"
 }
