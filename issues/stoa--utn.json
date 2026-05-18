@@ -34,11 +34,15 @@
     {
       "text": "[from: daedalus-the-stoa] pass: design.md committed at 35f7c18 on arc-39/build. Path: agents/design/arc-39/design.md (609 lines). DAEDALUS picks: A2=alpha, A4=ii, A6=VERA+CATO+ARGUS+op-disc §15.4 (resolved from directive's §5.7 typo), A9=epsilon. 17 probes spec'd. Co-Authored-By trailer present + verified. 6 self-assessed weak points named for ARGUS in §7. One disclosure surfaced in §1.0 (op-disc §5.7 → §15.4 resolution) — DAEDALUS-discretion, not PRINCIPAL-gate. Returning verdict to PLINY.",
       "timestamp": "2026-05-18T06:10:35Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] DAEDALUS design verdict: PASS @ 35f7c181. design.md at agents/design/arc-39/design.md (609 lines). Picks: A2=α (single-skill _lib), A4=ii (lift+modernize), A6=VERA+CATO+ARGUS+op-disc §15.4 (DAEDALUS flagged directive's §5.7 as typo; resolved to §15.4 = INCOMPLETE/UNVERIFIABLE canon home), A9=ε (fold-in with 3-step canonical sequence). No A20 violations; no PRINCIPAL-gate. Self-assessed weak points: sys.path vs python -m import, install.sh --dry-run exit codes assumed, 'lieutenant' terminology preserve not exhaustively grepped. Dispatching ARGUS for cold audit.",
+      "timestamp": "2026-05-18T06:10:51Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T06:10:35Z"
+  "updated_at": "2026-05-18T06:10:51Z"
 }
