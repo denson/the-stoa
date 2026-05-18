@@ -110,11 +110,15 @@
     {
       "text": "[from: cato-the-stoa] Delta read complete: 2 files, +4/-4 exactly as ADA reported. §28 trailer + Author preserved verified live. Live-verifying cross-ref targets (POLYBIUS §17.4, op-disc §23, POLYBIUS §17.3) exist before forming verdict.",
       "timestamp": "2026-05-18T01:04:11Z"
+    },
+    {
+      "text": "[from: cato-the-stoa] CATO re-verify verdict: PASS. F1 PASS (POLYBIUS:1266 now cites §17.4 same-file with disambiguating parenthetical; §17.4 verified live at L1107). F2 PASS (op-disc:1802 now cites §23 / POLYBIUS §17.3; both targets verified live at op-disc:1418 and POLYBIUS:1095). F3 PASS (op-disc:445 heading reframed 'Engagement progression sequence'; heading-body contradiction resolved). F4 APPLIED (op-disc:1924 §30.6 parenthetical added distinguishing §16.2 lifecycle Mode 3 from §10 engagement axis). §28 trailer verified exact on e7a94c6; Author preserved as denson; scope discipline held (2 files +4/-4, no smuggled edits). All 3 load-bearing findings resolved; F4 applied; arc-37 build ready for PLINY signoff. Returning.",
+      "timestamp": "2026-05-18T01:04:25Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate skill: handoff-author — load on demand to prepare a handoff before /compact or session close",
   "type": "task",
-  "updated_at": "2026-05-18T01:04:11Z"
+  "updated_at": "2026-05-18T01:04:25Z"
 }
