@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-18T03:37:35Z",
+  "close_reason": "shipped in Arc 38 (PR #18 → main 0b5f7f3). Substrate-component design principles landed as operating-disciplines.md §31 with N=2 honest scope (Ariadne + Stoa substrate). gq1 template deferred per design §3.5 to first future-arc shipping a new substrate-component.",
   "created": "2026-05-13T21:25:29Z",
   "description": "## Empirical anchor\n\n2026-05-13 surfaced by project-tier PLINY-ariadne via HUMAN_relay_user_polybius_ariadne_distribution_and_mcp_2026-05-13.md (Findings 2 + 3). The Ariadne distribution-shaping work surfaced two generalizable substrate-architecture principles that apply to any future Stoa-team component intended for agent-installation.\n\n## Principle 1 — Agent-installable distribution model\n\nThe user-experience flow for any agent-installable substrate component:\n\n1. User encounters component (URL, word-of-mouth)\n2. User pastes URL to their AI\n3. User asks \"do I need this?\"\n4. AI fetches README + AGENTS.md + skills/ materials\n5. AI evaluates against user's domain\n6. AI returns yes / no / try-the-demo recommendation\n7. If yes + consent → AI installs + runs demo\n\n**The AI is the primary reader at the repo. The human is the decision-authority who acts on the AI's recommendation.**\n\nArchitectural implications:\n- README stays human-readable but adds top-of-page pointer routing agents to AGENTS.md\n- AGENTS.md is the canonical agent-facing decision-support landing (fit criteria, install cost, skill inventory, recommendation templates, hard rules)\n- An invitation-style skill handles the \"do I need this?\" diagnostic conversation\n- A walkthrough skill handles post-install hands-on demo\n\n## Principle 2 — Composability over enumeration\n\nThe claim \"this substrate supports many projects\" is composability, not breadth-of-demos. The substrate already supports many projects when designed correctly; concrete demos are exemplars, not the breadth proof.\n\nExample: Ariadne supports the factory-manager demo, but also healthcare / SRE / legal / journalism / audit / cyber by the same substrate wired differently. **One install, many shapes.** Demo-multiplication is not the path to demonstrating breadth; surfacing the composability is.\n\nArchitectural implication: when authoring substrate-component marketing/onboarding materials, frame breadth as composability (one substrate, many wirings) not as demo inventory (here are five demos).\n\n## Substrate touch-points\n\n- `substrate/operating-disciplines.md` — new section on agent-installable substrate-component design (covers both principles)\n- `substrate/templates/agent-installable-component-template.md` (new template) — scaffold for future substrate components\n\n## Gauntlet\n\nDAEDALUS-light + ADA + CATO. ~60-100 LOC of substrate prose.\n\n## Sequencing\n\nP3. Substrate-canon refinement. Generalizable from Ariadne's specific work but applies to any future agent-installable component. Arc 25+.\n\n## Cross-references\n\n- stoa--vmc — bw-fit matrix (Arc 23, closed) — sibling substrate-canon principle (which substrate for which use-case)\n- This ticket's empirical source — `HUMAN_relay_user_polybius_ariadne_distribution_and_mcp_2026-05-13.md` (ariadne workspace, Findings 2 + 3)\n- Project-tier memory `project_ariadne_distribution_model.md` — captures the principle at project tier",
   "id": "stoa--gq1",
@@ -13,8 +15,8 @@
     }
   ],
   "priority": 3,
-  "status": "open",
+  "status": "closed",
   "title": "Substrate-component design principles: agent-installable distribution + composability framing",
   "type": "task",
-  "updated_at": "2026-05-18T03:37:34Z"
+  "updated_at": "2026-05-18T03:37:35Z"
 }
