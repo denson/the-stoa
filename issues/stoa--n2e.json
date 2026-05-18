@@ -22,11 +22,15 @@
     {
       "text": "ADA ground-check pass complete: §31 section-count confirmed; bug #40228 at op-disc:645 (design's :322 is stale-but-non-misleading per §3.C4.2 grep-locate instruction); 5 arc-36 probe sites located (lines 183/300/232/557/573-605); §13.1 escalation triggers at MAJOR_POLYBIUS:826-833; §5.2/§5.3 boundary at MAJOR_PLINY:116/138. Starting C1 commit.",
       "timestamp": "2026-05-18T07:20:45Z"
+    },
+    {
+      "text": "ADA C1/C2/C3 commits landed (f8a1646/12febae/147490c). All carry §28 trailer. Starting C4 (pqn Item 1: 5 arc-36/design.md probe refinements).",
+      "timestamp": "2026-05-18T07:21:33Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Substrate cross-ref: MAJOR_POLYBIUS.md escalation triggers → operating-disciplines.md §20.3 (refusal-as-signal)",
   "type": "task",
-  "updated_at": "2026-05-18T07:20:45Z"
+  "updated_at": "2026-05-18T07:21:33Z"
 }
