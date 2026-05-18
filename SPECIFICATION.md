@@ -448,30 +448,42 @@ The substrate IS the deliverable. Every install.sh run at a downstream project s
 
 Nothing currently dispatched. Pass 3 (Arc 37) ready to dispatch when PRINCIPAL ratifies activation.
 
-### §12.3 What's open
+### §12.3 What's open (live-verified 2026-05-17 via `bw list --all`)
 
-**Arc 37 candidates (Pass 3 — substrate architecture canonification batch, 6 candidates):**
-- **stoa--86k** — two-team forge/shop behavioral canon (C1)
-- **stoa--kt6** — multi-team interoperation unified canon (C2)
-- **stoa--wad** — four-layer identity model + memories-as-alignment (C3)
-- **stoa--ntn** — operating-mode progression canon (C4)
-- **stoa--53u** — idle-state retrospective-narrative confabulation discipline (C5)
-- **stoa--7e3** — handoff-author skill (C6; draft at `_drafts/skill_handoff_author.md`)
+**Arc 38 candidates (Pass 4 — substrate architecture batch, 3 candidates):**
+- **stoa--ojz** (P2) — CAPTAIN_TIRO new role file (per §4.6); bw specialist seat with read-direct + write-advisory split
+- **stoa--bj5** (P2) — user-tier substrate drift detection; per-file-marker scheme for substitution-tracking
+- **stoa--gq1** (P3) — substrate-component design principles for agent-installable distribution + composability framing (substantial substrate architecture canon)
 
-**Arc 38 candidate (Pass 4 — substantive design work):**
-- **stoa--bj5** (P2) — user-tier substrate drift detection. Currently `check-substrate-updates` is project-tier only; `~/.claude/` has ZERO drift detection. Needs per-file-marker scheme for substitution-tracking.
-
-**Arc 39 candidates (Pass 5 — small bundled follow-ups):**
+**Arc 39 candidates (Pass 5 — substantial mid-bundle, 2 candidates):**
 - **stoa--utn** (P3) — promote `save-verdict` skill to substrate with Python helpers (`_save_verdict.py` + `_lib/byte_copy.py`); install.sh wiring
-- **stoa--3sz** (P3) — probe-spec regex anchor canon fix (Arc 24 follow-up)
-- **stoa--5sr** (P3) — Edit-tool worktree-path discipline for DAEDALUS (Arc 24 follow-up)
-- **stoa--pqn** (P4) — Arc 36 v2 follow-ups (VERA probe-regex tightening + bug #40228 surveillance + organic adoption observation)
+- **stoa--ezj** (P3) — substantive discipline canon: PRINCIPAL-intent probe (verify-then-execute applied to deliverable-shape + audience); 3 concrete sub-shapes documented in ticket body
 
-**Recently closed (Pass 1 + Pass 2, 2026-05-17):**
-- **stoa--vz9** (Pass 1) — closed; audit-complete from 2026-05-04 ship; missed bw close action pulled.
-- **stoa--cye** (Pass 1) — closed; Phase 1D landed.
-- **stoa--k03** (Pass 1) — closed; Items 1+2 landed at `bd3e03a`.
-- **stoa--e39 + stoa--cgn + stoa--jru** (Pass 2) — all closed on Arc 36 v2 ship `fcd68c0`.
+**Arc 40 candidates (Pass 6 — small bundled hygiene, 9 candidates):**
+- **stoa--3sz** (P3) — probe-spec ^last= regex anchor canon (Arc 24 follow-up)
+- **stoa--5sr** (P3) — DAEDALUS Edit-tool worktree-path discipline (Arc 24 follow-up)
+- **stoa--dhc** (P3) — python-vs-jq rationale single-source-of-truth lift (Arc 24 follow-up; consolidate 3 near-identical drift-risk locations)
+- **stoa--n2e** (P3) — cross-ref add: MAJOR_POLYBIUS escalation triggers → operating-disciplines.md §20.3 (refusal-as-signal)
+- **stoa--58b** (P3) — cross-ref add: MAJOR_PLINY dispatch section → operating-disciplines.md §20
+- **stoa--6wp** (P3) — [BUG] squash-merge `--body` override drops Co-Authored-By trailers (Arc 37 regression; 1-line MAJOR_PLINY.md §5.10 + optional op-disc §28.3.1 pitfall subsection)
+- **stoa--3ml** (P4) — trivial: op-disc Thesis line 13 stale §1-§17 → §1-§20+
+- **stoa--ezp** (P4) — authorship-frontmatter audit: add `author: Denson Smith` to 2 pre-existing SKILL.md files (agent-author + check-substrate-updates)
+- **stoa--pqn** (P4) — Arc 36 v2 follow-ups (VERA probe-regex tightening edits to arc-36 design.md; bug #40228 watch note; organic adoption observation captured for future scope-expansion consideration)
+
+**Pass 7 spec-reconciliation user-tier housekeeping (1 candidate; no arc):**
+- **stoa--6k1** (P4) — Probe P10 spec refinement in `agents/design/arc-25/design.md` only; design-doc edit not substrate-canon edit; handled inline during Pass 7 spec-recon
+
+**Deferred-with-gating future-work (2 candidates; per §13.8 below):**
+- **stoa--tvc** (P3) — bw-fit matrix extension for descendant→ancestor block-edge projection-layer representation. **Gating:** ≥2 ariadne arcs surface the descendant→ancestor empirical need (currently N=1 from factory-demo Phase 6).
+- **stoa--myd** (P4 ACCRETION) — multi-checker convergence framing for §6 gauntlet value. **Gating:** N≥3 four-way convergent findings across future arcs per §6.7.1 canon-promotion gate (currently N=1 from Arc 25).
+
+**Recently closed (today, 2026-05-17):**
+- **stoa--vz9** (Pass 1) — audit-complete from 2026-05-04 ship; missed bw close action pulled.
+- **stoa--cye** (Pass 1) — Phase 1D landed.
+- **stoa--k03** (Pass 1) — Items 1+2 landed at `bd3e03a`.
+- **stoa--e39 + stoa--cgn + stoa--jru** (Pass 2 / Arc 36 v2) — closed on `fcd68c0`.
+- **stoa--86k + stoa--kt6 + stoa--wad + stoa--ntn + stoa--53u + stoa--7e3** (Pass 3 / Arc 37) — closed on `bb12806`.
+- **stoa--i6c** (today, ticket-accounting pass) — informational reference; substrate canon does not track infrastructure paths.
 
 ### §12.4 Working-tree state (post-Pass-2)
 
@@ -489,9 +501,10 @@ Working tree is clean modulo `.claude/.substrate-last-check` (auto-modified by s
 - **Four-layer identity model** (stoa--wad) — no canon for role / memories / handoff / bw substrate as the layers of agent identity.
 - **Operating-mode progression canon** (stoa--ntn) — modes individually canonized; progression sequence + transition triggers + regression pattern not.
 
-**Arc 38 candidates (substantive substrate-architecture design, bundled):**
-- **CAPTAIN_TIRO — bw substrate specialist seat** (per §4.6) — new role file at `substrate/CAPTAIN_TIRO.md`; install.sh AGENT/CAPTAIN deploy wiring; cross-refs from MAJOR_POLYBIUS.md + MAJOR_PLINY.md + operating-disciplines.md §12 bw cookbook. PRINCIPAL-decided 2026-05-17 after user-tier POLYBIUS demonstrated the audit-completeness failure mode (§4.6 empirical anchor).
-- **User-tier substrate drift detection** (stoa--bj5) — `check-substrate-updates` skill is currently project-tier only. PRINCIPAL found 71-line drift on `~/.claude/MAJOR_POLYBIUS.md` on 2026-05-14 with nothing flagging it. Needs per-file-marker scheme for substitution-tracking.
+**Arc 38 candidates (substantive substrate-architecture design, 3 candidates bundled):**
+- **stoa--ojz — CAPTAIN_TIRO bw substrate specialist seat** (per §4.6) — new role file at `substrate/CAPTAIN_TIRO.md`; install.sh AGENT/CAPTAIN deploy wiring; cross-refs from MAJOR_POLYBIUS.md + MAJOR_PLINY.md + operating-disciplines.md §12 bw cookbook. PRINCIPAL-decided 2026-05-17 after user-tier POLYBIUS demonstrated the audit-completeness failure mode (§4.6 empirical anchor).
+- **stoa--bj5 — User-tier substrate drift detection** — `check-substrate-updates` skill is currently project-tier only. PRINCIPAL found 71-line drift on `~/.claude/MAJOR_POLYBIUS.md` on 2026-05-14 with nothing flagging it. Needs per-file-marker scheme for substitution-tracking.
+- **stoa--gq1 — Substrate-component design principles** — agent-installable distribution model + composability framing. Generalizes Ariadne distribution-shaping lessons (HUMAN_relay_user_polybius_ariadne_distribution_and_mcp_2026-05-13 Findings 2+3) to substrate-canon for any future Stoa-team component intended for agent-installation.
 
 **Arc 39 candidates (small substrate-fixes):**
 - **save-verdict skill promotion** (stoa--utn) — Arc 23 ratified at user-tier; substrate version ships vapor-Python. Needs `_save_verdict.py` + `_lib/byte_copy.py` + install.sh wiring.
@@ -531,7 +544,7 @@ The team works through Passes 1-7 below to drive the substrate to its "spec met"
 - 5 DAEDALUS rev cycles; design grew 1033 → 2152 lines; complexity largely irreducible per A7/A10 LOCKED matrix (Option 3 in absence of CronUpdate primitive).
 - One follow-up filed as stoa--pqn (P4): VERA probe-regex tightening + bug #40228 surveillance + organic adoption observation.
 
-### §13.4 Pass 3 — Arc 37 (substrate architecture canonification batch, 6 candidates)
+### §13.4 Pass 3 — Arc 37 (substrate architecture canonification batch, 6 candidates) — DONE 2026-05-17
 
 - C1: stoa--86k two-team forge/shop division of concerns (MAJOR_POLYBIUS.md behavioral section)
 - C2: stoa--kt6 multi-team interoperation unified canon (operating-disciplines.md new section)
@@ -540,35 +553,56 @@ The team works through Passes 1-7 below to drive the substrate to its "spec met"
 - C5: stoa--53u idle-state retrospective-narrative confabulation (op-disc §19.7 sister to §19.6)
 - C6: stoa--7e3 handoff-author skill (new `substrate/skills/handoff-author/` from draft at `_drafts/skill_handoff_author.md`; install.sh wiring; role-file cross-refs; consider extending with generation-handoff session-id record per §12.5 future-work)
 
-### §13.5 Pass 4 — Arc 38 (substrate architecture: TIRO + user-tier drift detection, 2 candidates)
+### §13.5 Pass 4 — Arc 38 (substrate architecture batch, 3 candidates)
 
-- **C1: CAPTAIN_TIRO — bw substrate specialist seat** (per §4.6) — new role file at `substrate/CAPTAIN_TIRO.md`; install.sh AGENT/CAPTAIN deploy wiring; cross-refs from MAJOR_POLYBIUS.md + MAJOR_PLINY.md + operating-disciplines.md §12 bw cookbook. TIRO is read-direct (delegated queries) + write-advisory (suggests syntax, never executes writes for another seat). Toolset: Bash, Read, Grep, Glob (no Write/Edit — TIRO doesn't author writes).
-- **C2: stoa--bj5 — user-tier substrate drift detection** — bring user-tier substrate into `check-substrate-updates` drift-check scope. Currently project-tier only; `~/.claude/` has ZERO drift detection. Empirical anchor: 2026-05-14 71-line drift on `~/.claude/MAJOR_POLYBIUS.md` with nothing flagging it. Design work: per-file-marker scheme (or equivalent) for substitution-tracking so check.sh / apply.sh can diff user-tier deployed files against canon source despite install.sh substitutions. Add user-tier to consumer-workspaces.txt (or equivalent user-tier registry).
+- **C1: stoa--ojz — CAPTAIN_TIRO bw substrate specialist seat** (per §4.6) — new role file at `substrate/CAPTAIN_TIRO.md`; install.sh AGENT/CAPTAIN deploy wiring; cross-refs from MAJOR_POLYBIUS.md + MAJOR_PLINY.md + operating-disciplines.md §12 bw cookbook. Read-direct (delegated queries) + write-advisory (suggests syntax, never executes writes for another seat). Toolset: Bash, Read, Grep, Glob.
+- **C2: stoa--bj5 — user-tier substrate drift detection** — bring user-tier substrate into `check-substrate-updates` drift-check scope. Per-file-marker scheme (or equivalent) for substitution-tracking. Add user-tier to consumer-workspaces.txt (or equivalent user-tier registry).
+- **C3: stoa--gq1 — substrate-component design principles** — agent-installable distribution model + composability framing. Substantive substrate architecture canon. operating-disciplines.md new section likely.
 
-Two substantive candidates bundled per Arc 32 / Arc 34 / Arc 36 v2 / Arc 37 precedent (bundling thematically-coherent substrate-canon work in one gauntlet).
+Three substantive candidates bundled per Arc 32 / Arc 37 precedent.
 
-### §13.6 Pass 5 — Arc 39 (small bundled substrate-fixes, 4 candidates)
+### §13.6 Pass 5 — Arc 39 (substantial mid-bundle, 2 candidates)
 
-- C1: stoa--utn promote `save-verdict` skill to substrate with Python helpers (`_save_verdict.py` + `_lib/byte_copy.py`; install.sh wiring; per Arc 23 deferral)
-- C2: stoa--3sz probe-spec regex anchor canon (Arc 24 follow-up; probe-authoring discipline note in operating-disciplines.md or CAPTAIN_VERA.md)
-- C3: stoa--5sr DAEDALUS Edit-tool worktree-path discipline (Arc 24 follow-up; CAPTAIN_DAEDALUS.md note once specific failure mode articulated from arc-24 design.md)
-- C4: stoa--pqn Arc 36 v2 follow-ups (VERA probe-regex tightening edits to arc-36 design.md; bug #40228 watch note; organic adoption observation captured for future scope-expansion consideration)
+- **C1: stoa--utn — save-verdict skill promotion** — author `_save_verdict.py` + `_lib/byte_copy.py` per the user-tier SKILL.md procedure that Arc 23 ratified; install.sh SKILL_NAMES addition; deploy at substrate/skills/save-verdict/. ~150-300 LOC of Python authoring.
+- **C2: stoa--ezj — PRINCIPAL-intent probe discipline canon** — extends MAJOR_PLINY.md §7.2 verify-then-execute to PRINCIPAL-intent dependencies (when a downstream work item's shape depends on an upstream decision PRINCIPAL hasn't articulated yet, the work item is not yet specifiable). 3 concrete sub-shapes documented in ticket body. Substantive substrate discipline canon.
 
-After Pass 5 ships: **zero open substrate-canon tickets at the-stoa.**
+### §13.7 Pass 6 — Arc 40 (small bundled hygiene, 9 candidates)
 
-### §13.7 Pass 6 — Spec accuracy reconciliation (no arc; user-tier housekeeping)
+All candidates are small (1-50 LOC each) substrate canon fixes or cross-ref additions. Bundle size (9) is larger than prior bundles (Arc 32: 5; Arc 34: 4; Arc 37: 6) but per-candidate complexity is uniformly low:
 
-The spec was written 2026-05-17 against the substrate state at that moment. Passes 1-5 shipped new canon. Walk the spec end-to-end against the post-Pass-5 substrate:
+- **C1: stoa--3sz** — probe-spec `^last=` anchor canon (Arc 24 follow-up; probe-authoring discipline note in operating-disciplines.md or CAPTAIN_VERA.md)
+- **C2: stoa--5sr** — DAEDALUS Edit-tool worktree-path discipline (Arc 24 follow-up; CAPTAIN_DAEDALUS.md note)
+- **C3: stoa--dhc** — python-vs-jq rationale single-source-of-truth lift (Arc 24 follow-up; consolidate 3 near-identical drift-risk locations across MAJOR_PLINY.md §5.8 + operating-disciplines.md + agent-author skill)
+- **C4: stoa--n2e** — cross-ref add: MAJOR_POLYBIUS escalation triggers → operating-disciplines.md §20.3 (refusal-as-signal)
+- **C5: stoa--58b** — cross-ref add: MAJOR_PLINY dispatch section → operating-disciplines.md §20
+- **C6: stoa--6wp** [BUG] — squash-merge `--body` override drops Co-Authored-By trailers (Arc 37 regression); MAJOR_PLINY.md §5.10 ship-checklist 1-line addition + optional op-disc §28.3.1 trailer-preservation pitfall subsection
+- **C7: stoa--3ml** — trivial 1-sentence edit: op-disc Thesis line 13 references `§1-§17` → update to current section range
+- **C8: stoa--ezp** — authorship-frontmatter audit + 2-file edit: add `author: Denson Smith` to `substrate/skills/agent-author/SKILL.md` + `substrate/skills/check-substrate-updates/SKILL.md` (both pre-existing per Arc 25 stoa--uly convention)
+- **C9: stoa--pqn** — Arc 36 v2 follow-ups (VERA probe-regex tightening edits to arc-36 design.md; bug #40228 watch note; organic adoption observation captured for future scope-expansion consideration)
+
+After Pass 6 (Arc 40) ships: **zero open substrate-canon tickets at the-stoa except deferred-with-gating per §13.8.**
+
+### §13.8 Deferred-with-gating future-work (2 candidates; satisfies §13.12 criterion 1)
+
+The following tickets stay open without an arc-ship plan; each has explicit gating criteria that trigger arc-ship when the gate fires. Per §13.12 spec-met criterion 1 ("every spec section either describes shipped canon or is explicitly marked future work with filed ticket + gating criteria"), filed-ticket-with-gating-criteria satisfies the spec-met requirement.
+
+- **stoa--tvc** (P3) — bw-fit matrix extension for descendant→ancestor block-edge projection-layer representation (operating-disciplines.md §16 extension). **Gating:** ≥2 ariadne arcs surface the descendant→ancestor empirical need (currently N=1 from factory-demo Phase 6). When the gate fires, file a focused arc directive against operating-disciplines.md §16 extension.
+- **stoa--myd** (P4 ACCRETION) — multi-checker convergence framing for operating-disciplines.md §6 gauntlet value. **Gating:** N≥3 four-way convergent findings across future arcs per §6.7.1 canon-promotion gate (currently N=1 from Arc 25). When the gate fires, promote to substrate canon as §6 framing extension.
+
+### §13.9 Pass 7 — Spec accuracy reconciliation (no arc; user-tier housekeeping)
+
+The spec was written 2026-05-17 against the substrate state at that moment. Passes 1-6 shipped new canon. Walk the spec end-to-end against the post-Pass-6 substrate:
 
 - Every §-reference resolves to its current location (line numbers may have shifted).
 - Every cited ticket id has the correct status (closed vs open).
-- §12 (current state snapshot) updates to reflect post-Pass-5 reality — what's shipped, what's open, what's in flight, what's in the working tree.
-- §12.5 (what's NOT yet built that the spec implies) shrinks as Passes 2-5 close gaps; any remaining items have filed tickets + gating criteria.
+- §12 (current state snapshot) updates to reflect post-Pass-6 reality — what's shipped, what's open, what's in flight, what's in the working tree.
+- §12.5 (what's NOT yet built that the spec implies) shrinks as Passes 2-6 close gaps; any remaining items have filed tickets + gating criteria.
 - Any spec section that turned out to be aspirational rather than describing shipped canon either (a) gets revised to match shipped reality, or (b) gets the new ticket filed + cross-referenced as future work.
+- **stoa--6k1 handled inline** — Probe P10 spec refinement in `agents/design/arc-25/design.md` only (design-doc edit not substrate-canon edit); user-tier POLYBIUS edits during Pass 7 reconciliation; close on commit.
 
 Commit the spec reconciliation as a direct-to-main per §18.1.
 
-### §13.8 Pass 7 — Mechanical-check pass (substrate state matches spec)
+### §13.10 Pass 8 — Mechanical-check pass (substrate state matches spec)
 
 Author + run a `validate-spec` skill following the §27 mechanical-script / agent-inspection split pattern:
 
@@ -587,9 +621,9 @@ Author + run a `validate-spec` skill following the §27 mechanical-script / agen
 
 Pass 7 produces an artifact at `agents/observation/spec-validation/mechanical-check-results.md` capturing each check's pass/fail status + evidence trail.
 
-### §13.9 Pass 8 — Behavioral validation via test-project dispatch
+### §13.11 Pass 9 — Behavioral validation via test-project dispatch
 
-The substrate is now at "spec met" mechanically (§13.2-§13.8 done). The team validates BEHAVIORALLY by dispatching itself against an unrelated test project:
+The substrate is now at "spec met" mechanically (§13.2-§13.10 done). The team validates BEHAVIORALLY by dispatching itself against an unrelated test project:
 
 **Test project:** `stellation` (or whichever name PRINCIPAL ratifies) — a React app that displays beadwork tickets in a visually interesting animated way. Specification lives at `docs/validation/stellation-SPECIFICATION.md` (authored at this same time as a paired artifact to this spec).
 
@@ -599,7 +633,7 @@ The substrate is now at "spec met" mechanically (§13.2-§13.8 done). The team v
 - Coordinate via the radio-check + bw-tag conventions (§6 / §7.1 / §7.4 / Arc 36 author tags)
 - Self-apply disciplines (§28 trailers; §5.10 signoff; §5.11 paste archival; §19.6 attestation honesty)
 - Reject anti-patterns (§11) when they arise organically in the work
-- Hand off to PRINCIPAL at the right moments per §13.10 escalation triggers
+- Hand off to PRINCIPAL at the right moments per §13.14 escalation triggers
 
 — is the validation. If the substrate works, the test team ships the test project clean. If the substrate is broken, the test team's friction points surface the breaks.
 
@@ -617,50 +651,51 @@ The substrate is now at "spec met" mechanically (§13.2-§13.8 done). The team v
 - Test-team escalations — when ambiguity surfaces, does the team surface per §25 PRINCIPAL-gate semantics rather than improvise?
 - PRINCIPAL's experience — does the team feel like the team described in this spec, or does it feel like something else?
 
-Pass 6 produces an artifact at `agents/observation/spec-validation/test-dispatch-trail.md` capturing the observation evidence + the substrate-side learnings (any place the test team hit friction that surfaces a spec/canon gap).
+Pass 9 produces an artifact at `agents/observation/spec-validation/test-dispatch-trail.md` capturing the observation evidence + the substrate-side learnings (any place the test team hit friction that surfaces a spec/canon gap).
 
-If Pass 6 surfaces real substrate gaps, the gaps return to Pass 3 (file ticket + ship as Arc 38+) and Pass 5/6 re-run after.
+If Pass 9 surfaces real substrate gaps, the gaps return to Pass 4-6 (file ticket + ship as Arc 41+) and Pass 8/9 re-run after.
 
-### §13.8 What "meeting the spec" looks like — final definition
+### §13.12 What "meeting the spec" looks like — final definition
 
 The team has met the spec when ALL of:
 
-1. **Substrate-state matches spec** — every claim in this document either describes shipped canon (§13.5 reconciliation done) or is explicitly marked future work with filed ticket + gating criteria.
+1. **Substrate-state matches spec** — every claim in this document either describes shipped canon (§13.9 reconciliation done) or is explicitly marked future work with filed ticket + gating criteria (per §13.8 deferred-with-gating).
 2. **No deferred-without-plan tickets** — no open P2 at the-stoa is in "awaiting-architectural-decision" or "deferred-without-plan" state.
 3. **Working tree clean** — `_drafts/` contains only docs for an in-flight arc; `git status` matches §12.4 catalogue; no accumulated cleanup debt.
-4. **No substrate drift** — `check-substrate-updates` shows source-canon-and-deployed-instances byte-equal across consumer workspaces.
-5. **Mechanical-check passes** — Pass 7 produces all-green at `agents/observation/spec-validation/mechanical-check-results.md`.
-6. **Behavioral validation passes** — Pass 8 test-project dispatch produces a working `stellation` build that meets its own spec, the test team's observation trail shows substrate disciplines were applied, and PRINCIPAL signs off on the test-dispatch experience as "substrate-as-described."
+4. **No substrate drift** — `check-substrate-updates` shows source-canon-and-deployed-instances byte-equal across consumer workspaces (including user-tier post-bj5 ship per Arc 38 C2).
+5. **Mechanical-check passes** — Pass 8 produces all-green at `agents/observation/spec-validation/mechanical-check-results.md`.
+6. **Behavioral validation passes** — Pass 9 test-project dispatch produces a working `stellation` build that meets its own spec, the test team's observation trail shows substrate disciplines were applied, and PRINCIPAL signs off on the test-dispatch experience as "substrate-as-described."
 
-### §13.10 What's explicitly out of scope for "make-the-team-meet-the-spec"
+### §13.13 What's explicitly out of scope for "make-the-team-meet-the-spec"
 
 The fresh team should NOT, while closing the spec gaps:
 
 - Build product features for any non-validation consumer workspace (ariadne, sector-4, railway) — those are post-spec work motions.
 - Extend conventions to non-POLYBIUS / non-CAPTAIN seats without explicit scope expansion via fresh ticket + PRINCIPAL ratification.
 - Build mechanical enforcement infrastructure (pre-commit hooks, validators, etc.) beyond what existing canon authorizes — the script/agent split (§27) is the model; mechanical infra ships only on documented recurrence.
-- Touch the substrate-deploy mechanism (install.sh / apply.sh / revert.sh) beyond what the Pass 3-5 candidates + Pass 8 validation require.
+- Touch the substrate-deploy mechanism (install.sh / apply.sh / revert.sh) beyond what the Pass 4-6 candidates + Pass 9 validation require.
 - Build the meta-agent for cross-generation lineage analysis (§10.1.3 / §12.5) — out of scope for spec-meeting; framing is described; implementation is post-spec.
+- Ship the deferred-with-gating items (stoa--tvc + stoa--myd per §13.8) — they have explicit gating criteria; spec-met is achieved with them open-with-plan.
 
-### §13.11 Mode + dispatch
+### §13.14 Mode + dispatch
 
-The team operates Passes 1-8 in **semi-autonomous mode** per §7. PRINCIPAL is exception-handler:
+The team operates Passes 1-9 in **semi-autonomous mode** per §7. PRINCIPAL is exception-handler:
 
 - DAEDALUS sub-decisions that hit PRINCIPAL-gate criteria → BLOCK + surface immediately per §25.
 - Substance disagreement after one round-trip with peer → surface.
 - Authorship / copyright / PRINCIPAL-final-say content → surface.
 - End-of-arc clean-PASS for ship/no-ship → surface (Mode 1 ratification at decision points).
-- Pass 8 test-dispatch substrate-friction surfaces → surface as soon as observed.
+- Pass 9 test-dispatch substrate-friction surfaces → surface as soon as observed.
 
 User-tier POLYBIUS QA passes happen at end of EACH arc per PRINCIPAL's pattern.
 
-### §13.12 Definition of done
+### §13.15 Definition of done
 
 The fresh team's job ends when:
 
-- Pass 7 (mechanical-check) shows all-green.
-- Pass 8 (test-project behavioral validation) shows the test team shipped the test project to its spec; observation trail captures the substrate-disciplines-applied evidence.
-- A user-tier POLYBIUS QA pass on Pass 8 signs off "substrate-as-described; spec met behaviorally."
+- Pass 8 (mechanical-check) shows all-green.
+- Pass 9 (test-project behavioral validation) shows the test team shipped the test project to its spec; observation trail captures the substrate-disciplines-applied evidence.
+- A user-tier POLYBIUS QA pass on Pass 9 signs off "substrate-as-described; spec met behaviorally."
 - PRINCIPAL is handed a one-line summary: "spec met (mechanical + behavioral); ready for product work; next: <PRINCIPAL ratifies next motion>."
 
 After spec met, the team transitions to **product mode** — shipping work in consumer workspaces (ariadne, sector-4, etc.) using the spec'd + validated team capabilities.
