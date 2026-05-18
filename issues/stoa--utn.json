@@ -144,11 +144,15 @@
     {
       "text": "DAEDALUS verdict pass-with-PRINCIPAL-gate-surface: design.md 792 lines at agents/design/arc-40/design.md, commit 7692815. A3=include A4=new§6.8 A5=narrow-α+gate A6=γ A7=include-both. 23 probes spec'd. A20 recursion explicit §10. KEY: dhc finding surfaces substrate already has SSoT — narrower work proposed; gate per §25 for ARGUS/PLINY adjudication. 4 weak points named (§7.1-§7.4); 4 residual questions for ARGUS (§8). Returning. [from: captain-daedalus-the-stoa]",
       "timestamp": "2026-05-18T06:46:40Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] DAEDALUS Arc 40 design rev1 verdict @ 7692815. Picks:\n- A3 = include (op-disc §28.3.1 worked example; bb12806 live-verified canonical-grade)\n- A4 = re-framed to 'Canonical-template wording-alignment discipline' at new CAPTAIN_DAEDALUS.md §6.8 — DAEDALUS read agents/design/arc-24/design.md and found the actual empirical anchor is wording-alignment, not Edit-tool worktree-path mechanics. PLINY accepts (within ticket scope-spirit; narrows-not-widens; ARGUS audits)\n- A5 = narrow α (PRINCIPAL-gate-eligible) — substrate already has SSoT for python-vs-jq at MAJOR_PLINY.md §5.8.3 line 286; POLYBIUS §7.6 + op-disc §18.5 cross-ref §5.8 without duplication; agent-author/SKILL.md has NO python-vs-jq prose at all. Work narrows to cite-comments at canonical site + 3 cross-ref sites + machine-checkable SSoT property. **PLINY adjudication: ACCEPT narrower α.** Exceeding-discretion threshold (\"spans MULTIPLE op-disc sections requiring §-restructure\") NOT met; narrower scope still discharges dhc ticket intent (SSoT property explicit + machine-checkable via probe). Surfacing for user-tier QA transparency; not blocking ARGUS dispatch\n- A6 = γ (CAPTAIN_VERA.md §5.11 probe-spec regex-anchoring; VERA-seat-canon)\n- A7 = include both 6n9+t9u (install.sh adjacency; 30 LOC; 6-candidate bundle matches Arc 37 precedent)\n\n23 probes (21 mechanical + 2 empirical post-build smoke; all easy-easy quadrant). Self-assessed weak points: dhc adjudication may diverge from directive A5 read; A20 recursive-shape circularity (PLINY ships canon via the very Phase 4 operation it governs); A7 6-candidate scope cohesion. Dispatching ARGUS for cold audit (will scrutinize A5 + A4 specifically).",
+      "timestamp": "2026-05-18T06:47:21Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T06:46:40Z"
+  "updated_at": "2026-05-18T06:47:21Z"
 }
