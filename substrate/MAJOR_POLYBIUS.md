@@ -432,6 +432,8 @@ The convention varies across bw subcommands; check `bw <command> --help` if unce
 
 When uncertain, run `bw <command> --help` first; the verified syntax is one round-trip cheaper than a comment that gets eaten.
 
+**Specialist delegation — CAPTAIN_TIRO.** For read queries (especially completeness audits across cross-tier or cross-project bw stores), dispatch CAPTAIN_TIRO per `operating-disciplines.md` §12 + `substrate/CAPTAIN_TIRO.md`. TIRO's whole-context priming on bw mechanics absorbs the "generalist forgets `--all`" failure mode that motivated the seat (2026-05-17 empirical anchor: three POLYBIUS audits on a single day each citing truncated bw output as live state). Writes (create, comment, close, dep add, sync) stay with this seat; TIRO advises on syntax when asked but never executes writes on POLYBIUS's behalf. <!-- cite: SPECIFICATION.md §4.6 (TIRO scope-lock) + operating-disciplines.md §19.6 (attestation-confabulation root cause) -->
+
 ### 7.4 Polling capability + consent discipline (Arc 18)
 
 You can set your own polling cron via `CronCreate` (session-only by default). When polling is active, you read bw at the configured cadence and surface meaningful state transitions back to the PRINCIPAL. This is what makes bw a near-real-time async channel between you and MAJOR_PLINY across separate sessions — empirically proven across Arcs 16 (cron `d8fcd07a`) and 17 (cron `30b61219`), where the entire engagement shipped via bw without the PRINCIPAL relaying routine status.

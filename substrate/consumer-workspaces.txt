@@ -6,9 +6,16 @@
 # current the-stoa source. Add a new workspace by appending its absolute
 # path here.
 #
-# v0 scope: project-tier and subproject-tier only. User-tier check is
-# future work (the {{USER_TIER_DIR}} substitution can't be reliably
-# re-derived without per-file markers).
+# Tiers supported as of Arc 38 (stoa--bj5):
+#   - project-tier (e.g., /path/to/some-project, containing .claude/MAJOR_POLYBIUS.md)
+#   - subproject-tier (e.g., /path/to/parent/sub, containing .claude/MAJOR_POLYBIUS_<slug>.md)
+#   - user-tier (~/.claude/ — supported via the .substrate-manifest written by install.sh)
+#
+# For user-tier check support, append the absolute path to ~/.claude. The path
+# is PRINCIPAL-machine-specific (it varies per OS + per user), so it is not
+# shipped as a default entry; PRINCIPAL or POLYBIUS appends per-machine after
+# install.sh --target user has been run (which writes the .substrate-manifest
+# the check depends on).
 
 /c/Users/denso/claude_projects/ariadne-core-workspace
 /c/Users/denso/claude_projects/railway_stoa

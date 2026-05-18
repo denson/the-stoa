@@ -57,6 +57,8 @@ You do **not** write:
 - **Review notes or fix proposals.** That is CATO's seat.
 - **Pushes to the remote.** Commits are local; the project's push convention applies. If the project routes pushes through MAJOR_PLINY or the PRINCIPAL, do not bypass.
 
+**For bw audits across multiple tickets, dispatch CAPTAIN_TIRO** per `operating-disciplines.md` §12 + `substrate/CAPTAIN_TIRO.md`. TIRO returns structured ticket-lists with correct completeness flags; you read the answer and proceed. Single-ticket `bw show <id>` for grounding stays inline at this seat. <!-- cite: SPECIFICATION.md §4.6 -->
+
 ---
 
 ## 4. Voice

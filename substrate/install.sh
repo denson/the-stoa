@@ -10,7 +10,7 @@
 # Per the architecture spec (three-role-recursive-architecture.md §8): this is
 # the TEMPLATE. MAJOR_POLYBIUS rewrites a session-specific install per user
 # conversation at deploy time. This script does only the non-conversational
-# mechanical deploy: drops the two MAJOR role files, deploys the 10 CAPTAIN
+# mechanical deploy: drops the two MAJOR role files, deploys the 11 CAPTAIN
 # sub-agent envelopes (unless --no-captains), deploys the templates/ runtime
 # tooling (unless --no-templates), deploys LIEUTENANT skills under
 # <DEST>/.claude/skills/ (always — POLYBIUS invokes them via the Skill tool;
@@ -35,7 +35,7 @@
 # backup is single-shot (overwritten on each subsequent run); git is the
 # long-term archive — the .bak file is for "oops" recovery only.
 #
-# CAPTAIN envelopes: by default the script deploys the 10 CAPTAIN_*.md sub-agent
+# CAPTAIN envelopes: by default the script deploys the 11 CAPTAIN_*.md sub-agent
 # envelopes from this directory to <target>/.claude/agents/. At project-tier the
 # files are suffixed with _<sanitized-project> (e.g. CAPTAIN_DAEDALUS_my_project.md)
 # and the {{NAME_SUFFIX}} slot in the YAML frontmatter's `name:` field is filled
@@ -73,7 +73,7 @@
 # --subproject <slug>. The sub-project lives at <parent>/<subproject>/, sharing
 # the parent's git repo and beadwork. Both MAJOR_POLYBIUS.md and MAJOR_PLINY.md
 # are deployed with the _<subproject> filename suffix (parallel to CAPTAINs);
-# all 10 CAPTAINs are deployed with the same suffix. Subproject mode does NOT
+# all 11 CAPTAINs are deployed with the same suffix. Subproject mode does NOT
 # modify any CLAUDE.md (parent's stays as-is; sub-project does not get its own),
 # does NOT redeploy templates (sub-project reads parent's at <parent>/.claude/
 # templates/), and does NOT run bw init (sub-project shares parent's bw repo).
@@ -116,7 +116,7 @@ TEMPLATE_NAMES=(
   handoff-doc-template.md
 )
 
-# The 10 CAPTAIN envelope source files. Order is the gauntlet pipeline order
+# The 11 CAPTAIN envelope source files. Order is the gauntlet pipeline order
 # (DAEDALUS through CATO) followed by the support seats; ordering only affects
 # log output, not correctness.
 CAPTAIN_NAMES=(
@@ -130,6 +130,7 @@ CAPTAIN_NAMES=(
   HERALD
   CURATOR
   ZENO
+  TIRO
 )
 
 # LIEUTENANT skill source directories (under skills/). Each is a directory
@@ -369,6 +370,79 @@ scaffold_user_tier() {
   fi
 }
 
+# ----- Arc 38 (bj5 / A8): substrate-manifest writer --------------------------
+#
+# write_substrate_manifest <dest-dir> <tier> <slug>
+#
+# Writes <dest-dir>/.substrate-manifest recording every substitution applied to
+# deployed files in this run. Used by substrate/skills/check-substrate-updates/
+# check.sh + apply.sh at user-tier (where the {{USER_TIER_DIR}} substitution
+# can't be reliably reverse-derived; bj5 design §2.2). Project-tier +
+# subproject-tier workspaces also get the manifest written (uniform behavior;
+# check.sh continues to derive substitutions from the workspace basename at
+# those tiers and the manifest is informational).
+#
+# Format: tab-separated triples (<deployed-rel-path>\t<token>\t<replacement>),
+# preceded by a header block recording tier + deployed_at + substrate_sha.
+#
+# CITE: format invariant — companion read-sites at
+# substrate/skills/check-substrate-updates/check.sh + apply.sh
+# apply_substitutions_from_manifest(). If this writer rotates the format, both
+# readers must update their parsers to match. The cite-at-the-read-site
+# discipline is the durable mitigation for the install.sh / check.sh / apply.sh
+# format coupling (design §2.2 + §2.7).
+write_substrate_manifest() {
+  local dest="$1"
+  local tier="$2"
+  local slug="$3"
+  local manifest="${dest}/.substrate-manifest"
+  local name_suffix=""
+
+  case "$tier" in
+    project|subproject) name_suffix="_${slug}" ;;
+  esac
+
+  local now sha
+  now="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+  sha="$(cd "$SCRIPT_DIR" && git rev-parse --short HEAD 2>/dev/null || echo unknown)"
+
+  if [ "$DRY_RUN" -eq 1 ]; then
+    echo "[dry-run] write: $manifest (tier=$tier, deployed_at=$now, substrate_sha=$sha)"
+    return 0
+  fi
+
+  {
+    echo "# Stoa substrate deploy manifest — substitutions applied to deployed files."
+    echo "# Written by install.sh at deploy time. Read by check.sh + apply.sh to normalize."
+    echo "# Format: <deployed-relative-path>\t<token>\t<replacement>"
+    echo "# DO NOT EDIT MANUALLY. install.sh rewrites this file on every re-run."
+    echo "#"
+    echo "# tier=${tier}"
+    echo "# deployed_at=${now}"
+    echo "# substrate_sha=${sha}"
+    echo ""
+    # MAJOR_POLYBIUS.md: NAME_SUFFIX always; USER_TIER_DIR at user-tier only.
+    # Subproject-tier suffixes the MAJOR filename; project + user tiers do not.
+    if [ "$tier" = "subproject" ]; then
+      printf ".claude/MAJOR_POLYBIUS%s.md\t{{NAME_SUFFIX}}\t%s\n" "${name_suffix}" "${name_suffix}"
+      printf ".claude/MAJOR_PLINY%s.md\t{{NAME_SUFFIX}}\t%s\n" "${name_suffix}" "${name_suffix}"
+    else
+      printf ".claude/MAJOR_POLYBIUS.md\t{{NAME_SUFFIX}}\t%s\n" "${name_suffix}"
+      printf ".claude/MAJOR_PLINY.md\t{{NAME_SUFFIX}}\t%s\n" "${name_suffix}"
+      if [ "$tier" = "user" ] && [ -n "$USER_TIER_DIR" ]; then
+        printf ".claude/MAJOR_POLYBIUS.md\t{{USER_TIER_DIR}}\t%s\n" "$USER_TIER_DIR"
+      fi
+    fi
+    # CAPTAINs (always NAME_SUFFIX — empty at user-tier; _<slug> at project/subproject).
+    if [ "$WITH_CAPTAINS" -eq 1 ]; then
+      for name in "${CAPTAIN_NAMES[@]}"; do
+        printf ".claude/agents/CAPTAIN_%s%s.md\t{{NAME_SUFFIX}}\t%s\n" "$name" "${name_suffix}" "${name_suffix}"
+      done
+    fi
+  } > "$manifest"
+  echo "wrote manifest: $manifest"
+}
+
 # ----- argument parsing ------------------------------------------------------
 
 while [ "$#" -gt 0 ]; do
@@ -563,7 +637,7 @@ fi
 if [ "$SUFFIX_MAJORS" -eq 1 ]; then
   echo "  MAJOR files      : suffixed (MAJOR_POLYBIUS${NAME_SUFFIX}.md, MAJOR_PLINY${NAME_SUFFIX}.md)"
 fi
-echo "  deploy CAPTAINs  : $([ "$WITH_CAPTAINS" -eq 1 ] && echo "yes (10 envelopes to ${DEST_AGENTS_DIR})" || echo "no (--no-captains)")"
+echo "  deploy CAPTAINs  : $([ "$WITH_CAPTAINS" -eq 1 ] && echo "yes (11 envelopes to ${DEST_AGENTS_DIR})" || echo "no (--no-captains)")"
 if [ "$WITH_CAPTAINS" -eq 1 ] && [ -n "$NAME_SUFFIX" ]; then
   echo "  CAPTAIN suffix   : ${NAME_SUFFIX} (slug: ${PROJECT_SLUG})"
 fi
@@ -942,6 +1016,13 @@ if [ "${#obsolete_files[@]}" -gt 0 ]; then
     echo "Run with --prune-obsolete to remove, or rm manually."
   fi
 fi
+
+# 7c. Write substrate manifest (Arc 38 / bj5 / A8). Records substitutions applied
+# to deployed files so check.sh + apply.sh can normalize before diffing. Universal
+# across all 3 tiers (the load-bearing user-tier case is the {{USER_TIER_DIR}}
+# substitution in MAJOR_POLYBIUS.md; project-tier + subproject-tier write
+# informational manifests with derivable {{NAME_SUFFIX}} entries).
+write_substrate_manifest "$DEST_DIR" "$TARGET" "$PROJECT_SLUG"
 
 # 7b. Operator visibility: surface custom files that coexist at the convention
 # paths. Read-only; substrate tools never touch these. The discipline is at

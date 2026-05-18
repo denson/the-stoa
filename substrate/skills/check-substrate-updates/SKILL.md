@@ -28,19 +28,15 @@ Do **not** invoke for:
 - Multi-machine substrate sync (cross-machine canon is a separate concern).
 - Semantic compatibility checking ("are my modifications still compatible with the new role-file structure"). User judgment is canonical.
 
-## v0 scope and limitations
+## Scope and limitations
 
-v0 supports **project-tier and subproject-tier** consumer workspaces (workspaces deployed via `install.sh --target project` or `--target subproject`).
+The skill supports **project-tier**, **subproject-tier**, AND **user-tier** consumer workspaces.
 
-v0 does **not** support **user-tier** check (`~/.claude/`). The `{{USER_TIER_DIR}}` substitution at user-tier (install.sh ~line 613) cannot be reliably re-derived without per-file source markers, which Option Small explicitly skipped. `check.sh` detects user-tier and surfaces a friendly message rather than erroring; for now, manually diff with:
+User-tier support (Arc 38, `stoa--bj5`) operates via the `.substrate-manifest` written by `install.sh` at deploy time. The manifest records every substitution `install.sh` applied to the deployed file (notably `{{USER_TIER_DIR}}` in `MAJOR_POLYBIUS.md`); `check.sh` and `apply.sh` read the manifest to normalize deployed files before diffing.
 
-```
-cd substrate && diff -u MAJOR_POLYBIUS.md ~/.claude/MAJOR_POLYBIUS.md
-```
+A user-tier workspace whose manifest is missing (e.g., the workspace was deployed before Arc 38 shipped) friendly-no-ops with a message instructing PRINCIPAL to re-run `install.sh --target user` to deploy the manifest. The fallback path is non-destructive.
 
-User-tier check support is documented as future work in `agents/design/stoa--lyh/design.md` §10.2 and will pick one of the substitution strategies described there when the need is real.
-
-Other v0 simplifications, all by design (Option Small):
+Other conscious scope limits, all by design (Option Small original + Arc 38 preserved):
 
 - **No attribution within DRIFTED.** The pre-v0 v2 architecture proposed a two-axis classification (locally-modified × upstream-advanced) of every DRIFTED file. PRINCIPAL ratified Option Small after a DAEDALUS-light pass — v0 shipped DRIFTED-only; Arc 26 broadened detection to DRIFTED + MISSING + OBSOLETE (composite verdicts) but still does not classify *why* a file is DRIFTED. When drift surfaces, the operator consults their own memory or `git log -- .claude/` to disambiguate cause.
 - **Explicit registry, no auto-discovery.** Consumer workspaces are listed in `substrate/consumer-workspaces.txt`. Add a workspace by appending its absolute path; the registry is intentionally explicit so a workspace doesn't get scanned without the operator opting in.

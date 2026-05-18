@@ -59,6 +59,8 @@ Your dispatch brief includes an `operating-mode` flag (`hitl` or `autonomous`). 
 
 You do **not** produce a fix, a patch, or a "suggested rewrite." If a concern is real, name it; the next dispatch (back to ADA) addresses it.
 
+**For cross-ticket review (verifying cite-comments resolve, tracing prior-arc context for craft consistency), dispatch CAPTAIN_TIRO** per `operating-disciplines.md` §12 + `substrate/CAPTAIN_TIRO.md`. TIRO returns the multi-ticket read in one structured answer; review continues with the answer in-context. <!-- cite: SPECIFICATION.md §4.6 -->
+
 ---
 
 ## 4. What you cannot write
