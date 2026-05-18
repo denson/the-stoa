@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-18T01:06:38Z",
+  "description": "## Empirical anchor (2026-05-17, Arc 37 close)\n\nPLINY-the-stoa squash-merged PR #17 via:\n  `gh pr merge 17 --squash --delete-branch --subject \"...\" --body \"...\"`\nwith a custom `--body` describing the gauntlet outcome. The squash-merge commit on main (bb12806) does NOT carry the Co-Authored-By trailers from the source branch's 4 commits (ADA + DAEDALUS), even though all 4 source commits correctly carried trailers per §28.\n\n`git log -1 --format='%B' bb12806 | grep -c 'Co-Authored-By'` returns 0.\n\nThe §28.3 canon expectation (just shipped in Arc 35) is: 'GitHub's squash-merge behavior auto-populates a Co-Authored-By trailer from each squashed commit's author AND preserves any pre-existing Co-Authored-By trailers from the squashed commits' bodies into the squash-merge commit's body.'\n\nWhat broke: when `--body` is passed to `gh pr merge --squash`, it OVERRIDES the default body (which would be the concatenation of source commits, including their trailers). PLINY's custom body had a clean summary but no trailer lines.\n\n## The fix (substrate convention)\n\nFuture squash-merges of arc PRs MUST either:\n1. Omit `--body` (let GitHub auto-populate from source commits — preserves trailers), OR\n2. Include the trailers explicitly in the `--body` HEREDOC.\n\nLight-touch substrate convention: extend `MAJOR_PLINY.md` §5.10 + §6 ship-checklist with a one-line note. Optionally extend `operating-disciplines.md` §28.3 with a 'trailer-preservation pitfall' subsection naming this regression as empirical anchor.\n\n## Scope\n\n- 1 line in `MAJOR_PLINY.md` §5.10 (ship-checklist convention)\n- Optional 1 paragraph in `operating-disciplines.md` §28.3.1 (pitfall + worked-example)\n\nSuitable for inclusion in Arc 39 (small bundled follow-ups per the Pass-5 workplan) OR as a direct fix in a small standalone arc.\n\n## Cross-references\n\n- Arc 35 squash-merge of stoa--ezo (where §28 originally shipped) — verify whether THAT squash-merge preserved trailers; if yes, Arc 35 used the default --body OR included trailers explicitly.\n- Arc 37 squash-merge bb12806 — the regression anchor.\n- operating-disciplines.md §28.3 — the canon expectation that broke.\n\n## Out of scope\n\n- Retroactively amending bb12806 (force-push to main; NEVER without explicit authorization). The Arc 37 source commits at the branch tip e7a94c6 (deleted local + remote) retain the trailers; if anyone wants to walk the trailer chain, the branch is recoverable from the merged PR.\n- Building tooling enforcement (no pre-commit hook; convention is the layer).",
+  "id": "stoa--6wp",
+  "labels": [],
+  "priority": 3,
+  "status": "open",
+  "title": "Squash-merge body --body override drops Co-Authored-By trailers — Arc 37 regression",
+  "type": "bug",
+  "updated_at": "2026-05-18T01:06:38Z"
+}
