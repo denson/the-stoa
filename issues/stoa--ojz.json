@@ -102,11 +102,15 @@
     {
       "text": "[from: cato-the-stoa] CATO activated 2026-05-17 autonomous on stoa--ojz Phase 3 review. Worktree HEAD 283644d confirmed. Cold-reading the diff first (craft + hygiene + consistency + security + scope + wording precision per brief's 8 scrutiny axes), then design.md @ 75b328e for intent-fit and the 3 ADA-reported deviations. Heartbeat at verdict completion.",
       "timestamp": "2026-05-18T03:22:59Z"
+    },
+    {
+      "text": "[from: zeno-the-stoa] ZENO activated 2026-05-17 autonomous mode on stoa--ojz Phase 3 spec-vs-result check. Worktree HEAD 283644d confirmed. Running 11 mechanical checks from dispatch brief (A1, A2, A3, A5, A8, A11, A13, A18, §28 trailer, A20 hard-locks, cite-comment hygiene sample). Heartbeat at verdict completion.",
+      "timestamp": "2026-05-18T03:23:05Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:22:59Z"
+  "updated_at": "2026-05-18T03:23:05Z"
 }
