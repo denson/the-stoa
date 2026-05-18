@@ -66,11 +66,15 @@
     {
       "text": "pass: rev2 audit complete. R1+R2+R3+M1+M2+M3 all landed correctly + verified independently. One minor internal-inconsistency surfaced (skill-count math in §2.1 table row vs P9b — design says '6 of 6' in one place + '7 of 7' in P9b; correct number is 7). Not load-bearing — P9b acceptance is correct, single prose typo. Returning verdict.",
       "timestamp": "2026-05-18T06:17:51Z"
+    },
+    {
+      "text": "pass: rev2 verdict written to agents/verdicts/arc-39/CAPTAIN_ARGUS-rev2-2026-05-18T06-18-11Z.md. ADA cleared to build. One non-load-bearing prose typo surfaced (NF-rev2-1: §2.1 + §5.2 say '6 of 6 substrate skills' but should say '7 of 7' — P9b probe acceptance is correct at count=7; only descriptive prose mismatched). Returning to PLINY.",
+      "timestamp": "2026-05-18T06:18:14Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T06:17:51Z"
+  "updated_at": "2026-05-18T06:18:14Z"
 }
