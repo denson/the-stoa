@@ -130,6 +130,7 @@ CAPTAIN_NAMES=(
   HERALD
   CURATOR
   ZENO
+  TIRO
 )
 
 # LIEUTENANT skill source directories (under skills/). Each is a directory
@@ -367,6 +368,79 @@ scaffold_user_tier() {
       echo "initialized user-beadwork at $bw_dir (git + bw)"
     fi
   fi
+}
+
+# ----- Arc 38 (bj5 / A8): substrate-manifest writer --------------------------
+#
+# write_substrate_manifest <dest-dir> <tier> <slug>
+#
+# Writes <dest-dir>/.substrate-manifest recording every substitution applied to
+# deployed files in this run. Used by substrate/skills/check-substrate-updates/
+# check.sh + apply.sh at user-tier (where the {{USER_TIER_DIR}} substitution
+# can't be reliably reverse-derived; bj5 design §2.2). Project-tier +
+# subproject-tier workspaces also get the manifest written (uniform behavior;
+# check.sh continues to derive substitutions from the workspace basename at
+# those tiers and the manifest is informational).
+#
+# Format: tab-separated triples (<deployed-rel-path>\t<token>\t<replacement>),
+# preceded by a header block recording tier + deployed_at + substrate_sha.
+#
+# CITE: format invariant — companion read-sites at
+# substrate/skills/check-substrate-updates/check.sh + apply.sh
+# apply_substitutions_from_manifest(). If this writer rotates the format, both
+# readers must update their parsers to match. The cite-at-the-read-site
+# discipline is the durable mitigation for the install.sh / check.sh / apply.sh
+# format coupling (design §2.2 + §2.7).
+write_substrate_manifest() {
+  local dest="$1"
+  local tier="$2"
+  local slug="$3"
+  local manifest="${dest}/.substrate-manifest"
+  local name_suffix=""
+
+  case "$tier" in
+    project|subproject) name_suffix="_${slug}" ;;
+  esac
+
+  local now sha
+  now="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+  sha="$(cd "$SCRIPT_DIR" && git rev-parse --short HEAD 2>/dev/null || echo unknown)"
+
+  if [ "$DRY_RUN" -eq 1 ]; then
+    echo "[dry-run] write: $manifest (tier=$tier, deployed_at=$now, substrate_sha=$sha)"
+    return 0
+  fi
+
+  {
+    echo "# Stoa substrate deploy manifest — substitutions applied to deployed files."
+    echo "# Written by install.sh at deploy time. Read by check.sh + apply.sh to normalize."
+    echo "# Format: <deployed-relative-path>\t<token>\t<replacement>"
+    echo "# DO NOT EDIT MANUALLY. install.sh rewrites this file on every re-run."
+    echo "#"
+    echo "# tier=${tier}"
+    echo "# deployed_at=${now}"
+    echo "# substrate_sha=${sha}"
+    echo ""
+    # MAJOR_POLYBIUS.md: NAME_SUFFIX always; USER_TIER_DIR at user-tier only.
+    # Subproject-tier suffixes the MAJOR filename; project + user tiers do not.
+    if [ "$tier" = "subproject" ]; then
+      printf ".claude/MAJOR_POLYBIUS%s.md\t{{NAME_SUFFIX}}\t%s\n" "${name_suffix}" "${name_suffix}"
+      printf ".claude/MAJOR_PLINY%s.md\t{{NAME_SUFFIX}}\t%s\n" "${name_suffix}" "${name_suffix}"
+    else
+      printf ".claude/MAJOR_POLYBIUS.md\t{{NAME_SUFFIX}}\t%s\n" "${name_suffix}"
+      printf ".claude/MAJOR_PLINY.md\t{{NAME_SUFFIX}}\t%s\n" "${name_suffix}"
+      if [ "$tier" = "user" ] && [ -n "$USER_TIER_DIR" ]; then
+        printf ".claude/MAJOR_POLYBIUS.md\t{{USER_TIER_DIR}}\t%s\n" "$USER_TIER_DIR"
+      fi
+    fi
+    # CAPTAINs (always NAME_SUFFIX — empty at user-tier; _<slug> at project/subproject).
+    if [ "$WITH_CAPTAINS" -eq 1 ]; then
+      for name in "${CAPTAIN_NAMES[@]}"; do
+        printf ".claude/agents/CAPTAIN_%s%s.md\t{{NAME_SUFFIX}}\t%s\n" "$name" "${name_suffix}" "${name_suffix}"
+      done
+    fi
+  } > "$manifest"
+  echo "wrote manifest: $manifest"
 }
 
 # ----- argument parsing ------------------------------------------------------
@@ -942,6 +1016,13 @@ if [ "${#obsolete_files[@]}" -gt 0 ]; then
     echo "Run with --prune-obsolete to remove, or rm manually."
   fi
 fi
+
+# 7c. Write substrate manifest (Arc 38 / bj5 / A8). Records substitutions applied
+# to deployed files so check.sh + apply.sh can normalize before diffing. Universal
+# across all 3 tiers (the load-bearing user-tier case is the {{USER_TIER_DIR}}
+# substitution in MAJOR_POLYBIUS.md; project-tier + subproject-tier write
+# informational manifests with derivable {{NAME_SUFFIX}} entries).
+write_substrate_manifest "$DEST_DIR" "$TARGET" "$PROJECT_SLUG"
 
 # 7b. Operator visibility: surface custom files that coexist at the convention
 # paths. Read-only; substrate tools never touch these. The discipline is at

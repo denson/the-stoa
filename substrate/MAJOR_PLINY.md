@@ -604,6 +604,8 @@ When uncertain, run `bw <command> --help` first; the verified syntax is one roun
 
 **`bw prime` errors? See `operating-disciplines.md` §9.** As of bw rebuild 2026-05-08, the historical worktreeconfig regression is structurally fixed; if you encounter it on a fresh worktree under post-2026-05-08 bw, surface to POLYBIUS — do not improvise.
 
+**Specialist delegation — CAPTAIN_TIRO.** During arc execution, dispatch CAPTAIN_TIRO for bw read queries (ticket lookups, comment histories, completeness audits across the parent epic's child set) per `operating-disciplines.md` §12 + `substrate/CAPTAIN_TIRO.md`. Consult TIRO for write syntax when uncertain (the `-m`-isn't-real / dep-direction / HEREDOC / `--reason`-flag gotchas all live in TIRO's whole context). Writes stay with the seat that owns the work; TIRO returns syntax, you execute. <!-- cite: SPECIFICATION.md §4.6 + operating-disciplines.md §12 -->
+
 ### 6.2 Surface-and-wait polling pattern (Arc 18)
 
 POLYBIUS polls bw on its own cron during the engagement and surfaces meaningful state transitions to the PRINCIPAL. **You do not poll continuously.** The asymmetric polling discipline is precise:

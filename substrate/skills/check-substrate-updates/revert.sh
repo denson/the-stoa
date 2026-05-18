@@ -11,6 +11,13 @@
 # Detection mirrors apply.sh: if the workspace is a git repo and .claude/ is
 # tracked, use git revert against the last "chore(substrate): apply substrate
 # updates" commit. Otherwise restore from <ws>/.claude/.substrate-backups/.
+#
+# CITE: as of Arc 38 (bj5; A8), user-tier workspaces are in-scope for revert.sh.
+# The script is tier-agnostic — it operates on the --workspace path regardless of
+# tier; the existing git/backup-dir detection handles both. The user-tier
+# substitution-tracking (manifest at <workspace>/.substrate-manifest) is not
+# involved at revert time (revert restores byte-for-byte from git or backup-dir).
+# Cross-ref: agents/design/stoa--ojz/design.md §2.4.3.
 
 set -euo pipefail
 
