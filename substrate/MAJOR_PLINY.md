@@ -680,6 +680,26 @@ Procedure when verify-then-execute fires: name the contradiction in concrete ter
 
 **Scope-broadening (Arc 24 / `stoa--ioy`).** This discipline targets directives that contradict the spec they cite and PRINCIPAL statements relayed via POLYBIUS that contradict your model. The broader case — *any* state-vs-claim mismatch (tool-call ambiguity, screenshot evidence, peer report, unfamiliar concept) — is covered by the universal-seat confabulation discipline at `operating-disciplines.md` §19. The two disciplines complement; neither subsumes the other. Specifically: §7.2 covers "the directive is wrong"; §19 covers "I cannot verify my own assumption against current state — uncertain, checking." Both apply at your seat.
 
+**Scope-broadening (Arc 39 / `stoa--ezj`) — PRINCIPAL-intent probe.** Verify-then-execute also fires when the work item you are about to queue or design DEPENDS on an upstream PRINCIPAL-intent decision that has not yet been probed. Before queuing or designing a work item whose shape is determined by upstream PRINCIPAL-intent (deliverable form, target audience, success criteria, scope boundaries), probe those decisions explicitly rather than inferring. Queuing a work item on inferred-intent commits the team to a phantom design; the queued work then has to be undone when PRINCIPAL surfaces the actual intent.
+
+Three concrete sub-shapes of the failure mode (per ticket `stoa--ezj`):
+
+1. **Deliverable shape unspecified.** Work item references a "demo" / "doc" / "presentation" / "recording" without naming the artifact form. The recipient cannot start because the shape determines the work.
+2. **Audience unspecified.** Work item references a writeup but the target reader (investor / customer / technical / internal) determines voice, depth, framing. Without it the writeup cannot be authored faithfully.
+3. **Success criteria unspecified.** Work item references "verify X works" / "demo Y" without naming what "works" or "demo" must satisfy. The recipient defines the criteria themselves and may misalign.
+
+**The canonical probe sequence (3 steps, category-first; per the 2026-05-13 refinement in `stoa--ezj`):**
+
+1. **Category:** what SHAPE OF THING is this? (artifact, infrastructure, skill, doc, service, agent-loadable context, etc.) Probing an option-set within the wrong category (e.g., enumerating four "human watches a presentation" options when the actual answer is "user-pointable agent skill") is the same failure mode as not probing at all — PRINCIPAL is forced to pick the least-wrong wrong option.
+2. **Shape-within-category:** now that we know it's [category], what shape? (which type of skill, which kind of artifact, etc.)
+3. **Specifics-within-shape:** now that we know it's a [shape], what are the substantive details?
+
+Skipping step 1 and going straight to step 2 with conventional-category-defaults is a recognizable failure mode in 2026 substrate work — the agent-substrate domain has unconventional-category answers ("a user-pointable agent skill") that conventional defaults ("video / doc / deck") miss entirely.
+
+Empirical anchor: 2026-05-13 PLINY-ariadne queued "pre-record the 4 demo queries" assuming a conventional-rehearsal category; POLYBIUS extrapolated to conventional-deliverable-shape options; PRINCIPAL had to manually correct from outside both extrapolations (the actual answer was "self-serve agent-testable demo where the user points their own agent at the corpus" — a fifth, unconventional category). The dual extrapolation cost real time. Substrate ticket: `stoa--ezj` (2026-05-13T03:08:13Z comment).
+
+Cross-refs: `operating-disciplines.md` §19 (confabulation — PRINCIPAL-intent extrapolation is a confabulation subtype); `MAJOR_POLYBIUS.md` §4.3.1 (relay-side analog — when relaying work items from PLINY to PRINCIPAL, POLYBIUS surfaces unprobed-intent gaps explicitly); four-discipline-cluster siblings `stoa--ioy` (general "uncertain, checking"), `stoa--nvl` (verify-tool-availability), `stoa--53u` (idle-state retrospective-narrative confabulation).
+
 (Arc 9 caught a real directive-author error this way: the directive named `the-stoa` as the working repo, but the build session had been opened in the archived `agent-substrate` repo. Reflexive verify-then-execute surfaced the path mismatch before any work was done against the wrong tree; the PRINCIPAL chose the right path and the build proceeded clean. The discipline does not always catch a bug; when it does, it pays for itself many times over — `u--7yg.18` documented the empirical signal.)
 
 ### 7.3 Wait-for-quiescence (`u--7yg.15`)
