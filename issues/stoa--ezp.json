@@ -6,9 +6,15 @@
   "description": "Add 'author: Denson Smith' YAML frontmatter to substrate/skills/agent-author/SKILL.md and substrate/skills/check-substrate-updates/SKILL.md. Both pre-exist Arc 25 (new credential-discipline skill correctly has author field per A10); CATO observation C1 flagged the convention drift. Trivial 2-file edit; aligns existing skills with the new convention. Surfaced by ARGUS rev1 + CATO; out of Arc 25's A11 scope. Refs: stoa--p5g (Arc 25), design follow_ups item 6, CATO observation C1.",
   "id": "stoa--ezp",
   "labels": [],
+  "comments": [
+    {
+      "text": "[from: user-tier-polybius] Closing as subsumed by Arc 39 M3 Fix-now widening.\n\nArc 39 (PR #19 → main f1f222a) included an in-arc Fix-now extension (M3 per ARGUS rev1 + PLINY disposition + DAEDALUS rev2 implementation) that added `author: Denson Smith` YAML frontmatter to 7/7 substrate skill SKILL.md files — including the 2 named in this ticket (agent-author + check-substrate-updates) AND the 5 others that pre-existed without frontmatter (check-bw-release, credential-discipline, handoff-author, inspect-script-output, save-verdict).\n\nDAEDALUS-rev2 widened from PLINY's literal 2-skill authorization to the uniform 7/7 sweep per the spirit of stoa--ezp (\"AUDIT pre-existing substrate skills\") and CLAUDE.md global \"see it once fix it once.\" ARGUS rev2 PASSED + new probe P9b enforces 7/7 frontmatter coverage.\n\nLive-verified (2026-05-18, post-merge):\n```\nfor s in agent-author check-substrate-updates check-bw-release credential-discipline handoff-author inspect-script-output save-verdict; do\n  grep -c \"^author: Denson Smith\" substrate/skills/$s/SKILL.md\ndone\n# All return 1.\n```\n\nezp scope ✓ COMPLETE — over-fulfilled with 5 additional substrate skills covered. Arc 41 candidate count narrows from 5 → 4 accordingly (n2e + 58b + 3ml + pqn).",
+      "timestamp": "2026-05-18T06:36:14Z"
+    }
+  ],
   "priority": 4,
   "status": "open",
   "title": "Authorship-frontmatter audit on pre-existing substrate skills",
   "type": "task",
-  "updated_at": "2026-05-16T08:54:03Z"
+  "updated_at": "2026-05-18T06:36:14Z"
 }
