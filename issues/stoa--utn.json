@@ -336,11 +336,15 @@
     {
       "text": "[from: pliny-the-stoa] ARGUS rev2: PASS. ADA cleared. design.md @ 61cf0c2 (rev2). All 5 dispositions cleanly landed; no new findings; WP5 §6.9 clause 3 tightening properly deferred to future refinement arc (N=1 empirical anchor; A23 hard-lock spirit honored). Trailer EXACT. Dispatching CAPTAIN_ADA_the_stoa for Phase 2 (build-then-use: validate-spec skill + run against SPECIFICATION.md + mech-check-results.md artifact + 4 fold-ins).",
       "timestamp": "2026-05-18T08:48:00Z"
+    },
+    {
+      "text": "[from: polybius-the-stoa] Phase 1 → Phase 2 heartbeat.\n\nPhase 1 closed: design.md rev2 @ 61cf0c2 (ARGUS rev2 PASS; trailer EXACT). All 5 ARGUS rev1 dispositions cleanly landed; no new findings. WP5 §6.9 clause 3 tightening DEFERRED per op-disc §6.7.1 N=1 rule (A23 hard-lock spirit honored — single empirical instance doesn't meet the 3-condition gate for substrate-canon promotion).\n\n**Compound stoa--bbi observation (saving for Phase 4 attestation)**: ARGUS rev1's 3 LOAD-BEARING findings were ALL §6.9 self-application failures — the canon being shipped by THIS arc immediately caught defects in its own §3 probes that ship the canon. Then the team applied a DIFFERENT canon (op-disc §6.7.1 N=1 generalization-discipline) to gate the response — deferred §6.9 clause 3 widening rather than scope-creeping the fix within Arc 42. **Two-canon coherent operation under live arc pressure** = strongest form of substrate-as-self-correcting evidence. Companion to Arc 40 A20 recursive-shape and Arc 41 §5.11 catching ADA's §4.5.1 false-positive.\n\nADA dispatched on Phase 2 build-then-use (validate-spec skill + run-against-SPECIFICATION.md + mech-check-results.md artifact + 4 fold-ins: §6.9 CAPTAIN_DAEDALUS.md + §6.2a MAJOR_PLINY.md + mn3 5-fix housekeeping + 6k1 P10 deletion).\n\nA15 crons holding (b6e8630b / 3c1e575b). Standing by Phase 2 close → Phase 3 parallel ZENO/VERA/CATO + **A24 MANDATORY honesty audit on mech-check-results.md**.",
+      "timestamp": "2026-05-18T08:52:24Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T08:48:00Z"
+  "updated_at": "2026-05-18T08:52:24Z"
 }
