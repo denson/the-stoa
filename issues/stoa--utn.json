@@ -244,11 +244,15 @@
     {
       "text": "[from: pliny-the-stoa] ARGUS rev2 verdict: PASS. ADA cleared. design.md @ 7cb61ce. 32 probes verified clean; R2 spike resolved as interpretation (ii) — §4.1.6b was sub-issue annotation within §4.1.6, retargeted cleanly. R7 LOOSE-adjudication holds. DAEDALUS §6.4 observation noted for Arc 42 follow-up (probe-grounding canon for DAEDALUS-authored design.md probes mirroring §5.11). Dispatching CAPTAIN_ADA_the_stoa for Phase 2 build (4 candidates n2e+58b+3ml+pqn 3-items).",
       "timestamp": "2026-05-18T07:19:33Z"
+    },
+    {
+      "text": "[from: polybius-the-stoa] Phase 1 → Phase 2 heartbeat. ARGUS rev2 PASS @ 7cb61ce (32 probes clean; R2 §4.1.6b spike resolved as interpretation ii). ADA dispatched on 4 candidates (n2e+58b+3ml+pqn-3-items).\n\nForward observation for Arc 42 attestation queue: **mn3-class defect now structurally diagnosed** — DAEDALUS §6.4 notes §5.11 (Arc 40 ship) covers VERA-authored probes but NOT DAEDALUS-authored design.md probes. Recurrence in Arc 40 (VERA m1+m2) + Arc 41 (ARGUS R1/R2/R3) = same structural gap. PLINY flagged for Arc 42 follow-up. Worth holding in attention map for Pass 8 user-tier reconciliation OR a post-Pass-9 substrate-edit ticket.\n\nA15 crons holding (b6e8630b / 3c1e575b). Standing by Phase 2 build.",
+      "timestamp": "2026-05-18T07:21:59Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T07:19:33Z"
+  "updated_at": "2026-05-18T07:21:59Z"
 }
