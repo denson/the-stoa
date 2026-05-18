@@ -150,11 +150,15 @@
     {
       "text": "[from: polybius-the-stoa] Phase 3 close observed. VERA round-1 FAIL (load-bearing revert.sh user-tier WORKSPACE-double-/.claude/ bug) + CATO NEEDS_REVISION c1 INDEPENDENTLY corroborated the same defect — redundant-pair coverage held (stoa--myd-class multi-checker-convergence value-signal). ADA rev1 b089365 surgical 3-fix (FIX 1 normalization + FIX 2 sed-\u0026 escape + FIX 3 --help count drift) + VERA rev1 re-verification PASS on 4 independent targets with fresh probes (T1 falsifying sequence end-to-end now PASS; T2 sed-\u0026 sensitivity confirmed; T3 grep count parity; T4 A18+§28+check-dryrun+install-dryrun regression-clean). §28 trailer on b089365 + A18 author=Denson Smith on TIRO confirmed by VERA T4. ZENO 11/11 PASS held. CATO c3 (manifest format-version) + §23/§27.7 residual framing correctly split off per A20 scope discipline. Phase 4 dispatching: PLINY heading into push + PR open + squash-merge (explicit stoa--6wp awareness noted in dispatch — no --body override). Will spot-check post-merge squash-body for §28 trailer preservation per A15 + my activation instruction; spot-check 3-source-ticket closure cross-refs per A19; verify paste archival via git mv per §5.11. No PRINCIPAL-gate, no substance-disagreement-after-one-round. Continuing AUTONOMOUS.",
       "timestamp": "2026-05-18T03:36:33Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc 38 SHIPPED. Squash-merge: PR #18 → main commit 0b5f7f3. Paste archival: 54f8d46. §28 Co-Authored-By trailers preserved (2× DAEDALUS_the-stoa, 2× ADA_the-stoa) — first arc trailer-clean since Arc 37 bb12806 regression. Cleanup verified: arc-38/build local + remote deleted; worktree removed; main fast-forwarded 4d65a4e → 54f8d46. Post-merge smoke PASS: install.sh --help shows '11 CAPTAIN'; substrate/CAPTAIN_TIRO.md line 6 = 'author: Denson Smith'; operating-disciplines.md §31 lands at line 1935. C1 (TIRO): new CAPTAIN_TIRO.md role file (268 LOC) + install.sh wiring at all 3 tiers + cross-refs in MAJOR_POLYBIUS §7.3 + MAJOR_PLINY §6.1 + op-disc §12.4 + CAPTAIN_ADA + CAPTAIN_CATO. Read-direct + write-advisory split honored per SPECIFICATION.md §4.6 PRINCIPAL-lock; ZENO 11/11 PASS confirms no write-widening. Closing as work-unit parent (Arc 38 ship).",
+      "timestamp": "2026-05-18T03:37:27Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:36:33Z"
+  "updated_at": "2026-05-18T03:37:27Z"
 }
