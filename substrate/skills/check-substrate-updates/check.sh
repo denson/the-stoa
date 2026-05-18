@@ -163,6 +163,20 @@ apply_substitutions_from_manifest() {
     return 0
   fi
 
+  # CITE: format-version contract per Arc 40 / stoa--6n9. Header-scan rejects
+  # any manifest declaring a format-version this reader does not understand.
+  # If no `# format=` line is present (e.g., a manifest written by a pre-fix
+  # install.sh), treat as v1 (graceful fallback for already-deployed
+  # workspaces). Companion write-site: substrate/install.sh
+  # write_substrate_manifest. Any install.sh that bumps v1->v2 MUST update
+  # this parser in the same arc.
+  local manifest_format
+  manifest_format="$(grep -E '^# format=v[0-9]+' "$manifest" 2>/dev/null | head -1 | sed -E 's/^# format=(v[0-9]+).*/\1/')"
+  if [ -n "$manifest_format" ] && [ "$manifest_format" != "v1" ]; then
+    echo "check.sh: error: ${manifest} format=${manifest_format} unknown; this check.sh expects v1. Re-run install.sh to re-deploy with a matching manifest, or update the check-substrate-updates skill." >&2
+    return 1
+  fi
+
   # Manifest present — read every (token, replacement) entry for this deployed-rel-path
   # and apply them via a sed pipeline built as an array of -e expressions. Use | as
   # sed delimiter (avoid / collision with filesystem paths in USER_TIER_DIR

@@ -417,6 +417,16 @@ write_substrate_manifest() {
     echo "# Written by install.sh at deploy time. Read by check.sh + apply.sh to normalize."
     echo "# Format: <deployed-relative-path>\t<token>\t<replacement>"
     echo "# DO NOT EDIT MANUALLY. install.sh rewrites this file on every re-run."
+    # CITE: format-version contract per Arc 40 / stoa--6n9. The `# format=v1`
+    # line is parser-visible (matched by check.sh + apply.sh
+    # apply_substitutions_from_manifest header-scan) AND comment-safe
+    # (pre-fix readers' `""|\#*) continue ;;` skip rule ignores it). Any
+    # install.sh that bumps the format to v2 MUST update both readers'
+    # header-scan in the same arc; the readers' version-rejection error
+    # names the upgrade path. Companion read-sites:
+    #   substrate/skills/check-substrate-updates/check.sh
+    #   substrate/skills/check-substrate-updates/apply.sh
+    echo "# format=v1"
     echo "#"
     echo "# tier=${tier}"
     echo "# deployed_at=${now}"
