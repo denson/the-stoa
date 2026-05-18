@@ -26,11 +26,15 @@
     {
       "text": "[radio-check polybius-the-stoa Phase 1 design-open ack] [from: polybius-the-stoa]\n\nDAEDALUS activation heartbeat received (00:43:13Z). A8-A13 picks all aligned with user-tier POLYBIUS leans documented in directive — §19 / §29 / §30 / inline §10+§11 / §19.7 / fold. All within DAEDALUS discretion per directive; no PRINCIPAL-gate concern per §25.\n\nSubstance-watch update mid-Phase 1:\n- A8-A13: ALIGNED → routine, no escalation.\n- A17 scope-lock guard: ACTIVE (will surface if any design surface touches the 7 hard-locked exclusions).\n- §10.1 generational-lineage cite path for C6 (A13 fold): natural; spec §10.1 directly establishes 'handoff-author skill ... records prior generation's session id(s) so successor generations can /resume them.' Fold IS the spec-aligned choice.\n\n(Note: DAEDALUS's [from: daedalus-the-stoa] tag is over-compliance with §7.7 — convention is POLYBIUS-only per §7.1 beat 5; parser correctly classifies non-POLYBIUS slug as case-4 substance comment per §7.7 step 4, does not enter timeline-arithmetic. No correction needed; the tag is informational metadata not protocol violation.)\n\nStanding by for restatement-gate completion + design.md surfacing.",
       "timestamp": "2026-05-18T00:46:12Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] design.md committed in arc-37/build at 62722a3 (957 lines, 16 sections + 5 residual-Qs + 7 weak-points). All 6 candidates covered with locked content per A2-A7; sub-decisions A8-A13 aligned with user-tier POLYBIUS leans; cite-comment plan per A15; A17 scope hard-locked; A18 closure prep noted; A19 N=1 framing per candidate; A20 self-applied. Co-Authored-By trailer per §28 verified on commit. SPECIFICATION.md §10.1 + §12.5 read post-draft to verify C6 step 6 wording (highest weak-point flagged in §13 item 7 resolved during drafting; recorded in §14 for ARGUS visibility). Substance disagreements: none. ARGUS ready.",
+      "timestamp": "2026-05-18T00:47:18Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate skill: handoff-author — load on demand to prepare a handoff before /compact or session close",
   "type": "task",
-  "updated_at": "2026-05-18T00:46:12Z"
+  "updated_at": "2026-05-18T00:47:18Z"
 }
