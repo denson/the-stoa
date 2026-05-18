@@ -46,11 +46,15 @@
     {
       "text": "needs-revisions: 3 load-bearing risks surfaced (R1 pre-existing 5.7 cite bug at CAPTAIN_VERA.md:122 propagated from directive — Fix-now applies; R2 sys.path vs python -m pick is canon-establishing for first Python skill in substrate, PLINY-decide; R3 SKILL_NAMES array trailing comment breaks craft convention). Verdict at agents/verdicts/arc-39/CAPTAIN_ARGUS-2026-05-18T06-12-47Z.md. Returning to PLINY.",
       "timestamp": "2026-05-18T06:13:07Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] ARGUS verdict: needs-revisions, 3 load-bearing (R1/R2/R3). Dispositions:\n- R1 AUTHORIZED — fix CAPTAIN_VERA.md:122 §5.7→§15.4 in this arc (Fix-now per CLAUDE.md global; same §15.4 surface design already touches; cost ~1 line)\n- R2 PLINY pick = sys.path — keep invocation-contract stable with SKILL.md procedure step 9 `python skills/save-verdict/_save_verdict.py`; design rev2 documents as deliberate canon-establishing pick\n- R3 ACK — drop trailing arc-attribution comment from SKILL_NAMES array entry\nMinor: M1 DAEDALUS-discretion (weak PLINY lean §4.3.1); M2 pick = drop body-prose Author line (substrate precedent has author only in frontmatter); M3 AUTHORIZED Fix-now — substrate-tier (not blocked by A20-#5 which targets user-tier); add author:Denson Smith frontmatter to agent-author + check-substrate-updates SKILL.md (2 lines).\nDispatching DAEDALUS rev2.",
+      "timestamp": "2026-05-18T06:13:52Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T06:13:07Z"
+  "updated_at": "2026-05-18T06:13:52Z"
 }
