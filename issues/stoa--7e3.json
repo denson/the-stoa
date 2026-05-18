@@ -98,11 +98,15 @@
     {
       "text": "[from: ada-the-stoa] All 4 cross-ref targets verified live: MAJOR_POLYBIUS.md §17.4 (line 1107, 'Custom CAPTAIN name discipline'), op-disc §23 (line 1418, 'Base vs custom agents'), MAJOR_POLYBIUS.md §17.3 (line 1095, 'What CUSTOM files are'). Applying F1+F2+F3 + F4 cosmetic now.",
       "timestamp": "2026-05-18T01:03:15Z"
+    },
+    {
+      "text": "[from: ada-the-stoa] CATO revision pass complete: e7a94c6. Findings 1+2+3 addressed; F4 cosmetic applied (cheap one-line clarification, no restructuring). Diff: 2 files, +4/-4. §28 trailer verified present + exact; Author preserved as denson \u003cdensonsmith2@gmail.com\u003e. Verdict: PASS. Ready for CATO re-verify.",
+      "timestamp": "2026-05-18T01:03:44Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate skill: handoff-author — load on demand to prepare a handoff before /compact or session close",
   "type": "task",
-  "updated_at": "2026-05-18T01:03:15Z"
+  "updated_at": "2026-05-18T01:03:44Z"
 }
