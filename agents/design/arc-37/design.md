@@ -31,7 +31,7 @@ None of the three exceed DAEDALUS discretion per `operating-disciplines.md` §25
 | A8 | C1 MAJOR_POLYBIUS.md section number | **§19** (new, between current §18 user-tier housekeeping and end-of-file) | ✅ yes | §16 lifecycle is full and topical-coherent (POLYBIUS sessions cross-time); §17 base-vs-custom is the per-class path convention; §18 is the user-tier housekeeping carve-out. A new §19 reads cleanly as "two-team architecture: what each team does" — the WHAT to §17's WHERE. Numbering progression is unbroken. |
 | A9 | C2 op-disc section number | **§29** (new top-level, after §28 Co-Authored-By trailer) | ✅ yes | §28 is the most-recent top-level (Arc 35). C2 multi-team interop is a sibling-shape to §7 cross-tier coordination — both are coordination disciplines — but §7 is the intra-team / cross-tier layer; multi-team is a higher level of organization and deserves its own top-level. |
 | A10 | C3 op-disc section number | **§30** (new top-level, separate from §29) | ✅ yes | The four-layer identity model applies to every deployed Stoa agent, not just multi-team ones; a single-team workspace has the four layers too. Nesting under §29 would mis-scope. Adjacent to §29 because they came from the same 2026-05-13 conversation; numerically separate because they apply at different scopes. |
-| A11 | C4 placement | **inline extensions inside §10 + §11** (new subsections; no new top-level) | ✅ yes | §10 is the operating-engagement section (HITL/Autonomous canon, trigger words, propagation); §11 is the autonomous-mode-setup checklist. The progression canon is the missing PROGRESSION + TRANSITION-TRIGGERS layer over these two — it extends them rather than competing. Specifically: §10.1 (new — the progression sequence + transition triggers) and §11.7 (new — mode declaration in directives + mid-engagement transitions). |
+| A11 | C4 placement | **inline extensions inside §10 + §11** (bolded-paragraph additions to §10's flat body + bolded-step continuation steps 7-9 in §11; NO new subsections — rev2 corrects an earlier draft assumption that §10/§11 were subsectioned) | ✅ yes | §10 is the operating-engagement section (HITL/Autonomous canon, trigger words, propagation); §11 is the autonomous-mode-setup checklist. The progression canon is the missing PROGRESSION + TRANSITION-TRIGGERS layer over these two — it extends them rather than competing. Specifically: §10 adds bolded-paragraph markers (`**Three-mode progression sequence.**`, `**Transition triggers.**`, `**Regression upward is normal.**`, `**Provenance + accretion path (progression canon).**`) matching §10's existing flat / bolded-paragraph style; §11 adds steps 7-9 (`**7. Mode declaration in directives.**`, `**8. Mid-engagement mode transitions.**`, `**9. Downward-propagation rule (Arc 21 A4 recap).**`) matching §11's existing bolded-step style. |
 | A12 | C5 subsection number | **§19.7** (sister to §19.6 attestation-confabulation) | ✅ yes | §19 is the confabulation discipline; §19.6 is attestation-confabulation (what to cite); §19.7 is idle-state retrospective-narrative confabulation (who did the work). They are sister disciplines under the same parent. Adjacent numbering makes the sibling relationship visually obvious. |
 | A13 | C6 session-id record scope | **fold into SKILL.md** (new procedure step + new section on lineage capture) | ✅ yes | SPECIFICATION.md §10.1 + §12.5 already frame the lineage architecture; the handoff is the natural carrier (a handoff doc is exactly the artifact a future generation reads + uses to `claude --resume` if helpful). Deferring would create an arc for one paragraph. |
 
@@ -186,10 +186,12 @@ Each workspace's bw uses a distinct prefix to disambiguate ticket IDs across wor
 | the-stoa | `stoa--` |
 | ariadne-core-workspace | `ariadne--` |
 | railway_stoa | `railway--` |
-| sector-4 | `s4--` |
+| sector-4 (future workspace; prefix not yet deployed) | `s4--` (planned) |
 | user-tier (cross-project context, discipline-accretion) | `u--` |
 
 The prefix is set in the project's `bw` configuration at `bw init` time. When a substrate-tier ticket needs to reference a peer-workspace ticket (e.g., the-stoa's `stoa--p5g` credential-discipline arc references its empirical anchor at `railway--r9z`), the reference uses the full prefixed ID — there is no ambiguity because prefixes are workspace-distinct.
+
+Note on the sector-4 row: the `s4--` prefix is reserved for the planned sector-4 workspace; no `s4--` bw store is deployed at this writing (verified 2026-05-17: `bw list --grep s4--` returns zero matches across all initialized workspaces). The row is aspirational and documented here for future-workspace setup convention; it is NOT a claim of current deployment.
 
 Cross-workspace bw operations are SCOPED to the operating workspace. A session at the-stoa cannot `bw show ariadne--<id>` from inside the the-stoa workspace; that would require `cd`-ing into ariadne-core-workspace's directory first (where the ariadne-core bw store is bound). The downward-only visibility rule from §7.5 applies recursively at the workspace boundary: user-tier POLYBIUS can read down into every workspace's bw via its unified poll per §7.3; project-tier seats see only their own workspace's bw.
 
@@ -327,7 +329,7 @@ The discipline is in substrate canon NOW because PRINCIPAL named it 2026-05-13 a
 - `operating-disciplines.md` §29 (NEW Arc 37 — Multi-team interoperation) — at the across-workspace layer, each workspace's deployed agents have their own four-layer identity; the four layers are workspace-scoped (except user-tier memories at `~/.claude/CLAUDE.md`, which are PRINCIPAL-scoped across all workspaces).
 - `~/.claude/CLAUDE.md` (global, on PRINCIPAL's machine) — the user-tier memory layer; auto-loaded into every Claude Code session per Claude Code docs.
 - `substrate/skills/handoff-author/SKILL.md` (NEW Arc 37 — C6) — the handoff-author skill is the operational shape of §30.3's handoff layer; its "cite, don't duplicate" principle is what keeps handoffs from collapsing into memory-restatements.
-- `substrate/operating-disciplines.md` §10.1 (NEW Arc 37 — operating-mode progression; see C4) — the lifecycle disciplines operate across all four layers; §10.1's transition triggers fire on signals readable from any layer.
+- `substrate/operating-disciplines.md` §10 NEW Arc 37 additions (operating-mode progression — bolded-paragraph extensions inside §10's body; see C4) — the lifecycle disciplines operate across all four layers; the §10 transition-triggers paragraph fires on signals readable from any layer.
 - Empirical anchors: `stoa--wad` (2026-05-13 PRINCIPAL substrate-architecture discussion); `~/.claude/CLAUDE.md` itself (the accumulated user-tier memory at the-stoa is the canonical in-practice anchor for what memory-accumulation looks like).
 
 ---
@@ -340,7 +342,7 @@ The discipline is in substrate canon NOW because PRINCIPAL named it 2026-05-13 a
 | `substrate/MAJOR_POLYBIUS.md` | §16.5 (POLYBIUS-as-collective lens) end of paragraph that ends "queryable cross-collective memory is the operational form..." | Append: "(Cross-ref: `operating-disciplines.md` §30 NEW Arc 37 — Four-layer identity model; memories are the alignment-layer of the four-layer model the collective is structurally composed of.)" |
 | `substrate/MAJOR_POLYBIUS.md` | §16.7 Cross-references list | Append bullet: "- `operating-disciplines.md` §30 (NEW Arc 37 — Four-layer identity model) — the structural framing of WHAT crosses session boundaries; §16 names HOW." |
 | `substrate/operating-disciplines.md` | §29.7 Cross-references list (NEW from C2 — landed in same arc, so add at C2 landing time) | Already includes "§30 (NEW Arc 37 — Four-layer identity model) — sibling section; the identity-layer canon that travels with each workspace's deployed agents." per §4.2 above |
-| `substrate/operating-disciplines.md` | §10.1 (NEW from C4 — landed in same arc) | Add cross-ref inside §10.1's body or §10.1's cross-refs subsection naming §30: "Mode transitions trigger on signals readable from any of the four identity layers per §30 — handoff/memory/bw-substrate state changes can all surface a transition trigger." |
+| `substrate/operating-disciplines.md` | §10 NEW additions from C4 — the `**Provenance + accretion path (progression canon).**` closing paragraph of §10's bolded-paragraph additions (landed in same arc) | Already includes "See also `operating-disciplines.md` §30 (NEW Arc 37 — Four-layer identity model) — mode transitions trigger on signals readable from any of the four identity layers; handoff state + bw state are common trigger surfaces." per §6.2 above |
 
 ### §5.4 — Self-app probe
 
@@ -358,136 +360,96 @@ Per A19: **N=0 bit-by-it of failure** (no specific empirical anchor of memory-no
 
 **File:** `substrate/operating-disciplines.md`
 **Sections:** inline extensions to existing §10 + §11 (per A11 — user-tier lean: keep mode canon coherent rather than splitting across multiple top-levels).
-**Sub-sections to add:**
-- **§10.1** (new — renumbering existing §10 sub-content if any; current §10 is flat, so new §10.1 + §10.2 inserts cleanly after the existing flat content). Specifically:
-  - §10.1 — "Three-mode progression sequence + transition triggers" (new — the missing PROGRESSION layer)
-- **§11.7** (new — current §11 has steps 1, 1.5, 2, 3, 4, 5, 6 + Setup-complete + Teardown; adding §11.7 at the end as the "Mode declaration in directives + mid-engagement transitions" subsection)
+**Numbering-style decision (rev2 — addresses ARGUS R1+R2):** §10 is currently FLAT (no `### N.X` subsections) and §11 currently uses BOLDED-STEP MARKERS (`**1.**` through `**6.**` plus `**1.5**`, `**Setup-complete**`, `**Teardown**`). Adding `### 10.1` / `### 11.7` would create TOC anomalies inconsistent with the existing flat / bolded-step style. The rev2 picks **Option A — bolded-paragraph / bolded-step continuation** for both sections:
+
+- **§10 additions** land as new bolded-paragraph markers appended to the existing flat content (before the `Cross-refs:` line). Marker labels: `**Three-mode progression sequence.**`, `**Transition triggers.**`, `**Regression upward is normal.**` Each marker introduces a bolded paragraph (matching the existing `**HITL is the default.**`, `**Trigger words come in two forms — bare and qualified:**`, `**Resolution:**`, `**Per-seat declarations supersede global propagation.**`, `**Mode changes propagate at dispatch boundaries only.**`, `**Universal escalation triggers (autonomous mode):**` style §10 already uses).
+- **§11 additions** land as continuation step markers after the existing Teardown paragraph. Marker labels: `**7. Mode declaration in directives.**`, `**8. Mid-engagement mode transitions.**`, `**9. Downward-propagation rule (Arc 21 A4 recap).**` These continue the existing `**1.**`-`**6.**` numbered-step list naturally; the existing Setup-complete + Teardown blocks remain as terminal closures of the §11 checklist (steps 7-9 sit AFTER the Teardown block — i.e., the rev2 puts the new steps between Teardown and the section's `---` separator, so the bolded-step continuation is positioned as supplementary additions to the setup-checklist body, not insertions into the canonical 1.5/2/3/4/5/6 procedure).
+
+This style choice is light-touch: no retrofit of existing numbering, no new TOC anomalies, faithful to the surrounding style. Option B (promote-to-subsection) was considered and rejected — for §10 it would require carving subsections out of a deliberately-flat section; for §11 it would require retrofitting subsection numbering onto bolded-step markers (wider scope than A17 permits).
 
 **Position:**
-- §10.1 lands after the existing §10's last subsection (the "Cross-ref" line at end of current §10 — between the cross-ref and `---` separator)
-- §11.7 lands after the existing §11's Teardown paragraph and before the `---` separator
+- §10 additions land between the existing §10's `**Universal escalation triggers (autonomous mode):**` paragraph and the `**Cross-ref:**` paragraph (so they appear inside the §10 body proper, before the §25 cross-ref + §10's closing `Cross-refs:` line)
+- §11 additions land after the existing §11's `**Teardown procedure**` paragraph and before the `---` separator
 
-**Adjacency rationale:** §10 carries the HITL/Autonomous canon (engagement axis); §11 carries the autonomous-mode-setup checklist. C4's progression canon is the missing PROGRESSION + TRANSITION-TRIGGERS layer over §10 + §11. Landing as inline extensions keeps the mode-canon coherent — every reader landing at §10 or §11 finds the progression in-place without needing to navigate to a new top-level.
+**Adjacency rationale:** §10 carries the HITL/Autonomous canon (engagement axis); §11 carries the autonomous-mode-setup checklist. C4's progression canon is the missing PROGRESSION + TRANSITION-TRIGGERS layer over §10 + §11. Landing as inline bolded-paragraph + bolded-step additions keeps the mode-canon coherent and matches the existing style — every reader landing at §10 or §11 finds the progression in-place without needing to navigate to a new top-level AND without encountering a numbering anomaly mid-section.
 
 ### §6.2 — Exact wording (canon prose to land)
 
-**For §10 insertion (after existing §10's "Cross-refs:" line, before the `---` separator):**
+**For §10 additions (insert between the existing `**Universal escalation triggers (autonomous mode):**` paragraph and the `**Cross-ref:**` paragraph that ends §10's body):**
 
 ```markdown
-### 10.1 Three-mode progression sequence + transition triggers
+**Three-mode progression sequence.** `MAJOR_POLYBIUS.md` §12 names two operating MODES (Mode 1 formal gauntlet, Mode 2 pair-programming); this §10 names two operating ENGAGEMENTS (HITL, Autonomous). The two axes are orthogonal and COMPOSE: a Mode 1 gauntlet can run in either engagement; a Mode 2 prototyping cycle can run in either engagement. What the substrate did not previously canon is the PROGRESSION pattern — the typical maturity sequence engagements grow through, and the transition triggers between stages.
 
-The existing §10 names two operating engagements (HITL vs Autonomous) and `MAJOR_POLYBIUS.md` §12 names two operating modes (Mode 1 formal gauntlet, Mode 2 pair-programming). The two axes (mode × engagement) compose: Mode 2 in HITL is interactive prototyping; Mode 1 in autonomous is heads-down gauntlet with bw-mediated coordination; etc. What the substrate did not previously canon is the PROGRESSION pattern — when do engagements transition between modes, what triggers the transitions, who calls the transition.
+The typical sequence has three stages:
 
-This subsection names the typical maturity sequence and the transition triggers. The downward-propagation rule from Arc 21 A4 (parent seat's mode propagates to dispatched subagents unless explicitly overridden) is already canon at §10's existing body and at `MAJOR_POLYBIUS.md` §13.3; this subsection makes the progression cite-able from a centralized location.
+1. **Mode 2 + HITL — Pair programming.** Engagement starts here. PRINCIPAL and the active seat (typically a pair-programmer Major or POLYBIUS) interactively scope the work, identify deliverables, draft a directive. Chat is the primary channel; bw is durable record but lightweight.
+2. **Mode 1 + HITL or Autonomous — Full team gauntlet.** Engagement transitions here once scope is locked and a directive is authored. The arc dispatches (PLINY activates from the activation paste); the gauntlet runs (DAEDALUS → ARGUS → ADA → VERA → CATO → ZENO). PRINCIPAL is at decision-points only when running HITL; coordination is bw-mediated when running Autonomous.
+3. **Semi-autonomous = Mode 1 × Autonomous (long-running).** "Semi-autonomous" is not a third mode; it is the composition Mode 1 × Autonomous applied to long-running or multi-session engagements (multi-day arcs, parallel arcs, AFK windows). PRINCIPAL is exception-handler only; coordination is via bw + cron polling per §11; escalation triggers fire per the universal triggers list above.
 
-#### 10.1.1 The three modes (recap; canon at `MAJOR_POLYBIUS.md` §12 + §13)
+The sequence is typical, not mandatory. A short engagement may stay in Mode 2 throughout (a small clarification, a quick-fix). A long-running arc may go directly from Mode 2 scoping to semi-autonomous (Mode 1 × Autonomous) without an intermediate Mode 1 × HITL stage. The progression is a default shape engagements grow into; the substrate does not enforce it.
 
-| Mode | Activity | PRINCIPAL involvement | Coordination |
-|---|---|---|---|
-| **Mode 2 — Pair programming** | Interactive prototyping, scoping, exploration | High — in-the-loop on every decision | Conversational; bw used as durable record but lightweight |
-| **Mode 1 — Full team** | Formal gauntlet (DAEDALUS → ARGUS → ADA → VERA → CATO → ZENO) | Decision-points only — phase ratification, ship/no-ship | bw heartbeats at phase transitions |
-| **Semi-autonomous** | Long-running engagements with periodic check-in | Exception-handler only — escalation triggers per directive | `Monitor` + bw-poll bridge (per §11 setup); radio-check between orchestrators per §7.1 |
+(Worked composition examples: "Mode 1 × HITL" = formal gauntlet with PRINCIPAL ratifying each phase transition; "Mode 1 × Autonomous" = semi-autonomous, the canonical long-arc shape; "Mode 2 × HITL" = the default pair-programming opening; "Mode 2 × Autonomous" is unusual but valid — e.g., a pair-programmer Major continuing exploratory work autonomously after PRINCIPAL declared AFK during scoping.)
 
-Note: "semi-autonomous" is the operating-mode label for the engagement-axis "Autonomous" applied to multi-session or long-running work. The mode × engagement composition holds.
-
-#### 10.1.2 The typical progression sequence
-
-Engagements progress through a typical maturity sequence as scope solidifies:
-
-1. **Mode 2 (Pair programming)** — engagement starts here. PRINCIPAL and the active seat (typically pair-programmer Major or POLYBIUS) interactively scope the work, identify the deliverables, draft a directive. The bw is used as a durable record but is lightweight; chat is the primary channel.
-2. **Mode 1 (Full team)** — engagement transitions here once scope is locked and a directive is authored. The arc dispatches (PLINY activates from the activation paste); the gauntlet runs (DAEDALUS → ARGUS → ADA → VERA → CATO → ZENO). PRINCIPAL is at decision-points only (phase ratifications, ship/no-ship).
-3. **Semi-autonomous** — engagement may transition here for long-running phases (multi-day work, parallel arcs, AFK windows). PRINCIPAL is exception-handler only; coordination is via bw + cron polling per §11; escalation triggers fire per the universal triggers list at §10.
-
-The sequence is typical, not mandatory. A short engagement may stay in Mode 2 throughout (e.g., a small clarification, a quick-fix). A long-running arc dispatch may go directly from Mode 2 to semi-autonomous (Mode 1 + Autonomous engagement). The progression is a default shape engagements grow into, not a sequence the substrate enforces.
-
-#### 10.1.3 Transition triggers (who calls each transition)
+**Transition triggers.** The signals that cause an engagement to move between stages, and the seat that calls each transition:
 
 | Transition | Concrete signals | Seat that calls |
 |---|---|---|
-| Mode 2 → Mode 1 | Scope is locked + directive authored + PRINCIPAL ratifies dispatch | user-tier POLYBIUS (typically; pair-programmer Major also possible when PRINCIPAL has been working pair-programming with one) |
-| Mode 1 → Semi-autonomous | PRINCIPAL declares "AFK" or "autonomous" (bare or qualified per §10 trigger words) + escalation triggers are explicit in the directive | user-tier POLYBIUS calls based on PRINCIPAL signal; runs the §11 setup checklist |
-| Semi-autonomous → Mode 1 | PRINCIPAL re-engages (responds to bw query; surfaces preference; ratifies phase); OR universal escalation trigger fires (peer silence > 60min, substance disagreement, ambiguity, authorship content) | Any seat can call by surfacing the escalation per §10's universal-trigger list; PRINCIPAL ratifies the re-engagement |
+| Mode 2 → Mode 1 | Scope is locked + directive authored + PRINCIPAL ratifies dispatch | user-tier POLYBIUS (typically; a pair-programmer Major also possible when PRINCIPAL has been pair-programming with one) |
+| Mode 1 × HITL → Mode 1 × Autonomous (semi-autonomous) | PRINCIPAL declares "AFK" or "autonomous" (bare or qualified per the trigger-words table above) + escalation triggers are explicit in the directive | user-tier POLYBIUS calls based on PRINCIPAL signal; runs the §11 setup checklist |
+| Semi-autonomous → Mode 1 × HITL | PRINCIPAL re-engages (responds to bw query; surfaces preference; ratifies phase); OR universal escalation trigger fires (peer silence > 60min, substance disagreement, irreducible ambiguity, authorship content) | Any seat can call by surfacing the escalation per the universal-trigger list above; PRINCIPAL ratifies the re-engagement |
 | Mode 1 → Mode 2 | PRINCIPAL pulls back for clarification or re-scoping; OR PRINCIPAL declares HITL bare trigger | PRINCIPAL calls (chat-side); the receiving seat tears down autonomous-mode setup per §11 Teardown if applicable |
 
-**Regression upward is normal, not exceptional.** Engagements that progress to Mode 1 or semi-autonomous routinely regress to Mode 2 when escalations require re-engagement — that is what the universal escalation triggers are FOR. Treating regression as a failure ("we already shipped the directive; why are we back in pair-programming?") confuses scope-lock (a property of the directive) with engagement-mode (a property of HOW PRINCIPAL is participating right now). The directive can stay locked while the engagement regresses to Mode 2 for a clarification round; once clarification is resolved, the engagement progresses back to Mode 1.
+The trigger words in column 2 are the same exact strings tabulated in the trigger-words table above; see that table for the verbatim list (no duplicate source-of-truth here).
 
-#### 10.1.4 Cross-references
+**Regression upward is normal, not exceptional.** Engagements that progress to Mode 1 or semi-autonomous routinely regress to Mode 2 when escalations require re-engagement — that is what the universal escalation triggers are FOR. Treating regression as a failure ("we already shipped the directive; why are we back in pair-programming?") confuses scope-lock (a property of the directive) with engagement-mode (a property of HOW PRINCIPAL is participating right now). The directive can stay locked while the engagement regresses to Mode 2 for a clarification round; once clarification is resolved, the engagement progresses back to Mode 1. The downward-propagation rule from Arc 21 A4 (parent seat's mode propagates to dispatched subagents unless explicitly overridden) operates within whichever stage the engagement is currently at; see `MAJOR_POLYBIUS.md` §13.3 for the propagation canon and §11 steps 7-9 below for the mid-engagement transition signaling convention.
 
-- `MAJOR_POLYBIUS.md` §12 (the two-mode framing) + §13 (HITL/Autonomous engagement at POLYBIUS-tier).
-- `MAJOR_PLINY.md` §5.1 (operating-mode awareness in the dispatch brief — every dispatch declares its expected mode per §11.7 below).
-- §11 (autonomous-mode-setup checklist) — the operational procedure that fires on Mode 1 → Semi-autonomous; §11.7 below names the mid-engagement transition signaling.
-- §7.1 (radio-check protocol) — the coordination mechanism active during semi-autonomous engagement.
-- `operating-disciplines.md` §30 (NEW Arc 37 — Four-layer identity model) — mode transitions trigger on signals readable from any of the four identity layers; handoff state + bw state are both common trigger surfaces.
-- Arc 21 directive A4 — empirical anchor for the downward-propagation rule (parent seat's mode propagates to dispatched subagents).
-
-#### 10.1.5 N=1 provenance + accretion path
-
-Per `MAJOR_POLYBIUS.md` §15 honest-scope and §6.7.1: PRINCIPAL declared this discipline 2026-05-13 (project-direction authority, captured at `stoa--ntn` ticket body — verbatim PRINCIPAL framing on "the pattern that knows about going from pair programming to the full team to the team running in semi autonomous mode using beadworks to communicate"). §6.7.1 defers to the canon-promotion gate (multiple observations + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status.
-
-The supporting evidence at the time of this writing:
-
-- **N=multi de-facto bit-by-it (mode transitions handled organically across arcs):** every arc dispatched since the substrate's first multi-day engagement has handled mode transitions — Mode 2 scoping → Mode 1 gauntlet → Mode 2 clarification round → Mode 1 resume — without an explicit progression canon. The pattern is well-established as practice.
-- **N=0 worked-when-applied with formal progression canon:** Arc 37 ships the prose; future arcs that route mode transitions explicitly through §10.1 accrete worked-when-applied evidence.
-
-The discipline is in substrate canon NOW because PRINCIPAL named it 2026-05-13 and the implicit progression pattern is observable across every prior arc; promotion to "structural lesson" status with multi-arc empirical backing is future arcs' work, not this arc's.
+**Provenance + accretion path (progression canon).** Per `MAJOR_POLYBIUS.md` §15 honest-scope and §6.7.1: PRINCIPAL declared this discipline 2026-05-13 (project-direction authority, captured at `stoa--ntn` ticket body — verbatim PRINCIPAL framing on "the pattern that knows about going from pair programming to the full team to the team running in semi autonomous mode using beadworks to communicate"). §6.7.1 defers to the canon-promotion gate (multiple observations + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." Honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority. Supporting evidence: N=multi de-facto bit-by-it (mode transitions handled organically across every multi-day arc since the substrate's first such engagement — Mode 2 scoping → Mode 1 gauntlet → Mode 2 clarification round → Mode 1 resume — without an explicit progression canon); N=0 worked-when-applied with formal progression canon (Arc 37 ships the prose; future arcs accrete worked-when-applied). Promotion to "structural lesson" status with multi-arc empirical backing is future arcs' work, not this arc's. See also `operating-disciplines.md` §30 (NEW Arc 37 — Four-layer identity model) — mode transitions trigger on signals readable from any of the four identity layers; handoff state + bw state are common trigger surfaces.
 ```
 
-**For §11 insertion (after existing §11's "Teardown procedure" paragraph and before the `---` separator):**
+**For §11 additions (insert after the existing §11's `**Teardown procedure**` paragraph and before the `---` separator):**
 
 ```markdown
-### 11.7 Mode declaration in directives + mid-engagement transitions
+**7. Mode declaration in directives.** Every arc directive declares its expected operating mode in the dispatch frame (the existing pattern across Arcs 21-36; this step makes the convention explicit). The directive's dispatch frame names the operating mode per phase. Typical pattern:
 
-Every arc directive declares its expected operating mode in the dispatch frame (the existing pattern across Arcs 21-36; this subsection makes the convention explicit). The default for arc dispatches is **semi-autonomous** per Arc 21's A4 (PRINCIPAL-AFK during multi-session arc work); explicit deviation requires the directive to name the mode in its phase-structure section.
+- Phase 1 (Design) — Mode 1 × Autonomous (DAEDALUS heads-down on design.md per the directive's locked envelope).
+- Phase 2 (Build) — Mode 1 × Autonomous (ADA heads-down on the worktree).
+- Phase 3 (Verify) — Mode 1 × Autonomous (VERA + CATO + ZENO parallel).
+- Phase 4 (Ship) — Mode 1 with PRINCIPAL surface for ship/no-ship if the work is public-facing (otherwise autonomous-ship per `u--7yg.11`).
 
-#### 11.7.1 Mode declaration in directives
+A directive that does not name the mode explicitly inherits semi-autonomous (Mode 1 × Autonomous) per the default. A directive that names a per-phase override (e.g., "Phase 2 runs in HITL because the build touches credential-shaped code per §20.3 refusal-as-signal") overrides the default for that phase only. Default for arc dispatches is **semi-autonomous** per Arc 21's A4 (PRINCIPAL-AFK during multi-session arc work).
 
-The directive's dispatch frame names the operating mode for each phase. Concretely:
-
-- Phase 1 (Design) — typically Mode 1 in Autonomous engagement (DAEDALUS heads-down on design.md per the directive's locked envelope).
-- Phase 2 (Build) — typically Mode 1 in Autonomous engagement (ADA heads-down on the worktree).
-- Phase 3 (Verify) — typically Mode 1 in Autonomous engagement (VERA + CATO + ZENO parallel).
-- Phase 4 (Ship) — typically Mode 1 with PRINCIPAL surface for ship/no-ship if the work is public-facing (otherwise autonomous-ship per `u--7yg.11`).
-
-A directive that does not name the mode explicitly inherits semi-autonomous per the default. A directive that names a per-phase override (e.g., "Phase 2 runs in HITL because the build touches credential-shaped code per §20.3 refusal-as-signal") overrides the default for that phase only.
-
-#### 11.7.2 Mid-engagement mode transitions
-
-When the mode changes mid-engagement, the seat that calls the transition posts a `[mode-change <new-mode>] [from: <self-seat-slug>]` comment on the coordination ticket. Peer seat reads + adapts on its next poll. Example: PLINY calls "regress to Mode 2 — surfaced ambiguity that needs PRINCIPAL judgment" → posts `[mode-change mode-2] [from: pliny-the-stoa]` → POLYBIUS reads on its next poll and adapts (e.g., increases polling cadence to active per §7.2 because Mode 2 typically has higher coordination volume).
+**8. Mid-engagement mode transitions.** When the mode changes mid-engagement, the seat that calls the transition posts a `[mode-change <new-mode>] [from: <self-seat-slug>]` comment on the coordination ticket. Peer seat reads + adapts on its next poll. Example: PLINY calls "regress to Mode 2 — surfaced ambiguity that needs PRINCIPAL judgment" → posts `[mode-change mode-2] [from: pliny-the-stoa]` → POLYBIUS reads on its next poll and adapts (e.g., increases polling cadence to active per §7.2 because Mode 2 typically has higher coordination volume).
 
 The mode-change comment is a coordination signal; it does NOT itself transition the engagement. The transition is effected by the receiving seat's adapted behavior (e.g., POLYBIUS engaging PRINCIPAL chat-side; PLINY pausing the next CAPTAIN dispatch until the ambiguity resolves). The signal-then-adapt pattern preserves the cooperative-yield property §18.3 names: no seat can push-interrupt a running peer; the mode-change comment yields at the receiving seat's next poll.
 
-#### 11.7.3 Downward-propagation rule (Arc 21 A4 recap)
+Tag-parser interaction (per §7.7): the `[from: <self-seat-slug>]` clause in the mode-change tag classifies under §7.7 case 3 (`[from: <slug>]` slug-match → the tagged comment contributes to `last_self_activity` / `last_peer_activity` timeline-arithmetic as a coordination-attentiveness signal). This is INTENDED: a mode-change comment IS evidence that the peer is alive AND announcing a coordination-attentive action; counting it as a heartbeat-equivalent for missed-check thresholds is the correct behavior. Mode-change comments thus serve dual function — coordination signal (substance) AND liveness signal (timeline-arithmetic).
 
-A parent seat's mode propagates to dispatched subagents unless explicitly overridden in the dispatch brief. This is the existing Arc 21 A4 canon at `MAJOR_POLYBIUS.md` §13.3; recaped here for cross-section completeness. Concretely:
+**9. Downward-propagation rule (Arc 21 A4 recap).** A parent seat's mode propagates to dispatched subagents unless explicitly overridden in the dispatch brief. This is the existing Arc 21 A4 canon at `MAJOR_POLYBIUS.md` §13.3; recapped here for cross-section completeness. Concretely:
 
 - If user-tier POLYBIUS is in semi-autonomous and dispatches PLINY for an arc, PLINY inherits semi-autonomous unless the directive declares HITL for Phase X.
 - If PLINY is in semi-autonomous and dispatches a CAPTAIN, the CAPTAIN inherits semi-autonomous unless the dispatch brief declares HITL for the CAPTAIN's scope.
 - The override is explicit, in the dispatch brief; silent override is a directive bug.
 
-#### 11.7.4 Cross-references
-
-- `operating-disciplines.md` §10 + §10.1 (NEW above) — the engagement axis + progression sequence + transition triggers.
-- `MAJOR_PLINY.md` §5.1 (operating-mode awareness in the dispatch brief) — the directive convention this subsection makes explicit.
-- `MAJOR_POLYBIUS.md` §13.3 (Mode propagation across nested tiers) — the downward-propagation rule canon home.
-- `operating-disciplines.md` §7.2 (Adaptive polling cadence) — peer adaptation on mode-change signal interacts with cadence regime selection.
-- Arc 21 directive A4 — empirical anchor for downward-propagation rule.
+Cross-refs for steps 7-9: `operating-disciplines.md` §10 (engagement axis + progression sequence + transition triggers — co-landed this arc); `MAJOR_PLINY.md` §5.1 (operating-mode awareness in the dispatch brief — the directive convention step 7 makes explicit); `MAJOR_POLYBIUS.md` §13.3 (Mode propagation across nested tiers — the downward-propagation canon home); `operating-disciplines.md` §7.2 (Adaptive polling cadence — peer adaptation on mode-change signal interacts with cadence regime selection); `operating-disciplines.md` §7.7 (bw-timeline parsing — the case 3 classification that counts mode-change tags as liveness signals); Arc 21 directive A4 (empirical anchor for downward-propagation rule).
 ```
 
 ### §6.3 — Cite-comment plan
 
+The C4 additions land as bolded-paragraph extensions inside §10's body and bolded-step extensions (steps 7-9) inside §11 — there are no §10.1 / §11.7 subsection numbers to cite. Cross-refs name the host section + the bolded-marker label so a future reader can locate the target inside the section's flat / bolded-step layout.
+
 | Read-site file | Read-site location | Cite-comment to add |
 |---|---|---|
-| `substrate/MAJOR_POLYBIUS.md` | §13 (Operating engagement) opening paragraph or end of §13 | Append: "(Cross-ref: `operating-disciplines.md` §10.1 NEW Arc 37 — Three-mode progression sequence + transition triggers; the universal-team progression canon §13 sits alongside.)" |
-| `substrate/MAJOR_POLYBIUS.md` | §13.4 (Mode entry / exit procedures) end of section | Append: "(Cross-ref: `operating-disciplines.md` §11.7 NEW Arc 37 — Mode declaration in directives + mid-engagement transitions; §11.7 is the universal-team layer this section's POLYBIUS-specific entry/exit procedures sit within.)" |
-| `substrate/MAJOR_PLINY.md` | §5.1 (Operating-mode awareness in the dispatch brief) end of section | Append: "(Cross-ref: `operating-disciplines.md` §11.7 NEW Arc 37 — Mode declaration in directives + mid-engagement transitions; §11.7's convention is what this section's dispatch-brief mode-awareness operates against.)" |
+| `substrate/MAJOR_POLYBIUS.md` | §13 (Operating engagement) opening paragraph or end of §13 | Append: "(Cross-ref: `operating-disciplines.md` §10 NEW Arc 37 additions — `**Three-mode progression sequence.**` + `**Transition triggers.**` paragraphs; the universal-team progression canon §13 sits alongside.)" |
+| `substrate/MAJOR_POLYBIUS.md` | §13.4 (Mode entry / exit procedures) end of section | Append: "(Cross-ref: `operating-disciplines.md` §11 NEW Arc 37 additions — steps 7-9 `**Mode declaration in directives**` / `**Mid-engagement mode transitions**` / `**Downward-propagation rule (Arc 21 A4 recap)**`; §11 steps 7-9 are the universal-team layer this section's POLYBIUS-specific entry/exit procedures sit within.)" |
+| `substrate/MAJOR_PLINY.md` | §5.1 (Operating-mode awareness in the dispatch brief) end of section | Append: "(Cross-ref: `operating-disciplines.md` §11 NEW Arc 37 additions — step 7 `**Mode declaration in directives.**`; the convention this section's dispatch-brief mode-awareness operates against.)" |
 
 ### §6.4 — Self-app probe
 
-None — prose canon; no runtime exercise. The mode-progression pattern is already in practice across every arc; §10.1 + §11.7 ship the prose. Arc 37 itself transitions through Mode 2 (scoping conversation with PRINCIPAL pre-dispatch) → Mode 1 in Autonomous (this gauntlet) — an implicit self-application, but no assertion to falsify at probe time.
+None — prose canon; no runtime exercise. The mode-progression pattern is already in practice across every arc; §10's `**Three-mode progression sequence.**` + `**Transition triggers.**` paragraphs and §11's steps 7-9 ship the prose. Arc 37 itself transitions through Mode 2 (scoping conversation with PRINCIPAL pre-dispatch) → Mode 1 × Autonomous (this gauntlet) — an implicit self-application, but no assertion to falsify at probe time.
 
 ### §6.5 — N=1 framing (per A19)
 
-Per A19: **N=multi de-facto bit-by-it** (mode transitions handled organically across all prior arcs); **N=0 worked-when-applied with formal progression canon** (Arc 37 ships the prose). §10.1.5 carries this verbatim.
+Per A19: **N=multi de-facto bit-by-it** (mode transitions handled organically across all prior arcs); **N=0 worked-when-applied with formal progression canon** (Arc 37 ships the prose). The `**Provenance + accretion path (progression canon).**` paragraph at the end of §10's additions carries this verbatim.
 
 ---
 
@@ -703,7 +665,7 @@ Context: user-tier POLYBIUS approaching context limit after a multi-day substrat
 
 ## Generational lineage
 
-Prior session id: `<session-id>`. Successor: decide whether `claude --resume <session-id>` is the right entry path (continuity benefit) vs fresh session + activation paste (clean state benefit). For this engagement, fresh session likely preferred — Arc 37 ship is a clean boundary.
+Prior session id: `7c5fdafd-29f4-4484-874a-11ece115de16` (synthetic UUID-shape; real session ids are obtainable via the prior session's `claude --session` invocation or terminal title). Successor: decide whether `claude --resume 7c5fdafd-29f4-4484-874a-11ece115de16` is the right entry path (continuity benefit) vs fresh session + activation paste (clean state benefit). For this engagement, fresh session likely preferred — Arc 37 ship is a clean boundary.
 ```
 
 ### Example 2 — PLINY mid-arc handoff (compaction during long arc)
@@ -784,7 +746,8 @@ Prior session id: `<session-id>`. Successor: `claude --resume <session-id>` reco
 - `operating-disciplines.md` §30 (NEW Arc 37 — Four-layer identity model) — the handoff layer's canon home; this skill is the operational shape of §30.3's handoff layer.
 - `substrate/skills/agent-author/` — sibling skill for agent authoring; handoffs are an output of an agent, not the agent itself.
 - `substrate/skills/tier2-project-onboarding/` — sibling skill for new-project orientation.
-- `MAJOR_POLYBIUS.md` §16 (POLYBIUS session lifecycle) — the lifecycle disciplines this skill operates within; §16.3 explicitly names multi-artifact handoffs (the handoff doc is the index; bw tickets + retro docs + design artifacts + commits are the linked artifacts).
+- `MAJOR_POLYBIUS.md` §16 (POLYBIUS session lifecycle) — the lifecycle disciplines this skill operates within.
+- `MAJOR_POLYBIUS.md` §16.3 (Handoff is multi-artifact, not single-doc) — the canon home for principle 5's "cite, don't duplicate" wording; this skill's principle 5 reuses §16.3's exact phrasing because the discipline is identical. The handoff doc this skill authors is the INDEX (low-token overview); bw tickets + retro docs + design artifacts + commits are the linked durable artifacts §16.3 names.
 - `MAJOR_PLINY.md` §6.2 (Surface-and-wait polling pattern) — PLINY's polling pattern interacts with handoff authoring during long arcs.
 - `~/.claude/CLAUDE.md` + project `.claude/CLAUDE.md` — the memory layer this skill cross-references via principle 5 ("cite, don't duplicate").
 - `HANDOFF_*.md` files at workspace root — the canonical output location.
@@ -817,6 +780,14 @@ Location: `substrate/install.sh` line 141-147 (the `SKILL_NAMES` array). The new
 - `substrate/skills/handoff-author/SKILL.md` (NEW Arc 37 — C6) — the operational shape of §16.3's multi-artifact handoff authoring; invoke before `/compact` or session close.
 ```
 
+**`substrate/MAJOR_POLYBIUS.md` §16.3 (Handoff is multi-artifact, not single-doc) — append the sibling-cite (rev2 addition addressing ARGUS R5):**
+
+§16.3 already names "Cite, don't duplicate" as the authoring discipline; the new SKILL.md principle 5 reuses identical wording. Land a one-line forward-pointer at end of §16.3:
+
+```markdown
+(Cross-ref: `substrate/skills/handoff-author/SKILL.md` (NEW Arc 37 — C6) — the operational shape of this discipline; the skill's principle 5 "Cite, don't duplicate" reuses §16.3's exact phrasing because the discipline is identical.)
+```
+
 **`substrate/MAJOR_PLINY.md` §9 (Activation checklist) — append bullet (or §6 Communication if §9 doesn't naturally fit):**
 
 Reading §9 (Activation checklist one-page summary), the cleanest fit is to append a bullet near the existing "Compact-or-clear recovery" or session-management content. Specifically, append at end of §9:
@@ -844,7 +815,15 @@ VERA exercises the following probe set to falsify the build. Probes are numbered
 1. **C1 §19 present in MAJOR_POLYBIUS.md.** Probe: `grep -n "^## 19\. Two-team architecture" substrate/MAJOR_POLYBIUS.md` returns one match between current §18 and end-of-file. Section body contains the forge/shop framing, the two-team table, the routing rule, the §17 cite, and the N=1 provenance subsection.
 2. **C2 §29 present in operating-disciplines.md.** Probe: `grep -n "^## 29\. Multi-team interoperation" substrate/operating-disciplines.md` returns one match between current §28 and the `## Agent-regime inverses` block. Body contains the ecosystem-naming, prefix-namespace table, cross-team request channel, convention-based discovery, and N=1 provenance.
 3. **C3 §30 present in operating-disciplines.md.** Probe: `grep -n "^## 30\. Four-layer identity model" substrate/operating-disciplines.md` returns one match immediately after §29 and before `## Agent-regime inverses`. Body contains the four-layer table, memories-as-alignment framing, cross-layer interaction discussion, and N=1 provenance.
-4. **C4 §10 + §11 extensions present.** Probes: (a) `grep -n "^### 10\.1 Three-mode progression" substrate/operating-disciplines.md` returns one match inside §10 before the `---` separator; (b) `grep -n "^### 11\.7 Mode declaration in directives" substrate/operating-disciplines.md` returns one match at end of §11 before the `---` separator. Both bodies contain the locked content (progression sequence, transition triggers table, downward-propagation recap).
+4. **C4 §10 + §11 extensions present (bolded-paragraph / bolded-step continuation style per rev2; §10 + §11 are NOT subsectioned).** Probes:
+   - (a) `grep -nF "**Three-mode progression sequence.**" substrate/operating-disciplines.md` returns one match inside §10 (between the `**Universal escalation triggers (autonomous mode):**` paragraph and the `**Cross-ref:**` paragraph).
+   - (b) `grep -nF "**Transition triggers.**" substrate/operating-disciplines.md` returns one match inside §10, immediately following the progression-sequence paragraph.
+   - (c) `grep -nF "**Regression upward is normal, not exceptional.**" substrate/operating-disciplines.md` returns one match inside §10.
+   - (d) `grep -nF "**Provenance + accretion path (progression canon).**" substrate/operating-disciplines.md` returns one match inside §10.
+   - (e) `grep -nF "**7. Mode declaration in directives.**" substrate/operating-disciplines.md` returns one match inside §11 (after the existing `**Teardown procedure**` paragraph, before the `---` separator).
+   - (f) `grep -nF "**8. Mid-engagement mode transitions.**" substrate/operating-disciplines.md` returns one match inside §11.
+   - (g) `grep -nF "**9. Downward-propagation rule (Arc 21 A4 recap).**" substrate/operating-disciplines.md` returns one match inside §11.
+   - All bodies contain the locked content (progression sequence; transition triggers table; mode-change tag form + §7.7 case-3 interaction; downward-propagation recap).
 5. **C5 §19.7 present in operating-disciplines.md.** Probe: `grep -n "^### 19\.7 Idle retrospective-narrative" substrate/operating-disciplines.md` returns one match between current §19.6 and the `## 20. Credential discipline` heading. Body contains the empirical anchor (2026-05-13 PLINY Engagement B), the canonical orchestrator-scan procedure, the verbal-admission + verification-action discipline, and N=1 provenance.
 6. **C6 SKILL.md present at substrate/skills/handoff-author/SKILL.md with `author: Denson Smith` frontmatter.** Probes: (a) `test -f substrate/skills/handoff-author/SKILL.md` exits 0; (b) `grep -E "^author: Denson Smith$" substrate/skills/handoff-author/SKILL.md` returns one match in the frontmatter block; (c) `grep -E "^name: handoff-author$" substrate/skills/handoff-author/SKILL.md` returns one match; (d) the body contains the six principles, suggested procedure (with step 6 generational lineage capture), what-handoffs-are-NOT framing, layer interaction table, and three worked examples.
 7. **install.sh SKILL_NAMES contains `handoff-author`.** Probe: `grep -E "^\s+handoff-author$" substrate/install.sh` returns one match between the `SKILL_NAMES=(` opening and the `)` closing.
@@ -863,7 +842,7 @@ VERA exercises the following probe set to falsify the build. Probes are numbered
 
 CATO is MANDATORY for this arc per directive §Phase 3 ("CATO is MANDATORY for this arc: substrate canon work + new skill + multiple new sections; wording precision matters"). CATO cold-reads the diff for:
 
-1. **Wording precision in all 6 new sections.** Canon-quality prose; voice consistency per the file each section lands in (MAJOR_POLYBIUS.md uses second-person `you` to address POLYBIUS; operating-disciplines.md uses third-person describing the discipline universally). C4's inline §10.1 + §11.7 extensions must match the voice of the surrounding §10 + §11 content. C5's §19.7 must match §19.6's voice (both confabulation-discipline subsections).
+1. **Wording precision in all 6 new sections.** Canon-quality prose; voice consistency per the file each section lands in (MAJOR_POLYBIUS.md uses second-person `you` to address POLYBIUS; operating-disciplines.md uses third-person describing the discipline universally). C4's inline §10 bolded-paragraph additions + §11 step 7-9 continuation must match the voice of the surrounding §10 + §11 content (§10 uses bolded-paragraph markers in a flat layout; §11 uses bolded-step numbered markers — additions must NOT introduce `### N.X` subsection numbering that would clash with the existing flat / bolded-step style). C5's §19.7 must match §19.6's voice (both confabulation-discipline subsections).
 2. **Cite-comment completeness.** Every read-site named in §3.3, §4.3, §5.3, §6.3, §7.3, §8.4 is addressed in the diff. Missing cite-comments are a CATO FAIL — they break the cross-cite property the substrate's accretion model depends on.
 3. **Skill body completeness + `author: Denson Smith`.** Frontmatter validates; six principles present; suggested procedure complete (with step 6 generational-lineage capture per A13 fold); what-handoffs-are-NOT framing present; layer interaction table present; three worked examples present (each 15-30 lines per the directive's voice notes — not full production handoffs); cross-references section present. `author: Denson Smith` mandatory per A16 + CLAUDE.md absolute rule.
 4. **Scope discipline against A17.** No bundling of bj5/utn/3sz/5sr/pqn (Arc 38 + Arc 39 candidates). No mechanical-enforcement infrastructure (no pre-commit hooks, validators, etc.). No meta-agent. No memory-introspect skill. No multi-team registry. CATO surfaces any creep as a CATO FAIL — the scope-lock is hard-locked per A17.
@@ -876,7 +855,7 @@ CATO is MANDATORY for this arc per directive §Phase 3 ("CATO is MANDATORY for t
 
 ZENO performs the mechanical spec-vs-result check:
 
-1. **A2-A7 locked content present in the diff.** Each of the 6 candidates has the locked content named in the directive §A2-§A7 present in the build. ZENO grep against each candidate's locked element (e.g., A2's "forge / shop" metaphor present in §19; A5's "Mode 2 → Mode 1" transition trigger present in §10.1.3; etc.).
+1. **A2-A7 locked content present in the diff.** Each of the 6 candidates has the locked content named in the directive §A2-§A7 present in the build. ZENO grep against each candidate's locked element (e.g., A2's "forge / shop" metaphor present in §19; A5's "Mode 2 → Mode 1" transition trigger present in §10's new `**Transition triggers.**` paragraph table; etc.).
 2. **A15 cite-comments resolved.** Every plan-named cite-comment (per §3.3, §4.3, §5.3, §6.3, §7.3, §8.4 in this design.md) is verified present in the diff via grep.
 3. **A16 file-frontmatter `author: Denson Smith` verified.** C6 SKILL.md frontmatter contains `author: Denson Smith`. ZENO greps for the exact string in the frontmatter block.
 4. **A17 scope verified.** No mention in the diff of: bj5, utn, 3sz, 5sr, pqn (Arc 38 + 39 candidates); pre-commit hook; validator; meta-agent; memory-introspect skill; multi-team registry. ZENO grep for the explicit terms in the diff.
@@ -911,10 +890,10 @@ I owe the post-work gate honest naming of brittle spots ARGUS should pay particu
    - **Why this shape anyway:** the convention IS the same mechanism — `[for:]` tags + bw-mediated meeting in the lower tier. Inventing a new mechanism for cross-team would be over-engineering; reusing §7.4 is correct. The cite-comment plan in §4.3 includes a §7.4 cross-ref that names the extension explicitly.
 3. **§30's four-layer model presents identity as a clean composition, but real agents experience the layers as messier (in-context-window state crosses layer boundaries; a memory authoring action is also a current-session work-state).** The model is canon, but the lived experience is muddier. ARGUS may surface that the model under-names the cross-layer leakage.
    - **Why this shape anyway:** the four-layer model is a structural framing, not a phenomenological one. The leakage exists but the substrate's job is to make the structure crisp enough that seats know which layer to write to when they have a choice. Future arcs may extend with a "cross-layer interaction" section that names the leakage cases explicitly; this arc ships the structure.
-4. **§10.1's transition triggers table (§10.1.3) describes "concrete signals" that are still substantively prose-shaped ("PRINCIPAL declares AFK"). A more mechanical signal (e.g., "PRINCIPAL utters one of the exact trigger words at §10's trigger-words table") would be testable.**
-   - **Why this shape anyway:** the trigger words are already at §10's existing trigger-words table (verbatim list of "go autonomous", "step back", etc.); §10.1.3 cross-refs the same table by inheritance. Duplicating the table would create two sources of truth. ARGUS may surface that the cross-ref is implicit and should be made explicit; a one-line "(per §10 trigger words table)" addition is the right fix if so.
-5. **C4's §11.7 mode-change comment convention (`[mode-change <new-mode>] [from: <self-seat-slug>]`) is a NEW tag form — not previously used in the substrate.** Adding a new tag-form mid-arc could collide with future tag conventions OR could be mis-parsed by §7.7's tag-parser procedure. ARGUS should check that the parser at §7.7 either already handles the new tag form (case-4 "untagged or non-POLYBIUS slug") or that the new tag is explicitly noted as non-arithmetic (does NOT contribute to last_self_activity / last_peer_activity).
-   - **Why this shape anyway:** the tag form mirrors `[from: <slug>]` syntax (§7.1 beat 5) so the parser's untagged/non-POLYBIUS case handles it cleanly. The mode-change tag is a coordination signal (substance), not a timeline-arithmetic signal — it falls into §7.7 case-4 by design. But ARGUS may want this made explicit at §11.7.2 with one cross-ref.
+4. **C4's §10 `**Transition triggers.**` table describes "concrete signals" that are still substantively prose-shaped ("PRINCIPAL declares AFK"). A more mechanical signal (e.g., "PRINCIPAL utters one of the exact trigger words at §10's trigger-words table") would be testable.**
+   - **Why this shape anyway:** the trigger words are already at §10's existing trigger-words table (verbatim list of "go autonomous", "step back", etc.); the new transition-triggers table cross-refs the same table by inheritance with the explicit pointer "The trigger words in column 2 are the same exact strings tabulated in the trigger-words table above; see that table for the verbatim list (no duplicate source-of-truth here)." (rev2 added this pointer). Single source of truth preserved.
+5. **C4's §11 step 8 mode-change comment convention (`[mode-change <new-mode>] [from: <self-seat-slug>]`) is a NEW tag form — not previously used in the substrate.** Adding a new tag-form mid-arc could collide with future tag conventions OR could be mis-parsed by §7.7's tag-parser procedure. **Resolved in rev2:** step 8 now explicitly names the §7.7 case-3 classification ("Tag-parser interaction (per §7.7): the `[from: <self-seat-slug>]` clause in the mode-change tag classifies under §7.7 case 3 ... contributes to `last_self_activity` / `last_peer_activity` timeline-arithmetic as a coordination-attentiveness signal. This is INTENDED ..."). The mode-change tag serves dual function — coordination signal (substance) AND liveness signal (timeline-arithmetic); counting it as a heartbeat-equivalent for missed-check thresholds is correct behavior because the seat issuing the mode-change IS alive and IS announcing a coordination-attentive action.
+   - **Why this shape anyway:** rather than carving out a non-arithmetic exception (which would require parser logic to distinguish "real heartbeat" from "mode-change heartbeat" — extra complexity for no benefit), letting the standard §7.7 case-3 logic handle the tag treats the mode-change as the liveness signal it implicitly is. ARGUS R3 surfaced this; resolution landed in rev2's step 8 prose.
 6. **C6's worked examples (§8.2 Example 1-3) are MY synthetic constructions for illustrative shape.** They are intentionally short (per directive voice notes: 15-30 lines each, not production handoffs). But a reader unfamiliar with the discipline could read them as templates to copy-paste, despite the skill's explicit "this is guidance, not a template" framing.
    - **Why this shape anyway:** worked examples are dramatically more useful than abstract guidance per §8.2 scaffolding-and-guardrails. The risk of copy-paste-as-template is real but the alternative (no examples) is worse. CATO should cold-read the examples and flag any that read as too template-y.
 7. **(Resolved during drafting)** C6's A13 fold (session-id record into SKILL.md step 6) references `SPECIFICATION.md §10.1 + §12.5`. I initially flagged uncertainty about whether the spec named a more involved capture procedure than what step 6 records. I verified post-draft by reading both sections directly: §10.1 says "Each generation handoff produces a handoff doc (per the handoff-author skill) and records the prior generation's session id(s) so successor generations can `/resume` them"; §12.5 names this as "could fold into Arc 37 C6 or land as a small follow-up." Step 6's wording is faithful to the spec. **Resolution is recorded here for ARGUS-visibility; weak point closed at draft time, not deferred.**
@@ -924,7 +903,7 @@ I owe the post-work gate honest naming of brittle spots ARGUS should pay particu
 ## §14 — Residual questions for ARGUS
 
 1. **(Resolved post-draft; FYI for ARGUS)** Earlier I flagged uncertainty about whether `SPECIFICATION.md` §10.1 + §12.5 named a more involved session-id capture procedure than what §8.2 step 6 records. I verified post-draft by reading both sections: §10.1 says "Each generation handoff produces a handoff doc (per the handoff-author skill) and records the prior generation's session id(s) so successor generations can `/resume` them"; §12.5 explicitly names this as "could fold into Arc 37 C6 or land as a small follow-up." My step 6 captures the discipline correctly. ARGUS may re-verify by reading those two sections; flagging for ARGUS-visibility per §6.4 consume-research discipline.
-2. **(Medium)** Should §11.7.2's mode-change tag (`[mode-change <new-mode>]`) carry an explicit cross-ref to §7.7 making the case-4 non-arithmetic classification explicit? (Surfaced from weak point §13 item 5.)
+2. **(Resolved in rev2; FYI for ARGUS)** Earlier I asked whether the mode-change tag's §7.7 parser interaction needed to be made explicit. Rev2 lands the explicit classification in §11 step 8 prose: `[from: <self-seat-slug>]` triggers §7.7 case-3 (slug-match → timeline-arithmetic contribution); the mode-change is treated as a heartbeat-equivalent — coordination signal AND liveness signal. ARGUS R3 surfaced + closed.
 3. **(Medium)** Does §29.4's cross-team request channel need a clearer disambiguation from §7.4's cross-tier convention? Both use `[for:]` tags; a reader could conflate "cross-team" and "cross-tier." (Surfaced from weak point §13 item 2.)
 4. **(Low)** Are the three worked examples in C6 (§8.2 Examples 1-3) too template-y? Should the skill body include an explicit "do not copy-paste these — they are illustrative shape only" line above the Worked examples section? (Surfaced from weak point §13 item 6.)
 5. **(Low)** Is §19.3's routing rule concrete enough to be operationally useful, or too abstract? (Surfaced from weak point §13 item 1.)
@@ -938,7 +917,7 @@ ARGUS may surface additional risks not in this list; I do not claim this list is
 When ARGUS PASSes (or after revision rounds resolve), ADA's Phase 2 build mechanics:
 
 1. **Per-candidate edits in coordinated commits.** ADA picks whether to land all 6 candidates in one coherent commit OR in per-candidate commits; the directive Phase 2 line authorizes either. Per-candidate commits make per-candidate review easier; one-commit makes the squash-merge body cleaner. **DAEDALUS recommendation: per-candidate commits (6 commits) — the canon is sufficiently independent that per-candidate review is the higher-value form, and the squash-merge to main preserves all 6 trailer signatures per §28.3.**
-2. **Order matters for cite-comments.** Several cite-comments reference sections landed by OTHER candidates in this arc (e.g., §29.7 cross-refs §30; §30.6 cross-refs §29; §10.1's cross-refs include §30). ADA should land C1-C5 substrate prose FIRST (so the section numbers exist on disk), THEN add the cite-comments referencing them in a final commit. OR ADA can land per-candidate with stub cross-refs and a final "wire up cross-refs" commit. **DAEDALUS recommendation: land per-candidate; in each candidate's commit, write the cite-comments forward-only (the sections being cite-referenced will exist by the time the build is complete and CATO reads the diff). The minor temporal anomaly (commit N references section landed in commit M > N) is acceptable; CATO reads the diff, not the commit history.**
+2. **Order matters for cite-comments.** Several cite-comments reference sections landed by OTHER candidates in this arc (e.g., §29.7 cross-refs §30; §30.6 cross-refs §29; §10's new bolded-paragraph additions include a closing cross-ref to §30). ADA should land C1-C5 substrate prose FIRST (so the section numbers + marker labels exist on disk), THEN add the cite-comments referencing them in a final commit. OR ADA can land per-candidate with stub cross-refs and a final "wire up cross-refs" commit. **DAEDALUS recommendation: land per-candidate; in each candidate's commit, write the cite-comments forward-only (the sections being cite-referenced will exist by the time the build is complete and CATO reads the diff). The minor temporal anomaly (commit N references section landed in commit M > N) is acceptable; CATO reads the diff, not the commit history.**
 3. **Worktree convention.** ADA works in `.claude/worktrees/arc-37-build/` per the directive A20; pre-branch hygiene already verified clean by PLINY at dispatch authoring.
 4. **install.sh smoke beat per §8.4.** ADA runs the dry-run smoke beat for `handoff-author` at all three target modes after the SKILL_NAMES addition lands: `bash substrate/install.sh --dry-run --target project --project-dir <tmp> | grep handoff-author`, plus `--target subproject` and `--target user`. Failure to appear at any target → install.sh wiring needs the fix in the same commit.
 
