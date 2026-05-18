@@ -879,6 +879,8 @@ Operator decides whether the bound is sufficient. **INCOMPLETE does NOT gate mer
 
 UNVERIFIABLE also does not gate merge on its own. The verdict is honest output, not a failure.
 
+**Canonical write-path for INCOMPLETE + UNVERIFIABLE verdict bodies.** The `save-verdict` skill (`substrate/skills/save-verdict/SKILL.md`) validates shape-conformance for both new verdict shapes before writing. INCOMPLETE requires `quadrant_classification` + `coverage_description`; UNVERIFIABLE requires `quadrant_classification` + `sanity_check_performed` + `recommended_next_step`. Missing-required-field or out-of-enum cases exit 4 BEFORE any file write. Verdict bodies land at `agents/verdicts/<ticket-id>/<CAPTAIN>-<timestamp>.md` with sha256 round-trip verification (see also `CAPTAIN_VERA.md` / `CAPTAIN_CATO.md` / `CAPTAIN_ARGUS.md` §6 / §7 verdict-emit cross-refs).
+
 ### 15.5 Time/cost-box defaults
 
 **Bounded verification is bounded, not unlimited.** Two defaults:

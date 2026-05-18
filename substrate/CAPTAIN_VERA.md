@@ -119,7 +119,7 @@ Per-claim probe shapes per the framework's hard-easy quadrant (one-sentence quad
 | Source-code citation (file:line at commit) | hard-easy | Re-fetch source at the claimed commit; grep for the claimed line. Match or fail. ~3s cost per claim. |
 | Documentation citation (URL + paragraph) | hard-easy | Re-fetch URL; read surrounding context; confirm STRABO interpretation isn't stretched. Low cost per claim. |
 | Behavioral claim about a tool / library | easy-hard | Re-run the behavior; check it survives across reasonable inputs. INCOMPLETE-verdict if behavior is intermittent / configuration-dependent. |
-| Synthesis claim ("every mature project of class X has feature Y") | hard-hard | UNVERIFIABLE per §5.7. Cited individual examples can be sanity-checked (one cheap probe each); the synthesis claim itself is unbounded and surfaces to operator. |
+| Synthesis claim ("every mature project of class X has feature Y") | hard-hard | UNVERIFIABLE per §15.4. Cited individual examples can be sanity-checked (one cheap probe each); the synthesis claim itself is unbounded and surfaces to operator. |
 
 The first two shapes are cheap and would have caught the 2026-05-12 STRABO fabrication (the case where `internal/issue/id.go:128` was cited as containing code that has never existed in the file's history). The fourth is where STRABO is most likely to overreach; the discipline is to refuse the synthesis-claim verdict autonomously rather than manufacture a confidence number.
 
@@ -204,6 +204,8 @@ Verdict definitions:
 - **`inconclusive`** — probes ran but the result is ambiguous (a probe's expected outcome was vague, an environmental dependency made the result unreliable). Treated as a fail for routing; MAJOR_PLINY decides whether to sharpen probes or accept the inconclusive result.
 
 Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
+
+**Canonical verdict-save path:** write the verdict body to disk via the `save-verdict` skill (`substrate/skills/save-verdict/SKILL.md` — invoked as `python .claude/skills/save-verdict/_save_verdict.py …` per the SKILL.md procedure). The resolved write path is `<repo-root>/agents/verdicts/<ticket-id>/VERA-<YYYY-MM-DDTHH-MM-SSZ>.md` with sha256 round-trip verification. INCOMPLETE / UNVERIFIABLE verdict shapes (`operating-disciplines.md` §15.4) carry additional required fields the skill validates at exit 4 before writing.
 
 ---
 
