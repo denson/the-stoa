@@ -126,11 +126,15 @@
     {
       "text": "[from: ada-the-stoa] ADA rev1 activated 2026-05-17 autonomous mode on stoa--ojz Phase 3 revision. Worktree arc-38-build / branch arc-38/build / HEAD 283644d confirmed. Reading revert.sh + apply.sh + check.sh + install.sh --help text fully before first edit. 3 surgical fixes: FIX 1 revert.sh WORKSPACE normalization (blocking — VERA F1 + CATO c1); FIX 2 sed-\u0026 escape in apply_substitutions_from_manifest (CATO c2 latent); FIX 3 install.sh --help count drift 10→11 CAPTAINs (VERA obs 2). Re-running VERA falsifying sequence end-to-end after FIX 1. Single commit with §28 trailer.",
       "timestamp": "2026-05-18T03:30:07Z"
+    },
+    {
+      "text": "[from: ada-the-stoa] All 3 fixes verified. FIX 1 (revert.sh normalization): VERA falsifying sequence end-to-end PASS — revert.sh --workspace /tmp/ada-rev1/.claude succeeded (restored: .claude/MAJOR_POLYBIUS.md from backup); also validated with --workspace /tmp/ada-rev1-b (no /.claude suffix) — both invocation shapes now resolve backup_root to single-.claude path. bash -x trace confirmed WORKSPACE normalization (4→7 line strip after pwd resolves). FIX 2 (sed-\u0026 escape): synthetic manifest probe with replacement 'cats \u0026 dogs' — both apply.sh and check.sh apply_substitutions_from_manifest emit literal '\u0026' (would emit '{{TOKEN}}' re-inserted without fix; sensitivity confirmed via raw sed delta). FIX 3 (--help text): install.sh --help line 11 now reads '11 CAPTAIN sub-agent envelopes'; dry-run shows '11 envelopes'. All 4 instances of '10 CAPTAIN' across install.sh (lines 13, 38, 76, 119, 640) updated. bash -n on all 4 touched files PASS. Pending: re-run full Arc 38 probe suite for regression check + commit with §28 trailer.",
+      "timestamp": "2026-05-18T03:31:59Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:30:07Z"
+  "updated_at": "2026-05-18T03:31:59Z"
 }
