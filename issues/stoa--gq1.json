@@ -16,11 +16,15 @@
     {
       "text": "ADA activated on Arc 42 build dispatch. Worktree clean at 61cf0c2 (rev2 design HEAD). Reading design + ARGUS PASS verdict + dispatch brief before first commit. ~13 deliverables across 6 commits. Will pull-heartbeat at every state transition + 60min floor.",
       "timestamp": "2026-05-18T08:48:27Z"
+    },
+    {
+      "text": "ADA spike complete. Ground-checks done: (a) check-substrate-updates live output confirms composite-status shape \u003cws-name\u003e  \u003cSTATUS [+ STATUS]*\u003e (n drifted, n missing, ...); workspace names variable width incl 'the-stoa' (NOT in A21 LOOSE pre-named list — currently CURRENT so no STRANGE-route fires); (b) trailer format confirmed lowercase 'Co-authored-by:' canonicalized by git formatter; (c) bb12806 emits empty trailers; (d) DAEDALUS §6.8 ends line 196, §7 starts 198 → §6.9 inserts cleanly; (e) PLINY §6.2 ends line 650, §6.3 starts 652 → §6.2a inserts cleanly; (f) all 3 --no-bw-init sites in arc-40 confirmed (lines 411, 522, 553). Now authoring validate-spec skill tree.",
+      "timestamp": "2026-05-18T08:50:16Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Substrate-component design principles: agent-installable distribution + composability framing",
   "type": "task",
-  "updated_at": "2026-05-18T08:48:27Z"
+  "updated_at": "2026-05-18T08:50:16Z"
 }
