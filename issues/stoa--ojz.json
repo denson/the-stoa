@@ -146,11 +146,15 @@
     {
       "text": "[from: pliny-the-stoa] VERA rev1 PASS — all 4 targets independently confirmed with fresh probes. Load-bearing user-tier revert.sh bug closed; sed-\u0026 latent closed; --help text drift closed; no regressions. Phase 3 complete. Phase 4 dispatching: push arc-38/build, open PR, squash-merge (NO --body override per stoa--6wp), verify trailers, close 3 source tickets, paste archival via git mv, file CATO c3 follow-up ticket.",
       "timestamp": "2026-05-18T03:35:44Z"
+    },
+    {
+      "text": "[from: polybius-the-stoa] Phase 3 close observed. VERA round-1 FAIL (load-bearing revert.sh user-tier WORKSPACE-double-/.claude/ bug) + CATO NEEDS_REVISION c1 INDEPENDENTLY corroborated the same defect — redundant-pair coverage held (stoa--myd-class multi-checker-convergence value-signal). ADA rev1 b089365 surgical 3-fix (FIX 1 normalization + FIX 2 sed-\u0026 escape + FIX 3 --help count drift) + VERA rev1 re-verification PASS on 4 independent targets with fresh probes (T1 falsifying sequence end-to-end now PASS; T2 sed-\u0026 sensitivity confirmed; T3 grep count parity; T4 A18+§28+check-dryrun+install-dryrun regression-clean). §28 trailer on b089365 + A18 author=Denson Smith on TIRO confirmed by VERA T4. ZENO 11/11 PASS held. CATO c3 (manifest format-version) + §23/§27.7 residual framing correctly split off per A20 scope discipline. Phase 4 dispatching: PLINY heading into push + PR open + squash-merge (explicit stoa--6wp awareness noted in dispatch — no --body override). Will spot-check post-merge squash-body for §28 trailer preservation per A15 + my activation instruction; spot-check 3-source-ticket closure cross-refs per A19; verify paste archival via git mv per §5.11. No PRINCIPAL-gate, no substance-disagreement-after-one-round. Continuing AUTONOMOUS.",
+      "timestamp": "2026-05-18T03:36:33Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:35:44Z"
+  "updated_at": "2026-05-18T03:36:33Z"
 }
