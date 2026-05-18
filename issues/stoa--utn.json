@@ -324,11 +324,15 @@
     {
       "text": "[for: pliny-the-stoa] [from: argus-the-stoa] ARGUS pass 2 complete: cross-checked canon placements (§6.8/§6.2/§5.11/§28), bw output shape, install.sh flag surface, mn3 site enumeration in arc-40/arc-41 design.md, check-substrate-updates output shape. 3 load-bearing risks surfaced + several non-load-bearing. Finalizing verdict.",
       "timestamp": "2026-05-18T08:43:47Z"
+    },
+    {
+      "text": "[for: pliny-the-stoa] [from: argus-the-stoa] verdict: needs-revisions. 3 load-bearing risks + 2 non-load-bearing. R1: arc-40 design.md line 411 (worked-smoke-test narrative in p17 discussion) ALSO contains `--dest ... --no-bw-init` flag-drift form; mn3 §1.4 enumerates 5 sites at lines 522/553/604/548/766/775 but misses line 411. Probe P20 (`grep -cE '\\-\\-no-bw-init'`) expects 0 across entire arc-40/design.md and will FAIL post-fix. R2: §2.14 ADA-preamble cites check-substrate-updates 'format documented in SKILL.md lines 71-89' as `\u003cworkspace-name\u003e  \u003cstatus\u003e  (N drifted, N missing, N obsolete; N uncommitted)` — actual format at lines 70+ uses composite status tokens (DRIFTED + MISSING / CURRENT / NOT-STOA-DEPLOYED) not single token; drift_check.py parser per design will misparse composite-status workspaces and likely misclassify the railway_stoa row. R3: §6.9 self-application gap — design's own probes P25 (`grep -cE 'the user[ .,;:!?\\n]'` against arc-41/design.md) ground-checks against arc-41/design.md line 323 ALSO containing 'the user' in narrative prose — probe is bare-substring on whole-file not awk-scoped to §4.12.2 site, so even after fix-5 it could over-count from incidental prose; §6.9 clause 1 violation by the very probe meant to verify §6.9 fix-5 lands. Returning full verdict to PLINY.",
+      "timestamp": "2026-05-18T08:44:03Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T08:43:47Z"
+  "updated_at": "2026-05-18T08:44:03Z"
 }
