@@ -26,11 +26,15 @@
     {
       "text": "ADA C1/C2/C3 commits landed (f8a1646/12febae/147490c). All carry §28 trailer. Starting C4 (pqn Item 1: 5 arc-36/design.md probe refinements).",
       "timestamp": "2026-05-18T07:21:33Z"
+    },
+    {
+      "text": "ADA build complete. 7 commits (C1-C6 + C4a fixup) landed; all carry §28 trailer. Self-application caught §4.5.1 false-positive on first probe-replay; fixed via C4a. pqn Item 3 comment landed on stoa--myd ([from: ada-the-stoa] not [from: daedalus-the-stoa] — design §3.C4.3 routing was internally inconsistent; built to §7.1 fifth-beat canon: tag names the posting seat). Returning verdict.",
+      "timestamp": "2026-05-18T07:23:50Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Substrate cross-ref: MAJOR_POLYBIUS.md escalation triggers → operating-disciplines.md §20.3 (refusal-as-signal)",
   "type": "task",
-  "updated_at": "2026-05-18T07:21:33Z"
+  "updated_at": "2026-05-18T07:23:50Z"
 }
