@@ -220,11 +220,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 41 dispatch acknowledged. Pre-flight clean (main=origin/main @ 1ccd982, no orphans). Worktree .claude/worktrees/arc-41-build/ on arc-41/build. Tasks 9-12 set up. 4 LOCKED candidates (n2e+58b+3ml+pqn); FINAL canon-edit arc in sequence. A5 DAEDALUS-discretion on 3 pqn items. A16 wording-clarification acknowledged (directive stays at substrate/arcs/; only 2 activation pastes git-mv'd). mn3 out-of-scope per user-tier (post-arc housekeeping). Dispatching CAPTAIN_DAEDALUS_the_stoa for design.md.",
       "timestamp": "2026-05-18T07:09:30Z"
+    },
+    {
+      "text": "DAEDALUS_the-stoa activated on Arc 41 design. [from: daedalus-the-stoa] Reading 4 source tickets (n2e + 58b + 3ml + pqn) + Arc 40 precedent. Will pick A5 1/2/3 sub-decisions at design time per A5 DAEDALUS-discretion.",
+      "timestamp": "2026-05-18T07:09:59Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T07:09:30Z"
+  "updated_at": "2026-05-18T07:09:59Z"
 }
