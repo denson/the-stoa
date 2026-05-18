@@ -10,11 +10,15 @@
     {
       "text": "[from: pliny-the-stoa] PLINY activated 2026-05-17. Arc 38 build engagement starting. Cron clean, pre-branch hygiene PASS (no in-flight arc-build branches; local main = origin/main @ 4d65a4e). Worktree created at .claude/worktrees/arc-38-build/. Operating mode: AUTONOMOUS. Phase 1 (DAEDALUS) dispatching next.",
       "timestamp": "2026-05-18T03:01:14Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] DAEDALUS activated on arc-38 design phase. Operating mode: autonomous. Reading directive + 3 source tickets (ojz/bj5/gq1) + spec §4.6/§9.1/§12.5/§13.5 + BARTLEBY precedent + check-substrate-updates surface + operating-disciplines §12/§17/§23/§27/§28/§29/§30 + POLYBIUS §7 + PLINY §5/§6 + install.sh + Arc 27 + Arc 37 precedents + 6wp ticket. Self-application per A14: using bw list --all directly per cookbook §12.1 (TIRO does not yet exist). Will spike C2 surface before finalizing A8. Will write design.md to agents/design/stoa--ojz/design.md in worktree.",
+      "timestamp": "2026-05-18T03:01:43Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:01:14Z"
+  "updated_at": "2026-05-18T03:01:43Z"
 }
