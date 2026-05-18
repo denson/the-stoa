@@ -30,11 +30,15 @@
     {
       "text": "VERA activated on Arc 40 Phase 3. Reading design rev2 §4 probes (21 total per rev2; p9/p10/p11 dropped); classifying per quadrant; executing all probes against build at HEAD.",
       "timestamp": "2026-05-18T06:59:46Z"
+    },
+    {
+      "text": "VERA: probes p1-p8 + p12-p24 (21 total per rev2; gap-preserved). All classified easy-easy mechanical (19) + easy-easy empirical post-build smoke (2 — p15/p18). Executing now.",
+      "timestamp": "2026-05-18T06:59:57Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Arc 24 follow-up — probe-spec ^last= anchor needed (verbatim regex finds 2, anchored variant returns 1 as intended)",
   "type": "task",
-  "updated_at": "2026-05-18T06:59:46Z"
+  "updated_at": "2026-05-18T06:59:57Z"
 }
