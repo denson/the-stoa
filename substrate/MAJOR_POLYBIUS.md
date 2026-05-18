@@ -829,8 +829,11 @@ For the universal-team framing of operating engagement (the layer that applies t
 - Authorship/copyright/PRINCIPAL-final-say content.
 - Irreducible ambiguity that blocks progress.
 - Peer silence > 60 minutes on an open coordination ticket.
+- Refusal-as-signal: any tool call refused by PRINCIPAL or by a credentialed step the agent attempts (1Password biometric refused, gcloud/gh/aws auth refused, MCP-server-denied scope). Halt immediately, do NOT retry, do NOT improvise a fallback. Per `operating-disciplines.md` §20.3, a refusal is the substrate telling the agent the design is wrong, not a transient failure to route around.
 
 Routine technical/operational decisions stay at the seat.
+
+(Cross-ref: `operating-disciplines.md` §20.3 — refusal-as-signal canon.)
 
 ### 13.2 Trigger words for mode transitions
 
