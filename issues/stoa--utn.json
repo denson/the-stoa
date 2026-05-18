@@ -136,11 +136,15 @@
     {
       "text": "DAEDALUS activated on arc-40 design.md. Reading directive (LOCKED) + 6 source tickets + Arc 24 design.md + Arc 37 bb12806 + Arc 39 f1f222a + 4 dhc source sites + VERA/DAEDALUS seat-canon + §28. [from: captain-daedalus-the-stoa]",
       "timestamp": "2026-05-18T06:42:40Z"
+    },
+    {
+      "text": "DAEDALUS state: read complete (6 tickets + Arc 24 design.md tail + Arc 37 bb12806 + Arc 39 f1f222a + §28 + VERA §5 + DAEDALUS §6 + dhc 4 sites). KEY FINDING: dhc directive over-states drift surface — substrate-side python-vs-jq prose lives in ONLY MAJOR_PLINY.md §5.8.3; POLYBIUS §7.6, op-disc §18, agent-author SKILL.md cross-ref §5.8 without duplicating prose. Arc 24 design.md §14.1 R1+R2 reference to '3 near-identical' refers to ARC 24 DESIGN.MD's two inline copies, not substrate canon. Substrate has SSoT already. Surfacing per §25 PRINCIPAL-gate as A5 DAEDALUS-pick blocker. Drafting design.md with picks. [from: captain-daedalus-the-stoa]",
+      "timestamp": "2026-05-18T06:43:54Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T06:42:40Z"
+  "updated_at": "2026-05-18T06:43:54Z"
 }
