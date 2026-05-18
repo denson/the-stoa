@@ -130,11 +130,15 @@
     {
       "text": "[from: ada-the-stoa] All 3 fixes verified. FIX 1 (revert.sh normalization): VERA falsifying sequence end-to-end PASS — revert.sh --workspace /tmp/ada-rev1/.claude succeeded (restored: .claude/MAJOR_POLYBIUS.md from backup); also validated with --workspace /tmp/ada-rev1-b (no /.claude suffix) — both invocation shapes now resolve backup_root to single-.claude path. bash -x trace confirmed WORKSPACE normalization (4→7 line strip after pwd resolves). FIX 2 (sed-\u0026 escape): synthetic manifest probe with replacement 'cats \u0026 dogs' — both apply.sh and check.sh apply_substitutions_from_manifest emit literal '\u0026' (would emit '{{TOKEN}}' re-inserted without fix; sensitivity confirmed via raw sed delta). FIX 3 (--help text): install.sh --help line 11 now reads '11 CAPTAIN sub-agent envelopes'; dry-run shows '11 envelopes'. All 4 instances of '10 CAPTAIN' across install.sh (lines 13, 38, 76, 119, 640) updated. bash -n on all 4 touched files PASS. Pending: re-run full Arc 38 probe suite for regression check + commit with §28 trailer.",
       "timestamp": "2026-05-18T03:31:59Z"
+    },
+    {
+      "text": "[from: ada-the-stoa] pass: Arc 38 rev1 complete @ b089365 on arc-38/build (4 files; +48/-5). Single commit. §28 trailer Co-Authored-By: CAPTAIN_ADA_the-stoa present. Author preserved as denson PRINCIPAL. FIX 1 (revert.sh): 3-line WORKSPACE strip lifted from apply.sh:261-263 + 13-line cite-comment naming VERA finding + design §2.4.3 cross-ref. VERA falsifying probe end-to-end PASS (both --workspace ~/.claude and --workspace ~ shapes restore from backup; bash -x trace confirms backup_root resolves to single-.claude path). FIX 2 (sed-\u0026 escape): defensive replacement-value escape (\\ first, then \\\u0026) at both check.sh + apply.sh apply_substitutions_from_manifest, with cite-comment naming CATO c2 + design §2.2 + latency framing. Synthetic manifest probe with 'cats \u0026 dogs' PASS at both functions; sensitivity confirmed via raw sed delta. FIX 3 (--help text): 5 instances of '10 CAPTAIN' → '11 CAPTAIN' updated across install.sh (lines 13, 38, 76, 119, 640). --help + --dry-run both verified showing '11'. bash -n PASS on all 4 touched scripts. Regression: C2 2.5.2 round-trip + project-tier backward compat both PASS. Out-of-scope items (CATO c3 format-version, VERA obs 1 design regex, consumer-workspaces.txt shape, §23/§27 residual framing) NOT touched per dispatch routing. Returning verdict to PLINY.",
+      "timestamp": "2026-05-18T03:32:45Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:31:59Z"
+  "updated_at": "2026-05-18T03:32:45Z"
 }
