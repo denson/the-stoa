@@ -169,6 +169,49 @@ The Arc 26 empirical anchor: VERA executed Probe 8 against sector-4 (a real work
 
 **Cross-refs:** `operating-disciplines.md` §25 (universal canon) + §25.2 (two-axis) + §25.5 (probe-design sub-case — universal locus; §5.10 is the seat-specific refusal protocol that points at it from item 2) + `CAPTAIN_DAEDALUS.md` §6.7 (upstream catch-point) + Arc 26 anchor (`stoa--dxw`, `stoa--501`).
 
+### 5.11 Probe-spec regex anchoring discipline
+
+When a probe-spec authored by DAEDALUS matches a canonical template fragment
+in substrate prose, the verbatim regex pattern often false-positives because
+the substrate prose itself documents the template (canonical template + example
+documentation + cross-references all match the same fragment). The probe's
+intended single-match returns N matches; the probe "passes" mechanically but
+verifies nothing because the assertion is on count rather than location.
+
+**The discipline (at probe-execution time).** Before executing a probe whose
+spec contains a verbatim regex matching against substrate prose, examine the
+spec for:
+
+1. **Anchoring** — is the pattern anchored with `^` (line start), `$` (line
+   end), or a unique surrounding-context substring that disambiguates the
+   intended single match from documentation prose?
+2. **Expected count** — does the spec name the expected match count
+   explicitly (e.g., `expected: exactly 1 match`) or just check non-zero
+   (which would pass on N>1)?
+3. **Falsifying-evidence clause** — does the spec include an "OR emits with
+   wrong shape" clause so a passing-count-but-wrong-content match is caught?
+
+If any of these three is missing, surface the gap in `methodology_concerns:`
+rather than executing the underspecified probe and recording a misleading
+PASS. The probe author (DAEDALUS) revises the spec; VERA re-executes against
+the revised spec on next dispatch.
+
+**Empirical anchor.** Arc 24 Phase 3 (2026-05-13): probe p44 (then p35) used
+verbatim regex `last=` against MAJOR_PLINY.md to verify the canonical
+poll-loop template start. Two matches found (lines 258 + 273) — one in the
+python template body (intended), one in the example documentation
+(false-positive). Anchored variant `^last=` returns 1 match. Non-blocking for
+Arc 24 ship; promoted to canon here. Source ticket: `stoa--3sz`. Discipline-
+shipped arc: Arc 40 (`stoa--utn`).
+
+**Cross-refs:** `MAJOR_PLINY.md` §5.8.3 (the canonical site whose template
+fragment the Arc 24 probe under-anchored); `CAPTAIN_DAEDALUS.md` §6.8 (the
+authoring-side sibling discipline for canonical-template wording alignment —
+together, §6.8 keeps the authoring side aligned and §5.11 keeps the
+verification side honest about what the probe actually verifies);
+`CAPTAIN_VERA.md` §5.7 (verification-complexity quadrant — anchored-probe
+discipline is an easy-easy / mechanical refinement, not a quadrant shift).
+
 ---
 
 ## 6. Verdict format
