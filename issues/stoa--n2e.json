@@ -10,11 +10,15 @@
     {
       "text": "ARGUS rev2 activated on 7cb61ce. Reading rev2 design + diff vs 56c0b97 + executing live awk/grep probes against arc-36/design.md before audit.",
       "timestamp": "2026-05-18T07:18:37Z"
+    },
+    {
+      "text": "ARGUS rev2 PASS. All 7 rev1 findings verified fixed (R1 17-line bracket, R2 11-line bracket + line 238 confirmed, R3 structural grep -cF sound, R4 coherence-check extraction works, R5 1-line compressed, R6 dead alt dropped, R8 split present). Trailer present + exact. Probe count 32. Diff scope clean (only design.md, +133/-31). No new load-bearing risks. ADA CLEARED. Returning.",
+      "timestamp": "2026-05-18T07:19:17Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Substrate cross-ref: MAJOR_POLYBIUS.md escalation triggers → operating-disciplines.md §20.3 (refusal-as-signal)",
   "type": "task",
-  "updated_at": "2026-05-18T07:18:37Z"
+  "updated_at": "2026-05-18T07:19:17Z"
 }
