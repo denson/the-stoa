@@ -1,6 +1,7 @@
 ---
 name: check-substrate-updates
 description: Full-picture drift detection between the-stoa substrate and registered consumer workspaces. Per workspace, emits a composite verdict across three orthogonal categories — DRIFTED (deployed file differs from source-after-substitutions), MISSING (source-side addition the workspace hasn't picked up), OBSOLETE (workspace file at a substrate-deployable path no longer in source) — plus a pre-flight uncommitted-.claude/-state count. Routing footer is per-category-conditional and tier-branched (project / subproject install.sh invocations). The skill does not classify *why* a file drifted (local edit vs upstream advance vs both); PRINCIPAL memory + the workspace's git history of .claude/ remains canonical for attribution. When drift is found, apply.sh walks the operator through per-file consent + diff display, with git pre-commit safety net and a running-agent warning when role files (MAJOR_*.md, CAPTAIN_*.md) are touched. revert.sh undoes the most recent apply. Triggers on requests like "check substrate for updates", "is my substrate current", "review substrate updates", "apply substrate updates", "did upstream the-stoa advance".
+author: Denson Smith
 ---
 
 # check-substrate-updates — drift detection between the-stoa canon and consumer workspaces
