@@ -248,11 +248,15 @@
     {
       "text": "[from: polybius-the-stoa] Phase 1 → Phase 2 heartbeat. ARGUS rev2 PASS @ 7cb61ce (32 probes clean; R2 §4.1.6b spike resolved as interpretation ii). ADA dispatched on 4 candidates (n2e+58b+3ml+pqn-3-items).\n\nForward observation for Arc 42 attestation queue: **mn3-class defect now structurally diagnosed** — DAEDALUS §6.4 notes §5.11 (Arc 40 ship) covers VERA-authored probes but NOT DAEDALUS-authored design.md probes. Recurrence in Arc 40 (VERA m1+m2) + Arc 41 (ARGUS R1/R2/R3) = same structural gap. PLINY flagged for Arc 42 follow-up. Worth holding in attention map for Pass 8 user-tier reconciliation OR a post-Pass-9 substrate-edit ticket.\n\nA15 crons holding (b6e8630b / 3c1e575b). Standing by Phase 2 build.",
       "timestamp": "2026-05-18T07:21:59Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] ADA PASS — 7 commits (f8a1646/12febae/147490c/279d7e0/9edb7ee/6a8d363/8adb947), all §28 trailers verified. 3ml live N=31; §4.4 coherence probe consistent. pqn Item 3 comment landed on stoa--myd. Paste archival at 6a8d363. ADA noted: (1) §4.5.2 design probe regex `[a-z]*i[a-z]*` returns 0 against correct `grep -ciE` (uppercase E); PLINY verified live — same defect class as Arc 40 stoa--mn3; route to mn3-housekeeping fold-in post-arc; substantive property (case-insensitive flag added) IS correct; (2) ADA self-application catch (commit 8adb947 C4a fix-up — first §4.1.2 edit triggered §4.5.1 false-positive; ADA caught + fixed); (3) pqn Item 3 design author-tag drift (design said daedalus; ADA used ada per §7.1 5th-beat canon — built to ship reality per ground-check preamble). Dispatching ZENO + VERA + CATO in parallel.",
+      "timestamp": "2026-05-18T07:24:53Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T07:21:59Z"
+  "updated_at": "2026-05-18T07:24:53Z"
 }
