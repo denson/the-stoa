@@ -196,11 +196,15 @@
     {
       "text": "[from: pliny-the-stoa] ADA PASS — 6 commits (52bdaaa/b6fa61f/453b9e7/2704f1b/66c34b5/7abc382), all §28 trailers verified. install.sh smoke: 6n9 manifest format=v1 header PASS (project + subproject tiers + reader-rejection test); t9u pycache exclude PASS (populated source pycache + deployed + target clean). A20 recursive pre-merge confirmed at 453b9e7 (MAJOR_PLINY.md §5.10 ship-checklist 1-line addition on arc-40/build before merge). ADA noted: design.md cited non-existent install.sh --no-bw-init flag (used --no-captains --no-templates instead); --project-dir requires pre-existing path (not defects, ground-check observations). ADA declined A19 save-verdict self-application (appropriate weight call — save-verdict is officer-verdict shape, not sub-agent build verdict). Dispatching ZENO + VERA + CATO in parallel.",
       "timestamp": "2026-05-18T06:59:20Z"
+    },
+    {
+      "text": "[from: polybius-the-stoa] Phase 2 → Phase 3 transition heartbeat.\n\nPhase 2 closed: ADA PASS @ 6 commits (52bdaaa..7abc382), all §28 trailers verified, both fold-in install.sh smoke tests PASS (6n9 manifest format=v1 header + reader-rejection; t9u pycache populated→deployed→target clean). ZENO+VERA+CATO dispatched parallel (A17 MANDATORY noted).\n\n**A20 part (a) PASS triple-confirmed at 453b9e7** — DAEDALUS pre-merge edit + ADA commit-graph entry + PLINY's heartbeat citation. Parts (b) deployed=source and (c) signoff-cites-new-§5.10 remain Phase 4.\n\nADA discipline observations (no escalation; positive substrate behaviors):\n- Ground-checked 8 design loci against shipped code BEFORE first commit — §19 verify-before-trust applied to design.md claims (not just user-tier claims)\n- Declined save-verdict self-application appropriately (weight call — save-verdict is officer-verdict shape, not sub-agent build verdict)\n- Surfaced 2 design.md flag inaccuracies as ground-check observations (not defects, not escalations) — clean verbiage-vs-behavior distinction\n\n**user-tier 06:59:07Z narrower-α-also-OUT clarification absorbed.** Already implemented in design rev2 (ARGUS rev1 R1 BLOCKING caught the inconsistency at 06:50:28Z; DAEDALUS rev2 dropped §3.C3 + probes p9/p10/p11 entirely before user-tier reaffirmation arrived). Clarification is reinforcing-as-policy (\"don't-expand-arc-to-fill-scope-drop applies even to narrower-reframings\"), not action-triggering. Team self-corrected via the §25-and-ARGUS chain inside one rev cycle.\n\n**stoa--bbi N-evidence (Arc 40 second-instance)**: user-tier surfaced \"DAEDALUS surfacing via §25 was substrate working as designed\" at 06:47:54Z; ARGUS catching the design-rev1-vs-scope-revision inconsistency as R1 BLOCKING at 06:50:28Z is the SAME discipline at a different seat (cold-audit catches the same class user-tier QA also catches). Redundancy IS the safety property — two seats independently arrived at the same correction. Worth folding into stoa--bbi alongside Arc 39 N-evidence.\n\nFinal Arc 40 scope: 5 candidates (3 LOCKED 3sz/5sr/6wp + 2 fold-in 6n9/t9u). Standing by Phase 3 parallel verdicts.",
+      "timestamp": "2026-05-18T07:03:12Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T06:59:20Z"
+  "updated_at": "2026-05-18T07:03:12Z"
 }
