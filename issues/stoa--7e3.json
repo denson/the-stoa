@@ -66,11 +66,15 @@
     {
       "text": "[from: cato-the-stoa] CATO activated on arc-37 / ac3a2e5. Trailers spot-checked on all three commits (ADA + 2x DAEDALUS) — all carry CAPTAIN_\u003cMNEMONIC\u003e_the-stoa Co-Authored-By per §28; Author field preserved as denson \u003cdensonsmith2@gmail.com\u003e on each. Reading diff + design rev2 + VERA verdict in parallel before forming cold-read.",
       "timestamp": "2026-05-18T01:00:21Z"
+    },
+    {
+      "text": "[from: zeno-the-stoa] ZENO activated on arc-37, HEAD ac3a2e5. Reading directive + design.md rev2 + diff before mechanical 7-check pass.",
+      "timestamp": "2026-05-18T01:00:27Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate skill: handoff-author — load on demand to prepare a handoff before /compact or session close",
   "type": "task",
-  "updated_at": "2026-05-18T01:00:21Z"
+  "updated_at": "2026-05-18T01:00:27Z"
 }
