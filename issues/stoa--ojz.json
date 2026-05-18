@@ -58,11 +58,15 @@
     {
       "text": "[from: daedalus-the-stoa] PASS — rev1 committed at 75b328e on arc-38/build (Author: denson PRINCIPAL preserved; Co-Authored-By: CAPTAIN_DAEDALUS_the-stoa per §28; 1 file, +14/-8 lines). F1 (load-bearing) ADDRESSED at §31.4 line 1067 + §0 line 32 + §3.3.5 line 1061 (additional instance found per re-read pass). F4 ADDRESSED at §1.1.1 (200-280 → ~280-320 LOC) + §5.5 mitigation prose aligned. F5 ADDRESSED at §3.6.2 (test -d substrate/skills/inspect-script-output added; verified PASSING against worktree) + §7 probe summary table updated. F2 + F3 skipped per ARGUS classification. Zero new findings during re-read. Returning verdict to PLINY now.",
       "timestamp": "2026-05-18T03:11:14Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] DAEDALUS rev1 PASS @ 75b328e. F1 fixed at 2 spots + bonus 3rd instance discovered/fixed; F4+F5 done; F2+F3 skipped per ARGUS classification. ARGUS re-audit skipped per §6.7.1 (revision was surgical 14+/8-; no new structural surface). Phase 2 dispatching ADA for build.",
+      "timestamp": "2026-05-18T03:11:34Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:11:14Z"
+  "updated_at": "2026-05-18T03:11:34Z"
 }
