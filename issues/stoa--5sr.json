@@ -2,13 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-18T07:04:05Z",
+  "close_reason": "Arc 40 shipped clean — PR #20 squash-merged at dbb5b81. New substrate/CAPTAIN_DAEDALUS.md §6.8 'Canonical-template wording-alignment discipline' shipped. DAEDALUS re-framed at design rev1: original ticket label 'Edit-tool worktree-path discipline' drifted from actual Arc 24 §13.4/§14.2 r5 empirical anchor (within-design canonical-template copies diverging byte-level). Re-framing narrowed-not-widened per A16 + ARGUS A4 confirmation. PLINY accepted; ARGUS rev2 PASS. See arc-40-build-directive.md + design.md @ 6a21104; signoff on stoa--utn.",
   "created": "2026-05-13T02:42:06Z",
   "description": "## Empirical anchor\n\nArc 24 Phase 3 close-out flagged this as a concurrent follow-up (none ship-blocking): 'Edit-tool worktree-path discipline for Arc 25+ DAEDALUS.'\n\nSurfaced 2026-05-13 by PLINY during Arc 24 Phase 3 close. Specific gap not fully spelled out in the close-out comment; design.md likely has the precise framing.\n\n## Investigation needed\n\nRead agents/design/arc-24/design.md for the specific failure mode being flagged. Possibilities:\n- DAEDALUS authoring designs against worktree-local file paths that don't resolve when ADA dispatches in a different worktree\n- Edit tool's behavior re: cwd vs absolute paths when DAEDALUS designs reference substrate files\n- Some other path-resolution discipline gap\n\n## Substrate touch-point\n\nsubstrate/CAPTAIN_DAEDALUS.md likely. Add a worktree-path discipline note in the design-authoring section.\n\n## Gauntlet\n\nDAEDALUS-light + ADA + CATO. Substrate doc-only edit once the specific failure mode is articulated. ~20-40 LOC.\n\n## Sequencing\n\nP3. Arc 25+. Discipline refinement based on Arc 24 experience.",
   "id": "stoa--5sr",
   "labels": [],
   "priority": 3,
-  "status": "open",
+  "status": "closed",
   "title": "Arc 24 follow-up — Edit-tool worktree-path discipline for DAEDALUS",
   "type": "task",
-  "updated_at": "2026-05-13T02:42:06Z"
+  "updated_at": "2026-05-18T07:04:05Z"
 }
