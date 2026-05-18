@@ -36,11 +36,15 @@
     {
       "text": "C2/C3/C4/C5/C6 landed: DAEDALUS §6.9 (37ea7ed), PLINY §6.2a (d53ad09), mn3 fixes (7f7ad0d), arc-25 P10 deletion (214bdbc), paste archival (c788644). 7 commits total on arc-42/build. 2 design-drift flags surfaced: (1) DAEDALUS P15/P16 awk-bracket close uses '### [67]\\.' but next heading is '## 7' level-2; (2) arc-41 P25 grep -E pattern double-quote uses '\\\\n' which against GNU grep 3.0 yields trailing-backslash / undefined behavior. Both noted in commit messages + flagged as design drift NOT in mn3 scope. Now running A26 SELF-APPLICATION: bash substrate/skills/validate-spec/check.sh against SPECIFICATION.md to capture mech-check-results.md artifact.",
       "timestamp": "2026-05-18T08:59:11Z"
+    },
+    {
+      "text": "build-complete-WITH-ESCALATION: 10 commits on arc-42/build (be6f7a0..baf8955) — 6 dispatch-spec deliverables (C1a/C1b/C2/C3/C4/C5/C6) + 2 fix-now follow-ups in scope (drift_check.py Windows portability + _check_runner.py P6-heading-fix) + C1c A26 self-application. All 10 commits carry CAPTAIN_ADA_the-stoa trailer. A21 §25 GATES FIRED — surfacing per A21 directive: (T1) check-6 'the-stoa' workspace shows DRIFTED+MISSING (structurally expected substrate-authoring-tier self-drift; NOT in A21 LOOSE pre-named-three so classifier correctly STRANGE-flags); (T3) check-1 144/274 §-ref FAIL = WEAK-POINT-1 PREDICTION REALIZED (bare-§ resolver over-matches spec section headings); check-2 6 FAIL + 36 STRANGE (claim-vs-glyph mismatches + ambiguous prose); check-3 1 unplaced ticket. DO NOT auto-resolve — falsification criteria team authored against itself is CATCHING things per A20 design. Artifact at agents/observation/spec-validation/mechanical-check-results.md (sha256 e0c5b82cb6394451b39592a851e7154ae97b7dad6dca4135af2c5fa628051484). Returning verdict to PLINY now.",
+      "timestamp": "2026-05-18T09:07:00Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Substrate-component design principles: agent-installable distribution + composability framing",
   "type": "task",
-  "updated_at": "2026-05-18T08:59:11Z"
+  "updated_at": "2026-05-18T09:07:00Z"
 }
