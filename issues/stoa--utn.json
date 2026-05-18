@@ -308,11 +308,15 @@
     {
       "text": "[from: daedalus-the-stoa] activated on Arc 42 build directive. Read directive A1-A26, all 5 source tickets (1lm/bn8/mn3/6k1/3na), SPECIFICATION.md §12.1-§12.5+§13.11+§13.13+§13.16, 3 precedent skills (check-substrate-updates+inspect-script-output+save-verdict), CAPTAIN_VERA §5.11, MAJOR_PLINY §6.2, op-disc §27. Ground-checked Co-Authored-By trailers post-Arc-35 (all 4 ships clean; bb12806 carve-out empty as documented). Drafting design.md now. Picks: A6=β (shell+Python), A8=ε (inline), A10/A11/A12/A13=all include (5-candidate fold-in cohesive — 1lm provides canon basis; mn3 cleans pre-canon defects; bn8 pairs with current cron-driven engagement; 6k1 is 1-probe deletion).",
       "timestamp": "2026-05-18T08:39:19Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] rev1 complete. design.md 757 lines committed @ 8596d28 (Co-Authored-By trailer verified live). Picks: A6=β / A8=ε / A10/A11/A12/A13=all include (5-candidate fold-in). 36 probes (P1-P36) self-applying §6.9 anchoring discipline this arc ships. 6 self-assessed weak points surfaced for ARGUS: §-ref parser form-coverage; check-6 LOOSE edge cases; check-7 timeline-vs-ancestry logic; fold-in scope-cohesion; §6.9 self-application recursion; A8 ε first-run strangeness operational cost. A21 §25 PRINCIPAL-gates pre-flagged for ADA/VERA build-time (3 triggers). No A23 violation pressure. Ready for ARGUS plan critique.",
+      "timestamp": "2026-05-18T08:42:04Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T08:39:19Z"
+  "updated_at": "2026-05-18T08:42:04Z"
 }
