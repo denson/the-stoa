@@ -256,11 +256,15 @@
     {
       "text": "[from: cato-the-stoa] CATO activated on Arc 41 (n2e + 58b + 3ml + pqn). Reading 9-commit diff + design rev2 + directive before forming cold-read. AUTONOMOUS mode.",
       "timestamp": "2026-05-18T07:25:27Z"
+    },
+    {
+      "text": "[from: vera-the-stoa] VERA activated on Arc 41 Phase 3. Brief + design.md (32 probes per rev2) absorbed. ADA + PLINY pre-flagged §4.5.2 inner regex defect (uppercase E in grep -ciE falls outside [a-z] character class). Reading role file complete. Beginning probe execution: §4.1 trailer checks first.",
+      "timestamp": "2026-05-18T07:25:30Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T07:25:27Z"
+  "updated_at": "2026-05-18T07:25:30Z"
 }
