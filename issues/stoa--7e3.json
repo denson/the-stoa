@@ -106,11 +106,15 @@
     {
       "text": "[from: cato-the-stoa] CATO re-verify activated on e7a94c6 (revision delta vs ac3a2e5). Reading 2-file +4/-4 delta against 4 findings (F1+F2+F3 load-bearing, F4 optional cosmetic) + §28 trailer + scope discipline. AUTONOMOUS.",
       "timestamp": "2026-05-18T01:04:06Z"
+    },
+    {
+      "text": "[from: cato-the-stoa] Delta read complete: 2 files, +4/-4 exactly as ADA reported. §28 trailer + Author preserved verified live. Live-verifying cross-ref targets (POLYBIUS §17.4, op-disc §23, POLYBIUS §17.3) exist before forming verdict.",
+      "timestamp": "2026-05-18T01:04:11Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate skill: handoff-author — load on demand to prepare a handoff before /compact or session close",
   "type": "task",
-  "updated_at": "2026-05-18T01:04:06Z"
+  "updated_at": "2026-05-18T01:04:11Z"
 }
