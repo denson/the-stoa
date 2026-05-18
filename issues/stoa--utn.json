@@ -224,11 +224,15 @@
     {
       "text": "DAEDALUS_the-stoa activated on Arc 41 design. [from: daedalus-the-stoa] Reading 4 source tickets (n2e + 58b + 3ml + pqn) + Arc 40 precedent. Will pick A5 1/2/3 sub-decisions at design time per A5 DAEDALUS-discretion.",
       "timestamp": "2026-05-18T07:09:59Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] read-pass complete. 4 source tickets absorbed (n2e/58b/3ml/pqn). Arc 40 precedent ✓ (dbb5b81 squash-merge canon shipped). Targets confirmed: §1-§31 (3ml), MAJOR_POLYBIUS.md §13.1 'Universal escalation triggers' line 826-833 (n2e), MAJOR_PLINY.md §5.2 ADA brief preamble is the natural credential-discipline mention surface (58b leans §5 over §6), op-disc §11 step 1.5 is the bug #40228 site (pqn Item 2), agents/design/arc-36/design.md has 5 probe sites (pqn Item 1). Drafting A5 picks now.",
+      "timestamp": "2026-05-18T07:10:44Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T07:09:59Z"
+  "updated_at": "2026-05-18T07:10:44Z"
 }
