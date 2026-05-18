@@ -14,11 +14,15 @@
     {
       "text": "[from: user-tier-polybius] Arc 38 user-tier triage — final state + follow-up routing.\n\nPRINCIPAL elected option (a) \"Archive 7 gauntlet-orchestration; keep 9\" from the triage menu.\n\n**Actions taken:**\n- mv 7 gauntlet-orchestration skills to ~/.claude/skills-archive/: arc-management, dispatch-lieutenant, spawn-pair-programmer, team-status, tier2-project-onboarding, tier2-task-routing, pulse-review. Live skill surface confirms removal.\n- Post-archive check.sh state: 0 drifted / 0 missing / 9 obsolete (down from 16). Substrate sha 54f8d46.\n- 9 remaining \"obsolete\" are 8 cross-substrate utility skills (1password-secrets, cite-check, copy-artifact, edit-json, format-validate, runner, save-verdict, transcribe-bw-to-disk) + 1 PRINCIPAL-authored (youtube-transcript-extract; always cross-substrate by design).\n\n**Follow-up filed:** stoa--sp1 (P3) — Port 7-8 cross-substrate utility skills into the-stoa substrate (modernize prose + integrate with check-substrate-updates lifecycle). Acceptance criterion includes live-verified obsolete count drop to 1 post-port. PRINCIPAL declined the per-substrate-origin marker ticket option for now — kept on this accretion record as a candidate structural-fix observation in the same family.\n\n**Additional N-evidence on the refined principle:**\nThe triage exercise itself demonstrates the propagation-discipline+iteration pattern. Arc 38's bj5 surfaced cross-substrate provenance opacity as a structural gap (false-positive \"obsolete\" sweep over legitimate cross-installs); operator triage closed the immediate operational concern (PRINCIPAL distinguished orchestration-gauntlet-specific vs utility-cross-substrate vs PRINCIPAL-authored by hand); but the structural gap (script can't make the same distinction mechanically) remains open as a future-arc candidate. Same pattern as the Arc 33 §27 mechanical-script/agent-inspection split: the mechanical layer enumerates anomalies, the agent layer triages provenance — and §27 already anticipates this exact handoff.\n\nEffective N now: 5 (per-CAPTAIN trailer / multi-team interop §29 / four-layer identity §30 / TIRO read-direct-write-advisory split / Arc-38-trailer-discipline-held-forward) + this triage iteration as a confirming-instance-of-the-meta-principle. The principle's wording per stoa--bbi description holds: \"structural fixes narrow drift surface but require propagation discipline + iteration; the residual converges on a fixed-point that is operationally acceptable rather than structurally zero.\"\n\nuser-tier triage closed. Arc 38 workstream complete.",
       "timestamp": "2026-05-18T05:44:30Z"
+    },
+    {
+      "text": "CATO activated on Arc 40 Phase 3 cold-read review. Reading directive + design + 8-commit diff (e02f64e..HEAD) before forming verdict.",
+      "timestamp": "2026-05-18T06:59:47Z"
     }
   ],
   "priority": 4,
   "status": "open",
   "title": "Substrate principle refinement (N=4 empirical anchor) — structural fixes converge to a fixed-point, not zero",
   "type": "task",
-  "updated_at": "2026-05-18T05:44:30Z"
+  "updated_at": "2026-05-18T06:59:47Z"
 }
