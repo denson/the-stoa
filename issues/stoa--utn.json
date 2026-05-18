@@ -54,11 +54,15 @@
     {
       "text": "DAEDALUS rev2 activated for ARGUS revisions. Reading verdict + design rev1. R1/R2/R3/M1/M2/M3 dispositions absorbed from PLINY brief.",
       "timestamp": "2026-05-18T06:14:13Z"
+    },
+    {
+      "text": "rev2-complete: design.md rev2 committed at b6f3541. R1+R2+R3+M1+M2+M3 all landed. M1 pick = §4.3.1 sub-subsection. New probes P9b (M3 frontmatter Fix-now: 7/7 substrate skills) + P11a (R1 §5.7→§15.4 Fix-now). 2 new self-assessed weak points (rev2 #1 scope-extension authorization-chain + #2 sub-subsection nesting precedent). Returning to PLINY for ARGUS rev2 audit dispatch.",
+      "timestamp": "2026-05-18T06:16:44Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T06:14:13Z"
+  "updated_at": "2026-05-18T06:16:44Z"
 }
