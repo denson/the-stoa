@@ -147,6 +147,7 @@ SKILL_NAMES=(
   inspect-script-output
   handoff-author
   save-verdict
+  validate-spec
 )
 
 # Marker line written into CLAUDE.md when --modify-claude-md is used; presence

@@ -193,6 +193,76 @@ under-anchored probes from masking drift §6.8 prevents at the authoring
 side); `operating-disciplines.md` §28 (cite-at-read-site discipline —
 orthogonal mechanism for cross-file SSoT).
 
+### 6.9 Probe-grounding discipline for design.md probes (extends §5.11 to the authoring seat)
+
+When you author a verification probe in design.md, the probe is a load-bearing
+instruction to ADA-at-build-time and VERA-at-verify-time. A probe with a regex
+that doesn't match its target — or matches more than the intended target —
+produces a misleading PASS that the gauntlet then ratifies. The §5.11
+discipline at `CAPTAIN_VERA.md` catches this at verify-time when the verifier
+notices the under-anchoring; the discipline below catches it at authoring-time
+before the brittle probe ships into the design.
+
+**The discipline (at probe-authoring time).** Before submitting any design.md
+probe whose body contains a regex or grep pattern against substrate prose, the
+canon file structure, or shipped tool output:
+
+1. **Anchor the regex.** Use `^` (line-start), `$` (line-end), word-boundaries
+   `\b`, OR a unique surrounding-context substring that disambiguates the
+   intended single-or-bounded match from incidental documentation prose.
+   Bare-substring patterns that match anywhere in the file are the empirical
+   defect-source (mn3 m_4.12.2 anchor: `\bthe user\b` matching
+   `the user-tier-POLYBIUS`).
+
+2. **Character-class completeness.** When matching tool-flag or command-name
+   patterns, account for case-flag combinations and shell-metacharacter context
+   explicitly. `[a-z]*` does NOT match uppercase letters (mn3 m_4.5.2 anchor:
+   `grep -[a-z]*i[a-z]*` cannot match `grep -ciE`); use `[a-zA-Z]*` or apply
+   `grep -i` at the outer scope.
+
+3. **Live round-trip at authoring time.** Run every probe command literally
+   against the current substrate state during design draft. A probe that emits
+   zero matches against the very state it's being authored for is structurally
+   broken, not under-specified — fix at design-time, don't ship to ADA.
+
+4. **Ground-check against shipped tool surface.** Do not assume tool flags or
+   output shapes from memory. Verify against the shipped script source OR live
+   tool output (mn3 m1 anchor: `install.sh --no-bw-init` / `--dest` cited flags
+   that don't exist; mn3 m2 anchor: `bw show <id> | grep '^Status:.*closed'`
+   cited a status-line shape bw doesn't emit). The §5.2 `MAJOR_PLINY.md`
+   grounding-check preamble names this for ADA-build-time; this clause names
+   it for DAEDALUS-authoring-time.
+
+5. **Enumeration vs invocation context.** When a probe greps for risky shell
+   tokens (credentials, dangerous commands), scope the grep to the relevant
+   context (bash-code-block, git-diff +-line, or rejection-context exclusion)
+   rather than whole-file. Whole-file greps false-positive on the substrate's
+   own canon documenting the anti-pattern (mn3 m_4.12.3 anchor:
+   credential-discipline probe over-matched on enumeration-context lines vs
+   actual invocations).
+
+If you cannot apply one of (1)-(5) for structural reasons, surface the gap in
+your verdict's `self_assessed_weak_points:` field per §6.2 — that surfaces the
+probe-spec brittleness to ARGUS during plan critique, before ADA inherits it.
+
+**Empirical anchor.** Arcs 40-41 accumulated 5 design.md probe-spec defects
+(filed at `stoa--mn3`; canon-promotion proposal at this section per
+`stoa--1lm`): Arc 40 m1 (install.sh non-existent flag) + m2 (bw output shape
+drift); Arc 41 m_4.5.2 (case-class character drift) + m_4.12.2 (word-boundary
+FP on hyphenated compound) + m_4.12.3 (whole-file grep over-match on
+enumeration context). All 5 substantively PASSed (VERA / ADA caught the drift
+and reverified with corrected patterns); the recurrent failure mode is
+hand-typed probes that don't live-round-trip at authoring time.
+Discipline-shipped arc: Arc 42 (`stoa--1lm`).
+
+**Cross-refs:** `CAPTAIN_VERA.md` §5.11 (verification-side sibling — when a
+probe ships with under-anchoring despite this discipline, §5.11 catches it at
+verify-time); `CAPTAIN_DAEDALUS.md` §6.2 (self-assessed-weak-points
+pre-ratification — probe-spec brittleness you cannot eliminate at authoring
+belongs in this field); `MAJOR_PLINY.md` §5.2 (the grounding-check preamble
+for ADA-build-time; the §5.2 preamble is the build-seat sibling to this
+authoring-seat discipline).
+
 ---
 
 ## 7. Verdict format

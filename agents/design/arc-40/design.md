@@ -407,8 +407,9 @@ ls _lib/__pycache__/ 2>/dev/null   # should exist after the python invocation
 
 # Deploy to a temp target:
 TEMPDIR="$(mktemp -d)"
+mkdir -p "$TEMPDIR/test-project"  # mn3 fix-1.5 (Arc 42 stoa--mn3 + CAPTAIN_DAEDALUS.md §6.9 clause 4): install.sh does not auto-create --project-dir
 cd <repo-root>
-bash substrate/install.sh --target project --dest "$TEMPDIR/test-project" --no-bw-init 2>&1 | tail -20
+bash substrate/install.sh --target project --project-dir "$TEMPDIR/test-project" 2>&1 | tail -20  # mn3 fix-1.5 (per CAPTAIN_DAEDALUS.md §6.9 clause 4 ground-check shipped install.sh surface): replaced non-existent flags with correct --project-dir
 
 # Verify deployed skill has NO pycache:
 ls "$TEMPDIR/test-project/.claude/skills/save-verdict/_lib/__pycache__/" 2>/dev/null
@@ -519,10 +520,12 @@ Rev1 probes p9 / p10 / p11 verified dhc cite-comment landings at MAJOR_PLINY.md 
 **Command:**
 ```bash
 TEMPDIR="$(mktemp -d)" && \
-bash substrate/install.sh --target project --dest "$TEMPDIR/test" --no-bw-init >/dev/null 2>&1 && \
-grep -c '^# format=v1' "$TEMPDIR/test/.claude/.substrate-manifest"; \
+mkdir -p "$TEMPDIR/test-project" && \
+bash substrate/install.sh --target project --project-dir "$TEMPDIR/test-project" >/dev/null 2>&1 && \
+grep -c '^# format=v1' "$TEMPDIR/test-project/.claude/.substrate-manifest"; \
 rm -rf "$TEMPDIR"
 ```
+<!-- mn3 fix-1 (Arc 42 stoa--mn3 + CAPTAIN_DAEDALUS.md §6.9 clause 4): replaced non-existent install.sh flags with correct --project-dir (per §6.9 ground-check); pre-create --project-dir per shipped install.sh behavior -->
 **Expected:** 1 (deployed manifest carries the version line).
 **Falsifying evidence:** 0 (version line not written).
 
@@ -550,10 +553,12 @@ cd substrate/skills/save-verdict && \
 python _save_verdict.py --help >/dev/null 2>&1 || true; \
 cd - >/dev/null && \
 TEMPDIR="$(mktemp -d)" && \
-bash substrate/install.sh --target project --dest "$TEMPDIR/test" --no-bw-init >/dev/null 2>&1 && \
-ls "$TEMPDIR/test/.claude/skills/save-verdict/_lib/__pycache__/" 2>&1 | grep -c "No such file"; \
+mkdir -p "$TEMPDIR/test-project" && \
+bash substrate/install.sh --target project --project-dir "$TEMPDIR/test-project" >/dev/null 2>&1 && \
+ls "$TEMPDIR/test-project/.claude/skills/save-verdict/_lib/__pycache__/" 2>&1 | grep -c "No such file"; \
 rm -rf "$TEMPDIR" substrate/skills/save-verdict/_lib/__pycache__/
 ```
+<!-- mn3 fix-2 (Arc 42 stoa--mn3 + CAPTAIN_DAEDALUS.md §6.9 clause 4): replaced non-existent install.sh flags with correct --project-dir (per §6.9 ground-check); pre-create --project-dir per shipped install.sh behavior -->
 **Expected:** 1 (target tier has NO `__pycache__/`; `ls` returns "No such file" message).
 **Falsifying evidence:** 0 (target has pycache — t9u fix did not land or did not work).
 
@@ -601,7 +606,7 @@ ls substrate/arcs/arc-40/pastes/HUMAN_paste-pliny-arc-40-instruction.md \
 ### p24 — A14 source-ticket closure (3 LOCKED + 2 folded = 5 tickets; dhc already CLOSED mid-design)
 
 **Quadrant:** easy-easy / mechanical.
-**Command:** `for t in stoa--3sz stoa--5sr stoa--6wp stoa--6n9 stoa--t9u; do bw show "$t" 2>&1 | grep -c "^Status:.*closed"; done | paste -sd+ - | bc`
+**Command:** `for t in stoa--3sz stoa--5sr stoa--6wp stoa--6n9 stoa--t9u; do bw show "$t" 2>&1 | head -1 | grep -c '^# ✓'; done | paste -sd+ - | bc`  <!-- mn3 fix-3 (Arc 42 stoa--mn3 + CAPTAIN_DAEDALUS.md §6.9 clause 4): bw does NOT emit '^Status:.*closed' lines; the canonical closed-glyph anchor is '# ✓' on line-1 (live ground-checked) -->
 **Expected:** 5 (all 5 in-scope source tickets closed; dhc was CLOSED mid-design @ 2026-05-18T06:47:41Z and is excluded from the Arc 40 closure-comment-cycle since no substrate work landed for it).
 **Falsifying evidence:** <5 (one or more open).
 **Optional strengthening (per A14 closure-comment discipline):** each in-scope ticket's closure comment should reference the Arc 40 merge SHA. Probe variant — `for t in stoa--3sz stoa--5sr stoa--6wp stoa--6n9 stoa--t9u; do bw show "$t" 2>&1 | grep -c "Arc 40.*merge\|<merge-sha-prefix>"; done | paste -sd+ - | bc` expecting ≥5. PLINY-discretion whether to strengthen at execution; bare count check is the load-bearing property.
