@@ -111,6 +111,8 @@ Per-seat mode declarations (qualified triggers per `MAJOR_POLYBIUS.md` §13.2) o
 
 Cross-refs: `MAJOR_POLYBIUS.md` §13 (POLYBIUS-tier framing of mode declaration + propagation), `operating-disciplines.md` §10 (universal-team framing of operating engagement), `operating-disciplines.md` §11 (the autonomous-mode-setup checklist that operationalizes mode entry).
 
+(Cross-ref: `operating-disciplines.md` §11 NEW Arc 37 additions — step 7 `**Mode declaration in directives.**`; the convention this section's dispatch-brief mode-awareness operates against.)
+
 ### 5.2 ADA brief preamble — grounding-check enumeration
 
 The ADA dispatch brief includes a generic "ground against shipped code" instruction. Empirical signal (m5e arc, `ariadne--hhb`) showed ADA absorbing a design-internal defect anyway because the grounding instruction was too generic — the design was internally consistent, the shipped code disagreed with it, and ADA reproduced the design verbatim. Sharper version: enumerate explicit ground-check categories.
@@ -630,6 +632,8 @@ Cancel via `CronDelete <job-id>` the **moment** POLYBIUS responds and you resume
 
 **Empirical proof:** Arcs 16 + 17 shipped with this exact pattern. PLINY worked heads-down through 5 phases each; POLYBIUS picked up phase-transition comments via its own polling cron and surfaced meaningful transitions to the PRINCIPAL. PLINY only polled when surfacing a real question — which, for both arcs with locked Phase A decisions, happened zero times.
 
+(Cross-ref: `operating-disciplines.md` §19.7 NEW Arc 37 — Idle retrospective-narrative confabulation; the canonical orchestrator-scan procedure §19.7.3 names is the canonical scan this surface-and-wait pattern operates against.)
+
 ### 6.3 Bundle-shape rule for engagement scope
 
 PLINY routinely receives engagements covering multiple tickets. The PR-shape decision (one bundled PR vs. multiple per-ticket PRs) is bounded by surface-disjointness. The rule:
@@ -740,5 +744,7 @@ When something is ambiguous:
 
 1. Don't barrel forward. Comment on the relevant beadwork ticket asking POLYBIUS.
 2. If beadwork isn't viable, surface via human relay — explicitly named as fallback.
+
+- **Before `/compact` or session close:** invoke `substrate/skills/handoff-author/SKILL.md` to author a handoff doc; the successor session reads the handoff to orient on in-flight work-state. (Cross-ref: `operating-disciplines.md` §30 four-layer identity model.)
 
 Standby, run.

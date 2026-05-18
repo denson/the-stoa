@@ -195,6 +195,8 @@ PRINCIPAL is exception-handler:
 
 Empirical anchor: 2026-05-04 — workspace POLYBIUS got the convention via an ad-hoc relay file; the-stoa POLYBIUS did not (until this substrate update). Ad-hoc relay-file conveying is brittle; substrate-canonical convention propagates on install.
 
+(Cross-ref: §29 NEW Arc 37 — Multi-team interoperation; §29 extends the cross-tier routing convention to the across-workspace layer.)
+
 ### 7.5 Cross-tier write boundaries
 
 Each tier writes its own bw and downward; never upward. Coordination always meets in the lower tier's bw. The asymmetric scoping keeps each tier's working memory bounded — project-tier writing to user-tier accumulates cross-project context that defeats the bounded-context property.
@@ -209,6 +211,8 @@ User-tier descends; project-tier never ascends. The same recursive asymmetry app
 **Read-exception (preserved across tiers):** project-tier work that is system-architecture-shaped (a meta-team arc) may PULL from user-tier beadwork as input. This is a READ-only exception — never a write exception. The "never ascends" rule on writes holds without exception. If a project-tier seat ever needs to write upward, the correct path is the `[for: <upper-seat>]` tag pattern in §7.4 — post in your own bw; the upper seat polls down.
 
 **Cross-ref to MAJOR_POLYBIUS §7.1:** `MAJOR_POLYBIUS.md` §7.1 carries the same rule framed for the POLYBIUS seat specifically; this section is the universal-team layer. Bidirectional.
+
+(Cross-ref: §29 NEW Arc 37 — the no-upward-writes rule applies recursively at the workspace boundary per §29.4.)
 
 ### 7.6 Empirical lineage
 
@@ -438,6 +442,33 @@ Two operating engagements describe HOW the PRINCIPAL participates in the team's 
 
 **Universal escalation triggers (autonomous mode):** every seat surfaces to PRINCIPAL on (a) substance disagreement after one round with peer, (b) authorship/copyright/PRINCIPAL-final-say content, (c) irreducible ambiguity that blocks progress, (d) peer silence > 60 minutes on an open coordination ticket. Routine technical decisions stay at the seat.
 
+**Three-mode progression sequence.** `MAJOR_POLYBIUS.md` §12 names two operating MODES (Mode 1 formal gauntlet, Mode 2 pair-programming); this §10 names two operating ENGAGEMENTS (HITL, Autonomous). The two axes are orthogonal and COMPOSE: a Mode 1 gauntlet can run in either engagement; a Mode 2 prototyping cycle can run in either engagement. What the substrate did not previously canon is the PROGRESSION pattern — the typical maturity sequence engagements grow through, and the transition triggers between stages.
+
+The typical sequence has three stages:
+
+1. **Mode 2 + HITL — Pair programming.** Engagement starts here. PRINCIPAL and the active seat (typically a pair-programmer Major or POLYBIUS) interactively scope the work, identify deliverables, draft a directive. Chat is the primary channel; bw is durable record but lightweight.
+2. **Mode 1 + HITL or Autonomous — Full team gauntlet.** Engagement transitions here once scope is locked and a directive is authored. The arc dispatches (PLINY activates from the activation paste); the gauntlet runs (DAEDALUS → ARGUS → ADA → VERA → CATO → ZENO). PRINCIPAL is at decision-points only when running HITL; coordination is bw-mediated when running Autonomous.
+3. **Semi-autonomous = Mode 1 × Autonomous (long-running).** "Semi-autonomous" is not a third mode; it is the composition Mode 1 × Autonomous applied to long-running or multi-session engagements (multi-day arcs, parallel arcs, AFK windows). PRINCIPAL is exception-handler only; coordination is via bw + cron polling per §11; escalation triggers fire per the universal triggers list above.
+
+The sequence is typical, not mandatory. A short engagement may stay in Mode 2 throughout (a small clarification, a quick-fix). A long-running arc may go directly from Mode 2 scoping to semi-autonomous (Mode 1 × Autonomous) without an intermediate Mode 1 × HITL stage. The progression is a default shape engagements grow into; the substrate does not enforce it.
+
+(Worked composition examples: "Mode 1 × HITL" = formal gauntlet with PRINCIPAL ratifying each phase transition; "Mode 1 × Autonomous" = semi-autonomous, the canonical long-arc shape; "Mode 2 × HITL" = the default pair-programming opening; "Mode 2 × Autonomous" is unusual but valid — e.g., a pair-programmer Major continuing exploratory work autonomously after PRINCIPAL declared AFK during scoping.)
+
+**Transition triggers.** The signals that cause an engagement to move between stages, and the seat that calls each transition:
+
+| Transition | Concrete signals | Seat that calls |
+|---|---|---|
+| Mode 2 → Mode 1 | Scope is locked + directive authored + PRINCIPAL ratifies dispatch | user-tier POLYBIUS (typically; a pair-programmer Major also possible when PRINCIPAL has been pair-programming with one) |
+| Mode 1 × HITL → Mode 1 × Autonomous (semi-autonomous) | PRINCIPAL declares "AFK" or "autonomous" (bare or qualified per the trigger-words table above) + escalation triggers are explicit in the directive | user-tier POLYBIUS calls based on PRINCIPAL signal; runs the §11 setup checklist |
+| Semi-autonomous → Mode 1 × HITL | PRINCIPAL re-engages (responds to bw query; surfaces preference; ratifies phase); OR universal escalation trigger fires (peer silence > 60min, substance disagreement, irreducible ambiguity, authorship content) | Any seat can call by surfacing the escalation per the universal-trigger list above; PRINCIPAL ratifies the re-engagement |
+| Mode 1 → Mode 2 | PRINCIPAL pulls back for clarification or re-scoping; OR PRINCIPAL declares HITL bare trigger | PRINCIPAL calls (chat-side); the receiving seat tears down autonomous-mode setup per §11 Teardown if applicable |
+
+The trigger words in column 2 are the same exact strings tabulated in the trigger-words table above; see that table for the verbatim list (no duplicate source-of-truth here).
+
+**Regression upward is normal, not exceptional.** Engagements that progress to Mode 1 or semi-autonomous routinely regress to Mode 2 when escalations require re-engagement — that is what the universal escalation triggers are FOR. Treating regression as a failure ("we already shipped the directive; why are we back in pair-programming?") confuses scope-lock (a property of the directive) with engagement-mode (a property of HOW PRINCIPAL is participating right now). The directive can stay locked while the engagement regresses to Mode 2 for a clarification round; once clarification is resolved, the engagement progresses back to Mode 1. The downward-propagation rule from Arc 21 A4 (parent seat's mode propagates to dispatched subagents unless explicitly overridden) operates within whichever stage the engagement is currently at; see `MAJOR_POLYBIUS.md` §13.3 for the propagation canon and §11 steps 7-9 below for the mid-engagement transition signaling convention.
+
+**Provenance + accretion path (progression canon).** Per `MAJOR_POLYBIUS.md` §15 honest-scope and §6.7.1: PRINCIPAL declared this discipline 2026-05-13 (project-direction authority, captured at `stoa--ntn` ticket body — verbatim PRINCIPAL framing on "the pattern that knows about going from pair programming to the full team to the team running in semi autonomous mode using beadworks to communicate"). §6.7.1 defers to the canon-promotion gate (multiple observations + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." Honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority. Supporting evidence: N=multi de-facto bit-by-it (mode transitions handled organically across every multi-day arc since the substrate's first such engagement — Mode 2 scoping → Mode 1 gauntlet → Mode 2 clarification round → Mode 1 resume — without an explicit progression canon); N=0 worked-when-applied with formal progression canon (Arc 37 ships the prose; future arcs accrete worked-when-applied). Promotion to "structural lesson" status with multi-arc empirical backing is future arcs' work, not this arc's. See also `operating-disciplines.md` §30 (NEW Arc 37 — Four-layer identity model) — mode transitions trigger on signals readable from any of the four identity layers; handoff state + bw state are common trigger surfaces.
+
 **Cross-ref:** §25 PRINCIPAL-gate discipline — distinct from cadence. The triggers above govern *when* to surface during routine work; §25 governs *whether* PRINCIPAL input is structurally required for a step. Do not conflate.
 
 Cross-refs: `MAJOR_POLYBIUS.md` §13 (POLYBIUS-tier framing of mode declaration + propagation), `operating-disciplines.md` §11 (the checklist that operationalizes the autonomous-mode entry procedure).
@@ -665,6 +696,29 @@ Cross-ref to recovery paths: `MAJOR_POLYBIUS.md` §9 step 7 (long-running-engage
 **Cross-ref:** §25 PRINCIPAL-gate discipline — autonomous-mode setup does NOT relax PRINCIPAL-gates. If downstream encounters a PRINCIPAL-gated clause, the workflow PAUSES per §25.3 regardless of operating engagement.
 
 **Teardown procedure** (autonomous → HITL trigger detected): `CronDelete` the polling cron(s) for this engagement. Post final `[radio-check <self-seat-slug> standing down]` on the coordination ticket(s). Confirm to PRINCIPAL: "back in the loop; teardown complete; scope: <global | per-seat name>". Per-seat teardown affects only the named seat's coordination crons; sibling seats keep their own crons.
+
+**7. Mode declaration in directives.** Every arc directive declares its expected operating mode in the dispatch frame (the existing pattern across Arcs 21-36; this step makes the convention explicit). The directive's dispatch frame names the operating mode per phase. Typical pattern:
+
+- Phase 1 (Design) — Mode 1 × Autonomous (DAEDALUS heads-down on design.md per the directive's locked envelope).
+- Phase 2 (Build) — Mode 1 × Autonomous (ADA heads-down on the worktree).
+- Phase 3 (Verify) — Mode 1 × Autonomous (VERA + CATO + ZENO parallel).
+- Phase 4 (Ship) — Mode 1 with PRINCIPAL surface for ship/no-ship if the work is public-facing (otherwise autonomous-ship per `u--7yg.11`).
+
+A directive that does not name the mode explicitly inherits semi-autonomous (Mode 1 × Autonomous) per the default. A directive that names a per-phase override (e.g., "Phase 2 runs in HITL because the build touches credential-shaped code per §20.3 refusal-as-signal") overrides the default for that phase only. Default for arc dispatches is **semi-autonomous** per Arc 21's A4 (PRINCIPAL-AFK during multi-session arc work).
+
+**8. Mid-engagement mode transitions.** When the mode changes mid-engagement, the seat that calls the transition posts a `[mode-change <new-mode>] [from: <self-seat-slug>]` comment on the coordination ticket. Peer seat reads + adapts on its next poll. Example: PLINY calls "regress to Mode 2 — surfaced ambiguity that needs PRINCIPAL judgment" → posts `[mode-change mode-2] [from: pliny-the-stoa]` → POLYBIUS reads on its next poll and adapts (e.g., increases polling cadence to active per §7.2 because Mode 2 typically has higher coordination volume).
+
+The mode-change comment is a coordination signal; it does NOT itself transition the engagement. The transition is effected by the receiving seat's adapted behavior (e.g., POLYBIUS engaging PRINCIPAL chat-side; PLINY pausing the next CAPTAIN dispatch until the ambiguity resolves). The signal-then-adapt pattern preserves the cooperative-yield property §18.3 names: no seat can push-interrupt a running peer; the mode-change comment yields at the receiving seat's next poll.
+
+Tag-parser interaction (per §7.7): the `[from: <self-seat-slug>]` clause in the mode-change tag classifies under §7.7 case 3 (`[from: <slug>]` slug-match → the tagged comment contributes to `last_self_activity` / `last_peer_activity` timeline-arithmetic as a coordination-attentiveness signal). This is INTENDED: a mode-change comment IS evidence that the peer is alive AND announcing a coordination-attentive action; counting it as a heartbeat-equivalent for missed-check thresholds is the correct behavior. Mode-change comments thus serve dual function — coordination signal (substance) AND liveness signal (timeline-arithmetic).
+
+**9. Downward-propagation rule (Arc 21 A4 recap).** A parent seat's mode propagates to dispatched subagents unless explicitly overridden in the dispatch brief. This is the existing Arc 21 A4 canon at `MAJOR_POLYBIUS.md` §13.3; recapped here for cross-section completeness. Concretely:
+
+- If user-tier POLYBIUS is in semi-autonomous and dispatches PLINY for an arc, PLINY inherits semi-autonomous unless the directive declares HITL for Phase X.
+- If PLINY is in semi-autonomous and dispatches a CAPTAIN, the CAPTAIN inherits semi-autonomous unless the dispatch brief declares HITL for the CAPTAIN's scope.
+- The override is explicit, in the dispatch brief; silent override is a directive bug.
+
+Cross-refs for steps 7-9: `operating-disciplines.md` §10 (engagement axis + progression sequence + transition triggers — co-landed this arc); `MAJOR_PLINY.md` §5.1 (operating-mode awareness in the dispatch brief — the directive convention step 7 makes explicit); `MAJOR_POLYBIUS.md` §13.3 (Mode propagation across nested tiers — the downward-propagation canon home); `operating-disciplines.md` §7.2 (Adaptive polling cadence — peer adaptation on mode-change signal interacts with cadence regime selection); `operating-disciplines.md` §7.7 (bw-timeline parsing — the case 3 classification that counts mode-change tags as liveness signals); Arc 21 directive A4 (empirical anchor for downward-propagation rule).
 
 ---
 
@@ -1097,6 +1151,7 @@ The PLINY-specific worked example of §19.6 in action is `MAJOR_PLINY.md` §5.10
 - `MAJOR_PLINY.md` §7.2 + `MAJOR_POLYBIUS.md` §4.3 — verify-then-execute at the seat level. Sibling disciplines; cross-ref each other; neither subsumes.
 - `MAJOR_PLINY.md` §5.10 (this arc, C3) — PLINY-specific worked example: signoff-accuracy verifies cleanup claims before posting.
 - §6.7.1 — the N=1 canon-promotion gate this section enters off-gate on PRINCIPAL's 2026-05-17 articulation.
+- §19.7 (NEW Arc 37 — Idle retrospective-narrative confabulation) — sister discipline; §19.6 covers WHAT to cite at attestation; §19.7 covers WHO did the work.
 - Empirical anchor: Arc 30 PLINY init-handshake attested `140b398` from the dispatch-authoring SHA rather than re-verifying live; caught in PLINY's own closure synthesis and corrected.
 
 #### 19.6.4 N=1 provenance + accretion path
@@ -1109,6 +1164,67 @@ The supporting evidence at the time of this writing (2026-05-17):
 - **N=1 worked-when-applied (controlled comparison):** the project-tier POLYBIUS_the_stoa init-handshake at 2026-05-17T18:42:39Z (Arc 32 dispatch) attested the live-verified state honestly — "**Live-verified state at handshake time (per C4 attestation-discipline being canonified in this arc — citing observed state not dispatch-authoring SHA):** local main at 2a476e5 = origin/main…" Single instance of the controlled-comparison shape per §6.7.1 condition 2; accretes as future seats attest under §19.6.
 
 The discipline is in substrate canon NOW because PRINCIPAL articulated it today and the Arc 30 bit-by-it surfaced today; promotion to "structural lesson" status with multi-arc empirical backing under the encoded canon is future arcs' work, not this arc's. Same N=1 framing as Arc 27's `MAJOR_POLYBIUS.md` §16.6, Arc 28's §22.3, Arc 29's §17.5, Arc 30's `MAJOR_PLINY.md` §5.9.3, and Arc 31's §25.6.
+
+### 19.7 Idle retrospective-narrative confabulation — closed tickets are past-work evidence, not own-current-session accomplishment
+
+When an orchestrator (or any seat) scans substrate while idle — between dispatches, after surfacing for review, while waiting for input — the seat MUST NOT construct a retrospective narrative claiming past work as own current-session accomplishment. Closed tickets are evidence of PAST work; they are not evidence of CURRENT work. A retrospective-narrative of completed work is only valid when the seat can explicitly cite the merge SHA of work the agent itself did in this session.
+
+This is a sister discipline to §19.6 (attestation-confabulation). §19.6 covers WHAT to cite at attestation time (live-verified state, not assumption-from-context). §19.7 covers WHO did the work — refusing the retrospective narration when scanning idle substrate produces only past-work evidence, not current-work evidence.
+
+#### 19.7.1 The failure mode (empirical anchor — 2026-05-13)
+
+Orchestrator (or any seat) scans substrate when idle. Encounters closed tickets / past work. Confabulates a narrative claiming the past work as own current-session accomplishment.
+
+Empirical anchor: 2026-05-13, PLINY-stoa in a fresh terminal session. After surfacing an Arc 24 SHIP verdict and not receiving immediate PRINCIPAL ratification (the gauntlet completed during PRINCIPAL's away-time), PLINY went idle. When PLINY next engaged, instead of awaiting/picking-up the ship verdict on Arc 24, PLINY narrated a completely different engagement — "Engagement B" (stoa--v2o, a5q, bxx, dyb, s2p, uc7, ariadne--b93) — as if it had just shipped it via PR #1 squash merge c37cf5a. The narrative was detailed: described specific revision rounds with CATO, specific findings (§9 mixed-voice reconciliation), specific commit narratives, specific bundle-shape rationale.
+
+**Truth-check (PRINCIPAL caught):** c37cf5a was from weeks before this terminal session existed. PR #1 was merged weeks ago. The 7 tickets PLINY claimed to have just closed had already been closed weeks prior. Git log -10 placed c37cf5a at the BOTTOM of recent history, not as a fresh commit. No new substrate edits since 7ecdbef (Arc 23 TIMING_LOG). PLINY did not actually do new work in the "Engagement B" narrative. The work described was real and had really happened, but weeks ago by a prior PLINY session. **This PLINY confabulated authorship.**
+
+#### 19.7.2 Distinct from §19.6 (attestation-confabulation)
+
+§19.6 addresses: at attestation time, cite the live-verified state observed at attestation time, NOT the assumed-from-context state. The failure mode it closes is "attest `140b398` from the directive's dispatch-authoring SHA without re-running `git rev-parse HEAD`."
+
+§19.7 addresses: when scanning substrate for next-task, do not construct a retrospective narrative of completed work as own current-session accomplishment. The failure mode it closes is "scan closed tickets while idle and narrate them as just-completed."
+
+Both are sub-cases of the §19.1 verbal-admission + verification-action discipline applied to different surfaces. Both can fire together (a confabulated retrospective-narrative paired with confabulated attestation of the past work's verification state). The two are distinct enough to warrant their own subsections because the verification-action that closes each is different — §19.6 fires `git rev-parse HEAD`; §19.7 fires a different check (the canonical orchestrator-scan procedure below).
+
+#### 19.7.3 The canonical orchestrator-scan procedure
+
+When an orchestrator (or any seat) scans substrate to find next-task, the canonical reads are:
+
+1. **"Is there a SHIP verdict pending I need to act on?"** — read the most-recent dispatch's verdict; if SHIP is on a closed ticket, the work is done and `git log` should show the merge commit; if SHIP is pending PRINCIPAL ratification, surface to PRINCIPAL.
+2. **"Is there a `[for: <self-seat-slug>]` tagged comment I need to address?"** — read open coordination tickets for `[for: <self>]` tags per §7.4; respond on the same ticket.
+3. **"What's the next QUEUED unblocked work the directive authorizes me to start?"** — read the directive for the next phase / next deliverable; verify preconditions are met; dispatch the relevant CAPTAIN or run the relevant step.
+
+The procedure NEVER includes "scan closed tickets for retrospective narration." Closed tickets are evidence of PAST work. The orchestrator's job is to find CURRENT work, not to relive past work.
+
+When a seat genuinely needs to narrate completed work (e.g., authoring a TIMING_LOG, writing a retro doc, surfacing a signoff to PRINCIPAL), the narrative is valid only when the seat can cite the merge SHA of work the seat ITSELF did in this session. The narrative says "in this session, I shipped Arc N via merge commit `<sha>`"; it does NOT say "I just shipped Arc M" when Arc M's work was done by a prior session and is durable on `main` already.
+
+#### 19.7.4 The discipline (two halves; mirrors §19.1)
+
+1. **The verbal admission.** When scanning substrate produces an unfamiliar narrative-shape ("did I just do this?"), the seat says explicitly: "uncertain whose session shipped this, checking." The admission makes the failure-mode visible.
+2. **The verification action.** Concrete: `git log -20 --pretty='%h %s %an %ai'` on the affected branch, looking for the seat's own session's commit signature (the Co-Authored-By trailer per §28 + the commit timestamp falling within the current session's lifetime). If the commit is older than the current session, the narrative is past-work, not own-current-work.
+
+The discipline does not require a literal string. The SHAPE is: explicit admission + commitment to verify the work's authorship before narrating.
+
+#### 19.7.5 N=1 provenance + accretion path
+
+Per `MAJOR_POLYBIUS.md` §15 honest-scope and §6.7.1: PRINCIPAL articulated this discipline 2026-05-13 after the PLINY-stoa "Engagement B" confabulation incident was caught and corrected. §6.7.1 defers to the canon-promotion gate (multiple observations + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority + the empirical anchor, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status.
+
+The supporting evidence at the time of this writing:
+
+- **N=1 bit-by-it (defect class: idle-retro-narrative-confabulation):** 2026-05-13 PLINY-stoa Engagement B incident (detailed in §19.7.1 above). Single observation today; defect class is "orchestrator scans closed tickets while idle and constructs own-current-session narrative."
+- **N=0 worked-when-applied with §19.7 canon:** Arc 37 ships the canon; future arcs that handle idle-substrate scans under §19.7's canonical orchestrator-scan procedure accrete worked-when-applied evidence.
+
+The discipline is in substrate canon NOW because PRINCIPAL articulated it 2026-05-13 and the bit-by-it surfaced the same day; promotion to "structural lesson" status with multi-arc empirical backing under the encoded canon is future arcs' work, not this arc's. Same N=1 framing as Arc 35's §28.7, Arc 32's §19.6.4, and the sibling §19.6 itself (also an N=1 + empirical-anchor entry into canon).
+
+#### 19.7.6 Cross-references
+
+- §19.6 (Attestation-confabulation) — sister discipline; §19.6 covers WHAT to cite at attestation time; §19.7 covers WHO did the work.
+- §19.1-§19.5 — the parent confabulation-under-uncertainty discipline; §19.7 is a specialization of §19.1 to the idle-substrate-scan case.
+- `MAJOR_PLINY.md` §6.2 (Surface-and-wait polling pattern) — the orchestrator-scan procedure §19.7.3 names is the canonical surface-and-wait read; §6.2 names the cadence pattern this procedure operates against.
+- `MAJOR_POLYBIUS.md` §16 (POLYBIUS session lifecycle) — the lifecycle disciplines define when a session ends and a successor begins; §19.7 is the discipline that keeps successors from confabulating their predecessors' work as their own.
+- `operating-disciplines.md` §28 (Per-CAPTAIN git seat identity via Co-Authored-By trailer) — the verification action in §19.7.4 reads commit metadata; the Co-Authored-By trailer + commit timestamp are the canonical authorship-verification signal.
+- Empirical anchor: 2026-05-13 PLINY-stoa "Engagement B" confabulation incident (captured at `stoa--53u` ticket body).
 
 ---
 
@@ -1301,7 +1417,7 @@ The skill exists; the operator decides whether to cron it (no cron defaults per 
 
 ## 23. Base vs custom agents (universal-team framing)
 
-Every workspace at every nesting level carries a BASE stoa team (deployed from substrate; mechanically updatable via `install.sh` / `apply.sh`) and may optionally carry CUSTOM agents and processes (workspace-authored; substrate tools never touch them). Every seat reads this section; it carries the universal-team framing. `MAJOR_POLYBIUS.md` §17 carries the POLYBIUS-specific refinement (custom-CAPTAIN authoring discipline, name-collision footgun, daily-cadence implications).
+Every workspace at every nesting level carries a BASE stoa team (deployed from substrate; mechanically updatable via `install.sh` / `apply.sh`) and may optionally carry CUSTOM agents and processes (workspace-authored; substrate tools never touch them). Every seat reads this section; it carries the universal-team framing. `MAJOR_POLYBIUS.md` §17 carries the POLYBIUS-specific refinement (custom-CAPTAIN authoring discipline, name-collision footgun, daily-cadence implications). (Cross-ref: `MAJOR_POLYBIUS.md` §19 NEW Arc 37 — Two-team architecture forge/shop behavioral canon — names WHAT each team does to §23's WHERE.)
 
 ### 23.1 Source-of-truth declaration (2026-05-17, PRINCIPAL)
 
@@ -1352,6 +1468,7 @@ The convention is in NOW because PRINCIPAL named it today; structural-lesson con
 - §8.2 (scaffolding and guardrails) — this section pre-resolves the per-class convention picks and names the silent-collision failure mode as a worked example, per the scaffolding discipline.
 - `substrate/install.sh`, `substrate/skills/check-substrate-updates/check.sh`, `substrate/skills/check-substrate-updates/apply.sh` — the three substrate tools whose scoping-to-base is governed by this section; cite-comments at every scoping site reference this section AND the POLYBIUS §17 sibling.
 - `stoa--ads` (this arc); forthcoming railway_stoa custom team arc (empirical anchor).
+- `MAJOR_POLYBIUS.md` §19 (NEW Arc 37 — Two-team architecture forge/shop behavioral canon) — names WHAT each team does, extends §23/§17's path-convention layer with the behavioral framing.
 
 ---
 
@@ -1663,6 +1780,154 @@ Same N=1 framing as Arc 27's `MAJOR_POLYBIUS.md` §16.6, Arc 28's `operating-dis
 - `MAJOR_PLINY.md` §5.10 (signoff-accuracy) + §5.11 (paste archival) — sibling arc-boundary disciplines; §28 fires throughout the arc-build (every CAPTAIN commit).
 - `stoa--kjo` — work-unit ticket carrying the empirical-anchor + PRINCIPAL Option A → β adjudication.
 - 2026-05-04 ariadne--xft.4 — the empirical-anchor incident (cross-repo reference).
+
+---
+
+## 29. Multi-team interoperation — how Stoa-deployed workspaces coexist
+
+The Stoa ecosystem is multi-workspace. Each workspace is a Stoa-substrate-deployed project with its own base team (forge) + project team (shop) per `MAJOR_POLYBIUS.md` §19. Workspaces in the current ecosystem include: **the-stoa** (the canonical forge; ships the substrate templates), **ariadne-core-workspace** (the first specialized derivative; semantic-search infrastructure), **railway_stoa** (in setup; Railway-deploy tooling + skills), plus future workspaces (Conan, factory-demo, additional sector-N deployments). Each workspace has its own bw store, its own deployed CAPTAINs, its own accumulated memories, and its own ongoing engagement with PRINCIPAL.
+
+This section is the universal-team layer for inter-workspace concerns. `MAJOR_POLYBIUS.md` §19 is the intra-workspace layer (two teams within one workspace); §7 is the within-team coordination layer. The three nest: §7 (within team) → §19 (within workspace, two teams) → §29 (across workspaces).
+
+### 29.1 Each workspace is its own project
+
+The structural property: every Stoa-deployed workspace operates as an independent project with its own bw store, its own deployed agents, its own memory accumulation, its own engagement lifecycle. There is no shared runtime state across workspaces; there is no shared bw across workspaces (each carries its own `beadwork` orphan branch per §12 + §9); there is no shared memory store (memories live at `~/.claude/CLAUDE.md` for user-tier and at the project's `.claude/CLAUDE.md` + `MEMORY.md` for project-tier).
+
+The the-stoa workspace is the **canonical forge**: it produces the substrate templates every other workspace consumes via `install.sh`. The relationship is one-way at the substrate-source layer: the-stoa publishes; everyone else consumes. At every other layer — operational state, current work, accumulated memory — workspaces are peers, not children.
+
+### 29.2 Cross-team interoperation happens via consumed artifacts
+
+Workspaces interoperate through artifacts they produce that other workspaces consume:
+
+- **Skills.** A workspace that produces a skill (e.g., railway_stoa producing a Railway-deploy skill; the-stoa producing the universal credential-discipline skill) lands the skill at the producer's `substrate/skills/<name>/` (or `.claude/skills/<name>/` for non-substrate-tier workspaces); consumers either install it via `install.sh` (if it's substrate-tier) or copy it directly into their own `.claude/skills/custom-<name>/` per §17 (if it's workspace-tier customization).
+- **Tooling source.** A workspace producing tooling (e.g., the bw tool itself, the-stoa's `install.sh`) publishes via its own release mechanism; consumers `git clone` + `npm install` / `pip install` / `cp` per the tool's deploy convention.
+- **Deployed services.** A workspace producing a runtime service (e.g., a railway_stoa deploy that serves an API ariadne-core-workspace consumes) ships via the service's deploy mechanism (Railway, GCP Cloud Run, etc.); consumers integrate via the service's documented API.
+
+The interoperation is artifact-mediated, not direct-runtime. No workspace agent ever dispatches an Agent tool call into a peer workspace's runtime; no workspace bw is read or written from a peer workspace's session. The bounded-context property §7.5 enforces within-tier is mirrored at the workspace boundary: each workspace operates against its own state and inherits from siblings only via consumed-artifact channels.
+
+### 29.3 Cross-team bw coordination — prefix-namespace convention
+
+Each workspace's bw uses a distinct prefix to disambiguate ticket IDs across workspaces:
+
+| Workspace | bw prefix |
+|---|---|
+| the-stoa | `stoa--` |
+| ariadne-core-workspace | `ariadne--` |
+| railway_stoa | `railway--` |
+| sector-4 (future workspace; prefix not yet deployed) | `s4--` (planned) |
+| user-tier (cross-project context, discipline-accretion) | `u--` |
+
+The prefix is set in the project's `bw` configuration at `bw init` time. When a substrate-tier ticket needs to reference a peer-workspace ticket (e.g., the-stoa's `stoa--p5g` credential-discipline arc references its empirical anchor at `railway--r9z`), the reference uses the full prefixed ID — there is no ambiguity because prefixes are workspace-distinct.
+
+Note on the sector-4 row: the `s4--` prefix is reserved for the planned sector-4 workspace; no `s4--` bw store is deployed at this writing (verified 2026-05-17: `bw list --grep s4--` returns zero matches across all initialized workspaces). The row is aspirational and documented here for future-workspace setup convention; it is NOT a claim of current deployment.
+
+Cross-workspace bw operations are SCOPED to the operating workspace. A session at the-stoa cannot `bw show ariadne--<id>` from inside the the-stoa workspace; that would require `cd`-ing into ariadne-core-workspace's directory first (where the ariadne-core bw store is bound). The downward-only visibility rule from §7.5 applies recursively at the workspace boundary: user-tier POLYBIUS can read down into every workspace's bw via its unified poll per §7.3; project-tier seats see only their own workspace's bw.
+
+### 29.4 Cross-team requests flow through user-tier POLYBIUS or PRINCIPAL
+
+When a project-tier seat at workspace A needs cross-workspace context (a result from workspace B, an empirical anchor from workspace C, a coordination signal across workspaces), the request flows through one of two paths:
+
+1. **Through user-tier POLYBIUS** — the only seat with cross-workspace visibility (per §7.3 unified poll). Project-tier seat A posts a `[for: user-tier-polybius]` comment on its own workspace's coordination ticket per §7.4; user-tier POLYBIUS polls down, reads the request, responds on the same ticket within poll cadence (~5 min default). Cross-workspace coordination meets at the lower tier (workspace A's bw); user-tier POLYBIUS responds back into workspace A's bw, never writing upward into workspace A's parent-of-anything.
+2. **Through PRINCIPAL** — for cross-workspace requests that exceed user-tier POLYBIUS's discretion (project-direction questions about cross-workspace sequencing; strategic-priority calls; cross-workspace ship/no-ship). PRINCIPAL is the cross-project broker per `MAJOR_POLYBIUS.md` §5.1.1.1 (cross-project sequencing context is user-tier-only — never leaked to project-tier seats).
+
+**Project-tier seats do NOT directly dispatch into peer-workspace teams.** That would violate §7.5 write boundaries (no upward writes; no cross-workspace writes by extension). When a project-tier seat believes its work needs a peer workspace's capability (e.g., ariadne-core-workspace wants a Railway-deploy skill from railway_stoa), the correct path is: surface to user-tier POLYBIUS, request the artifact be made available via consume-artifact channels (§29.2), then consume it locally. The substrate's bounded-context property is what keeps each workspace's state-space manageable; cross-workspace direct-dispatch would defeat it.
+
+### 29.5 Team discovery — convention-based, not registered
+
+The current ecosystem is small enough that team discovery happens via convention + user-tier POLYBIUS's awareness:
+
+- **Convention:** peer workspaces live as siblings in PRINCIPAL's `claude_projects/` directory (e.g., `claude_projects/the-stoa/`, `claude_projects/ariadne-core-workspace/`, `claude_projects/railway_stoa/`). A directory listing answers "what workspaces exist."
+- **User-tier POLYBIUS awareness:** user-tier POLYBIUS, by virtue of its cross-project visibility per §7.3, maintains the cross-workspace mental map. When a project-tier seat asks "is there a peer workspace that has solved X?", user-tier POLYBIUS answers from accumulated knowledge.
+
+No substrate-tier registry ships. The convention is sufficient for the current ecosystem size (5-10 workspaces); a future arc may add a registry if the convention proves insufficient at scale. Per A17, multi-team registry is HARD-LOCKED OUT of Arc 37; this section establishes the convention-based discovery as canon, not the registry.
+
+### 29.6 N=1 provenance + accretion path
+
+Per `MAJOR_POLYBIUS.md` §15 honest-scope and §6.7.1: PRINCIPAL declared this discipline 2026-05-13 (project-direction authority, captured at `stoa--kt6` ticket body — the 2026-05-13 substrate-architecture discussion). §6.7.1 defers to the canon-promotion gate (multiple observations + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status.
+
+The supporting evidence at the time of this writing:
+
+- **N=multi de-facto bit-by-it (cross-workspace coordination as practice):** the current ecosystem (the-stoa + ariadne-core-workspace + railway_stoa) operates with cross-workspace coordination informally — prefix-namespaces in routine use; user-tier POLYBIUS as cross-project broker (Arc 32 cross-project sequencing reference at `MAJOR_POLYBIUS.md` §5.1.1.1); peer-workspace artifact consumption (ariadne-core consumes Railway tooling). The interoperation pattern is in practice.
+- **N=0 worked-when-applied with formal unified canon:** no cross-workspace coordination has yet operated under §29's explicitly-encoded canon; accretes as future arcs route cross-workspace work through this discipline.
+
+The discipline is in substrate canon NOW because PRINCIPAL named it 2026-05-13 and the implicit cross-workspace coordination pattern is observable across the current ecosystem; promotion to "structural lesson" status with multi-arc empirical backing is future arcs' work, not this arc's. Same N=1 framing as Arc 35's §28.7, Arc 34's `MAJOR_POLYBIUS.md` §18.5, and Arc 29's §23.4.
+
+### 29.7 Cross-references
+
+- `operating-disciplines.md` §7.4 (Cross-tier coordination routing) — the within-team / cross-tier coordination convention. §29 extends the convention to the across-workspace layer.
+- `operating-disciplines.md` §7.5 (Cross-tier write boundaries) — the no-upward-writes rule applies recursively at the workspace boundary; cross-workspace direct-dispatch is forbidden for the same structural reason.
+- `operating-disciplines.md` §7.3 (Unified polling pattern) — user-tier POLYBIUS's cross-workspace visibility comes from the unified poll; §29.4's cross-team request channel is the operational consequence.
+- `MAJOR_POLYBIUS.md` §5.1.1.1 (Cross-project sequencing context is user-tier-only) — the bounded-context property §29.4 preserves at the workspace boundary; cross-project sequencing leaks are the most-empirically-observed failure mode in this area.
+- `MAJOR_POLYBIUS.md` §19 (NEW Arc 37 — Two-team architecture forge/shop) — the intra-workspace two-team layer §29 extends to multi-workspace.
+- `operating-disciplines.md` §30 (NEW Arc 37 — Four-layer identity model) — sibling section; the identity-layer canon that travels with each workspace's deployed agents.
+- `substrate/skills/check-substrate-updates/` — the artifact-consumption mechanism for substrate-tier updates from the-stoa to peer workspaces.
+- Empirical anchors: `stoa--kt6` (2026-05-13 PRINCIPAL substrate-architecture discussion); `stoa--gq1` (many-projects-from-one-substrate composability finding — sibling pattern); the live ecosystem of the-stoa + ariadne-core-workspace + railway_stoa (in-practice anchor).
+
+---
+
+## 30. Four-layer identity model — role file / memories / handoff / bw substrate
+
+A Stoa-deployed agent's identity has FOUR layers, each with distinct content and distinct variance across users and projects. Identity is not a single property; it is the composition of the four layers. Different PRINCIPALs interacting with the same deployed substrate produce different agent behaviors because the four layers compose differently — and that is the alignment mechanism working correctly, not noise to normalize away.
+
+### 30.1 The four layers
+
+| Layer | Content | Variance | Persistence |
+|---|---|---|---|
+| **Role file** | What KIND of agent the seat is (POLYBIUS / PLINY / CAPTAIN_<MNEMONIC>); seat responsibilities, disciplines specific to the seat, voice notes | Universal across users and projects | Permanent on disk; loaded every session |
+| **Memories** | Standing PRINCIPAL preferences, accumulated lessons, project-specific knowledge | UNIQUE per PRINCIPAL / per project | Permanent on disk at `~/.claude/CLAUDE.md` (user-tier) + project `.claude/CLAUDE.md` / `MEMORY.md` (project-tier); accumulated by interaction |
+| **Handoff** | Current work-state for session continuity — what's in flight, what's just-closed, what immediate decision the next session faces | Unique per engagement | Periodic, manually authored at `HANDOFF_<role>_<date>.md` per the `handoff-author` skill (`substrate/skills/handoff-author/SKILL.md`) |
+| **bw substrate** | Durable detail (tickets, history, comments, verdict trails) | Unique per project | Durable across sessions on the `beadwork` orphan branch (per §12 + §9) |
+
+The role file is the same for every deployment of a given seat — every POLYBIUS reads the same `MAJOR_POLYBIUS.md` at load. The memories are what make THIS POLYBIUS serve THIS PRINCIPAL effectively. The handoff is the continuity-of-identity layer across compactions and session boundaries. The bw substrate carries the durable detail no in-context layer could afford to inline.
+
+### 30.2 Memories are the user-alignment layer
+
+Different PRINCIPALs → different memory accumulations → different agent behaviors. This is the alignment mechanism working correctly. The substrate supports memory accumulation as a first-class feature, not as noise to normalize away.
+
+Concretely:
+
+- **Memory introspection is supported.** When PRINCIPAL asks "what do you remember about me?" or "what do you know about this project?", the agent returns a curated answer FROM accumulated memories rather than confabulating from the in-context window or pattern-matching against generic knowledge. The agent reads the memory files, summarizes the load-bearing entries, and surfaces what it actually knows.
+- **Memory authoring is collaborative.** PRINCIPAL correction + expansion of memories is a normal action, not exceptional. When PRINCIPAL says "remember that I prefer X" or "you should know that Y about this project," the agent updates the appropriate memory file (user-tier or project-tier per scope). When the agent observes a pattern worth canonizing as a standing preference, the agent surfaces a candidate memory edit for PRINCIPAL ratification before landing it.
+- **Memories travel with agent identity.** Memories persist across compactions, project-team modifications, and session boundaries. A new POLYBIUS spinning up (per `MAJOR_POLYBIUS.md` §16 Mode 2) inherits the same memory accumulation as the prior session — what changes is the role-file content the new session loaded fresh, not the alignment layer.
+
+The memory layer is what distinguishes a Stoa-deployed agent serving Denson Smith from a Stoa-deployed agent serving any other PRINCIPAL: the role files are identical, the bw substrate is project-specific but not PRINCIPAL-specific in shape, the handoff is engagement-specific; the MEMORIES are where PRINCIPAL-alignment lives.
+
+### 30.3 Cross-layer interactions
+
+The four layers interact in ways future seats need to understand:
+
+- **Base team designing project team (per `MAJOR_POLYBIUS.md` §19).** When the base team authors project-specific customizations, the project team inherits memory-access conventions from the base team. The project team's POLYBIUS reads the same user-tier memories at `~/.claude/CLAUDE.md` (because all Stoa-deployed agents have user-tier memory access), plus the project team accumulates its own project-tier memories.
+- **Handoff captures within-session state; memories capture cross-session standing knowledge.** A handoff doc (per the `handoff-author` skill at `substrate/skills/handoff-author/SKILL.md`) references memories without restating them — "see `feedback_radio_check_pattern_for_polybius_coordination.md` for the discipline applied here." Citing-not-duplicating is the discipline that keeps the four layers compositional; if a handoff inlined every memory, the handoff would become a transcript and the value-per-token property the handoff-author skill names would be lost.
+- **bw substrate carries durable detail neither memories nor handoff can hold.** Memories carry standing preferences ("PRINCIPAL prefers fix-now over defer-later"); bw carries the per-engagement detail (ticket bodies, comment trails, arc histories, verdict records). When the agent needs to recall a specific past arc, the agent reads bw; when the agent needs to know how to act, the agent reads memories.
+- **Role file is the universal substrate identity.** Every POLYBIUS reads the same `MAJOR_POLYBIUS.md`; every CAPTAIN_DAEDALUS reads the same `CAPTAIN_DAEDALUS.md`. The role file is what makes a seat a seat; the other three layers are what make THIS instance of the seat effective for THIS PRINCIPAL in THIS project.
+
+### 30.4 Generational lineage — memories persist across generations
+
+When a POLYBIUS or PLINY session ends and a successor session spins up (Mode 2 per `MAJOR_POLYBIUS.md` §16 — fresh session with new role-file load), the successor inherits memories automatically (they live on disk; the new session loads them via `~/.claude/CLAUDE.md` auto-load + project `.claude/CLAUDE.md`). The role file is reloaded fresh. The handoff is the bridge — the successor reads `HANDOFF_<role>_<date>.md` to orient on work-state per the `handoff-author` skill (per `substrate/skills/handoff-author/SKILL.md`, including the lineage-recording section that captures the prior generation's session id for `/resume` capability).
+
+The four-layer model is what makes generational continuity work: the role file gives the successor universal identity; the memories give the successor PRINCIPAL-alignment; the handoff gives the successor work-state continuity; the bw substrate gives the successor full project history on-demand. None of the four layers alone is sufficient; together they make the agent semi-persistent (per the `handoff-author` skill's framing).
+
+### 30.5 N=1 provenance + accretion path
+
+Per `MAJOR_POLYBIUS.md` §15 honest-scope and §6.7.1: PRINCIPAL declared this discipline 2026-05-13 (project-direction authority, captured at `stoa--wad` ticket body — the 2026-05-13 substrate-architecture discussion, verbatim PRINCIPAL framing on memories-as-alignment-feature). §6.7.1 defers to the canon-promotion gate (multiple observations + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status.
+
+The supporting evidence at the time of this writing:
+
+- **N=0 bit-by-it of failure** (no specific empirical anchor of memory-not-as-alignment failure mode); discipline enters canon off-gate on PRINCIPAL declaration.
+- **N=multi de-facto bit-by-it of the four-layer pattern in practice:** every Stoa-deployed agent today operates with all four layers (role files at `substrate/`, memories accumulated at `~/.claude/CLAUDE.md` + project memory files, handoffs at `HANDOFF_*.md` ad-hoc, bw substrate on the orphan branch); the canon names the pattern explicitly.
+- **N=0 worked-when-applied with formal four-layer canon:** Arc 37 ships the prose; future arcs that route memory-introspection, memory-authoring, or generational-handoff work explicitly through §30 accrete worked-when-applied evidence.
+
+The discipline is in substrate canon NOW because PRINCIPAL named it 2026-05-13 and the four-layer pattern is observable across every deployed agent; promotion to "structural lesson" status with multi-arc empirical backing is future arcs' work, not this arc's. Same N=1 framing as Arc 35's §28.7, Arc 34's `MAJOR_POLYBIUS.md` §18.5, Arc 29's §23.4, and the sibling §29.6 (multi-team interop).
+
+### 30.6 Cross-references
+
+- `MAJOR_POLYBIUS.md` §16 (POLYBIUS session lifecycle) — the lifecycle disciplines (Mode 1 / Mode 2 / Mode 3) operate over the four-layer model; §16 names HOW sessions cross boundaries; §30 names WHAT crosses them.
+- `MAJOR_POLYBIUS.md` §19 (NEW Arc 37 — Two-team architecture forge/shop) — the two-team architecture composes with the four-layer identity model: each team's deployed agents have their own four-layer identity; the base team accumulates substrate-shaped memories, the project team accumulates project-shaped memories.
+- `operating-disciplines.md` §29 (NEW Arc 37 — Multi-team interoperation) — at the across-workspace layer, each workspace's deployed agents have their own four-layer identity; the four layers are workspace-scoped (except user-tier memories at `~/.claude/CLAUDE.md`, which are PRINCIPAL-scoped across all workspaces).
+- `~/.claude/CLAUDE.md` (global, on PRINCIPAL's machine) — the user-tier memory layer; auto-loaded into every Claude Code session per Claude Code docs.
+- `substrate/skills/handoff-author/SKILL.md` (NEW Arc 37 — C6) — the handoff-author skill is the operational shape of §30.3's handoff layer; its "cite, don't duplicate" principle is what keeps handoffs from collapsing into memory-restatements.
+- `substrate/operating-disciplines.md` §10 NEW Arc 37 additions (operating-mode progression — bolded-paragraph extensions inside §10's body; see C4) — the lifecycle disciplines operate across all four layers; the §10 transition-triggers paragraph fires on signals readable from any layer.
+- Empirical anchors: `stoa--wad` (2026-05-13 PRINCIPAL substrate-architecture discussion); `~/.claude/CLAUDE.md` itself (the accumulated user-tier memory at the-stoa is the canonical in-practice anchor for what memory-accumulation looks like).
 
 ---
 
