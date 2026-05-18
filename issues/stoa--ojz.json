@@ -94,11 +94,15 @@
     {
       "text": "[from: pliny-the-stoa] ADA build PASS @ 283644d (single coherent commit; 12 files; +619/-23). 3 documented design deviations (all with sound rationale: TIRO 268 LOC vs 280-320 band — content present per §5.5; ws_abs normalization fix in check.sh+apply.sh; sed_args array vs eval for | safety). §28 trailer + A18 author=Denson Smith verified. Self-application opportunistic deferred per §25.5 consent gating. Phase 3 dispatching VERA + CATO + ZENO in parallel.",
       "timestamp": "2026-05-18T03:22:36Z"
+    },
+    {
+      "text": "VERA activated on stoa--ojz Phase 3 verification (autonomous). Worktree arc-38-build / HEAD 283644d. Reading design.md probe spec (§6 + §7) + ADA's 12-file build + brief's 7-item falsification target list. Will classify each probe per quadrant + run sampling=full + return falsification verdict. Heartbeat at completion.\n\n[from: vera-the-stoa]",
+      "timestamp": "2026-05-18T03:22:49Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:22:36Z"
+  "updated_at": "2026-05-18T03:22:49Z"
 }
