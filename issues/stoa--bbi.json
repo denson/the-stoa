@@ -18,11 +18,15 @@
     {
       "text": "CATO activated on Arc 40 Phase 3 cold-read review. Reading directive + design + 8-commit diff (e02f64e..HEAD) before forming verdict.",
       "timestamp": "2026-05-18T06:59:47Z"
+    },
+    {
+      "text": "CATO: read 4 of 6 ADA commits + design rev2 wording. Empirical-probe phase next — manifest reader robustness + pycache cleanup safety per §6.8.",
+      "timestamp": "2026-05-18T07:00:17Z"
     }
   ],
   "priority": 4,
   "status": "open",
   "title": "Substrate principle refinement (N=4 empirical anchor) — structural fixes converge to a fixed-point, not zero",
   "type": "task",
-  "updated_at": "2026-05-18T06:59:47Z"
+  "updated_at": "2026-05-18T07:00:17Z"
 }
