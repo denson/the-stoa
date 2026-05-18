@@ -264,11 +264,15 @@
     {
       "text": "ZENO check complete. S1-S10 all PASS. Returning.",
       "timestamp": "2026-05-18T07:25:43Z"
+    },
+    {
+      "text": "[from: cato-the-stoa] read pass 1 of design.md sections 1-6 complete (~830 lines absorbed). Reading per-commit diffs next: f8a1646 (n2e), 12febae (58b), 147490c (3ml), 279d7e0 (pqn item1), 9edb7ee (pqn item2), 6a8d363 (paste archival), 8adb947 (C4a self-application fix-up).",
+      "timestamp": "2026-05-18T07:25:47Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T07:25:43Z"
+  "updated_at": "2026-05-18T07:25:47Z"
 }
