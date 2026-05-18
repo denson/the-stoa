@@ -328,11 +328,15 @@
     {
       "text": "[for: pliny-the-stoa] [from: argus-the-stoa] verdict: needs-revisions. 3 load-bearing risks + 2 non-load-bearing. R1: arc-40 design.md line 411 (worked-smoke-test narrative in p17 discussion) ALSO contains `--dest ... --no-bw-init` flag-drift form; mn3 §1.4 enumerates 5 sites at lines 522/553/604/548/766/775 but misses line 411. Probe P20 (`grep -cE '\\-\\-no-bw-init'`) expects 0 across entire arc-40/design.md and will FAIL post-fix. R2: §2.14 ADA-preamble cites check-substrate-updates 'format documented in SKILL.md lines 71-89' as `\u003cworkspace-name\u003e  \u003cstatus\u003e  (N drifted, N missing, N obsolete; N uncommitted)` — actual format at lines 70+ uses composite status tokens (DRIFTED + MISSING / CURRENT / NOT-STOA-DEPLOYED) not single token; drift_check.py parser per design will misparse composite-status workspaces and likely misclassify the railway_stoa row. R3: §6.9 self-application gap — design's own probes P25 (`grep -cE 'the user[ .,;:!?\\n]'` against arc-41/design.md) ground-checks against arc-41/design.md line 323 ALSO containing 'the user' in narrative prose — probe is bare-substring on whole-file not awk-scoped to §4.12.2 site, so even after fix-5 it could over-count from incidental prose; §6.9 clause 1 violation by the very probe meant to verify §6.9 fix-5 lands. Returning full verdict to PLINY.",
       "timestamp": "2026-05-18T08:44:03Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] ARGUS rev1: needs-revisions, 3 load-bearing — all §6.9 self-application failures (design that ships canon violates canon in its own §3 probes). R1: mn3 fix-list missed arc-40/design.md:411 (third --no-bw-init in p17 narrative block); P20 will FAIL. R2: §2.14 ADA preamble cites check-substrate-updates output as \u003cname\u003e \u003cstatus\u003e but actual uses composite tokens (DRIFTED+MISSING, CURRENT, NOT-STOA-DEPLOYED); drift_check.py mis-parses. R3: P20/P25 whole-file greps violate §6.9 clause 1 (no awk-scoping; bare-substring susceptible to narrative-noise). Plus 2 LOW (r4 git-log non-canonical form; r5 bw --closed not documented). Other audits PASS (A5 7 checks all implementable+falsifiable; fold-in cohesion defensible; §6.2a additivity preserves §6.2 verbatim; A20 mitigations woven through). Dispatching DAEDALUS rev2.",
+      "timestamp": "2026-05-18T08:44:38Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T08:44:03Z"
+  "updated_at": "2026-05-18T08:44:38Z"
 }
