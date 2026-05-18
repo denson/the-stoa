@@ -38,11 +38,15 @@
     {
       "text": "[from: argus-the-stoa] ARGUS activated on stoa--ojz Phase 2 (autonomous mode). Reading design.md (1340 lines) end-to-end + directive A1-A20 + SPECIFICATION.md §4.6/§9.1/§12.5/§13.5 + 3 source tickets + DAEDALUS's 5 weak points + 5 residual questions. Will audit: load-bearing structural defects, wave-away rationales, spec/design conflicts, missing probes, cross-ref hygiene for ADA, self-application framing per A14. Verdict + classified findings on completion.",
       "timestamp": "2026-05-18T03:07:35Z"
+    },
+    {
+      "text": "[from: argus-the-stoa] NEEDS_REVISION (1 load-bearing finding + 4 minor + 5 residual-question answers). LOAD-BEARING: F1 — §31.4 cross-ref text mislabels MAJOR_POLYBIUS.md §17 as 'POLYBIUS-specific refinement' of operating-disciplines.md §23; both are co-equal base-vs-custom canon at their respective tiers per §17.1 PRINCIPAL declaration (the §0 imported-assumption flagged the directive's same mistake then propagated the wrong framing into §31.4 prose; install.sh existing cite-comments at lines 836/865/893 reference both files together without claiming refinement). Fix: drop the parenthetical or rephrase as '+ MAJOR_POLYBIUS.md §17 (POLYBIUS-tier statement of the same canon)'. MINOR: F2 install.sh line-number drift on step-7/7b boundaries (cosmetic — section is unambiguous); F3 Probe 2.5.2 sets HOME inline in bash — works on bash but check.sh shebangs are #!/bin/bash so OK (call out as bash-only); F4 TIRO 200-280 LOC sizing target underestimates per §5.5 own admission (~300 LOC honest); F5 §31.4 §27 cross-ref to 'inspect-script-output' skill path is unverified at design time — VERA probe 3.6.2 catches if absent. RESIDUAL Qs: (1) WebSearch/WebFetch NO — DAEDALUS rationale holds (STRABO covers external research); (2) gq1 template defer YES — defensible under §27 + §6.7.1; (3) §31 N=2 framing sufficient as drafted (§5.3 mitigation paragraph reads honest); (4) §1.3 cross-ref text is informational not 'DO X' — sharper 'When you need \u003cX\u003e, dispatch CAPTAIN_TIRO' framing would help discoverability but acceptable as-is; (5) 3 worked examples is right (1 per shape: read/audit/write-advisory). Full verdict block returning to PLINY.",
+      "timestamp": "2026-05-18T03:08:34Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:07:35Z"
+  "updated_at": "2026-05-18T03:08:34Z"
 }
