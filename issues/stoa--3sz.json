@@ -34,11 +34,15 @@
     {
       "text": "VERA: probes p1-p8 + p12-p24 (21 total per rev2; gap-preserved). All classified easy-easy mechanical (19) + easy-easy empirical post-build smoke (2 — p15/p18). Executing now.",
       "timestamp": "2026-05-18T06:59:57Z"
+    },
+    {
+      "text": "VERA: 17 of 21 probes verifiable pre-merge — all PASS. Remaining 4 (p21/p22/p23/p24) are Phase 5 post-merge cleanup + ticket-closure probes; preconditions not yet met by design; marking INCOMPLETE-pre-merge (not FAIL). Methodology concerns: (1) p15/p18 specify nonexistent install.sh flags --dest / --no-bw-init (correct flag is --project-dir) — operational property verified via translated command; (2) p24 command tests for 'Status:.*closed' string but bw show emits no Status: line (uses ✓ symbol); literal command would always falsify regardless of actual close state. Writing verdict.",
+      "timestamp": "2026-05-18T07:01:25Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Arc 24 follow-up — probe-spec ^last= anchor needed (verbatim regex finds 2, anchored variant returns 1 as intended)",
   "type": "task",
-  "updated_at": "2026-05-18T06:59:57Z"
+  "updated_at": "2026-05-18T07:01:25Z"
 }
