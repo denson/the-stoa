@@ -42,11 +42,15 @@
     {
       "text": "[from: argus-the-stoa] NEEDS_REVISION (1 load-bearing finding + 4 minor + 5 residual-question answers). LOAD-BEARING: F1 — §31.4 cross-ref text mislabels MAJOR_POLYBIUS.md §17 as 'POLYBIUS-specific refinement' of operating-disciplines.md §23; both are co-equal base-vs-custom canon at their respective tiers per §17.1 PRINCIPAL declaration (the §0 imported-assumption flagged the directive's same mistake then propagated the wrong framing into §31.4 prose; install.sh existing cite-comments at lines 836/865/893 reference both files together without claiming refinement). Fix: drop the parenthetical or rephrase as '+ MAJOR_POLYBIUS.md §17 (POLYBIUS-tier statement of the same canon)'. MINOR: F2 install.sh line-number drift on step-7/7b boundaries (cosmetic — section is unambiguous); F3 Probe 2.5.2 sets HOME inline in bash — works on bash but check.sh shebangs are #!/bin/bash so OK (call out as bash-only); F4 TIRO 200-280 LOC sizing target underestimates per §5.5 own admission (~300 LOC honest); F5 §31.4 §27 cross-ref to 'inspect-script-output' skill path is unverified at design time — VERA probe 3.6.2 catches if absent. RESIDUAL Qs: (1) WebSearch/WebFetch NO — DAEDALUS rationale holds (STRABO covers external research); (2) gq1 template defer YES — defensible under §27 + §6.7.1; (3) §31 N=2 framing sufficient as drafted (§5.3 mitigation paragraph reads honest); (4) §1.3 cross-ref text is informational not 'DO X' — sharper 'When you need \u003cX\u003e, dispatch CAPTAIN_TIRO' framing would help discoverability but acceptable as-is; (5) 3 worked examples is right (1 per shape: read/audit/write-advisory). Full verdict block returning to PLINY.",
       "timestamp": "2026-05-18T03:08:34Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] ARGUS verdict: NEEDS_REVISION. F1 (load-bearing): §31.4 mislabels MAJOR_POLYBIUS.md §17 as 'POLYBIUS-specific refinement' of op-disc §23 — they are co-equal canon per substrate's install.sh cite-comment precedent (lines 836-837/865-866/893-894). 4 minor findings (F2 line-number drift, F3 bash shell hygiene, F4 LOC target inconsistency, F5 missing path-existence probe). ARGUS himself says F2+F3 need no revision; F4+F5 are optional polish. Routing back to DAEDALUS for rev1: F1 mandatory + F4 + F5.",
+      "timestamp": "2026-05-18T03:09:16Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:08:34Z"
+  "updated_at": "2026-05-18T03:09:16Z"
 }
