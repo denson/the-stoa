@@ -6,9 +6,15 @@
   "description": "",
   "id": "stoa--lyw",
   "labels": [],
+  "comments": [
+    {
+      "text": "## Empirical anchor\n\nSurfaced 2026-05-17 by project-tier POLYBIUS-the-stoa in SPEC_AUDIT.md finding D4. The `/resume`-prior-generation pattern is described as a structural property of the team across SPECIFICATION.md §4.5, §10.1, and §11 (anti-pattern: \"Destroying prior-generation sessions before lineage value is exhausted\"). Op-disc + role files have no shipped section on the INVOCATION half of the lineage.\n\nThe handoff-author skill (substrate/skills/handoff-author/SKILL.md step 6) covers the RECORDING half (mandatory per Arc 37 ship + 2026-05-17 PRINCIPAL ratification per SPEC_AUDIT C1 fix). The INVOCATION half is undocumented:\n\n- When does a successor agent decide to `/resume` vs spawn fresh + activation paste?\n- What's the failure mode if the recorded session id is stale (terminal closed, session expired)?\n- How does the successor distinguish \"session is dormant but reachable\" from \"session is genuinely lost\"?\n- How does the successor know which prior generation to `/resume` when multiple generations are recorded across multiple handoffs?\n\n## Substrate touch-points (sketched, not LOCKED)\n\n1. operating-disciplines.md — new subsection on `/resume` invocation discipline.\n2. MAJOR_POLYBIUS.md + MAJOR_PLINY.md — per-seat framing.\n3. handoff-author skill — cross-ref once invocation canon ships.\n\n## Discipline shape (sketched, DAEDALUS picks at arc-design)\n\n- **Prefer `/resume`** when: prior generation holds load-bearing context not captured in canon + engagement specifically requires that context.\n- **Spawn fresh** when: new engagement structurally different from any prior scope; OR recorded session ids are stale; OR lineage value fully absorbed into canon + bw.\n- **Failure-mode handling**: if `/resume \u003cid\u003e` errors, fall through to fresh spawn + log the lineage truncation in new handoff.\n- **Multi-generation navigation**: consult handoffs in reverse chronological order; handoff itself cites prior-handoff lineage.\n\n## Gauntlet + sequencing\n\nDAEDALUS + ARGUS + ADA + CATO. ~50-100 LOC across op-disc + 2 MAJOR files + 1 SKILL.md cross-ref. P3. Candidate for future arc post-Pass 7 spec-recon; could fold into a small-bundle arc if it stays small enough.\n\n## Cross-refs\n\n- SPECIFICATION.md §4.5 + §10.1 + §11 (the lineage framing)\n- substrate/skills/handoff-author/SKILL.md step 6 (recording half — companion to invocation half)\n- SPEC_AUDIT.md finding D4 (empirical anchor)\n- stoa--7e3 / Arc 37 C6 (ships the recording half)\n- stoa--ojz / Arc 38 C1 — CAPTAIN_TIRO (may be the seat that runs `/resume` invocation queries against the bw record)\n- stoa--wad (four-layer identity model — Arc 37; identifies layers, doesn't enumerate cross-layer invocation disciplines)",
+      "timestamp": "2026-05-18T02:11:51Z"
+    }
+  ],
   "priority": 3,
   "status": "open",
   "title": "Resume invocation discipline (/resume) — successor-decides-vs-spawn-fresh + stale-id handling",
   "type": "task",
-  "updated_at": "2026-05-18T02:11:38Z"
+  "updated_at": "2026-05-18T02:11:51Z"
 }
