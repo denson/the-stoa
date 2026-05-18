@@ -301,11 +301,15 @@
     {
       "text": "[from: cato-the-stoa] CATO activated on stoa--jru. Reading diff + design + VERA/ZENO verdicts before forming cold-read. Cold-read first (diff-first per CAPTAIN_CATO §6.2), then design comparison, then meta-verification sample-recheck.",
       "timestamp": "2026-05-18T00:01:39Z"
+    },
+    {
+      "text": "[from: cato-the-stoa] cold-read complete; meta-verifier recheck of 3 VERA probes + 3 ZENO LOCKED clauses PASS; web-doc citation check (3 quotes) all verbatim-match the live docs page. Found 5 findings (1 load-bearing C1 + 2 load-bearing C2/C5 + 2 minor c3/c4). Drafting verdict block now.",
+      "timestamp": "2026-05-18T00:02:52Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-18T00:01:39Z"
+  "updated_at": "2026-05-18T00:02:52Z"
 }
