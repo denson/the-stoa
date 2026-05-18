@@ -184,7 +184,7 @@ awk '/^### 7\.1/,/^### 7\.2/' substrate/operating-disciplines.md | grep -cE '\[r
 
 ```bash
 awk '/^### 7\.4/,/^### 7\.5/' substrate/operating-disciplines.md | grep -E 'upward[- ]only|UPWARD requests only|^[^a-zA-Z]*upward\.only'
-# Expected: zero matches (anchored to old wording shape; case-sensitive to avoid bidirectional-prose hits; drops over-broad `cross-tier upward` per Arc 41 pqn Item 1.a)
+# Expected: zero matches (anchored to old wording shape; case-sensitive to avoid bidirectional-prose hits; drops the over-broad bigram-fragment per Arc 41 pqn Item 1.a)
 
 awk '/^### 7\.4/,/^### 7\.5/' substrate/operating-disciplines.md | grep -cE 'bidirectional|either direction|sender to recipient'
 # Expected: ≥1 (new bidirectional framing present)
