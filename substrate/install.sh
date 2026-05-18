@@ -144,6 +144,7 @@ SKILL_NAMES=(
   credential-discipline
   check-bw-release
   inspect-script-output
+  handoff-author
 )
 
 # Marker line written into CLAUDE.md when --modify-claude-md is used; presence
