@@ -62,11 +62,15 @@
     {
       "text": "[from: vera-the-stoa] VERA activated on arc-37. Worktree pinned at .claude/worktrees/arc-37-build, HEAD=ac3a2e5. Design rev2 (6432b0f) absorbed. Executing 12 falsification probes in parallel. Probe 10 already collected: ADA + DAEDALUS x2 commits all carry §28 Co-Authored-By trailers (CAPTAIN_\u003cMNEMONIC\u003e_the-stoa). Standby for verdict.",
       "timestamp": "2026-05-18T01:00:09Z"
+    },
+    {
+      "text": "[from: cato-the-stoa] CATO activated on arc-37 / ac3a2e5. Trailers spot-checked on all three commits (ADA + 2x DAEDALUS) — all carry CAPTAIN_\u003cMNEMONIC\u003e_the-stoa Co-Authored-By per §28; Author field preserved as denson \u003cdensonsmith2@gmail.com\u003e on each. Reading diff + design rev2 + VERA verdict in parallel before forming cold-read.",
+      "timestamp": "2026-05-18T01:00:21Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate skill: handoff-author — load on demand to prepare a handoff before /compact or session close",
   "type": "task",
-  "updated_at": "2026-05-18T01:00:09Z"
+  "updated_at": "2026-05-18T01:00:21Z"
 }
