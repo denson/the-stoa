@@ -2,13 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-18T07:30:13Z",
+  "close_reason": "Arc 41 shipped clean — PR #21 squash-merged at 6b6fb11. substrate/MAJOR_PLINY.md new §5.2.1 sub-section added (after §5.2 ADA brief preamble) with cross-ref to operating-disciplines.md §20 (credential discipline) for credentialed-dispatch shape extension. A3 LOCKED + A14 hard-locked (no §5/§6 restructure beyond §5.2.1 add). See arc-41-build-directive.md + design.md @ 7cb61ce + signoff on stoa--utn.",
   "created": "2026-05-16T08:54:03Z",
   "description": "When PLINY authors a dispatch brief that involves credentialed operations, the brief should point CAPTAINs at operating-disciplines.md §20 (Credential discipline) so the CI-mediated canon is structurally surfaced at the dispatch moment. Add a cross-ref in MAJOR_PLINY.md §5 (gauntlet pipeline) or §6 (Communication). Out of Arc 25's A11 scope; substantive enough to belong in next discipline-accretion arc rather than as a drive-by. Refs: stoa--p5g (Arc 25), design follow_ups item 3.",
   "id": "stoa--58b",
   "labels": [],
   "priority": 3,
-  "status": "open",
+  "status": "closed",
   "title": "Substrate cross-ref: MAJOR_PLINY.md dispatch section → operating-disciplines.md §20",
   "type": "task",
-  "updated_at": "2026-05-16T08:54:03Z"
+  "updated_at": "2026-05-18T07:30:13Z"
 }
