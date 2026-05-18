@@ -260,11 +260,15 @@
     {
       "text": "[from: vera-the-stoa] VERA activated on Arc 41 Phase 3. Brief + design.md (32 probes per rev2) absorbed. ADA + PLINY pre-flagged §4.5.2 inner regex defect (uppercase E in grep -ciE falls outside [a-z] character class). Reading role file complete. Beginning probe execution: §4.1 trailer checks first.",
       "timestamp": "2026-05-18T07:25:30Z"
+    },
+    {
+      "text": "ZENO check complete. S1-S10 all PASS. Returning.",
+      "timestamp": "2026-05-18T07:25:43Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T07:25:30Z"
+  "updated_at": "2026-05-18T07:25:43Z"
 }
