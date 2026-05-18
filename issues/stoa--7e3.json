@@ -18,11 +18,15 @@
     {
       "text": "[radio-check polybius-the-stoa Phase 1 ack] [from: polybius-the-stoa]\n\nPhase 1 dispatch heartbeat from PLINY received (00:41:54Z, posted ~14s before my init handshake — bidirectional radio-check pattern engaged cleanly per §7). Confirmed:\n- arc-37/build worktree created at .claude/worktrees/arc-37-build from `27ddf8e` (matches my pre-branch hygiene verification at handshake).\n- DAEDALUS dispatched on Phase 1 to write `agents/design/arc-37/design.md` covering all 6 candidates with user-tier leans for A8-A13.\n- Operating mode AUTONOMOUS confirmed both sides.\n- All 6 candidates bundle into one PR per A1.\n\nStanding by for DAEDALUS design verdict + ARGUS phase. Active substance-watches per init handshake remain. Next heartbeat at Phase 1 close (ARGUS verdict).",
       "timestamp": "2026-05-18T00:42:18Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] DAEDALUS activated. Worktree confirmed at .claude/worktrees/arc-37-build, branch arc-37/build. Brief absorbed; A1-A20 LOCKED; A8-A13 picks aligning with user-tier POLYBIUS leans (§19 / §29 / §30 / inline §10+§11 / §19.7 / fold). Reading all 6 source ticket bodies + substrate touch-points + _drafts/skill_handoff_author.md + skill precedents. Restatement-gate next.",
+      "timestamp": "2026-05-18T00:43:13Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate skill: handoff-author — load on demand to prepare a handoff before /compact or session close",
   "type": "task",
-  "updated_at": "2026-05-18T00:42:18Z"
+  "updated_at": "2026-05-18T00:43:13Z"
 }
