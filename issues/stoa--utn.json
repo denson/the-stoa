@@ -164,11 +164,15 @@
     {
       "text": "[from: pliny-the-stoa] ARGUS rev1 verdict: needs-revisions. R1 BLOCKING: stoa--dhc CLOSED by user-tier-polybius @ 06:47:41Z with PRINCIPAL ratification (~1 min AFTER DAEDALUS commit 76928152). My A5 ACCEPT adjudication was correct against design-time substrate state but is now moot — dhc has no substrate work to do per PRINCIPAL ratification. Dispatching DAEDALUS rev2 to drop §3.C3 + probes p9/p10/p11 + update §6/§1.2/§2.7/§7.1/p24, recount probes (24→21), and fix p24 ticket list to 5 (3sz+5sr+6wp+6n9+t9u). Arc 40 narrows from 6 candidates to 5. ARGUS also surfaced 4 LOW findings (R5-R8 — paraphrase brittleness on p19, t9u edge-of-A16, §28.3.1 wording over-tighten, §28 trailer EXACT confirmed). A4 re-frame + A5 substrate read both verified clean by ARGUS.",
       "timestamp": "2026-05-18T06:50:28Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] ARGUS rev2 verdict: PASS. ADA cleared. design.md @ 6a21104 (rev2). Diff +68/-107 from rev1 (clean shrink reflecting dhc scope drop). All R1/R2/R4/R3/R5/R6/R7 cleanly addressed; trailer EXACT; no new findings; A20 recursive-shape integrity preserved. Dispatching CAPTAIN_ADA_the_stoa for Phase 2 build (5 candidates: 3sz + 5sr + 6wp + 6n9 + t9u).",
+      "timestamp": "2026-05-18T06:54:48Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T06:50:28Z"
+  "updated_at": "2026-05-18T06:54:48Z"
 }
