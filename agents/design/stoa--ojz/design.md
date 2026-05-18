@@ -29,7 +29,7 @@ Arc 38 ships three substrate-architecture canon items in one gauntlet:
 **Imported assumptions** (named per CAPTAIN_DAEDALUS §6.1 honest-restatement discipline):
 
 - The bw substitutions set is THIN at user-tier — only `MAJOR_POLYBIUS.md` gets a non-trivial substitution (`{{USER_TIER_DIR}}` → real path). `MAJOR_PLINY.md` and CAPTAINs get only `{{NAME_SUFFIX}}` (which is empty-string at user-tier). Templates and skills are deployed verbatim (no substitution). This shape directly informs the A8 choice; if a future arc adds new substitutions, the manifest design (§A8 below) absorbs them by adding entries — no schema change.
-- The directive's "operating-disciplines.md §17 (base-vs-custom)" reference (A12 cross-refs list) is a numbering-shift artifact: in `operating-disciplines.md` the base-vs-custom canon is `§23`; in `MAJOR_POLYBIUS.md` it is `§17` (POLYBIUS-specific refinement). The design cross-refs the correct loci for each file.
+- The directive's "operating-disciplines.md §17 (base-vs-custom)" reference (A12 cross-refs list) is a numbering-shift artifact: in `operating-disciplines.md` the base-vs-custom canon is `§23`; in `MAJOR_POLYBIUS.md` it is `§17`. The two sections are **co-equal canon at their respective tiers** (universal-team cut + POLYBIUS-tier cut), both anchored at their §X.1 source-of-truth subsections to the same 2026-05-17 PRINCIPAL declaration captured at `stoa--ads` — NOT a base canon + derivative refinement. The design cross-refs the correct loci for each file and cites them paired (matching the existing install.sh cite-comment precedent at lines 836-837 / 865-866 / 893-894).
 - "stoa--uly precedent" cited in the directive A5 refers to Arc 27 (POLYBIUS session lifecycle); the precedent shape inherited is "new substrate role file shipping" + author-frontmatter discipline. Confirmed by reading `substrate/arcs/arc-27-build-directive.md`.
 - Arc 37 squash-merge `bb12806` regression (per `stoa--6wp` ticket body) is OUT of Arc 38's direct scope per A20 (NOT in candidate list), but Arc 38 self-applies §28 trailer discipline + the §15.10 squash-merge-body convention preemptively per A15 — "first arc that should ship trailer-clean on the squash-merge body forward of bb12806."
 
@@ -105,7 +105,7 @@ the literal records-keeper of antiquity.]
    [Standard CAPTAIN paragraph — field notes, not doctrine; surface via verdict follow-ups.]
 ```
 
-**Sizing target:** 200-280 LOC (envelope + the bw subcommand reference + 3 worked-example dispatches). Comparable to CAPTAIN_BARTLEBY.md (170 LOC) plus the bw subcommand reference and the worked-example dispatches (which BARTLEBY does not carry).
+**Sizing target:** ~280-320 LOC (envelope + the bw subcommand reference + 3 worked-example dispatches). Comparable to CAPTAIN_BARTLEBY.md (170 LOC) plus the bw subcommand reference (~50 LOC for the 10-row table + gotcha rows) and the 3 worked-example dispatches (~80 LOC; BARTLEBY does not carry these). Honest math per §5.5: envelope (~170) + table (~50) + 3 examples (~80) = ~300 LOC, with ±20 LOC tolerance for the §6.x discipline sections (heartbeat, credential cross-ref, role-table block, voice paragraph, mnemonic-origin paragraph). Staying within the 280-320 band keeps the seat dense-but-focused; trimming below 280 erodes load-bearing content (§5.5 names what is load-bearing vs trimmable).
 
 ### §1.1.2. The §6.3 bw subcommand reference — exact content
 
@@ -1058,13 +1058,13 @@ Same N=1/N=2 framing as Arc 35's §28.7, Arc 34's `MAJOR_POLYBIUS.md` §18.5, Ar
 
 ### §3.3.5. §31.4 cross-references
 
-Per directive A12, cross-refs to §29 (multi-team interop), §17 (base-vs-custom POLYBIUS-specific) and §23 (base-vs-custom universal), §27 (mechanical/agent split), §28 (Co-Authored-By trailer):
+Per directive A12, cross-refs to §29 (multi-team interop), §23 + `MAJOR_POLYBIUS.md` §17 (co-equal base-vs-custom canon at universal-team + POLYBIUS-tier cuts respectively; cited paired per the install.sh precedent), §27 (mechanical/agent split), §28 (Co-Authored-By trailer):
 
 ```markdown
 ### 31.4 Cross-references
 
 - **§29 (Multi-team interoperation)** — substrate components ARE the artifacts that flow between teams per §29.2. §31 names the design principles; §29 names the runtime topology those principles operate within.
-- **§23 (Base vs custom agents — universal-team framing)** + **`MAJOR_POLYBIUS.md` §17 (POLYBIUS-specific refinement)** — substrate components ship a BASE that consumers can CUSTOMIZE per the per-class path convention. The composability framing (§31.2) leans on the base-vs-custom split: substrate component = the base; per-project wiring = the custom.
+- **§23 (Base vs custom agents — universal-team framing)** + **`MAJOR_POLYBIUS.md` §17 (POLYBIUS-tier statement of the same canon)** — co-equal canon for the base-vs-custom architectural model, both anchored at their respective §X.1 source-of-truth subsections to PRINCIPAL's 2026-05-17 declaration captured at `stoa--ads`. The two are paired cuts of one canon (universal-team cut + POLYBIUS-tier cut), not a base + derivative; cite both together per the established install.sh cite-comment precedent (install.sh lines 836-837 / 865-866 / 893-894). Substrate components ship a BASE that consumers can CUSTOMIZE per the per-class path convention. The composability framing (§31.2) leans on the base-vs-custom split: substrate component = the base; per-project wiring = the custom.
 - **§27 (Mechanical-script / agent-inspection split)** — the script-then-agent pattern IS a substrate-component pattern; the inspection-agent layer (per §27.5) is itself a deliverable that ships in `substrate/skills/inspect-script-output/`. Principle 2 composability framing applies: the pattern composes across script-based workflows (substrate-update flow today; future flows as the pattern proves out).
 - **§28 (Co-Authored-By trailer — substrate-component attribution)** — substrate-component authorship attribution at the commit-trailer layer follows §28; file-frontmatter attribution per §28.4 stays Denson Smith (or per-project PRINCIPAL).
 - **§30 (Four-layer identity model)** — substrate components ship the **role file** layer (the universal substrate identity layer); the **memories** layer is PRINCIPAL-accumulated per-deployment; the **handoff** layer is per-engagement; the **bw substrate** layer is per-project. Principle 1's 7-step flow operates against all four layers (the AI evaluating "do I need this?" at step 5 reads against the user's accumulated memories per §30.2).
@@ -1140,6 +1140,12 @@ grep -c "^## 17\." substrate/MAJOR_POLYBIUS.md
 # HUMAN_relay file must be cited (presence check on the cross-ref text itself).
 grep -c "HUMAN_relay_user_polybius_ariadne_distribution_and_mcp_2026-05-13" substrate/operating-disciplines.md
 # Must return: at least 1 (the §31.4 cross-ref)
+
+# §31.4's §27 cross-ref bullet names substrate/skills/inspect-script-output/ as
+# the deliverable skill — verify the skill directory exists at the cited path.
+# (If a future arc renames the skill, this probe catches the dangling cross-ref.)
+test -d substrate/skills/inspect-script-output && echo "inspect-script-output skill path resolves"
+# Must print: "inspect-script-output skill path resolves"
 ```
 
 ## §3.7. Cite-comment plan for C3
@@ -1271,13 +1277,13 @@ This section pairs with ARGUS's plan-critique: DAEDALUS names the brittle spots;
 
 **ARGUS scrutiny invitation:** is the manifest as a NEW file the right shape, or should it live ELSEWHERE (e.g., embedded as a hidden block in CLAUDE.md? as a section of `.substrate-last-check`?). Hidden-block in CLAUDE.md would couple to CLAUDE.md's `--modify-claude-md` consent flag (not always given). Extension of `.substrate-last-check` would conflate the per-deploy substitution record (manifest) with the per-check state record (timestamp + sha); the two have different lifecycles (manifest changes per deploy; state changes per check). Keeping the manifest as its own file aligns lifecycle with content.
 
-## §5.5. Weak point: TIRO's 200-280 LOC sizing target may run long
+## §5.5. Weak point: TIRO's ~280-320 LOC sizing target may run long
 
-**Description:** §1.1.1 sizes the TIRO role file at 200-280 LOC. The closest precedent (CAPTAIN_BARTLEBY.md) is 170 LOC. TIRO adds the bw subcommand reference (§6.3 — table with 10 subcommands + gotchas; estimated ~50 LOC) + worked-example dispatches (§6.4 — 3 examples each with brief + action + structured return; estimated ~80 LOC). The math comes to ~300 LOC which is at the upper edge or slightly over the 280 target.
+**Description:** §1.1.1 sizes the TIRO role file at ~280-320 LOC. The closest precedent (CAPTAIN_BARTLEBY.md) is 170 LOC. TIRO adds the bw subcommand reference (§6.3 — table with 10 subcommands + gotchas; estimated ~50 LOC) + worked-example dispatches (§6.4 — 3 examples each with brief + action + structured return; estimated ~80 LOC). The math comes to ~300 LOC, which sits mid-band of the 280-320 target. If the §6.x discipline sections accrete more than ±20 LOC over the envelope baseline (e.g., the heartbeat-and-read-before-write §6.5 ends up needing a worked example for TIRO-specific bw introspection), the file pushes above 320.
 
 **Why this shape anyway:** The bw subcommand reference + worked examples ARE the load-bearing differentiating content of the seat (vs the generic CAPTAIN envelope). Trimming the worked examples would erode the seat's "how to dispatch me" signal. Trimming the subcommand reference would push the seat into "see the cookbook" which DOES NOT solve the empirical-anchor failure mode (the operator forgot the flag DESPITE the cookbook existing; TIRO's whole-context priming is the differentiator).
 
-**Mitigation:** ADA may trim individual examples or table entries if line-budget pressure surfaces during build; the load-bearing content is the table + at-least-one-example-per-shape (read query, completeness audit, write-syntax advisory). Trimming below 200 LOC erodes the differentiating content; staying above 300 LOC is acceptable if the content is load-bearing.
+**Mitigation:** ADA may trim individual examples or table entries if line-budget pressure surfaces during build; the load-bearing content is the table + at-least-one-example-per-shape (read query, completeness audit, write-syntax advisory). Trimming below 280 LOC erodes the differentiating content; landing in the 280-320 band is the target; staying slightly above 320 is acceptable if the content is load-bearing and the §6.x discipline sections justify their lines. If the file pushes meaningfully above 350 LOC, surface to PLINY before commit (potential scope-creep signal).
 
 **ARGUS scrutiny invitation:** is the worked-examples count of 3 right? Could it be 2 (one read, one write-advisory) with the completeness-audit example folded into the §6.1 cookbook-discipline paragraph? Or should it be 4-5 to cover the full surface (read query + completeness audit + comment-history + write-syntax + dep-direction)? My pick of 3 is calibrated to "show the asking seat the dispatch shape and the return shape; let the cookbook cover the long tail."
 
@@ -1313,7 +1319,7 @@ Three candidates × multiple probes:
 | C2 / bj5 | 2.5.2 | Manifest round-trip on synthetic user-tier deploy | CURRENT verdict on fresh deploy; DRIFTED detected after intentional file mutation |
 | C2 / bj5 | 2.5.3 | Fallback path when manifest is missing | check.sh + apply.sh friendly-no-op with manifest-missing message |
 | C3 / gq1 | 3.6.1 | §31 lands at expected locus | Header + 4 subsections grep-pass; §31 line-number > §30 line-number |
-| C3 / gq1 | 3.6.2 | §31 cross-refs resolve | §29, §23, §27, §28, §30, MAJOR_POLYBIUS.md §17, HUMAN_relay file references all present |
+| C3 / gq1 | 3.6.2 | §31 cross-refs resolve | §29, §23, §27, §28, §30, MAJOR_POLYBIUS.md §17, HUMAN_relay file references all present; `substrate/skills/inspect-script-output/` directory exists |
 
 All probes are mechanical (grep / dry-run / synthetic-clone). Probe 2.5.2 + 2.5.3 use `mktemp -d` for isolation per operating-disciplines.md §25.5 (probes mutating real workspaces require explicit operator authorization; synthetic-temp-dir is the canonical pattern).
 
