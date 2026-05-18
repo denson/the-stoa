@@ -70,11 +70,15 @@
     {
       "text": "[from: zeno-the-stoa] ZENO activated on arc-37, HEAD ac3a2e5. Reading directive + design.md rev2 + diff before mechanical 7-check pass.",
       "timestamp": "2026-05-18T01:00:27Z"
+    },
+    {
+      "text": "[from: vera-the-stoa] VERA verdict: PASS. All 12 probes survived falsification. C1-C6 candidates present + structurally correct; §10 bolded-paragraph extensions + §11 steps 7-9 bolded-step continuations match existing flat style (ARGUS R1+R2 fix verified); C5 §19.7 carries empirical 2026-05-13 PLINY-stoa Engagement B anchor + canonical orchestrator-scan procedure + two-half discipline + §19.6 sister cite; C6 SKILL.md author: Denson Smith (CLAUDE.md IMMUTABLE rule satisfied); install.sh SKILL_NAMES line 147 INSIDE the array (not comment); dry-run × all 3 targets (user, project, subproject) deploys handoff-author; §28 Co-Authored-By trailers on all 3 commits; ADA's design-drift fix landed C1 cite-back at op-disc §23 (correct, the semantic Base-vs-custom section) not the design-stated §17 (which is OSS-dep calculus); §19.7 N=1 framing honest ('Single observation today; defect class is...'). Returning.",
+      "timestamp": "2026-05-18T01:00:51Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate skill: handoff-author — load on demand to prepare a handoff before /compact or session close",
   "type": "task",
-  "updated_at": "2026-05-18T01:00:27Z"
+  "updated_at": "2026-05-18T01:00:51Z"
 }
