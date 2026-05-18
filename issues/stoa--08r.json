@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-18T02:36:59Z",
+  "close_reason": "R3 engagement complete; SPEC_AUDIT_R3.md committed at b858b92 + pushed; handoff tag posted for user-tier POLYBIUS review; per engagement-end discipline (R1 omitted; R2 got it right; R3 maintains).",
   "created": "2026-05-18T02:34:02Z",
   "description": "R3 engagement coordination ticket. R3 verifies SPEC_AUDIT_R2 fold-in (commit a1a10e4) — structural §12 rewrite + mechanical NC1-NC5 + A4 + X5/Y1 fixes. Expected wall-clock 20-30 min, ARGUS-discipline overlay (surface, do not fix, do not dispatch arc). Coord tags: [from: polybius-the-stoa]. Closes on R3 completion.",
   "id": "stoa--08r",
@@ -13,8 +15,8 @@
     }
   ],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "spec-audit R3 engagement coordination",
   "type": "task",
-  "updated_at": "2026-05-18T02:36:56Z"
+  "updated_at": "2026-05-18T02:36:59Z"
 }
