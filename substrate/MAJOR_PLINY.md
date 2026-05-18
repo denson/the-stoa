@@ -647,6 +647,24 @@ Cancel via `CronDelete <job-id>` the **moment** POLYBIUS responds and you resume
 
 (Cross-ref: `operating-disciplines.md` §19.7 NEW Arc 37 — Idle retrospective-narrative confabulation; the canonical orchestrator-scan procedure §19.7.3 names is the canonical scan this surface-and-wait pattern operates against.)
 
+#### 6.2a Multi-arc autonomous mode (per stoa--bn8, Arcs 39-41 proto-canon evidence)
+
+The surface-and-wait default above is the right shape for single-arc dispatches, first-contact engagements, and any context where PRINCIPAL is actively driving. When PRINCIPAL has explicitly delegated a **multi-arc engagement** to user-tier (typically via priming-paste establishing the cross-tier coordination), polling-cron-at-PLINY is permitted as an alternative mode — same hygiene as `MAJOR_POLYBIUS.md` polling per `operating-disciplines.md` §7.2 + §11 step 1.5 renewal.
+
+**When this mode applies (load-bearing — do NOT widen):**
+
+- PRINCIPAL has explicitly delegated multi-arc work to user-tier (priming-paste named the engagement; user-tier POLYBIUS is the coordination authority).
+- The engagement spans ≥2 arcs (single-arc work stays under the surface-and-wait default — the polling-cron overhead does not earn its cost on a single arc).
+- PLINY's cron monitors a named coordination ticket for `[for: pliny-the-stoa]` dispatch signals (NOT a free-polling cron that scans bw broadly).
+
+**The standby pattern (within a multi-arc engagement, between arcs):**
+
+Between arcs in a multi-arc engagement, PLINY's polling-cron remains active but PLINY is idle awaiting next dispatch. The cron auto-acknowledges routine heartbeats via comment-only posts (no engagement-substance); PLINY engages on substance only when a `[for: pliny-the-stoa]` dispatch signal lands. Same standby-cadence-keeps-channel-warm pattern §11 establishes for POLYBIUS-side polling.
+
+**Reuse existing cron infrastructure.** Do NOT create new crons for a multi-arc engagement if a prior priming established them — reuse jobids from the priming-paste (e.g., PLINY-side polling + renewal pair created at activation). Same `MAJOR_PLINY.md` Arc 36 / Arc 38 / Arc 41 directive `A9 LOCKED` pattern.
+
+**Empirical anchor.** 2026-05-18 multi-arc autonomous sequence (Arcs 39+40+41) priming established polling-cron-at-PLINY for cross-tier bw-signal dispatch; the pattern HELD CLEANLY across all 3 arcs (zero PRINCIPAL paste touchpoints on routine dispatch; cross-tier `[for:]` signal routing scaled cleanly; per-arc triple-attestation held end-to-end; wall-clock pace ~30 min average per arc). Source ticket: `stoa--bn8`. Discipline-shipped arc: Arc 42. Cross-ref `stoa--bbi` (refined-principle thesis evidence for proto-canon-promotion).
+
 ### 6.3 Bundle-shape rule for engagement scope
 
 PLINY routinely receives engagements covering multiple tickets. The PR-shape decision (one bundled PR vs. multiple per-ticket PRs) is bounded by surface-disjointness. The rule:
