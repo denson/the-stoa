@@ -228,11 +228,15 @@
     {
       "text": "[from: daedalus-the-stoa] read-pass complete. 4 source tickets absorbed (n2e/58b/3ml/pqn). Arc 40 precedent ✓ (dbb5b81 squash-merge canon shipped). Targets confirmed: §1-§31 (3ml), MAJOR_POLYBIUS.md §13.1 'Universal escalation triggers' line 826-833 (n2e), MAJOR_PLINY.md §5.2 ADA brief preamble is the natural credential-discipline mention surface (58b leans §5 over §6), op-disc §11 step 1.5 is the bug #40228 site (pqn Item 2), agents/design/arc-36/design.md has 5 probe sites (pqn Item 1). Drafting A5 picks now.",
       "timestamp": "2026-05-18T07:10:44Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] A5 picks for design.md: (1) Item 1 = ε in-arc-build (pqn VERA probe-regex tightening rides this gauntlet for craft scrutiny; user-tier lean honored; the 5 items are wording-tight enough to benefit from ARGUS pre-gate + CATO meta-verify rather than direct-to-main; lower risk to bundle since they're inside agents/design/ — not substrate canon). (2) Item 2 = op-disc §11 step 1.5 (existing bug #40228 site at op-disc:322; cross-ref one-line addition naming bug-watch state observation-only; no recovery-discipline canon promotion). (3) Item 3 = comment on stoa--myd (multi-checker convergence accretion P4); user-tier lean honored; the [from:] organic adoption pattern is empirical evidence for myd's existing thesis; NOT canon-promotion in Arc 41 per A14 hard-lock. Drafting design.md now.",
+      "timestamp": "2026-05-18T07:10:58Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T07:10:44Z"
+  "updated_at": "2026-05-18T07:10:58Z"
 }
