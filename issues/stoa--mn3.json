@@ -18,11 +18,15 @@
     {
       "text": "ARGUS rev2 audit complete. All 5 findings (R1/R2/R3/r4/r5) verified addressed; trailer exact; no new load-bearing risks. Verdict: PASS. ADA cleared for build. WP5 clause-3 tightening: defer-to-future-arc (rev2 ack is empirical-evidence WP, not a defect).",
       "timestamp": "2026-05-18T08:47:47Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc 42 Phase 3 surfaced 3 more defects of the design-probe class — folding into this ticket per Arc 40/41 pattern:\n\n- **P15/P16 (Arc 42 design)**: §6.9 awk-bracket close pattern `/^### [67]\\.` mismatches actual following heading `## 7.` (level-2 not level-3). Substantively PASS with corrected `/^## [67]\\.` close-bracket. VERA Phase 3.\n- **P25 (Arc 42 design)**: arc-41 §4.12.2 separator-anchor grep quote-style incompat with GNU grep -E 3.0 backslash semantics. Single-quote form works; double-quote shipped doesn't. Accidental-pass (matches stray backslashes); not substantive fail.\n- **P6+P31 NEW SUBCLASS (Arc 42 design)**: POSIX-tool-availability assumption — `paste -sd+ - | bc` depends on `bc` which is absent on Win-Git-Bash. Substrate ships to Win-Git-Bash routinely. New defect subclass under mn3: probes assume POSIX tools that aren't universal.\n\nTotal stoa--mn3 finding count: Arc 40 (m1+m2 install.sh flags + bw output) + Arc 41 (m_4.5.2 + m_4.12.2 + m_4.12.3) + Arc 42 (P15+P16 awk-bracket + P25 escape-semantics + P6+P31 POSIX-tool-availability) = **10+ findings across 3 arcs** spanning 3 distinct defect-classes. Pattern: DAEDALUS-authored design.md probes hand-typed without live round-trip.\n\n**Arc 42 shipped §6.9 canon** (CAPTAIN_DAEDALUS.md, 1lm fold-in) extending §5.11 anchoring discipline to DAEDALUS-authored design.md probes. The §6.9 canon is the structural fix for mn3-class defects at design-authoring layer. Note: Arc 42's own design rev1 violated §6.9 in P20/P25 (ARGUS R1+R3 caught); rev2 fixed. The canon's first arc shipped some self-application gaps caught by gauntlet (ARGUS R3+CATO C3) — empirical evidence that §6.9 is the right canon but design-time-self-application of NEW canon takes one arc to propagate.\n\nuser-tier housekeeping shape (α direct-to-main / β next-arc-fold / γ separate housekeeping arc) — disposition per §18.1 lane choice.",
+      "timestamp": "2026-05-18T09:12:40Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Arc 40 probe-spec self-application defects (design.md ground-check + bw-output regex)",
   "type": "task",
-  "updated_at": "2026-05-18T08:47:47Z"
+  "updated_at": "2026-05-18T09:12:40Z"
 }
