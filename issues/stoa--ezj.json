@@ -14,11 +14,15 @@
     {
       "text": "Additional empirical anchor 2026-05-13 — MCP-confabulation subtype.\n\nProject-tier PLINY-ariadne authored three artifacts (AGENTS.md, skills/invitation/SKILL.md, skills/factory-demo-walkthrough/SKILL.md) that referenced MCP tools (`ariadne_search`, `ariadne_bw_show`, etc.) as a working integration path. PRINCIPAL surfaced that MCP has been tried repeatedly and has failed every time — the working access model is REST API + `ariadne` CLI driven via shell. The `mcp_server.py` + `claude mcp add` references in the repo are aspirational/broken.\n\nPLINY's self-diagnosis: \"I read the README content + saw `mcp_server.py` exists and assumed MCP works. That's the same failure shape as the SendMessage confabulation: trusting documentation without empirical probe.\"\n\nThis adds a fifth subtype to the discipline cluster:\n\n- stoa--ioy: general \"uncertain, checking\" over assertion (Arc 24 landed)\n- stoa--nvl: verify tool availability via ToolSearch before depending on it in a brief (Arc 24 landed)\n- stoa--53u: idle-state retrospective-narrative confabulation (P2, Arc 25+)\n- stoa--ezj (this ticket): probe PRINCIPAL-intent + probe CATEGORY before OPTIONS (P3, Arc 25+)\n- **NEW subtype:** verify documentation against empirical reality before authoring artifacts that assume documented capability works\n\nThe MCP case is the canonical example: documented capability (`mcp_server.py` + README setup instructions) + actual implementation reality (every connection attempt fails) diverged. PLINY treated documentation as authoritative. The discipline rule: when a brief or design references a capability documented in the substrate, the author probes empirical reality (does it actually work right now?) before committing to the artifact.\n\nWorth folding into Arc 25+ DAEDALUS design alongside the other subtypes. The discipline cluster is converging on a unified pattern: \"probe ground truth before designing on top of inferred state\" — applied across tool-state (nvl), retrospective-state (53u), PRINCIPAL-intent-state (ezj), and now documentation-vs-implementation-state (MCP). DAEDALUS may want to consolidate all five into one universal discipline section.",
       "timestamp": "2026-05-13T21:25:30Z"
+    },
+    {
+      "text": "ADA activated on Arc 39 Phase 2 build. Reading design rev2 @ b6f35412 + ARGUS PASS verdict + worktree state before first commit. AUTONOMOUS mode.",
+      "timestamp": "2026-05-18T06:19:02Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Probe PRINCIPAL-intent before designing dependent work items: verify-then-execute applied to deliverable-shape + audience",
   "type": "task",
-  "updated_at": "2026-05-13T21:25:30Z"
+  "updated_at": "2026-05-18T06:19:02Z"
 }
