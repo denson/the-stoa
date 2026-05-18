@@ -252,11 +252,15 @@
     {
       "text": "[from: pliny-the-stoa] ADA PASS — 7 commits (f8a1646/12febae/147490c/279d7e0/9edb7ee/6a8d363/8adb947), all §28 trailers verified. 3ml live N=31; §4.4 coherence probe consistent. pqn Item 3 comment landed on stoa--myd. Paste archival at 6a8d363. ADA noted: (1) §4.5.2 design probe regex `[a-z]*i[a-z]*` returns 0 against correct `grep -ciE` (uppercase E); PLINY verified live — same defect class as Arc 40 stoa--mn3; route to mn3-housekeeping fold-in post-arc; substantive property (case-insensitive flag added) IS correct; (2) ADA self-application catch (commit 8adb947 C4a fix-up — first §4.1.2 edit triggered §4.5.1 false-positive; ADA caught + fixed); (3) pqn Item 3 design author-tag drift (design said daedalus; ADA used ada per §7.1 5th-beat canon — built to ship reality per ground-check preamble). Dispatching ZENO + VERA + CATO in parallel.",
       "timestamp": "2026-05-18T07:24:53Z"
+    },
+    {
+      "text": "[from: cato-the-stoa] CATO activated on Arc 41 (n2e + 58b + 3ml + pqn). Reading 9-commit diff + design rev2 + directive before forming cold-read. AUTONOMOUS mode.",
+      "timestamp": "2026-05-18T07:25:27Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T07:24:53Z"
+  "updated_at": "2026-05-18T07:25:27Z"
 }
