@@ -37,7 +37,7 @@ The team is NOT a general-purpose chat assistant. It is a scoped engineering tea
 
 ### §2.2 The CAPTAINs (specialist worker seats)
 
-Ten CAPTAIN seats, each with a focused job and bounded toolset:
+Eleven CAPTAIN seats, each with a focused job and bounded toolset:
 
 | Seat | Role | Tools |
 |---|---|---|
@@ -51,6 +51,7 @@ Ten CAPTAIN seats, each with a focused job and bounded toolset:
 | CAPTAIN_STRABO | Scout — external/web research; cited research artifact | Bash, Read, Write, Edit, Grep, Glob, WebSearch, WebFetch |
 | CAPTAIN_HERALD | Intake — vague request → structured brief with named ambiguities | Bash, Read, Write, Edit, Grep, Glob |
 | CAPTAIN_CURATOR | Synthesist — cross-ticket synthesis; retrospectives; plan revisions | Bash, Read, Write, Edit, Grep, Glob, WebSearch, WebFetch |
+| CAPTAIN_TIRO | bw substrate specialist — reads bw on delegation; advises other seats on bw read+write syntax; never writes for another seat | Bash, Read, Grep, Glob |
 
 ### §2.3 LIEUTENANTs
 
@@ -170,6 +171,20 @@ Every seat described above has a generational dimension: prior-generation instan
 4. The exchange is durable on the bw timeline; meta-agents can later analyze the cross-generation dialogue.
 
 Prior generations sit idle until queried — no polling, no budget burn. They become less directly relevant over time but remain available as warm references for as long as the session is preserved. Treating prior generations as **destructible** (e.g., aggressive `/clear` of sessions before lineage value is exhausted) is an anti-pattern (per §11).
+
+### §4.6 Substrate-specialist seats — bounded-context expertise for subsystems with gotchas
+
+Some substrate subsystems accumulate enough operator-tripping gotchas (default-truncation flags, syntax variants, lifecycle quirks) that generalist agents reliably miss them under context-pressure. The pattern when this surfaces empirically: ship a dedicated specialist seat whose entire context is that subsystem.
+
+**CAPTAIN_TIRO** (bw substrate specialist) is the first such seat:
+
+- **TIRO does reads directly** when delegated. Any seat dispatches TIRO with a query ("all open P2 tickets at the-stoa", "comment history on stoa--y14", "tickets blocked-by stoa--bj5"). TIRO runs the right bw subcommand with the right completeness flags (e.g., `bw list --status open --all` unhides the default truncation that bites generalist auditors) and returns a clean structured answer. The whole-context priming on bw mechanics fixes the "generalist forgets to apply the known gotcha" failure mode that the §12 cookbook alone doesn't prevent.
+- **TIRO never writes for another seat.** Writes (create, comment, close, dep add, sync) are authored by the seat that owns the work. Reasons: (a) authorship attribution stays clean — a comment from POLYBIUS_the_stoa is genuinely from that seat, not via TIRO proxy; (b) Arc 36's `[from: <self-seat-slug>]` author-tag convention stays meaningful — proxy-writes would muddy the timeline-arithmetic that radio-check + heartbeat thresholds consume; (c) accountability for state changes stays with the seat making the change.
+- **TIRO advises on write syntax.** Any seat can ask TIRO "what's the canonical command to close stoa--y14 with an audit comment?" and TIRO returns the syntax (positional `bw comment <id> "text"` not `-m` flag; `--reason` flag on close; HEREDOC pattern for multi-line; the dep-add direction gotcha; etc.). The asking seat then executes the command themselves.
+
+The pattern generalizes: subsystems whose operator-tripping surface justifies a dedicated specialist seat get one. Candidates if the pattern proves valuable: git (Arc 37's squash-merge `--body` trailer-drop regression; gh CLI gotchas), cron (the `durable: true` non-persistence bug per anthropics/claude-code#40228; cadence-switching pitfalls), worktrees (Windows file-handle quirks). None of these are committed-to as future seats — they're noted candidates if the TIRO pattern proves valuable in practice.
+
+**Empirical anchor for TIRO:** 2026-05-17 — user-tier POLYBIUS conducted three substrate audits over the course of the day, each citing "X open tickets" as live state. Each audit used `bw list 2>&1 | grep "^○"` without the `--all` flag; each returned a truncated subset; each subsequent audit "discovered" additional tickets that had been hidden the previous times. The cookbook at operating-disciplines.md §12.1 explicitly documents `--all` as the completeness flag; the operator knew the flag existed and did not apply it. This is the §19.6 attestation-confabulation failure mode applied to bw-audit attestations. TIRO ships as the structural fix.
 
 ---
 
@@ -308,7 +323,7 @@ Six anti-patterns absorbed from human SWE culture that no longer apply when iter
 
 Orphan-branch git-stored ticket store. Per-project. CLI-mediated. Commands:
 - `bw prime` — session-start workflow context
-- `bw list` / `bw show <id>` / `bw history <id>` — reads
+- `bw list` / `bw show <id>` / `bw history <id>` — reads (note: `bw list` truncates by default; `bw list --status open --all` unhides truncation for completeness audits)
 - `bw create "<title>" --priority P0-P4 --description "<body>"` — file ticket
 - `bw comment <id> "<body>"` — positional, no -m flag
 - `bw close <id> --reason "<text>"` — close with reason
@@ -319,6 +334,8 @@ Conventions:
 - Prefix per project: `stoa--`, `ariadne--`, `s4--`, `u--` (user-tier)
 - Priority: P0 (highest blocking) → P4 (cosmetic/hygiene)
 - Sub-tickets: `.1`, `.2` suffixes
+
+**Specialist delegation:** for read queries (especially completeness audits) other seats delegate to **CAPTAIN_TIRO** per §4.6. TIRO's whole context is bw mechanics; the audit-completeness failure mode (operator forgets `--all` flag) is structurally absorbed by TIRO's bounded-context priming. Writes stay with the seat that owns the work; TIRO advises on write syntax when asked but does not execute writes on another seat's behalf.
 
 ### §9.2 git worktrees
 
@@ -472,7 +489,8 @@ Working tree is clean modulo `.claude/.substrate-last-check` (auto-modified by s
 - **Four-layer identity model** (stoa--wad) — no canon for role / memories / handoff / bw substrate as the layers of agent identity.
 - **Operating-mode progression canon** (stoa--ntn) — modes individually canonized; progression sequence + transition triggers + regression pattern not.
 
-**Arc 38 candidate (substantive substrate-tooling design):**
+**Arc 38 candidates (substantive substrate-architecture design, bundled):**
+- **CAPTAIN_TIRO — bw substrate specialist seat** (per §4.6) — new role file at `substrate/CAPTAIN_TIRO.md`; install.sh AGENT/CAPTAIN deploy wiring; cross-refs from MAJOR_POLYBIUS.md + MAJOR_PLINY.md + operating-disciplines.md §12 bw cookbook. PRINCIPAL-decided 2026-05-17 after user-tier POLYBIUS demonstrated the audit-completeness failure mode (§4.6 empirical anchor).
 - **User-tier substrate drift detection** (stoa--bj5) — `check-substrate-updates` skill is currently project-tier only. PRINCIPAL found 71-line drift on `~/.claude/MAJOR_POLYBIUS.md` on 2026-05-14 with nothing flagging it. Needs per-file-marker scheme for substitution-tracking.
 
 **Arc 39 candidates (small substrate-fixes):**
@@ -522,11 +540,12 @@ The team works through Passes 1-7 below to drive the substrate to its "spec met"
 - C5: stoa--53u idle-state retrospective-narrative confabulation (op-disc §19.7 sister to §19.6)
 - C6: stoa--7e3 handoff-author skill (new `substrate/skills/handoff-author/` from draft at `_drafts/skill_handoff_author.md`; install.sh wiring; role-file cross-refs; consider extending with generation-handoff session-id record per §12.5 future-work)
 
-### §13.5 Pass 4 — Arc 38 (user-tier substrate drift detection, single candidate)
+### §13.5 Pass 4 — Arc 38 (substrate architecture: TIRO + user-tier drift detection, 2 candidates)
 
-- stoa--bj5 — bring user-tier substrate into `check-substrate-updates` drift-check scope. Currently project-tier only; `~/.claude/` has ZERO drift detection. Empirical anchor: 2026-05-14 71-line drift on `~/.claude/MAJOR_POLYBIUS.md` with nothing flagging it.
-- Design work: per-file-marker scheme (or equivalent) for substitution-tracking so check.sh / apply.sh can diff user-tier deployed files against canon source despite install.sh substitutions. Add user-tier to consumer-workspaces.txt (or equivalent user-tier registry).
-- Single substantial candidate justifies its own arc rather than bundling — the design surface is non-trivial.
+- **C1: CAPTAIN_TIRO — bw substrate specialist seat** (per §4.6) — new role file at `substrate/CAPTAIN_TIRO.md`; install.sh AGENT/CAPTAIN deploy wiring; cross-refs from MAJOR_POLYBIUS.md + MAJOR_PLINY.md + operating-disciplines.md §12 bw cookbook. TIRO is read-direct (delegated queries) + write-advisory (suggests syntax, never executes writes for another seat). Toolset: Bash, Read, Grep, Glob (no Write/Edit — TIRO doesn't author writes).
+- **C2: stoa--bj5 — user-tier substrate drift detection** — bring user-tier substrate into `check-substrate-updates` drift-check scope. Currently project-tier only; `~/.claude/` has ZERO drift detection. Empirical anchor: 2026-05-14 71-line drift on `~/.claude/MAJOR_POLYBIUS.md` with nothing flagging it. Design work: per-file-marker scheme (or equivalent) for substitution-tracking so check.sh / apply.sh can diff user-tier deployed files against canon source despite install.sh substitutions. Add user-tier to consumer-workspaces.txt (or equivalent user-tier registry).
+
+Two substantive candidates bundled per Arc 32 / Arc 34 / Arc 36 v2 / Arc 37 precedent (bundling thematically-coherent substrate-canon work in one gauntlet).
 
 ### §13.6 Pass 5 — Arc 39 (small bundled substrate-fixes, 4 candidates)
 
