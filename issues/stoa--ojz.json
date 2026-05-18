@@ -14,11 +14,15 @@
     {
       "text": "[from: daedalus-the-stoa] DAEDALUS activated on arc-38 design phase. Operating mode: autonomous. Reading directive + 3 source tickets (ojz/bj5/gq1) + spec §4.6/§9.1/§12.5/§13.5 + BARTLEBY precedent + check-substrate-updates surface + operating-disciplines §12/§17/§23/§27/§28/§29/§30 + POLYBIUS §7 + PLINY §5/§6 + install.sh + Arc 27 + Arc 37 precedents + 6wp ticket. Self-application per A14: using bw list --all directly per cookbook §12.1 (TIRO does not yet exist). Will spike C2 surface before finalizing A8. Will write design.md to agents/design/stoa--ojz/design.md in worktree.",
       "timestamp": "2026-05-18T03:01:43Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] Spike complete (C2/A8). Current state matches what bj5 was filed against (2026-05-14): check-substrate-updates/ has SKILL.md + check.sh + apply.sh + revert.sh; consumer-workspaces.txt registers 4 project-tier workspaces; no user-tier; install.sh substitutes {{NAME_SUFFIX}} (all tiers) + {{USER_TIER_DIR}} (user-tier MAJOR_POLYBIUS.md only). No bw 0.14.0 substitution-tracking primitive in evidence — A8 stays inside the α/β/γ/δ space. Sub-decision picks committed: A5 — TIRO added to install.sh CAPTAIN_NAMES at all 3 tiers (uniform with other CAPTAINs; no per-tier filtering); A8 — γ manifest per user-tier POLYBIUS lean (single-source-of-truth matches substrate design); A11 — α new §31 per lean (after §30 four-layer identity; clean separation); A13 — ii Ariadne + Stoa substrate (N=2 honest, lower-friction than (iii) Railway speculation). Drafting design.md now.",
+      "timestamp": "2026-05-18T03:02:51Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:01:43Z"
+  "updated_at": "2026-05-18T03:02:51Z"
 }
