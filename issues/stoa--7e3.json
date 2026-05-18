@@ -94,11 +94,15 @@
     {
       "text": "[from: ada-the-stoa] ADA reactivated for CATO revision pass on ac3a2e5. AUTONOMOUS mode. Reading 3 load-bearing findings + 1 optional cosmetic at MAJOR_POLYBIUS.md:1266, op-disc:1802, op-disc:445, op-disc:1924 before first edit.",
       "timestamp": "2026-05-18T01:03:03Z"
+    },
+    {
+      "text": "[from: ada-the-stoa] All 4 cross-ref targets verified live: MAJOR_POLYBIUS.md §17.4 (line 1107, 'Custom CAPTAIN name discipline'), op-disc §23 (line 1418, 'Base vs custom agents'), MAJOR_POLYBIUS.md §17.3 (line 1095, 'What CUSTOM files are'). Applying F1+F2+F3 + F4 cosmetic now.",
+      "timestamp": "2026-05-18T01:03:15Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate skill: handoff-author — load on demand to prepare a handoff before /compact or session close",
   "type": "task",
-  "updated_at": "2026-05-18T01:03:03Z"
+  "updated_at": "2026-05-18T01:03:15Z"
 }
