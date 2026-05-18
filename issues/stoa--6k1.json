@@ -2,13 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-18T09:14:26Z",
+  "close_reason": "Arc 42 shipped clean — PR #22 squash-merged at c827f73. arc-25/design.md §9.3 P10 probe row deleted per Pass 8 housekeeping consensus (P10 was redundant with P11). Inline ticket closure per directive A13 DAEDALUS pick = include (small; 1-row deletion). See arc-42-build-directive.md + design.md @ 61cf0c2 + signoff on stoa--utn.",
   "created": "2026-05-16T08:54:04Z",
   "description": "Design probe P10 in agents/design/arc-25/design.md §9.3 expects literal 'CI-mediated' grep across 4 in-scope CAPTAIN envelopes; ADA §5.7 + BARTLEBY §6.7 intentionally use semantically equivalent phrasing per design §5.5 per-seat verb adaptation (DAEDALUS designs / ADA refuses-and-redirects / ARGUS flags / BARTLEBY cross-refs). The substantive cross-canon discoverability property is fully covered by P11 (credential-discipline cross-ref grep, 4/4 in Arc 25 build). Convergent observation across ADA + VERA + CATO + ZENO. Recommendations: (a) delete P10 as redundant with P11, OR (b) rewrite as alternation grep accommodating per-seat verbs. Belongs in design-template polish, not a new build arc. Refs: stoa--p5g (Arc 25).",
   "id": "stoa--6k1",
   "labels": [],
   "priority": 4,
-  "status": "open",
+  "status": "closed",
   "title": "Probe P10 spec refinement for per-seat verb adaptation",
   "type": "task",
-  "updated_at": "2026-05-16T08:54:04Z"
+  "updated_at": "2026-05-18T09:14:26Z"
 }
