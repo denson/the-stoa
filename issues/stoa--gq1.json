@@ -12,11 +12,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 38 SHIPPED (PR #18 → main 0b5f7f3). Substrate-component design principles landed as new operating-disciplines.md §31 (A11 α pick — after §30). Body covers Principle 1 (7-step agent-installable distribution flow) + Principle 2 (AI-as-primary-reader / human-as-decision-authority) with N=2 honest framing (A13 ii pick: Ariadne originating empirical anchor + Stoa substrate parallel anchor; Railway NOT cited as instance). §31.3 temporal-honesty paragraph addresses the self-reference (Stoa pre-dates Ariadne yet section calls Ariadne originating) with explicit INDEPENDENT-instance framing. Cross-refs to §17+§23 (CO-EQUAL base-vs-custom canon per F1 rev1 fix; NOT base+refinement), §27 mechanical/agent split, §28 trailer, §29 multi-team interop. gq1 template at substrate/templates/agent-installable-component-template.md DEFERRED per design §3.5 (next substrate-component-shipping arc authors in-context per §27 anti-pattern). VERA 3.6.1 + 3.6.2 PASS.",
       "timestamp": "2026-05-18T03:37:34Z"
+    },
+    {
+      "text": "ADA activated on Arc 42 build dispatch. Worktree clean at 61cf0c2 (rev2 design HEAD). Reading design + ARGUS PASS verdict + dispatch brief before first commit. ~13 deliverables across 6 commits. Will pull-heartbeat at every state transition + 60min floor.",
+      "timestamp": "2026-05-18T08:48:27Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Substrate-component design principles: agent-installable distribution + composability framing",
   "type": "task",
-  "updated_at": "2026-05-18T03:37:35Z"
+  "updated_at": "2026-05-18T08:48:27Z"
 }
