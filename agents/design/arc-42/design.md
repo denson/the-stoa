@@ -1,5 +1,16 @@
 # Arc 42 design — Pass 9 validate-spec mechanical-check (build-then-use) + 4 fold-ins
 
+## Revision history
+
+- **rev1** (commit 8596d28) — initial design landing per A1-A26 directive.
+- **rev2** (this revision) — ARGUS surfaced 3 LOAD-BEARING + 2 LOW findings; PLINY routed all 5 for fix:
+  - R1 LOAD-BEARING: §1.4 mn3 fix list extended to enumerate arc-40/design.md:411 as fix-1.5 (third `--no-bw-init` whole-file site previously missed); P20 whole-file count=0 correctly verifiable post-cleanup.
+  - R2 LOAD-BEARING: §2.14 ADA preamble + §1.1.a check-6 row re-grounded against current check-substrate-updates SKILL.md output (composite-status tokens `DRIFTED + MISSING` / `CURRENT` / `NOT-STOA-DEPLOYED`, NOT single `<status>` token); drift_check.py spec corrected to parse composites; explicit ADA pre-implementation spike added.
+  - R3 LOAD-BEARING: P25 awk-scoped to §4.12.2 probe block per §6.9 clause 1 (excludes incidental narrative at line 323); P20 stays whole-file with deliberate-whole-file rationale documented (R1 fix brings cleanup into whole-file scope).
+  - r4 LOW: P29/P30 git-log canonical form (drop redundant ref).
+  - r5 LOW: dropped `--closed` alternative from §1.4 mn3 fix-3 (non-grounded alternative).
+- **Notable irony**: R1 + R3 were §6.9 self-application failures — the design that ships the §6.9 anchoring discipline violated §6.9 in its own §3 probes. ARGUS's surface is itself empirical evidence for §6.9's canon value (the discipline catches probe-spec brittleness exactly where DAEDALUS-at-authoring-time missed it; the cleanest pre-ratification is the gauntlet's plan-critic).
+
 ## §0 Restatement (per CAPTAIN_DAEDALUS.md §6.1)
 
 Arc 42 is Pass 9 of `SPECIFICATION.md` §13 workplan — the **mechanical-check pass that validates substrate state matches spec**. This arc authors `substrate/skills/validate-spec/` (build), runs it against `SPECIFICATION.md` (use), captures the run at `agents/observation/spec-validation/mechanical-check-results.md` (artifact), and bundles four fold-in candidates that cohere with the build:
@@ -83,7 +94,7 @@ The script prints a per-check summary to stdout (one line per check: `check-N: P
 | 3 | `bw list --status open --all` tickets all placed in some §13.x ticket-placing section. | For each open ticket id, search `SPECIFICATION.md` §13.x bodies for the ticket id. Any open ticket NOT found in any §13.x section is a FAIL (the §12.3 / §12.5 dynamic-walk semantic check). | Per-ticket table: (open ticket, §13.x section(s) where mentioned, PASS/FAIL). FAILs are "unplaced tickets" surfacing as §12.3 audit findings. |
 | 4 | `git status` shows no uncommitted changes except §12.4-ignorable state files. | `git status --porcelain` output filtered to remove `.claude/.substrate-last-check` + any other §12.4-named ignorable; result must be empty. | Verbatim filtered output (or `(clean)` literal). FAIL = any non-ignorable line remaining. |
 | 5 | `_drafts/` empty OR contains only in-flight-engagement docs per §12.4. | `_drafts/` is absent OR empty OR every file inside is referenced from an open `engagement coordination` ticket per `bw list --status open --all \| grep -i 'engagement coordination'`. | Per-file table for each `_drafts/` resident: (path, referencing-ticket OR `(no reference)`). Absent-directory case records `_drafts/: not present` and PASS. |
-| 6 | `check-substrate-updates` returns "no drift" across registered consumer workspaces. **A21 LOOSE pre-ratification.** | `bash substrate/skills/check-substrate-updates/check.sh` output is parsed: substrate-authoring tier (the-stoa @ project-tier `.claude/`) MUST be CURRENT; ariadne / sector-4 / railway_stoa MAY be drifted per stoa--3na PRINCIPAL-ratified loose interpretation. ANY workspace OTHER than those three drifted = FAIL (canon gap). ANY one of those three CURRENT = even better (no carve-out needed). | Per-workspace table: (workspace, verdict, drift-state). If a non-3na-named workspace surfaces drifted, mark STRANGE (route to inspection triage) — the directive's a-priori list is current-at-Arc-42-time scope-hint, not authoritative; new workspaces could be registered between directive ratification and Arc 42 ship. Strict-vs-loose interpretation = **A21 §25 PRINCIPAL-gate**: if the LOOSE pre-ratification has diverged from PRINCIPAL's current preference, PLINY surfaces with `[for: user-tier-polybius]` before the artifact ships. |
+| 6 | `check-substrate-updates` returns "no drift" across registered consumer workspaces. **A21 LOOSE pre-ratification.** | `bash substrate/skills/check-substrate-updates/check.sh` output is parsed: each per-workspace summary line carries a composite-status token (`CURRENT`, `DRIFTED`, `MISSING`, `OBSOLETE`, `NOT-STOA-DEPLOYED`, OR combinations joined with ` + ` like `DRIFTED + MISSING`). `CURRENT` = clean. A21 LOOSE pre-ratification per stoa--3na: ariadne / sector-4 / railway_stoa MAY emit any non-`CURRENT` composite (drift accepted as documented residue). Any workspace OUTSIDE the 3na pre-named list emitting a non-`CURRENT` composite = STRANGE (route to inspection triage). Any 3na-named workspace emitting `CURRENT` = even better (no carve-out needed). `NOT-STOA-DEPLOYED` is informational — the workspace exists in registry but has no `.claude/MAJOR_POLYBIUS*.md`; not a drift FAIL. | Per-workspace table: (workspace, composite-status, per-category counts). Composite-token surface specifies the assembly rule explicitly per §2.14 ADA preamble. If a non-3na-named workspace surfaces with any non-`CURRENT` composite, mark STRANGE (route to inspection triage) — the directive's a-priori list is current-at-Arc-42-time scope-hint, not authoritative; new workspaces could be registered between directive ratification and Arc 42 ship. Strict-vs-loose interpretation = **A21 §25 PRINCIPAL-gate**: if the LOOSE pre-ratification has diverged from PRINCIPAL's current preference, PLINY surfaces with `[for: user-tier-polybius]` before the artifact ships. |
 | 7 | §28 Co-Authored-By trailers on post-Arc-35 squash-merge commits with EXPLICIT CARVE-OUT for `bb12806`; commits AFTER Arc 40 ship (`dbb5b81` onwards) MUST carry trailers. | Walk `git log --first-parent main --grep='^Arc ' --pretty='%H %s'` — for each squash-merge commit, `git log -1 --pretty='%(trailers:key=Co-Authored-By)'` MUST be non-empty UNLESS the commit SHA equals `bb12806*` (carve-out). For commits authored AFTER `dbb5b81` (Arc 40), missing trailer = substance disagreement (A21 §25 PRINCIPAL-gate). | Per-commit table: (sha, subject, trailer-count, PASS/FAIL/CARVE-OUT). FAILs include the post-Arc-40 timeline-position annotation so PLINY can distinguish "pre-Arc-40 missing" (silent failure being closed by Arc 40 ship; not a §25 escalation) from "post-Arc-40 missing" (canon-after-canon-was-shipped; substance disagreement). |
 
 **Empirical-anchor honesty: trailer-key case sensitivity.** Live ground-check at design time (Arc 38/39/40/41 ships): `git log -1 --pretty='%(trailers:key=Co-Authored-By)' dbb5b81` emits `Co-authored-by: CAPTAIN_DAEDALUS_the-stoa ...` (lowercase-by) — git canonicalizes the trailer-token case in the output. The Python helper at `trailers.py` MUST use a case-insensitive trailer-key match (the `git interpret-trailers` default canonicalizes input but the `pretty` formatter prints what git stored after canonicalization; the helper sees `Co-authored-by:` regardless of what the commit author wrote). Probe verifying this at §3 below.
@@ -230,16 +241,22 @@ The change is **additive** — the surface-and-wait default is preserved verbati
 
 **mn3 fix-1 — Arc 40 design.md p15** (install.sh `--no-bw-init` flag drift)
 - **Current** (arc-40 design.md line 522): `bash substrate/install.sh --target project --dest "$TEMPDIR/test" --no-bw-init >/dev/null 2>&1 && \`
-- **Fix:** replace `--dest "$TEMPDIR/test" --no-bw-init` with `--target project --project-dir "$TEMPDIR/test-project"`, and pre-create `$TEMPDIR/test-project` before the install.sh invocation (install.sh does not auto-create per shipped behavior).
+- **Fix:** replace `--dest "$TEMPDIR/test" --no-bw-init` with `--project-dir "$TEMPDIR/test-project"` (the existing `--target project` stays), and pre-create `$TEMPDIR/test-project` before the install.sh invocation (install.sh does not auto-create per shipped behavior).
 - **Self-application:** the new §6.9 clause 4 (ground-check against shipped tool surface) is exactly the discipline that catches this. Cite §6.9 in the fix-rationale comment.
 
+**mn3 fix-1.5 — Arc 40 design.md p17 worked-smoke-test narrative** (install.sh same flag drift; third whole-file site)
+- **Current** (arc-40 design.md line 411): `bash substrate/install.sh --target project --dest "$TEMPDIR/test-project" --no-bw-init 2>&1 | tail -20`
+- **Fix:** replace `--dest "$TEMPDIR/test-project" --no-bw-init` with `--project-dir "$TEMPDIR/test-project"` (same shape as fix-1; preserves the `2>&1 | tail -20` pipe). Pre-create `$TEMPDIR/test-project` before the invocation (the surrounding narrative already shows a `TEMPDIR="$(mktemp -d)"` at line 409, so add a `mkdir -p "$TEMPDIR/test-project"` line between the mktemp and the install.sh invocation).
+- **Why enumerated as its own fix:** P20 below verifies `grep -cE '\-\-no-bw-init' agents/design/arc-40/design.md == 0` whole-file. ARGUS rev1 R1 surfaced that this third site (inside p17's worked-smoke-test block) would FAIL the whole-file probe post-cleanup if only the p15 and p18 sites were edited. Enumerating the line 411 site here brings ALL three `--no-bw-init` sites into the mn3 cleanup scope, so the whole-file probe correctly returns 0 post-cleanup (deliberate-whole-file rationale documented at P20).
+- **Self-application:** §6.9 clause 4 again — same ground-check class as fix-1/fix-2.
+
 **mn3 fix-2 — Arc 40 design.md p18** (install.sh same flag drift)
-- **Current** (arc-40 design.md line 553): same `--dest ... --no-bw-init` shape.
+- **Current** (arc-40 design.md line 553): same `--dest "$TEMPDIR/test" --no-bw-init` shape.
 - **Fix:** same as fix-1.
 
 **mn3 fix-3 — Arc 40 design.md p24** (bw output shape `^Status:.*closed` doesn't exist)
 - **Current** (arc-40 design.md line 604): `for t in stoa--3sz stoa--5sr stoa--6wp stoa--6n9 stoa--t9u; do bw show "$t" 2>&1 | grep -c "^Status:.*closed"; done | paste -sd+ - | bc`
-- **Fix:** replace `grep -c "^Status:.*closed"` with `head -1 \| grep -c '^# ✓'` (anchored against actual bw line-1 closed-glyph shape). Alternative form: `bw list --closed --all \| grep -c "<id>"` per-ticket. Pick the head-1 form (simpler aggregation across the list).
+- **Fix:** replace `grep -c "^Status:.*closed"` with `head -1 \| grep -c '^# ✓'` (anchored against actual bw line-1 closed-glyph shape — `# ✓` is the canonical closed marker per live ground-check; bw does NOT emit a `^Status:` line in `bw show` output at all).
 - **Self-application:** §6.9 clause 4 again — bw output shape verified against live ground-check.
 
 **mn3 fix-4 — Arc 41 design.md §4.5.2** (case-class character drift)
@@ -334,7 +351,7 @@ Close on ship per A22:
 - **C1 implicit close** = Pass 9 done = validate-spec skill exists at substrate/skills/validate-spec/ + ran once against SPECIFICATION.md + artifact landed at agents/observation/spec-validation/mechanical-check-results.md. The implicit-close marker = a `stoa--utn` comment by PLINY at Phase 4 ship attesting all three conditions live-verified.
 - **A10 stoa--1lm close** = CAPTAIN_DAEDALUS.md §6.9 lands.
 - **A11 stoa--bn8 close** = MAJOR_PLINY.md §6.2a lands.
-- **A12 stoa--mn3 close** = all 5 fixes commit.
+- **A12 stoa--mn3 close** = all 5 defect-class fixes commit (rev2: m1 flag-drift cleanup extended to cover all 3 whole-file `--no-bw-init` sites in arc-40/design.md — fix-1 + fix-1.5 + fix-2; m2 + m_4.5.2 + m_4.12.2 + m_4.12.3 = 1 fix each; 6 atomic edits total covering the 5-finding cluster).
 - **A13 stoa--6k1 close** = P10 row deletion commits.
 
 Total source tickets closed: **C1 implicit + 4 folded = 5 closures attributable to Arc 42 ship**. Tag `[for: user-tier-polybius]` on stoa--utn at ship time (continuing as the long-running engagement coordination ticket through end of sequence).
@@ -376,9 +393,25 @@ If a design example contradicts the shipped code, the shipped code is canon — 
 
 - **bw output shape** (check-2, check-3 helpers): bw show line-1 = `# ○ <id> — <subject>` (open) or `# ✓ <id> — <subject>` (closed). Glyphs are Unicode (`○` = U+25CB; `✓` = U+2713). Helper code should match against these glyphs verbatim, not "Status:" line.
 - **git trailer key case-canonicalization**: `%(trailers:key=Co-Authored-By)` formatter emits `Co-authored-by:` (lowercase-by) regardless of commit-author input. Helper code at `trailers.py` MUST use case-insensitive trailer-key match.
-- **install.sh flag surface** (mn3 fix-1 + fix-2): correct shape is `--target <tier> --project-dir <path>`; pre-create `--project-dir` (install.sh does NOT auto-create).
+- **install.sh flag surface** (mn3 fix-1 + fix-1.5 + fix-2): correct shape is `--target <tier> --project-dir <path>`; pre-create `--project-dir` (install.sh does NOT auto-create).
 - **bb12806 SHA prefix**: 7-char short SHA. Helper should match `git log --first-parent main` walk's full SHA prefix-matching `bb12806*`, not the literal string (avoids brittleness if git default short-SHA length changes).
-- **check-substrate-updates output shape**: parse the per-workspace summary lines (format documented in `substrate/skills/check-substrate-updates/SKILL.md` lines 71-89 — `<workspace-name>   <status>   (N drifted, N missing, N obsolete; N uncommitted)`). The substrate-authoring tier the-stoa appears as `the-stoa` in registry (check `substrate/consumer-workspaces.txt`).
+- **check-substrate-updates output shape (LOAD-BEARING — ARGUS rev1 R2 surfaced this; re-grounded to actual shipped output)**:
+
+  **Pre-implementation spike (REQUIRED before authoring drift_check.py).** ADA runs `head -90 substrate/skills/check-substrate-updates/SKILL.md` AND `bash substrate/skills/check-substrate-updates/check.sh 2>&1 | head -40` to capture the LIVE output shape, then writes drift_check.py against actual not assumed. The shapes below were ground-checked at design-rev2 time but ADA verifies again at build time (the SKILL.md may have moved or the script may emit slightly differently against current registry state).
+
+  **Actual per-workspace summary line shape (composite-status tokens, NOT a single status token):**
+
+  ```
+  railway_stoa            DRIFTED + MISSING (3 drifted, 1 missing, 0 obsolete; 0 uncommitted)
+  ariadne-core-workspace  CURRENT (0 drifted, 0 missing, 0 obsolete; 0 uncommitted)
+  agent-gauntlet          NOT-STOA-DEPLOYED (no .claude/MAJOR_POLYBIUS*.md found)
+  ```
+
+  The status field is a **composite token** assembled from category states (e.g., `DRIFTED + MISSING`, `DRIFTED + OBSOLETE`, `DRIFTED + MISSING + OBSOLETE`, `CURRENT`, `NOT-STOA-DEPLOYED`). drift_check.py MUST parse this as a composite (split on ` + `, treat each sub-token as a category-state) rather than expecting a single token like `DRIFTED` or `CLEAN`. The "clean" state is the literal token `CURRENT` (NOT `CLEAN`); the "not-deployed" state is `NOT-STOA-DEPLOYED`.
+
+  **Parse anchor for drift_check.py:** the per-workspace summary line starts at column 0 with the workspace name (whitespace-padded to a fixed column), followed by the composite-status token, followed by an open-paren detail block. Match shape: `^<workspace-name>\s+(?P<status>[A-Z][A-Z\- +]*[A-Z\-]) \(`. The status group captures the entire composite (including ` + ` separators); split downstream.
+
+  **The substrate-authoring tier the-stoa appears in the per-workspace output as the workspace-name pulled from `substrate/consumer-workspaces.txt`** — at design-rev2 time the registry lists `/c/Users/denso/claude_projects/ariadne-core-workspace` as the first entry. ADA confirms the actual workspaces listed at build-time (the registry may have grown). The directive's A21 LOOSE pre-named-three (ariadne / sector-4 / railway_stoa) is the carve-out list; any workspace OUTSIDE that list emitting a non-`CURRENT` composite-status is a STRANGE-verdict (route to inspection triage per A8 ε; potentially A21 §25 PRINCIPAL-gate per trigger 1).
 
 ---
 
@@ -521,11 +554,13 @@ awk '/^#### 6\.2a /,/^### [67]\./' substrate/MAJOR_PLINY.md | grep -cE 'operatin
 
 ### §3.7 A12 fold-in — mn3 5 design.md probe-spec fixes
 
-**P20 — arc-40 design.md p15 + p18 no longer cite `--no-bw-init` (mn3 fix-1 + fix-2 applied)**
+**P20 — arc-40 design.md no longer cites `--no-bw-init` at ANY site (mn3 fix-1 + fix-1.5 + fix-2 applied)**
 ```bash
 grep -cE '\-\-no-bw-init' agents/design/arc-40/design.md
-# Expected: 0 (flag drift removed; word-boundary anchored on the literal flag string)
+# Expected: 0 (flag drift removed from all three whole-file sites; literal-anchored on the flag string)
 ```
+
+**§6.9 self-application deliberate-whole-file rationale (per ARGUS rev1 R3 → rev2 fix).** §6.9 clause 1 directs probes to anchor against incidental documentation prose unless the probe is structurally a whole-file property check. P20 IS a whole-file property check post-mn3-cleanup: the mn3 fix list (§1.4 fix-1 + fix-1.5 + fix-2) brings ALL THREE `--no-bw-init` sites in arc-40/design.md into the cleanup scope (lines 411, 522, 553 per design-time `grep -n -- '--no-bw-init'`). Whole-file count = 0 is therefore correctly verifiable post-cleanup; awk-scoping would be wrong shape for this property. Probes that verify section-local properties (like P25 below at §4.12.2) DO need awk-scoping because the property is bounded; whole-file properties (like P20 here) are correct as whole-file greps.
 
 **P21 — arc-40 design.md p15 + p18 use `--project-dir` (mn3 fix shape)**
 ```bash
@@ -551,11 +586,14 @@ grep -cE 'grep -\[a-zA-Z\]\*i\[a-zA-Z\]\*' agents/design/arc-41/design.md
 # Expected: >=1 (the corrected character class with uppercase; literal-anchored on the post-fix shape)
 ```
 
-**P25 — arc-41 design.md §4.12.2 uses separator-anchored 'the user' pattern (mn3 fix-5a)**
+**P25 — arc-41 design.md §4.12.2 probe block uses separator-anchored 'the user' pattern (mn3 fix-5a)**
 ```bash
-grep -cE "the user\[ \.,;:!\?\\\\n\]" agents/design/arc-41/design.md
-# Expected: >=1 (separator-anchored character class; literal-anchored on the post-fix shape)
+awk '/^\*\*§4\.12\.2 /,/^\*\*§4\.12\.3 /' agents/design/arc-41/design.md \
+  | grep -cE "the user\[ \.,;:!\?\\\\n\]"
+# Expected: >=1 (separator-anchored character class within the §4.12.2 probe block; literal-anchored on the post-fix shape)
 ```
+
+**§6.9 self-application awk-scope rationale (per ARGUS rev1 R3 → rev2 fix).** §4.12.2 in arc-41/design.md (line 761 per design-time `grep -nE '^\*\*§4\.12\.'`) is bracketed above by line 323 — incidental narrative discussion of a defect ("Issue: whole-file grep catches pre-existing legacy `the user` references...") that is NOT part of the mn3 fix scope and will survive the cleanup. A whole-file grep for the post-fix pattern would risk false-positive on that narrative if the narrative ever quotes the same character class verbatim, AND would also false-positive on §6.9's own canon-text in CAPTAIN_DAEDALUS.md if probed against the wrong file. The awk-bracket from `**§4.12.2 ` to `**§4.12.3 ` scopes the grep to the actual §4.12.2 probe block (lines 761-768 per design-time observation); this is §6.9 clause 1 (anchor / scope to the bounded context) applied to the verification probe itself. Sibling pattern: §1.4 mn3 fix-5b's awk-scope rationale.
 
 **P26 — arc-41 design.md §4.12.3 uses enumeration-context exclusion (mn3 fix-5b)**
 ```bash
@@ -581,14 +619,14 @@ awk '/^### §9\.3 /,/^### §9\.4/' agents/design/arc-25/design.md | grep -cE '^\
 
 **P29 — DAEDALUS commit on arc-42/build carries seat-identity trailer**
 ```bash
-git log --first-parent arc-42/build main..arc-42/build --pretty='%(trailers:key=Co-Authored-By)' \
+git log --first-parent main..arc-42/build --pretty='%(trailers:key=Co-Authored-By)' \
   | grep -cE -i 'CAPTAIN_DAEDALUS_the-stoa'
 # Expected: >=1 (at least one commit on arc-42/build carries the DAEDALUS trailer; case-insensitive per git canonicalization observed at design-time)
 ```
 
 **P30 — ADA commit on arc-42/build carries seat-identity trailer**
 ```bash
-git log --first-parent arc-42/build main..arc-42/build --pretty='%(trailers:key=Co-Authored-By)' \
+git log --first-parent main..arc-42/build --pretty='%(trailers:key=Co-Authored-By)' \
   | grep -cE -i 'CAPTAIN_ADA_the-stoa'
 # Expected: >=1 (at least one commit on arc-42/build carries the ADA trailer)
 ```
@@ -658,7 +696,7 @@ Live ground-check at design-time: `git log -1 --pretty='%(trailers:key=Co-Author
 The bundled scope (C1 + 4 fold-ins) is the largest single arc in the substrate's history (Arc 36 v2 at 5 candidates was comparable; Arc 25 at 4 was prior largest). CATO is mandatory per A24 specifically for the mech-check-results artifact honesty audit — but CATO will ALSO read the full diff, which now includes 7 files modified across (a) new substrate skill, (b) CAPTAIN_DAEDALUS.md canon addition, (c) MAJOR_PLINY.md canon addition, (d) 5 design.md edits across 3 design directories, (e) install.sh wiring. CATO craft-and-scope audit could surface the cohesion concern (is this one arc or 2-3?). **Why this shape anyway:** the directive A10-A13 explicitly invites the 5-candidate fold-in as "complementary" — A10 (1lm canon) provides the canon basis for A12 (mn3 cleanup) at the moment §6.9 ships; A11 (bn8) pairs with the current cron-driven engagement (first arc where polling-cron-PLINY is canonical, not operational); A13 (6k1) is a 1-probe deletion. Splitting into Arc 42 (C1 only) + Arc 43 (1lm+bn8+mn3+6k1) loses the self-application surface (the validate-spec skill IS a DAEDALUS-authored probe set per directive's stoa--bbi observation; shipping it WITHOUT the §6.9 canon means the skill's own probes can't cite the canon they exemplify). The cohesion bet is that the 5 candidates form a single coherent gauntlet target; if CATO disagrees, the right shape is a directive revision, not a probe revision.
 
 **Weak point 5 — §6.9 self-application recursion (this design's own probes per §6.9).**
-The A10 fold-in ships §6.9, which extends the §5.11 anchoring discipline to DAEDALUS-authored design.md probes. My §3 probes try to comply with the new canon at design-time (anchored regex, awk-scoping where applicable, ground-checked tool surfaces). But there's a subtle recursion: §6.9 clause 3 ("live round-trip at authoring time") requires me to have actually run every probe command literally against the current substrate state during draft. I have ground-checked the key shapes (bw output, git trailers, install.sh flags, _drafts/ absence, git status clean) but I have NOT literally run every one of the 36 probes against a build-state that doesn't yet exist (the validate-spec skill, the mn3-fixed design files, the §6.9 canon, the §6.2a canon). **Why this shape anyway:** the probes target post-ADA-build state; live round-trip at DAEDALUS-time would require building the artifact, which is ADA's seat. The §6.9 canon's clause 3 is satisfied for probes targeting pre-build state (I did run those); probes targeting post-build state (the structural majority) are deferred to ADA's pre-commit live-execution per the §5.2 grounding-check preamble inherited at §2.14. ARGUS should flag if this is too generous a reading of §6.9 clause 3 — strict reading might require this design to refuse all post-build-state probes until ADA build is partial-done, which would invert the gauntlet's seat-ordering. The honest framing: §6.9 clause 3 names a discipline for probes against EXISTING substrate state; design-time probes for not-yet-built state are §6.9 clause 4 ground-check + ADA's §5.2 live-execution territory.
+The A10 fold-in ships §6.9, which extends the §5.11 anchoring discipline to DAEDALUS-authored design.md probes. My §3 probes try to comply with the new canon at design-time (anchored regex, awk-scoping where applicable, ground-checked tool surfaces). But there's a subtle recursion: §6.9 clause 3 ("live round-trip at authoring time") requires me to have actually run every probe command literally against the current substrate state during draft. I have ground-checked the key shapes (bw output, git trailers, install.sh flags, _drafts/ absence, git status clean) but I have NOT literally run every one of the 36 probes against a build-state that doesn't yet exist (the validate-spec skill, the mn3-fixed design files, the §6.9 canon, the §6.2a canon). **Why this shape anyway:** the probes target post-ADA-build state; live round-trip at DAEDALUS-time would require building the artifact, which is ADA's seat. The §6.9 canon's clause 3 is satisfied for probes targeting pre-build state (I did run those); probes targeting post-build state (the structural majority) are deferred to ADA's pre-commit live-execution per the §5.2 grounding-check preamble inherited at §2.14. **rev2 update**: ARGUS surfaced R1 (P20 missing a third whole-file site) and R3 (P25 + P20 awk-scope shape) as exactly this class of recursive defect — DAEDALUS-at-rev1 did not live-round-trip the probe greps against the current substrate state and shipped probes that violate the canon they exemplify. rev2 fixes both by (a) re-running `grep -n -- '--no-bw-init' agents/design/arc-40/design.md` at design time and extending the fix list to ALL three sites (R1), (b) re-running `grep -n -- 'the user' agents/design/arc-41/design.md` at design time and awk-scoping P25 to the §4.12.2 probe block (R3). The general property still applies to post-build-state probes (~28 of 36) which ADA verifies at build time; the rev2 surface is empirical evidence that the §6.9 clause 3 live-round-trip discipline catches what pure ground-check (clause 4) misses. ARGUS should flag if this rev2-acknowledgment is sufficient OR if a stronger self-application is warranted (e.g., DAEDALUS-at-design-time must literally execute every pre-build-state probe against the working tree before shipping).
 
 **Weak point 6 — Inspection-agent triage shape (A8 ε inline) underestimating first-run strangeness frequency.**
 A8 ε picks inline triage in validate-spec SKILL.md (POLYBIUS reads strangeness, triages manually) over A8 δ (separate `inspect-spec-validation-output` skill paralleling `inspect-script-output`). User-tier weakly leans ε; I pick ε. The risk: first-run-against-SPECIFICATION.md might surface 10-20 STRANGE-verdict items (38 ticket-ids in spec × ambiguity in surrounding-prose claim resolution; bare-§ resolver ambiguity per weak-point-1; 7 cross-workspace check-6 verdicts with mixed strict/loose interpretation). 20 strangeness items routed to manual POLYBIUS triage = the script-bloat anti-pattern's manual-triage cousin. **Why this shape anyway:** A23 hard-lock 2 ("No widening A8/A9 inspection-agent shape into heavy separate skill") explicitly forbids the δ pick mid-arc — if first-run reveals strangeness frequency justifying separate skill, that's an Arc 43+ ticket per A23 (NOT a mid-arc scope expansion). The ε pick is the directive-permitted shape; if it proves to scale poorly, the empirical anchor for a future δ-pick arc is the very first-run-strangeness count from THIS arc. ARGUS should flag if I'm under-pricing the operational cost of 20-item manual POLYBIUS triage.
@@ -751,7 +789,7 @@ Bullet list of related concerns this design deliberately does not address:
 - `substrate/MAJOR_PLINY.md` §5.10 — squash-merge `--body` override discipline (Arc 40 ship; the canon check-7 verifies against).
 - `substrate/operating-disciplines.md` §28 — Co-Authored-By trailer canon.
 - `substrate/operating-disciplines.md` §25 — PRINCIPAL-gate discipline (A21 routing partner).
-- `agents/design/arc-40/design.md` — mn3 fix-1 (p15), fix-2 (p18), fix-3 (p24) sites.
+- `agents/design/arc-40/design.md` — mn3 fix-1 (p15, line 522), fix-1.5 (p17, line 411 — rev2 addition), fix-2 (p18, line 553), fix-3 (p24, line 604) sites.
 - `agents/design/arc-41/design.md` — mn3 fix-4 (§4.5.2), fix-5 (§4.12.2 + §4.12.3) sites.
 - `agents/design/arc-25/design.md` §9.3 — 6k1 P10 deletion site.
 - bw tickets: stoa--utn (engagement coordination); stoa--1lm (A10); stoa--bn8 (A11); stoa--mn3 (A12); stoa--6k1 (A13); stoa--3na (check-6 LOOSE pre-ratification); stoa--bbi (refined-principle accretion observation surface).
