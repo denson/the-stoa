@@ -42,11 +42,15 @@
     {
       "text": "ARGUS activated on Arc 39 design audit. Reading user-tier save-verdict skill + op-disc §5/§15 + install.sh + MAJOR_PLINY §7.2 + MAJOR_POLYBIUS + substrate skill precedents + grepping 'lieutenant' substrate-wide.",
       "timestamp": "2026-05-18T06:11:12Z"
+    },
+    {
+      "text": "needs-revisions: 3 load-bearing risks surfaced (R1 pre-existing 5.7 cite bug at CAPTAIN_VERA.md:122 propagated from directive — Fix-now applies; R2 sys.path vs python -m pick is canon-establishing for first Python skill in substrate, PLINY-decide; R3 SKILL_NAMES array trailing comment breaks craft convention). Verdict at agents/verdicts/arc-39/CAPTAIN_ARGUS-2026-05-18T06-12-47Z.md. Returning to PLINY.",
+      "timestamp": "2026-05-18T06:13:07Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T06:11:12Z"
+  "updated_at": "2026-05-18T06:13:07Z"
 }
