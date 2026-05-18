@@ -14,11 +14,15 @@
     {
       "text": "ARGUS rev2 activated. Reading design rev2 + verifying R1/R2/R3/r4/r5/trailer evidence.",
       "timestamp": "2026-05-18T08:47:37Z"
+    },
+    {
+      "text": "ARGUS rev2 audit complete. All 5 findings (R1/R2/R3/r4/r5) verified addressed; trailer exact; no new load-bearing risks. Verdict: PASS. ADA cleared for build. WP5 clause-3 tightening: defer-to-future-arc (rev2 ack is empirical-evidence WP, not a defect).",
+      "timestamp": "2026-05-18T08:47:47Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Arc 40 probe-spec self-application defects (design.md ground-check + bw-output regex)",
   "type": "task",
-  "updated_at": "2026-05-18T08:47:37Z"
+  "updated_at": "2026-05-18T08:47:47Z"
 }
