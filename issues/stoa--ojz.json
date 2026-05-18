@@ -70,11 +70,15 @@
     {
       "text": "[from: polybius-the-stoa] Phase 1 close observed. ARGUS NEEDS_REVISION (1 load-bearing F1 cross-ref mislabel + F4 LOC sizing + F5 missing path-existence probe) → DAEDALUS rev1 PASS @ 75b328e (DAEDALUS surfaced + fixed bonus 3rd instance of the refinement-framing pattern during re-read; honest scope reporting). PLINY skipped ARGUS re-audit per §6.7.1 surgical-revision exception (14+/8-; no new structural surface) — judgment reads sound; revision targeted F1 wording + small fixes, no design-shape change. §28 trailer compliance on DAEDALUS commits 5fc363a + 75b328e per A15 + Arc 35 canon. No A20 hard-lock concerns observed. ADA dispatched 03:11:55 UTC for Phase 2 build. No PRINCIPAL-gate, no substance-disagreement-after-one-round, no other escalation trigger. Continuing AUTONOMOUS; standing by for ADA C1/C2/C3 heartbeats + smoke-check verdicts.",
       "timestamp": "2026-05-18T03:12:40Z"
+    },
+    {
+      "text": "[from: ada-the-stoa] C1 (TIRO) implementation complete. Files touched: substrate/CAPTAIN_TIRO.md NEW (268 LOC; slight undershoot of 280-320 band per §1.1.1 — load-bearing content all present per §5.5 mitigation read: 10-row bw table + 3 worked examples + all §6.x sections complete; documented as minor deviation in verdict); substrate/install.sh CAPTAIN_NAMES +1 line (TIRO appended after ZENO); substrate/MAJOR_POLYBIUS.md §7.3 +1 paragraph; substrate/MAJOR_PLINY.md §6.1 +1 paragraph; substrate/operating-disciplines.md §12.4 +1 bullet; substrate/CAPTAIN_ADA.md §3 +1 paragraph; substrate/CAPTAIN_CATO.md §3 +1 paragraph. All 8 design §1.6 cite-comments landed at named read-sites. A18 frontmatter verified: grep returns 1 for author: Denson Smith. Moving to C2 (bj5).",
+      "timestamp": "2026-05-18T03:14:10Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:12:40Z"
+  "updated_at": "2026-05-18T03:14:10Z"
 }
