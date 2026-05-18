@@ -172,11 +172,15 @@
     {
       "text": "ADA activated on arc-40 build. Design rev2 @ 6a21104 absorbed (5 candidates: 3sz/5sr/6wp/6n9/t9u; dhc DROPPED). Reading substrate files for ground-check before first commit.",
       "timestamp": "2026-05-18T06:55:19Z"
+    },
+    {
+      "text": "Ground-check complete. All design references verified against shipped code: §5.10 lines 428-433 (4-bullet list) ✓; §28.3 line 1737 / §28.4 line 1743 ✓; CAPTAIN_VERA §5.10 line 170 / §6 line 174 ✓; CAPTAIN_DAEDALUS §6.7 line 151 / §7 line 155 ✓; install.sh write_substrate_manifest lines 395-449 ✓; check.sh apply_substitutions_from_manifest line 146 ✓; apply.sh line 115 ✓. Starting C1 (3sz VERA §5.11).",
+      "timestamp": "2026-05-18T06:55:40Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T06:55:19Z"
+  "updated_at": "2026-05-18T06:55:40Z"
 }
