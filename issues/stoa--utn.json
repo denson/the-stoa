@@ -26,11 +26,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 39 dispatch acknowledged. Pre-flight clean (main=origin/main @ 519226e, no orphan arc branches). Worktree created at .claude/worktrees/arc-39-build/ on branch arc-39/build. Dispatching CAPTAIN_DAEDALUS_the_stoa for design.md.",
       "timestamp": "2026-05-18T06:07:01Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] DAEDALUS activated for Arc 39 design. Brief absorbed (A1-A22 LOCKED + A2/A4/A6/A9 discretion). Source tickets utn + ezj read end-to-end. Substrate skill precedents (handoff-author / check-substrate-updates / agent-author) read for frontmatter + structure. User-tier ~/.claude/skills/save-verdict/SKILL.md (143 lines, prose-only) read. MAJOR_PLINY.md §7.2 + MAJOR_POLYBIUS.md §4.3 + op-disc §19 + §15 read for canon-extension loci. install.sh skill-deploy loop verified to handle nested _lib/ via cp -R subtree copy. Drafting design.md now.",
+      "timestamp": "2026-05-18T06:08:38Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T06:07:01Z"
+  "updated_at": "2026-05-18T06:08:38Z"
 }
