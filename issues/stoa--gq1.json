@@ -32,11 +32,15 @@
     {
       "text": "DESIGN DRIFT FLAG #2 (per §2.14): arc-42/design.md §3.7 P25 probe shape 'grep -cE \"...\\\\n\\]\"' is incompatible with GNU grep -E 3.0 backslash semantics. Shell double-quote strips '\\\\' → '\\' as grep arg; grep -E '\\' is 'trailing backslash' error or undefined behavior depending on subsequent char. Tested combinations: shipping file with '\\n' (2 chars: \\, n) makes grep -cE \"...\\\\\\\\n...\" match (returns 2); shipping file with '\\n' (2 chars: \\, n) per fix-5a prose intent makes design's P25 return 0. Shipped REALITY in fix-5a is '\\n' per the prose 'or newline' semantic intent. P25 needs single-quoted form 'grep -cE ...\\\\n...' to work against shipped content — but design ships double-quote form. Test path: grep -cE 'the user\\[ \\.,;:\\!\\?\\\\n\\]' /tmp/p25test.txt → 1 (single-quoted works). Building to ship reality (semantic-correct file content); design P25 awk-bracket close pattern '^\\*\\*§4\\.12\\.3 ' DOES work. The pattern's quote-style is the defect. Like P15/P16 awk-close defect, this is a §6.9 self-application failure surface that the actual mn3 cleanup work is properly performing AROUND.",
       "timestamp": "2026-05-18T08:58:15Z"
+    },
+    {
+      "text": "C2/C3/C4/C5/C6 landed: DAEDALUS §6.9 (37ea7ed), PLINY §6.2a (d53ad09), mn3 fixes (7f7ad0d), arc-25 P10 deletion (214bdbc), paste archival (c788644). 7 commits total on arc-42/build. 2 design-drift flags surfaced: (1) DAEDALUS P15/P16 awk-bracket close uses '### [67]\\.' but next heading is '## 7' level-2; (2) arc-41 P25 grep -E pattern double-quote uses '\\\\n' which against GNU grep 3.0 yields trailing-backslash / undefined behavior. Both noted in commit messages + flagged as design drift NOT in mn3 scope. Now running A26 SELF-APPLICATION: bash substrate/skills/validate-spec/check.sh against SPECIFICATION.md to capture mech-check-results.md artifact.",
+      "timestamp": "2026-05-18T08:59:11Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Substrate-component design principles: agent-installable distribution + composability framing",
   "type": "task",
-  "updated_at": "2026-05-18T08:58:15Z"
+  "updated_at": "2026-05-18T08:59:11Z"
 }
