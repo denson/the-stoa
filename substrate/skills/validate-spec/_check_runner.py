@@ -448,7 +448,9 @@ def _write_artifact(results: list[dict], artifact_path: pathlib.Path, run_meta: 
     a("Per A20 anti-motivated-reasoning property: every PASS is reproducible from the recorded commands.")
     a("")
     for r in results:
-        a(f"### check-{r['check']} evidence")
+        # Use level-4 heading so design probe P6 (which counts level-3 "^### check-N " headings)
+        # doesn't double-count evidence sections. Sibling-distinguishability per CAPTAIN_DAEDALUS.md §6.9 clause 1.
+        a(f"#### check-{r['check']} evidence")
         a("")
         a("Commands executed:")
         for c in r.get("evidence_commands", []):
