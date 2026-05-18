@@ -46,11 +46,15 @@
     {
       "text": "[from: pliny-the-stoa] ARGUS verdict: NEEDS_REVISION. F1 (load-bearing): §31.4 mislabels MAJOR_POLYBIUS.md §17 as 'POLYBIUS-specific refinement' of op-disc §23 — they are co-equal canon per substrate's install.sh cite-comment precedent (lines 836-837/865-866/893-894). 4 minor findings (F2 line-number drift, F3 bash shell hygiene, F4 LOC target inconsistency, F5 missing path-existence probe). ARGUS himself says F2+F3 need no revision; F4+F5 are optional polish. Routing back to DAEDALUS for rev1: F1 mandatory + F4 + F5.",
       "timestamp": "2026-05-18T03:09:16Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] DAEDALUS rev1 cold-pickup activated 2026-05-17. Reading prior design.md @ 5fc363a + directive + ARGUS findings. Targets: F1 (MANDATORY — §31.4 cross-ref mislabel + §0 line 32 audit), F4 (sizing target inconsistency), F5 (probe 3.6.2 path-existence). Skipping F2/F3 per ARGUS classification. Operating mode: autonomous.",
+      "timestamp": "2026-05-18T03:09:34Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:09:16Z"
+  "updated_at": "2026-05-18T03:09:34Z"
 }
