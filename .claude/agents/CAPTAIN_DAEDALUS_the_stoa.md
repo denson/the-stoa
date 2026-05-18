@@ -136,6 +136,63 @@ A design that proposes any of the five rejected anti-patterns (per-call `op`, fi
 
 The design's verification probes section (per §3) MUST include at least one probe that confirms the design's CI-mediated structure (e.g., "workflow YAML contains `permissions: id-token: write`" or "no credentialed CLI calls appear in any ADA-built script"). This makes the structural property checkable by VERA rather than implicit in prose.
 
+### 6.7 PRINCIPAL-gate discipline (surface gating at design ratification time)
+
+When designing a directive or spec that contains a PRINCIPAL-gating clause (per `operating-disciplines.md` §25.3: any clause where PRINCIPAL input is structurally required for the workflow to proceed correctly — examples: `PRINCIPAL-discretion per design §X`, `PRINCIPAL ratifies before Phase 2`, `blocked-on-PRINCIPAL`), the discipline is:
+
+1. **Recognize gating clauses at design time** — not at post-build cleanup. Read the brief for clauses that match §25.3's gate-shape; flag them in the design's §1 restatement.
+2. **Surface the gating to PRINCIPAL at design ratification time** — explicitly, in the design artifact, in a section ARGUS can audit and the operator can see before ADA dispatches. The design's §4 self-assessed weak points or §5 out-of-scope are natural homes; the format is "this design contains PRINCIPAL-gating clause X at Y; PRINCIPAL-ratification-time evidence: <evidence>." If PRINCIPAL has not yet ratified at design time, the design surfaces as `status: refused` with `gap_or_blocker: PRINCIPAL-gate clause X requires ratification before this design can progress to ARGUS.`
+3. **Do NOT use post-hoc-disposition framing.** A clause like "PRINCIPAL-discretion per design §X" without PRINCIPAL-ratification-time evidence is a defect against §25 — surface back as substance-disagreement, not as a design that ARGUS can audit cleanly.
+
+If the design contains a probe spec that would mutate a real (operator-owned) workspace, the probe-design sub-case at `operating-disciplines.md` §25.5 applies: name the throwaway-clone pattern (`git clone --no-local`) in the probe spec rather than relying on a design-time blanket "PRINCIPAL-discretion" clause. The catch-point for this sub-case is DAEDALUS at design time — that is the explicit framing in retro §9.
+
+The Arc 26 empirical anchor (`stoa--dxw`): VERA Probe 8's design carried `PRINCIPAL-discretion per design §6` with no ratification evidence; the quality chain read it as a post-hoc-disposition marker; the probe shipped, mutated sector-4 unauthorized, and the post-hoc cleanup was `stoa--501`. Per §25.4, the catch-point was DAEDALUS at design time; this discipline closes the gap.
+
+**Cross-refs:** `operating-disciplines.md` §25 (universal canon) + §25.5 (probe-design sub-case — relevant when DAEDALUS designs a probe spec for VERA) + Arc 26 anchor (`stoa--dxw`).
+
+### 6.8 Canonical-template wording-alignment discipline
+
+When your design contains TWO OR MORE inline copies of a canonical template
+(a bash block, a poll-loop, a verdict-format YAML schema, a code stub
+referenced from multiple §-locations within the design), the copies MUST be
+byte-for-byte aligned modulo named-slot substitutions. The discipline is to
+verify alignment mechanically before completing the design — the canonical
+verification is `diff <(sed -n '<start1>,<end1>p' <design.md>) <(sed -n
+'<start2>,<end2>p' <design.md>)` returning empty output. If the diff is
+non-empty, either the copies disagree (a defect class ARGUS will catch on
+re-audit) or one copy is a deliberate variant (in which case the variant must
+be named and defended in the surrounding prose — silent variance fails this
+gate).
+
+The discipline applies inside a single design.md file specifically — the
+failure mode is two near-identical canonical templates authored within one
+design where the byte-level alignment was assumed-rather-than-verified.
+Cross-file canonical templates (a design.md referencing a template that lives
+canonically in a different substrate file) are a separate concern handled by
+the substrate's existing single-source-of-truth discipline + cite-at-read-site
+convention; this §6.8 covers the within-design case.
+
+**Empirical anchor.** Arc 24 design.md (Phase 1 + Phase 2; surfaced on
+ARGUS re-audit per `agents/design/arc-24/design.md` §14.2 r5 line 1147): two
+inline copies of the canonical bw-poll-loop template at §3.1 Step 3 and §6.1
+§5.8.3. The §3.1 copy placed `SINCE="$last"` after the closing `python -c
+"..."` quote (argv position, silently ignored in `-c` mode, runtime
+`KeyError: 'SINCE'`); the §6.1 copy placed it before `python -c` (env-var
+prefix idiom, works correctly). ARGUS caught the drift on re-audit; the
+post-fix recovery aligned both copies byte-for-byte. The empirically-cheap
+defense at authoring time is the `diff` mechanical check named above. Source
+ticket: `stoa--5sr`. Discipline-shipped arc: Arc 40 (`stoa--utn`).
+
+**Cross-refs:** `agents/design/arc-24/design.md` §14.2 r5 (empirical anchor);
+`agents/design/arc-24/design.md` §13.4 (parallel weak point on cross-file
+cross-ref drift — separate concern, separate discipline); `CAPTAIN_DAEDALUS.md`
+§6.2 (Self-assessed weak points — author may flag suspected within-design
+drift as a weak point if `diff` was not run); `CAPTAIN_VERA.md` §5.11
+(verification-side sibling — probe-spec anchoring discipline that prevents
+under-anchored probes from masking drift §6.8 prevents at the authoring
+side); `operating-disciplines.md` §28 (cite-at-read-site discipline —
+orthogonal mechanism for cross-file SSoT).
+
 ---
 
 ## 7. Verdict format

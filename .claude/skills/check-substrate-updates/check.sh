@@ -129,6 +129,99 @@ apply_substitutions() {
   esac
 }
 
+# apply_substitutions_from_manifest <source-file> <deployed-rel-path> <workspace-abs>
+#
+# CITE: manifest-driven substitution per Arc 38 / bj5 / design.md §2.2 (A8 γ pick).
+# The manifest at <workspace>/.substrate-manifest is written by install.sh at deploy
+# time (substrate/install.sh write_substrate_manifest function). Format invariant:
+# tab-separated <dep-rel-path>\t<token>\t<replacement>; header block carries
+# tier + deployed_at + substrate_sha. If a future install.sh change rotates the
+# manifest format, this function must update its parser to match. Companion cite
+# at the install.sh writer site references this read-site for the format
+# invariant.
+#
+# Fallback path: when no manifest is present at the workspace (e.g., a project-tier
+# workspace deployed before Arc 38 shipped), this function calls back to the
+# legacy apply_substitutions() — preserving pre-Arc-38 project-tier behavior.
+apply_substitutions_from_manifest() {
+  local source_file="$1"
+  local dep_rel="$2"
+  local ws_abs="$3"
+  # Manifest lives at <workspace>/.claude/.substrate-manifest where workspace is the
+  # PARENT of .claude/ (project-tier convention; check.sh normalizes user-tier
+  # ws_abs to drop trailing /.claude so the same path-construction works).
+  local manifest="${ws_abs}/.claude/.substrate-manifest"
+
+  if [ ! -f "$manifest" ]; then
+    # No manifest — fall back to legacy hard-coded substitution. detect_tier
+    # echoes "<tier> <slug>" (space-separated; slug may be empty).
+    local tier_line tier slug
+    tier_line="$(detect_tier "$ws_abs")"
+    tier="${tier_line%% *}"
+    slug="${tier_line#* }"; slug="${slug# }"
+    apply_substitutions "$source_file" "$dep_rel" "$tier" "$slug"
+    return 0
+  fi
+
+  # CITE: format-version contract per Arc 40 / stoa--6n9. Header-scan rejects
+  # any manifest declaring a format-version this reader does not understand.
+  # If no `# format=` line is present (e.g., a manifest written by a pre-fix
+  # install.sh), treat as v1 (graceful fallback for already-deployed
+  # workspaces). Companion write-site: substrate/install.sh
+  # write_substrate_manifest. Any install.sh that bumps v1->v2 MUST update
+  # this parser in the same arc.
+  local manifest_format
+  manifest_format="$(grep -E '^# format=v[0-9]+' "$manifest" 2>/dev/null | head -1 | sed -E 's/^# format=(v[0-9]+).*/\1/')"
+  if [ -n "$manifest_format" ] && [ "$manifest_format" != "v1" ]; then
+    echo "check.sh: error: ${manifest} format=${manifest_format} unknown; this check.sh expects v1. Re-run install.sh to re-deploy with a matching manifest, or update the check-substrate-updates skill." >&2
+    return 1
+  fi
+
+  # Manifest present — read every (token, replacement) entry for this deployed-rel-path
+  # and apply them via a sed pipeline built as an array of -e expressions. Use | as
+  # sed delimiter (avoid / collision with filesystem paths in USER_TIER_DIR
+  # replacement values). Array-form avoids the eval-pipe-interpretation bug where
+  # | inside the s|X|Y|g expressions would be read as a shell pipe by the eval shell.
+  local sed_args=()
+  local entry_path token replacement
+  while IFS=$'\t' read -r entry_path token replacement; do
+    # Skip comments + blanks
+    case "$entry_path" in
+      ""|\#*) continue ;;
+    esac
+    if [ "$entry_path" = "$dep_rel" ]; then
+      # Defensive: refuse to substitute if either token or replacement contains | literal.
+      # install.sh's writer rejects these at write time; this is a belt-and-suspenders check.
+      case "$token$replacement" in
+        *"|"*) continue ;;
+      esac
+      # Escape sed metacharacters in the replacement value before splicing it
+      # into the s|...|...|g expression. Two-step (order matters):
+      #   1. backslash '\' → '\\' (so any pre-existing '\' is literalized)
+      #   2. ampersand '&' → '\&' (so '&' is read as literal, not "matched pattern")
+      # Without step 2, a future manifest entry whose replacement contains '&'
+      # would silently mangle the substitution: sed reads bare '&' in the RHS
+      # of s|...|...| as a back-reference to the entire matched pattern.
+      # install.sh's current writers (Arc 38 baseline) emit only {{NAME_SUFFIX}}
+      # and {{USER_TIER_DIR}} replacements (neither contains '&' in any
+      # plausible deploy), so the in-tree symptom is latent — but the reader
+      # must always be safe. Per CATO Arc 38 rev1 c2 finding (defensive
+      # read-site escape; writer may extend later). Cross-ref:
+      # agents/design/stoa--ojz/design.md §2.2.
+      replacement="${replacement//\\/\\\\}"
+      replacement="${replacement//&/\\&}"
+      sed_args+=(-e "s|${token}|${replacement}|g")
+    fi
+  done < "$manifest"
+
+  if [ "${#sed_args[@]}" -eq 0 ]; then
+    # No substitution entries for this file — verbatim passthrough.
+    cat "$source_file"
+  else
+    sed "${sed_args[@]}" "$source_file"
+  fi
+}
+
 # parse_skill_names_from_install: echo one skill name per line.
 # Reads substrate/install.sh and extracts the SKILL_NAMES=(...) array contents.
 #
@@ -389,6 +482,19 @@ enumerate_workspace_substrate_paths() {
   # MAJORs: glob workspace dir. Per A4 these ARE in scope for OBSOLETE
   # detection (asymmetry with install.sh's prune-scope, which excludes
   # MAJORs — surfaced to operator via split routing footer).
+  #
+  # CITE: MAJOR glob is single-path-segment by design — matches MAJOR_*.md
+  # directly under .claude/ but NOT files at .claude/custom/MAJOR_*.md (a
+  # hypothetical future custom-MAJOR path). Custom MAJORs are OUT OF SCOPE
+  # per Arc 29 A7 hard-lock — the base-vs-custom convention
+  # (substrate/operating-disciplines.md §23 + substrate/MAJOR_POLYBIUS.md §17)
+  # applies to CAPTAINs + skills + templates only; the POLYBIUS/PLINY
+  # orchestrator tier is deferred to a future arc. If a future arc adds
+  # custom MAJOR support, this glob site needs the same case-skip treatment
+  # as the CAPTAIN site below (the .claude/agents/custom/ subdirectory
+  # convention) — adapted to whatever custom-MAJOR path the future arc picks.
+  # The cite is forward-looking; the glob itself is correct as written and
+  # needs no change in this arc.
   for f in "${ws}/.claude/MAJOR_"*.md; do
     echo ".claude/$(basename "$f")"
   done
@@ -398,6 +504,15 @@ enumerate_workspace_substrate_paths() {
 
   # CAPTAINs: glob workspace dir.
   if [ -d "${ws}/.claude/agents" ]; then
+    # CITE: this glob is single-path-segment (NOT recursive). It matches
+    # CAPTAIN_*.md directly under .claude/agents/ but NOT files at
+    # .claude/agents/custom/CAPTAIN_*.md (the custom convention path per
+    # substrate/operating-disciplines.md §23 + substrate/MAJOR_POLYBIUS.md §17).
+    # That non-recursion IS the base-vs-custom scoping for OBSOLETE detection.
+    # If this glob is made recursive, custom CAPTAINs would surface as OBSOLETE
+    # and the operator would be routed to --prune-obsolete (which D3 already
+    # scopes to base, so no actual deletion would occur — but the false OBSOLETE
+    # flag would mislead). The discipline is path-shape, defense at every read site.
     for f in "${ws}/.claude/agents/CAPTAIN_"*.md; do
       echo ".claude/agents/$(basename "$f")"
     done
@@ -405,6 +520,12 @@ enumerate_workspace_substrate_paths() {
 
   # Templates: glob workspace dir.
   if [ -d "${ws}/.claude/templates" ]; then
+    # CITE: single-path-segment + file-only glob (the `[ -f ]` filter skips
+    # directories, including .claude/templates/custom/ where custom templates
+    # live per the base-vs-custom convention; see
+    # substrate/operating-disciplines.md §23 + substrate/MAJOR_POLYBIUS.md §17.
+    # If a future change recurses or removes the file-only filter, custom
+    # templates would be flagged as OBSOLETE.
     for f in "${ws}/.claude/templates/"*; do
       [ -f "$f" ] || continue
       echo ".claude/templates/$(basename "$f")"
@@ -413,9 +534,21 @@ enumerate_workspace_substrate_paths() {
 
   # Skills: directory-level (per A4).
   if [ -d "${ws}/.claude/skills" ]; then
-    local d
+    # CITE: skip workspace-owned custom skills per the base-vs-custom convention.
+    # Custom skills use directory-name prefix `custom-` (forced by Claude Code's
+    # single-level skill discovery — substrate/operating-disciplines.md §23 +
+    # substrate/MAJOR_POLYBIUS.md §17). Substrate tools never see custom paths.
+    # Without this case-skip, every custom skill in the workspace would be
+    # classified as OBSOLETE on every check.sh run, polluting the verdict and
+    # routing the operator to --prune-obsolete (which D3 also scopes correctly,
+    # so no deletion — but the false OBSOLETE noise is the bug).
+    local d base
     for d in "${ws}/.claude/skills/"*/; do
-      echo ".claude/skills/$(basename "$d")/"
+      base="$(basename "$d")"
+      case "$base" in
+        custom-*) continue ;;
+      esac
+      echo ".claude/skills/${base}/"
     done
   fi
   shopt -u nullglob
@@ -582,12 +715,35 @@ check_workspace() {
   fi
 
   if [ "$tier" = "user" ]; then
-    printf "%-40s USER-TIER (out of v0 scope)\n" "$label"
-    echo "  user-tier check is not supported in v0 (the {{USER_TIER_DIR}}"
-    echo "  substitution can't be reliably re-derived without per-file markers)."
-    echo "  Manually diff with:"
-    echo "    cd \"${SUBSTRATE_DIR}\" && diff -u MAJOR_POLYBIUS.md \"${HOME}/.claude/MAJOR_POLYBIUS.md\""
-    return 0
+    # CITE: Arc 38 (bj5; A8) — user-tier check via .substrate-manifest. The
+    # manifest is written by install.sh at deploy time (substrate/install.sh
+    # write_substrate_manifest). Fall back to the friendly out-of-scope message
+    # if the manifest is absent (the workspace was deployed before Arc 38
+    # shipped). Manifest present → proceed with normal Pass 1/2/3 logic; the
+    # only changed call site is apply_substitutions -> apply_substitutions_from_manifest.
+    #
+    # NORMALIZE ws_abs to the PARENT of .claude/ so Pass 1/2/3 path
+    # construction (which prepends .claude/ via enumerate_deployed +
+    # enumerate_workspace_substrate_paths) matches project-tier shape. The
+    # registry line MAY be either $HOME or $HOME/.claude — detect_tier accepts
+    # both, but the rest of check.sh assumes <workspace>/.claude/<deployed-rel>
+    # so we normalize away the trailing /.claude here. (Ground-check finding
+    # during Arc 38 build: original design assumed Pass 1 worked transparently
+    # at user-tier; in fact it constructed double-.claude/ paths until this
+    # normalization landed. Documented in build verdict.)
+    if [ "${ws_abs%/.claude}" != "$ws_abs" ]; then
+      ws_abs="${ws_abs%/.claude}"
+    fi
+    local manifest="${ws_abs}/.claude/.substrate-manifest"
+    if [ ! -f "$manifest" ]; then
+      printf "%-40s USER-TIER (manifest missing — re-run install.sh --target user to deploy)\n" "$label"
+      echo "  The Arc 38 bj5 extension uses a manifest at <workspace>/.claude/.substrate-manifest"
+      echo "  to record substitutions applied by install.sh. The current deploy predates"
+      echo "  the manifest. Re-run install.sh --target user to write the manifest, then"
+      echo "  re-run check.sh."
+      return 0
+    fi
+    # Manifest present — fall through to Pass 1/2/3 below.
   fi
 
   # ----- Pass 1: DRIFTED + MISSING ------------------------------------------
@@ -645,10 +801,13 @@ check_workspace() {
     fi
 
     # Byte-compare deployed (LF-normalized) to source-after-substitutions
-    # (LF-normalized).
+    # (LF-normalized). Arc 38 (bj5; A8): manifest-driven substitution at user-tier
+    # via apply_substitutions_from_manifest; project-tier + subproject-tier fall
+    # through the same call (manifest may be present from a fresh install or
+    # absent in which case the function delegates to legacy apply_substitutions).
     local dep_norm src_norm
     dep_norm="$(normalize_lf < "$deployed_path")"
-    src_norm="$(apply_substitutions "$src_abs" "$dep" "$tier" "$slug" | normalize_lf)"
+    src_norm="$(apply_substitutions_from_manifest "$src_abs" "$dep" "$ws_abs" | normalize_lf)"
 
     if [ "$dep_norm" = "$src_norm" ]; then
       current_count=$((current_count + 1))

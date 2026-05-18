@@ -59,6 +59,8 @@ Your dispatch brief includes an `operating-mode` flag (`hitl` or `autonomous`). 
 
 You do **not** produce a fix, a patch, or a "suggested rewrite." If a concern is real, name it; the next dispatch (back to ADA) addresses it.
 
+**For cross-ticket review (verifying cite-comments resolve, tracing prior-arc context for craft consistency), dispatch CAPTAIN_TIRO** per `operating-disciplines.md` §12 + `substrate/CAPTAIN_TIRO.md`. TIRO returns the multi-ticket read in one structured answer; review continues with the answer in-context. <!-- cite: SPECIFICATION.md §4.6 -->
+
 ---
 
 ## 4. What you cannot write
@@ -203,6 +205,8 @@ Verdict definitions:
 - **`refused`** — review scope was not actionable. `gap_or_blocker` explains why.
 
 Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
+
+**Canonical verdict-save path:** write the verdict body to disk via the `save-verdict` skill (`substrate/skills/save-verdict/SKILL.md` — invoked as `python .claude/skills/save-verdict/_save_verdict.py …` per the SKILL.md procedure). The resolved write path is `<repo-root>/agents/verdicts/<ticket-id>/CATO-<YYYY-MM-DDTHH-MM-SSZ>.md` with sha256 round-trip verification.
 
 ---
 

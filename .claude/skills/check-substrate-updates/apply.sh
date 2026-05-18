@@ -103,6 +103,77 @@ apply_substitutions() {
   esac
 }
 
+# apply_substitutions_from_manifest <source-file> <deployed-rel-path> <workspace-abs>
+#
+# CITE: manifest-driven substitution per Arc 38 / bj5 / design.md §2.2 (A8 γ pick).
+# The manifest at <workspace>/.substrate-manifest is written by install.sh at deploy
+# time. Format invariant maintained at substrate/install.sh write_substrate_manifest.
+# If install.sh rotates manifest format, this parser must update. Fallback path:
+# legacy apply_substitutions() for project-tier no-manifest case (pre-Arc-38
+# behavior preserved). Mirror of check.sh function per existing share-via-inline
+# convention (check.sh:74-80).
+apply_substitutions_from_manifest() {
+  local source_file="$1"
+  local dep_rel="$2"
+  local ws_abs="$3"
+  # Manifest lives at <workspace>/.claude/.substrate-manifest (workspace = parent of .claude/).
+  local manifest="${ws_abs}/.claude/.substrate-manifest"
+
+  if [ ! -f "$manifest" ]; then
+    local tier_line tier slug
+    tier_line="$(detect_tier "$ws_abs")"
+    tier="${tier_line%% *}"
+    slug="${tier_line#* }"; slug="${slug# }"
+    apply_substitutions "$source_file" "$dep_rel" "$tier" "$slug"
+    return 0
+  fi
+
+  # CITE: format-version contract per Arc 40 / stoa--6n9. Mirror of check.sh
+  # header-scan; rejects unknown format-version. No `# format=` line ->
+  # treat as v1 (graceful fallback for pre-fix manifests). Companion
+  # write-site: substrate/install.sh write_substrate_manifest. Any
+  # install.sh that bumps v1->v2 MUST update this parser in the same arc.
+  local manifest_format
+  manifest_format="$(grep -E '^# format=v[0-9]+' "$manifest" 2>/dev/null | head -1 | sed -E 's/^# format=(v[0-9]+).*/\1/')"
+  if [ -n "$manifest_format" ] && [ "$manifest_format" != "v1" ]; then
+    echo "apply.sh: error: ${manifest} format=${manifest_format} unknown; this apply.sh expects v1. Re-run install.sh to re-deploy with a matching manifest, or update the check-substrate-updates skill." >&2
+    return 1
+  fi
+
+  # Array-form sed args; avoids the eval-pipe-interpretation bug.
+  local sed_args=()
+  local entry_path token replacement
+  while IFS=$'\t' read -r entry_path token replacement; do
+    case "$entry_path" in
+      ""|\#*) continue ;;
+    esac
+    if [ "$entry_path" = "$dep_rel" ]; then
+      case "$token$replacement" in
+        *"|"*) continue ;;
+      esac
+      # Escape sed metacharacters in the replacement value before splicing it
+      # into the s|...|...|g expression. Two-step (order matters):
+      #   1. backslash '\' → '\\' (so any pre-existing '\' is literalized)
+      #   2. ampersand '&' → '\&' (so '&' is read as literal, not "matched pattern")
+      # Without step 2, a future manifest entry whose replacement contains '&'
+      # would silently mangle the substitution (sed reads bare '&' in the RHS
+      # of s|...|...| as a back-reference to the entire matched pattern).
+      # Latent in the Arc 38 baseline writers (NAME_SUFFIX + USER_TIER_DIR
+      # contain no '&'). Mirror of check.sh fix per CATO rev1 c2 finding.
+      # Cross-ref: agents/design/stoa--ojz/design.md §2.2.
+      replacement="${replacement//\\/\\\\}"
+      replacement="${replacement//&/\\&}"
+      sed_args+=(-e "s|${token}|${replacement}|g")
+    fi
+  done < "$manifest"
+
+  if [ "${#sed_args[@]}" -eq 0 ]; then
+    cat "$source_file"
+  else
+    sed "${sed_args[@]}" "$source_file"
+  fi
+}
+
 # source_path_for_deployed — see check.sh for the canonical comment.
 source_path_for_deployed() {
   local dep="$1" tier="$2" slug="$3" suffix=""
@@ -199,8 +270,25 @@ if [ "$TIER" = "none" ]; then
   exit 2
 fi
 if [ "$TIER" = "user" ]; then
-  echo "apply.sh: error: user-tier apply is out of v0 scope; manually re-run install.sh against ~/.claude/" >&2
-  exit 2
+  # CITE: Arc 38 (bj5; A8) — user-tier apply via .substrate-manifest. If no
+  # manifest, fall back to the pre-Arc-38 refusal (telling the operator to
+  # re-run install.sh). Manifest present → proceed with normal apply flow;
+  # the only changed call site is apply_substitutions ->
+  # apply_substitutions_from_manifest.
+  #
+  # NORMALIZE WORKSPACE to the PARENT of .claude/ so the per-file dep_abs
+  # construction (deployed_path="${WORKSPACE}/${dep}" where dep starts with
+  # ".claude/") matches project-tier shape. The --workspace arg MAY be either
+  # $HOME or $HOME/.claude — detect_tier accepts both, but the rest of apply.sh
+  # assumes <workspace>/.claude/<deployed-rel>. Same normalization shape as
+  # check.sh's user-tier branch.
+  if [ "${WORKSPACE%/.claude}" != "$WORKSPACE" ]; then
+    WORKSPACE="${WORKSPACE%/.claude}"
+  fi
+  if [ ! -f "${WORKSPACE}/.claude/.substrate-manifest" ]; then
+    echo "apply.sh: error: user-tier workspace missing .claude/.substrate-manifest; re-run install.sh --target user to deploy the manifest, then re-run apply.sh." >&2
+    exit 2
+  fi
 fi
 
 # ----- assemble the file list to apply ---------------------------------------
@@ -276,6 +364,21 @@ applied_role_files=()
 applied_role_deltas=()
 
 for dep in "${FILES[@]}"; do
+  # CITE: explicit refusal at custom-path patterns. Substrate tools never
+  # touch custom files (substrate/operating-disciplines.md §23 + substrate/
+  # MAJOR_POLYBIUS.md §17). check.sh's --all-differing harvester already
+  # filters these out (D4); this guard catches the direct --files <path>
+  # surface where an operator could pass a custom-path file explicitly.
+  # Refusal (not skip) because the operator's stated intent — "apply this
+  # file" — is mismatched against the convention; a silent skip would mislead.
+  case "$dep" in
+    .claude/agents/custom/*|\
+    .claude/skills/custom-*|\
+    .claude/templates/custom/*)
+      echo "apply.sh: refusing to apply to custom-path file (substrate tools never touch custom — see substrate/operating-disciplines.md §23): $dep" >&2
+      continue
+      ;;
+  esac
   src_rel="$(source_path_for_deployed "$dep" "$TIER" "$SLUG")"
   if [ -z "$src_rel" ]; then
     echo "apply.sh: skipping (not a substrate-derived path): $dep"
@@ -289,8 +392,11 @@ for dep in "${FILES[@]}"; do
   dep_abs="${WORKSPACE}/${dep}"
 
   # Build the substituted source content into a tempfile so we can diff and copy.
+  # Arc 38 (bj5; A8): manifest-driven substitution; falls back to legacy
+  # apply_substitutions when the workspace has no manifest (project-tier
+  # pre-Arc-38 behavior preserved).
   tmp_src="$(mktemp)"
-  apply_substitutions "$src_abs" "$dep" "$TIER" "$SLUG" > "$tmp_src"
+  apply_substitutions_from_manifest "$src_abs" "$dep" "$WORKSPACE" > "$tmp_src"
 
   # Optional consent prompt + diff display.
   if [ "$ASSUME_YES" -eq 0 ]; then

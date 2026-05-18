@@ -119,7 +119,7 @@ Per-claim probe shapes per the framework's hard-easy quadrant (one-sentence quad
 | Source-code citation (file:line at commit) | hard-easy | Re-fetch source at the claimed commit; grep for the claimed line. Match or fail. ~3s cost per claim. |
 | Documentation citation (URL + paragraph) | hard-easy | Re-fetch URL; read surrounding context; confirm STRABO interpretation isn't stretched. Low cost per claim. |
 | Behavioral claim about a tool / library | easy-hard | Re-run the behavior; check it survives across reasonable inputs. INCOMPLETE-verdict if behavior is intermittent / configuration-dependent. |
-| Synthesis claim ("every mature project of class X has feature Y") | hard-hard | UNVERIFIABLE per §5.7. Cited individual examples can be sanity-checked (one cheap probe each); the synthesis claim itself is unbounded and surfaces to operator. |
+| Synthesis claim ("every mature project of class X has feature Y") | hard-hard | UNVERIFIABLE per §15.4. Cited individual examples can be sanity-checked (one cheap probe each); the synthesis claim itself is unbounded and surfaces to operator. |
 
 The first two shapes are cheap and would have caught the 2026-05-12 STRABO fabrication (the case where `internal/issue/id.go:128` was cited as containing code that has never existed in the file's history). The fourth is where STRABO is most likely to overreach; the discipline is to refuse the synthesis-claim verdict autonomously rather than manufacture a confidence number.
 
@@ -150,6 +150,67 @@ Four beats:
 **`Monitor` is forbidden from this seat.** Firing `Monitor` from inside a CAPTAIN dispatch orphans the Monitor ([issue #23154](https://github.com/anthropics/claude-code/issues/23154)). The orchestrator owns `Monitor`; you heartbeat.
 
 **`run_in_background: true` on Bash is forbidden from this seat.** Same orphan-bug surface. Background work belongs to the orchestrator; if a probe genuinely needs background-style compute (e.g., a 10,000-iteration stress test), name the gap in your verdict and let MAJOR_PLINY dispatch a separate sub-task.
+
+### 5.10 PRINCIPAL-gate discipline (refuse to execute past the gate)
+
+When executing a probe whose spec carries a PRINCIPAL-gating clause (per `operating-disciplines.md` §25 — e.g., a probe spec that says "PRINCIPAL authorizes per-execution"), the discipline is:
+
+1. **Read the probe spec for PRINCIPAL-gating clauses** before executing. If the spec names PRINCIPAL-gates, verify the dispatch brief carries explicit per-execution authorization for THIS probe execution (not a design-time blanket clause). If authorization is absent, refuse: return `status: paused` with `gap_or_blocker: probe pN carries PRINCIPAL-gating clause; per-execution authorization absent from brief; halting before execution.`
+2. **Probes that mutate real (operator-owned) workspaces are a sub-case.** See `operating-disciplines.md` §25.5 for the universal probe-design rule; the canonical pattern is throwaway clone via `git clone --no-local`:
+
+   ```bash
+   git clone --no-local <real-workspace-path> /tmp/<probe-name>-probe
+   ```
+
+   If the probe spec requires mutation-against-real-workspace AND lacks per-execution authorization, refuse per item 1. Do NOT improvise a "I'll be careful" workaround; the empirical anchor (Arc 26 Probe 8 → `stoa--501`) is exactly this failure mode.
+3. **An "autonomous-mode" dispatch brief does NOT authorize past gates.** Autonomous mode is a cadence discipline; PRINCIPAL-gates are an authorization discipline (§25.2). The two are orthogonal. Inheriting autonomous mode in the dispatch brief does NOT grant per-execution authorization for a PRINCIPAL-gated probe.
+
+The Arc 26 empirical anchor: VERA executed Probe 8 against sector-4 (a real workspace) under autonomous mode; the design clause `PRINCIPAL-discretion per design §6` was treated as post-hoc-disposition; the probe produced 4 unauthorized `apply.sh` auto-commits + 1 restored CAPTAIN. This discipline + the §25.5 throwaway-clone pattern close that loop.
+
+**Cross-refs:** `operating-disciplines.md` §25 (universal canon) + §25.2 (two-axis) + §25.5 (probe-design sub-case — universal locus; §5.10 is the seat-specific refusal protocol that points at it from item 2) + `CAPTAIN_DAEDALUS.md` §6.7 (upstream catch-point) + Arc 26 anchor (`stoa--dxw`, `stoa--501`).
+
+### 5.11 Probe-spec regex anchoring discipline
+
+When a probe-spec authored by DAEDALUS matches a canonical template fragment
+in substrate prose, the verbatim regex pattern often false-positives because
+the substrate prose itself documents the template (canonical template + example
+documentation + cross-references all match the same fragment). The probe's
+intended single-match returns N matches; the probe "passes" mechanically but
+verifies nothing because the assertion is on count rather than location.
+
+**The discipline (at probe-execution time).** Before executing a probe whose
+spec contains a verbatim regex matching against substrate prose, examine the
+spec for:
+
+1. **Anchoring** — is the pattern anchored with `^` (line start), `$` (line
+   end), or a unique surrounding-context substring that disambiguates the
+   intended single match from documentation prose?
+2. **Expected count** — does the spec name the expected match count
+   explicitly (e.g., `expected: exactly 1 match`) or just check non-zero
+   (which would pass on N>1)?
+3. **Falsifying-evidence clause** — does the spec include an "OR emits with
+   wrong shape" clause so a passing-count-but-wrong-content match is caught?
+
+If any of these three is missing, surface the gap in `methodology_concerns:`
+rather than executing the underspecified probe and recording a misleading
+PASS. The probe author (DAEDALUS) revises the spec; VERA re-executes against
+the revised spec on next dispatch.
+
+**Empirical anchor.** Arc 24 Phase 3 (2026-05-13): probe p44 (then p35) used
+verbatim regex `last=` against MAJOR_PLINY.md to verify the canonical
+poll-loop template start. Two matches found (lines 258 + 273) — one in the
+python template body (intended), one in the example documentation
+(false-positive). Anchored variant `^last=` returns 1 match. Non-blocking for
+Arc 24 ship; promoted to canon here. Source ticket: `stoa--3sz`. Discipline-
+shipped arc: Arc 40 (`stoa--utn`).
+
+**Cross-refs:** `MAJOR_PLINY.md` §5.8.3 (the canonical site whose template
+fragment the Arc 24 probe under-anchored); `CAPTAIN_DAEDALUS.md` §6.8 (the
+authoring-side sibling discipline for canonical-template wording alignment —
+together, §6.8 keeps the authoring side aligned and §5.11 keeps the
+verification side honest about what the probe actually verifies);
+`CAPTAIN_VERA.md` §5.7 (verification-complexity quadrant — anchored-probe
+discipline is an easy-easy / mechanical refinement, not a quadrant shift).
 
 ---
 
@@ -186,6 +247,8 @@ Verdict definitions:
 - **`inconclusive`** — probes ran but the result is ambiguous (a probe's expected outcome was vague, an environmental dependency made the result unreliable). Treated as a fail for routing; MAJOR_PLINY decides whether to sharpen probes or accept the inconclusive result.
 
 Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
+
+**Canonical verdict-save path:** write the verdict body to disk via the `save-verdict` skill (`substrate/skills/save-verdict/SKILL.md` — invoked as `python .claude/skills/save-verdict/_save_verdict.py …` per the SKILL.md procedure). The resolved write path is `<repo-root>/agents/verdicts/<ticket-id>/VERA-<YYYY-MM-DDTHH-MM-SSZ>.md` with sha256 round-trip verification. INCOMPLETE / UNVERIFIABLE verdict shapes (`operating-disciplines.md` §15.4) carry additional required fields the skill validates at exit 4 before writing.
 
 ---
 

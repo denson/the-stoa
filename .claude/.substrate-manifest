@@ -1,0 +1,23 @@
+# Stoa substrate deploy manifest — substitutions applied to deployed files.
+# Written by install.sh at deploy time. Read by check.sh + apply.sh to normalize.
+# Format: <deployed-relative-path>\t<token>\t<replacement>
+# DO NOT EDIT MANUALLY. install.sh rewrites this file on every re-run.
+# format=v1
+#
+# tier=project
+# deployed_at=2026-05-18T08:27:39Z
+# substrate_sha=84d7310
+
+.claude/MAJOR_POLYBIUS.md	{{NAME_SUFFIX}}	_the_stoa
+.claude/MAJOR_PLINY.md	{{NAME_SUFFIX}}	_the_stoa
+.claude/agents/CAPTAIN_DAEDALUS_the_stoa.md	{{NAME_SUFFIX}}	_the_stoa
+.claude/agents/CAPTAIN_ARGUS_the_stoa.md	{{NAME_SUFFIX}}	_the_stoa
+.claude/agents/CAPTAIN_ADA_the_stoa.md	{{NAME_SUFFIX}}	_the_stoa
+.claude/agents/CAPTAIN_VERA_the_stoa.md	{{NAME_SUFFIX}}	_the_stoa
+.claude/agents/CAPTAIN_CATO_the_stoa.md	{{NAME_SUFFIX}}	_the_stoa
+.claude/agents/CAPTAIN_STRABO_the_stoa.md	{{NAME_SUFFIX}}	_the_stoa
+.claude/agents/CAPTAIN_BARTLEBY_the_stoa.md	{{NAME_SUFFIX}}	_the_stoa
+.claude/agents/CAPTAIN_HERALD_the_stoa.md	{{NAME_SUFFIX}}	_the_stoa
+.claude/agents/CAPTAIN_CURATOR_the_stoa.md	{{NAME_SUFFIX}}	_the_stoa
+.claude/agents/CAPTAIN_ZENO_the_stoa.md	{{NAME_SUFFIX}}	_the_stoa
+.claude/agents/CAPTAIN_TIRO_the_stoa.md	{{NAME_SUFFIX}}	_the_stoa

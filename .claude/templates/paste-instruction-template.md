@@ -2,9 +2,9 @@
 author: Denson Smith
 ---
 
-# Paste-instruction template — MAJOR_PLINY activation
+# Paste-instruction template — MAJOR_PLINY and MAJOR_POLYBIUS activation
 
-The template MAJOR_POLYBIUS fills per session to produce the paste-instruction that activates MAJOR_PLINY (the ORCHESTRATOR) in a fresh terminal. The static `MAJOR_PLINY.md` role file is universal; the wrapper that activates it is session-specific. POLYBIUS fills the slots from its conversation with the PRINCIPAL, writes the filled result to disk under `HUMAN_paste-orchestrator-instruction.md`, and hands the PRINCIPAL a one-line pointer.
+The template MAJOR_POLYBIUS fills per session to produce the paste-instruction that activates MAJOR_PLINY (the ORCHESTRATOR), or that user-tier MAJOR_POLYBIUS fills to activate a project-tier MAJOR_POLYBIUS, in a fresh terminal. The static role files (`MAJOR_PLINY.md`, `MAJOR_POLYBIUS.md`) are universal; the wrapper that activates them is session-specific. The filling seat (typically POLYBIUS) fills the slots from its conversation with the PRINCIPAL, writes the filled result to disk under `HUMAN_paste-<target>-instruction.md` (e.g., `HUMAN_paste-orchestrator-instruction.md` for PLINY, `HUMAN_paste-polybius-arc-<N>-instruction.md` for a POLYBIUS-targeted arc dispatch), and hands the PRINCIPAL a one-line pointer.
 
 Architecture authority: `user-beadwork/plans/three-role-recursive-architecture.md` (v2). The string-substitution mechanism is settled in §8 ("Custom paste-instruction templating mechanism") and traces back to `u--7yg.13`. The on-disk-with-short-paste pattern is the **durable-substrate-with-short-prompts** discipline (v2 §8) — substantive content lives on disk; the chat paste is one line.
 
@@ -43,9 +43,47 @@ Read {{ROLE_FILE_PATH}} and assume the orchestrator role for {{PROJECT_NAME}}.
 
 Your immediate intent for this session: {{SESSION_INTENT}}
 
+{{CRON_HYGIENE_CLAUSE}}
+
+{{PRE_BRANCH_HYGIENE_CLAUSE}}
+
 Check beadwork ({{BW_PREFIX}}-- prefix) for pending directives from MAJOR_POLYBIUS{{PENDING_DIRECTIVES_CLAUSE}}.
 
 If compaction or /clear erases your role, re-read this paste from {{ON_DISK_PATH}} in the project root.
+```
+
+`{{CRON_HYGIENE_CLAUSE}}` expands to the preamble below by default in every PLINY-targeted AND POLYBIUS-targeted activation paste — included by default, not gated on POLYBIUS's session-by-session judgment. POLYBIUS may suppress to empty string ONLY on explicit recognition that the activation will not plausibly need cron management (e.g., a one-shot read-only orientation paste with no polling and no agent dispatches). Default-include is the safety property: the cost of including the preamble when no orphan cron is present is one `CronList` call returning empty; the cost of omitting it on a session that does inherit an orphan cron from a prior `/clear`'d context is a surprise polling cycle the operator does not see. When the clause is suppressed to empty, the surrounding blank lines collapse.
+
+The preamble (the default expansion):
+
+```
+Cron hygiene FIRST (before any substantive work): this session may carry an
+orphaned cron from a prior /clear'd context. Run CronList; if any cron is
+present, CronDelete it. Then proceed as appropriate for the role
+(surface-and-wait per MAJOR_PLINY.md §6.2 for PLINY; cron-scheduled polling
+per operating-disciplines.md §7.2 for POLYBIUS radio-check engagements;
+or other per the role file). Defense-in-depth.
+```
+
+`{{PRE_BRANCH_HYGIENE_CLAUSE}}` expands to the preamble below by default in every PLINY-targeted activation paste — included by default, not gated on POLYBIUS's session-by-session judgment. POLYBIUS may suppress to empty string ONLY on explicit recognition that the activation will not plausibly create an arc-build branch (e.g., a recovery paste for a documented non-arc engagement). Default-include is the safety property: the cost of including the preamble when not branching is one paragraph PLINY reads and skips; the cost of omitting it on a session that pivots to arc work mid-engagement is the bundled-squash pattern this arc exists to prevent. When the clause is suppressed to empty, the surrounding blank lines collapse.
+
+The preamble (the default expansion):
+
+```
+Pre-branch hygiene per MAJOR_PLINY.md §5.9: before creating arc-N/build, run two checks.
+
+Check 1 (no other arc-build branch in flight):
+  git branch | grep -E '^\s*arc-[0-9]+/build$'    # must be empty
+
+Check 2 (local main = origin/main):
+  git fetch origin main
+  git log --oneline main..origin/main             # must be empty
+  git log --oneline origin/main..main             # must be empty
+
+If either check fails, surface to user-tier POLYBIUS (or PRINCIPAL via [for: PRINCIPAL]
+tag when user-tier unavailable) with the specific state observed. Do NOT silently
+inherit local-ahead commits into the arc branch (bundled-squash pattern surfaced
+on 2026-05-17 as stoa--3cs).
 ```
 
 `{{PENDING_DIRECTIVES_CLAUSE}}` expands to ` — start with: {{PENDING_DIRECTIVES}}` when pending directives are named; otherwise it expands to empty string and the preceding sentence ends after `MAJOR_POLYBIUS`.
@@ -69,6 +107,28 @@ The filled paste-instruction:
 Read .claude/MAJOR_PLINY.md and assume the orchestrator role for agent-character-builder.
 
 Your immediate intent for this session: Ship the v0.2 character profile UI per acb-101.
+
+Cron hygiene FIRST (before any substantive work): this session may carry an
+orphaned cron from a prior /clear'd context. Run CronList; if any cron is
+present, CronDelete it. Then proceed as appropriate for the role
+(surface-and-wait per MAJOR_PLINY.md §6.2 for PLINY; cron-scheduled polling
+per operating-disciplines.md §7.2 for POLYBIUS radio-check engagements;
+or other per the role file). Defense-in-depth.
+
+Pre-branch hygiene per MAJOR_PLINY.md §5.9: before creating arc-N/build, run two checks.
+
+Check 1 (no other arc-build branch in flight):
+  git branch | grep -E '^\s*arc-[0-9]+/build$'    # must be empty
+
+Check 2 (local main = origin/main):
+  git fetch origin main
+  git log --oneline main..origin/main             # must be empty
+  git log --oneline origin/main..main             # must be empty
+
+If either check fails, surface to user-tier POLYBIUS (or PRINCIPAL via [for: PRINCIPAL]
+tag when user-tier unavailable) with the specific state observed. Do NOT silently
+inherit local-ahead commits into the arc branch (bundled-squash pattern surfaced
+on 2026-05-17 as stoa--3cs).
 
 Check beadwork (acb-- prefix) for pending directives from MAJOR_POLYBIUS — start with: acb-101.
 
