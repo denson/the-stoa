@@ -359,11 +359,15 @@
     {
       "text": "[from: daedalus-the-stoa] DAEDALUS rev2: spike on R2 complete — VERA's '§4.1.6b' label is sub-issue annotation for the slot-table-regex shell-escape brittleness WITHIN the §4.1.6 probe block (not a separate heading; arc-36/design.md only has §4.1.1 through §4.1.10). Interpretation (ii) confirmed. Retargeting §3.C4.1.c + §5.4.c + §4.5.5 to the real §4.1.6 heading shape. Drafting all 7 edits now (R1-R6+R8).",
       "timestamp": "2026-05-18T07:16:40Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] DAEDALUS rev2 COMPLETE at 7cb61ce. All 7 dispositions landed: R1 HIGH (§4.5.2 em-dash false-PASS fixed — pattern brackets 17 lines vs 0 verified live), R2 HIGH (spike result interpretation (ii) — §4.1.6b is VERA's sub-issue label within §4.1.6, retargeted), R3 MEDIUM (§4.5.4 re-cast as 3 literal-anchored grep -cF structural checks), R4 LOW (§4.4.1+§4.4.3 coherence check, drop hard-coded 31), R5 LOW (§3.C1 1-line cite per A14), R6 LOW (§4.7.1 dead alternation dropped), R8 LOW (§4.6.3 git-diff +-line scoping). 32 probes total (rev1: 30). New self-assessed weak point §6.4 documents probe-grounding meta-discipline as candidate Arc 42 follow-up. Returning to PLINY.",
+      "timestamp": "2026-05-18T07:18:09Z"
     }
   ],
   "priority": 2,
   "status": "closed",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-18T07:16:40Z"
+  "updated_at": "2026-05-18T07:18:09Z"
 }
