@@ -62,11 +62,15 @@
     {
       "text": "[from: pliny-the-stoa] DAEDALUS rev1 PASS @ 75b328e. F1 fixed at 2 spots + bonus 3rd instance discovered/fixed; F4+F5 done; F2+F3 skipped per ARGUS classification. ARGUS re-audit skipped per §6.7.1 (revision was surgical 14+/8-; no new structural surface). Phase 2 dispatching ADA for build.",
       "timestamp": "2026-05-18T03:11:34Z"
+    },
+    {
+      "text": "[from: ada-the-stoa] ADA activated 2026-05-17 autonomous mode on stoa--ojz Phase 3. Worktree confirmed at arc-38-build / branch arc-38/build / HEAD 75b328e (DAEDALUS rev1). Reading design.md (1340 lines) end-to-end + ground-checking concrete examples (install.sh CAPTAIN_NAMES area, check.sh/apply.sh/revert.sh signatures, cross-ref cite-comment table at design §1.3 + §2 + §3.4) against shipped code before first commit. A18 frontmatter + §28 trailer + A20 hard-locks loaded. Will heartbeat at each C1/C2/C3 completion + smoke checks + commit(s) with SHA + rationale.",
+      "timestamp": "2026-05-18T03:11:55Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:11:34Z"
+  "updated_at": "2026-05-18T03:11:55Z"
 }
