@@ -5,3 +5,7 @@
 
 # Stoa install.sh single-shot backup of CLAUDE.md (overwritten each --modify-claude-md run)
 CLAUDE.md.bak
+
+# Python bytecode cache (introduced Arc 39 with save-verdict skill — first Python in substrate/)
+__pycache__/
+*.pyc

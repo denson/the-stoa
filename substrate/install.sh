@@ -146,6 +146,7 @@ SKILL_NAMES=(
   check-bw-release
   inspect-script-output
   handoff-author
+  save-verdict
 )
 
 # Marker line written into CLAUDE.md when --modify-claude-md is used; presence
