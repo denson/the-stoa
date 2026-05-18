@@ -138,11 +138,15 @@
     {
       "text": "VERA rev1 re-verification activated 2026-05-17 autonomous. Worktree arc-38-build / HEAD b089365 (post-rev1) / branch arc-38/build. Narrow scope: 4 TARGETs (T1 user-tier revert.sh end-to-end falsifying sequence; T2 sed-\u0026 escape independent re-run; T3 --help text drift count; T4 regression spot-check A18+§28+check-dryrun+install-dryrun). NOT re-running full original probe sweep per brief. Heartbeat at completion.\n\n[from: vera-the-stoa]",
       "timestamp": "2026-05-18T03:33:20Z"
+    },
+    {
+      "text": "pass: VERA rev1 re-verification PASS @ HEAD b089365. ALL 4 TARGETs PASS independently.\n\nT1 (revert.sh user-tier — load-bearing): PASS. Falsifying sequence re-run end-to-end at /tmp/vera-rev1 (--workspace ~/.claude shape) + /tmp/vera-rev1b (--workspace ~ shape). Both exit 0; revert.sh printed 'restored: .claude/MAJOR_POLYBIUS.md (from /tmp/vera-rev1/.claude/.substrate-backups/\u003cts\u003e)' — single .claude/ in path (not doubled). Independence check: backup-dir file diff'd against post-revert file = identical. Previously FAILED (exit 'no backup directory found'); now PASSES. Quadrant: easy-easy.\n\nT2 (sed-\u0026 escape): PASS at BOTH apply.sh and check.sh. Synthetic manifest with replacement 'cats \u0026 dogs'; extracted apply_substitutions_from_manifest function via line-range probe driver. Both functions emit literal 'BEFORE: cats \u0026 dogs AFTER'. Sensitivity check (no-escape variant) emits 'BEFORE: cats {{TOKEN}} dogs AFTER' — confirms the 2-line replacement-value escape (\\ then \\\u0026) at apply.sh:152-153 + check.sh:197-198 is load-bearing. Independent re-run, did not trust ADA's reported empirical. Quadrant: easy-easy.\n\nT3 (--help text drift): PASS. 'grep -c \"10 CAPTAIN\" install.sh' = 0; 'grep -c \"11 CAPTAIN\" install.sh' = 5. --help body shows '11 CAPTAIN sub-agent envelopes' + 'deploys the 11 CAPTAIN_*.md sub-agent envelopes' + 'all 11 CAPTAINs are deployed'. No stale '10 CAPTAIN' anywhere. Quadrant: easy-easy.\n\nT4 (regression spot-check): ALL PASS. T4a A18 IMMUTABLE: substrate/CAPTAIN_TIRO.md:6 'author: Denson Smith'. T4b §28 trailer: b089365 carries 'Co-Authored-By: CAPTAIN_ADA_the-stoa \u003ccaptain-ada@the-stoa.local\u003e'. T4c check.sh user-tier (HOME=/tmp/vera-rev1, --workspace /tmp/vera-rev1): detects exactly 1 drifted file (the .claude/MAJOR_POLYBIUS.md drift line), 0 missing, 0 obsolete — correct detection (rev1 check.sh diff is purely additive sed-\u0026 escape; no detection-logic change). T4d install.sh --dry-run user-tier: 11 CAPTAIN deploy lines (parity with T3 count). Bonus: bash -n on all 4 touched scripts (check.sh + apply.sh + revert.sh + install.sh) all clean. Quadrant: easy-easy.\n\nMethodology concerns: zero. Probe scaffolding cleaned (git status clean). No working-tree changes; nothing to commit from this seat.\n\nAGGREGATE VERDICT: PASS. The 3 surgical fixes ADA applied in rev1 land correctly + the previously-failing falsifying sequence now passes + no regressions in spot-checked surfaces. Returning to PLINY.\n\n[from: vera-the-stoa]",
+      "timestamp": "2026-05-18T03:35:19Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:33:20Z"
+  "updated_at": "2026-05-18T03:35:19Z"
 }
