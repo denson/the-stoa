@@ -206,6 +206,8 @@ Verdict definitions:
 
 Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
 
+**Canonical verdict-save path:** write the verdict body to disk via the `save-verdict` skill (`substrate/skills/save-verdict/SKILL.md` — invoked as `python .claude/skills/save-verdict/_save_verdict.py …` per the SKILL.md procedure). The resolved write path is `<repo-root>/agents/verdicts/<ticket-id>/CATO-<YYYY-MM-DDTHH-MM-SSZ>.md` with sha256 round-trip verification.
+
 ---
 
 ## 8. When this file is wrong

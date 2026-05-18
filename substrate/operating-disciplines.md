@@ -879,6 +879,8 @@ Operator decides whether the bound is sufficient. **INCOMPLETE does NOT gate mer
 
 UNVERIFIABLE also does not gate merge on its own. The verdict is honest output, not a failure.
 
+**Canonical write-path for INCOMPLETE + UNVERIFIABLE verdict bodies.** The `save-verdict` skill (`substrate/skills/save-verdict/SKILL.md`) validates shape-conformance for both new verdict shapes before writing. INCOMPLETE requires `quadrant_classification` + `coverage_description`; UNVERIFIABLE requires `quadrant_classification` + `sanity_check_performed` + `recommended_next_step`. Missing-required-field or out-of-enum cases exit 4 BEFORE any file write. Verdict bodies land at `agents/verdicts/<ticket-id>/<CAPTAIN>-<timestamp>.md` with sha256 round-trip verification (see also `CAPTAIN_VERA.md` / `CAPTAIN_CATO.md` / `CAPTAIN_ARGUS.md` §6 / §7 verdict-emit cross-refs).
+
 ### 15.5 Time/cost-box defaults
 
 **Bounded verification is bounded, not unlimited.** Two defaults:
@@ -1092,6 +1094,8 @@ The discipline does not enforce a literal string. The SHAPE is what matters: exp
 Empirical anchor: 2026-05-12 ariadne PLINY incident. PLINY dispatched ADA in a background Agent call; PRINCIPAL asked "is ADA stuck?"; PLINY asserted "I never made the Agent tool call. The dispatch sentence was a stub I didn't follow through on." PRINCIPAL caught via the Tasks pane, which clearly showed ADA running. PLINY's own post-incident diagnostic: *"The truthful state was: 'I cannot verify from my context window whether the dispatch fired.' That's a different statement, and it would have triggered a verify-first check (read directory, list running agents, etc.) instead of a confident negation."*
 
 **2. State-vs-claim mismatch.** When the user (or peer agent) reports something that contradicts your model — e.g., "but the screenshot clearly shows X" — assume the external evidence is correct and your model is wrong, until proven otherwise. Investigate before doubling down. The discipline broadens verify-then-execute (which targets tool calls and directive-author errors) to general state-vs-claim mismatch from any source.
+
+**PRINCIPAL-intent extrapolation as a state-vs-claim sub-pattern (Arc 39 / `stoa--ezj`).** When the work item you are about to queue or design depends on an upstream PRINCIPAL-intent decision that has not been probed, the inferred intent is a CLAIM you are about to act on without verification. The verification action is to probe PRINCIPAL explicitly rather than queuing on inferred intent. The category-first canonical probe sequence (3 steps: category → shape-within-category → specifics-within-shape) is documented at `MAJOR_PLINY.md` §7.2 (queuing-time application) and `MAJOR_POLYBIUS.md` §4.3.1 (relay-time application). PRINCIPAL-intent extrapolation joins the four-discipline cluster around "probe ground truth before designing on top of inferred state" — tool-state (`stoa--nvl`), retrospective-state (`stoa--53u`), PRINCIPAL-intent-state (`stoa--ezj`), and the general "uncertain, checking" parent (`stoa--ioy`).
 
 **3. Unfamiliar territory.** When you don't recognize a concept, library, error message, or behavior — say so. Don't pattern-match against the nearest familiar thing and invent a clean narrative. "I don't recognize this; let me look it up" is honest; "this is X behavior" when you're 40% confident is confabulation.
 

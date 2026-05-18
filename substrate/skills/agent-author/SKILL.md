@@ -1,6 +1,7 @@
 ---
 name: agent-author
 description: Draft a new agent role file (pair-programmer MAJOR, specialized CAPTAIN, or LIEUTENANT skill envelope) from a template basis, with voice-discipline check applied. POLYBIUS invokes this when authoring a new agent on-demand — examples include spawning a pair-programmer MAJOR for a fast-prototyping task (PYTHAGORAS for Python, ATTICUS for editorial, CODEX for TypeScript, LEX for regulation), adding a new specialized CAPTAIN to the substrate canon, or extending the substrate's LIEUTENANT roster. Reads a template existing role file as basis, substitutes the new agent's name / mnemonic / specialization / responsibilities, runs the v2 voice-discipline check (PRINCIPAL/HUMAN throughout, no COLONEL leakage, no second-person framing), and writes the draft directly to substrate for working-tree review before commit. Triggers on requests like "author a new agent", "draft a pair-programmer for X", "create a CAPTAIN for Y", "spawn ATTICUS / PYTHAGORAS / CODEX / LEX", or any phrasing that maps to "produce a new agent role file from a template".
+author: Denson Smith
 ---
 
 # agent-author — draft a new agent role file with voice-discipline check applied
