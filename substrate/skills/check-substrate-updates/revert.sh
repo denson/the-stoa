@@ -51,6 +51,22 @@ done
 [ -d "$WORKSPACE" ] || { echo "revert.sh: error: workspace does not exist: $WORKSPACE" >&2; exit 2; }
 WORKSPACE="$(cd "$WORKSPACE" && pwd)"
 
+# NORMALIZE WORKSPACE to the PARENT of .claude/ so all downstream path
+# construction (backup_root="${WORKSPACE}/.claude/.substrate-backups" at
+# line ~107, dest="${WORKSPACE}/${f}" in the restore loop) matches the
+# project-tier shape. The --workspace arg MAY be either $HOME or $HOME/.claude
+# (user-tier) — both should resolve to the same canonical WORKSPACE value
+# (parent-of-.claude). This is the same 3-line strip applied in apply.sh
+# (~lines 255-263) and check.sh (~lines 705-707) — lifted verbatim per Arc 38
+# rev1 fix (VERA falsifying-probe finding: revert.sh at user-tier constructed
+# <ws>/.claude/.claude/.substrate-backups before this normalization landed).
+# Cross-ref: agents/design/stoa--ojz/design.md §2.4.3 (the design's claim
+# 'revert.sh works at user-tier transparently' was falsified — this 3-line
+# strip is the minimal fix that restores the claim).
+if [ "${WORKSPACE%/.claude}" != "$WORKSPACE" ]; then
+  WORKSPACE="${WORKSPACE%/.claude}"
+fi
+
 # ----- detect path -----------------------------------------------------------
 
 USE_GIT=0

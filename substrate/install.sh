@@ -10,7 +10,7 @@
 # Per the architecture spec (three-role-recursive-architecture.md §8): this is
 # the TEMPLATE. MAJOR_POLYBIUS rewrites a session-specific install per user
 # conversation at deploy time. This script does only the non-conversational
-# mechanical deploy: drops the two MAJOR role files, deploys the 10 CAPTAIN
+# mechanical deploy: drops the two MAJOR role files, deploys the 11 CAPTAIN
 # sub-agent envelopes (unless --no-captains), deploys the templates/ runtime
 # tooling (unless --no-templates), deploys LIEUTENANT skills under
 # <DEST>/.claude/skills/ (always — POLYBIUS invokes them via the Skill tool;
@@ -35,7 +35,7 @@
 # backup is single-shot (overwritten on each subsequent run); git is the
 # long-term archive — the .bak file is for "oops" recovery only.
 #
-# CAPTAIN envelopes: by default the script deploys the 10 CAPTAIN_*.md sub-agent
+# CAPTAIN envelopes: by default the script deploys the 11 CAPTAIN_*.md sub-agent
 # envelopes from this directory to <target>/.claude/agents/. At project-tier the
 # files are suffixed with _<sanitized-project> (e.g. CAPTAIN_DAEDALUS_my_project.md)
 # and the {{NAME_SUFFIX}} slot in the YAML frontmatter's `name:` field is filled
@@ -73,7 +73,7 @@
 # --subproject <slug>. The sub-project lives at <parent>/<subproject>/, sharing
 # the parent's git repo and beadwork. Both MAJOR_POLYBIUS.md and MAJOR_PLINY.md
 # are deployed with the _<subproject> filename suffix (parallel to CAPTAINs);
-# all 10 CAPTAINs are deployed with the same suffix. Subproject mode does NOT
+# all 11 CAPTAINs are deployed with the same suffix. Subproject mode does NOT
 # modify any CLAUDE.md (parent's stays as-is; sub-project does not get its own),
 # does NOT redeploy templates (sub-project reads parent's at <parent>/.claude/
 # templates/), and does NOT run bw init (sub-project shares parent's bw repo).
@@ -116,7 +116,7 @@ TEMPLATE_NAMES=(
   handoff-doc-template.md
 )
 
-# The 10 CAPTAIN envelope source files. Order is the gauntlet pipeline order
+# The 11 CAPTAIN envelope source files. Order is the gauntlet pipeline order
 # (DAEDALUS through CATO) followed by the support seats; ordering only affects
 # log output, not correctness.
 CAPTAIN_NAMES=(
@@ -637,7 +637,7 @@ fi
 if [ "$SUFFIX_MAJORS" -eq 1 ]; then
   echo "  MAJOR files      : suffixed (MAJOR_POLYBIUS${NAME_SUFFIX}.md, MAJOR_PLINY${NAME_SUFFIX}.md)"
 fi
-echo "  deploy CAPTAINs  : $([ "$WITH_CAPTAINS" -eq 1 ] && echo "yes (10 envelopes to ${DEST_AGENTS_DIR})" || echo "no (--no-captains)")"
+echo "  deploy CAPTAINs  : $([ "$WITH_CAPTAINS" -eq 1 ] && echo "yes (11 envelopes to ${DEST_AGENTS_DIR})" || echo "no (--no-captains)")"
 if [ "$WITH_CAPTAINS" -eq 1 ] && [ -n "$NAME_SUFFIX" ]; then
   echo "  CAPTAIN suffix   : ${NAME_SUFFIX} (slug: ${PROJECT_SLUG})"
 fi

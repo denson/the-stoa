@@ -181,6 +181,21 @@ apply_substitutions_from_manifest() {
       case "$token$replacement" in
         *"|"*) continue ;;
       esac
+      # Escape sed metacharacters in the replacement value before splicing it
+      # into the s|...|...|g expression. Two-step (order matters):
+      #   1. backslash '\' → '\\' (so any pre-existing '\' is literalized)
+      #   2. ampersand '&' → '\&' (so '&' is read as literal, not "matched pattern")
+      # Without step 2, a future manifest entry whose replacement contains '&'
+      # would silently mangle the substitution: sed reads bare '&' in the RHS
+      # of s|...|...| as a back-reference to the entire matched pattern.
+      # install.sh's current writers (Arc 38 baseline) emit only {{NAME_SUFFIX}}
+      # and {{USER_TIER_DIR}} replacements (neither contains '&' in any
+      # plausible deploy), so the in-tree symptom is latent — but the reader
+      # must always be safe. Per CATO Arc 38 rev1 c2 finding (defensive
+      # read-site escape; writer may extend later). Cross-ref:
+      # agents/design/stoa--ojz/design.md §2.2.
+      replacement="${replacement//\\/\\\\}"
+      replacement="${replacement//&/\\&}"
       sed_args+=(-e "s|${token}|${replacement}|g")
     fi
   done < "$manifest"

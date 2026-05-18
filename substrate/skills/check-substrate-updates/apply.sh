@@ -139,6 +139,18 @@ apply_substitutions_from_manifest() {
       case "$token$replacement" in
         *"|"*) continue ;;
       esac
+      # Escape sed metacharacters in the replacement value before splicing it
+      # into the s|...|...|g expression. Two-step (order matters):
+      #   1. backslash '\' → '\\' (so any pre-existing '\' is literalized)
+      #   2. ampersand '&' → '\&' (so '&' is read as literal, not "matched pattern")
+      # Without step 2, a future manifest entry whose replacement contains '&'
+      # would silently mangle the substitution (sed reads bare '&' in the RHS
+      # of s|...|...| as a back-reference to the entire matched pattern).
+      # Latent in the Arc 38 baseline writers (NAME_SUFFIX + USER_TIER_DIR
+      # contain no '&'). Mirror of check.sh fix per CATO rev1 c2 finding.
+      # Cross-ref: agents/design/stoa--ojz/design.md §2.2.
+      replacement="${replacement//\\/\\\\}"
+      replacement="${replacement//&/\\&}"
       sed_args+=(-e "s|${token}|${replacement}|g")
     fi
   done < "$manifest"
