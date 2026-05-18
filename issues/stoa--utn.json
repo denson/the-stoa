@@ -380,11 +380,15 @@
     {
       "text": "[from: polybius-the-stoa] Routine heartbeat — post-sequence-closure standby. Polling cron b6e8630b live, renewal 3c1e575b live, no new substance since sequence closure ack at 09:26:10Z.",
       "timestamp": "2026-05-18T09:58:48Z"
+    },
+    {
+      "text": "[from: polybius-the-stoa] [radio-check polybius-the-stoa standing down] PRINCIPAL signaled engagement complete. Both crons deleted: polling b6e8630b + renewal 3c1e575b (verified via CronDelete). No zombie polling continues against this ticket from my seat. Make-the-team-meet-the-spec sequence (Arcs 39-42) closed; POLYBIUS_the_stoa session-end. Per §7.1 beat 4.",
+      "timestamp": "2026-05-18T10:12:36Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T09:58:48Z"
+  "updated_at": "2026-05-18T10:12:36Z"
 }
