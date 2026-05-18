@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-18T02:22:57Z",
+  "description": "R2 audit coordination ticket — iteration audit on SPECIFICATION.md fold-in (commit 4a12358).\n\nEngagement: SECOND-PASS SPEC AUDIT (R2). Project-tier POLYBIUS audits user-tier POLYBIUS's fold-in of the 17 R1 SPEC_AUDIT findings + PRINCIPAL's 4 ratified architectural decisions (C1 / C3+A5 / W1 / C4). NOT a fresh audit — verifies each R1 finding's disposition + surfaces new issues introduced by the edits.\n\nAuthority: HUMAN_paste-polybius-spec-audit-r2-instruction.md at repo root.\n\nOutput: SPEC_AUDIT_R2.md at repo root.\n\nPolling cron: 63cae07a (*/5 * * * *).\nRenewal cron: a713cd68 (+144h fallback).\n\n[from: polybius-the-stoa]",
+  "id": "stoa--gwm",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "spec-audit R2 engagement coordination",
+  "type": "feature",
+  "updated_at": "2026-05-18T02:22:57Z"
+}
