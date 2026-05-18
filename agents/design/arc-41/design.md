@@ -2,7 +2,7 @@
 
 **Ticket:** `stoa--utn` (dispatch); candidates `stoa--n2e` + `stoa--58b` + `stoa--3ml` + `stoa--pqn` LOCKED.
 **Author (substrate edits):** Denson Smith.
-**Designed by:** CAPTAIN_DAEDALUS_the_stoa, 2026-05-18.
+**Designed by:** CAPTAIN_DAEDALUS_the_stoa, 2026-05-18 (rev1 at commit 56c0b97; rev2 folds ARGUS-rev1 R1+R2+R3 HIGH/MEDIUM probe-grounding fixes + R4+R5+R6+R8 LOW dispositions; R7 LOOSE adjudicated — no rev).
 **Inputs consumed:** `substrate/arcs/arc-41-build-directive.md` (A1-A16 LOCKED); ticket bodies for all 4 candidates via `bw show` (n2e + 58b + 3ml + pqn); ticket body for `stoa--jru` (Arc 36 v2 parent EPIC) for VERA 5-item probe-regex source; ticket body for `stoa--myd` (multi-checker convergence accretion P4) for A5 Item 3 routing target; `substrate/arcs/arc-40-build-directive.md` + Arc 40 ship commit `dbb5b81` (recent precedent — squash-merge canon shipped Arc 40); `substrate/MAJOR_POLYBIUS.md` §13.1 lines 818-833 (n2e target — "Universal escalation triggers (autonomous mode)" bullet list); `substrate/MAJOR_PLINY.md` §5 + §5.2 lines 116-136 (58b target — dispatch-brief authoring locus) + §5.10 lines 424-434 (Arc 40 squash-merge canon) + §5.11 lines 465-507 (paste archival) + §5.12 lines 520-557 (seat-identity dispatch-brief naming) + §6.1 lines 576-608 (Communication routing); `substrate/operating-disciplines.md` line 13 (Thesis sentence — 3ml target) + §11 lines 478-490 step 1.5 (pqn Item 2 target) + §20 lines 1236-1305 (58b cross-ref target; §20.1 + §20.3) + §28 lines 1699-1786 (trailer canon); section-count audit `grep -nE '^## [0-9]+\.' substrate/operating-disciplines.md` (§1 through §31 confirmed — 31 numbered top-level sections; the Thesis at line 11, Agent-regime inverses at line 2040, Empirical lineage at line 2051 are unnumbered); `agents/design/arc-36/design.md` lines 169-606 (pqn Item 1 — locating the 5 VERA probe sites: §4.1.2 line 183, §4.1.6b probe site, §4.2.2 line 300, §4.5.3 line 557, §4.6.1 line 573, §4.8 line 599); arc-36 ZENO verdict via `bw show stoa--jru` (the 5 probe-regex items enumerated by VERA + ZENO at the arc-36 v2 close).
 
 ---
@@ -158,10 +158,7 @@ Routine technical/operational decisions stay at the seat.
 
 Routine technical/operational decisions stay at the seat.
 
-(Cross-ref: `operating-disciplines.md` §20.3 — refusal-as-signal is structurally
-part of credential discipline because the empirical anchor was a refusal
-incident, railway--r9z 2026-05-15; the rule applies anywhere a refusal
-surfaces, not only in credentialed contexts.)
+(Cross-ref: `operating-disciplines.md` §20.3 — refusal-as-signal canon.)
 ```
 
 **Out-of-scope per A14 hard-lock:** no other restructuring of MAJOR_POLYBIUS.md §13.1 or surrounding §13.x; the bullet add + cite-comment is the entire edit.
@@ -273,9 +270,29 @@ awk '/^\*\*1\.5/,/^\*\*2\./' substrate/operating-disciplines.md | grep -ciE 'no.
 # Expected: ≥1 (case-insensitive to match 'No' / 'no' prose variants)
 ```
 
-**(c) §4.1.6b slot-table shell-escape brittleness:**
+**(c) §4.1.6 slot-table shell-escape brittleness (R2 rev2 spike resolution):**
 
-ADA locates the §4.1.6b probe site in `agents/design/arc-36/design.md` at design-build time (the ticket cites this item without a line number; the substrate is the verdict text "§4.1.6b slot-table shell-escape brittleness"). The fix shape: replace any shell-substitution-fragile pattern in the awk/grep regex with a literal-anchored shape that survives shell-escape. ADA picks the exact wording based on what the existing probe's brittleness IS (a `$VAR`-shaped substitution, an unescaped backtick, a single-quote-in-double-quotes mismatch); the discipline is "the probe's regex must survive shell-quoting at execution time without `bash -c`-style re-evaluation."
+VERA's informal "§4.1.6b" label in the `bw show stoa--jru` ZENO close (2026-05-18T00:04:44Z) was a sub-issue annotation for the slot-table-regex brittleness WITHIN the §4.1.6 probe block — NOT a separate heading. `agents/design/arc-36/design.md` carries §4.1.1 through §4.1.10 only; no §4.1.6b heading exists. Interpretation (ii) per PLINY R2 spike — sub-probe relocated under §4.1.6 with awk pattern grounded against the LIVE heading shape.
+
+**Target site:** `agents/design/arc-36/design.md` §4.1.6 (line 232 — "Substitution-slot table extended with SLUG slots"), specifically the second awk-grep pipeline at line 238:
+
+```bash
+awk '/^## Substitution slots/,/^---$/' substrate/templates/polling-cron-prompt-template.md | grep -cE '\| \`\{\{SELF_SEAT_SLUG\}\}\`|\| \`\{\{PEER_SEAT_SLUG\}\}\`'
+```
+
+Issue: the regex carries backslash-escaped backticks (`\``) inside a single-quoted argument; while POSIX-safe in practice, the backslash-before-backtick shape is shell-escape brittle (double-quote re-evaluation would interpret the backtick as command substitution; the design surfaced this as a probe-precision item rather than a substrate defect). VERA's tightening rec: simplify to bare-backtick-equipped pattern that survives shell-quoting unambiguously.
+
+Tightened replacement (DAEDALUS recommendation; ADA voice latitude):
+```bash
+awk '/^## Substitution slots/,/^---$/' substrate/templates/polling-cron-prompt-template.md \
+  | grep -cE '\{\{SELF_SEAT_SLUG\}\}|\{\{PEER_SEAT_SLUG\}\}'
+# Expected: 2 (both new slots present in the slot table itself; pattern drops
+# the table-row-pipe + backtick anchors — the slot-name match alone is
+# unambiguous within the slot-table awk-bracketed region, no shell-escape
+# fragility)
+```
+
+ADA refines the exact tightening wording if the live brittleness has shifted from the design-time read; the discipline is "the probe's regex must survive shell-quoting at execution time without `bash -c`-style re-evaluation."
 
 **(d) §4.5.3 watcher-cron grep matches anti-pattern's rejection prose — line 560:**
 
@@ -472,12 +489,20 @@ awk '/^### 5\.2\.1/,/^### 5\.3/' substrate/MAJOR_PLINY.md \
 
 ### §4.4 — A4 3ml: Thesis line 13 sentence count updated
 
-**§4.4.1 — Thesis sentence references §1-§31 (not §1-§17)**
+**§4.4.1 — Thesis sentence references current section-count range (extracted literal must equal §4.4.3 live count — R4 rev2 coherence check)**
 
 ```bash
-sed -n '13p' substrate/operating-disciplines.md \
-  | grep -cE '§1-§31'
-# Expected: 1 (the line-13 sentence carries §1-§31)
+# R4 rev2: hard-coded `§1-§31` removed; replaced with coherence check between
+# the Thesis-literal and §4.4.3's live count. The previous probe coupled to
+# a design-time count that could drift between design and ship; the coherence
+# pair (§4.4.1 extracts; §4.4.3 counts; equality verified at probe time)
+# eliminates the drift surface entirely.
+
+# §4.4.1 — extract the Thesis-line section-count upper-bound integer:
+THESIS_HIGH=$(sed -n '13p' substrate/operating-disciplines.md \
+  | grep -oE '§1-§[0-9]+' | grep -oE '[0-9]+$')
+echo "Thesis-line claim: §1-§${THESIS_HIGH}"
+# Expected: prints "Thesis-line claim: §1-§N" with N matching §4.4.3's live count
 ```
 
 **§4.4.2 — stale §1-§17 + parenthetical "plus the autonomous-mode setup checklist" both removed**
@@ -488,11 +513,22 @@ sed -n '13p' substrate/operating-disciplines.md \
 # Expected: 0 (both stale fragments removed)
 ```
 
-**§4.4.3 — current section-count grounds the claim**
+**§4.4.3 — Thesis-line literal equals live section count (R4 rev2 coherence)**
 
 ```bash
-grep -cE '^## [0-9]+\.' substrate/operating-disciplines.md
-# Expected: 31 (the literal claim §1-§31 grounds the count; if this differs from 31 at probe time, the design's §3.C3 re-verification clause fires and ADA writes the live count)
+# Live section count at probe time:
+LIVE_COUNT=$(grep -cE '^## [0-9]+\.' substrate/operating-disciplines.md)
+# Thesis-line extracted literal from §4.4.1:
+THESIS_HIGH=$(sed -n '13p' substrate/operating-disciplines.md \
+  | grep -oE '§1-§[0-9]+' | grep -oE '[0-9]+$')
+# Coherence check: both probes pass when consistent; either fails if substrate
+# drifts mid-run.
+test "${THESIS_HIGH}" = "${LIVE_COUNT}" && echo "PASS: Thesis ${THESIS_HIGH} = live ${LIVE_COUNT}" || echo "FAIL: drift Thesis=${THESIS_HIGH} live=${LIVE_COUNT}"
+# Expected: "PASS: Thesis N = live N" (where N is the current section count;
+# the design's §3.C3 re-verification clause fires at ADA build time if the
+# count differs from design-time §31, and ADA writes the live count — but
+# this probe verifies coherence at the same run regardless of the absolute
+# number, eliminating the hard-coded `Expected: 31` brittleness)
 ```
 
 ### §4.5 — A5 Item 1: pqn VERA probe-regex tightening (ε in-arc-build)
@@ -508,9 +544,14 @@ awk '/^\*\*§4\.1\.2/,/^\*\*§4\.1\.3/' agents/design/arc-36/design.md \
 **§4.5.2 — design.md §4.2.2 probe carries `-i` (or `grep -ci`) flag**
 
 ```bash
-awk '/^\*\*§4\.2\.2 ---/,/^\*\*§4\.2\.2a/' agents/design/arc-36/design.md \
+awk '/^\*\*§4\.2\.2 /,/^\*\*§4\.2\.2a/' agents/design/arc-36/design.md \
   | grep -cE 'grep -[a-z]*i[a-z]* '
 # Expected: ≥1 (case-insensitive flag added; allows `grep -ciE` / `grep -iE` / similar)
+# Note (R1 rev2 fix): live §4.2.2 heading uses em-dash (U+2014) not three ASCII
+# hyphens; pattern drops the literal `---` and uses trailing space to
+# disambiguate from §4.2.2a/§4.2.2b siblings. Verified against live file:
+# the corrected pattern brackets a non-empty range (~17 lines including the
+# probe code block); the previous `---` pattern bracketed zero lines (false-PASS).
 ```
 
 **§4.5.3 — design.md §4.5.3 probe excludes rejection-context lines**
@@ -521,23 +562,48 @@ awk '/^\*\*§4\.5\.3/,/^\*\*§4\.5\.4/' agents/design/arc-36/design.md \
 # Expected: ≥1 (the rejection-context exclusion clause present in the tightened probe)
 ```
 
-**§4.5.4 — design.md §4.6.1 or §4.8 probe uses git-diff +-line scoping variant**
+**§4.5.4 — design.md §4.6.1 or §4.8 probe uses git-diff +-line scoping variant (R3 rev2 fix)**
 
 ```bash
-awk '/^### §4\.6/,/^## §5/' agents/design/arc-36/design.md \
-  | grep -cE 'git diff main\.\.\.arc-36/build|grep -E .\^\+'
-# Expected: ≥1 (at least one git-diff +-line scoping pattern present in §4.6 or §4.8)
+# R3 rev2 fix: re-cast as structural property check (two literal-anchored
+# checks; previous combined-alternation `grep -E .\^\+` was malformed —
+# `.` matched any char where a quote was intended; `\^` only matches
+# literal `^` outside a character class). Concretely: the §4.6-or-§4.8
+# region must contain BOTH the git-diff invocation against arc-36/build
+# AND the ^+ line-prefix filter idiom.
+awk '/^### §4\.6/,/^### §4\.7/' agents/design/arc-36/design.md \
+  | grep -cF 'git diff main...arc-36/build'
+# Expected: ≥1 (git-diff invocation present in §4.6 range)
+
+awk '/^### §4\.8/,/^---$/' agents/design/arc-36/design.md \
+  | grep -cF 'git diff main...arc-36/build'
+# Expected: ≥1 (git-diff invocation present in §4.8 range; the §4.5.4 contract
+# is OR semantics — either §4.6 or §4.8 carries the +-line scoping; tighten
+# to AND by summing both probes if pqn Item 1 applies to both per §5.4.e)
+
+# Structural sub-check: the ^+ line-prefix filter idiom appears in at least
+# one §4.6 or §4.8 probe block (the git-diff output is then scoped to added
+# lines only via this filter):
+{ awk '/^### §4\.6/,/^### §4\.7/' agents/design/arc-36/design.md ; \
+  awk '/^### §4\.8/,/^---$/' agents/design/arc-36/design.md ; } \
+  | grep -cF "grep -E '^\\+'"
+# Expected: ≥1 (the +-line filter present in at least one tightened probe;
+# fgrep literal-match avoids the previous malformed-regex hazard)
 ```
 
-**§4.5.5 — design.md §4.1.6b probe rewritten to survive shell-quoting (DAEDALUS-discretion locator)**
+**§4.5.5 — design.md §4.1.6 slot-table sub-probe rewritten to survive shell-quoting (R2 rev2 locator correction)**
 
 ```bash
-# ADA locates the §4.1.6b probe site; the discipline is "no $VAR-shaped shell
-# substitution in the regex; no unescaped backticks; quote-style consistent
-# with the rest of §4". Probe shape:
-awk '/^\*\*§4\.1\.6b/,/^\*\*§4\.1\.7|^\*\*§4\.2/' agents/design/arc-36/design.md \
-  | grep -cE '\$\(|\$\{|`[^`]+`'
-# Expected: 0 (no shell-substitution patterns remain in the tightened §4.1.6b probe block)
+# R2 spike: "§4.1.6b" was VERA's informal sub-issue label, not a separate
+# heading; live arc-36/design.md carries §4.1.1 through §4.1.10 only. Probe
+# retargeted to the real §4.1.6 heading. Discipline: "no $VAR-shaped shell
+# substitution in the regex; no backslash-escaped-backtick fragility; no
+# unescaped backticks." Probe shape (post-tightening structural property):
+awk '/^\*\*§4\.1\.6 /,/^\*\*§4\.1\.7/' agents/design/arc-36/design.md \
+  | grep -cE '\$\(|\$\{|\\`'
+# Expected: 0 (no shell-substitution / backslash-escaped-backtick patterns
+# remain in the tightened §4.1.6 probe block; the bare-slot-name pattern
+# survives shell-quoting unambiguously per §3.C4.1.c)
 ```
 
 ### §4.6 — A5 Item 2: bug #40228 surveillance line at op-disc §11 step 1.5
@@ -558,12 +624,33 @@ awk '/^\*\*1\.5/,/^\*\*2\./' substrate/operating-disciplines.md \
 # Expected: ≥2 (the existing citation at line ~322 PLUS the new surveillance line both cite #40228; if this returns <2 the canon was edited in a way that removed the existing citation — A14 hard-lock violation)
 ```
 
-**§4.6.3 — no recovery-discipline canon change (anti-pattern boundary preserved)**
+**§4.6.3 — no recovery-discipline canon change (anti-pattern boundary preserved; R8 rev2 git-diff +-line scoping for "no new affirmative use" half)**
 
 ```bash
+# §4.6.3a — existing rejection-context prose preserved (whole-file presence):
 awk '/^\*\*1\.5/,/^\*\*2\./' substrate/operating-disciplines.md \
   | grep -ciE 'watcher cron|watchdog cron|separate watcher|Option 2'
-# Expected: ≥1 (existing Option-2-rejection prose preserved) BUT also no new affirmation of any of these patterns (existing rejection-context citations are OK; new affirmative use would be A14 violation)
+# Expected: ≥1 (existing Option-2-rejection prose preserved in §11 step 1.5)
+
+# §4.6.3b — R8 rev2: scope to git-diff +-lines (NEW arc-41 content only) to
+# verify no new affirmative use of these patterns surfaces in the surveillance
+# line addition. Mirrors the §4.5.4 + §4.12.2 git-diff +-line scoping pattern
+# this arc ships. Per VERA §5.11 self-application: whole-file grep above does
+# NOT prove "no new affirmative use"; +-line scoping closes that half.
+git diff main...arc-41/build -- substrate/operating-disciplines.md \
+  | grep -E '^\+' | grep -vE '^\+\+\+' \
+  | grep -ciE 'watcher cron|watchdog cron|separate watcher|Option 2' \
+  | xargs -I{} test {} -le 0 && echo "PASS: no new affirmative use in arc-41 +-lines" || \
+  { echo "FAIL: new affirmative use surfaced — A14 hard-lock violation" ; \
+    git diff main...arc-41/build -- substrate/operating-disciplines.md \
+      | grep -E '^\+' | grep -vE '^\+\+\+' \
+      | grep -iE 'watcher cron|watchdog cron|separate watcher|Option 2' ; }
+# Expected: "PASS: no new affirmative use in arc-41 +-lines" (the surveillance
+# line at §3.C4.2 must not introduce affirmative-use prose; existing rejection
+# citations in unrelated context lines stay invisible because they're not in
+# the +-line scope. If ADA's surveillance prose accidentally cites one of
+# these patterns AFFIRMATIVELY rather than as the existing anti-pattern
+# rejection, the probe fires and ARGUS surfaces A14 hard-lock violation.)
 ```
 
 ### §4.7 — A5 Item 3: organic-adoption observation comment on stoa--myd
@@ -571,8 +658,15 @@ awk '/^\*\*1\.5/,/^\*\*2\./' substrate/operating-disciplines.md \
 **§4.7.1 — comment posted on stoa--myd carrying Arc 41 organic-adoption observation**
 
 ```bash
-bw show stoa--myd 2>&1 | grep -cE '\[from: daedalus-the-stoa\].*Arc 41|Arc 41 organic-adoption N-evidence|pqn Item 3'
-# Expected: ≥1 (the observation comment landed on myd; carries [from: daedalus-the-stoa] tag + Arc 41 + pqn-Item-3 anchor)
+bw show stoa--myd 2>&1 | grep -cE 'Arc 41 organic-adoption N-evidence|pqn Item 3'
+# Expected: ≥1 (the observation comment landed on myd carrying Arc 41 organic-
+# adoption N-evidence anchor or pqn-Item-3 anchor)
+# Note (R6 rev2): dropped dead first alternative `\[from: daedalus-the-stoa\].*Arc 41`
+# — the `[from:]` author-tag and "Arc 41" sit on different lines in bw-comment
+# output (tag on the first comment line, content body following); `.*` does
+# not match across newlines without `grep -Pzo` multi-line mode. The two
+# remaining alternatives are body-content anchors that DO appear on the same
+# line as themselves.
 ```
 
 **§4.7.2 — myd ticket still OPEN (accretion store, not closed by this observation)**
@@ -712,7 +806,7 @@ Subsection text per §3.C2's recommended edit shape: opening sentence ("When the
 
 - (a) §4.1.2 line 186-187: drop `cross-tier upward`; drop `-i` flag; restructure pattern per recommended shape.
 - (b) §4.2.2 line 306: add `-i` flag (or change to `grep -ciE`).
-- (c) §4.1.6b: ADA locates site; eliminates `$VAR` / backtick / quote-mismatch shell-substitution from regex.
+- (c) §4.1.6 line 238 (second awk-grep pipeline): replace backslash-escaped-backtick regex with bare-slot-name pattern per §3.C4.1.c (R2 spike resolution — VERA's "§4.1.6b" label was a sub-issue annotation within §4.1.6, not a separate heading).
 - (d) §4.5.3 line 560: add rejection-context exclusion clause to the grep pipeline.
 - (e) §4.6.1 line 576 / §4.8 line 605: rewrite to git-diff +-line scoping variant.
 
@@ -753,6 +847,14 @@ Per `CAPTAIN_DAEDALUS.md` §6.2: name the brittle assumptions ARGUS should look 
 **Why brittle:** the cite-comment discipline (A10 LOCKED, Arc 38 A17, every cross-ref resolves at every read-site) is bidirectional in the formal canon. A reader landing in op-disc §20.3 has the §20 → MAJOR_POLYBIUS.md §13.1 path implicit (via §20's universal-seat enumeration at line 1238) but not explicit. Same for op-disc §20 lacking an explicit back-ref to MAJOR_PLINY.md §5.2.1. If ARGUS audits cite-resolution strictly per A10, both back-refs may be load-bearing additions.
 
 **Why this shape anyway:** §3.C1 + §3.C2 both name the back-reference as optional contingent on ARGUS judgment; the design is buildable with one-directional cite-comments AND extensible to two-directional at rev1 if ARGUS surfaces the need. The cost of adding two back-ref cite-comments at op-disc §20.3 and §20 is one ADA edit; the cost of writing two-directional from the start is one extra paragraph each in C1 + C2 designs. DAEDALUS-discretion call: ship the design with one-directional; let ARGUS surface if cite-completeness escalates to load-bearing.
+
+### 6.4 — rev2 probe-grounding meta-discipline (ARGUS-surfaced; folded)
+
+**The brittle assumption:** rev1's §4.5 probe-block awk/grep patterns were authored without round-tripping each pattern against the live `agents/design/arc-36/design.md` file at design time. ARGUS-rev1 surfaced three probe-grounding defects (R1 em-dash false-PASS, R2 nonexistent §4.1.6b heading, R3 malformed inner regex) that all share root cause: probe patterns hand-typed against expected heading shapes rather than verified by execution against the live target.
+
+**Why brittle:** the discipline parallels the Arc 40 CAPTAIN_VERA §5.11 probe-spec regex anchoring canon ("every regex anchored; every install.sh-flag citation grounded; every bw-output grep grounded") — but the canon applies to VERA's probes on substrate. The mirror discipline for DAEDALUS-authored verification probes on design.md (probes that probe OTHER design.md files) is not yet codified. The result was three false-PASS / false-FAIL surfaces that ARGUS caught on cold-read but which would have wasted VERA's mechanical re-execution cycle.
+
+**Why this shape anyway (rev2 fold):** all three are now corrected with the awk patterns verified against the live arc-36/design.md at rev2 design time (R1 `'/^\*\*§4\.2\.2 /'` brackets 17 lines; R2 retargeted to §4.1.6 real heading with §4.1.7 terminator; R3 re-cast as two literal-anchored `grep -cF` structural property checks). The R4 coherence-check fold for §4.4 (eliminating hard-coded `Expected: 31` brittleness) + the R8 git-diff +-line scoping fold for §4.6.3 (mirroring §4.5.4 / §4.12.2) extend the meta-discipline preemptively. The remaining surface for ARGUS-rev2 to verify: did any §4.x probe I authored fresh in rev1 still carry an unverified pattern? Spot-checks against §4.2, §4.3, §4.6, §4.7, §4.9 all use shapes that I have either grounded at design time or that ADA grounds at build time per the §2.6 ADA brief preamble. No further probe-grounding defects expected; if ARGUS-rev2 surfaces a fourth, the meta-discipline should be promoted to an Arc 42 follow-up ticket (probe-grounding canon for DAEDALUS-authored verification probes, mirroring CAPTAIN_VERA §5.11).
 
 ---
 
