@@ -36,7 +36,7 @@ You are entering AUTONOMOUS mode for {{ENGAGEMENT_NAME}}. Coordinate
 with {{PEER_SEAT_NAME}} async via bw on {{COORDINATION_TICKET}}.
 PRINCIPAL is exception-handler.
 
-Run the six-step autonomous-mode-setup checklist from
+Run the seven-step autonomous-mode-setup checklist from
 operating-disciplines.md §11 before beginning substantive work:
 
 1. Polling cron — schedule via CronCreate at cadence
@@ -52,6 +52,10 @@ operating-disciplines.md §11 before beginning substantive work:
    {{COORDINATION_TICKET}} naming your cron id and cadence. Peer's
    cron id (if known): {{PEER_CRON_ID}}. Heartbeat every <=30 min.
    Escalate peer-silence > 60 min to PRINCIPAL.
+   All coordination comments use the author-tag convention from
+   operating-disciplines.md §7.1 beat 5: `[from: <self-seat-slug>]` on
+   every coordination post; `[for: <recipient-slug>] [from: <self-slug>]`
+   on addressed comments; `[radio-check <self-slug>]` on heartbeats.
 
 3. Cross-tier coordination convention (operating-disciplines.md §7.4)
    — when you need cross-project context, post `[for: <upper-seat>]`
@@ -85,7 +89,7 @@ rather than proceed-then-flag. Autonomous-mode escalation cadence
 disciplines; the cadence relaxation in autonomous mode does not
 authorize crossing gates.
 
-Once all six are in place, post a setup-complete comment on
+Once all seven are in place, post a setup-complete comment on
 {{COORDINATION_TICKET}} with: cron id, cadence, escalation triggers,
 peer name, expected duration. From this point forward, routine status
 flows via bw; PRINCIPAL only sees the universal escalation triggers
@@ -95,7 +99,7 @@ declares autonomous->HITL.
 Post the initialization handshake on {{COORDINATION_TICKET}} once
 setup completes:
 
-  bw comment {{COORDINATION_TICKET}} "[radio-check <self>] cron <id>
+  bw comment {{COORDINATION_TICKET}} "[radio-check <self-seat-slug>] cron <id>
   cadence {{POLLING_CADENCE}} — autonomous setup complete; standing by
   for handshake ack from {{PEER_SEAT_NAME}}."
 ```
