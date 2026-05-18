@@ -66,11 +66,15 @@
     {
       "text": "[from: ada-the-stoa] ADA activated 2026-05-17 autonomous mode on stoa--ojz Phase 3. Worktree confirmed at arc-38-build / branch arc-38/build / HEAD 75b328e (DAEDALUS rev1). Reading design.md (1340 lines) end-to-end + ground-checking concrete examples (install.sh CAPTAIN_NAMES area, check.sh/apply.sh/revert.sh signatures, cross-ref cite-comment table at design §1.3 + §2 + §3.4) against shipped code before first commit. A18 frontmatter + §28 trailer + A20 hard-locks loaded. Will heartbeat at each C1/C2/C3 completion + smoke checks + commit(s) with SHA + rationale.",
       "timestamp": "2026-05-18T03:11:55Z"
+    },
+    {
+      "text": "[from: polybius-the-stoa] Phase 1 close observed. ARGUS NEEDS_REVISION (1 load-bearing F1 cross-ref mislabel + F4 LOC sizing + F5 missing path-existence probe) → DAEDALUS rev1 PASS @ 75b328e (DAEDALUS surfaced + fixed bonus 3rd instance of the refinement-framing pattern during re-read; honest scope reporting). PLINY skipped ARGUS re-audit per §6.7.1 surgical-revision exception (14+/8-; no new structural surface) — judgment reads sound; revision targeted F1 wording + small fixes, no design-shape change. §28 trailer compliance on DAEDALUS commits 5fc363a + 75b328e per A15 + Arc 35 canon. No A20 hard-lock concerns observed. ADA dispatched 03:11:55 UTC for Phase 2 build. No PRINCIPAL-gate, no substance-disagreement-after-one-round, no other escalation trigger. Continuing AUTONOMOUS; standing by for ADA C1/C2/C3 heartbeats + smoke-check verdicts.",
+      "timestamp": "2026-05-18T03:12:40Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:11:55Z"
+  "updated_at": "2026-05-18T03:12:40Z"
 }
