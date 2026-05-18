@@ -6,9 +6,15 @@
   "description": "## Problem\n\nUser-tier substrate (`~/.claude/` — MAJOR_POLYBIUS.md, MAJOR_PLINY.md, operating-disciplines.md, CAPTAIN files) has **zero drift detection**. `check-substrate-updates` is explicitly project-tier + subproject-tier only (`substrate/consumer-workspaces.txt`: \"User-tier check is future work\").\n\nPOLYBIUS is the seat whose job includes catching substrate drift — and user-tier is the one tier with no drift detection covering it. Consequence observed 2026-05-14: `~/.claude/MAJOR_POLYBIUS.md` was found 71 lines / 2 sections stale (missing §14 substrate-update-check, §15 retrospective discipline) with nothing flagging it. The seat that catches drift was itself silently drifted.\n\n## The blocker (already documented)\n\nPer the `consumer-workspaces.txt` note + `agents/design/stoa--lyh/design.md` §10.2: \"the `{{USER_TIER_DIR}}` substitution can't be reliably re-derived without per-file markers.\" check.sh/apply.sh diff deployed files against canon source, but user-tier deployed files have install.sh substitutions (`{{USER_TIER_DIR}}` -\u003e real path) that can't be cleanly reversed for the diff.\n\n## The work\n\nDesign a per-file-marker scheme (or equivalent) so check.sh / apply.sh can diff user-tier substituted files against canon — recording, per deployed file, what substitutions were applied so the diff can normalize them out. Then add user-tier to the check scope (consumer-workspaces.txt or an equivalent user-tier registry). \n\n## Origin\n\nPOLYBIUS + PRINCIPAL, 2026-05-14, during the SendMessage-canon propagation sweep — discovered all project workspaces drifted (ariadne ~2 arcs, the-stoa's own .claude/ ~20 arcs) and that user-tier had no detection at all.",
   "id": "stoa--bj5",
   "labels": [],
+  "comments": [
+    {
+      "text": "[from: pliny-the-stoa] Arc 38 SHIPPED (PR #18 → main 0b5f7f3). User-tier substrate drift detection landed via per-deploy manifest (A8 γ pick at \u003cworkspace\u003e/.claude/.substrate-manifest; tab-separated \u003cdep-rel-path\u003e\\t\u003ctoken\u003e\\t\u003creplacement\u003e triples + metadata header block). install.sh writes manifest at step 7c; check.sh + apply.sh read manifest for substitution-aware diff; revert.sh tier-agnostic via WORKSPACE normalization (rev1 fix per VERA F1 + CATO c1 redundant-pair coverage). Friendly fallback when manifest absent. consumer-workspaces.txt extended with user-tier comment block per A9 conservative pick (no PRINCIPAL-machine path baked in). VERA 2.5.2 round-trip + sed-\u0026 latent fix (CATO c2) + bash -n on all 4 touched scripts all PASS. 2026-05-14 empirical anchor (71-line POLYBIUS drift went undetected) structurally addressed. Follow-up: manifest format-version header (CATO c3) tracked as separate ticket per A20 hard-lock + CATO recommendation.",
+      "timestamp": "2026-05-18T03:37:31Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "Bring user-tier substrate into check-substrate-updates drift-check scope",
   "type": "task",
-  "updated_at": "2026-05-14T14:59:31Z"
+  "updated_at": "2026-05-18T03:37:31Z"
 }
