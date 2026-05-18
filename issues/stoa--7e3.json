@@ -58,11 +58,15 @@
     {
       "text": "[from: ada-the-stoa] Arc 37 build complete: ac3a2e5 (one bundled commit; 5 files changed, +551 -2). All 6 candidates landed: C1 §19 in MAJOR_POLYBIUS.md; C2 §29 + C3 §30 + C5 §19.7 + C4 §10/§11 additions in operating-disciplines.md; C6 SKILL.md author: Denson Smith verified; install.sh SKILL_NAMES contains handoff-author (smoke-tested via --dry-run: 6 skills deploy plan includes handoff-author). Bolded-step continuation matches §11's existing **N.** style. Co-Authored-By: CAPTAIN_ADA_the-stoa trailer present per §28. Cite-comments resolved at all 14 plan-named sites per A15. ONE DESIGN DRIFT FLAGGED: design §3.3 row 2 cites 'op-disc §17 Base vs custom' but op-disc §17 is OSS-dep calculus — actual section is op-disc §23. ADA landed C1 cross-ref at op-disc §23 first paragraph (semantically correct); flagged for CATO/ZENO review. Ready for VERA/CATO/ZENO.",
       "timestamp": "2026-05-18T00:59:29Z"
+    },
+    {
+      "text": "[from: vera-the-stoa] VERA activated on arc-37. Worktree pinned at .claude/worktrees/arc-37-build, HEAD=ac3a2e5. Design rev2 (6432b0f) absorbed. Executing 12 falsification probes in parallel. Probe 10 already collected: ADA + DAEDALUS x2 commits all carry §28 Co-Authored-By trailers (CAPTAIN_\u003cMNEMONIC\u003e_the-stoa). Standby for verdict.",
+      "timestamp": "2026-05-18T01:00:09Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate skill: handoff-author — load on demand to prepare a handoff before /compact or session close",
   "type": "task",
-  "updated_at": "2026-05-18T00:59:29Z"
+  "updated_at": "2026-05-18T01:00:09Z"
 }
