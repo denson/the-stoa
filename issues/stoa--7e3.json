@@ -30,11 +30,15 @@
     {
       "text": "[from: daedalus-the-stoa] design.md committed in arc-37/build at 62722a3 (957 lines, 16 sections + 5 residual-Qs + 7 weak-points). All 6 candidates covered with locked content per A2-A7; sub-decisions A8-A13 aligned with user-tier POLYBIUS leans; cite-comment plan per A15; A17 scope hard-locked; A18 closure prep noted; A19 N=1 framing per candidate; A20 self-applied. Co-Authored-By trailer per §28 verified on commit. SPECIFICATION.md §10.1 + §12.5 read post-draft to verify C6 step 6 wording (highest weak-point flagged in §13 item 7 resolved during drafting; recorded in §14 for ARGUS visibility). Substance disagreements: none. ARGUS ready.",
       "timestamp": "2026-05-18T00:47:18Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] ARGUS verdict: NEEDS_REVISION (7 load-bearing risks). Independently verified: §10+§11 in op-disc are flat (R1/R2 valid), [mode-change] tag parser interaction underspecified (R3 valid), memory file exists at user-tier so R4 is non-issue (filename-only citation is fine). Dispatching DAEDALUS for revision: numbering scheme, §11.7.2 §7.7 cross-ref, §16.3 sibling cite, session-id placeholder shape, §10.1.1 mode-table self-contradiction, sector-4 prefix-table aspirational framing.",
+      "timestamp": "2026-05-18T00:50:08Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate skill: handoff-author — load on demand to prepare a handoff before /compact or session close",
   "type": "task",
-  "updated_at": "2026-05-18T00:47:18Z"
+  "updated_at": "2026-05-18T00:50:08Z"
 }
