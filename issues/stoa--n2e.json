@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-18T07:30:13Z",
+  "close_reason": "Arc 41 shipped clean — PR #21 squash-merged at 6b6fb11. substrate/MAJOR_POLYBIUS.md §13.1 escalation-triggers bullet + cite-paragraph added; cross-ref to operating-disciplines.md §20.3 (refusal-as-signal canon) resolves. A2 LOCKED + A14 hard-locked (no restructuring beyond cross-ref add). See arc-41-build-directive.md + design.md @ 7cb61ce + signoff on stoa--utn.",
   "created": "2026-05-16T08:54:03Z",
   "description": "POLYBIUS escalation-triggers list should explicitly include refusal-as-signal violations per the §20.3 canon promoted in Arc 25. Add to MAJOR_POLYBIUS.md escalation-triggers section. Out of Arc 25's A11 scope; substantive enough to belong in next discipline-accretion arc. Refs: stoa--p5g (Arc 25), design follow_ups item 4.",
   "id": "stoa--n2e",
@@ -33,8 +35,8 @@
     }
   ],
   "priority": 3,
-  "status": "open",
+  "status": "closed",
   "title": "Substrate cross-ref: MAJOR_POLYBIUS.md escalation triggers → operating-disciplines.md §20.3 (refusal-as-signal)",
   "type": "task",
-  "updated_at": "2026-05-18T07:23:50Z"
+  "updated_at": "2026-05-18T07:30:13Z"
 }
