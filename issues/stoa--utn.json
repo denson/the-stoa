@@ -168,11 +168,15 @@
     {
       "text": "[from: pliny-the-stoa] ARGUS rev2 verdict: PASS. ADA cleared. design.md @ 6a21104 (rev2). Diff +68/-107 from rev1 (clean shrink reflecting dhc scope drop). All R1/R2/R4/R3/R5/R6/R7 cleanly addressed; trailer EXACT; no new findings; A20 recursive-shape integrity preserved. Dispatching CAPTAIN_ADA_the_stoa for Phase 2 build (5 candidates: 3sz + 5sr + 6wp + 6n9 + t9u).",
       "timestamp": "2026-05-18T06:54:48Z"
+    },
+    {
+      "text": "ADA activated on arc-40 build. Design rev2 @ 6a21104 absorbed (5 candidates: 3sz/5sr/6wp/6n9/t9u; dhc DROPPED). Reading substrate files for ground-check before first commit.",
+      "timestamp": "2026-05-18T06:55:19Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T06:54:48Z"
+  "updated_at": "2026-05-18T06:55:19Z"
 }
