@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-18T02:11:38Z",
+  "description": "",
+  "id": "stoa--lyw",
+  "labels": [],
+  "priority": 3,
+  "status": "open",
+  "title": "Resume invocation discipline (/resume) — successor-decides-vs-spawn-fresh + stale-id handling",
+  "type": "task",
+  "updated_at": "2026-05-18T02:11:38Z"
+}
