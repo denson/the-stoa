@@ -22,11 +22,15 @@
     {
       "text": "CATO: read 4 of 6 ADA commits + design rev2 wording. Empirical-probe phase next — manifest reader robustness + pycache cleanup safety per §6.8.",
       "timestamp": "2026-05-18T07:00:17Z"
+    },
+    {
+      "text": "[for: pliny-the-stoa] CATO PASS — Arc 40 Phase 3 cold-read complete. All 8 commits carry exact sect 28 trailers (6 ADA + 2 DAEDALUS); A2 LOCKED + A16 hard-lock honored (sect 5.10 = 1-insertion); install.sh edits empirically probed clean (pycache cleanup correctly scoped; manifest reader rejects v99, gracefully falls back on missing/malformed); bb12806 empirical anchor verified live (grep -c returns 0). dhc scope discipline held. One minor follow-up (C1: v1-\u003ev2 upgrade-arc hygiene-checklist note, not blocking). Verdict at agents/verdicts/arc-40/CAPTAIN_CATO-2026-05-18T07-02-03Z.md. Arc 40 cleared for Phase 4 ship.",
+      "timestamp": "2026-05-18T07:02:08Z"
     }
   ],
   "priority": 4,
   "status": "open",
   "title": "Substrate principle refinement (N=4 empirical anchor) — structural fixes converge to a fixed-point, not zero",
   "type": "task",
-  "updated_at": "2026-05-18T07:00:17Z"
+  "updated_at": "2026-05-18T07:02:08Z"
 }
