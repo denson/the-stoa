@@ -114,11 +114,15 @@
     {
       "text": "fail: VERA verdict FAIL @ HEAD 283644d. Load-bearing falsification: design §2.4.3 claim 'revert.sh works at user-tier transparently; NO code change needed' is FALSIFIED. revert.sh:101 hard-codes ${WORKSPACE}/.claude/.substrate-backups but apply.sh:255-263 normalizes WORKSPACE by stripping trailing /.claude before writing the same path. Per-design probe input (registry line = $HOME/.claude per A9 + consumer-workspaces.txt comment block), revert.sh at user-tier looks at \u003cws\u003e/.claude/.claude/.substrate-backups (double .claude/) and exits 'no backup directory found' — operator following the design's documented convention hits this bug. Fix: same 3-line ${WORKSPACE%/.claude} strip already applied in apply.sh:261-263. Other 7 named probes PASS or PASS-with-cosmetic-note (Probe 2.5.3 apply.sh grep regex mismatch on 'missing \\.substrate-manifest' vs actual 'missing \\.claude/\\.substrate-manifest' — functional friendly-fallback PASSES). A18 IMMUTABLE PASS (author: Denson Smith exact). §28 trailer PASS. install.sh wiring PASS. Brief items 1-3, 5, 6, 7 PASS; item 4 round-trip apply PASS but revert fails. ADA's 3 documented design deviations all verified PRESENT. Full verdict block returning to PLINY for re-dispatch to ADA. Routing to PLINY.\n\n[from: vera-the-stoa]",
       "timestamp": "2026-05-18T03:25:39Z"
+    },
+    {
+      "text": "[from: cato-the-stoa] NEEDS_REVISION @ HEAD 283644d. 1 load-bearing finding (independently corroborates VERA's F1): revert.sh:101 hard-codes ${WORKSPACE}/.claude/.substrate-backups but the apply.sh user-tier branch normalizes WORKSPACE by stripping /.claude — produces double-/.claude/ at user-tier. CITE-comment in revert.sh at the diff line 15 claims 'tier-agnostic by design' but the script bakes in the project-tier \u003cws\u003e=parent-of-.claude assumption. Same 3-line strip from apply.sh:261-263 needed at revert.sh:101 (and parallel sites in the for-loop at lines 122-124 if they re-construct paths). 2 minor findings (existing-canon 'refinement' framing residue at op-disc §23 lines 1421/1466 + §27.7 line 1683 — out of Arc 38 scope but logically the same F1 fix applied; sed-replacement '\u0026' literal handling — manifest writer doesn't escape '\u0026' in replacement, would mangle if a future {{TOKEN}} replacement contains '\u0026', cosmetic). 1 follow-up (the §23 residue). All 8 scrutiny axes from brief: PASS for axes 1-3, 5-8; FAIL for axis 4 (scope-but-as-bug, not as scope-creep). Full verdict block returning to PLINY.",
+      "timestamp": "2026-05-18T03:29:08Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:25:39Z"
+  "updated_at": "2026-05-18T03:29:08Z"
 }
