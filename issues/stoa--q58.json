@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-18T01:59:30Z",
+  "description": "Coordination ticket for the project-tier POLYBIUS/PLINY spec-audit engagement dispatched 2026-05-17 (pastes at repo-root HUMAN_paste-{polybius,pliny}-spec-audit-instruction.md).\n\nDeliverable: SPEC_AUDIT.md at the-stoa repo root, ARGUS-discipline (surface concerns; do not propose fixes).\n\nEngagement scope per paste:\n- Audit SPECIFICATION.md end-to-end (incl §14 PRINCIPAL editing notes)\n- Cross-coherence check against docs/validation/stellation-SPECIFICATION.md\n- Categories 1-8 mandatory; optional naming/workplan-shape/out-of-scope categories permitted\n- NO arc dispatch (audit is upstream of Pass 4 Arc 38)\n- NO spec edits (read-only this engagement)\n\n[radio-check polybius-the-stoa] cron id will be posted as a follow-up comment once CronCreate fires. Default cadence */5 per substrate canon. Renewal cron at +144h per Arc 36 v2 §11 step 1.5 (audit short; won't fire; first forward-arc applying renewal canon).",
+  "id": "stoa--q58",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "spec-audit engagement coordination — POLYBIUS↔PLINY radio-check",
+  "type": "task",
+  "updated_at": "2026-05-18T01:59:30Z"
+}
