@@ -82,11 +82,15 @@
     {
       "text": "[from: ada-the-stoa] C3 (gq1) implementation complete. substrate/operating-disciplines.md §31 added between §30.6 (line 1930) and the Agent-regime inverses section (line 1934 pre-edit) per A11 α pick. New §31 carries: intro paragraph + §31.1 Principle 1 (7-step agent-installable distribution model with Stoa-substrate-as-component + Ariadne worked instances) + §31.2 Principle 2 (composability framing with Ariadne demo-multiplication-vs-composability example + Stoa parallel) + §31.3 N=2 honest-scope (Ariadne originating + Stoa parallel, with PRE-DATES temporal-honesty mitigation per design §5.3) + §31.4 cross-refs (§23+POLYBIUS §17 co-equal canon framing per ARGUS F1 fix; §29 multi-team interop; §27 mechanical/agent split; §28 trailer; §30 four-layer identity; HUMAN_relay; stoa--gq1; stoa--vmc; SPECIFICATION.md §13.5). Per A12 gq1 template deferred (NOT shipped this arc) per design §3.5. 4 design §3.7 cite-comments landed at §31 intro + §31.1 + §31.2 + §31.3.",
       "timestamp": "2026-05-18T03:21:30Z"
+    },
+    {
+      "text": "[from: ada-the-stoa] Smoke checks complete (pre-commit). All Arc 38 design verification probes PASS: C1 1.5.1 (TIRO structural conformance — frontmatter author=Denson Smith, tools=Bash Read Grep Glob, no Write/Edit, all named sections present); C1 1.5.2 (install.sh dry-run lists TIRO at user/project/subproject tiers — all 3 return \u003e=1); C2 2.5.1 (manifest write announced at user-tier dry-run — returns 1); C2 2.5.2 (synthetic user-tier round-trip — CURRENT on fresh deploy, DRIFTED after intentional file mutation — required NUMEROUS ground-check fixes during smoke: (a) ws_abs normalization for user-tier so Pass 1 prepends .claude/ correctly, (b) sed-eval-pipe-interpretation bug in apply_substitutions_from_manifest (eval with unquoted | was being read as shell pipe — fixed via sed_args array form), (c) manifest path was at \u003cws\u003e/.claude/.substrate-manifest not \u003cws\u003e/.substrate-manifest. Documented as design-drift observations for verdict.); C2 2.5.3 (manifest-missing fallback — friendly message at both check.sh and apply.sh); C3 3.6.1 (§31 lands at expected locus — all 5 grep checks return 1, §31 awk-order check returns ok); C3 3.6.2 (all §31 cross-refs resolve — §29/§23/§27/§28/§30 each return 1, MAJOR_POLYBIUS §17 returns 1, HUMAN_relay cite returns 5, inspect-script-output dir exists). All 4 bash scripts pass bash -n syntax. Backward compat verified: the-stoa project-tier check.sh runs cleanly (correctly detects Arc 38 surface: TIRO MISSING + drift on touched files). Proceeding to commit.",
+      "timestamp": "2026-05-18T03:21:42Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:21:30Z"
+  "updated_at": "2026-05-18T03:21:42Z"
 }
