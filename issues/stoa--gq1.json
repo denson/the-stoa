@@ -28,11 +28,15 @@
     {
       "text": "DESIGN DRIFT FLAG (per §2.14 ADA preamble): probes P15 and P16 in design §3.5 use awk pattern 'awk /^### 6\\.9 /,/^### [67]\\./' — but the heading AFTER §6.9 in CAPTAIN_DAEDALUS.md is '## 7. Verdict format' (level-2), NOT '### 7.X' (level-3). The awk bracket-close never matches → awk yields only the §6.9 opening line → grep against §5.11 / mn3 anchors returns 0. CONTENT IS CORRECT (with corrected awk '/^## 7\\./' as close-pattern: §5.11 cross-ref = 1, mn3 anchors = 8). Building to ship reality; design-drift not corrected (not in mn3 scope; flag for follow-up tied to validate-spec re-run or VERA re-anchor). Same pattern may apply to P19 in PLINY §6.2a (parallel-section design).",
       "timestamp": "2026-05-18T08:53:47Z"
+    },
+    {
+      "text": "DESIGN DRIFT FLAG #2 (per §2.14): arc-42/design.md §3.7 P25 probe shape 'grep -cE \"...\\\\n\\]\"' is incompatible with GNU grep -E 3.0 backslash semantics. Shell double-quote strips '\\\\' → '\\' as grep arg; grep -E '\\' is 'trailing backslash' error or undefined behavior depending on subsequent char. Tested combinations: shipping file with '\\n' (2 chars: \\, n) makes grep -cE \"...\\\\\\\\n...\" match (returns 2); shipping file with '\\n' (2 chars: \\, n) per fix-5a prose intent makes design's P25 return 0. Shipped REALITY in fix-5a is '\\n' per the prose 'or newline' semantic intent. P25 needs single-quoted form 'grep -cE ...\\\\n...' to work against shipped content — but design ships double-quote form. Test path: grep -cE 'the user\\[ \\.,;:\\!\\?\\\\n\\]' /tmp/p25test.txt → 1 (single-quoted works). Building to ship reality (semantic-correct file content); design P25 awk-bracket close pattern '^\\*\\*§4\\.12\\.3 ' DOES work. The pattern's quote-style is the defect. Like P15/P16 awk-close defect, this is a §6.9 self-application failure surface that the actual mn3 cleanup work is properly performing AROUND.",
+      "timestamp": "2026-05-18T08:58:15Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Substrate-component design principles: agent-installable distribution + composability framing",
   "type": "task",
-  "updated_at": "2026-05-18T08:53:47Z"
+  "updated_at": "2026-05-18T08:58:15Z"
 }
