@@ -38,11 +38,15 @@
     {
       "text": "VERA P1-P36 executed. Spec verdict: 35/36 PASS, 1 design-drift FAIL (P15 + P16 as-spec'd, but pass substantively). P25 as-spec'd PASS — but match is on literal '\\' in prose, not the intended bracket-class match; substantive property holds. Verifying no other probe-grounding defects.",
       "timestamp": "2026-05-18T09:11:12Z"
+    },
+    {
+      "text": "VERA verdict: PASS with methodology_concerns. 36/36 substantive PASS. 34/36 as-spec'd PASS, 2 design-drift FAIL (P15/P16 level-3 vs level-2 close-bracket). P25 accidental-pass (matches stray backslash). 3 NEW probe-grounding defects route to stoa--mn3: (a) P15+P16 level-2 close-bracket; (b) P25 quote-style/escape semantics shipped doesn't match intent; (c) P6+P31 bc dependency on Win-Git-Bash. Build is correct. Verdict: agents/verdicts/arc-42/CAPTAIN_VERA-2026-05-18T09-12-03Z.md (via save-verdict skill, self-application). Returning to PLINY.",
+      "timestamp": "2026-05-18T09:12:08Z"
     }
   ],
   "priority": 4,
   "status": "open",
   "title": "Substrate principle refinement (N=4 empirical anchor) — structural fixes converge to a fixed-point, not zero",
   "type": "task",
-  "updated_at": "2026-05-18T09:11:12Z"
+  "updated_at": "2026-05-18T09:12:08Z"
 }
