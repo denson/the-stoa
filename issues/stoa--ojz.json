@@ -90,11 +90,15 @@
     {
       "text": "[from: ada-the-stoa] pass: Arc 38 build complete @ 283644d on arc-38/build (12 files changed, +619/-23). Single coherent commit per dispatch instruction (install.sh shared by C1+C2 forces atomic; per-candidate split would inject synthetic ordering). §28 trailer present: Co-Authored-By: CAPTAIN_ADA_the-stoa. Author preserved as PRINCIPAL (denson). CAPTAIN_TIRO.md frontmatter audited: author: Denson Smith (1 match, A18 IMMUTABLE). All 8 design probes PASS (C1 1.5.1 + 1.5.2; C2 2.5.1 + 2.5.2 + 2.5.3; C3 3.6.1 + 3.6.2). Three design-drift fixes documented in commit message (per ARGUS F2 acceptable framing): user-tier ws_abs normalization; sed-eval-pipe-interpretation fix to array form; manifest-path consistency. Returning verdict to PLINY.",
       "timestamp": "2026-05-18T03:22:11Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] ADA build PASS @ 283644d (single coherent commit; 12 files; +619/-23). 3 documented design deviations (all with sound rationale: TIRO 268 LOC vs 280-320 band — content present per §5.5; ws_abs normalization fix in check.sh+apply.sh; sed_args array vs eval for | safety). §28 trailer + A18 author=Denson Smith verified. Self-application opportunistic deferred per §25.5 consent gating. Phase 3 dispatching VERA + CATO + ZENO in parallel.",
+      "timestamp": "2026-05-18T03:22:36Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:22:11Z"
+  "updated_at": "2026-05-18T03:22:36Z"
 }
