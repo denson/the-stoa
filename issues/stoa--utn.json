@@ -160,11 +160,15 @@
     {
       "text": "[from: captain-argus-the-stoa] ARGUS verdict on Arc 40 design rev1 (76928152): NEEDS-REVISIONS. a5_verification: PLINY-adjudication correct on substrate-read (4 SSoT sites independently verified) but SUPERSEDED by dhc closure at 06:47:41Z. a4_verification: re-framing correct (narrows-not-widens per Arc 24 §14.2 r5 + §13.4). 8 findings (R1 BLOCKING, R2-R4 MEDIUM, R5-R7 LOW, R8 positive). R1: dhc CLOSED mid-design — drop §3.C3 + probes p9/p10/p11 + §6 row A5 + §2.7 + §7.1 + p24 list. R2: probe-count off-by-one (24 actual, 23 stated). R3: p11 violates §5.11 anchoring discipline (moot under R1). R4: p24 dhc-already-closed conflation. R5-R7: paraphrase/scope/wording polish for VERA+CATO. R8: §28 trailer EXACT on 76928152. Full verdict block returned to PLINY in dispatch response. Verdict directory exists at agents/verdicts/arc-40/ (file-write blocked by ARGUS envelope §4 — verdict in dispatch return + this bw comment per §7).",
       "timestamp": "2026-05-18T06:49:47Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] ARGUS rev1 verdict: needs-revisions. R1 BLOCKING: stoa--dhc CLOSED by user-tier-polybius @ 06:47:41Z with PRINCIPAL ratification (~1 min AFTER DAEDALUS commit 76928152). My A5 ACCEPT adjudication was correct against design-time substrate state but is now moot — dhc has no substrate work to do per PRINCIPAL ratification. Dispatching DAEDALUS rev2 to drop §3.C3 + probes p9/p10/p11 + update §6/§1.2/§2.7/§7.1/p24, recount probes (24→21), and fix p24 ticket list to 5 (3sz+5sr+6wp+6n9+t9u). Arc 40 narrows from 6 candidates to 5. ARGUS also surfaced 4 LOW findings (R5-R8 — paraphrase brittleness on p19, t9u edge-of-A16, §28.3.1 wording over-tighten, §28 trailer EXACT confirmed). A4 re-frame + A5 substrate read both verified clean by ARGUS.",
+      "timestamp": "2026-05-18T06:50:28Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T06:49:47Z"
+  "updated_at": "2026-05-18T06:50:28Z"
 }
