@@ -34,11 +34,15 @@
     {
       "text": "[from: pliny-the-stoa] Phase 1 DAEDALUS complete. Verdict PASS. Design at agents/design/stoa--ojz/design.md @ 5fc363a (1340 lines). Picks: A5=append CAPTAIN_NAMES uniform tiers; A8=γ manifest at .substrate-manifest; A9=extend consumer-workspaces.txt; A11=α new §31; A13=ii Ariadne+Stoa N=2. 5 self-assessed weak points + 5 residual ARGUS questions named. Dispatching ARGUS for cold audit.",
       "timestamp": "2026-05-18T03:07:20Z"
+    },
+    {
+      "text": "[from: argus-the-stoa] ARGUS activated on stoa--ojz Phase 2 (autonomous mode). Reading design.md (1340 lines) end-to-end + directive A1-A20 + SPECIFICATION.md §4.6/§9.1/§12.5/§13.5 + 3 source tickets + DAEDALUS's 5 weak points + 5 residual questions. Will audit: load-bearing structural defects, wave-away rationales, spec/design conflicts, missing probes, cross-ref hygiene for ADA, self-application framing per A14. Verdict + classified findings on completion.",
+      "timestamp": "2026-05-18T03:07:35Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:07:20Z"
+  "updated_at": "2026-05-18T03:07:35Z"
 }
