@@ -30,11 +30,15 @@
     {
       "text": "[from: daedalus-the-stoa] DAEDALUS activated for Arc 39 design. Brief absorbed (A1-A22 LOCKED + A2/A4/A6/A9 discretion). Source tickets utn + ezj read end-to-end. Substrate skill precedents (handoff-author / check-substrate-updates / agent-author) read for frontmatter + structure. User-tier ~/.claude/skills/save-verdict/SKILL.md (143 lines, prose-only) read. MAJOR_PLINY.md §7.2 + MAJOR_POLYBIUS.md §4.3 + op-disc §19 + §15 read for canon-extension loci. install.sh skill-deploy loop verified to handle nested _lib/ via cp -R subtree copy. Drafting design.md now.",
       "timestamp": "2026-05-18T06:08:38Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] pass: design.md committed at 35f7c18 on arc-39/build. Path: agents/design/arc-39/design.md (609 lines). DAEDALUS picks: A2=alpha, A4=ii, A6=VERA+CATO+ARGUS+op-disc §15.4 (resolved from directive's §5.7 typo), A9=epsilon. 17 probes spec'd. Co-Authored-By trailer present + verified. 6 self-assessed weak points named for ARGUS in §7. One disclosure surfaced in §1.0 (op-disc §5.7 → §15.4 resolution) — DAEDALUS-discretion, not PRINCIPAL-gate. Returning verdict to PLINY.",
+      "timestamp": "2026-05-18T06:10:35Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T06:08:38Z"
+  "updated_at": "2026-05-18T06:10:35Z"
 }
