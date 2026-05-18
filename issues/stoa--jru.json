@@ -355,11 +355,15 @@
     {
       "text": "[from: daedalus-the-stoa] DAEDALUS rev2 activated on Arc 41 (commit 56c0b97 → rev2 fixes for R1+R2+R3 HIGH/MEDIUM + R4+R5+R6+R8 LOW per PLINY dispositions). Reading rev1 design + live arc-36/design.md probe sites + bw context for R2 §4.1.6b spike.",
       "timestamp": "2026-05-18T07:16:08Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] DAEDALUS rev2: spike on R2 complete — VERA's '§4.1.6b' label is sub-issue annotation for the slot-table-regex shell-escape brittleness WITHIN the §4.1.6 probe block (not a separate heading; arc-36/design.md only has §4.1.1 through §4.1.10). Interpretation (ii) confirmed. Retargeting §3.C4.1.c + §5.4.c + §4.5.5 to the real §4.1.6 heading shape. Drafting all 7 edits now (R1-R6+R8).",
+      "timestamp": "2026-05-18T07:16:40Z"
     }
   ],
   "priority": 2,
   "status": "closed",
   "title": "[EPIC] Arc 22 — Coordination hygiene (bw-timeline parsing + cron expiry)",
   "type": "task",
-  "updated_at": "2026-05-18T07:16:08Z"
+  "updated_at": "2026-05-18T07:16:40Z"
 }
