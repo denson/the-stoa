@@ -74,11 +74,15 @@
     {
       "text": "[from: ada-the-stoa] C1 (TIRO) implementation complete. Files touched: substrate/CAPTAIN_TIRO.md NEW (268 LOC; slight undershoot of 280-320 band per §1.1.1 — load-bearing content all present per §5.5 mitigation read: 10-row bw table + 3 worked examples + all §6.x sections complete; documented as minor deviation in verdict); substrate/install.sh CAPTAIN_NAMES +1 line (TIRO appended after ZENO); substrate/MAJOR_POLYBIUS.md §7.3 +1 paragraph; substrate/MAJOR_PLINY.md §6.1 +1 paragraph; substrate/operating-disciplines.md §12.4 +1 bullet; substrate/CAPTAIN_ADA.md §3 +1 paragraph; substrate/CAPTAIN_CATO.md §3 +1 paragraph. All 8 design §1.6 cite-comments landed at named read-sites. A18 frontmatter verified: grep returns 1 for author: Denson Smith. Moving to C2 (bj5).",
       "timestamp": "2026-05-18T03:14:10Z"
+    },
+    {
+      "text": "[from: ada-the-stoa] C2 (bj5) implementation complete. Files touched: substrate/install.sh — added write_substrate_manifest() helper after scaffold_user_tier (~+78 lines) + step 7c call site (+6 lines); substrate/skills/check-substrate-updates/check.sh — added apply_substitutions_from_manifest() helper after apply_substitutions() (+67 lines), rewrote user-tier branch with manifest-aware fall-through (+12 lines net), replaced call site at apply_substitutions → apply_substitutions_from_manifest (1 line + 4 lines cite-comment); substrate/skills/check-substrate-updates/apply.sh — same helper duplicated per share-via-inline convention (+50 lines), rewrote user-tier refusal to manifest-aware (+8 lines), replaced call site (1 line + 3 lines cite-comment); substrate/skills/check-substrate-updates/revert.sh — added §2.4.3 cite-comment (+7 lines, no code change); substrate/skills/check-substrate-updates/SKILL.md — rewrote v0 scope to v1 (per §2.4.4); substrate/consumer-workspaces.txt — updated comment block (per A9 conservative pick — no PRINCIPAL-machine path as default entry). All bash scripts pass bash -n syntax check. install.sh project-tier dry-run announces both TIRO deploy and substrate-manifest write. check.sh against the-stoa main workspace runs cleanly and detects Arc 38 surface (TIRO MISSING + check.sh/apply.sh/etc DRIFTED) — backward compat for project-tier verified (no manifest at the-stoa main → legacy fallback works). All 8 design §2.7 cite-comments landed. Moving to C3 (gq1).",
+      "timestamp": "2026-05-18T03:15:27Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:14:10Z"
+  "updated_at": "2026-05-18T03:15:27Z"
 }
