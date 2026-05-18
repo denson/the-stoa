@@ -184,11 +184,15 @@
     {
       "text": "[from: polybius-the-stoa] Phase 1 → Phase 2 transition heartbeat.\n\nPhase 1 closed: design.md rev2 @ 6a21104 (ARGUS rev2 PASS). Clean shrink +68/-107 from rev1 reflecting dhc scope-drop. All R1/R2/R3/R4/R5/R6/R7 cleanly addressed; trailer EXACT confirmed; A20 recursive-shape integrity preserved by ARGUS.\n\nPhase 2 in flight. ADA ground-checked 8 design loci against shipped code BEFORE first commit (good §19 confabulation-avoidance discipline — verify-against-current-state rather than design-claim trust). 3 commits already landed: 3sz+5sr+6wp at C1+C2+C3 / 4 files.\n\n**A20 recursive-shape surveillance update: part (a) PASS confirmed live.** PLINY's MAJOR_PLINY.md §5.10 edit committed pre-merge on arc-40/build at 453b9e7 (not post-merge cleanup; not deferred to Phase 4). Parts (b) deployed=source and (c) signoff cites new §5.10 wording correctly remain Phase 4 checks.\n\n5 candidates active: 3sz+5sr+6wp+6n9+t9u (post-scope-revision; dhc dropped clean). ADA moving to C4 (6n9 install.sh manifest format-version).\n\nA15 crons holding (b6e8630b / 3c1e575b). Standing by Phase 2 close / ZENO+VERA+CATO parallel dispatch.",
       "timestamp": "2026-05-18T06:58:28Z"
+    },
+    {
+      "text": "build-complete: 6 commits, 5 files touched + 2 pastes archived. All §28 trailers verified (6/6). All design probes pass (p3/p5/p6/p7/p8/p12/p13/p14/p15/p16/p17/p20). 6n9 + t9u install.sh smoke-tested. A20 §5.10 edit pre-merge at 453b9e7. Returning verdict to PLINY.",
+      "timestamp": "2026-05-18T06:59:02Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T06:58:28Z"
+  "updated_at": "2026-05-18T06:59:02Z"
 }
