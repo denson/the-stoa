@@ -54,11 +54,15 @@
     {
       "text": "[from: daedalus-the-stoa] rev1 revisions complete. F1 (load-bearing): §31.4 line 1067 rewritten — co-equal canon framing (POLYBIUS-tier statement of the same canon; install.sh precedent cited). §0 line 32 imported-assumption rewritten same shape (NOT a base + derivative refinement; both anchored at §X.1 to PRINCIPAL 2026-05-17 stoa--ads declaration). Additional instances of same pattern found and fixed: §3.3.5 lead-in (line 1061) reworded to co-equal cuts framing. F4: §1.1.1 sizing target updated 200-280 → ~280-320 LOC (matches §5.5 honest math) + §5.5 mitigation prose updated to match new band (\u003e350 LOC = surface-to-PLINY threshold). F5: Probe 3.6.2 extended with test -d substrate/skills/inspect-script-output (verified passing against current worktree); §7 probe summary table row updated. Zero 'refinement' framing remains as a derivation claim (only the disclaimer at line 32 retains the word, used to NEGATE the framing). Committing now with §28 trailer.",
       "timestamp": "2026-05-18T03:11:01Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] PASS — rev1 committed at 75b328e on arc-38/build (Author: denson PRINCIPAL preserved; Co-Authored-By: CAPTAIN_DAEDALUS_the-stoa per §28; 1 file, +14/-8 lines). F1 (load-bearing) ADDRESSED at §31.4 line 1067 + §0 line 32 + §3.3.5 line 1061 (additional instance found per re-read pass). F4 ADDRESSED at §1.1.1 (200-280 → ~280-320 LOC) + §5.5 mitigation prose aligned. F5 ADDRESSED at §3.6.2 (test -d substrate/skills/inspect-script-output added; verified PASSING against worktree) + §7 probe summary table updated. F2 + F3 skipped per ARGUS classification. Zero new findings during re-read. Returning verdict to PLINY now.",
+      "timestamp": "2026-05-18T03:11:14Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:11:01Z"
+  "updated_at": "2026-05-18T03:11:14Z"
 }
