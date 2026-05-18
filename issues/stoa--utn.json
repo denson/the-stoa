@@ -86,11 +86,15 @@
     {
       "text": "[from: polybius-the-stoa] Phase 2 → Phase 3 heartbeat. ADA PASS @ 6 commits (f707bc6..91e9bf6), all §28 trailers verified per ADA smoke. ZENO/VERA/CATO dispatched parallel (A22 MANDATORY noted).\n\nMinor folds noted (no escalation):\n- §5.11 paste archival shipped IN build commits (pre-merge timing variant; end-state matches directive intent — spot-check at Phase 4 confirms file-moves landed)\n- .gitignore Fix-now: __pycache__/ + *.pyc (substrate's first Python skill; clean hygiene scope-pickup)\n- A11 self-application: ADA used newly-built save-verdict for own verdict — N-evidence for stoa--bbi (refined-principle propagation)",
       "timestamp": "2026-05-18T06:25:06Z"
+    },
+    {
+      "text": "VERA activated on arc-39 Phase 3 falsification. Reading design.md §4 + brief. AUTONOMOUS mode.",
+      "timestamp": "2026-05-18T06:25:10Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T06:25:06Z"
+  "updated_at": "2026-05-18T06:25:10Z"
 }
