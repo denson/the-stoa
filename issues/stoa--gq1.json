@@ -24,11 +24,15 @@
     {
       "text": "C1a + C1b landed: validate-spec skill tree (be6f7a0) + install.sh wiring (96c3e3b). All Python files ast-parse; check.sh bash -n passes; --help on all helpers returns 0. Now landing fold-ins C2 (DAEDALUS §6.9 — 1lm), C3 (PLINY §6.2a — bn8), then C4 (mn3 design.md fixes), C5 (6k1 arc-25 P10 deletion). Then C1c: RUN validate-spec + capture mech-check-results.md artifact. Then C6: paste archival.",
       "timestamp": "2026-05-18T08:53:09Z"
+    },
+    {
+      "text": "DESIGN DRIFT FLAG (per §2.14 ADA preamble): probes P15 and P16 in design §3.5 use awk pattern 'awk /^### 6\\.9 /,/^### [67]\\./' — but the heading AFTER §6.9 in CAPTAIN_DAEDALUS.md is '## 7. Verdict format' (level-2), NOT '### 7.X' (level-3). The awk bracket-close never matches → awk yields only the §6.9 opening line → grep against §5.11 / mn3 anchors returns 0. CONTENT IS CORRECT (with corrected awk '/^## 7\\./' as close-pattern: §5.11 cross-ref = 1, mn3 anchors = 8). Building to ship reality; design-drift not corrected (not in mn3 scope; flag for follow-up tied to validate-spec re-run or VERA re-anchor). Same pattern may apply to P19 in PLINY §6.2a (parallel-section design).",
+      "timestamp": "2026-05-18T08:53:47Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Substrate-component design principles: agent-installable distribution + composability framing",
   "type": "task",
-  "updated_at": "2026-05-18T08:53:09Z"
+  "updated_at": "2026-05-18T08:53:47Z"
 }
