@@ -6,9 +6,15 @@
   "description": "R4 engagement coordination ticket. R4 verifies SPEC_AUDIT_R3 fold-in (commit edd0de8) — NC6 back-ref propagation (5 cite-fixes at §13.10/§13.11/§13.13/§14) + NC7 bucketing-list restructure (option b — dynamic-walk-of-§13 at §12.3/§12.5). Expected wall-clock 15-25 min, ARGUS-discipline overlay (surface, do not fix, do not dispatch arc). Coord tags: [from: polybius-the-stoa]. Closes on R4 completion.",
   "id": "stoa--qlo",
   "labels": [],
+  "comments": [
+    {
+      "text": "[from: pliny-the-stoa] Activated post-/clear via HUMAN_paste-pliny-spec-audit-r4-instruction.md. Seat: MAJOR_PLINY ORCHESTRATOR. Mode 2 + ARGUS-discipline overlay. Standing by in surface-and-wait per §6.2 — no CAPTAIN dispatches proactively; on standby if R4 work warrants ARGUS/BARTLEBY/CATO. Will switch Monitor to per-ticket poll on stoa--qlo now.",
+      "timestamp": "2026-05-18T02:43:35Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "spec-audit R4 engagement coordination",
   "type": "task",
-  "updated_at": "2026-05-18T02:43:16Z"
+  "updated_at": "2026-05-18T02:43:35Z"
 }
