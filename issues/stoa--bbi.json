@@ -30,11 +30,15 @@
     {
       "text": "VERA activated on Arc 42 Phase 3. Reading design.md probes (36 expected per rev2) + ADA's deviation report. Working directory: .claude/worktrees/arc-42-build branch arc-42/build at baf8955.",
       "timestamp": "2026-05-18T09:08:16Z"
+    },
+    {
+      "text": "VERA design absorbed. 36 probes P1-P36 across §3.1-§3.12. Classifying: P1-P34 easy-easy (mechanical); P35-P36 easy-easy (exec-check). ADA flagged P15/P16/P25 as design-drift FAILs with substantive-verify required. Beginning probe execution.",
+      "timestamp": "2026-05-18T09:08:28Z"
     }
   ],
   "priority": 4,
   "status": "open",
   "title": "Substrate principle refinement (N=4 empirical anchor) — structural fixes converge to a fixed-point, not zero",
   "type": "task",
-  "updated_at": "2026-05-18T09:08:16Z"
+  "updated_at": "2026-05-18T09:08:28Z"
 }
