@@ -38,11 +38,15 @@
     {
       "text": "VERA: 17 of 21 probes verifiable pre-merge — all PASS. Remaining 4 (p21/p22/p23/p24) are Phase 5 post-merge cleanup + ticket-closure probes; preconditions not yet met by design; marking INCOMPLETE-pre-merge (not FAIL). Methodology concerns: (1) p15/p18 specify nonexistent install.sh flags --dest / --no-bw-init (correct flag is --project-dir) — operational property verified via translated command; (2) p24 command tests for 'Status:.*closed' string but bw show emits no Status: line (uses ✓ symbol); literal command would always falsify regardless of actual close state. Writing verdict.",
       "timestamp": "2026-05-18T07:01:25Z"
+    },
+    {
+      "text": "VERA Phase 3 verdict: PASS. 17/21 probes verified PASS pre-merge (p1-p8, p12-p20); 4 probes (p21-p24) deferred to post-merge by precondition (Phase 5 cleanup + ticket-closure cycle). 2 methodology concerns surfaced (probe-spec defects in p15/p18 and p24 — operational properties verified PASS via translated commands; recommend follow-up ticket aligned to same shape as 3sz itself). Independence preserved: git status clean. Verdict written via save-verdict skill (byte-identical SHA — self-application N-evidence for stoa--bbi). Returning to PLINY: Arc 40 cleared for Phase 4 ship per VERA-side gate.",
+      "timestamp": "2026-05-18T07:02:13Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Arc 24 follow-up — probe-spec ^last= anchor needed (verbatim regex finds 2, anchored variant returns 1 as intended)",
   "type": "task",
-  "updated_at": "2026-05-18T07:01:25Z"
+  "updated_at": "2026-05-18T07:02:13Z"
 }
