@@ -445,7 +445,7 @@ A change is "shipped" when its commit is on `origin/main` AND (for arc-shipped c
 - `gh pr list --state merged --limit 20` — recent merged PRs
 - `git log --grep='^Arc' --oneline` — arc-ship commits (each arc PR title is prefixed `Arc N:`)
 
-**Reference points for orientation** (not authoritative; refresh via queries above for current state): Arc 35 ship `6414397`; Arc 36 v2 ship `fcd68c0`; Arc 37 ship `bb12806`. The Arc 37 squash-merge `bb12806` body carries empty `%(trailers)` due to PLINY's `--body` override defeating GitHub's default trailer-concatenation; this is the empirical anchor for stoa--6wp (Arc 40 C4) and the §13.11 Pass 9 mechanical-check explicitly carves out `bb12806` as the known historical exception (the fix is forward-only per CLAUDE.md's no-force-push rule).
+**Reference points for orientation** (not authoritative; refresh via queries above for current state): Arc 35 ship `6414397`; Arc 36 v2 ship `fcd68c0`; Arc 37 ship `bb12806`; Arc 38 ship `0b5f7f3`; Arc 39 ship `f1f222a`; Arc 40 ship `dbb5b81`; Arc 41 ship `6b6fb11`. The Arc 37 squash-merge `bb12806` body carries empty `%(trailers)` due to PLINY's `--body` override defeating GitHub's default trailer-concatenation; this was the empirical anchor for stoa--6wp (Arc 40 C4) shipped 2026-05-18, which structurally closed the regression class by codifying trailer-preservation discipline at MAJOR_PLINY.md §5.10 + op-disc §28.3.1. The §13.11 Pass 9 mechanical-check carves out `bb12806` as the known historical exception (the fix is forward-only per CLAUDE.md's no-force-push rule); Arcs 38 + 39 + 40 + 41 each shipped 10-11 trailers preserved through squash-merge, confirming the canon holds across downstream consumer arcs.
 
 ### §12.2 What counts as in flight
 
@@ -526,39 +526,53 @@ The team works through Passes 1-9 below to drive the substrate to its "spec met"
 - C5: stoa--53u idle-state retrospective-narrative confabulation (op-disc §19.7 sister to §19.6)
 - C6: stoa--7e3 handoff-author skill (new `substrate/skills/handoff-author/` from draft at `_drafts/skill_handoff_author.md`; install.sh wiring; role-file cross-refs; consider extending with generation-handoff session-id record per §12.5 future-work)
 
-### §13.5 Pass 4 — Arc 38 (substrate architecture batch, 3 candidates)
+### §13.5 Pass 4 — Arc 38 (substrate architecture batch, 3 candidates) — DONE 2026-05-17
 
-- **C1: stoa--ojz — CAPTAIN_TIRO bw substrate specialist seat** (per §4.6) — new role file at `substrate/CAPTAIN_TIRO.md`; install.sh AGENT/CAPTAIN deploy wiring; cross-refs from MAJOR_POLYBIUS.md + MAJOR_PLINY.md + operating-disciplines.md §12 bw cookbook. Read-direct (delegated queries) + write-advisory (suggests syntax, never executes writes for another seat). Toolset: Bash, Read, Grep, Glob.
-- **C2: stoa--bj5 — user-tier substrate drift detection** — bring user-tier substrate into `check-substrate-updates` drift-check scope. Per-file-marker scheme (or equivalent) for substitution-tracking. Add user-tier to consumer-workspaces.txt (or equivalent user-tier registry).
-- **C3: stoa--gq1 — substrate-component design principles** — agent-installable distribution model + composability framing. Substantive substrate architecture canon. operating-disciplines.md new section likely.
+Shipped at PR #18 → main `0b5f7f3` + paste archival `54f8d46`. Three candidates landed:
 
-Three substantive candidates bundled per Arc 32 / Arc 37 precedent.
+- **C1: stoa--ojz — CAPTAIN_TIRO bw substrate specialist seat** (per §4.6) — `substrate/CAPTAIN_TIRO.md` (268 LOC) with read-direct + write-advisory split per SPECIFICATION.md §4.6 PRINCIPAL-lock; install.sh wiring at all 3 tiers (11 CAPTAINs); cross-refs at MAJOR_POLYBIUS §7.3 + MAJOR_PLINY §6.1 + op-disc §12.4 + CAPTAIN_ADA + CAPTAIN_CATO.
+- **C2: stoa--bj5 — user-tier substrate drift detection** — `.substrate-manifest` (A8 γ pick) at `<workspace>/.claude/.substrate-manifest`; install.sh writes manifest at deploy; check.sh + apply.sh manifest-driven substitution; revert.sh tier-agnostic; friendly fallback when manifest absent.
+- **C3: stoa--gq1 — substrate-component design principles** — `operating-disciplines.md` §31 (A11 α at line 1935) with N=2 honest framing (A13 ii: Ariadne + Stoa substrate as parallel anchors).
 
-### §13.6 Pass 5 — Arc 39 (substantial mid-bundle, 2 candidates)
+Follow-up filed: stoa--6n9 (P3) — manifest format-version header (CATO c3 follow-up; shipped Arc 40).
 
-- **C1: stoa--utn — save-verdict skill promotion** — author `_save_verdict.py` + `_lib/byte_copy.py` per the user-tier SKILL.md procedure that Arc 23 ratified; install.sh SKILL_NAMES addition; deploy at substrate/skills/save-verdict/. ~150-300 LOC of Python authoring.
-- **C2: stoa--ezj — PRINCIPAL-intent probe discipline canon** — extends MAJOR_PLINY.md §7.2 verify-then-execute to PRINCIPAL-intent dependencies (when a downstream work item's shape depends on an upstream decision PRINCIPAL hasn't articulated yet, the work item is not yet specifiable). 3 concrete sub-shapes documented in ticket body. Substantive substrate discipline canon.
+### §13.6 Pass 5 — Arc 39 (substantial mid-bundle, 2 candidates) — DONE 2026-05-18
 
-### §13.7 Pass 6 — Arc 40 (Arc 24 follow-ups + Arc 37 bug-fix, 4 candidates)
+Shipped at PR #19 → main `f1f222a`. Two candidates landed:
 
-Per SPEC_AUDIT W1: split the original 9-candidate bundle into Arc 40 (4 candidates) + Arc 41 (5 candidates). Each bundle stays within historical precedent (Arc 32: 5; Arc 34: 4; Arc 37: 6). Theme for Arc 40 is Arc-24-era hygiene + Arc 37 bug-fix:
+- **C1: stoa--utn — save-verdict skill promotion** — `substrate/skills/save-verdict/{SKILL.md, _save_verdict.py, _lib/byte_copy.py}` (Python helpers per Arc 23 SKILL.md procedure; ~300 LOC); install.sh SKILL_NAMES += save-verdict. A2 α pick (single-skill private `_lib/`), A4 ii pick (lift-and-modernize SKILL.md prose).
+- **C2: stoa--ezj — PRINCIPAL-intent probe discipline canon** — `MAJOR_PLINY.md` §7.2 extension + `MAJOR_POLYBIUS.md` §4.3.1 relay-time analog + `operating-disciplines.md` §19.2 cross-ref; A9 ε pick (fold-in with explicit 3-step canonical probe sequence: category → shape-within-category → specifics-within-shape).
 
-- **C1: stoa--3sz** — probe-spec `^last=` anchor canon (Arc 24 follow-up; probe-authoring discipline note in operating-disciplines.md or CAPTAIN_VERA.md)
-- **C2: stoa--5sr** — DAEDALUS Edit-tool worktree-path discipline (Arc 24 follow-up; CAPTAIN_DAEDALUS.md note)
-- **C3: stoa--dhc** — python-vs-jq rationale single-source-of-truth lift (Arc 24 follow-up; consolidate 3 near-identical drift-risk locations across MAJOR_PLINY.md §5.8 + operating-disciplines.md + agent-author skill)
-- **C4: stoa--6wp** [BUG] — squash-merge `--body` override drops Co-Authored-By trailers (Arc 37 regression — see §12.1 + Pass 9 §13.11 carve-out for the historical exception treatment); MAJOR_PLINY.md §5.10 ship-checklist 1-line addition + optional op-disc §28.3.1 trailer-preservation pitfall subsection. **Important sequencing: Arc 40 lands BEFORE Pass 10 stellation dispatch so subsequent squash-merges (including stellation's) preserve trailers cleanly.**
+In-arc M3 Fix-now widening: 7/7 substrate skill SKILL.md files now carry `author: Denson Smith` frontmatter (subsumed stoa--ezp Arc 41 candidate; ezp closed by user-tier as already-resolved). Follow-up filed: stoa--t9u (P3) — install.sh `__pycache__/` exclude (CATO C1 follow-up; shipped Arc 40).
 
-### §13.8 Pass 7 — Arc 41 (cross-refs + audits + Arc 36 follow-ups, 5 candidates)
+### §13.7 Pass 6 — Arc 40 (Arc 24 follow-ups + Arc 37 bug-fix) — DONE 2026-05-18
 
-Per SPEC_AUDIT W1: the second half of the original 9-candidate bundle. Theme is small cross-references + skill-frontmatter audits + Arc 36 follow-ups:
+Shipped at PR #20 → main `dbb5b81`. Original directive scoped 4 LOCKED candidates + 2 optional fold-in (per SPEC_AUDIT W1 split). Final shipped scope: **3 LOCKED + 2 fold-in = 5 candidates**:
 
-- **C1: stoa--n2e** — cross-ref add: MAJOR_POLYBIUS escalation triggers → operating-disciplines.md §20.3 (refusal-as-signal)
-- **C2: stoa--58b** — cross-ref add: MAJOR_PLINY dispatch section → operating-disciplines.md §20
-- **C3: stoa--3ml** — trivial 1-sentence edit: op-disc Thesis line 13 references `§1-§17` → update to current section range
-- **C4: stoa--ezp** — authorship-frontmatter audit + 2-file edit: add `author: Denson Smith` to `substrate/skills/agent-author/SKILL.md` + `substrate/skills/check-substrate-updates/SKILL.md` (both pre-existing per Arc 25 stoa--uly convention)
-- **C5: stoa--pqn** — Arc 36 v2 follow-ups (VERA probe-regex tightening edits to arc-36 design.md; bug #40228 watch note; organic adoption observation captured for future scope-expansion consideration)
+- **C1: stoa--3sz** — `CAPTAIN_VERA.md` §5.11 "Probe-spec regex anchoring discipline" (A6 γ pick).
+- **C2: stoa--5sr** — `CAPTAIN_DAEDALUS.md` §6.8 "Canonical-template wording-alignment discipline" (A4 reframed from "Edit-tool worktree-path" after DAEDALUS read agents/design/arc-24/design.md and found the actual empirical anchor was wording-alignment, not Edit-tool mechanics; ARGUS verified as narrows-not-widens).
+- **C4: stoa--6wp** [BUG, SEQUENCE-CRITICAL] — `MAJOR_PLINY.md` §5.10 squash-merge `--body` override discipline (A2) + `operating-disciplines.md` §28.3.1 worked-example with bb12806 empirical anchor (A3). **bb12806 regression class structurally closed via Arc 40 ship; downstream-consumed by Arc 41 first.**
+- **Fold-in: stoa--6n9** — `install.sh` manifest `# format=v1` header + check.sh/apply.sh reader version-rejection (Arc 38 CATO c3 follow-up).
+- **Fold-in: stoa--t9u** — `install.sh` `__pycache__/` exclusion when copying Python substrate skills (Arc 39 CATO C1 follow-up).
 
-After Pass 7 (Arc 41) ships: **zero open P2 substrate-canon tickets at the-stoa except deferred-with-gating per §13.9 and the lineage-invocation follow-up per §12.5 (stoa--lyw, P3 — sequencing flexible; fold into a future small-bundle arc or ship standalone).** The "substrate-canon" boundary here = open tickets whose deliverable is a canon change (role file edit, operating-disciplines.md section, template extension, new substrate skill) — explicitly NOT engagement-coordination tickets (e.g., spec-audit coord tickets) or pure-documentation tickets (e.g., design.md edits in `agents/design/`). The §13.13 criterion 2 spec-met gate ("no open P2 in 'awaiting-architectural-decision' or 'deferred-without-plan' state") is the broader operational gate; this sentence is its narrower substrate-canon-specific echo.
+**C3 stoa--dhc DROPPED via §25 PRINCIPAL-gate (2026-05-18)**: DAEDALUS surfaced at design-rev1 that substrate already has single-source-of-truth for python-vs-jq rationale at `MAJOR_PLINY.md` §5.8.3; ticket's drift-across-4-sites premise was false against current canon. PRINCIPAL ratified option (a) close-as-already-resolved + strict scope (no narrower-α work). dhc closed by user-tier with cross-ref to merge commit + DAEDALUS finding. Cross-tier round-trip: ~4 min.
+
+Follow-up filed: stoa--mn3 (P3) — Arc 40 + Arc 41 design.md probe-spec defects (5 findings; PLINY-lean α direct-to-main housekeeping). Plus stoa--1lm (P3) substrate-canon extension of §5.11 to DAEDALUS-authored design.md probes.
+
+**A20 recursive-shape held all 3 parts**: PLINY's MAJOR_PLINY.md §5.10 edit committed pre-merge at `453b9e7`; deployed=source verified; PLINY's signoff cites the new §5.10 wording correctly while complying with it. **Self-applied canon held on its own ship-arc.**
+
+### §13.8 Pass 7 — Arc 41 (cross-refs + audits + Arc 36 follow-ups) — DONE 2026-05-18
+
+Shipped at PR #21 → main `6b6fb11`. Original directive scoped 5 candidates; **stoa--ezp absorbed by Arc 39 M3 Fix-now widening** (substrate-tier frontmatter sweep covered the 2-skill scope and 5 others) — closed by user-tier as already-resolved. Final shipped: **4 candidates**:
+
+- **C1: stoa--n2e** — `MAJOR_POLYBIUS.md` line 832 (refusal-as-signal escalation bullet) + line 836 (cross-ref to op-disc §20.3).
+- **C2: stoa--58b** — `MAJOR_PLINY.md` lines 140-146 (credential-discipline preamble for dispatch briefs; cite to op-disc §20).
+- **C3: stoa--3ml** — `operating-disciplines.md` line 13 (Thesis sentence: §1-§17 → §1-§31; DAEDALUS verified current count at design time).
+- **C4: stoa--pqn** — Arc 36 v2 follow-ups landed all 3 items: VERA probe-regex tightening (5 sites in arc-36 design.md per A5 ε in-arc-build), bug #40228 surveillance note at op-disc §11 step 1.5, organic `[from:]` adoption observation as comment on stoa--myd (per A14 hard-lock — NOT canon-promotion).
+
+Follow-up filed: stoa--bn8 (P3) — substrate-canon amendment to MAJOR_PLINY.md §6.2 permitting polling-cron for multi-arc autonomous engagements (proto-canon-promotion evidence from this sequence per stoa--bbi).
+
+**After Pass 7 (Arc 41) ship: zero open P2 substrate-canon tickets at the-stoa.** (Already true pre-Arc-41; ship maintains.) The deferred-with-gating items per §13.9 + the lineage-invocation follow-up `stoa--lyw` (P3 — sequencing flexible) + post-sequence-surfaced tickets per §13.10a (mn3 / sp1 / 1lm / bn8) all stay open without blocking spec-met. The "substrate-canon" boundary = open tickets whose deliverable is a canon change (role file / op-disc section / template / new substrate skill) — explicitly NOT engagement-coordination tickets, pure-documentation tickets (design.md edits in `agents/design/`), or accretion tickets gating on N-evidence.
 
 ### §13.9 Deferred-with-gating future-work (2 candidates; satisfies §13.13 criterion 1)
 
@@ -567,7 +581,18 @@ The following tickets stay open without an arc-ship plan; each has explicit gati
 **Distinction from §11 anti-pattern "absorbed-by-X closures":** deferral-with-gating has *explicit trigger conditions* + a *filed ticket with a concrete fix-shape* — the discipline-gap is named, the gating criteria are falsifiable, and the next-action is committed. The §11 anti-pattern is closure-or-deferral *without* explicit criteria — "we'll get to it later" with no falsifiable trigger and no concrete fix-shape. The two are structurally distinct: gated-deferral commits to act when the gate fires; absorbed-by-X-closure relinquishes the action entirely. A fresh team should treat the two as different categories — gated-deferral is sanctioned per §13.13 criterion 1; absorbed-by-X-closure is rejected per §11.
 
 - **stoa--tvc** (P3) — bw-fit matrix extension for descendant→ancestor block-edge projection-layer representation (operating-disciplines.md §16 extension). **Gating:** ≥2 ariadne arcs surface the descendant→ancestor empirical need (currently N=1 from factory-demo Phase 6). When the gate fires, file a focused arc directive against operating-disciplines.md §16 extension.
-- **stoa--myd** (P4 ACCRETION) — multi-checker convergence framing for operating-disciplines.md §6 gauntlet value. **Gating:** N≥3 four-way convergent findings across future arcs per §6.7.1 canon-promotion gate (currently N=1 from Arc 25). When the gate fires, promote to substrate canon as §6 framing extension.
+- **stoa--myd** (P4 ACCRETION) — multi-checker convergence framing for operating-disciplines.md §6 gauntlet value. **Gating:** N≥3 four-way convergent findings across future arcs per §6.7.1 canon-promotion gate (currently N=1 from Arc 25; one additional confirming instance noted Arc 40 ARGUS R1 BLOCKING vs user-tier QA independent catch — not yet promoted to N=2 per the specific 4-way convergence requirement).
+- **stoa--bbi** (P4 ACCRETION) — substrate-principle refinement (structural fixes converge to a fixed-point, not zero). **Gating:** continuous N-evidence accretion as structural-fix arcs ship; no specific N-threshold; observation-only ticket capturing the refined-principle thesis empirically. Substantial accretion landed during Arcs 39+40+41 (8+ data points across save-verdict self-application + redundant-pair coverage + A20 recursive-shape + cross-tier feedback loop + DAEDALUS-authored-probe gap diagnosis); see ticket comments for sequence-level summary.
+
+### §13.9a Post-sequence-surfaced tickets (filed Arcs 38+39+40+41 + Pass 8 spec-recon; not yet arc-scheduled)
+
+Tickets surfaced during the make-the-team-meet-the-spec sequence that did NOT close in-sequence and have no current arc placement. Distinct from §13.9 (deferred-with-gating) — these have concrete fix-shapes and are queued for a future small-bundle arc OR direct-to-main housekeeping per their individual disposition. Each carries a concrete next-step plan per CLAUDE.md global "Fix known bugs immediately" doctrine.
+
+- **stoa--lyw** (P3) — `/resume` invocation discipline canon (successor-decides-vs-spawn-fresh + stale-id handling). Recording half already mandatory per handoff-author skill step 6 (Arc 37 + Arc 38 R3 fix). Invocation-discipline half is the open work; sufficient for spec-met per §13.14 — fold into future small-bundle arc OR ship standalone post-spec-met.
+- **stoa--sp1** (P3) — port 7-8 cross-substrate utility skills into the-stoa substrate (modernize + integrate with check-substrate-updates lifecycle). Filed Arc 38 user-tier QA. NOT a blocker for spec-met / stellation dispatch (Pass 10 fires fresh substrate at a new workspace; cross-substrate skills don't affect it). Arc 43+.
+- **stoa--mn3** (P3) — Arc 40 + Arc 41 design.md probe-spec defects (5 findings: m1+m2 from Arc 40 VERA + m_4.5.2+m_4.12.2+m_4.12.3 from Arc 41 VERA). PLINY-lean per ticket body = α direct-to-main housekeeping per §18.1 (design.md edits past their review window; cleanest as housekeeping commit). User-tier handles Pass 8-adjacent.
+- **stoa--1lm** (P3) — substrate-canon extension of CAPTAIN_VERA.md §5.11 anchoring discipline to DAEDALUS-authored design.md probes. Filed Pass 8 per DAEDALUS §6.4 (Arc 41 rev2) explicit canon-promotion proposal. Arc 42+ scope (substantive substrate-canon edit; not housekeeping).
+- **stoa--bn8** (P3) — substrate-canon amendment to MAJOR_PLINY.md §6.2 permitting polling-cron for multi-arc autonomous engagements. Filed Pass 8 per Arcs 39-41 proto-canon-promotion evidence (the pattern held cleanly across 3 arcs; departs from §6.2 "no cron by default" current canon). Arc 42+ scope.
 
 ### §13.10 Pass 8 — Spec accuracy reconciliation (no arc; user-tier housekeeping)
 
@@ -576,11 +601,11 @@ The spec was written 2026-05-17 against the substrate state at that moment. Pass
 - Every §-reference resolves to its current location (line numbers may have shifted).
 - Every cited ticket id has the correct status (closed vs open).
 - §12 (the structural definitions + queries) is verified consistent with the post-Pass-7 substrate state: the QUERIES in §12.1-§12.4 still return useful answers; the §12.5 dynamic-walk-of-§13 instruction still resolves correctly; reference SHAs in §12.1 still anchor to the intended commits.
-- §13.5-§13.10 + §13.14 (which collectively constitute the ticket-placement gap-list per §12.5) reflect post-Pass-7 reality — closed Passes are marked DONE; open candidates have current tickets + scope notes; any newly-surfaced gap not already placed in §13.x gets a fresh ticket + a §13.x bucket assignment. **(Known residue per SPEC_AUDIT_R4 NC8 / stoa--bbi: this enumeration is current-at-authoring-time scope-hint, not authoritative — Pass 8 reconciliation walks §13 dynamically per §12.5's instruction and updates this bullet's enumeration to match. PRINCIPAL accepted the soft-residual per option (b) 2026-05-17.)**
+- §13.5-§13.10 + §13.14 (which collectively constitute the ticket-placement gap-list per §12.5) reflect post-Pass-7 reality — closed Passes are marked DONE; open candidates have current tickets + scope notes; any newly-surfaced gap not already placed in §13.x gets a fresh ticket + a §13.x bucket assignment. **(Known residue per SPEC_AUDIT_R4 NC8 / stoa--bbi: this enumeration is current-at-authoring-time scope-hint, not authoritative — Pass 8 reconciliation walks §13 dynamically per §12.5's instruction and updates this bullet's enumeration to match. PRINCIPAL accepted the soft-residual per option (b) 2026-05-17.)** **2026-05-18 Pass 8 execution outcome**: §13.5/§13.6/§13.7/§13.8 updated with DONE markers + ship commits + per-arc actual-scope notes (dhc dropped via §25; ezp absorbed by Arc 39); §12.1 reference points extended with Arc 38-41 ships; new §13.9a section added for 5 post-sequence-surfaced tickets (lyw + sp1 + mn3 + 1lm + bn8); stoa--bbi placement formalized in §13.9.
 - Any spec section that turned out to be aspirational rather than describing shipped canon either (a) gets revised to match shipped reality, or (b) gets the new ticket filed + cross-referenced as future work.
 - **stoa--6k1 handled inline** — Probe P10 spec refinement in `agents/design/arc-25/design.md` only (design-doc edit not substrate-canon edit); user-tier POLYBIUS edits during Pass 8 reconciliation; close on commit.
 
-**This Pass was partially executed early** (the 2026-05-17 spec-audit + this spec-recon commit consume some of Pass 8's scope). The full Pass 8 reconciliation re-runs after Pass 7 (Arc 41) ships, covering any spec drift accreted during Passes 4-7.
+**Pass 8 execution status**: this Pass executed 2026-05-18 post-Arc-41 ship. The 2026-05-17 spec-audit (R1-R4 cadence) + Arc 38 spec-recon commit consumed some of Pass 8's scope ahead of time; the 2026-05-18 post-sequence pass covered the spec drift accreted during Arcs 38-41. Combined with the §13.9a bucket-placement for newly-surfaced tickets, Pass 8 criterion (§13.13 criterion 1 "every spec claim describes shipped canon OR is explicitly marked future work with filed ticket") is satisfied at sequence-end.
 
 Commit the spec reconciliation as a direct-to-main per §18.1.
 
@@ -595,7 +620,7 @@ Author + run a `validate-spec` skill following the §27 mechanical-script / agen
 - `git status` shows no uncommitted changes except ignorable auto-modified state files (e.g., `.claude/.substrate-last-check`) per §12.4's clean-state definition.
 - `_drafts/` is empty OR contains only docs actively in use by an in-flight engagement per §12.4's clean-state definition.
 - `check-substrate-updates` skill returns "no drift" across registered consumer workspaces (including user-tier per Arc 38 C2 / stoa--bj5).
-- **§28 Co-Authored-By trailers present on post-Arc-35 squash-merge commits, with EXPLICIT CARVE-OUT for `bb12806` (Arc 37 squash-merge).** `bb12806` body carries empty `%(trailers)` due to PLINY's `gh pr merge --body` override defeating GitHub's default trailer-concatenation; this is the empirical anchor for stoa--6wp (Arc 40 C4). The check applies forward-only: commits authored AFTER stoa--6wp fix lands (Arc 40 ship onwards) must carry trailers. `bb12806` is named explicitly as a known historical exception per CLAUDE.md's no-force-push rule (the fix is forward-only by structural necessity, not by deferral).
+- **§28 Co-Authored-By trailers present on post-Arc-35 squash-merge commits, with EXPLICIT CARVE-OUT for `bb12806` (Arc 37 squash-merge).** `bb12806` body carries empty `%(trailers)` due to PLINY's `gh pr merge --body` override defeating GitHub's default trailer-concatenation; this was the empirical anchor for stoa--6wp (Arc 40 C4, shipped 2026-05-18 at dbb5b81), which structurally codified the trailer-preservation discipline at MAJOR_PLINY.md §5.10 + op-disc §28.3.1. The check applies forward-only: commits authored AFTER stoa--6wp fix lands (Arc 40 ship onwards) must carry trailers. `bb12806` is named explicitly as a known historical exception per CLAUDE.md's no-force-push rule (the fix is forward-only by structural necessity, not by deferral). **Post-Arc-40 verification (live-verifiable at Pass 9 time)**: Arc 38 ship `0b5f7f3`, Arc 39 ship `f1f222a`, Arc 40 ship `dbb5b81`, Arc 41 ship `6b6fb11` each carry 10-11 §28 trailers preserved through squash-merge — canon held organically across all 4 downstream consumer arcs.
 
 **Inspection-agent triage:**
 - Any check reporting strangeness gets human-readable diagnosis from the inspection agent.
