@@ -10,11 +10,15 @@
     {
       "text": "ARGUS activated on arc-40 design rev1 audit (autonomous mode). Reading design artifact end-to-end + directive + all 6 source tickets + Arc 24 design + 4 SSoT sites + §28/§28.3 + DAEDALUS §6.5-6.7 + VERA probe-authoring section + live-verifying Arc 37 bb12806 trailer-loss. 13-item checklist.",
       "timestamp": "2026-05-18T06:47:35Z"
+    },
+    {
+      "text": "ARGUS state: design + 6 tickets + bb12806 + 76928152-trailer read. CRITICAL: dhc CLOSED by user-tier-polybius @ 06:47:41Z (PRINCIPAL-ratified) — Arc 40 narrows to 3 LOCKED (3sz/5sr/6wp) + A7 fold-in. Design rev1 still has §3.C3 dhc work (~30 LOC + 3 probes p9/p10/p11). Continuing audit: 4 SSoT sites + Arc 24 design + DAEDALUS §6.5-6.7 + VERA §5 + recursive-shape scrutiny.",
+      "timestamp": "2026-05-18T06:47:58Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Arc 24 follow-up — probe-spec ^last= anchor needed (verbatim regex finds 2, anchored variant returns 1 as intended)",
   "type": "task",
-  "updated_at": "2026-05-18T06:47:35Z"
+  "updated_at": "2026-05-18T06:47:58Z"
 }
