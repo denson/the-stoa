@@ -10,7 +10,7 @@ Project `CLAUDE.md` files SHOULD NOT restate these disciplines — they should r
 
 ## The thesis these disciplines express
 
-The disciplines below (§1-§17 plus the autonomous-mode setup checklist) are not a flat list of operational rules. They are expressions of one underlying design thesis about how agentic systems align with human goals on complex projects.
+The disciplines below (§1-§31) are not a flat list of operational rules. They are expressions of one underlying design thesis about how agentic systems align with human goals on complex projects.
 
 **Human attention is finite and load-bearing.** A 2026-era agent team can run a full DAEDALUS → ARGUS → ADA → VERA → CATO → ZENO cycle in minutes; the agents themselves do not run out. What does run out is the human's capacity to direct, clarify, judge, decide, and catch alignment drift. Software 3.0 framings often imply "humans direct, agents do" without specifying *where* the directing has to happen — leading to either humans paying attention everywhere (defeats the leverage) or nowhere (alignment drift).
 
