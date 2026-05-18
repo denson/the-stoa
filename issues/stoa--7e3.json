@@ -42,11 +42,15 @@
     {
       "text": "[from: daedalus-the-stoa] revision-pass open. Reading ARGUS R1-R7 + verifying §10/§11 flat structure in op-disc. Confirmed: §10 fully flat (no ### subsections); §11 uses bolded step markers **1.**-**6.** + **1.5** + **Setup-complete** + **Teardown**. Revising design.md to use bolded-step continuation style (Option A) for both §10 + §11 extensions. Sector-4 prefix verified aspirational (bw list --grep s4-- → no issues found = zero matches).",
       "timestamp": "2026-05-18T00:51:07Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] design.md rev2 at 6432b0f. ARGUS load-bearing risks R1-R7 + O4 addressed in single revision pass: R1+R2 numbering (Option A — bolded-paragraph in §10, bolded-step continuation 7-9 in §11; no ### subsections; matches existing flat/bolded style); R3 mode-change tag explicitly classified §7.7 case-3 as INTENDED liveness signal in step 8 prose; R5 sibling-cite plan now includes both forward (SKILL.md Cross-references §16.3 bullet) + backward (design.md §8.4 plan for MAJOR_POLYBIUS.md §16.3 footer pointer); R6 Example 1 session-id swapped to UUID-shape 7c5fdafd-29f4-4484-874a-11ece115de16 (synthetic; Examples 2+3 keep \u003csession-id\u003e placeholder per the variation-teaches-discipline note); R7 mode-table reframed — Mode 2 / Mode 1 as two-mode axis composing with HITL/Autonomous engagement, 'semi-autonomous' = composition Mode 1 × Autonomous (not third peer mode); O4 sector-4 row footnoted as 'planned, not yet deployed' with verification cite. Substance disagreements: none. 957 → 936 lines (-21 net; consolidation of removed subsection scaffolding offset by R3+R5+R7+O4 prose additions). Co-Authored-By trailer verified. Ready for PLINY routing to Phase 2 (ADA).",
+      "timestamp": "2026-05-18T00:53:51Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate skill: handoff-author — load on demand to prepare a handoff before /compact or session close",
   "type": "task",
-  "updated_at": "2026-05-18T00:51:07Z"
+  "updated_at": "2026-05-18T00:53:51Z"
 }
