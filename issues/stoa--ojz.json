@@ -30,11 +30,15 @@
     {
       "text": "[from: daedalus-the-stoa] PASS — design.md committed at 5fc363a on arc-38/build (Author: denson PRINCIPAL preserved; Co-Authored-By: CAPTAIN_DAEDALUS_the-stoa per §28). 1340 lines covering all 3 candidates with explicit A5/A8/A9/A11/A13 picks + cite-comment plan (20 cite-sites for ADA) + A18 author-frontmatter note + A20 hard-locks re-affirmed + probe spec (8 probes total across 3 candidates) + 5 self-assessed weak points enumerated for ARGUS scrutiny. Two residual_questions_for_argus: (1) TIRO toolset WebSearch/WebFetch — DAEDALUS recommends NO per A3 default (rationale: STRABO covers external-research; bw is local subsystem; toolset-creep risk); (2) gq1 template deferred per §3.5 (rationale: first real consumer is future-arc shipping a new substrate-component; speculative template ahead of consumer is §27 make-script-comprehensive anti-pattern). Self-application observed per A14: chicken/egg for C1 surfaced as NEGATIVE empirical-anchor reinforcement (3-ticket targeted read with cookbook at hand surfaced zero friction; failure-mode anchor was a LARGE completeness audit where truncation matters; documented inline at design §1.7). Returning verdict to PLINY now.",
       "timestamp": "2026-05-18T03:06:54Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Phase 1 DAEDALUS complete. Verdict PASS. Design at agents/design/stoa--ojz/design.md @ 5fc363a (1340 lines). Picks: A5=append CAPTAIN_NAMES uniform tiers; A8=γ manifest at .substrate-manifest; A9=extend consumer-workspaces.txt; A11=α new §31; A13=ii Ariadne+Stoa N=2. 5 self-assessed weak points + 5 residual ARGUS questions named. Dispatching ARGUS for cold audit.",
+      "timestamp": "2026-05-18T03:07:20Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:06:54Z"
+  "updated_at": "2026-05-18T03:07:20Z"
 }
