@@ -713,10 +713,11 @@ VERA executes these in Phase 3. Each is a concrete runnable command + expected o
 
 | # | Probe | Expected outcome |
 |---|---|---|
-| P10 | `grep -l "CI-mediated" substrate/CAPTAIN_DAEDALUS.md substrate/CAPTAIN_ADA.md substrate/CAPTAIN_ARGUS.md substrate/CAPTAIN_BARTLEBY.md` | All 4 files match (matches arc-25-build-directive.md smoke beat #3) |
 | P11 | `grep -l "credential-discipline" substrate/CAPTAIN_DAEDALUS.md substrate/CAPTAIN_ADA.md substrate/CAPTAIN_ARGUS.md substrate/CAPTAIN_BARTLEBY.md` | All 4 files match (cross-ref to the new skill present in each) |
 | P11b | `grep -c "credential_leak" substrate/CAPTAIN_BARTLEBY.md \| awk '$1 >= 2'` returns non-empty | At least 2 references: one in the verdict-format enum at line ~142, one in the §6.7 envelope addition prose (confirms the dangling-tag gap from rev1 audit is closed) |
 | P12 | `grep -L "credential" substrate/CAPTAIN_VERA.md substrate/CAPTAIN_CATO.md substrate/CAPTAIN_ZENO.md substrate/CAPTAIN_STRABO.md substrate/CAPTAIN_HERALD.md substrate/CAPTAIN_CURATOR.md` | All 6 files match (no credential cross-ref in out-of-scope CAPTAINs — confirms scope-discipline) |
+
+<!-- Arc 42 stoa--6k1: P10 row deleted as redundant with P11 per 4-way convergent observation (ADA + VERA + CATO + ZENO). P11's `grep -l "credential-discipline"` covers the same discoverability property as P10's `grep -l "CI-mediated"` at the same 4 in-scope CAPTAIN envelopes; rewriting P10 as alternation would add a probe that ratifies the same property P11 already does. Occam's: delete the redundant probe rather than enumerate. -->
 
 ### §9.4 New skill renders coherently
 
