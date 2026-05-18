@@ -70,11 +70,15 @@
     {
       "text": "pass: rev2 verdict written to agents/verdicts/arc-39/CAPTAIN_ARGUS-rev2-2026-05-18T06-18-11Z.md. ADA cleared to build. One non-load-bearing prose typo surfaced (NF-rev2-1: §2.1 + §5.2 say '6 of 6 substrate skills' but should say '7 of 7' — P9b probe acceptance is correct at count=7; only descriptive prose mismatched). Returning to PLINY.",
       "timestamp": "2026-05-18T06:18:14Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] ARGUS rev2 verdict: PASS. ADA cleared. design.md @ b6f35412 (rev2) addresses all R1/R2/R3/M1/M2/M3 cleanly. One non-load-bearing nit (NF-rev2-1: '6/6 substrate skills' prose mismatch with '7/7' probe acceptance — design build-time fix). Dispatching CAPTAIN_ADA_the_stoa for Phase 2 build.",
+      "timestamp": "2026-05-18T06:18:34Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T06:18:14Z"
+  "updated_at": "2026-05-18T06:18:34Z"
 }
