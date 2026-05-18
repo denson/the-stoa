@@ -1,10 +1,10 @@
 # stellation — Project Specification
 
-**Status:** edited 2026-05-17. Ready for substrate Pass 6 dispatch per `the-stoa/SPECIFICATION.md` §13.7.
+**Status:** edited 2026-05-17. Ready for substrate Pass 10 dispatch per `the-stoa/SPECIFICATION.md` §13.12 (behavioral validation via test-project dispatch).
 
 **Audience:** a fresh Stoa team activated against `~/claude_projects/stellation/` with the-stoa substrate freshly deployed via `install.sh`. This document is the team's primary input.
 
-**Validation framing:** This project's deliverable is real (PRINCIPAL may embed the viz as a component in a future game UI); the team's BEHAVIOR while building it is the substrate-validation evidence per the-stoa SPECIFICATION.md §13.7.
+**Validation framing:** This project's deliverable is real (PRINCIPAL may embed the viz as a component in a future game UI); the team's BEHAVIOR while building it is the substrate-validation evidence per the-stoa SPECIFICATION.md §13.12 (Pass 10 behavioral validation).
 
 ---
 
@@ -214,7 +214,7 @@ The project is shipped when ALL of:
 6. **Substrate disciplines observable** — `git log` shows §28 trailers on CAPTAIN commits; bw shows complete arc lifecycle (gauntlet ran; verdicts captured; signoffs cite live-verified state per `MAJOR_PLINY.md` §5.10; pastes archived per §5.11).
 7. **One-command preview works** — `npm run build && npm run preview` produces a viewable constellation at the documented local URL.
 
-When all 7 fire, the project is v1 shipped. Substrate-validation evidence (criterion 6) feeds back to the-stoa `SPECIFICATION.md` §13.7 Pass 6 observation trail.
+When all 7 fire, the project is v1 shipped. Substrate-validation evidence (criterion 6) feeds back to the-stoa `SPECIFICATION.md` §13.12 Pass 10 observation trail (`agents/observation/spec-validation/test-dispatch-trail.md`).
 
 ---
 
@@ -276,4 +276,4 @@ Each becomes a fresh ticket post-v1; PRINCIPAL ratifies the next motion.
 
 **GitHub remote:** optional for v1; the project ships as a local working tree first. PRINCIPAL may create a remote at any point.
 
-The team operates in semi-autonomous mode per the-stoa SPECIFICATION.md §13.10.
+The team operates in semi-autonomous mode per the-stoa SPECIFICATION.md §13.15 (Mode + dispatch).
