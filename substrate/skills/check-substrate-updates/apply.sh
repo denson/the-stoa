@@ -128,6 +128,18 @@ apply_substitutions_from_manifest() {
     return 0
   fi
 
+  # CITE: format-version contract per Arc 40 / stoa--6n9. Mirror of check.sh
+  # header-scan; rejects unknown format-version. No `# format=` line ->
+  # treat as v1 (graceful fallback for pre-fix manifests). Companion
+  # write-site: substrate/install.sh write_substrate_manifest. Any
+  # install.sh that bumps v1->v2 MUST update this parser in the same arc.
+  local manifest_format
+  manifest_format="$(grep -E '^# format=v[0-9]+' "$manifest" 2>/dev/null | head -1 | sed -E 's/^# format=(v[0-9]+).*/\1/')"
+  if [ -n "$manifest_format" ] && [ "$manifest_format" != "v1" ]; then
+    echo "apply.sh: error: ${manifest} format=${manifest_format} unknown; this apply.sh expects v1. Re-run install.sh to re-deploy with a matching manifest, or update the check-substrate-updates skill." >&2
+    return 1
+  fi
+
   # Array-form sed args; avoids the eval-pipe-interpretation bug.
   local sed_args=()
   local entry_path token replacement

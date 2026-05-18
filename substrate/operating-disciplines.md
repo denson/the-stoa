@@ -1740,6 +1740,36 @@ GitHub's squash-merge behavior auto-populates a Co-Authored-By trailer from each
 
 Verification: `git log --pretty='%(trailers)' main` walks squash-merge commit bodies and reveals the seat-identity trailers from each arc.
 
+#### 28.3.1 Pitfall — squash-merge `--body` override drops trailers
+
+When `--body` is omitted on `gh pr merge --squash`, GitHub auto-populates the
+squash-merge body from the source commits' subject + bodies; this
+auto-population preserves `Co-Authored-By:` trailers (§28.3 property). Passing
+a custom `--body` REPLACES the auto-populated body wholesale — including the
+preserved trailers from the squashed commits' bodies. A `--body "<clean
+summary>"` that omits trailer lines therefore silently strips every
+seat-identity signal from the squash-merge commit on main.
+
+**Empirical anchor.** Arc 37 PR #17 → squash-merge `bb12806` (2026-05-17).
+The merge command was `gh pr merge 17 --squash --delete-branch --subject "..."
+--body "<gauntlet-outcome summary>"`. All 4 source commits on `arc-37/build`
+carried `Co-Authored-By: CAPTAIN_<MNEMONIC>_the-stoa` trailers per §28.
+`bb12806`'s body carries zero (`git log -1 --format='%B' bb12806 | grep -c
+'Co-Authored-By'` returns 0). The source branch was deleted as part of the
+merge; the trailer chain on `main` was permanently severed for that arc.
+
+**The fix at the merge site.** `MAJOR_PLINY.md` §5.10 ship-checklist bullet
+naming this anti-pattern; either omit `--body` (preferred — GitHub
+auto-populates trailers from source-commit bodies) or include trailers
+explicitly in the `--body` HEREDOC (the pattern Arc 38 + Arc 39 used
+organically and shipped trailer-clean by). Arc 40 codifies the discipline so
+Pass 9/10 stellation arcs ship trailer-clean by canon, not by precedent.
+
+**Cross-refs:** `MAJOR_PLINY.md` §5.10 (squash-merge ship-checklist
+discipline); §28.3 (the default trailer-preservation property this pitfall
+defeats); §19.6 (attestation-confabulation — sister discipline shape; both
+"cite live-verified state, not assumed").
+
 ### 28.4 File-frontmatter author fields are NOT affected
 
 This convention applies ONLY to git commit metadata. File-frontmatter `author:` fields (`SKILL.md`, `marketplace.json`, `package.json`, `LICENSE`, etc.) continue to name **Denson Smith** per the project-tier `CLAUDE.md` (at the project repo root) and global `~/.claude/CLAUDE.md` IMMUTABLE rule. The CAPTAIN_ADA.md §5.5 file-frontmatter discipline stands. This section makes the boundary explicit to prevent any reader from inferring "agents tag commits → agents also tag file frontmatter." Commit-trailer seat-identity is a metadata-layer signal; file-frontmatter author is a content-layer claim — different layers, different rules.
