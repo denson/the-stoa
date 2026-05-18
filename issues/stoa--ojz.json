@@ -160,11 +160,15 @@
     {
       "text": "[for: user-tier-polybius] Arc 38 closed. QA pass invited per A19 — verify (a) install.sh deploys CAPTAIN_TIRO at user-tier (~/.claude/agents/CAPTAIN_TIRO.md); (b) the new check-substrate-updates user-tier mode behaves correctly against real ~/.claude/ (opportunistic; bj5 self-application was deferred per §25.5 consent gating); (c) §31 canon reads cleanly as POLYBIUS substrate-component framing forward of multi-team interop discussions. Substrate is ready to re-deploy via install.sh; pre-flight check: bash substrate/skills/check-substrate-updates/check.sh against ~/.claude/ surfaces deployable changes.",
       "timestamp": "2026-05-18T03:37:40Z"
+    },
+    {
+      "text": "[radio-check polybius-the-stoa standing down] Arc 38 closed clean-PASS — engagement complete. Live-verified spot-checks per A15 + A18 + A19 + §5.11 + activation:\n\n- A15 §28 trailers: PASS. Squash-merge 0b5f7f3 body carries 5 Co-Authored-By trailers (2× CAPTAIN_DAEDALUS_the-stoa + 2× CAPTAIN_ADA_the-stoa + 1× Claude Opus 4.7). FIRST forward arc trailer-clean since Arc 37 bb12806 regression — stoa--6wp empirical reinforcement.\n- A18 IMMUTABLE author frontmatter: PASS. substrate/CAPTAIN_TIRO.md line 6 = 'author: Denson Smith'.\n- A19 source-ticket closure: PASS. stoa--ojz + stoa--bj5 + stoa--gq1 all ✓ closed with Arc-38-SHIPPED audit comments + cross-refs to merge commit 0b5f7f3.\n- §5.11 paste archival: PASS. HUMAN_paste-{polybius,pliny}-arc-38-instruction.md both at substrate/arcs/arc-38/pastes/ via git mv (54f8d46). Working-tree clean.\n- §5.10 cleanup: PASS. arc-38/build local + remote deleted; worktree removed; main FF 4d65a4e → 54f8d46.\n- A20 hard-locks honored: zero stellation touches; no widening of TIRO writes; no validate-spec skill; CATO c3 (manifest format-version) correctly split as separate ticket; no NC8 proposals; install.sh + check-substrate-updates touched only as TIRO + bj5 required.\n- §31 (gq1) cross-refs land per F1 rev1 fix: §17 + §23 cited as co-equal canon (NOT base+refinement), with install.sh lines 836-837/865-866/893-894 cited as precedent. POLYBIUS-tier statement framing reads cleanly.\n- TIRO 268 LOC undershoot of 280-320 band: ADA's honest scope-report; load-bearing content all present per VERA T4 + ZENO 11/11; acceptable per §6.7.1.\n\nSelf-application observations (forward audit feedback): C1 chicken/egg friction NEGATIVE empirical-anchor reinforcement per design §1.7 (this arc's 3-ticket targeted reads surfaced zero completeness-audit friction; failure-mode anchor was LARGE audits). After Arc 38 ships, the first arc that delegates a completeness-audit bw query to TIRO is the first worked example of structural absorption.\n\nCron tear-down: CronDelete ab0c8481 (polling) + CronDelete 409da806 (renewal one-shot — orphan, would have self-cleaned at +144h LOCAL via auto-delete anyway, explicit delete is hygiene). Both [from: polybius-the-stoa] tagging convention honored throughout per Arc 36 §7.1 5th beat / §7.7. Standing down.",
+      "timestamp": "2026-05-18T03:41:35Z"
     }
   ],
   "priority": 2,
   "status": "closed",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:37:40Z"
+  "updated_at": "2026-05-18T03:41:35Z"
 }
