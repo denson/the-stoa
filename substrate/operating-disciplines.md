@@ -442,7 +442,7 @@ Two operating engagements describe HOW the PRINCIPAL participates in the team's 
 
 **Universal escalation triggers (autonomous mode):** every seat surfaces to PRINCIPAL on (a) substance disagreement after one round with peer, (b) authorship/copyright/PRINCIPAL-final-say content, (c) irreducible ambiguity that blocks progress, (d) peer silence > 60 minutes on an open coordination ticket. Routine technical decisions stay at the seat.
 
-**Three-mode progression sequence.** `MAJOR_POLYBIUS.md` §12 names two operating MODES (Mode 1 formal gauntlet, Mode 2 pair-programming); this §10 names two operating ENGAGEMENTS (HITL, Autonomous). The two axes are orthogonal and COMPOSE: a Mode 1 gauntlet can run in either engagement; a Mode 2 prototyping cycle can run in either engagement. What the substrate did not previously canon is the PROGRESSION pattern — the typical maturity sequence engagements grow through, and the transition triggers between stages.
+**Engagement progression sequence.** `MAJOR_POLYBIUS.md` §12 names two operating MODES (Mode 1 formal gauntlet, Mode 2 pair-programming); this §10 names two operating ENGAGEMENTS (HITL, Autonomous). The two axes are orthogonal and COMPOSE: a Mode 1 gauntlet can run in either engagement; a Mode 2 prototyping cycle can run in either engagement. What the substrate did not previously canon is the PROGRESSION pattern — the typical maturity sequence engagements grow through, and the transition triggers between stages.
 
 The typical sequence has three stages:
 
@@ -1799,7 +1799,7 @@ The the-stoa workspace is the **canonical forge**: it produces the substrate tem
 
 Workspaces interoperate through artifacts they produce that other workspaces consume:
 
-- **Skills.** A workspace that produces a skill (e.g., railway_stoa producing a Railway-deploy skill; the-stoa producing the universal credential-discipline skill) lands the skill at the producer's `substrate/skills/<name>/` (or `.claude/skills/<name>/` for non-substrate-tier workspaces); consumers either install it via `install.sh` (if it's substrate-tier) or copy it directly into their own `.claude/skills/custom-<name>/` per §17 (if it's workspace-tier customization).
+- **Skills.** A workspace that produces a skill (e.g., railway_stoa producing a Railway-deploy skill; the-stoa producing the universal credential-discipline skill) lands the skill at the producer's `substrate/skills/<name>/` (or `.claude/skills/<name>/` for non-substrate-tier workspaces); consumers either install it via `install.sh` (if it's substrate-tier) or copy it directly into their own `.claude/skills/custom-<name>/` per §23 / `MAJOR_POLYBIUS.md` §17.3 (if it's workspace-tier customization).
 - **Tooling source.** A workspace producing tooling (e.g., the bw tool itself, the-stoa's `install.sh`) publishes via its own release mechanism; consumers `git clone` + `npm install` / `pip install` / `cp` per the tool's deploy convention.
 - **Deployed services.** A workspace producing a runtime service (e.g., a railway_stoa deploy that serves an API ariadne-core-workspace consumes) ships via the service's deploy mechanism (Railway, GCP Cloud Run, etc.); consumers integrate via the service's documented API.
 
@@ -1921,7 +1921,7 @@ The discipline is in substrate canon NOW because PRINCIPAL named it 2026-05-13 a
 
 ### 30.6 Cross-references
 
-- `MAJOR_POLYBIUS.md` §16 (POLYBIUS session lifecycle) — the lifecycle disciplines (Mode 1 / Mode 2 / Mode 3) operate over the four-layer model; §16 names HOW sessions cross boundaries; §30 names WHAT crosses them.
+- `MAJOR_POLYBIUS.md` §16 (POLYBIUS session lifecycle) — the §16 lifecycle disciplines (Mode 1 / Mode 2 / Mode 3 as named in §16.2 — the relay-channel lifecycle taxonomy, distinct from §10's HITL/Autonomous engagement axis) operate over the four-layer model; §16 names HOW sessions cross boundaries; §30 names WHAT crosses them.
 - `MAJOR_POLYBIUS.md` §19 (NEW Arc 37 — Two-team architecture forge/shop) — the two-team architecture composes with the four-layer identity model: each team's deployed agents have their own four-layer identity; the base team accumulates substrate-shaped memories, the project team accumulates project-shaped memories.
 - `operating-disciplines.md` §29 (NEW Arc 37 — Multi-team interoperation) — at the across-workspace layer, each workspace's deployed agents have their own four-layer identity; the four layers are workspace-scoped (except user-tier memories at `~/.claude/CLAUDE.md`, which are PRINCIPAL-scoped across all workspaces).
 - `~/.claude/CLAUDE.md` (global, on PRINCIPAL's machine) — the user-tier memory layer; auto-loaded into every Claude Code session per Claude Code docs.

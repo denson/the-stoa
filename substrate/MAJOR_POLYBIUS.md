@@ -1263,7 +1263,7 @@ The discipline is in substrate canon NOW because PRINCIPAL named it 2026-05-13 a
 - `MAJOR_POLYBIUS.md` §17 (Base vs custom agents) — names WHERE base and custom files live; §19 names WHAT each team does. §17 is the path-convention layer; §19 is the behavioral-framing layer; the two are paired.
 - `MAJOR_POLYBIUS.md` §14 (Substrate-update check) — the daily-cadence mechanism that keeps the base team in sync.
 - `MAJOR_POLYBIUS.md` §18 (User-tier POLYBIUS direct-commit discipline) — names a specific carve-out within the two-team picture; user-tier POLYBIUS can direct-commit housekeeping at the-stoa per §18.1 without violating the base-team-vs-project-team separation, because the-stoa is itself the FORGE workspace.
-- `operating-disciplines.md` §17 (Custom CAPTAIN name discipline) — the silent-collision footgun custom-CAPTAIN authoring respects.
+- `MAJOR_POLYBIUS.md` §17.4 (Custom CAPTAIN name discipline) — the silent-collision footgun custom-CAPTAIN authoring respects. (Same-file cross-ref: §17.4 lives inside §17 above; the foregrounded reference is to the *specific subsection* — `operating-disciplines.md` §17 is unrelated OSS-dep calculus and is NOT the intended target.)
 - `operating-disciplines.md` §23 (Base vs custom — universal-team framing) — the universal-team layer to §17's POLYBIUS-specific refinement; §19 here is a further extension into the BEHAVIORAL layer (what each team does, beyond where each team's files live).
 - `operating-disciplines.md` §29 (NEW THIS ARC — Multi-team interoperation) — the next level up: how multiple two-team workspaces interoperate as an ecosystem. §19 is intra-workspace; §29 is inter-workspace.
 - `substrate/skills/check-substrate-updates/` — the base-team sync skill.
