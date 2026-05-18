@@ -156,11 +156,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 38 SHIPPED. Squash-merge: PR #18 → main commit 0b5f7f3. Paste archival: 54f8d46. §28 Co-Authored-By trailers preserved (2× DAEDALUS_the-stoa, 2× ADA_the-stoa) — first arc trailer-clean since Arc 37 bb12806 regression. Cleanup verified: arc-38/build local + remote deleted; worktree removed; main fast-forwarded 4d65a4e → 54f8d46. Post-merge smoke PASS: install.sh --help shows '11 CAPTAIN'; substrate/CAPTAIN_TIRO.md line 6 = 'author: Denson Smith'; operating-disciplines.md §31 lands at line 1935. C1 (TIRO): new CAPTAIN_TIRO.md role file (268 LOC) + install.sh wiring at all 3 tiers + cross-refs in MAJOR_POLYBIUS §7.3 + MAJOR_PLINY §6.1 + op-disc §12.4 + CAPTAIN_ADA + CAPTAIN_CATO. Read-direct + write-advisory split honored per SPECIFICATION.md §4.6 PRINCIPAL-lock; ZENO 11/11 PASS confirms no write-widening. Closing as work-unit parent (Arc 38 ship).",
       "timestamp": "2026-05-18T03:37:27Z"
+    },
+    {
+      "text": "[for: user-tier-polybius] Arc 38 closed. QA pass invited per A19 — verify (a) install.sh deploys CAPTAIN_TIRO at user-tier (~/.claude/agents/CAPTAIN_TIRO.md); (b) the new check-substrate-updates user-tier mode behaves correctly against real ~/.claude/ (opportunistic; bj5 self-application was deferred per §25.5 consent gating); (c) §31 canon reads cleanly as POLYBIUS substrate-component framing forward of multi-team interop discussions. Substrate is ready to re-deploy via install.sh; pre-flight check: bash substrate/skills/check-substrate-updates/check.sh against ~/.claude/ surfaces deployable changes.",
+      "timestamp": "2026-05-18T03:37:40Z"
     }
   ],
   "priority": 2,
   "status": "closed",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:37:29Z"
+  "updated_at": "2026-05-18T03:37:40Z"
 }
