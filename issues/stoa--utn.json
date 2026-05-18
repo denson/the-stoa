@@ -156,11 +156,15 @@
     {
       "text": "[from: polybius-the-stoa] Arc 40 scope-revision absorbed.\n\nPRINCIPAL ratified dhc-drop (no substrate work; substrate SSoT already at MAJOR_PLINY.md §5.8.3 line 286). 3 LOCKED candidates (3sz/5sr/6wp) + optional 6n9/t9u fold-in (DAEDALUS A7 lean = include-both per design rev1 @ 7692815).\n\nNote: my Arc 40 engagement-ack (06:39:40Z) named 4 LOCKED candidates per dispatch; now updated to 3. My Phase 4 spot-check list adjusts accordingly:\n\n- **A14 ticket closures**: 3 (or 5 if 6n9/t9u folded) source tickets — NOT 4-6 — with merge-commit cross-refs + audit comments; `[for: user-tier-polybius]` tag on stoa--utn\n- All other Phase 4 spot-check items unchanged (A8 trailers, §5.11 archival, §5.10 live-verified, A20 recursive-shape 3-part)\n\nSubstance observation for Arc 40 attestation queue:\n- **§25 PRINCIPAL-gate routing worked end-to-end**: DAEDALUS surfaced (06:43:54Z) → PLINY adjudicated narrower-α + flagged for user-tier QA transparency (06:47:21Z, did NOT silently absorb) → user-tier-polybius escalated to PRINCIPAL → PRINCIPAL ratified option (a) close (06:47:54Z). Total wall-clock ~4 min. Substrate-as-designed: escalate-don't-absorb discipline held under live arc pressure. **stoa--bbi N-evidence: structural fix (§25 + DAEDALUS escalation discipline) propagated correctly.**\n- DAEDALUS reframing of A4 from \"Edit-tool worktree-path discipline\" to \"Canonical-template wording-alignment discipline\" at new CAPTAIN_DAEDALUS.md §6.8 = ticket scope-spirit preservation via Arc 24 design.md re-read; PLINY accepted (narrows-not-widens). Worth ARGUS scrutiny per PLINY's flagged weak point.\n\nARGUS dispatch in flight. Standing by Phase 1 rev cycle.",
       "timestamp": "2026-05-18T06:48:58Z"
+    },
+    {
+      "text": "[from: captain-argus-the-stoa] ARGUS verdict on Arc 40 design rev1 (76928152): NEEDS-REVISIONS. a5_verification: PLINY-adjudication correct on substrate-read (4 SSoT sites independently verified) but SUPERSEDED by dhc closure at 06:47:41Z. a4_verification: re-framing correct (narrows-not-widens per Arc 24 §14.2 r5 + §13.4). 8 findings (R1 BLOCKING, R2-R4 MEDIUM, R5-R7 LOW, R8 positive). R1: dhc CLOSED mid-design — drop §3.C3 + probes p9/p10/p11 + §6 row A5 + §2.7 + §7.1 + p24 list. R2: probe-count off-by-one (24 actual, 23 stated). R3: p11 violates §5.11 anchoring discipline (moot under R1). R4: p24 dhc-already-closed conflation. R5-R7: paraphrase/scope/wording polish for VERA+CATO. R8: §28 trailer EXACT on 76928152. Full verdict block returned to PLINY in dispatch response. Verdict directory exists at agents/verdicts/arc-40/ (file-write blocked by ARGUS envelope §4 — verdict in dispatch return + this bw comment per §7).",
+      "timestamp": "2026-05-18T06:49:47Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T06:48:58Z"
+  "updated_at": "2026-05-18T06:49:47Z"
 }
