@@ -2,13 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-18T01:35:26Z",
+  "close_reason": "Informational reference only — substrate canon does not track infrastructure paths like local clone locations. The reminder is true but doesn't ship anything; closing 2026-05-17 by user-tier POLYBIUS as part of the Arc 38-40 workplan ticket-accounting pass. Re-file if a substrate-canon need actually surfaces around clone-path tracking.",
   "created": "2026-05-14T01:39:46Z",
   "description": "Local clone of denso/the-stoa lives at C:\\Users\\denso\\claude_projects\\the-stoa\\ on PRINCIPAL's machine. Substrate forge for the Stoa team architecture. bw prefix: stoa--. Default branch: main.",
   "id": "stoa--i6c",
   "labels": [],
   "priority": 4,
-  "status": "open",
+  "status": "closed",
   "title": "[REMINDER] Local clone path for the-stoa",
   "type": "task",
-  "updated_at": "2026-05-14T01:39:46Z"
+  "updated_at": "2026-05-18T01:35:26Z"
 }
