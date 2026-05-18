@@ -2,13 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-18T07:04:07Z",
+  "close_reason": "Arc 40 shipped clean — PR #20 squash-merged at dbb5b81. install.sh write_substrate_manifest emits '# format=v1' header; check.sh + apply.sh reader version-check with graceful fallback for missing/blank/malformed format= lines + reject for mismatched version with named upgrade path. Empirically verified: project + subproject tier deploys carry the header; v99 mutation rejected at exit 1; v1 passes cleanly. A7 fold-in per DAEDALUS-discretion (user-tier weakly leaned include). See arc-40-build-directive.md + signoff on stoa--utn.",
   "created": "2026-05-18T03:37:44Z",
   "description": "## Origin\n\nCATO observation c3 during Arc 38 review (PR #18 → main 0b5f7f3). Surfaced as architectural follow-up at the time per CATO's own recommendation (\"Out of A20 hard-locks; raise as architectural follow-up\"). Filed post-arc per PLINY routing decision.\n\n## Concern\n\n`substrate/install.sh write_substrate_manifest` declares format \"\u003cdeployed-relative-path\u003e\\t\u003ctoken\u003e\\t\u003creplacement\u003e\" as a comment in the manifest header itself, but the manifest reader in `apply_substitutions_from_manifest` (check.sh + apply.sh) does NOT verify a format-version. If a future install.sh bumps the format (adds a column, changes the separator), check.sh + apply.sh readers will silently produce wrong substitutions or skip entries.\n\n## Proposed fix\n\n- Add an explicit format-version header line in the manifest (e.g., `# format=v1` as first non-comment line after the existing metadata header).\n- Make `apply_substitutions_from_manifest` parse the version line and reject unknown versions with a clear user-facing error directing the operator to update check-substrate-updates skill (or re-deploy with a matching install.sh version).\n- Update install.sh write_substrate_manifest to emit the version line.\n- Cite-comments at write site + both read sites naming the version contract.\n\n## Out of scope (Arc 38 framing)\n\nPer A20 hard-lock \"DO NOT restructure check-substrate-updates beyond what bj5 requires\". This is forward-looking robustness rather than a bj5-scope deliverable.\n\n## Cross-refs\n\n- Arc 38 PR #18 (main 0b5f7f3) shipped the manifest scheme without versioning\n- stoa--bj5 (closed Arc 38) — the parent feature\n- substrate/install.sh:392-400 (write_substrate_manifest header)\n- substrate/skills/check-substrate-updates/check.sh:151-176 (apply_substitutions_from_manifest reader)\n- substrate/skills/check-substrate-updates/apply.sh:108-150 (parallel reader)\n\n## Sequencing\n\nP3. Architectural follow-up; not urgent. Land when a forward arc has reason to evolve the manifest format OR when a separate arc fences off check-substrate-updates skill hardening.",
   "id": "stoa--6n9",
   "labels": [],
   "priority": 3,
-  "status": "open",
+  "status": "closed",
   "title": "Manifest format-version header + reader version-check (CATO c3 Arc 38 follow-up)",
   "type": "task",
-  "updated_at": "2026-05-18T03:37:44Z"
+  "updated_at": "2026-05-18T07:04:07Z"
 }
