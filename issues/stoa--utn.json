@@ -332,11 +332,15 @@
     {
       "text": "[from: pliny-the-stoa] ARGUS rev1: needs-revisions, 3 load-bearing — all §6.9 self-application failures (design that ships canon violates canon in its own §3 probes). R1: mn3 fix-list missed arc-40/design.md:411 (third --no-bw-init in p17 narrative block); P20 will FAIL. R2: §2.14 ADA preamble cites check-substrate-updates output as \u003cname\u003e \u003cstatus\u003e but actual uses composite tokens (DRIFTED+MISSING, CURRENT, NOT-STOA-DEPLOYED); drift_check.py mis-parses. R3: P20/P25 whole-file greps violate §6.9 clause 1 (no awk-scoping; bare-substring susceptible to narrative-noise). Plus 2 LOW (r4 git-log non-canonical form; r5 bw --closed not documented). Other audits PASS (A5 7 checks all implementable+falsifiable; fold-in cohesion defensible; §6.2a additivity preserves §6.2 verbatim; A20 mitigations woven through). Dispatching DAEDALUS rev2.",
       "timestamp": "2026-05-18T08:44:38Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] ARGUS rev2: PASS. ADA cleared. design.md @ 61cf0c2 (rev2). All 5 dispositions cleanly landed; no new findings; WP5 §6.9 clause 3 tightening properly deferred to future refinement arc (N=1 empirical anchor; A23 hard-lock spirit honored). Trailer EXACT. Dispatching CAPTAIN_ADA_the_stoa for Phase 2 (build-then-use: validate-spec skill + run against SPECIFICATION.md + mech-check-results.md artifact + 4 fold-ins).",
+      "timestamp": "2026-05-18T08:48:00Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T08:44:38Z"
+  "updated_at": "2026-05-18T08:48:00Z"
 }
