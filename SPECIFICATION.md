@@ -468,7 +468,7 @@ A bw ticket is "open" when `bw show <id>` shows `# ○` (not `# ✓`). Per `oper
 - `bw show <id>` — full ticket detail (body + comments + dependencies)
 - `bw history <id>` — chronological history
 
-**Bucketing for the make-the-team-meet-the-spec workplan** lives at §13.5-§13.8 (Pass 4-7 per-arc enumeration) + §13.9 (deferred-with-gating) + §13.10 Pass 8 inline-handled items. For a current-time accounting of open-tickets-by-bucket, run `bw list --status open --all` and cross-reference each ticket against §13.5-§13.8's per-Pass enumeration. Any open ticket NOT enumerated in §13.5-§13.8 + §13.9 + §13.10 is an unplaced ticket and surfaces as a §12.3 audit finding (the spec is missing a bucket for it).
+**Bucketing for the make-the-team-meet-the-spec workplan** lives throughout §13. The canonical source-of-truth for which §13.x sections enumerate ticket placements is §13 itself — walk §13 end-to-end to find ticket placements; do NOT rely on a §12-side enumeration of which §13.x sections place tickets (such an enumeration would itself drift whenever new §13.x sections place tickets, as SPEC_AUDIT_R3 NC7 demonstrated empirically). For a current-time accounting of open-tickets-by-bucket: run `bw list --status open --all`; walk §13 looking for any section that enumerates ticket placements (e.g., per-arc candidate lists, deferred-with-gating, Pass-N inline-handled items, explicitly-out-of-scope follow-ups); cross-reference each open ticket against the union of all such §13.x sections. Any open ticket NOT placed in any §13.x section is an unplaced ticket and surfaces as a §12.3 audit finding (the spec is missing a bucket for it).
 
 ### §12.4 What counts as working-tree clean
 
@@ -482,14 +482,9 @@ A working tree is "clean" when `git status` shows no uncommitted changes EXCEPT 
 
 ### §12.5 Known gaps the spec implies (authored content)
 
-The gap list itself is enumerated at §13.5-§13.8 (per-Pass arc candidates) + §13.9 (deferred-with-gating) + §13.10 inline-handled items. For a current accounting of which gaps exist + which are addressed by which Pass:
+The canonical gap list lives throughout §13. Each ticket-placing §13.x section enumerates its candidates with the ticket id + scope + sequencing note. As candidates ship and tickets close, the §13.x section reads as historical; new candidates surface when fresh tickets are filed against new gaps. For a current accounting of which gaps exist + which are addressed by which §13.x section: walk all of §13 looking for sections that enumerate ticket placements (per SPEC_AUDIT_R3 NC7, do NOT rely on a §12-side enumeration of which §13.x sections place tickets — such an enumeration would itself drift whenever new §13.x sections place tickets; the dynamic walk is the safe path).
 
-- **Per-arc candidates (§13.5-§13.8):** each Pass 4-7 section enumerates its candidates with the ticket id + scope + sequencing note. As candidates ship and tickets close, the §13.x section reads as historical (the candidate is shipped); new candidates surface when fresh tickets are filed against new gaps.
-- **Deferred-with-gating (§13.9):** explicit list with gating-trigger criteria. Gating-triggers are falsifiable; when a trigger fires, the deferred ticket moves to an arc per the standard arc lifecycle.
-- **Pass 8 housekeeping (§13.10):** items handled inline during spec-recon without a dedicated arc.
-- **Post-spec future-work:** items the spec explicitly puts out-of-scope for spec-met (e.g., meta-agent for cross-generation lineage analysis per §10.1 property 3). These have filed-or-noted-but-not-yet-actioned status.
-
-For the CURRENT list of gaps + their disposition: run `bw list --status open --all`, walk each ticket against §13.5-§13.8 + §13.9 + §13.10's enumerations, and any unplaced ticket is a §12.5 audit finding (gap is real but not in the plan).
+For the CURRENT list of gaps + their disposition: run `bw list --status open --all`; walk §13 looking for ticket-placing sections; cross-reference each open ticket against the union of §13.x placements. Any open ticket NOT placed in any §13.x section is a §12.5 audit finding (gap is real but not in the plan).
 
 (The "Generation-handoff session-id record" item previously listed here is REMOVED — Arc 37 C6 / Arc 38 SKILL.md upgrade per C1 fix ships it as mandatory canon.)
 
@@ -580,8 +575,8 @@ The spec was written 2026-05-17 against the substrate state at that moment. Pass
 
 - Every §-reference resolves to its current location (line numbers may have shifted).
 - Every cited ticket id has the correct status (closed vs open).
-- §12 (current state snapshot) updates to reflect post-Pass-7 reality — what's shipped, what's open, what's in flight, what's in the working tree.
-- §12.5 (what's NOT yet built that the spec implies) shrinks as Passes 2-7 close gaps; any remaining items have filed tickets + gating criteria.
+- §12 (the structural definitions + queries) is verified consistent with the post-Pass-7 substrate state: the QUERIES in §12.1-§12.4 still return useful answers; the §12.5 dynamic-walk-of-§13 instruction still resolves correctly; reference SHAs in §12.1 still anchor to the intended commits.
+- §13.5-§13.10 + §13.14 (which collectively constitute the ticket-placement gap-list per §12.5) reflect post-Pass-7 reality — closed Passes are marked DONE; open candidates have current tickets + scope notes; any newly-surfaced gap not already placed in §13.x gets a fresh ticket + a §13.x bucket assignment.
 - Any spec section that turned out to be aspirational rather than describing shipped canon either (a) gets revised to match shipped reality, or (b) gets the new ticket filed + cross-referenced as future work.
 - **stoa--6k1 handled inline** — Probe P10 spec refinement in `agents/design/arc-25/design.md` only (design-doc edit not substrate-canon edit); user-tier POLYBIUS edits during Pass 8 reconciliation; close on commit.
 
@@ -596,9 +591,9 @@ Author + run a `validate-spec` skill following the §27 mechanical-script / agen
 **Mechanical script checks:**
 - Every §-reference in SPECIFICATION.md resolves (grep against canon file at named section).
 - Every cited `stoa--*` ticket id exists in bw with the claimed status (use `bw list --all` for completeness; CAPTAIN_TIRO per §4.6 is the delegated specialist if available).
-- `bw list --status open --all` matches §12.3 (the `--all` flag is load-bearing for completeness audits per §4.6 empirical anchor).
-- `git status` matches §12.4's catalogue.
-- `_drafts/` contents match §12.4's keep-list.
+- `bw list --status open --all` returns tickets all placed in some §13.x ticket-placing section per the §12.3 + §12.5 dynamic walk (no unplaced tickets surface as §12.x audit findings; the `--all` flag is load-bearing for completeness audits per §4.6 empirical anchor).
+- `git status` shows no uncommitted changes except ignorable auto-modified state files (e.g., `.claude/.substrate-last-check`) per §12.4's clean-state definition.
+- `_drafts/` is empty OR contains only docs actively in use by an in-flight engagement per §12.4's clean-state definition.
 - `check-substrate-updates` skill returns "no drift" across registered consumer workspaces (including user-tier per Arc 38 C2 / stoa--bj5).
 - **§28 Co-Authored-By trailers present on post-Arc-35 squash-merge commits, with EXPLICIT CARVE-OUT for `bb12806` (Arc 37 squash-merge).** `bb12806` body carries empty `%(trailers)` due to PLINY's `gh pr merge --body` override defeating GitHub's default trailer-concatenation; this is the empirical anchor for stoa--6wp (Arc 40 C4). The check applies forward-only: commits authored AFTER stoa--6wp fix lands (Arc 40 ship onwards) must carry trailers. `bb12806` is named explicitly as a known historical exception per CLAUDE.md's no-force-push rule (the fix is forward-only by structural necessity, not by deferral).
 
@@ -648,7 +643,7 @@ The team has met the spec when ALL of:
 
 1. **Substrate-state matches spec** — every claim in this document either describes shipped canon (§13.10 reconciliation done) or is explicitly marked future work with filed ticket + gating criteria (per §13.9 deferred-with-gating).
 2. **No deferred-without-plan tickets** — no open P2 at the-stoa is in "awaiting-architectural-decision" or "deferred-without-plan" state.
-3. **Working tree clean** — `_drafts/` contains only docs for an in-flight arc; `git status` matches §12.4 catalogue; no accumulated cleanup debt.
+3. **Working tree clean** — per §12.4's clean-state definition: `_drafts/` is empty or contains only docs for an in-flight engagement; `git status` shows no uncommitted changes except ignorable auto-modified state files; no accumulated cleanup debt.
 4. **No substrate drift** — `check-substrate-updates` shows source-canon-and-deployed-instances byte-equal across consumer workspaces (including user-tier post-bj5 ship per Arc 38 C2).
 5. **Mechanical-check passes** — Pass 9 produces all-green at `agents/observation/spec-validation/mechanical-check-results.md`, including the `bb12806` carve-out attestation per §13.11.
 6. **Behavioral validation passes** — Pass 10 test-project dispatch produces a working `stellation` build that meets its own spec, the test team's observation trail shows substrate disciplines were applied, and PRINCIPAL signs off on the test-dispatch experience as "substrate-as-described."
@@ -699,7 +694,7 @@ Areas where PRINCIPAL most likely wants to edit before handing this to the fresh
 - **§7 Operating modes** — does the three-mode progression match your actual working pattern?
 - **§10 What the team produces** — is "the substrate is the deliverable" the right framing for the-stoa specifically, or should the case-study / app / etc. be more prominent?
 - **§11 Out of scope** — anything to add to the anti-patterns list?
-- **§12 Current state** — corrections to what's shipped / open / in flight.
+- **§12 Current state** — does the structural definitions + queries shape match how substrate state should be referenced from this spec? Any contracts in §12.1-§12.4 you want sharpened? Any queries that should be added / removed?
 - **§13 Workplan** — is the gap-closure sequence right? Are the per-arc candidate counts sized correctly (Arc 38: 3; Arc 39: 2; Arc 40: 4; Arc 41: 5)?
 - **§13.13 Definition of "meeting the spec"** — are the criteria the right ones?
 
