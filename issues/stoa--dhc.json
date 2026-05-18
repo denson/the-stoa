@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-18T06:47:42Z",
+  "close_reason": "Already-resolved per Arc 40 DAEDALUS §25 surface + PRINCIPAL ratification: substrate has SSoT at MAJOR_PLINY.md §5.8.3; ticket's drift-across-4-sites premise was false against current canon.",
   "created": "2026-05-13T02:42:06Z",
   "description": "## Empirical anchor\n\nArc 24 CATO verdict noted: 'the design §3.1 Step 3 template + §6.1 §5.8.3 template + §3.4 prose carry the python-vs-jq rationale in three near-identical places (drift risk per design §13.4)'.\n\nSurfaced 2026-05-13 in Arc 24 design.md by CATO during Phase 3 cold-read. Non-blocking; ARC 25+ single-source-of-truth lift is the right home.\n\n## Substrate touch-point\n\nThe python poll-loop template is referenced in:\n- substrate/MAJOR_PLINY.md §5.8 (canonical template)\n- substrate/MAJOR_POLYBIUS.md §7.6 (cross-ref to PLINY)\n- substrate/operating-disciplines.md §18 (or wherever Arc 24 landed the universal subagent-status section)\n- substrate/skills/agent-author/SKILL.md (template authoring discipline)\n\nThe rationale for python-over-jq (portability, no jq dependency, stdlib only, better error handling) appears in 3 near-identical locations across these files. Risk: future edits to one location drift from others.\n\n## Fix shape\n\nLift the rationale prose into a single canonical location (probably operating-disciplines.md §18 sub-section, or a new substrate/templates/canonical-poll-loop.md doc), and have other locations cross-reference it. Single source of truth.\n\n## Gauntlet\n\nADA + CATO eyeball. Substrate doc-only edit; ~30-50 LOC of consolidation.\n\n## Sequencing\n\nP3. Arc 25+. Substrate-hygiene refactor, not blocking new work.",
   "id": "stoa--dhc",
@@ -13,8 +15,8 @@
     }
   ],
   "priority": 3,
-  "status": "open",
+  "status": "closed",
   "title": "Arc 24 follow-up — python-vs-jq rationale single-source-of-truth lift (design §13.4 drift)",
   "type": "task",
-  "updated_at": "2026-05-18T06:47:41Z"
+  "updated_at": "2026-05-18T06:47:42Z"
 }
