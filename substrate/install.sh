@@ -798,6 +798,7 @@ for sname in "${SKILL_NAMES[@]}"; do
   dest_skill="${DEST_SKILLS_DIR}/${sname}"
   if [ "$DRY_RUN" -eq 1 ]; then
     echo "[dry-run] deploy skill: $src_skill/ -> $dest_skill/ (cp -R)"
+    echo "[dry-run] post-copy pycache cleanup: $dest_skill (find __pycache__/*.pyc -delete)"
   else
     # Remove any pre-existing dest skill subtree before re-copying so a
     # removed file inside the skill (e.g., a deleted helper) does not
@@ -806,6 +807,19 @@ for sname in "${SKILL_NAMES[@]}"; do
     rm -rf "$dest_skill"
     mkdir -p "$dest_skill"
     cp -R "$src_skill"/. "$dest_skill"/
+    # Arc 40 / stoa--t9u: post-copy Python-bytecode cleanup. If the source
+    # skill subtree contains __pycache__/ directories or stray *.pyc files
+    # (e.g., because a deployed helper ran at least once in the source
+    # worktree), cp -R copies them wholesale. Strip them after the copy so
+    # target tiers carry no bytecode the consumer did not author. Two
+    # finds (one per artifact class) for cleaner audit trail; `2>/dev/null
+    # || true` defends against find/rm portability variance across Git
+    # Bash / macOS / Linux without breaking deploy on any one platform's
+    # find quirks. Source-side cleanliness is orthogonal (handled by the
+    # source repo's .gitignore __pycache__/+*.pyc rule per Arc 39
+    # f707bc6).
+    find "$dest_skill" -type d -name __pycache__ -prune -exec rm -rf {} + 2>/dev/null || true
+    find "$dest_skill" -type f -name '*.pyc' -delete 2>/dev/null || true
     echo "deployed skill: $dest_skill"
   fi
 done
