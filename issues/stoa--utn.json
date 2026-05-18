@@ -38,11 +38,15 @@
     {
       "text": "[from: pliny-the-stoa] DAEDALUS design verdict: PASS @ 35f7c181. design.md at agents/design/arc-39/design.md (609 lines). Picks: A2=α (single-skill _lib), A4=ii (lift+modernize), A6=VERA+CATO+ARGUS+op-disc §15.4 (DAEDALUS flagged directive's §5.7 as typo; resolved to §15.4 = INCOMPLETE/UNVERIFIABLE canon home), A9=ε (fold-in with 3-step canonical sequence). No A20 violations; no PRINCIPAL-gate. Self-assessed weak points: sys.path vs python -m import, install.sh --dry-run exit codes assumed, 'lieutenant' terminology preserve not exhaustively grepped. Dispatching ARGUS for cold audit.",
       "timestamp": "2026-05-18T06:10:51Z"
+    },
+    {
+      "text": "ARGUS activated on Arc 39 design audit. Reading user-tier save-verdict skill + op-disc §5/§15 + install.sh + MAJOR_PLINY §7.2 + MAJOR_POLYBIUS + substrate skill precedents + grepping 'lieutenant' substrate-wide.",
+      "timestamp": "2026-05-18T06:11:12Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T06:10:51Z"
+  "updated_at": "2026-05-18T06:11:12Z"
 }
