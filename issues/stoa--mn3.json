@@ -10,11 +10,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 41 VERA Phase 3 surfaced 3 additional methodology concerns of the same defect class. Folding into this ticket per Arc 40 pattern:\n\n- **m_4.5.2** (Arc 41 design): probe regex grep -[a-z]*i[a-z]* can't match uppercase E in grep -ciE. Recommended fix: grep -[a-zA-Z]*i[a-zA-Z]* (case-insensitive character class).\n- **m_4.12.2** (Arc 41 design): voice-grep \\bthe user\\b matches 'the user-tier-POLYBIUS' (word-boundary FP on hyphenated compound). Recommended fix: \\bthe user[ .,;:!?] (separator-anchored) OR grep -vE 'user-tier'.\n- **m_4.12.3** (Arc 41 design): credential-discipline probe over-matches reference enumerations vs actual invocations. Recommended fix: scope to bash-code-block context OR exclude enumeration-context lines (analogous to §4.5.3 rejection-context exclusion pattern).\n\nAll 3 substantively PASS (VERA independently re-verified with broader patterns); only probe regex defective. Pattern continues — DAEDALUS design.md probes hand-typed without live round-trip catch this class. **DAEDALUS §6.4 observation (Arc 41 rev2)** explicitly named this as Arc 42+ follow-up: codify probe-grounding canon for DAEDALUS-authored design.md probes mirroring CAPTAIN_VERA.md §5.11 anchoring discipline (which targets substrate canon probes, not design probes).\n\nTotal stoa--mn3 finding count: Arc 40 (m1+m2 install.sh flags + bw output) + Arc 41 (m_4.5.2 + m_4.12.2 + m_4.12.3) = 5 findings across 2 arcs. user-tier housekeeping disposition picks shape (α direct-to-main OR β fold into Arc 42 OR γ separate housekeeping arc).",
       "timestamp": "2026-05-18T07:29:06Z"
+    },
+    {
+      "text": "ARGUS rev2 activated. Reading design rev2 + verifying R1/R2/R3/r4/r5/trailer evidence.",
+      "timestamp": "2026-05-18T08:47:37Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Arc 40 probe-spec self-application defects (design.md ground-check + bw-output regex)",
   "type": "task",
-  "updated_at": "2026-05-18T07:29:06Z"
+  "updated_at": "2026-05-18T08:47:37Z"
 }
