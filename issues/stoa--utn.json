@@ -132,11 +132,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 40 dispatch acknowledged. Pre-flight clean (main=origin/main @ e02f64e, no orphans). Worktree .claude/worktrees/arc-40-build/ on arc-40/build. Tasks 5-8 set up for 4-phase pipeline. Dispatching CAPTAIN_DAEDALUS_the_stoa for design.md — 4 LOCKED candidates (3sz/5sr/dhc/6wp [SEQUENCE-CRITICAL]) + A7 fold-in question (6n9/t9u; user-tier weakly leans include). A20 recursive-shape surveillance acknowledged (editing own §5.10 ship-checklist mid-arc that ships the discipline).",
       "timestamp": "2026-05-18T06:42:08Z"
+    },
+    {
+      "text": "DAEDALUS activated on arc-40 design.md. Reading directive (LOCKED) + 6 source tickets + Arc 24 design.md + Arc 37 bb12806 + Arc 39 f1f222a + 4 dhc source sites + VERA/DAEDALUS seat-canon + §28. [from: captain-daedalus-the-stoa]",
+      "timestamp": "2026-05-18T06:42:40Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T06:42:08Z"
+  "updated_at": "2026-05-18T06:42:40Z"
 }
