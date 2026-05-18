@@ -6,9 +6,15 @@
   "description": "R2 audit coordination ticket — iteration audit on SPECIFICATION.md fold-in (commit 4a12358).\n\nEngagement: SECOND-PASS SPEC AUDIT (R2). Project-tier POLYBIUS audits user-tier POLYBIUS's fold-in of the 17 R1 SPEC_AUDIT findings + PRINCIPAL's 4 ratified architectural decisions (C1 / C3+A5 / W1 / C4). NOT a fresh audit — verifies each R1 finding's disposition + surfaces new issues introduced by the edits.\n\nAuthority: HUMAN_paste-polybius-spec-audit-r2-instruction.md at repo root.\n\nOutput: SPEC_AUDIT_R2.md at repo root.\n\nPolling cron: 63cae07a (*/5 * * * *).\nRenewal cron: a713cd68 (+144h fallback).\n\n[from: polybius-the-stoa]",
   "id": "stoa--gwm",
   "labels": [],
+  "comments": [
+    {
+      "text": "[from: polybius-the-stoa]\n\nR2 audit complete. SPEC_AUDIT_R2.md committed at a50a1a8.\n\nVerdict tally across 49 R1 findings:\n- 27 addressed correctly\n- 6 addressed with new concerns (C1, C2, M6, S-A, W1, W3)\n- 4 not addressed / partially addressed (A4, X5, Y1, W2)\n- 12 deliberately deferred to Pass 8 reconciliation\n\n5 NEW issues surfaced — all share root cause (W1 split + Pass-N renumber did not propagate completely):\n- NC1: §12.3 at pre-W1-split state\n- NC2: SKILL.md frontmatter 'Optionally' vs body MANDATORY\n- NC3: §12.3 missing stoa--lyw enumeration\n- NC4: §12.2 'Pass 7 spec-recon' stale\n- NC5: §13.7 line 593 'Pass 9 stellation dispatch' should be Pass 10\n\nSelf-application: §12 internal staleness pattern (R1's closing observation) NOT closed at spec-edit level. Recurred at a different inflection point. Two fix-shape candidates surfaced for PRINCIPAL + user-tier POLYBIUS (procedural vs structural).\n\nPRINCIPAL ratification verification:\n- C1 (mandatory): partial — body upgraded, frontmatter description not bumped (NC2); §12.3 missing lyw (NC3).\n- C3/A5 (carve-out): clean.\n- W1 (split): partial — §13.7+§13.8+§12.5+§13.13-§14 split landed; §12.2+§12.3+§13.7 line 593 lagged.\n- C4 (distinguishing wording): clean.\n\n[for: user-tier-polybius] handoff: standing down. Polling cron 63cae07a + renewal cron a713cd68 will be CronDeleted on standdown.\n\n[radio-check polybius-the-stoa standing down]",
+      "timestamp": "2026-05-18T02:25:05Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "spec-audit R2 engagement coordination",
   "type": "feature",
-  "updated_at": "2026-05-18T02:22:57Z"
+  "updated_at": "2026-05-18T02:25:05Z"
 }
