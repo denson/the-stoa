@@ -1,35 +1,35 @@
 # Arc 40 — Pass 6 substrate bundle: integrated design
 
-**Ticket:** `stoa--utn` (dispatch); candidates `stoa--3sz` + `stoa--5sr` + `stoa--dhc` + `stoa--6wp` LOCKED; `stoa--6n9` + `stoa--t9u` folded under A7.
+**Ticket:** `stoa--utn` (dispatch); candidates `stoa--3sz` + `stoa--5sr` + `stoa--6wp` LOCKED; `stoa--6n9` + `stoa--t9u` folded under A7. `stoa--dhc` DROPPED — CLOSED by user-tier-polybius @ 2026-05-18T06:47:41Z, PRINCIPAL-ratified (rev1 §25 PRINCIPAL-gate at 06:43:54Z surfaced the SSoT-already-existing finding; PRINCIPAL ratification ~1 min post rev1 commit closed the ticket without substrate work).
 **Author (substrate edits):** Denson Smith.
-**Designed by:** CAPTAIN_DAEDALUS_the_stoa, 2026-05-18.
+**Designed by:** CAPTAIN_DAEDALUS_the_stoa, 2026-05-18 (rev2 post-ARGUS, post-dhc-closure).
 **Inputs consumed:** `substrate/arcs/arc-40-build-directive.md` (A1-A20 LOCKED); ticket bodies for all 6 candidates via `bw show`; `agents/design/arc-24/design.md` (full read, §13.1 + §14.1 R1+R2 + §14.2 r5 for 5sr framing); Arc 37 squash-merge commit `bb12806` body (`git log -1 --format='%B'`) + stat (`git show --stat`); Arc 39 squash-merge commit `f1f222a` body + stat; `substrate/arcs/arc-39-build-directive.md` for bundle-shape precedent; `substrate/MAJOR_PLINY.md` §5.8 (poll-loop canonical site) + §5.10 (signoff-accuracy ship-checklist, lines 424-462) + §5.11 (paste archival); `substrate/MAJOR_POLYBIUS.md` §7.6 (cross-ref-only dhc site); `substrate/operating-disciplines.md` §18 (universal-team framing dhc site) + §28 (Co-Authored-By trailers, lines 1699-1788); `substrate/skills/agent-author/SKILL.md` (no python-vs-jq prose; dhc site found vacant); `substrate/CAPTAIN_VERA.md` §5 (probe-authoring locus for 3sz, A6 γ); `substrate/CAPTAIN_DAEDALUS.md` §6 (design-authoring locus for 5sr, A4); `substrate/install.sh` lines 380-435 (write_substrate_manifest for 6n9) + lines 770-801 (cp -R deploy for t9u); `substrate/skills/check-substrate-updates/check.sh` lines 132-180 + `apply.sh` lines 106-150 (manifest reader sites for 6n9). Web search confirmed `gh pr merge --squash --body` overrides the default Co-Authored-By auto-population per [gh pr merge manual](https://cli.github.com/manual/gh_pr_merge) and [Mergify Discussion #4636](https://github.com/Mergifyio/mergify/discussions/4636).
 
 ---
 
 ## 1. Frame
 
-### 1.1 Six candidates; one bundle; one A20 recursive shape
+### 1.1 Five candidates; one bundle; one A20 recursive shape
 
-Arc 40 is Pass 6 of `SPECIFICATION.md` §13 workplan — the Arc-24-era hygiene follow-ups plus the SEQUENCE-CRITICAL Arc 37 trailer-regression-fix per §13.7. The four LOCKED candidates are not arbitrarily co-located: three are Arc 24 follow-ups (3sz/5sr/dhc) that the Arc 24 ship deferred to "Arc 25+" per directive Out-of-scope; the fourth (6wp) is an Arc 37 regression-fix whose canon Arc 38 + Arc 39 already practiced organically and which this arc codifies so Pass 9/10 stellation arcs can rely on the discipline being in MAJOR_PLINY.md §5.10 rather than inherited from precedent. The A7-discretion fold-in adds two install.sh-adjacent tickets (6n9 manifest format-version; t9u pycache-exclude) whose scope cohesion with the 4 LOCKED candidates is examined below.
+Arc 40 is Pass 6 of `SPECIFICATION.md` §13 workplan — the Arc-24-era hygiene follow-ups plus the SEQUENCE-CRITICAL Arc 37 trailer-regression-fix per §13.7. The three LOCKED candidates are not arbitrarily co-located: two are Arc 24 follow-ups (3sz/5sr) that the Arc 24 ship deferred to "Arc 25+" per directive Out-of-scope; the third (6wp) is an Arc 37 regression-fix whose canon Arc 38 + Arc 39 already practiced organically and which this arc codifies so Pass 9/10 stellation arcs can rely on the discipline being in MAJOR_PLINY.md §5.10 rather than inherited from precedent. (A fourth Arc 24 follow-up — `stoa--dhc` python-vs-jq SSoT — was DROPPED mid-design: rev1's §25 PRINCIPAL-gate surfaced that substrate already has SSoT at MAJOR_PLINY.md §5.8.3; user-tier-polybius CLOSED dhc with PRINCIPAL ratification ~1 minute post rev1 commit. dhc has no substrate work to do; see §1.2 imported assumption (2) for the empirical finding that drove the closure.) The A7-discretion fold-in adds two install.sh-adjacent tickets (6n9 manifest format-version; t9u pycache-exclude) whose scope cohesion with the 3 LOCKED candidates is examined below.
 
 The arc carries one structural property that distinguishes it from Arc 35-39's previous trailer-discipline work: **A20 recursive-shape surveillance.** MAJOR_PLINY edits MAJOR_PLINY's own role file (§5.10 ship-checklist gains the 6wp one-liner) pre-merge as part of the very arc PLINY runs end-to-end. Phase 4 squash-merge applies the canon being shipped. This is the first arc where the trailer-preservation canon is *both* the deliverable *and* the operational discipline the shipping arc is graded against. The design must keep this recursion legible to ARGUS audit and CATO review — §10 below names the watchpoints explicitly.
 
 ### 1.2 Pre-work: restatement-gate (CAPTAIN_DAEDALUS.md §6.1)
 
-The dispatch brief asks: ship one design.md covering 4 LOCKED + 2 optional candidates; pick A3/A4/A5/A6/A7 at design time; make the recursive A20 shape visible; surface PRINCIPAL-gate per §25 if any pick exceeds discretion band.
+The dispatch brief (rev1) asked: ship one design.md covering 4 LOCKED + 2 optional candidates; pick A3/A4/A5/A6/A7 at design time; make the recursive A20 shape visible; surface PRINCIPAL-gate per §25 if any pick exceeds discretion band. The brief (rev2) narrows scope: dhc CLOSED mid-design per PRINCIPAL ratification of rev1's §25 surface; A5 is VOID; arc covers 3 LOCKED + 2 optional = 5 candidates.
 
-My restatement: **codify the Arc 37 trailer-regression fix (6wp) into MAJOR_PLINY.md §5.10 as a one-line ship-checklist addition + optional op-disc §28 worked-example pitfall subsection; land three Arc 24 hygiene refinements (5sr DAEDALUS worktree-path; dhc python-vs-jq SSoT lift; 3sz VERA probe-spec anchor canon); optionally bundle 6n9 + t9u install.sh-adjacent fixes if scope-cohesion holds.** The recursion is the load-bearing operational property: the §5.10 line this arc adds to PLINY's role file IS the discipline by which this arc's Phase 4 squash-merge must be executed.
+My restatement (rev2): **codify the Arc 37 trailer-regression fix (6wp) into MAJOR_PLINY.md §5.10 as a one-line ship-checklist addition + optional op-disc §28 worked-example pitfall subsection; land two Arc 24 hygiene refinements (5sr DAEDALUS canonical-template wording-alignment; 3sz VERA probe-spec anchor canon); optionally bundle 6n9 + t9u install.sh-adjacent fixes if scope-cohesion holds.** The recursion is the load-bearing operational property: the §5.10 line this arc adds to PLINY's role file IS the discipline by which this arc's Phase 4 squash-merge must be executed.
 
 **Imported assumptions named** (per §6.1 honest-restatement requirement):
 
 1. **The Arc 24 design.md citation by directive A4 is the canonical articulation of the 5sr failure mode**, even though the original 5sr ticket body acknowledges "specific gap not fully spelled out in the close-out comment." I read Arc 24 design.md §14.1 R1+R2 + §14.2 r5 and treat *those* as the load-bearing empirical anchor (canonical-template wording drift across two near-identical inline copies caused an `os.environ['SINCE']` KeyError that would have shipped to ADA as canon). 5sr's framing as "Edit-tool worktree-path discipline" is — on my reading — a slightly miscategorized label for the actual failure: **DAEDALUS authoring two near-identical canonical-template copies across worktree-scoped file paths without a byte-for-byte alignment discipline.** §3 below names the discipline correctly and back-references the Arc 24 anchor.
 
-2. **The dhc directive over-states the python-vs-jq drift surface.** The directive cites "3 near-identical drift-risk locations across MAJOR_PLINY.md §5.8 + MAJOR_POLYBIUS.md §7.6 + op-disc §18 + agent-author SKILL.md." I read all four sites end-to-end: the prose ("**Why python, not jq.** `jq` is not a universal substrate-tier dependency...") exists in ONLY MAJOR_PLINY.md §5.8.3 (line 286). MAJOR_POLYBIUS.md §7.6 cross-references §5.8 without duplicating prose. operating-disciplines.md §18 references §5.8 in its dispatch-sequence table without duplicating prose. substrate/skills/agent-author/SKILL.md has no python-vs-jq prose at all. The Arc 24 design.md §14.1 R1+R2 reference to "rewrote the canonical poll-loop template in BOTH inline locations: §3.1 Step 3 and §6.1 §5.8.3" refers to the Arc 24 DESIGN.md's two inline copies, not to substrate canon. **Substrate already has the python-vs-jq prose as SSoT in MAJOR_PLINY.md §5.8.3.** This is a load-bearing finding — see §5.A5 below for the disposition.
+2. **The dhc directive over-stated the python-vs-jq drift surface — finding ratified and ticket CLOSED mid-design.** The directive cited "3 near-identical drift-risk locations across MAJOR_PLINY.md §5.8 + MAJOR_POLYBIUS.md §7.6 + op-disc §18 + agent-author SKILL.md." I read all four sites end-to-end at rev1 design time: the prose ("**Why python, not jq.** `jq` is not a universal substrate-tier dependency...") exists in ONLY MAJOR_PLINY.md §5.8.3 (line 286). MAJOR_POLYBIUS.md §7.6 cross-references §5.8 without duplicating prose. operating-disciplines.md §18 references §5.8 in its dispatch-sequence table without duplicating prose. substrate/skills/agent-author/SKILL.md has no python-vs-jq prose at all. The Arc 24 design.md §14.1 R1+R2 reference to "rewrote the canonical poll-loop template in BOTH inline locations: §3.1 Step 3 and §6.1 §5.8.3" refers to the Arc 24 DESIGN.md's two inline copies, not to substrate canon. **Substrate already had the python-vs-jq prose as SSoT in MAJOR_PLINY.md §5.8.3.** Rev1 surfaced this finding as a §25 PRINCIPAL-gate at 2026-05-18T06:43:54Z; user-tier-polybius routed the gate to PRINCIPAL; PRINCIPAL ratified the finding; stoa--dhc CLOSED at 2026-05-18T06:47:41Z (~1 minute post rev1 commit). **dhc has no substrate work to do.** Arc 40 scope narrows from 6 candidates to 5; A5 is VOID in §6 sub-decision table; §3.C3 (dhc cite-comments) DROPPED from rev2.
 
 3. **A20 recursion is genuinely novel for trailer-discipline canon.** Arc 35 shipped §28 trailers; Arc 36-39 practiced them; none of those arcs were *the arc shipping the squash-merge-trailer-preservation rule itself* — that ship is Arc 40. PLINY's Phase 4 signoff on stoa--utn must cite the NEW §5.10 wording even though that wording landed in this arc's build. The recursion is empirically observable (Phase 4 happens AFTER the §5.10 edit lands in arc-40/build) and surveillable (the §5.10 wording-as-shipped is what PLINY cites). I treat A20 not as a weak point but as a worked example of self-applied canon during the arc that ships it — §10 below.
 
-The restatement converges with the brief; no `refused` gate fires. The imported assumption named in (2) above surfaces below as A5 PRINCIPAL-gate-eligible per §25 because the pick exceeds DAEDALUS-discretion (the directive's framing assumed a 3-site lift; my finding is the lift target is already SSoT and the actual work narrows substantially). I surface the gate AND propose a defended pick rather than `refused` because (a) the underlying ticket scope (close the drift risk) remains valid and (b) the narrower pick is straightforwardly buildable. ARGUS and PLINY adjudicate whether the directive A5 framing needs revision or whether the narrower fix discharges the ticket.
+The rev2 restatement converges with the (narrowed) brief; no `refused` gate fires. The rev1 PRINCIPAL-gate on assumption (2) discharged outside the design loop via PRINCIPAL ratification of dhc closure; the rev2 design therefore lands 5 candidates rather than 6, with no open PRINCIPAL-gate-eligible picks remaining.
 
 ---
 
@@ -92,7 +92,7 @@ ADA: ground-check every concrete example in the design against the shipped code,
 
 If a design example contradicts the shipped code, the shipped code is canon — flag the design drift but build to ship reality.
 
-For Arc 40 specifically, the candidate-most-at-risk for ground-check is **5sr's worked example** in §3.C2 below (which cites the Arc 24 design.md `os.environ['SINCE']` KeyError verbatim shape) and **dhc's cross-ref insertion shape** at §3.C3 (which adds cite-comments to existing canon). Both citations were live-verified at design time but ADA's pre-write read is non-negotiable per §5.2.
+For Arc 40 specifically, the candidate-most-at-risk for ground-check is **5sr's worked example** in §3.C2 below (which cites the Arc 24 design.md `os.environ['SINCE']` KeyError verbatim shape). The citation was live-verified at design time but ADA's pre-write read is non-negotiable per §5.2.
 
 ---
 
@@ -151,12 +151,13 @@ A16 hard-lock: no restructuring §5.10 beyond a 1-line addition. The addition la
 ```markdown
 #### 28.3.1 Pitfall — squash-merge `--body` override drops trailers
 
-GitHub's auto-population (§28.3) is the DEFAULT body when no `--body` is passed
-to `gh pr merge --squash`. Passing a custom `--body` REPLACES the default body
-wholesale — including the auto-populated `Co-Authored-By:` trailers and the
-preserved trailers from squashed commits' bodies. A `--body "<clean summary>"`
-that omits trailer lines therefore silently strips every seat-identity signal
-from the squash-merge commit on main.
+When `--body` is omitted on `gh pr merge --squash`, GitHub auto-populates the
+squash-merge body from the source commits' subject + bodies; this
+auto-population preserves `Co-Authored-By:` trailers (§28.3 property). Passing
+a custom `--body` REPLACES the auto-populated body wholesale — including the
+preserved trailers from the squashed commits' bodies. A `--body "<clean
+summary>"` that omits trailer lines therefore silently strips every
+seat-identity signal from the squash-merge commit on main.
 
 **Empirical anchor.** Arc 37 PR #17 → squash-merge `bb12806` (2026-05-17).
 The merge command was `gh pr merge 17 --squash --delete-branch --subject "..."
@@ -249,52 +250,13 @@ drift as a weak point if `diff` was not run); operating-disciplines.md §28
 
 **A16 sanity check:** A16 hard-locks "no widening 5sr beyond what `agents/design/arc-24/design.md` flagged." The Arc 24 §14.2 r5 + §13.4 surfaces this discipline gap explicitly — the within-design alignment failure mode IS what Arc 24 flagged. The re-framing from "Edit-tool worktree-path discipline" (5sr ticket label) to "canonical-template wording-alignment discipline" (this design's articulation) is a label refinement that narrows scope to the actual Arc 24 anchor; it does not widen. ARGUS to confirm.
 
-### 3.C3 stoa--dhc — python-vs-jq rationale single-source-of-truth (A5 DAEDALUS-pick, PRINCIPAL-gate eligible per §25)
+### 3.C3 stoa--dhc — VOID (closed mid-design; no substrate work)
 
-#### Finding that informs the A5 pick
+stoa--dhc was CLOSED by user-tier-polybius @ 2026-05-18T06:47:41Z with PRINCIPAL ratification, ~1 minute after rev1 commit (76928152). The closure ratified rev1's §25 PRINCIPAL-gate finding (surfaced at 06:43:54Z) that substrate already has SSoT for the python-vs-jq rationale at MAJOR_PLINY.md §5.8.3 — the three downstream sites cited by the dhc ticket (MAJOR_POLYBIUS.md §7.6, operating-disciplines.md §18, substrate/skills/agent-author/SKILL.md) are vacant of duplicate prose. The ticket's underlying intent (close the drift risk) was discharged by the empirical finding itself: there is no drift to close when no duplicate prose exists.
 
-The dhc ticket frames the lift as consolidating "3 near-identical drift-risk locations across MAJOR_PLINY.md §5.8 + MAJOR_POLYBIUS.md §7.6 + op-disc §18 + agent-author SKILL.md." End-to-end read of all four sites at design time surfaces:
+**Substrate work for dhc in Arc 40: none.** A5 sub-decision is VOID in §6 below. Probes p9/p10/p11 (rev1 dhc-specific) are dropped from rev2; probe numbering uses gap-numbering (rev1 IDs preserved for ARGUS/ZENO/VERA calibration traceability) per the rev2 dispatch brief's preferred shape. See §1.2 imported assumption (2) for the full empirical finding; see §7.1 rev2 for the one-line residual note.
 
-| Site | Path | Has "**Why python, not jq.**" prose? |
-|---|---|---|
-| MAJOR_PLINY.md §5.8.3 | line 286 | **YES** (only canonical site) |
-| MAJOR_POLYBIUS.md §7.6 | lines 489-499 | NO (cross-refs MAJOR_PLINY.md §5.8) |
-| operating-disciplines.md §18 | lines 1000-1075 | NO (cross-refs MAJOR_PLINY.md §5.8 in §18.5 dispatch-sequence table line 1047) |
-| substrate/skills/agent-author/SKILL.md | full file | NO (no python/jq prose at all) |
-
-**The substrate already has SSoT for the python-vs-jq rationale.** MAJOR_PLINY.md §5.8.3 is the canonical site; the other three "drift-risk locations" cited in the dhc ticket are vacant (no duplicate prose to drift from). The original dhc framing may have been inferred from Arc 24 design.md §14.1 R1+R2 which references "rewrote the canonical poll-loop template in BOTH inline locations: §3.1 Step 3 and §6.1 §5.8.3" — those refer to Arc 24's DESIGN.md inline copies, not substrate canon. The directive A5 framing thus over-states what dhc needs to fix.
-
-#### A5 DAEDALUS-pick
-
-**Pick: narrow α** (op-disc §18 subsection extension) **+ explicit cite-comments at the three downstream sites pointing to the canonical site.**
-
-Concretely, the work narrows to:
-
-1. **At MAJOR_PLINY.md §5.8.3 (line 286):** add a one-line cite-comment naming this as the canonical site, e.g., `<!-- CITE: this is the substrate-canonical home of the python-vs-jq rationale; downstream cross-refs at MAJOR_POLYBIUS.md §7.6, operating-disciplines.md §18.5, and substrate/skills/agent-author/SKILL.md point here. Do not duplicate this prose elsewhere; cross-reference instead. -->`
-2. **At MAJOR_POLYBIUS.md §7.6 (line 493):** the existing cross-ref already says "Canonical reference: `MAJOR_PLINY.md` §5.8." Add a parenthetical naming the rationale-specific anchor: "(including the python-vs-jq rationale at §5.8.3)." No new prose; one phrase added to existing cross-ref.
-3. **At operating-disciplines.md §18.5 (line 1047, table row 3):** the "Where" column already cites "MAJOR_PLINY.md §5.8 (canonical inline)". Add `+ §5.8.3 python-vs-jq rationale` to the cite, or add a sibling table footnote naming the rationale anchor. (Pick: extend the existing cite text — minimal table-shape disruption.)
-4. **At substrate/skills/agent-author/SKILL.md:** no python-vs-jq prose currently exists, so no duplication to consolidate. Add a sentence in the relevant agent-authoring procedure section pointing to MAJOR_PLINY.md §5.8.3 as the canonical rationale for the python pattern in canonical templates IF the SKILL.md procedure currently invokes or names the pattern. **DAEDALUS check at ADA build time:** grep agent-author SKILL.md for any mention of the canonical poll-loop template, python pattern, or jq trade-off; if found, add the cite-back; if absent (which my read suggests), this sub-item is a no-op and ADA records "no touch needed at agent-author SKILL.md" in the build verdict.
-
-The work is substantially smaller than the directive's "30-50 LOC of consolidation" estimate from the dhc ticket — likely 5-10 LOC of cite-comments and cross-ref phrase additions. The discipline being shipped (SSoT for python-vs-jq) is preserved; the discipline being shipped (cite-at-read-site discoverability) is added.
-
-#### PRINCIPAL-gate per CAPTAIN_DAEDALUS.md §6.7 + operating-disciplines.md §25
-
-This pick exceeds straightforward DAEDALUS-discretion because:
-
-- The directive A5 framing assumes a 3-site lift (consolidation work).
-- My finding is the lift target is already SSoT; the actual work is cite-comment additions making the SSoT property *explicit + legible*.
-- The narrower pick discharges the ticket's underlying intent (close the drift risk) but does NOT match the directive's "(α) op-disc subsection (likely under §18 or wherever Arc 24 landed universal subagent-status)" framing literally.
-
-**Surfacing for ARGUS / PLINY adjudication.** Two valid dispositions:
-
-1. **Accept the narrower scope.** dhc ticket closes on the cite-comment-additions work; ticket-closure comment names that substrate already had SSoT and the narrower fix discharges the original drift concern. Forward-looking: any future arc that adds a SECOND inline python-vs-jq prose block triggers the cite-at-read-site discipline + the §6.8 within-design alignment discipline (3.C2 above) as orthogonal defenses.
-2. **Reject the narrower scope and re-dispatch dhc** with revised framing matching the new finding (substrate already has SSoT; ticket-closure scope is cite-comments-only) for Arc 41 or later. This would let Arc 40 ship without the dhc surface area while preserving the ticket as an open follow-up.
-
-**DAEDALUS recommendation: (1) — accept narrower scope.** Rationale: the ticket's underlying intent (close the drift risk for the python-vs-jq rationale) is discharged by making the SSoT property explicit and adding cite-back from the existing cross-ref sites. The work is small, the scope is honest, and re-dispatching for Arc 41+ would defer ~5 LOC of work for arc-cycle cost. ARGUS / PLINY adjudicate.
-
-#### A16 sanity check
-
-A16 hard-locks "no widening dhc lift to non-poll-loop template consolidations." The narrower pick stays inside the poll-loop python-vs-jq rationale scope; cite-comments at the three downstream sites are within the literal ticket scope (close the drift risk for this specific rationale). No widening. ARGUS to confirm.
+Forward-looking: any future arc that adds a SECOND inline python-vs-jq prose block to substrate triggers the cite-at-read-site discipline + the §6.8 within-design alignment discipline (§3.C2 above) as orthogonal defenses.
 
 ### 3.C4 stoa--3sz — probe-spec `^last=` anchor canon (A6 DAEDALUS-pick: γ)
 
@@ -405,7 +367,7 @@ The `# format=v1` line is parser-visible (matched by the new check.sh + apply.sh
 
 #### A7 fold-in cohesion judgment
 
-6n9 is install.sh-adjacent (touches `write_substrate_manifest` + the 2 manifest readers) and is forward-looking robustness for the manifest format the Arc 38 / bj5 cite-comment discipline already mitigates via the at-write-site `CITE:` comment (substrate/install.sh:389-394). Adding the format-version header makes the same property machine-checkable rather than convention-checkable. Scope cohesion with the 4 LOCKED candidates: medium — install.sh adjacency provides a natural co-location with t9u (also install.sh-adjacent); A1 bundle-shape precedent (Arc 37 at 6 candidates) accommodates the 6-count.
+6n9 is install.sh-adjacent (touches `write_substrate_manifest` + the 2 manifest readers) and is forward-looking robustness for the manifest format the Arc 38 / bj5 cite-comment discipline already mitigates via the at-write-site `CITE:` comment (substrate/install.sh:389-394). Adding the format-version header makes the same property machine-checkable rather than convention-checkable. Scope cohesion with the 3 LOCKED candidates: medium — install.sh adjacency provides a natural co-location with t9u (also install.sh-adjacent); A1 bundle-shape precedent (Arc 37 at 6 candidates) accommodates the rev2 5-count comfortably.
 
 **A16 sanity check:** A16 hard-locks "If 6n9/t9u folded: no widening beyond literal ticket scopes." 6n9 literal scope per ticket: "Add an explicit format-version header line in the manifest + make `apply_substitutions_from_manifest` parse the version line and reject unknown versions + update install.sh write_substrate_manifest to emit the version line + cite-comments at write site + both read sites naming the version contract." The proposed fix shape above matches the literal scope; no widening. ARGUS to confirm.
 
@@ -460,7 +422,7 @@ VERA executes the probe per §4 below. ZENO spec-checks the new install.sh lines
 
 #### A7 fold-in cohesion judgment
 
-t9u is install.sh-adjacent (same file as 6n9; complementary forward-looking-robustness pair). User-tier weak lean for fold-in stands. Bundle-shape: 6 candidates matches Arc 37 precedent. **DAEDALUS pick: INCLUDE both 6n9 + t9u.** Rationale: install.sh adjacency provides natural co-location; both fixes are small (≤30 LOC each); separate arc-cycles for either would cost more than the cohesion-tax of bundling.
+t9u is install.sh-adjacent (same file as 6n9; complementary forward-looking-robustness pair). User-tier weak lean for fold-in stands. Bundle-shape: 5 candidates after rev2 dhc drop, well within the Arc 37 precedent ceiling of 6. **DAEDALUS pick: INCLUDE both 6n9 + t9u.** Rationale: install.sh adjacency provides natural co-location; both fixes are small (≤30 LOC each); separate arc-cycles for either would cost more than the cohesion-tax of bundling.
 
 **A16 sanity check:** A16 hard-locks "If 6n9/t9u folded: no widening beyond literal ticket scopes." t9u literal scope per ticket: "install.sh runs `find <target>/<skill-name> -name __pycache__ -type d -exec rm -rf {} +` after each cp -R." The proposed fix matches; the additional `find ... -name '*.pyc' -delete` line covers stray .pyc files outside pycache directories which the ticket "Out of scope" deliberately excluded ("Filtering for non-Python artifacts (.DS_Store, *.swp, etc.) — separate concern, separate ticket if needed"). The .pyc-file-delete is a SUB-CASE of Python bytecode cleanup (same defect class as pycache directories — both are Python interpreter-generated artifacts) and is in literal scope. The .DS_Store / *.swp / etc. cases remain out of scope. ARGUS to confirm.
 
@@ -526,26 +488,9 @@ Probes are numbered p1-pN; each probe carries quadrant classification per `opera
 **Expected:** ≥1 (the §6.8 prose cites Arc 24 design.md as empirical anchor).
 **Falsifying evidence:** 0 (cite missing).
 
-### p9 — A5 verification (canonical-site cite-comment at MAJOR_PLINY.md §5.8.3)
+### p9 / p10 / p11 — DROPPED (rev2; dhc CLOSED mid-design)
 
-**Quadrant:** easy-easy / mechanical.
-**Command:** `grep -c "CITE.*substrate-canonical home of the python-vs-jq rationale" substrate/MAJOR_PLINY.md`
-**Expected:** exactly 1.
-**Falsifying evidence:** 0 (cite-comment missing).
-
-### p10 — A5 cross-ref at MAJOR_POLYBIUS.md §7.6
-
-**Quadrant:** easy-easy / mechanical.
-**Command:** `grep -c "python-vs-jq rationale at §5\.8\.3" substrate/MAJOR_POLYBIUS.md`
-**Expected:** exactly 1 (the parenthetical extension to the existing §7.6 cross-ref).
-**Falsifying evidence:** 0 (cross-ref extension missing).
-
-### p11 — A5 cross-ref at operating-disciplines.md §18.5
-
-**Quadrant:** easy-easy / mechanical.
-**Command:** `grep -c "python-vs-jq" substrate/operating-disciplines.md`
-**Expected:** ≥1 (the §18.5 table row or footnote cite added).
-**Falsifying evidence:** 0 (cross-ref missing) — this would also indicate A5 partial land if p9+p10 pass but p11 fails.
+Rev1 probes p9 / p10 / p11 verified dhc cite-comment landings at MAJOR_PLINY.md §5.8.3, MAJOR_POLYBIUS.md §7.6, and operating-disciplines.md §18.5 respectively. dhc CLOSED by user-tier-polybius @ 2026-05-18T06:47:41Z with PRINCIPAL ratification; no substrate work for dhc → no probes required. **Gap-numbering preserved** (p9 / p10 / p11 left as placeholders rather than renumbered) so that ARGUS / ZENO / VERA agents already calibrated against rev1 probe IDs retain traceability. Rev2 actual probe sequence: p1-p8, p12-p24 = 21 probes total.
 
 ### p12 — A6 verification (CAPTAIN_VERA.md §5.11 subsection)
 
@@ -612,12 +557,13 @@ rm -rf "$TEMPDIR" substrate/skills/save-verdict/_lib/__pycache__/
 **Expected:** 1 (target tier has NO `__pycache__/`; `ls` returns "No such file" message).
 **Falsifying evidence:** 0 (target has pycache — t9u fix did not land or did not work).
 
-### p19 — A20 recursive-shape verification: PLINY signoff cites new §5.10 wording
+### p19 — A20 recursive-shape verification: PLINY signoff cites new §5.10 discipline (softened per ARGUS R5 LOW)
 
 **Quadrant:** easy-easy / mechanical.
-**Command:** `bw show stoa--utn 2>&1 | grep -c "Squash-merge .--body. override discipline\|squash-merge .--body. override"`
-**Expected:** ≥1 in PLINY's Phase 4 signoff comment on stoa--utn (the signoff cites the new §5.10 wording, proving the canon-in-shipping-arc landed and was applied to itself).
-**Falsifying evidence:** 0 — signoff did NOT cite the new §5.10 wording, meaning either (a) §5.10 edit did not land OR (b) PLINY did not self-apply the new canon at signoff.
+**Command:** `bw show stoa--utn 2>&1 | grep -cE '\`--body\`.*override|--body.*override|trailer-discipline|squash-merge.*trailer|squash-merge.*\`--body\`'`
+**Expected:** ≥1 in PLINY's Phase 4 signoff comment on stoa--utn (the signoff discharges audit-trail intent by referencing the new §5.10 discipline through any of: the rigid bullet wording, a paraphrase naming `--body` override, a "trailer-discipline" framing, or a "squash-merge ... trailer" framing).
+**Falsifying evidence:** 0 — signoff did NOT cite the new §5.10 discipline in any recognizable form, meaning either (a) §5.10 edit did not land OR (b) PLINY did not self-apply the new canon at signoff.
+**Rev2 note (per ARGUS R5 LOW):** rev1 used rigid substring matching `"Squash-merge \`--body\` override discipline"` which would FAIL on a paraphrased signoff that nonetheless discharges audit-trail intent. Rev2 softens to alternation regex covering: the rigid bullet wording, the `--body`-override paraphrase, the "trailer-discipline" shorthand, and the "squash-merge ... trailer" framing. Operational property (trailer preservation on the actual squash-merge commit) is separately verifiable via `git log -1 --format='%B' <merge-sha> | grep -c 'Co-Authored-By'` post-merge — that check is the load-bearing safety net; p19 is the audit-trail-cite check.
 
 ### p20 — §5.11 paste archival post-arc
 
@@ -652,22 +598,25 @@ ls substrate/arcs/arc-40/pastes/HUMAN_paste-pliny-arc-40-instruction.md \
 **Expected:** 0.
 **Falsifying evidence:** ≥1.
 
-### p24 — A14 source-ticket closure (4 LOCKED + 2 folded = 6 tickets)
+### p24 — A14 source-ticket closure (3 LOCKED + 2 folded = 5 tickets; dhc already CLOSED mid-design)
 
 **Quadrant:** easy-easy / mechanical.
-**Command:** `for t in stoa--3sz stoa--5sr stoa--dhc stoa--6wp stoa--6n9 stoa--t9u; do bw show "$t" 2>&1 | grep -c "^Status:.*closed"; done | paste -sd+ - | bc`
-**Expected:** 6 (all 6 source tickets closed).
-**Falsifying evidence:** <6 (one or more open).
+**Command:** `for t in stoa--3sz stoa--5sr stoa--6wp stoa--6n9 stoa--t9u; do bw show "$t" 2>&1 | grep -c "^Status:.*closed"; done | paste -sd+ - | bc`
+**Expected:** 5 (all 5 in-scope source tickets closed; dhc was CLOSED mid-design @ 2026-05-18T06:47:41Z and is excluded from the Arc 40 closure-comment-cycle since no substrate work landed for it).
+**Falsifying evidence:** <5 (one or more open).
+**Optional strengthening (per A14 closure-comment discipline):** each in-scope ticket's closure comment should reference the Arc 40 merge SHA. Probe variant — `for t in stoa--3sz stoa--5sr stoa--6wp stoa--6n9 stoa--t9u; do bw show "$t" 2>&1 | grep -c "Arc 40.*merge\|<merge-sha-prefix>"; done | paste -sd+ - | bc` expecting ≥5. PLINY-discretion whether to strengthen at execution; bare count check is the load-bearing property.
 
-### Probe count + quadrant summary
+### Probe count + quadrant summary (rev2)
 
 | Quadrant | Count | Probes |
 |---|---|---|
-| easy-easy / mechanical | 21 | p1-p14, p16-p17, p19-p24 |
+| easy-easy / mechanical | 19 | p1-p8, p12-p14, p16-p17, p19-p24 |
 | easy-easy / empirical (post-build smoke) | 2 | p15, p18 |
 | Other quadrants | 0 | — |
 
-**Total: 23 probes.** All easy-easy; no INCOMPLETE / UNVERIFIABLE quadrant probes. VERA's verdict format applies; CATO's craft-review covers prose voice + cross-ref resolution per A12; ZENO's mechanical spec-check on the install.sh + check.sh + apply.sh wiring per ZENO criteria.
+**Total: 21 probes (rev2).** Rev1 had 24 numbered probes (p1-p24) with summary table mis-stating 23 (off-by-one error in rev1 summary table — corrected here). Rev2 drops p9 / p10 / p11 (dhc CLOSED mid-design) → 24 − 3 = 21 actual. Gap-numbering preserved (rev1 IDs p1-p24 retained as anchors, with p9/p10/p11 marked DROPPED) for ARGUS / ZENO / VERA calibration-traceability across rev1 → rev2.
+
+All probes are easy-easy quadrant; no INCOMPLETE / UNVERIFIABLE quadrant probes. VERA's verdict format applies; CATO's craft-review covers prose voice + cross-ref resolution per A12; ZENO's mechanical spec-check on the install.sh + check.sh + apply.sh wiring per ZENO criteria.
 
 ---
 
@@ -678,7 +627,7 @@ Per A16 LOCKED + directive Out-of-scope framing:
 - **Restructuring MAJOR_PLINY.md §5.10 beyond the 1-line ship-checklist addition.** Per A16; §5.10's broader signoff-accuracy + cross-refs + N=1 provenance prose untouched.
 - **Introducing new substrate skills.** Per A16. No new SKILL.md files in arc-40/build.
 - **Retroactive sweep of OTHER substrate SKILL.md files beyond Arc 39 M3 widening.** Per A16 (sp1 scope handles cross-substrate utility skills).
-- **Widening dhc lift to non-poll-loop template consolidations.** Per A16. The cite-comment additions stay scoped to the python-vs-jq rationale specifically.
+- **Re-opening stoa--dhc.** Per PRINCIPAL ratification of the SSoT-already-existing finding @ 2026-05-18T06:47:41Z. The ticket closed mid-design; rev2 does not re-open it. (Rev1 A16 line "Widening dhc lift to non-poll-loop template consolidations" is superseded by the closure.)
 - **Widening 3sz probe-discipline to non-probe authoring guidance.** Per A16. The new §5.11 stays VERA-side at probe-execution time.
 - **Widening 5sr beyond what `agents/design/arc-24/design.md` flagged.** Per A16. The new §6.8 stays scoped to within-design canonical-template alignment (the actual Arc 24 §14.2 r5 + §13.4 anchor); the directive's "Edit-tool worktree-path discipline" label is a related-but-distinct surface that this arc does not address (no observable failure mode at design time).
 - **If 6n9/t9u folded: no widening beyond literal ticket scopes.** Per A16. 6n9 covers manifest format-version only (not other manifest-format changes); t9u covers Python bytecode artifacts only (not other deploy-side filtering — `.DS_Store`, `*.swp`, IDE files, etc.).
@@ -694,9 +643,9 @@ Per A16 LOCKED + directive Out-of-scope framing:
 |---|---|---|---|
 | A3 | op-disc §28.3.1 trailer-preservation pitfall worked-example | **INCLUDE** | bb12806 worked example is canonical-grade; matches §28.5/§28.6 sub-section pattern |
 | A4 | 5sr placement in CAPTAIN_DAEDALUS.md | **new §6.8 after §6.7** | parallels existing §6.5-§6.7 shape; named "Canonical-template wording-alignment discipline" per the actual Arc 24 anchor (re-framed from the original 5sr ticket label) |
-| A5 | dhc canonical location | **narrow α + PRINCIPAL-gate eligible** | substrate already has SSoT at MAJOR_PLINY.md §5.8.3; work narrows to cite-comments at 3 downstream sites; surfaces gate per §25 because pick exceeds discretion |
+| A5 | dhc canonical location | **VOID** | dhc CLOSED by user-tier-polybius @ 2026-05-18T06:47:41Z + PRINCIPAL-ratified; rev1's §25 PRINCIPAL-gate finding (substrate already has SSoT at MAJOR_PLINY.md §5.8.3) ratified; no substrate work in Arc 40 |
 | A6 | 3sz placement | **γ — CAPTAIN_VERA.md new §5.11** | probe-authoring is VERA-specific; placement at op-disc §18 would widen beyond seat scope |
-| A7 | 6n9 + t9u fold-in | **INCLUDE both** | install.sh adjacency provides natural co-location; both fixes ≤30 LOC; bundle stays coherent at 6 candidates (Arc 37 precedent) |
+| A7 | 6n9 + t9u fold-in | **INCLUDE both** | install.sh adjacency provides natural co-location; both fixes ≤30 LOC; bundle at 5 candidates (rev2 post-dhc-drop) sits comfortably below the Arc 37 precedent ceiling of 6 |
 
 ---
 
@@ -704,11 +653,13 @@ Per A16 LOCKED + directive Out-of-scope framing:
 
 Honest middle per §6.2: I name the brittle spots; ARGUS names the risks I missed.
 
-### 7.1 dhc finding may not match PLINY's read of the directive A5 framing (load-bearing)
+### 7.1 dhc closure — rev1 PRINCIPAL-gate ratified; no remaining weak point in rev2
 
-**Weak point:** §3.C3 above surfaces that the substrate already has SSoT for the python-vs-jq rationale, narrowing the dhc work to cite-comments. The directive A5 framing ("3 near-identical drift-risk locations across MAJOR_PLINY.md §5.8 + MAJOR_POLYBIUS.md §7.6 + op-disc §18 + agent-author SKILL.md") would read this design as scope-incomplete if PLINY's expectation is a substantive 30-50 LOC consolidation. The PRINCIPAL-gate surface (per CAPTAIN_DAEDALUS.md §6.7 + operating-disciplines.md §25) is the structural answer — surface, let PLINY/ARGUS adjudicate. But ARGUS may also disagree with the finding itself (e.g., reading the cross-refs as "near-identical" because they all reference the same canonical site, even though only one carries the prose).
+Rev1 surfaced "dhc finding may not match PLINY's read of the directive A5 framing" as the load-bearing weak point: the §25 PRINCIPAL-gate at 2026-05-18T06:43:54Z said substrate already has SSoT at MAJOR_PLINY.md §5.8.3 and proposed narrowing the dhc work to cite-comments. Disposition: user-tier-polybius routed the gate to PRINCIPAL; PRINCIPAL ratified the finding; stoa--dhc CLOSED @ 06:47:41Z (~1 min post rev1 commit). The "weak point" is resolved by ratification — rev2 has no open dhc-related risk; A5 is VOID in §6.
 
-**Why this shape anyway:** The empirical finding is mechanical (grep across all 4 sites at design time; only MAJOR_PLINY.md §5.8.3 carries the "Why python, not jq" prose). The honest pick is to name the finding, propose the narrower scope, and surface PRINCIPAL-gate for adjudication rather than smooth-over by manufacturing a 30-50 LOC consolidation that the substrate does not need. If ARGUS reads the finding differently, the design's revision cycle is the right place to re-adjudicate — not the silent-smoothing pattern.
+### 7.1a Probe-authoring self-application teaching note (per ARGUS R3 NOTED)
+
+ARGUS rev1 audit noted that the (now-dropped) probe p11 violated the §5.11 anchoring discipline this very arc ships via 3sz: p11 used `grep -c "python-vs-jq" substrate/operating-disciplines.md` — a bare substring grep with no `^` / `$` / surrounding-context anchor and no falsifying-evidence clause for wrong-location matches. That is precisely the failure mode §5.11 names. Teaching note for future probe-authoring inside this and successor arcs: **probe-authoring must self-apply §5.11 anchoring discipline 3sz ships** — substring greps without anchors are exactly the failure mode the discipline catches; future probe-authoring is screened by ARGUS / CATO against this self-application property. The dropped p11 is the canonical worked example; the surviving rev2 probes were re-audited for the same shape (see p3, p5, p7, p12 for examples of anchored alternatives using `^### N.M` heading anchors and `awk` range extractions).
 
 ### 7.2 A20 recursive-shape carries a circularity I cannot fully foresee
 
@@ -722,23 +673,31 @@ Honest middle per §6.2: I name the brittle spots; ARGUS names the risks I misse
 
 **Why this shape anyway:** The bullet matches the existing four bullets' shape and length at §5.10 lines 428-433. A more elaborate worked-example exposition belongs in op-disc §28.3.1 (per A3 INCLUDE), where the pitfall-name + Arc 37 anchor + both-patterns-acceptable framing can expand to the paragraph-length §28-subsection shape without straining the §5.10 ship-checklist convention. ARGUS may revise the §5.10 bullet wording in plan critique; the underlying discipline is unambiguous (don't override default trailer auto-concatenation without explicitly preserving trailers).
 
-### 7.4 A7 fold-in scope cohesion — 6 candidates in one arc is at the upper bound
+### 7.4 A7 fold-in scope cohesion — 5 candidates in one arc, well within the upper bound
 
-**Weak point:** Arc 37 set the precedent at 6 candidates per arc; Arc 40 with A7 fold-in also hits 6. But Arc 37's 6 candidates were thematic (substrate architecture canonification); Arc 40's 6 split across two themes (Arc-24-era hygiene at 3sz/5sr/dhc + Arc-37-era trailer-fix at 6wp + install.sh-adjacency at 6n9/t9u). The bundle remains coherent — each candidate is small, no candidate's design substantively depends on another candidate's — but a cold reader scanning the arc-40-build-directive plus this design.md sees a more diverse bundle than Arc 37's. The risk is CATO Phase 3 reading the bundle as scope-creep rather than as a coherent Pass 6 follow-up batch.
+**Weak point (rev2; softened from rev1):** Arc 37 set the precedent at 6 candidates per arc; Arc 40 with A7 fold-in and the rev2 dhc drop sits at 5. The bundle splits across themes (Arc-24-era hygiene at 3sz/5sr + Arc-37-era trailer-fix at 6wp + install.sh-adjacency at 6n9/t9u). Each candidate is small, no candidate's design substantively depends on another candidate's, and the 5-candidate count sits comfortably below the Arc-37 precedent ceiling. The residual cohesion-tax risk is CATO Phase 3 reading the diverse-theme bundle as scope-creep rather than as a coherent Pass 6 follow-up batch.
 
-**Why this shape anyway:** The directive explicitly authorizes the fold-in under A7 DAEDALUS-discretion with user-tier "weakly leans include." The install.sh adjacency provides a natural co-location for 6n9 + t9u that doesn't require their own arc. Bundling saves ≥1 arc-cycle per candidate (~hours of orchestrator + gauntlet time) for ~30 LOC of additional substrate edits. The cohesion judgment is honest: medium cohesion, defended by orchestrator-cycle economics + the small per-candidate footprint. CATO Phase 3 may surface scope-disagreement; the substance-disagreement protocol per `operating-disciplines.md` §7.4 is the right venue. **If CATO flags scope concern, the recovery is straightforward: drop 6n9 + t9u to Arc 41 candidates; the 4 LOCKED candidates remain canonical-shape.**
+**Why this shape anyway:** The directive explicitly authorizes the fold-in under A7 DAEDALUS-discretion with user-tier "weakly leans include." The install.sh adjacency provides a natural co-location for 6n9 + t9u that doesn't require their own arc. Bundling saves ≥1 arc-cycle per candidate (~hours of orchestrator + gauntlet time) for ~30 LOC of additional substrate edits. The cohesion judgment is honest: medium-to-high cohesion (helped by the dhc drop reducing the diverse-theme count), defended by orchestrator-cycle economics + the small per-candidate footprint. CATO Phase 3 may surface scope-disagreement; the substance-disagreement protocol per `operating-disciplines.md` §7.4 is the right venue. **If CATO flags scope concern, the recovery is straightforward: drop 6n9 + t9u to Arc 41 candidates; the 3 LOCKED candidates remain canonical-shape.**
 
 ---
 
-## 8. Residual questions for ARGUS
+## 8. Residual questions for ARGUS (rev2)
 
-1. **A5 disposition.** Is the narrower "cite-comments at 3 downstream sites + canonical-cite-comment at MAJOR_PLINY.md §5.8.3" pick the right shape for dhc given the substrate-already-has-SSoT finding, or should ARGUS surface back to PLINY for directive A5 revision? My read: narrower pick discharges ticket intent; the cite-comment-additions match the cite-at-read-site discipline that Arc 38 / bj5 established. ARGUS to confirm or surface substance-disagreement.
+Rev1 residual question 1 (A5 disposition) discharged by PRINCIPAL ratification of dhc closure — removed.
 
-2. **A4 re-framing.** The 5sr ticket labels the discipline "Edit-tool worktree-path discipline" but my read of the Arc 24 design.md §14.2 r5 + §13.4 anchors says the actual gap is "within-design canonical-template wording-alignment discipline." The new §6.8 subsection's heading reflects the latter framing. Is this re-framing audit-clean (the design names what Arc 24 actually surfaced) or does it widen 5sr in a way A16 hard-locks against? My read: narrows scope to the actual Arc 24 anchor; the original ticket label was slightly miscategorized but the underlying intent (DAEDALUS discipline closing the Arc 24 wording-drift gap) is preserved.
+1. **A4 re-framing.** The 5sr ticket labels the discipline "Edit-tool worktree-path discipline" but my read of the Arc 24 design.md §14.2 r5 + §13.4 anchors says the actual gap is "within-design canonical-template wording-alignment discipline." The new §6.8 subsection's heading reflects the latter framing. Is this re-framing audit-clean (the design names what Arc 24 actually surfaced) or does it widen 5sr in a way A16 hard-locks against? My read: narrows scope to the actual Arc 24 anchor; the original ticket label was slightly miscategorized but the underlying intent (DAEDALUS discipline closing the Arc 24 wording-drift gap) is preserved.
 
-3. **A20 self-application risk at PLINY's Phase 4.** The probe p19 directly tests whether PLINY's Phase 4 signoff cites the new §5.10 wording. Is this probe sufficient to detect the recursive-shape failure mode (PLINY shipping the canon while inadvertently violating it at Phase 4), or should the design specify additional surveillance — e.g., a pre-merge VERA-side check that the merge-command string in PLINY's Phase 4 plan-comment is consistent with the new §5.10 bullet? My read: p19 + the A8 trailer-preservation probe (p1+p2 on arc-40/build commits BEFORE merge) cover the surface; the squash-merge itself is verifiable post-fact via `git log -1 --format='%B' <merge-sha>` on main. ARGUS to confirm or specify additional surveillance.
+2. **A20 self-application risk at PLINY's Phase 4.** The probe p19 directly tests whether PLINY's Phase 4 signoff cites the new §5.10 wording. Rev2 softens p19's grep from rigid substring matching to alternation regex (per ARGUS R5 LOW disposition — see §8.4 below); is the softened probe sufficient to detect the recursive-shape failure mode (PLINY shipping the canon while inadvertently violating it at Phase 4), or should the design specify additional surveillance — e.g., a pre-merge VERA-side check that the merge-command string in PLINY's Phase 4 plan-comment is consistent with the new §5.10 bullet? My read: p19 (softened) + the A8 trailer-preservation probe (p1+p2 on arc-40/build commits BEFORE merge) cover the surface; the squash-merge itself is verifiable post-fact via `git log -1 --format='%B' <merge-sha>` on main. ARGUS to confirm or specify additional surveillance.
 
-4. **Cite-comment shape for §28.3.1 → §5.10 cross-link.** The proposed §28.3.1 prose cites MAJOR_PLINY.md §5.10 as the "fix at the merge site." Reverse direction: the §5.10 bullet cites op-disc §28.3.1 as the canonical pitfall reference. Should the cross-link include a bidirectional cite-comment per A12, or is the in-prose paragraph cross-ref sufficient? My read: in-prose cross-refs are sufficient for §-to-§ links of this kind (matches existing precedent at op-disc §28.8 cross-refs and MAJOR_PLINY.md §5.10.2 cross-refs); explicit `<!-- CITE: -->` comments are reserved for code-adjacent (install.sh / check.sh / apply.sh) cross-refs where readers will most often miss the prose-narrative context. ARGUS to confirm.
+3. **Cite-comment shape for §28.3.1 → §5.10 cross-link.** The proposed §28.3.1 prose cites MAJOR_PLINY.md §5.10 as the "fix at the merge site." Reverse direction: the §5.10 bullet cites op-disc §28.3.1 as the canonical pitfall reference. Should the cross-link include a bidirectional cite-comment per A12, or is the in-prose paragraph cross-ref sufficient? My read: in-prose cross-refs are sufficient for §-to-§ links of this kind (matches existing precedent at op-disc §28.8 cross-refs and MAJOR_PLINY.md §5.10.2 cross-refs); explicit `<!-- CITE: -->` comments are reserved for code-adjacent (install.sh / check.sh / apply.sh) cross-refs where readers will most often miss the prose-narrative context. ARGUS to confirm.
+
+### 8.4 Rev2 probe-spec self-application note (per ARGUS R3 NOTED + R5 LOW)
+
+Rev2 audits the surviving probe specs against the new §5.11 anchoring discipline 3sz ships. Findings:
+
+- **p19** (rev1) used the rigid substring `"Squash-merge \`--body\` override discipline"` — paraphrased signoffs that discharge audit-trail intent (e.g., "trailer-discipline self-applied via §5.10 squash-merge rule") would FAIL the rev1 p19. Rev2 softens p19 to an alternation regex matching the intent without rigid wording. See p19 spec for the alternation pattern.
+- **Other probes (p3, p5, p7, p12, p17)** use `grep -c "^### N.M ..."`-style heading anchors or `awk '/^### N.M/,/^### N.M+1/'` range extractions — these self-apply §5.11 (anchored, with expected-count, with falsifying-evidence clauses). No softening needed.
+- **The dropped p11** (dhc-cross-ref grep) was the canonical violation of §5.11; teaching note recorded at §7.1a above.
 
 ---
 
@@ -761,7 +720,7 @@ This arc is the first arc where the trailer-preservation canon being shipped (§
 | Phase | Operation | Canon source for the operation |
 |---|---|---|
 | Phase 1 (design.md authoring) | DAEDALUS dispatched; authors this design.md including the §5.10 bullet + §28.3.1 spec | pre-Arc-40 §5.10 (no trailer-preservation bullet); §28.3 (default-behavior-only) |
-| Phase 2 (ADA build) | ADA dispatched; lands the §5.10 bullet + §28.3.1 + 5sr §6.8 + 3sz §5.11 + dhc cite-comments + (if A7) 6n9 + t9u install.sh wiring; commits per A8 trailers | pre-Arc-40 §5.10 (commits in arc-40/build observable but not yet on main); A8 per directive |
+| Phase 2 (ADA build) | ADA dispatched; lands the §5.10 bullet + §28.3.1 + 5sr §6.8 + 3sz §5.11 + (if A7) 6n9 + t9u install.sh wiring; commits per A8 trailers (dhc dropped per mid-design closure — no substrate work for it) | pre-Arc-40 §5.10 (commits in arc-40/build observable but not yet on main); A8 per directive |
 | Phase 3 (VERA + CATO + ZENO review) | Probes p1-p23 execute on arc-40/build state; CATO craft-reads the diff; ZENO mechanical-checks | pre-Arc-40 §5.10 still on main; Arc 40 changes visible only on arc-40/build until merge |
 | Phase 4 (PLINY ship) | `gh pr merge` executes; §5.10 bullet + §28.3.1 + other Arc 40 substrate edits land on main; PLINY's Phase 4 signoff comment on stoa--utn cites the NEW §5.10 wording | **NEW Arc 40 §5.10 wording (just landed by Phase 4's own merge operation)** |
 
@@ -783,7 +742,9 @@ The recursion is observable, surveillable, and machine-checkable per the surveil
 
 Per CAPTAIN_DAEDALUS.md §7 verdict format; full block returned in DAEDALUS dispatch response to MAJOR_PLINY (not duplicated here — design.md on disk is the artifact for ARGUS to read; verdict block lives in dispatch return + bw comment per CAPTAIN_DAEDALUS.md §7).
 
-**Heartbeat audit for this dispatch:** activation heartbeat fired at 06:42:40Z; state-transition heartbeat at read-complete with key dhc finding fired before drafting; completion heartbeat fires immediately before this dispatch returns. Read-before-write fired before each heartbeat (`bw show stoa--utn 2>&1 | tail -N`). No comments tagged `[for: DAEDALUS]` surfaced; no orchestrator interruption during design.
+**Heartbeat audit (rev1):** activation heartbeat fired at 06:42:40Z; state-transition heartbeat at read-complete with key dhc finding fired before drafting; completion heartbeat fired immediately before rev1 dispatch return @ 06:46:xx (rev1 commit 76928152). Read-before-write fired before each heartbeat. No comments tagged `[for: DAEDALUS]` surfaced during rev1; no orchestrator interruption during design.
+
+**Heartbeat audit (rev2):** rev2 dispatched after ARGUS audit + dhc closure ratification (~06:47:41Z). Rev2 in-session; no separate dispatch ticket. Revisions per PLINY dispositions: R1 BLOCKING (drop §3.C3, drop p9/p10/p11, update §6/§1.2/§2.7/§7.1/p24, narrow scope 6→5); R2 MEDIUM (probe recount 23→21); R3 NOTED (teaching note §7.1a); R4 MEDIUM (p24 ticket list 6→5 + optional merge-SHA-cite strengthening); R5 LOW (soften p19 grep); R6 LOW (keep t9u *.pyc); R7 LOW (reword §28.3.1 framing). Probe gap-numbering preserved per PLINY-lean for ARGUS/ZENO/VERA traceability across rev1→rev2.
 
 Per A11 IMMUTABLE: all edits credit **Denson Smith**. No author field gets a different name. No exception.
 
