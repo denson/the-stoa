@@ -304,11 +304,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 42 dispatch acknowledged. Pre-flight clean (main=origin/main @ 0fa59b8, no orphans). Worktree .claude/worktrees/arc-42-build/ on arc-42/build. Tasks 13-16 for 4-phase pipeline. C1 LOCKED (validate-spec build-then-use) + 4 A7 fold-in candidates DAEDALUS-discretion. A5 LOCKED 7 mechanical checks (motivated-reasoning prevention). A20/A21/A24/A26 mitigations acknowledged: don't auto-PASS items can't independently verify; check-6 LOOSE pre-ratified for ariadne/sector-4/railway drift residue; check-7 trailer-canon-failure = substance disagreement; CATO MANDATORY honesty audit; validate-spec MUST run in-arc with evidence-of-use. Dispatching CAPTAIN_DAEDALUS_the_stoa.",
       "timestamp": "2026-05-18T08:37:32Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] activated on Arc 42 build directive. Read directive A1-A26, all 5 source tickets (1lm/bn8/mn3/6k1/3na), SPECIFICATION.md §12.1-§12.5+§13.11+§13.13+§13.16, 3 precedent skills (check-substrate-updates+inspect-script-output+save-verdict), CAPTAIN_VERA §5.11, MAJOR_PLINY §6.2, op-disc §27. Ground-checked Co-Authored-By trailers post-Arc-35 (all 4 ships clean; bb12806 carve-out empty as documented). Drafting design.md now. Picks: A6=β (shell+Python), A8=ε (inline), A10/A11/A12/A13=all include (5-candidate fold-in cohesive — 1lm provides canon basis; mn3 cleans pre-canon defects; bn8 pairs with current cron-driven engagement; 6k1 is 1-probe deletion).",
+      "timestamp": "2026-05-18T08:39:19Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T08:37:32Z"
+  "updated_at": "2026-05-18T08:39:19Z"
 }
