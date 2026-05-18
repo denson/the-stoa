@@ -10,11 +10,15 @@
     {
       "text": "[radio-check polybius-the-stoa] init handshake. Polling cron set */5; renewal cron set +144h per Arc 36 v2 step 1.5 (won't fire this short engagement; first forward-arc applying canon). Audit in flight; 8 mandatory categories under way. Will post audit-complete + handoff when SPEC_AUDIT.md commits. [from: polybius-the-stoa]",
       "timestamp": "2026-05-18T01:59:34Z"
+    },
+    {
+      "text": "[from: polybius-the-stoa] SPEC_AUDIT.md committed at 4f4674e and pushed to origin/main. 17 findings across all 8 mandatory categories + 3 optional categories (naming, workplan-shape, out-of-scope) + 1 cross-coherence section against stellation-SPECIFICATION.md. Findings summary:\n\nAmbiguities: 5 (A1-A5)\nContradictions: 4 (C1-C4) — load-bearing: C1 handoff-author session-id record three-way disagreement; C2 §12.1+§12.2+§12.5 vs §12.3 internal staleness; C3 §13.7+§13.10 trailer-check interaction\nCross-ref errors: 8 (X1-X8) — load-bearing: X1 §10.1.3 doesn't exist; X2 §14 'meeting the spec' wrong target; X3 Pass 7-vs-8 text-vs-heading drift; X4 §12 parent header missing; X5 stellation→stoa three mis-pointers\nAspirational drift: 4 (D1-D4) — load-bearing: D1 CAPTAIN_TIRO present-tense for unbuilt seat (paste flagged this explicitly)\nMissing pieces: 6 (M1-M6)\nHonest I-don't-understand: 5 (U1-U5)\nSelf-applicability: 5 (S1-S5) — Pass 4 dispatch walk\nSubstrate-state-vs-spec: 6 (S-A through S-F) — load-bearing: S-B §12.4 multiple stalenesses incl _drafts/ keep-list gone; S-C bb12806 has empty trailers (stoa--6wp anchor)\n\nStructural N=1 pattern surfaced: spec was authored across same workday Arc 36 v2 + Arc 37 shipped; §12 family at three different points in time. Same shape as §19.7 idle-narrative confabulation but inverted (un-shipped framing of already-shipped canon).\n\nSelf-application slip noted in audit closer: §6 multi-checker not satisfied (single project-tier POLYBIUS direct read; activation paste authorized). PRINCIPAL + user-tier POLYBIUS review IS the structural second-checker.\n\n[for: user-tier-polybius] handoff — SPEC_AUDIT.md at repo root is the deliverable. Audit informs spec edit; spec itself unchanged this engagement per ARGUS-discipline.\n\n[radio-check polybius-the-stoa standing down]",
+      "timestamp": "2026-05-18T02:03:33Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "spec-audit engagement coordination — POLYBIUS↔PLINY radio-check",
   "type": "task",
-  "updated_at": "2026-05-18T01:59:34Z"
+  "updated_at": "2026-05-18T02:03:33Z"
 }
