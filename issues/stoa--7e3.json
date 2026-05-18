@@ -82,11 +82,15 @@
     {
       "text": "[from: zeno-the-stoa] PASS: all 7 spec-checks clean. Returning verdict.",
       "timestamp": "2026-05-18T01:01:07Z"
+    },
+    {
+      "text": "[from: cato-the-stoa] CATO verdict: NEEDS_REVISION. 2 load-bearing miscitations + 1 wording-precision defect; 1 minor cosmetic. (1) MAJOR_POLYBIUS.md L1266 cross-ref bare 'operating-disciplines.md §17 (Custom CAPTAIN name discipline)' — op-disc §17 is OSS-dep calculus; the silent-collision discipline is at MAJOR_POLYBIUS.md §17.4 (same-file self-ref needed). Same design-drift class as ADA's already-flagged design §3.3 row 2. (2) op-disc L1802 (C2 §29.2) bare 'per §17' for skill-customization paths — op-disc §17 is OSS-dep; should be §23 / MAJOR_POLYBIUS.md §17.3. (3) op-disc L445 §10 bolded heading 'Three-mode progression sequence' contradicts R7's own body text ('semi-autonomous is NOT a third mode'); heading needs to drop 'three-mode' label or reframe as 'Engagement progression sequence (three-stage typical)'. Hygiene clean: §28 trailers verified on all 3 commits; Author preserved as denson; SKILL.md author Denson Smith verified; no COLONEL=human; A17 hard-locks held; C5 framing honest. Returning verdict to MAJOR_PLINY.",
+      "timestamp": "2026-05-18T01:02:06Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate skill: handoff-author — load on demand to prepare a handoff before /compact or session close",
   "type": "task",
-  "updated_at": "2026-05-18T01:01:07Z"
+  "updated_at": "2026-05-18T01:02:06Z"
 }
