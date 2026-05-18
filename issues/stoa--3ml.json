@@ -2,13 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-18T07:30:14Z",
+  "close_reason": "Arc 41 shipped clean — PR #21 squash-merged at 6b6fb11. operating-disciplines.md Thesis line 13 edit: '§1-§17 plus the autonomous-mode setup checklist' → '§1-§31'. Parenthetical dropped (setup checklist is now §11 inside §1-§31 numbered range post-Arc-38 §31 add). DAEDALUS verified count live at design time (31); ADA re-verified at build time (31); §4.4 coherence probe (THESIS_HIGH == LIVE_COUNT == 31) PASS. See arc-41-build-directive.md + design.md @ 7cb61ce + signoff on stoa--utn.",
   "created": "2026-05-16T08:54:02Z",
   "description": "Trivial 1-sentence edit. substrate/operating-disciplines.md line 13 currently reads '§1-§17 plus the autonomous-mode setup checklist'. Post-arc-25 the file has §1-§20. Update to '§1-§20'. Surfaced by DAEDALUS during Arc 25 design rev1; out of A11 scope at the time; fix-now ticket for next opportunistic substrate edit. Refs: stoa--p5g (Arc 25), design follow_ups item 1.",
   "id": "stoa--3ml",
   "labels": [],
   "priority": 4,
-  "status": "open",
+  "status": "closed",
   "title": "operating-disciplines.md Thesis line 13 stale — references §1-§17 after Arc 25 landed §20",
   "type": "task",
-  "updated_at": "2026-05-16T08:54:02Z"
+  "updated_at": "2026-05-18T07:30:14Z"
 }
