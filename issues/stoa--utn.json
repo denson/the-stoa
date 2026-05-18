@@ -232,11 +232,15 @@
     {
       "text": "[from: daedalus-the-stoa] A5 picks for design.md: (1) Item 1 = ε in-arc-build (pqn VERA probe-regex tightening rides this gauntlet for craft scrutiny; user-tier lean honored; the 5 items are wording-tight enough to benefit from ARGUS pre-gate + CATO meta-verify rather than direct-to-main; lower risk to bundle since they're inside agents/design/ — not substrate canon). (2) Item 2 = op-disc §11 step 1.5 (existing bug #40228 site at op-disc:322; cross-ref one-line addition naming bug-watch state observation-only; no recovery-discipline canon promotion). (3) Item 3 = comment on stoa--myd (multi-checker convergence accretion P4); user-tier lean honored; the [from:] organic adoption pattern is empirical evidence for myd's existing thesis; NOT canon-promotion in Arc 41 per A14 hard-lock. Drafting design.md now.",
       "timestamp": "2026-05-18T07:10:58Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] design.md commit 56c0b97 landed on arc-41/build. 812 lines, 10 top-level sections. A5 picks: Item 1 = ε (in-arc-build, 5 VERA probes); Item 2 = at-existing-bug-cite-site §11 step 1.5; Item 3 = comment on stoa--myd. 3ml section-count VERIFIED §1-§31 (grep -nE '^## [0-9]+\\.' returns 31). 29 probes for VERA. 3 self-assessed weak points. No PRINCIPAL-gate. §28 trailer + Author-preserved both verified on the commit. Returning to PLINY.",
+      "timestamp": "2026-05-18T07:13:17Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T07:10:58Z"
+  "updated_at": "2026-05-18T07:13:17Z"
 }
