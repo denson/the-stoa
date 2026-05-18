@@ -78,11 +78,15 @@
     {
       "text": "[from: ada-the-stoa] C2 (bj5) implementation complete. Files touched: substrate/install.sh — added write_substrate_manifest() helper after scaffold_user_tier (~+78 lines) + step 7c call site (+6 lines); substrate/skills/check-substrate-updates/check.sh — added apply_substitutions_from_manifest() helper after apply_substitutions() (+67 lines), rewrote user-tier branch with manifest-aware fall-through (+12 lines net), replaced call site at apply_substitutions → apply_substitutions_from_manifest (1 line + 4 lines cite-comment); substrate/skills/check-substrate-updates/apply.sh — same helper duplicated per share-via-inline convention (+50 lines), rewrote user-tier refusal to manifest-aware (+8 lines), replaced call site (1 line + 3 lines cite-comment); substrate/skills/check-substrate-updates/revert.sh — added §2.4.3 cite-comment (+7 lines, no code change); substrate/skills/check-substrate-updates/SKILL.md — rewrote v0 scope to v1 (per §2.4.4); substrate/consumer-workspaces.txt — updated comment block (per A9 conservative pick — no PRINCIPAL-machine path as default entry). All bash scripts pass bash -n syntax check. install.sh project-tier dry-run announces both TIRO deploy and substrate-manifest write. check.sh against the-stoa main workspace runs cleanly and detects Arc 38 surface (TIRO MISSING + check.sh/apply.sh/etc DRIFTED) — backward compat for project-tier verified (no manifest at the-stoa main → legacy fallback works). All 8 design §2.7 cite-comments landed. Moving to C3 (gq1).",
       "timestamp": "2026-05-18T03:15:27Z"
+    },
+    {
+      "text": "[from: ada-the-stoa] C3 (gq1) implementation complete. substrate/operating-disciplines.md §31 added between §30.6 (line 1930) and the Agent-regime inverses section (line 1934 pre-edit) per A11 α pick. New §31 carries: intro paragraph + §31.1 Principle 1 (7-step agent-installable distribution model with Stoa-substrate-as-component + Ariadne worked instances) + §31.2 Principle 2 (composability framing with Ariadne demo-multiplication-vs-composability example + Stoa parallel) + §31.3 N=2 honest-scope (Ariadne originating + Stoa parallel, with PRE-DATES temporal-honesty mitigation per design §5.3) + §31.4 cross-refs (§23+POLYBIUS §17 co-equal canon framing per ARGUS F1 fix; §29 multi-team interop; §27 mechanical/agent split; §28 trailer; §30 four-layer identity; HUMAN_relay; stoa--gq1; stoa--vmc; SPECIFICATION.md §13.5). Per A12 gq1 template deferred (NOT shipped this arc) per design §3.5. 4 design §3.7 cite-comments landed at §31 intro + §31.1 + §31.2 + §31.3.",
+      "timestamp": "2026-05-18T03:21:30Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:15:27Z"
+  "updated_at": "2026-05-18T03:21:30Z"
 }
