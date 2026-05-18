@@ -20,11 +20,15 @@
     {
       "text": "ADA spike complete. Ground-checks done: (a) check-substrate-updates live output confirms composite-status shape \u003cws-name\u003e  \u003cSTATUS [+ STATUS]*\u003e (n drifted, n missing, ...); workspace names variable width incl 'the-stoa' (NOT in A21 LOOSE pre-named list — currently CURRENT so no STRANGE-route fires); (b) trailer format confirmed lowercase 'Co-authored-by:' canonicalized by git formatter; (c) bb12806 emits empty trailers; (d) DAEDALUS §6.8 ends line 196, §7 starts 198 → §6.9 inserts cleanly; (e) PLINY §6.2 ends line 650, §6.3 starts 652 → §6.2a inserts cleanly; (f) all 3 --no-bw-init sites in arc-40 confirmed (lines 411, 522, 553). Now authoring validate-spec skill tree.",
       "timestamp": "2026-05-18T08:50:16Z"
+    },
+    {
+      "text": "C1a + C1b landed: validate-spec skill tree (be6f7a0) + install.sh wiring (96c3e3b). All Python files ast-parse; check.sh bash -n passes; --help on all helpers returns 0. Now landing fold-ins C2 (DAEDALUS §6.9 — 1lm), C3 (PLINY §6.2a — bn8), then C4 (mn3 design.md fixes), C5 (6k1 arc-25 P10 deletion). Then C1c: RUN validate-spec + capture mech-check-results.md artifact. Then C6: paste archival.",
+      "timestamp": "2026-05-18T08:53:09Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Substrate-component design principles: agent-installable distribution + composability framing",
   "type": "task",
-  "updated_at": "2026-05-18T08:50:16Z"
+  "updated_at": "2026-05-18T08:53:09Z"
 }
