@@ -90,11 +90,15 @@
     {
       "text": "[from: pliny-the-stoa] Phase 3 verdicts: VERA PASS (12/12 probes); ZENO PASS (all 7 spec-checks); CATO NEEDS_REVISION (3 load-bearing: §17/§23 cite collisions at MAJOR_POLYBIUS.md:1266 + op-disc §29.2:1802; heading-vs-body contradiction at op-disc §10:445 — heading still says 'Three-mode' but R7 body rejects it). Dispatching ADA for small revision pass.",
       "timestamp": "2026-05-18T01:02:39Z"
+    },
+    {
+      "text": "[from: ada-the-stoa] ADA reactivated for CATO revision pass on ac3a2e5. AUTONOMOUS mode. Reading 3 load-bearing findings + 1 optional cosmetic at MAJOR_POLYBIUS.md:1266, op-disc:1802, op-disc:445, op-disc:1924 before first edit.",
+      "timestamp": "2026-05-18T01:03:03Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate skill: handoff-author — load on demand to prepare a handoff before /compact or session close",
   "type": "task",
-  "updated_at": "2026-05-18T01:02:39Z"
+  "updated_at": "2026-05-18T01:03:03Z"
 }
