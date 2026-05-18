@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-18T07:04:05Z",
+  "close_reason": "Arc 40 shipped clean — PR #20 squash-merged at dbb5b81. New substrate/CAPTAIN_VERA.md §5.11 'Probe-spec regex anchoring discipline' shipped with Arc 24 empirical anchor. Probe-spec greps must anchor (^last= rather than substring last=). VERA seat-canon per A6=γ DAEDALUS pick. See arc-40-build-directive.md + design.md @ 6a21104 for full spec; signoff on stoa--utn for arc-wide context. Self-application note: VERA m1+m2 surfaced 3 Arc 40 design probes violating this very discipline — filed as stoa--mn3 with concrete plan (ironic teaching moment + future-arc anchoring discipline accretion).",
   "created": "2026-05-13T02:42:05Z",
   "description": "## Empirical anchor\n\nArc 24 Phase 3 VERA p7 probe-spec defect: verbatim regex pattern finds 2 matches at MAJOR_PLINY.md lines 258+273 (one is in the python template body, one is in the example documentation); the anchored variant '^last=' returns 1 match as intended (the actual template start).\n\nSurfaced 2026-05-13 by VERA in Arc 24 Phase 3 verdict. Non-blocking for Arc 24 ship — probe-spec imprecision, not a build defect.\n\n## Substrate touch-point\n\nsubstrate/CAPTAIN_VERA.md or a probe-authoring discipline note in operating-disciplines.md: when authoring probe-specs that match canonical templates in substrate prose, anchor the regex with '^' or use unique-substring delimiters. Multi-match probe specs return false-positives whenever the substrate prose itself documents the template (canonical template + example documentation = 2 hits, even when the prose intends 1).\n\n## Gauntlet\n\nADA + CATO eyeball. Substrate doc-only edit; ~10-20 LOC of probe-discipline guidance. Low-priority hygiene.\n\n## Sequencing\n\nP3. Arc 25+ candidate. Not blocking anything.",
   "id": "stoa--3sz",
@@ -45,8 +47,8 @@
     }
   ],
   "priority": 3,
-  "status": "open",
+  "status": "closed",
   "title": "Arc 24 follow-up — probe-spec ^last= anchor needed (verbatim regex finds 2, anchored variant returns 1 as intended)",
   "type": "task",
-  "updated_at": "2026-05-18T07:02:13Z"
+  "updated_at": "2026-05-18T07:04:05Z"
 }
