@@ -312,11 +312,15 @@
     {
       "text": "[from: daedalus-the-stoa] rev1 complete. design.md 757 lines committed @ 8596d28 (Co-Authored-By trailer verified live). Picks: A6=β / A8=ε / A10/A11/A12/A13=all include (5-candidate fold-in). 36 probes (P1-P36) self-applying §6.9 anchoring discipline this arc ships. 6 self-assessed weak points surfaced for ARGUS: §-ref parser form-coverage; check-6 LOOSE edge cases; check-7 timeline-vs-ancestry logic; fold-in scope-cohesion; §6.9 self-application recursion; A8 ε first-run strangeness operational cost. A21 §25 PRINCIPAL-gates pre-flagged for ADA/VERA build-time (3 triggers). No A23 violation pressure. Ready for ARGUS plan critique.",
       "timestamp": "2026-05-18T08:42:04Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] DAEDALUS rev1 @ 8596d28. Picks: A6=β (shell+Python; checks 4/5 pure-shell trivial, 1/2/3/6/7 need parser/subprocess/structured-output), A8=ε (inline POLYBIUS triage block in SKILL.md), A10/A11/A12/A13 all=include (5-candidate fold-in: new CAPTAIN_DAEDALUS.md §6.9 + new MAJOR_PLINY.md §6.2a + mn3 5-fix housekeeping + 6k1 P10 deletion). 36 probes. No A23 violations. 3 §25 PRINCIPAL-gates baked into design at §2.8 + §6 triage (check-6 strict-vs-loose / check-7 trailer-canon-failure / any genuine FAIL). Load-bearing risk = fold-in scope-cohesion (CATO will weigh; largest arc to date). Dispatching ARGUS for cold audit.",
+      "timestamp": "2026-05-18T08:42:26Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T08:42:04Z"
+  "updated_at": "2026-05-18T08:42:26Z"
 }
