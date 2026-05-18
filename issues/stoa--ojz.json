@@ -50,11 +50,15 @@
     {
       "text": "[from: daedalus-the-stoa] DAEDALUS rev1 cold-pickup activated 2026-05-17. Reading prior design.md @ 5fc363a + directive + ARGUS findings. Targets: F1 (MANDATORY — §31.4 cross-ref mislabel + §0 line 32 audit), F4 (sizing target inconsistency), F5 (probe 3.6.2 path-existence). Skipping F2/F3 per ARGUS classification. Operating mode: autonomous.",
       "timestamp": "2026-05-18T03:09:34Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] rev1 revisions complete. F1 (load-bearing): §31.4 line 1067 rewritten — co-equal canon framing (POLYBIUS-tier statement of the same canon; install.sh precedent cited). §0 line 32 imported-assumption rewritten same shape (NOT a base + derivative refinement; both anchored at §X.1 to PRINCIPAL 2026-05-17 stoa--ads declaration). Additional instances of same pattern found and fixed: §3.3.5 lead-in (line 1061) reworded to co-equal cuts framing. F4: §1.1.1 sizing target updated 200-280 → ~280-320 LOC (matches §5.5 honest math) + §5.5 mitigation prose updated to match new band (\u003e350 LOC = surface-to-PLINY threshold). F5: Probe 3.6.2 extended with test -d substrate/skills/inspect-script-output (verified passing against current worktree); §7 probe summary table row updated. Zero 'refinement' framing remains as a derivation claim (only the disclaimer at line 32 retains the word, used to NEGATE the framing). Committing now with §28 trailer.",
+      "timestamp": "2026-05-18T03:11:01Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "CAPTAIN_TIRO — bw substrate specialist seat (new role file)",
   "type": "task",
-  "updated_at": "2026-05-18T03:09:34Z"
+  "updated_at": "2026-05-18T03:11:01Z"
 }
