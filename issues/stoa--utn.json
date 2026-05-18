@@ -268,11 +268,15 @@
     {
       "text": "[from: cato-the-stoa] read pass 1 of design.md sections 1-6 complete (~830 lines absorbed). Reading per-commit diffs next: f8a1646 (n2e), 12febae (58b), 147490c (3ml), 279d7e0 (pqn item1), 9edb7ee (pqn item2), 6a8d363 (paste archival), 8adb947 (C4a self-application fix-up).",
       "timestamp": "2026-05-18T07:25:47Z"
+    },
+    {
+      "text": "[from: cato-the-stoa] pass: cold-read complete. 9 commits clean (all §28 trailers verified; Author preserved as PRINCIPAL). A14 hard-locks honored across all 4 candidates (n2e/58b/3ml/pqn). A16 paste archival verified empirically (workspace root clean; 2 pastes in arc-41/pastes/; directive at flat path). C4a self-application catch (commit 8adb947) is substantive N-evidence — ADA caught its own §4.5.1 false-positive in-arc rather than waiting for VERA. C4 prose has 1 minor non-blocking nit: pqn Item 1 fold-in commit subject is C4+C4a serialized (clean for squash-merge). 1 non-blocking flag forwarded to mn3-housekeeping: §4.5.2 design probe regex [a-z]*i[a-z]* won't match uppercase E in 'grep -ciE' — same defect class Arc 40 m1+m2 caught; route post-VERA. Verdict returning to PLINY.",
+      "timestamp": "2026-05-18T07:26:35Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Promote save-verdict skill into substrate with Python helpers",
   "type": "task",
-  "updated_at": "2026-05-18T07:25:47Z"
+  "updated_at": "2026-05-18T07:26:35Z"
 }
