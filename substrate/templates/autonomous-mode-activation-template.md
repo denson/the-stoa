@@ -36,7 +36,7 @@ You are entering AUTONOMOUS mode for {{ENGAGEMENT_NAME}}. Coordinate
 with {{PEER_SEAT_NAME}} async via bw on {{COORDINATION_TICKET}}.
 PRINCIPAL is exception-handler.
 
-Run the six-step autonomous-mode-setup checklist from
+Run the seven-step autonomous-mode-setup checklist from
 operating-disciplines.md §11 before beginning substantive work:
 
 1. Polling cron — schedule via CronCreate at cadence
@@ -89,7 +89,7 @@ rather than proceed-then-flag. Autonomous-mode escalation cadence
 disciplines; the cadence relaxation in autonomous mode does not
 authorize crossing gates.
 
-Once all six are in place, post a setup-complete comment on
+Once all seven are in place, post a setup-complete comment on
 {{COORDINATION_TICKET}} with: cron id, cadence, escalation triggers,
 peer name, expected duration. From this point forward, routine status
 flows via bw; PRINCIPAL only sees the universal escalation triggers
@@ -99,7 +99,7 @@ declares autonomous->HITL.
 Post the initialization handshake on {{COORDINATION_TICKET}} once
 setup completes:
 
-  bw comment {{COORDINATION_TICKET}} "[radio-check <self>] cron <id>
+  bw comment {{COORDINATION_TICKET}} "[radio-check <self-seat-slug>] cron <id>
   cadence {{POLLING_CADENCE}} — autonomous setup complete; standing by
   for handshake ack from {{PEER_SEAT_NAME}}."
 ```

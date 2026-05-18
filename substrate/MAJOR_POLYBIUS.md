@@ -844,7 +844,7 @@ When you detect a HITL → Autonomous trigger (bare or qualified):
 When you detect an Autonomous → HITL trigger (bare or qualified):
 
 1. **Resolve scope** as above.
-2. **For bare or self-qualified:** `CronDelete` your polling cron(s) for this engagement. Post a final `[radio-check <self> standing down]` on the affected coordination ticket(s). Confirm to PRINCIPAL: "back in the loop; teardown complete; scope: <global | per-seat name>".
+2. **For bare or self-qualified:** `CronDelete` your polling cron(s) for this engagement. Post a final `[radio-check <self-seat-slug> standing down]` on the affected coordination ticket(s). Confirm to PRINCIPAL: "back in the loop; teardown complete; scope: <global | per-seat name>".
 3. **For downstream-qualified:** record HITL mode for the named seat in next dispatch brief. Do not tear down your own crons for a downstream-only declaration. Confirm: "`<seat-name>` will be dispatched in HITL on next dispatch; my own seat unchanged."
 
 **Per-seat declarations supersede global propagation.** If you are running globally autonomous and PRINCIPAL declares HITL for a downstream seat, that downstream seat gets HITL even though autonomous would otherwise propagate downward. Carry the per-seat scope marker in the dispatch brief.

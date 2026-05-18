@@ -446,7 +446,7 @@ Cross-refs: `MAJOR_POLYBIUS.md` §13 (POLYBIUS-tier framing of mode declaration 
 
 ## 11. Autonomous-mode-setup checklist
 
-When a seat detects an autonomous-mode trigger that applies to itself (bare trigger, or self-qualified trigger), it runs this six-step setup procedure on entry. Do not begin polling until all six are in place; if any item cannot be completed, surface to PRINCIPAL with what is needed before proceeding.
+When a seat detects an autonomous-mode trigger that applies to itself (bare trigger, or self-qualified trigger), it runs this seven-step setup procedure on entry. Do not begin polling until all seven are in place; if any item cannot be completed, surface to PRINCIPAL with what is needed before proceeding.
 
 **1. Polling cron.** `CronCreate` the cron appropriate to the seat's role:
 
@@ -660,11 +660,11 @@ Cross-ref to recovery paths: `MAJOR_POLYBIUS.md` §9 step 7 (long-running-engage
 - Detection: `bw prime` self-reports OR `git branch -a | grep beadwork`.
 - Never `git checkout beadwork` from the main worktree.
 
-**Setup-complete confirmation.** After all six are in place, post a setup-complete comment on the engagement's coordination ticket naming: cron id, cadence, escalation triggers, peer name, expected duration. Surface the same to PRINCIPAL once. From this point forward, routine status flows via bw; PRINCIPAL only sees the universal-escalation-trigger surfaces (§10) until the engagement closes or the autonomous-mode trigger is reversed.
+**Setup-complete confirmation.** After all seven are in place, post a setup-complete comment on the engagement's coordination ticket naming: cron id, cadence, escalation triggers, peer name, expected duration. Surface the same to PRINCIPAL once. From this point forward, routine status flows via bw; PRINCIPAL only sees the universal-escalation-trigger surfaces (§10) until the engagement closes or the autonomous-mode trigger is reversed.
 
 **Cross-ref:** §25 PRINCIPAL-gate discipline — autonomous-mode setup does NOT relax PRINCIPAL-gates. If downstream encounters a PRINCIPAL-gated clause, the workflow PAUSES per §25.3 regardless of operating engagement.
 
-**Teardown procedure** (autonomous → HITL trigger detected): `CronDelete` the polling cron(s) for this engagement. Post final `[radio-check <self> standing down]` on the coordination ticket(s). Confirm to PRINCIPAL: "back in the loop; teardown complete; scope: <global | per-seat name>". Per-seat teardown affects only the named seat's coordination crons; sibling seats keep their own crons.
+**Teardown procedure** (autonomous → HITL trigger detected): `CronDelete` the polling cron(s) for this engagement. Post final `[radio-check <self-seat-slug> standing down]` on the coordination ticket(s). Confirm to PRINCIPAL: "back in the loop; teardown complete; scope: <global | per-seat name>". Per-seat teardown affects only the named seat's coordination crons; sibling seats keep their own crons.
 
 ---
 
