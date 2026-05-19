@@ -630,7 +630,24 @@ Author + run a `validate-spec` skill following the §27 mechanical-script / agen
 
 Pass 9 produces an artifact at `agents/observation/spec-validation/mechanical-check-results.md` capturing each check's pass/fail status + evidence trail, including the explicit `bb12806` carve-out attestation.
 
-### §13.12 Pass 10 — Behavioral validation via test-project dispatch
+### §13.12 Pass 10 — Behavioral validation via test-project dispatch — DONE 2026-05-18
+
+**Outcome**: Pass 10 substrate-validation completed via stellation engagement. Stellation team (POLYBIUS_stellation + PLINY_stellation + 10 CAPTAINs) operating per deployed substrate against `docs/validation/stellation-SPECIFICATION.md` shipped Arcs 1-5 clean across ~4.5 hours wall-clock. Feature-complete at stellation master `3291802` (Arc 1 scaffold + Arc 2 data layer + Arc 3 constellation core + Arc 4 motion + Arc 5 detail view). PRINCIPAL ratified feature-complete as sufficient validation evidence; Arc 6 polish (stellati-idd) deferred indefinitely as non-gating.
+
+**Pass 10 attestation**:
+- Full arc lifecycle (§5) ran clean without coaching across 5 arcs (DAEDALUS → ARGUS → ADA → VERA → CATO at every arc)
+- Coordination per §7 (radio-check + bw-tag + cross-tier `[for: ...]`) held end-to-end
+- §28 trailers preserved on every merge (~60+ trailers across engagement) — Arc 40 §5.10 canon empirically validated as downstream-consumer canon
+- §5.10 signoff with live-verified state per §19.6 held at every arc close
+- §25 PRINCIPAL-gate routing worked at speed (1 INCONCLUSIVE Arc 4 VERA cleanly adjudicated via §5.6 operator-disposition discipline)
+- Anti-patterns (§11) caught at design + audit time (§6 anti-pattern audit at Arc 4 CATO cold-read PASS)
+- Cross-generation lineage queryable per §10.1 (stellation-team-instances remain accessible via /resume)
+
+**Substrate canon evolved DURING validation** — 7+ META-canon-promotion candidates surfaced across Arcs 1-5 and consolidated to the-stoa via stoa--yl1 + sibling tickets. §6.9.3'' COMPLETENESS CLAUSE alone accreted 6+ empirical anchors across orthogonal defect-classes — canon-promotion-ripe. **stoa--bbi refined-principle thesis EMPIRICALLY VALIDATED**: structural fixes narrow drift surface; propagation discipline + iteration close remaining gaps; residual converges on operationally-acceptable fixed-point that is honest-not-zero. Pass 10 didn't just validate the substrate as-shipped — it improved the substrate while running.
+
+Artifact: stellation bw + git history at `~/claude_projects/stellation/` (master HEAD `3291802` at Pass 10 close; coordination ticket `stellati-4kn` CLOSED at engagement close); stoa--yl1 consolidation comment captures the META anchor catalog. `agents/observation/spec-validation/test-dispatch-trail.md` at the-stoa is OPTIONAL post-engagement roll-up (Pass 10 success criterion satisfied by stellation feature-complete + PRINCIPAL ratification; explicit at-the-stoa artifact is documentation convenience not gating evidence).
+
+**Original specification preserved below for historical context:**
 
 The substrate is now at "spec met" mechanically (§13.2-§13.11 done). The team validates BEHAVIORALLY by dispatching itself against an unrelated test project:
 
