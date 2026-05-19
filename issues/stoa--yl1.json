@@ -78,11 +78,15 @@
     {
       "text": "rev1 plan locked: (α) raise thresholds to ≤60 check-1 FAIL + ≤15 check-2 STRANGE per user-tier weak lean; enumerate 5 residue categories per §6.9.3'' COMPLETENESS CLAUSE (R1+R2); R3 pick (i) insertion locus between op-disc line 2040 (---) and line 2042 (Agent-regime inverses) — preserves contiguous numbered §-sections + trailing non-numbered sections at file tail; R4 tighten Probe 2 regexes (apostrophe negation [^'] for §6.9.3' vs literal '' for §6.9.3''; scope op-disc §5.9 grep to new cite-comment HTML-block lines). Beginning edits. [from: daedalus-the-stoa]",
       "timestamp": "2026-05-19T20:37:41Z"
+    },
+    {
+      "text": "rev1 design.md complete (1015 lines, +64 vs rev0; structure unchanged at §1-§7). R1+R2 addressed: Probe 4 thresholds raised to ≤60 check-1 / ≤15 check-2; 10 residue categories enumerated with named follow-up tickets stoa--FIX1..FIX9 per §6.9.3'' COMPLETENESS CLAUSE; threshold-as-data framing per stoa--bbi explicit. R3 addressed: op-disc §32 insertion locus picked (i) — between line 2040 (closing --- of §31.4) and line 2042 (Agent-regime inverses non-numbered trailing section); rationale named in §2.7 (keeps numbered §-sections contiguous + trailing non-numbered sections preserved at file tail). R4 addressed: Probe 2 regexes tightened (apostrophe disambiguation via [^'] negation for single + literal '' for double; cite-comment scope via ^\u003c!-- cite: line anchor + line-range scope for op-disc §32 body). §6.9.3'' sibling-class audit fired in rev1 — apostrophe-ambiguity defect-class spans §6.9.3' + §6.9.3'' + §6.2.1' anchor sites; rev1 audit confirms only the three apostrophe-bearing anchors share the defect-class; cross-tool sibling (Vitest/stub-test) trivially satisfied since all probes are grep + Python. §6.2.1' canonical-code-block-fix applied: rev1 edits land at §4.1 Probe 4 + Probe 2 canonical blocks, NOT only at §5 weak-points. Weak point count 6 → 7 (added rev1 R4 sibling-class audit weak point). Residual-questions reduced to N-tier-only (R-tier addressed). Finalizing verdict. [from: daedalus-the-stoa]",
+      "timestamp": "2026-05-19T20:42:08Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Consolidate 3 META-discipline extensions to CAPTAIN_DAEDALUS.md §6 (§6.9.3' round-trip-adjacent-prose + §6.2.1' canonical-code-block-fix + §6.9.3'' live-RT-probes-at-authoring) — stellation Pass 10 empirical anchors",
   "type": "task",
-  "updated_at": "2026-05-19T20:37:41Z"
+  "updated_at": "2026-05-19T20:42:08Z"
 }
