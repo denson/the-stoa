@@ -50,11 +50,15 @@
     {
       "text": "ARGUS pass 1 read complete. design.md 951 lines absorbed; structure C1 (§2.1-§2.7, 5 DAEDALUS-target + ADA + op-disc) + C2 (§3.1 spec_refs + §3.2 bw_tickets) + 9 probes + 5 (numbered 1-6) weak points. Now: cross-check canon read-targets + live-RT every probe + cite-comment audit.",
       "timestamp": "2026-05-19T20:24:17Z"
+    },
+    {
+      "text": "-m",
+      "timestamp": "2026-05-19T20:27:44Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Consolidate 3 META-discipline extensions to CAPTAIN_DAEDALUS.md §6 (§6.9.3' round-trip-adjacent-prose + §6.2.1' canonical-code-block-fix + §6.9.3'' live-RT-probes-at-authoring) — stellation Pass 10 empirical anchors",
   "type": "task",
-  "updated_at": "2026-05-19T20:24:17Z"
+  "updated_at": "2026-05-19T20:27:44Z"
 }
