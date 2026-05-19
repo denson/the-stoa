@@ -90,11 +90,15 @@
     {
       "text": "ARGUS rev1 activated on Arc 43 cold-audit. Reading rev0→rev1 diff + design.md @ c521de2 (1015 lines, +64) + verifying each of R1-R4 addressed + surveilling for NEW R-tier risks introduced by rev1 deltas.",
       "timestamp": "2026-05-19T20:44:36Z"
+    },
+    {
+      "text": "rev1 diff absorbed (+64 lines). R1+R2: thresholds raised to ≤60/≤15 + 10 residue categories enumerated + stoa--FIX1..FIX9 follow-ups named. R3: §32 insertion locus picked between op-disc line 2040 (closing --- of §31.4) and line 2042 (Agent-regime inverses). R4: Probe 2 regexes tightened with [^'] negation + literal '' + ^\u003c!-- cite: line-anchor. Now: live-RT verification of each.",
+      "timestamp": "2026-05-19T20:44:49Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Consolidate 3 META-discipline extensions to CAPTAIN_DAEDALUS.md §6 (§6.9.3' round-trip-adjacent-prose + §6.2.1' canonical-code-block-fix + §6.9.3'' live-RT-probes-at-authoring) — stellation Pass 10 empirical anchors",
   "type": "task",
-  "updated_at": "2026-05-19T20:44:36Z"
+  "updated_at": "2026-05-19T20:44:49Z"
 }
