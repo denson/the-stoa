@@ -158,11 +158,15 @@
     {
       "text": "CATO state: read diff f55f130..b546481 + arc directive + design.md. Moving into hygiene phase (cite resolution + §-number collisions) + empirical probes (mech-check thresholds + recursive self-application surveillance).",
       "timestamp": "2026-05-19T21:09:01Z"
+    },
+    {
+      "text": "VERA probes 1-3 executed. P1 PASS (7/7 headings). P2 PASS (cross-refs resolve). P3 substantive PASS but probe-spec brittleness: 'DEFECT-CLASS, not just exact-pattern-instance' grep returns 0 because canon line-wraps the phrase (single-line grep vs multi-line phrase); '60. multiplier' grep returns 0 in default Git Bash locale because × is 2 UTF-8 bytes (needs LC_ALL=C.UTF-8 or '..'). Substantive canonical wording IS present. Recording as methodology_concerns. Continuing P4-P6.",
+      "timestamp": "2026-05-19T21:09:47Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Consolidate 3 META-discipline extensions to CAPTAIN_DAEDALUS.md §6 (§6.9.3' round-trip-adjacent-prose + §6.2.1' canonical-code-block-fix + §6.9.3'' live-RT-probes-at-authoring) — stellation Pass 10 empirical anchors",
   "type": "task",
-  "updated_at": "2026-05-19T21:09:01Z"
+  "updated_at": "2026-05-19T21:09:47Z"
 }
