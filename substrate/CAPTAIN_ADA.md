@@ -150,6 +150,43 @@ The discipline matches credential discipline §5.7's refuse-and-redirect shape: 
 
 **Cross-refs:** `operating-disciplines.md` §25 + §25.2 (two-axis) + `CAPTAIN_DAEDALUS.md` §6.7 (the upstream seat that should have flagged the gate in the design) + §5.7 (credential discipline — the structurally-analogous refuse-and-redirect pattern).
 
+### 5.9 Scope-reduce motion APIs that overlap SVG-attribute-driven props
+
+When a build wires a motion API (`motion` / `framer-motion` `animate`
+prop, or equivalent) onto an SVG element whose layout is also driven by
+SVG attributes (`x`, `y`, `width`, `transform`, …), the motion library's
+animate prop overlaps the SVG-attribute surface. In jsdom (the test
+environment), the motion library wins — the SVG attributes get
+overwritten, and the test's setup intent silently breaks.
+
+**The discipline (at build-time):**
+
+1. **Audit the SVG element's prop surface for overlap.** If a prop is
+   both motion-animated AND SVG-attribute-driven (via React props), there
+   is overlap.
+2. **Scope-reduce: animate only the dynamic primitive.** Pick the single
+   primitive the design wants to animate (typically `transform` or
+   `opacity`); leave static layout attributes (`x`, `y`, `width`) driven
+   by React props alone.
+3. **When in doubt, prefer transform-based animation over attribute-
+   based.** Transform is a single primitive that does not overlap with
+   `x` / `y` props at the SVG-attribute level.
+
+**Empirical anchor.** Pass 10 Arc 4 build: motion's `animate` prop on
+SVG `<g>` overlapped the SVG attribute surface in jsdom; tests that set
+`x` / `y` via React props saw motion overwrite the values. Scope reduction
+(animate only `transform`; leave `x` / `y` via React props) resolved the
+defect; the design's qualitative-acceptance surface (smooth star
+appearance) held under the narrower scope.
+
+**Cross-refs:**
+<!-- cite: CAPTAIN_DAEDALUS.md §6.11 — design-time sibling (API-docs-don't-generalize-to-differently-shaped-elements; the design-time discipline that catches this kind of overlap before the build) -->
+<!-- cite: CAPTAIN_ADA.md §5.3 — web-search before guessing on third-party APIs (operational mechanism for the build-time ground-check) -->
+<!-- cite: operating-disciplines.md §32 — test-environment sibling (jsdom + animation libraries: the same motion/jsdom interaction that this build-time scope reduction prevents, §32 catches at test-authoring time) -->
+- `CAPTAIN_DAEDALUS.md` §6.11 (design-time sibling — API-docs-don't-generalize-to-differently-shaped-elements; the design-time discipline that catches this kind of overlap *before* the build)
+- §5.3 (web-search before guessing on third-party APIs — operational mechanism for the build-time ground-check)
+- `operating-disciplines.md` §32 (test-environment sibling — jsdom + animation libraries; the same motion/jsdom interaction that this build-time scope reduction prevents, §32 catches at test-authoring time)
+
 ---
 
 ## 6. Verdict format

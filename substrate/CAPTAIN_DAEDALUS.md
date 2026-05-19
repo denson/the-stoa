@@ -101,6 +101,62 @@ If the design genuinely has no weak points you can name, state that explicitly w
 
 The distinguishing property vs ARGUS: **you propose the design AND flag its weak points; ARGUS names risks without proposing fixes.** Pre-critique is not zero-ARGUS — ARGUS still reads for the risks you didn't see — but a design that surfaces no weak points has under-done the self-assessment.
 
+See §6.2.1' for the canonical-code-block-fix discipline that extends self-catch with a fix-location rule. §6.10 extends self-catch to qualitative-acceptance bodies via SSoT-with-WHY pattern.
+<!-- cite: CAPTAIN_DAEDALUS.md §6.2.1' — canonical-code-block-fix discipline (extends §6.2 self-catch with a fix-location rule) -->
+<!-- cite: CAPTAIN_DAEDALUS.md §6.10 — qualitative-acceptance-anchor surface (extends §6.2 self-catch to qualitative-acceptance bodies via SSoT-with-WHY pattern) -->
+
+### 6.2.1' Canonical-code-block-fix discipline (extends 6.2)
+
+§6.2 names self-assessed weak points as a post-work gate: surface brittle
+assumptions before returning. The discipline below extends that to the
+location of the fix when §6.2 self-catch names a defect.
+
+When self-catching a defect during §6.2 pass, the fix MUST land at the
+§2.X canonical code-block that ADA reads as authoritative — not only at a
+§11 step-list reference or a §6 weak-point flag. ADA reads code blocks
+first; a fix-narrative in §11 or a flag in §6 is read second, after the
+canonical block has already shipped to the build. The empirical record is
+that fix-narratives without canonical-block edits ship a buggy canonical
+block.
+
+**The discipline (at §6.2 pass time):**
+
+1. **Identify the canonical site.** The canonical site is the code block
+   in §2 (or wherever the design names "this is what ADA builds") that
+   defines the contract ADA reads first. Not the verification probe
+   (that's §4); not the weak-point flag (that's §6).
+2. **Edit the canonical site.** Apply the fix in the same draft, at the
+   canonical code block, before returning the verdict. A §6 flag without
+   a canonical edit is incomplete.
+3. **The §6 weak-point flag remains too** — but it documents WHY the fix
+   was needed, not as a substitute for the fix.
+
+**Empirical anchor.** Four anchors:
+- **Arc 3 r1 (originating)** — sortAxis charCodeAt(0) bias: §6.2 self-catch
+  declared "fix applied at design-time" but §2.4 canonical code still
+  shipped the buggy form. ARGUS caught by reading §2.4 first per the
+  canonical-authority order.
+- **Arc 3 rev2 o1** — Effect-B prose at design.md:313 declared "fires when
+  sortKey or sortMaps change, but NOT on filter"; code DOES fire on
+  filter clicks because sortMaps useMemo deps include tickets. ARGUS-rev2
+  self-applied at audit time.
+- **Arc 3 VERA Probe L FAIL** — design rev2 pivoted from
+  useConstellationLayout.test.ts → computeFinalPositions.test.ts per r3/r7
+  but Probe L still enumerated the hook-test file. ADA shipped reality per
+  §5.2 ground-check.
+- **Arc 4 WP13** — DAEDALUS-rev2 picked attrX/attrY based on motion docs
+  SVG-component example; ARGUS-rev2 caught the discrepancy; design pivoted
+  at rev3 but original §2 canonical block needed re-edit, not just a §6
+  flag.
+
+**Cross-refs:**
+<!-- cite: CAPTAIN_DAEDALUS.md §6.2 — parent canon (self-assessed weak points; this section extends to the fix-location when self-catch names a defect) -->
+<!-- cite: CAPTAIN_DAEDALUS.md §6.9.3'' — live-RT at canonical-block authoring time (same principle: authority lies at the canonical block, not at the narrative reference) -->
+<!-- cite: CAPTAIN_ADA.md §5.2 — stay inside design's scope (the ground-check sibling at build-time) -->
+- `CAPTAIN_DAEDALUS.md` §6.2 (parent canon — self-assessed weak points)
+- `CAPTAIN_DAEDALUS.md` §6.9.3'' (live-RT at canonical-block authoring time — same principle: authority lies at the canonical block, not at the narrative reference)
+- `CAPTAIN_ADA.md` §5.2 (stay inside design's scope — the ground-check sibling at build-time)
+
 ### 6.3 Consume research; don't re-derive it
 
 When STRABO or BARTLEBY has produced a research artifact as input, read it, cite it, and let it do its job. A design that silently re-derives external context bypasses the research gate. If the research is insufficient, surface the gap as `residual_question_for_argus:` and request a re-dispatch — do not paper over it by searching yourself as a substitute for re-scoped research.
@@ -224,6 +280,12 @@ canon file structure, or shipped tool output:
    against the current substrate state during design draft. A probe that emits
    zero matches against the very state it's being authored for is structurally
    broken, not under-specified — fix at design-time, don't ship to ADA.
+   Adjacent prose (parentheticals, "or equivalently" clauses, algorithmic
+   justifications) is covered by §6.9.3'. See §6.9.3'' for the
+   operationalized live-RT step + COMPLETENESS CLAUSE / SIBLING-DEFECT-CLASS
+   EXTENSION (canon-promoted Arc 43).
+   <!-- cite: CAPTAIN_DAEDALUS.md §6.9.3' — round-trip-adjacent-prose discipline (extends clause 3 to prose surrounding the probe) -->
+   <!-- cite: CAPTAIN_DAEDALUS.md §6.9.3'' — live-RT at authoring time + COMPLETENESS CLAUSE / SIBLING-DEFECT-CLASS EXTENSION (operationalized clause 3) -->
 
 4. **Ground-check against shipped tool surface.** Do not assume tool flags or
    output shapes from memory. Verify against the shipped script source OR live
@@ -231,7 +293,11 @@ canon file structure, or shipped tool output:
    that don't exist; mn3 m2 anchor: `bw show <id> | grep '^Status:.*closed'`
    cited a status-line shape bw doesn't emit). The §5.2 `MAJOR_PLINY.md`
    grounding-check preamble names this for ADA-build-time; this clause names
-   it for DAEDALUS-authoring-time.
+   it for DAEDALUS-authoring-time. See §6.11 for the API-docs-examples
+   sibling discipline (ground-check the API verb against the target
+   element's attribute surface, not just the docs example).
+   <!-- cite: CAPTAIN_DAEDALUS.md §6.11 — API-docs-examples-don't-generalize-to-differently-shaped-elements (sibling discipline extending clause 4 to third-party API surfaces) -->
+
 
 5. **Enumeration vs invocation context.** When a probe greps for risky shell
    tokens (credentials, dangerous commands), scope the grep to the relevant
@@ -262,6 +328,267 @@ pre-ratification — probe-spec brittleness you cannot eliminate at authoring
 belongs in this field); `MAJOR_PLINY.md` §5.2 (the grounding-check preamble
 for ADA-build-time; the §5.2 preamble is the build-seat sibling to this
 authoring-seat discipline).
+
+### 6.9.3' Round-trip prose adjacent to probe-specs (extends 6.9 clause 3)
+
+§6.9 clause 3 names live-round-trip as the discipline for the probe body itself.
+The discipline below extends that to prose adjacent to the probe: a parenthetical
+next to the regex, an "or equivalently" clause, an algorithmic justification in
+the paragraph above the bash block. ADA reads adjacent prose as authoritative
+at build time. A parenthetical that contradicts the regex it surrounds is a
+live defect waiting to fire — ADA may build the regex faithfully and the
+parenthetical wrong, or the other way around, but the gauntlet cannot
+downstream-catch a contradiction the design's own author smoothed past.
+
+The discipline (at probe-authoring time):
+
+1. **Identify the adjacent prose surface.** Parentheticals immediately
+   following a regex; "or equivalently" clauses pointing to a different
+   mechanism; algorithmic justifications in the prose paragraph that
+   precedes the bash code-block. These are CONTRACT CLAIMS, not commentary.
+2. **Round-trip the prose through the probe's actual semantics.** Mentally
+   or literally execute the probe against the example the prose names; verify
+   the prose's claim is what the probe actually emits.
+3. **When the prose generalizes ("this also catches X-shaped sibling defects"),
+   audit X explicitly.** A claim of generalization is a sibling-defect-class
+   audit promise; if you cannot live-round-trip X, narrow the claim or surface
+   in `self_assessed_weak_points:` per §6.2.
+
+**Empirical anchor.** Three anchors across Arcs 2-3 of stellation Pass 10:
+Arc 2 r4 (originating) — §2.3 parenthetical "or equivalently the mirror via
+`blocked_by`" contradicted Probe O's directed-graph semantics; ARGUS caught
+by running Probe O literal Node logic against the parenthetical reading.
+Arc 3 r4 — Probe G2 shell-quoting bug: mixed-quote regex unexecutable in
+bash; the surrounding prose described what the regex was *meant* to match,
+but the regex itself was syntactically broken. Arc 3 ADA Phase 4.5 — design
+§1 assumption 10 inlined literal `getByTestId(skeleton-stars)` strings in
+canonical App.test.tsx comments that tripped Probe M-A's negation greps;
+design's own §3 live-RT block tested the stripped version, masking the
+contradiction. ADA caught at build-time.
+
+**Cross-refs:**
+<!-- cite: CAPTAIN_DAEDALUS.md §6.9 — probe-grounding parent canon (clause 3 names live-round-trip; this section extends to the probe's surrounding prose) -->
+<!-- cite: CAPTAIN_DAEDALUS.md §6.9.3'' — live-RT-at-authoring (the operational mechanism that catches both probe-body and adjacent-prose drift) -->
+<!-- cite: CAPTAIN_DAEDALUS.md §6.2 — self-assessed weak points (where ungeneralizable claims surface to ARGUS) -->
+- `CAPTAIN_DAEDALUS.md` §6.9 (probe-grounding parent canon — clause 3 names live-round-trip; this section extends to the probe's surrounding prose)
+- `CAPTAIN_DAEDALUS.md` §6.9.3'' (live-RT-at-authoring; the operational mechanism that catches both probe-body and adjacent-prose drift)
+- `CAPTAIN_DAEDALUS.md` §6.2 (self-assessed weak points — where ungeneralizable claims surface to ARGUS)
+
+### 6.9.3'' Live-round-trip probes at authoring time + COMPLETENESS CLAUSE (extends 6.9 clause 3)
+
+§6.9 clause 3 names "live round-trip at authoring time" as the discipline
+for probes whose body contains a regex / grep / algorithm. The discipline
+below operationalizes that into a step you actually run, and extends it
+with two additional clauses that close empirical gaps Arc 4-5 surfaced.
+
+**The operational discipline (at probe-authoring time):**
+
+1. **Before submitting any probe whose body is a literal command, run the
+   command against the current state the probe targets.** If the probe is
+   a grep against substrate prose, run the grep against the live file. If
+   the probe is an algorithmic check (e.g., "regex X matches input Y"), run
+   a one-line Python REPL against Y. Prose-auditing the shell or algorithm
+   is insufficient; the discipline is to LIVE-RUN.
+2. **A probe that emits zero matches against its target state is structurally
+   broken, not under-specified.** Do not ship it expecting ADA or VERA to
+   figure out the correct anchor. Fix at design-time, or surface as a
+   `self_assessed_weak_point:` per §6.2 with the structural reason.
+
+**COMPLETENESS CLAUSE (the canon-promotion clause).** When you fix one
+probe-defect during design draft, do not stop at the named instance. The
+empirical record is that defect-classes recur at sibling sites within the
+same design draft. The discipline is to audit for the **defect-class**, not
+just the exact-pattern-instance:
+
+- If you fixed a hex-escape (`\x27` mismatching a literal apostrophe) at one
+  probe, audit every other probe in the design for hex-escapes against
+  literal characters — at least 2 sibling instances are typical.
+- If you fixed a POSIX/Windows portability defect (e.g., `bash`-only syntax
+  in a cross-platform probe), audit every other probe for POSIX-only
+  constructs that won't round-trip in the build environment ADA actually
+  uses.
+- If you fixed an under-anchored regex (matching incidental prose vs the
+  intended target), audit every other regex probe for anchor-completeness
+  — `^` / `$` / `\b` / unique surrounding context.
+- If you fixed a grep-anchored probe, audit every Vitest assertion (or
+  equivalent test stub) for sibling under-specification — the defect-class
+  spans tool boundaries.
+
+**SIBLING-DEFECT-CLASS EXTENSION (the extension that distinguishes
+"defect-class" from "exact-instance").** Sibling-class audit means: when a
+defect-class has surfaced, identify the structural property the defect
+rests on (under-anchoring, character-class incompleteness, platform
+assumption, …), then audit every probe in the design that COULD rest on
+that property, not just probes that share the exact symptom.
+
+**Cost-multiplier math (the 60× anchor).** The empirical cost of skipping
+sibling-class audit and shipping the design is ~60× the cost of running the
+audit at design time. Mechanism: when ARGUS catches the sibling defect on
+re-audit, the cost is at minimum a rev-cycle round-trip (~10 minutes of
+orchestrator + ARGUS + DAEDALUS wall-clock) plus the cognitive cost of
+reconstructing the original audit context. When VERA catches it
+downstream, the cost is a build-rev cycle (~30-60 minutes of orchestrator
++ ADA + VERA wall-clock) plus the design-rev to update the probe spec.
+The audit-at-design-time cost is ~60 seconds (a `grep -n` scan of the
+design's own probe blocks + a mental check against the named defect-class).
+~60 seconds vs ~60 minutes = 60× multiplier. The math holds when ARGUS
+catches at design-rev; it grows when VERA catches at build-rev.
+
+**Empirical anchor (the 6-anchor canon-promotion block).** Pass 10
+stellation Arcs 4-5 surfaced 6 anchors across orthogonal defect-classes,
+each showing the same shape: one defect named + fixed; the fix did not
+generalize; a sibling-class instance surfaced at the next rev. The 6:
+
+1. **Arc 4 rev1 r3 — `\x27` hex-escape recurrence at Probe K** after the
+   same hex-escape was fixed at Probes I / F / L. The fix at I / F / L
+   treated the defect as an exact-pattern problem; the defect was
+   actually a class (hex-escape against literal apostrophe in any regex
+   referencing prose).
+2. **Arc 4 rev2 r2 — POSIX/Windows portability recurrence at Probes S + P**
+   after the same portability concern was fixed via a caveat at Probe D.
+   The caveat-at-one-probe didn't audit the rest of the design.
+3. **Arc 4 VERA-final — under-anchored regex recurrence at Probes F / K2 /
+   L2** across 3 different probe sites. VERA caught all 3; each was a
+   class instance.
+4. **Arc 5 ARGUS-rev1 r2 — stub-Vitest assertion under-specification**
+   (cross-tool sibling of the grep-anchored defect-class; same structural
+   property, different tool).
+5. **Arc 5 ARGUS-rev2 — SIBLING-class catalog explicit:** ARGUS-rev2
+   surfaced the canonical wording "DEFECT-CLASS, not just exact-pattern-
+   instance" + named 3 sibling instances at once. This is the wording
+   promoted to canon here.
+6. **Cross-arc — same defect-class keeps surfacing at sibling sites after
+   named-instance fix.** The 5 specific anchors above all share this
+   cross-cutting property; it is the structural reason the COMPLETENESS
+   CLAUSE matters.
+
+**Recursive self-application surveillance.** When this canon ships in
+design.md probes (including the one shipping THIS canon), expect the canon
+to apply to its own probes. An ARGUS catch of a §6.9.3'' violation in a
+design that proposes §6.9.3'' is a POSITIVE empirical anchor for the canon,
+not a defect to hide. The discipline at probe-authoring time is to surface
+suspected violations in `self_assessed_weak_points:` per §6.2 and let
+ARGUS catch what was missed.
+
+**Cross-refs:**
+<!-- cite: CAPTAIN_DAEDALUS.md §6.9 — parent canon (clause 3 names live-round-trip in principle) -->
+<!-- cite: CAPTAIN_DAEDALUS.md §6.9.3' — round-trip-adjacent-prose (sibling extension covering prose around the probe) -->
+<!-- cite: CAPTAIN_DAEDALUS.md §6.2 — self-assessed weak points (where suspected violations surface to ARGUS) -->
+<!-- cite: CAPTAIN_VERA.md §5.11 — verification-side sibling (when authoring discipline fails, §5.11 catches at verify-time) -->
+- `CAPTAIN_DAEDALUS.md` §6.9 (parent canon — clause 3 names live-round-trip in principle)
+- `CAPTAIN_DAEDALUS.md` §6.9.3' (round-trip-adjacent-prose — the sibling extension covering prose around the probe)
+- `CAPTAIN_DAEDALUS.md` §6.2 (self-assessed weak points — where suspected violations surface to ARGUS)
+- `CAPTAIN_VERA.md` §5.11 (verification-side sibling — when authoring discipline fails, §5.11 catches at verify-time)
+
+### 6.10 Qualitative-acceptance-anchor surface (SSoT-with-WHY pattern)
+
+When a design ships a body of decisions that need to read clean at a later
+qualitative-acceptance audit — CATO read, ARGUS cold-read, PRINCIPAL
+review — the design wins by colocating the decision with the *why* in a
+single source of truth (SSoT). The SSoT-with-WHY pattern is the structural
+shape that enables systematic verification: a reader walking the SSoT can
+trace every choice to a named rationale; the §6 anti-pattern audit at
+cold-read leverages the SSoT for systematic verification rather than
+hunting through scattered prose.
+
+**The discipline (at design-time):**
+
+1. **Identify the qualitative-acceptance surface** — the body of choices
+   that will be qualitatively audited at CATO / cold-read time. Motion
+   vocabulary, color palette, error-message tone, fallback-chain ordering,
+   operating-mode triggers — anything where the choices are not
+   individually mechanically checkable but the BODY of choices reads clean
+   or doesn't.
+2. **Build the SSoT module or section.** A single file (or single
+   contiguous section of a file) that names every choice in the body, with
+   a one-line WHY immediately adjacent to each choice. The WHY anchors the
+   choice in the domain vocabulary; the cold-reader can trace why each
+   choice is the choice without consulting external context.
+3. **Reference the SSoT at every consumption site.** Code or prose that
+   uses a choice from the SSoT names the SSoT module + the specific choice.
+   Reading the consumption site tells the reader where to look up the WHY.
+4. **Audit at the §6 anti-pattern surface.** When the body's
+   qualitative-acceptance audit fires (CATO honesty review, ARGUS cold
+   re-read), the audit walks the SSoT systematically — every choice has a
+   WHY adjacent; the audit verifies every WHY is non-circular, domain-
+   grounded, and not a place-holder.
+
+**Worked example 1 — motion vocabulary SSoT (Pass 10 Arc 4 origin).** At
+stellation Arc 4, ADA shipped `motionVocabulary.ts` as a single TypeScript
+module containing every motion choice in the project (durations, easings,
+spring stiffnesses) with a one-line rationale comment per choice grounded
+in the night-sky / star-physics vocabulary the project's qualitative-
+acceptance domain rests on (e.g., "starsAppearDuration: 1.2s — slow enough
+that the constellation 'emerges' rather than 'flashes', per night-sky
+domain vocab"). CATO independently verified the SSoT enabled clean
+qualitative-acceptance audit: the reviewer walked the module top-to-bottom
+and traced every motion in the running app back to a named rationale.
+
+**Worked example 2 — three-surface reduced-motion architecture (Pass 10
+Arc 4 origin).** Same arc shipped reduced-motion mitigation across three
+surfaces: `<MotionConfig reducedMotion="user">` at the app root; CSS
+`@media (prefers-reduced-motion: reduce)` rules in the global stylesheet;
+`useReducedMotion()` hook gating React-side animation. All three are
+referenced from the motion-vocabulary SSoT's reduced-motion section,
+so a reader walking the SSoT sees the three-surface architecture in one
+place; each surface independently exercises under `matchMedia=reduce`
+in tests. The three surfaces are not separate SSoTs; they are a single
+SSoT section with the cross-references.
+
+**Cross-refs:**
+<!-- cite: CAPTAIN_DAEDALUS.md §6.2 — self-assessed weak points (SSoT-with-WHY pattern reduces the surface where weak points hide) -->
+<!-- cite: CAPTAIN_DAEDALUS.md §6.2.1' — canonical-code-block-fix (SSoT IS the canonical-code-block for qualitative-acceptance bodies) -->
+<!-- cite: CAPTAIN_CATO.md — honesty-audit consumer (CATO reads the SSoT for the §6 anti-pattern audit) -->
+- `CAPTAIN_DAEDALUS.md` §6.2 (self-assessed weak points — SSoT-with-WHY pattern reduces the surface where weak points hide)
+- §6.2.1' (canonical-code-block-fix — SSoT IS the canonical-code-block for qualitative-acceptance bodies)
+- `CAPTAIN_CATO.md` (honesty-audit consumer — CATO reads the SSoT for the §6 anti-pattern audit)
+
+### 6.11 API-docs-examples-don't-generalize-to-differently-shaped-elements
+
+When a design rests on a third-party API and the API docs supply an
+example using ONE element type, the docs do not guarantee the API
+generalizes to a DIFFERENT element type. Element-type attribute surfaces
+vary by spec; an API that animates `attrX` / `attrY` on an SVG `<rect>`
+may not animate the same attributes on `<g>` because `<g>` lacks
+native `x` / `y` per the SVG2 spec.
+
+**The discipline (at design-time):**
+
+1. **Identify the element-type the design targets.** Not the element-type
+   the API docs' example uses; the element-type the design actually wires
+   against.
+2. **Ground-check the chosen API against the target element-type's
+   attribute surface.** Cite the element-spec (MDN, WHATWG, SVG2, …) and
+   the API doc together; confirm the API's verbs are valid against the
+   target element's nouns. A generic doc example is not a generalization
+   guarantee.
+3. **When the API verb does NOT apply at the target element, narrow the
+   API choice OR re-shape the design.** Do not ship a probe that asserts
+   behavior the underlying surface cannot supply.
+
+**Empirical anchor.** Two anchors at Pass 10:
+- **Arc 4 rev2 — attrX / attrY pick.** DAEDALUS-rev2 picked attrX / attrY
+  based on motion docs SVG-component generic example; ARGUS-rev2 caught
+  that SVG `<g>` has no native `x` / `y` per MDN + SVG2 spec; the API
+  verb (motion's attr-animate) cannot animate what doesn't exist at the
+  target element type. DAEDALUS-rev3 grounded against three sources
+  (motion docs + MDN g + MDN/SVG2 transform) and pivoted to transform-
+  based animation.
+- **Arc 5 §6.4 — motion layoutId not supported on SVG.** Same defect-
+  class at a different API verb (`layoutId` for FLIP-style transitions);
+  motion's docs example used HTML elements; the API does not support
+  SVG element layout transitions. Design narrowed scope rather than
+  assert behavior the surface can't supply.
+
+**Cross-refs:**
+<!-- cite: CAPTAIN_DAEDALUS.md §6.9 — probe-grounding parent canon (clause 4 names ground-check against shipped tool surface; this section extends the principle to third-party API surfaces) -->
+<!-- cite: CAPTAIN_DAEDALUS.md §6.4 — WebSearch / WebFetch for live constraints (operational mechanism for the ground-check this discipline names) -->
+<!-- cite: CAPTAIN_ADA.md §5.3 — web-search before guessing on third-party APIs (build-time sibling) -->
+<!-- cite: CAPTAIN_ADA.md §5.9 — scope-reduce motion APIs that overlap SVG-attribute-driven props (build-time sibling discipline that this design-time discipline catches before the build) -->
+- `CAPTAIN_DAEDALUS.md` §6.9 (probe-grounding parent canon — clause 4 names "ground-check against shipped tool surface"; this section extends the principle to third-party API surfaces)
+- `CAPTAIN_DAEDALUS.md` §6.4 (WebSearch / WebFetch for live constraints — the operational mechanism for the ground-check this discipline names)
+- `CAPTAIN_ADA.md` §5.3 (web-search before guessing on third-party APIs — the build-time sibling)
+- `CAPTAIN_ADA.md` §5.9 (scope-reduce motion APIs that overlap SVG-attribute-driven props — build-time sibling discipline that this design-time discipline catches *before* the build)
 
 ---
 
