@@ -74,11 +74,15 @@
     {
       "text": "DAEDALUS rev1 activated. Reading ARGUS pass-1 verdict + reviewing rev0 design.md. Operating-mode: autonomous; seat: CAPTAIN_DAEDALUS_the-stoa. Addressing R1-R4 (R1 threshold raise + residue enumeration; R2 same-shape; R3 op-disc §32 insertion locus pick; R4 Probe 2 regex tightening). [from: daedalus-the-stoa]",
       "timestamp": "2026-05-19T20:36:38Z"
+    },
+    {
+      "text": "rev1 plan locked: (α) raise thresholds to ≤60 check-1 FAIL + ≤15 check-2 STRANGE per user-tier weak lean; enumerate 5 residue categories per §6.9.3'' COMPLETENESS CLAUSE (R1+R2); R3 pick (i) insertion locus between op-disc line 2040 (---) and line 2042 (Agent-regime inverses) — preserves contiguous numbered §-sections + trailing non-numbered sections at file tail; R4 tighten Probe 2 regexes (apostrophe negation [^'] for §6.9.3' vs literal '' for §6.9.3''; scope op-disc §5.9 grep to new cite-comment HTML-block lines). Beginning edits. [from: daedalus-the-stoa]",
+      "timestamp": "2026-05-19T20:37:41Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Consolidate 3 META-discipline extensions to CAPTAIN_DAEDALUS.md §6 (§6.9.3' round-trip-adjacent-prose + §6.2.1' canonical-code-block-fix + §6.9.3'' live-RT-probes-at-authoring) — stellation Pass 10 empirical anchors",
   "type": "task",
-  "updated_at": "2026-05-19T20:36:38Z"
+  "updated_at": "2026-05-19T20:37:41Z"
 }
