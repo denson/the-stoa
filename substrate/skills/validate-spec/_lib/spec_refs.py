@@ -70,16 +70,73 @@ def _heading_pattern_for_anchor(anchor: str) -> re.Pattern:
     )
 
 
+# SPEC-self-heading anchor: matches "### §2.1 Title", "## §13.9a Title",
+# captures the anchor portion ("2.1" / "13.9a"). Used by check-1 heading-skip
+# heuristic per Arc 43 §3.1 (A8=η spec-self-headings-set):
+#   - Per-line: a bare-§ on a heading line whose anchor IS the heading's own
+#     anchor is a self-reference, not a cross-ref to op-disc.
+#   - Cross-line: a bare-§ in non-heading prose whose anchor IS some spec
+#     heading anchor resolves to SPECIFICATION.md self-resolve, not op-disc
+#     default. (See §3.1 "Sub-option: include cross-line use of the spec-
+#     headings-set?" — DAEDALUS pick: include.)
+_RE_SPEC_HEADING_ANCHOR = re.compile(r"^#{1,6}\s+§([0-9][0-9A-Za-z.\-]*)")
+
+
+def _build_spec_headings_set(spec_text: str) -> set[str]:
+    """Return the set of anchor strings (e.g., '2.1') that ARE spec section
+    headings in the input spec_text. Used by _extract_references to skip
+    bare-§ matches whose citing-line IS the heading whose anchor is the
+    bare-§ value, AND to resolve bare-§ in non-heading prose to
+    SPECIFICATION.md self-resolve when the anchor matches a spec heading.
+
+    Per Arc 43 §3.1 (A8=η spec-self-headings-set + cross-line spec-self-
+    resolve extension)."""
+    headings: set[str] = set()
+    for line in spec_text.splitlines():
+        match = _RE_SPEC_HEADING_ANCHOR.match(line)
+        if match:
+            headings.add(match.group(1))
+    return headings
+
+
+# Sentinel target_file for bare-§ that resolves to spec self-headings (not
+# op-disc default). Consumed by _resolve_target_path to map to the spec path.
+_SPEC_SELF_FILE = "SPECIFICATION.md"
+
+
 # ---- ref extraction ---------------------------------------------------------
 
-def _extract_references(spec_text: str) -> Iterator[tuple[int, str, str | None, str]]:
+def _extract_references(
+    spec_text: str,
+    spec_headings: set[str] | None = None,
+) -> Iterator[tuple[int, str, str | None, str]]:
     """Yield (line_number, citing_line_text, target_file_or_None, anchor).
 
-    target_file_or_None: None for bare-§ form (defaults to operating-disciplines.md).
+    target_file_or_None semantics:
+      - None: bare-§ form defaults to operating-disciplines.md (legacy path).
+      - "SPECIFICATION.md": bare-§ resolves to spec self-headings (cross-line
+        spec-self-resolve per Arc 43 §3.1).
+      - <other>: Form (a) / (c) explicit target file.
+
+    spec_headings: optional set of anchor strings that ARE spec section
+    headings. When provided, enables:
+      (i) heading-self-skip: bare-§ on a heading line whose anchor IS the
+          line's own heading anchor is skipped (self-reference, not cross-ref).
+      (ii) cross-line spec-self-resolve: bare-§ in non-heading prose whose
+           anchor IS in spec_headings is yielded with target "SPECIFICATION.md"
+           rather than None (op-disc default).
+    When None, falls back to legacy behavior (no skip, no self-resolve).
     """
     seen_per_line: dict[int, set[tuple[str | None, str]]] = {}
 
     for lineno, line in enumerate(spec_text.splitlines(), start=1):
+        # Identify the heading anchor on THIS line (None if line is not a heading).
+        # Used by the heading-self-skip check in the Form (b) loop below.
+        heading_anchor_on_this_line: str | None = None
+        heading_match = _RE_SPEC_HEADING_ANCHOR.match(line)
+        if heading_match:
+            heading_anchor_on_this_line = heading_match.group(1)
+
         # Form (a) first — most specific
         for match in _RE_FORM_A.finditer(line):
             target_file = match.group(1)
@@ -108,6 +165,30 @@ def _extract_references(spec_text: str) -> Iterator[tuple[int, str, str | None, 
             )
             if already_matched_as_a_or_c:
                 continue
+            # Heading-self-skip (per Arc 43 §3.1 A8=η, per-line variant):
+            # bare-§ on a heading line whose anchor IS the heading's own
+            # anchor is a self-reference, not a cross-ref. Skip the yield.
+            # Other bare-§ matches on the same heading line (e.g.,
+            # "### §3.3 ... (Arc 29 §17 + §23)" has §17 + §23 as legitimate
+            # cross-refs) are NOT skipped — only the heading's own anchor is.
+            if (
+                heading_anchor_on_this_line is not None
+                and anchor == heading_anchor_on_this_line
+            ):
+                continue
+            # Cross-line spec-self-resolve (per Arc 43 §3.1 A8=η, cross-line
+            # variant): bare-§ in NON-heading prose whose anchor IS some spec
+            # heading anchor is a spec self-reference, not an op-disc cross-
+            # ref. Yield with target "SPECIFICATION.md" rather than None.
+            # Only applies when spec_headings was supplied AND the line is
+            # NOT itself a heading (per-line case already handled above).
+            if (
+                spec_headings is not None
+                and heading_anchor_on_this_line is None
+                and anchor in spec_headings
+            ):
+                yield (lineno, line.strip(), _SPEC_SELF_FILE, anchor)
+                continue
             # Bare-§: defaults to operating-disciplines.md
             yield (lineno, line.strip(), None, anchor)
 
@@ -117,12 +198,26 @@ def _extract_references(spec_text: str) -> Iterator[tuple[int, str, str | None, 
 _BARE_DEFAULT_FILE = "substrate/operating-disciplines.md"
 
 
-def _resolve_target_path(repo_root: pathlib.Path, target_file: str | None) -> pathlib.Path | None:
-    """Map a cited target_file to an absolute path under repo_root, or None if unresolved."""
+def _resolve_target_path(
+    repo_root: pathlib.Path,
+    target_file: str | None,
+    spec_path: pathlib.Path | None = None,
+) -> pathlib.Path | None:
+    """Map a cited target_file to an absolute path under repo_root, or None if unresolved.
+
+    spec_path: when target_file is the spec-self sentinel (per Arc 43 §3.1
+    cross-line spec-self-resolve), resolve to the spec file directly rather
+    than searching the repo. spec_path is the absolute path the caller
+    already resolved for the spec being walked.
+    """
     if target_file is None:
         # Bare-§ form — defaults to operating-disciplines.md
         candidate = repo_root / _BARE_DEFAULT_FILE
         return candidate if candidate.is_file() else None
+
+    # Spec-self sentinel: resolve to the spec path the caller is walking.
+    if target_file == _SPEC_SELF_FILE and spec_path is not None:
+        return spec_path if spec_path.is_file() else None
 
     # Try direct under repo root, then under substrate/, then under agents/
     for prefix in ["", "substrate/", "agents/", "agents/design/"]:
@@ -155,11 +250,17 @@ def _emit_records(spec_path: pathlib.Path, repo_root: pathlib.Path) -> int:
         print(json.dumps({"error": f"could not read spec: {exc}"}), file=sys.stderr)
         return -1
 
+    # Build the spec-self-headings set once for the heading-self-skip +
+    # cross-line spec-self-resolve heuristics (Arc 43 §3.1 A8=η).
+    spec_headings = _build_spec_headings_set(spec_text)
+
     fail_count = 0
     pass_count = 0
     strange_count = 0
-    for lineno, line_text, target_file, anchor in _extract_references(spec_text):
-        target_path = _resolve_target_path(repo_root, target_file)
+    for lineno, line_text, target_file, anchor in _extract_references(
+        spec_text, spec_headings=spec_headings
+    ):
+        target_path = _resolve_target_path(repo_root, target_file, spec_path=spec_path)
         if target_path is None:
             verdict = "FAIL"
             resolved_line = None

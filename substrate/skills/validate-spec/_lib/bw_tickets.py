@@ -42,13 +42,44 @@ _RE_TICKET_ID = re.compile(r"\bstoa--[a-z0-9]+\b")
 _GLYPH_OPEN = "○"  # U+25CB
 _GLYPH_CLOSED = "✓"  # U+2713
 
-# Claim words near a ticket citation in SPECIFICATION.md prose
+# Claim words near a ticket citation in SPECIFICATION.md prose.
+# Extended per Arc 43 §3.2 A9=μ HYBRID Part A — empirically-observed claim
+# shapes from Pass 9 validate-spec first-run STRANGE cluster.
 _CLAIM_OPEN_PATTERNS = re.compile(
-    r"\b(open|in[- ]flight|deferred|in[- ]progress|active|tracking|pending)\b",
+    r"\b(open|in[- ]flight|deferred|in[- ]progress|active|tracking|pending"
+    r"|filed|surfaced|gating|gated|accretion|future[- ]arc|not yet arc[- ]scheduled)\b",
     re.IGNORECASE,
 )
 _CLAIM_CLOSED_PATTERNS = re.compile(
-    r"\b(closed|done|shipped|dropped|completed|finished|landed|merged)\b",
+    r"\b(closed|done|shipped|dropped|completed|finished|landed|merged"
+    r"|resolved|absorbed[- ]by|already[- ]resolved|already-resolved)\b",
+    re.IGNORECASE,
+)
+
+
+# Section-header context regexes (per Arc 43 §3.2 A9=μ HYBRID Part A —
+# section-header-context classifier; used by _build_section_context_map to
+# track current-context state through the spec).
+#   DONE-context (closed): §13.X heading containing "DONE" (case-insensitive).
+#   NOT-SCHEDULED-context (open): §13.X heading containing "not yet arc-
+#       scheduled" or "deferred".
+# Other headings: reset to neutral.
+_RE_SECTION_DONE = re.compile(r"^#+\s+§?[0-9]+\.[0-9]+[a-z]?\s+.*\bDONE\b", re.IGNORECASE)
+_RE_SECTION_NOT_SCHEDULED = re.compile(
+    r"^#+\s+§?[0-9]+\.[0-9]+[a-z]?\s+.*\b(not yet arc[- ]scheduled|deferred)\b",
+    re.IGNORECASE,
+)
+_RE_ANY_HEADING = re.compile(r"^#+\s+")
+
+
+# Structured claim shape (per Arc 43 §3.2 A9=μ HYBRID Part B — preferred
+# when present; bypasses prose-regex classification). Canonical form:
+#   **stoa--XXX (P3, status:closed)** — description
+#   **stoa--XXX (P2, status:open)** — description
+# The parens may contain other fields (priority, owner, etc.); only the
+# status:<open|closed> token is load-bearing.
+_RE_STRUCTURED_CLAIM = re.compile(
+    r"\*\*(stoa--[a-z0-9]+)\s*\([^)]*?\bstatus\s*:\s*(open|closed)\b[^)]*?\)\s*\*\*",
     re.IGNORECASE,
 )
 
@@ -148,9 +179,82 @@ def _classify_claim(line_text: str) -> str:
     return "ambiguous"
 
 
+def _build_section_context_map(spec_text: str) -> dict[int, str]:
+    """Return a mapping {line_number: section_context}, where section_context is:
+        - 'closed-context': under a §X.Y heading matching _RE_SECTION_DONE (DONE)
+        - 'open-context':   under a §X.Y heading matching _RE_SECTION_NOT_SCHEDULED
+                            (e.g., "not yet arc-scheduled", "deferred")
+        - 'neutral':        under any other heading, or before the first heading
+
+    Per Arc 43 §3.2 A9=μ HYBRID Part A — section-header-context classifier;
+    used by _classify_claim_with_context as a fallback signal when the line
+    itself has no explicit claim-keyword.
+
+    State machine: walk lines; on a matching heading, update current_context;
+    on any other heading, reset to neutral; otherwise inherit current_context.
+    """
+    line_to_context: dict[int, str] = {}
+    current_context: str = "neutral"
+    for lineno, line in enumerate(spec_text.splitlines(), start=1):
+        if _RE_SECTION_DONE.match(line):
+            current_context = "closed-context"
+        elif _RE_SECTION_NOT_SCHEDULED.match(line):
+            current_context = "open-context"
+        elif _RE_ANY_HEADING.match(line):
+            # Any other heading: reset to neutral context
+            current_context = "neutral"
+        line_to_context[lineno] = current_context
+    return line_to_context
+
+
+def _classify_claim_with_context(line_text: str, section_context: str) -> str:
+    """Same as _classify_claim, but with a section-context fallback when the
+    line itself has no explicit claim-keyword.
+
+    Per Arc 43 §3.2 A9=μ HYBRID Part A — decision matrix:
+      - explicit prose-keyword in line: use prose-keyword (closed > open > ambig)
+      - section_context == 'closed-context' and no explicit open-keyword: closed
+      - section_context == 'open-context' and no explicit closed-keyword: open
+      - else: ambiguous (STRANGE)
+    """
+    has_open = bool(_CLAIM_OPEN_PATTERNS.search(line_text))
+    has_closed = bool(_CLAIM_CLOSED_PATTERNS.search(line_text))
+    if has_closed and not has_open:
+        return "closed"
+    if has_open and not has_closed:
+        return "open"
+    # Both or neither — fall back to section context
+    if section_context == "closed-context" and not has_open:
+        return "closed"
+    if section_context == "open-context" and not has_closed:
+        return "open"
+    return "ambiguous"
+
+
+def _extract_structured_claim(line_text: str, ticket_id: str) -> str | None:
+    """If the line contains a structured claim of the shape
+    `**stoa--XXX (P3, status:closed)** — ...` for the given ticket_id,
+    return 'open' or 'closed'. Otherwise None (caller falls back to
+    prose-regex / section-context classification).
+
+    Per Arc 43 §3.2 A9=μ HYBRID Part B — preferred when present; the
+    structured shape is a migration path documented in validate-spec
+    SKILL.md. Existing spec text stays as-is; new candidate enumerations
+    in future spec edits MAY adopt the new shape.
+    """
+    for match in _RE_STRUCTURED_CLAIM.finditer(line_text):
+        if match.group(1).lower() == ticket_id.lower():
+            return match.group(2).lower()
+    return None
+
+
 def _run_check_2(spec_path: pathlib.Path) -> None:
     spec_text = spec_path.read_text(encoding="utf-8")
     cited = _extract_cited_tickets(spec_text)
+
+    # Build section-context map once for the hybrid classifier
+    # (per Arc 43 §3.2 A9=μ HYBRID Part A).
+    section_context_map = _build_section_context_map(spec_text)
 
     pass_count = 0
     fail_count = 0
@@ -176,7 +280,15 @@ def _run_check_2(spec_path: pathlib.Path) -> None:
             actual_status = "no-glyph"
         else:
             actual_status = actual_glyph
-            claim = _classify_claim(line_text)
+            # Hybrid claim resolution (per Arc 43 §3.2 A9=μ HYBRID):
+            # 1. Prefer structured `(P3, status:closed)` shape (Part B).
+            # 2. Fall back to prose-keyword + section-context (Part A).
+            structured = _extract_structured_claim(line_text, ticket_id)
+            if structured is not None:
+                claim = structured
+            else:
+                section_ctx = section_context_map.get(lineno, "neutral")
+                claim = _classify_claim_with_context(line_text, section_ctx)
             if claim == "ambiguous":
                 verdict = "STRANGE"
                 strange_count += 1
