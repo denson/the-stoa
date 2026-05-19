@@ -122,11 +122,15 @@
     {
       "text": "Ground-check pass: op-disc line 2040/2042 locus verified; CAPTAIN_DAEDALUS heading shape (bare-number) confirmed; SPECIFICATION.md headings use sectsign-prefix; parser file shapes confirmed. Beginning C1 edits — op-disc section 32 first (insertion at line 2040).",
       "timestamp": "2026-05-19T20:54:31Z"
+    },
+    {
+      "text": "C1 committed at bceb731 — 4 files changed (CAPTAIN_DAEDALUS + CAPTAIN_ADA + CAPTAIN_VERA + op-disc), 416 insertions. All 5 new DAEDALUS sections present (6.2.1', 6.9.3', 6.9.3'', 6.10, 6.11) + ADA 5.9 + op-disc 32. Cite-comments resolve at all read-sites. Beginning C2 — spec_refs.py heading-self-skip + cross-line spec-self-resolve.",
+      "timestamp": "2026-05-19T20:59:01Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Consolidate 3 META-discipline extensions to CAPTAIN_DAEDALUS.md §6 (§6.9.3' round-trip-adjacent-prose + §6.2.1' canonical-code-block-fix + §6.9.3'' live-RT-probes-at-authoring) — stellation Pass 10 empirical anchors",
   "type": "task",
-  "updated_at": "2026-05-19T20:54:31Z"
+  "updated_at": "2026-05-19T20:59:01Z"
 }
