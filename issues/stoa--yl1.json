@@ -26,11 +26,15 @@
     {
       "text": "DAEDALUS activated on stoa--yl1 (Arc 43). Reading directive + source tickets + role files + spec headings.",
       "timestamp": "2026-05-19T20:07:32Z"
+    },
+    {
+      "text": "brief absorbed; restatement-gate drafted (§6.1 pre-work). All source material consumed: yl1 ticket (10-candidate catalog), 4zj ticket (parser refinement scope), arc-43 directive, CAPTAIN_DAEDALUS.md §6 family, CAPTAIN_ADA.md §5, op-disc TOC through §31 (Dev2 lands at new §32 if A4=ε op-disc pick), spec_refs.py + bw_tickets.py current implementations, mech-check-results.md baseline (refs=274 pass=130 fail=144 strange=0; tickets=65 pass=23 fail=6 strange=36). Drafting §1-§3 now.",
+      "timestamp": "2026-05-19T20:08:51Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Consolidate 3 META-discipline extensions to CAPTAIN_DAEDALUS.md §6 (§6.9.3' round-trip-adjacent-prose + §6.2.1' canonical-code-block-fix + §6.9.3'' live-RT-probes-at-authoring) — stellation Pass 10 empirical anchors",
   "type": "task",
-  "updated_at": "2026-05-19T20:07:32Z"
+  "updated_at": "2026-05-19T20:08:51Z"
 }
