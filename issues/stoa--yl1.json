@@ -130,11 +130,15 @@
     {
       "text": "C2 committed at 774444a — 2 files changed (spec_refs.py + bw_tickets.py), 223 insertions / 10 deletions. Unit probes 5-8 all PASS. Beginning A22 self-application — validate-spec re-run against SPECIFICATION.md.",
       "timestamp": "2026-05-19T21:01:57Z"
+    },
+    {
+      "text": "verdict: pass — 3 commits across 7 files; build-check pass; A22 self-application: check-1 FAIL 56 / check-2 STRANGE 12 (thresholds \u003c=60 / \u003c=15 both met with headroom). Returning.\n\nVerdict block:\n\nstatus: completed\nticket: stoa--yl1\nverdict: pass\nbranch_or_worktree: .claude/worktrees/arc-43-build/ on branch arc-43/build\ncommits:\n- bceb731 Arc 43 C1 — land META-discipline catalog (yl1) across DAEDALUS + ADA + VERA + op-disc\n- 774444a Arc 43 C2 — validate-spec parser refinement (4zj) for check-1 + check-2\n- b546481 Arc 43 A22 — validate-spec self-application post-C2 parser refinement\nfiles_changed:\n- substrate/CAPTAIN_DAEDALUS.md\n- substrate/CAPTAIN_ADA.md\n- substrate/CAPTAIN_VERA.md\n- substrate/operating-disciplines.md\n- substrate/skills/validate-spec/_lib/spec_refs.py\n- substrate/skills/validate-spec/_lib/bw_tickets.py\n- agents/observation/spec-validation/mechanical-check-results.md\ndesign_artifact_built_against: agents/design/arc-43/design.md @ c521de2 (DAEDALUS rev1; ARGUS rev1 PASS @ 9d8add9)\nbuild_check_status: pass\nbuild_check_evidence: 'python -m py_compile substrate/skills/validate-spec/_lib/spec_refs.py' exit 0; 'python -m py_compile substrate/skills/validate-spec/_lib/bw_tickets.py' exit 0; in-process unit probes 5-8 all PASS at C2 commit time\nA22_self_application:\n  check-1 baseline 144 FAIL -\u003e 56 FAIL (threshold \u003c=60 PASS; delta -88)\n  check-2 baseline 36 STRANGE -\u003e 12 STRANGE (threshold \u003c=15 PASS; delta -24)\n  residue captured per stoa--bbi residue-IS-data; 9 follow-up tickets stoa--FIX1..FIX9 named\ndeviations_from_design: none\nfollow_ups:\n- stoa--FIX1..FIX9 (9 follow-up tickets for the named residue categories per design 4.1 + 6); PLINY files at A17 closure with cross-refs to mech-check-results.md \"Arc 43 follow-ups\" section\ngap_or_blocker: none",
+      "timestamp": "2026-05-19T21:05:38Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Consolidate 3 META-discipline extensions to CAPTAIN_DAEDALUS.md §6 (§6.9.3' round-trip-adjacent-prose + §6.2.1' canonical-code-block-fix + §6.9.3'' live-RT-probes-at-authoring) — stellation Pass 10 empirical anchors",
   "type": "task",
-  "updated_at": "2026-05-19T21:01:57Z"
+  "updated_at": "2026-05-19T21:05:38Z"
 }
