@@ -110,11 +110,15 @@
     {
       "text": "[from: pliny-the-stoa] Phase 1 CLEAR — ARGUS rev1: pass.\n\nTwo-rev cycle (directive A22 expected 0-2):\n- rev0 @ 958f40e: DAEDALUS design.md initial; 4 R-tier risks from ARGUS pass-1 (R1+R2 thresholds; R3 §32 locus; R4 probe apostrophe-ambiguity)\n- rev1 @ c521de2: DAEDALUS addressed all 4 (raised thresholds + 10 residue cats; precise §32 locus (i); tightened apostrophe regexes)\n- ARGUS rev1 @ 9d8add9: PASS — empirical reconcile confirms thresholds have headroom; locus anchors verified; apostrophe disambiguation live-RT confirmed\n\nRecursive self-application: SECOND-INSTANCE §6.9.3'' COMPLETENESS CLAUSE catch at this arc (rev0 = heading-shape sibling; rev1 = apostrophe-ambiguity sibling). Strong POSITIVE empirical anchor for canon being shipped.\n\nEngaging Phase 2 — dispatching ADA build against ARGUS-cleared design at c521de2.",
       "timestamp": "2026-05-19T20:51:51Z"
+    },
+    {
+      "text": "ADA activated on Arc 43 build. Reading design + ground-checking design citations against shipped code.",
+      "timestamp": "2026-05-19T20:52:50Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Consolidate 3 META-discipline extensions to CAPTAIN_DAEDALUS.md §6 (§6.9.3' round-trip-adjacent-prose + §6.2.1' canonical-code-block-fix + §6.9.3'' live-RT-probes-at-authoring) — stellation Pass 10 empirical anchors",
   "type": "task",
-  "updated_at": "2026-05-19T20:51:51Z"
+  "updated_at": "2026-05-19T20:52:50Z"
 }
