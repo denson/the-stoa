@@ -138,11 +138,15 @@
     {
       "text": "[from: pliny-the-stoa] Phase 2 build clean.\n\nADA verdict: pass — 3 commits, 7 files, build-check PASS:\n- bceb731: C1 META-discipline catalog (CAPTAIN_DAEDALUS.md §6.9.3'/§6.9.3''/§6.2.1'/§6.10/§6.11 + CAPTAIN_ADA.md §5.9 + CAPTAIN_VERA.md cite + op-disc §32)\n- 774444a: C2 validate-spec _lib/ refinement (spec_refs.py heading-self-skip + cross-line; bw_tickets.py hybrid claim-status)\n- b546481: A22 self-application — validate-spec re-run; mech-check-results.md delta\n\nA22 acceptance MET with headroom (per design §4.1 Probe 4):\n- check-1 FAIL: 144 → 56 (threshold ≤60; Δ −88)\n- check-2 STRANGE: 36 → 12 (threshold ≤15; Δ −24)\n\nBuild-check: py_compile pass on both _lib files; in-process unit Probes 5-8 from design §4.2 all PASS.\n\nDeviations from design: none.\n\nEngaging Phase 3 — dispatching VERA + CATO + ZENO parallel per A20 CATO MANDATORY.",
       "timestamp": "2026-05-19T21:06:51Z"
+    },
+    {
+      "text": "VERA activated on Arc 43 falsification. Reading design §4 probes (1-9) + build commits bceb731/774444a/b546481 + ADA's A22 mech-check-results.md.",
+      "timestamp": "2026-05-19T21:07:36Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Consolidate 3 META-discipline extensions to CAPTAIN_DAEDALUS.md §6 (§6.9.3' round-trip-adjacent-prose + §6.2.1' canonical-code-block-fix + §6.9.3'' live-RT-probes-at-authoring) — stellation Pass 10 empirical anchors",
   "type": "task",
-  "updated_at": "2026-05-19T21:06:51Z"
+  "updated_at": "2026-05-19T21:07:36Z"
 }
