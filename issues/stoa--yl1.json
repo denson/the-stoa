@@ -200,11 +200,15 @@
     {
       "text": "[for: pliny-the-stoa] [for: polybius-the-stoa] [from: user-tier-polybius] **Arc 43 clean-PASS verdict — engagement closed.**\n\n## QA spot-check results (Phase 4 per HUMAN_paste-polybius-arc-43-instruction.md)\n\nAll checks PASS:\n\n- **§28 trailers preserved on squash cd9b11a**: 6 CAPTAIN seats trailered (DAEDALUS+ARGUS+ADA+CATO+VERA+ZENO) + Claude Opus 4.7 → Arc 40 §5.10 canon working as designed (no --body override; gh default preserved trailers through squash-merge)\n- **A18 IMMUTABLE**: Arc 42 §6.9 base preserved at line 252 (\"Probe-grounding discipline for design.md probes (extends §5.11 to the authoring seat)\"); new §6.9.3' + §6.9.3'' siblings EXTEND, not restructure\n- **§6.9.3'' COMPLETENESS CLAUSE canonical wording survived**: line 377 in CAPTAIN_DAEDALUS.md (\"Live-round-trip probes at authoring time + COMPLETENESS CLAUSE (extends 6.9 clause 3)\")\n- **60× cost-multiplier math survived**: line 424 (\"Cost-multiplier math (the 60× anchor)\")\n- **§5.11 paste archival**: both HUMAN_paste-pliny-arc-43-instruction.md + HUMAN_paste-polybius-arc-43-instruction.md moved via git mv to substrate/arcs/arc-43/pastes/\n- **A22 self-application acceptance**: check-1 FAIL 144→56 (61% reduction; ≤60 ✓ headroom 4); check-2 STRANGE 36→12 (67% reduction; ≤15 ✓ headroom 3); artifact at agents/observation/spec-validation/mechanical-check-results.md SHA 774444a\n- **HEAD ordering on origin/main**: 7a6e760 (handoff doc) → 90514f0 (paste archival) → cd9b11a (squash-merge) — clean three-commit landing\n\n## Engagement summary\n\n- Wall-clock ~90 min (within original 45-90 envelope front edge)\n- 2 ARGUS rev cycles (within directive A22 expected 0-2)\n- 3 distinct §6.9.3'' COMPLETENESS CLAUSE / §6.2.1' canonical-code-block-fix recursive-self-application catches at design-authoring (rev0 heading-shape sibling; rev1 R4 apostrophe-ambiguity sibling; §32 cross-tier cite at canonical-block) → strongest possible empirical anchor for canon being shipped per Pass 10 precedent\n- Fix-now applied: CATO N1 cosmetic catch (design.md §5 \"Five\" vs 7 weak points) resolved in-arc at d3d7462\n- Follow-up filed: stoa--vr1 (P3, 10 residue categories bundled — single-ticket per scope cohesion)\n\n## Substrate-team transition\n\n**Final substrate-team arc shipped clean.** Substrate transitions to product-mode-ready posture. PRINCIPAL pivots to beadworks + ghost heavy-lift project setup next.\n\nPRINCIPAL closes pliny-the-stoa + polybius-the-stoa Claude Code windows. User-tier polling cron standing down.\n\n[from: user-tier-polybius] Engagement complete. ",
       "timestamp": "2026-05-19T21:25:02Z"
+    },
+    {
+      "text": "-m",
+      "timestamp": "2026-05-19T21:25:09Z"
     }
   ],
   "priority": 3,
   "status": "closed",
   "title": "Consolidate 3 META-discipline extensions to CAPTAIN_DAEDALUS.md §6 (§6.9.3' round-trip-adjacent-prose + §6.2.1' canonical-code-block-fix + §6.9.3'' live-RT-probes-at-authoring) — stellation Pass 10 empirical anchors",
   "type": "task",
-  "updated_at": "2026-05-19T21:25:02Z"
+  "updated_at": "2026-05-19T21:25:09Z"
 }
