@@ -1,15 +1,55 @@
 # validate-spec — mechanical-check results
 
-**Run timestamp (UTC):** 2026-05-18T09:06:19Z
-**Substrate SHA at run-time:** 8a49282
-**Spec path:** C:\Users\denso\claude_projects\the-stoa\.claude\worktrees\arc-42-build\SPECIFICATION.md
-**Skill SHA at run-time:** e5e4a18
+**Latest run timestamp (UTC):** 2026-05-19T21:02:21Z (Arc 43 self-application post-C2 parser refinement)
+**Substrate SHA at run-time:** 774444a (arc-43/build worktree)
+**Spec path:** `C:\Users\denso\claude_projects\the-stoa\.claude\worktrees\arc-43-build\SPECIFICATION.md`
+**Skill SHA at run-time:** 774444a (skills/validate-spec/_lib/spec_refs.py + bw_tickets.py refined per Arc 43 §3.1 + §3.2)
 
-## Overall verdict
+**Historical Arc 42 baseline run (preserved as comparison anchor):**
+- Run timestamp: 2026-05-18T09:06:19Z
+- Substrate SHA: 8a49282
+- Skill SHA: e5e4a18
+- Spec path: `arc-42-build/SPECIFICATION.md`
 
-4-of-7-PASS-with-failure (3 fail, 1 strange)
+## Arc 43 self-application delta vs Arc 42 baseline (per A22)
 
-## Per-check results
+| Check | Arc 42 baseline | Arc 43 post-fix | Threshold (per design §4.1) | Status |
+|---|---|---|---|---|
+| check-1 refs total | 274 | 212 | (heading-self-skip eliminates self-refs from yield) | informational |
+| check-1 PASS | 130 | 156 | — | up 26 |
+| check-1 FAIL | 144 | **56** | ≤60 | **PASS** (Δ −88) |
+| check-1 STRANGE | 0 | 0 | — | unchanged |
+| check-2 tickets total | 65 | 72 | (spec drift between baselines; normal) | informational |
+| check-2 PASS | 23 | 47 | — | up 24 |
+| check-2 FAIL | 6 | 13 | — | (residue + a few legitimate status-mismatches) |
+| check-2 STRANGE | 36 | **12** | ≤15 | **PASS** (Δ −24) |
+
+**Acceptance:** both Probe 4 thresholds met. check-1 FAIL dropped 144 → 56 (threshold ≤60 ✓); check-2 STRANGE dropped 36 → 12 (threshold ≤15 ✓). Residue captured below per stoa--bbi refined-principle thesis (residue IS the data).
+
+**Mechanism summary:**
+
+- **check-1 fix (`spec_refs.py` per design §3.1 A8=η).** `_RE_SPEC_HEADING_ANCHOR` pre-scans SPECIFICATION.md headings (`### §N.X Title`) into a set; `_extract_references` then (i) per-line: skips bare-§ on a heading line whose anchor IS that heading's own anchor (self-ref, not cross-ref); (ii) cross-line: yields bare-§ in non-heading prose with target `SPECIFICATION.md` when the anchor IS a spec heading (resolves via spec self-resolution rather than op-disc default).
+- **check-2 fix (`bw_tickets.py` per design §3.2 A9=μ HYBRID).** Part A extended `_CLAIM_OPEN_PATTERNS` / `_CLAIM_CLOSED_PATTERNS` (added `filed`, `surfaced`, `gating`, `gated`, `accretion`, `future-arc`, `not yet arc-scheduled` / `resolved`, `absorbed-by`, `already-resolved`); added `_build_section_context_map` walking `### §13.X ... DONE` → closed-context, `### §13.X ... not yet arc-scheduled|deferred` → open-context; `_classify_claim_with_context` falls back to section context when line has no explicit keyword. Part B added `_RE_STRUCTURED_CLAIM` matching `**stoa--XXX (P3, status:closed)**` shape; `_extract_structured_claim` returns the explicit status when present; `_run_check_2` prefers structured over prose-fallback.
+
+**Residue post-Arc-43 (per design §4.1 — 10 named categories carrying forward as follow-up tickets stoa--FIX1..FIX9):**
+
+For check-1 (the 56 remaining FAILs — within ≤60 threshold):
+1. Form (a) over-capture of literal `§N` placeholder (~2 FAILs; spec line 7 "Reading note" cites `MAJOR_POLYBIUS.md §N` / `MAJOR_PLINY.md §N` as literal placeholder in prose) → **stoa--FIX1**
+2. Form (b) `§13.x` placeholder/glob over-capture (~12 FAILs; lowercase `x` as wildcard) → **stoa--FIX2**
+3. Form (b) range-syntax over-capture (~4 FAILs; `§1-§6` / `§13.5-§13.10` capture trailing-hyphen anchors) → **stoa--FIX3**
+4. Form (b) trailing-dot anchor greed (~16 FAILs; sentences ending `…per §7.1.` capture `7.1.`) → **stoa--FIX4**
+5. Form (c) inference-gap on `**PLINY** §5.10` shorthand (~10 FAILs; bold-asterisk mnemonic shorthand doesn't match Form (c) `CAPTAIN_*|MAJOR_*` prefix) → **stoa--FIX5**
+6. Hyphenated prose tokens (~2 FAILs; `§12-internal-staleness` captured as anchor) → **stoa--FIX6**
+7. Misc legitimate cross-refs not resolving via current heuristics (~10 FAILs; catch-all) → **stoa--FIX7**
+
+For check-2 (the 12 remaining STRANGEs — within ≤15 threshold):
+8. Line-level vs ticket-level classification ambiguity on multi-ticket lines (~5 STRANGEs; line-level fallback applies to all tickets on the line) → **stoa--FIX8**
+9. `_RE_SECTION_NOT_SCHEDULED` matches `\bdeferred\b` against `Deferred-with-gating` (~2 STRANGEs; section-context wins but mixed line-state) → **stoa--FIX9**
+10. Genuinely ambiguous lines (~5 STRANGEs; heterogeneous lines with no explicit keyword AND in a neutral-context section) → **no fix planned per stoa--bbi residue-IS-data**
+
+## Per-check results (Arc 42 baseline — preserved as historical anchor)
+
+The following per-check sections are the Arc 42 baseline run results; Arc 43 deltas are captured in the "Arc 43 self-application delta" section above. The Arc 42 raw evidence + Strangeness-for-inspection cluster + PRINCIPAL-gate findings below are preserved as the comparison anchor.
 
 ### check-1 — every §-ref in SPECIFICATION.md resolves
 
@@ -468,4 +508,65 @@ Raw output:
 {"sha": "949ee07", "subject": "Arc 31: PRINCIPAL-gate discipline encoded as substrate canon (closes the AFK-bypass gap) (#11)", "trailer_present": false, "post_canon": false, "verdict": "PASS-PRE-CANON", "reason": "PRE-Arc-40 commit (not reachable from dbb5b81); missing trailer is silent-failure-class closed by Arc 40 ship \u2014
 ... (truncated; 16704 more chars)
 ```
+
+---
+
+## Arc 43 self-application — post-C2-fix run evidence (2026-05-19T21:02:21Z, substrate SHA 774444a)
+
+### check-1 — refined run summary
+
+Command executed (run from worktree `.claude/worktrees/arc-43-build/`):
+```
+PYTHONUTF8=1 python substrate/skills/validate-spec/_lib/spec_refs.py --spec SPECIFICATION.md
+```
+
+Summary line (final JSONL record):
+```json
+{"summary": true, "total": 212, "pass": 156, "fail": 56, "strange": 0}
+```
+
+### check-2 — refined run summary
+
+Command executed:
+```
+PYTHONUTF8=1 python substrate/skills/validate-spec/_lib/bw_tickets.py --mode check-2 --spec SPECIFICATION.md
+```
+
+Summary line:
+```json
+{"summary": true, "mode": "check-2", "total": 72, "pass": 47, "fail": 13, "strange": 12}
+```
+
+### Arc 43 STRANGE residue (the 12 remaining post-A9=μ HYBRID fix)
+
+For inspection-agent triage (per A8 ε / §27.2 step 2). Each entry is a STRANGE classification the Arc 43 parser refinement does NOT resolve; carry-forward per design §4.1 residue categories 8-10 + stoa--bbi residue-IS-data thesis:
+
+```json
+{"ticket": "stoa--ojz", "citing_line_in_spec": 179, "verdict": "STRANGE", "residue_class": "10 (genuinely ambiguous; spec'd-but-forward-design-language prose)", "note": "CAPTAIN_TIRO is the first such seat (spec'd 2026-05-17; ships in Arc 38 per stoa--ojz; descriptive paragraphs below use present-tense as forward design language) — closed in reality but the line text reads forward-tense"}
+{"ticket": "stoa--y14", "citing_line_in_spec": 183, "verdict": "STRANGE", "residue_class": "10 (genuinely ambiguous; example-ticket-citation in canon-prose)", "note": "TIRO advises on write syntax — example uses stoa--y14 as an EXAMPLE ticket id in canon-illustration prose, not as a status claim"}
+{"ticket": "stoa--6n9", "citing_line_in_spec": 537, "verdict": "STRANGE", "residue_class": "8 (line-level vs ticket-level on Follow-up filed line)", "note": "'Follow-up filed: stoa--6n9 (P3) — manifest format-version header (CATO c3 follow-up; shipped Arc 40)' — 'filed' matched open + 'shipped' matched closed; both present, line-level ambiguous"}
+{"ticket": "stoa--ezp", "citing_line_in_spec": 546, "verdict": "STRANGE", "residue_class": "8 (multi-ticket line; mixed-claim within one line)", "note": "Line cites stoa--ezp + stoa--t9u with mixed prose ('absorbed-by' + 'closed' + 'subsumed' on one line, multi-ticket)"}
+{"ticket": "stoa--t9u", "citing_line_in_spec": 546, "verdict": "STRANGE", "residue_class": "8 (same multi-ticket line as stoa--ezp)", "note": "Same line as ezp; per-ticket disambiguation not implemented"}
+{"ticket": "stoa--dhc", "citing_line_in_spec": 558, "verdict": "STRANGE", "residue_class": "10 (genuinely ambiguous; PRINCIPAL-gate-DROPPED prose contains both open + closed signals)", "note": "'C3 stoa--dhc DROPPED via §25 PRINCIPAL-gate' — both 'gating' (open-matched) and 'DROPPED' (effectively closed but not in pattern list) confuse the classifier"}
+{"ticket": "stoa--bbi", "citing_line_in_spec": 585, "verdict": "STRANGE", "residue_class": "9 (Deferred-with-gating section §13.9 sub-case; section is OPEN but contains 'gating' + accretion signals)", "note": "Under §13.9 'Deferred-with-gating' section; section is open-context but line has 'P4 ACCRETION' + 'Gating:' which overlap classifier signals"}
+{"ticket": "stoa--bbi", "citing_line_in_spec": 606, "verdict": "STRANGE", "residue_class": "9 (cross-section descriptive prose; non-13.X heading context)", "note": "Line in §12.5-context describes residue principle; bbi cited as concept-anchor not status-claim"}
+{"ticket": "stoa--6k1", "citing_line_in_spec": 608, "verdict": "STRANGE", "residue_class": "10 (genuinely ambiguous; closed status but line text says 'handled inline')", "note": "Status is closed but line prose 'handled inline' is non-keyword; 'closed' implicit, not explicit"}
+{"ticket": "stoa--yl1", "citing_line_in_spec": 646, "verdict": "STRANGE", "residue_class": "10 (genuinely ambiguous; spec-prose-about-this-very-ticket)", "note": "yl1 is the meta-ticket for THIS arc; status is open during this build, line text describes consolidation; classifier reads ambiguous"}
+{"ticket": "stoa--bbi", "citing_line_in_spec": 646, "verdict": "STRANGE", "residue_class": "9 (P4 ACCRETION cross-cited from yl1 narrative)", "note": "Same line as yl1; bbi referenced as conceptual canon-promotion thesis, not as status claim"}
+{"ticket": "stoa--yl1", "citing_line_in_spec": 648, "verdict": "STRANGE", "residue_class": "10 (genuinely ambiguous; artifact-pointer line)", "note": "yl1 cited as consolidation-anchor in 'Artifact: stellation bw + git history at ...' prose; not a status claim"}
+```
+
+### Arc 43 follow-ups filed forward (per design §4.1)
+
+- **stoa--FIX1** — Form (a) over-capture of literal `§N` placeholder anchor (~2 FAILs)
+- **stoa--FIX2** — Form (b) `§13.x` placeholder/glob over-capture (~12 FAILs)
+- **stoa--FIX3** — Form (b) range-syntax `§N-§M` over-capture (~4 FAILs)
+- **stoa--FIX4** — Form (b) trailing-dot anchor greed (~16 FAILs)
+- **stoa--FIX5** — Form (c) `**PLINY**` / `**POLYBIUS**` shorthand inference gap (~10 FAILs)
+- **stoa--FIX6** — Hyphenated prose tokens over-captured (~2 FAILs)
+- **stoa--FIX7** — Misc legitimate cross-refs catch-all (~10 FAILs)
+- **stoa--FIX8** — Line-level vs ticket-level classification on multi-ticket lines (~5 STRANGEs)
+- **stoa--FIX9** — `\bdeferred\b` matches `Deferred-with-gating` section-context (~2 STRANGEs)
+
+PLINY files these follow-ups at A17 closure with cross-refs to this artifact's "Arc 43 follow-ups" section. Each ticket is a future-arc target; Arc 43 ships with residue captured + named per stoa--bbi.
 
