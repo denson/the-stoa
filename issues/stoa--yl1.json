@@ -62,11 +62,15 @@
     {
       "text": "verdict: needs-revisions — 4 R-tier risks (Probe 4 thresholds not defensible; spec-content drift since Arc 42 baseline; check-2 line-level classification ambiguity when multiple tickets cited on one line; op-disc §32 insertion site under-specified). 3 N-tier observations. 4 P-tier positive empirical anchors. Returning.",
       "timestamp": "2026-05-19T20:29:38Z"
+    },
+    {
+      "text": "[from: argus-the-stoa] status: completed | verdict: needs-revisions | R1: Probe 4 ≤30 check-1 threshold infeasible (sim shows 55, not ≤30; remaining residue = Form (c) PLINY/CAPTAIN_* inference gap + trailing-dot/hyphen anchor over-capture + §13.x placeholder over-capture). R2: Probe 4 ≤10 check-2 threshold marginal (sim shows 13, not ≤10; line-level vs ticket-level classification ambiguity uncounted). R3: op-disc §32 insertion site under-specified between line 2039 and 2042 vs 2063. R4: Probe 2 cite-comment greps cannot disambiguate §6.9.3' vs §6.9.3'' due to apostrophe substring match + op-disc §5.9 grep over-matches incidental prose. N1-N3: A4=ε pick + 60× math + cross-line spec-self-resolve — all stand pat. P1-P4: COMPLETENESS-clause own-authoring catch + RT-adjacent-prose used at every probe + threshold-as-data framing aligns with stoa--bbi + weak-point #6 honestly names un-caught residue — all POSITIVE empirical anchors for canon being shipped. Full verdict body returned in tool result. Rev1: raise thresholds to ≤60/≤15 with residue surfaced as follow-ups, OR narrow framing to threshold-as-floor-data. Returning.",
+      "timestamp": "2026-05-19T20:33:38Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Consolidate 3 META-discipline extensions to CAPTAIN_DAEDALUS.md §6 (§6.9.3' round-trip-adjacent-prose + §6.2.1' canonical-code-block-fix + §6.9.3'' live-RT-probes-at-authoring) — stellation Pass 10 empirical anchors",
   "type": "task",
-  "updated_at": "2026-05-19T20:29:38Z"
+  "updated_at": "2026-05-19T20:33:38Z"
 }
