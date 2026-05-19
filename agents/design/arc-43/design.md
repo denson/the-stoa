@@ -959,7 +959,7 @@ PY
 
 ## §5 Self-assessed weak points (per §6.2)
 
-Five weak points named at design-authoring time. Each names a brittle assumption + a one-line defense of the choice despite the weakness, per §6.2.
+Seven weak points named at design-authoring time. Each names a brittle assumption + a one-line defense of the choice despite the weakness, per §6.2.
 
 1. **Weak point — A4=ε Dev2 lands at op-disc §32 (new section).** The choice over A4 sub-option (b) (CAPTAIN_ADA.md test-discipline subsection) rests on the argument that the discipline is universal-across-CAPTAINs (VERA + ADA + CATO all read). If ARGUS or PRINCIPAL disagrees that the universality is real (a test-environment quirk specific to motion + jsdom may not generalize), the discipline arguably belongs at CAPTAIN_ADA.md §5.10 rather than op-disc §32. **Why this shape anyway:** appending a new op-disc section is a small canon edit (one section + cross-refs); if ARGUS surfaces a substance-disagreement, ADA can pivot at rev1 without significant rework. The fallback path is documented in §2.7.
 
