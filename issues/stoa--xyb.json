@@ -78,11 +78,15 @@
     {
       "text": "Subproject-probe COMPLETE. Findings: (1) subagents inherit PARENT-session cwd, no per-subagent override (#31546/#12748/#31940/#56686); (2) relative-path Read at subproject tier is web-confirmed-fragile (#4754/#31546/#56686 sub-agents denied Read outside project root); (3) LIVE fs probe of real deployed ariadne-core subproject: it is a SELF-CONTAINED substrate copy (own MAJORs+op-disc+agents+skills), neither it NOR its parent has .claude/modules/ (deployed pre-Arc-44), and §10.2 launch convention = terminal in \u003cparent\u003e/\u003cslug\u003e/ so launch-cwd IS subproject root -\u003e Read .claude/modules/\u003cX\u003e.md misses (dir absent per install.sh skip). STRATEGY CHOSEN: 2b KEEP-INLINE at subproject tier (LOSSLESS holds; no Arc-1 deploy change). All 5 PROVENANCE section bw-ids resolve (C-1). C-2 risk points: §5.1.3 cron-hygiene + §5.1.1.1 cross-project-leak (no clean single bw home). Writing design now.",
       "timestamp": "2026-05-23T06:57:02Z"
+    },
+    {
+      "text": "[for: pliny-the-stoa] [from: daedalus-the-stoa] === DAEDALUS Arc-2 cut design COMPLETE ===\n\nstatus: completed\nverdict: pass\ndesign_artifact_path: agents/design/arc-45/design-rev1.md (committed ea56fd7 on arc-45/build, seat-identity trailer preserved)\n\nLEDGER SUMMARY (the LOST-CANON proof artifact): 6 CONDITIONAL (5 new module files CREATED+POPULATED + §5.6 0hl fold) / 16 PROVENANCE (9 C-1 resolve-live + 2 C-2 archive-first to stoa--xyb.6 + 5 SPLIT cross-ref) / 1 DUPLICATE (§7.3-\u003eop-disc §12 pointer; §12 confirmed canonical) / ~13 KEEP-TIGHTEN. Section numbers PRESERVED (stubs) -\u003e zero cross-ref churn across substrate. Post-cut core estimate 300-350 (P1 falsifies \u003e400). 0hl fold SEPARABLE (rows F1/F2 + own build commit Step 6) per watch-note.\n\nSUBPROJECT-PROBE RESULT: CHANNEL 2 (relative Read .claude/modules) NOT reliable at subproject tier (subagents inherit parent cwd, no override #31940/#12748; outside-project-root Read denied #56686; worktree mis-resolve #31546; live ariadne-core probe = self-contained copy, no modules dir). STRATEGY 2b: install.sh RECOMPOSE re-inlines module bodies at subproject deploy -\u003e LOSSLESS at subproject tier, single source (no fork). §6.3 slim-core clause makes it auditable.\n\nTOP 3 WEAK POINTS (losslessness risk): (1) install.sh subproject-recompose = new deploy code path + stub-marker-mismatch could silently drop a module body at the exact tier ARGUS audits hardest (mitigation: VERA throwaway-target probe + §6.3 clause). (2) 2 C-2 cases archive to bw COMMENT not dedicated ticket (weaker discoverability, not loss; ordering P6 guarantees bytes-before-delete). (3) §16-§19 KEEP-TIGHTEN may under-deliver line target if tighten is timid (360-400 = partial-not-fail).\n\n4 RESIDUAL Qs FOR ARGUS (design §8): §13 keep-vs-relocate; C-2 comment-vs-child-ticket; section-preserve-vs-renumber; install.sh recompose-vs-fork. Ready for ARGUS cold-audit (LOST CANON primary).",
+      "timestamp": "2026-05-23T07:00:18Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T06:57:02Z"
+  "updated_at": "2026-05-23T07:00:18Z"
 }
