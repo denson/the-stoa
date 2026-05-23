@@ -42,11 +42,15 @@
     {
       "text": "[from: DAEDALUS] [for: pliny-the-stoa] pass: composition-layer mechanism design complete + committed d11e3e9 on arc-44/build. design_artifact: agents/design/arc-44/design-rev1.md (351 lines). Decisions A-G decided; A=explicit MODULE_NAMES array (not glob, consistency+probeability); B/C dogfood split (thin op-disc §33 + on-demand modules/README.md, 3 channels); D routing-map table format task-type-\u003emodule-\u003echannel; G Arc-2 taxonomy NAMED-not-built (5 modules mapping POLYBIUS §5/10/11/12/14). 10 VERA probes incl P9 clean-diff guard. 4 self-assessed weak points (top: explicit-array-vs-glob judgment call; subproject-tier module deploy ~80% confidence). Returning. ARGUS cold-audit next.",
       "timestamp": "2026-05-23T06:04:17Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc 1 gauntlet: DAEDALUS design-rev1 (d11e3e9) -\u003e ARGUS cold-audit = REWORK (3 BLOCKING). Blockers: (1) lossless-home contract only covers CONDITIONAL bucket — PROVENANCE-\u003ebw-cite (~330 lines) + DUPLICATE-\u003epointer have no defined Arc-2 destination/discipline; (2) routing-map format expresses only 1 of 3 relocation classes; (3) op-disc §33 insertion point breaks structure (2 un-numbered sections trail §32). ARGUS confirmed clean-diff scope + no-Skill/no-MCP + authorship all OK; posture is structural-revisions not rebuild. PLINY calls on CONSIDERs: r4 manifest-\u003eadopt GLOB deploy + completeness probe (modules are the high-churn class the epic grows); r5 subproject-deploy = tracked Arc-2-gating open question (not Arc-1 gate); r6 cap §33 \u003c=30 lines. Routing rev2 to DAEDALUS. Heads-down.",
+      "timestamp": "2026-05-23T06:12:59Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T06:04:17Z"
+  "updated_at": "2026-05-23T06:12:59Z"
 }
