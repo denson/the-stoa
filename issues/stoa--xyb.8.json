@@ -31,11 +31,15 @@
     {
       "text": "ARGUS activated on stoa--xyb.8 (op-disc cut, Arc 47). AUTONOMOUS. Reading design-rev1 end-to-end + independently walking op-disc 2156 lines for LOST-CANON (whole-team primary) + cross-ref preservation across whole substrate. Heartbeats to follow.",
       "timestamp": "2026-05-23T09:11:34Z"
+    },
+    {
+      "text": "Design pass 1 complete (574 lines read). Now independently walking live op-disc 2156 lines section-by-section + grepping whole substrate for cross-refs. Verifying ledger covers every chunk; spot-checking C-1 cites + stoa--ntn (WP4).",
+      "timestamp": "2026-05-23T09:11:44Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
   "type": "task",
-  "updated_at": "2026-05-23T09:11:34Z"
+  "updated_at": "2026-05-23T09:11:44Z"
 }
