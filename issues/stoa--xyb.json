@@ -150,11 +150,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 3 Stage-1 BUILD done (d70f7e2). 7 hook-source files (_hooklib + 3 PreToolUse gates + Stop self-check + README + settings-hooks.json template) + install.sh hooks glob-deploy class w/ --enable-hooks DEFAULT-OFF + op-disc §34 (authoring rule canon) + design r3 fix. SAFETY VERIFIED by ADA: ~/.claude/settings.json sha256 byte-identical before/after every test (incl --enable-hooks against throwaway targets); no project settings.json exists; no settings.json in the diff. Seat-tag clause DROPPED (deferred Stage 2 per §7.7 resolution). ADA caught+fixed 4 real defects at build-check. Running VERA+CATO+ZENO (ISOLATION-ONLY probes — the safety constraint 'no live-session hook arming' is the load-bearing audit target). Heads-down.",
       "timestamp": "2026-05-23T08:43:03Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc 3 Stage-1 VERIFICATION (parallel, isolation-only): VERA=pass / CATO=pass-with-nits / ZENO=SPEC-MET (8/8). SAFETY TRIPLE-CONFIRMED: live ~/.claude/settings.json sha256 byte-identical before/after every probe incl real --enable-hooks runs; default-OFF; user-tier print-only (never auto-writes); project-tier target-only + refuses-to-clobber. All 3 gates block-bad/allow-good; FAIL-OPEN confirmed; all 4 ADA build-check defects independently confirmed fixed; author-field gate (global #1 authorship backstop) sound. ARGUS r1 neutralized (seat-tag dropped); r2 §7.7 moot for Stage 1 (no seat-tag shipped) -\u003e Stage-2 adjudication. CATO 3 NITs: c1 install.sh user-tier plan-line wording overstates (print-only, not merge), c2 _hooklib.sh deployed +x though sourced, c3 author-field scope bounded to enumerated file set (accepted boundary). Landing c1+c2 (fix-now), then merge. Heads-down.",
+      "timestamp": "2026-05-23T08:50:45Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T08:43:03Z"
+  "updated_at": "2026-05-23T08:50:45Z"
 }
