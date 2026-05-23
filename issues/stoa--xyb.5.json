@@ -55,11 +55,15 @@
     {
       "text": "[from: ada-the-stoa] design §1-§8 + ARGUS verdict absorbed; build-time WEB-VERIFY of live hook surface done (code.claude.com/docs/en/hooks 2026-05-23): PreToolUse deny / Stop decision+reason-only / 'if' Bash(git *) idiom / stdin tool_input.command shape ALL confirmed. Safety baseline: NO project settings.json in worktree or main; user ~/.claude/settings.json exists (will NOT touch; baseline sha captured). substrate/hooks/ is net-new. Writing the 3 PreToolUse gate scripts now.",
       "timestamp": "2026-05-23T08:27:51Z"
+    },
+    {
+      "text": "[from: ada-the-stoa] Stage-1 build complete: 5 hook scripts (_hooklib + 3 PreToolUse gates + Stop self-check, all chmod +x, all bash -n exit 0), settings-hooks.json template (if-matcher idiom per r7), hooks/README.md (authoring rule + safety arch), install.sh wired (hooks glob-deploy class + --enable-hooks DEFAULT-OFF + per-tier DEST_HOOKS_DIR + staleness scan + principal-identity seed; bash -n exit 0), op-disc §34 authoring-rule canon, design-rev1 r3 PostCompact fix. Stop clause-A DROPPED per brief. Running isolation-test (throwaway target dry-run + real deploy, NO --enable-hooks) now; verifying no live settings.json touched.",
+      "timestamp": "2026-05-23T08:33:10Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:27:51Z"
+  "updated_at": "2026-05-23T08:33:10Z"
 }
