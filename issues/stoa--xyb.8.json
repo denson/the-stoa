@@ -47,11 +47,15 @@
     {
       "text": "Q2 CLEARED (op-disc source has ZERO literal MODULE-INLINE strings -\u003e no relocated body can carry one; Check E covers ADA-introduced ones at deploy). Q4 (§20 partial): losslessness sound, all cross-refs preserved (only §20+§20.3 externally cited, both KEEP inline); ONE numbering-order wrinkle (relocated §20.1 re-inlines AFTER §20.4 at subproject tier) = CONSIDER not lost-canon. Now adjudicating ambient-vs-conditional A1-A4 + verifying §16/§17/§30 (KEEP in POLYBIUS per brief) genuinely conditional in op-disc.",
       "timestamp": "2026-05-23T09:14:57Z"
+    },
+    {
+      "text": "MAJOR FINDING [SHOULD-FIX], A3/A4 adjudication: the design's A4 rationale for RELOCATING §15 is FACTUALLY WRONG. A4 claims 'verifier CAPTAINs are dispatched-with-brief; PLINY names verification-complexity.md in the brief.' But VERA §5.7, CATO §6.7, ZENO §6.6, ARGUS §6.6 ALL point at 'operating-disciplines.md §15' DIRECTLY from their own role files, on every dispatch — IDENTICAL mechanics to §25.5 (which the design KEEPs as A3 'read-direct'). PLINY does NOT name the module in verifier briefs. So by the design's OWN A3 principle, §15 is a KEEP candidate, not RELOCATE. §15 + §25.5 have identical consumer patterns yet land on opposite sides of a boundary that does not distinguish them. Confirmed §16/§17/§30 genuinely conditional (RELOCATE sound). Drafting verdict; checking §11 + finalizing.",
+      "timestamp": "2026-05-23T09:16:00Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
   "type": "task",
-  "updated_at": "2026-05-23T09:14:57Z"
+  "updated_at": "2026-05-23T09:16:00Z"
 }
