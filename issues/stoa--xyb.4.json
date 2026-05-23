@@ -81,11 +81,15 @@
     {
       "text": "ZENO VERDICT BLOCK\nstatus: completed\nverdict: pass (SPEC-MET)\nspec_path: agents/design/arc-44/design-rev2.md\nartifact_checked: substrate/modules/README.md; substrate/operating-disciplines.md §33; substrate/install.sh (commit d3735c6, branch arc-44/build)\n\ncriteria_check (spec-item | present | evidence):\nc1 README exists | Y | substrate/modules/README.md (261 lines)\nc2 3 delivery channels | Y | README §2 table L46-48 (inline/disk/bw)\nc3 module-authoring discipline | Y | README §3 L61-76\nc4 routing-map format | Y | README §4.1 template L92-101\nc5 relocation-index format | Y | README §4.2 template L110-117\nc6 all 3 relocation classes + templates | Y | README §5 table L145-147 + §5.1/5.2/5.3 (L149/154/203)\nc7 Arc-2 taxonomy = exactly 5 module names | Y | README §6 table L226-230 (5 rows)\nc8 per-C-1 bw-show content-check (ARGUS-carry 1) | Y | README §5.2 L176-181\nc9 §33 exists, after §32 before Agent-regime-inverses, ≤30 lines (ARGUS-carry 2/nf1) | Y | §33 L2089 (\u003e§32 L2042, \u003cAgent-regime-inverses L2115); 24 content lines\nc10 install.sh refs substrate/modules + .claude/modules glob; subproject DEST empty; bash -n exit 0 | Y | 6x substrate/modules, 7x .claude/modules; DEST_MODULES_DIR=\"\" L624; bash -n exit 0\nc11 scope: only 3 target files ex-agents/; no role-file deletions; no 5 Arc-2 content files; no author field changed | Y | name-only=install.sh/README/op-disc; 3 deletions all install.sh header-comment reflow; only README.md under substrate/modules/; author-field grep clean\nc12 commit Co-Authored-By CAPTAIN_ADA_the-stoa; Author=PRINCIPAL | Y | trailer present; author denson \u003cdensonsmith2@gmail.com\u003e\n\nout_of_spec_additions: none\nspec_ambiguities: none\ndrifts: none\nsummary: 12 criteria checked, all met. No drifts, no out-of-spec additions, no spec ambiguities. SPEC-MET.",
       "timestamp": "2026-05-23T06:31:07Z"
+    },
+    {
+      "text": "CATO activated on stoa--xyb.4 (Arc 44 / debloat Arc 1, MECHANISM review). Cold-read of 3 shipped files complete (op-disc §33 / install.sh glob deploy / modules/README.md). Empirical-environment probes per §6.8 done against throwaway /tmp clone: project-tier deploy lands README; subproject-tier skips modules cleanly; staleness flags stray flat module but correctly skips custom/ subdir (mirrors templates pattern, confirms ARGUS L38 non-finding). install.sh bash -n exit 0. Now reading modules/README.md + assessing ADA --attachments drift call + bw recovery-prose accuracy.",
+      "timestamp": "2026-05-23T06:31:41Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T06:31:07Z"
+  "updated_at": "2026-05-23T06:31:41Z"
 }
