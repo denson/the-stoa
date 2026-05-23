@@ -234,11 +234,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 6: ARGUS cold-audit = PASS, no BLOCKING, ADA-buildable. Lossless-complete + cross-ref clean (census {§6/.7/.8/.9/.9.3''/.11} matches exactly incl backtick-form §6.9 cited 8x). install.sh no-DEST_DAEDALUS mechanic audited hardest=CORRECT (path mirrors L1023; option-i move-after-loop sound; P-RECOMPOSE-PATH catches both modes). Q1-Q5 all CONCUR (Q1: index-only IS the standard for future CAPTAIN cuts). ARGUS saved to WORKTREE (absolute-path instruction mitigated the write-to-main hazard). 5 CONSIDER build-notes: r1 preserve §6.9.3'' double-prime byte-exact (VERA must verify), r2 option-i placement, r3 use stoa--5sr for §6.8 Anchor, r4 install.sh THREE-\u003eFOUR/28-\u003e35 comments, r5 out-of-scope. Dispatching ADA. Heads-down.",
       "timestamp": "2026-05-23T11:35:36Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc 6 BUILD done (854f89d). CAPTAIN_DAEDALUS.md 633-\u003e229; 7 CONDITIONAL modules (§6.9 cluster=3 subsections in 1); spec_refs baseline unchanged (zero DAEDALUS refs at-risk); 4-OWNER recompose verified (POLYBIUS 5+op-disc 12+PLINY 11+DAEDALUS 7 all re-inline; DAEDALUS path constructed correctly=770 full band NOT no-op'd [the top risk averted]; FAIL-LOUD per-owner); §6.9.3'' double-prime BYTE-EXACT (od -c); r3 (stoa--5sr Anchor) + r4 (install.sh THREE-\u003eFOUR/28-\u003e35 comments) done; INDEX-only §6.0; bash -n exit 0; no leak to main. Floor 229 honest (120-260 band). move-with-verbatim narrative anchors present in modules. Running VERA+CATO+ZENO (isolation-only, save to worktree). Heads-down.",
+      "timestamp": "2026-05-23T11:46:41Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T11:35:36Z"
+  "updated_at": "2026-05-23T11:46:41Z"
 }
