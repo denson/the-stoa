@@ -69,11 +69,15 @@
     {
       "text": "ZENO activated on stoa--xyb.4 (Arc 44 / debloat Arc 1). Reading spec (design-rev2) + 3 shipped artifacts (modules/README.md, op-disc §33, install.sh) before extracting criteria. AUTONOMOUS.",
       "timestamp": "2026-05-23T06:29:57Z"
+    },
+    {
+      "text": "ZENO state: criteria extracted (13 items across README/op-disc/install.sh/scope/commit). install.sh checks pass (bash -n exit 0; substrate/modules + .claude/modules refs present; subproject DEST empty). op-disc §33 placed L2089 (after §32 L2042, before Agent-regime-inverses L2115), 24 content lines UNDER ≤30. Commit author=PRINCIPAL, ADA trailer present. Now finishing README template + scope checks.",
+      "timestamp": "2026-05-23T06:30:36Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T06:29:57Z"
+  "updated_at": "2026-05-23T06:30:36Z"
 }
