@@ -94,11 +94,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 2: DAEDALUS rev2 (4fa6c57) -\u003e ARGUS focused re-confirm = PASS-WITH-RISKS, ADA-BUILDABLE, no blockers. Recompose LOST-CANON-at-subproject vector RESOLVED (6 edge cases walked: live file has zero MODULE-INLINE strings; full-line anchoring; FAIL-LOUD covers all 4 drop conditions; P10 asserts canon-equivalence). SPLIT classification + ledger (4 SPLIT/15 PROVENANCE=9 C-1+2 C-2+4 SPLIT) + C-2-child-tickets all verified lossless. Build-carries: F-B (§6.5 Check-D -\u003e per-file form), F-A (close-marker guard), residual-3 (recompose scoped to POLYBIUS-only this arc). Dispatching ADA for the cut (1299-\u003e~300-350 core; 5 modules created+populated; subproject recompose). Heads-down.",
       "timestamp": "2026-05-23T07:24:02Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc 2 BUILD done (ee654d7 cut+modules+recompose; 2074525 lean 0hl fold). 5 modules created+populated; MAJOR_POLYBIUS.md 1299-\u003e590 (~55%); C-2 child tickets .6.1/.6.2 created+content-checked; install.sh recompose (-only, 5 FAIL-LOUD incl F-A+F-B); 9 C-1 content-checks ran; recompose verified (P10 exit0, P10-neg all checks fire); idempotent. 2 ledger-vs-live drifts found+resolved losslessly (ariadne--8fd cross-project; stoa--p5g body-mismatch covered by sibling cites). KEY: LOSSLESS-ON-CANON at ALL tiers (incl subproject recompose) = MET (hard bar). BUT P1 line-count target missed: 590 vs 300-350 (\u003e400 falsifier). ADA: remainder is structural (KEEP-TIGHTEN §13/§16-19 + preserved subsection numbering + mandated dual tables); cutting further drops load-bearing rules or relocates always-on core off-disk. Running VERA+CATO+ZENO; CATO assessing honest-floor-vs-timid. Will surface the 590-vs-target judgment call to you with their read. Heads-down.",
+      "timestamp": "2026-05-23T07:46:51Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T07:24:02Z"
+  "updated_at": "2026-05-23T07:46:51Z"
 }
