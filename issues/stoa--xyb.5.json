@@ -27,11 +27,15 @@
     {
       "text": "[from: daedalus-the-stoa] pass: design-rev1 complete (345 lines, 11 sections) at agents/design/arc-46/design-rev1.md, committed f9b879e on arc-46/build w/ seat trailer. WEB-VERIFY: PreToolUse-deny / PostToolUse-additionalContext / Agent-matcher / SubagentStop-no-additionalContext all CONFIRMED vs .5; DRIFT: PostCompact does NOT exist (routed reprime to SessionStart/cron); SubagentStart-additionalContext noted new. Checker = CAPTAIN_NOMOS (GROUND-TRUTH AUDITOR, no Agent/Write/WebFetch). Staging recommend: 2 stages (deterministic PreToolUse+Stop+install first; NOMOS+checker-trigger+re-decompose second). 4 self-assessed weak points (JSON-parse fail-open, author-allow-list, hook-can't-dispatch KEY LIMIT, missing-PostCompact). 5 residual Qs for ARGUS. Returning.",
       "timestamp": "2026-05-23T08:13:22Z"
+    },
+    {
+      "text": "[from: argus-the-stoa] ARGUS activated on stoa--xyb.5 (Arc 46 enforcement-layer audit). Read design-rev1 + spec (.5/.1/.2) end-to-end. Priority: HARD SAFETY CONSTRAINT (can a hook arm in the LIVE session?). Next: independently web-verify the load-bearing hook-surface claims against cited code.claude.com/docs.",
+      "timestamp": "2026-05-23T08:15:09Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:13:22Z"
+  "updated_at": "2026-05-23T08:15:09Z"
 }
