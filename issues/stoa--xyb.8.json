@@ -15,11 +15,15 @@
     {
       "text": "Mechanism absorbed: Arc-1 modules/README.md (3 classes) + Arc-2 design-rev2 (stubs/markers/recompose) + install.sh recompose_module_inline() ALREADY data-driven (L870-962, called on DEST_POLYBIUS only). op-disc deployed via plain cp at L974-980 at ALL tiers. Now mapping op-disc sections + cross-ref graph (which op-disc §N are cited elsewhere -\u003e must stub-preserve).",
       "timestamp": "2026-05-23T09:02:57Z"
+    },
+    {
+      "text": "Full op-disc map complete (thesis + §1-§34 + tail). Cross-ref graph: nearly EVERY top-level §N is cited from active substrate files (role files/install.sh/hooks/templates/skills/modules) -\u003e validates section-number-preserve-via-stubs strongly. KEY DESIGN DISTINCTION surfaced: op-disc is NOT an orchestrator (no dispatch role), so it has no routing-map/relocation-index of its own. The CONDITIONAL modules op-disc relocates are read by the SEAT THAT NEEDS THEM (e.g. a seat entering autonomous mode reads autonomous-mode-setup.md), not dispatched by op-disc. Resolving where the relocation-index lives + the module-namespace question (POLYBIUS modules + op-disc modules share substrate/modules/) before drafting.",
+      "timestamp": "2026-05-23T09:03:42Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
   "type": "task",
-  "updated_at": "2026-05-23T09:02:57Z"
+  "updated_at": "2026-05-23T09:03:42Z"
 }
