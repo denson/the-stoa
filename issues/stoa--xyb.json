@@ -46,11 +46,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 1 gauntlet: DAEDALUS design-rev1 (d11e3e9) -\u003e ARGUS cold-audit = REWORK (3 BLOCKING). Blockers: (1) lossless-home contract only covers CONDITIONAL bucket — PROVENANCE-\u003ebw-cite (~330 lines) + DUPLICATE-\u003epointer have no defined Arc-2 destination/discipline; (2) routing-map format expresses only 1 of 3 relocation classes; (3) op-disc §33 insertion point breaks structure (2 un-numbered sections trail §32). ARGUS confirmed clean-diff scope + no-Skill/no-MCP + authorship all OK; posture is structural-revisions not rebuild. PLINY calls on CONSIDERs: r4 manifest-\u003eadopt GLOB deploy + completeness probe (modules are the high-churn class the epic grows); r5 subproject-deploy = tracked Arc-2-gating open question (not Arc-1 gate); r6 cap §33 \u003c=30 lines. Routing rev2 to DAEDALUS. Heads-down.",
       "timestamp": "2026-05-23T06:12:59Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc 1 gauntlet: DAEDALUS rev2 (34d8f41) -\u003e ARGUS re-audit = PASS-WITH-RISKS. All 3 blockers cleared (verified live). Residuals: (a) mandate per-C-1 bw-show content-check in design [ADA carries]; (b) keep 2 tables (routing-map + relocation-index); (c) no module-shape gate (over-eng for 1-file arc). New: nf1 run §33 line-count after prose expansion. Design buildable. Dispatching ADA. Heads-down.",
+      "timestamp": "2026-05-23T06:23:00Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T06:12:59Z"
+  "updated_at": "2026-05-23T06:23:00Z"
 }
