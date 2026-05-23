@@ -54,11 +54,15 @@
     {
       "text": "PASS-WITH-RISKS (rev2 re-confirm): r1-r4 + residual-2 all CLEARED. r1 recompose audited hardest across 6 edge cases (literal-sentinel bodies / regex anchoring / sed interaction / FAIL-LOUD coverage / idempotency / P10 canon-equivalence) - NO vector drops a body THIS arc (source has 0 MODULE-INLINE literals; full-line ^...$ anchoring resists prose false-triggers; 4 err()-checks abort vs ship partial). r2 both flagged calls CORRECT. r3 self-consistent. residual-2 child-ticket gate sound. 2 NEW non-blocking: F-B [SHOULD-FIX] §6.5 Check-D bullet reads global-glob (false-positives on marker-less PLINY) while §7.4 has the correct per-file form - make §6.5 match §7.4; F-A [CONSIDER] unstated module-body-no-close-marker constraint for the forward PLINY-cut recompose reuse. residual-3 RECOMMEND: scope recompose to $DEST_POLYBIUS ONLY this arc (min blast radius on riskiest surface) + defer both-files loop to gauntlet-gated PLINY cut. rev2 is ADA-BUILDABLE; neither new finding drops canon. Verdict saved: agents/verdicts/stoa--xyb.6/ARGUS-2026-05-23T07-23-13Z.md (sha256 round-trip OK). Returning.",
       "timestamp": "2026-05-23T07:23:25Z"
+    },
+    {
+      "text": "ADA activated on stoa--xyb.6 (Arc 45 build). Read design-rev2 (4fa6c57) end-to-end + dispatch ticket heartbeat stream. Reading ARGUS re-confirm verdict + modules/README.md + op-disc §33/§12 + live MAJOR_POLYBIUS.md before any write. Worktree confirmed: arc-45/build at .claude/worktrees/arc-45-build. Will use ABSOLUTE worktree paths for every write.",
+      "timestamp": "2026-05-23T07:24:41Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "First execution: MAJOR_POLYBIUS.md section-by-section slimming pass (via PLINY gauntlet, lossless-on-canon)",
   "type": "task",
-  "updated_at": "2026-05-23T07:23:25Z"
+  "updated_at": "2026-05-23T07:24:41Z"
 }
