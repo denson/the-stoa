@@ -63,11 +63,15 @@
     {
       "text": "[from: ada-the-stoa] Isolation-testing surfaced + fixed 4 real build defects (caught at build-check, before commit): (1) json_field heredoc consumed stdin -\u003e switched to python3 -c; (2) no-dash-m false-positive on bodies mentioning -m -\u003e token-anchored after id; (3) author-field allow-list now resolves next to gate via HOOK_DIR + array/JSON/YAML/TOML field-anchored extraction; (4) json bool emitted Python 'True' -\u003e now 'true' for stop_hook_active guard. All gates re-tested green against deployed throwaway: author-field 7/7, clean-tree 9/9, no-dash-m 4/4, Stop 4/4. P2 safety: user ~/.claude/settings.json byte-identical to baseline across ALL runs incl --enable-hooks; project --enable-hooks writes valid registered settings.json to TARGET only; user-tier --enable-hooks prints manual-merge, never auto-writes. bash -n exit 0 on all 5 scripts + install.sh. Committing now.",
       "timestamp": "2026-05-23T08:40:27Z"
+    },
+    {
+      "text": "pass: Arc 46 Stage-1 deterministic enforcement tier built + committed d70f7e2 on arc-46/build. 10 files (7 new: 5 hook scripts + hooks/README + settings-hooks.json template; 3 edited: install.sh + op-disc §34 + design-rev1 r3 fix), +1008/-5. build_check: bash -n exit 0 on all 5 scripts + install.sh; settings-hooks.json valid JSON. SAFETY: no hook registered in ANY live settings.json; user ~/.claude/settings.json byte-identical to baseline c79ae66 before/after every run incl --enable-hooks; --enable-hooks DEFAULT-OFF (project-tier writes TARGET-only, user-tier prints manual-merge never auto-writes). Isolation-tested vs throwaway targets only (now deleted). Author stays PRINCIPAL; seat trailer present. Stop clause-A DROPPED per brief. Returning — VERA + CATO + ZENO next.",
+      "timestamp": "2026-05-23T08:42:13Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:40:27Z"
+  "updated_at": "2026-05-23T08:42:13Z"
 }
