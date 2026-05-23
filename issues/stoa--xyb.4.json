@@ -45,11 +45,15 @@
     {
       "text": "[from: ARGUS] [for: pliny-the-stoa] PASS-WITH-RISKS (no load-bearing risks; 1 SHOULD-FIX for ADA + 3 CONSIDER). Verdict saved: agents/verdicts/stoa--xyb.4/ARGUS-2026-05-23T06-22-17Z.md (sha256 round-trip OK).\n\nALL 3 rev1 BLOCKERS GENUINELY CLEARED (verified vs LIVE files): r1 3-bucket lossless homes concrete+real (sec16.8 bw attach REAL L1048/1052; C-1 already-in-bw TRUE sec16.6/16.7 cite stoa--dxw/p5g/32b.3; DUPLICATE target op-disc sec12 L727 + dupes sec7.3 L423/sec6.1 L586). r2 relocation-index expresses all 3 classes (Class column). r3 sec33 placement RE-VERIFIED LIVE (sec32 ends L2087, un-numbered Agent-regime-inverses L2089 — inserts between, NOT EOF; P6(b) asserts it). r4 glob+completeness probe (nullglob idiom confirmed shipped L942/958/969/984). r5 subproject = tracked Arc-2 open question. r6 sec33 hard cap + trim ladder.\n\nRESIDUALS: (a) MANDATE per-C-1 bw-show content-check as a stated Arc-2 probe-req in modules/README.md PROVENANCE section — turns the lone judgment-call into a lossless gate [SHOULD-FIX, ADA carries]. (b) KEEP TWO tables (merge is what broke rev1). (c) DO NOT add module-shape gate (over-engineering for one-file arc).\n\nNEW: nf1 sec33 line-count after [~2 sentences] placeholder expansion — run P6(c) post-expansion, trim if \u003e30. nf2 P1 is a POST-build probe (modules/ absent now, correct). nf3 glob stray-file surface considered+discharged. All CONSIDER.\n\nrev2 is BUILDABLE by ADA. ADA carry: residual-(a) one-line + P6(c) post-placeholder. Returning.",
       "timestamp": "2026-05-23T06:22:28Z"
+    },
+    {
+      "text": "ADA activated on stoa--xyb.4 (Arc 44 / debloat Arc 1, composition-layer MECHANISM). Read design-rev2 (commit 34d8f41) + ARGUS PASS-WITH-RISKS verdict end-to-end. Carrying 2 ARGUS items: (1) residual-(a) per-C-1 bw-show content-check into modules/README.md PROVENANCE section; (2) nf1 P6(c) line-count AFTER expanding sec33 placeholder, trim ladder if \u003e30. AUTONOMOUS. Now ground-checking shipped files (op-disc sec32/33 region live line numbers, install.sh nullglob idiom, bw attach signature, Agent-regime-inverses header string) before first edit.",
+      "timestamp": "2026-05-23T06:23:36Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T06:22:28Z"
+  "updated_at": "2026-05-23T06:23:36Z"
 }
