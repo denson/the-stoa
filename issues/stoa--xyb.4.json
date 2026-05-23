@@ -49,11 +49,15 @@
     {
       "text": "ADA activated on stoa--xyb.4 (Arc 44 / debloat Arc 1, composition-layer MECHANISM). Read design-rev2 (commit 34d8f41) + ARGUS PASS-WITH-RISKS verdict end-to-end. Carrying 2 ARGUS items: (1) residual-(a) per-C-1 bw-show content-check into modules/README.md PROVENANCE section; (2) nf1 P6(c) line-count AFTER expanding sec33 placeholder, trim ladder if \u003e30. AUTONOMOUS. Now ground-checking shipped files (op-disc sec32/33 region live line numbers, install.sh nullglob idiom, bw attach signature, Agent-regime-inverses header string) before first edit.",
       "timestamp": "2026-05-23T06:23:36Z"
+    },
+    {
+      "text": "ADA ground-check complete. Live line numbers CONFIRMED: op-disc 2110 lines, sec32 L2042, '## Agent-regime inverses' L2089 (sec33 inserts after sec32's L2087 '---' / before L2089). install.sh idioms CONFIRMED: DEST case arms user L536-537/project L552-553/subproject L594 (DEST_TEMPLATES_DIR='' pattern to mirror), templates deploy L769-783, skills deploy ends L826, plan skills-line L661, staleness templates L961-985 (file-only single-segment nullglob), skills staleness ends L1014. run_or_print echoes '[dry-run] cp' (P2 satisfied). DRIFT FOUND: design sec3.C cite-back format says 'bw show --attachments \u003cid\u003e' for recovery — that flag does NOT exist in shipped bw 0.13.0 (bw attach writes to attachments/\u003cid\u003e/\u003cpath\u003e on beadwork ref; no read subcmd, no --attachments on show). Will build README recovery instruction to SHIP REALITY (git-on-beadwork-ref for attached files; plain bw show \u003cid\u003e for bw comment prose) + flag in verdict. Building now in dep order: README -\u003e sec33 -\u003e install.sh.",
+      "timestamp": "2026-05-23T06:25:07Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T06:23:36Z"
+  "updated_at": "2026-05-23T06:25:07Z"
 }
