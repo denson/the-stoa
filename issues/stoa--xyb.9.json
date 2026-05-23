@@ -39,11 +39,15 @@
     {
       "text": "State: op-disc §8/§19/§28 read live end-to-end. Now reading PLINY §5.1/§7.2/§9 + DAEDALUS §2/§3/§6.5 live before per-row BEFORE/AFTER adjudication. spec_refs re-run next.",
       "timestamp": "2026-05-23T20:29:00Z"
+    },
+    {
+      "text": "State: spec_refs CONFIRMED 156P/56F; resolver matches by heading-text re-scan (spec_refs.py L230-240) -\u003e body-prose compression provably probe-safe. Row 28-A: all 5 dropped cross-ref bullets INDEPENDENTLY confirmed reachable from named inline refs (global-CLAUDE/PLINY-5.12/ADA-5.5 @1126; 19.6 @1210; POLYBIUS-18 @1156). K2 cross-file dep (POLYBIUS §1 @line55 -\u003e op-disc §8.2) CONFIRMED. Now auditing Row 19-D cross-ref trims + Row 19-A relationship-map nuance survival.",
+      "timestamp": "2026-05-23T20:29:50Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "op-disc KEEP-prose tightening (lossless compression of §8/§19/§28, ~100-150L) — CATO Arc-47 follow-up",
   "type": "task",
-  "updated_at": "2026-05-23T20:29:00Z"
+  "updated_at": "2026-05-23T20:29:50Z"
 }
