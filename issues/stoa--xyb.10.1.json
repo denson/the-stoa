@@ -2,14 +2,16 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-23T11:00:54Z",
+  "close_reason": "Permanent PROVENANCE-ARCHIVE record (C-2: §5.4 per-worktree-venv reflex, originally cross-repo ariadne--b93 which doesn't resolve in the-stoa). Cited by Anchor in substrate/modules/per-worktree-venv.md; recover via bw show stoa--xyb.10.1. Closed=archive-complete.",
   "created": "2026-05-23T10:43:42Z",
   "description": "C-2 archive (debloat Arc 48 / design-arc-48 §3.4): the empirical provenance anchor for MAJOR_PLINY.md §5.4 (Per-worktree virtualenv reflex, Python projects) is the cross-repo ticket ariadne--b93, which does NOT resolve in the-stoa bw (it lives in ariadne-core-workspace). To keep §5.4's provenance recoverable from this repo's bw after the §5.4 body relocates to substrate/modules/per-worktree-venv.md, the verbose provenance is archived here.\n\n== Original empirical anchor (ariadne-core-workspace) ==\nariadne--b93 (filed 2026-05-08 by PLINY in ariadne-core-workspace during the ariadne--rld arc-close as a sideband observation forwarded to POLYBIUS).\n\n== The §5.4 discipline being relocated (full prose, for losslessness) ==\nPer-worktree virtualenv reflex (Python projects): When a project uses 'pip install -e' editable installs (Python projects), two parallel worktrees of the same source tree share the virtualenv state — and the 'pip install -e' source path resolves to whichever worktree was installed last. Two parallel worktrees can produce import-from-the-other-worktree behavior under test, where code under test imports from the inactive worktree's source tree rather than the active one.\n\nReflex: when PLINY creates a fresh worktree for a build dispatch in a Python 'pip install -e'-shaped project, also create + activate a .venv per-worktree (not shared with the source repo's main .venv). One-time ~30s cost per fresh worktree; eliminates the cross-worktree mutation entirely.\n\nDetection: project uses 'pip install -e .[dev]' (or similar editable-install pattern); or PRINCIPAL flags it; or surface the question in the activation phase if uncertain. The reflex is project-class-specific — does not apply to non-Python projects, and does not apply to Python projects that don't use editable installs.\n\nThis lives alongside the historical .git/config promote-and-drop reflex, now demoted (see operating-disciplines.md §9 status update). Together the two reflexes express a general pattern: on fresh worktree, apply project-class-specific setup steps before dispatching. The per-worktree .venv is the Python-project member of that family.\n\nOut of scope: non-Python projects; non-'pip install -e' Python projects; wrapper-script automation for the .venv creation (the discipline ships; tooling does not).\n\n== Provenance / why C-2 not C-1 ==\n§5.4 has NO stoa-- co-anchor to fold the cross-repo id into (unlike §5.2/§5.3 which mirror to stoa--bxx/stoa--dyb). A bare 'Anchor: ariadne--b93' would be unrecoverable from the-stoa bw. Archiving here makes the provenance recoverable from this repo's own bw. Recover via: bw show \u003cthis-ticket-id\u003e.",
   "id": "stoa--xyb.10.1",
   "labels": [],
   "parent": "stoa--xyb.10",
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "Arc 48 C-2 archive: MAJOR_PLINY §5.4 per-worktree-venv reflex provenance (orig ariadne--b93)",
   "type": "task",
-  "updated_at": "2026-05-23T10:43:42Z"
+  "updated_at": "2026-05-23T11:00:54Z"
 }
