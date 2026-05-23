@@ -7,9 +7,15 @@
   "id": "stoa--xyb.8",
   "labels": [],
   "parent": "stoa--xyb",
+  "comments": [
+    {
+      "text": "DAEDALUS activated on stoa--xyb.8 (op-disc cut, Arc 47). Reading brief + research input (Arc-1/Arc-2 proven mechanism + modules/README.md) + op-disc 2156 lines. Worktree branch arc-47/build confirmed.",
+      "timestamp": "2026-05-23T09:02:24Z"
+    }
+  ],
   "priority": 2,
   "status": "in_progress",
   "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
   "type": "task",
-  "updated_at": "2026-05-23T09:01:47Z"
+  "updated_at": "2026-05-23T09:02:24Z"
 }
