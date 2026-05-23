@@ -43,11 +43,15 @@
     {
       "text": "C-1 provenance CLEARED: spot-checked 17/18 standalone C-1 ids + stoa--ntn (WP4) — ALL resolve + carry their N=1 story materially. stoa--ntn carries the §10 progression table -\u003e WP4 is a NON-finding (C-2 fallback not needed; per-deletion gate still correct). install.sh recompose VERIFIED: Check-B global-glob false-positive is REAL + correctly diagnosed. NEW FINDING [SHOULD-FIX]: design §6.4 says 'Check A stays global, only Check-B/D change' but Check A (L916 'name in exists') shares the SAME exists[] array as Check B — narrowing module_list to owned-set silently narrows Check A too. Design is internally inconsistent re the highest-risk function. Now checking Q2 (literal MODULE-INLINE in source bodies) + §20 partial (Q4) + ambient-vs-conditional A1-A4.",
       "timestamp": "2026-05-23T09:14:29Z"
+    },
+    {
+      "text": "Q2 CLEARED (op-disc source has ZERO literal MODULE-INLINE strings -\u003e no relocated body can carry one; Check E covers ADA-introduced ones at deploy). Q4 (§20 partial): losslessness sound, all cross-refs preserved (only §20+§20.3 externally cited, both KEEP inline); ONE numbering-order wrinkle (relocated §20.1 re-inlines AFTER §20.4 at subproject tier) = CONSIDER not lost-canon. Now adjudicating ambient-vs-conditional A1-A4 + verifying §16/§17/§30 (KEEP in POLYBIUS per brief) genuinely conditional in op-disc.",
+      "timestamp": "2026-05-23T09:14:57Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
   "type": "task",
-  "updated_at": "2026-05-23T09:14:29Z"
+  "updated_at": "2026-05-23T09:14:57Z"
 }
