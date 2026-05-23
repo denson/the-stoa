@@ -74,11 +74,15 @@
     {
       "text": "Inputs absorbed end-to-end: MAJOR_POLYBIUS.md (1299 ln, re-read live), modules/README.md (3 channels + 3 relocation classes C-1/C-2 + routing-map/relocation-index), op-disc §33 (thin rule) + §12 (bw cookbook = DUPLICATE keep-home, confirmed self-declares 'do not duplicate'), section map .6, 0hl fold + verbose §5.6 reference (~17 ln at user-tier copy). install.sh confirms DEST_MODULES_DIR='' subproject-skip. Now running subproject-tier Read-path-resolution live probe (web-check done: subagents inherit PARENT cwd, no per-subagent override — claude-code #31546/#12748/#31940; running concrete fs probe next).",
       "timestamp": "2026-05-23T06:56:01Z"
+    },
+    {
+      "text": "Subproject-probe COMPLETE. Findings: (1) subagents inherit PARENT-session cwd, no per-subagent override (#31546/#12748/#31940/#56686); (2) relative-path Read at subproject tier is web-confirmed-fragile (#4754/#31546/#56686 sub-agents denied Read outside project root); (3) LIVE fs probe of real deployed ariadne-core subproject: it is a SELF-CONTAINED substrate copy (own MAJORs+op-disc+agents+skills), neither it NOR its parent has .claude/modules/ (deployed pre-Arc-44), and §10.2 launch convention = terminal in \u003cparent\u003e/\u003cslug\u003e/ so launch-cwd IS subproject root -\u003e Read .claude/modules/\u003cX\u003e.md misses (dir absent per install.sh skip). STRATEGY CHOSEN: 2b KEEP-INLINE at subproject tier (LOSSLESS holds; no Arc-1 deploy change). All 5 PROVENANCE section bw-ids resolve (C-1). C-2 risk points: §5.1.3 cron-hygiene + §5.1.1.1 cross-project-leak (no clean single bw home). Writing design now.",
+      "timestamp": "2026-05-23T06:57:02Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T06:56:01Z"
+  "updated_at": "2026-05-23T06:57:02Z"
 }
