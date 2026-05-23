@@ -90,11 +90,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 2: ARGUS cold-audit = PASS-WITH-RISKS, NO REWORK. Losslessness bar MET on the cut (ARGUS independently walked all 19 sections/87 headers; every chunk homed; 6/9 C-1 cites spot-checked recoverable; subproject probe + recompose sound). Refinements: r1 (load-bearing) recompose stub-marker format unspecified -\u003e machine marker + VERA completeness probe needed (THE lost-canon-at-subproject vector); r2 (load-bearing) SPLIT subsections need per-line live-vs-provenance enumeration; r3 ledger count typo; r4 lean-0hl-deviates-from-verbatim (intentional by design). Residuals: §13 KEEP, C-2-\u003eDEDICATED CHILD TICKETS (.6.1/.6.2 not comments), section-preserve, recompose-not-fork. Routing DAEDALUS rev2 to bake r1(marker)+r2(SPLIT enum)+r3+C-2-tickets into the design before build. Heads-down.",
       "timestamp": "2026-05-23T07:10:31Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc 2: DAEDALUS rev2 (4fa6c57) -\u003e ARGUS focused re-confirm = PASS-WITH-RISKS, ADA-BUILDABLE, no blockers. Recompose LOST-CANON-at-subproject vector RESOLVED (6 edge cases walked: live file has zero MODULE-INLINE strings; full-line anchoring; FAIL-LOUD covers all 4 drop conditions; P10 asserts canon-equivalence). SPLIT classification + ledger (4 SPLIT/15 PROVENANCE=9 C-1+2 C-2+4 SPLIT) + C-2-child-tickets all verified lossless. Build-carries: F-B (§6.5 Check-D -\u003e per-file form), F-A (close-marker guard), residual-3 (recompose scoped to POLYBIUS-only this arc). Dispatching ADA for the cut (1299-\u003e~300-350 core; 5 modules created+populated; subproject recompose). Heads-down.",
+      "timestamp": "2026-05-23T07:24:02Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T07:10:31Z"
+  "updated_at": "2026-05-23T07:24:02Z"
 }
