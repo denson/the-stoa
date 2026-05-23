@@ -83,11 +83,15 @@
     {
       "text": "VERA state-transition: move-with-verbatim CONFIRMED on sampled modules (canonical-code-block-fix 4-anchor block byte-verbatim L39-55; probe-grounding §6.9 5-clause + 5-anchor verbatim L19-95 + Anchor compress belt-and-suspenders; §6.9.3'' 6-anchor present). Now running EXHAUSTIVE losslessness: every non-blank original §6.x discipline-body line must appear in the 7-module union (LOST-CANON falsifier).",
       "timestamp": "2026-05-23T11:48:59Z"
+    },
+    {
+      "text": "ZENO state-transition: items 7-10 checked (spec_refs 156/56 worktree==main, zero PASS-\u003eFAIL, zero DAEDALUS refs; §6.0 index-not-routing-map, Routing-map=0; r3 §6.8 Anchor=stoa--5sr; scope diff = exactly DAEDALUS+7modules+install.sh excl agents/; commit 854f89d Author=PRINCIPAL + ADA trailer). NOTE: CATO's WITH_CAPTAINS gate finding REPRODUCED on throwaway (--no-captains --target subproject -\u003e exit 2 'role file not found CAPTAIN_DAEDALUS'); recording as spec-ambiguity NOT spec-drift (design §5/§6.5 did not specify a WITH_CAPTAINS gate; build matches spec-as-written; correctness call is CATO's lane). Running happy-path P-RECOMPOSE on throwaway to confirm spec-specified path works, then finalizing.",
+      "timestamp": "2026-05-23T11:50:03Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "CAPTAIN_DAEDALUS.md cut (architect role-file debloat, 633 lines) — LAST relocation cut",
   "type": "task",
-  "updated_at": "2026-05-23T11:48:59Z"
+  "updated_at": "2026-05-23T11:50:03Z"
 }
