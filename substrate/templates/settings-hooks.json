@@ -1,0 +1,41 @@
+{
+  "_comment": "CANDIDATE Stoa enforcement-hook registration block — NOT auto-merged into any live settings.json. install.sh deploys this file to <DEST>/.claude/templates/settings-hooks.json as a candidate ONLY. Merging it into a live .claude/settings.json ARMS the hooks, which gate real tool calls in that session; that is an explicit operator-gated step (install.sh --enable-hooks, DEFAULT OFF) that even when used targets the INSTALL TARGET, never the running build session. HARD SAFETY CONSTRAINT (design-rev1 section 8): no Stoa arc auto-writes a live settings.json. The HOOKS_DIR placeholder slot in each command path is sed-substituted at deploy time to the deployed .claude/hooks absolute path. The 'if' fields use permission-rule syntax to narrow which commands invoke each gate (the gate script then inspects tool_input.command to build its self-contained deny message). All gates FAIL-OPEN on script error.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Bash(git commit*)",
+            "command": "{{HOOKS_DIR}}/pretooluse-author-field-audit.sh",
+            "timeout": 30
+          },
+          {
+            "type": "command",
+            "if": "Bash(git *)",
+            "command": "{{HOOKS_DIR}}/pretooluse-clean-tree-before-branch.sh",
+            "timeout": 30
+          },
+          {
+            "type": "command",
+            "if": "Bash(bw comment*)",
+            "command": "{{HOOKS_DIR}}/pretooluse-no-dash-m-bw-comment.sh",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "{{HOOKS_DIR}}/stop-self-check.sh",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

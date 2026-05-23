@@ -2114,6 +2114,24 @@ Full procedure, channel-selection + relocation-class templates, taxonomy: `.clau
 
 ---
 
+## 34. Trigger-payload authoring rule
+
+Every harness-owned trigger payload — a hook `permissionDecisionReason`, a Stop `reason`, a
+PostToolUse `additionalContext`, or a cron prompt body — MUST state, self-contained inline, (a) WHY
+it fired and (b) WHAT to do to proceed. NEVER a bare pointer ("see §X.Y", "per the discipline"). A
+pointer fails after compaction: the trigger's whole value is that it re-tells the rule the agent has
+forgotten, and an agent that has compacted cannot follow a pointer to a section it no longer holds.
+The payload carries the instruction, not a reference to it.
+
+This is the load-bearing convention for the enforcement layer (`bw show stoa--xyb.5`): triggers
+survive compaction because they are fresh harness-fired input re-injected at the moment of action,
+so the instruction they carry must be complete on its own.
+
+Detail, worked examples, the hook script contract + the fail-open / source-only / default-OFF safety
+architecture: `.claude/hooks/README.md` (on-demand). Shipped Arc 46 (debloat Arc 3, Stage 1).
+
+---
+
 ## Agent-regime inverses (the positive framing)
 
 The six anti-patterns above suppress failure modes. The corresponding positive framings express defaults:
