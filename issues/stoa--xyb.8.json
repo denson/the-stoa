@@ -59,11 +59,15 @@
     {
       "text": "DAEDALUS activated on stoa--xyb.8 (op-disc cut, Arc 47) COLD-PICKUP for design-rev2. Read rev1 (committed 00e2707, 574 lines) + ARGUS verdict (PASS-WITH-RISKS, r1 BLOCKING + r2/r3/r4) end-to-end. r1=SPECIFICATION.md cross-ref regression via validate-spec exact-heading resolver; r2=flip §15 to KEEP; r3=recompose two distinct sets (global existence vs owned consumption); r4=§20 numbering-order cosmetic. Now investigating live: spec_refs.py resolver behavior + every SPECIFICATION.md cite of a relocated subsection + install.sh Check-A/B exists[] sharing. Then draft rev2 (targeted fixes, NOT a re-cut).",
       "timestamp": "2026-05-23T09:23:13Z"
+    },
+    {
+      "text": "Investigation complete (all 4 findings grounded live). r1: ran spec_refs.py against SPECIFICATION.md — the COMPLETE at-risk set is §7.1(L244)/§7.2(L252)/§7.4(L67,256,370,659)/§7.5(L260) = 7 PASS cites, ALL §7 subsections. Swept ALL 13 relocated sections: §11/§15/§16/§17/§27/§31 are cited ONLY at top-level (preserved by the section-number stub rev1 already keeps); §14/§22/§29/§30/§32 have ZERO spec cites; §20/§20.3 KEEP inline (safe). So r1 scope = §7 stub MUST keep §7.1/§7.2/§7.4/§7.5 as REAL heading lines. Verified the resolver's _heading_pattern matches '### 7.4 Title' and correctly REJECTS rev1's prose-only mention. r3: confirmed Check A (L916 'name in exists') + Check B (L945) + Check D (L944 nmods) ALL read the single exists[]/module_list — narrowing to owned-set silently narrows Check A. Fix=two distinct sets. r4: §20 cites are top-level+§20.3, both KEEP, cosmetic only. Writing rev2 now.",
+      "timestamp": "2026-05-23T09:24:53Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
   "type": "task",
-  "updated_at": "2026-05-23T09:23:13Z"
+  "updated_at": "2026-05-23T09:24:53Z"
 }
