@@ -27,11 +27,15 @@
     {
       "text": "Cross-ref audit complete. KEY FINDINGS shaping the equivalence table: (1) §6.5 Monitor/run_in_background prohibition block is a CANONICAL TEMPLATE replicated byte-for-byte across 12+ CAPTAIN role files (ADA/CATO/VERA/ARGUS/...) — compressing ONLY DAEDALUS's copy would break cross-file byte-alignment per my own §6.8; this becomes a KEEP-FULLER-by-judgment, NOT a compress. (2) MAJOR_POLYBIUS.md §1 cross-refs op-disc §8.2 as the home of the 'bidirectional-translation principle' — so the bidirectional-translation paragraph must keep its two halves + COS-tier-closes-the-loop + structural-HITL-value nuances (riskiest equivalence claim). (3) §8.1/§8.2/§8.3/§28.7/§19.2/§19.6/§19.7/§28/§28.3.1 headings are cited by live substrate or spec — all heading NUMBERS preserved per brief; compression is body-prose-only. Drafting design-rev1.md now.",
       "timestamp": "2026-05-23T20:24:21Z"
+    },
+    {
+      "text": "pass: per-rule equivalence design committed 156ddbf on arc-51/build (Author=PRINCIPAL, seat trailer present). Path: agents/design/arc-51/design-rev1.md. 13 genuine-compression rows + 5 KEEP-FULLER-by-judgment. Est delta ~46-76L REPORTED (op-disc ~39-64L, PLINY ~5-9L, DAEDALUS ~2-3L) — below CATO's ~100-150L upper est because the subsection-heading-preserve constraint forecloses fold-and-delete (forces pointer-shrink) + 5 KEEP-FULLER. spec_refs CONFIRMED 156 PASS/56 FAIL unchanged; resolver matches by heading-text re-scan -\u003e body-prose compression is probe-safe; design touches NO heading + NO SPECIFICATION.md. Riskiest equivalence claims for ARGUS: Row 19-A (thrice-explained relationship -\u003e 1 map + 2 pointers), Rows 19-D/28-A (cross-ref-list trims, conditional on inline-ref reachability), Row 28-C (28.6 closest to compress-vs-cut). Top weak points: W1 (19-A nuance survival), W2 (cross-ref orphan risk in trims), W3 (28.6 compress-vs-cut). residual_questions_for_argus: (1) does section-number-preserve extend to deletable subsection headings? (2) is the 7.6 ariadne--m20 cite NIT in-scope? Returning to PLINY.",
+      "timestamp": "2026-05-23T20:27:46Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "op-disc KEEP-prose tightening (lossless compression of §8/§19/§28, ~100-150L) — CATO Arc-47 follow-up",
   "type": "task",
-  "updated_at": "2026-05-23T20:24:21Z"
+  "updated_at": "2026-05-23T20:27:46Z"
 }
