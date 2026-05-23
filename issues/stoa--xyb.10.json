@@ -83,11 +83,15 @@
     {
       "text": "CATO: design-rev1 + ARGUS verdict absorbed; source MAJOR_PLINY.md (main, 801) + slim core (379) cold-read complete. Beginning independent meta-verify probe runs (spec-xref hard gate, recompose 3-owner, no-collide, lossless ledger walk, lyw fold, modules hygiene, install.sh craft). LOST-CANON spot-check on §6.1 hybrid + C-1 deletions + SPLIT next.",
       "timestamp": "2026-05-23T10:54:25Z"
+    },
+    {
+      "text": "ZENO progress: criteria extracted (11 mechanical checks). Checks 2/3/4/5/6 PASS — 11 modules exist non-empty w/ title first-lines + zero author fields + zero literal MODULE-INLINE in bodies; 11 marker opens=closes=11 (PLINY owned-set, all empty pairs); §6.1 cookbook tables relocated + heading kept live + bw-prime-\u003eop-disc§9 pointer present; spec-cited ###5.10/###6.1/###6.2 real heading lines present; C-2 child stoa--xyb.10.1 carries full §5.4 prose + matching Anchor. Now checking lyw fold (9) + install.sh (7) + spec_refs (8) + scope (10).",
+      "timestamp": "2026-05-23T10:55:04Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "MAJOR_PLINY.md cut (orchestrator role-file debloat, 801 lines) + fold stoa--lyw lean",
   "type": "task",
-  "updated_at": "2026-05-23T10:54:25Z"
+  "updated_at": "2026-05-23T10:55:04Z"
 }
