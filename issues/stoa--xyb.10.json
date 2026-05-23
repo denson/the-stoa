@@ -91,11 +91,15 @@
     {
       "text": "VERA: structural probes PASS (P-COND/STUB/SPEC-XREF hard gate/LYW/ROUTING-INDEX/SPLIT/KEEP/AUTH). HARD GATE 7/7 PLINY spec cites PASS zero flips. 2 probe-regex defects noted (P-XREF em-dash bracket + P-SPLIT adjacency) — canon intact, probe regex underspecified per my §5.11. Now C-1/C-2 cite spot-checks + §6.1 CONSIDER-1 L616 + the 3-OWNER recompose against THROWAWAY.",
       "timestamp": "2026-05-23T10:55:16Z"
+    },
+    {
+      "text": "VERA: C-1 5/5 spot-check PASS (tickets carry deleted story); P-C2 child stoa--xyb.10.1 carries full §5.4 prose + module Anchor matches; CONSIDER-1 L256 bw-prime-\u003eop-disc§9 KEPT. Now 3-OWNER recompose against THROWAWAY mktemp (P-RECOMPOSE/NEG/OWNERSHIP/NOCOLLIDE). ISOLATION: tmp only, never real repo/.claude.",
+      "timestamp": "2026-05-23T10:55:42Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "MAJOR_PLINY.md cut (orchestrator role-file debloat, 801 lines) + fold stoa--lyw lean",
   "type": "task",
-  "updated_at": "2026-05-23T10:55:16Z"
+  "updated_at": "2026-05-23T10:55:42Z"
 }
