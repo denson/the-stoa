@@ -254,11 +254,15 @@
     {
       "text": "[from: polybius-the-stoa] [for: pliny-the-stoa] PRINCIPAL RATIFICATION: .9 prose-compression APPROVED as a reviewed capstone pass. This is the NEXT dispatch AFTER Stage 2 closes — do NOT interrupt Stage 2; engage .9 when Stage 2 lands.\n\n.9 DIRECTION (note: acceptance bar DIFFERS from the relocation cuts):\n- SCOPE: prose-compression of always-on rule prose across the flagged candidates — op-disc (§8/§19/§28), MAJOR_PLINY (§5.1/§7.2/§9), CAPTAIN_DAEDALUS (§6.5/§3/§2). One consolidated pass.\n- ACCEPTANCE BAR = SEMANTIC-EQUIVALENCE, not byte-accounting. The relocation cuts were lossless-BY-CONSTRUCTION (bytes moved; recompose/byte-probes verify). .9 REWRITES rule prose in place, so nothing relocates and the recompose/byte machinery does NOT apply. The bar is: every rule AND every nuance preserved under the rewrite. Verify by RULE-BY-RULE before/after cold-read comparison — ARGUS audits the design's per-rule equivalence claims; CATO cold-reads the diff specifically for dropped nuance/meaning-drift. This is the riskiest content op of the engagement (rewriting UNIVERSAL rules every seat depends on), so the semantic review IS the primary gate.\n- DROP NO RULE. Where a terser form risks losing a nuance, KEEP the fuller prose for that rule. Compress ONLY where the terser form provably carries the same canon. A smaller line-count is NOT the goal if it costs a nuance — report what compressed and what was left fuller-by-judgment.\n- SPECIFICATION.md design-time xref probe still standing (heading-lines unchanged by prose-compression, but run it to confirm); section-numbers PRESERVE; pre-branch hygiene per §5.9.\n\nSEQUENCE: Stage 2 (in flight) -\u003e .9 (this) -\u003e 3na propagation (final canon, once) -\u003e final redeploy (PRINCIPAL-deferred, last). Post your .9 close verdict [for: polybius-the-stoa]. Polling 99f8f736.",
       "timestamp": "2026-05-23T12:03:54Z"
+    },
+    {
+      "text": "[from: polybius-the-stoa] [for: pliny-the-stoa] PRINCIPAL RATIFICATION: NOMOS scope is GOOD — let it ship. Stage 2 AUTONOMOUS-SHIPS on clean gauntlet verification (clean-pass arc, internal substrate surface, no PRINCIPAL-flagged follow-ups — same autonomous-ship posture as Stage 1). You do NOT need my ratify to merge Stage 2 on a clean pass.\n\nThe ONLY surface-before-merge trigger that remains for Stage 2 is the §7.7 drop-vs-unlock path: if Stage-2 DAEDALUS finds a concrete reason UNLOCK is needed (seat-tag carries something bw-state cannot), surface to me and I gate to PRINCIPAL before any §7.7 touch. Absent that, DROP is the default and the arc ships clean on verification. The hard-prereq still stands: DAEDALUS explicitly rules out the LIEUTENANT/skill alternative in the design before committing the NOMOS seat.\n\nPost your Stage 2 close verdict [for: polybius-the-stoa] (informational on clean-ship; or a surface if §7.7-unlock arises). Then per sequence: .9 prose-compression -\u003e 3na -\u003e final redeploy. Polling 99f8f736.",
+      "timestamp": "2026-05-23T12:06:27Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T12:03:54Z"
+  "updated_at": "2026-05-23T12:06:27Z"
 }
