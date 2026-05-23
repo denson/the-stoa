@@ -23,11 +23,15 @@
     {
       "text": "pass: Stage-2 design-rev1 committed e8b2215 to arc-50/build (agents/design/arc-50/design-rev1.md, 383 lines, seat trailer, Author=PRINCIPAL, no leak to main). 3 self-assessed weak points. KEY CALLS: (1) NOMOS=CAPTAIN not LIEUTENANT (size-derail-vs-wrong-spec classification = judgment a skill can't make; cross-check needs independent context window — §4.3). (2) §7.7=DROP, NO unlock needed — judgment-agent bw-state comparison doesn't trigger the mechanical-enforcement hard-lock on subject OR mechanism grounds (§5.3); UNLOCK surfaced + NOT recommended; PLINY can route DROP-no-gate. (3) WEB-VERIFIED v2.1.150: additionalContext BROKEN upstream (#55889, #15174) — both new hooks ride it, built best-effort + backed by WORKING Stop-block/cron/CLAUDE.md channels. Top WPs: best-effort-channel-broken (mitigated by Stop+cron), SessionStart-compact-broken-upstream (ship anyway, forward-compat+harmless), recursion-guard-field-unconfirmed (sentinel fallback). Returning to PLINY; dispatch ARGUS.",
       "timestamp": "2026-05-23T12:14:24Z"
+    },
+    {
+      "text": "ARGUS activated on stoa--xyb.7 (Arc 50 / Stage-2 judgment tier). Design read end-to-end (384 lines, e8b2215). Independently web-verifying the load-bearing broken-upstream-channel finding (#55889, #15174) + reading §7.7 canon + Stage-1 shipped hooks before audit. AUTONOMOUS.",
+      "timestamp": "2026-05-23T12:15:54Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer STAGE 2 (judgment tier): CAPTAIN_NOMOS + PostToolUse-on-Agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T12:14:24Z"
+  "updated_at": "2026-05-23T12:15:54Z"
 }
