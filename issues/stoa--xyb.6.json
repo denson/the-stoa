@@ -50,11 +50,15 @@
     {
       "text": "rev2 audit pass: r2 SPLIT spot-checks CONFIRMED vs live source (§16.7 sources-cluster 1037-1040 = correctly PROVENANCE; §19.7 L1295 intra-line split correct: stoa--86k-\u003eAnchor, §17.5/§18.5 LIVE kept; §17.4 disambiguation parenthetical correctly kept verbatim). r3 arithmetic CONFIRMED (4 SPLIT live / 9 C-1 + 2 C-2 + 4 SPLIT = 15). Source has ZERO literal MODULE-INLINE strings; modules/README.md does NOT doc the marker convention (the brief's self-collision worry does not materialize). err() exits non-zero. Now reasoning the awk state-machine edge cases for r1 + adjudicating residual-3 Check-D scoping.",
       "timestamp": "2026-05-23T07:18:13Z"
+    },
+    {
+      "text": "PASS-WITH-RISKS (rev2 re-confirm): r1-r4 + residual-2 all CLEARED. r1 recompose audited hardest across 6 edge cases (literal-sentinel bodies / regex anchoring / sed interaction / FAIL-LOUD coverage / idempotency / P10 canon-equivalence) - NO vector drops a body THIS arc (source has 0 MODULE-INLINE literals; full-line ^...$ anchoring resists prose false-triggers; 4 err()-checks abort vs ship partial). r2 both flagged calls CORRECT. r3 self-consistent. residual-2 child-ticket gate sound. 2 NEW non-blocking: F-B [SHOULD-FIX] §6.5 Check-D bullet reads global-glob (false-positives on marker-less PLINY) while §7.4 has the correct per-file form - make §6.5 match §7.4; F-A [CONSIDER] unstated module-body-no-close-marker constraint for the forward PLINY-cut recompose reuse. residual-3 RECOMMEND: scope recompose to $DEST_POLYBIUS ONLY this arc (min blast radius on riskiest surface) + defer both-files loop to gauntlet-gated PLINY cut. rev2 is ADA-BUILDABLE; neither new finding drops canon. Verdict saved: agents/verdicts/stoa--xyb.6/ARGUS-2026-05-23T07-23-13Z.md (sha256 round-trip OK). Returning.",
+      "timestamp": "2026-05-23T07:23:25Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "First execution: MAJOR_POLYBIUS.md section-by-section slimming pass (via PLINY gauntlet, lossless-on-canon)",
   "type": "task",
-  "updated_at": "2026-05-23T07:18:13Z"
+  "updated_at": "2026-05-23T07:23:25Z"
 }
