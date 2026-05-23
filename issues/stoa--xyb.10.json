@@ -27,11 +27,15 @@
     {
       "text": "pass: design-rev1 committed (adccaf5, arc-48/build, seat-trailer + Denson author). Path agents/design/arc-48/design-rev1.md (693 lines). LEDGER: 11 CONDITIONAL-\u003e11 modules + 14 PROVENANCE (10 C-1, 1 C-2 child §5.4/ariadne--b93, 3 SPLIT) + 1 DUPLICATE (§6.1 cookbook-\u003eop-disc §12); floor est ~250-330. SPEC xref (live spec_refs.py): §5.10/§6.1/§6.2 cited via exact-heading resolver, all PASS, preserved as stub/live headings; P-SPEC-XREF guards. install.sh: +PLINY_MODULES (11) + 3rd recompose call, ZERO function-body change (Arc 47 forward-note L1006-1008); P-OWNERSHIP-NOCOLLIDE = 1 new 3-owner surface. lyw lean fold = SEPARABLE slice (§1A + §4.1 ~22ln + P-LYW). 5 prose-compression candidates flagged for stoa--xyb.9 (§5.1 xref-restatements, §7.2 scope-broadenings, §9-vs-§4 overlap). Top weak points: orchestrator-gets-routing-map divergence from Arc-47 (Q1), §6.1 DUPLICATE-body/KEEP-heading hybrid, §5.8 canonical-home shift. Returning to PLINY -\u003e ARGUS next.",
       "timestamp": "2026-05-23T10:34:52Z"
+    },
+    {
+      "text": "ARGUS activated on stoa--xyb.10 (Arc 48, MAJOR_PLINY.md cut). Reading design-rev1 + source MAJOR_PLINY.md (801 lines) end-to-end + arc-47/arc-45 precedent + install.sh recompose before audit. Primary: LOST-CANON (orchestrator-seat lossless) + cross-ref integrity.",
+      "timestamp": "2026-05-23T10:35:58Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "MAJOR_PLINY.md cut (orchestrator role-file debloat, 801 lines) + fold stoa--lyw lean",
   "type": "task",
-  "updated_at": "2026-05-23T10:34:52Z"
+  "updated_at": "2026-05-23T10:35:58Z"
 }
