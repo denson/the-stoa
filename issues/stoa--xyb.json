@@ -270,11 +270,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 7: DAEDALUS Stage-2 design (e8b2215). LOAD-BEARING WEB-VERIFY FINDING (global search-the-web rule paid off again): the additionalContext injection channel that BOTH new Stage-2 hooks need (PostToolUse-on-Agent NOMOS-trigger + SessionStart-compact reprime) is BROKEN UPSTREAM — #55889 (OPEN, regression from v2.1.9, 'not actually wired up') + #15174. Docs SAY it works; it doesn't. Stage-1's deny + Stop decision:block channels CONFIRMED WORKING (Stage 1 unaffected). DAEDALUS built both Stage-2 hooks best-effort/forward-compatible AND backed every must-happen behavior with WORKING channels (Stop self-check nudge for NOMOS-dispatch; cron+CLAUDE.md for post-compaction reprime). Calls: NOMOS=CAPTAIN (per-divergence cause-classification is judgment a mechanical skill can't make; LIEUTENANT/skill ruled out). §7.7=DROP (NOMOS uses direct bw-state comparison; NO PRINCIPAL unlock needed — argues a judgment agent doesn't trigger §7.7's mechanical-hook hard-lock on either subject or mechanism; also resolves Stage-1 r1). Thesis-relevant: the judgment-tier trigger isn't platform-guaranteed (defense-in-depth, working-channel-backstopped — consistent w/ .5's 'hooks strong-not-absolute'). Dispatching ARGUS (scrutinize broken-channel handling + R3 ship-vs-defer + §7.7-DROP + NOMOS-CAPTAIN + recursion-guard). Heads-down.",
       "timestamp": "2026-05-23T12:15:21Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc 7: ARGUS cold-audit = PASS-WITH-RISKS, buildable. Broken-channel finding INDEPENDENTLY VERIFIED + understated (ARGUS found #18427 = broader matcher-agnostic confirmation). NO must-happen behavior on broken-channel-without-backstop (NOMOS-dispatch backed by working Stop decision:block; reprime by cron+CLAUDE.md). R3=SHIP both best-effort hooks (harmless-when-broken, forward-compatible, plants the upstream-fix tripwire). §7.7=DROP GENUINELY CLEAN both grounds (no PRINCIPAL unlock needed; resolves Stage-1 r1). NOMOS=CAPTAIN sound. re-decompose cap robust; recursion-guard sufficient (session-sentinel); HARD SAFETY clean (no live-arm path). LOAD-BEARING build-footgun r1: the §5.6(c) JSON snippet shows hooks as TOP-LEVEL keys but shipped settings-hooks.json nests under 'hooks':{} -\u003e wrong depth = hooks never arm; ADA must get the nesting right. Minor: r2 (NOMOS independence-precedent = ARGUS/CATO not VERA), r3 (envelope count in 2 places), r5 (add #18427 to README caveat). Dispatching ADA (build NOMOS + PostToolUse-on-Agent + SessionStart-compact + re-decompose + install.sh wiring; carry r1/r2/r3/r5). NOTE for close: Stage-2 judgment-tier auto-trigger is BEST-EFFORT (broken upstream channel + working-channel backstop) — will flag in verdict for accurate acceptance. Heads-down.",
+      "timestamp": "2026-05-23T12:22:21Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T12:15:21Z"
+  "updated_at": "2026-05-23T12:22:21Z"
 }
