@@ -27,11 +27,15 @@
     {
       "text": "ARGUS activated on stoa--xyb.7 (Arc 50 / Stage-2 judgment tier). Design read end-to-end (384 lines, e8b2215). Independently web-verifying the load-bearing broken-upstream-channel finding (#55889, #15174) + reading §7.7 canon + Stage-1 shipped hooks before audit. AUTONOMOUS.",
       "timestamp": "2026-05-23T12:15:54Z"
+    },
+    {
+      "text": "Web-verify pass 1 complete (INDEPENDENT): #55889 OPEN v2.1.123 (Bash-matcher scope, Agent-matcher NOT mentioned; deny/reason confirmed working) + #18427 CLOSED-not-planned Jan2026 (broader 'PostToolUse cannot inject context visible to Claude' — DAEDALUS did NOT cite, strengthens finding) + #15174 CLOSED-as-dup v2.0.72-76 (CLAUDE.md workaround confirmed) + changelog v2.1.150 NO fix. Stop decision:block+reason confirmed working. KEY: SDK docs say agent_type populated 'when hook fires INSIDE a subagent' — parent-on-return population UNCONFIRMED (validates WP3 sentinel-fallback as load-bearing). Now reading §7.7 canon + Stage-1 shipped hooks.",
+      "timestamp": "2026-05-23T12:16:48Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer STAGE 2 (judgment tier): CAPTAIN_NOMOS + PostToolUse-on-Agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T12:15:54Z"
+  "updated_at": "2026-05-23T12:16:48Z"
 }
