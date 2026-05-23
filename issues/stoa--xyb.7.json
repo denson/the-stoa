@@ -39,11 +39,15 @@
     {
       "text": "PASS-WITH-RISKS: 1 load-bearing risk (r1: settings-hooks.json snippet nesting depth — registrations must nest inside the top-level hooks object or never arm; buildability footgun, not soundness). 4 non-load-bearing (mirrors-VERA prose nit; install.sh L42 second count string; recursion-guard agent_type confirmation; #18427 citation-completeness). AUDIT TARGET VERDICTS: (1) broken-channel finding INDEPENDENTLY VERIFIED CORRECT + understated (found #18427 broader); NO must-happen behavior on broken channel w/o backstop -\u003e NO BLOCKING gap. (2) R3 SHIP both best-effort hooks (harmless+forward-compat+documents-dependency). (3) 7.7 DROP genuinely clean both grounds, DROP-no-gate. (4) NOMOS=CAPTAIN sound. (5) re-decompose cap robust. (6) recursion guard sufficient (sentinel is real guard). (7) HARD SAFETY clean, no live-arm path. (8) buildable. Verdict saved ARGUS-2026-05-23T12-21-14Z.md (sha256 verified). Returning.",
       "timestamp": "2026-05-23T12:21:21Z"
+    },
+    {
+      "text": "ADA activated on stoa--xyb.7 (Arc 50 / Stage-2 judgment tier). AUTONOMOUS. Reading design-rev1 (e8b2215) + ARGUS PASS-WITH-RISKS verdict + Stage-1 shipped hooks + worktree state before first commit. Ground-check preamble next.",
+      "timestamp": "2026-05-23T12:22:57Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer STAGE 2 (judgment tier): CAPTAIN_NOMOS + PostToolUse-on-Agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T12:21:21Z"
+  "updated_at": "2026-05-23T12:22:57Z"
 }
