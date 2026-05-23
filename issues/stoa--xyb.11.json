@@ -119,11 +119,15 @@
     {
       "text": "ADA state-transition: all 4 verifications PASS. (1) bash -n exit 0. (2) captains-ON subproject: DAEDALUS recomposes 770 full band, POLYBIUS/op-disc/PLINY recompose, exit 0. (3) --no-captains subproject: exit 0, DAEDALUS recompose SKIPPED (correctly, not deployed), POLYBIUS/op-disc/PLINY still recompose, NO error/partial, agents/ dir absent (consistent). Pre-fix repro confirmed exit 2 'role file not found CAPTAIN_DAEDALUS'. (4) FAIL-LOUD intact captains-ON: missing probe-grounding.md -\u003e exit 2 'marker has no module source'. Throwaways cleaned, canonical substrate untouched, no main leak. Staging + committing.",
       "timestamp": "2026-05-23T11:57:42Z"
+    },
+    {
+      "text": "pass: Arc 49 c1/d1 fix landed at 8bede7c on arc-49/build. Gated ONLY the DAEDALUS recompose call on [ $WITH_CAPTAINS -eq 1 ] (CAPTAIN-loop idiom); other 3 owners stay ungated (deploy unconditionally); FAIL-LOUD guard untouched. bash -n exit 0. 4/4 verifications PASS: captains-ON DAEDALUS recomposes 770 + 3 others; --no-captains exit 0 no-error no-partial DAEDALUS-skipped; FAIL-LOUD still fires captains-ON exit 2. Pre-fix --no-captains reproduced exit 2. 1 file changed (substrate/install.sh, +9/-1). Author=PRINCIPAL + ADA trailer. Throwaways cleaned, no main leak. PLINY to re-verify --no-captains then merge. Returning.",
+      "timestamp": "2026-05-23T11:57:58Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "CAPTAIN_DAEDALUS.md cut (architect role-file debloat, 633 lines) — LAST relocation cut",
   "type": "task",
-  "updated_at": "2026-05-23T11:57:42Z"
+  "updated_at": "2026-05-23T11:57:58Z"
 }
