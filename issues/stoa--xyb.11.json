@@ -103,11 +103,15 @@
     {
       "text": "pass: CAPTAIN_DAEDALUS.md cut = PASS. LOSSLESS-COMPLETENESS (the bar, separate from line count) = PASS: all 384 relocated §6.x discipline-body lines homed in 7-module union (ZERO lost); all KEEP sections verbatim in slim core (only diff = 3 intentional §6.2 repoint lines); move-with-verbatim narrative anchors present verbatim (not fake-Anchor'd). LINE COUNT 229 (reported, not the bar; 200-260 partial-band, no KEEP rule cut). r1 double-prime BYTE-EXACT (27 27, zero unicode-prime) in slim L176 + module L142 + recomposed L339. TOP RISK CLEARED: live 4-owner recompose -\u003e recomposed CAPTAIN_DAEDALUS_myproj=770 FULL band NOT slim 229 (DAEDALUS-path NOT no-op'd); all 7 bodies present; POLYBIUS5/opdisc12/PLINY11 not regressed. P-SPEC-XREF 0 DAEDALUS refs + 156/56 held. P-RECOMPOSE-NEG exit2 FAIL-LOUD no partial. P-OWNERSHIP-NOCOLLIDE 35/35. r3 5sr-not-utn; r4 FOUR/35 comments. bash -n exit0. 2 non-blocking methodology notes (index-row 'DUPLICATE' label vs ledger 'SPLIT' for the §6.2 repoint = cosmetic taxonomy; WITH_CAPTAINS gate = CATO's lane). Verdict: agents/verdicts/stoa--xyb.11/VERA-2026-05-23T11-53-26Z.md (sha256 round-trip verified). Throwaway targets cleaned; no main mutation. Returning.",
       "timestamp": "2026-05-23T11:53:42Z"
+    },
+    {
+      "text": "revise: ONE [BLOCKING] (c1) — install.sh §3b DAEDALUS recompose call gated on TARGET=subproject but NOT WITH_CAPTAINS; `--target subproject --no-captains` regresses from clean (main) to exit-2-abort+partial-deploy (after 854f89d). EMPIRICALLY reproduced (§6.8) + independently confirmed by ZENO (who routed the correctness call to CATO's lane). Fix = 1-line guard, belongs in immediate revise. EVERYTHING ELSE PASS: 229-floor HONEST (no KEEP rule cut, gap = richer §6.0 index + full §7 + §6.5 heartbeat, prose-compression candidates correctly DEFERRED to .9); 7 modules byte-VERBATIM (independent diff vs main = zero content delta; double-prime byte-exact; Check E clean; zero author fields); §6.0 = relocation-INDEX not routing-map (correct for non-orchestrator CAPTAIN); scope=9 named files; Author=PRINCIPAL + ADA trailer; r3 (stoa--5sr) + r4 (FOUR/35) landed; project-tier deploy = slim 229 inert markers, happy-path subproject = 770 recomposed. VERA meta-verify: coverage STRONG on LOST-CANON axis but happy-path-only recompose = the c1 gap (record as coverage-set gap not VERA error). Verdict saved: agents/verdicts/stoa--xyb.11/CATO-2026-05-23T11-54-12Z.md (sha256-verified). Returning.",
+      "timestamp": "2026-05-23T11:54:21Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "CAPTAIN_DAEDALUS.md cut (architect role-file debloat, 633 lines) — LAST relocation cut",
   "type": "task",
-  "updated_at": "2026-05-23T11:53:42Z"
+  "updated_at": "2026-05-23T11:54:21Z"
 }
