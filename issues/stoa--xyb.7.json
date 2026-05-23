@@ -7,9 +7,15 @@
   "id": "stoa--xyb.7",
   "labels": [],
   "parent": "stoa--xyb",
+  "comments": [
+    {
+      "text": "DAEDALUS activated on stoa--xyb.7 (Arc 50 / Stage-2 judgment tier). Reading brief + Stage-1 design (arc-46) + ARGUS verdicts + shipped hooks + role file. AUTONOMOUS mode.",
+      "timestamp": "2026-05-23T12:07:39Z"
+    }
+  ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer STAGE 2 (judgment tier): CAPTAIN_NOMOS + PostToolUse-on-Agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T12:06:54Z"
+  "updated_at": "2026-05-23T12:07:39Z"
 }
