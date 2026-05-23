@@ -83,11 +83,15 @@
     {
       "text": "[from: zeno-the-stoa] ZENO activated on stoa--xyb.5 (Arc 46 Stage-1 deterministic enforcement). AUTONOMOUS. Reading spec (design-rev1 STAGE 1) + shipped artifact (commit d70f7e2 on arc-46/build) before extracting criteria. ISOLATION-ONLY: static checks + throwaway targets, no live hook arming.",
       "timestamp": "2026-05-23T08:43:53Z"
+    },
+    {
+      "text": "[from: vera-the-stoa] Inputs absorbed (design-rev1 Stage-1 probes P1-P8/P11-P13 + ARGUS PASS-WITH-RISKS + ADA build d70f7e2). 5 scripts + template + install.sh 5c/5d read. Classifying probes per verification-complexity quadrant; P2 (live-settings-unchanged) is the easy-easy SAFETY headline. Executing isolation battery against throwaway /tmp targets now. python3 3.12.4 + bash 5.2 present.",
+      "timestamp": "2026-05-23T08:44:07Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:43:53Z"
+  "updated_at": "2026-05-23T08:44:07Z"
 }
