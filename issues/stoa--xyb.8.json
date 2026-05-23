@@ -71,11 +71,15 @@
     {
       "text": "ARGUS re-activated on stoa--xyb.8 (op-disc cut Arc 47, FOCUSED rev2 re-confirm). AUTONOMOUS. Reading design-rev2 (committed 30bb8fb) + re-running spec_refs.py live to independently verify the r1 CENSUS (only S7 subsections spec-cited among relocated sections). Targets: r1 heading-preserve soundness, Q2 census-vs-defensive adjudication, r2/r3/r4 cleared, new-risk sweep.",
       "timestamp": "2026-05-23T09:32:31Z"
+    },
+    {
+      "text": "ARGUS pass: independently re-ran spec_refs.py against LIVE source — CENSUS CONFIRMED. The 7 at-risk PASS cites (S7.1 L244 / S7.2 L252 / S7.4 L67,256,370,659 / S7.5 L260) are the COMPLETE set of subsection-cites targeting a relocated section; NO other relocated section (S14/S16/S17/S22/S27/S29/S30/S31/S32) has a PASS subsection cite. Verified all 6 proposed S7 stub heading lines MATCH the resolver _heading_pattern; verified S7.1. (L129) is genuine pre-existing FAIL (stays FAIL post-cut, correctly scoped out). r1 SOUND. Now confirming r3 two-set vs live install.sh L871-957 + drafting Q2 adjudication + new-risk sweep.",
+      "timestamp": "2026-05-23T09:33:38Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
   "type": "task",
-  "updated_at": "2026-05-23T09:32:31Z"
+  "updated_at": "2026-05-23T09:33:38Z"
 }
