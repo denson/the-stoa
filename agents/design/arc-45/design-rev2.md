@@ -348,11 +348,16 @@ Run on a THROWAWAY subproject deploy (mirroring Arc-1's throwaway-target verific
 ```bash
 # 0. Synthetic throwaway parent + run install.sh in subproject mode against it:
 TMP=$(mktemp -d); mkdir -p "$TMP/myproj"
-bash substrate/install.sh --target=subproject --parent="$TMP" --subproject=myproj --yes
+bash substrate/install.sh --target subproject --parent-dir "$TMP" --subproject myproj
 RECOMPOSED="$TMP/myproj/.claude/MAJOR_POLYBIUS_myproj.md"
 
-# (a) ZERO unexpanded markers remain in the recomposed subproject role file:
-grep -cE '<!-- /?MODULE-INLINE:' "$RECOMPOSED"    # expect 0
+# (a) The 5 PAIRED markers SURVIVE (kept as idempotency anchors per §6.5 steps 2-3), each
+#     now enclosing a NON-EMPTY module body. Markers are NOT stripped — they bracket the
+#     re-inlined bodies so the file stays idempotently re-recomposable:
+grep -cE '^<!-- MODULE-INLINE:'  "$RECOMPOSED"    # expect 5 (one open per module)
+grep -cE '^<!-- /MODULE-INLINE:' "$RECOMPOSED"    # expect 5 (one close per module)
+# assert NO empty marker pair (an open immediately followed by its close = body DROPPED):
+grep -Pzo '(?m)^<!-- MODULE-INLINE:[^\n]*-->\n<!-- /MODULE-INLINE:' "$RECOMPOSED" && echo "FAIL empty pair" || echo "OK no empty pairs"
 
 # (b) EVERY module body is present (assert each module's first-heading line appears in the recomposed file):
 for m in onboarding sub-project-spawning pair-programmer-authoring pair-programming-prototyping substrate-update-check; do
@@ -364,7 +369,7 @@ done
 #     line count is in the FULL band (the 5 module bodies are re-inlined), NOT the slim band:
 wc -l "$RECOMPOSED"     # expect ~1200+ (full content re-inlined), NOT 300-350 (that would mean recompose silently no-op'd)
 ```
-**Pass:** (a) zero `MODULE-INLINE` markers survive in the recomposed file (every paired sentinel was expanded); (b) all 5 module first-heading lines appear in the recomposed file; (c) the recomposed file is in the FULL line band (~1200+), proving the bodies re-inlined rather than the markers being silently stripped to nothing. **Falsifies if:** any unexpanded marker remains (recompose skipped a marker → LOST CANON at subproject tier), OR any module's body is absent (a marker referenced a body that did not inline), OR the recomposed file is still in the slim band (recompose silently no-op'd — the catastrophic failure r1 names). **Also assert FAIL-LOUD:** a deliberately-broken run (rename one module source, or delete one stub marker from the slim core, then re-run install.sh subproject mode) MUST exit non-zero with a clear error — NOT deploy a partial file (P10-negative; see §6.5).
+**Pass:** (a) all 5 paired `MODULE-INLINE` markers SURVIVE (5 open + 5 close — kept as idempotency anchors per §6.5 steps 2-3, NOT stripped) and NO marker pair is empty (each open is followed by a non-empty body before its close — an empty pair would mean the body was dropped); (b) all 5 module first-heading lines appear in the recomposed file; (c) the recomposed file is in the FULL line band (~1200+), proving the bodies re-inlined rather than the markers enclosing nothing. **Falsifies if:** any marker pair is empty (open immediately followed by close → body NOT inlined → LOST CANON at subproject tier), OR fewer than 5 paired markers survive (a marker was wrongly stripped, breaking idempotent re-recompose), OR any module's body is absent (a marker referenced a body that did not inline), OR the recomposed file is still in the slim band (recompose silently no-op'd — the catastrophic failure r1 names). **Also assert FAIL-LOUD:** a deliberately-broken run (rename one module source, or delete one stub marker from the slim core, then re-run install.sh subproject mode) MUST exit non-zero with a clear error — NOT deploy a partial file (P10-negative; see §6.5).
 
 ### P11 — SPLIT LIVE cross-refs preserved inline (ARGUS r2 — the per-line-split proof; NEW)
 

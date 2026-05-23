@@ -131,7 +131,7 @@ This is the relay-time specialization of verify-then-execute (§4.3) and the rel
 
 Probe category FIRST — relaying an option-set without probing category defaults to inheriting PLINY's category-assumption, which may be wrong.
 
-Anchor: `stoa--ezj` — 2026-05-13 N=1 (POLYBIUS offered four "human watches a presentation" options; the actual answer was a fifth option in a different category — "user actively drives an agent"; the 4-option-to-5th-option anchor is in a stoa--ezj comment). Recover via `bw show stoa--ezj`. Cross-refs: `MAJOR_PLINY.md` §7.2 (queuing-time analog); `operating-disciplines.md` §19 (confabulation — PRINCIPAL-intent extrapolation is a subtype); four-discipline-cluster siblings `stoa--ioy` / `stoa--nvl` / `stoa--53u`.
+Anchor: `stoa--ezj` — 2026-05-13 N=1 (the 4-option-to-5th-option category-miss empirical). Recover via `bw show stoa--ezj`. Cross-refs: `MAJOR_PLINY.md` §7.2 (queuing-time analog); `operating-disciplines.md` §19 (confabulation — PRINCIPAL-intent extrapolation is a subtype); four-discipline-cluster siblings `stoa--ioy` / `stoa--nvl` / `stoa--53u`.
 
 ### 4.4 One job per agent (`u--7yg.17`)
 
