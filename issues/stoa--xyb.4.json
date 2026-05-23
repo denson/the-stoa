@@ -37,11 +37,15 @@
     {
       "text": "pass: design-rev2 complete (agents/design/arc-44/design-rev2.md, committed 34d8f41 w/ seat trailer). All 6 ARGUS findings resolved: r1 3-bucket lossless homes (CONDITIONAL-\u003emodule / PROVENANCE-\u003ebw-cite via bw attach + Anchor: cite-back / DUPLICATE-\u003epointer to existing keep-target); r2 relocation-index table expressing all 3 classes sibling to routing map; r3 sec33 inserts L2087-L2089 before un-numbered trailing matter (P6 placement assertion); r4 glob deploy + completeness probe; r5 subproject tracked Arc-2-gating open question (web-confirmed contested); r6 sec33 \u003c=30-line hard cap. 3 self-assessed weak points (glob stray-file surface; PROVENANCE C-1/C-2 classification judgment; two-tables core cost). Returning to PLINY for ARGUS re-dispatch.",
       "timestamp": "2026-05-23T06:18:09Z"
+    },
+    {
+      "text": "ARGUS re-audit state: rev2 ground-truth verified against LIVE files. r3 placement CONFIRMED (sec32 ends L2087 '---', ## Agent-regime inverses L2089 un-numbered — sec33 inserts between, NOT EOF). DUPLICATE triplication CONFIRMED (op-disc sec12 L727 / POLYBIUS sec7.3 L423 / PLINY sec6.1 L586, all 'Working with beadwork command syntax'). sec16.8 bw attach primitive REAL (L1048/1052). C-1 already-in-bw CONFIRMED (sec16.6/16.7 cite stoa--dxw/p5g/32b.3 + handoff/retro). Glob idiom CONFIRMED (install.sh nullglob L942/958/969/984). Now finalizing residual (a)/(b)/(c) calls + new-risk scan.",
+      "timestamp": "2026-05-23T06:19:40Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T06:18:09Z"
+  "updated_at": "2026-05-23T06:19:40Z"
 }
