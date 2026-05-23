@@ -15,11 +15,15 @@
     {
       "text": "Brief absorbed; restatement-gate drafted. Read: Stage-1 design (arc-46) full Stage-2 sections + ARGUS Stage-1 verdict (r1/r2 = §7.7 canon collision LOAD-BEARING) + §7.7 module body (POLYBIUS-only scope + dual hard-lock: tag-extension AND mechanical-enforcement) + op-disc §34 + shipped hooks (_hooklib, stop-self-check already DROPS seat-tag clause + forward-refs NOMOS gracefully) + install.sh CAPTAIN_NAMES/enable-hooks wiring + VERA (audit-only sibling pattern). Web-verifying PostToolUse-on-Agent + SessionStart(compact) live surface now.",
       "timestamp": "2026-05-23T12:08:45Z"
+    },
+    {
+      "text": "WEB-VERIFIED (load-bearing finding): additionalContext injection is BROKEN across multiple live versions — #15174 SessionStart(compact) v2.0.72-76 (closed-as-dup, NOT injected); #19432 PreToolUse; #55889 PreToolUse+PostToolUse Bash-matcher OPEN+stale v2.1.123 (regression from v2.1.9 'not actually wired up'); NO changelog fix through v2.1.150 (2026-05-23). BUT permissionDecision:deny + Stop decision:block+reason CONFIRMED WORKING (#55889 reporter explicitly). PostToolUse-on-Agent-additionalContext IS the doc-blessed parent-inject path (SubagentStop can't) but rides the broken channel. DESIGN CONSEQUENCE: Stage 2 must NOT depend on additionalContext reaching the model — make it best-effort + back it with the WORKING Stop channel (already carries 'dispatch NOMOS'). Drafting design-rev1 §1-§3 now.",
+      "timestamp": "2026-05-23T12:10:04Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer STAGE 2 (judgment tier): CAPTAIN_NOMOS + PostToolUse-on-Agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T12:08:45Z"
+  "updated_at": "2026-05-23T12:10:04Z"
 }
