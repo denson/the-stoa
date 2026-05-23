@@ -83,11 +83,15 @@
     {
       "text": "ARGUS rev2 re-confirm VERDICT saved: agents/verdicts/stoa--xyb.8/ARGUS-2026-05-23T09-38-47Z.md (sha256 d66b11683b17). verdict=PASS-WITH-RISKS. r1/r2/r3/r4 ALL CLEARED (each independently verified live: r1 census re-run + 6 S7 heading shapes pattern-matched; r2 all 4 verifier seats cite op-disc S15 direct confirmed; r3 vs live install.sh L871-957; r4 lossless). Q2: CONCUR census-driven (not blanket). 1 NEW risk r5 [load_bearing:false, easy-easy]: polling-cron-prompt-template.md L263 dangles at relocated S7.6 (no stub heading) - one-line re-point in Step-5 sweep. rev2 is ADA-BUILDABLE. No new LOST-CANON/mechanical-xref/always-on-drop vector. Returning.",
       "timestamp": "2026-05-23T09:38:55Z"
+    },
+    {
+      "text": "ADA activated on stoa--xyb.8 (op-disc cut Arc 47). AUTONOMOUS. Read design-rev2 (committed 30bb8fb) p1 + ARGUS rev2-reconfirm verdict (PASS-WITH-RISKS, r1-r4 CLEARED, r5 SHOULD-FIX non-blocking carry). Continuing to read ledger SS3-SS7 (719 lines) before ground-checking live op-disc + first write. Worktree arc-47-build confirmed on branch arc-47/build.",
+      "timestamp": "2026-05-23T09:40:12Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
   "type": "task",
-  "updated_at": "2026-05-23T09:38:55Z"
+  "updated_at": "2026-05-23T09:40:12Z"
 }
