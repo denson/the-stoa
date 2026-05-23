@@ -11,11 +11,15 @@
     {
       "text": "DAEDALUS activated on stoa--xyb.7 (Arc 50 / Stage-2 judgment tier). Reading brief + Stage-1 design (arc-46) + ARGUS verdicts + shipped hooks + role file. AUTONOMOUS mode.",
       "timestamp": "2026-05-23T12:07:39Z"
+    },
+    {
+      "text": "Brief absorbed; restatement-gate drafted. Read: Stage-1 design (arc-46) full Stage-2 sections + ARGUS Stage-1 verdict (r1/r2 = §7.7 canon collision LOAD-BEARING) + §7.7 module body (POLYBIUS-only scope + dual hard-lock: tag-extension AND mechanical-enforcement) + op-disc §34 + shipped hooks (_hooklib, stop-self-check already DROPS seat-tag clause + forward-refs NOMOS gracefully) + install.sh CAPTAIN_NAMES/enable-hooks wiring + VERA (audit-only sibling pattern). Web-verifying PostToolUse-on-Agent + SessionStart(compact) live surface now.",
+      "timestamp": "2026-05-23T12:08:45Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer STAGE 2 (judgment tier): CAPTAIN_NOMOS + PostToolUse-on-Agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T12:07:39Z"
+  "updated_at": "2026-05-23T12:08:45Z"
 }
