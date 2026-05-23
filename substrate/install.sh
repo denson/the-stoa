@@ -1059,7 +1059,15 @@ if [ "$TARGET" = "subproject" ]; then
   recompose_module_inline "$DEST_POLYBIUS" "$POLYBIUS_MODULES"
   recompose_module_inline "$DEST_OPERATING_DISCIPLINES" "$OPDISC_MODULES"
   recompose_module_inline "$DEST_PLINY" "$PLINY_MODULES"
-  recompose_module_inline "$DEST_DAEDALUS" "$DAEDALUS_MODULES"
+  # FOURTH owner gated on WITH_CAPTAINS: CAPTAIN_DAEDALUS deploys ONLY inside the
+  # WITH_CAPTAINS-gated loop above, so under --no-captains its $DEST_DAEDALUS file
+  # was never written. Recomposing it then would fire recompose_module_inline's
+  # `[ -f "$_role_file" ] || err` (exit 2 + partial deploy) — a flag-interaction
+  # regression (CATO c1 / ZENO d1). The other three owners (POLYBIUS/op-disc/PLINY)
+  # deploy unconditionally, so their calls stay ungated. Match the CAPTAIN-loop idiom.
+  if [ "$WITH_CAPTAINS" -eq 1 ]; then
+    recompose_module_inline "$DEST_DAEDALUS" "$DAEDALUS_MODULES"
+  fi
 fi
 
 # 4. Deploy templates/ runtime tooling (default on; --no-templates skips).
