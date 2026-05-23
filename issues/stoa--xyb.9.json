@@ -47,11 +47,15 @@
     {
       "text": "State: Row 19-A adjudicated — 5 nuances survive; verification-actions stay/IMPROVE inline (BEFORE §19.6.2 lacked git-rev-parse-HEAD inline; AFTER adds it). ONE build-obligation surfaced: Row 19-D drops the §19.6.3 bullet@766 carrying 'neither subsumes'+'broaden-from-§19.2-pattern-2'; those MUST land in the §19.4 consolidated map or they orphan -\u003e needs an explicit VERA token-probe. Row 19-D reachability otherwise CONFIRMED (§6.7.1@768/773/816, §5.10@760 survive 19-A pointers; §6.2/POLYBIUS-16 unique, kept). Now auditing residual rows + §7.6 NIT (Q2).",
       "timestamp": "2026-05-23T20:30:28Z"
+    },
+    {
+      "text": "State: all 13 rows + 5 KEEP-FULLER adjudicated. K1 byte-alignment CONFIRMED empirically (Monitor line byte-identical across 12 CAPTAIN files incl ARGUS's own) -\u003e keep-fuller correct. Row 19-B minor: the 2026-04-21 verbatim string @724 is NOT byte-recoverable from §19.2 (incident narrated, exact --amend string unique to 724) -\u003e non-blocking precision note, rule survives. Q1: HOLD safe floor (relax = heading-topology change needing full cross-substrate inbound-ref audit for ~10-15L; asymmetric risk). Q2: §7.6 ariadne--m20 OUT (outside §8/§19/§28 targets; different defect class). Drafting verdict -\u003e save to worktree path.",
+      "timestamp": "2026-05-23T20:31:21Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "op-disc KEEP-prose tightening (lossless compression of §8/§19/§28, ~100-150L) — CATO Arc-47 follow-up",
   "type": "task",
-  "updated_at": "2026-05-23T20:30:28Z"
+  "updated_at": "2026-05-23T20:31:21Z"
 }
