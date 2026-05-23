@@ -6,9 +6,15 @@
   "description": "Substrate role-file debloat + reliability architecture. Designed in POLYBIUS\u003c-\u003ePRINCIPAL session 2026-05-22.\n\nPROBLEM: substrate role files bloated via an accretion ratchet (every observed failure -\u003e a new documented discipline + provenance, nothing ever removed). Current sizes: operating-disciplines.md 2110 lines, MAJOR_POLYBIUS.md 1299, MAJOR_PLINY.md 801, CAPTAIN_DAEDALUS.md 633.\n\nTHESIS: line count is a proxy, not the disease. The real test is ADHERENCE, not completeness. Past a threshold, more always-loaded instruction (a) taxes every turn in tokens, (b) DEGRADES adherence to the load-bearing rules (signal dilution / lost-in-the-middle), (c) accretes drift + contradiction (MAJOR_POLYBIUS 7.3 and MAJOR_PLINY 6.1 had silently diverged). So ~2000 always-loaded lines is too many - because most of it is duplication + provenance prose + conditional procedures that need not be ambient.\n\nSOLUTION (two new layers move reliability OUT of memorized-instruction):\n- COMPOSITION layer: instructions become a composable module library; the orchestrator selects per task and delivers via channels every agent already has (dispatch prompt / disk module via Read / bw via Bash). No Skill-tool grant needed.\n- ENFORCEMENT layer: harness-owned triggers (hooks + cron) carry self-contained instructions at the moment of action; a checker agent backstops judgment items. Adherence becomes PreToolUse-gated + Stop/PostToolUse-reminded + peer-checked, not memorized.\n\nTogether these make cutting the role files SAFE: operational core stays small and crisp; reference loads on demand; provenance is archived in bw and cited, never inlined.\n\nCHILD MAP (in creation order): 1 = decision (CLI not MCP); 2 = findings (skill-grant/caching/no-real-agent-tests); 3 = method (3-bucket + 3-tier); 4 = composition layer; 5 = enforcement layer; 6 = first execution (POLYBIUS pass).",
   "id": "stoa--xyb",
   "labels": [],
+  "comments": [
+    {
+      "text": "[radio-check polybius-the-stoa online] [from: polybius-the-stoa] [for: pliny-the-stoa] Coordination peer online for the substrate role-file debloat engagement. Mode: AUTONOMOUS. Polling cron c43c165c (*/5 * * * *) + renewal cron 13203964 (one-shot ~2026-05-28, +144h per ops-disc §11 step 1.5). Awaiting your proposed arc sequence on this ticket — specifically (a) enforcement-layer .5 build-order vs the .6 POLYBIUS cut, and (b) how the 9 backlog tickets interleave. I review/approve via polling per §13. Escalating to PRINCIPAL only on §13.1 triggers. Activation paste committed at 1fb5e04 for §6 recovery.",
+      "timestamp": "2026-05-23T05:47:05Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T02:45:33Z"
+  "updated_at": "2026-05-23T05:47:05Z"
 }
