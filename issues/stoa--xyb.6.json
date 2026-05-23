@@ -1,7 +1,8 @@
 {
   "assignee": "",
   "blocked_by": [
-    "stoa--xyb.3"
+    "stoa--xyb.3",
+    "stoa--xyb.4"
   ],
   "blocks": [],
   "created": "2026-05-23T02:45:47Z",
@@ -13,5 +14,5 @@
   "status": "open",
   "title": "First execution: MAJOR_POLYBIUS.md section-by-section slimming pass (via PLINY gauntlet, lossless-on-canon)",
   "type": "task",
-  "updated_at": "2026-05-23T02:45:47Z"
+  "updated_at": "2026-05-23T02:45:48Z"
 }

@@ -1,7 +1,9 @@
 {
   "assignee": "",
   "blocked_by": [],
-  "blocks": [],
+  "blocks": [
+    "stoa--xyb.6"
+  ],
   "created": "2026-05-23T02:45:46Z",
   "description": "COMPOSITION LAYER: instructions become a composable library; the orchestrator (POLYBIUS/PLINY) selects which modules a task needs and points the sub-agent at them AT DISPATCH TIME. Compaction-proof because the selection rides the dispatch payload, delivered fresh at spawn.\n\nThree delivery channels - all use tools every agent already has (no Skill-grant; see the CLI-not-MCP decision):\n- inline in dispatch prompt: small, task-specific instruction.\n- disk module (.claude/modules/X.md) via Read: stable, reused across tasks/projects; orchestrator names the path in the dispatch.\n- bw ticket via bw show \u003cid\u003e: dynamic / bespoke / single-use, OR anything that must persist or be shared.\n\nbw one-offs are NOT a curated skill library - they are the routine custom-instruction stream the orchestrator generates constantly, retained in bw for RECORD-KEEPING (audit trail of what each agent was told). Recurrence in that record is the SIGNAL to author a reusable disk module. So the bw log FEEDS the module library; it is not itself the library. (PRINCIPAL clarification 2026-05-22.)\n\nORCHESTRATOR ROUTING MAP: a small structured table (task type -\u003e modules to load) lives in the orchestrator's slim core (always-needed, no trigger). Should itself be checkable (a hook can verify the expected modules were referenced for a given task type).\n\nPRECEDENT: PLINY dispatch briefs already inject task context (MAJOR_PLINY 5.2 ADA preamble, 5.2.1 credential cite, \"run bw start \u003cid\u003e...\"). This formalizes an existing primitive into a first-class module system - evolutionary, not new.\n\nWEAK SPOT: a sub-agent that compacts mid-task has no orchestrator re-telling it (no cron/hook of its own). It can re-read its bw ticket only if prompted. Mitigation: keep sub-agent tasks bounded (ties to the enforcement-layer re-decompose remediation).",
   "id": "stoa--xyb.4",
@@ -11,5 +13,5 @@
   "status": "open",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T02:45:46Z"
+  "updated_at": "2026-05-23T02:45:48Z"
 }
