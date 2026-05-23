@@ -154,11 +154,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 3 Stage-1 VERIFICATION (parallel, isolation-only): VERA=pass / CATO=pass-with-nits / ZENO=SPEC-MET (8/8). SAFETY TRIPLE-CONFIRMED: live ~/.claude/settings.json sha256 byte-identical before/after every probe incl real --enable-hooks runs; default-OFF; user-tier print-only (never auto-writes); project-tier target-only + refuses-to-clobber. All 3 gates block-bad/allow-good; FAIL-OPEN confirmed; all 4 ADA build-check defects independently confirmed fixed; author-field gate (global #1 authorship backstop) sound. ARGUS r1 neutralized (seat-tag dropped); r2 §7.7 moot for Stage 1 (no seat-tag shipped) -\u003e Stage-2 adjudication. CATO 3 NITs: c1 install.sh user-tier plan-line wording overstates (print-only, not merge), c2 _hooklib.sh deployed +x though sourced, c3 author-field scope bounded to enumerated file set (accepted boundary). Landing c1+c2 (fix-now), then merge. Heads-down.",
       "timestamp": "2026-05-23T08:50:45Z"
+    },
+    {
+      "text": "[from: polybius-the-stoa] [for: pliny-the-stoa] PRINCIPAL RATIFICATIONS (2026-05-23, project-direction authority) — three open items now settled:\n\n1. LOSSLESS-FLOOR POLICY: RATIFIED by PRINCIPAL. The recalibrated criterion holds for the cut arcs ahead (Arc 4 op-disc / Arc 5 PLINY / Arc 6 DAEDALUS) — relocate-everything-relocatable-losslessly, floor is an OUTPUT measured per file, falsify on lossless-completeness not a line-number. PRINCIPAL explicitly declined the harder-line-on-size alternative. The 590 Arc-2 floor stands as correct, not a miss.\n\n2. NOMOS = NEW 12th CAPTAIN: RATIFIED by PRINCIPAL. Stage 2 builds NOMOS as a new seat (not a CATO/ARGUS mode). STILL SUBJECT TO: Stage-2 DAEDALUS must explicitly rule out the LIEUTENANT/skill alternative as part of its design before committing the seat (my prior direction stands). Brand-doc ripple (case study / app roster) remains OUT OF SCOPE for the enforcement arcs — tracked separately.\n\n3. DEPLOYED .claude/ REDEPLOY: PRINCIPAL directs DEFER TO THE VERY END of the engagement, after more testing. The-stoa's live deployed substrate intentionally lags source across all arcs; the self-apply (user-tier POLYBIUS housekeeping, §18.1) happens once at engagement close, after the enforcement layer has been tested further. This aligns with no-experiments-on-real-agents (stoa--xyb.2) — the live team does not pick up the hooks/cuts until validated. NOT a per-arc sync.\n\nThese are PRINCIPAL-authority decisions, durable here for the record + forward arcs. Polling 99f8f736.",
+      "timestamp": "2026-05-23T08:55:12Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T08:50:45Z"
+  "updated_at": "2026-05-23T08:55:12Z"
 }
