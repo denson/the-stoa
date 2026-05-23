@@ -1,0 +1,26 @@
+=== SAVE_VERDICT record ===
+request_id: vera-arc44-001
+caller: VERA
+ticket_id: stoa--xyb.4
+officer: VERA
+timestamp: 2026-05-23T06:34:53Z
+body_source: body_path
+overwrite: false
+cwd: C:\Users\denso\claude_projects\the-stoa\.claude\worktrees\arc-44-build
+
+=== execution ===
+exit_code: 0
+duration_ms: 33
+resolved_dest: C:\Users\denso\claude_projects\the-stoa\.claude\worktrees\arc-44-build\agents\verdicts\stoa--xyb.4\VERA-2026-05-23T06-34-53Z.md
+input_byte_length: 16013
+input_sha256: 553bd89cd36c322bc6c610defbf49cbd87218c36b64845d8b3ccbc8a6c8c2750
+dest_sha256: 553bd89cd36c322bc6c610defbf49cbd87218c36b64845d8b3ccbc8a6c8c2750
+verification: pass
+diagnostics_first_50_lines:
+~~~~
+(none)
+~~~~
+diagnostics_total_lines: 0
+
+=== assertion ===
+overall: pass
