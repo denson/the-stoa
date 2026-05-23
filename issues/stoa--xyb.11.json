@@ -11,11 +11,15 @@
     {
       "text": "DAEDALUS activated on stoa--xyb.11 (CAPTAIN_DAEDALUS.md cut, 633 lines, LAST relocation cut). Reading brief + role file + precedents (arc-47 op-disc index-only, arc-48 PLINY 3-owner, modules/README §4.1, install.sh recompose).",
       "timestamp": "2026-05-23T11:12:07Z"
+    },
+    {
+      "text": "DAEDALUS state-transition: precedents absorbed (arc-47 op-disc index-only + arc-48 PLINY 3-owner partition w/ P-OWNERSHIP-NOCOLLIDE). KEY FINDINGS: (1) index-vs-routing-map -\u003e DAEDALUS is a CAPTAIN (architect, dispatches nothing) -\u003e INDEX-ONLY per modules/README §4.1+§1 (routing-map is orchestrator-only); (2) ZERO active-substrate-file cites CAPTAIN_DAEDALUS.md §N EXCEPT §6.7/§6.8/§6.9.3''/§6.11 (all in §6 CONDITIONAL bucket, sibling-discipline cross-refs from ADA/VERA/op-disc); (3) validate-spec resolver matches ZERO DAEDALUS refs in SPECIFICATION.md (L553 backtick-form does not match form-a regex) -\u003e P-SPEC-XREF at-risk set EMPTY; (4) DAEDALUS deploys via CAPTAIN_NAMES loop (install.sh L1021), suffixed at subproject as CAPTAIN_DAEDALUS_\u003csub\u003e.md -- NO standalone DEST_DAEDALUS var, so 4th recompose call needs path constructed in-loop. Drafting design-rev1 + relocation ledger.",
+      "timestamp": "2026-05-23T11:13:58Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "CAPTAIN_DAEDALUS.md cut (architect role-file debloat, 633 lines) — LAST relocation cut",
   "type": "task",
-  "updated_at": "2026-05-23T11:12:07Z"
+  "updated_at": "2026-05-23T11:13:58Z"
 }
