@@ -115,11 +115,15 @@
     {
       "text": "ADA state-transition: root-cause confirmed. POLYBIUS(L817-852)/PLINY/op-disc(L866-872 cp) deploy UNCONDITIONALLY (gated only on SUFFIX_MAJORS/DRY_RUN, never WITH_CAPTAINS) -\u003e their 3 recompose calls correctly stay ungated. DAEDALUS deploys ONLY inside the WITH_CAPTAINS loop (L1015 idiom: [ $WITH_CAPTAINS -eq 1 ]). Applying the 1-line gate on the DAEDALUS recompose call ONLY, matching that exact idiom. recompose_module_inline FAIL-LOUD untouched.",
       "timestamp": "2026-05-23T11:56:07Z"
+    },
+    {
+      "text": "ADA state-transition: all 4 verifications PASS. (1) bash -n exit 0. (2) captains-ON subproject: DAEDALUS recomposes 770 full band, POLYBIUS/op-disc/PLINY recompose, exit 0. (3) --no-captains subproject: exit 0, DAEDALUS recompose SKIPPED (correctly, not deployed), POLYBIUS/op-disc/PLINY still recompose, NO error/partial, agents/ dir absent (consistent). Pre-fix repro confirmed exit 2 'role file not found CAPTAIN_DAEDALUS'. (4) FAIL-LOUD intact captains-ON: missing probe-grounding.md -\u003e exit 2 'marker has no module source'. Throwaways cleaned, canonical substrate untouched, no main leak. Staging + committing.",
+      "timestamp": "2026-05-23T11:57:42Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "CAPTAIN_DAEDALUS.md cut (architect role-file debloat, 633 lines) — LAST relocation cut",
   "type": "task",
-  "updated_at": "2026-05-23T11:56:07Z"
+  "updated_at": "2026-05-23T11:57:42Z"
 }
