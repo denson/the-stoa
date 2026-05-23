@@ -134,11 +134,15 @@
     {
       "text": "ADA progress (Fix 1): LOSSLESS GATE applied to §4.3.1/§9/§17. CUT MADE: §4.3.1 ezj inline retelling folded to crisp Anchor (verified bw show stoa--ezj carries the 4-\u003e5th-option story). NO-CUT (gate-blocked, correct): §9 line-279 jru empirical NOT recoverable (jru body = Arc22 coordination-hygiene epic, does NOT carry the 2-week-HITL-stall story); §17.4 worked-example has NO recovering Anchor (§17.5 ads = source-of-truth declaration, not the silent-collision footgun). Cutting either would DROP canon -\u003e left intact per 'when in doubt DON'T cut'. Yield modest (conservative-lossless, not target-chasing). Now Fix 2: reading design P10 + install.sh arg-parser.",
       "timestamp": "2026-05-23T07:56:15Z"
+    },
+    {
+      "text": "partial (HARD bar LOSSLESS-ON-CANON held; no rule/always-on-core dropped). Commit 6e12d11 on arc-45/build. Fix 1 (CATO c2): §4.3.1 ezj inline retelling -\u003e crisp Anchor (verified bw show stoa--ezj carries the 4-\u003e5th-option story); §9 + §17 gate-BLOCKED no-cut (jru = Arc-22 epic NOT carrying the 2wk-HITL-stall lesson; §17.4 worked-example has no recovering Anchor -\u003e cutting either drops canon). POLYBIUS stays 590 (net -0, within-line tighten; did NOT chase 300-350 by dropping rules). Fix 2 (c1/c3): design-rev2 P10(a) 'expect 0 markers' -\u003e '5 paired markers, each enclosing non-empty body, no empty pair' (matches §6.5 kept-marker idempotency); P10 cmd flags fixed to real parser shape (--target subproject --parent-dir \u003cp\u003e --subproject \u003cs\u003e, no --yes) verified vs install.sh. install.sh UNTOUCHED; Author=PRINCIPAL; CAPTAIN_ADA trailer present. 2 changed files only. Returning to PLINY for VERA re-verify + CATO re-review (I do NOT self-verify recoverability as ship — surfacing judgment to peer).",
+      "timestamp": "2026-05-23T07:58:05Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "First execution: MAJOR_POLYBIUS.md section-by-section slimming pass (via PLINY gauntlet, lossless-on-canon)",
   "type": "task",
-  "updated_at": "2026-05-23T07:56:15Z"
+  "updated_at": "2026-05-23T07:58:05Z"
 }
