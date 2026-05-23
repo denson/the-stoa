@@ -65,11 +65,15 @@
     {
       "text": "VERA activated on stoa--xyb.4 (Arc 44 / debloat Arc 1). Read brief + design-rev2 (P1-P10) + ARGUS PASS-WITH-RISKS verdict + ADA build report end-to-end. Classifying probes per verification-complexity quadrant; executing install.sh deploy against THROWAWAY clone (never the real repo). Verifying ADA --attachments drift call. AUTONOMOUS.",
       "timestamp": "2026-05-23T06:29:39Z"
+    },
+    {
+      "text": "ZENO activated on stoa--xyb.4 (Arc 44 / debloat Arc 1). Reading spec (design-rev2) + 3 shipped artifacts (modules/README.md, op-disc §33, install.sh) before extracting criteria. AUTONOMOUS.",
+      "timestamp": "2026-05-23T06:29:57Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T06:29:39Z"
+  "updated_at": "2026-05-23T06:29:57Z"
 }
