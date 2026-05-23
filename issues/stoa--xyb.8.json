@@ -103,11 +103,15 @@
     {
       "text": "ADA progress: slim-core cut COMPLETE. r1 GATE PASSES — P-SPEC-XREF: all 7 at-risk S7.x cites still PASS, ZERO flipped, opdisc PASS count unchanged (55/109 pre AND post). P-KEEP PASSES — all 8 always-on rules inline incl S15. All PROVENANCE compressed to Anchors (19 standalone C-1 + 3 C-2 child-ticket cites + 5 SPLIT tails folded). r5 done (polling-cron-template:263 re-pointed to S7.6 Anchor). Post-cut line count: 1340 (above the ~915-1100 band estimate — honest floor; densest KEEP sections S19=136/S8=121/S28=115 are all always-on rule prose; per recalibrated criterion I did NOT cut rules to hit a number; light KEEP-prose tightening flagged as follow-up). Now wiring install.sh two-set recompose (r3).",
       "timestamp": "2026-05-23T09:58:24Z"
+    },
+    {
+      "text": "pass: op-disc cut COMPLETE + committed (arc-47/build 743a198, 15 files, +1175/-996). op-disc 2156-\u003e1340 lines. 12 CONDITIONAL modules created (no author field, no MODULE-INLINE-in-body). r1 GATE: P-SPEC-XREF green — 7 at-risk S7.x cites still PASS, 0 flipped, opdisc PASS 55/109 pre==post. P-KEEP: all 8 always-on rules inline incl S15. 19 C-1 content-checked + compressed-to-Anchor; 3 C-2 child tickets stoa--xyb.8.1/.2/.3 created+content-checked+cited; 5 SPLIT tails folded. install.sh two-set recompose (r3) wired, bash -n exit 0, smoke-tested green (P-RECOMPOSE/P-RECOMPOSE-NEG/P-OWNERSHIP/P-OWNERSHIP-CHECKA all pass on throwaway parents; subproject recompose=2305 full-band, project=1340 slim+inert-markers, POLYBIUS recompose intact at 5). r5 done. Author stays PRINCIPAL; seat-identity trailer present. NOTE: floor 1340 above ~915-1100 est band — honest (densest KEEP S19/S8/S28 are always-on rule prose; did NOT cut rules to hit a number per recalibrated criterion); light KEEP-prose tightening flagged as follow-up. Returning to PLINY for VERA+CATO+ZENO.",
+      "timestamp": "2026-05-23T10:04:18Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
   "type": "task",
-  "updated_at": "2026-05-23T09:58:24Z"
+  "updated_at": "2026-05-23T10:04:18Z"
 }
