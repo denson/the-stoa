@@ -111,11 +111,15 @@
     {
       "text": "c1+c2 edits complete. c1: hook header (~L29-39) + inline layer-2 comment (~L79-82) + README table row + new README §6.1 — all now describe layer-2 as FORWARD-COMPATIBLE/INERT (no sentinel write-site; layer-1 agent_type is the active guard; bounded-failure since NOMOS is leaf). c2: settings-hooks.json _comment extended with TIMEOUT NOTE clause. VERIFIED: non-comment lines of hook sha256-IDENTICAL to baseline (b38040e8) = zero executable-logic change; bash -n exit 0; JSON valid (python3 json.load); no author-field added; 3 files changed only. Committing to arc-50/build with seat trailer.",
       "timestamp": "2026-05-23T20:18:25Z"
+    },
+    {
+      "text": "pass: Arc 50 nit fixes c1+c2 landed on arc-50/build at SHA 2fae2c8. 3 files (hook header+inline, README table+new §6.1, settings-hooks.json _comment). VERIFIED on the COMMITTED BLOB: non-comment lines of posttooluse-agent-checker-trigger.sh sha256 = b38040e8 IDENTICAL to pre-edit baseline (zero executable-logic change); committed blob LF-only (no line-ending churn, matches parent); bash -n exit 0; settings-hooks.json valid JSON; no author-field added (Author stays PRINCIPAL); seat trailer present. Returning to PLINY for self-verify + merge.",
+      "timestamp": "2026-05-23T20:18:49Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer STAGE 2 (judgment tier): CAPTAIN_NOMOS + PostToolUse-on-Agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T20:18:25Z"
+  "updated_at": "2026-05-23T20:18:49Z"
 }
