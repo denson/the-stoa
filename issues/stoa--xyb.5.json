@@ -11,11 +11,15 @@
     {
       "text": "DAEDALUS activated on stoa--xyb.5 (Arc 46 enforcement-layer design). Reading brief + spec (.5/.1/.2) + composition-layer mechanism + install.sh. Next: WEB-VERIFY live hook surface before drafting (global rule + .5 verify-at-build-time).",
       "timestamp": "2026-05-23T08:08:14Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] brief+spec+constraints+composition-layer+install.sh absorbed. install.sh has NO settings.json/hooks handling today (net-new infra). cron idiom = self-contained inline prompt body via CronCreate (matches .5 authoring rule). Next: WEB-VERIFY live hook surface (PreToolUse deny, Stop additionalContext, PostToolUse-on-Agent, SubagentStop, PostCompact) per global rule before drafting.",
+      "timestamp": "2026-05-23T08:08:51Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:08:14Z"
+  "updated_at": "2026-05-23T08:08:51Z"
 }
