@@ -107,11 +107,15 @@
     {
       "text": "pass: VERA verdict PASS on Arc 48 MAJOR_PLINY cut. LOSSLESS-COMPLETENESS headline = PASS (ledger walked chunk-by-chunk; 11 CONDITIONAL homed + 14 PROVENANCE recoverable [5/5 C-1 spot-check + C-2 child stoa--xyb.10.1 full §5.4 prose] + 1 DUPLICATE §6.1-\u003eop-disc§12 heading-live; all KEEP inline; NO LOST CANON). HARD GATE P-SPEC-XREF 7/7 PLINY cites PASS zero flips. 3-OWNER recompose against THROWAWAY: 11 PLINY bodies re-inline=869 full band, POLYBIUS 5 + op-disc 12 unregressed, FAIL-LOUD exit 2 + no partial deploy, NOCOLLIDE 28 distinct (parsed live, closes ARGUS r2). CONSIDER-1 L256 bw-prime-\u003eop-disc§9 KEPT. lyw §4.1 4-element. P-AUTH clean. bash -n 0. Line count 379 = REPORTED not the bar (330-420 partial-not-failure band; recalibrated criterion). 2 probe-regex defects (P-XREF em-dash-bracket + P-SPLIT adjacency) = probe underspecification NOT build defects per my §5.11, flagged to DAEDALUS. Verdict saved to WORKTREE agents/verdicts/stoa--xyb.10/VERA-2026-05-23T10-57-54Z.md (sha256 round-trip OK). Throwaway targets + temp files cleaned. Deliverable untouched (independence held). Returning.",
       "timestamp": "2026-05-23T10:58:10Z"
+    },
+    {
+      "text": "pass: CATO REVIEWER verdict PASS on Arc 48 MAJOR_PLINY.md cut. ZERO blocking, ZERO should-fix, 1 minor nit (untracked verifier scratch — now MOOT, VERA cleaned it post my read). Independent meta-verify CONCURS with VERA PASS + ZENO SPEC-MET: hard gate P-SPEC-XREF 7/7 PLINY cites PASS zero flips (own spec_refs.py run); live 3-owner recompose on THROWAWAY exit 0 = 869 full-band, 11/11 PLINY bodies, POLYBIUS 5 + op-disc 12 intact; FAIL-LOUD exit 2 + NO partial deploy; NOCOLLIDE 28 distinct AND owned-set==filesystem-glob exactly (stronger than the probe asserts). CRAFT: §6.1 hybrid executed precisely (tables deleted, residue+spec-heading+cite-marker kept); §7.2 SPLIT correct; 11 modules clean (title-line, no author, no stray marker); §4.1 lyw fold lean+separable+4-element; install.sh = minimal Arc-47-designed extension, zero function-body change. AUTHORSHIP: Author=PRINCIPAL + CAPTAIN_ADA seat trailer, no author-field touched. 379-FLOOR JUDGMENT: 379 is the HONEST no-rules-cut floor (330-420 partial-not-failure band; above the ~250-330 estimate BECAUSE the cut correctly refused to compress always-on prose) — gauntlet should accept it. .9-DEFERRAL: §5.1/§7.2/§9 are genuine PROSE-COMPRESSION of KEEP sections (spot-checked each), NOT relocation this cut missed — correctly deferred to the single reviewed capstone. Verdict saved to WORKTREE agents/verdicts/stoa--xyb.10/CATO-2026-05-23T10-58-35Z.md (sha256 round-trip OK, NOT main). Deliverable untouched (no Write/Edit — independence held). Throwaway + my temps cleaned. Returning.",
+      "timestamp": "2026-05-23T10:59:11Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "MAJOR_PLINY.md cut (orchestrator role-file debloat, 801 lines) + fold stoa--lyw lean",
   "type": "task",
-  "updated_at": "2026-05-23T10:58:10Z"
+  "updated_at": "2026-05-23T10:59:11Z"
 }
