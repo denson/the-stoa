@@ -35,11 +35,15 @@
     {
       "text": "ARGUS activated on stoa--xyb.9 (Arc 51 .9 PROSE-COMPRESSION CAPSTONE primary gate). operating-mode: autonomous. Reading design-rev1.md (156ddbf) + INDEPENDENTLY comparing BEFORE(live) vs AFTER(proposed) for all 13 rows + 5 KEEP-FULLER, in worktree. Acceptance bar = semantic-equivalence per-rule. No Write/Edit.",
       "timestamp": "2026-05-23T20:28:48Z"
+    },
+    {
+      "text": "State: op-disc §8/§19/§28 read live end-to-end. Now reading PLINY §5.1/§7.2/§9 + DAEDALUS §2/§3/§6.5 live before per-row BEFORE/AFTER adjudication. spec_refs re-run next.",
+      "timestamp": "2026-05-23T20:29:00Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "op-disc KEEP-prose tightening (lossless compression of §8/§19/§28, ~100-150L) — CATO Arc-47 follow-up",
   "type": "task",
-  "updated_at": "2026-05-23T20:28:48Z"
+  "updated_at": "2026-05-23T20:29:00Z"
 }
