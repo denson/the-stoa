@@ -39,11 +39,15 @@
     {
       "text": "ADA activated on stoa--xyb.11 (CAPTAIN_DAEDALUS.md cut, LAST relocation cut). Reading design-rev1 + ARGUS PASS verdict (5 CONSIDER r1-r5) + worktree state before first commit. operating-mode AUTONOMOUS. Worktree on arc-49/build confirmed; will ground-check every ledger row against live substrate/CAPTAIN_DAEDALUS.md before acting.",
       "timestamp": "2026-05-23T11:36:12Z"
+    },
+    {
+      "text": "ADA ground-check PASS: live substrate/CAPTAIN_DAEDALUS.md (633 lines) matches ledger exactly. Headings @ expected lines; double-prime L377 byte-exact (two 0x27 apostrophes per od -c); Check E zero literal MODULE-INLINE in source bodies; frontmatter (name/desc/tools/model) verbatim, NO author field; C-1 tickets resolve incl. r3 CONFIRMED (stoa--utn = 'Promote save-verdict skill', WRONG topic; stoa--5sr = Arc-24 wording-alignment = correct §6.8 Anchor). install.sh: recompose block closes L1010, CAPTAIN loop L1014-1037, dest L1023 = ${DEST_AGENTS_DIR}/CAPTAIN_${name}${NAME_SUFFIX}.md (matches ARGUS audit). 28 module sources confirmed. ZERO ledger-vs-live drift. Writing the 7 modules now.",
+      "timestamp": "2026-05-23T11:37:38Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "CAPTAIN_DAEDALUS.md cut (architect role-file debloat, 633 lines) — LAST relocation cut",
   "type": "task",
-  "updated_at": "2026-05-23T11:36:12Z"
+  "updated_at": "2026-05-23T11:37:38Z"
 }
