@@ -59,11 +59,15 @@
     {
       "text": "CATO activated on stoa--xyb.11 (CAPTAIN_DAEDALUS.md cut, LAST relocation cut). operating-mode AUTONOMOUS. Reading diff + design-rev1 + ARGUS PASS + VERA verdict before forming cold-read. NOTE: VERA verdict not yet posted to ticket/disk as of activation; will meta-verify when present, else flag coverage-assessment gap.",
       "timestamp": "2026-05-23T11:47:21Z"
+    },
+    {
+      "text": "ZENO activated on stoa--xyb.11 (Arc 49 CAPTAIN_DAEDALUS.md cut). operating-mode AUTONOMOUS. Reading spec (design-rev1 ledger + probes) + shipped artifact at arc-49/build 854f89d before extracting criteria. Static checks only, throwaway targets, no main mutation.",
+      "timestamp": "2026-05-23T11:47:22Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "CAPTAIN_DAEDALUS.md cut (architect role-file debloat, 633 lines) — LAST relocation cut",
   "type": "task",
-  "updated_at": "2026-05-23T11:47:21Z"
+  "updated_at": "2026-05-23T11:47:22Z"
 }
