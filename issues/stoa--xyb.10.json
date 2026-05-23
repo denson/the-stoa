@@ -35,11 +35,15 @@
     {
       "text": "ARGUS progress: independent spec_refs.py run CONFIRMS census complete — at-risk PASS set = §5.10(x3)/§6.1/§6.2(x3), 3 distinct anchors, ONLY §N(L7) FAILs (pre-existing). Substrate xref distinct set {5,5.8,5.9,5.9.4,5.10,6.1,6.2,7,7.2,8,9} all homed. Heading-pattern resolver verified: stub heading lines match, prose-only would not (Arc-47-r1 guard sound). install.sh 2-set machinery + L1006-1008 forward-note verified; P-OWNERSHIP-NOCOLLIDE PASS (11 PLINY disjoint from 17). 3 C-1 tickets spot-checked carry story; ariadne--b93 confirmed non-resolving in stoa bw (C-2 justified). Adjudicating Q1-Q5 + checking modules/README §5.3 + arc-45/47 precedent. No BLOCKING so far.",
       "timestamp": "2026-05-23T10:38:28Z"
+    },
+    {
+      "text": "PASS: 0 BLOCKING, 0 SHOULD-FIX (load-bearing), 3 NOT-load-bearing CONSIDER risks. LOST-CANON: walked all sections vs ledger, every chunk homed + recoverable, NO LOST CANON. CROSS-REF (headline): independent live spec_refs.py CONFIRMS census COMPLETE — §5.10/§6.1/§6.2 only spec-cited subsections (7 PASS preserved via real heading lines), zero PLINY refs flip PASS-\u003eFAIL, only FAIL is pre-existing §N(L7). Substrate xref fully homed. install.sh 3rd owned-set = zero function-body change; P-OWNERSHIP-NOCOLLIDE is the COMPLETE new failure surface (verified disjoint). CONCUR Q1-Q5 (Q1 orchestrator-gets-both-tables = Arc-45 precedent governs since PLINY IS dispatcher; Q2 §6.1 hybrid canon-directed by README L213-214; Q3 C-2 child justified; Q4 lyw §4.1 always-on-lean correct; Q5 NO-COLLIDE complete). 3 CONSIDER: §6.1 keep-list omits L616 (survives by default), NOCOLLIDE-probe hardcodes-vs-parses lists, op-disc §18 (canonical inline) wording staleness (resolves; deferred). Verdict saved agents/verdicts/stoa--xyb.10/ARGUS-2026-05-23T10-40-46Z.md. Returning.",
+      "timestamp": "2026-05-23T10:40:57Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "MAJOR_PLINY.md cut (orchestrator role-file debloat, 801 lines) + fold stoa--lyw lean",
   "type": "task",
-  "updated_at": "2026-05-23T10:38:28Z"
+  "updated_at": "2026-05-23T10:40:57Z"
 }
