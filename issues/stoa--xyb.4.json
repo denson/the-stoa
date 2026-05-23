@@ -93,11 +93,15 @@
     {
       "text": "VERA drift-call verdict: ADA --attachments call is CORRECT. Live bw 0.13.0: 'bw show --help' has only --json/--only (NO --attachments); 'bw attach --help' is write-only (no read-back subcommand). README git-recovery path PROVEN via isolated attach round-trip: bw attach -\u003e git show beadwork:attachments/\u003cid\u003e/\u003cpath\u003e recovered exact bytes exit 0. BUT one README §5.2 inaccuracy found (line 196-197): claims 'attach intent comment in bw show \u003cid\u003e names the stored path' — FALSE. Live test: attach intent is a git COMMIT MESSAGE on beadwork ref ('attach \u003cid\u003e \u003cstored-path\u003e'), discoverable via 'git log beadwork', NOT surfaced in bw show (--only comments empty, --json no attach field). Recovery still works; the stored-path-discovery instruction is wrong. Flagging as methodology_concern + minor falsifying evidence on the recovery sub-claim. Finishing Probe-3 consistency.",
       "timestamp": "2026-05-23T06:33:11Z"
+    },
+    {
+      "text": "pass: Arc-44 mechanism build is clean. Scope held EXACTLY (zero role-file changes; op-disc +26/-0 pure §33 insert; REFINEMENT 2 satisfied). 2 findings: c1 [SHOULD-FIX/recommended-revision] README §5.2 L196-197 — 'attach intent comment in bw show \u003cid\u003e names the stored path' is FALSE (intent is a git commit msg on beadwork ref, not surfaced by bw show); CONVERGES with VERA's independent find. c2 [NIT/minor] modules staleness scan lacks the §23 base-vs-custom cite-comment the templates/skills scans carry + §23.2 table not extended (behavior correct — custom/ subdir empirically skipped; Arc-2 doc follow-up). INDEPENDENT READS: (1) ADA --attachments drift call CORRECT — verified live bw 0.13.0 has no --attachments / no read subcmd; git-on-beadwork-ref recovery PROVEN end-to-end on throwaway repo; ADA fixed the big problem, c1 is the smaller residual. (2) §33-on-worst-offender NOT self-undercutting — 19 bounded content lines that ENABLE Arc-2 removal of hundreds of lines; net-negative is the goal. Security/hygiene clean (no secrets, Author=PRINCIPAL, both Co-Authored-By trailers present, no author-like field touched). bash -n exit 0. Verdict saved agents/verdicts/stoa--xyb.4/CATO-2026-05-23T06-34-09Z.md (sha256 round-trip OK). Returning.",
+      "timestamp": "2026-05-23T06:34:21Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T06:33:11Z"
+  "updated_at": "2026-05-23T06:34:21Z"
 }
