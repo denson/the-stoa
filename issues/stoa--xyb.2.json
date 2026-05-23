@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-23T02:45:45Z",
+  "description": "EMPIRICAL FINDINGS (tested live 2026-05-22):\n\n1. Sub-agents CAN load custom skills IFF granted the Skill tool. Tested: general-purpose (tools: *) loaded custom skill credential-discipline successfully; CAPTAIN_ADA (default grant Bash/Read/Write/Edit/Grep/Glob/WebSearch/WebFetch, no Skill) could not - no Skill tool in its surface. So it is a tool-grant config WE control, NOT a platform limit.\n\n2. Agent definitions are cached at session start. A mid-session edit to an agent .md is NOT picked up without a restart (or the /agents UI). So in-session edit-and-redispatch tests are inconclusive.\n\n3. Two grant mechanisms (per docs): tools: ..., Skill (on-demand, can invoke any skill) and a skills: frontmatter field (named skills injected at the sub-agent's startup).\n\n4. CONSTRAINT: a skill that itself dispatches agents BREAKS inside a sub-agent (sub-agents cannot spawn sub-sub-agents - GitHub issues #59968, #19077). Pure-reference skills are safe; orchestration skills are not.\n\n5. DISCIPLINE (PRINCIPAL): never run config/grant experiments on real or canonical agent files. Use a disposable dummy agent, then delete it. Final decided changes only ever go to substrate source + redeploy. (Logged after I added Skill to a real CAPTAIN_ADA.md to test - reverted, but the act was the error.)\n\nNOTE: given the CLI-not-MCP decision (bw delivery via Bash), the Skill-grant question is moot for bw - but these facts govern any future use of the Anthropic Skill mechanism.",
+  "id": "stoa--xyb.2",
+  "labels": [],
+  "parent": "stoa--xyb",
+  "priority": 2,
+  "status": "open",
+  "title": "Finding: skill-grant reachability + agent-def caching + no-experiments-on-real-agents",
+  "type": "task",
+  "updated_at": "2026-05-23T02:45:45Z"
+}
