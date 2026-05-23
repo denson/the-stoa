@@ -25,11 +25,15 @@
     {
       "text": "DAEDALUS activated on stoa--xyb.4 (Arc 1 / Arc 44 composition layer) — COLD-PICKUP rev2 dispatch. Read rev1 + ARGUS verdict (r1-r6) end-to-end. Now re-reading cited source: op-disc sec32/33 region (r3 insertion-point), install.sh idioms (r4 glob decision), stoa--xyb.3 (3-bucket method for r1/r2). AUTONOMOUS.",
       "timestamp": "2026-05-23T06:13:41Z"
+    },
+    {
+      "text": "DAEDALUS state: cited-source re-read complete. r3 CONFIRMED against live op-disc (sec32 ends L2087, then UN-numbered Agent-regime-inverses L2089 / Empirical-lineage L2100, EOF L2110 — sec33 inserts L2087-L2089). r1 grounded: POLYBIUS provenance bucket = sec X.6 N=1-provenance + sec X.7 Cross-references subsections (16/17/18/19) ALREADY cite bw tickets; bw attach (sec16.8) is the archive primitive. r2 DUPLICATE confirmed: bw-cookbook triplicated op-disc sec12 (target) / POLYBIUS sec7.3 / PLINY sec6.1. r4 glob: install.sh already uses shopt nullglob single-segment-glob idiom in staleness scan — glob deploy + completeness probe is consistent. Web-checking r5 subproject Read-path resolution, then drafting rev2.",
+      "timestamp": "2026-05-23T06:14:20Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T06:13:41Z"
+  "updated_at": "2026-05-23T06:14:20Z"
 }
