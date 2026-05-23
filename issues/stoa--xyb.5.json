@@ -51,11 +51,15 @@
     {
       "text": "ADA activated on stoa--xyb.5 (Arc 46 Stage-1 deterministic enforcement tier). AUTONOMOUS mode. Reading design-rev1 + ARGUS PASS-WITH-RISKS verdict + worktree state before first commit. HARD SAFETY CONSTRAINT noted: source-only, --enable-hooks default-OFF, never write live settings.json.",
       "timestamp": "2026-05-23T08:26:36Z"
+    },
+    {
+      "text": "[from: ada-the-stoa] design §1-§8 + ARGUS verdict absorbed; build-time WEB-VERIFY of live hook surface done (code.claude.com/docs/en/hooks 2026-05-23): PreToolUse deny / Stop decision+reason-only / 'if' Bash(git *) idiom / stdin tool_input.command shape ALL confirmed. Safety baseline: NO project settings.json in worktree or main; user ~/.claude/settings.json exists (will NOT touch; baseline sha captured). substrate/hooks/ is net-new. Writing the 3 PreToolUse gate scripts now.",
+      "timestamp": "2026-05-23T08:27:51Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:26:36Z"
+  "updated_at": "2026-05-23T08:27:51Z"
 }
