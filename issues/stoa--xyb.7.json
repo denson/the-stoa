@@ -1,5 +1,5 @@
 {
-  "assignee": "",
+  "assignee": "denson",
   "blocked_by": [],
   "blocks": [],
   "created": "2026-05-23T08:55:21Z",
@@ -8,8 +8,8 @@
   "labels": [],
   "parent": "stoa--xyb",
   "priority": 2,
-  "status": "open",
+  "status": "in_progress",
   "title": "Enforcement layer STAGE 2 (judgment tier): CAPTAIN_NOMOS + PostToolUse-on-Agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:55:21Z"
+  "updated_at": "2026-05-23T12:06:54Z"
 }
