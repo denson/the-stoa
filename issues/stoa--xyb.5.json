@@ -43,11 +43,15 @@
     {
       "text": "[from: argus-the-stoa] LOAD-BEARING FINDING: §7.7 canon scope conflict. (1) seat-tag convention is POLYBIUS-ONLY by canon ('PLINY, CAPTAINs... are NOT required to author-tag'; case-4 = PLINY phase status + CAPTAIN verdicts, explicitly untagged). NOMOS's PRIMARY canary (§5.4 probe1/§5.5) + Stop clause-A both key on seat-tags — but NOMOS checks ORCHESTRATOR (PLINY) OUTPUTS, which are case-4 UNTAGGED by canon. The canary is structurally valid only for POLYBIUS comments, not the PLINY outputs §5.4 says NOMOS audits. (2) §7.7 'Future scope' HARD-LOCKS OUT 'the mechanical-enforcement layer (pre-comment hook, CI lint)... until non-compliance recurs' — this arc IS that layer. Direct canon collision PLINY must adjudicate. Verifying install.sh safety arch airtightness, then finalizing verdict (likely PASS-WITH-RISKS; no live-arming BLOCKING found yet).",
       "timestamp": "2026-05-23T08:16:27Z"
+    },
+    {
+      "text": "[from: argus-the-stoa] PASS-WITH-RISKS: 2 load-bearing canon-collision risks (r1 NOMOS canary keys on POLYBIUS-only seat-tag vs PLINY untagged outputs; r2 this arc IS the §7.7-hard-locked-out mechanical-enforcement layer) + 1 load-bearing safety-precision (r4 --enable-hooks 'never the running session' is FALSE at user-tier, settings.json exists). HARD SAFETY CONSTRAINT DISCHARGED — no live-arming path (no settings.json written this arc; hook scripts inert on disk; P2 sound). NO BLOCKING. Stage 1 is ADA-buildable. R1-R5 recommendations + NOMOS-vs-mode + staging in verdict at agents/verdicts/stoa--xyb.5/ARGUS-2026-05-23T08-17-31Z.md. Returning.",
+      "timestamp": "2026-05-23T08:17:37Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:16:27Z"
+  "updated_at": "2026-05-23T08:17:37Z"
 }
