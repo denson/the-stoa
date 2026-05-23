@@ -764,6 +764,116 @@ else
   echo "deployed: $DEST_PLINY"
 fi
 
+# 2a-recompose. Subproject-tier MODULE-INLINE recompose (debloat Arc 2 / design-arc-45 §6.5).
+# ---------------------------------------------------------------------------------------------
+# At user/project tier the slim core deploys AS-IS + the modules dir deploys (CHANNEL 2 Read
+# resolves). At SUBPROJECT tier the modules dir is NOT deployed (DEST_MODULES_DIR="") AND a
+# dispatched CAPTAIN's `Read .claude/modules/<X>.md` does not resolve reliably (claude-code
+# #56686/#31546/#29423). So at subproject tier we RECOMPOSE: re-inline each module body into
+# $DEST_POLYBIUS at its paired `<!-- MODULE-INLINE:<name> -->` ... `<!-- /MODULE-INLINE:<name> -->`
+# sentinel, producing a self-contained role file (matching the existing self-contained-subproject
+# pattern). The marker is machine-parseable (full-line HTML-comment), invisible at the tiers that
+# do NOT recompose, and 1:1-auditable. FAIL-LOUD: any marker/module mismatch err()s (exit 2,
+# aborts deploy) rather than shipping LOST CANON. Runs POST-sed (markers are inert in $SRC_POLYBIUS;
+# the sed substitutes only {{NAME_SUFFIX}}/{{USER_TIER_DIR}}, neither of which appears in a marker).
+# THIS ARC scopes recompose to $DEST_POLYBIUS ONLY (residual-3 / ARGUS F-B): PLINY is not cut yet,
+# so its slim file carries zero markers; a global-glob Check-D would false-positive on it. When
+# MAJOR_PLINY is cut in a future arc, add $DEST_PLINY to the same data-driven loop — no new code
+# path needed (the markers in each file drive recompose identically). Generality note: design §6.5.
+if [ "$TARGET" = "subproject" ]; then
+  recompose_module_inline() {
+    # $1 = role file to recompose in place (this arc: $DEST_POLYBIUS only).
+    _role_file="$1"
+
+    # Build the set of relocatable module basenames (excludes README.md, the
+    # composition-layer reference doc — it is never a MODULE-INLINE target; design §6.5).
+    _module_basenames=""
+    for _src in "${SRC_MODULES_DIR}"/*.md; do
+      [ -e "$_src" ] || continue
+      _bn="$(basename "$_src" .md)"
+      [ "$_bn" = "README" ] && continue
+      _module_basenames="${_module_basenames} ${_bn}"
+    done
+
+    # In dry-run the upstream sed only PRINTED its plan (did not write $DEST_POLYBIUS),
+    # so do not require the role file to exist — print the recompose plan and return.
+    if [ "$DRY_RUN" -eq 1 ]; then
+      echo "[dry-run] recompose (subproject): $_role_file <- inline module bodies at MODULE-INLINE markers (modules:${_module_basenames:- none})"
+      return 0
+    fi
+
+    [ -f "$_role_file" ] || err "recompose: role file not found: $_role_file"
+
+    # awk state-machine (deterministic, single pass over the role file).
+    # FAIL-LOUD checks (exit 2 via the trailing err() on non-zero awk exit):
+    #   A — marker references a non-existent module source.
+    #   B — a module source exists with no marker in THIS file (would DROP a body at subproject tier).
+    #   C — unbalanced markers (open with no matching close, or close with no open).
+    #   D — zero markers in THIS file but relocatable modules exist (per-file, not global glob; ARGUS F-B).
+    #   E — a module BODY contains a literal MODULE-INLINE marker line (close-marker-in-body corruption; ARGUS F-A).
+    _tmp="${_role_file}.recompose.tmp"
+    awk -v modules_dir="${SRC_MODULES_DIR}" -v module_list="${_module_basenames}" '
+      # exit triggers the END block in POSIX awk; _aborting suppresses the END checks
+      # so a failure prints exactly one diagnostic, not two.
+      function fail(msg) { _aborting = 1; print "install.sh: error: recompose: " msg > "/dev/stderr"; exit 2 }
+      BEGIN {
+        # Track which modules exist (for Check B) and reset their consumed flag.
+        n = split(module_list, _m, " ")
+        for (i = 1; i <= n; i++) { if (_m[i] != "") { exists[_m[i]] = 1; consumed[_m[i]] = 0; nmods++ } }
+        in_marker = 0; markers_seen = 0; _aborting = 0
+      }
+      # OPEN marker: full-line ^<!-- MODULE-INLINE:<name> -->$
+      /^<!-- MODULE-INLINE:[^ ]+ -->$/ {
+        if (in_marker) fail("nested open marker MODULE-INLINE:" cur " before close of MODULE-INLINE:" open_name " (unbalanced)")  # Check C
+        name = $0; sub(/^<!-- MODULE-INLINE:/, "", name); sub(/ -->$/, "", name)
+        if (!(name in exists)) fail("marker MODULE-INLINE:" name " has no module source at " modules_dir "/" name ".md")          # Check A
+        # Emit the OPEN marker (kept — provenance + idempotent re-recompose anchor).
+        print $0
+        # Inline the ENTIRE module body, guarding against a body that itself contains a marker line.
+        body_path = modules_dir "/" name ".md"
+        while ((getline line < body_path) > 0) {
+          if (line ~ /^<!-- \/?MODULE-INLINE:/) { close(body_path); fail("module " name ".md body contains a literal MODULE-INLINE marker line — would corrupt recompose; remove it from the module source") }  # Check E (ARGUS F-A)
+          print line
+        }
+        close(body_path)
+        consumed[name] = 1; markers_seen++
+        in_marker = 1; open_name = name
+        next
+      }
+      # CLOSE marker: full-line ^<!-- /MODULE-INLINE:<name> -->$
+      /^<!-- \/MODULE-INLINE:[^ ]+ -->$/ {
+        cname = $0; sub(/^<!-- \/MODULE-INLINE:/, "", cname); sub(/ -->$/, "", cname)
+        if (!in_marker) fail("close marker MODULE-INLINE:" cname " with no matching open (unbalanced)")                            # Check C
+        if (cname != open_name) fail("close marker MODULE-INLINE:" cname " does not match open MODULE-INLINE:" open_name " (unbalanced)")  # Check C
+        print $0  # emit the CLOSE marker (kept — idempotency anchor)
+        in_marker = 0; open_name = ""
+        next
+      }
+      # Inside a marker: SKIP the gap / previously-inlined body (idempotency — re-recompose replaces it).
+      { if (in_marker) next; print }
+      END {
+        if (_aborting) exit 2  # a rule-level fail() already reported; do not re-run END checks
+        if (in_marker) fail("open marker MODULE-INLINE:" open_name " never closed before EOF (unbalanced)")                         # Check C
+        if (markers_seen == 0 && nmods > 0) fail("role file has zero MODULE-INLINE markers but " nmods " relocatable module(s) exist — bodies would be DROPPED at subproject tier")  # Check D (per-file; ARGUS F-B)
+        for (m in exists) { if (exists[m] && !consumed[m]) fail("module " m ".md exists but no MODULE-INLINE:" m " marker in the role file — body would be DROPPED at subproject tier") }  # Check B
+      }
+    ' "$_role_file" > "$_tmp" || {
+      # FAIL-LOUD: recompose could not prove completeness. Remove BOTH the partial tmp AND the
+      # slim $_role_file the upstream sed wrote — install.sh NEVER leaves a partial/slim role file
+      # at subproject tier (design §6.5). The non-zero exit aborts the deploy entirely.
+      rm -f "$_tmp" "$_role_file"
+      exit 2
+    }
+
+    mv "$_tmp" "$_role_file"
+    echo "recomposed (subproject): $_role_file (re-inlined module bodies at MODULE-INLINE markers)"
+  }
+
+  recompose_module_inline "$DEST_POLYBIUS"
+  # NOTE: $DEST_PLINY is intentionally NOT recomposed this arc (residual-3): MAJOR_PLINY is not
+  # cut yet (zero markers). Add `recompose_module_inline "$DEST_PLINY"` when PLINY is cut.
+fi
+
 # 2b. Deploy operating-disciplines.md — team-wide disciplines doc referenced
 # from MAJOR_POLYBIUS §4 and MAJOR_PLINY §7. Lands as a sibling of the MAJOR
 # files at <DEST_DIR>/operating-disciplines.md so the role-file references
