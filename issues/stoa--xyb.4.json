@@ -33,11 +33,15 @@
     {
       "text": "DAEDALUS state: r5 web-confirmed (claude-code #24987 + never-fixed #2571 lineage — subproject/subdir path-resolution contested as of early 2026). All 6 findings grounded. Drafting design-rev2.md now: 3-bucket lossless homes (r1), relocation-index extension for all 3 classes (r2), sec33 insertion L2087-L2089 + placement assertion (r3), glob deploy + completeness probe (r4), subproject tracked-open-question (r5), sec33 \u003c=30-line cap (r6). Holding all rev1 non-findings.",
       "timestamp": "2026-05-23T06:14:33Z"
+    },
+    {
+      "text": "pass: design-rev2 complete (agents/design/arc-44/design-rev2.md, committed 34d8f41 w/ seat trailer). All 6 ARGUS findings resolved: r1 3-bucket lossless homes (CONDITIONAL-\u003emodule / PROVENANCE-\u003ebw-cite via bw attach + Anchor: cite-back / DUPLICATE-\u003epointer to existing keep-target); r2 relocation-index table expressing all 3 classes sibling to routing map; r3 sec33 inserts L2087-L2089 before un-numbered trailing matter (P6 placement assertion); r4 glob deploy + completeness probe; r5 subproject tracked Arc-2-gating open question (web-confirmed contested); r6 sec33 \u003c=30-line hard cap. 3 self-assessed weak points (glob stray-file surface; PROVENANCE C-1/C-2 classification judgment; two-tables core cost). Returning to PLINY for ARGUS re-dispatch.",
+      "timestamp": "2026-05-23T06:18:09Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T06:14:33Z"
+  "updated_at": "2026-05-23T06:18:09Z"
 }
