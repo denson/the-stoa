@@ -43,11 +43,15 @@
     {
       "text": "ADA activated on stoa--xyb.7 (Arc 50 / Stage-2 judgment tier). AUTONOMOUS. Reading design-rev1 (e8b2215) + ARGUS PASS-WITH-RISKS verdict + Stage-1 shipped hooks + worktree state before first commit. Ground-check preamble next.",
       "timestamp": "2026-05-23T12:22:57Z"
+    },
+    {
+      "text": "ADA ground-check complete. CONFIRMED: r1 (settings-hooks.json nests PreToolUse/Stop inside top-level 'hooks':{} — new 2 hooks go INSIDE it); r2 (VERA has Write/Edit/Web; ARGUS+CATO are the true no-Write/Edit siblings — NOMOS will cite them, NOT VERA); r3 (11-\u003e12 count appears at install.sh L13/L41/L102/L174/L762 — updating ALL CAPTAIN-count occurrences not just the 2 named, fix-now); CAPTAIN_NAMES has 11 (NOMOS=12th). stop-self-check clause A already degrades gracefully + already references NOMOS forward-compatibly. Building CAPTAIN_NOMOS.md first.",
+      "timestamp": "2026-05-23T12:24:01Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer STAGE 2 (judgment tier): CAPTAIN_NOMOS + PostToolUse-on-Agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T12:22:57Z"
+  "updated_at": "2026-05-23T12:24:01Z"
 }
