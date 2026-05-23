@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-23T02:45:46Z",
+  "description": "DEBLOAT METHOD (validated on a worked example this session).\n\nThe bloat is three kinds, each with a different action:\n- DUPLICATE -\u003e consolidate to one home + point. Example: the bw cookbook is TRIPLICATED (MAJOR_POLYBIUS 7.3 ~32 lines, MAJOR_PLINY 6.1 ~34 lines, operating-disciplines 12 ~77 lines); the two role-file copies are near-verbatim and already drifting. Fix: delete the role-file copies, keep op-disc 12, leave a one-line pointer.\n- ALWAYS-INLINE (one agent, always needs it) -\u003e keep inline. Extraction buys NOTHING here (it would be in context either way, plus indirection). Extraction only pays off across MANY consumers (DRY) or for CONDITIONAL knowledge (lazy-load). This is the key correction: for always-needed single-consumer knowledge, inline wins.\n- CONDITIONAL (needed only sometimes) -\u003e move to on-demand reference. Examples in POLYBIUS: 5 onboarding (~220), 10 sub-project (~100), 11+12 pair-programmer (~168), 14 substrate-check.\n\nCross-cutting CONTENT TIERS (currently mashed together in each section):\n- operational core: the rule, stated crisply -\u003e always-loaded, small.\n- reference: detailed procedures for paths that fire sometimes -\u003e on-demand.\n- provenance: why each rule exists, which ticket, the empirical story -\u003e archived in bw, CITED not inlined. The \"N=1 provenance + accretion path\" + \"Cross-references\" subsections in 4 / 16-19 are tier-3 sitting in the always-loaded path.\n\nWORKED EXAMPLE (4.3.1 PRINCIPAL-intent probe): ~17 lines -\u003e ~5. Rule + 3-step probe sequence stays; the 2026-05-13 four-options empirical story moves to a bw show stoa--ezj cite.\n\nLINE MATH (POLYBIUS 1299): ~500 lines conditional -\u003e reference; ~330 provenance -\u003e bw cites; ~30+ duplicate -\u003e delete. Leaves ~300-350 operational core. NOTHING LOST - relocated by access pattern.",
+  "id": "stoa--xyb.3",
+  "labels": [],
+  "parent": "stoa--xyb",
+  "priority": 2,
+  "status": "open",
+  "title": "Method: 3-bucket debloat (duplicate/always-inline/conditional) + 3-tier content model",
+  "type": "task",
+  "updated_at": "2026-05-23T02:45:46Z"
+}
