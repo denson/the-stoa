@@ -38,11 +38,15 @@
     {
       "text": "Grounding complete. SPLIT live ranges confirmed: 16.7 (1034-1050) / 17.6 (1157-1164) / 18.6 (1217-1225) / 19.7 (1284-1295) = 4 subsections (confirms r3: 4 SPLIT not 5). install.sh MAJOR deploy = sed-substitution at L757-765 (recompose hooks here, subproject-only post-step). bw create supports --parent + -d (residual-2 child-ticket mechanism confirmed). Writing design-rev2.md to ABSOLUTE worktree path now (per process-hazard note: Write resolves relative against MAIN root).",
       "timestamp": "2026-05-23T07:11:49Z"
+    },
+    {
+      "text": "pass: design-rev2 committed 4fa6c57 on arc-45/build (agents/design/arc-45/design-rev2.md, 517 lines). r1 RESOLVED: paired-sentinel marker \u003c!-- MODULE-INLINE:\u003cname\u003e --\u003e + awk state-machine + 4 FAIL-LOUD checks + P10/P10-neg probes (§2.7/§6.5). r2 RESOLVED: per-line SPLIT enum §3.8 (29 LIVE kept inline / 5 PROVENANCE clusters fold to 4 Anchors; incl §19.7 L1295 intra-line split). r3 RESOLVED: 4 SPLIT / 15 PROVENANCE (9 C-1 + 2 C-2 + 4 SPLIT), self-consistent. r4 RESOLVED: lean-0hl deviation stated explicit §2.4. residual-2 RESOLVED: C-2 -\u003e dedicated child tickets xyb.6.1/.6.2 via bw create --parent -d. CONCUR held (§13 KEEP / PRESERVE-stubs / recompose-not-fork). §6.8 within-design marker-literal alignment verified. Author audit clean. Returning to PLINY.",
+      "timestamp": "2026-05-23T07:16:25Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "First execution: MAJOR_POLYBIUS.md section-by-section slimming pass (via PLINY gauntlet, lossless-on-canon)",
   "type": "task",
-  "updated_at": "2026-05-23T07:11:49Z"
+  "updated_at": "2026-05-23T07:16:25Z"
 }
