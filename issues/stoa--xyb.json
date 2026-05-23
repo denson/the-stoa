@@ -266,11 +266,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 7 (enforcement Stage 2, ticket .7) ENGAGED. Pre-branch hygiene PASSED (check1 empty; check2 main==origin/main; tree clean). Worktree arc-50-build on arc-50/build. Gauntlet: DAEDALUS Stage-2 design — NOMOS checker CAPTAIN (MUST rule out LIEUTENANT/skill alternative first per Arc-3 ratification) + PostToolUse-on-Agent trigger + bw-ground-truth detection (§7.7 drop-vs-unlock: my lean DROP=direct bw-state comparison, no PRINCIPAL-gate; UNLOCK=PRINCIPAL-gated, design surfaces it) + re-decompose remediation+guardrails (slots into the now-relocated incomplete-unverifiable-routing.md module) + SessionStart(compact) reprime (Stage-1 ARGUS R2 deferred here). HARD SAFETY: source-only, NEVER arm in live session (Stage-1 constraint extends). Heads-down per §6.2a.",
       "timestamp": "2026-05-23T12:06:55Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc 7: DAEDALUS Stage-2 design (e8b2215). LOAD-BEARING WEB-VERIFY FINDING (global search-the-web rule paid off again): the additionalContext injection channel that BOTH new Stage-2 hooks need (PostToolUse-on-Agent NOMOS-trigger + SessionStart-compact reprime) is BROKEN UPSTREAM — #55889 (OPEN, regression from v2.1.9, 'not actually wired up') + #15174. Docs SAY it works; it doesn't. Stage-1's deny + Stop decision:block channels CONFIRMED WORKING (Stage 1 unaffected). DAEDALUS built both Stage-2 hooks best-effort/forward-compatible AND backed every must-happen behavior with WORKING channels (Stop self-check nudge for NOMOS-dispatch; cron+CLAUDE.md for post-compaction reprime). Calls: NOMOS=CAPTAIN (per-divergence cause-classification is judgment a mechanical skill can't make; LIEUTENANT/skill ruled out). §7.7=DROP (NOMOS uses direct bw-state comparison; NO PRINCIPAL unlock needed — argues a judgment agent doesn't trigger §7.7's mechanical-hook hard-lock on either subject or mechanism; also resolves Stage-1 r1). Thesis-relevant: the judgment-tier trigger isn't platform-guaranteed (defense-in-depth, working-channel-backstopped — consistent w/ .5's 'hooks strong-not-absolute'). Dispatching ARGUS (scrutinize broken-channel handling + R3 ship-vs-defer + §7.7-DROP + NOMOS-CAPTAIN + recursion-guard). Heads-down.",
+      "timestamp": "2026-05-23T12:15:21Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T12:06:55Z"
+  "updated_at": "2026-05-23T12:15:21Z"
 }
