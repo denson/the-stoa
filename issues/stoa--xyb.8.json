@@ -51,11 +51,15 @@
     {
       "text": "MAJOR FINDING [SHOULD-FIX], A3/A4 adjudication: the design's A4 rationale for RELOCATING §15 is FACTUALLY WRONG. A4 claims 'verifier CAPTAINs are dispatched-with-brief; PLINY names verification-complexity.md in the brief.' But VERA §5.7, CATO §6.7, ZENO §6.6, ARGUS §6.6 ALL point at 'operating-disciplines.md §15' DIRECTLY from their own role files, on every dispatch — IDENTICAL mechanics to §25.5 (which the design KEEPs as A3 'read-direct'). PLINY does NOT name the module in verifier briefs. So by the design's OWN A3 principle, §15 is a KEEP candidate, not RELOCATE. §15 + §25.5 have identical consumer patterns yet land on opposite sides of a boundary that does not distinguish them. Confirmed §16/§17/§30 genuinely conditional (RELOCATE sound). Drafting verdict; checking §11 + finalizing.",
       "timestamp": "2026-05-23T09:16:00Z"
+    },
+    {
+      "text": "PASS-WITH-RISKS: 1 [BLOCKING] (r1: SPECIFICATION.md never grepped -\u003e S7 relocation flips 7 currently-PASSING S7.x refs PASS-\u003eFAIL in validate-spec, ran live resolver to confirm) + 3 [SHOULD-FIX/CONSIDER] (r2 A4-rationale-for-S15-RELOCATE-factually-wrong: verifier seats read S15 direct-via-role-file like S25.5; r3 design-6.4-internally-inconsistent-on-Check-A-narrowing; r4 S20-partial-numbering-order). LOSSLESS-COMPLETENESS MET whole-team: all 34 sections homed; 17/18 C-1 cites + stoa--ntn(WP4) carry their stories; Q2 cleared; in-substrate cross-refs clean; WP1 partition correctly diagnoses real Check-B regression. Q1 CONCUR, Q2 CONCUR, Q3 PARTIAL (A4 rationale wrong), Q4 CONCUR-w-caveat. Verdict saved agents/verdicts/stoa--xyb.8/ARGUS-2026-05-23T09-21-28Z.md (sha256 verified). Returning.",
+      "timestamp": "2026-05-23T09:21:39Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
   "type": "task",
-  "updated_at": "2026-05-23T09:16:00Z"
+  "updated_at": "2026-05-23T09:21:39Z"
 }
