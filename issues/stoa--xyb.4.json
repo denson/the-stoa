@@ -53,11 +53,15 @@
     {
       "text": "ADA ground-check complete. Live line numbers CONFIRMED: op-disc 2110 lines, sec32 L2042, '## Agent-regime inverses' L2089 (sec33 inserts after sec32's L2087 '---' / before L2089). install.sh idioms CONFIRMED: DEST case arms user L536-537/project L552-553/subproject L594 (DEST_TEMPLATES_DIR='' pattern to mirror), templates deploy L769-783, skills deploy ends L826, plan skills-line L661, staleness templates L961-985 (file-only single-segment nullglob), skills staleness ends L1014. run_or_print echoes '[dry-run] cp' (P2 satisfied). DRIFT FOUND: design sec3.C cite-back format says 'bw show --attachments \u003cid\u003e' for recovery — that flag does NOT exist in shipped bw 0.13.0 (bw attach writes to attachments/\u003cid\u003e/\u003cpath\u003e on beadwork ref; no read subcmd, no --attachments on show). Will build README recovery instruction to SHIP REALITY (git-on-beadwork-ref for attached files; plain bw show \u003cid\u003e for bw comment prose) + flag in verdict. Building now in dep order: README -\u003e sec33 -\u003e install.sh.",
       "timestamp": "2026-05-23T06:25:07Z"
+    },
+    {
+      "text": "ADA build complete (3 files). modules/README.md authored (3 channels + selection / module-authoring discipline / routing-map + relocation-index templates / 5-name CONDITIONAL taxonomy / 3-bucket lossless homes + ARGUS-carry-1 per-C-1 bw-show content-check gate in PROVENANCE sec5.2). op-disc sec33 inserted L2089 BEFORE '## Agent-regime inverses' L2115 (NOT EOF), placeholder fully expanded, P6(c) line-count = 26 lines (header-\u003ebefore-next-section) / 24 content lines, UNDER \u003c=30 cap, no trim ladder needed. install.sh: 7 edits (SRC_MODULES_DIR + 3 DEST arms + source-existence/non-empty glob assert + plan line + glob deploy step 5b w/ enumerate-log + glob staleness block + header doc-comment). Running bash -n build-check (sec5.1).",
+      "timestamp": "2026-05-23T06:27:40Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T06:25:07Z"
+  "updated_at": "2026-05-23T06:27:40Z"
 }
