@@ -55,11 +55,15 @@
     {
       "text": "ADA: all 11 modules written + verified (P-COND OK, P-AUTH OK no author fields, Check-E OK no marker lines in bodies, 29 .md in modules/ = 5+12+11+README, NO leak to main). Now cutting the slim core MAJOR_PLINY.md: KEEP-TIGHTEN §1-§4 + §5 preamble/§5.1 + §6 channel/§6.1-slim/§6.3 + §7 + §8 + §9; ADD §4.1 lyw fold + §4.2 routing+index; STUB §5.2-§5.12 + §6.2; §6.1 DUPLICATE-slim (keep L616 per CONSIDER-1). Per-deletion C-1 content-checks running inline.",
       "timestamp": "2026-05-23T10:47:01Z"
+    },
+    {
+      "text": "ADA: slim core cut DONE. MAJOR_PLINY.md = 379 lines (was 801; ~53% reduction; within design's 330-420 partial-not-failure band — kept full routing+index tables + §7.2 probe-sequence per orchestrator-gets-both-tables + KEEP-no-cut-rules). HARD GATE P-SPEC-XREF: PASS — all 7 at-risk spec cites (§5.10x3/§6.1/§6.2x3) resolve PASS post-cut; zero PLINY flips; only FAIL is pre-existing §N(L7). P-STUB OK (13 stubs + §6.1 live), P-LYW OK (§4.1 4-element), P-ROUTING-INDEX OK (BOTH tables §4.2), P-KEEP OK, P-XREF OK (all §N resolve), P-SPLIT OK (LIVE pointers kept, stoa--ioy/nax folded), CONSIDER-1 L616 KEPT. No main leak. Now install.sh PLINY owned-set (3rd call, zero function-body change).",
+      "timestamp": "2026-05-23T10:50:01Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "MAJOR_PLINY.md cut (orchestrator role-file debloat, 801 lines) + fold stoa--lyw lean",
   "type": "task",
-  "updated_at": "2026-05-23T10:47:01Z"
+  "updated_at": "2026-05-23T10:50:01Z"
 }
