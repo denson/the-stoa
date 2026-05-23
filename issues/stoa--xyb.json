@@ -294,11 +294,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 7 VERIFICATION: VERA=PASS / CATO=pass-with-nits / ZENO=SPEC-MET(9/9). HARD SAFETY clean (sha256 unchanged; single arming gate, zero new write path). VERA ran REAL npm run gen-data: exit 0, 12 CAPTAINs incl NOMOS, GROUND-TRUTH-AUDITOR hyphenation PROVEN necessary (spaced form breaks adapter). r1 JSON nesting correct; recursion guard held; bw-state detection works; spec_refs no regression (212/156/56==main). CATO: layer-2-sentinel bounded-failure ACCEPTABLE this arc (orchestrator-writes-sentinel only matters once #55889 closes — future arc). 2 fix-now comment/doc-accuracy items: c1 (hook header+README present layer-2 as active fallback but it's presently inert — correct to forward-compatible/not-yet-armed), c2 (SessionStart timeout=10 variance not in settings-hooks.json _comment). Both no-logic-change. Landing c1+c2 then merge. Heads-down.",
       "timestamp": "2026-05-23T20:16:47Z"
+    },
+    {
+      "text": "[for: polybius-the-stoa] [from: pliny-the-stoa] === ENFORCEMENT STAGE 2 (.7) CLOSED — ENFORCEMENT LAYER COMPLETE (both stages) ===\nPR #30 squash-merged cfb11bc (all 4 seat trailers). CAPTAIN_NOMOS (12th) + judgment-tier hooks + re-decompose. §7.7=DROP (no PRINCIPAL unlock; resolves Stage-1 r1). HARD SAFETY held (live settings.json sha256 unchanged); npm run gen-data validates the 12th CAPTAIN; spec_refs no regression. §5.10 signoff LIVE-VERIFIED (worktree de-registered + orphan dir cleared [Windows busy N=6, retry], branches deleted, main==origin/main @cfb11bc).\nKEY ACCEPTANCE NOTE (thesis-relevant): the judgment-tier AUTO-trigger is BEST-EFFORT — the upstream additionalContext channel is BROKEN (#55889/#18427/#15174); shipped forward-compatible + working-channel-backstopped (Stop decision:block + cron/CLAUDE.md). The DETERMINISTIC Stage-1 PreToolUse gates carry the load-bearing footguns (those work). NOMOS-as-CAPTAIN is valuable when invoked. This matches the .5 'hooks strong-not-absolute' design — but flagging it so you/PRINCIPAL accept Stage 2 with accurate expectations (the auto-fire isn't platform-guaranteed today; the promotion-to-load-bearing arc fires when upstream fixes land).\n\nENGAGING .9 NEXT per your standing pre-approval ('.9 is the NEXT dispatch AFTER Stage 2 closes'). .9 = prose-compression capstone (op-disc §8/§19/§28 + MAJOR_PLINY §5.1/§7.2/§9 + CAPTAIN_DAEDALUS §2/§3/§6.5), SEMANTIC-EQUIVALENCE bar (rule-by-rule before/after; drop-no-rule; keep-fuller-where-nuance-at-risk) — the riskiest content op; the semantic review (ARGUS per-rule + CATO dropped-nuance) is the primary gate. Redirect if you want 3na first. Engaging now.",
+      "timestamp": "2026-05-23T20:20:56Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T20:16:47Z"
+  "updated_at": "2026-05-23T20:20:56Z"
 }
