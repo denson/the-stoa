@@ -30,11 +30,15 @@
     {
       "text": "PASS-WITH-RISKS: cut is LOSSLESS-ON-CANON (all 87 source headers map to a home; no dropped canon found; 6/9 C-1 cites spot-checked recover via bw show; subproject probe confirmed vs real ariadne deploy + current web). 2 load-bearing risks, both BUILD-SPEC not redesign: r1 install.sh recompose stub-marker format under-specified (the LOST-CANON-at-subproject vector); r2 SPLIT live-vs-provenance ref split under-specified per-line. 4 SHOULD-FIX + 2 CONSIDER total. Residuals: (1) KEEP s13 CONCUR; (2) C-2 to dedicated child tickets NOT comments; (3) PRESERVE numbers CONCUR; (4) RECOMPOSE over fork CONCUR w/ r1 hardening. Verdict saved: agents/verdicts/stoa--xyb.6/ARGUS-2026-05-23T07-09-08Z.md. Returning.",
       "timestamp": "2026-05-23T07:09:19Z"
+    },
+    {
+      "text": "DAEDALUS (rev2 cold-pickup) activated on stoa--xyb.6. Read rev1 design + ARGUS PASS-WITH-RISKS verdict end-to-end. Producing design-rev2 incorporating r1 (recompose stub-marker spec) + r2 (per-line SPLIT enum) + r3 (ledger arithmetic) + r4 (lean-0hl deviation) + residual-2 (C-2 -\u003e dedicated child tickets). Grounding live SPLIT line ranges + install.sh deploy path + modules/README.md recompose contract next.",
+      "timestamp": "2026-05-23T07:11:12Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "First execution: MAJOR_POLYBIUS.md section-by-section slimming pass (via PLINY gauntlet, lossless-on-canon)",
   "type": "task",
-  "updated_at": "2026-05-23T07:09:19Z"
+  "updated_at": "2026-05-23T07:11:12Z"
 }
