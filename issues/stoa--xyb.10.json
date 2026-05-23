@@ -11,11 +11,15 @@
     {
       "text": "DAEDALUS activated on stoa--xyb.10 (Arc 48, MAJOR_PLINY.md cut). Reading brief + proven patterns (arc-47 op-disc, arc-45 POLYBIUS) + the file being cut (801 lines) + role file disciplines.",
       "timestamp": "2026-05-23T10:25:38Z"
+    },
+    {
+      "text": "DAEDALUS: file mapped (§1-§9 + all subsections); arc-47 proven pattern absorbed (3-class + 2-set ownership partition + SPECIFICATION.md heading-preserve + C-1/C-2). Reading install.sh recompose + modules README + stoa--lyw fold target next.",
+      "timestamp": "2026-05-23T10:25:58Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "MAJOR_PLINY.md cut (orchestrator role-file debloat, 801 lines) + fold stoa--lyw lean",
   "type": "task",
-  "updated_at": "2026-05-23T10:25:38Z"
+  "updated_at": "2026-05-23T10:25:58Z"
 }
