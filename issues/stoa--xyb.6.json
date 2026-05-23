@@ -114,11 +114,15 @@
     {
       "text": "CATO cold-read of cut + 5 modules + C-2 tickets COMPLETE: LOSSLESS-ON-CANON confirmed independently (C-1 cites recover inline story; C-2 child tickets carry verbose prose verbatim; SPLIT folds honest — §16.7 explicitly names folded provenance; DUPLICATE kept prime+TIRO). Now running independent empirical recompose probe (§6.8 env-interactive) to meta-verify VERA's P10/P10-neg, then forming Q2 line-count judgment.",
       "timestamp": "2026-05-23T07:49:11Z"
+    },
+    {
+      "text": "drift (1 spec-internal contradiction, not a build defect; + 1 known target-miss flagged factually): SPEC-vs-RESULT mechanical check COMPLETE. 21/22 spec items MET. Ledger §3 all rows executed (5 CONDITIONAL gone from core + present in modules; 9 C-1 folded to Anchor; 2 C-2 in child tickets .6.1/.6.2 verbatim; 4 SPLIT LIVE refs kept + provenance folded; 1 DUPLICATE -\u003e op-disc §12 pointer). 5 modules exist+non-empty+no author-field. Markers 5o=5c=5 files matched. install.sh recompose: 5 FAIL-LOUD checks (A-E), scoped to DEST_POLYBIUS, bash -n exit0, P10 ran (bodies inline, FULL band 1098, idempotent), P10-neg fires exit2. Scope clean (only POLYBIUS+5 modules+install.sh excl agents/); Author=PRINCIPAL; Co-Authored-By CAPTAIN_ADA. P1 line-count = 590 vs 300-350 target (\u003e400 falsifier) -\u003e distinct SPEC-GAP item, flagged factually per brief. The 1 'drift': P10(a) assertion 'expect 0 markers' contradicts §6.5 algorithm steps 2-3 which MANDATE keeping the paired markers (idempotency anchor) -\u003e build correctly followed §6.5; the contradiction is in the spec, not the artifact. Returning.",
+      "timestamp": "2026-05-23T07:50:32Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "First execution: MAJOR_POLYBIUS.md section-by-section slimming pass (via PLINY gauntlet, lossless-on-canon)",
   "type": "task",
-  "updated_at": "2026-05-23T07:49:11Z"
+  "updated_at": "2026-05-23T07:50:32Z"
 }
