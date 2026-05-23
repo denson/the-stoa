@@ -27,11 +27,15 @@
     {
       "text": "ARGUS activated on stoa--xyb.11 (CAPTAIN_DAEDALUS.md cut, LAST relocation cut). Reading design-rev1 end-to-end + source file + precedents (arc-47/arc-48, modules/README, install.sh recompose) before audit. Primary target: LOST CANON + cross-ref integrity + the no-DEST_DAEDALUS-var install.sh mechanic.",
       "timestamp": "2026-05-23T11:25:29Z"
+    },
+    {
+      "text": "ARGUS state-transition: independent verification complete. Cross-ref census MATCHES design exactly (external cite set {6,6.7,6.8,6.9,6.9.3'',6.11}; no missed cite; backtick+form-c forms checked; spec resolver = 0 DAEDALUS-resolving refs, baseline 156/56 confirmed). install.sh mechanic VERIFIED: recompose block L894-1010 closes BEFORE CAPTAIN loop L1014-1037 (ordering hazard real); DEST_DAEDALUS absent (no collision); path-construction mirrors L1023 exactly. 0 basename collisions (28 existing disjoint). Check E clean. All empirical tickets resolve. Drafting verdict — walking ledger vs source line-ranges for gap-completeness.",
+      "timestamp": "2026-05-23T11:27:14Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "CAPTAIN_DAEDALUS.md cut (architect role-file debloat, 633 lines) — LAST relocation cut",
   "type": "task",
-  "updated_at": "2026-05-23T11:25:29Z"
+  "updated_at": "2026-05-23T11:27:14Z"
 }
