@@ -89,11 +89,15 @@
     {
       "text": "VERA Probe-1 (install.sh module deploy) COMPLETE against throwaway clone @ d3735c6: P1 source-exists PASS; P2 dry-run plan+cp PASS; P3 real-deploy lands README.md exit 0; P4 completeness PASS; GLOB-PROOF PASS (2nd throwaway *.md added to CLONE auto-deployed, plan 1-\u003e2 modules, zero install.sh edit); P5 empty-source errs 'no module sources found' exit 2; P8 staleness flags bogus.md+removed-module; subproject tier deploys NO modules (DEST_MODULES_DIR='' -\u003e 'modules deployment skipped'). bash -n exit 0. Moving to op-disc §33 placement+size.",
       "timestamp": "2026-05-23T06:31:51Z"
+    },
+    {
+      "text": "VERA drift-call verdict: ADA --attachments call is CORRECT. Live bw 0.13.0: 'bw show --help' has only --json/--only (NO --attachments); 'bw attach --help' is write-only (no read-back subcommand). README git-recovery path PROVEN via isolated attach round-trip: bw attach -\u003e git show beadwork:attachments/\u003cid\u003e/\u003cpath\u003e recovered exact bytes exit 0. BUT one README §5.2 inaccuracy found (line 196-197): claims 'attach intent comment in bw show \u003cid\u003e names the stored path' — FALSE. Live test: attach intent is a git COMMIT MESSAGE on beadwork ref ('attach \u003cid\u003e \u003cstored-path\u003e'), discoverable via 'git log beadwork', NOT surfaced in bw show (--only comments empty, --json no attach field). Recovery still works; the stored-path-discovery instruction is wrong. Flagging as methodology_concern + minor falsifying evidence on the recovery sub-claim. Finishing Probe-3 consistency.",
+      "timestamp": "2026-05-23T06:33:11Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T06:31:51Z"
+  "updated_at": "2026-05-23T06:33:11Z"
 }
