@@ -55,11 +55,15 @@
     {
       "text": "PASS: Arc 51 .9 prose-compression capstone clears the primary semantic gate. All 13 rows equivalence-confirmed (0 BLOCKING dropped-nuance); 5 KEEP-FULLER all sound (K1 byte-alignment verified empirically across 12 CAPTAIN files). spec_refs 156/56 unchanged + resolver heading-text-rescan confirmed -\u003e body-prose compression provably probe-safe. 2 non-blocking build-obligations for ADA/VERA: B1 (s19.4 map must carry neither-subsumes + broaden-from-s19.2-pattern-2 once Row 19-D drops bullet@766; extend VERA Probe 5), B2 (Row 19-B precision wording - the 2026-04-21 verbatim string@724 is NOT byte-recoverable from s19.2). Q1: HOLD safe floor (no subsection-heading deletion). Q2: s7.6 ariadne--m20 OUT of scope. Verdict saved: agents/verdicts/stoa--xyb.9/ARGUS-2026-05-23T20-35-57Z.md (sha b1601179fc05). Returning.",
       "timestamp": "2026-05-23T20:36:03Z"
+    },
+    {
+      "text": "ADA activated on stoa--xyb.9 (Arc 51 .9 PROSE-COMPRESSION CAPSTONE). operating-mode: autonomous. Read design-rev1.md (156ddbf) + ARGUS PASS verdict (0 BLOCKING + B1/B2 build-obligations) + worktree state (arc-51/build @ HEAD 156ddbf, clean except untracked verdict files). Building the 13 approved compression rows exactly per the equivalence table; 5 KEEP-FULLER (K1-K5) stay UNTOUCHED. Ground-checking each row's BEFORE against live cfb11bc-derived text before rewriting.",
+      "timestamp": "2026-05-23T20:37:06Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "op-disc KEEP-prose tightening (lossless compression of §8/§19/§28, ~100-150L) — CATO Arc-47 follow-up",
   "type": "task",
-  "updated_at": "2026-05-23T20:36:03Z"
+  "updated_at": "2026-05-23T20:37:06Z"
 }
