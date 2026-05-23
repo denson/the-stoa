@@ -63,11 +63,15 @@
     {
       "text": "State: op-disc §8 (rows 8-A/8-B) + §19 (19-A/19-B/19-C/19-D) applied. B1 HONORED: §19.4 consolidated relationship-map now carries BOTH 'neither subsumes the other' AND 'both broaden from §19.2 pattern 2'. B2 HONORED: §19.3 rephrased as 'incident-shape exemplars' with incidents 'narrated at §19.2' (no byte-recoverable claim). §19.6.2/§19.7.2 shrunk to pointers (distinct verification-actions git rev-parse HEAD / authorship-check kept INLINE at both sites). §19.6.3/§19.7.6 cross-ref lists trimmed (unique refs §6.2/§16/§28/§6.7.1/§19.1-5 kept; relationship-restatements dropped). KEEP-FULLER K2 (§8.2 bidirectional-translation) untouched. Now applying §28 rows (28-A/28-B/28-C).",
       "timestamp": "2026-05-23T20:38:37Z"
+    },
+    {
+      "text": "State: op-disc §28 (28-A/28-B/28-C) + MAJOR_PLINY §5.1/§7.2/§9 (P-5.1/P-7.2/P-9) applied. §28.8 trim kept §25 (unique — confirmed not in §28.7 body) + §5.10/§5.11; dropped reachable-inline bullets. §28.3.1 heading PRESERVED (spec-cited SPEC L640), body mechanism stated once. §28.6 heading PRESERVED, MAJOR-trailer-format + BARTLEBY/STRABO/HERALD/CURATOR enumeration kept. PLINY §7.2 3-step category-first enumeration (K4) kept verbatim; only wrapper prose tightened. §9 steps 3-8 + clean-PASS/ambiguity/handoff blocks (K5) kept; only steps 1-2 collapsed to §4 pointer. Now applying CAPTAIN_DAEDALUS §3 (D-3); §2 (K3) + §6.5 (K1) stay UNTOUCHED.",
+      "timestamp": "2026-05-23T20:39:58Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "op-disc KEEP-prose tightening (lossless compression of §8/§19/§28, ~100-150L) — CATO Arc-47 follow-up",
   "type": "task",
-  "updated_at": "2026-05-23T20:38:37Z"
+  "updated_at": "2026-05-23T20:39:58Z"
 }
