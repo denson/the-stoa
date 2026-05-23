@@ -2,14 +2,16 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-23T10:18:19Z",
+  "close_reason": "Permanent PROVENANCE-ARCHIVE record (C-2 from the Arc-47 op-disc cut). Cited by an Anchor in slim op-disc; recover via bw show stoa--xyb.8.1. Closed = archive-complete (remains readable).",
   "created": "2026-05-23T09:48:00Z",
   "description": "C-2 PROVENANCE archive from operating-disciplines.md §8.1 (Positive references only), Arc 47 op-disc debloat cut (stoa--xyb.8). The verbose empirical-anchor prose, archived FIRST then deleted inline (replaced with Anchor: stoa--xyb.8.\u003cthis-id\u003e in the slim core).\n\nEmpirical anchor: 2026-05-04 — a project-tier install paste said \"Run `bw prime` in this directory (NOT user-beadwork).\" The \"NOT user-beadwork\" parenthetical seeded awareness of user-tier bw into a project-tier session that wouldn't otherwise have known it existed. PRINCIPAL caught and corrected before the activated session reached for the wrong store.\n\nThis is the N=1 anchor for the §8.1 positive-references-only discipline: reference only POSITIVE resources the agent should use; never reference resources they shouldn't reach for, even with NOT/EXCEPT qualifiers — because a negative qualifier mentions the resource as a real thing, defeating bounded-context properties, and the downstream agent under pressure rationalizes the now-known thing as a legitimate exception. The §8.1 RULE + anti-pattern/discipline table stay inline in the slim core; only this empirical-anchor story relocates here.",
   "id": "stoa--xyb.8.1",
   "labels": [],
   "parent": "stoa--xyb.8",
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "Arc 47 C-2 archive: op-disc §8.1 positive-references empirical (2026-05-04 bw-prime NOT-user-beadwork leak)",
   "type": "task",
-  "updated_at": "2026-05-23T09:48:00Z"
+  "updated_at": "2026-05-23T10:18:19Z"
 }
