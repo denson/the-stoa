@@ -76,7 +76,9 @@ When you author a new trigger payload anywhere in the substrate, this is the rul
 
 ---
 
-## 4. The gates (Stage 1)
+## 4. The gates and triggers
+
+**Stage 1 — the deterministic tier (PreToolUse deny / Stop block; WORKING channels).**
 
 | Script | Event | Narrowing `if` | Blocks |
 |---|---|---|---|
@@ -84,6 +86,13 @@ When you author a new trigger payload anywhere in the substrate, this is the rul
 | `pretooluse-clean-tree-before-branch.sh` | PreToolUse | `Bash(git *)` | arc-build branch / worktree creation when the tree is dirty |
 | `pretooluse-no-dash-m-bw-comment.sh` | PreToolUse | `Bash(bw comment*)` | the `bw comment <id> -m "..."` data-loss footgun |
 | `stop-self-check.sh` | Stop | (none) | once per turn: a self-check backstop (checker-dispatched? gate not dodged? commit attributed?) |
+
+**Stage 2 — the judgment tier (best-effort `additionalContext` reminders; the channel is upstream-broken — see §6).** These do NOT block or deny; they (best-effort) REMIND the orchestrator to act. Their reliability backstops are the WORKING channels above + cron + CLAUDE.md, never the additionalContext channel itself.
+
+| Script | Event | Matcher | Reminds (best-effort) |
+|---|---|---|---|
+| `posttooluse-agent-checker-trigger.sh` | PostToolUse | `Agent` | on a sub-agent return (parent context): dispatch CAPTAIN_NOMOS to confirm the returned output conforms to bw ground truth before propagating it. Recursion-guarded (no-op on a NOMOS return) via `agent_type` + a session-sentinel fallback. |
+| `sessionstart-compact-reprime.sh` | SessionStart | `compact` | on a compact-triggered resume: re-prime the orchestrator's standing engagement context (seat, open epic, polling cadence, dispatch-NOMOS reminder). Payload from `.claude/hooks/reprime-context` if present, else a generic role reprime. |
 
 The PRINCIPAL allow-list the author-field gate reads is `.claude/hooks/principal-identity` (one
 name/email per line; `#` comments + blanks ignored), written at install time. It is the gate's
@@ -129,3 +138,39 @@ When an operator genuinely wants the gates live on a target workspace:
    author-field gate denies any value not on the list, with a widen-the-list message).
 4. The gates are now live for that workspace's sessions. To disarm, remove the `hooks` block from
    that `settings.json`.
+
+---
+
+## 6. The `additionalContext` injection bug — why the Stage-2 hooks are best-effort
+
+The two Stage-2 judgment-tier hooks (`posttooluse-agent-checker-trigger.sh`, `sessionstart-compact-reprime.sh`)
+inject their reminder/reprime via the `additionalContext` channel. **That channel is broken upstream
+across current shipping versions** (web-verified 2026-05-23, no fix through changelog **v2.1.150**):
+
+| Issue | State | Scope | What it confirms |
+|---|---|---|---|
+| [#55889](https://github.com/anthropics/claude-code/issues/55889) | OPEN (`bug` + `has repro`), v2.1.123 | PostToolUse / PreToolUse `additionalContext` (regression from v2.1.9 "added but not actually wired up") | The PostToolUse `additionalContext` payload may NOT reach the model. The reporter explicitly notes `permissionDecision:"deny"` + `permissionDecisionReason` DO reach the model on deny — i.e. the Stage-1 deny channel is unaffected. |
+| [#18427](https://github.com/anthropics/claude-code/issues/18427) | CLOSED-not-planned (Jan 2026) | broader, matcher-agnostic: "PostToolUse cannot inject context visible to Claude" | The broadest confirmation — PostToolUse context injection is not a supported path, independent of matcher. Strengthens (does not narrow) the finding. |
+| [#19432](https://github.com/anthropics/claude-code/issues/19432) | reported Jan 2026 | PreToolUse `additionalContext` dropped | Companion confirmation on the sibling event. |
+| [#15174](https://github.com/anthropics/claude-code/issues/15174) | CLOSED-as-duplicate, v2.0.72–v2.0.76 | SessionStart(matcher:`compact`) `additionalContext` | The hook EXECUTES but its output is NOT injected after compaction. Documented impact: "Blocks multi-agent orchestration systems that need role reminders." Named workaround: "Add reminders directly to CLAUDE.md, which DOES get loaded after compaction." |
+
+**The design posture (design-rev1 arc-50 §2 / §5.2 / §5.5).** Both Stage-2 hooks are shipped
+**best-effort + forward-compatible + harmless-when-broken**: the payloads are correct and start
+working the moment the upstream issues close; when broken, the output is simply dropped (no side
+effect). They are NOT the reliable carriers. Every Stage-2 behavior that MUST happen rests on a
+WORKING channel instead:
+
+- **NOMOS-dispatch reminder** — the reliable carrier is the Stage-1 **Stop self-check**
+  (`stop-self-check.sh`, clause A — `decision:"block"` + `reason`, a working channel), which reminds
+  the orchestrator to dispatch NOMOS at turn-end. The PostToolUse-on-Agent hook reminds *earlier* (at
+  sub-agent return) IF/when the platform fixes #55889 / #18427.
+- **Post-compaction reprime** — the reliable carriers are **CLAUDE.md** (loaded after compaction —
+  the #15174 issue's own named workaround) and the **polling cron**
+  (`templates/polling-cron-prompt-template.md` — fresh harness-fired input that survives compaction
+  by construction, the `bw show stoa--xyb.5` founding principle). The SessionStart-compact hook is a
+  forward-compatible supplement, not the guarantee.
+
+**When to revisit.** When #55889 / #18427 / #15174 close (or a changelog entry restores
+`additionalContext` injection), re-test the two Stage-2 hooks end-to-end and promote them from
+best-effort to load-bearing carriers. Until then they document the dependency and serve as the
+tripwire for that future arc.
