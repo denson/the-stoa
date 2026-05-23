@@ -99,11 +99,15 @@
     {
       "text": "VERA state-transition: 4-OWNER LIVE RECOMPOSE = PASS on throwaway. CRITICAL: recomposed CAPTAIN_DAEDALUS_myproj.md = 770 lines (FULL band, NOT slim 229) -\u003e DAEDALUS-path NOT no-op'd, no silent LOST CANON. All 7 DAEDALUS bodies present; r1 double-prime survives byte-exact into recomposed (od 27 27); other 3 owners NOT regressed (POLYBIUS 5/op-disc 12/PLINY 11, full bands). Now P-RECOMPOSE-NEG FAIL-LOUD against an isolated substrate copy (induce missing DAEDALUS module -\u003e expect exit!=0, no partial).",
       "timestamp": "2026-05-23T11:51:41Z"
+    },
+    {
+      "text": "pass: CAPTAIN_DAEDALUS.md cut = PASS. LOSSLESS-COMPLETENESS (the bar, separate from line count) = PASS: all 384 relocated §6.x discipline-body lines homed in 7-module union (ZERO lost); all KEEP sections verbatim in slim core (only diff = 3 intentional §6.2 repoint lines); move-with-verbatim narrative anchors present verbatim (not fake-Anchor'd). LINE COUNT 229 (reported, not the bar; 200-260 partial-band, no KEEP rule cut). r1 double-prime BYTE-EXACT (27 27, zero unicode-prime) in slim L176 + module L142 + recomposed L339. TOP RISK CLEARED: live 4-owner recompose -\u003e recomposed CAPTAIN_DAEDALUS_myproj=770 FULL band NOT slim 229 (DAEDALUS-path NOT no-op'd); all 7 bodies present; POLYBIUS5/opdisc12/PLINY11 not regressed. P-SPEC-XREF 0 DAEDALUS refs + 156/56 held. P-RECOMPOSE-NEG exit2 FAIL-LOUD no partial. P-OWNERSHIP-NOCOLLIDE 35/35. r3 5sr-not-utn; r4 FOUR/35 comments. bash -n exit0. 2 non-blocking methodology notes (index-row 'DUPLICATE' label vs ledger 'SPLIT' for the §6.2 repoint = cosmetic taxonomy; WITH_CAPTAINS gate = CATO's lane). Verdict: agents/verdicts/stoa--xyb.11/VERA-2026-05-23T11-53-26Z.md (sha256 round-trip verified). Throwaway targets cleaned; no main mutation. Returning.",
+      "timestamp": "2026-05-23T11:53:42Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "CAPTAIN_DAEDALUS.md cut (architect role-file debloat, 633 lines) — LAST relocation cut",
   "type": "task",
-  "updated_at": "2026-05-23T11:51:41Z"
+  "updated_at": "2026-05-23T11:53:42Z"
 }
