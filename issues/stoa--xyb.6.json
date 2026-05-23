@@ -26,11 +26,15 @@
     {
       "text": "Ledger-completeness walk DONE: every source section maps to a ledger row or KEEP-TIGHTEN — no DROPPED canon found in the cut. Subproject probe CONFIRMED against real ariadne deploy (self-contained 64KB role file, no modules dir at either tier). Web-check confirms #56686 current (~2wk ago) + new corroborators #29423/#29610 — recompose strategy 2b is sound. Found: (1) ledger arithmetic typo (5 SPLIT claimed, 4 actual); (2) §4.5 F1 'lean 2-sentence' deviates from 0hl 'mirror verbatim'; (3) recompose stub-marker format under-specified = the real LOST-CANON-at-subproject risk. Finalizing verdict + quadrant + 4 residuals.",
       "timestamp": "2026-05-23T07:04:08Z"
+    },
+    {
+      "text": "PASS-WITH-RISKS: cut is LOSSLESS-ON-CANON (all 87 source headers map to a home; no dropped canon found; 6/9 C-1 cites spot-checked recover via bw show; subproject probe confirmed vs real ariadne deploy + current web). 2 load-bearing risks, both BUILD-SPEC not redesign: r1 install.sh recompose stub-marker format under-specified (the LOST-CANON-at-subproject vector); r2 SPLIT live-vs-provenance ref split under-specified per-line. 4 SHOULD-FIX + 2 CONSIDER total. Residuals: (1) KEEP s13 CONCUR; (2) C-2 to dedicated child tickets NOT comments; (3) PRESERVE numbers CONCUR; (4) RECOMPOSE over fork CONCUR w/ r1 hardening. Verdict saved: agents/verdicts/stoa--xyb.6/ARGUS-2026-05-23T07-09-08Z.md. Returning.",
+      "timestamp": "2026-05-23T07:09:19Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "First execution: MAJOR_POLYBIUS.md section-by-section slimming pass (via PLINY gauntlet, lossless-on-canon)",
   "type": "task",
-  "updated_at": "2026-05-23T07:04:08Z"
+  "updated_at": "2026-05-23T07:09:19Z"
 }
