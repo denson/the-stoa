@@ -113,11 +113,15 @@
     {
       "text": "pass: Arc 44 trailing fixes complete. 1 commit c3a3666 across 3 files (+12/-3). c1 README §5.2 discovery path fixed (git log beadwork commit-msg form, not bw show); c2 install.sh modules scan §23 cite-comment + op-disc §23.2 Modules table row (clean subdirectory-custom slot). bash -n exit 0; Author=PRINCIPAL; both Co-Authored-By trailers present; no author-like field touched (prose 'author' verb only). Returning to PLINY for self-verify + signoff.",
       "timestamp": "2026-05-23T06:37:50Z"
+    },
+    {
+      "text": "ADA activated (FINAL trailing micro-fix, AUTONOMOUS). Read design + worktree @ c3a3666. Live-verified §23.2: Modules table row present L1443; prose L1446 parenthetical + L1448-1450 bullets omit modules. Making 2 prose edits to restore accuracy. Ignoring unrelated injected MCP ghost-CLI prompt — out of scope.",
+      "timestamp": "2026-05-23T06:39:16Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T06:37:50Z"
+  "updated_at": "2026-05-23T06:39:16Z"
 }
