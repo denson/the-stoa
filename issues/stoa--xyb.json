@@ -170,11 +170,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 4 (op-disc cut, ticket .8) ENGAGED. Pre-branch hygiene PASSED (check1 empty; check2 main==origin/main @0ad68db; tree clean). op-disc = 2156 lines (worst offender). Worktree .claude/worktrees/arc-47-build on arc-47/build. Gauntlet starting: DAEDALUS cut design — PROVEN 3-bucket method + subproject-recompose (all tiers) + section-number PRESERVE via stubs (critical: op-disc is cross-ref'd by EVERY role file+module) + RECALIBRATED CRITERION (lossless-completeness, NO line target, report empirical floor) + UNIVERSAL-file extra care (KEEP bucket = whole-team always-on core; ARGUS LOST-CANON whole-team) + C-2-\u003echild tickets. Heads-down per §6.2a.",
       "timestamp": "2026-05-23T09:01:48Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc 4: DAEDALUS op-disc cut design-rev1 (00e2707). 13 CONDITIONAL-\u003e13 modules (§7/§11[249L autonomous-setup, biggest]/§14/§15/§16/§17/§20-detail/§22/§27/§29/§30/§31/§32); 18 C-1+3 C-2 provenance-\u003ebw cites + 5 SPLIT; ZERO DUPLICATE (§12 is the keep-home others point at); KEEP universal always-on core (anti-pattern thesis, escalation triggers, heartbeat contract, confabulation, credential structural rule, PRINCIPAL-gate, base-vs-custom, Co-Authored-By, §12 cookbook, §33/§34). Section numbers PRESERVED via stubs (critical — nearly every op-disc §N cross-cited). EMPIRICAL FLOOR ~700-850 (reported NOT targeted per recalibrated criterion; op-disc's always-on core genuinely larger than POLYBIUS's). KEY structural choice: install.sh module-OWNERSHIP partition (op-disc's 13 modules share substrate/modules/ with POLYBIUS's 5 -\u003e recompose gains per-call owned-set arg so global-glob Check B/D don't false-positive). DAEDALUS top risks: WP1 ownership-partition regression breaks BOTH files at subproject; Q1 relocation-index-but-NO-routing-map (op-disc dispatches nothing — the load-bearing judgment call); Q3 ambient-vs-conditional A1-A4 boundary. Dispatching ARGUS (LOST-CANON whole-team primary). Heads-down.",
+      "timestamp": "2026-05-23T09:11:08Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T09:01:48Z"
+  "updated_at": "2026-05-23T09:11:08Z"
 }
