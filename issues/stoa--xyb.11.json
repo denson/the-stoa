@@ -75,11 +75,15 @@
     {
       "text": "CATO state-transition: cold-read of slim core (229L) + install.sh diff + recompose fn body complete. Found candidate [BLOCKING] in install.sh §3b: new DAEDALUS recompose call (L1062) gated only on TARGET=subproject, NOT WITH_CAPTAINS — but DAEDALUS deploys only when WITH_CAPTAINS=1. Running empirical --no-captains --target subproject probe (§6.8) to confirm before verdict.",
       "timestamp": "2026-05-23T11:48:11Z"
+    },
+    {
+      "text": "ZENO state-transition: items 1-6 + 11 checked. Modules (7 non-empty, titles, no author, no line-leading MODULE-INLINE), §6.9 cluster + double-prime byte-exact (od -c two 0x27), spec-cited headings present, markers opens=closes=7, install.sh (DAEDALUS_MODULES 7, DEST_DAEDALUS constructed, 4th call after CAPTAIN loop, Check A owner-agnostic, FOUR/35 comments, bash -n exit 0), line count 229. Now running spec_refs.py worktree vs main baseline (item 7) on a static checkout — no main mutation.",
+      "timestamp": "2026-05-23T11:48:38Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "CAPTAIN_DAEDALUS.md cut (architect role-file debloat, 633 lines) — LAST relocation cut",
   "type": "task",
-  "updated_at": "2026-05-23T11:48:11Z"
+  "updated_at": "2026-05-23T11:48:38Z"
 }
