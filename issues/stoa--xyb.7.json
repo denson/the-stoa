@@ -107,11 +107,15 @@
     {
       "text": "ADA activated on Arc 50 nit fixes (c1+c2). Reading design + VERA/CATO verdicts (both confirm: c1 layer-2 sentinel INERT but documented as active fallback = comment-accuracy SHOULD-FIX; c2 SessionStart timeout=10 not in settings-hooks.json _comment = NIT). Worktree arc-50-build @ 6de84aa confirmed. COMMENT/DOC ONLY, no executable-logic change. Reading hooks/README.md + settings-hooks.json before first edit.",
       "timestamp": "2026-05-23T20:17:15Z"
+    },
+    {
+      "text": "c1+c2 edits complete. c1: hook header (~L29-39) + inline layer-2 comment (~L79-82) + README table row + new README §6.1 — all now describe layer-2 as FORWARD-COMPATIBLE/INERT (no sentinel write-site; layer-1 agent_type is the active guard; bounded-failure since NOMOS is leaf). c2: settings-hooks.json _comment extended with TIMEOUT NOTE clause. VERIFIED: non-comment lines of hook sha256-IDENTICAL to baseline (b38040e8) = zero executable-logic change; bash -n exit 0; JSON valid (python3 json.load); no author-field added; 3 files changed only. Committing to arc-50/build with seat trailer.",
+      "timestamp": "2026-05-23T20:18:25Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer STAGE 2 (judgment tier): CAPTAIN_NOMOS + PostToolUse-on-Agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T20:17:15Z"
+  "updated_at": "2026-05-23T20:18:25Z"
 }
