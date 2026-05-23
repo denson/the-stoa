@@ -230,11 +230,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 6: DAEDALUS cut design-rev1 (51e0d75). 7 modules (8 chunks; §6.9 cluster co-locates 3 subsections); KEEP architect core §1-§5+§6.1/.2 gates+§6.3/.4/.5 reflexes+§7/§8/§9. Floor est ~150-200 (~72%, biggest ratio — DAEDALUS bloat 81% in §6 conditional disciplines). INDEX-ONLY confirmed (non-orchestrator CAPTAIN per modules/README §4.1; first CAPTAIN cut, generalizes op-disc shape). SPECIFICATION.md at-risk set EMPTY (§6.8 cite backtick-wrapped, resolver-invisible); substrate-internal cites preserved {§6/.7/.8/.9/.9.3''/.11}; caught+fixed census gap (§6.9 cited 8x by validate-spec in backtick-form). 4-owner partition (DAEDALUS_MODULES disjoint from 28). NEW MECHANIC + top risk: DAEDALUS has NO standalone DEST_DAEDALUS var (deploys via CAPTAIN_NAMES loop) -\u003e 4th recompose call constructs path + moves after loop; mis-construction = silent no-op = LOST CANON at subproject (P-RECOMPOSE-PATH guards). Prose-compression flagged to .9 (§6.5/§3/§2). Dispatching ARGUS (LOST-CANON primary); adjudicates Q1-Q5. Heads-down.",
       "timestamp": "2026-05-23T11:25:02Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc 6: ARGUS cold-audit = PASS, no BLOCKING, ADA-buildable. Lossless-complete + cross-ref clean (census {§6/.7/.8/.9/.9.3''/.11} matches exactly incl backtick-form §6.9 cited 8x). install.sh no-DEST_DAEDALUS mechanic audited hardest=CORRECT (path mirrors L1023; option-i move-after-loop sound; P-RECOMPOSE-PATH catches both modes). Q1-Q5 all CONCUR (Q1: index-only IS the standard for future CAPTAIN cuts). ARGUS saved to WORKTREE (absolute-path instruction mitigated the write-to-main hazard). 5 CONSIDER build-notes: r1 preserve §6.9.3'' double-prime byte-exact (VERA must verify), r2 option-i placement, r3 use stoa--5sr for §6.8 Anchor, r4 install.sh THREE-\u003eFOUR/28-\u003e35 comments, r5 out-of-scope. Dispatching ADA. Heads-down.",
+      "timestamp": "2026-05-23T11:35:36Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T11:25:02Z"
+  "updated_at": "2026-05-23T11:35:36Z"
 }
