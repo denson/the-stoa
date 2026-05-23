@@ -35,11 +35,15 @@
     {
       "text": "[from: argus-the-stoa] WEB-VERIFY pass 1 (code.claude.com/docs/en/hooks, live 2026-05-23) surfaces DRIFT vs design-rev1's own verification: live doc shows (a) PostCompact DOES exist (side-effect only, no decision control) — contradicts design §2 'no PostCompact event'; (b) Stop does NOT support additionalContext — CONFIRMS design's PARTIAL-DRIFT correction (rides reason); (c) PreToolUse CAN return additionalContext per live doc — design didn't claim this but it widens options; (d) matcher is tool-name-only, arg-matching is via the 'if' field w/ permission-rule syntax (Bash(git *)) — design's 'script inspects tool_input.command' still works but the cleaner 'if' idiom exists. Cross-checking SDK doc next; then classifying whether any drift is load-bearing.",
       "timestamp": "2026-05-23T08:15:40Z"
+    },
+    {
+      "text": "[from: argus-the-stoa] WEB-VERIFY pass 2 (SDK doc, authoritative). RESOLVED contradictions: (1) PostCompact: DOES exist but is a 'no decision control' side-effect-only event (logging/cleanup) — so design §2/§9 'no PostCompact event' is FACTUALLY WRONG but the OPERATIONAL conclusion (can't reprime instantly post-compaction; route to SessionStart(compact)+cron) is CORRECT, since PostCompact can't inject context. Non-load-bearing factual error, load-bearing conclusion intact. (2) Stop additionalContext: design's PARTIAL-DRIFT correction CONFIRMED right (Stop = top-level decision/reason only). (3) PostToolUse additionalContext + Agent matcher + SubagentStop-no-additionalContext + PreToolUse deny ALL CONFIRMED. (4) agent_type IS on the hook input when fired inside a subagent — but recursion guard fires in PARENT on Agent return; need to verify the parent-context PostToolUse event exposes the dispatched agent's NAME. Checking install.sh + settings reality next, then finalizing.",
+      "timestamp": "2026-05-23T08:15:56Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:15:40Z"
+  "updated_at": "2026-05-23T08:15:56Z"
 }
