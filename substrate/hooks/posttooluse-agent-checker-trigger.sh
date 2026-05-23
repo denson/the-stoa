@@ -27,16 +27,29 @@
 # (the additionalContext is simply dropped). See substrate/hooks/README.md §6.
 #
 # RECURSION GUARD: the hook must NOT remind "run NOMOS" when the sub-agent that
-# just returned IS NOMOS (else a NOMOS-checks-NOMOS prompt). Two-layer guard:
-#   (1) PRIMARY — inspect the event's agent_type for a NOMOS seat name and
-#       no-op (allow, no additionalContext) on a match.
-#   (2) FALLBACK — a one-deep session-sentinel (the parent-on-return event's
-#       population of agent_type is UNCONFIRMED per the SDK docs, which only
-#       promise agent_type "when the hook fires INSIDE a subagent"): if a NOMOS
-#       dispatch is in flight for this session, suppress re-firing. The failure
-#       mode if BOTH miss is bounded — one no-op reminder the orchestrator reads
-#       and recognizes as not-applicable; NOMOS is a leaf and cannot dispatch a
-#       further NOMOS, so there is no loop.
+# just returned IS NOMOS (else a NOMOS-checks-NOMOS prompt). Two layers, but
+# only ONE is active today:
+#   (1) ACTIVE — the layer-1 agent_type match. Inspect the event's agent_type
+#       for a NOMOS seat name and no-op (allow, no additionalContext) on a
+#       match. This is the live guard.
+#   (2) FORWARD-COMPATIBLE / NOT-YET-ARMED — a one-deep session-sentinel read.
+#       The layer-2 branch below READS a `.nomos-sentinels/<session>` sentinel
+#       and suppresses re-firing if present, BUT nothing in the substrate WRITES
+#       that sentinel today (unlike the Stage-1 Stop sentinel, which self-writes
+#       in stop-self-check.sh). So layer-2 is INERT-but-harmless: the read never
+#       finds a file, the branch never fires. It activates only once a future
+#       arc adds an orchestrator-writes-sentinel-on-NOMOS-dispatch site (the same
+#       arc that promotes these best-effort hooks to load-bearing once upstream
+#       #55889 closes). The session-sentinel design is kept here because the
+#       parent-on-return event's population of agent_type is UNCONFIRMED per the
+#       SDK docs (which only promise agent_type "when the hook fires INSIDE a
+#       subagent"), so a write-site is the planned belt-and-suspenders for the
+#       case layer-1 cannot see the returning seat. TODAY layer-1 is the guard.
+#       The failure mode if layer-1 ever misses (and layer-2 is still unarmed)
+#       is bounded — one no-op reminder the orchestrator reads and recognizes as
+#       not-applicable; NOMOS is a leaf and cannot dispatch a further NOMOS, so
+#       there is no loop. That bounded-failure property is why shipping layer-2
+#       inert is acceptable for this arc.
 #
 # FAIL-OPEN: on any script error (no python3, malformed event, missing field)
 # emit nothing and allow — consistent with the Stage-1 contract. A best-effort
@@ -63,10 +76,17 @@ case "$(printf '%s' "$RETURNING" | tr '[:upper:]' '[:lower:]')" in
   *captain_nomos*|*nomos*) allow ;;   # NOMOS returned — do NOT remind to run NOMOS
 esac
 
-# --- recursion guard, layer 2: session sentinel (agent_type may be absent) -----
-# If a NOMOS dispatch is in flight for this session, suppress re-firing. The
-# sentinel is best-effort scratch; if we cannot establish it we still emit (the
-# layer-1 guard + the bounded-failure property cover the gap).
+# --- recursion guard, layer 2: session sentinel (FORWARD-COMPATIBLE / INERT) ---
+# This branch READS a per-session sentinel and would suppress re-firing if a
+# NOMOS dispatch were flagged in flight for this session. It is INERT TODAY:
+# nothing in the substrate WRITES a `.nomos-sentinels/<session>` file (unlike the
+# Stage-1 Stop sentinel, which self-writes in stop-self-check.sh), so the read at
+# the bottom of this block never finds a file and the suppress never fires. The
+# read path is kept ready for a future arc that adds an orchestrator-writes-
+# sentinel-on-NOMOS-dispatch site (the layer-1 agent_type match is the ACTIVE
+# guard until then). The sentinel is best-effort scratch; if we cannot establish
+# the dir we still emit (the layer-1 guard + the bounded-failure property — NOMOS
+# is a leaf, worst case one no-op reminder — cover the gap).
 SESSION="$(event_field session_id)" || SESSION=""
 CWD="$(event_field cwd)" || CWD=""
 SENTINEL_DIR=""

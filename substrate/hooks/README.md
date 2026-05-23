@@ -91,7 +91,7 @@ When you author a new trigger payload anywhere in the substrate, this is the rul
 
 | Script | Event | Matcher | Reminds (best-effort) |
 |---|---|---|---|
-| `posttooluse-agent-checker-trigger.sh` | PostToolUse | `Agent` | on a sub-agent return (parent context): dispatch CAPTAIN_NOMOS to confirm the returned output conforms to bw ground truth before propagating it. Recursion-guarded (no-op on a NOMOS return) via `agent_type` + a session-sentinel fallback. |
+| `posttooluse-agent-checker-trigger.sh` | PostToolUse | `Agent` | on a sub-agent return (parent context): dispatch CAPTAIN_NOMOS to confirm the returned output conforms to bw ground truth before propagating it. Recursion-guarded by the **active** layer-1 `agent_type` match (no-op on a NOMOS return), plus a **forward-compatible / not-yet-armed** layer-2 session-sentinel fallback (see §6.1). |
 | `sessionstart-compact-reprime.sh` | SessionStart | `compact` | on a compact-triggered resume: re-prime the orchestrator's standing engagement context (seat, open epic, polling cadence, dispatch-NOMOS reminder). Payload from `.claude/hooks/reprime-context` if present, else a generic role reprime. |
 
 The PRINCIPAL allow-list the author-field gate reads is `.claude/hooks/principal-identity` (one
@@ -174,3 +174,26 @@ WORKING channel instead:
 `additionalContext` injection), re-test the two Stage-2 hooks end-to-end and promote them from
 best-effort to load-bearing carriers. Until then they document the dependency and serve as the
 tripwire for that future arc.
+
+### 6.1 The NOMOS-trigger recursion guard — layer-1 active, layer-2 not-yet-armed
+
+`posttooluse-agent-checker-trigger.sh` must not remind "run NOMOS" when the sub-agent that just
+returned IS NOMOS. It carries a two-layer guard, but **only layer-1 is active today**:
+
+- **Layer-1 (ACTIVE) — `agent_type` match.** The hook inspects the return event's `agent_type`
+  fields for a NOMOS seat name and no-ops on a match. This is the live guard.
+- **Layer-2 (FORWARD-COMPATIBLE / NOT-YET-ARMED) — session-sentinel.** The hook also READS a
+  per-session `.nomos-sentinels/<session>` sentinel and would suppress re-firing if one were present.
+  **It is INERT today: nothing in the substrate WRITES that sentinel** (contrast the Stage-1 Stop
+  sentinel, which self-writes in `stop-self-check.sh`). The read never finds a file, so the branch
+  never fires. Layer-2 activates only once a future arc adds an orchestrator-writes-sentinel-on-
+  NOMOS-dispatch site — the same promotion arc that fixes the best-effort `additionalContext` channel
+  once #55889 closes (§6). The read path ships now so that arc only has to add the write side.
+
+**Why shipping layer-2 inert is harmless.** The session-sentinel exists as a belt-and-suspenders for
+the case where layer-1 cannot see the returning seat (the parent-on-return event's population of
+`agent_type` is UNCONFIRMED per the SDK docs, which promise `agent_type` only "when the hook fires
+INSIDE a subagent"). Even with layer-2 unarmed, the worst case is bounded: if layer-1 ever misses,
+the orchestrator gets one no-op reminder it reads and recognizes as not-applicable. NOMOS is a leaf
+and cannot dispatch a further NOMOS, so there is no loop. The bounded-failure property is why this
+arc ships layer-2's read path ahead of its write site.
