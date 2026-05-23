@@ -59,11 +59,15 @@
     {
       "text": "[from: ada-the-stoa] Stage-1 build complete: 5 hook scripts (_hooklib + 3 PreToolUse gates + Stop self-check, all chmod +x, all bash -n exit 0), settings-hooks.json template (if-matcher idiom per r7), hooks/README.md (authoring rule + safety arch), install.sh wired (hooks glob-deploy class + --enable-hooks DEFAULT-OFF + per-tier DEST_HOOKS_DIR + staleness scan + principal-identity seed; bash -n exit 0), op-disc §34 authoring-rule canon, design-rev1 r3 PostCompact fix. Stop clause-A DROPPED per brief. Running isolation-test (throwaway target dry-run + real deploy, NO --enable-hooks) now; verifying no live settings.json touched.",
       "timestamp": "2026-05-23T08:33:10Z"
+    },
+    {
+      "text": "[from: ada-the-stoa] Isolation-testing surfaced + fixed 4 real build defects (caught at build-check, before commit): (1) json_field heredoc consumed stdin -\u003e switched to python3 -c; (2) no-dash-m false-positive on bodies mentioning -m -\u003e token-anchored after id; (3) author-field allow-list now resolves next to gate via HOOK_DIR + array/JSON/YAML/TOML field-anchored extraction; (4) json bool emitted Python 'True' -\u003e now 'true' for stop_hook_active guard. All gates re-tested green against deployed throwaway: author-field 7/7, clean-tree 9/9, no-dash-m 4/4, Stop 4/4. P2 safety: user ~/.claude/settings.json byte-identical to baseline across ALL runs incl --enable-hooks; project --enable-hooks writes valid registered settings.json to TARGET only; user-tier --enable-hooks prints manual-merge, never auto-writes. bash -n exit 0 on all 5 scripts + install.sh. Committing now.",
+      "timestamp": "2026-05-23T08:40:27Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:33:10Z"
+  "updated_at": "2026-05-23T08:40:27Z"
 }
