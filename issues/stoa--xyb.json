@@ -26,11 +26,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 1 (composition layer, ticket .4) ENGAGED. Pre-branch hygiene PASSED (check1 empty; check2 main==origin/main @1fb5e04; tree clean). Worktree .claude/worktrees/arc-44-build on arc-44/build. Gauntlet starting: dispatching DAEDALUS for slim-mechanism design (composition layer only per Refinement 2; routing-map-in-core per Refinement 1). Heads-down per §6.2a.",
       "timestamp": "2026-05-23T06:00:11Z"
+    },
+    {
+      "text": "DAEDALUS activated on stoa--xyb.4 (Arc 1 / Arc 44 composition layer). Reading brief + design inputs (.1/.2/.3/.4) + shipped substrate/install.sh + operating-disciplines.md structure + .claude/ layout before drafting. AUTONOMOUS.",
+      "timestamp": "2026-05-23T06:00:58Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T06:00:11Z"
+  "updated_at": "2026-05-23T06:00:58Z"
 }
