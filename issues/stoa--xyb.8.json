@@ -67,11 +67,15 @@
     {
       "text": "pass: op-disc cut design-rev2 complete + committed (arc-47/build 30bb8fb, 718 lines). Path: agents/design/arc-47/design-rev2.md. Opens with 'Changes from rev1 (addressing ARGUS r1-r4)'. r1 [BLOCKING] FIXED LOSSLESS: §7 stub keeps §7.1/§7.2/§7.3/§7.4/§7.5/§7.7 as REAL heading lines (bodies relocated) so the validate-spec exact-heading resolver stays GREEN. Re-ran spec_refs.py across ALL 13 relocated sections -\u003e complete at-risk set = 7 PASS cites, ALL §7 subsections (§7.1/§7.2/§7.4x4/§7.5); NO other relocated section has a spec-cited subsection. New probe P-SPEC-XREF runs the shipped resolver + asserts ZERO refs flip PASS-\u003eFAIL. r2 FIXED: §15 flipped RELOCATE-\u003eKEEP (read-direct by VERA/CATO/ZENO/ARGUS like §25.5; false A4 deleted; A3 generalized). r3 FIXED: recompose TWO distinct sets - GLOBAL global_exists[] (Check A) + per-call OWNED owned[] (Checks B/D); new probe P-OWNERSHIP-CHECKA. r4: §20 numbering-order confirmed lossless, left as-is + do-not-renumber note. NEW COUNTS: 12 modules (was 13), 19 standalone C-1, 27 PROVENANCE, 39 total relocated chunks; floor estimate ~760-915 (+~60 for §15 inline). Top weak points: (1) §7 stub's 6 heading-line shapes must match spec resolver _heading_pattern - P-SPEC-XREF guards; (2) two-set recompose wiring (Check A global / B-D owned) - P-OWNERSHIP-CHECKA guards; (3) §22.2/§27.2 stay prose-named (census-driven, not blanket - flagged Q2). Returning to PLINY; dispatch focused ARGUS re-confirm.",
       "timestamp": "2026-05-23T09:31:35Z"
+    },
+    {
+      "text": "ARGUS re-activated on stoa--xyb.8 (op-disc cut Arc 47, FOCUSED rev2 re-confirm). AUTONOMOUS. Reading design-rev2 (committed 30bb8fb) + re-running spec_refs.py live to independently verify the r1 CENSUS (only S7 subsections spec-cited among relocated sections). Targets: r1 heading-preserve soundness, Q2 census-vs-defensive adjudication, r2/r3/r4 cleared, new-risk sweep.",
+      "timestamp": "2026-05-23T09:32:31Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
   "type": "task",
-  "updated_at": "2026-05-23T09:31:35Z"
+  "updated_at": "2026-05-23T09:32:31Z"
 }
