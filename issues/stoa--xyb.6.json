@@ -82,11 +82,15 @@
     {
       "text": "install.sh recompose step COMPLETE + verified end-to-end (bash -n exit 0). P10 happy-path: subproject install recomposes DEST_POLYBIUS to 1125 lines (FULL band, all 5 module first-headings present, 10 paired markers kept as idempotency anchors); PLINY untouched at 801 lines, 0 markers (residual-3 confirmed). P10-negative: ALL 5 FAIL-LOUD checks fire with exit 2 + clean abort (no partial/slim file left): Check A (marker→no module), Check B (module→no marker, per-file), Check D (zero-markers+modules, per-file ARGUS F-B), Check E (close-marker-in-body, ARGUS F-A). Idempotency: re-run produces byte-identical 1125-line output. Fixed 2 bugs during verification: (1) awk exit triggered END double-fire → added _aborting guard (single diagnostic); (2) failed recompose left the slim sed-output on disk → now rm both tmp + slim role file on failure (design §6.5 'NEVER writes a partial/slim role file'). Now committing: (a) cut+modules+install.sh, (b) 0hl fold as separable slice.",
       "timestamp": "2026-05-23T07:41:43Z"
+    },
+    {
+      "text": "partial (P1 only): BUILD COMPLETE, returning. 2 commits on arc-45/build: ee654d7 (cut + 5 modules + install.sh recompose) + 2074525 (lean 0hl fold, separable slice). Both carry Co-Authored-By: CAPTAIN_ADA_the-stoa; Author stays PRINCIPAL; no author-like field touched. Slim core MAJOR_POLYBIUS.md = 590 lines (was 1299; ~55% cut). PROBES: P2(10 markers) P3(5 stubs) P4(§7.3→§12, verbose cookbook deleted) P9(author clean) P10(subproject recompose→1098 lines FULL band, all 5 bodies + 0hl §5.6 inlined, 10 paired markers) P10-neg(all 5 FAIL-LOUD checks fire exit2 + remove partial file) P11(all SPLIT LIVE pointers survive, PROVENANCE folded to Anchors, §19.7 intra-line split correct) — ALL PASS. C-1 9 content-checks ran; C-2 xyb.6.1/.6.2 created+content-checked before deletion. bash -n exit 0. Idempotent. P1 ONLY shortfall: 590 vs 300-350 target (\u003e400 falsifier) — KEEP-TIGHTEN §13/§16-19 dense always-on rules + every preserved §X.Y subsection + mandated §3.5 dual tables dominate physical line count; further cuts would drop load-bearing rules (violate LOSSLESS-ON-CANON, the hard bar) or relocate always-on core off-disk (design forbids). Matches ARGUS weak-point#2 prediction. LOSSLESS-ON-CANON at all tiers = MET. Verdict to PLINY: partial (honest scope on P1). VERA/CATO/ZENO next.",
+      "timestamp": "2026-05-23T07:45:37Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "First execution: MAJOR_POLYBIUS.md section-by-section slimming pass (via PLINY gauntlet, lossless-on-canon)",
   "type": "task",
-  "updated_at": "2026-05-23T07:41:43Z"
+  "updated_at": "2026-05-23T07:45:37Z"
 }
