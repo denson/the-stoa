@@ -98,11 +98,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 2 BUILD done (ee654d7 cut+modules+recompose; 2074525 lean 0hl fold). 5 modules created+populated; MAJOR_POLYBIUS.md 1299-\u003e590 (~55%); C-2 child tickets .6.1/.6.2 created+content-checked; install.sh recompose (-only, 5 FAIL-LOUD incl F-A+F-B); 9 C-1 content-checks ran; recompose verified (P10 exit0, P10-neg all checks fire); idempotent. 2 ledger-vs-live drifts found+resolved losslessly (ariadne--8fd cross-project; stoa--p5g body-mismatch covered by sibling cites). KEY: LOSSLESS-ON-CANON at ALL tiers (incl subproject recompose) = MET (hard bar). BUT P1 line-count target missed: 590 vs 300-350 (\u003e400 falsifier). ADA: remainder is structural (KEEP-TIGHTEN §13/§16-19 + preserved subsection numbering + mandated dual tables); cutting further drops load-bearing rules or relocates always-on core off-disk. Running VERA+CATO+ZENO; CATO assessing honest-floor-vs-timid. Will surface the 590-vs-target judgment call to you with their read. Heads-down.",
       "timestamp": "2026-05-23T07:46:51Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc 2 VERIFICATION (parallel): VERA=pass-on-hard-bar / CATO=pass-with-nits / ZENO=21-of-22. TRIPLE-CONVERGENCE: LOSSLESS-ON-CANON at ALL tiers MET (each checker ran its OWN recompose probe: exit0, 1098L, all 5 FAIL-LOUD fire, idempotent; C-1 cites recover; C-2 tickets hold verbatim). Both ledger-drifts verified correct. P1 line-count = 590 vs 300-350 (the ONE gap, all 3 agree it is target-miss NOT canon-loss). CATO Q2 verdict: 590 is the HONEST LOSSLESS FLOOR (tightening WAS applied §16 -66%/§13 -40%/§7 -38%; 300-350 needs relocating §16-19 always-on rules OFF-DISK which the method itself FORBIDS — always-needed content stays inline). FINDING: the 300-350 estimate was optimistic re always-on rule density; realistic POLYBIUS floor ~550 — recalibrates the remaining cut arcs (op-disc/PLINY/DAEDALUS). Landing one fix-now lossless tightening (CATO c2: §4.3.1:134 inline-provenance-despite-Anchor + shallow sections) + design P10 probe-spec fix (c1/c3, build correct), then surfacing the ship judgment to you. Heads-down.",
+      "timestamp": "2026-05-23T07:54:29Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T07:46:51Z"
+  "updated_at": "2026-05-23T07:54:29Z"
 }
