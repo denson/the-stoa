@@ -63,11 +63,15 @@
     {
       "text": "CATO activated on stoa--xyb.7 (Arc 50 Stage 2). Reading diff (main..arc-50/build, excluding agents/) + design-rev1 + ARGUS verdict before forming cold-read. AUTONOMOUS mode.",
       "timestamp": "2026-05-23T12:33:10Z"
+    },
+    {
+      "text": "ZENO activated on stoa--xyb.7 (Arc 50 / Stage-2 enforcement, spec-checker). AUTONOMOUS. Spec=agents/design/arc-50/design-rev1.md. Reading shipped artifacts (commit 6de84aa) before extracting criteria. ISOLATION: static checks + throwaway targets only; no live hook armed.",
+      "timestamp": "2026-05-23T12:33:27Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer STAGE 2 (judgment tier): CAPTAIN_NOMOS + PostToolUse-on-Agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T12:33:10Z"
+  "updated_at": "2026-05-23T12:33:27Z"
 }
