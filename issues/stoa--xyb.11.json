@@ -31,11 +31,15 @@
     {
       "text": "ARGUS state-transition: independent verification complete. Cross-ref census MATCHES design exactly (external cite set {6,6.7,6.8,6.9,6.9.3'',6.11}; no missed cite; backtick+form-c forms checked; spec resolver = 0 DAEDALUS-resolving refs, baseline 156/56 confirmed). install.sh mechanic VERIFIED: recompose block L894-1010 closes BEFORE CAPTAIN loop L1014-1037 (ordering hazard real); DEST_DAEDALUS absent (no collision); path-construction mirrors L1023 exactly. 0 basename collisions (28 existing disjoint). Check E clean. All empirical tickets resolve. Drafting verdict — walking ledger vs source line-ranges for gap-completeness.",
       "timestamp": "2026-05-23T11:27:14Z"
+    },
+    {
+      "text": "pass: CAPTAIN_DAEDALUS.md cut design-rev1 = PASS (no [BLOCKING], no LOST-CANON, no broken cross-ref; 5 [CONSIDER] build-notes only). HEADLINE cross-ref: independent backtick-tolerant+form-c census MATCHES design exactly {6,6.7,6.8,6.9,6.9.3'',6.11}; all 5 cited-relocated subsections marked for real-heading stub; spec resolver = 0 DAEDALUS-resolving refs (baseline 156/56 confirmed live; L553 6.8 is an already-failing op-disc-resolving bare-section, untouched). Lossless-completeness VERIFIED: every source line-range homed, 0 C-1/0 C-2/0 dropped rules, all 6 empirical tickets resolve, Check E clean. install.sh mechanic (top risk) audited hardest + CORRECT: DEST_DAEDALUS path mirrors L1023 exactly, no var collision, ordering hazard real (recompose block L894-1010 closes BEFORE CAPTAIN loop L1014-1037; option-(i) move-calls-after-L1037 is sound), P-RECOMPOSE-PATH catches both error modes. Q1-Q5 ALL CONCUR (index-only=standard for future CAPTAIN cuts; move-with-verbatim not C-2; minimal path-construction; repoint-not-drop; severity!=frequency RELOCATE). 5 [CONSIDER]: r1 preserve literal double-prime byte-exactly (would be BLOCKING if lost); r2 keep option-(i) fn/call placement; r3 6.8 Anchor=stoa--5sr not stoa--utn; r4 update install.sh THREE-\u003eFOUR comments; r5 SPEC L553 backtick = pre-existing not cut-introduced. Verdict saved: agents/verdicts/stoa--xyb.11/ARGUS-2026-05-23T11-34-40Z.md (worktree, sha256-verified). Returning.",
+      "timestamp": "2026-05-23T11:35:01Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "CAPTAIN_DAEDALUS.md cut (architect role-file debloat, 633 lines) — LAST relocation cut",
   "type": "task",
-  "updated_at": "2026-05-23T11:27:14Z"
+  "updated_at": "2026-05-23T11:35:01Z"
 }
