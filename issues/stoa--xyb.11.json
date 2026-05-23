@@ -47,11 +47,15 @@
     {
       "text": "ADA state-transition: 7 modules written + slim core cut. CAPTAIN_DAEDALUS.md = 229 lines (633-\u003e229, ~64% reduction; §6.0 index richer than the ~12-line estimate so above the 150-200 band but well under the 260 cut-too-shallow guard and above 120 cut-too-deep guard; NO KEEP rule cut to hit a number). Static probes ALL PASS: P-COND (7 modules non-empty), P-STUB (9 stub headings + §6.1-6.5 live), P-XREF (§6 + 5 substrate-cited subsections resolve), P-INDEX (§6.0 present, routing-map count 0), P-AUTH (zero author fields), P-KEEP (all 13 always-on rules inline), P-SPLIT (§6.2 repoint names both modules + §6.0). §6.9.3'' double-prime byte-exact (od -c: two 0x27). Check E clean on all bodies. NO leak to main. Now extending install.sh: DAEDALUS_MODULES + DEST_DAEDALUS path-construction + 4th recompose call after CAPTAIN loop (option-i).",
       "timestamp": "2026-05-23T11:43:06Z"
+    },
+    {
+      "text": "pass: CAPTAIN_DAEDALUS.md cut BUILT + committed 854f89d (arc-49/build, seat trailer present, Author=PRINCIPAL, NO leak to main). 9 files: slim core (633-\u003e229) + install.sh 4-owner + 7 modules (canonical-code-block-fix 63, credential-flow-design 19, principal-gate-design 25, canonical-template-alignment 56, probe-grounding 246, ssot-with-why 74, api-docs-dont-generalize 58). ALL PROBES PASS: P-FLOOR 229 (above 120 / below 260); P-COND 7 non-empty; P-STUB 9 stubs + 6.1-6.5 live; P-XREF 6+5-cited resolve; P-SPEC-XREF 0 DAEDALUS refs matched, totals 156/56 unchanged; P-RECOMPOSE live 4-owner smoke = ALL re-inline (DAEDALUS 7 markers non-empty, recomposed=770 FULL band so path NOT no-op'd; POLYBIUS 5/op-disc 12/PLINY 11); P-RECOMPOSE-PATH DEST_DAEDALUS constructed + call-after-loop; P-RECOMPOSE-NEG exit 2 FAIL-LOUD no partial shipped; P-OWNERSHIP-NOCOLLIDE 35/35 zero collisions; P-AUTH zero author fields; P-KEEP all 13 inline; P-INDEX 6.0 present routing-map=0. r1 double-prime byte-exact (od -c two 0x27, survives into recomposed file); r3 6.8 Anchor=stoa--5sr; r4 THREE-\u003eFOUR/28-\u003e35 done. bash -n exit 0. ZERO ledger-vs-live drift. Returning to PLINY for VERA+CATO+ZENO.",
+      "timestamp": "2026-05-23T11:46:04Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "CAPTAIN_DAEDALUS.md cut (architect role-file debloat, 633 lines) — LAST relocation cut",
   "type": "task",
-  "updated_at": "2026-05-23T11:43:06Z"
+  "updated_at": "2026-05-23T11:46:04Z"
 }
