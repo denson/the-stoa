@@ -7,9 +7,15 @@
   "id": "stoa--xyb.11",
   "labels": [],
   "parent": "stoa--xyb",
+  "comments": [
+    {
+      "text": "DAEDALUS activated on stoa--xyb.11 (CAPTAIN_DAEDALUS.md cut, 633 lines, LAST relocation cut). Reading brief + role file + precedents (arc-47 op-disc index-only, arc-48 PLINY 3-owner, modules/README §4.1, install.sh recompose).",
+      "timestamp": "2026-05-23T11:12:07Z"
+    }
+  ],
   "priority": 2,
   "status": "in_progress",
   "title": "CAPTAIN_DAEDALUS.md cut (architect role-file debloat, 633 lines) — LAST relocation cut",
   "type": "task",
-  "updated_at": "2026-05-23T11:11:38Z"
+  "updated_at": "2026-05-23T11:12:07Z"
 }
