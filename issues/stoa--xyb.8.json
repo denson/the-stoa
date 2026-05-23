@@ -55,11 +55,15 @@
     {
       "text": "PASS-WITH-RISKS: 1 [BLOCKING] (r1: SPECIFICATION.md never grepped -\u003e S7 relocation flips 7 currently-PASSING S7.x refs PASS-\u003eFAIL in validate-spec, ran live resolver to confirm) + 3 [SHOULD-FIX/CONSIDER] (r2 A4-rationale-for-S15-RELOCATE-factually-wrong: verifier seats read S15 direct-via-role-file like S25.5; r3 design-6.4-internally-inconsistent-on-Check-A-narrowing; r4 S20-partial-numbering-order). LOSSLESS-COMPLETENESS MET whole-team: all 34 sections homed; 17/18 C-1 cites + stoa--ntn(WP4) carry their stories; Q2 cleared; in-substrate cross-refs clean; WP1 partition correctly diagnoses real Check-B regression. Q1 CONCUR, Q2 CONCUR, Q3 PARTIAL (A4 rationale wrong), Q4 CONCUR-w-caveat. Verdict saved agents/verdicts/stoa--xyb.8/ARGUS-2026-05-23T09-21-28Z.md (sha256 verified). Returning.",
       "timestamp": "2026-05-23T09:21:39Z"
+    },
+    {
+      "text": "DAEDALUS activated on stoa--xyb.8 (op-disc cut, Arc 47) COLD-PICKUP for design-rev2. Read rev1 (committed 00e2707, 574 lines) + ARGUS verdict (PASS-WITH-RISKS, r1 BLOCKING + r2/r3/r4) end-to-end. r1=SPECIFICATION.md cross-ref regression via validate-spec exact-heading resolver; r2=flip §15 to KEEP; r3=recompose two distinct sets (global existence vs owned consumption); r4=§20 numbering-order cosmetic. Now investigating live: spec_refs.py resolver behavior + every SPECIFICATION.md cite of a relocated subsection + install.sh Check-A/B exists[] sharing. Then draft rev2 (targeted fixes, NOT a re-cut).",
+      "timestamp": "2026-05-23T09:23:13Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
   "type": "task",
-  "updated_at": "2026-05-23T09:21:39Z"
+  "updated_at": "2026-05-23T09:23:13Z"
 }
