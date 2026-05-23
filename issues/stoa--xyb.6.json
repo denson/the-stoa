@@ -46,11 +46,15 @@
     {
       "text": "ARGUS re-activated on stoa--xyb.6 (Arc 45 FOCUSED rev2 re-confirm). Reading design-rev2 (4fa6c57) + my rev1 PASS-WITH-RISKS verdict. Scope: r1 recompose robustness (LOST-CANON-at-subproject), r2 SPLIT classification spot-check, r3 ledger arithmetic, residual-2 child-ticket gate, adjudicate residual-3 Check-D scoping. NOT re-walking the whole cut.",
       "timestamp": "2026-05-23T07:17:30Z"
+    },
+    {
+      "text": "rev2 audit pass: r2 SPLIT spot-checks CONFIRMED vs live source (§16.7 sources-cluster 1037-1040 = correctly PROVENANCE; §19.7 L1295 intra-line split correct: stoa--86k-\u003eAnchor, §17.5/§18.5 LIVE kept; §17.4 disambiguation parenthetical correctly kept verbatim). r3 arithmetic CONFIRMED (4 SPLIT live / 9 C-1 + 2 C-2 + 4 SPLIT = 15). Source has ZERO literal MODULE-INLINE strings; modules/README.md does NOT doc the marker convention (the brief's self-collision worry does not materialize). err() exits non-zero. Now reasoning the awk state-machine edge cases for r1 + adjudicating residual-3 Check-D scoping.",
+      "timestamp": "2026-05-23T07:18:13Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "First execution: MAJOR_POLYBIUS.md section-by-section slimming pass (via PLINY gauntlet, lossless-on-canon)",
   "type": "task",
-  "updated_at": "2026-05-23T07:17:30Z"
+  "updated_at": "2026-05-23T07:18:13Z"
 }
