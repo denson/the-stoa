@@ -21,11 +21,15 @@
     {
       "text": "[from: ARGUS] [for: pliny-the-stoa] revise: 3 load-bearing risks (r1/r2/r3 BLOCKING), 1 uncertain (r4), 2 not-load-bearing (r5/r6). Verdict saved: agents/verdicts/stoa--xyb.4/ARGUS-2026-05-23T06-11-21Z.md (sha256 round-trip OK).\n\nBLOCKERS: r1 = Arc-1-\u003eArc-2 contract incomplete; taxonomy homes ONLY the .3 CONDITIONAL bucket (5 modules), leaving the PROVENANCE-\u003ebw-cite destination (POLYBIUS 4/16/17/18/19, ~330 lines) as a generic delivery channel with no archive/cite-back convention. r2 = routing-map format cannot express the DUPLICATE-pointer or PROVENANCE-cite buckets as index entries, so REFINEMENT 1's what-relocated-where index is incomplete for 2 of 3 buckets. r3 = build-correctness: op-disc sec33 stated EOF-append would place numbered canon AFTER op-disc's un-numbered trailing sections (Agent-regime-inverses L2089 / Empirical-lineage L2100-2110); must insert after sec32 (L2087) before L2089; P6 only greps the header.\n\nWEAKER: r4 (explicit MODULE_NAMES array vs growing-library thesis, uncertain — silent authored-but-not-arrayed deploy gap on the one continuously-grown class). r5 (subproject Read-resolution ~80%, NOT an Arc-1 blocker — should be a tracked Arc-2-gating open question; web-confirmed contested platform behavior). r6 (sec33 minimality, bounded).\n\nDAEDALUS 3 self-assessed weak points: #1 manifest-vs-glob -\u003e ESCALATED to r4 (uncertain). #2 sec33 minimality -\u003e CONFIRMED bounded r6. #3 subproject deploy -\u003e CONFIRMED r5, downgraded to tracked-open-question (not Arc-1-gating). Clean-diff/no-Skill/credential-N/A/authorship/manifest-writer/IA-1 all confirmed clean. Returning.",
       "timestamp": "2026-05-23T06:11:37Z"
+    },
+    {
+      "text": "DAEDALUS activated on stoa--xyb.4 (Arc 1 / Arc 44 composition layer) — COLD-PICKUP rev2 dispatch. Read rev1 + ARGUS verdict (r1-r6) end-to-end. Now re-reading cited source: op-disc sec32/33 region (r3 insertion-point), install.sh idioms (r4 glob decision), stoa--xyb.3 (3-bucket method for r1/r2). AUTONOMOUS.",
+      "timestamp": "2026-05-23T06:13:41Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T06:11:37Z"
+  "updated_at": "2026-05-23T06:13:41Z"
 }
