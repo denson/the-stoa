@@ -95,11 +95,15 @@
     {
       "text": "[from: zeno-the-stoa] spec criteria extracted; 8 mechanical-check items (mapped to brief). Hook files all present+non-empty; bash -n exit 0 on 5 scripts + install.sh; settings-hooks.json valid JSON; Stop uses decision:block+reason, seat-tag clause confirmed DROPPED (only in drop-explanation comment); _hooklib fail-OPEN present. Now auditing install.sh wiring (--enable-hooks default, glob-deploy, per-tier DEST_HOOKS_DIR) + op-disc §34 + safety scope.",
       "timestamp": "2026-05-23T08:44:30Z"
+    },
+    {
+      "text": "[from: zeno-the-stoa] pass: Arc 46 Stage-1 SPEC-MET. 8/8 mechanical checks present with evidence; 0 gaps. 3 PreToolUse gates + Stop self-check + _hooklib all present/non-empty/bash-n-clean; Stop uses decision:block+reason, seat-tag clause confirmed DROPPED (per brief, not a gap); _hooklib fail-OPEN present; settings-hooks.json valid JSON; install.sh --enable-hooks DEFAULT-OFF + glob-deploy + per-tier DEST_HOOKS_DIR + bash -n exit 0; op-disc §34 + hooks/README.md (dogfood split) present; SAFETY: no settings.json in diff, live ~/.claude/settings.json untouched (baseline c79ae66), design r3 PostCompact fix present; scope = exactly hooks/+settings-hooks.json+install.sh+op-disc (excl agents/); commit d70f7e2 Author=PRINCIPAL (denson) + Co-Authored-By CAPTAIN_ADA_the-stoa; no artifact author-field changed wrong. Returning.",
+      "timestamp": "2026-05-23T08:45:23Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:44:30Z"
+  "updated_at": "2026-05-23T08:45:23Z"
 }
