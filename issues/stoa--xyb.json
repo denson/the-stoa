@@ -310,11 +310,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 8 (.9): DAEDALUS prose-compression design (156ddbf). Per-rule equivalence table: 13 compression rows + 5 KEEP-FULLER-by-judgment. Body-prose-ONLY (all headings/numbers preserved; DAEDALUS proved via spec_refs source that the resolver matches by heading-text re-scan not line# -\u003e within-section prose compression is probe-safe; spec_refs byte-identical 156/56). Reported delta ~46-76L (below CATO's ~100-150 est — subsection-heading-preserve forces pointer-shrink over fold-delete + 5 keep-fuller). KEY CATCH: my brief said DAEDALUS §6.5 Monitor block 'just compress, restates op-disc §18.4' — DAEDALUS VERIFIED it's a BYTE-IDENTICAL canonical template across 12+ CAPTAIN files (§6.8 cross-file alignment) -\u003e KEPT FULLER (K1), cross-file lockstep arc named as follow-up. Exactly the nuance the semantic bar protects. Dispatching ARGUS — PER-RULE EQUIVALENCE AUDIT = PRIMARY GATE; scrutinize 19-A (relationship consolidation) / 19-D+28-A (cross-ref trims — verify each dropped bullet's reachability) / 28-C (compress-vs-cut) hardest; adjudicate Q1 (subsection-heading deletability lever) + Q2 (§7.6 NIT scope). Whole-team lens (op-disc §8/§19/§28 dropped-nuance degrades every seat). Heads-down.",
       "timestamp": "2026-05-23T20:28:23Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc 8 (.9): ARGUS PER-RULE EQUIVALENCE AUDIT (primary semantic gate) = PASS, 0 BLOCKING dropped-nuance. ARGUS independently compared BEFORE/AFTER for all 13 rows + 5 KEEP-FULLER. Hardest rows clear: 19-A (all 5 nuances survive; distinct verification-actions stay inline — AFTER actually IMPROVES §19.6.2 which didn't carry git rev-parse HEAD inline before); 19-D+28-A (EACH dropped cross-ref bullet verified reachable from a named surviving inline ref at the cited line — no orphan); 28-C (compression not cut — trailer-format+seat-enum survive). K1 verified EMPIRICALLY (Monitor line byte-identical across 12 CAPTAIN files incl ARGUS's own — keep-fuller correct). spec_refs byte-identical 156/56 (resolver matches by heading-text re-scan -\u003e prose-compression probe-safe). Q1=HOLD safe floor (no subsection-heading deletion). Q2=§7.6 NIT OUT of scope. 2 non-blocking ADA/VERA build-obligations: B1 (Row 19-A must land both §19.6.3 nuances 'neither subsumes'+'both broaden from §19.2 pattern 2' in the consolidated §19.4 map or they orphan; VERA Probe 5 asserts both token-strings), B2 (phrase §19.3 AFTER as 'shape-exemplars' — verbatim-recoverability claim inaccurate; cosmetic, rule survives). Dispatching ADA (carry B1+B2). Heads-down.",
+      "timestamp": "2026-05-23T20:36:33Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T20:28:23Z"
+  "updated_at": "2026-05-23T20:36:33Z"
 }
