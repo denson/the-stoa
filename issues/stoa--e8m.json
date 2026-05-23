@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-23T12:23:43Z",
+  "description": "Surfaced in Arc 7 (enforcement Stage 2, stoa--xyb.7, 2026-05-23). The additionalContext hook-injection channel that the Stage-2 judgment-tier hooks need (PostToolUse-on-Agent NOMOS-trigger + SessionStart-compact reprime) is BROKEN UPSTREAM: GitHub claude-code #55889 (open regression from v2.1.9, 'not actually wired up') + #18427 (broader matcher-agnostic confirmation). Docs say it works; it does not (web-verified by DAEDALUS, independently confirmed by ARGUS). Stage 2 ships BEST-EFFORT: hooks are forward-compatible (light up automatically when upstream fixes) AND every must-happen behavior is backstopped by a WORKING channel (NOMOS-dispatch via Stop decision:block; reprime via cron+CLAUDE.md). Stage-1 deterministic gates use deny+Stop channels and are UNAFFECTED. ACTION WHEN UPSTREAM FIXES: verify the Stage-2 hooks' additionalContext path activates as designed (the design plants a tripwire); then decide whether to keep the working-channel backstops as defense-in-depth or simplify. Until then, the judgment-tier auto-trigger is best-effort-backstopped, NOT platform-native — flagged accurately in the Stage-2 close verdict + modules README caveat.",
+  "id": "stoa--e8m",
+  "labels": [],
+  "priority": 3,
+  "status": "open",
+  "title": "Upstream watch: Claude Code additionalContext injection broken (#55889 + #18427) — verify Stage-2 enforcement hooks light up when fixed",
+  "type": "task",
+  "updated_at": "2026-05-23T12:23:43Z"
+}
