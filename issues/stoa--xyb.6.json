@@ -102,11 +102,15 @@
     {
       "text": "ZENO activated on Arc-45 spec-check. Reading design-rev2.md spec + shipped artifact before extracting criteria. operating-mode: autonomous.",
       "timestamp": "2026-05-23T07:47:38Z"
+    },
+    {
+      "text": "ZENO progress: spec criteria extracted (ledger §3 + P1-P11 + build reqs). Core checks done: P1=590 (\u003e400 falsifier, flagging factually); 5 modules exist+non-empty; markers 5 open=5 close=5 files matched by name; P3 stubs 5/10/11/12/14 present; routing-map+§3.5 present. Now checking C-2 child tickets, DUPLICATE pointer, author-fields, install.sh.",
+      "timestamp": "2026-05-23T07:48:13Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "First execution: MAJOR_POLYBIUS.md section-by-section slimming pass (via PLINY gauntlet, lossless-on-canon)",
   "type": "task",
-  "updated_at": "2026-05-23T07:47:38Z"
+  "updated_at": "2026-05-23T07:48:13Z"
 }
