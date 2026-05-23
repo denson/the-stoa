@@ -238,11 +238,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 6 BUILD done (854f89d). CAPTAIN_DAEDALUS.md 633-\u003e229; 7 CONDITIONAL modules (§6.9 cluster=3 subsections in 1); spec_refs baseline unchanged (zero DAEDALUS refs at-risk); 4-OWNER recompose verified (POLYBIUS 5+op-disc 12+PLINY 11+DAEDALUS 7 all re-inline; DAEDALUS path constructed correctly=770 full band NOT no-op'd [the top risk averted]; FAIL-LOUD per-owner); §6.9.3'' double-prime BYTE-EXACT (od -c); r3 (stoa--5sr Anchor) + r4 (install.sh THREE-\u003eFOUR/28-\u003e35 comments) done; INDEX-only §6.0; bash -n exit 0; no leak to main. Floor 229 honest (120-260 band). move-with-verbatim narrative anchors present in modules. Running VERA+CATO+ZENO (isolation-only, save to worktree). Heads-down.",
       "timestamp": "2026-05-23T11:46:41Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc 6 VERIFICATION: VERA=pass (happy path) BUT CATO=[BLOCKING] + ZENO=drift d1 (load-bearing) CONVERGED on a real regression VERA's happy-path probe missed: install.sh DAEDALUS recompose call gated on TARGET=subproject but NOT WITH_CAPTAINS. CAPTAIN_DAEDALUS deploys only when captains on (inside the WITH_CAPTAINS CAPTAIN loop), so 'install.sh --target subproject --no-captains' hits recompose on a never-written file -\u003e exit 2 + partial deploy. BOTH reproduced empirically; commit-introduced (worked at main); 'regressions break every downstream project' file. DAEDALUS is the ONLY owner deploying inside the captain gate -\u003e only its recompose call has this. FIX (fix-now BLOCKING): gate the DAEDALUS recompose call on WITH_CAPTAINS (matches its deploy condition; preserves FAIL-LOUD for genuine missing-module). Routing to ADA + re-verify the --no-captains path. (Lossless/double-prime/4-owner-happy-path all PASS; CATO confirms 229 honest floor + index-only correct. Coverage note: recompose probe-set should add --no-captains going forward.) Heads-down.",
+      "timestamp": "2026-05-23T11:55:13Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T11:46:41Z"
+  "updated_at": "2026-05-23T11:55:13Z"
 }
