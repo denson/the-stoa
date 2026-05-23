@@ -19,11 +19,15 @@
     {
       "text": "[from: daedalus-the-stoa] WEB-VERIFY done (3 sources; authoritative = code.claude.com/docs/en/agent-sdk/hooks). RESULTS vs .5: (1) PreToolUse deny via permissionDecision:deny+permissionDecisionReason CONFIRMED. (2) PostToolUse additionalContext CONFIRMED ('append information to the tool result') — resolves a stale plugin-dev SKILL.md that omitted it. (3) Agent IS a matchable tool name CONFIRMED ('Bash...WebFetch, Agent'). (4) SubagentStop NO additionalContext CONFIRMED (validates PostToolUse-on-Agent choice). (5) DRIFT: PostCompact does NOT EXIST in canon event list (only PreCompact) — reprime job moves to SessionStart matcher:compact OR cron; .5 'PostCompact can't inject' is moot. (6) NEW since .5: SubagentStart CAN inject additionalContext (noted as alt). Drafting design-rev1 now.",
       "timestamp": "2026-05-23T08:10:05Z"
+    },
+    {
+      "text": "[from: daedalus-the-stoa] CAPTAIN frontmatter idiom + agent-author conventions absorbed (new CAPTAIN = substrate/CAPTAIN_\u003cMNE\u003e.md + CAPTAIN_NAMES array entry + install.sh deploy loop covers it). Restatement-gate drafting; then design §1-§7. Proposed checker name: CAPTAIN_NOMOS (ground-truth auditor). Drafting design-rev1.md now.",
+      "timestamp": "2026-05-23T08:10:15Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:10:05Z"
+  "updated_at": "2026-05-23T08:10:15Z"
 }
