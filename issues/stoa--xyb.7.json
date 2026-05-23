@@ -83,11 +83,15 @@
     {
       "text": "ZENO progress: criteria 5,7,8 checked. re-decompose remediation: DIVERGENT branch + all 3 guardrails (size-derail-split/wrong-spec-escalate; cap N=2 re-derived-from-bw; granularity floor) present in incomplete-unverifiable-routing.md, existing INCOMPLETE/UNVERIFIABLE+A6-LOCK preserved: MET. 7.7 DROP: NOMOS L49 explicitly bw-STATE comparison, 'never grep for [from:] seat-tags', no seat-tag-keyed detection: MET. spec_refs.py 156 PASS/56 FAIL, IDENTICAL to main baseline (56 pre-existing placeholder-anchor FAILs in SPECIFICATION.md, ZERO cite a Stage-2 file): NO REGRESSION, MET. Finalizing verdict — auditing for out-of-spec additions next.",
       "timestamp": "2026-05-23T12:35:12Z"
+    },
+    {
+      "text": "ZENO SPEC-MET: all 9 mechanical Stage-2 checks present-with-evidence. NOMOS.md (4 frontmatter fields, tools=Bash/Read/Grep/Glob, no bad author field); 2 hooks (exist+bash -n 0); settings-hooks.json (valid JSON, 2 new hooks nest INSIDE hooks{} — r1 correct depth); install.sh (NOMOS in 12-entry CAPTAIN_NAMES, count 11-\u003e12 at 5 sites, ENABLE_HOOKS=0 default, bash -n 0); re-decompose (DIVERGENT branch+3 guardrails); #18427 (hooks/README caveat — r5); 7.7 DROP (bw-state comparison, no seat-tag detection); spec_refs (156/56, IDENTICAL to main = no regression); scope (8 named files only, Author=PRINCIPAL+CoAuthored ADA). 1 noted deviation (not a drift): descriptive-role token 'GROUND-TRUTH-AUDITOR' hyphenated vs spec §4.4 spaced 'GROUND-TRUTH AUDITOR' — ADA-flagged deliberate Zod-parser accommodation; prose §1 retains spaced form. Returning.",
+      "timestamp": "2026-05-23T12:35:31Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer STAGE 2 (judgment tier): CAPTAIN_NOMOS + PostToolUse-on-Agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T12:35:12Z"
+  "updated_at": "2026-05-23T12:35:31Z"
 }
