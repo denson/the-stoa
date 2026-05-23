@@ -98,11 +98,15 @@
     {
       "text": "CATO activated on stoa--xyb.6 (Arc 45 debloat REVIEW). Reading diff (main..arc-45/build, excl agents/) + design-rev2 + ARGUS re-confirm before forming cold-read. Hard bar = LOSSLESS-ON-CANON; line-count 590-vs-300/350 judgment specifically requested (Q2).",
       "timestamp": "2026-05-23T07:47:34Z"
+    },
+    {
+      "text": "ZENO activated on Arc-45 spec-check. Reading design-rev2.md spec + shipped artifact before extracting criteria. operating-mode: autonomous.",
+      "timestamp": "2026-05-23T07:47:38Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "First execution: MAJOR_POLYBIUS.md section-by-section slimming pass (via PLINY gauntlet, lossless-on-canon)",
   "type": "task",
-  "updated_at": "2026-05-23T07:47:34Z"
+  "updated_at": "2026-05-23T07:47:38Z"
 }
