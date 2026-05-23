@@ -29,11 +29,15 @@
     {
       "text": "DAEDALUS state: cited-source re-read complete. r3 CONFIRMED against live op-disc (sec32 ends L2087, then UN-numbered Agent-regime-inverses L2089 / Empirical-lineage L2100, EOF L2110 — sec33 inserts L2087-L2089). r1 grounded: POLYBIUS provenance bucket = sec X.6 N=1-provenance + sec X.7 Cross-references subsections (16/17/18/19) ALREADY cite bw tickets; bw attach (sec16.8) is the archive primitive. r2 DUPLICATE confirmed: bw-cookbook triplicated op-disc sec12 (target) / POLYBIUS sec7.3 / PLINY sec6.1. r4 glob: install.sh already uses shopt nullglob single-segment-glob idiom in staleness scan — glob deploy + completeness probe is consistent. Web-checking r5 subproject Read-path resolution, then drafting rev2.",
       "timestamp": "2026-05-23T06:14:20Z"
+    },
+    {
+      "text": "DAEDALUS state: r5 web-confirmed (claude-code #24987 + never-fixed #2571 lineage — subproject/subdir path-resolution contested as of early 2026). All 6 findings grounded. Drafting design-rev2.md now: 3-bucket lossless homes (r1), relocation-index extension for all 3 classes (r2), sec33 insertion L2087-L2089 + placement assertion (r3), glob deploy + completeness probe (r4), subproject tracked-open-question (r5), sec33 \u003c=30-line cap (r6). Holding all rev1 non-findings.",
+      "timestamp": "2026-05-23T06:14:33Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T06:14:20Z"
+  "updated_at": "2026-05-23T06:14:33Z"
 }
