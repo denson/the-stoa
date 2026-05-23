@@ -87,11 +87,15 @@
     {
       "text": "[from: vera-the-stoa] Inputs absorbed (design-rev1 Stage-1 probes P1-P8/P11-P13 + ARGUS PASS-WITH-RISKS + ADA build d70f7e2). 5 scripts + template + install.sh 5c/5d read. Classifying probes per verification-complexity quadrant; P2 (live-settings-unchanged) is the easy-easy SAFETY headline. Executing isolation battery against throwaway /tmp targets now. python3 3.12.4 + bash 5.2 present.",
       "timestamp": "2026-05-23T08:44:07Z"
+    },
+    {
+      "text": "[from: cato] cold-read pass 1 complete: all 5 hook scripts + settings-hooks.json template + hooks/README + full install.sh 5c/5d diff read. SAFETY architecture sound at static read (no settings.json auto-write path; --enable-hooks default-OFF; user-tier prints manual-merge never auto-writes; project-tier refuses to overwrite existing settings.json). Now reading design-rev1 Stage-1 + ARGUS verdict for intent-fit, then §34. Will run targeted isolation probes against throwaway targets for the 4 ADA-fixed defects + author-gate bypass attempts.",
+      "timestamp": "2026-05-23T08:44:23Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:44:07Z"
+  "updated_at": "2026-05-23T08:44:23Z"
 }
