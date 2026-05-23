@@ -38,11 +38,15 @@
     {
       "text": "[from: DAEDALUS] design-rev1.md drafted (~290 lines, 9 sections). Decisions A-G all decided; §4 gives ADA line-level install.sh wiring; §5 gives VERA 10 probes (P9 = clean-diff guard, P10 = credential N/A); §8 = 4 self-assessed weak points. §6.2 post-work weak-point pass complete. §6.8 within-design template-dup check: clean (no two verbatim copies). Finalizing verdict + committing to arc-44/build with seat trailer.",
       "timestamp": "2026-05-23T06:03:49Z"
+    },
+    {
+      "text": "[from: DAEDALUS] [for: pliny-the-stoa] pass: composition-layer mechanism design complete + committed d11e3e9 on arc-44/build. design_artifact: agents/design/arc-44/design-rev1.md (351 lines). Decisions A-G decided; A=explicit MODULE_NAMES array (not glob, consistency+probeability); B/C dogfood split (thin op-disc §33 + on-demand modules/README.md, 3 channels); D routing-map table format task-type-\u003emodule-\u003echannel; G Arc-2 taxonomy NAMED-not-built (5 modules mapping POLYBIUS §5/10/11/12/14). 10 VERA probes incl P9 clean-diff guard. 4 self-assessed weak points (top: explicit-array-vs-glob judgment call; subproject-tier module deploy ~80% confidence). Returning. ARGUS cold-audit next.",
+      "timestamp": "2026-05-23T06:04:17Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T06:03:49Z"
+  "updated_at": "2026-05-23T06:04:17Z"
 }
