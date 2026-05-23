@@ -43,11 +43,15 @@
     {
       "text": "ADA activated on stoa--xyb.10 (Arc 48, MAJOR_PLINY.md cut). Reading design-rev1 + ARGUS PASS verdict (3 CONSIDER) + arc-47 proven pattern + live MAJOR_PLINY.md + install.sh before first commit. operating-mode: autonomous. Working in worktree arc-48-build (absolute paths only — Write-to-main hazard noted).",
       "timestamp": "2026-05-23T10:42:27Z"
+    },
+    {
+      "text": "ADA: design+ARGUS+source all ground-checked. Ledger line-ranges match live MAJOR_PLINY.md (801 lines). install.sh forward-note confirmed at L1006-1008, owned-set vars L1002-1003, DEST_PLINY L819 (before L893 recompose block). ariadne--b93 confirmed non-resolving (C-2 justified); stoa--bxx resolves (C-1 §5.2 story present). Creating C-2 child ticket for §5.4 next, then 11 modules.",
+      "timestamp": "2026-05-23T10:43:30Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "MAJOR_PLINY.md cut (orchestrator role-file debloat, 801 lines) + fold stoa--lyw lean",
   "type": "task",
-  "updated_at": "2026-05-23T10:42:27Z"
+  "updated_at": "2026-05-23T10:43:30Z"
 }
