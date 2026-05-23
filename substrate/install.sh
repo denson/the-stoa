@@ -851,41 +851,76 @@ else
   echo "deployed: $DEST_PLINY"
 fi
 
+# 2b. Deploy operating-disciplines.md — team-wide disciplines doc referenced
+# from MAJOR_POLYBIUS §4 and MAJOR_PLINY §7. Lands as a sibling of the MAJOR
+# files at <DEST_DIR>/operating-disciplines.md so the role-file references
+# (which use the bare name "operating-disciplines.md") resolve in the deployed
+# location. Same path semantics as the source repo (substrate/operating-
+# disciplines.md is a sibling of substrate/MAJOR_*.md). Universal — deployed
+# at all three target modes (user, project, subproject); each tier needs its
+# own local copy because Claude Code role-file path resolution is relative to
+# where the role file lives. No suffix on the filename: this is a shared doc,
+# not a role file. DEPLOYED BEFORE the 2a-recompose block (debloat Arc 47 /
+# design-arc-47 §6.5) so $DEST_OPERATING_DISCIPLINES exists when recompose
+# re-inlines op-disc's 12 owned module bodies at subproject tier.
+DEST_OPERATING_DISCIPLINES="${DEST_DIR}/operating-disciplines.md"
+if [ "$DRY_RUN" -eq 1 ]; then
+  echo "[dry-run] deploy: $SRC_OPERATING_DISCIPLINES -> $DEST_OPERATING_DISCIPLINES"
+else
+  cp "$SRC_OPERATING_DISCIPLINES" "$DEST_OPERATING_DISCIPLINES"
+  echo "deployed: $DEST_OPERATING_DISCIPLINES"
+fi
+
 # 2a-recompose. Subproject-tier MODULE-INLINE recompose (debloat Arc 2 / design-arc-45 §6.5).
 # ---------------------------------------------------------------------------------------------
 # At user/project tier the slim core deploys AS-IS + the modules dir deploys (CHANNEL 2 Read
 # resolves). At SUBPROJECT tier the modules dir is NOT deployed (DEST_MODULES_DIR="") AND a
 # dispatched CAPTAIN's `Read .claude/modules/<X>.md` does not resolve reliably (claude-code
 # #56686/#31546/#29423). So at subproject tier we RECOMPOSE: re-inline each module body into
-# $DEST_POLYBIUS at its paired `<!-- MODULE-INLINE:<name> -->` ... `<!-- /MODULE-INLINE:<name> -->`
-# sentinel, producing a self-contained role file (matching the existing self-contained-subproject
+# the deployed file at its paired `<!-- MODULE-INLINE:<name> -->` ... `<!-- /MODULE-INLINE:<name> -->`
+# sentinel, producing a self-contained file (matching the existing self-contained-subproject
 # pattern). The marker is machine-parseable (full-line HTML-comment), invisible at the tiers that
 # do NOT recompose, and 1:1-auditable. FAIL-LOUD: any marker/module mismatch err()s (exit 2,
-# aborts deploy) rather than shipping LOST CANON. Runs POST-sed (markers are inert in $SRC_POLYBIUS;
-# the sed substitutes only {{NAME_SUFFIX}}/{{USER_TIER_DIR}}, neither of which appears in a marker).
-# THIS ARC scopes recompose to $DEST_POLYBIUS ONLY (residual-3 / ARGUS F-B): PLINY is not cut yet,
-# so its slim file carries zero markers; a global-glob Check-D would false-positive on it. When
-# MAJOR_PLINY is cut in a future arc, add $DEST_PLINY to the same data-driven loop — no new code
-# path needed (the markers in each file drive recompose identically). Generality note: design §6.5.
+# aborts deploy) rather than shipping LOST CANON. Runs POST-sed/cp (markers are inert in the source;
+# the sed substitutes only {{NAME_SUFFIX}}/{{USER_TIER_DIR}}, neither of which appears in a marker;
+# op-disc is plain-cp'd so no substitution applies).
+# THIS ARC recomposes TWO files (debloat Arc 47 / design-arc-47 §6.4–§6.5): $DEST_POLYBIUS (Arc 2,
+# 5 owned modules) AND $DEST_OPERATING_DISCIPLINES (this arc, 12 owned modules). The shared
+# substrate/modules/ dir forces the MODULE-OWNERSHIP partition (ARGUS r3): each call passes its
+# OWNED-module set for Checks B/D while Check A tests the GLOBAL existence set inside the function.
+# $DEST_PLINY is NOT cut yet (zero markers, zero owned modules); when MAJOR_PLINY is cut, add a
+# third call with PLINY_MODULES — no new code path needed. Generality note: design §6.4/§6.5.
 if [ "$TARGET" = "subproject" ]; then
   recompose_module_inline() {
-    # $1 = role file to recompose in place (this arc: $DEST_POLYBIUS only).
+    # $1 = role file to recompose in place.
+    # $2 = OWNED module basenames (space-separated) THIS file owns — for Checks B/D
+    #      (only the markers/modules THIS file owns). DISTINCT from the GLOBAL existence set.
+    # MODULE-OWNERSHIP partition (debloat Arc 47 / design-arc-47 §6.4, ARGUS r3):
+    # the shared substrate/modules/ dir now holds modules owned by DIFFERENT role files
+    # (5 POLYBIUS + 12 op-disc). Two distinct sets are required:
+    #   - GLOBAL existence set (Check A): every real module source, owner-agnostic. A marker
+    #     must reference a real module file REGARDLESS of owner — the Check A guarantee must NOT
+    #     narrow with the owned-set. Built from the filesystem glob, NOT from arg 2.
+    #   - OWNED consumption set (Checks B/D): only THIS role file modules. Built from arg 2.
+    # Without the partition, recompose_module_inline "$DEST_POLYBIUS" Check B would false-positive
+    # on the 12 op-disc modules (no POLYBIUS marker) and abort the subproject deploy.
     _role_file="$1"
+    _owned_basenames="$2"
 
-    # Build the set of relocatable module basenames (excludes README.md, the
-    # composition-layer reference doc — it is never a MODULE-INLINE target; design §6.5).
-    _module_basenames=""
+    # GLOBAL existence set: every real module source (excludes README.md, the composition-layer
+    # reference doc — never a MODULE-INLINE target; design §6.5). Owner-agnostic; backs Check A only.
+    _global_basenames=""
     for _src in "${SRC_MODULES_DIR}"/*.md; do
       [ -e "$_src" ] || continue
       _bn="$(basename "$_src" .md)"
       [ "$_bn" = "README" ] && continue
-      _module_basenames="${_module_basenames} ${_bn}"
+      _global_basenames="${_global_basenames} ${_bn}"
     done
 
-    # In dry-run the upstream sed only PRINTED its plan (did not write $DEST_POLYBIUS),
+    # In dry-run the upstream sed/cp only PRINTED its plan (did not write the deployed file),
     # so do not require the role file to exist — print the recompose plan and return.
     if [ "$DRY_RUN" -eq 1 ]; then
-      echo "[dry-run] recompose (subproject): $_role_file <- inline module bodies at MODULE-INLINE markers (modules:${_module_basenames:- none})"
+      echo "[dry-run] recompose (subproject): $_role_file <- inline OWNED module bodies at MODULE-INLINE markers (owned:${_owned_basenames:- none})"
       return 0
     fi
 
@@ -893,27 +928,32 @@ if [ "$TARGET" = "subproject" ]; then
 
     # awk state-machine (deterministic, single pass over the role file).
     # FAIL-LOUD checks (exit 2 via the trailing err() on non-zero awk exit):
-    #   A — marker references a non-existent module source.
-    #   B — a module source exists with no marker in THIS file (would DROP a body at subproject tier).
+    #   A — marker references a module source absent from the GLOBAL existence set (owner-agnostic).
+    #   B — an OWNED module source exists with no marker in THIS file (would DROP a body at subproject tier).
     #   C — unbalanced markers (open with no matching close, or close with no open).
-    #   D — zero markers in THIS file but relocatable modules exist (per-file, not global glob; ARGUS F-B).
+    #   D — zero markers in THIS file but OWNED relocatable modules exist (per-file; ARGUS F-B).
     #   E — a module BODY contains a literal MODULE-INLINE marker line (close-marker-in-body corruption; ARGUS F-A).
     _tmp="${_role_file}.recompose.tmp"
-    awk -v modules_dir="${SRC_MODULES_DIR}" -v module_list="${_module_basenames}" '
+    awk -v modules_dir="${SRC_MODULES_DIR}" \
+        -v global_list="${_global_basenames}" \
+        -v owned_list="${_owned_basenames}" '
       # exit triggers the END block in POSIX awk; _aborting suppresses the END checks
       # so a failure prints exactly one diagnostic, not two.
       function fail(msg) { _aborting = 1; print "install.sh: error: recompose: " msg > "/dev/stderr"; exit 2 }
       BEGIN {
-        # Track which modules exist (for Check B) and reset their consumed flag.
-        n = split(module_list, _m, " ")
-        for (i = 1; i <= n; i++) { if (_m[i] != "") { exists[_m[i]] = 1; consumed[_m[i]] = 0; nmods++ } }
+        # GLOBAL existence set (Check A): every real module source, owner-agnostic.
+        ng = split(global_list, _g, " ")
+        for (i = 1; i <= ng; i++) { if (_g[i] != "") global_exists[_g[i]] = 1 }
+        # OWNED consumption set (Checks B/D): only the modules THIS role file owns.
+        no = split(owned_list, _o, " ")
+        for (i = 1; i <= no; i++) { if (_o[i] != "") { owned[_o[i]] = 1; consumed[_o[i]] = 0; nowned++ } }
         in_marker = 0; markers_seen = 0; _aborting = 0
       }
       # OPEN marker: full-line ^<!-- MODULE-INLINE:<name> -->$
       /^<!-- MODULE-INLINE:[^ ]+ -->$/ {
         if (in_marker) fail("nested open marker MODULE-INLINE:" cur " before close of MODULE-INLINE:" open_name " (unbalanced)")  # Check C
         name = $0; sub(/^<!-- MODULE-INLINE:/, "", name); sub(/ -->$/, "", name)
-        if (!(name in exists)) fail("marker MODULE-INLINE:" name " has no module source at " modules_dir "/" name ".md")          # Check A
+        if (!(name in global_exists)) fail("marker MODULE-INLINE:" name " has no module source at " modules_dir "/" name ".md")    # Check A (GLOBAL existence)
         # Emit the OPEN marker (kept — provenance + idempotent re-recompose anchor).
         print $0
         # Inline the ENTIRE module body, guarding against a body that itself contains a marker line.
@@ -923,7 +963,8 @@ if [ "$TARGET" = "subproject" ]; then
           print line
         }
         close(body_path)
-        consumed[name] = 1; markers_seen++
+        if (name in owned) consumed[name] = 1   # consumed-tracking is OWNED-scoped (Check B iterates owned only)
+        markers_seen++
         in_marker = 1; open_name = name
         next
       }
@@ -941,43 +982,32 @@ if [ "$TARGET" = "subproject" ]; then
       END {
         if (_aborting) exit 2  # a rule-level fail() already reported; do not re-run END checks
         if (in_marker) fail("open marker MODULE-INLINE:" open_name " never closed before EOF (unbalanced)")                         # Check C
-        if (markers_seen == 0 && nmods > 0) fail("role file has zero MODULE-INLINE markers but " nmods " relocatable module(s) exist — bodies would be DROPPED at subproject tier")  # Check D (per-file; ARGUS F-B)
-        for (m in exists) { if (exists[m] && !consumed[m]) fail("module " m ".md exists but no MODULE-INLINE:" m " marker in the role file — body would be DROPPED at subproject tier") }  # Check B
+        if (markers_seen == 0 && nowned > 0) fail("role file has zero MODULE-INLINE markers but " nowned " OWNED relocatable module(s) exist — bodies would be DROPPED at subproject tier")  # Check D (per-file, OWNED; ARGUS F-B)
+        for (m in owned) { if (owned[m] && !consumed[m]) fail("OWNED module " m ".md exists but no MODULE-INLINE:" m " marker in the role file — body would be DROPPED at subproject tier") }  # Check B (OWNED)
       }
     ' "$_role_file" > "$_tmp" || {
       # FAIL-LOUD: recompose could not prove completeness. Remove BOTH the partial tmp AND the
-      # slim $_role_file the upstream sed wrote — install.sh NEVER leaves a partial/slim role file
+      # slim $_role_file the upstream sed/cp wrote — install.sh NEVER leaves a partial/slim file
       # at subproject tier (design §6.5). The non-zero exit aborts the deploy entirely.
       rm -f "$_tmp" "$_role_file"
       exit 2
     }
 
     mv "$_tmp" "$_role_file"
-    echo "recomposed (subproject): $_role_file (re-inlined module bodies at MODULE-INLINE markers)"
+    echo "recomposed (subproject): $_role_file (re-inlined OWNED module bodies at MODULE-INLINE markers)"
   }
 
-  recompose_module_inline "$DEST_POLYBIUS"
-  # NOTE: $DEST_PLINY is intentionally NOT recomposed this arc (residual-3): MAJOR_PLINY is not
-  # cut yet (zero markers). Add `recompose_module_inline "$DEST_PLINY"` when PLINY is cut.
+  # MODULE-OWNERSHIP owned-sets (design-arc-47 §6.4 / §3.8). Each role file's recompose call is
+  # scoped to the modules IT owns; Check A still tests the GLOBAL existence set inside the function.
+  POLYBIUS_MODULES="onboarding sub-project-spawning pair-programmer-authoring pair-programming-prototyping substrate-update-check"
+  OPDISC_MODULES="two-polybius-coordination autonomous-mode-setup sub-agent-transcript-discipline bw-fit-matrix oss-dep-and-latency credential-discipline-detail bw-upgrade mechanical-inspection-split multi-team-interop four-layer-identity substrate-component-design jsdom-timing-discipline"
+  recompose_module_inline "$DEST_POLYBIUS" "$POLYBIUS_MODULES"
+  recompose_module_inline "$DEST_OPERATING_DISCIPLINES" "$OPDISC_MODULES"
+  # NOTE: $DEST_PLINY is intentionally NOT recomposed this arc: MAJOR_PLINY is not cut yet
+  # (zero markers, zero owned modules). When PLINY is cut: add PLINY_MODULES + a third
+  # `recompose_module_inline "$DEST_PLINY" "$PLINY_MODULES"` call — no new code path needed.
 fi
 
-# 2b. Deploy operating-disciplines.md — team-wide disciplines doc referenced
-# from MAJOR_POLYBIUS §4 and MAJOR_PLINY §7. Lands as a sibling of the MAJOR
-# files at <DEST_DIR>/operating-disciplines.md so the role-file references
-# (which use the bare name "operating-disciplines.md") resolve in the deployed
-# location. Same path semantics as the source repo (substrate/operating-
-# disciplines.md is a sibling of substrate/MAJOR_*.md). Universal — deployed
-# at all three target modes (user, project, subproject); each tier needs its
-# own local copy because Claude Code role-file path resolution is relative to
-# where the role file lives. No suffix on the filename: this is a shared doc,
-# not a role file.
-DEST_OPERATING_DISCIPLINES="${DEST_DIR}/operating-disciplines.md"
-if [ "$DRY_RUN" -eq 1 ]; then
-  echo "[dry-run] deploy: $SRC_OPERATING_DISCIPLINES -> $DEST_OPERATING_DISCIPLINES"
-else
-  cp "$SRC_OPERATING_DISCIPLINES" "$DEST_OPERATING_DISCIPLINES"
-  echo "deployed: $DEST_OPERATING_DISCIPLINES"
-fi
 
 # 3. Deploy CAPTAIN sub-agent envelopes (default on; --no-captains skips).
 if [ "$WITH_CAPTAINS" -eq 1 ]; then
