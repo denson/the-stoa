@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-23T11:11:26Z",
+  "description": "Arc 6 (Arc 49) cut of CAPTAIN_DAEDALUS.md (633 lines). Dispatched by polybius-the-stoa 2026-05-23T11:06:25Z. The LAST of 4 relocation cuts (POLYBIUS+op-disc+PLINY done). After this, only the capstone block (Stage 2 + .9 + 3na + final redeploy).\n\nDIRECTIVE:\n- PROVEN 3-bucket method + subproject-recompose, now a 4-OWNER partition (DAEDALUS modules join POLYBIUS+op-disc+PLINY; extend owned-set arg; P-OWNERSHIP-NOCOLLIDE basename-disjointness across ALL 4; no leak into global Check A).\n- INDEX-vs-ROUTING-MAP: DAEDALUS is a CAPTAIN (architect), NOT an orchestrator -\u003e likely relocation-index-ONLY (like op-disc), NOT a routing-map; confirm against modules/README §4.1 in the design.\n- RECALIBRATED CRITERION: lossless-completeness, NO line target, REPORT empirical floor.\n- STANDING SPECIFICATION.md design-time xref probe + preserve cited heading-lines as stubs; section-number PRESERVE; C-2 -\u003e child tickets; FLAG prose-compression candidates to stoa--xyb.9.\n- RECURSION (no special handling): the DAEDALUS agent designs the cut of its OWN role file. Fine — the live agent loads from the DEPLOYED (full, pre-cut) role file, not redeployed until engagement-end. Use the full DAEDALUS to slim DAEDALUS.\n\nGAUNTLET: DAEDALUS -\u003e ARGUS (LOST-CANON primary) -\u003e ADA -\u003e VERA+CATO+ZENO.",
+  "id": "stoa--xyb.11",
+  "labels": [],
+  "parent": "stoa--xyb",
+  "priority": 2,
+  "status": "open",
+  "title": "CAPTAIN_DAEDALUS.md cut (architect role-file debloat, 633 lines) — LAST relocation cut",
+  "type": "task",
+  "updated_at": "2026-05-23T11:11:26Z"
+}
