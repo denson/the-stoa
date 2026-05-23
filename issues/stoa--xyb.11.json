@@ -111,11 +111,15 @@
     {
       "text": "ADA activated on stoa--xyb.11 (Arc 49 TIGHT BLOCKING fix c1/d1). operating-mode AUTONOMOUS. Reading install.sh recompose block + WITH_CAPTAINS CAPTAIN-loop idiom before the 1-line gate. Worktree arc-49/build HEAD 854f89d, no leak to main.",
       "timestamp": "2026-05-23T11:55:45Z"
+    },
+    {
+      "text": "ADA state-transition: root-cause confirmed. POLYBIUS(L817-852)/PLINY/op-disc(L866-872 cp) deploy UNCONDITIONALLY (gated only on SUFFIX_MAJORS/DRY_RUN, never WITH_CAPTAINS) -\u003e their 3 recompose calls correctly stay ungated. DAEDALUS deploys ONLY inside the WITH_CAPTAINS loop (L1015 idiom: [ $WITH_CAPTAINS -eq 1 ]). Applying the 1-line gate on the DAEDALUS recompose call ONLY, matching that exact idiom. recompose_module_inline FAIL-LOUD untouched.",
+      "timestamp": "2026-05-23T11:56:07Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "CAPTAIN_DAEDALUS.md cut (architect role-file debloat, 633 lines) — LAST relocation cut",
   "type": "task",
-  "updated_at": "2026-05-23T11:55:45Z"
+  "updated_at": "2026-05-23T11:56:07Z"
 }
