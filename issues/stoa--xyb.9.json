@@ -59,11 +59,15 @@
     {
       "text": "ADA activated on stoa--xyb.9 (Arc 51 .9 PROSE-COMPRESSION CAPSTONE). operating-mode: autonomous. Read design-rev1.md (156ddbf) + ARGUS PASS verdict (0 BLOCKING + B1/B2 build-obligations) + worktree state (arc-51/build @ HEAD 156ddbf, clean except untracked verdict files). Building the 13 approved compression rows exactly per the equivalence table; 5 KEEP-FULLER (K1-K5) stay UNTOUCHED. Ground-checking each row's BEFORE against live cfb11bc-derived text before rewriting.",
       "timestamp": "2026-05-23T20:37:06Z"
+    },
+    {
+      "text": "State: op-disc §8 (rows 8-A/8-B) + §19 (19-A/19-B/19-C/19-D) applied. B1 HONORED: §19.4 consolidated relationship-map now carries BOTH 'neither subsumes the other' AND 'both broaden from §19.2 pattern 2'. B2 HONORED: §19.3 rephrased as 'incident-shape exemplars' with incidents 'narrated at §19.2' (no byte-recoverable claim). §19.6.2/§19.7.2 shrunk to pointers (distinct verification-actions git rev-parse HEAD / authorship-check kept INLINE at both sites). §19.6.3/§19.7.6 cross-ref lists trimmed (unique refs §6.2/§16/§28/§6.7.1/§19.1-5 kept; relationship-restatements dropped). KEEP-FULLER K2 (§8.2 bidirectional-translation) untouched. Now applying §28 rows (28-A/28-B/28-C).",
+      "timestamp": "2026-05-23T20:38:37Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "op-disc KEEP-prose tightening (lossless compression of §8/§19/§28, ~100-150L) — CATO Arc-47 follow-up",
   "type": "task",
-  "updated_at": "2026-05-23T20:37:06Z"
+  "updated_at": "2026-05-23T20:38:37Z"
 }
