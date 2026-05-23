@@ -31,11 +31,15 @@
     {
       "text": "ARGUS activated on stoa--xyb.10 (Arc 48, MAJOR_PLINY.md cut). Reading design-rev1 + source MAJOR_PLINY.md (801 lines) end-to-end + arc-47/arc-45 precedent + install.sh recompose before audit. Primary: LOST-CANON (orchestrator-seat lossless) + cross-ref integrity.",
       "timestamp": "2026-05-23T10:35:58Z"
+    },
+    {
+      "text": "ARGUS progress: independent spec_refs.py run CONFIRMS census complete — at-risk PASS set = §5.10(x3)/§6.1/§6.2(x3), 3 distinct anchors, ONLY §N(L7) FAILs (pre-existing). Substrate xref distinct set {5,5.8,5.9,5.9.4,5.10,6.1,6.2,7,7.2,8,9} all homed. Heading-pattern resolver verified: stub heading lines match, prose-only would not (Arc-47-r1 guard sound). install.sh 2-set machinery + L1006-1008 forward-note verified; P-OWNERSHIP-NOCOLLIDE PASS (11 PLINY disjoint from 17). 3 C-1 tickets spot-checked carry story; ariadne--b93 confirmed non-resolving in stoa bw (C-2 justified). Adjudicating Q1-Q5 + checking modules/README §5.3 + arc-45/47 precedent. No BLOCKING so far.",
+      "timestamp": "2026-05-23T10:38:28Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "MAJOR_PLINY.md cut (orchestrator role-file debloat, 801 lines) + fold stoa--lyw lean",
   "type": "task",
-  "updated_at": "2026-05-23T10:35:58Z"
+  "updated_at": "2026-05-23T10:38:28Z"
 }
