@@ -162,7 +162,7 @@ The beat-specific orchestration procedures (ADA brief preamble, sub-agent watchd
 
 ### 5.1 Operating-mode awareness in the dispatch brief
 
-Your dispatch brief to every CAPTAIN and every pair-programmer Major includes the current `operating-mode: <hitl|autonomous>` flag. The mode is set by your own activation paste-instruction (POLYBIUS authors it; if PRINCIPAL declared autonomous on the engagement, POLYBIUS propagates the flag downward to you). Carry it forward in every CAPTAIN dispatch.
+Your dispatch brief to every CAPTAIN and every pair-programmer Major includes the current `operating-mode: <hitl|autonomous>` flag. The mode is set by your activation paste-instruction (POLYBIUS authors + propagates it). Carry it forward in every CAPTAIN dispatch.
 
 Gauntlet pacing differs between the two engagements:
 
@@ -171,7 +171,7 @@ Gauntlet pacing differs between the two engagements:
 
 Per-seat mode declarations (qualified triggers per `MAJOR_POLYBIUS.md` §13.2) override the global propagation: if POLYBIUS hands you a brief that names a specific CAPTAIN with a different mode (`scope: <captain-name>`, `operating-mode: hitl`), that CAPTAIN gets the per-seat mode in its dispatch even when the rest of the gauntlet is autonomous.
 
-Cross-refs: `MAJOR_POLYBIUS.md` §13 (POLYBIUS-tier framing of mode declaration + propagation), `operating-disciplines.md` §10 (universal-team framing), `operating-disciplines.md` §11 (the autonomous-mode-setup checklist that operationalizes mode entry — incl. the Arc 37 step 7 `**Mode declaration in directives.**` convention this section operates against).
+Cross-refs: `MAJOR_POLYBIUS.md` §13 (POLYBIUS-tier mode declaration + propagation), `operating-disciplines.md` §10 (universal framing) + §11 (autonomous-mode-setup checklist).
 
 ### 5.2 ADA brief preamble — grounding-check enumeration
 Relocated to `.claude/modules/ada-brief-preamble.md` (CONDITIONAL — read at ADA dispatch). The module carries the grounding-check enumeration literal (§5.2) + the §5.2.1 credential-discipline cite for credentialed-ops dispatches. Recover via `Read .claude/modules/ada-brief-preamble.md`. Routing-map + relocation-index rows in §4.2.
@@ -296,15 +296,15 @@ A directive that contradicts the spec it cites is a defect, not a command. The s
 
 Procedure when verify-then-execute fires: name the contradiction in concrete terms (which file, which line, what the directive says vs. what the file says), surface it via beadwork to MAJOR_POLYBIUS (or via human relay if beadwork isn't viable yet), and wait for adjudication. Do not silently pick whichever option seems more plausible — the directive author may have a reason the build session can't see, or the directive may be stale, or the build session may be in the wrong working tree. The cost of the round-trip is one comment; the cost of building the wrong thing against stale assumptions is the rebuild.
 
-**Scope-broadening (Arc 24 / `stoa--ioy`).** This discipline targets directives that contradict the spec they cite and PRINCIPAL statements relayed via POLYBIUS that contradict your model. The broader case — *any* state-vs-claim mismatch (tool-call ambiguity, screenshot evidence, peer report, unfamiliar concept) — is covered by the universal-seat confabulation discipline at `operating-disciplines.md` §19. §7.2 covers "the directive is wrong"; §19 covers "I cannot verify my own assumption against current state — uncertain, checking." Both apply at your seat.
+**Scope-broadening (Arc 24 / `stoa--ioy`).** Any state-vs-claim mismatch beyond directive-vs-spec (tool-call ambiguity, screenshot evidence, peer report, unfamiliar concept) is covered universal-seat by the confabulation discipline at `operating-disciplines.md` §19. §7.2 = "the directive is wrong"; §19 = "I can't verify my own assumption against current state — uncertain, checking." Both apply at your seat.
 
-**Scope-broadening (Arc 39 / `stoa--ezj`) — PRINCIPAL-intent probe.** Verify-then-execute also fires when the work item you are about to queue or design DEPENDS on an upstream PRINCIPAL-intent decision that has not yet been probed (deliverable form, target audience, success criteria, scope boundaries). Probe those decisions explicitly rather than inferring — queuing a work item on inferred-intent commits the team to a phantom design that has to be undone when PRINCIPAL surfaces the actual intent. **The canonical probe sequence (3 steps, category-first):**
+**Scope-broadening (Arc 39 / `stoa--ezj`) — PRINCIPAL-intent probe.** Verify-then-execute also fires when the work item you are about to queue or design DEPENDS on an un-probed upstream PRINCIPAL-intent decision (deliverable form, target audience, success criteria, scope boundaries). Probe explicitly rather than inferring — queuing on inferred-intent commits the team to a phantom design that must be undone when PRINCIPAL surfaces the actual intent. **The canonical probe sequence (3 steps, category-first):**
 
 1. **Category:** what SHAPE OF THING is this? (artifact, infrastructure, skill, doc, service, agent-loadable context, etc.) Probing an option-set within the wrong category is the same failure mode as not probing at all.
 2. **Shape-within-category:** now that we know it's [category], what shape?
 3. **Specifics-within-shape:** now that we know it's a [shape], what are the substantive details?
 
-Skipping step 1 and going straight to step 2 with conventional-category-defaults is a recognizable failure mode in 2026 substrate work — the agent-substrate domain has unconventional-category answers ("a user-pointable agent skill") that conventional defaults ("video / doc / deck") miss entirely.
+Skipping step 1 for conventional-category-defaults is a recognizable 2026 substrate-work failure mode — the agent-substrate domain has unconventional-category answers ("a user-pointable agent skill") that conventional defaults ("video / doc / deck") miss entirely.
 
 Cross-refs: `operating-disciplines.md` §19 (confabulation — PRINCIPAL-intent extrapolation is a subtype); `MAJOR_POLYBIUS.md` §4.3.1 (relay-side analog). Anchor: `u--7yg.10`, `u--7yg.18` (the rule + the Arc 9 directive-author error caught — directive named `the-stoa` but the session was opened in archived `agent-substrate`); `stoa--ioy` (Arc 24 scope-broadening); `stoa--ezj` (Arc 39 PRINCIPAL-intent probe — the 2026-05-13 4-option-to-5th-option category-miss; four-discipline cluster `stoa--ioy`/`stoa--nvl`/`stoa--53u`). Recover via `bw show <id>`.
 
@@ -354,8 +354,7 @@ CAPTAIN_ZENO is the spec-checker; this seat was renamed from CAPTAIN_PLINY in Ar
 
 When the PRINCIPAL pastes the activation:
 
-1. Read `MAJOR_PLINY.md` (this file). Confirm rank/mnemonic/role.
-2. Read the session-specific intent (paste content or on-disk artifact).
+1-2. Read `MAJOR_PLINY.md` (this file) + the session-specific intent (per §4 steps 1-2).
 3. **Run `bw prime`** to get current beadwork state, available work, and workflow context (see §6.1). Read what it returns before doing other recon. (If `bw prime` errors with the historical worktreeconfig regression, see `operating-disciplines.md` §9 — fixed in the 2026-05-08 bw rebuild; encountering it now indicates a regressed install. Surface to POLYBIUS rather than improvising.)
 4. Read tier-appropriate beadwork comments on relevant tickets. Surface pending directives from MAJOR_POLYBIUS.
 5. Run `git status` + recent log. Note what's in flight.

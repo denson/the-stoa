@@ -209,7 +209,7 @@ Universality: this applies to anyone authoring a downstream brief — POLYBIUS a
 
 **Framing.** Agents are jagged. "Smart enough to figure it out from a sparse prompt" does not reliably hold in practice, even on tasks that look obviously within capability. The path to reliability and reproducibility is heavier scaffolding now — pre-resolved decisions, worked examples, specified failure modes, sample data shapes — with judgment latitude preserved only where judgment is the actual job. The scaffolding library accretes over time; the scaffolding itself is the durable product, not the agent's "intelligence" working on a thin prompt.
 
-This sits in deliberate tension with the maxim that the unit of distribution is "what you copy-paste to your agent." Both are true: the unit IS text, and the text needs to be richly structured to produce reliable execution. Sparse prompts are aspirational; scaffolded prompts are operational.
+This sits in deliberate tension with the maxim that the unit of distribution is "what you copy-paste to your agent." Both are true: the text IS the unit, and it must be richly structured. Sparse prompts are aspirational; scaffolded prompts are operational.
 
 **Five rules when authoring an artifact a downstream agent will consume:**
 
@@ -229,7 +229,7 @@ This sits in deliberate tension with the maxim that the unit of distribution is 
 
 **Anchor:** `stoa--xyb.8.2` — the 2026-05-05 ariadne-core team_test over-delegation empirical (a brief over-delegated a knowably-correct install-option pick + hand-waved verification/failure-mode/data-shape; the five rules generalize from it). Recover via `bw show stoa--xyb.8.2`.
 
-Universality: same as §8.1. Anyone authoring downstream briefs / skills / dispatch envelopes / test scenarios / CLI documentation / API documentation — POLYBIUS, PLINY, CAPTAINs, pair-programmer Majors, anyone writing for an agent reader.
+Universality: same as §8.1 (anyone authoring downstream briefs / skills / dispatch envelopes / test scenarios / CLI/API documentation — POLYBIUS, PLINY, CAPTAINs, pair-programmer Majors).
 
 ### 8.3 Activation paste — which session-state to use
 
@@ -720,18 +720,19 @@ Empirical anchor: workspace-tier memory `feedback_no_confabulated_rationales.md`
 
 - "I never did X" — when you cannot verify whether you did.
 - "This is just Y behavior" — when you don't actually know.
-- "The dispatch sentence was a stub I didn't follow through on" — the 2026-05-12 incident, verbatim.
-- "Defense-in-depth against accidentally allowing `git commit --amend`" — the 2026-04-21 incident, verbatim.
+- the two incident-shape exemplars — the 2026-05-12 tool-call-introspection negation, and the 2026-04-21 confabulated security-rationale (both incidents narrated at §19.2).
 
 The structural failure: confabulation produces a CONFIDENT statement that PRINCIPAL (or a peer) will act on as if true. When the statement turns out to be false, downstream actions are corrupted AND trust in subsequent statements is degraded. The cost compounds — every future statement from the same seat is read more skeptically; the channel's signal-to-noise ratio drops.
 
 ### 19.4 Relationship to verify-then-execute
 
-`MAJOR_PLINY.md` §7.2 (verify-then-execute, `u--7yg.10` + `u--7yg.18`) is the related discipline at the orchestrator tier. Verify-then-execute targets *directives that contradict the spec they cite* and *PRINCIPAL statements relayed via POLYBIUS that contradict the seat's model* — both narrowly scoped to tool calls and directive-author errors. This section broadens the scope to general state-vs-claim mismatch (tool-call ambiguity, screenshot evidence, unfamiliar territory) and applies it universal-seat rather than just PLINY.
+This is the SINGLE canonical home of the relationship-map binding §19 to its orchestrator-tier sibling (`MAJOR_PLINY.md` §7.2 verify-then-execute, `u--7yg.10` + `u--7yg.18`) and to its two attestation/retrospective specializations (§19.6, §19.7). All three relationships are stated once here; §19.6.2 and §19.7.2 point back to this map.
 
-The two disciplines cross-reference; neither subsumes the other. `MAJOR_PLINY.md` §7.2 and `MAJOR_POLYBIUS.md` §4.3 carry a scope-broadening note pointing here.
-
-The attestation sub-discipline at §19.6 (Arc 32) is the specific application of §19 to attestation-at-attestation-time rather than execution-at-execution-time; readers landing at §7.2 / §4.3's pointer to §19 should follow through to §19.6 for the attestation-specific failure mode (claim is about a prior verification rather than about the current state).
+| relationship | how they relate |
+|---|---|
+| §7.2 (verify-then-execute) ↔ §19 | §7.2 targets *directives that contradict the spec they cite* + *PRINCIPAL statements relayed via POLYBIUS that contradict the seat's model* — narrowly scoped to tool calls and directive-author errors. §19 broadens to general state-vs-claim mismatch (tool-call ambiguity, screenshot evidence, unfamiliar territory) and applies universal-seat, not just PLINY. They cross-reference; **neither subsumes the other.** `MAJOR_PLINY.md` §7.2 + `MAJOR_POLYBIUS.md` §4.3 carry a scope-broadening note pointing here. |
+| §19.6 (attestation-confabulation, Arc 32) ↔ §7.2 / §19 | §19.6 is the specific application of §19 to attestation-AT-attestation-time rather than execution-at-execution-time (the claim is about a prior verification rather than the current state). It fires at attestation time where §7.2 fires at execution time; both are state-vs-claim mismatch sub-cases, and **both broaden from §19.2 pattern 2.** Readers landing at §7.2 / §4.3's pointer to §19 should follow through to §19.6. |
+| §19.6 ↔ §19.7 (idle retrospective-narrative confabulation, Arc 37) | Sister disciplines: §19.6 covers WHAT to cite (live-verified state); §19.7 covers WHO did the work. Both are §19.1 sub-cases; the closing verification-action differs (§19.6 → `git rev-parse HEAD`; §19.7 → the orchestrator-scan / authorship check). Both can fire together; **neither subsumes the other.** |
 
 ### 19.5 Empirical lineage
 
@@ -755,22 +756,19 @@ Anchor: `stoa--ezj` (the attestation-confabulation cluster) — Arc 30 PLINY ini
 
 #### 19.6.2 Relationship to verify-then-execute (§19.4) and the per-seat verify-then-execute disciplines
 
-`MAJOR_PLINY.md` §7.2 (verify-then-execute) targets directives that contradict the spec they cite. §19.6 here is a sibling discipline that fires at attestation time rather than execution time. The two cross-reference: §7.2 says "verify before executing a directive-claim against the live state"; §19.6 says "verify before attesting that a check passed, even if the check's premise came from a trusted directive." Both are state-vs-claim mismatch sub-cases; both broaden to general state-vs-claim mismatch from §19.2 pattern 2.
-
-The PLINY-specific worked example of §19.6 in action is `MAJOR_PLINY.md` §5.10 (this arc, C3) — signoff-accuracy verifies cleanup claims before posting. The signoff-accuracy discipline is the §19.6 root cause applied to the specific case of arc-close cleanup attestations.
+Sibling of §7.2 (verify-then-execute) and parent §19; the relationship-map is at §19.4. §19.6 fires at attestation time (cite live-verified state, not assumed-from-context); the verification-action is `git rev-parse HEAD`. PLINY-specific worked example: `MAJOR_PLINY.md` §5.10 (this arc, C3) — signoff-accuracy verifies cleanup claims before posting (the §19.6 root cause applied to arc-close cleanup attestations).
 
 #### 19.6.3 Cross-references
 
 - §19.1 — the two mandatory halves of the parent discipline (verbal admission + verification action). §19.6 is a specialization of §19.1's verification-action requirement to the specific case of attestation prose.
 - §19.2 — the three existing application patterns. §19.6 is the fourth pattern (attestation-confabulation) with enough distinct shape to warrant its own subsection.
-- `MAJOR_PLINY.md` §7.2 + `MAJOR_POLYBIUS.md` §4.3 — verify-then-execute at the seat level. Sibling disciplines; cross-ref each other; neither subsumes.
-- `MAJOR_PLINY.md` §5.10 (this arc, C3) — PLINY-specific worked example: signoff-accuracy verifies cleanup claims before posting.
 - §6.7.1 — the N=1 canon-promotion gate this section enters off-gate on PRINCIPAL's 2026-05-17 articulation.
-- §19.7 (NEW Arc 37 — Idle retrospective-narrative confabulation) — sister discipline; §19.6 covers WHAT to cite at attestation; §19.7 covers WHO did the work.
+
+(The §7.2/§4.3 sibling relationship, the §5.10 worked example, and the §19.7 sister-discipline relationship are stated inline at §19.6.2 + the §19.4 relationship-map.)
 
 #### 19.6.4 N=1 provenance + accretion path
 
-Anchor: `stoa--ezj` — N=1 provenance + accretion path. Per `MAJOR_POLYBIUS.md` §15 honest-scope and §6.7.1: PRINCIPAL articulated this discipline 2026-05-17 after reflecting on the Arc 30 PLINY init-handshake attestation pattern; enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for "structural lesson" promotion. Supporting evidence: N=1 bit-by-it (Arc 30 attestation-from-context); N=1 worked-when-applied (Arc 32 POLYBIUS_the_stoa init-handshake attested live-verified state honestly). Recover via `bw show stoa--ezj`.
+Anchor: `stoa--ezj`. PRINCIPAL articulated 2026-05-17 (post Arc 30 init-handshake attestation). N=1 provenance + off-gate accretion path per §6.7.1 + `MAJOR_POLYBIUS.md` §15. Supporting evidence: bit-by-it (Arc 30 attestation-from-context); worked-when-applied (Arc 32 POLYBIUS_the_stoa init-handshake attested live-verified state honestly). `bw show stoa--ezj`.
 
 ### 19.7 Idle retrospective-narrative confabulation — closed tickets are past-work evidence, not own-current-session accomplishment
 
@@ -786,11 +784,7 @@ Anchor: `stoa--53u` — 2026-05-13, PLINY-stoa in a fresh terminal session, afte
 
 #### 19.7.2 Distinct from §19.6 (attestation-confabulation)
 
-§19.6 addresses: at attestation time, cite the live-verified state observed at attestation time, NOT the assumed-from-context state. The failure mode it closes is "attest `140b398` from the directive's dispatch-authoring SHA without re-running `git rev-parse HEAD`."
-
-§19.7 addresses: when scanning substrate for next-task, do not construct a retrospective narrative of completed work as own current-session accomplishment. The failure mode it closes is "scan closed tickets while idle and narrate them as just-completed."
-
-Both are sub-cases of the §19.1 verbal-admission + verification-action discipline applied to different surfaces. Both can fire together (a confabulated retrospective-narrative paired with confabulated attestation of the past work's verification state). The two are distinct enough to warrant their own subsections because the verification-action that closes each is different — §19.6 fires `git rev-parse HEAD`; §19.7 fires a different check (the canonical orchestrator-scan procedure below).
+Distinct from §19.6 per the §19.4 map: §19.6 covers WHAT to cite (live state — the failure mode it closes is "attest `140b398` from the directive's dispatch-authoring SHA without re-running `git rev-parse HEAD`"); §19.7 covers WHO did the work (the failure mode it closes is "scan closed tickets while idle and narrate them as just-completed"). Both are §19.1 sub-cases; the closing verification-action differs (§19.6 → `git rev-parse HEAD`; §19.7 → the orchestrator-scan / authorship check in §19.7.3-§19.7.4). Both can fire together (a confabulated retrospective-narrative paired with confabulated attestation of the past work's verification state).
 
 #### 19.7.3 The canonical orchestrator-scan procedure
 
@@ -813,12 +807,11 @@ The discipline does not require a literal string. The SHAPE is: explicit admissi
 
 #### 19.7.5 N=1 provenance + accretion path
 
-Anchor: `stoa--53u` — N=1 provenance + accretion path. Per `MAJOR_POLYBIUS.md` §15 honest-scope and §6.7.1: PRINCIPAL articulated this discipline 2026-05-13 after the PLINY-stoa "Engagement B" confabulation incident; enters substrate canon off-gate on PRINCIPAL's project-direction authority + the empirical anchor, with future-evidence-accretion against the §6.7.1 gate still required for "structural lesson" promotion. Supporting evidence: N=1 bit-by-it (the 2026-05-13 Engagement B incident, §19.7.1); N=0 worked-when-applied with §19.7 canon. Recover via `bw show stoa--53u`.
+Anchor: `stoa--53u`. PRINCIPAL articulated 2026-05-13 (post the PLINY-stoa "Engagement B" confabulation incident, §19.7.1). N=1 provenance + off-gate accretion path per §6.7.1 + `MAJOR_POLYBIUS.md` §15. Supporting evidence: bit-by-it (the 2026-05-13 Engagement B incident); N=0 worked-when-applied with §19.7 canon. `bw show stoa--53u`.
 
 #### 19.7.6 Cross-references
 
-- §19.6 (Attestation-confabulation) — sister discipline; §19.6 covers WHAT to cite at attestation time; §19.7 covers WHO did the work.
-- §19.1-§19.5 — the parent confabulation-under-uncertainty discipline; §19.7 is a specialization of §19.1 to the idle-substrate-scan case.
+- §19.1-§19.5 — the parent confabulation-under-uncertainty discipline; §19.7 is a specialization of §19.1 to the idle-substrate-scan case. (The §19.6 sister-discipline relationship is stated inline at §19.7.2 + the §19.4 relationship-map.)
 - `MAJOR_PLINY.md` §6.2 (Surface-and-wait polling pattern) — the orchestrator-scan procedure §19.7.3 names is the canonical surface-and-wait read; §6.2 names the cadence pattern this procedure operates against.
 - `MAJOR_POLYBIUS.md` §16 (POLYBIUS session lifecycle) — the lifecycle disciplines define when a session ends and a successor begins; §19.7 is the discipline that keeps successors from confabulating their predecessors' work as their own.
 - `operating-disciplines.md` §28 (Per-CAPTAIN git seat identity via Co-Authored-By trailer) — the verification action in §19.7.4 reads commit metadata; the Co-Authored-By trailer + commit timestamp are the canonical authorship-verification signal.
@@ -1168,12 +1161,11 @@ Verification: `git log --pretty='%(trailers)' main` walks squash-merge commit bo
 #### 28.3.1 Pitfall — squash-merge `--body` override drops trailers
 
 When `--body` is omitted on `gh pr merge --squash`, GitHub auto-populates the
-squash-merge body from the source commits' subject + bodies; this
-auto-population preserves `Co-Authored-By:` trailers (§28.3 property). Passing
-a custom `--body` REPLACES the auto-populated body wholesale — including the
-preserved trailers from the squashed commits' bodies. A `--body "<clean
-summary>"` that omits trailer lines therefore silently strips every
-seat-identity signal from the squash-merge commit on main.
+squash-merge body from the source commits' subject + bodies, preserving their
+`Co-Authored-By:` trailers (§28.3 property). Passing a custom `--body` REPLACES
+that auto-populated body wholesale — including the preserved trailers. A
+`--body "<clean summary>"` that omits trailer lines therefore silently strips
+every seat-identity signal from the squash-merge commit on main.
 
 **Empirical anchor.** Arc 37 PR #17 → squash-merge `bb12806` (2026-05-17).
 The merge command was `gh pr merge 17 --squash --delete-branch --subject "..."
@@ -1184,9 +1176,8 @@ carried `Co-Authored-By: CAPTAIN_<MNEMONIC>_the-stoa` trailers per §28.
 merge; the trailer chain on `main` was permanently severed for that arc.
 
 **The fix at the merge site.** `MAJOR_PLINY.md` §5.10 ship-checklist bullet
-naming this anti-pattern; either omit `--body` (preferred — GitHub
-auto-populates trailers from source-commit bodies) or include trailers
-explicitly in the `--body` HEREDOC (the pattern Arc 38 + Arc 39 used
+naming this anti-pattern; either omit `--body` (preferred) or include the
+trailers explicitly in the `--body` HEREDOC (the pattern Arc 38 + Arc 39 used
 organically and shipped trailer-clean by). Arc 40 codifies the discipline so
 Pass 9/10 stellation arcs ship trailer-clean by canon, not by precedent.
 
@@ -1211,12 +1202,7 @@ This composes with §19.6 (attestation-confabulation): both disciplines are "cit
 
 ### 28.6 Future arcs may extend
 
-This section enumerates CAPTAIN seats explicitly because they are the seats that empirically commit during the gauntlet today. The convention is shape-compatible with other seat ranks:
-
-- A future paste-activated MAJOR seat that direct-commits (a hypothetical hotfix MAJOR, a long-running CURATOR session committing curator-tier artifacts) would carry `Co-Authored-By: MAJOR_<MNEMONIC>_<project-slug> <major-<mnemonic>@<project-slug>.local>` per the same shape.
-- Currently-non-committing CAPTAINs (BARTLEBY, STRABO, HERALD, CURATOR per the substrate's `substrate/CAPTAIN_*.md` files) inherit §28 if-and-when they begin committing in future arcs.
-
-Arc 35 does not pre-emptively extend the convention to non-committing seats — empirical-anchor surface today is gauntlet CAPTAINs only.
+The convention is shape-compatible with other ranks: a future committing MAJOR carries `Co-Authored-By: MAJOR_<MNEMONIC>_<project-slug> <major-<mnemonic>@<project-slug>.local>` per the same shape; currently-non-committing CAPTAINs (BARTLEBY, STRABO, HERALD, CURATOR per the substrate's `substrate/CAPTAIN_*.md` files) inherit §28 if-and-when they begin committing. Not pre-emptively extended — the empirical surface today is gauntlet CAPTAINs only.
 
 ### 28.7 N=1 provenance + accretion path
 
@@ -1224,12 +1210,9 @@ Anchor: `stoa--kjo` — N=1 provenance + accretion path. Per `MAJOR_POLYBIUS.md`
 
 ### 28.8 Cross-references
 
-- Global `~/.claude/CLAUDE.md` — the absolute "never override `Author:`" rule §28 preserves; global CLAUDE.md authorship-attribution section carries a cross-ref bullet back to §28 acknowledging the substrate's compliant trailer convention.
-- `MAJOR_PLINY.md` §5.12 — dispatch-brief responsibility (PLINY names the seat-identity each CAPTAIN should use in the trailer).
-- `CAPTAIN_ADA.md` §5.5 — pre-commit discipline at the CAPTAIN seat (extension to the file-frontmatter authorship-discipline paragraph).
-- §19.6 (attestation-confabulation) — sister discipline; both are "cite live-verified state, not assumed-from-context state" — §19.6 at attestation time; §28.5 at git-blame-reading time.
+Cross-refs already stated inline above are not re-listed here: global `~/.claude/CLAUDE.md`'s "never override `Author:`" rule + `MAJOR_PLINY.md` §5.12 + `CAPTAIN_ADA.md` §5.5 (intro paragraph), §19.6 sister-discipline (§28.5 body), `MAJOR_POLYBIUS.md` §18 exempt-categories (§28.2 body). The cross-refs NOT stated inline:
+
 - §25 (PRINCIPAL-gate discipline) — the gate that adjudicated `stoa--kjo`'s original Option A to Option β.
-- `MAJOR_POLYBIUS.md` §18 — the exempt-categories list (user-tier POLYBIUS housekeeping commits NOT tagged per §28.2).
 - `MAJOR_PLINY.md` §5.10 (signoff-accuracy) + §5.11 (paste archival) — sibling arc-boundary disciplines; §28 fires throughout the arc-build (every CAPTAIN commit).
 
 (Provenance ticket `stoa--kjo` + the 2026-05-04 ariadne--xft.4 empirical-anchor incident are folded into the §28.7 Anchor above.)
