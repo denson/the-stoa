@@ -75,11 +75,15 @@
     {
       "text": "cold-read pass 1 of diff complete: settings-hooks.json (2 new hooks nest INSIDE top-level hooks{}, JSON valid), install.sh (count 11-\u003e12 x5 + NOMOS in CAPTAIN_NAMES, NO arming-logic change), 2 new hook scripts (fail-open + 2-layer recursion guard), stop-self-check.sh comment-only (non-comment lines sha256-identical), README §6, re-decompose module. HARD SAFETY: arming gated behind ENABLE_HOOKS=1 default-off, user-tier print-only, no live-arm path; new hooks ride same single gate. Now reading CAPTAIN_NOMOS.md + design-rev1 for craft + intent-fit.",
       "timestamp": "2026-05-23T12:34:05Z"
+    },
+    {
+      "text": "ZENO progress: criteria 1-4,6,9 checked. NOMOS.md exists+4 frontmatter fields+tools=Bash/Read/Grep/Glob (no Agent/Write/Edit/Web)+no bad author field: MET. 2 hooks exist+bash -n 0: MET. settings-hooks.json valid JSON, 2 new hooks nest INSIDE hooks{} (r1 correct depth, NOT top-level keys): MET. install.sh NOMOS in CAPTAIN_NAMES(12 entries)+count 11-\u003e12 at all 5 sites+ENABLE_HOOKS=0 default+bash -n 0: MET. #18427 in hooks/README caveat table (r5): MET. Scope diff=8 named files only, Author=PRINCIPAL+CoAuthored ADA: MET. Now checking re-decompose remediation (c5), 7.7 DROP (c7), spec_refs.py (c8).",
+      "timestamp": "2026-05-23T12:34:21Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer STAGE 2 (judgment tier): CAPTAIN_NOMOS + PostToolUse-on-Agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T12:34:05Z"
+  "updated_at": "2026-05-23T12:34:21Z"
 }
