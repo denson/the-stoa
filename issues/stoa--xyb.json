@@ -314,11 +314,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 8 (.9): ARGUS PER-RULE EQUIVALENCE AUDIT (primary semantic gate) = PASS, 0 BLOCKING dropped-nuance. ARGUS independently compared BEFORE/AFTER for all 13 rows + 5 KEEP-FULLER. Hardest rows clear: 19-A (all 5 nuances survive; distinct verification-actions stay inline — AFTER actually IMPROVES §19.6.2 which didn't carry git rev-parse HEAD inline before); 19-D+28-A (EACH dropped cross-ref bullet verified reachable from a named surviving inline ref at the cited line — no orphan); 28-C (compression not cut — trailer-format+seat-enum survive). K1 verified EMPIRICALLY (Monitor line byte-identical across 12 CAPTAIN files incl ARGUS's own — keep-fuller correct). spec_refs byte-identical 156/56 (resolver matches by heading-text re-scan -\u003e prose-compression probe-safe). Q1=HOLD safe floor (no subsection-heading deletion). Q2=§7.6 NIT OUT of scope. 2 non-blocking ADA/VERA build-obligations: B1 (Row 19-A must land both §19.6.3 nuances 'neither subsumes'+'both broaden from §19.2 pattern 2' in the consolidated §19.4 map or they orphan; VERA Probe 5 asserts both token-strings), B2 (phrase §19.3 AFTER as 'shape-exemplars' — verbatim-recoverability claim inaccurate; cosmetic, rule survives). Dispatching ADA (carry B1+B2). Heads-down.",
       "timestamp": "2026-05-23T20:36:33Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc 8 (.9) BUILD done (ccf4399). 13 rows applied; 5 KEEP-FULLER untouched (K1 Monitor byte-identical); B1 (both §19.6.3 nuances in §19.4 map) + B2 (§19.3 shape-exemplars) confirmed; spec_refs byte-identical 156/56; NO heading/number changed (body-prose only); per-file delta op-disc -41/PLINY -5/DAEDALUS -2 (3 files +34/-52); no author field; no leak. Probe 6 (npm run gen-data) deferred by ADA (node_modules absent fresh worktree) — provably safe (zero frontmatter/heading touched, which is all gen-data reads); VERA runs it belt-and-suspenders. Running VERA+CATO+ZENO. CATO = SECONDARY SEMANTIC GATE (cold-read the actual DIFF specifically for dropped-nuance/meaning-drift — the load-bearing verification for in-place rule-prose rewrite). Heads-down.",
+      "timestamp": "2026-05-23T20:42:30Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T20:36:33Z"
+  "updated_at": "2026-05-23T20:42:30Z"
 }
