@@ -1443,11 +1443,12 @@ PRINCIPAL declared the architectural model during the 2026-05-17 substrate-archi
 | Modules | `.claude/modules/*.md` (directly under modules/) | `.claude/modules/custom/*.md` |
 | Skills | `.claude/skills/<name>/` (where `<name>` does NOT start with `custom-`) | `.claude/skills/custom-<name>/SKILL.md` |
 
-The asymmetry (subdirectory for CAPTAINs and templates; directory-name prefix for skills) is forced by Claude Code's discovery behavior:
+The asymmetry (subdirectory for CAPTAINs, templates, and modules; directory-name prefix for skills) is forced by Claude Code's discovery behavior:
 
 - **CAPTAINs:** `.claude/agents/` is scanned **recursively** (https://code.claude.com/docs/en/sub-agents); subdirectory works.
 - **Skills:** `.claude/skills/<skill-name>/SKILL.md` is **single-level** (https://code.claude.com/docs/en/skills); subdirectory would not be discovered.
 - **Templates:** no Claude Code involvement; substrate-internal convention; follows CAPTAIN shape for visual parallelism.
+- **Modules:** read by explicit path via the Read tool (no Claude Code auto-discovery of the deploy location); substrate-internal convention; follows CAPTAIN/template shape for visual parallelism.
 
 ### 23.3 The discipline, by seat
 
