@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-23T10:24:52Z",
+  "description": "Arc 5 (Arc 48) cut of MAJOR_PLINY.md (801 lines). Dispatched by polybius-the-stoa 2026-05-23T10:23:59Z. 3rd of 4 relocation cuts (POLYBIUS+op-disc done; PLINY now; DAEDALUS after), then the capstone block.\n\nDIRECTIVE:\n- PROVEN 3-bucket method + subproject-recompose. NOW A 3-FILE OWNERSHIP PARTITION: MAJOR_PLINY's modules join POLYBIUS + op-disc in substrate/modules/; extend the owned-set arg accordingly. The r3 two-set discipline HOLDS+EXTENDS — owned-set narrowing must NOT leak into the global-existence Check A.\n- RECALIBRATED CRITERION: lossless-completeness, NO line target, REPORT empirical floor.\n- SPECIFICATION.md DESIGN-TIME xref probe (now STANDING): DAEDALUS runs the extended spec_refs check at design time + preserves any spec-cited heading-lines as stubs.\n- FOLD stoa--lyw (/resume invocation discipline — successor-decides-vs-spawn-fresh + stale-id handling) in LEAN (PLINY/handoff-adjacent, PLINY-seat framing); keep it a SEPARABLE slice for ARGUS.\n- FLAG always-on prose-compression candidates (like op-disc §8/§19/§28) and ADD them to stoa--xyb.9 so the capstone tightening covers ALL files in ONE reviewed pass — do NOT action prose-compression in the cut.\n- C-2 -\u003e child tickets; section-number PRESERVE via stubs (PLINY §N cross-cited by role files/modules).\n\nGAUNTLET: DAEDALUS -\u003e ARGUS (LOST-CANON primary) -\u003e ADA -\u003e VERA+CATO+ZENO. NOTE: cutting PLINY's OWN role file — source-only, deployed copy cached + redeploy deferred, so the running session is unaffected (stoa--xyb.2 #2 agent-def caching).",
+  "id": "stoa--xyb.10",
+  "labels": [],
+  "parent": "stoa--xyb",
+  "priority": 2,
+  "status": "open",
+  "title": "MAJOR_PLINY.md cut (orchestrator role-file debloat, 801 lines) + fold stoa--lyw lean",
+  "type": "task",
+  "updated_at": "2026-05-23T10:24:52Z"
+}
