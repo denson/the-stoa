@@ -15,11 +15,15 @@
     {
       "text": "DAEDALUS state-transition: precedents absorbed (arc-47 op-disc index-only + arc-48 PLINY 3-owner partition w/ P-OWNERSHIP-NOCOLLIDE). KEY FINDINGS: (1) index-vs-routing-map -\u003e DAEDALUS is a CAPTAIN (architect, dispatches nothing) -\u003e INDEX-ONLY per modules/README §4.1+§1 (routing-map is orchestrator-only); (2) ZERO active-substrate-file cites CAPTAIN_DAEDALUS.md §N EXCEPT §6.7/§6.8/§6.9.3''/§6.11 (all in §6 CONDITIONAL bucket, sibling-discipline cross-refs from ADA/VERA/op-disc); (3) validate-spec resolver matches ZERO DAEDALUS refs in SPECIFICATION.md (L553 backtick-form does not match form-a regex) -\u003e P-SPEC-XREF at-risk set EMPTY; (4) DAEDALUS deploys via CAPTAIN_NAMES loop (install.sh L1021), suffixed at subproject as CAPTAIN_DAEDALUS_\u003csub\u003e.md -- NO standalone DEST_DAEDALUS var, so 4th recompose call needs path constructed in-loop. Drafting design-rev1 + relocation ledger.",
       "timestamp": "2026-05-23T11:13:58Z"
+    },
+    {
+      "text": "DAEDALUS state-transition: design-rev1 + relocation ledger drafted at agents/design/arc-49/design-rev1.md. Live-RT of own probes (per §6.9 recursion) surfaced + FIXED a census gap: §6.9 is cited 8x by the validate-spec skill (.py/.sh/SKILL.md) -- the heaviest external cite, which the naive regex MISSED (dominant cite form is backtick-wrapped `CAPTAIN_DAEDALUS.md` §N, backtick between .md and the space). Corrected §3.1 census + P-XREF to backtick-tolerant; true external-cite set = {§6, §6.7, §6.8, §6.9, §6.9.3'', §6.11}, all stub-heading-preserved (§6 KEEP). LEDGER: 7 CONDITIONAL modules (9 §6.x subsections; probe-grounding co-locates 3) + 1 SPLIT (§6.2 repoint) + 0 C-1-standalone + 0 C-2 + 0 DUPLICATE = 8 chunks. index-ONLY (CAPTAIN non-orchestrator, modules/README §4.1). 4th install.sh owned-set + the no-DEST_DAEDALUS-var path-construction + ordering wrinkle. Floor est ~150-200 (72% reduction). Finalizing verdict + self-assessed weak points (§6.2 post-work).",
+      "timestamp": "2026-05-23T11:23:21Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "CAPTAIN_DAEDALUS.md cut (architect role-file debloat, 633 lines) — LAST relocation cut",
   "type": "task",
-  "updated_at": "2026-05-23T11:13:58Z"
+  "updated_at": "2026-05-23T11:23:21Z"
 }
