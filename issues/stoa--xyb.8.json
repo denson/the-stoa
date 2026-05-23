@@ -79,11 +79,15 @@
     {
       "text": "PASS-WITH-RISKS (1 SHOULD-FIX, non-blocking; rev2 is ADA-buildable): r1 CLEARED (census independently re-verified live; 6 S7 stub heading lines all MATCH resolver pattern; P-SPEC-XREF correct; S7.1. L129 genuine pre-existing FAIL). r2 CLEARED (all 4 verifier seats cite op-disc S15 direct via role-file - VERA 5.7/CATO 6.7/ZENO 6.6/ARGUS 6.6 confirmed live; A4 correctly deleted; S15.4 resolves inline; no S15.x spec cite). r3 CLEARED (two-set fix sound vs live install.sh L871-957; consumed[] cross-owner case correctly scoped out). r4 CLEARED (S20 lossless, no external citer on relocated detail). Q2: CONCUR census-driven (not blanket) - correct + minimal; P-SPEC-XREF is standing guard. NEW r5 [SHOULD-FIX non-blocking]: polling-cron-prompt-template.md L263 prose-points at op-disc S7.6 which relocates to Anchor with NO stub heading -\u003e dangling pointer post-cut (recoverable canon, not LOST). Fix=re-point that template line to the S7.6 Anchor during Step-5 cross-ref sweep. Saving verdict. Returning.",
       "timestamp": "2026-05-23T09:35:04Z"
+    },
+    {
+      "text": "ARGUS rev2 re-confirm VERDICT saved: agents/verdicts/stoa--xyb.8/ARGUS-2026-05-23T09-38-47Z.md (sha256 d66b11683b17). verdict=PASS-WITH-RISKS. r1/r2/r3/r4 ALL CLEARED (each independently verified live: r1 census re-run + 6 S7 heading shapes pattern-matched; r2 all 4 verifier seats cite op-disc S15 direct confirmed; r3 vs live install.sh L871-957; r4 lossless). Q2: CONCUR census-driven (not blanket). 1 NEW risk r5 [load_bearing:false, easy-easy]: polling-cron-prompt-template.md L263 dangles at relocated S7.6 (no stub heading) - one-line re-point in Step-5 sweep. rev2 is ADA-BUILDABLE. No new LOST-CANON/mechanical-xref/always-on-drop vector. Returning.",
+      "timestamp": "2026-05-23T09:38:55Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
   "type": "task",
-  "updated_at": "2026-05-23T09:35:04Z"
+  "updated_at": "2026-05-23T09:38:55Z"
 }
