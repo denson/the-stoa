@@ -1,0 +1,26 @@
+=== SAVE_VERDICT record ===
+request_id: argus-xyb7-001
+caller: ARGUS
+ticket_id: stoa--xyb.7
+officer: ARGUS
+timestamp: 2026-05-23T12:21:14Z
+body_source: body_path
+overwrite: false
+cwd: C:\Users\denso\claude_projects\the-stoa\.claude\worktrees\arc-50-build
+
+=== execution ===
+exit_code: 0
+duration_ms: 22
+resolved_dest: C:\Users\denso\claude_projects\the-stoa\.claude\worktrees\arc-50-build\agents\verdicts\stoa--xyb.7\ARGUS-2026-05-23T12-21-14Z.md
+input_byte_length: 7431
+input_sha256: 3dae869580bce16e204ba64d7b56676accc16d2fd86add37f9f62bc061147e45
+dest_sha256: 3dae869580bce16e204ba64d7b56676accc16d2fd86add37f9f62bc061147e45
+verification: pass
+diagnostics_first_50_lines:
+~~~~
+(none)
+~~~~
+diagnostics_total_lines: 0
+
+=== assertion ===
+overall: pass

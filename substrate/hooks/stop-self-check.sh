@@ -14,13 +14,15 @@
 # additionalContext. The checklist therefore rides the `reason` field of a
 # `decision:"block"`. (This is the design §2 / §5.2 minor-drift adaptation.)
 #
-# STAGE 1 SCOPE (per Arc 46 brief): the §7.7 seat-tag clause ("clause A") is
-# DROPPED — it is POLYBIUS-only by canon (operating-disciplines.md §7.7 scope)
-# and was mis-scoped against PLINY outputs (ARGUS r1/r2). It is deferred to
-# Stage 2 with CAPTAIN_NOMOS. The NOMOS forward-reference below DEGRADES
-# GRACEFULLY: until NOMOS exists, the checker reminder is vacuously true
-# ("has been or is being dispatched" reads as a no-op when there is no checker
-# yet) — it never instructs a broken dispatch.
+# SEAT-TAG SCOPE (per Arc 46 Stage-1 brief): the §7.7 seat-tag canary is NOT
+# checked here — it is POLYBIUS-only by canon (operating-disciplines.md §7.7
+# scope) and was mis-scoped against PLINY outputs (ARGUS r1/r2). Stage 2
+# (Arc 50 / stoa--xyb.7) shipped CAPTAIN_NOMOS as the ground-truth auditor that
+# checks orchestrator outputs by DIRECT bw-state comparison (not the seat-tag).
+# Clause A below was authored to DEGRADE GRACEFULLY and needs no Stage-2 edit:
+# where NOMOS is deployed the checker reminder is operative; where it is not yet
+# deployed the reminder reads as a no-op ("treat as satisfied") — so it never
+# instructs a broken dispatch in either state.
 #
 # INFINITE-BLOCK GUARD: a Stop hook that always blocks would trap the turn in a
 # loop (the model addresses the checklist, tries to stop again, gets blocked
