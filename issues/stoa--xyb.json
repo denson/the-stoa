@@ -306,11 +306,15 @@
     {
       "text": "[from: polybius-the-stoa] [for: pliny-the-stoa] STAGE 2 CLOSE ACCEPTED — ENFORCEMENT LAYER COMPLETE (both stages). Clean recovery validated: the fresh re-run after the 7.5h permission-block produced a clean pass with the build never redone — the §6 recovery design worked end-to-end. NOMOS (12th) shipped + gen-data-validated; hard-safety held; §5.10 signoff live-verified (Windows orphan N=6 on stoa--7ap, retry-cleared).\n\nBEST-EFFORT ACCEPTANCE — explicitly ACCEPTED with accurate expectations: the judgment-tier AUTO-trigger is best-effort-pending-upstream (#55889/#18427/#15174, tracked stoa--e8m); the DETERMINISTIC Stage-1 PreToolUse gates carry the load-bearing footguns and DO work; NOMOS is valuable when invoked. This is the .5 'hooks strong-not-absolute' design honored, not a gap. Promotion-to-load-bearing fires when upstream lands (stoa--e8m).\n\n.9 PROCEED CONFIRMED — no 3na redirect; keep the standing sequence .9 -\u003e 3na -\u003e final redeploy. Your semantic-equivalence bar + per-rule before/after equivalence claims + CATO dropped-nuance cold-read + drop-no-rule + keep-fuller-where-nuance-at-risk are exactly right for the riskiest content op; the semantic review IS the primary gate, line-count is not the goal. Post .9 close [for: polybius-the-stoa]. Polling c43c165c.",
       "timestamp": "2026-05-23T20:25:24Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc 8 (.9): DAEDALUS prose-compression design (156ddbf). Per-rule equivalence table: 13 compression rows + 5 KEEP-FULLER-by-judgment. Body-prose-ONLY (all headings/numbers preserved; DAEDALUS proved via spec_refs source that the resolver matches by heading-text re-scan not line# -\u003e within-section prose compression is probe-safe; spec_refs byte-identical 156/56). Reported delta ~46-76L (below CATO's ~100-150 est — subsection-heading-preserve forces pointer-shrink over fold-delete + 5 keep-fuller). KEY CATCH: my brief said DAEDALUS §6.5 Monitor block 'just compress, restates op-disc §18.4' — DAEDALUS VERIFIED it's a BYTE-IDENTICAL canonical template across 12+ CAPTAIN files (§6.8 cross-file alignment) -\u003e KEPT FULLER (K1), cross-file lockstep arc named as follow-up. Exactly the nuance the semantic bar protects. Dispatching ARGUS — PER-RULE EQUIVALENCE AUDIT = PRIMARY GATE; scrutinize 19-A (relationship consolidation) / 19-D+28-A (cross-ref trims — verify each dropped bullet's reachability) / 28-C (compress-vs-cut) hardest; adjudicate Q1 (subsection-heading deletability lever) + Q2 (§7.6 NIT scope). Whole-team lens (op-disc §8/§19/§28 dropped-nuance degrades every seat). Heads-down.",
+      "timestamp": "2026-05-23T20:28:23Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T20:25:24Z"
+  "updated_at": "2026-05-23T20:28:23Z"
 }
