@@ -70,11 +70,15 @@
     {
       "text": "5 module files created + verified in worktree (not main): onboarding.md (218L, incl §5.6 lean 0hl fold + 2 C-2 cite-backs to xyb.6.1/.6.2), sub-project-spawning.md (102L), pair-programmer-authoring.md (93L), pair-programming-prototyping.md (79L), substrate-update-check.md (16L). P9 author-field check CLEAN (no author-like field in any module). F-A check CLEAN (zero MODULE-INLINE literals in module bodies — recompose idempotency safe). Now cutting the slim MAJOR_POLYBIUS.md: CONDITIONAL stubs+markers, PROVENANCE→Anchor, SPLIT per-line, DUPLICATE→pointer, KEEP-TIGHTEN, §3.5 routing-map+relocation-index, §4.5 0hl F1 lean.",
       "timestamp": "2026-05-23T07:29:16Z"
+    },
+    {
+      "text": "Slim core first-pass landed: structural cut COMPLETE + correct (P3 stubs §5/10/11/12/14 preserved; 10 full-line MODULE-INLINE markers correctly paired; §3.5 prose mention of marker at L96 is in backticks mid-line, does NOT match ^...$ recompose regex — confirmed safe per ARGUS edge-case #2; P9 author-field clean). BUT P1 line-count = 653, over the \u003e400 falsifier. Diagnosis: structural relocations done but KEEP-TIGHTEN rule-prose (§7=74, §16=72, §4=71, §13=69, §17=60, §19=58, §18=51) preserved near-verbatim instead of genuinely tightened. The design intends real prose tightening (§2.5/§3.6 'tighten verbose prose'), not verbatim-keep. Running a second tightening pass on the dense KEEP-TIGHTEN sections — preserving every load-bearing rule + cross-ref, compressing prose — to land in the 300-360 band.",
+      "timestamp": "2026-05-23T07:33:21Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "First execution: MAJOR_POLYBIUS.md section-by-section slimming pass (via PLINY gauntlet, lossless-on-canon)",
   "type": "task",
-  "updated_at": "2026-05-23T07:29:16Z"
+  "updated_at": "2026-05-23T07:33:21Z"
 }
