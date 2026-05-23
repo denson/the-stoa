@@ -192,9 +192,10 @@ Recovery:
   shows the comment stream.
 - For a file archived via `bw attach` (C-2): the bytes live at `attachments/<ticket-id>/<stored-path>`
   on the beadwork git ref. `bw` 0.13.0 has no attachment-read subcommand and `bw show` has no
-  `--attachments` flag, so recover the file via git on the beadwork ref (e.g. `git show
-  beadwork:attachments/<ticket-id>/<stored-path>`) — the `attach` intent comment in `bw show <id>`
-  names the stored path.
+  `--attachments` flag, so first discover the stored path via `git log beadwork` — the `attach` intent
+  is recorded only as a commit message on the beadwork ref (form: `attach <ticket-id> <stored-path>`),
+  not surfaced by `bw show <id>` — then recover the bytes via git on that ref (e.g. `git show
+  beadwork:attachments/<ticket-id>/<stored-path>`).
 
 For cross-references that point at OTHER substrate sections (e.g. `§X` / `operating-disciplines.md
 §Y`), keep the existing in-file pointer convention — those are live cross-refs, not provenance to

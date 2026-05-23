@@ -1440,6 +1440,7 @@ PRINCIPAL declared the architectural model during the 2026-05-17 substrate-archi
 | Operating disciplines | `.claude/operating-disciplines.md` | (n/a) |
 | CAPTAINs | `.claude/agents/CAPTAIN_*.md` (directly under agents/) | `.claude/agents/custom/CAPTAIN_<MNEMONIC>_<slug>.md` |
 | Templates | `.claude/templates/*.md` (directly under templates/) | `.claude/templates/custom/*.md` |
+| Modules | `.claude/modules/*.md` (directly under modules/) | `.claude/modules/custom/*.md` |
 | Skills | `.claude/skills/<name>/` (where `<name>` does NOT start with `custom-`) | `.claude/skills/custom-<name>/SKILL.md` |
 
 The asymmetry (subdirectory for CAPTAINs and templates; directory-name prefix for skills) is forced by Claude Code's discovery behavior:

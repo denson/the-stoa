@@ -1091,6 +1091,13 @@ fi
 # only single-segment shape (the `[ -f "$f" ]` filter skips directories), the
 # same idiom the templates scan above uses. Skipped in subproject mode
 # (DEST_MODULES_DIR empty — stoa--xyb.4 §6).
+# CITE: this glob is single-path-segment + file-only (the `[ -f "$f" ]`
+# filter skips directories). It does NOT recurse into
+# ${DEST_MODULES_DIR}/custom/, where custom modules live per the
+# base-vs-custom convention (substrate/operating-disciplines.md §23 +
+# substrate/MAJOR_POLYBIUS.md §17). If a future change makes this glob
+# recursive, custom modules would be flagged as obsolete; the discipline
+# is at the path-shape level.
 if [ -n "${DEST_MODULES_DIR:-}" ] && [ -d "$DEST_MODULES_DIR" ]; then
   shopt -s nullglob
   # Build the source basename set from the glob (no array to compare against).
