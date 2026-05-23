@@ -95,11 +95,15 @@
     {
       "text": "ADA progress: all 12 modules written + verified (no author field, no MODULE-INLINE-in-body, each has unique # Title; largest autonomous-mode-setup=252 lines). C-1 content-check gate PASSED for all 19 standalone tickets + stoa--ntn S10 gate (all carry their stories materially -\u003e no C-2 fallback for S10). 3 C-2 child tickets created+content-checked: stoa--xyb.8.1 (S8.1), stoa--xyb.8.2 (S8.2), stoa--xyb.8.3 (S26). Now cutting the slim core (S0.5 index + 12 stubs + S15 KEEP-tighten + 19 C-1 delete-to-Anchor + 5 SPLIT tails + KEEP-tighten).",
       "timestamp": "2026-05-23T09:48:25Z"
+    },
+    {
+      "text": "ADA progress: slim-core cut well underway. S0.5 relocation index landed (before S1, no routing map). All 12 CONDITIONAL stubs placed; 12 MODULE-INLINE marker pairs balanced (opens=12 closes=12). S7 stub keeps 6 real heading lines (7.1/7.2/7.3/7.4/7.5/7.7) for spec resolver. S15 KEEP-tightened inline (S15.6 6-\u003e3 examples, empirical-\u003eAnchor stoa--tp1). S20 partial: structural core inline, detail-marker after S20.4, S20.7-\u003eAnchor. Op-disc now 1384 lines (from 2156). Remaining: 17 standalone C-1 delete-to-Anchor (S15+S20.7 done), 5 SPLIT tails, KEEP-tighten prose, then r5 re-point + install.sh two-set recompose.",
+      "timestamp": "2026-05-23T09:54:03Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
   "type": "task",
-  "updated_at": "2026-05-23T09:48:25Z"
+  "updated_at": "2026-05-23T09:54:03Z"
 }
