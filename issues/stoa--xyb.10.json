@@ -87,11 +87,15 @@
     {
       "text": "ZENO progress: criteria extracted (11 mechanical checks). Checks 2/3/4/5/6 PASS — 11 modules exist non-empty w/ title first-lines + zero author fields + zero literal MODULE-INLINE in bodies; 11 marker opens=closes=11 (PLINY owned-set, all empty pairs); §6.1 cookbook tables relocated + heading kept live + bw-prime-\u003eop-disc§9 pointer present; spec-cited ###5.10/###6.1/###6.2 real heading lines present; C-2 child stoa--xyb.10.1 carries full §5.4 prose + matching Anchor. Now checking lyw fold (9) + install.sh (7) + spec_refs (8) + scope (10).",
       "timestamp": "2026-05-23T10:55:04Z"
+    },
+    {
+      "text": "VERA: structural probes PASS (P-COND/STUB/SPEC-XREF hard gate/LYW/ROUTING-INDEX/SPLIT/KEEP/AUTH). HARD GATE 7/7 PLINY spec cites PASS zero flips. 2 probe-regex defects noted (P-XREF em-dash bracket + P-SPLIT adjacency) — canon intact, probe regex underspecified per my §5.11. Now C-1/C-2 cite spot-checks + §6.1 CONSIDER-1 L616 + the 3-OWNER recompose against THROWAWAY.",
+      "timestamp": "2026-05-23T10:55:16Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "MAJOR_PLINY.md cut (orchestrator role-file debloat, 801 lines) + fold stoa--lyw lean",
   "type": "task",
-  "updated_at": "2026-05-23T10:55:04Z"
+  "updated_at": "2026-05-23T10:55:16Z"
 }
