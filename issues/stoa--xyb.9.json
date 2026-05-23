@@ -19,11 +19,15 @@
     {
       "text": "DAEDALUS activated on stoa--xyb.9 (Arc 51 .9 PROSE-COMPRESSION CAPSTONE). operating-mode: autonomous. Reading brief + upstream flags (CATO Arc-47 + PLINY Arc-48/Arc-49 candidates) + live post-cut sections in arc-51/build worktree. Acceptance bar = SEMANTIC-EQUIVALENCE per-rule. Drafting per-rule before/after equivalence table at agents/design/arc-51/design-rev1.md.",
       "timestamp": "2026-05-23T20:22:00Z"
+    },
+    {
+      "text": "State transition: all 9 target sections read end-to-end in live post-cut files (op-disc §8/§19/§28, PLINY §5.1/§7.2/§9, DAEDALUS §2/§3/§6.5). spec_refs.py baseline = 156 PASS / 56 FAIL (the 56 FAILs are PRE-EXISTING bare-§ refs to PLINY §5.10/§5.11 etc. that resolve to op-disc default and don't exist there — NOT introduced by this work). KEY FINDING: spec_refs resolver matches by HEADING-TEXT (re-scans for the §-anchor heading line), NOT absolute line number — so within-section prose compression is probe-safe; only deleting/renumbering a CITED HEADING or touching SPECIFICATION.md can flip a verdict. Spec-cited headings inside my targets: §19.2/§19.6/§19.7/§28/§28.3.1 — all must survive. Now auditing cross-file citations to subsection anchors I may consolidate (§19.6.2/§19.7.2/§19.6.4/§19.7.5/§28.6/§28.8), then drafting the per-rule equivalence table.",
+      "timestamp": "2026-05-23T20:23:38Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "op-disc KEEP-prose tightening (lossless compression of §8/§19/§28, ~100-150L) — CATO Arc-47 follow-up",
   "type": "task",
-  "updated_at": "2026-05-23T20:22:00Z"
+  "updated_at": "2026-05-23T20:23:38Z"
 }
