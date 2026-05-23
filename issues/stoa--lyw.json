@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-23T11:00:54Z",
+  "close_reason": "FOLDED into the Arc-48 MAJOR_PLINY.md cut as the lean §4.1 /resume invocation discipline (PR #28, 700dc53). The INVOCATION half (successor-decides-vs-spawn-fresh + stale-id + dormant-vs-lost + multi-generation nav) now ships in MAJOR_PLINY.md §4.1 with Anchor stoa--lyw; the RECORDING half was already in the handoff-author skill. NOTE: lyw sketched op-disc + MAJOR_POLYBIUS framing too — folded PLINY-seat-scoped per polybius-the-stoa dispatch; if universal/POLYBIUS framing is genuinely needed, a small lyw-completion arc can add it (deferred, not blocking).",
   "created": "2026-05-18T02:11:38Z",
   "description": "",
   "id": "stoa--lyw",
@@ -13,8 +15,8 @@
     }
   ],
   "priority": 3,
-  "status": "open",
+  "status": "closed",
   "title": "Resume invocation discipline (/resume) — successor-decides-vs-spawn-fresh + stale-id handling",
   "type": "task",
-  "updated_at": "2026-05-18T02:11:51Z"
+  "updated_at": "2026-05-23T11:00:54Z"
 }
