@@ -71,11 +71,15 @@
     {
       "text": "VERA: design probes absorbed (P-FLOOR..P-KEEP + LOSSLESS-COMPLETENESS ledger walk). All probes classify easy-easy/easy-hard mechanical except the 3-OWNER recompose (P-RECOMPOSE/NEG/OWNERSHIP — easy-detect/easy-verify against THROWAWAY mktemp). Probe set executing.",
       "timestamp": "2026-05-23T10:53:50Z"
+    },
+    {
+      "text": "ZENO activated on stoa--xyb.10 (Arc 48). Reading spec (design-rev1) + shipped artifact (MAJOR_PLINY.md + 11 modules + install.sh) before extracting criteria. operating-mode: autonomous; static checks + throwaway targets only.",
+      "timestamp": "2026-05-23T10:54:01Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "MAJOR_PLINY.md cut (orchestrator role-file debloat, 801 lines) + fold stoa--lyw lean",
   "type": "task",
-  "updated_at": "2026-05-23T10:53:50Z"
+  "updated_at": "2026-05-23T10:54:01Z"
 }
