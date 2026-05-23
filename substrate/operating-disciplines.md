@@ -1440,13 +1440,15 @@ PRINCIPAL declared the architectural model during the 2026-05-17 substrate-archi
 | Operating disciplines | `.claude/operating-disciplines.md` | (n/a) |
 | CAPTAINs | `.claude/agents/CAPTAIN_*.md` (directly under agents/) | `.claude/agents/custom/CAPTAIN_<MNEMONIC>_<slug>.md` |
 | Templates | `.claude/templates/*.md` (directly under templates/) | `.claude/templates/custom/*.md` |
+| Modules | `.claude/modules/*.md` (directly under modules/) | `.claude/modules/custom/*.md` |
 | Skills | `.claude/skills/<name>/` (where `<name>` does NOT start with `custom-`) | `.claude/skills/custom-<name>/SKILL.md` |
 
-The asymmetry (subdirectory for CAPTAINs and templates; directory-name prefix for skills) is forced by Claude Code's discovery behavior:
+The asymmetry (subdirectory for CAPTAINs, templates, and modules; directory-name prefix for skills) is forced by Claude Code's discovery behavior:
 
 - **CAPTAINs:** `.claude/agents/` is scanned **recursively** (https://code.claude.com/docs/en/sub-agents); subdirectory works.
 - **Skills:** `.claude/skills/<skill-name>/SKILL.md` is **single-level** (https://code.claude.com/docs/en/skills); subdirectory would not be discovered.
 - **Templates:** no Claude Code involvement; substrate-internal convention; follows CAPTAIN shape for visual parallelism.
+- **Modules:** read by explicit path via the Read tool (no Claude Code auto-discovery of the deploy location); substrate-internal convention; follows CAPTAIN/template shape for visual parallelism.
 
 ### 23.3 The discipline, by seat
 
@@ -2083,6 +2085,32 @@ exit correctly; jsdom rests at the early-frame state; both are
 - `CAPTAIN_ADA.md` §5.9 (build-time sibling — motion-API scope reduction; both are properties of motion + jsdom interaction)
 - `CAPTAIN_VERA.md` §5.1 (verification-side test-discipline — VERA reads §32 when designing probes against animation surfaces)
 - `CAPTAIN_CATO.md` (honesty-audit consumer — when a test asserts disjunctively against the environment, CATO verifies the disjunction is the empirical reality, not a smoothed-over defect)
+
+---
+
+## 33. Composition layer — instruction modules + orchestrator routing
+
+Instructions are a composable library, not all-memorized. An orchestrator selects what a task
+needs and delivers it AT DISPATCH TIME via 3 channels, all using tools every agent already has
+(no Skill grant, no MCP; see `stoa--xyb.1`):
+  - inline in the dispatch prompt — small, task-specific.
+  - disk module `.claude/modules/<X>.md` via Read — stable, reused.
+  - bw ticket via `bw show <id>` (or `bw attach` to archive) — dynamic / bespoke / must-persist; ALSO the provenance archive home.
+
+THREE RELOCATION CLASSES (how the .3 debloat method's buckets find lossless homes; populated indexes are per-orchestrator core, Arc 2):
+  - CONDITIONAL -> disk module (CHANNEL 2).
+  - PROVENANCE  -> bw archive + a one-line `Anchor: <bw-id>` cite in slim core.
+  - DUPLICATE   -> consolidate to the ONE existing home + a one-line pointer.
+
+ROUTING MAP + RELOCATION INDEX (load-bearing — both stay inline in orchestrator operational
+core, NEVER a module): the routing map (task-type -> module + channel, dispatch-time) and the
+relocation index (relocated-content -> new-home + class, audit-time). An index that must itself
+be loaded-on-demand never fires.
+
+AUTHORING SIGNAL: the bw custom-instruction stream is the RECORD, not the library. Recurrence in
+that record -> author a reusable disk module.
+
+Full procedure, channel-selection + relocation-class templates, taxonomy: `.claude/modules/README.md` (on-demand).
 
 ---
 

@@ -14,8 +14,11 @@
 # sub-agent envelopes (unless --no-captains), deploys the templates/ runtime
 # tooling (unless --no-templates), deploys LIEUTENANT skills under
 # <DEST>/.claude/skills/ (always — POLYBIUS invokes them via the Skill tool;
-# no opt-out flag), and optionally appends a marker-bounded reference block
-# to CLAUDE.md when the consent flag is set. It does NOT run `bw init` or
+# no opt-out flag), deploys the instruction-module library under
+# <DEST>/.claude/modules/ (always — glob-discovered from substrate/modules/*.md;
+# no opt-out flag; subproject mode excepted), and optionally appends a
+# marker-bounded reference block to CLAUDE.md when the consent flag is set.
+# It does NOT run `bw init` or
 # write the paste-instruction; POLYBIUS handles those interactively with the
 # PRINCIPAL in the loop.
 #
@@ -59,9 +62,17 @@
 # skills are universal helpers and skipping the deploy leaves POLYBIUS unable
 # to use them.
 #
+# Modules: the script deploys substrate/modules/*.md from this directory to
+# <target>/.claude/modules/. These are composition-layer instruction modules an
+# orchestrator delivers to a sub-agent at dispatch time (Read .claude/modules/<X>.md)
+# — shared tooling, deployed unsuffixed, GLOB-discovered (no manifest array) so
+# authoring a new module needs no install.sh edit (Arc 44 / stoa--xyb.4). Always
+# deployed at user + project tiers (no --no-modules opt-out, mirrors skills);
+# subproject-tier deploy is a tracked Arc-2-gating open question (stoa--xyb.4 §6).
+#
 # Staleness detection: after deploying, the script scans the destination for
 # files no longer in the substrate source — typically left over from a
-# renamed CAPTAIN, removed template, or removed skill. By default this is
+# renamed CAPTAIN, removed template, removed skill, or removed module. By default this is
 # warn-only (lists obsolete files for the human to rm manually). Pass
 # --prune-obsolete to remove them automatically. MAJOR_*.md files are
 # deliberately not scanned (pair-programmer Majors land in the same agents/
@@ -103,6 +114,15 @@ SRC_PLINY="${SCRIPT_DIR}/MAJOR_PLINY.md"
 SRC_OPERATING_DISCIPLINES="${SCRIPT_DIR}/operating-disciplines.md"
 SRC_TEMPLATES_DIR="${SCRIPT_DIR}/templates"
 SRC_SKILLS_DIR="${SCRIPT_DIR}/skills"
+SRC_MODULES_DIR="${SCRIPT_DIR}/modules"
+
+# Instruction-module library (Arc 44 / stoa--xyb.4). Composable on-demand
+# reference content an orchestrator names in a dispatch (Read .claude/modules/<X>.md)
+# or that the team reads when authoring/relocating modules. Deployed unsuffixed
+# (shared tooling, like templates). GLOB-DISCOVERED from substrate/modules/*.md
+# (per stoa--xyb.4 r4 / PLINY decision) so authoring a new module needs NO
+# install.sh edit — the file class the epic is designed to grow continuously.
+# No MODULE_NAMES array (glob, not manifest).
 
 # Template filenames POLYBIUS uses at runtime. Shared tooling — deployed
 # unsuffixed at both user-tier and project-tier.
@@ -535,6 +555,7 @@ case "$TARGET" in
     DEST_AGENTS_DIR="${HOME}/.claude/agents"
     DEST_TEMPLATES_DIR="${HOME}/.claude/templates"
     DEST_SKILLS_DIR="${HOME}/.claude/skills"
+    DEST_MODULES_DIR="${HOME}/.claude/modules"
     PROJECT_SLUG=""
     NAME_SUFFIX=""
     # Arc 20: choose user-tier dir (interactive prompt or --user-tier-dir override),
@@ -551,6 +572,7 @@ case "$TARGET" in
     DEST_AGENTS_DIR="${PROJECT_DIR}/.claude/agents"
     DEST_TEMPLATES_DIR="${PROJECT_DIR}/.claude/templates"
     DEST_SKILLS_DIR="${PROJECT_DIR}/.claude/skills"
+    DEST_MODULES_DIR="${PROJECT_DIR}/.claude/modules"
     # Project slug = basename(resolved-absolute-path) with hyphens and dots
     # normalized to underscores. This becomes both the file-suffix and the
     # {{NAME_SUFFIX}} value in CAPTAIN frontmatter so MAJOR_PLINY can dispatch
@@ -593,6 +615,13 @@ case "$TARGET" in
     DEST_AGENTS_DIR="${PARENT_DIR}/${SUBPROJECT}/.claude/agents"
     DEST_TEMPLATES_DIR=""  # not used in subproject mode
     DEST_SKILLS_DIR="${PARENT_DIR}/${SUBPROJECT}/.claude/skills"
+    # Modules: subproject-tier deploy is a TRACKED Arc-2-gating open question
+    # (stoa--xyb.4 §6 — Read-tool relative-path resolution at subproject tier is
+    # web-confirmed contested). Arc 1 wires user + project tiers only; empty here
+    # so the deploy step's [ -n "$DEST_MODULES_DIR" ] guard skips subproject
+    # cleanly, mirroring DEST_TEMPLATES_DIR above. Do NOT assert subproject deploy
+    # works until a live Read-resolution probe passes.
+    DEST_MODULES_DIR=""  # not used in subproject mode (see stoa--xyb.4 §6)
     # Sub-project slug = SUBPROJECT with hyphens and dots normalized to
     # underscores. Same rule as project mode so the suffix is a valid agent
     # name component (CAPTAIN frontmatter `name:` can't contain hyphens or
@@ -632,6 +661,17 @@ for sname in "${SKILL_NAMES[@]}"; do
   [ -f "${SRC_SKILLS_DIR}/${sname}/SKILL.md" ] || err "source skill SKILL.md not found: ${SRC_SKILLS_DIR}/${sname}/SKILL.md"
 done
 
+# Modules are always deployed (no opt-out flag, mirrors skills). Source-dir must
+# exist; glob-discover the module sources and assert at least one (.md) exists so
+# an empty or mis-pathed source dir fails loudly rather than silently deploying
+# nothing (the glob escape-hatch from stoa--xyb.4 Decision A). _src_modules is
+# reused by the plan line + deploy step below.
+[ -d "$SRC_MODULES_DIR" ] || err "source modules directory not found: $SRC_MODULES_DIR"
+shopt -s nullglob
+_src_modules=( "${SRC_MODULES_DIR}"/*.md )
+shopt -u nullglob
+[ "${#_src_modules[@]}" -gt 0 ] || err "no module sources found: ${SRC_MODULES_DIR}/*.md"
+
 # ----- plan ------------------------------------------------------------------
 
 echo "agent-substrate install — plan"
@@ -659,6 +699,13 @@ else
   echo "  deploy templates : $([ "$WITH_TEMPLATES" -eq 1 ] && echo "yes (${#TEMPLATE_NAMES[@]} files to ${DEST_TEMPLATES_DIR})" || echo "no (--no-templates)")"
 fi
 echo "  deploy skills    : yes (${#SKILL_NAMES[@]} skills to ${DEST_SKILLS_DIR})"
+if [ -n "$DEST_MODULES_DIR" ]; then
+  # Count from the source glob (observable; per stoa--xyb.4 r4). Guarded for the
+  # subproject-skip case (DEST_MODULES_DIR empty), matching the templates pattern.
+  echo "  deploy modules   : yes (${#_src_modules[@]} module(s) to ${DEST_MODULES_DIR})"
+else
+  echo "  deploy modules   : no (subproject mode — see stoa--xyb.4 §6 open question)"
+fi
 echo "  prune obsolete   : $([ "$PRUNE_OBSOLETE" -eq 1 ] && echo "yes (--prune-obsolete)" || echo "no (warn-only)")"
 echo "  dry-run          : $([ "$DRY_RUN" -eq 1 ] && echo "yes" || echo "no")"
 echo
@@ -825,6 +872,30 @@ for sname in "${SKILL_NAMES[@]}"; do
   fi
 done
 
+# 5b. Deploy instruction modules (Arc 44 / stoa--xyb.4; always — no opt-out,
+# mirrors skills). GLOB-discovered flat .md files from substrate/modules/,
+# deployed unsuffixed (shared tooling like templates). cp overwrites in place
+# (idempotent for unchanged source). Enumerated/logged so the deploy is
+# observable in stdout (per r4). Skipped in subproject mode (DEST_MODULES_DIR
+# empty — TRACKED Arc-2-gating open question, stoa--xyb.4 §6).
+if [ -n "$DEST_MODULES_DIR" ]; then
+  if [ ! -d "$DEST_MODULES_DIR" ]; then
+    run_or_print "mkdir -p \"$DEST_MODULES_DIR\""
+  else
+    log "modules directory already exists: $DEST_MODULES_DIR"
+  fi
+  shopt -s nullglob
+  for src in "${SRC_MODULES_DIR}"/*.md; do
+    mname="$(basename "$src")"
+    dest="${DEST_MODULES_DIR}/${mname}"
+    log "deploy module: ${mname}"   # enumerate/log each deployed module (r4 observability)
+    run_or_print "cp \"$src\" \"$dest\""
+  done
+  shopt -u nullglob
+else
+  log "modules deployment skipped (subproject mode — see stoa--xyb.4 §6)"
+fi
+
 # 6. Optionally append reference to CLAUDE.md (informed consent required).
 if [ "$MODIFY_CLAUDE_MD" -eq 1 ]; then
   if [ -f "$DEST_CLAUDE_MD" ] && grep -Fq "$CLAUDE_MD_MARKER" "$DEST_CLAUDE_MD" 2>/dev/null; then
@@ -913,6 +984,7 @@ fi
 #   at project/subproject-tier it is CAPTAIN_<MNEM>${NAME_SUFFIX}.md).
 # - Files in DEST_TEMPLATES_DIR not in TEMPLATE_NAMES.
 # - Subdirectories of DEST_SKILLS_DIR not in SKILL_NAMES.
+# - Files in DEST_MODULES_DIR not in the substrate/modules/*.md source glob.
 #
 # Deliberately NOT scanned:
 # - MAJOR_*.md files. Pair-programmer Majors (PYTHAGORAS, ATTICUS, etc.)
@@ -1009,6 +1081,32 @@ if [ -d "$DEST_SKILLS_DIR" ]; then
     if [ "$found" -eq 0 ]; then
       obsolete_files+=("${d%/}")
     fi
+  done
+  shopt -u nullglob
+fi
+
+# Modules staleness (Arc 44 / stoa--xyb.4). GLOB-based: compare the deployed
+# .claude/modules/ against the SOURCE glob (substrate/modules/*.md), not an
+# array — so the scan auto-covers any module Arc 2+ adds with no edit here. File-
+# only single-segment shape (the `[ -f "$f" ]` filter skips directories), the
+# same idiom the templates scan above uses. Skipped in subproject mode
+# (DEST_MODULES_DIR empty — stoa--xyb.4 §6).
+# CITE: this glob is single-path-segment + file-only (the `[ -f "$f" ]`
+# filter skips directories). It does NOT recurse into
+# ${DEST_MODULES_DIR}/custom/, where custom modules live per the
+# base-vs-custom convention (substrate/operating-disciplines.md §23 +
+# substrate/MAJOR_POLYBIUS.md §17). If a future change makes this glob
+# recursive, custom modules would be flagged as obsolete; the discipline
+# is at the path-shape level.
+if [ -n "${DEST_MODULES_DIR:-}" ] && [ -d "$DEST_MODULES_DIR" ]; then
+  shopt -s nullglob
+  # Build the source basename set from the glob (no array to compare against).
+  declare -A _src_module_set=()
+  for s in "${SRC_MODULES_DIR}"/*.md; do _src_module_set["$(basename "$s")"]=1; done
+  for f in "${DEST_MODULES_DIR}"/*; do
+    [ -f "$f" ] || continue
+    base=$(basename "$f")
+    if [ -z "${_src_module_set[$base]:-}" ]; then obsolete_files+=("$f"); fi
   done
   shopt -u nullglob
 fi
