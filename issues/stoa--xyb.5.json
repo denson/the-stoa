@@ -127,11 +127,15 @@
     {
       "text": "c1 + c2 edits landed in worktree install.sh; bash -n exit 0; c2 case-classification verified (only _hooklib.sh NON-exec, 4 gate scripts keep +x). Diff scoped to install.sh only (plan-line wording + chmod logic + 2 comment corrections). No author-like field touched. Staging + committing to arc-46/build.",
       "timestamp": "2026-05-23T08:52:24Z"
+    },
+    {
+      "text": "pass: Arc 46 Stage 1 NIT fixes c1+c2 landed at 3a16e46 on arc-46/build (1 file, 30+/8-). c1: --enable-hooks plan-line now tier-aware (user-tier = print-only runbook wording; project-tier = target-merge wording). c2: _hooklib.sh deploys NON-exec (chmod -x) while 4 gate scripts keep +x, via underscore-prefix case match. bash -n exit 0. Author=PRINCIPAL; ADA seat trailer present; main untouched; live settings.json not touched. Returning to PLINY for self-verify + Stage 1 merge.",
+      "timestamp": "2026-05-23T08:52:42Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:52:24Z"
+  "updated_at": "2026-05-23T08:52:42Z"
 }
