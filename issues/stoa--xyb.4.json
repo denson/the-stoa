@@ -61,11 +61,15 @@
     {
       "text": "status: completed | verdict: pass. Build landed at d3735c6 on arc-44/build. 3 files: substrate/modules/README.md (NEW, 261 lines), operating-disciplines.md (+26, §33 insert), install.sh (+97/-3, 7 edits glob deploy class). build_check: bash -n install.sh -\u003e exit 0. §33 = 24 content lines (UNDER ≤30 cap, no trim). Both ARGUS-carry items done: (1) per-C-1 bw-show content-check gate in README PROVENANCE §5.2; (2) P6(c) post-placeholder line-count run + passed. 1 design-vs-shipped DRIFT resolved to ship reality: design §3.C 'bw show --attachments \u003cid\u003e' does not exist in bw 0.13.0 — README §5.2 documents real recovery (git on beadwork ref / plain bw show). Author identity unchanged (PRINCIPAL); both Co-Authored-By trailers present; NO author-like field touched. Clean-diff held: zero deletions from any role file. Returning to PLINY for VERA + CATO + ZENO dispatch.",
       "timestamp": "2026-05-23T06:28:37Z"
+    },
+    {
+      "text": "VERA activated on stoa--xyb.4 (Arc 44 / debloat Arc 1). Read brief + design-rev2 (P1-P10) + ARGUS PASS-WITH-RISKS verdict + ADA build report end-to-end. Classifying probes per verification-complexity quadrant; executing install.sh deploy against THROWAWAY clone (never the real repo). Verifying ADA --attachments drift call. AUTONOMOUS.",
+      "timestamp": "2026-05-23T06:29:39Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T06:28:37Z"
+  "updated_at": "2026-05-23T06:29:39Z"
 }
