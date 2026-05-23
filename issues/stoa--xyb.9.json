@@ -99,11 +99,15 @@
     {
       "text": "pass (SPEC-MET): ZENO mechanical spec-check complete. All 13 compression rows applied (BEFORE gone, AFTER present) — 8-A/8-B/19-A/19-B/19-C/19-D/28-A/28-B/28-C/P-5.1/P-7.2/P-9/D-3 all Y. 5 KEEP-FULLER byte-unchanged vs main (K1/K2/K3 verified, K5 steps3-8 verified, K4 enum verbatim x3). No heading line in diff + heading inventory byte-identical pre/post all 3 files. B1 (neither-subsumes x2 + broaden-from-19.2-pattern-2 x1 in 19.4 body) Y. B2 (19.3 shape-exemplars, 0 byte-recoverable strings) Y. spec_refs 156/56 both main and ccf4399 -\u003e zero PASS-\u003eFAIL; SPECIFICATION.md byte-unchanged. Scope=ONLY op-disc+PLINY+DAEDALUS; no frontmatter/author-field touched; Author=PRINCIPAL + ADA+Claude trailers. No leak to main. Per-file: op-disc +26/-43, PLINY +6/-7, DAEDALUS +2/-2. ONE factual note (not drift): gen-data Probe 6 not runnable (node_modules absent) but 0 frontmatter touched -\u003e provably safe. Returning.",
       "timestamp": "2026-05-23T20:44:36Z"
+    },
+    {
+      "text": "State: Probes 1-5 GREEN. HARD GATE (spec_refs) byte-identical. No heading/number in diff (heading inventory identical all 3 files). B1 confirmed (§19.4 map carries neither-subsumes 2x + broaden-from-§19.2-pattern-2 1x). B2 confirmed (§19.3 = incident-shape exemplars, narrated-at-§19.2). 5 KEEP-FULLER untouched (K1 Monitor byte-identical across DAEDALUS/ADA/CATO/VERA/ARGUS + unchanged vs main; K2 4-nuance paragraph unchanged; K3/K4/K5 unchanged). Now Probe 6: npm install + gen-data in worktree app/ (node v22, npm 11 available; node_modules absent in fresh worktree). Isolated to worktree.",
+      "timestamp": "2026-05-23T20:45:10Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "op-disc KEEP-prose tightening (lossless compression of §8/§19/§28, ~100-150L) — CATO Arc-47 follow-up",
   "type": "task",
-  "updated_at": "2026-05-23T20:44:36Z"
+  "updated_at": "2026-05-23T20:45:10Z"
 }
