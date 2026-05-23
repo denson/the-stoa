@@ -135,11 +135,15 @@
     {
       "text": "ZENO pass (SPEC-MET): all 11 mechanical checks present. 12 modules exist+non-empty (titles, no author field, no MODULE-INLINE-in-body); verification-complexity.md absent (r2). op-disc 1340L. §7 stub keeps 7.1/7.2/7.3/7.4/7.5/7.7 as real ### headings (no 7.6); §15 KEEP inline (15.1-15.7 + Anchor stoa--tp1). 12 stubs present; §0.5 index before §1; routing-map=0. MODULE-INLINE opens=closes=12, every name maps to a module file. C-2 tickets stoa--xyb.8.1/.2/.3 exist+carry prose+cited in op-disc (index rows + inline Anchors). install.sh bash -n exit 0, two-set recompose (global_exists Check A / owned Check B), op-disc call present. spec_refs.py: op-disc PASS=55 post-cut == 55 main, ZERO PASS-\u003eFAIL flips, all 7 at-risk §7.x PASS. r5 polling-cron:263 re-points at §7.6 Anchor. Scope clean (only op-disc+12 modules+install.sh+polling-cron+agents/). Author=PRINCIPAL + Co-Authored-By CAPTAIN_ADA_the-stoa; only authorship field is polling-cron 'author: Denson Smith'. No spec gaps. Returning.",
       "timestamp": "2026-05-23T10:09:01Z"
+    },
+    {
+      "text": "VERA progress: C-1 sample (9 cites incl stoa--ntn/tp1/nax/p5g/dxw/kjo/53u/ezj/e39) all materially carry their stories. §7.6 lineage NOT lost — preserved verbatim in two-polybius-coordination.md (handshake/heartbeats/write-boundary-catch/closure). NIT (methodology_concern, not fail): the 'Recover via bw show ariadne--m20' pointer in §7.6+§0.5 won't resolve from the-stoa (ariadne--m20 is cross-repo AND that ticket is CLAUDE.md-cleanup, not coordination) — but prose is self-contained so canon is recoverable. Now: 3 C-2 tickets + recompose (the hard probe).",
+      "timestamp": "2026-05-23T10:09:23Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
   "type": "task",
-  "updated_at": "2026-05-23T10:09:01Z"
+  "updated_at": "2026-05-23T10:09:23Z"
 }
