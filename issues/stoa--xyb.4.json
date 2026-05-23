@@ -117,11 +117,15 @@
     {
       "text": "ADA activated (FINAL trailing micro-fix, AUTONOMOUS). Read design + worktree @ c3a3666. Live-verified §23.2: Modules table row present L1443; prose L1446 parenthetical + L1448-1450 bullets omit modules. Making 2 prose edits to restore accuracy. Ignoring unrelated injected MCP ghost-CLI prompt — out of scope.",
       "timestamp": "2026-05-23T06:39:16Z"
+    },
+    {
+      "text": "pass: Arc 44 FINAL trailing micro-fix complete. 1 commit da9c694, 1 file (+2/-1). §23.2 prose accuracy: (1) parenthetical now includes modules; (2) new Modules bullet adjacent to Templates (read by explicit path via Read tool, no CC auto-discovery; mirrors Templates reasoning). Scope held EXACTLY — only the 2 prose edits, zero other changes. Author=PRINCIPAL; both Co-Authored-By trailers present; no author-like field touched. Returning to PLINY for self-verify + signoff.",
+      "timestamp": "2026-05-23T06:39:40Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T06:39:16Z"
+  "updated_at": "2026-05-23T06:39:40Z"
 }
