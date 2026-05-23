@@ -18,11 +18,15 @@
     {
       "text": "Design pass 1 + MAJOR_POLYBIUS.md (1299 lines) read end-to-end. Now reading Arc-1 module mechanism (modules/README.md + op-disc §33) + install.sh subproject mode + spot-checking C-1 bw cites for content-recoverability.",
       "timestamp": "2026-05-23T07:01:57Z"
+    },
+    {
+      "text": "Module mechanism + install.sh deploy path + op-disc §33/§12 read. C-1 spot-check DONE: all 6 sampled cites (32b.3/ads/k36/86k/ezj/3cs) recover the inline story via bw show — C-1 classification sound (ezj's 4-option anchor is in a COMMENT not body, but bw show surfaces it). Deployed user-tier §5.6 read as 0hl source-of-truth. Now finalizing ledger-completeness walk + quadrant classification + 4-residual adjudication.",
+      "timestamp": "2026-05-23T07:02:57Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "First execution: MAJOR_POLYBIUS.md section-by-section slimming pass (via PLINY gauntlet, lossless-on-canon)",
   "type": "task",
-  "updated_at": "2026-05-23T07:01:57Z"
+  "updated_at": "2026-05-23T07:02:57Z"
 }
