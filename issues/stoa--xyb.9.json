@@ -67,11 +67,15 @@
     {
       "text": "State: op-disc §28 (28-A/28-B/28-C) + MAJOR_PLINY §5.1/§7.2/§9 (P-5.1/P-7.2/P-9) applied. §28.8 trim kept §25 (unique — confirmed not in §28.7 body) + §5.10/§5.11; dropped reachable-inline bullets. §28.3.1 heading PRESERVED (spec-cited SPEC L640), body mechanism stated once. §28.6 heading PRESERVED, MAJOR-trailer-format + BARTLEBY/STRABO/HERALD/CURATOR enumeration kept. PLINY §7.2 3-step category-first enumeration (K4) kept verbatim; only wrapper prose tightened. §9 steps 3-8 + clean-PASS/ambiguity/handoff blocks (K5) kept; only steps 1-2 collapsed to §4 pointer. Now applying CAPTAIN_DAEDALUS §3 (D-3); §2 (K3) + §6.5 (K1) stay UNTOUCHED.",
       "timestamp": "2026-05-23T20:39:58Z"
+    },
+    {
+      "text": "State: all 13 rows applied + 5 KEEP-FULLER confirmed UNTOUCHED (K1/K2/K3 byte-unchanged via diff, K4 enumeration verbatim, K5 steps 3-8 untouched). Gates GREEN: spec_refs byte-identical {total:212,pass:156,fail:56,strange:0}; all headings/numbers identical pre/post (no heading line in diff); B1 (both nuances in §19.4 body: neither-subsumes 2x + broaden-from-§19.2-pattern-2 1x) + B2 (§19.3 = incident-shape exemplars, no byte-recoverable claim) honored; no author-like field touched, Author stays PRINCIPAL; no leak to main. Per-file delta: op-disc -41 net, PLINY -5, DAEDALUS -2. Committing now.",
+      "timestamp": "2026-05-23T20:41:27Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "op-disc KEEP-prose tightening (lossless compression of §8/§19/§28, ~100-150L) — CATO Arc-47 follow-up",
   "type": "task",
-  "updated_at": "2026-05-23T20:39:58Z"
+  "updated_at": "2026-05-23T20:41:27Z"
 }
