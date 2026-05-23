@@ -23,11 +23,15 @@
     {
       "text": "State transition: all 9 target sections read end-to-end in live post-cut files (op-disc §8/§19/§28, PLINY §5.1/§7.2/§9, DAEDALUS §2/§3/§6.5). spec_refs.py baseline = 156 PASS / 56 FAIL (the 56 FAILs are PRE-EXISTING bare-§ refs to PLINY §5.10/§5.11 etc. that resolve to op-disc default and don't exist there — NOT introduced by this work). KEY FINDING: spec_refs resolver matches by HEADING-TEXT (re-scans for the §-anchor heading line), NOT absolute line number — so within-section prose compression is probe-safe; only deleting/renumbering a CITED HEADING or touching SPECIFICATION.md can flip a verdict. Spec-cited headings inside my targets: §19.2/§19.6/§19.7/§28/§28.3.1 — all must survive. Now auditing cross-file citations to subsection anchors I may consolidate (§19.6.2/§19.7.2/§19.6.4/§19.7.5/§28.6/§28.8), then drafting the per-rule equivalence table.",
       "timestamp": "2026-05-23T20:23:38Z"
+    },
+    {
+      "text": "Cross-ref audit complete. KEY FINDINGS shaping the equivalence table: (1) §6.5 Monitor/run_in_background prohibition block is a CANONICAL TEMPLATE replicated byte-for-byte across 12+ CAPTAIN role files (ADA/CATO/VERA/ARGUS/...) — compressing ONLY DAEDALUS's copy would break cross-file byte-alignment per my own §6.8; this becomes a KEEP-FULLER-by-judgment, NOT a compress. (2) MAJOR_POLYBIUS.md §1 cross-refs op-disc §8.2 as the home of the 'bidirectional-translation principle' — so the bidirectional-translation paragraph must keep its two halves + COS-tier-closes-the-loop + structural-HITL-value nuances (riskiest equivalence claim). (3) §8.1/§8.2/§8.3/§28.7/§19.2/§19.6/§19.7/§28/§28.3.1 headings are cited by live substrate or spec — all heading NUMBERS preserved per brief; compression is body-prose-only. Drafting design-rev1.md now.",
+      "timestamp": "2026-05-23T20:24:21Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "op-disc KEEP-prose tightening (lossless compression of §8/§19/§28, ~100-150L) — CATO Arc-47 follow-up",
   "type": "task",
-  "updated_at": "2026-05-23T20:23:38Z"
+  "updated_at": "2026-05-23T20:24:21Z"
 }
