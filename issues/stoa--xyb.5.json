@@ -31,11 +31,15 @@
     {
       "text": "[from: argus-the-stoa] ARGUS activated on stoa--xyb.5 (Arc 46 enforcement-layer audit). Read design-rev1 + spec (.5/.1/.2) end-to-end. Priority: HARD SAFETY CONSTRAINT (can a hook arm in the LIVE session?). Next: independently web-verify the load-bearing hook-surface claims against cited code.claude.com/docs.",
       "timestamp": "2026-05-23T08:15:09Z"
+    },
+    {
+      "text": "[from: argus-the-stoa] WEB-VERIFY pass 1 (code.claude.com/docs/en/hooks, live 2026-05-23) surfaces DRIFT vs design-rev1's own verification: live doc shows (a) PostCompact DOES exist (side-effect only, no decision control) — contradicts design §2 'no PostCompact event'; (b) Stop does NOT support additionalContext — CONFIRMS design's PARTIAL-DRIFT correction (rides reason); (c) PreToolUse CAN return additionalContext per live doc — design didn't claim this but it widens options; (d) matcher is tool-name-only, arg-matching is via the 'if' field w/ permission-rule syntax (Bash(git *)) — design's 'script inspects tool_input.command' still works but the cleaner 'if' idiom exists. Cross-checking SDK doc next; then classifying whether any drift is load-bearing.",
+      "timestamp": "2026-05-23T08:15:40Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:15:09Z"
+  "updated_at": "2026-05-23T08:15:40Z"
 }
