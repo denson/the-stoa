@@ -9,9 +9,15 @@
   "id": "stoa--xyb.4",
   "labels": [],
   "parent": "stoa--xyb",
+  "comments": [
+    {
+      "text": "ARGUS activated on stoa--xyb.4 (Arc 1 / Arc 44 composition layer). Reading design-rev1.md end-to-end + cited inputs (.1/.2/.3/.4) + shipped substrate/install.sh idioms before audit. AUTONOMOUS.",
+      "timestamp": "2026-05-23T06:05:16Z"
+    }
+  ],
   "priority": 2,
   "status": "in_progress",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T06:00:11Z"
+  "updated_at": "2026-05-23T06:05:16Z"
 }
