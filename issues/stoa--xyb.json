@@ -34,11 +34,15 @@
     {
       "text": "[from: DAEDALUS] State: brief + .1/.2/.3/.4 absorbed; restatement-gate drafted. Shipped-file recon DONE — install.sh read end-to-end (1199 lines; arrays TEMPLATE_NAMES/CAPTAIN_NAMES/SKILL_NAMES at L109-151, deploy steps 1-8, staleness scan L904+, base-vs-custom custom- prefix convention). op-disc has 32 sections (ends L2110); new canon appends as §33. modules/ confirmed greenfield in BOTH substrate/ and .claude/. agents/design/arc-44/ path convention confirmed. Drafting design-rev1.md now.",
       "timestamp": "2026-05-23T06:01:30Z"
+    },
+    {
+      "text": "[from: DAEDALUS] design-rev1.md drafted (~290 lines, 9 sections). Decisions A-G all decided; §4 gives ADA line-level install.sh wiring; §5 gives VERA 10 probes (P9 = clean-diff guard, P10 = credential N/A); §8 = 4 self-assessed weak points. §6.2 post-work weak-point pass complete. §6.8 within-design template-dup check: clean (no two verbatim copies). Finalizing verdict + committing to arc-44/build with seat trailer.",
+      "timestamp": "2026-05-23T06:03:49Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T06:01:30Z"
+  "updated_at": "2026-05-23T06:03:49Z"
 }
