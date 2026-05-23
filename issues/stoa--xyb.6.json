@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "stoa--xyb.3"
+  ],
   "blocks": [],
   "created": "2026-05-23T02:45:47Z",
   "description": "FIRST EXECUTION: apply the debloat method to MAJOR_POLYBIUS.md (1299 lines) section by section, using the composition + enforcement layers as the safety net that justifies the cut.\n\nSection map already drafted this session (19 sections tagged keep-core / -\u003ereference / consolidate-dupe / cite-provenance). Highlights: 5/10/11/12/14 -\u003e reference; 7.3 -\u003e delete-dupe (point to op-disc 12); 4/16/17/18/19 -\u003e keep rule, cite provenance; 1/2/3/6/8/9 -\u003e keep (tighten).\n\nThis is gauntlet work -\u003e route through PLINY: DAEDALUS designs the slim structure + the module split + the reference/provenance destinations; ARGUS cold-audits for LOST CANON (the load-bearing risk - every empirical anchor must relocate to a bw cite, never be dropped); ADA executes; VERA/CATO/ZENO verify. LOSSLESS-ON-CANON is the acceptance bar.\n\nAfter POLYBIUS proves the method, repeat for operating-disciplines.md (2110 - worst offender), MAJOR_PLINY.md (801), CAPTAIN_DAEDALUS.md (633).\n\nDEPENDS ON: method + composition layer + enforcement layer being specified first (the cut is only safe once the layers that replace memorized-instruction exist).",
