@@ -79,11 +79,15 @@
     {
       "text": "VERA activated on stoa--xyb.9 (Arc 51 .9 prose-compression capstone). operating-mode: autonomous. Read brief + design-rev1.md + ARGUS PASS (B1/B2 obligations) + ADA build log (ccf4399). Classifying probes per verification-complexity quadrant; spec_refs HARD GATE first.",
       "timestamp": "2026-05-23T20:43:04Z"
+    },
+    {
+      "text": "ZENO activated on stoa--xyb.9 (Arc 51 .9 capstone). Reading spec design-rev1.md + shipped artifact (ccf4399) before extracting criteria.",
+      "timestamp": "2026-05-23T20:43:08Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "op-disc KEEP-prose tightening (lossless compression of §8/§19/§28, ~100-150L) — CATO Arc-47 follow-up",
   "type": "task",
-  "updated_at": "2026-05-23T20:43:04Z"
+  "updated_at": "2026-05-23T20:43:08Z"
 }
