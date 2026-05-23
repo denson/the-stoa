@@ -23,8 +23,8 @@
 # PRINCIPAL in the loop.
 #
 # Usage:
-#   ./install.sh --target user [--modify-claude-md] [--no-captains] [--no-templates] [--prune-obsolete] [--dry-run]
-#   ./install.sh --target project --project-dir <path> [--modify-claude-md] [--no-captains] [--no-templates] [--prune-obsolete] [--dry-run]
+#   ./install.sh --target user [--modify-claude-md] [--no-captains] [--no-templates] [--prune-obsolete] [--enable-hooks] [--dry-run]
+#   ./install.sh --target project --project-dir <path> [--modify-claude-md] [--no-captains] [--no-templates] [--prune-obsolete] [--enable-hooks] [--dry-run]
 #   ./install.sh --target subproject --parent-dir <path> --subproject <slug> [--no-captains] [--prune-obsolete] [--dry-run]
 #   ./install.sh --help
 #
@@ -70,6 +70,21 @@
 # deployed at user + project tiers (no --no-modules opt-out, mirrors skills);
 # subproject-tier deploy is a tracked Arc-2-gating open question (stoa--xyb.4 §6).
 #
+# Hooks (Arc 46 / stoa--xyb.5): the script deploys substrate/hooks/*.sh (the
+# deterministic enforcement tier — PreToolUse / Stop shell-command hooks +
+# _hooklib.sh + README.md) to <target>/.claude/hooks/, GLOB-discovered (mirrors
+# modules), unsuffixed, chmod +x. Deploying the SCRIPTS is INERT: Claude Code
+# only fires hooks REGISTERED in a .claude/settings.json, which this script
+# NEVER auto-writes. Arming is a SEPARATE, operator-gated, DEFAULT-OFF step
+# (--enable-hooks): at project tier it merges the candidate settings-hooks.json
+# block into the TARGET's settings.json (never the running session); at user
+# tier it does NOT auto-write ~/.claude/settings.json (which IS the running
+# config) but prints a manual-merge runbook. When --enable-hooks is OFF (the
+# default), the scripts + candidate template deploy and NOTHING is armed. This
+# is the HARD SAFETY CONSTRAINT: no install auto-arms a hook in a live session.
+# Subproject-tier hook deploy is deferred (Arc 46 §11). The author-field gate
+# reads a PRINCIPAL-identity allow-list seeded at .claude/hooks/principal-identity.
+#
 # Staleness detection: after deploying, the script scans the destination for
 # files no longer in the substrate source — typically left over from a
 # renamed CAPTAIN, removed template, removed skill, or removed module. By default this is
@@ -106,6 +121,7 @@ DRY_RUN=0
 WITH_CAPTAINS=1
 WITH_TEMPLATES=1
 PRUNE_OBSOLETE=0
+ENABLE_HOOKS=0          # Arc 46: arm enforcement hooks. DEFAULT OFF (HARD SAFETY CONSTRAINT). When 0, hook scripts + the candidate settings-hooks.json deploy but NO hook is registered in any settings.json.
 
 # Source files live next to this script.
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -115,6 +131,24 @@ SRC_OPERATING_DISCIPLINES="${SCRIPT_DIR}/operating-disciplines.md"
 SRC_TEMPLATES_DIR="${SCRIPT_DIR}/templates"
 SRC_SKILLS_DIR="${SCRIPT_DIR}/skills"
 SRC_MODULES_DIR="${SCRIPT_DIR}/modules"
+SRC_HOOKS_DIR="${SCRIPT_DIR}/hooks"
+
+# Enforcement-hook library (Arc 46 / stoa--xyb.5; debloat Arc 3 — Stage 1). The
+# deterministic tier of the enforcement layer: harness-owned PreToolUse / Stop
+# shell-command hooks that enforce load-bearing footguns (authorship field,
+# clean-tree-before-branch, no-`-m`-in-bw-comment) even after the model's context
+# compacts. Deployed unsuffixed (shared tooling, like modules/templates).
+# GLOB-DISCOVERED from substrate/hooks/*.sh (mirrors the modules glob class,
+# stoa--xyb.4) so authoring a new hook needs NO install.sh edit. No HOOK_NAMES
+# array (glob, not manifest).
+#
+# CRITICAL SAFETY (design-rev1 §8 / HARD SAFETY CONSTRAINT): deploying the hook
+# SCRIPTS is INERT — Claude Code only fires hooks that are REGISTERED in a
+# .claude/settings.json. This install NEVER auto-writes a live settings.json.
+# Arming the hooks is a separate, operator-gated, DEFAULT-OFF step (--enable-hooks).
+# When the flag is OFF (the default), the scripts + the candidate
+# settings-hooks.json template deploy but NOTHING is registered. See the
+# --enable-hooks handling far below + substrate/hooks/README.md §5.
 
 # Instruction-module library (Arc 44 / stoa--xyb.4). Composable on-demand
 # reference content an orchestrator names in a dispatch (Read .claude/modules/<X>.md)
@@ -134,6 +168,7 @@ TEMPLATE_NAMES=(
   activation-paste-cheatsheet.md
   autonomous-mode-activation-template.md
   handoff-doc-template.md
+  settings-hooks.json
 )
 
 # The 11 CAPTAIN envelope source files. Order is the gauntlet pipeline order
@@ -529,6 +564,17 @@ while [ "$#" -gt 0 ]; do
       PRUNE_OBSOLETE=1
       shift
       ;;
+    --enable-hooks)
+      # Arc 46 (stoa--xyb.5): ARM the enforcement hooks by merging the candidate
+      # settings-hooks.json block into the TARGET's settings.json. DEFAULT OFF.
+      # This is the ONLY path that registers a hook. Even when set, it targets
+      # the INSTALL TARGET, never the running build session. At USER tier (where
+      # the target ~/.claude/settings.json IS the running config) it does NOT
+      # auto-write — it prints the merge as a manual instruction (ARGUS r4 /
+      # HARD SAFETY CONSTRAINT). See the enable-hooks handling below.
+      ENABLE_HOOKS=1
+      shift
+      ;;
     -h|--help)
       usage 0
       ;;
@@ -556,6 +602,8 @@ case "$TARGET" in
     DEST_TEMPLATES_DIR="${HOME}/.claude/templates"
     DEST_SKILLS_DIR="${HOME}/.claude/skills"
     DEST_MODULES_DIR="${HOME}/.claude/modules"
+    DEST_HOOKS_DIR="${HOME}/.claude/hooks"
+    DEST_SETTINGS_JSON="${HOME}/.claude/settings.json"   # user-tier: this IS the running config (ARGUS r4) — never auto-written
     PROJECT_SLUG=""
     NAME_SUFFIX=""
     # Arc 20: choose user-tier dir (interactive prompt or --user-tier-dir override),
@@ -573,6 +621,8 @@ case "$TARGET" in
     DEST_TEMPLATES_DIR="${PROJECT_DIR}/.claude/templates"
     DEST_SKILLS_DIR="${PROJECT_DIR}/.claude/skills"
     DEST_MODULES_DIR="${PROJECT_DIR}/.claude/modules"
+    DEST_HOOKS_DIR="${PROJECT_DIR}/.claude/hooks"
+    DEST_SETTINGS_JSON="${PROJECT_DIR}/.claude/settings.json"   # project-tier target settings.json (only written with --enable-hooks)
     # Project slug = basename(resolved-absolute-path) with hyphens and dots
     # normalized to underscores. This becomes both the file-suffix and the
     # {{NAME_SUFFIX}} value in CAPTAIN frontmatter so MAJOR_PLINY can dispatch
@@ -622,6 +672,13 @@ case "$TARGET" in
     # cleanly, mirroring DEST_TEMPLATES_DIR above. Do NOT assert subproject deploy
     # works until a live Read-resolution probe passes.
     DEST_MODULES_DIR=""  # not used in subproject mode (see stoa--xyb.4 §6)
+    # Hooks: subproject-tier deploy is deferred, mirroring modules (Arc 46 /
+    # stoa--xyb.5 §11 out-of-scope). Subproject .claude/settings.json resolution
+    # for a dispatched sub-agent is the same contested-path question that deferred
+    # subproject modules; empty here so the deploy step's [ -n "$DEST_HOOKS_DIR" ]
+    # guard skips subproject cleanly, mirroring DEST_MODULES_DIR above.
+    DEST_HOOKS_DIR=""    # not used in subproject mode (Arc 46 §11)
+    DEST_SETTINGS_JSON="" # not used in subproject mode
     # Sub-project slug = SUBPROJECT with hyphens and dots normalized to
     # underscores. Same rule as project mode so the suffix is a valid agent
     # name component (CAPTAIN frontmatter `name:` can't contain hyphens or
@@ -672,6 +729,19 @@ _src_modules=( "${SRC_MODULES_DIR}"/*.md )
 shopt -u nullglob
 [ "${#_src_modules[@]}" -gt 0 ] || err "no module sources found: ${SRC_MODULES_DIR}/*.md"
 
+# Hooks are always deployed at user + project tiers (no opt-out, mirrors
+# modules; subproject-tier deferred). Source-dir must exist; glob-discover the
+# hook sources (substrate/hooks/*.sh) and assert at least one exists so an empty
+# or mis-pathed source dir fails loudly (the glob escape-hatch from the modules
+# class, stoa--xyb.4). _src_hooks is reused by the plan line + deploy step. NOTE:
+# deploying the SCRIPTS is inert — registration (arming) is a separate
+# default-OFF step (--enable-hooks); see the HARD SAFETY CONSTRAINT note above.
+[ -d "$SRC_HOOKS_DIR" ] || err "source hooks directory not found: $SRC_HOOKS_DIR"
+shopt -s nullglob
+_src_hooks=( "${SRC_HOOKS_DIR}"/*.sh )
+shopt -u nullglob
+[ "${#_src_hooks[@]}" -gt 0 ] || err "no hook sources found: ${SRC_HOOKS_DIR}/*.sh"
+
 # ----- plan ------------------------------------------------------------------
 
 echo "agent-substrate install — plan"
@@ -705,6 +775,17 @@ if [ -n "$DEST_MODULES_DIR" ]; then
   echo "  deploy modules   : yes (${#_src_modules[@]} module(s) to ${DEST_MODULES_DIR})"
 else
   echo "  deploy modules   : no (subproject mode — see stoa--xyb.4 §6 open question)"
+fi
+if [ -n "$DEST_HOOKS_DIR" ]; then
+  # Count from the source glob (observable, mirrors the modules plan-line).
+  echo "  deploy hooks     : yes (${#_src_hooks[@]} script(s) to ${DEST_HOOKS_DIR}) [INERT — not armed]"
+else
+  echo "  deploy hooks     : no (subproject mode — Arc 46 §11 out-of-scope)"
+fi
+if [ "$ENABLE_HOOKS" -eq 1 ]; then
+  echo "  arm hooks        : YES (--enable-hooks) -> merge candidate block into ${DEST_SETTINGS_JSON}"
+else
+  echo "  arm hooks        : no (default OFF — scripts deploy inert; no settings.json written)"
 fi
 echo "  prune obsolete   : $([ "$PRUNE_OBSOLETE" -eq 1 ] && echo "yes (--prune-obsolete)" || echo "no (warn-only)")"
 echo "  dry-run          : $([ "$DRY_RUN" -eq 1 ] && echo "yes" || echo "no")"
@@ -1006,6 +1087,143 @@ else
   log "modules deployment skipped (subproject mode — see stoa--xyb.4 §6)"
 fi
 
+# 5c. Deploy enforcement hooks (Arc 46 / stoa--xyb.5; Stage 1). GLOB-discovered
+# *.sh from substrate/hooks/, deployed unsuffixed (shared tooling, mirrors
+# modules). Each script is chmod +x'd at the destination (the harness runs them
+# as commands). The hooks/README.md (authoring rule + safety note) and the
+# _hooklib.sh shared helper ride along via the *.sh + README glob. Skipped in
+# subproject mode (DEST_HOOKS_DIR empty — Arc 46 §11).
+#
+# CRITICAL SAFETY: this deploy is INERT. The scripts sit dormant on disk;
+# Claude Code only fires hooks REGISTERED in a .claude/settings.json, which this
+# step never writes. Arming is the separate default-OFF --enable-hooks step
+# below (step 5d). Deploying the scripts to a throwaway target cannot arm a hook.
+if [ -n "$DEST_HOOKS_DIR" ]; then
+  if [ ! -d "$DEST_HOOKS_DIR" ]; then
+    run_or_print "mkdir -p \"$DEST_HOOKS_DIR\""
+  else
+    log "hooks directory already exists: $DEST_HOOKS_DIR"
+  fi
+  # Deploy the *.sh scripts (gates + _hooklib.sh), chmod +x each.
+  shopt -s nullglob
+  for src in "${SRC_HOOKS_DIR}"/*.sh; do
+    hname="$(basename "$src")"
+    dest="${DEST_HOOKS_DIR}/${hname}"
+    log "deploy hook: ${hname}"   # enumerate/log each deployed hook (observability, mirrors modules)
+    if [ "$DRY_RUN" -eq 1 ]; then
+      echo "[dry-run] cp \"$src\" \"$dest\" && chmod +x \"$dest\""
+    else
+      cp "$src" "$dest"
+      chmod +x "$dest"
+    fi
+  done
+  shopt -u nullglob
+  # Deploy the hooks README (authoring rule + safety note travels with the scripts).
+  if [ -f "${SRC_HOOKS_DIR}/README.md" ]; then
+    if [ "$DRY_RUN" -eq 1 ]; then
+      echo "[dry-run] cp \"${SRC_HOOKS_DIR}/README.md\" \"${DEST_HOOKS_DIR}/README.md\""
+    else
+      cp "${SRC_HOOKS_DIR}/README.md" "${DEST_HOOKS_DIR}/README.md"
+      echo "deployed: ${DEST_HOOKS_DIR}/README.md"
+    fi
+  fi
+  # Write the PRINCIPAL-identity allow-list the author-field gate reads, IF it
+  # does not already exist (never clobber an operator-curated list). It is the
+  # gate's CONFIG — the PRINCIPAL identity to compare against — NOT an author
+  # field of any artifact. At project tier we cannot know the PRINCIPAL's name
+  # mechanically, so we seed it from `git config` in the target if available,
+  # else write a commented template the operator fills in. The gate FAIL-OPENs
+  # (allows) when the list is absent or empty, so an unfilled template never
+  # blocks a legit commit — it just leaves the gate dormant until populated.
+  PRINCIPAL_ID_FILE="${DEST_HOOKS_DIR}/principal-identity"
+  if [ -f "$PRINCIPAL_ID_FILE" ]; then
+    log "principal-identity allow-list already exists (not clobbered): $PRINCIPAL_ID_FILE"
+  elif [ "$DRY_RUN" -eq 1 ]; then
+    echo "[dry-run] seed principal-identity allow-list: $PRINCIPAL_ID_FILE"
+  else
+    _seed_name="$(git config --global user.name 2>/dev/null || true)"
+    _seed_email="$(git config --global user.email 2>/dev/null || true)"
+    {
+      echo "# Stoa author-field gate — PRINCIPAL identity allow-list."
+      echo "# One accepted name or email per line ('#' comments + blanks ignored)."
+      echo "# The pretooluse-author-field-audit.sh gate compares commit author"
+      echo "# identity + staged author-like fields against this list; a value not"
+      echo "# on the list is treated as 'not the PRINCIPAL' and the commit is denied"
+      echo "# with a message naming this file. This is the GATE'S CONFIG, not an"
+      echo "# author field of any repo artifact. Widen it when a legit PRINCIPAL"
+      echo "# identity is missing. An ABSENT or EMPTY list leaves the gate dormant"
+      echo "# (fail-open). Seeded from the target's global git identity at install."
+      [ -n "$_seed_name" ]  && echo "$_seed_name"
+      [ -n "$_seed_email" ] && echo "$_seed_email"
+    } > "$PRINCIPAL_ID_FILE"
+    echo "wrote principal-identity allow-list: $PRINCIPAL_ID_FILE (review + widen as needed)"
+  fi
+else
+  log "hooks deployment skipped (subproject mode — Arc 46 §11)"
+fi
+
+# 5d. Arm enforcement hooks — DEFAULT OFF (--enable-hooks). THE ONLY PATH that
+# registers a hook in a settings.json. HARD SAFETY CONSTRAINT (design-rev1 §8 /
+# ARGUS r4):
+#   - When ENABLE_HOOKS=0 (default): do NOTHING here. The scripts deployed above
+#     are inert. No settings.json is written. This is the path every Stoa arc
+#     and every routine install takes — the running team is never gated by its
+#     own build.
+#   - When ENABLE_HOOKS=1 at PROJECT tier: merge the candidate settings-hooks.json
+#     block (with {{HOOKS_DIR}} substituted) into the TARGET's
+#     <project>/.claude/settings.json — never the running build session's.
+#   - When ENABLE_HOOKS=1 at USER tier: do NOT auto-write ~/.claude/settings.json
+#     (it IS the running config — ARGUS r4). PRINT the manual-merge instruction
+#     instead. An agent never auto-writes a live user-tier settings.json.
+if [ "$ENABLE_HOOKS" -eq 1 ]; then
+  if [ -z "$DEST_HOOKS_DIR" ] || [ -z "$DEST_SETTINGS_JSON" ]; then
+    echo "install.sh: warning: --enable-hooks ignored in subproject mode (hooks not deployed at subproject tier — Arc 46 §11)." >&2
+  else
+    # Render the candidate block with {{HOOKS_DIR}} -> absolute deployed dir.
+    _candidate="${DEST_TEMPLATES_DIR}/settings-hooks.json"
+    if [ ! -f "$_candidate" ] && [ "$DRY_RUN" -eq 0 ]; then
+      echo "install.sh: warning: --enable-hooks: candidate ${_candidate} not found (was --no-templates passed?). Cannot arm; scripts remain inert." >&2
+    elif [ "$TARGET" = "user" ]; then
+      # USER TIER: never auto-write the live ~/.claude/settings.json. Print the
+      # manual-merge runbook (HARD SAFETY CONSTRAINT / ARGUS r4).
+      echo
+      echo "=========================================================================="
+      echo "  --enable-hooks at USER tier: MANUAL merge required (safety)"
+      echo "=========================================================================="
+      echo "  ~/.claude/settings.json IS your running Claude Code config. This script"
+      echo "  will NOT auto-write it. To arm the enforcement hooks, merge the 'hooks'"
+      echo "  block from the candidate file into ~/.claude/settings.json yourself,"
+      echo "  substituting {{HOOKS_DIR}} -> ${DEST_HOOKS_DIR}:"
+      echo
+      echo "    candidate: ${_candidate}"
+      echo "    target   : ${DEST_SETTINGS_JSON}"
+      echo
+      echo "  Then verify ${DEST_HOOKS_DIR}/principal-identity lists every valid"
+      echo "  PRINCIPAL name/email. To disarm later, remove the 'hooks' block."
+      echo "=========================================================================="
+    else
+      # PROJECT TIER: merge into the target's settings.json (NOT the running
+      # session). If the target has no settings.json, create it from the rendered
+      # candidate; if it has one, we do NOT silently overwrite — print the merge
+      # instruction (a JSON merge needs care; auto-overwriting an existing
+      # settings.json could drop the operator's other config).
+      if [ "$DRY_RUN" -eq 1 ]; then
+        echo "[dry-run] --enable-hooks (project): would render ${_candidate} ({{HOOKS_DIR}} -> ${DEST_HOOKS_DIR}) into ${DEST_SETTINGS_JSON}"
+      elif [ -f "$DEST_SETTINGS_JSON" ]; then
+        echo
+        echo "install.sh: --enable-hooks: ${DEST_SETTINGS_JSON} already exists."
+        echo "  Not overwriting (would drop your other settings). Merge the 'hooks'"
+        echo "  block from ${_candidate} into it manually, substituting"
+        echo "  {{HOOKS_DIR}} -> ${DEST_HOOKS_DIR}."
+      else
+        sed "s|{{HOOKS_DIR}}|${DEST_HOOKS_DIR}|g" "$_candidate" > "$DEST_SETTINGS_JSON"
+        echo "armed enforcement hooks: wrote ${DEST_SETTINGS_JSON} (project-tier target)"
+        echo "  Verify ${DEST_HOOKS_DIR}/principal-identity lists every valid PRINCIPAL identity."
+      fi
+    fi
+  fi
+fi
+
 # 6. Optionally append reference to CLAUDE.md (informed consent required).
 if [ "$MODIFY_CLAUDE_MD" -eq 1 ]; then
   if [ -f "$DEST_CLAUDE_MD" ] && grep -Fq "$CLAUDE_MD_MARKER" "$DEST_CLAUDE_MD" 2>/dev/null; then
@@ -1217,6 +1435,31 @@ if [ -n "${DEST_MODULES_DIR:-}" ] && [ -d "$DEST_MODULES_DIR" ]; then
     [ -f "$f" ] || continue
     base=$(basename "$f")
     if [ -z "${_src_module_set[$base]:-}" ]; then obsolete_files+=("$f"); fi
+  done
+  shopt -u nullglob
+fi
+
+# Hooks staleness (Arc 46 / stoa--xyb.5). GLOB-based against the SOURCE glob
+# (substrate/hooks/*.sh) + the README, mirroring the modules scan. File-only
+# single-segment shape. CARVE-OUTS: the gate's runtime CONFIG/STATE files are
+# NOT substrate-source and must NOT be flagged obsolete —
+#   - principal-identity  : operator-curated allow-list (the gate's config)
+#   - .stop-sentinels/    : per-turn loop-guard state (a directory; skipped by
+#                           the [ -f ] file-only filter anyway, carved out for clarity)
+# Skipped in subproject mode (DEST_HOOKS_DIR empty — Arc 46 §11).
+if [ -n "${DEST_HOOKS_DIR:-}" ] && [ -d "$DEST_HOOKS_DIR" ]; then
+  shopt -s nullglob
+  declare -A _src_hook_set=()
+  for s in "${SRC_HOOKS_DIR}"/*.sh; do _src_hook_set["$(basename "$s")"]=1; done
+  _src_hook_set["README.md"]=1   # the README ships with the scripts
+  for f in "${DEST_HOOKS_DIR}"/*; do
+    [ -f "$f" ] || continue
+    base=$(basename "$f")
+    # Carve out the gate's runtime config/state (not substrate source).
+    case "$base" in
+      principal-identity) continue ;;
+    esac
+    if [ -z "${_src_hook_set[$base]:-}" ]; then obsolete_files+=("$f"); fi
   done
   shopt -u nullglob
 fi
