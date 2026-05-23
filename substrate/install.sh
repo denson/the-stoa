@@ -884,20 +884,22 @@ fi
 # aborts deploy) rather than shipping LOST CANON. Runs POST-sed/cp (markers are inert in the source;
 # the sed substitutes only {{NAME_SUFFIX}}/{{USER_TIER_DIR}}, neither of which appears in a marker;
 # op-disc is plain-cp'd so no substitution applies).
-# THIS ARC recomposes TWO files (debloat Arc 47 / design-arc-47 §6.4–§6.5): $DEST_POLYBIUS (Arc 2,
-# 5 owned modules) AND $DEST_OPERATING_DISCIPLINES (this arc, 12 owned modules). The shared
-# substrate/modules/ dir forces the MODULE-OWNERSHIP partition (ARGUS r3): each call passes its
-# OWNED-module set for Checks B/D while Check A tests the GLOBAL existence set inside the function.
-# $DEST_PLINY is NOT cut yet (zero markers, zero owned modules); when MAJOR_PLINY is cut, add a
-# third call with PLINY_MODULES — no new code path needed. Generality note: design §6.4/§6.5.
+# THIS ARC recomposes THREE files (debloat Arc 47 / design-arc-47 §6.4–§6.5 + debloat Arc 48 /
+# design-arc-48 §6.4): $DEST_POLYBIUS (Arc 2, 5 owned modules), $DEST_OPERATING_DISCIPLINES (Arc 47,
+# 12 owned modules), AND $DEST_PLINY (Arc 48, 11 owned modules). The shared substrate/modules/ dir
+# forces the MODULE-OWNERSHIP partition (ARGUS r3): each call passes its OWNED-module set for Checks
+# B/D while Check A tests the GLOBAL existence set inside the function. The three owned-sets are
+# basename-DISJOINT (design-arc-48 §3.8 / P-OWNERSHIP-NOCOLLIDE) so no marker is ambiguously owned.
+# Generality note: design §6.4/§6.5.
 if [ "$TARGET" = "subproject" ]; then
   recompose_module_inline() {
     # $1 = role file to recompose in place.
     # $2 = OWNED module basenames (space-separated) THIS file owns — for Checks B/D
     #      (only the markers/modules THIS file owns). DISTINCT from the GLOBAL existence set.
-    # MODULE-OWNERSHIP partition (debloat Arc 47 / design-arc-47 §6.4, ARGUS r3):
-    # the shared substrate/modules/ dir now holds modules owned by DIFFERENT role files
-    # (5 POLYBIUS + 12 op-disc). Two distinct sets are required:
+    # MODULE-OWNERSHIP partition (debloat Arc 47 / design-arc-47 §6.4, ARGUS r3; extended to a
+    # THIRD owner in debloat Arc 48 / design-arc-48 §6.4): the shared substrate/modules/ dir now
+    # holds modules owned by DIFFERENT role files (5 POLYBIUS + 12 op-disc + 11 PLINY = 28, basename-
+    # disjoint per design-arc-48 §3.8). Two distinct sets are required:
     #   - GLOBAL existence set (Check A): every real module source, owner-agnostic. A marker
     #     must reference a real module file REGARDLESS of owner — the Check A guarantee must NOT
     #     narrow with the owned-set. Built from the filesystem glob, NOT from arg 2.
@@ -1001,11 +1003,10 @@ if [ "$TARGET" = "subproject" ]; then
   # scoped to the modules IT owns; Check A still tests the GLOBAL existence set inside the function.
   POLYBIUS_MODULES="onboarding sub-project-spawning pair-programmer-authoring pair-programming-prototyping substrate-update-check"
   OPDISC_MODULES="two-polybius-coordination autonomous-mode-setup sub-agent-transcript-discipline bw-fit-matrix oss-dep-and-latency credential-discipline-detail bw-upgrade mechanical-inspection-split multi-team-interop four-layer-identity substrate-component-design jsdom-timing-discipline"
+  PLINY_MODULES="ada-brief-preamble sub-agent-watchdog per-worktree-venv post-strabo-vera incomplete-unverifiable-routing smoke-beat-deploy-check background-dispatch-hygiene pre-branch-hygiene arc-close-hygiene seat-identity-brief pliny-polling-pattern"
   recompose_module_inline "$DEST_POLYBIUS" "$POLYBIUS_MODULES"
   recompose_module_inline "$DEST_OPERATING_DISCIPLINES" "$OPDISC_MODULES"
-  # NOTE: $DEST_PLINY is intentionally NOT recomposed this arc: MAJOR_PLINY is not cut yet
-  # (zero markers, zero owned modules). When PLINY is cut: add PLINY_MODULES + a third
-  # `recompose_module_inline "$DEST_PLINY" "$PLINY_MODULES"` call — no new code path needed.
+  recompose_module_inline "$DEST_PLINY" "$PLINY_MODULES"
 fi
 
 
