@@ -95,11 +95,15 @@
     {
       "text": "drift: SPEC-MET on all 11 brief mechanical-check items (1 ledger-complete, 2 7-modules-OK, 3 §6.9-cluster+double-prime-byte-exact, 4 spec-cited-headings, 5 markers 7=7, 6 install.sh all sub-checks + bash -n 0, 7 spec_refs 156/56 worktree==main zero PASS-\u003eFAIL, 8 index-not-routing-map, 9 §6.8 Anchor=stoa--5sr, 10 scope+author+commit, 11 line-count 229). ONE spec-AMBIGUITY (not a drift vs spec-as-written): design §5/§6.5 is SILENT on the --no-captains+subproject interaction; the recompose block is gated on TARGET=subproject only, so --no-captains --target subproject -\u003e exit 2 'role file not found CAPTAIN_DAEDALUS' (REPRODUCED on throwaway). Build conforms to the spec as written; the gap is in the spec. CATO owns the correctness call. Verdict: SPEC-MET (11/11) + 1 spec-ambiguity surfaced for PLINY routing. Returning.",
       "timestamp": "2026-05-23T11:50:55Z"
+    },
+    {
+      "text": "VERA state-transition: 4-OWNER LIVE RECOMPOSE = PASS on throwaway. CRITICAL: recomposed CAPTAIN_DAEDALUS_myproj.md = 770 lines (FULL band, NOT slim 229) -\u003e DAEDALUS-path NOT no-op'd, no silent LOST CANON. All 7 DAEDALUS bodies present; r1 double-prime survives byte-exact into recomposed (od 27 27); other 3 owners NOT regressed (POLYBIUS 5/op-disc 12/PLINY 11, full bands). Now P-RECOMPOSE-NEG FAIL-LOUD against an isolated substrate copy (induce missing DAEDALUS module -\u003e expect exit!=0, no partial).",
+      "timestamp": "2026-05-23T11:51:41Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "CAPTAIN_DAEDALUS.md cut (architect role-file debloat, 633 lines) — LAST relocation cut",
   "type": "task",
-  "updated_at": "2026-05-23T11:50:55Z"
+  "updated_at": "2026-05-23T11:51:41Z"
 }
