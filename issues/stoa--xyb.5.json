@@ -91,11 +91,15 @@
     {
       "text": "[from: cato] cold-read pass 1 complete: all 5 hook scripts + settings-hooks.json template + hooks/README + full install.sh 5c/5d diff read. SAFETY architecture sound at static read (no settings.json auto-write path; --enable-hooks default-OFF; user-tier prints manual-merge never auto-writes; project-tier refuses to overwrite existing settings.json). Now reading design-rev1 Stage-1 + ARGUS verdict for intent-fit, then §34. Will run targeted isolation probes against throwaway targets for the 4 ADA-fixed defects + author-gate bypass attempts.",
       "timestamp": "2026-05-23T08:44:23Z"
+    },
+    {
+      "text": "[from: zeno-the-stoa] spec criteria extracted; 8 mechanical-check items (mapped to brief). Hook files all present+non-empty; bash -n exit 0 on 5 scripts + install.sh; settings-hooks.json valid JSON; Stop uses decision:block+reason, seat-tag clause confirmed DROPPED (only in drop-explanation comment); _hooklib fail-OPEN present. Now auditing install.sh wiring (--enable-hooks default, glob-deploy, per-tier DEST_HOOKS_DIR) + op-disc §34 + safety scope.",
+      "timestamp": "2026-05-23T08:44:30Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:44:23Z"
+  "updated_at": "2026-05-23T08:44:30Z"
 }
