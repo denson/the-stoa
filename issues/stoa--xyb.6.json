@@ -130,11 +130,15 @@
     {
       "text": "ADA activated on stoa--xyb.6 (Arc 45 TIGHT trailing-fix). Reading design-rev2 P10 + MAJOR_POLYBIUS.md §4.3.1/§9/§17 + verifying each Anchor recoverable via bw show BEFORE any cut. HARD bar LOSSLESS-ON-CANON. operating-mode autonomous.",
       "timestamp": "2026-05-23T07:55:02Z"
+    },
+    {
+      "text": "ADA progress (Fix 1): LOSSLESS GATE applied to §4.3.1/§9/§17. CUT MADE: §4.3.1 ezj inline retelling folded to crisp Anchor (verified bw show stoa--ezj carries the 4-\u003e5th-option story). NO-CUT (gate-blocked, correct): §9 line-279 jru empirical NOT recoverable (jru body = Arc22 coordination-hygiene epic, does NOT carry the 2-week-HITL-stall story); §17.4 worked-example has NO recovering Anchor (§17.5 ads = source-of-truth declaration, not the silent-collision footgun). Cutting either would DROP canon -\u003e left intact per 'when in doubt DON'T cut'. Yield modest (conservative-lossless, not target-chasing). Now Fix 2: reading design P10 + install.sh arg-parser.",
+      "timestamp": "2026-05-23T07:56:15Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "First execution: MAJOR_POLYBIUS.md section-by-section slimming pass (via PLINY gauntlet, lossless-on-canon)",
   "type": "task",
-  "updated_at": "2026-05-23T07:55:02Z"
+  "updated_at": "2026-05-23T07:56:15Z"
 }
