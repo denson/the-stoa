@@ -47,11 +47,15 @@
     {
       "text": "ADA: design+ARGUS+source all ground-checked. Ledger line-ranges match live MAJOR_PLINY.md (801 lines). install.sh forward-note confirmed at L1006-1008, owned-set vars L1002-1003, DEST_PLINY L819 (before L893 recompose block). ariadne--b93 confirmed non-resolving (C-2 justified); stoa--bxx resolves (C-1 §5.2 story present). Creating C-2 child ticket for §5.4 next, then 11 modules.",
       "timestamp": "2026-05-23T10:43:30Z"
+    },
+    {
+      "text": "ADA: C-2 child stoa--xyb.10.1 created+content-checked (parent stoa--xyb.10, full §5.4 prose present). 6 of 11 modules written (ada-brief-preamble, sub-agent-watchdog, per-worktree-venv, post-strabo-vera, incomplete-unverifiable-routing, smoke-beat-deploy-check + background-dispatch-hygiene). Each write verified landing in worktree, NO leak to main. Writing pre-branch-hygiene + arc-close-hygiene + seat-identity-brief + pliny-polling-pattern next, then the slim core cut.",
+      "timestamp": "2026-05-23T10:45:26Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "MAJOR_PLINY.md cut (orchestrator role-file debloat, 801 lines) + fold stoa--lyw lean",
   "type": "task",
-  "updated_at": "2026-05-23T10:43:30Z"
+  "updated_at": "2026-05-23T10:45:26Z"
 }
