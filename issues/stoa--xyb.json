@@ -70,11 +70,15 @@
     {
       "text": "DAEDALUS activated on Arc-2 (.6 MAJOR_POLYBIUS.md cut). Reading brief + cut target (1299 lines) + Arc-1 mechanism (modules/README.md + op-disc §33) + section map (.6) + 0hl fold + role file. Subproject-tier gate is a DESIGN-PHASE requirement (live-probe + strategy). Heads-down.",
       "timestamp": "2026-05-23T06:55:04Z"
+    },
+    {
+      "text": "Inputs absorbed end-to-end: MAJOR_POLYBIUS.md (1299 ln, re-read live), modules/README.md (3 channels + 3 relocation classes C-1/C-2 + routing-map/relocation-index), op-disc §33 (thin rule) + §12 (bw cookbook = DUPLICATE keep-home, confirmed self-declares 'do not duplicate'), section map .6, 0hl fold + verbose §5.6 reference (~17 ln at user-tier copy). install.sh confirms DEST_MODULES_DIR='' subproject-skip. Now running subproject-tier Read-path-resolution live probe (web-check done: subagents inherit PARENT cwd, no per-subagent override — claude-code #31546/#12748/#31940; running concrete fs probe next).",
+      "timestamp": "2026-05-23T06:56:01Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T06:55:04Z"
+  "updated_at": "2026-05-23T06:56:01Z"
 }
