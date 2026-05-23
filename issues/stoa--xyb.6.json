@@ -58,11 +58,15 @@
     {
       "text": "ADA activated on stoa--xyb.6 (Arc 45 build). Read design-rev2 (4fa6c57) end-to-end + dispatch ticket heartbeat stream. Reading ARGUS re-confirm verdict + modules/README.md + op-disc §33/§12 + live MAJOR_POLYBIUS.md before any write. Worktree confirmed: arc-45/build at .claude/worktrees/arc-45-build. Will use ABSOLUTE worktree paths for every write.",
       "timestamp": "2026-05-23T07:24:41Z"
+    },
+    {
+      "text": "Ground-check complete: read all 1299 lines of live MAJOR_POLYBIUS.md + install.sh deploy path + modules/README.md + op-disc §33/§12 + ARGUS re-confirm verdict. ALL ledger source line-ranges match live file exactly (no drift): §5 159-376, §10 538-634, §11 638-725, §12 729-803, §13 806-881, §14 885-895, §16.6 1022-1032, §16.7 1034-1050, §17.1 1096-1102, §17.5 1145-1155, §17.6 1157-1164, §18.5 1206-1215, §18.6 1217-1225, §19.6 1273-1282, §19.7 1284-1295. install.sh recompose insertion point = after L765 (post POLYBIUS+PLINY sed, pre op-disc deploy); err() exits 2; SRC_MODULES_DIR=SCRIPT_DIR/modules. Landing ARGUS F-B (per-file Check-D), residual-3 (DEST_POLYBIUS-only), F-A (close-marker guard as 5th check). Now running 9 C-1 bw content-check gate before any deletion.",
+      "timestamp": "2026-05-23T07:25:46Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "First execution: MAJOR_POLYBIUS.md section-by-section slimming pass (via PLINY gauntlet, lossless-on-canon)",
   "type": "task",
-  "updated_at": "2026-05-23T07:24:41Z"
+  "updated_at": "2026-05-23T07:25:46Z"
 }
