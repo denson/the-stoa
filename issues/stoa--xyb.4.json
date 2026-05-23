@@ -57,11 +57,15 @@
     {
       "text": "ADA build complete (3 files). modules/README.md authored (3 channels + selection / module-authoring discipline / routing-map + relocation-index templates / 5-name CONDITIONAL taxonomy / 3-bucket lossless homes + ARGUS-carry-1 per-C-1 bw-show content-check gate in PROVENANCE sec5.2). op-disc sec33 inserted L2089 BEFORE '## Agent-regime inverses' L2115 (NOT EOF), placeholder fully expanded, P6(c) line-count = 26 lines (header-\u003ebefore-next-section) / 24 content lines, UNDER \u003c=30 cap, no trim ladder needed. install.sh: 7 edits (SRC_MODULES_DIR + 3 DEST arms + source-existence/non-empty glob assert + plan line + glob deploy step 5b w/ enumerate-log + glob staleness block + header doc-comment). Running bash -n build-check (sec5.1).",
       "timestamp": "2026-05-23T06:27:40Z"
+    },
+    {
+      "text": "status: completed | verdict: pass. Build landed at d3735c6 on arc-44/build. 3 files: substrate/modules/README.md (NEW, 261 lines), operating-disciplines.md (+26, §33 insert), install.sh (+97/-3, 7 edits glob deploy class). build_check: bash -n install.sh -\u003e exit 0. §33 = 24 content lines (UNDER ≤30 cap, no trim). Both ARGUS-carry items done: (1) per-C-1 bw-show content-check gate in README PROVENANCE §5.2; (2) P6(c) post-placeholder line-count run + passed. 1 design-vs-shipped DRIFT resolved to ship reality: design §3.C 'bw show --attachments \u003cid\u003e' does not exist in bw 0.13.0 — README §5.2 documents real recovery (git on beadwork ref / plain bw show). Author identity unchanged (PRINCIPAL); both Co-Authored-By trailers present; NO author-like field touched. Clean-diff held: zero deletions from any role file. Returning to PLINY for VERA + CATO + ZENO dispatch.",
+      "timestamp": "2026-05-23T06:28:37Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T06:27:40Z"
+  "updated_at": "2026-05-23T06:28:37Z"
 }
