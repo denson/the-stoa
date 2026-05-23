@@ -147,11 +147,15 @@
     {
       "text": "VERA progress: ALL recompose probes GREEN on throwaways. P-RECOMPOSE: 12 op-disc markers survive non-empty, all 12 bodies re-inlined, recomposed=2305 (full band), POLYBIUS intact at 5. P-RECOMPOSE-NEG: missing module -\u003e exit 2 + Check-A 'no module source' + NO partial deploy. P-OWNERSHIP: clean two-owner deploy exit 0, no cross-owner false-positive. P-OWNERSHIP-CHECKA: Check A tests global_exists (r3 fix), Check B/D iterate owned (install.sh L956/987). Deliverable untouched (independence). Final: slim-core marker integrity + KEEP-section completeness sweep, then verdict.",
       "timestamp": "2026-05-23T10:11:40Z"
+    },
+    {
+      "text": "VERA VERDICT: pass. LOSSLESS-COMPLETENESS MET whole-team (the bar) — all 39 relocated chunks homed+recoverable: 12 CONDITIONAL modules (bodies verified present + re-inline at subproject), 19 C-1 Anchors (9 sampled all carry stories), 3 C-2 child tickets (8.1/8.2/8.3 carry verbose prose), 5 SPLIT folds, 22 KEEP sections inline incl §15; no always-on rule dropped; no author-field regression. r1 HARD GATE PASS (independent per-ref pre-vs-post: ZERO op-disc PASS-\u003eFAIL flips, ZERO vanished; malformed 7.1. L129 = frozen-spec defect identical pre+post). Recompose battery PASS on throwaways: 12 bodies re-inline (recomposed=2305 full band), FAIL-LOUD fires (exit 2 + clean abort, no partial), two-owner partition no false-positive, Check A global retained (r3). 16 probes all pass. Deliverable untouched (independence held). 1340 line count = REPORTED output (above ~760-915 est, honest; ~100-150L lossless tightening = follow-up, NOT a fail). One §7.6 cite-back NIT (bw show ariadne--m20 doesn't resolve from-repo) — non-blocking, prose self-contained in module. Verdict saved agents/verdicts/stoa--xyb.8/VERA-2026-05-23T10-13-13Z.md (sha256 ac1f167422b4). Returning.",
+      "timestamp": "2026-05-23T10:13:35Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
   "type": "task",
-  "updated_at": "2026-05-23T10:11:40Z"
+  "updated_at": "2026-05-23T10:13:35Z"
 }
