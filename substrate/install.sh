@@ -884,12 +884,16 @@ fi
 # aborts deploy) rather than shipping LOST CANON. Runs POST-sed/cp (markers are inert in the source;
 # the sed substitutes only {{NAME_SUFFIX}}/{{USER_TIER_DIR}}, neither of which appears in a marker;
 # op-disc is plain-cp'd so no substitution applies).
-# THIS ARC recomposes THREE files (debloat Arc 47 / design-arc-47 §6.4–§6.5 + debloat Arc 48 /
-# design-arc-48 §6.4): $DEST_POLYBIUS (Arc 2, 5 owned modules), $DEST_OPERATING_DISCIPLINES (Arc 47,
-# 12 owned modules), AND $DEST_PLINY (Arc 48, 11 owned modules). The shared substrate/modules/ dir
-# forces the MODULE-OWNERSHIP partition (ARGUS r3): each call passes its OWNED-module set for Checks
-# B/D while Check A tests the GLOBAL existence set inside the function. The three owned-sets are
-# basename-DISJOINT (design-arc-48 §3.8 / P-OWNERSHIP-NOCOLLIDE) so no marker is ambiguously owned.
+# THIS ARC recomposes FOUR files (debloat Arc 47 / design-arc-47 §6.4–§6.5 + debloat Arc 48 /
+# design-arc-48 §6.4 + debloat Arc 6 / Arc 49 / design-arc-49 §6.4): $DEST_POLYBIUS (Arc 2, 5 owned
+# modules), $DEST_OPERATING_DISCIPLINES (Arc 47, 12 owned modules), $DEST_PLINY (Arc 48, 11 owned
+# modules), AND $DEST_DAEDALUS (Arc 6/Arc 49, 7 owned modules — the FOURTH owner). The shared
+# substrate/modules/ dir forces the MODULE-OWNERSHIP partition (ARGUS r3): each call passes its
+# OWNED-module set for Checks B/D while Check A tests the GLOBAL existence set inside the function.
+# The four owned-sets are basename-DISJOINT (design-arc-49 §3.8 / P-OWNERSHIP-NOCOLLIDE) so no marker
+# is ambiguously owned. NOTE (design-arc-49 §6.5): the recompose CALLS run in a separate
+# if-subproject block AFTER the CAPTAIN deploy loop (the fourth owner, CAPTAIN_DAEDALUS, deploys in
+# that loop and has no dedicated DEST_* var); the function DEFINITION below stays here.
 # Generality note: design §6.4/§6.5.
 if [ "$TARGET" = "subproject" ]; then
   recompose_module_inline() {
@@ -897,9 +901,10 @@ if [ "$TARGET" = "subproject" ]; then
     # $2 = OWNED module basenames (space-separated) THIS file owns — for Checks B/D
     #      (only the markers/modules THIS file owns). DISTINCT from the GLOBAL existence set.
     # MODULE-OWNERSHIP partition (debloat Arc 47 / design-arc-47 §6.4, ARGUS r3; extended to a
-    # THIRD owner in debloat Arc 48 / design-arc-48 §6.4): the shared substrate/modules/ dir now
-    # holds modules owned by DIFFERENT role files (5 POLYBIUS + 12 op-disc + 11 PLINY = 28, basename-
-    # disjoint per design-arc-48 §3.8). Two distinct sets are required:
+    # THIRD owner in debloat Arc 48 / design-arc-48 §6.4; FOURTH owner in debloat Arc 6 / Arc 49 /
+    # design-arc-49 §6.4): the shared substrate/modules/ dir now holds modules owned by DIFFERENT
+    # role files (5 POLYBIUS + 12 op-disc + 11 PLINY + 7 DAEDALUS = 35, basename-disjoint per
+    # design-arc-49 §3.8). Two distinct sets are required:
     #   - GLOBAL existence set (Check A): every real module source, owner-agnostic. A marker
     #     must reference a real module file REGARDLESS of owner — the Check A guarantee must NOT
     #     narrow with the owned-set. Built from the filesystem glob, NOT from arg 2.
@@ -999,14 +1004,10 @@ if [ "$TARGET" = "subproject" ]; then
     echo "recomposed (subproject): $_role_file (re-inlined OWNED module bodies at MODULE-INLINE markers)"
   }
 
-  # MODULE-OWNERSHIP owned-sets (design-arc-47 §6.4 / §3.8). Each role file's recompose call is
-  # scoped to the modules IT owns; Check A still tests the GLOBAL existence set inside the function.
-  POLYBIUS_MODULES="onboarding sub-project-spawning pair-programmer-authoring pair-programming-prototyping substrate-update-check"
-  OPDISC_MODULES="two-polybius-coordination autonomous-mode-setup sub-agent-transcript-discipline bw-fit-matrix oss-dep-and-latency credential-discipline-detail bw-upgrade mechanical-inspection-split multi-team-interop four-layer-identity substrate-component-design jsdom-timing-discipline"
-  PLINY_MODULES="ada-brief-preamble sub-agent-watchdog per-worktree-venv post-strabo-vera incomplete-unverifiable-routing smoke-beat-deploy-check background-dispatch-hygiene pre-branch-hygiene arc-close-hygiene seat-identity-brief pliny-polling-pattern"
-  recompose_module_inline "$DEST_POLYBIUS" "$POLYBIUS_MODULES"
-  recompose_module_inline "$DEST_OPERATING_DISCIPLINES" "$OPDISC_MODULES"
-  recompose_module_inline "$DEST_PLINY" "$PLINY_MODULES"
+  # NOTE (debloat Arc 6 / Arc 49 / design-arc-49 §6.5): the recompose CALLS moved to a new
+  # if-subproject block AFTER the CAPTAIN deploy loop (below). The function DEFINITION stays here.
+  # The fourth owner (CAPTAIN_DAEDALUS) deploys inside the CAPTAIN_NAMES loop and has no dedicated
+  # DEST_* var, so its deployed file does not exist until the loop runs — the calls must follow it.
 fi
 
 
@@ -1034,6 +1035,39 @@ if [ "$WITH_CAPTAINS" -eq 1 ]; then
   done
 else
   log "CAPTAIN deployment skipped (--no-captains)"
+fi
+
+# 3b. Subproject module-recompose calls (debloat Arc 47 §6.4–§6.5 + Arc 48 §6.4 + Arc 6/Arc 49
+# §6.4–§6.5). Placed AFTER the CAPTAIN deploy loop (above) because the FOURTH owner
+# (CAPTAIN_DAEDALUS) deploys inside that loop with no dedicated DEST_* var — its suffixed file does
+# not exist until the loop has run, so its recompose call must follow it (design-arc-49 §2.7.2-b /
+# §6.5, option (i): the recompose FUNCTION definition stays in the §3a block above; only the CALLS
+# moved here). The other three files (POLYBIUS / op-disc / PLINY) deploy earlier, so moving the
+# calls later is harmless for them. recompose_module_inline() is defined above in the same
+# TARGET=subproject gate, so it is always defined before these calls run.
+if [ "$TARGET" = "subproject" ]; then
+  # MODULE-OWNERSHIP owned-sets (design-arc-47 §6.4 / §3.8; FOURTH owner added Arc 6 / Arc 49). Each
+  # role file's recompose call is scoped to the modules IT owns (Checks B/D); Check A still tests the
+  # GLOBAL existence set (all 35 module sources minus README, owner-agnostic) inside the function.
+  POLYBIUS_MODULES="onboarding sub-project-spawning pair-programmer-authoring pair-programming-prototyping substrate-update-check"
+  OPDISC_MODULES="two-polybius-coordination autonomous-mode-setup sub-agent-transcript-discipline bw-fit-matrix oss-dep-and-latency credential-discipline-detail bw-upgrade mechanical-inspection-split multi-team-interop four-layer-identity substrate-component-design jsdom-timing-discipline"
+  PLINY_MODULES="ada-brief-preamble sub-agent-watchdog per-worktree-venv post-strabo-vera incomplete-unverifiable-routing smoke-beat-deploy-check background-dispatch-hygiene pre-branch-hygiene arc-close-hygiene seat-identity-brief pliny-polling-pattern"
+  DAEDALUS_MODULES="canonical-code-block-fix credential-flow-design principal-gate-design canonical-template-alignment probe-grounding ssot-with-why api-docs-dont-generalize"
+  # CAPTAIN_DAEDALUS has NO dedicated DEST_* deploy var (it deploys in the CAPTAIN_NAMES loop above);
+  # construct its deployed path here, mirroring the loop's dest= (CAPTAIN_${name}${NAME_SUFFIX}.md).
+  DEST_DAEDALUS="${DEST_AGENTS_DIR}/CAPTAIN_DAEDALUS${NAME_SUFFIX}.md"
+  recompose_module_inline "$DEST_POLYBIUS" "$POLYBIUS_MODULES"
+  recompose_module_inline "$DEST_OPERATING_DISCIPLINES" "$OPDISC_MODULES"
+  recompose_module_inline "$DEST_PLINY" "$PLINY_MODULES"
+  # FOURTH owner gated on WITH_CAPTAINS: CAPTAIN_DAEDALUS deploys ONLY inside the
+  # WITH_CAPTAINS-gated loop above, so under --no-captains its $DEST_DAEDALUS file
+  # was never written. Recomposing it then would fire recompose_module_inline's
+  # `[ -f "$_role_file" ] || err` (exit 2 + partial deploy) — a flag-interaction
+  # regression (CATO c1 / ZENO d1). The other three owners (POLYBIUS/op-disc/PLINY)
+  # deploy unconditionally, so their calls stay ungated. Match the CAPTAIN-loop idiom.
+  if [ "$WITH_CAPTAINS" -eq 1 ]; then
+    recompose_module_inline "$DEST_DAEDALUS" "$DAEDALUS_MODULES"
+  fi
 fi
 
 # 4. Deploy templates/ runtime tooling (default on; --no-templates skips).
