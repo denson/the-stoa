@@ -201,3 +201,18 @@ The activation pattern must match BOTH the deployed filename AND the auto-load s
 Canonical reference: `substrate/templates/activation-paste-cheatsheet.md` — consult this BEFORE authoring any activation paste. The asymmetry between MAJOR and CAPTAIN suffixing, and between auto-load and paste-trigger modes, is a real source of silent activation failures.
 
 Empirical anchor: 2026-05-04 a project-mode install (no `--modify-claude-md`) used the suffixed filename in its activation paste. The session activated as the wrong tier, hit the wrong bw store, and PRINCIPAL caught it. The cheatsheet is the structural fix — every activation paste flows through the four-row table.
+
+### §5.6 Say-trigger team-deploy procedure (lean)
+
+For an *already-deployed say-trigger* workspace (the team's role files are on disk and auto-load via `CLAUDE.md`, OR the team is reachable by a bare-word activation), deploying an instruction to the team does NOT require handing the PRINCIPAL a multi-line paste. The durable artifact is a **bw ticket**; activation is the bare word (`polybius` / `pliny`).
+
+The procedure:
+
+1. **Store the instruction in a bw ticket** (the durable artifact — re-readable, version-controlled in beadwork, survives compaction). This is the say-trigger analogue of the §4.5 on-disk-`.md` artifact.
+2. **Optionally commit a supporting `.md`** to the beadwork branch via a worktree when the instruction references a longer doc the team should read.
+3. **The human activates with the bare word** (`polybius` / `pliny`) — no paste of instruction text into chat. The activated seat reads the bw ticket as its priming.
+4. **The team self-discovers** the work via the §9 activation-checklist sweep (the activated seat runs `bw prime` + the open-ticket sweep and picks up the instruction ticket).
+
+**Say-vs-paste contrast (the invariant in both):** durable instruction, short relay. Paste-trigger relays a one-line `Read <file> and execute`; say-trigger relays a bare word and lets the activation-checklist sweep find the durable bw ticket. Both keep the substantive instruction OFF the chat line and IN a durable artifact. (See `MAJOR_POLYBIUS.md` §4.5 two-mechanism reconciliation.)
+
+Anchor: `stoa--0hl` — 2026-05-21 railway empirical (say-trigger team-deploy surfaced during railway_stoa work).

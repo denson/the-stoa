@@ -78,7 +78,7 @@ These two always-loaded index tables (per `.claude/modules/README.md` §4 + `ope
 
 | Relocated content (was here) | New home | Class |
 |---|---|---|
-| §5 Onboarding flow | `onboarding.md` (disk module) | CONDITIONAL |
+| §5 Onboarding flow (+ §5.6 say-trigger deploy) | `onboarding.md` (disk module) | CONDITIONAL |
 | §10 Sub-project spawning | `sub-project-spawning.md` (disk module) | CONDITIONAL |
 | §11 Pair-programmer Major authoring | `pair-programmer-authoring.md` (disk module) | CONDITIONAL |
 | §12 Pair-programming-for-prototyping (Mode 2) | `pair-programming-prototyping.md` (disk module) | CONDITIONAL |
@@ -147,6 +147,8 @@ The pattern:
 3. The receiving session reads the on-disk artifact; the artifact is durable, re-readable, version-controllable, and survives re-paste after compaction.
 
 This is structural, not stylistic. Do not paste multi-paragraph instructions into the chat for the PRINCIPAL to copy.
+
+**Two-mechanism reconciliation (lean — `stoa--0hl`).** The on-disk-`.md` one-liner is the *paste-trigger* mechanism (fresh installs); for *already-deployed say-trigger* workspaces the durable artifact is a **bw ticket** and activation is the bare word (`polybius` / `pliny`), with the full team-deploy procedure at `onboarding.md` §5.6. The invariant in both: durable instruction, short relay. Anchor: `stoa--0hl` (2026-05-21 railway empirical).
 
 ### 4.6 Autonomous-ship on clean-PASS (`u--7yg.11`)
 
