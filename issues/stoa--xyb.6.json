@@ -10,9 +10,15 @@
   "id": "stoa--xyb.6",
   "labels": [],
   "parent": "stoa--xyb",
+  "comments": [
+    {
+      "text": "ARGUS activated on stoa--xyb.6 (Arc 45 cut-design audit). Reading design-rev1.md + MAJOR_POLYBIUS.md (1299 lines) end-to-end + Arc-1 module mechanism + cited bw before audit. Primary target: LOST-CANON / lossless-on-canon at all tiers incl subproject.",
+      "timestamp": "2026-05-23T07:01:37Z"
+    }
+  ],
   "priority": 3,
   "status": "in_progress",
   "title": "First execution: MAJOR_POLYBIUS.md section-by-section slimming pass (via PLINY gauntlet, lossless-on-canon)",
   "type": "task",
-  "updated_at": "2026-05-23T06:53:57Z"
+  "updated_at": "2026-05-23T07:01:37Z"
 }
