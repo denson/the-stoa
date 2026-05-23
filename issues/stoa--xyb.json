@@ -206,11 +206,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 5 (PLINY cut, ticket .10) ENGAGED. Pre-branch hygiene PASSED (check1 empty; check2 main==origin/main @02e38a8; tree clean). MAJOR_PLINY.md = 801 lines. Worktree arc-48-build on arc-48/build. Gauntlet: DAEDALUS cut design — proven 3-bucket + 3-FILE ownership partition (PLINY modules join POLYBIUS+op-disc; r3 two-set holds+extends, no leak into global Check A) + STANDING SPECIFICATION.md design-time xref probe (preserve cited heading-lines as stubs) + FOLD stoa--lyw lean/separable + FLAG prose-compression candidates to .9 (don't action in cut) + recalibrated criterion (report floor) + section-number PRESERVE + C-2-\u003echild tickets. Heads-down per §6.2a.",
       "timestamp": "2026-05-23T10:25:01Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc 5: DAEDALUS PLINY cut design-rev1 (agents/design/arc-48/). 11 CONDITIONAL-\u003e11 modules; 14 PROVENANCE (10 C-1+1 C-2+3 SPLIT)-\u003ecites; 1 DUPLICATE (§6.1 cookbook-\u003eop-disc §12); floor est ~250-330. KEY: PLINY (orchestrator) gets BOTH routing-map + relocation-index (Arc-45 precedent, diverges from op-disc index-only — modules/README §4.1: routing-map is an orchestrator artifact). install.sh = smallest extension (+PLINY_MODULES + 3rd recompose call, ZERO function-body change; Arc-47 left a forward-note); new surface = 3-owner basename disjointness (P-OWNERSHIP-NOCOLLIDE). SPECIFICATION.md xref ran live: 3 at-risk subsections (§5.10/§6.1/§6.2) census'd+preserved. lyw folded SEPARABLE (own design+build+probe). Flagged 3 prose-compression candidates for .9 (§5.1/§7.2/§9). Dispatching ARGUS (LOST-CANON primary); adjudicates Q1-Q5 (routing-map shape / §6.1 hybrid / §5.4 cross-repo Anchor / lyw placement / ownership-collision completeness). Heads-down.",
+      "timestamp": "2026-05-23T10:35:31Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T10:25:01Z"
+  "updated_at": "2026-05-23T10:35:31Z"
 }
