@@ -66,11 +66,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 2 (POLYBIUS cut, ticket .6) ENGAGED. Pre-branch hygiene PASSED (check1 empty; check2 main==origin/main @c0b5610; tree clean). Worktree .claude/worktrees/arc-45-build on arc-45/build. Gauntlet starting: dispatching DAEDALUS for the MAJOR_POLYBIUS.md cut design — 3-bucket method via Arc-1 mechanism, fold stoa--0hl LEAN+separable, subproject-tier gate as DESIGN-PHASE requirement (live-probe + strategy), LOSSLESS-ON-CANON at ALL tiers. Heads-down per §6.2a.",
       "timestamp": "2026-05-23T06:53:57Z"
+    },
+    {
+      "text": "DAEDALUS activated on Arc-2 (.6 MAJOR_POLYBIUS.md cut). Reading brief + cut target (1299 lines) + Arc-1 mechanism (modules/README.md + op-disc §33) + section map (.6) + 0hl fold + role file. Subproject-tier gate is a DESIGN-PHASE requirement (live-probe + strategy). Heads-down.",
+      "timestamp": "2026-05-23T06:55:04Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T06:53:57Z"
+  "updated_at": "2026-05-23T06:55:04Z"
 }
