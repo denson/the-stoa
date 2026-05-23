@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-23T07:26:41Z",
+  "description": "ARCHIVE (Arc 45 debloat cut — sole-surviving-copy provenance relocated from MAJOR_POLYBIUS.md §5.1.3, now relocated to substrate/modules/onboarding.md with this ticket as the Anchor cite-back). The operational cron-hygiene preamble + the rule STAY in the onboarding module; this ticket holds the verbose provenance prose (the empirical-anchor filename list + the N=0-canon honest-scope paragraph) verbatim so it is recoverable.\n\n--- VERBATIM §5.1.3 PROVENANCE PROSE (from live MAJOR_POLYBIUS.md, 2026-05-23 cut) ---\n\nEmpirical anchor (from the §5.1.3 Cross-references block): ad-hoc encoded as \"cron hygiene FIRST\" preamble in every PLINY-targeted activation paste since Arc 26 (recent observation set: HUMAN_paste-pliny-arc-30-instruction.md, HUMAN_paste-pliny-arc-31-instruction.md, HUMAN_paste-pliny-arc-32-instruction.md all carry the preamble ad-hoc, with the canonical wording converging across Arc 31 + Arc 32). Multi-instance pattern; this arc lifts it from memory into structure.\n\nProvenance (per §15 honest scope and operating-disciplines.md §6.7.1): Multi-instance ad-hoc pattern (\u003e=5 PLINY pastes carry the preamble ad-hoc), but N=0 substrate-canon-encoded today. The discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority (the same authority that placed the preamble in every paste); future arcs that ship activations through the templated {{CRON_HYGIENE_CLAUSE}} slot accrete evidence that the structural form is sufficient — at which point §6.7.1's three-condition gate (multiple observations + controlled comparison + substrate-level pattern) becomes assessable. Same N=1 framing as Arc 27's §16.6, Arc 28's operating-disciplines.md §22.3, Arc 29's §17.5, and Arc 30's §5.9.3.",
+  "id": "stoa--xyb.6.2",
+  "labels": [],
+  "parent": "stoa--xyb.6",
+  "priority": 2,
+  "status": "open",
+  "title": "Arc 45 C-2 archive: MAJOR_POLYBIUS §5.1.3 cron-hygiene provenance (N=0 canon, HUMAN_paste filename list)",
+  "type": "task",
+  "updated_at": "2026-05-23T07:26:41Z"
+}
