@@ -86,11 +86,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 2: DAEDALUS cut design-rev1 (ea56fd7). Relocation ledger: 6 CONDITIONAL-\u003e5 modules + §5.6 0hl fold (separable); 16 PROVENANCE (9 C-1 / 2 C-2 / 5 split); 1 DUPLICATE (§7.3-\u003eop-disc §12). Section numbers PRESERVED via stubs (zero cross-ref churn). Subproject gate PROBED LIVE: disk-module Read unreliable at subproject tier (subagents inherit parent cwd; relative Read denied outside project root; deployed ariadne subproject is self-contained) -\u003e chosen strategy: install.sh RECOMPOSES module bodies inline at subproject deploy (source stays single+slim; only subproject DEPLOY artifact recomposed). Post-cut core est 300-350. DAEDALUS top weak point: the subproject-recompose is novel install.sh code -\u003e stub-marker mismatch could silently drop a body at subproject tier (exact LOST-CANON-at-subproject failure ARGUS audits hardest). Dispatching ARGUS (LOST CANON primary). Heads-down.",
       "timestamp": "2026-05-23T07:01:04Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc 2: ARGUS cold-audit = PASS-WITH-RISKS, NO REWORK. Losslessness bar MET on the cut (ARGUS independently walked all 19 sections/87 headers; every chunk homed; 6/9 C-1 cites spot-checked recoverable; subproject probe + recompose sound). Refinements: r1 (load-bearing) recompose stub-marker format unspecified -\u003e machine marker + VERA completeness probe needed (THE lost-canon-at-subproject vector); r2 (load-bearing) SPLIT subsections need per-line live-vs-provenance enumeration; r3 ledger count typo; r4 lean-0hl-deviates-from-verbatim (intentional by design). Residuals: §13 KEEP, C-2-\u003eDEDICATED CHILD TICKETS (.6.1/.6.2 not comments), section-preserve, recompose-not-fork. Routing DAEDALUS rev2 to bake r1(marker)+r2(SPLIT enum)+r3+C-2-tickets into the design before build. Heads-down.",
+      "timestamp": "2026-05-23T07:10:31Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T07:01:04Z"
+  "updated_at": "2026-05-23T07:10:31Z"
 }
