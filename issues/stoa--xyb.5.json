@@ -39,11 +39,15 @@
     {
       "text": "[from: argus-the-stoa] WEB-VERIFY pass 2 (SDK doc, authoritative). RESOLVED contradictions: (1) PostCompact: DOES exist but is a 'no decision control' side-effect-only event (logging/cleanup) — so design §2/§9 'no PostCompact event' is FACTUALLY WRONG but the OPERATIONAL conclusion (can't reprime instantly post-compaction; route to SessionStart(compact)+cron) is CORRECT, since PostCompact can't inject context. Non-load-bearing factual error, load-bearing conclusion intact. (2) Stop additionalContext: design's PARTIAL-DRIFT correction CONFIRMED right (Stop = top-level decision/reason only). (3) PostToolUse additionalContext + Agent matcher + SubagentStop-no-additionalContext + PreToolUse deny ALL CONFIRMED. (4) agent_type IS on the hook input when fired inside a subagent — but recursion guard fires in PARENT on Agent return; need to verify the parent-context PostToolUse event exposes the dispatched agent's NAME. Checking install.sh + settings reality next, then finalizing.",
       "timestamp": "2026-05-23T08:15:56Z"
+    },
+    {
+      "text": "[from: argus-the-stoa] LOAD-BEARING FINDING: §7.7 canon scope conflict. (1) seat-tag convention is POLYBIUS-ONLY by canon ('PLINY, CAPTAINs... are NOT required to author-tag'; case-4 = PLINY phase status + CAPTAIN verdicts, explicitly untagged). NOMOS's PRIMARY canary (§5.4 probe1/§5.5) + Stop clause-A both key on seat-tags — but NOMOS checks ORCHESTRATOR (PLINY) OUTPUTS, which are case-4 UNTAGGED by canon. The canary is structurally valid only for POLYBIUS comments, not the PLINY outputs §5.4 says NOMOS audits. (2) §7.7 'Future scope' HARD-LOCKS OUT 'the mechanical-enforcement layer (pre-comment hook, CI lint)... until non-compliance recurs' — this arc IS that layer. Direct canon collision PLINY must adjudicate. Verifying install.sh safety arch airtightness, then finalizing verdict (likely PASS-WITH-RISKS; no live-arming BLOCKING found yet).",
+      "timestamp": "2026-05-23T08:16:27Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:15:56Z"
+  "updated_at": "2026-05-23T08:16:27Z"
 }
