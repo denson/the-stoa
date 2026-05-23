@@ -85,11 +85,15 @@
     {
       "text": "CATO activated on stoa--xyb.4 (Arc 44 / debloat Arc 1, MECHANISM review). Cold-read of 3 shipped files complete (op-disc §33 / install.sh glob deploy / modules/README.md). Empirical-environment probes per §6.8 done against throwaway /tmp clone: project-tier deploy lands README; subproject-tier skips modules cleanly; staleness flags stray flat module but correctly skips custom/ subdir (mirrors templates pattern, confirms ARGUS L38 non-finding). install.sh bash -n exit 0. Now reading modules/README.md + assessing ADA --attachments drift call + bw recovery-prose accuracy.",
       "timestamp": "2026-05-23T06:31:41Z"
+    },
+    {
+      "text": "VERA Probe-1 (install.sh module deploy) COMPLETE against throwaway clone @ d3735c6: P1 source-exists PASS; P2 dry-run plan+cp PASS; P3 real-deploy lands README.md exit 0; P4 completeness PASS; GLOB-PROOF PASS (2nd throwaway *.md added to CLONE auto-deployed, plan 1-\u003e2 modules, zero install.sh edit); P5 empty-source errs 'no module sources found' exit 2; P8 staleness flags bogus.md+removed-module; subproject tier deploys NO modules (DEST_MODULES_DIR='' -\u003e 'modules deployment skipped'). bash -n exit 0. Moving to op-disc §33 placement+size.",
+      "timestamp": "2026-05-23T06:31:51Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T06:31:41Z"
+  "updated_at": "2026-05-23T06:31:51Z"
 }
