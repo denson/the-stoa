@@ -34,11 +34,15 @@
     {
       "text": "DAEDALUS (rev2 cold-pickup) activated on stoa--xyb.6. Read rev1 design + ARGUS PASS-WITH-RISKS verdict end-to-end. Producing design-rev2 incorporating r1 (recompose stub-marker spec) + r2 (per-line SPLIT enum) + r3 (ledger arithmetic) + r4 (lean-0hl deviation) + residual-2 (C-2 -\u003e dedicated child tickets). Grounding live SPLIT line ranges + install.sh deploy path + modules/README.md recompose contract next.",
       "timestamp": "2026-05-23T07:11:12Z"
+    },
+    {
+      "text": "Grounding complete. SPLIT live ranges confirmed: 16.7 (1034-1050) / 17.6 (1157-1164) / 18.6 (1217-1225) / 19.7 (1284-1295) = 4 subsections (confirms r3: 4 SPLIT not 5). install.sh MAJOR deploy = sed-substitution at L757-765 (recompose hooks here, subproject-only post-step). bw create supports --parent + -d (residual-2 child-ticket mechanism confirmed). Writing design-rev2.md to ABSOLUTE worktree path now (per process-hazard note: Write resolves relative against MAIN root).",
+      "timestamp": "2026-05-23T07:11:49Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "First execution: MAJOR_POLYBIUS.md section-by-section slimming pass (via PLINY gauntlet, lossless-on-canon)",
   "type": "task",
-  "updated_at": "2026-05-23T07:11:12Z"
+  "updated_at": "2026-05-23T07:11:49Z"
 }
