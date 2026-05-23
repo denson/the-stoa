@@ -2,14 +2,16 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-23T10:18:20Z",
+  "close_reason": "Permanent PROVENANCE-ARCHIVE record (C-2 from the Arc-47 op-disc cut). Cited by an Anchor in slim op-disc; recover via bw show stoa--xyb.8.2. Closed = archive-complete (remains readable).",
   "created": "2026-05-23T09:48:07Z",
   "description": "C-2 PROVENANCE archive from operating-disciplines.md §8.2 (Scaffolding and guardrails), Arc 47 op-disc debloat cut (stoa--xyb.8). The verbose empirical-anchor prose, archived FIRST then deleted inline (replaced with Anchor: stoa--xyb.8.\u003cthis-id\u003e in the slim core).\n\nEmpirical anchor. Codified 2026-05-05 during the ariadne-core team_test smoke setup. PRINCIPAL surfaced the over-delegation pattern in a brief that asked the agent to \"decide install option 1 vs 2\" when option 2 (`uv tool install`) was knowably correct, and similar hand-waving across verification queries, failure-mode handling, and data-shape expectations. The five rules above generalize from those specific over-delegations to the discipline that should apply to every artifact-authoring surface.\n\nThis is the N=1 anchor for the §8.2 scaffolding-and-guardrails discipline (five rules: pre-resolve decisions that have a correct answer; provide worked examples; specify failure modes + specific handling; show JSON/data shapes; preserve judgment latitude where judgment is the actual job). The §8.2 RULES + the recursive-scaffolding + bidirectional-translation framing stay inline in the slim core; only this empirical-anchor story relocates here.",
   "id": "stoa--xyb.8.2",
   "labels": [],
   "parent": "stoa--xyb.8",
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "Arc 47 C-2 archive: op-disc §8.2 scaffolding empirical (2026-05-05 ariadne team_test over-delegation)",
   "type": "task",
-  "updated_at": "2026-05-23T09:48:07Z"
+  "updated_at": "2026-05-23T10:18:20Z"
 }
