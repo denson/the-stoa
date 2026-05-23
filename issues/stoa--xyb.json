@@ -186,11 +186,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 4: DAEDALUS rev2 (30bb8fb) -\u003e ARGUS focused re-confirm = PASS-WITH-RISKS, ADA-BUILDABLE. All r1-r4 CLEARED (ARGUS verified LIVE: imported spec_refs.py to confirm the §7.1-7.7 stub heading-lines resolve; re-ran the census — ONLY §7 subsections are spec-cited; §15 KEEP confirmed; two-set recompose confirmed; pre-existing §7.1. cite confirmed out-of-scope). Q2 CONCUR census-driven (P-SPEC-XREF catches future cites). ONE new non-blocking r5: polling-cron-prompt-template.md:263 points at op-disc §7.6 (relocating to a PROVENANCE Anchor, no stub heading) -\u003e dangling pointer; one-line re-point, ADA folds into Step-5 xref sweep. Dispatching ADA for the op-disc cut (2156-\u003e~760-915 floor; 12 modules; recompose two-set extension; §7 heading-line stubs; 19 C-1 + C-2 child tickets; SPECIFICATION.md spec_refs stays green). Heads-down.",
       "timestamp": "2026-05-23T09:39:30Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc 4 BUILD done (743a198). op-disc 2156-\u003e1340; 12 CONDITIONAL modules; C-2 child tickets .8.1/.8.2/.8.3 created+content-checked; 19 C-1 content-checks ran (incl stoa--ntn §10 gate — carries story). spec_refs.py: 109 op-disc refs, 55 PASS, ZERO flipped PASS-\u003eFAIL (r1 gate GREEN); 7 §7-subsection cites still PASS. §7 stub heading-lines preserved; §15 KEEP; r5 polling-template re-point done; install.sh two-set recompose (both POLYBIUS+op-disc work at subproject); bash -n exit 0. LOSSLESS bar MET; floor=1340 (above ~915-1100 est). ADA reasoning: recalibrated criterion forbids cutting KEEP rules to hit a number; dense inline = always-on rule prose (§19=136/§8=121/§28=115). ADA flagged ~100-150 lines of LOSSLESS prose-compression available in §8/§19/§28 (tighten rules' prose, drop NO rule) as a separate-pass option. Running VERA+CATO+ZENO; CATO assessing 1340 honest-floor-vs-tightenable. Heads-down.",
+      "timestamp": "2026-05-23T10:05:10Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T09:39:30Z"
+  "updated_at": "2026-05-23T10:05:10Z"
 }
