@@ -67,11 +67,15 @@
     {
       "text": "VERA activated on stoa--xyb.10 (Arc 48, MAJOR_PLINY.md cut). Reading brief + design-rev1 verification probes + role file. Falsifying LOSSLESS-ON-CANON; bar is lossless-completeness not a line number.",
       "timestamp": "2026-05-23T10:53:39Z"
+    },
+    {
+      "text": "VERA: design probes absorbed (P-FLOOR..P-KEEP + LOSSLESS-COMPLETENESS ledger walk). All probes classify easy-easy/easy-hard mechanical except the 3-OWNER recompose (P-RECOMPOSE/NEG/OWNERSHIP — easy-detect/easy-verify against THROWAWAY mktemp). Probe set executing.",
+      "timestamp": "2026-05-23T10:53:50Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "MAJOR_PLINY.md cut (orchestrator role-file debloat, 801 lines) + fold stoa--lyw lean",
   "type": "task",
-  "updated_at": "2026-05-23T10:53:39Z"
+  "updated_at": "2026-05-23T10:53:50Z"
 }
