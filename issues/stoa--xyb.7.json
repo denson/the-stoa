@@ -31,11 +31,15 @@
     {
       "text": "Web-verify pass 1 complete (INDEPENDENT): #55889 OPEN v2.1.123 (Bash-matcher scope, Agent-matcher NOT mentioned; deny/reason confirmed working) + #18427 CLOSED-not-planned Jan2026 (broader 'PostToolUse cannot inject context visible to Claude' — DAEDALUS did NOT cite, strengthens finding) + #15174 CLOSED-as-dup v2.0.72-76 (CLAUDE.md workaround confirmed) + changelog v2.1.150 NO fix. Stop decision:block+reason confirmed working. KEY: SDK docs say agent_type populated 'when hook fires INSIDE a subagent' — parent-on-return population UNCONFIRMED (validates WP3 sentinel-fallback as load-bearing). Now reading §7.7 canon + Stage-1 shipped hooks.",
       "timestamp": "2026-05-23T12:16:48Z"
+    },
+    {
+      "text": "Canon cross-checks done: §7.7 (two-polybius-coordination.md) confirms BOTH ARGUS-Stage1 r1 (case-4 PLINY untagged) + r2 (dual hard-lock: tag-extension AND mechanical-enforcement). §27 confirms agent-inspection is the BLESSED form, distinct from locked mechanical layer -\u003e DROP genuinely clean on both grounds. Stop-self-check clause A confirmed graceful-degrade + working channel intact. CAPTAIN_NAMES=11 today (NOMOS-\u003e12). Drafting verdict: 3-4 candidate risks for quadrant classification (settings-hooks nesting, 'mirrors VERA' prose nit, line-42 count string, recursion-guard sentinel load-bearing). Finalizing PASS-WITH-RISKS.",
+      "timestamp": "2026-05-23T12:17:32Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer STAGE 2 (judgment tier): CAPTAIN_NOMOS + PostToolUse-on-Agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T12:16:48Z"
+  "updated_at": "2026-05-23T12:17:32Z"
 }
