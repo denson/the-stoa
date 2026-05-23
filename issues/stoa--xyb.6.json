@@ -5,6 +5,8 @@
     "stoa--xyb.4"
   ],
   "blocks": [],
+  "closed_at": "2026-05-23T08:06:31Z",
+  "close_reason": "Arc 2 (Arc 45) SHIPPED. PR #25 squash-merged cd827d7. MAJOR_POLYBIUS.md cut 1299-\u003e590 (~55%) LOSSLESS-ON-CANON at ALL tiers (triple-confirmed). 6 CONDITIONAL-\u003e5 modules; 9 C-1+2 C-2 (.6.1/.6.2)+4 SPLIT PROVENANCE-\u003ebw cites; 1 DUPLICATE-\u003eop-disc §12; install.sh subproject recompose (5 FAIL-LOUD); lean stoa--0hl fold. Gauntlet: DAEDALUS rev1-\u003erev2 / ARGUS PASS-WITH-RISKS x2 / ADA build+tightening / VERA pass / CATO pass / ZENO 21-of-22. 590 ratified as honest lossless floor by polybius-the-stoa (PRINCIPAL surfaced, default-to-ship). Verdicts at agents/verdicts/stoa--xyb.6/.",
   "created": "2026-05-23T02:45:47Z",
   "description": "FIRST EXECUTION: apply the debloat method to MAJOR_POLYBIUS.md (1299 lines) section by section, using the composition + enforcement layers as the safety net that justifies the cut.\n\nSection map already drafted this session (19 sections tagged keep-core / -\u003ereference / consolidate-dupe / cite-provenance). Highlights: 5/10/11/12/14 -\u003e reference; 7.3 -\u003e delete-dupe (point to op-disc 12); 4/16/17/18/19 -\u003e keep rule, cite provenance; 1/2/3/6/8/9 -\u003e keep (tighten).\n\nThis is gauntlet work -\u003e route through PLINY: DAEDALUS designs the slim structure + the module split + the reference/provenance destinations; ARGUS cold-audits for LOST CANON (the load-bearing risk - every empirical anchor must relocate to a bw cite, never be dropped); ADA executes; VERA/CATO/ZENO verify. LOSSLESS-ON-CANON is the acceptance bar.\n\nAfter POLYBIUS proves the method, repeat for operating-disciplines.md (2110 - worst offender), MAJOR_PLINY.md (801), CAPTAIN_DAEDALUS.md (633).\n\nDEPENDS ON: method + composition layer + enforcement layer being specified first (the cut is only safe once the layers that replace memorized-instruction exist).",
   "id": "stoa--xyb.6",
@@ -141,8 +143,8 @@
     }
   ],
   "priority": 3,
-  "status": "in_progress",
+  "status": "closed",
   "title": "First execution: MAJOR_POLYBIUS.md section-by-section slimming pass (via PLINY gauntlet, lossless-on-canon)",
   "type": "task",
-  "updated_at": "2026-05-23T07:58:05Z"
+  "updated_at": "2026-05-23T08:06:31Z"
 }
