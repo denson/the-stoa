@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-23T20:02:48Z",
+  "description": "Empirical: Arc 7 Stage 2 (stoa--xyb.7), 2026-05-23. A CATO sub-agent's isolation-test cleanup 'rm -f ${SDIR}/${SKEY}' (variable path) tripped the harness 'dangerous rm on possibly-empty variable path' permission heuristic, pausing the ENTIRE PLINY gauntlet on an unanswered prompt for ~7.5h. From the coordinating POLYBIUS seat's bw vantage this was INDISTINGUISHABLE from a PLINY stall: no breadcrumb, no commits, no progress — only a git/PR ground-truth check + a look at PLINY's terminal revealed it was a permission gate, not a crash. The rm itself was safe (single just-created sentinel file, non-empty literal components). TWO FINDINGS: (1) PROBE-AUTHORING HYGIENE: test commands (esp. cleanup rms) in gauntlet sub-agents must avoid the dangerous-op heuristic — use fixed/guaranteed-non-empty literal paths or an explicit [ -n $VAR ] guard — so they run unattended in autonomous mode. (2) AUTONOMOUS-MODE OBSERVABILITY GAP: a permission-gated pause emits NO bw signal, so the coordinating seat cannot distinguish 'blocked on permission' from 'stalled/crashed' without an out-of-band terminal check. Consider a pre-dispatch permission-audit of probe commands, and/or a gauntlet heartbeat, so peer-silence escalation can classify the cause. Sibling to the NOMOS judgment-divergence remit.",
+  "id": "stoa--x4j",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "Autonomous-mode gauntlet silently blocks on a sub-agent permission prompt (indistinguishable from a stall via bw)",
+  "type": "task",
+  "updated_at": "2026-05-23T20:02:48Z"
+}
