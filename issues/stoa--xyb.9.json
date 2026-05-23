@@ -71,11 +71,15 @@
     {
       "text": "State: all 13 rows applied + 5 KEEP-FULLER confirmed UNTOUCHED (K1/K2/K3 byte-unchanged via diff, K4 enumeration verbatim, K5 steps 3-8 untouched). Gates GREEN: spec_refs byte-identical {total:212,pass:156,fail:56,strange:0}; all headings/numbers identical pre/post (no heading line in diff); B1 (both nuances in §19.4 body: neither-subsumes 2x + broaden-from-§19.2-pattern-2 1x) + B2 (§19.3 = incident-shape exemplars, no byte-recoverable claim) honored; no author-like field touched, Author stays PRINCIPAL; no leak to main. Per-file delta: op-disc -41 net, PLINY -5, DAEDALUS -2. Committing now.",
       "timestamp": "2026-05-23T20:41:27Z"
+    },
+    {
+      "text": "pass: Arc 51 .9 prose-compression capstone built. Commit ccf4399 on arc-51/build (Author=PRINCIPAL; seat trailer CAPTAIN_ADA_the-stoa + Claude trailer both present). All 13 ARGUS-cleared rows applied IN PLACE (op-disc 8-A/8-B/19-A/19-B/19-C/19-D/28-A/28-B/28-C, PLINY P-5.1/P-7.2/P-9, DAEDALUS D-3); 5 KEEP-FULLER UNTOUCHED (K1 §6.5 Monitor block byte-identical across seats + run_in_background unchanged from cfb11bc; K2 §8.2 bidirectional-translation byte-unchanged; K3 §2 escalation-triggers byte-unchanged; K4 §7.2 3-step enumeration verbatim; K5 §9 steps 3-8 untouched). B1 honored (§19.4 body carries neither-subsumes 2x + broaden-from-§19.2-pattern-2 1x). B2 honored (§19.3 = incident-shape exemplars, narrated-at-§19.2, no byte-recoverable claim). spec_refs byte-identical {212/156/56/0} (zero op-disc PASS-\u003eFAIL). No heading/number changed (no heading line in diff). No author-like field touched. No leak to main. Per-file delta: op-disc -41 net (69L changed incl §19.4 map table), PLINY -5, DAEDALUS -2; 3 files, +34/-52. Probe 6 (gen-data) NOT run inline (node_modules absent in fresh worktree) but provably safe: diff touches no frontmatter + no heading line; flag for VERA if full belt-and-suspenders run wanted. Returning to PLINY for VERA + CATO (dropped-nuance cold-read) + ZENO.",
+      "timestamp": "2026-05-23T20:41:57Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "op-disc KEEP-prose tightening (lossless compression of §8/§19/§28, ~100-150L) — CATO Arc-47 follow-up",
   "type": "task",
-  "updated_at": "2026-05-23T20:41:27Z"
+  "updated_at": "2026-05-23T20:41:57Z"
 }
