@@ -79,11 +79,15 @@
     {
       "text": "ZENO progress: criteria 1-4,6,9 checked. NOMOS.md exists+4 frontmatter fields+tools=Bash/Read/Grep/Glob (no Agent/Write/Edit/Web)+no bad author field: MET. 2 hooks exist+bash -n 0: MET. settings-hooks.json valid JSON, 2 new hooks nest INSIDE hooks{} (r1 correct depth, NOT top-level keys): MET. install.sh NOMOS in CAPTAIN_NAMES(12 entries)+count 11-\u003e12 at all 5 sites+ENABLE_HOOKS=0 default+bash -n 0: MET. #18427 in hooks/README caveat table (r5): MET. Scope diff=8 named files only, Author=PRINCIPAL+CoAuthored ADA: MET. Now checking re-decompose remediation (c5), 7.7 DROP (c7), spec_refs.py (c8).",
       "timestamp": "2026-05-23T12:34:21Z"
+    },
+    {
+      "text": "ZENO progress: criteria 5,7,8 checked. re-decompose remediation: DIVERGENT branch + all 3 guardrails (size-derail-split/wrong-spec-escalate; cap N=2 re-derived-from-bw; granularity floor) present in incomplete-unverifiable-routing.md, existing INCOMPLETE/UNVERIFIABLE+A6-LOCK preserved: MET. 7.7 DROP: NOMOS L49 explicitly bw-STATE comparison, 'never grep for [from:] seat-tags', no seat-tag-keyed detection: MET. spec_refs.py 156 PASS/56 FAIL, IDENTICAL to main baseline (56 pre-existing placeholder-anchor FAILs in SPECIFICATION.md, ZERO cite a Stage-2 file): NO REGRESSION, MET. Finalizing verdict — auditing for out-of-spec additions next.",
+      "timestamp": "2026-05-23T12:35:12Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer STAGE 2 (judgment tier): CAPTAIN_NOMOS + PostToolUse-on-Agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T12:34:21Z"
+  "updated_at": "2026-05-23T12:35:12Z"
 }
