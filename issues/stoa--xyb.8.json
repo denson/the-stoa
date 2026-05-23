@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-23T09:01:30Z",
+  "description": "Arc 4 (Arc 47) cut of operating-disciplines.md (2156 lines — the worst offender; grew from 2110 at epic start via §33 [Arc 1] + §34 [Arc 3 Stage 1]). Dispatched by polybius-the-stoa 2026-05-23T08:58:28Z.\n\nDIRECTIVE:\n- Apply the PROVEN 3-bucket method (Arc 2) + the subproject-recompose mechanism (op-disc deploys to ALL tiers, so recompose applies same as POLYBIUS).\n- RECALIBRATED CRITERION (PRINCIPAL-ratified): lossless-floor is an OUTPUT measured per file; falsify on LOSSLESS-COMPLETENESS (every chunk homed + recoverable), NOT a line-number. Do NOT set a fixed line target meetable only by moving always-on rules off-disk. REPORT THE EMPIRICAL FLOOR.\n- EXTRA CARE: op-disc is UNIVERSAL — every seat (POLYBIUS/PLINY/all CAPTAINs) loads it. ARGUS LOST-CANON audit is primary; the cut must hold lossless for the WHOLE TEAM, not one seat. The KEEP bucket = the universal always-on operational core every seat needs.\n- C-2-style provenance with no clean bw home -\u003e dedicated child tickets (Arc-2 precedent).\n- Use the Arc-1 composition mechanism (modules + routing-map + relocation-index) + the §34 trigger-payload authoring rule (now canon).\n- Section-number PRESERVE via stubs (Arc-2 precedent, zero cross-ref churn) — esp. important here since op-disc is cross-referenced by EVERY role file + module.\n\nGAUNTLET: DAEDALUS cut design -\u003e ARGUS (LOST-CANON primary, whole-team) -\u003e ADA -\u003e VERA + CATO + ZENO. Backlog palate-cleansers (2i5/vr1/tvc) may slot opportunistically but op-disc is priority.",
+  "id": "stoa--xyb.8",
+  "labels": [],
+  "parent": "stoa--xyb",
+  "priority": 2,
+  "status": "open",
+  "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
+  "type": "task",
+  "updated_at": "2026-05-23T09:01:30Z"
+}
