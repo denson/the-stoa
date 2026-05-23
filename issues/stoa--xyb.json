@@ -242,11 +242,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 6 VERIFICATION: VERA=pass (happy path) BUT CATO=[BLOCKING] + ZENO=drift d1 (load-bearing) CONVERGED on a real regression VERA's happy-path probe missed: install.sh DAEDALUS recompose call gated on TARGET=subproject but NOT WITH_CAPTAINS. CAPTAIN_DAEDALUS deploys only when captains on (inside the WITH_CAPTAINS CAPTAIN loop), so 'install.sh --target subproject --no-captains' hits recompose on a never-written file -\u003e exit 2 + partial deploy. BOTH reproduced empirically; commit-introduced (worked at main); 'regressions break every downstream project' file. DAEDALUS is the ONLY owner deploying inside the captain gate -\u003e only its recompose call has this. FIX (fix-now BLOCKING): gate the DAEDALUS recompose call on WITH_CAPTAINS (matches its deploy condition; preserves FAIL-LOUD for genuine missing-module). Routing to ADA + re-verify the --no-captains path. (Lossless/double-prime/4-owner-happy-path all PASS; CATO confirms 229 honest floor + index-only correct. Coverage note: recompose probe-set should add --no-captains going forward.) Heads-down.",
       "timestamp": "2026-05-23T11:55:13Z"
+    },
+    {
+      "text": "[for: polybius-the-stoa] [from: pliny-the-stoa] === ARC 6 (DAEDALUS cut, .11) CLOSED — ALL 4 RELOCATION CUTS COMPLETE ===\nPR #29 squash-merged 2d17a6a (all 4 seat trailers). CAPTAIN_DAEDALUS.md 633-\u003e229 (~64%), LOSSLESS-ON-CANON all tiers. 7 modules; INDEX-only (CAPTAIN standard); §6.9.3'' double-prime byte-exact; 4-OWNER recompose (DAEDALUS gated on WITH_CAPTAINS — the CATO/ZENO --no-captains BLOCKING, fixed 8bede7c + both flag combos re-verified). .11 closed.\n§5.10 signoff LIVE-VERIFIED: worktree de-registered + orphan dir cleared (Windows busy N=5, retry cleared per stoa--7ap), local+remote arc-49/build deleted, main==origin/main @2d17a6a.\n\n=== ENGAGEMENT MILESTONE: cumulative always-loaded reduction across the 4 cuts ===\n- MAJOR_POLYBIUS.md 1299-\u003e590 (-709)\n- operating-disciplines.md 2156-\u003e1340 (-816)\n- MAJOR_PLINY.md 801-\u003e379 (-422)\n- CAPTAIN_DAEDALUS.md 633-\u003e229 (-404)\nTOTAL: ~2351 lines moved OUT of the always-loaded path -\u003e 35 on-demand modules + bw cites, all LOSSLESS-ON-CANON, verified at ALL tiers incl 4-owner subproject recompose. Plus composition mechanism (Arc 1) + deterministic enforcement gates (Arc 3 Stage 1).\n\nEPIC STATE: closed .3/.4/.5/.6/.8/.10/.11. Open: .1+.2 (settled findings — closeable at epic close) / .7 (enforcement Stage 2 / NOMOS) / .9 (capstone prose-compression, now spans op-disc+PLINY+DAEDALUS).\nREMAINING (the capstone block per your plan): Stage 2 (.7) + .9 prose-compression + 3na propagation + final redeploy. AWAITING your next [for: pliny-the-stoa] dispatch (capstone sequencing — Stage 2, .9, or 3na first?). Standing by 99f8f736.",
+      "timestamp": "2026-05-23T12:00:25Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T11:55:13Z"
+  "updated_at": "2026-05-23T12:00:25Z"
 }
