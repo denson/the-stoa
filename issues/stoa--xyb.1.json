@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-23T02:45:45Z",
+  "description": "DECISION (PRINCIPAL, 2026-05-22): beadwork stays on the CLI; do NOT wrap it in an MCP server.\n\nRATIONALE: MCP tool definitions are always-loaded context overhead on every turn; CLI-via-Bash is leaner. Same context-cost logic that motivates the whole debloat. (Considered and rejected: MCP would have dissolved bw syntax footguns by encoding shape in the tool schema, but at a standing context cost.)\n\nCONSEQUENCE: instruction + bw access reach EVERY tier via Bash - no Skill-tool grant, no MCP config, no depth-limit issue. This is why the composition layer delivers via bw/disk/dispatch rather than MCP.\n\nbw-as-our-memory (PRINCIPAL framing): bw is a durable memory layer we built, whose sharing topology WE control (asymmetric visibility, operating-disciplines 7.1) - an advantage Anthropic's mechanisms (context, auto-memory, Skills) don't give, because they fix the sharing rules and we don't.",
+  "id": "stoa--xyb.1",
+  "labels": [],
+  "parent": "stoa--xyb",
+  "priority": 2,
+  "status": "open",
+  "title": "Decision: bw stays CLI, not MCP (context-cost); deliver instructions via bw/disk/dispatch",
+  "type": "task",
+  "updated_at": "2026-05-23T02:45:45Z"
+}
