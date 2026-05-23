@@ -87,11 +87,15 @@
     {
       "text": "ADA activated on stoa--xyb.8 (op-disc cut Arc 47). AUTONOMOUS. Read design-rev2 (committed 30bb8fb) p1 + ARGUS rev2-reconfirm verdict (PASS-WITH-RISKS, r1-r4 CLEARED, r5 SHOULD-FIX non-blocking carry). Continuing to read ledger SS3-SS7 (719 lines) before ground-checking live op-disc + first write. Worktree arc-47-build confirmed on branch arc-47/build.",
       "timestamp": "2026-05-23T09:40:12Z"
+    },
+    {
+      "text": "ADA progress: design absorbed end-to-end; ground-check vs live op-disc PASSES (heading structure + line ranges match ledger; precut spec_refs baseline captured = 7 at-risk S7.x cites all PASS, 109 opdisc refs / 55 PASS). r5 dangling pointer confirmed at polling-cron-prompt-template.md:263. 4 of 12 modules written (S7/S14/S16/S17), verified landing in worktree not main. Continuing with S20-detail/S22/S27/S29/S30/S31/S32 modules.",
+      "timestamp": "2026-05-23T09:42:57Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
   "type": "task",
-  "updated_at": "2026-05-23T09:40:12Z"
+  "updated_at": "2026-05-23T09:42:57Z"
 }
