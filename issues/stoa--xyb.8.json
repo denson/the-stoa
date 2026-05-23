@@ -35,11 +35,15 @@
     {
       "text": "Design pass 1 complete (574 lines read). Now independently walking live op-disc 2156 lines section-by-section + grepping whole substrate for cross-refs. Verifying ledger covers every chunk; spot-checking C-1 cites + stoa--ntn (WP4).",
       "timestamp": "2026-05-23T09:11:44Z"
+    },
+    {
+      "text": "FINDING (cross-ref, [BLOCKING]): design §3.1 cross-ref check scoped grep to substrate/ ONLY and never grepped SPECIFICATION.md (repo root). validate-spec spec_refs.py resolves op-disc cross-refs by EXACT heading-line match. Empirically ran it: bare §7.1/§7.2/§7.4/§7.5 in SPECIFICATION.md currently PASS against op-disc subsection HEADINGS (lines 121/142/180/200) which the §7 relocation moves INTO the module -\u003e 7 refs flip PASS-\u003eFAIL in the Pass-9 mechanical check. P-XREF does not catch (excludes SPECIFICATION.md + only greps stub PROSE not headings). Now checking C-1 cites + stoa--ntn (WP4) + ambient-vs-conditional calls.",
+      "timestamp": "2026-05-23T09:13:28Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
   "type": "task",
-  "updated_at": "2026-05-23T09:11:44Z"
+  "updated_at": "2026-05-23T09:13:28Z"
 }
