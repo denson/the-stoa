@@ -79,11 +79,15 @@
     {
       "text": "ZENO state-transition: items 1-6 + 11 checked. Modules (7 non-empty, titles, no author, no line-leading MODULE-INLINE), §6.9 cluster + double-prime byte-exact (od -c two 0x27), spec-cited headings present, markers opens=closes=7, install.sh (DAEDALUS_MODULES 7, DEST_DAEDALUS constructed, 4th call after CAPTAIN loop, Check A owner-agnostic, FOUR/35 comments, bash -n exit 0), line count 229. Now running spec_refs.py worktree vs main baseline (item 7) on a static checkout — no main mutation.",
       "timestamp": "2026-05-23T11:48:38Z"
+    },
+    {
+      "text": "VERA state-transition: move-with-verbatim CONFIRMED on sampled modules (canonical-code-block-fix 4-anchor block byte-verbatim L39-55; probe-grounding §6.9 5-clause + 5-anchor verbatim L19-95 + Anchor compress belt-and-suspenders; §6.9.3'' 6-anchor present). Now running EXHAUSTIVE losslessness: every non-blank original §6.x discipline-body line must appear in the 7-module union (LOST-CANON falsifier).",
+      "timestamp": "2026-05-23T11:48:59Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "CAPTAIN_DAEDALUS.md cut (architect role-file debloat, 633 lines) — LAST relocation cut",
   "type": "task",
-  "updated_at": "2026-05-23T11:48:38Z"
+  "updated_at": "2026-05-23T11:48:59Z"
 }
