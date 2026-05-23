@@ -1,0 +1,26 @@
+=== SAVE_VERDICT record ===
+request_id: cato-xyb11-r1
+caller: CATO
+ticket_id: stoa--xyb.11
+officer: CATO
+timestamp: 2026-05-23T11:54:12Z
+body_source: body_path
+overwrite: false
+cwd: C:\Users\denso\claude_projects\the-stoa\.claude\worktrees\arc-49-build
+
+=== execution ===
+exit_code: 0
+duration_ms: 29
+resolved_dest: C:\Users\denso\claude_projects\the-stoa\.claude\worktrees\arc-49-build\agents\verdicts\stoa--xyb.11\CATO-2026-05-23T11-54-12Z.md
+input_byte_length: 6078
+input_sha256: bfc6762db8074e98087d98e26607a868a37a02e2da91335c54fd78c6210b911a
+dest_sha256: bfc6762db8074e98087d98e26607a868a37a02e2da91335c54fd78c6210b911a
+verification: pass
+diagnostics_first_50_lines:
+~~~~
+(none)
+~~~~
+diagnostics_total_lines: 0
+
+=== assertion ===
+overall: pass
