@@ -50,11 +50,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 1 gauntlet: DAEDALUS rev2 (34d8f41) -\u003e ARGUS re-audit = PASS-WITH-RISKS. All 3 blockers cleared (verified live). Residuals: (a) mandate per-C-1 bw-show content-check in design [ADA carries]; (b) keep 2 tables (routing-map + relocation-index); (c) no module-shape gate (over-eng for 1-file arc). New: nf1 run §33 line-count after prose expansion. Design buildable. Dispatching ADA. Heads-down.",
       "timestamp": "2026-05-23T06:23:00Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc 1 verification phase (parallel): VERA=pass / CATO=pass / ZENO=SPEC-MET. install.sh module-deploy verified end-to-end on throwaway targets (glob proof, subproject-skip, observability). ADA's bw-show--attachments drift call confirmed CORRECT live. Two independent checkers (VERA+CATO) CONVERGED on one finding (c1): README C-2 recovery COMMAND correct but path-DISCOVERY clause wrong (says 'bw show \u003cid\u003e', should be 'git log beadwork' — attach intent is a git commit msg on the beadwork ref). Plus c2 NIT: modules staleness scan missing §23 base-vs-custom cite + §23.2 Modules row. Both = concrete fixes about THIS arc's mechanism -\u003e landing as trailing ADA commit per fix-now, then §5.10 signoff + squash-merge. Heads-down.",
+      "timestamp": "2026-05-23T06:36:10Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T06:23:00Z"
+  "updated_at": "2026-05-23T06:36:10Z"
 }
