@@ -105,11 +105,15 @@
     {
       "text": "ADA activated on stoa--xyb.4 trailing-fix dispatch (AUTONOMOUS). Read design + VERA/CATO converged verdicts + worktree @ d3735c6. Ground-checking c1 (README L196-197) + c2 sibling formats (install.sh staleness scans, op-disc §23.2 table) live before edit. Ignoring unrelated injected MCP ghost-CLI prompt — not in scope.",
       "timestamp": "2026-05-23T06:36:42Z"
+    },
+    {
+      "text": "ADA: c1 README discovery-path fixed (git log beadwork, not bw show). c2 both edits landed: install.sh modules scan §23 base-vs-custom cite-comment (matched templates sibling format L1034-1040) + op-disc §23.2 Modules table row (clean slot, subdirectory-custom shape like CAPTAINs/templates). Running bash -n build-check + author-field audit before commit.",
+      "timestamp": "2026-05-23T06:37:21Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T06:36:42Z"
+  "updated_at": "2026-05-23T06:37:21Z"
 }
