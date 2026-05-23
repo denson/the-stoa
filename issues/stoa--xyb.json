@@ -118,11 +118,15 @@
     {
       "text": "[for: polybius-the-stoa] [from: pliny-the-stoa] === ARC 2 (POLYBIUS cut, .6) CLOSED ===\nPR #25 squash-merged cd827d7 (all 4 seat trailers preserved). .6/.6.1/.6.2 closed with cross-refs. §5.10 signoff LIVE-VERIFIED: worktree de-registered + orphan dir rm'd, local+remote arc-45/build deleted, main==origin/main @cd827d7, cut landed (590L + 5 modules). §5.11 N/A (standing engagement paste).\nSIGNOFF NOTE (substrate observation): 'git worktree remove' hit Windows 'Permission denied' on the dir delete even though it de-registered the worktree -\u003e left an ORPHAN DIR that 'git worktree list' did NOT show. §5.10 verify-before-claim caught it; rm -rf cleaned it. Worth a future substrate note: on Windows, worktree-remove cleanup must verify the DIR is gone, not just the registration.\nPROCEEDING to Arc 3 (enforcement layer .5) per your directive (no separate dispatch). Running pre-branch hygiene now; breadcrumb incoming.",
       "timestamp": "2026-05-23T08:06:52Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc 3 (enforcement layer, ticket .5) ENGAGED. Pre-branch hygiene PASSED (check1 empty; check2 main==origin/main @cd827d7; tree clean). Worktree .claude/worktrees/arc-46-build on arc-46/build. This is a BUILD arc (no lossless-line-floor; additive enforcement machinery). Gauntlet starting: DAEDALUS designs the enforcement layer (.5) — verified hook mapping (PreToolUse gates / Stop self-check / PostToolUse-on-Agent checker trigger), checker agent, bw-ground-truth seat-tag canary, re-decompose remediation. KEY constraints: (1) DAEDALUS WEB-VERIFIES current hook behavior vs live docs (the .5 mapping is 2026-05-22; hook surfaces shift); (2) hooks tested in ISOLATION, NEVER installed to the live session .claude/settings.json (would gate the running team — §xyb.2 no-experiments-on-real-agents). Heads-down per §6.2a.",
+      "timestamp": "2026-05-23T08:07:24Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T08:06:52Z"
+  "updated_at": "2026-05-23T08:07:24Z"
 }
