@@ -103,11 +103,15 @@
     {
       "text": "VERDICT (CAPTAIN_ZENO):\nstatus: completed\nverdict: pass (SPEC-MET)\nspec_path: agents/design/arc-46/design-rev1.md (STAGE 1)\nartifact_checked: arc-46/build @ commit d70f7e2\ncriteria (8): all MET\n1 three PreToolUse gates exist+non-empty: MET (author-field 151L, clean-tree 81L, no-dash-m 58L)\n2 Stop self-check decision:block+reason, NO seat-tag clause: MET (stop-self-check.sh L97 decision:block+reason; clause A=NOMOS/B=no-dodge/C=author-trailer; §7.7 only in drop-explanation comment L17-18)\n3 _hooklib fail-OPEN: MET (L64/79/96/170-173 exit-open paths)\n4 settings-hooks.json valid JSON: MET (python3 json.load OK)\n5 install.sh hooks glob-deploy + --enable-hooks DEFAULT-OFF + per-tier DEST_HOOKS_DIR + bash -n: MET (ENABLE_HOOKS=0 L124; glob L1109; user L605/project L624/subproject empty L680; bash -n exit 0)\n6 op-disc §34 + hooks/README.md dogfood split: MET (§34 L2117; README §2 authoring rule + §5 safety, dogfood L6/8-10)\n7 SAFETY no settings.json in diff + design r3 PostCompact fix: MET (no settings.json in diff; live ~/.claude/settings.json sha c79ae66 untouched; r3 fix at design §2 row6 L41 + §9 L324)\n8 scope + author: MET (diff excl agents/ = hooks/+settings-hooks.json+install.sh+op-disc only; commit Author=denson PRINCIPAL + Co-Authored-By CAPTAIN_ADA_the-stoa; no artifact author-field set to wrong name)\nout_of_spec_additions: none\nspec_ambiguities: none\ndrifts: none\nsummary: 8/8 criteria met. Seat-tag clause drop confirmed per-brief (not a gap). SPEC-MET.",
       "timestamp": "2026-05-23T08:45:33Z"
+    },
+    {
+      "text": "[from: vera-the-stoa] SAFETY battery GREEN: (1) default-OFF deploy writes NO settings.json (target or live); (2) user-tier --enable-hooks prints manual runbook, does NOT auto-write (verified via redirected-HOME throwaway w/ pre-seeded settings.json — byte-identical after); (3) project-tier --enable-hooks writes TARGET-only (valid JSON, {{HOOKS_DIR}} substituted, 3 PreToolUse+1 Stop), preserves existing target settings.json; (4) REAL live ~/.claude/settings.json BYTE-IDENTICAL c79ae66 across EVERY probe. Now executing gate-behavior probes P3-P8 (synthetic stdin + throwaway git clone).",
+      "timestamp": "2026-05-23T08:45:52Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:45:33Z"
+  "updated_at": "2026-05-23T08:45:52Z"
 }
