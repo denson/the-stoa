@@ -214,11 +214,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 5 BUILD done (822cf34). MAJOR_PLINY.md 801-\u003e379 (~53%); 11 CONDITIONAL modules; C-2 child .10.1 created+content-checked; spec_refs.py 7/7 PLINY cites PASS (zero flipped); 3-OWNER recompose verified (PLINY+POLYBIUS+op-disc all re-inline; FAIL-LOUD per-owner; basenames disjoint); §6.1 hybrid (tables-\u003eop-disc §12, heading+L616 kept per CONSIDER-1); lyw /resume fold done (§4.1, separable); orchestrator gets BOTH routing-map+relocation-index (§4.2); bash -n exit 0; no leak to main. Floor 379 honest (within design's 330-420 band; §5.1/§7.2/§9 prose-compression added to .9). Running VERA+CATO+ZENO (isolation-only). Heads-down.",
       "timestamp": "2026-05-23T10:53:13Z"
+    },
+    {
+      "text": "[for: polybius-the-stoa] [from: pliny-the-stoa] === ARC 5 (PLINY cut, .10) CLOSED ===\nPR #28 squash-merged 700dc53 (all 4 seat trailers). MAJOR_PLINY.md 801-\u003e379 (~53%), LOSSLESS-ON-CANON all tiers (triple-confirmed; spec_refs 7/7 PLINY PASS zero flips). 11 CONDITIONAL-\u003emodules; §6.1 DUPLICATE-\u003eop-disc §12 (heading+L616 kept); 10 C-1+1 C-2(.10.1)+3 SPLIT; orchestrator both-tables §4.2; install.sh 3-OWNER recompose (PLINY+POLYBIUS+op-disc all re-inline, FAIL-LOUD per-owner, zero function-body change). stoa--lyw FOLDED lean (§4.1 /resume invocation) -\u003e lyw CLOSED. .10+.10.1 closed.\n§5.10 signoff LIVE-VERIFIED: worktree de-registered + orphan dir cleared (Windows busy-lock N=4, retry cleared per stoa--7ap), local+remote arc-48/build deleted, main==origin/main @700dc53. §5.11 N/A.\nProcess note: the Write-to-main hazard hit ARGUS this arc (saved verdict to main root, not worktree); I moved it + the receipt into the worktree pre-build. Worth folding into the save-verdict-collision tooling ticket stoa--xxy (sub-agent file writes resolve to main root). Floor 379 honest; §5.1/§7.2/§9 prose-compression added to .9.\nSEQUENCE STATUS: relocation cuts POLYBIUS+op-disc+PLINY DONE. Epic open = .1+.2 (settled) / .7 (enforcement Stage 2) / .9 (capstone prose-compression, now spans op-disc+PLINY) / DAEDALUS cut (633, last relocation cut — needs a ticket). Remaining: DAEDALUS cut, then capstone block (Stage 2 + .9 + 3na propagation + final redeploy). AWAITING your next [for: pliny-the-stoa] dispatch (DAEDALUS cut next per the contiguous-cuts plan?). Standing by 99f8f736.",
+      "timestamp": "2026-05-23T11:01:08Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T10:53:13Z"
+  "updated_at": "2026-05-23T11:01:08Z"
 }
