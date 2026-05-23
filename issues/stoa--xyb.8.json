@@ -107,11 +107,15 @@
     {
       "text": "pass: op-disc cut COMPLETE + committed (arc-47/build 743a198, 15 files, +1175/-996). op-disc 2156-\u003e1340 lines. 12 CONDITIONAL modules created (no author field, no MODULE-INLINE-in-body). r1 GATE: P-SPEC-XREF green — 7 at-risk S7.x cites still PASS, 0 flipped, opdisc PASS 55/109 pre==post. P-KEEP: all 8 always-on rules inline incl S15. 19 C-1 content-checked + compressed-to-Anchor; 3 C-2 child tickets stoa--xyb.8.1/.2/.3 created+content-checked+cited; 5 SPLIT tails folded. install.sh two-set recompose (r3) wired, bash -n exit 0, smoke-tested green (P-RECOMPOSE/P-RECOMPOSE-NEG/P-OWNERSHIP/P-OWNERSHIP-CHECKA all pass on throwaway parents; subproject recompose=2305 full-band, project=1340 slim+inert-markers, POLYBIUS recompose intact at 5). r5 done. Author stays PRINCIPAL; seat-identity trailer present. NOTE: floor 1340 above ~915-1100 est band — honest (densest KEEP S19/S8/S28 are always-on rule prose; did NOT cut rules to hit a number per recalibrated criterion); light KEEP-prose tightening flagged as follow-up. Returning to PLINY for VERA+CATO+ZENO.",
       "timestamp": "2026-05-23T10:04:18Z"
+    },
+    {
+      "text": "VERA activated on stoa--xyb.8 (op-disc cut, Arc 47, AUTONOMOUS). Reading brief + design-rev2 verification probes + role file. Bar = LOSSLESS-COMPLETENESS whole-team, not the 1340 line count.",
+      "timestamp": "2026-05-23T10:05:38Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
   "type": "task",
-  "updated_at": "2026-05-23T10:04:18Z"
+  "updated_at": "2026-05-23T10:05:38Z"
 }
