@@ -73,11 +73,15 @@
     {
       "text": "ZENO state: criteria extracted (13 items across README/op-disc/install.sh/scope/commit). install.sh checks pass (bash -n exit 0; substrate/modules + .claude/modules refs present; subproject DEST empty). op-disc §33 placed L2089 (after §32 L2042, before Agent-regime-inverses L2115), 24 content lines UNDER ≤30. Commit author=PRINCIPAL, ADA trailer present. Now finishing README template + scope checks.",
       "timestamp": "2026-05-23T06:30:36Z"
+    },
+    {
+      "text": "pass: SPEC-MET. All 13 criteria met, 0 partial, 0 not-met, 0 uncheckable. README has 3 channels + module-authoring discipline + routing-map/relocation-index formats + all 3 relocation classes w/ templates + exactly 5 Arc-2 module names + per-C-1 bw-show content-check gate (ARGUS-carry 1). op-disc §33 placed L2089 (after §32, before Agent-regime-inverses), 24 content lines ≤30. install.sh: bash -n exit 0, substrate/modules + .claude/modules glob deploy, subproject DEST_MODULES_DIR=\"\". Scope clean (only 3 target files ex-agents/, 3 deletions all install.sh header-comment reflow, no role-file content cut, no Arc-2 content files, no author-like field changed). Commit author=PRINCIPAL, CAPTAIN_ADA_the-stoa trailer present. No out-of-spec additions. Returning.",
+      "timestamp": "2026-05-23T06:30:57Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T06:30:36Z"
+  "updated_at": "2026-05-23T06:30:57Z"
 }
