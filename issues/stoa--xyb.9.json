@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-23T10:16:15Z",
+  "description": "FOLLOW-UP to the op-disc cut (Arc 47, PR pending). CATO's cold-read found the 1340-line floor is the HONEST no-rules-cut floor AND that §8/§19/§28 carry ~100-150 lines of genuinely LOSSLESS prose-compression (tighten rule PROSE, drop NO rule, relocate NO always-on core off-disk). This is a separate concern from the relocation cut (kept out of the cut diff per fix-now scope-mixing) — a bounded prose-compression pass. Target ~1180-1240; do NOT chase \u003c1100 if it forces cutting a rule.\n\nCONCRETE PLAN (CATO examples, not a handwave):\n- §19 (densest, ~60-80L): the §19.6/§19.7/§7.2 relationship is re-explained 3x (§19.4 + §19.6.2 + §19.7.2 — consolidate); §19.3 restates §19.2's two examples verbatim (de-dupe); §19.6.4/§19.7.5 are duplicate N=1-provenance boilerplate (Anchor-compressible like the C-1 cuts — the empirical already lives at stoa--ezj/stoa--53u).\n- §28 (~25-35L): §28.8 (9 cross-ref bullets) duplicates inline cross-refs; §28.6 speculative scaffolding; §28.3.1 narrative ~30% tightenable.\n- §8 (~15-25L, least): duplicate 'Universality:' paragraphs; the bidirectional-translation paragraph near-duplicates the doc thesis.\n\nGUARDRAILS: lossless — drop NO rule; spec_refs.py must stay GREEN (zero op-disc PASS-\u003eFAIL); §28.8 cross-ref compression must not break a live cross-ref (verify each). Small gauntlet (DAEDALUS-light or ADA+CATO+spec_refs gate). Also fold the minor §7.6-Anchor cite NIT here (VERA+CATO: ariadne--m20 cross-repo cite doesn't resolve from the-stoa; the §7.6 prose is preserved verbatim in two-polybius-coordination.md, so annotate the cite as cross-repo or drop the non-resolving part). Schedule: near-term (CATO: 'planned follow-up'), operator slots vs the remaining cut arcs (PLINY/DAEDALUS).",
+  "id": "stoa--xyb.9",
+  "labels": [],
+  "parent": "stoa--xyb",
+  "priority": 3,
+  "status": "open",
+  "title": "op-disc KEEP-prose tightening (lossless compression of §8/§19/§28, ~100-150L) — CATO Arc-47 follow-up",
+  "type": "task",
+  "updated_at": "2026-05-23T10:16:15Z"
+}
