@@ -107,11 +107,15 @@
     {
       "text": "pass: Arc 51 .9 prose-compression capstone clears VERA verification. All 7 probes GREEN.\nHEADLINES — (1) spec_refs HARD GATE: post=main={212/156/56/0}; 212 verdict tuples IDENTICAL main vs ccf4399 (re-run against fresh detached main worktree); 0 flips any direction; 0 op-disc/role-file PASS-\u003eFAIL. (2) B1: §19.4 map body carries neither-subsumes x2 + broaden-from-§19.2-pattern-2 x1 (no orphan from Row 19-D bullet drop). (3) gen-data RAN (not asserted): npm install exit 0 + npm run gen-data exit 0 in worktree app/ (node v22/npm 11; node_modules was absent); 14 role files parsed incl the 3 modified, Zod clean, no frontmatter regression.\np2 no heading/number in diff (heading inventory byte-identical all 3 files; only §9 ordered-list 1-2 collapse, not a heading). p4 B2: §19.3 = incident-shape exemplars, narrated-at-§19.2, no byte-recoverable claim (ARGUS r2 moot). p5 5 KEEP-FULLER untouched (K1 Monitor byte-identical to main + across DAEDALUS/ADA/CATO/VERA/ARGUS; K2 4-nuance paragraph identical; K3/K4/K5 identical; all 13 compressed-subsection anchors reachable). p7 no leak to main (main HEAD cfb11bc unchanged; 3 target files in worktree untouched by VERA — independence preserved).\nPer-file delta: op-disc +26/-43, PLINY +6/-7, DAEDALUS +2/-2 (+34/-52). Verdict saved: agents/verdicts/stoa--xyb.9/VERA-2026-05-23T20-46-46Z.md (sha256 6d08da86d874, 12724 bytes). Returning.",
       "timestamp": "2026-05-23T20:47:01Z"
+    },
+    {
+      "text": "pass: SECONDARY SEMANTIC GATE clears. ZERO BLOCKING dropped/weakened nuance found across the SHIPPED diff (main..ccf4399). Cold-read every changed chunk BEFORE-vs-AFTER against live text (not design claims abstractly): all 13 compression rows preserve every rule + nuance; no MUST-\u003eshould, no operational detail (command/threshold/condition/anti-pattern) lost, no meaning-drift. B1 confirmed honored in shipped text: sec 19.4 map carries neither-subsumes x2 + both-broaden-from-sec-19.2-pattern-2 x1 (Row 19-D bullet@766 drop creates no orphan). All 5 KEEP-FULLER genuinely UNTOUCHED (K1/K2/K3/K4/K5 verified in diff). 2 NON-BLOCKING minor nits: c1 (= ARGUS B2 precision — sec 19.3 AFTER claim 'narrated at sec 19.2' is TRUE even though the 2026-04-21 --amend verbatim string is not byte-recoverable from sec 19.2; rule survives), c2 (sec 5.1 L174 descriptive-gloss trim). Both ship-with. Scope/hygiene all PASS (3 files only, every heading+number preserved, Author=PRINCIPAL, ADA+Claude trailers, no author-like field touched, no leak to main). verifier_coverage: VERA sound; Probe 6 gen-data now RAN empirically (VERA: exit 0, 14 role files parsed, Zod clean) — coverage complete. Verdict saved: agents/verdicts/stoa--xyb.9/CATO-2026-05-23T20-48-24Z.md (sha256 d3e10a9d823a, 13668 bytes). Returning.",
+      "timestamp": "2026-05-23T20:48:37Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "op-disc KEEP-prose tightening (lossless compression of §8/§19/§28, ~100-150L) — CATO Arc-47 follow-up",
   "type": "task",
-  "updated_at": "2026-05-23T20:47:01Z"
+  "updated_at": "2026-05-23T20:48:37Z"
 }
