@@ -151,11 +151,15 @@
     {
       "text": "VERA VERDICT: pass. LOSSLESS-COMPLETENESS MET whole-team (the bar) — all 39 relocated chunks homed+recoverable: 12 CONDITIONAL modules (bodies verified present + re-inline at subproject), 19 C-1 Anchors (9 sampled all carry stories), 3 C-2 child tickets (8.1/8.2/8.3 carry verbose prose), 5 SPLIT folds, 22 KEEP sections inline incl §15; no always-on rule dropped; no author-field regression. r1 HARD GATE PASS (independent per-ref pre-vs-post: ZERO op-disc PASS-\u003eFAIL flips, ZERO vanished; malformed 7.1. L129 = frozen-spec defect identical pre+post). Recompose battery PASS on throwaways: 12 bodies re-inline (recomposed=2305 full band), FAIL-LOUD fires (exit 2 + clean abort, no partial), two-owner partition no false-positive, Check A global retained (r3). 16 probes all pass. Deliverable untouched (independence held). 1340 line count = REPORTED output (above ~760-915 est, honest; ~100-150L lossless tightening = follow-up, NOT a fail). One §7.6 cite-back NIT (bw show ariadne--m20 doesn't resolve from-repo) — non-blocking, prose self-contained in module. Verdict saved agents/verdicts/stoa--xyb.8/VERA-2026-05-23T10-13-13Z.md (sha256 ac1f167422b4). Returning.",
       "timestamp": "2026-05-23T10:13:35Z"
+    },
+    {
+      "text": "pass-with-nits: op-disc cut is clean + intent-faithful + lossless-complete. No BLOCKING. Two nits: c1 [recommended-revision, craft] the 1340 floor is HONEST (no rule cut, matches recalibrated criterion) BUT S8/S19/S28 carry ~100-150L of lossless-compressible prose (S19 triple-restates 19.6/19.7/7.2 relationship; 19.3 dups 19.2 examples; 19.6.4/19.7.5 boilerplate provenance; 28.8 dup cross-refs; S8 dup Universality) -- 1340 is above the design own \u003e1100 KEEP-prose-verbose-\u003etighten line, so a bounded pre-merge tightening pass (target ~1180-1240, do NOT chase \u003c1100) is recommended not blocking; c2 [minor, citation] S7.6 Anchor ariadne--m20 does not resolve from the-stoa (ergonomics, not losslessness -- module prose self-contained, VERA concurs). FLOOR VERDICT: ship-at-1340 is defensible under the recalibrated criterion; tightening IS real and should be a planned follow-up with c1 examples as the plan. Verified LIVE (S6.8): two-set recompose keeps BOTH POLYBIUS+op-disc working at subproject w/ no cross-contamination, fail-loud on corruption; project-tier stays slim 1340. Author=PRINCIPAL, trailer present, scope=named files only, S6.5 authorship clean. Verdict saved agents/verdicts/stoa--xyb.8/CATO-2026-05-23T10-14-22Z.md (sha256 92305ba4fc5a). Converges with VERA+ARGUS. Returning.",
+      "timestamp": "2026-05-23T10:14:36Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
   "type": "task",
-  "updated_at": "2026-05-23T10:13:35Z"
+  "updated_at": "2026-05-23T10:14:36Z"
 }
