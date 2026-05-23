@@ -783,7 +783,13 @@ else
   echo "  deploy hooks     : no (subproject mode — Arc 46 §11 out-of-scope)"
 fi
 if [ "$ENABLE_HOOKS" -eq 1 ]; then
-  echo "  arm hooks        : YES (--enable-hooks) -> merge candidate block into ${DEST_SETTINGS_JSON}"
+  if [ "$TARGET" = "user" ]; then
+    # User-tier is PRINT-ONLY: it emits a manual-merge runbook and NEVER auto-writes
+    # ~/.claude/settings.json (which IS the running config — ARGUS r4 safety discipline).
+    echo "  arm hooks        : YES (--enable-hooks) -> print manual-merge runbook for ${DEST_SETTINGS_JSON} (user-tier never auto-writes the running config)"
+  else
+    echo "  arm hooks        : YES (--enable-hooks) -> merge candidate block into ${DEST_SETTINGS_JSON} (target settings.json, never the running session)"
+  fi
 else
   echo "  arm hooks        : no (default OFF — scripts deploy inert; no settings.json written)"
 fi
@@ -1089,10 +1095,11 @@ fi
 
 # 5c. Deploy enforcement hooks (Arc 46 / stoa--xyb.5; Stage 1). GLOB-discovered
 # *.sh from substrate/hooks/, deployed unsuffixed (shared tooling, mirrors
-# modules). Each script is chmod +x'd at the destination (the harness runs them
-# as commands). The hooks/README.md (authoring rule + safety note) and the
-# _hooklib.sh shared helper ride along via the *.sh + README glob. Skipped in
-# subproject mode (DEST_HOOKS_DIR empty — Arc 46 §11).
+# modules). Each GATE script is chmod +x'd at the destination (the harness runs
+# them as commands); the underscore-prefixed _hooklib.sh is a SOURCED helper lib
+# (never executed directly) so it deploys WITHOUT the exec bit. The hooks/README.md
+# (authoring rule + safety note) and the _hooklib.sh shared helper ride along via
+# the *.sh + README glob. Skipped in subproject mode (DEST_HOOKS_DIR empty — Arc 46 §11).
 #
 # CRITICAL SAFETY: this deploy is INERT. The scripts sit dormant on disk;
 # Claude Code only fires hooks REGISTERED in a .claude/settings.json, which this
@@ -1104,17 +1111,32 @@ if [ -n "$DEST_HOOKS_DIR" ]; then
   else
     log "hooks directory already exists: $DEST_HOOKS_DIR"
   fi
-  # Deploy the *.sh scripts (gates + _hooklib.sh), chmod +x each.
+  # Deploy the *.sh scripts. The gate scripts (pretooluse-*.sh, stop-self-check.sh)
+  # are the executable hooks the harness runs as commands, so they get chmod +x.
+  # Underscore-prefixed files (e.g. _hooklib.sh) are SOURCED helper libraries — never
+  # executed directly, never registered as a hook — so they deploy WITHOUT the exec bit.
   shopt -s nullglob
   for src in "${SRC_HOOKS_DIR}"/*.sh; do
     hname="$(basename "$src")"
     dest="${DEST_HOOKS_DIR}/${hname}"
     log "deploy hook: ${hname}"   # enumerate/log each deployed hook (observability, mirrors modules)
+    case "$hname" in
+      _*) _make_exec=0 ;;   # sourced lib (e.g. _hooklib.sh) — no exec bit
+      *)  _make_exec=1 ;;   # gate script — executable
+    esac
     if [ "$DRY_RUN" -eq 1 ]; then
-      echo "[dry-run] cp \"$src\" \"$dest\" && chmod +x \"$dest\""
+      if [ "$_make_exec" -eq 1 ]; then
+        echo "[dry-run] cp \"$src\" \"$dest\" && chmod +x \"$dest\""
+      else
+        echo "[dry-run] cp \"$src\" \"$dest\" (sourced lib — no chmod +x)"
+      fi
     else
       cp "$src" "$dest"
-      chmod +x "$dest"
+      if [ "$_make_exec" -eq 1 ]; then
+        chmod +x "$dest"
+      else
+        chmod -x "$dest"   # ensure the sourced lib is NOT executable even if its source mode carried +x
+      fi
     fi
   done
   shopt -u nullglob
