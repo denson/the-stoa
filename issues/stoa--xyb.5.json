@@ -111,11 +111,15 @@
     {
       "text": "[from: cato] SAFETY headline CLEAR (independent meta-verify): traced install.sh 5d — the ONLY settings.json WRITE (line 1219 sed \u003e DEST_SETTINGS_JSON) is reachable ONLY in the project-tier else-branch; user-tier hits the print-only elif (line 1186), subproject guarded out (line 1179). Live ~/.claude/settings.json byte-identical c79ae66 across project-tier --enable-hooks run + user-tier --enable-hooks dry-run. NO live-arming path exists. 4 ADA defects independently confirmed FIXED: (1) heredoc-stdin OK; (2) no-dash-m false-positive OK (4/4); (3) author allow-list + JSON/YAML/TOML/array extraction OK + substring-trap authority/byline correctly NOT matched; (4) JSON bool true/false OK. Author-gate end-to-end: PRINCIPAL allow, non-PRINCIPAL author-field + git-identity + .md-frontmatter all DENY. Fail-OPEN verified on malformed-JSON AND python3-absent (no spurious block; exit non-2). Running clean-tree + Stop sentinel loop-guard, then classifying findings + saving verdict.",
       "timestamp": "2026-05-23T08:46:56Z"
+    },
+    {
+      "text": "[from: cato] pass-with-nits: Arc 46 Stage-1 deterministic enforcement tier. SAFETY HEADLINE CLEAR — no live-arming path at either tier (only write is project-tier-target-only @ install.sh:1219; user-tier print-only; live ~/.claude/settings.json byte-identical c79ae66 across all probes incl --enable-hooks). All 4 ADA defects independently confirmed fixed. Author-field gate (authorship-regression backstop) sound: allow-list lookup + JSON/YAML/TOML/array extraction + substring-trap-immune anchoring; end-to-end DENY on non-PRINCIPAL author-field/git-identity/.md-frontmatter, ALLOW on PRINCIPAL. Fail-OPEN correct on malformed-JSON AND python3-absent (no spurious block). ADDED §6.8 probe: gates worktree-safe (.git-is-FILE; stoa--148 bug class ABSENT — gates use porcelain git -C). Clean-tree + Stop sentinel loop-guard correct. §34 thin+well-placed; README dogfood split correct. Scope clean (exactly 10 named files); Author=PRINCIPAL; ADA seat trailer present; principal-identity is gate CONFIG not an artifact author field (distinction holds). 3 NITs only (no BLOCKING): c1 user-tier plan-line wording overstates 'merge into' vs print-only; c2 _hooklib.sh deployed +x though source-only/sourced; c3 author-encoding file-set scope bound (documented, consistent w/ global discipline). Verdict at agents/verdicts/stoa--xyb.5/CATO-2026-05-23T08-49-09Z.md (sha256 round-trip verified). Returning to PLINY.",
+      "timestamp": "2026-05-23T08:49:19Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:46:56Z"
+  "updated_at": "2026-05-23T08:49:19Z"
 }
