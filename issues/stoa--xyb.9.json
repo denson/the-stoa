@@ -51,11 +51,15 @@
     {
       "text": "State: all 13 rows + 5 KEEP-FULLER adjudicated. K1 byte-alignment CONFIRMED empirically (Monitor line byte-identical across 12 CAPTAIN files incl ARGUS's own) -\u003e keep-fuller correct. Row 19-B minor: the 2026-04-21 verbatim string @724 is NOT byte-recoverable from §19.2 (incident narrated, exact --amend string unique to 724) -\u003e non-blocking precision note, rule survives. Q1: HOLD safe floor (relax = heading-topology change needing full cross-substrate inbound-ref audit for ~10-15L; asymmetric risk). Q2: §7.6 ariadne--m20 OUT (outside §8/§19/§28 targets; different defect class). Drafting verdict -\u003e save to worktree path.",
       "timestamp": "2026-05-23T20:31:21Z"
+    },
+    {
+      "text": "PASS: Arc 51 .9 prose-compression capstone clears the primary semantic gate. All 13 rows equivalence-confirmed (0 BLOCKING dropped-nuance); 5 KEEP-FULLER all sound (K1 byte-alignment verified empirically across 12 CAPTAIN files). spec_refs 156/56 unchanged + resolver heading-text-rescan confirmed -\u003e body-prose compression provably probe-safe. 2 non-blocking build-obligations for ADA/VERA: B1 (s19.4 map must carry neither-subsumes + broaden-from-s19.2-pattern-2 once Row 19-D drops bullet@766; extend VERA Probe 5), B2 (Row 19-B precision wording - the 2026-04-21 verbatim string@724 is NOT byte-recoverable from s19.2). Q1: HOLD safe floor (no subsection-heading deletion). Q2: s7.6 ariadne--m20 OUT of scope. Verdict saved: agents/verdicts/stoa--xyb.9/ARGUS-2026-05-23T20-35-57Z.md (sha b1601179fc05). Returning.",
+      "timestamp": "2026-05-23T20:36:03Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "op-disc KEEP-prose tightening (lossless compression of §8/§19/§28, ~100-150L) — CATO Arc-47 follow-up",
   "type": "task",
-  "updated_at": "2026-05-23T20:31:21Z"
+  "updated_at": "2026-05-23T20:36:03Z"
 }
