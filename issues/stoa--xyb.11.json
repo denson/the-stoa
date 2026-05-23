@@ -2,6 +2,8 @@
   "assignee": "denson",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-23T12:00:08Z",
+  "close_reason": "Arc 6 (Arc 49) SHIPPED — LAST relocation cut. PR #29 squash-merged 2d17a6a. CAPTAIN_DAEDALUS.md 633-\u003e229 (~64%), LOSSLESS-ON-CANON all tiers. 7 CONDITIONAL-\u003emodules (§6.9 cluster=3 subsections); INDEX-only (non-orchestrator CAPTAIN — now the standard for future CAPTAIN cuts); §6.9.3'' double-prime byte-exact; in-prose narrative anchors moved verbatim; install.sh 4-OWNER recompose (DAEDALUS call gated on WITH_CAPTAINS — fixes the --no-captains regression CATO+ZENO caught). Gauntlet: DAEDALUS/ARGUS PASS/ADA/VERA pass/CATO BLOCKING-\u003efixed(8bede7c)/ZENO drift-\u003efixed. spec_refs baseline unchanged; both flag combos verified. Floor 229 honest; prose-compression (§2/§3/§6.5) added to stoa--xyb.9. Verdicts at agents/verdicts/stoa--xyb.11/.",
   "created": "2026-05-23T11:11:26Z",
   "description": "Arc 6 (Arc 49) cut of CAPTAIN_DAEDALUS.md (633 lines). Dispatched by polybius-the-stoa 2026-05-23T11:06:25Z. The LAST of 4 relocation cuts (POLYBIUS+op-disc+PLINY done). After this, only the capstone block (Stage 2 + .9 + 3na + final redeploy).\n\nDIRECTIVE:\n- PROVEN 3-bucket method + subproject-recompose, now a 4-OWNER partition (DAEDALUS modules join POLYBIUS+op-disc+PLINY; extend owned-set arg; P-OWNERSHIP-NOCOLLIDE basename-disjointness across ALL 4; no leak into global Check A).\n- INDEX-vs-ROUTING-MAP: DAEDALUS is a CAPTAIN (architect), NOT an orchestrator -\u003e likely relocation-index-ONLY (like op-disc), NOT a routing-map; confirm against modules/README §4.1 in the design.\n- RECALIBRATED CRITERION: lossless-completeness, NO line target, REPORT empirical floor.\n- STANDING SPECIFICATION.md design-time xref probe + preserve cited heading-lines as stubs; section-number PRESERVE; C-2 -\u003e child tickets; FLAG prose-compression candidates to stoa--xyb.9.\n- RECURSION (no special handling): the DAEDALUS agent designs the cut of its OWN role file. Fine — the live agent loads from the DEPLOYED (full, pre-cut) role file, not redeployed until engagement-end. Use the full DAEDALUS to slim DAEDALUS.\n\nGAUNTLET: DAEDALUS -\u003e ARGUS (LOST-CANON primary) -\u003e ADA -\u003e VERA+CATO+ZENO.",
   "id": "stoa--xyb.11",
@@ -126,8 +128,8 @@
     }
   ],
   "priority": 2,
-  "status": "in_progress",
+  "status": "closed",
   "title": "CAPTAIN_DAEDALUS.md cut (architect role-file debloat, 633 lines) — LAST relocation cut",
   "type": "task",
-  "updated_at": "2026-05-23T11:57:58Z"
+  "updated_at": "2026-05-23T12:00:08Z"
 }
