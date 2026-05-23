@@ -55,11 +55,15 @@
     {
       "text": "pass: Stage-2 judgment tier built + committed 6de84aa on arc-50/build (8 files, +428/-15; 3 new: CAPTAIN_NOMOS.md + 2 hooks). r1 CONFIRMED (2 hooks nest INSIDE settings-hooks.json 'hooks':{} — JSON valid, correct depth); r2/r3/r5 done. --enable-hooks DEFAULT-OFF holds + live ~/.claude/settings.json sha256 byte-identical before/after every test (c79ae6...b21b0). bash -n install.sh + all hooks exit 0. P4 no Arc-6 regression (--no-captains + subproject exit 0). NOMOS deploys via CAPTAIN_NAMES (12 envelopes). 1 deviation: descriptive-role token GROUND-TRUTH AUDITOR-\u003eGROUND-TRUTH-AUDITOR so app gen-data Zod parser accepts it (spaced form breaks the adapter). 1 follow-up for VERA/CATO: sentinel layer-2 has no self-write site (design-level, bounded-failure accepted by design §5.2/WP3). Author=PRINCIPAL; seat trailer present; no author-like field touched. Returning. PLINY dispatches VERA + CATO + ZENO.",
       "timestamp": "2026-05-23T12:31:46Z"
+    },
+    {
+      "text": "VERA activated on stoa--xyb.7 (Arc 50 / Stage-2 judgment tier). AUTONOMOUS. Reading brief + design-rev1 probes + ARGUS PASS-WITH-RISKS + build 6de84aa + role file.",
+      "timestamp": "2026-05-23T12:33:00Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer STAGE 2 (judgment tier): CAPTAIN_NOMOS + PostToolUse-on-Agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T12:31:46Z"
+  "updated_at": "2026-05-23T12:33:00Z"
 }
