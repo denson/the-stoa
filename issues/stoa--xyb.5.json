@@ -123,11 +123,15 @@
     {
       "text": "ADA activated on Arc 46 Stage 1 trailing-fix (2 cosmetic CATO NITs). Reading worktree state + install.sh c1 plan-line + c2 _hooklib.sh deploy idiom before first edit. Worktree arc-46-build @ d70f7e2, branch arc-46/build confirmed. ISOLATION-ONLY: not touching live settings.json.",
       "timestamp": "2026-05-23T08:51:10Z"
+    },
+    {
+      "text": "c1 + c2 edits landed in worktree install.sh; bash -n exit 0; c2 case-classification verified (only _hooklib.sh NON-exec, 4 gate scripts keep +x). Diff scoped to install.sh only (plan-line wording + chmod logic + 2 comment corrections). No author-like field touched. Staging + committing to arc-46/build.",
+      "timestamp": "2026-05-23T08:52:24Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:51:10Z"
+  "updated_at": "2026-05-23T08:52:24Z"
 }
