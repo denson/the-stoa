@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-23T09:48:12Z",
+  "description": "C-2 PROVENANCE archive from operating-disciplines.md §26 (Activation-paste cron hygiene), Arc 47 op-disc debloat cut (stoa--xyb.8). The §26 empirical-anchor line, archived FIRST then deleted inline (replaced with Anchor: stoa--xyb.8.\u003cthis-id\u003e in the §26 slim-core cross-ref block). NOTE: §26 itself is a KEEP thin cross-ref to MAJOR_POLYBIUS.md §5.1.3; only this multi-instance ad-hoc-precedent empirical-anchor line relocates.\n\nEmpirical anchors: every PLINY-targeted activation paste since Arc 26 carries the cron-hygiene preamble ad-hoc; recent observation set HUMAN_paste-pliny-arc-30-instruction.md, HUMAN_paste-pliny-arc-31-instruction.md, HUMAN_paste-pliny-arc-32-instruction.md all converge on the canonical wording.\n\nThis is the multi-instance ad-hoc-precedent anchor for the §26 cron-hygiene discipline (the preamble that tells an activated session to run CronList before any substantive work and CronDelete any cron present). The §26 RULE + the thin cross-ref to MAJOR_POLYBIUS.md §5.1.3 (the source-of-truth full canon) + the template/why-thin cross-refs stay inline in the slim core; only this empirical-anchor line relocates here. The §6.7.1 N=1 canon-promotion gate cross-ref stays as a live in-file pointer.",
+  "id": "stoa--xyb.8.3",
+  "labels": [],
+  "parent": "stoa--xyb.8",
+  "priority": 2,
+  "status": "open",
+  "title": "Arc 47 C-2 archive: op-disc §26 cron-hygiene empirical (multi-instance HUMAN_paste-pliny-arc-* ad-hoc convergence)",
+  "type": "task",
+  "updated_at": "2026-05-23T09:48:12Z"
+}
