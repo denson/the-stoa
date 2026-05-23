@@ -7,9 +7,15 @@
   "id": "stoa--xyb.5",
   "labels": [],
   "parent": "stoa--xyb",
+  "comments": [
+    {
+      "text": "DAEDALUS activated on stoa--xyb.5 (Arc 46 enforcement-layer design). Reading brief + spec (.5/.1/.2) + composition-layer mechanism + install.sh. Next: WEB-VERIFY live hook surface before drafting (global rule + .5 verify-at-build-time).",
+      "timestamp": "2026-05-23T08:08:14Z"
+    }
+  ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:07:24Z"
+  "updated_at": "2026-05-23T08:08:14Z"
 }
