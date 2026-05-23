@@ -43,11 +43,15 @@
     {
       "text": "ADA ground-check PASS: live substrate/CAPTAIN_DAEDALUS.md (633 lines) matches ledger exactly. Headings @ expected lines; double-prime L377 byte-exact (two 0x27 apostrophes per od -c); Check E zero literal MODULE-INLINE in source bodies; frontmatter (name/desc/tools/model) verbatim, NO author field; C-1 tickets resolve incl. r3 CONFIRMED (stoa--utn = 'Promote save-verdict skill', WRONG topic; stoa--5sr = Arc-24 wording-alignment = correct §6.8 Anchor). install.sh: recompose block closes L1010, CAPTAIN loop L1014-1037, dest L1023 = ${DEST_AGENTS_DIR}/CAPTAIN_${name}${NAME_SUFFIX}.md (matches ARGUS audit). 28 module sources confirmed. ZERO ledger-vs-live drift. Writing the 7 modules now.",
       "timestamp": "2026-05-23T11:37:38Z"
+    },
+    {
+      "text": "ADA state-transition: 7 modules written + slim core cut. CAPTAIN_DAEDALUS.md = 229 lines (633-\u003e229, ~64% reduction; §6.0 index richer than the ~12-line estimate so above the 150-200 band but well under the 260 cut-too-shallow guard and above 120 cut-too-deep guard; NO KEEP rule cut to hit a number). Static probes ALL PASS: P-COND (7 modules non-empty), P-STUB (9 stub headings + §6.1-6.5 live), P-XREF (§6 + 5 substrate-cited subsections resolve), P-INDEX (§6.0 present, routing-map count 0), P-AUTH (zero author fields), P-KEEP (all 13 always-on rules inline), P-SPLIT (§6.2 repoint names both modules + §6.0). §6.9.3'' double-prime byte-exact (od -c: two 0x27). Check E clean on all bodies. NO leak to main. Now extending install.sh: DAEDALUS_MODULES + DEST_DAEDALUS path-construction + 4th recompose call after CAPTAIN loop (option-i).",
+      "timestamp": "2026-05-23T11:43:06Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "CAPTAIN_DAEDALUS.md cut (architect role-file debloat, 633 lines) — LAST relocation cut",
   "type": "task",
-  "updated_at": "2026-05-23T11:37:38Z"
+  "updated_at": "2026-05-23T11:43:06Z"
 }
