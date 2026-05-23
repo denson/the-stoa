@@ -67,11 +67,15 @@
     {
       "text": "pass: Arc 46 Stage-1 deterministic enforcement tier built + committed d70f7e2 on arc-46/build. 10 files (7 new: 5 hook scripts + hooks/README + settings-hooks.json template; 3 edited: install.sh + op-disc §34 + design-rev1 r3 fix), +1008/-5. build_check: bash -n exit 0 on all 5 scripts + install.sh; settings-hooks.json valid JSON. SAFETY: no hook registered in ANY live settings.json; user ~/.claude/settings.json byte-identical to baseline c79ae66 before/after every run incl --enable-hooks; --enable-hooks DEFAULT-OFF (project-tier writes TARGET-only, user-tier prints manual-merge never auto-writes). Isolation-tested vs throwaway targets only (now deleted). Author stays PRINCIPAL; seat trailer present. Stop clause-A DROPPED per brief. Returning — VERA + CATO + ZENO next.",
       "timestamp": "2026-05-23T08:42:13Z"
+    },
+    {
+      "text": "VERDICT (CAPTAIN_ADA):\nstatus: completed\nverdict: pass\nbranch_or_worktree: arc-46/build @ .claude/worktrees/arc-46-build\ncommit: d70f7e2 — Arc 46 (debloat Arc 3) Stage 1: deterministic enforcement tier (stoa--xyb.5)\nfiles_changed: substrate/hooks/{_hooklib.sh,pretooluse-author-field-audit.sh,pretooluse-clean-tree-before-branch.sh,pretooluse-no-dash-m-bw-comment.sh,stop-self-check.sh,README.md}; substrate/templates/settings-hooks.json; substrate/install.sh; substrate/operating-disciplines.md (§34); agents/design/arc-46/design-rev1.md (r3)\ndesign_built_against: agents/design/arc-46/design-rev1.md STAGE 1\nbuild_check_status: pass — bash -n exit 0 (5 scripts + install.sh); settings-hooks.json valid JSON\ndeviations: none structural. Per-brief: Stop seat-tag clause-A DROPPED (deferred Stage 2); NOMOS forward-ref degrades vacuously. ARGUS r7 'if' matcher used at registration AND in-script command inspection kept (needed for self-contained deny messages). ARGUS r3/r4 applied.\nfollow_ups: (1) Stage-2: NOMOS + PostToolUse-on-Agent + re-decompose + cron canary + restore seat-tag check scoped to POLYBIUS. (2) consider SessionStart(matcher:compact) reprime (ARGUS R2). (3) author-field gate: multi-line array author values spanning lines only partially captured (line-anchored scan) — acceptable backstop limit, named in extract_author_fields. (4) settings-hooks.json _comment had {{HOOKS_DIR}} substituted cosmetically — reworded to 'HOOKS_DIR placeholder' to survive sed cleanly.\ngap_or_blocker: none",
+      "timestamp": "2026-05-23T08:42:22Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:42:13Z"
+  "updated_at": "2026-05-23T08:42:22Z"
 }
