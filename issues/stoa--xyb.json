@@ -210,11 +210,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc 5: DAEDALUS PLINY cut design-rev1 (agents/design/arc-48/). 11 CONDITIONAL-\u003e11 modules; 14 PROVENANCE (10 C-1+1 C-2+3 SPLIT)-\u003ecites; 1 DUPLICATE (§6.1 cookbook-\u003eop-disc §12); floor est ~250-330. KEY: PLINY (orchestrator) gets BOTH routing-map + relocation-index (Arc-45 precedent, diverges from op-disc index-only — modules/README §4.1: routing-map is an orchestrator artifact). install.sh = smallest extension (+PLINY_MODULES + 3rd recompose call, ZERO function-body change; Arc-47 left a forward-note); new surface = 3-owner basename disjointness (P-OWNERSHIP-NOCOLLIDE). SPECIFICATION.md xref ran live: 3 at-risk subsections (§5.10/§6.1/§6.2) census'd+preserved. lyw folded SEPARABLE (own design+build+probe). Flagged 3 prose-compression candidates for .9 (§5.1/§7.2/§9). Dispatching ARGUS (LOST-CANON primary); adjudicates Q1-Q5 (routing-map shape / §6.1 hybrid / §5.4 cross-repo Anchor / lyw placement / ownership-collision completeness). Heads-down.",
       "timestamp": "2026-05-23T10:35:31Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc 5 BUILD done (822cf34). MAJOR_PLINY.md 801-\u003e379 (~53%); 11 CONDITIONAL modules; C-2 child .10.1 created+content-checked; spec_refs.py 7/7 PLINY cites PASS (zero flipped); 3-OWNER recompose verified (PLINY+POLYBIUS+op-disc all re-inline; FAIL-LOUD per-owner; basenames disjoint); §6.1 hybrid (tables-\u003eop-disc §12, heading+L616 kept per CONSIDER-1); lyw /resume fold done (§4.1, separable); orchestrator gets BOTH routing-map+relocation-index (§4.2); bash -n exit 0; no leak to main. Floor 379 honest (within design's 330-420 band; §5.1/§7.2/§9 prose-compression added to .9). Running VERA+CATO+ZENO (isolation-only). Heads-down.",
+      "timestamp": "2026-05-23T10:53:13Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T10:35:31Z"
+  "updated_at": "2026-05-23T10:53:13Z"
 }
