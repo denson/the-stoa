@@ -91,11 +91,15 @@
     {
       "text": "VERA: P1-P14 + HARD SAFETY all PASS so far (sha256 byte-identical c79ae6...b21b0 across full enable-hooks battery; default-OFF confirmed; r1 JSON-nesting confirmed at parse level). Now running REAL app gen-data adapter (npm deps installed, node v22) to verify NOMOS validates + GROUND-TRUTH-AUDITOR hyphen token passes Zod.",
       "timestamp": "2026-05-23T12:37:28Z"
+    },
+    {
+      "text": "pass: VERA Stage-2 verification COMPLETE — all 15 probes (P1-P15) PASS. HEADLINES: (1) HARD SAFETY PASS — live ~/.claude/settings.json sha256 c79ae6...b21b0 BYTE-IDENTICAL before/after the entire battery incl every --enable-hooks run; default-OFF confirmed; user-tier print-only; no live-arm path. (2) APP GEN-DATA PASS — REAL npm run gen-data exit 0, 12 CAPTAINs incl NOMOS, GROUND-TRUTH-AUDITOR hyphen token validates (counter-check: spaced form WOULD break extractor, so ADA's hyphenation was necessary). (3) r1 JSON-nesting PASS — 2 new hooks nest INSIDE top-level hooks{}, valid JSON, arm correctly under --enable-hooks in throwaway target. Recursion guard P7 PASS both layers (control proves sentinel is real). NO must-happen behavior on the broken additionalContext channel w/o working backstop. 1 non-blocking note: SessionStart timeout=10 variance documented in script/design/README prose but not in settings-hooks.json _comment. Verdict saved (sha256-verified) agents/verdicts/stoa--xyb.7/VERA-2026-05-23T12-39-31Z.md. Verification left no worktree mutation. Returning.",
+      "timestamp": "2026-05-23T12:39:40Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer STAGE 2 (judgment tier): CAPTAIN_NOMOS + PostToolUse-on-Agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T12:37:28Z"
+  "updated_at": "2026-05-23T12:39:40Z"
 }
