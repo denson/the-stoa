@@ -107,11 +107,15 @@
     {
       "text": "revise: ONE [BLOCKING] (c1) — install.sh §3b DAEDALUS recompose call gated on TARGET=subproject but NOT WITH_CAPTAINS; `--target subproject --no-captains` regresses from clean (main) to exit-2-abort+partial-deploy (after 854f89d). EMPIRICALLY reproduced (§6.8) + independently confirmed by ZENO (who routed the correctness call to CATO's lane). Fix = 1-line guard, belongs in immediate revise. EVERYTHING ELSE PASS: 229-floor HONEST (no KEEP rule cut, gap = richer §6.0 index + full §7 + §6.5 heartbeat, prose-compression candidates correctly DEFERRED to .9); 7 modules byte-VERBATIM (independent diff vs main = zero content delta; double-prime byte-exact; Check E clean; zero author fields); §6.0 = relocation-INDEX not routing-map (correct for non-orchestrator CAPTAIN); scope=9 named files; Author=PRINCIPAL + ADA trailer; r3 (stoa--5sr) + r4 (FOUR/35) landed; project-tier deploy = slim 229 inert markers, happy-path subproject = 770 recomposed. VERA meta-verify: coverage STRONG on LOST-CANON axis but happy-path-only recompose = the c1 gap (record as coverage-set gap not VERA error). Verdict saved: agents/verdicts/stoa--xyb.11/CATO-2026-05-23T11-54-12Z.md (sha256-verified). Returning.",
       "timestamp": "2026-05-23T11:54:21Z"
+    },
+    {
+      "text": "ADA activated on stoa--xyb.11 (Arc 49 TIGHT BLOCKING fix c1/d1). operating-mode AUTONOMOUS. Reading install.sh recompose block + WITH_CAPTAINS CAPTAIN-loop idiom before the 1-line gate. Worktree arc-49/build HEAD 854f89d, no leak to main.",
+      "timestamp": "2026-05-23T11:55:45Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "CAPTAIN_DAEDALUS.md cut (architect role-file debloat, 633 lines) — LAST relocation cut",
   "type": "task",
-  "updated_at": "2026-05-23T11:54:21Z"
+  "updated_at": "2026-05-23T11:55:45Z"
 }
