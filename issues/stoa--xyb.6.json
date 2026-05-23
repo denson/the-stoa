@@ -66,11 +66,15 @@
     {
       "text": "C-1 content-check gate COMPLETE (9 cites): ezj/3cs/nax/32b.3/ads/k36/86k all RECOVER inline story richly. Drift flags (build to live, cites preserved verbatim): (1) ariadne--8fd is cross-project (not in stoa-- store; recovery from ariadne workspace) — keep in §15 Anchor as cross-project ref. (2) §16.6 cites stoa--p5g as 'Arc 25 cross-tier coordination' but p5g body is actually CREDENTIAL-discipline; 32b+dxw+32b.3 cover the §16.6 evidence; preserving all cited ids verbatim in Anchor (lossless). C-2 archive-first DONE: stoa--xyb.6.1 (§5.1.1.1) + stoa--xyb.6.2 (§5.1.3) created + content-checked (descriptions carry verbose prose verbatim). Now building 5 module files.",
       "timestamp": "2026-05-23T07:26:56Z"
+    },
+    {
+      "text": "5 module files created + verified in worktree (not main): onboarding.md (218L, incl §5.6 lean 0hl fold + 2 C-2 cite-backs to xyb.6.1/.6.2), sub-project-spawning.md (102L), pair-programmer-authoring.md (93L), pair-programming-prototyping.md (79L), substrate-update-check.md (16L). P9 author-field check CLEAN (no author-like field in any module). F-A check CLEAN (zero MODULE-INLINE literals in module bodies — recompose idempotency safe). Now cutting the slim MAJOR_POLYBIUS.md: CONDITIONAL stubs+markers, PROVENANCE→Anchor, SPLIT per-line, DUPLICATE→pointer, KEEP-TIGHTEN, §3.5 routing-map+relocation-index, §4.5 0hl F1 lean.",
+      "timestamp": "2026-05-23T07:29:16Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "First execution: MAJOR_POLYBIUS.md section-by-section slimming pass (via PLINY gauntlet, lossless-on-canon)",
   "type": "task",
-  "updated_at": "2026-05-23T07:26:56Z"
+  "updated_at": "2026-05-23T07:29:16Z"
 }
