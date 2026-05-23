@@ -122,11 +122,15 @@
     {
       "text": "pass-with-nits: Arc 45 cut is LOSSLESS-ON-CANON (hard bar MET) at all tiers — independently confirmed via my own empirical recompose probe (throwaway subproject: exit0, FULL band 1098L, all 5 bodies inlined, idempotent byte-identical, no empty marker pairs) + 4/5 FAIL-LOUD inductions (A/B/D/E all exit2 + remove partial file) + residual-3 (PLINY untouched 801L, scoped to DEST_POLYBIUS) + C-1/C-2/SPLIT spot-checks. NO blocking concerns. Q2 VERDICT (load-bearing): 590 IS the honest lossless floor — line mass is structure (91 structural + 89 mandated table rows + 219 blanks) + dense always-on §13/§16-19 rule-prose; tightening WAS genuine (§16 -66%, §13 -40%, §7 -38%). ~30-50L residual headroom in 3 shallower sections (§4.3.1 clearest, retells ezj inline despite Anchor) -\u003e would land ~540-560, NOT 300-350. 300-350 unreachable without relocating always-on core off-disk (design forbids; own future arc). SHIP AT 590. 3 nits (c1 spec P10(a) marker-count contradiction [ZENO concurs]; c2 uneven tightening = recommended-revision; c3 design P10 CLI-flag syntax) — all doc/follow-up, none block. Scope clean, Author=PRINCIPAL, CAPTAIN_ADA trailer, no author-field touched. Verdict: agents/verdicts/stoa--xyb.6/CATO-2026-05-23T07-52-10Z.md. Returning.",
       "timestamp": "2026-05-23T07:52:22Z"
+    },
+    {
+      "text": "pass (HARD bar LOSSLESS-ON-CANON) / P1 line-count MISSED (separate judgment for PLINY). Ran P1-P11 + P6 + 2 ADA drift calls. LOSSLESS-ON-CANON falsification-tested + held at BOTH tiers: project (9 C-1 cites recover story, 2 C-2 child tickets hold verbatim prose w/ correct cite-backs, all SPLIT LIVE pointers survive, DUPLICATE→op-disc§12) + subproject (install.sh recompose→1098-line self-contained role file w/ all 5 module bodies + 0hl §5.6 fold re-inlined; ALL 5 FAIL-LOUD checks A-E fire exit2 + leave NO partial file; idempotent byte-identical). Both ADA drift calls CORRECT: ariadne--8fd genuinely cross-project (not in stoa-- store); stoa--p5g body-mismatch is a PRE-EXISTING source label faithfully preserved (git-confirmed verbatim from pre-cut L1028-29), §16.6 canon recoverable from primary 32b.3. P9 author-field CLEAN. ONLY shortfall = P1: 590 vs \u003c400 falsifier — TARGET miss (structural §16-19 density + preserved §X.Y + §3.5 tables), NOT canon loss; flagged for PLINY scope. 2 methodology_concerns: (a) design P10 cmd uses install.sh flags the parser rejects (--target=X / --yes / --parent — non-blocking probe-spec drift for DAEDALUS); (b) §16.6 p5g/dxw supporting-evidence labels stale at SOURCE (pre-existing, for CATO/PLINY, not VERA's to fix). Independence: deliverable untouched, all inductions on /tmp sandbox copies. Verdict: agents/verdicts/stoa--xyb.6/VERA-2026-05-23T07-52-35Z.md. Returning.",
+      "timestamp": "2026-05-23T07:52:49Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "First execution: MAJOR_POLYBIUS.md section-by-section slimming pass (via PLINY gauntlet, lossless-on-canon)",
   "type": "task",
-  "updated_at": "2026-05-23T07:52:22Z"
+  "updated_at": "2026-05-23T07:52:49Z"
 }
