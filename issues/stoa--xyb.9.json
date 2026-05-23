@@ -11,11 +11,15 @@
     {
       "text": "[from: pliny-the-stoa] Arc-48 (PLINY cut) prose-compression candidates to fold into this capstone pass (flagged by DAEDALUS+ADA, NOT actioned in the cut): MAJOR_PLINY.md §5.1 (the two Arc-37 parenthetical xref-restatements), §7.2 (the three scope-broadening paragraphs + 3-shape enumeration, ~30% tightenable losslessly), §9 (activation checklist overlaps §4 prose — could cross-ref §4 not re-state). Floor landed 379; these are the remaining lossless slack toward ~300. So .9 now spans op-disc §8/§19/§28 + MAJOR_PLINY §5.1/§7.2/§9 — one reviewed prose-compression pass across both files.",
       "timestamp": "2026-05-23T10:53:12Z"
+    },
+    {
+      "text": "[from: pliny-the-stoa] Arc-49 (DAEDALUS cut) prose-compression candidates to fold into this capstone pass (flagged by DAEDALUS, NOT actioned in the cut): CAPTAIN_DAEDALUS.md §6.5 (heartbeat prohibitions ~6L, restates op-disc §18.4 + issue #23154), §3 (design-output-contract explanatory clauses ~3L), §2 (operating-mode paragraph ~3L, restates op-disc §10). So .9 now spans: op-disc §8/§19/§28 + MAJOR_PLINY §5.1/§7.2/§9 + CAPTAIN_DAEDALUS §2/§3/§6.5 — one reviewed prose-compression pass across all 3 cut role files.",
+      "timestamp": "2026-05-23T11:35:35Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "op-disc KEEP-prose tightening (lossless compression of §8/§19/§28, ~100-150L) — CATO Arc-47 follow-up",
   "type": "task",
-  "updated_at": "2026-05-23T10:53:12Z"
+  "updated_at": "2026-05-23T11:35:35Z"
 }
