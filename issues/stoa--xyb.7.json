@@ -2,6 +2,8 @@
   "assignee": "denson",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-05-23T20:20:27Z",
+  "close_reason": "Enforcement layer STAGE 2 (judgment tier) SHIPPED. PR #30 squash-merged cfb11bc. CAPTAIN_NOMOS (12th CAPTAIN, ground-truth auditor, audit-only leaf, bw-state detection — §7.7 seat-tag DROPPED, no PRINCIPAL unlock needed, resolves Stage-1 r1) + PostToolUse-on-Agent + SessionStart-compact hooks (best-effort/fail-OPEN on the upstream-broken additionalContext channel #55889/#18427/#15174, working-channel-backstopped: Stop decision:block for NOMOS-dispatch, cron+CLAUDE.md for reprime) + re-decompose remediation (3 guardrails, bw-re-derived cap) in incomplete-unverifiable-routing.md. install.sh NOMOS in CAPTAIN_NAMES (11-\u003e12), hooks at correct depth behind --enable-hooks DEFAULT-OFF. HARD SAFETY held (live settings.json sha256 unchanged all probes); npm run gen-data validates 12th CAPTAIN; spec_refs no regression. Gauntlet: DAEDALUS/ARGUS PASS-WITH-RISKS/ADA+c1+c2/VERA PASS/CATO pass/ZENO SPEC-MET. KEY ACCEPTANCE NOTE: the judgment-tier AUTO-trigger is BEST-EFFORT (upstream additionalContext channel broken) — defense-in-depth, working-channel-backstopped, forward-compatible (tripwire for the promotion arc when #55889 closes). The DETERMINISTIC tier (Stage-1 PreToolUse gates) carries the load-bearing footguns. Verdicts at agents/verdicts/stoa--xyb.7/.",
   "created": "2026-05-23T08:55:21Z",
   "description": "STAGE 2 of the enforcement layer (Stage 1 shipped PR #26, 0ad68db). The JUDGMENT tier (Stage 1 was the deterministic tier). RATIFIED 2-stage split by polybius-the-stoa.\n\nSCOPE:\n- CAPTAIN_NOMOS — new 12th CAPTAIN (ground-truth auditor; returns CONFORMANT/DIVERGENT/UNVERIFIABLE; tools Bash/Read/Grep/Glob — no Agent (can't nest), no Write/Edit (audit-only), no Web). RATIFIED as new CAPTAIN (not a CATO/ARGUS mode) per one-job-per-agent. STAGE-2 DAEDALUS MUST first rule out the LIEUTENANT/skill alternative (agent-judgment vs mechanical-skill) before committing the seat. Brand-doc ripple (case study / app roster team-size) is OUT OF SCOPE — track separately.\n- PostToolUse-on-Agent checker trigger (fires in parent context on sub-agent return; injects 'run the checker').\n- bw-ground-truth detection: detect 'output diverges from bw ground truth'.\n- re-decompose remediation + 3 guardrails (size-derail-\u003esplit vs wrong-spec/blocked-\u003eescalate; attempt-cap N=2; granularity floor). Slots into MAJOR_PLINY §5.6 INCOMPLETE/UNVERIFIABLE protocol.\n\nOUTSTANDING §7.7 DECISION (the load-bearing Stage-2 adjudication): the seat-tag canary collides with op-disc §7.7's mechanical-enforcement hard-lock (Arc-36 A2.5/A14: 'mechanical enforcement is a future arc IF non-compliance recurs'). RESOLUTION OPTIONS: (a) DROP the seat-tag canary — NOMOS uses DIRECT bw-state comparison (PLINY's lean; NO PRINCIPAL-gate needed); (b) UNLOCK §7.7 — treat this epic as the 'non-compliance recurs' trigger + revise §7.7 to keep the seat-tag canary (PRINCIPAL-gated). Adjudicate at Stage-2 design.\n\nDESIGN BASIS: agents/design/arc-46/design-rev1.md Stage-2 components (on main). ARGUS Stage-2 items: R2 (consider SessionStart(matcher:compact) reprime — PostCompact is side-effect-only/can't-inject), R4 (re-decompose cap N=2 + bw-tracked count robustness vs orchestrator compaction), r1 (if keeping seat-tag, scope it to POLYBIUS-only). Web-verified hook surface (2026-05-23): PreToolUse deny / PostToolUse additionalContext / Agent-matcher / SubagentStop-can't-inject CONFIRMED; SubagentStart CAN inject (alternative).",
   "id": "stoa--xyb.7",
@@ -118,8 +120,8 @@
     }
   ],
   "priority": 2,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Enforcement layer STAGE 2 (judgment tier): CAPTAIN_NOMOS + PostToolUse-on-Agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T20:18:49Z"
+  "updated_at": "2026-05-23T20:20:27Z"
 }
