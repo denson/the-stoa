@@ -74,11 +74,15 @@
     {
       "text": "Slim core first-pass landed: structural cut COMPLETE + correct (P3 stubs §5/10/11/12/14 preserved; 10 full-line MODULE-INLINE markers correctly paired; §3.5 prose mention of marker at L96 is in backticks mid-line, does NOT match ^...$ recompose regex — confirmed safe per ARGUS edge-case #2; P9 author-field clean). BUT P1 line-count = 653, over the \u003e400 falsifier. Diagnosis: structural relocations done but KEEP-TIGHTEN rule-prose (§7=74, §16=72, §4=71, §13=69, §17=60, §19=58, §18=51) preserved near-verbatim instead of genuinely tightened. The design intends real prose tightening (§2.5/§3.6 'tighten verbose prose'), not verbatim-keep. Running a second tightening pass on the dense KEEP-TIGHTEN sections — preserving every load-bearing rule + cross-ref, compressing prose — to land in the 300-360 band.",
       "timestamp": "2026-05-23T07:33:21Z"
+    },
+    {
+      "text": "Slim core cut verified LOSSLESS-ON-CANON: P2(10 paired markers) P3(5 stubs preserved) P4(§7.3→op-disc§12, verbose -m cookbook deleted) P9(no author-field) P11(all SPLIT LIVE pointers survive: §16.7 §4.5/§6/§7/§14/§15/§21/§30/handoff-author/§16.8; §17.6 §23/check.sh/apply.sh; §18.6 §6.7.1/PLINY§5.9; §19.7 §17.4/§29/agent-author/tier2-project-onboarding + §17.5/§18.5 intra-line LIVE half kept, stoa--86k folded to §19.6 Anchor) — ALL PASS. P1 line-count = 617 after two genuine tightening passes; over the 300-350 target. Diagnosis: markdown line count is dominated by preserved subsection-count + tables + blank-line separators (70 headings, 89 table rows, 91 bullets, 221 blanks), NOT prose length — and the ledger DELIBERATELY preserves every §X.Y for cross-ref stability (§2.7 CONCUR) + keeps §13/§16/§17/§18/§19 dense always-on rules inline (§3.6 KEEP-TIGHTEN, ARGUS weak-point#2). Prose-tightening lands within single physical md-lines so it barely moves line count. Will surface this as a ledger-vs-target tension + likely report verdict=partial on P1. Now writing install.sh recompose step (F-B per-file Check-D + residual-3 DEST_POLYBIUS-only + F-A 5th check).",
+      "timestamp": "2026-05-23T07:38:06Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "First execution: MAJOR_POLYBIUS.md section-by-section slimming pass (via PLINY gauntlet, lossless-on-canon)",
   "type": "task",
-  "updated_at": "2026-05-23T07:33:21Z"
+  "updated_at": "2026-05-23T07:38:06Z"
 }
