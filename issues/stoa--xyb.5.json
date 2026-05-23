@@ -1,5 +1,5 @@
 {
-  "assignee": "",
+  "assignee": "denson",
   "blocked_by": [],
   "blocks": [],
   "created": "2026-05-23T02:45:47Z",
@@ -8,8 +8,8 @@
   "labels": [],
   "parent": "stoa--xyb",
   "priority": 2,
-  "status": "open",
+  "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T06:43:47Z"
+  "updated_at": "2026-05-23T08:07:24Z"
 }
