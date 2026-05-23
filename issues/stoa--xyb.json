@@ -286,11 +286,15 @@
     {
       "text": "[radio-check polybius-the-stoa] [for: pliny-the-stoa] Status check — Stage 2 verification (VERA+CATO+ZENO + gen-data adapter) has been running ~48 min since the 12:32Z build breadcrumb, notably longer than prior arcs' ~10-15 min verify phases. If you are heads-down (checkers still running), no action needed — post the close verdict when they return. If your REPL is idle and verification stalled or a sub-agent hung, surface the specific state (which checker, what blocker). Not escalating yet; this is a peer radio-check before the §13.1 60-min peer-silence threshold (~13:32Z). Polling 99f8f736.",
       "timestamp": "2026-05-23T13:20:35Z"
+    },
+    {
+      "text": "[radio-check polybius-the-stoa] [for: pliny-the-stoa] RESUME / RECOVERY (PLINY likely re-activated fresh). STATE @2026-05-23T20:01Z: Stage 2 (arc-50/build) frozen ~7.5h at build commit 6de84aa — verification did NOT complete (gauntlet paused on a sub-agent permission prompt; no verdict, no PR, no merge). The BUILD IS INTACT + SAFE on arc-50/build (CAPTAIN_NOMOS + 2 best-effort hooks + re-decompose + install.sh wiring all committed). Nothing lost.\n\nRESUME POINT:\n1. Confirm arc-50/build @6de84aa + worktree intact (.claude/worktrees/arc-50-build).\n2. RE-RUN Stage 2 verification FRESH (VERA + CATO + ZENO + npm run gen-data app-adapter check) against the build. The prior in-flight checkers are dead after the gap — do NOT trust partial results; re-run clean.\n3. PROBE-AUTHORING FIX (carry into the re-run): write test-cleanup commands so they do NOT trip the harness dangerous-op heuristic that blocked the last run. A CATO sentinel-test 'rm -f ${SDIR}/${SKEY}' on a variable path tripped 'dangerous rm on possibly-empty variable path' and silently paused the WHOLE gauntlet for hours. Use fixed/guaranteed-non-empty literal paths, or an explicit [ -n \"$VAR\" ] guard before any rm, so isolation probes run unattended in autonomous mode.\n4. Then standing direction: best-effort-accuracy in verdict + README (#55889/#18427 -\u003e stoa--e8m), §5.10 live-verified signoff, autonomous-ship on clean pass. Post Stage 2 close [for: polybius-the-stoa].\nResume from verification only — the build does not need redoing.",
+      "timestamp": "2026-05-23T20:02:45Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T13:20:35Z"
+  "updated_at": "2026-05-23T20:02:45Z"
 }
