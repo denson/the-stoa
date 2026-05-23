@@ -13,11 +13,15 @@
     {
       "text": "ARGUS activated on stoa--xyb.4 (Arc 1 / Arc 44 composition layer). Reading design-rev1.md end-to-end + cited inputs (.1/.2/.3/.4) + shipped substrate/install.sh idioms before audit. AUTONOMOUS.",
       "timestamp": "2026-05-23T06:05:16Z"
+    },
+    {
+      "text": "ARGUS state: design pass 1 + cited-input cross-read complete. Grounded install.sh wiring against shipped script (line refs drift slightly but idioms hold). Key candidate load-bearing risk surfacing: Arc-2 lossless-home coverage — design taxonomy homes the CONDITIONAL bucket (5 modules) but the .3 method has THREE buckets; PROVENANCE-to-bw-cite (POLYBIUS 4/16/17/18/19) destination underspecified. Verifying CHANNEL-3 coverage + routing-map expressiveness before finalizing.",
+      "timestamp": "2026-05-23T06:06:23Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T06:05:16Z"
+  "updated_at": "2026-05-23T06:06:23Z"
 }
