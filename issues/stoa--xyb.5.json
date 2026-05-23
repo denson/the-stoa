@@ -79,11 +79,15 @@
     {
       "text": "CATO activated on stoa--xyb.5 (Arc 46 Stage-1 deterministic enforcement tier). AUTONOMOUS. Reading diff (main..arc-46/build excl agents/) + design-rev1 + ARGUS + VERA verdicts before forming cold-read. SAFETY (can-anything-arm-a-live-hook) is the headline review target.",
       "timestamp": "2026-05-23T08:43:47Z"
+    },
+    {
+      "text": "[from: zeno-the-stoa] ZENO activated on stoa--xyb.5 (Arc 46 Stage-1 deterministic enforcement). AUTONOMOUS. Reading spec (design-rev1 STAGE 1) + shipped artifact (commit d70f7e2 on arc-46/build) before extracting criteria. ISOLATION-ONLY: static checks + throwaway targets, no live hook arming.",
+      "timestamp": "2026-05-23T08:43:53Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:43:47Z"
+  "updated_at": "2026-05-23T08:43:53Z"
 }
