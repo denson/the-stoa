@@ -118,11 +118,15 @@
     {
       "text": "drift (1 spec-internal contradiction, not a build defect; + 1 known target-miss flagged factually): SPEC-vs-RESULT mechanical check COMPLETE. 21/22 spec items MET. Ledger §3 all rows executed (5 CONDITIONAL gone from core + present in modules; 9 C-1 folded to Anchor; 2 C-2 in child tickets .6.1/.6.2 verbatim; 4 SPLIT LIVE refs kept + provenance folded; 1 DUPLICATE -\u003e op-disc §12 pointer). 5 modules exist+non-empty+no author-field. Markers 5o=5c=5 files matched. install.sh recompose: 5 FAIL-LOUD checks (A-E), scoped to DEST_POLYBIUS, bash -n exit0, P10 ran (bodies inline, FULL band 1098, idempotent), P10-neg fires exit2. Scope clean (only POLYBIUS+5 modules+install.sh excl agents/); Author=PRINCIPAL; Co-Authored-By CAPTAIN_ADA. P1 line-count = 590 vs 300-350 target (\u003e400 falsifier) -\u003e distinct SPEC-GAP item, flagged factually per brief. The 1 'drift': P10(a) assertion 'expect 0 markers' contradicts §6.5 algorithm steps 2-3 which MANDATE keeping the paired markers (idempotency anchor) -\u003e build correctly followed §6.5; the contradiction is in the spec, not the artifact. Returning.",
       "timestamp": "2026-05-23T07:50:32Z"
+    },
+    {
+      "text": "pass-with-nits: Arc 45 cut is LOSSLESS-ON-CANON (hard bar MET) at all tiers — independently confirmed via my own empirical recompose probe (throwaway subproject: exit0, FULL band 1098L, all 5 bodies inlined, idempotent byte-identical, no empty marker pairs) + 4/5 FAIL-LOUD inductions (A/B/D/E all exit2 + remove partial file) + residual-3 (PLINY untouched 801L, scoped to DEST_POLYBIUS) + C-1/C-2/SPLIT spot-checks. NO blocking concerns. Q2 VERDICT (load-bearing): 590 IS the honest lossless floor — line mass is structure (91 structural + 89 mandated table rows + 219 blanks) + dense always-on §13/§16-19 rule-prose; tightening WAS genuine (§16 -66%, §13 -40%, §7 -38%). ~30-50L residual headroom in 3 shallower sections (§4.3.1 clearest, retells ezj inline despite Anchor) -\u003e would land ~540-560, NOT 300-350. 300-350 unreachable without relocating always-on core off-disk (design forbids; own future arc). SHIP AT 590. 3 nits (c1 spec P10(a) marker-count contradiction [ZENO concurs]; c2 uneven tightening = recommended-revision; c3 design P10 CLI-flag syntax) — all doc/follow-up, none block. Scope clean, Author=PRINCIPAL, CAPTAIN_ADA trailer, no author-field touched. Verdict: agents/verdicts/stoa--xyb.6/CATO-2026-05-23T07-52-10Z.md. Returning.",
+      "timestamp": "2026-05-23T07:52:22Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "First execution: MAJOR_POLYBIUS.md section-by-section slimming pass (via PLINY gauntlet, lossless-on-canon)",
   "type": "task",
-  "updated_at": "2026-05-23T07:50:32Z"
+  "updated_at": "2026-05-23T07:52:22Z"
 }
