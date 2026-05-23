@@ -115,11 +115,15 @@
     {
       "text": "CATO activated on stoa--xyb.8 (op-disc cut, Arc 47, AUTONOMOUS). Reading diff (main..arc-47/build excl agents/) + design-rev2 + ARGUS verdicts before forming cold-read. Bar = LOSSLESS-COMPLETENESS + the 1340-floor honest-vs-tightenable judgment (specifically requested).",
       "timestamp": "2026-05-23T10:06:02Z"
+    },
+    {
+      "text": "ZENO activated on stoa--xyb.8 (op-disc cut Arc 47). Reading spec design-rev2 + shipped artifact (op-disc + 12 modules + install.sh + polling-cron template) before extracting criteria. AUTONOMOUS; static checks on throwaway targets only.",
+      "timestamp": "2026-05-23T10:06:13Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
   "type": "task",
-  "updated_at": "2026-05-23T10:06:02Z"
+  "updated_at": "2026-05-23T10:06:13Z"
 }
