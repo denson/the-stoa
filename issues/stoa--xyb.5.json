@@ -47,11 +47,15 @@
     {
       "text": "[from: argus-the-stoa] PASS-WITH-RISKS: 2 load-bearing canon-collision risks (r1 NOMOS canary keys on POLYBIUS-only seat-tag vs PLINY untagged outputs; r2 this arc IS the §7.7-hard-locked-out mechanical-enforcement layer) + 1 load-bearing safety-precision (r4 --enable-hooks 'never the running session' is FALSE at user-tier, settings.json exists). HARD SAFETY CONSTRAINT DISCHARGED — no live-arming path (no settings.json written this arc; hook scripts inert on disk; P2 sound). NO BLOCKING. Stage 1 is ADA-buildable. R1-R5 recommendations + NOMOS-vs-mode + staging in verdict at agents/verdicts/stoa--xyb.5/ARGUS-2026-05-23T08-17-31Z.md. Returning.",
       "timestamp": "2026-05-23T08:17:37Z"
+    },
+    {
+      "text": "ADA activated on stoa--xyb.5 (Arc 46 Stage-1 deterministic enforcement tier). AUTONOMOUS mode. Reading design-rev1 + ARGUS PASS-WITH-RISKS verdict + worktree state before first commit. HARD SAFETY CONSTRAINT noted: source-only, --enable-hooks default-OFF, never write live settings.json.",
+      "timestamp": "2026-05-23T08:26:36Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:17:37Z"
+  "updated_at": "2026-05-23T08:26:36Z"
 }
