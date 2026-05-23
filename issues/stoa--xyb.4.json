@@ -97,11 +97,15 @@
     {
       "text": "pass: Arc-44 mechanism build is clean. Scope held EXACTLY (zero role-file changes; op-disc +26/-0 pure §33 insert; REFINEMENT 2 satisfied). 2 findings: c1 [SHOULD-FIX/recommended-revision] README §5.2 L196-197 — 'attach intent comment in bw show \u003cid\u003e names the stored path' is FALSE (intent is a git commit msg on beadwork ref, not surfaced by bw show); CONVERGES with VERA's independent find. c2 [NIT/minor] modules staleness scan lacks the §23 base-vs-custom cite-comment the templates/skills scans carry + §23.2 table not extended (behavior correct — custom/ subdir empirically skipped; Arc-2 doc follow-up). INDEPENDENT READS: (1) ADA --attachments drift call CORRECT — verified live bw 0.13.0 has no --attachments / no read subcmd; git-on-beadwork-ref recovery PROVEN end-to-end on throwaway repo; ADA fixed the big problem, c1 is the smaller residual. (2) §33-on-worst-offender NOT self-undercutting — 19 bounded content lines that ENABLE Arc-2 removal of hundreds of lines; net-negative is the goal. Security/hygiene clean (no secrets, Author=PRINCIPAL, both Co-Authored-By trailers present, no author-like field touched). bash -n exit 0. Verdict saved agents/verdicts/stoa--xyb.4/CATO-2026-05-23T06-34-09Z.md (sha256 round-trip OK). Returning.",
       "timestamp": "2026-05-23T06:34:21Z"
+    },
+    {
+      "text": "pass: VERA verdict COMPLETE on Arc 44 build d3735c6. All probes PASS (P1-P10 + brief's 4 items): install.sh module deploy verified end-to-end vs throwaway clone (dry-run+real-deploy lands README; completeness; GLOB-PROOF 2nd *.md auto-deploys zero-edit plan 1-\u003e2; empty-source errs exit 2; staleness flags non-source; subproject deploys NO modules); op-disc §33 placed L2089 between §32 and Agent-regime-inverses NOT EOF (r3) + 26 lines under ≤30 (r6) + single-pointer not §32-block; README internal-consistency holds (ARGUS-carry-1 per-C-1 bw-show gate present §5.2; 3 classes each templated; routing-map+relocation-index both present; 5-module taxonomy zero content files); clean diff zero role-file deletions, author=Denson Smith only. ADA --attachments DRIFT CALL = CORRECT (bw 0.13.0 no --attachments flag, no read subcommand; git-on-beadwork-ref recovery PROVEN via isolated attach round-trip, exact bytes exit 0). ONE non-blocking methodology_concern: README §5.2 L196-197 says 'bw show \u003cid\u003e names the stored path' — FALSE (it's a git commit msg on beadwork ref via 'git log beadwork', not bw show); core recovery correct, only stored-path-discovery pointer wrong -\u003e one-line ADA fix recommended. Verdict saved agents/verdicts/stoa--xyb.4/VERA-2026-05-23T06-34-53Z.md (sha256 round-trip OK). Returning.",
+      "timestamp": "2026-05-23T06:35:09Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Composition layer: instruction-module library + orchestrator routing (bw/disk/dispatch)",
   "type": "task",
-  "updated_at": "2026-05-23T06:34:21Z"
+  "updated_at": "2026-05-23T06:35:09Z"
 }
