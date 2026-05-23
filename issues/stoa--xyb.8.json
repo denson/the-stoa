@@ -11,11 +11,15 @@
     {
       "text": "DAEDALUS activated on stoa--xyb.8 (op-disc cut, Arc 47). Reading brief + research input (Arc-1/Arc-2 proven mechanism + modules/README.md) + op-disc 2156 lines. Worktree branch arc-47/build confirmed.",
       "timestamp": "2026-05-23T09:02:24Z"
+    },
+    {
+      "text": "Mechanism absorbed: Arc-1 modules/README.md (3 classes) + Arc-2 design-rev2 (stubs/markers/recompose) + install.sh recompose_module_inline() ALREADY data-driven (L870-962, called on DEST_POLYBIUS only). op-disc deployed via plain cp at L974-980 at ALL tiers. Now mapping op-disc sections + cross-ref graph (which op-disc §N are cited elsewhere -\u003e must stub-preserve).",
+      "timestamp": "2026-05-23T09:02:57Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
   "type": "task",
-  "updated_at": "2026-05-23T09:02:24Z"
+  "updated_at": "2026-05-23T09:02:57Z"
 }
