@@ -39,11 +39,15 @@
     {
       "text": "FINDING (cross-ref, [BLOCKING]): design §3.1 cross-ref check scoped grep to substrate/ ONLY and never grepped SPECIFICATION.md (repo root). validate-spec spec_refs.py resolves op-disc cross-refs by EXACT heading-line match. Empirically ran it: bare §7.1/§7.2/§7.4/§7.5 in SPECIFICATION.md currently PASS against op-disc subsection HEADINGS (lines 121/142/180/200) which the §7 relocation moves INTO the module -\u003e 7 refs flip PASS-\u003eFAIL in the Pass-9 mechanical check. P-XREF does not catch (excludes SPECIFICATION.md + only greps stub PROSE not headings). Now checking C-1 cites + stoa--ntn (WP4) + ambient-vs-conditional calls.",
       "timestamp": "2026-05-23T09:13:28Z"
+    },
+    {
+      "text": "C-1 provenance CLEARED: spot-checked 17/18 standalone C-1 ids + stoa--ntn (WP4) — ALL resolve + carry their N=1 story materially. stoa--ntn carries the §10 progression table -\u003e WP4 is a NON-finding (C-2 fallback not needed; per-deletion gate still correct). install.sh recompose VERIFIED: Check-B global-glob false-positive is REAL + correctly diagnosed. NEW FINDING [SHOULD-FIX]: design §6.4 says 'Check A stays global, only Check-B/D change' but Check A (L916 'name in exists') shares the SAME exists[] array as Check B — narrowing module_list to owned-set silently narrows Check A too. Design is internally inconsistent re the highest-risk function. Now checking Q2 (literal MODULE-INLINE in source bodies) + §20 partial (Q4) + ambient-vs-conditional A1-A4.",
+      "timestamp": "2026-05-23T09:14:29Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "operating-disciplines.md cut (universal-tier debloat — worst offender, 2156 lines)",
   "type": "task",
-  "updated_at": "2026-05-23T09:13:28Z"
+  "updated_at": "2026-05-23T09:14:29Z"
 }
