@@ -107,11 +107,15 @@
     {
       "text": "[from: vera-the-stoa] SAFETY battery GREEN: (1) default-OFF deploy writes NO settings.json (target or live); (2) user-tier --enable-hooks prints manual runbook, does NOT auto-write (verified via redirected-HOME throwaway w/ pre-seeded settings.json — byte-identical after); (3) project-tier --enable-hooks writes TARGET-only (valid JSON, {{HOOKS_DIR}} substituted, 3 PreToolUse+1 Stop), preserves existing target settings.json; (4) REAL live ~/.claude/settings.json BYTE-IDENTICAL c79ae66 across EVERY probe. Now executing gate-behavior probes P3-P8 (synthetic stdin + throwaway git clone).",
       "timestamp": "2026-05-23T08:45:52Z"
+    },
+    {
+      "text": "[from: cato] SAFETY headline CLEAR (independent meta-verify): traced install.sh 5d — the ONLY settings.json WRITE (line 1219 sed \u003e DEST_SETTINGS_JSON) is reachable ONLY in the project-tier else-branch; user-tier hits the print-only elif (line 1186), subproject guarded out (line 1179). Live ~/.claude/settings.json byte-identical c79ae66 across project-tier --enable-hooks run + user-tier --enable-hooks dry-run. NO live-arming path exists. 4 ADA defects independently confirmed FIXED: (1) heredoc-stdin OK; (2) no-dash-m false-positive OK (4/4); (3) author allow-list + JSON/YAML/TOML/array extraction OK + substring-trap authority/byline correctly NOT matched; (4) JSON bool true/false OK. Author-gate end-to-end: PRINCIPAL allow, non-PRINCIPAL author-field + git-identity + .md-frontmatter all DENY. Fail-OPEN verified on malformed-JSON AND python3-absent (no spurious block; exit non-2). Running clean-tree + Stop sentinel loop-guard, then classifying findings + saving verdict.",
+      "timestamp": "2026-05-23T08:46:56Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Enforcement layer: verified hook mapping + checker agent + bw-ground-truth detection + re-decompose remediation",
   "type": "task",
-  "updated_at": "2026-05-23T08:45:52Z"
+  "updated_at": "2026-05-23T08:46:56Z"
 }
