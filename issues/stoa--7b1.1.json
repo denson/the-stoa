@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-29T19:54:20Z",
+  "description": "ksge D2 (RECURRENCE-CLASS: recurred across 2 ARGUS dispatches). The read-only-review seats forbid Write in §4 but §7 mandates save-verdict, which writes. Fix once at the shared read-only-review-seat layer (affects ARGUS, NOMOS, ZENO together — do not patch one seat). Detail: stoa--q3l body + consolidated-substrate-friction.md.",
+  "id": "stoa--7b1.1",
+  "labels": [],
+  "parent": "stoa--7b1",
+  "priority": 2,
+  "status": "open",
+  "title": "Read-only-review-seat coherence: ARGUS/NOMOS/ZENO §4-no-Write vs §7-mandates-save-verdict",
+  "type": "task",
+  "updated_at": "2026-05-29T19:54:20Z"
+}
