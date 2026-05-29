@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-29T19:54:23Z",
+  "description": "ksge D9. Brief-vs-spec paraphrase is a live failure mode — root cause of ARGUS B1 (a brief re-enumerated the contract OUT shape + mis-attributed it to §9). The read-the-cited-spec discipline CAUGHT it, but the error originated up the dispatch chain. Fix: when a brief references a spec field set, cite the spec line; don't re-enumerate. Detail: stoa--q3l body + artifact.",
+  "id": "stoa--7b1.6",
+  "labels": [],
+  "parent": "stoa--7b1",
+  "priority": 3,
+  "status": "open",
+  "title": "Brief discipline: cite the spec line, don't re-enumerate a spec field set from memory",
+  "type": "task",
+  "updated_at": "2026-05-29T19:54:23Z"
+}
