@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-29T19:54:22Z",
+  "description": "ksge D7 (HIGHEST-LEVERAGE) + P1 (its proven template). D7: no headless-browser automation in base toolchain — VERA hand-rolled CDP for a WebGL deliverable. Fix: substrate-blessed headless-render probe helper OR standing guidance (@playwright/test channel:msedge devDep + ?e2e= seam). P1: the ?e2e= RNG-factory seam drives a real browser-render path to a natural outcome with ZERO synthetic input by injecting determinism at the smallest seam (one RNG site); production path + contract untouched. P1 is THE template for D7's fix — paired deliberately. Detail: stoa--q3l body + artifact.",
+  "id": "stoa--7b1.3",
+  "labels": [],
+  "parent": "stoa--7b1",
+  "priority": 2,
+  "status": "open",
+  "title": "Headless-render probe helper for base toolchain + canonize ?e2e= deterministic-WebGL seam",
+  "type": "task",
+  "updated_at": "2026-05-29T19:54:22Z"
+}
