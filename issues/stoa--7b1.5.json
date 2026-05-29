@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-29T19:54:23Z",
+  "description": "ksge D3 + D8 (both bw-contract layer). D3: a design-only/no-bw dispatch should be able to waive the bw heartbeat. D8: bw heartbeat is unreachable from a content-repo cwd — cross-repo briefs should pin cwd to the bw repo OR explicitly waive the heartbeat. Fix at the shared bw-contract layer. Detail: stoa--q3l body + artifact.",
+  "id": "stoa--7b1.5",
+  "labels": [],
+  "parent": "stoa--7b1",
+  "priority": 3,
+  "status": "open",
+  "title": "bw-heartbeat carve-out for design-only/no-bw dispatch + cross-repo cwd pinning (shared bw-contract layer)",
+  "type": "task",
+  "updated_at": "2026-05-29T19:54:23Z"
+}
