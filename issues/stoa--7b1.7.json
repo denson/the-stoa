@@ -7,9 +7,15 @@
   "id": "stoa--7b1.7",
   "labels": [],
   "parent": "stoa--7b1",
+  "comments": [
+    {
+      "text": "Per workflow-review (run wf_01ba8f65-6dc; ARGUS+CATO both MAJOR, high confidence): this child bundles 3 independent canonization patterns with no per-pattern done-criteria -\u003e drop-risk (one or two land, the third silently dropped at close). Grouping retained ('canonize proven patterns'); CATO's lower-cost fix over splitting into .7a/.7b/.7c is an ACCEPTANCE CHECKLIST as the forcing function. This ticket MUST NOT be closed until all three land:\n[ ] P2  REVISE-\u003edelta-re-audit canonized\n[ ] P3  live-SHA-at-build canonized\n[ ] P4  pre-build design-\u003eaudit-\u003eHARD-STOP gate canonized",
+      "timestamp": "2026-05-29T20:36:38Z"
+    }
+  ],
   "priority": 3,
   "status": "open",
   "title": "Canonize 3 proven ksge patterns: REVISE-delta-re-audit, live-SHA-at-build, pre-build HARD-STOP gate",
   "type": "task",
-  "updated_at": "2026-05-29T19:54:24Z"
+  "updated_at": "2026-05-29T20:36:38Z"
 }
