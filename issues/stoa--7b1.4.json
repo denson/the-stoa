@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-29T19:54:22Z",
+  "description": "ksge D1. WebFetch 403'd on both GitHub and npm. STRABO §6.3 should prefer gh api / Bash for those facts. Detail: stoa--q3l body + artifact.",
+  "id": "stoa--7b1.4",
+  "labels": [],
+  "parent": "stoa--7b1",
+  "priority": 3,
+  "status": "open",
+  "title": "STRABO §6.3: prefer gh api / Bash over WebFetch for GitHub/npm facts",
+  "type": "task",
+  "updated_at": "2026-05-29T19:54:22Z"
+}
