@@ -7,9 +7,15 @@
   "id": "stoa--7b1.5",
   "labels": [],
   "parent": "stoa--7b1",
+  "comments": [
+    {
+      "text": "Per workflow-review (run wf_01ba8f65-6dc; ARGUS MINOR + CATO MINOR): D3+D8 share the bw-contract layer so the MERGE is correct (splitting would be over-decomposition), but they are two distinct edits that could be addressed asymmetrically. 2-item done-criteria so neither half ships alone:\n[ ] D3  design-only/no-bw dispatch heartbeat carve-out landed\n[ ] D8  cross-repo cwd pin-or-waive rule landed",
+      "timestamp": "2026-05-29T20:36:38Z"
+    }
+  ],
   "priority": 3,
   "status": "open",
   "title": "bw-heartbeat carve-out for design-only/no-bw dispatch + cross-repo cwd pinning (shared bw-contract layer)",
   "type": "task",
-  "updated_at": "2026-05-29T19:54:23Z"
+  "updated_at": "2026-05-29T20:36:38Z"
 }
