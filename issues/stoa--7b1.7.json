@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-29T19:54:24Z",
+  "description": "ksge P2 + P3 + P4 (proven patterns to promote to substrate convention). P2: REVISE-\u003edelta-re-audit — reviser writes a top-of-file 'Changes from rev1' delta-log; re-auditor audits against it (materially shorter delta read). P3: read consumed upstream SHA LIVE at build time (execSync in vite.config, baked into bundle + asserted by a probe) so provenance can't drift from the actual consumed commit. P4: pre-build gate (design -\u003e audit -\u003e HARD STOP before build) earned its cost — caught both Phase-1 blockers as cheap design-text fixes, no rebuild. Detail: stoa--q3l body + artifact.",
+  "id": "stoa--7b1.7",
+  "labels": [],
+  "parent": "stoa--7b1",
+  "priority": 3,
+  "status": "open",
+  "title": "Canonize 3 proven ksge patterns: REVISE-delta-re-audit, live-SHA-at-build, pre-build HARD-STOP gate",
+  "type": "task",
+  "updated_at": "2026-05-29T19:54:24Z"
+}
