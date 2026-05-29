@@ -6,9 +6,15 @@
   "description": "Container for the still-live actionable items surfaced by the ksge-engine sub-game subsystem build, which doubled as a battle-test of the post-debloat Stoa substrate. Battle-test verdict: PASS (substrate SOUND; all defects MINOR; team self-healed every coordination snag with no substrate change). PRINCIPAL confirmed the PASS 2026-05-29 and reports the substrate has been in real-world use since. Source ticket stoa--q3l now CLOSED; its body + the consolidated artifact at C:\\Users\\denso\\claude_projects\\ksge-engine\\agents\\observation\\ksge-eng-5sp\\consolidated-substrate-friction.md remain the durable detail (statement / evidence / severity / fix / owner per item). This epic preserves the punch-list as discrete actionable children. D5/D6 (Windows save-verdict /tmp + bare-CLI ergonomics) are NOT children here — they are already tracked at stoa--wq0 (cross-linked). Each child = a future substrate-arc input (substrate canon edits are arc-gated per MAJOR_POLYBIUS.md 18.2). Recurrence-class items (D2, D4) and highest-leverage (D7+P1) are P2; the rest P3.",
   "id": "stoa--7b1",
   "labels": [],
+  "comments": [
+    {
+      "text": "Workflow-review of this decomposition (run wf_01ba8f65-6dc; CAPTAIN_ARGUS completeness + CAPTAIN_CATO prioritization, independent, both MINOR_ISSUES, agreed). Coverage verified clean (all 13 q3l items land exactly once). Refinements applied per fix-now:\n- .7: 3-item acceptance checklist added (lossy-bundle, MAJOR).\n- .5: 2-item acceptance checklist added (fix-divergent, MINOR).\n- Save-verdict surface partition (now explicit): deliberately tracked across THREE tickets by concern -- stoa--wq0 = Windows bug (D5) + coupled ergonomics (D6); .2 = skill hygiene (D4 __pycache__ .gitignore); stoa--xxy = receipt filename collision. Distinct concerns, distinct tickets.\n- Reciprocal back-link: D5+D6 are tracked on stoa--wq0 (the earlier cross-link comment there names both, so D6 is not orphaned). This epic now points there so a q3l calibration audit reaches them from either side.\n- Clarification: all items are MINOR-severity (q3l verdict: substrate SOUND); the P2/P3 child tags denote EXECUTION PRIORITY by recurrence/leverage, not severity.\nThis decomposition was itself the battle-test target of the new workflow-composer skill -- see stoa--04n.",
+      "timestamp": "2026-05-29T20:36:39Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] ksge battle-test substrate calibration (from closed stoa--q3l)",
   "type": "epic",
-  "updated_at": "2026-05-29T19:53:51Z"
+  "updated_at": "2026-05-29T20:36:39Z"
 }
