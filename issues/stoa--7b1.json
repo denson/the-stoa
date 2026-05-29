@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-29T19:53:51Z",
+  "description": "Container for the still-live actionable items surfaced by the ksge-engine sub-game subsystem build, which doubled as a battle-test of the post-debloat Stoa substrate. Battle-test verdict: PASS (substrate SOUND; all defects MINOR; team self-healed every coordination snag with no substrate change). PRINCIPAL confirmed the PASS 2026-05-29 and reports the substrate has been in real-world use since. Source ticket stoa--q3l now CLOSED; its body + the consolidated artifact at C:\\Users\\denso\\claude_projects\\ksge-engine\\agents\\observation\\ksge-eng-5sp\\consolidated-substrate-friction.md remain the durable detail (statement / evidence / severity / fix / owner per item). This epic preserves the punch-list as discrete actionable children. D5/D6 (Windows save-verdict /tmp + bare-CLI ergonomics) are NOT children here — they are already tracked at stoa--wq0 (cross-linked). Each child = a future substrate-arc input (substrate canon edits are arc-gated per MAJOR_POLYBIUS.md 18.2). Recurrence-class items (D2, D4) and highest-leverage (D7+P1) are P2; the rest P3.",
+  "id": "stoa--7b1",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "[EPIC] ksge battle-test substrate calibration (from closed stoa--q3l)",
+  "type": "epic",
+  "updated_at": "2026-05-29T19:53:51Z"
+}
