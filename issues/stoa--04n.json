@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-29T20:36:37Z",
+  "description": "PROTOTYPE (Mode 2). Skill drafted UNCOMMITTED at substrate/skills/workflow-composer/SKILL.md. Supplements Anthropic's dynamic-workflow runtime (https://code.claude.com/docs/en/workflows) with Stoa-awareness: gauntlet-\u003estage-workflow mapping, CAPTAIN reuse via agentType, verdict-\u003eschema, review-surface for the outer-loop check, HITL-at-stage-boundaries, workflow-produces/launcher-lands ship rule, forge/shop deployment.\n\nBATTLE-TEST (N=1, PASS): workflow run wf_01ba8f65-6dc reviewed the stoa--7b1 decomposition via CAPTAIN_ARGUS + CAPTAIN_CATO (real seats via agentType), 2 agents, ~63s, 54k subagent tokens kept in-workflow. Proved: (1) agentType reuse works; (2) schema returns clean typed verdicts (retires the save-verdict file-write bugs wq0/7b1.2); (3) review-surface synthesis works; (4) context economy (digest-only returned to launcher); (5) seat-faithfulness (ARGUS no-fix vs CATO fix) + independent convergence (both MINOR_ISSUES, both caught the .7 lossy-bundle). Caught real issues in 7b1 -\u003e fix-now applied (acceptance checklists on .7/.5, reciprocal wq0 back-link, partition rationale).\n\nFORGE-PROMOTION PLAN (future gauntlet-hardening arc, per MAJOR_POLYBIUS.md 18.2 — substrate skills ship via gauntlet not direct-to-main): DAEDALUS reviews skill content; ARGUS audits; commit to substrate/skills/workflow-composer/; add to install.sh SKILL_NAMES; ship to consumer .claude/workflows/ mapping.\n\nOPEN DESIGN: compose the REAL /gauntlet as two stage-workflows (A: STRABO-\u003eDAEDALUS-\u003eARGUS-\u003eHARD STOP; B: ADA-\u003eVERA-\u003eCATO-\u003eZENO-\u003ereview-surface) and battle-test on a small real arc. RISKS: research-preview feature (version floor); deterministic orchestration != deterministic results. Cross-ref MAJOR_POLYBIUS.md 12/17/19; operating-disciplines.md 6.7.1.",
+  "id": "stoa--04n",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
+  "type": "task",
+  "updated_at": "2026-05-29T20:36:37Z"
+}
