@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-30T00:51:22Z",
+  "description": "ACCRETION CANDIDATE (N=1; 2026-05-29 conversation + gauntlet-design run wf_0c5fa492-e9e). The 'direction is scarce / where is human attention required' thesis + the workflow era create a calibration: distinguish EXECUTION-AUTONOMY (the agent autonomously EXECUTES a human-directed brief/design -- safe, what MAJOR_POLYBIUS.md 4.6 autonomous-ship is for) from DIRECTION-AUTONOMY (the agent CHOOSES what to build -- never; the direction decision is a human-attention gate a workflow must NOT absorb). Workflows make wrong-direction generation industrial (16 concurrent / 1000 total), so the existing direction-gates (4.6 ship/no-ship, 13 escalation triggers, the pre-build HARD STOP) become MORE load-bearing, not less. Sharpens 4.6 + 13 + universal escalation triggers for the workflow era. Accrete against operating-disciplines.md 6.7.1 before canonizing. Cross-ref: stoa--04n, the HARD-STOP/pre-build gate, the workflow-composer skill.",
+  "id": "stoa--q36",
+  "labels": [],
+  "priority": 3,
+  "status": "open",
+  "title": "[ACCRETION] Workflows execute direction; they never set it (execution-autonomy vs direction-autonomy)",
+  "type": "task",
+  "updated_at": "2026-05-30T00:51:22Z"
+}
