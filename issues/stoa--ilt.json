@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-30T00:51:24Z",
+  "description": "ACCRETION CANDIDATE (N=1; 2026-05-29). The review-surface discipline -- currently scoped INSIDE the workflow-composer skill -- generalizes beyond workflows: any time a team produces work for a human-attention gate, feed the human the distilled high-signal residue (close calls, low-confidence verdicts, filtered-out findings + why, divergences between checkers, decisions the team was unsure of) -- NOT the raw output. This is the operational form of 'direction is scarce; don't consume it with raw generation.' Empirical anchor: the two workflow runs this session fed the outer loop a digest, not 54k/201k tokens of raw agent work. Candidate to promote from the skill into a general substrate principle (operating-disciplines.md). N=1; accrete against 6.7.1. Cross-ref: workflow-composer skill review-surface section, the outer-loop-check discussion, MAJOR_POLYBIUS.md 3.",
+  "id": "stoa--ilt",
+  "labels": [],
+  "priority": 3,
+  "status": "open",
+  "title": "[ACCRETION] Review-surface as a general principle: feed scarce human attention high-signal residue, not raw output",
+  "type": "task",
+  "updated_at": "2026-05-30T00:51:24Z"
+}
