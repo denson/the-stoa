@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-30T00:51:25Z",
+  "description": "PRINCIPAL HUNCH (2026-05-29): workflows can ENFORCE disciplines mechanically -- at least the CHECKABLE subset -- rather than relying on prose-in-role-files (soft, forgettable, bloat-prone). A spectrum of enforcement strength:\n(i) DETERMINISTIC SCRIPT GATE (no LLM in the gate -- grep/probe/git-state): strongest. e.g. authorship-field grep, pre-branch git checks (PLINY 5.9), voice-leakage grep, cron hygiene.\n(ii) SINGLE-DISCIPLINE CHECKER AGENT (focused LLM, one-job-per-agent 4.4 taken to the limit -- one agent, one discipline, no dilution; composable as a parallel fan-out): e.g. 'did this brief CITE the spec line vs re-enumerate from memory?' (ksge D9 / stoa--7b1.6).\n(iii) SCHEMA-FORCED VERDICT FIELD (the discipline becomes a required output the agent cannot silently skip; runtime retries until present).\nPRINCIPAL named (ii) + (iii); (i) is the strongest form.\nPARTITION (the dividing line = last turn's thesis): ENFORCEABLE = syntactic/structural/probe-verifiable disciplines (exactly the ones that bloat prose + get forgotten). NOT ENFORCEABLE = judgment disciplines (direction, taste, novel-attention-surfacing 3) -- stay human/soft, because you can mechanize 'was the discipline followed?' but never 'is this the right direction?'.\nEXISTING SEEDS to generalize: CAPTAIN_ZENO (mechanical spec-check = seed of the checker-agent); the verdict schema / save-verdict (seed of the schema-field); the runner skill (probe seed).\nTWO PAYOFFS: (a) DEBLOAT lever -- checkable disciplines migrate prose-\u003emechanical, shrinking role files (stoa--xyb) AND making enforcement reliable; (b) serves the direction-is-scarce thesis -- every mechanized discipline is human attention freed for direction.\nRISK: who checks the checker? A wrong gate gives false-green (cf. save-verdict /tmp silent-green D5). Deterministic gates \u003e checker-agents on trust. Mechanical enforcement needs its own verification.\nNEXT: prototype a single-discipline checker (Mode 2) on ONE checkable discipline, then design which disciplines migrate. N=1; accrete against 6.7.1. Cross-ref: 4.4, CAPTAIN_ZENO, save-verdict, runner skill, stoa--xyb debloat, the thesis, workflow-composer skill.",
+  "id": "stoa--aox",
+  "labels": [],
+  "priority": 3,
+  "status": "open",
+  "title": "[EXPLORATION] Mechanical discipline-enforcement via the workflow architecture (gate / checker-agent / schema-field spectrum)",
+  "type": "task",
+  "updated_at": "2026-05-30T00:51:25Z"
+}
