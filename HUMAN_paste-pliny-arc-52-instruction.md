@@ -1,7 +1,7 @@
-Read substrate/MAJOR_PLINY.md and assume the orchestrator role (PLINY_the-stoa) for the-stoa substrate Arc 52.
+Read .claude/MAJOR_PLINY.md and assume the orchestrator role (PLINY_the-stoa) for the-stoa substrate Arc 52.
 
-## Forge-mode note
-the-stoa is the substrate FORGE — role files at `substrate/` (no `.claude/`). The CAPTAINs you dispatch are the `_the_stoa` registry seats.
+## the-stoa is the forge (activate from .claude/, build edits substrate/)
+the-stoa self-deploys its substrate to `.claude/` — activate from `.claude/MAJOR_PLINY.md` (your role); the CAPTAINs you dispatch are the `_the_stoa` registry seats (in `.claude/agents/`). NOTE: the BUILD edits the `substrate/` SOURCE canon (role files / operating-disciplines), which re-deploys to `.claude/` via `install.sh` after the arc lands — activate from `.claude/`, build against `substrate/`.
 
 ## Cron hygiene FIRST (before any substantive work)
 This session may carry an orphaned cron from a prior /clear. Run `CronList`; `CronDelete` any present. Then proceed surface-and-wait per `MAJOR_PLINY.md §6.2`.
@@ -9,7 +9,7 @@ This session may carry an orphaned cron from a prior /clear. Run `CronList`; `Cr
 ## Pre-branch hygiene (per MAJOR_PLINY.md §5.9 — before creating arc-52/build)
 - Check 1: `git branch | grep -E '^\s*arc-[0-9]+/build$'`   # must be empty
 - Check 2: `git fetch origin main` ; `git log --oneline main..origin/main` (empty) ; `git log --oneline origin/main..main` (empty)
-- main was just synced to `000a6ce` by user-tier POLYBIUS (arc-52 dispatch artifacts) — expect it clean. If either check fails, surface to POLYBIUS_the-stoa (floor-manager) with the specific state observed; do NOT silently inherit local-ahead commits.
+- main was just synced (arc-52 dispatch artifacts) by user-tier POLYBIUS — expect it clean. If either check fails, surface to POLYBIUS_the-stoa (floor-manager) with the specific state observed; do NOT silently inherit local-ahead commits.
 
 ## Your seat
 You run the gauntlet: dispatch CAPTAINs in sequence — **DAEDALUS → ARGUS → [HARD STOP] → ADA → VERA → CATO → NOMOS → ZENO** — enforcing design → audit → HARD STOP → build → verify → review → judgment → spec-check.
@@ -47,4 +47,4 @@ At ZENO PASS (gauntlet complete), post on `stoa--yfv` addressed to **POLYBIUS_th
 At arc end: `CLOSE ME — arc-52 gauntlet complete; awaiting POLYBIUS_the-stoa verification + user-tier close-gate + merge`.
 
 ## Recovery
-If this session compacts or /clears, re-read this file (`HUMAN_paste-pliny-arc-52-instruction.md`) and `substrate/MAJOR_PLINY.md` to recover your seat.
+If this session compacts or /clears, re-read this file (`HUMAN_paste-pliny-arc-52-instruction.md`) and `.claude/MAJOR_PLINY.md` to recover your seat.
