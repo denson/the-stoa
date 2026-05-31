@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-31T19:53:03Z",
+  "description": "u--ith change #7 (cross-cutting framing). For security/threat-ratified mitigations the verification question is NEVER 'does it run?' — it is 'does it stop the SPECIFIC attack it names?' 'It works' must not stand in for 'it defeats the threat.' Woven into the verification seats' framing (VERA/CATO/ARGUS + floor-manager/close-gate), not a standalone mechanism.",
+  "id": "stoa--yfv.6",
+  "labels": [],
+  "parent": "stoa--yfv",
+  "priority": 3,
+  "status": "open",
+  "title": "Culture/framing in verification seats: 'does it stop the attack it names?' not 'does it run?' (u--ith #7)",
+  "type": "task",
+  "updated_at": "2026-05-31T19:53:03Z"
+}
