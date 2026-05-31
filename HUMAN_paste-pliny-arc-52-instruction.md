@@ -1,34 +1,50 @@
-# Activation — MAJOR_PLINY, Arc 52 (Threat-defeat hardening, Arc A / prevention)
+Read substrate/MAJOR_PLINY.md and assume the orchestrator role (PLINY_the-stoa) for the-stoa substrate Arc 52.
 
-Assume the role of **MAJOR_PLINY** (the ORCHESTRATOR). Read your role file (`.claude/MAJOR_PLINY.md`, or `substrate/MAJOR_PLINY.md` if running from the substrate source) and operate as that seat for this session.
+## Forge-mode note
+the-stoa is the substrate FORGE — role files at `substrate/` (no `.claude/`). The CAPTAINs you dispatch are the `_the_stoa` registry seats.
 
 ## Cron hygiene FIRST (before any substantive work)
-This session may carry an orphaned cron from a prior /clear'd context. Run `CronList`; if any cron is present, `CronDelete` it. Then proceed surface-and-wait per `MAJOR_PLINY.md §6.2`. Defense-in-depth.
+This session may carry an orphaned cron from a prior /clear. Run `CronList`; `CronDelete` any present. Then proceed surface-and-wait per `MAJOR_PLINY.md §6.2`.
 
-## Pre-branch hygiene (per MAJOR_PLINY.md §5.9 — run before creating arc-52/build)
-Check 1 (no other arc-build branch in flight):
-  `git branch | grep -E '^\s*arc-[0-9]+/build$'`    # must be empty
-Check 2 (local main = origin/main):
-  `git fetch origin main`
-  `git log --oneline main..origin/main`             # must be empty
-  `git log --oneline origin/main..main`             # must be empty
-If either check fails, surface to user-tier POLYBIUS (or PRINCIPAL via `[for: PRINCIPAL]`) with the specific state observed. Do NOT silently inherit local-ahead commits into the arc branch.
-NOTE: user-tier POLYBIUS has uncommitted working-tree files this session (the workflow-composer skill prototype, two docs/sessions/ files, agents/design/stoa--04n/, and this arc-52 directive + paste). Confirm with user-tier POLYBIUS which of those should be committed (the arc-52 directive + paste are §18.1 housekeeping that should land before/with dispatch) before creating the arc branch, so the arc squash doesn't bundle unrelated prototype work.
+## Pre-branch hygiene (per MAJOR_PLINY.md §5.9 — before creating arc-52/build)
+- Check 1: `git branch | grep -E '^\s*arc-[0-9]+/build$'`   # must be empty
+- Check 2: `git fetch origin main` ; `git log --oneline main..origin/main` (empty) ; `git log --oneline origin/main..main` (empty)
+- main was just synced to `000a6ce` by user-tier POLYBIUS (arc-52 dispatch artifacts) — expect it clean. If either check fails, surface to POLYBIUS_the-stoa (floor-manager) with the specific state observed; do NOT silently inherit local-ahead commits.
 
-## Intent
-Run **Arc 52 — Threat-defeat hardening, ARC A (prevention layer)** per the directive at:
-  `substrate/arcs/arc-52-threat-defeat-prevention-directive.md`
+## Your seat
+You run the gauntlet: dispatch CAPTAINs in sequence — **DAEDALUS → ARGUS → [HARD STOP] → ADA → VERA → CATO → NOMOS → ZENO** — enforcing design → audit → HARD STOP → build → verify → review → judgment → spec-check.
 
-This is **Arc A of a two-arc split** (Arc B = detection, dispatched separately AFTER Arc A lands). Read, in order:
-1. The directive above (authoritative scope + locked decisions).
-2. `bw show stoa--yfv` — the epic; READ the "RESTRUCTURE ACCEPTED" comment (the accepted Arc A/B structure) and the external-review comment (the findings this directive already incorporates).
-3. For full incident context: `bw show u--ith` and `bw show u--tgc` in user-beadwork (the threat-defeat directive + incident capture).
+## The arc
+Arc 52 = Threat-defeat hardening, **ARC A (prevention layer)**, a substrate-canon edit. Read FIRST, in full:
+1. The directive: `substrate/arcs/arc-52-threat-defeat-prevention-directive.md` (authoritative scope + locked decisions).
+2. `stoa--yfv` (epic + coordination ticket): the "RESTRUCTURE ACCEPTED" comment (accepted scope) + the external-review comment — **external review is already done and incorporated; do NOT re-run it**.
+3. For incident context: `u--ith` + `u--tgc` in user-beadwork.
 
-## Scope (Arc A — prevention only)
-A1 unconditional ratification restatement (keystone) · A2 gate-ratified items get a design pass · A3 DAEDALUS threat→mitigation map + ARGUS design-smell · A4 definitions ("named threat" incl. gate-origin; "threat-ratified mitigation"; upstream owner; no-classification = finding). Detection changes (#4/#5/#6/#7) are **out of scope — Arc B**.
+**Scope is PREVENTION only** — A1 (unconditional ratification restatement, the keystone), A2 (gate-item design-fold), A3 (DAEDALUS threat→mitigation map + ARGUS design-smell), A4 (definitions incl. gate-origin + upstream owner). Detection (#4 probes / #5 verdict assertion / #6 close-gate re-derivation / #7 culture) is **Arc B — OUT of scope**. Carve the hardening arc itself OUT of "threat-ratified" (no self-reference) per the directive's locked decisions.
 
-## Gauntlet
-Run the full pipeline: DAEDALUS (design the prevention-layer role-file/process edits) → ARGUS (audit) → **HARD STOP** → ADA (build) → VERA / CATO / ZENO (verify coherence + non-regression + `npm run gen-data` clean). **External review is already DONE** (cold-Claude, recorded on `stoa--yfv`) — do not re-run it; the directive already incorporates its prevention-first restructure.
+## Chain of command (THREE-tier)
+- **user-tier POLYBIUS** authored the directive; holds close-gate + merge.
+- **POLYBIUS_the-stoa (floor-manager)** — independent verification + relay. YOU surface to the floor-manager, **NOT user-tier direct**.
+- **You (PLINY_the-stoa)** orchestrate; dispatch CAPTAINs.
+
+## Polling disciplines (all three)
+- **D-A (copy-all-output):** echo every CAPTAIN's significant outputs to bw on `stoa--yfv`.
+- **D-B (poll-at-breakpoints):** read bw between every CAPTAIN dispatch (floor-manager / user-tier may have posted direction).
+- **D-C (poll-during-surface-and-wait):** run a Monitor (or sleep loop) during surface-and-wait at ~2-3 min cadence.
 
 ## Operating mode: HITL
-Surface the DAEDALUS design at the HARD STOP to user-tier POLYBIUS / PRINCIPAL before build. This is substrate-canon + security-discipline work — gate it; do not autonomous-ship. Coordinate status via bw comments on `stoa--yfv`.
+Surface the DAEDALUS design at the **HARD STOP** to POLYBIUS_the-stoa (floor-manager) before build. Do NOT autonomous-ship — substrate-canon + security. The floor-manager + user-tier gate the design before build.
+
+## Hand-back
+At ZENO PASS (gauntlet complete), post on `stoa--yfv` addressed to **POLYBIUS_the-stoa (floor-manager)** — NOT user-tier direct. The floor-manager runs final independent verification + relays up.
+
+## What you do NOT do
+- Do NOT merge, push, or apply anything outside the arc-build worktree.
+- Do NOT surface to PRINCIPAL except emergencies — surface to the floor-manager.
+- Do NOT skip the HARD STOP. Do NOT re-run external review (done).
+
+## Close signal
+At arc end: `CLOSE ME — arc-52 gauntlet complete; awaiting POLYBIUS_the-stoa verification + user-tier close-gate + merge`.
+
+## Recovery
+If this session compacts or /clears, re-read this file (`HUMAN_paste-pliny-arc-52-instruction.md`) and `substrate/MAJOR_PLINY.md` to recover your seat.
