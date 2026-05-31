@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-31T19:53:00Z",
+  "description": "u--ith change #4. VERA/CATO probes for a threat-ratified mitigation MUST exercise the THREAT'S actual attack path and assert it is now blocked/throttled AND that legit low-rate traffic is NOT throttled — not merely exercise the artifact's happy path. 'Throttle trips at the 11th request' is artifact verification; 'the actual M2 attack is now capped, legit traffic unaffected' is threat verification (the missing half). Touches VERA role file + the runner skill. Pairs with C1 (the 'via probe P' clause).",
+  "id": "stoa--yfv.2",
+  "labels": [],
+  "parent": "stoa--yfv",
+  "priority": 2,
+  "status": "open",
+  "title": "Threat-anchored verification probes — exercise the attack path, not the happy path (u--ith #4)",
+  "type": "task",
+  "updated_at": "2026-05-31T19:53:00Z"
+}
