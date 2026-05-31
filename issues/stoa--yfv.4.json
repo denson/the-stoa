@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-05-31T19:53:02Z",
+  "description": "u--ith changes #2 + #3 (merged — shared fix-layer: the ratification-\u003edesign-\u003ebuild seam; this was the origindex root cause). #2: items added at the security gate / ratification grid MUST be folded BACK into the design with their threat-\u003emitigation map BEFORE build — not appended as a build-scope bullet. #3: human ratification phrasing is shorthand; the orchestrator MUST disambiguate ambiguous ratification back to the specific NAMED threat + attack path before build; the build must never silently pick the easier reading. Maps to stoa--q36 (builds execute direction, never SET it) + the pre-build HARD STOP. ACCEPTANCE (per stoa--7b1 anti-lossy-bundle lesson — both must land): [ ] gate-ratified-design-pass discipline landed; [ ] ratification-disambiguation discipline landed.",
+  "id": "stoa--yfv.4",
+  "labels": [],
+  "parent": "stoa--yfv",
+  "priority": 2,
+  "status": "open",
+  "title": "Ratification-\u003edesign binding: gate-ratified design pass + disambiguate phrasing before build (u--ith #2 + #3)",
+  "type": "task",
+  "updated_at": "2026-05-31T19:53:02Z"
+}
