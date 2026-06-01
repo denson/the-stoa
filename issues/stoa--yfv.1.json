@@ -7,9 +7,15 @@
   "id": "stoa--yfv.1",
   "labels": [],
   "parent": "stoa--yfv",
+  "comments": [
+    {
+      "text": "RE-SCOPED to Arc B (detection layer). Arc A (prevention) merged cc4b3e6; this child is #5 verdict threat-coverage assertion — a detection mechanism, dispatched in Arc B AFTER Arc A's hardened gauntlet is in place (per the stoa--yfv RESTRUCTURE-ACCEPTED prevention-before-detection lock). Stays OPEN as an Arc-B work item.",
+      "timestamp": "2026-06-01T02:21:51Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "Verdict templates require a threat-coverage assertion (u--ith #5, keystone)",
   "type": "task",
-  "updated_at": "2026-05-31T19:52:59Z"
+  "updated_at": "2026-06-01T02:21:51Z"
 }
