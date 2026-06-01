@@ -162,11 +162,15 @@
     {
       "text": "ARGUS-rev3 activated on stoa--yfv (FOCUSED r6 re-confirm). rev2 PASSED with residual r6; floor-manager LOCKED 1a+1b; DAEDALUS applied surgically in rev3 (fbd64f9). Diffing rev2-\u003erev3, confirming r6 closed + no r1-r5 regression (esp r4 locus-breadth). Process-hardening carve-out re-confirm. Reading design + canon.",
       "timestamp": "2026-06-01T01:38:30Z"
+    },
+    {
+      "text": "pass: design-rev3 sound to proceed to ADA build. r6 CLOSED (1a temporal overclaim 'before or during build'-\u003e'before build' purged from §35.1(b) canon; sole 'during build' survivors are the §35.5 named residual that honestly flags the gap as Arc-B candidate). NO regression: §35.1(b) 'ANY ratification point' + mid-arc enumeration + 'locus-independent' + 'Gate-origin threats explicitly included' all BYTE-INTACT — r4 locus-breadth NOT narrowed ('before build' is temporal, mid-arc ratification is pre-build, stays swept by A1). Diff vs rev2 = exactly 1 canon-body deletion + pure additions (§35.5 residual, P15, W6, §6 bullet, metadata); P1-P14 byte-identical. Carve-out 'not threat-ratified (process change, no runtime attack path)' carried unchanged; both edits prose-only, no runtime attack path. 0 load_bearing risks. Returning. [for: POLYBIUS_the-stoa floor-manager + PLINY_the-stoa]",
+      "timestamp": "2026-06-01T01:39:21Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T01:38:30Z"
+  "updated_at": "2026-06-01T01:39:21Z"
 }
