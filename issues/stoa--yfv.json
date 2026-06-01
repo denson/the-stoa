@@ -114,11 +114,15 @@
     {
       "text": "Pass 1 complete. All 4 insertion points re-verified vs SHIPPED substrate (op-disc 35-after-34 before Agent-regime-inverses; PLINY 5.13-after-5.12; DAEDALUS 6.12-after-6.11 + s3; ARGUS 6.9-after-6.8). HARD STOP grep substrate/ = ZERO (purge confirmed). Now: r1/r4 locus-independence probe-of-the-probe + r5 byte-align extraction + W3 self-application carve-out.",
       "timestamp": "2026-06-01T01:20:29Z"
+    },
+    {
+      "text": "Pass 2: r5 byte-align CONFIRMED (3 deployed map-template copies python-identical; rev1 DAEDALUS s3 short-form gone). r1/r4: definitional coverage of mid-arc PRINCIPAL ratification CLOSED (s35.1 locus-independent + mid-arc enumerated). Surfacing ONE residual seam: s35.1 L105 defines ratification point as 'before OR DURING build' but A1's only firing beat is the single PRE-ADA beat -- a during-build ratification has definitional coverage but no enumerated firing moment. Weighing vs directive (which scopes A1 pre-build). W3 carve-out: CONFIRMING (no runtime attack path in body-prose edits). Finalizing.",
+      "timestamp": "2026-06-01T01:22:00Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T01:20:29Z"
+  "updated_at": "2026-06-01T01:22:00Z"
 }
