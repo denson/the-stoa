@@ -7,9 +7,15 @@
   "id": "stoa--yfv.2",
   "labels": [],
   "parent": "stoa--yfv",
+  "comments": [
+    {
+      "text": "RE-SCOPED to Arc B (detection layer). Arc A (prevention) merged cc4b3e6; this child is #4 threat-anchored probes — a detection mechanism, dispatched in Arc B AFTER Arc A's hardened gauntlet is in place (per the stoa--yfv RESTRUCTURE-ACCEPTED prevention-before-detection lock). Stays OPEN as an Arc-B work item.",
+      "timestamp": "2026-06-01T02:21:51Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "Threat-anchored verification probes — exercise the attack path, not the happy path (u--ith #4)",
   "type": "task",
-  "updated_at": "2026-05-31T19:53:00Z"
+  "updated_at": "2026-06-01T02:21:51Z"
 }
