@@ -118,11 +118,15 @@
     {
       "text": "Pass 2: r5 byte-align CONFIRMED (3 deployed map-template copies python-identical; rev1 DAEDALUS s3 short-form gone). r1/r4: definitional coverage of mid-arc PRINCIPAL ratification CLOSED (s35.1 locus-independent + mid-arc enumerated). Surfacing ONE residual seam: s35.1 L105 defines ratification point as 'before OR DURING build' but A1's only firing beat is the single PRE-ADA beat -- a during-build ratification has definitional coverage but no enumerated firing moment. Weighing vs directive (which scopes A1 pre-build). W3 carve-out: CONFIRMING (no runtime attack path in body-prose edits). Finalizing.",
       "timestamp": "2026-06-01T01:22:00Z"
+    },
+    {
+      "text": "pass: ARGUS-rev2 verdict=PASS (sound to proceed to ADA build). Saved agents/verdicts/stoa--yfv/ARGUS-2026-06-01T01-29-19Z.md (sha256 575f803e round-trip verified). COLD RE-DERIVATION vs SHIPPED substrate (not a conformance check): all 5 rev1 risks SUBSTANTIVELY closed -- r1+r4 (HARD STOP purged=zero in substrate; locus-independent def; M2 incident class provably covered for every PRE-pre-ADA-beat ratification), r2 (s5.13 named beat + ARGUS-\u003eADA edge-annotation, cold-reader test passes, W2 acceptable), r3 (DAEDALUS-PROPOSES/ARGUS-CONFIRMS carve-out, self-exempt exit closed), r5 (3 map-template copies python byte-identical, short-form gone). No rev1-clean regression (4 insertion points accurate, s5.1 born-inline precedent followed, A1 unconditional, A1-gates-A2, honest-claim, scope, authorship all clean). W1 acceptable (inclusive not vague). W3 CARVE-OUT: CONFIRMED -- design-rev2 self-classification 'not threat-ratified (process change, no runtime attack path)' is CORRECT (pure role-file prose, no runtime attack path, no M\u003cn\u003e to defeat). ONE residual surfaced: r6 [load_bearing: UNCERTAIN, easy-easy] -- s35.1 L105 def says 'before OR DURING build' but A1's single firing beat is pre-build only; a genuinely during-build (post-pre-ADA-beat) ratification has definitional coverage with no enumerated firing moment. This sliver is OUT of the directive's locked Arc-A scope (directive A1/A2 both BEFORE build; FM criterion 3 SWEEPS every PRIOR ratification) -- so NOT a re-open of r4, just a prose-vs-mechanism over-reach in L105. NOT a blocker. PLINY routing options: (i) tighten L105 'or during build', (ii) name the A2 re-dispatch loop-back as the during-build path, (iii) accept as documented Arc-B seam. I surface; PLINY decides. Per HITL -\u003e floor-manager r6 routing call + user-tier close-gate. Returning.",
+      "timestamp": "2026-06-01T01:29:38Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T01:22:00Z"
+  "updated_at": "2026-06-01T01:29:38Z"
 }
