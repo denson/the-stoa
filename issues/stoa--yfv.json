@@ -42,11 +42,15 @@
     {
       "text": "ARGUS activated on stoa--yfv (Arc 52 ARC A prevention). Reading design-rev1 + arc-52 directive + cited substrate insertion points end-to-end before audit. Operating-mode hitl.",
       "timestamp": "2026-06-01T00:57:27Z"
+    },
+    {
+      "text": "Design pass 1 complete. Insertion points all verified accurate vs shipped substrate (op-disc 35 after 34; PLINY 5.13 after 5.12; DAEDALUS 6.12 after 6.11 + sec3 at L47; ARGUS 6.9 after 6.8). Now auditing W1 (security-gate-\u003eHARD-STOP binding) + A1-unconditional + A4 gate-origin coverage + carve-out hole. Quadrant-classifying candidate risks next.",
+      "timestamp": "2026-06-01T00:58:00Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T00:57:27Z"
+  "updated_at": "2026-06-01T00:58:00Z"
 }
