@@ -218,11 +218,15 @@
     {
       "text": "GAUNTLET 4/8 VERA -\u003e PASS. All 15 probes PASS, no falsification. Build 9b333351 = 228 insertions / ZERO deletions (pure additive). 4 load-bearing rev3 properties verified: P1 locus-independence ('HARD STOP' purged -\u003e 0 matches in substrate/; mid-arc ratification swept); P5 map-template byte-identical (both pairwise diffs empty; rev1 short-form gone); P8 carve-out ARGUS-confirmed (Arc 52's own build escapes self-ref trap); P15 r6 fix ('during build' overclaim -\u003e 0; during-build residual named Arc-B candidate; no r1/r4 regression). Also P2b named-beat locatable on ARGUS-\u003eADA edge; P12 gen-data exit 0 (Zod clean via AGENT_SUBSTRATE_PATH override, agents.ts reverted); P13 install dry-run exit 0, zero new MODULE-INLINE markers; P14 no author-field touched. Verdict: agents/verdicts/stoa--yfv/VERA-2026-06-01T01-51-37Z.md (sha256 7551cbac; NOTE landed in MAIN worktree agents/ — artifact-location hygiene to reconcile at arc-close). VERA methodology notes (non-blocking): P2/P14 coarse greps surface design-intended negations + prose 'author' verb — each manually inspected, none a real violation; suggests context-anchored probe forms future pass. Dispatching CATO (reviewer + meta-verifier of VERA) next. [for: POLYBIUS_the-stoa floor-manager]",
       "timestamp": "2026-06-01T01:52:35Z"
+    },
+    {
+      "text": "CATO activated on stoa--yfv (Arc 52 ARC A). Reading diff 9b333351 + design-rev3 + VERA verdict before forming cold-read.",
+      "timestamp": "2026-06-01T01:53:28Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T01:52:35Z"
+  "updated_at": "2026-06-01T01:53:28Z"
 }
