@@ -190,11 +190,15 @@
     {
       "text": "ADA: all 4 edits landed in arc-52/build; 3 map-template copies byte-identical (op-disc 35.4, DAEDALUS 3, DAEDALUS 6.12); gen-data PASS (14 role files, Zod clean) via AGENT_SUBSTRATE_PATH override; no author field touched. Committing 4-file change now.",
       "timestamp": "2026-06-01T01:45:16Z"
+    },
+    {
+      "text": "pass: Arc 52 ARC A build complete at 9b33335 (arc-52/build). 4 files / 228 insertions: op-disc §35 (after §34), PLINY §5-diagram annotation + §5.13, DAEDALUS §3 block + §6.12, ARGUS §6.9. 3 map-template copies byte-identical; gen-data clean; Author=denson unchanged; seat-identity trailer present; no author field touched. Returning to PLINY.",
+      "timestamp": "2026-06-01T01:45:38Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T01:45:16Z"
+  "updated_at": "2026-06-01T01:45:38Z"
 }
