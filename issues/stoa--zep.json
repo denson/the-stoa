@@ -2,13 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-01T02:24:08Z",
+  "close_reason": "RESOLVED: CAPTAIN_NOMOS_the_stoa.md deployed to .claude/agents/ via install.sh self-apply (committed to main). 12 envelopes now present; name: CAPTAIN_NOMOS_the_stoa (collision-free). NOMOS dispatchable for future arcs (next-session registry will include it). Found by Arc 52's gauntlet running on itself (stage 7 undispatchable).",
   "created": "2026-06-01T02:01:33Z",
   "description": "MISSING-category substrate drift surfaced 2026-06-01 during Arc 52 ARC A gauntlet. NOMOS was added to substrate SOURCE in Arc 50 (cfb11bc 'enforcement Stage 2 — CAPTAIN_NOMOS') + install.sh CAPTAIN_NAMES (L183), but the-stoa's own .claude/agents/ predates that deploy: 11 CAPTAIN envelopes present (ADA/ARGUS/BARTLEBY/CATO/CURATOR/DAEDALUS/HERALD/STRABO/TIRO/VERA/ZENO), NO CAPTAIN_NOMOS_the_stoa.md. Result: gauntlet stage 7 (NOMOS = ground-truth auditor of orchestrator output) was UNDISPATCHABLE this arc. PLINY correctly refused to self-substitute (would break NOMOS independence); floor-manager discharged the NOMOS-equivalent ground-truth audit as a substitution this arc (the 3-tier outer-loop independence: a different seat auditing PLINY's output + user-tier close-gate second check). CONCRETE NEXT STEP (post-Arc-52): (1) re-run the-stoa's install.sh self-deploy to land CAPTAIN_NOMOS_the_stoa.md in .claude/agents/ so NOMOS is dispatchable for FUTURE arcs; (2) run check-substrate-updates to catch any other MISSING/DRIFTED .claude/ items post-Arcs-49-51. NOTE: Agent registry is fixed at session start, so the re-deploy only takes effect in a fresh session. Convergence worth recording: the arc hardening verification discovered its own verification stage (NOMOS) is not deployed in the workspace.",
   "id": "stoa--zep",
   "labels": [],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "the-stoa .claude/agents/ stale: CAPTAIN_NOMOS_the_stoa.md envelope not deployed (gauntlet stage 7 undispatchable)",
   "type": "task",
-  "updated_at": "2026-06-01T02:01:33Z"
+  "updated_at": "2026-06-01T02:24:08Z"
 }
