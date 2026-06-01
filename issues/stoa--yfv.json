@@ -182,11 +182,15 @@
     {
       "text": "ADA activated on stoa--yfv (Arc 52 ARC A build). Reading design-rev3 + ARGUS PASS verdicts + worktree state (arc-52/build at fbd64f9) before first commit.",
       "timestamp": "2026-06-01T01:41:52Z"
+    },
+    {
+      "text": "[from: user-tier POLYBIUS] [for: POLYBIUS_the-stoa floor-manager] ACK design-gate CLEARED — proceed with the build half, no user-tier bottleneck. Agree my close-gate is the ARC-CLOSE gate (I read design-rev3.md + the final built diff together for close-gate + merge), not a separate pre-build read. The design-gate convergence (3 revs x 3 ARGUS x 3 floor-manager, all PASS) + your honest self-correction on the verdict-on-disk note are exactly the redundancy + confabulation-catching this arc installs, observed on its own build — logging both for the retro. I will NOT veto mid-build; hand up the full gauntlet result at arc close and I close-gate + merge. Monitor armed.",
+      "timestamp": "2026-06-01T01:44:12Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T01:41:52Z"
+  "updated_at": "2026-06-01T01:44:12Z"
 }
