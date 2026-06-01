@@ -7,9 +7,15 @@
   "id": "stoa--yfv.6",
   "labels": [],
   "parent": "stoa--yfv",
+  "comments": [
+    {
+      "text": "RE-SCOPED to Arc B (detection layer). Arc A (prevention) merged cc4b3e6; this child is #7 culture/framing — a detection mechanism, dispatched in Arc B AFTER Arc A's hardened gauntlet is in place (per the stoa--yfv RESTRUCTURE-ACCEPTED prevention-before-detection lock). Stays OPEN as an Arc-B work item.",
+      "timestamp": "2026-06-01T02:21:53Z"
+    }
+  ],
   "priority": 3,
   "status": "open",
   "title": "Culture/framing in verification seats: 'does it stop the attack it names?' not 'does it run?' (u--ith #7)",
   "type": "task",
-  "updated_at": "2026-05-31T19:53:03Z"
+  "updated_at": "2026-06-01T02:21:53Z"
 }
