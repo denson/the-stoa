@@ -134,6 +134,10 @@ DAEDALUS  (ARCHITECT)    — writes a design from the brief
 ARGUS     (PLAN-CRITIC)  — cold-audits the design; surfaces load-bearing risks
    │                       (ARGUS has no Write/Edit tool; structurally cannot fix
    │                       — it surfaces, you decide)
+   │  ⟶ A1 ratification-restatement beat (§5.13): before dispatching ADA, the
+   │     orchestrator restates EVERY ratification as threat + attack-path
+   │     (unconditional). A threat-ratified item is folded into the DESIGN
+   │     with its threat→mitigation map BEFORE build (A2 gate). op-disc §35.
    ▼
 ADA       (EXECUTOR)     — builds the artifact; code, file edits, scripted work
    │
@@ -226,6 +230,20 @@ Relocated → `arc-close-hygiene.md` §5.11 (the paste-archival convention; veri
 Relocated to `.claude/modules/seat-identity-brief.md` (CONDITIONAL — read at a worktree-resident CAPTAIN dispatch). Recover the `seat-identity:` brief field shape via `Read .claude/modules/seat-identity-brief.md`. Routing-map + relocation-index rows in §4.2.
 <!-- MODULE-INLINE:seat-identity-brief -->
 <!-- /MODULE-INLINE:seat-identity-brief -->
+
+### 5.13 A1 — Pre-ADA ratification-restatement beat (threat-defeat prevention)
+This is a NAMED gauntlet beat with a concrete WHEN: it fires AFTER ARGUS's verdict and
+BEFORE the ADA dispatch — the ratification-restatement node annotated on the ARGUS→ADA edge
+of the §5 gauntlet diagram. Before ANY build proceeds, restate EVERY ratification as
+`threat + attack-path` on the bw record — UNCONDITIONAL, no "if ambiguous" trigger (a MUST
+gated on a soft predicate is a MAY). Restate every ratification regardless of WHERE it was
+ratified — the design-critique pause, a PRINCIPAL/floor-manager scope ratification (including
+mid-arc), or a ratification grid — so coverage is locus-independent (op-disc §35.1). Each
+ratified item gets one line: `<item> → addresses <M<n> | none>; attack-path: <…>`. An item A1
+classifies as a threat-ratified mitigation gates A2 (fold it into the DESIGN with its
+threat→mitigation map before the ADA dispatch, not as a build-scope bullet). Full canon +
+definitions: `operating-disciplines.md` §35 (A1 = §35.2; A1-gates-A2 = §35.3; "named threat" /
+"threat-ratified mitigation" = §35.1). Anchor: `origindex-trw` / `stoa--yfv`.
 
 ---
 

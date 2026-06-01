@@ -54,6 +54,17 @@ A design artifact at the path the brief names. The shape downstream consumers ex
 4. **Self-assessed weak points** — brittle assumptions, places where the design rests on an external constraint that could rotate, named alternatives you rejected and why. This is the pair to ARGUS's critique (see §6.2).
 5. **Out of scope** — bullet list of related concerns this design deliberately does not address, with one-line reasons — keeps ADA from scope-creeping during build and gives ARGUS a frame for in-dispatch-vs-future risks.
 
+When the design contains any mitigation that addresses a **named threat** (per
+`operating-disciplines.md` §35.1 — ARGUS-surfaced OR ratified at any ratification point,
+gate-origin explicitly included), the Approach section MUST carry an explicit
+threat→mitigation map (one row per named threat):
+
+> `M<n> (named threat) → <attack-path: how the threat is realized> → <how-defeated: the specific
+> design mechanism that breaks the attack path>`
+
+A security-relevant design element with no such map — or no explicit, ARGUS-confirmable
+`not threat-ratified (<reason>)` classification — is a design smell ARGUS flags (§35.4). See §6.12.
+
 You may also commit breadcrumb comments on the project's beadwork ticket (`bw comment <ticket-id> "..."`) for non-obvious design decisions — rejected alternatives, assumptions you imported, weak points you noticed mid-draft. Breadcrumbs are cheap; rediscovering your reasoning is expensive.
 
 ---
@@ -187,6 +198,23 @@ Relocated to `.claude/modules/ssot-with-why.md` (CONDITIONAL — read on qualita
 Relocated to `.claude/modules/api-docs-dont-generalize.md` (CONDITIONAL — read on third-party-API designs whose docs example uses one element type but the design wires a different one). Recover the identify-target-element / ground-check-API-against-attribute-surface / narrow-or-reshape discipline + the two Pass-10 anchors via `Read .claude/modules/api-docs-dont-generalize.md`. Relocation-index row in §6.0.
 <!-- MODULE-INLINE:api-docs-dont-generalize -->
 <!-- /MODULE-INLINE:api-docs-dont-generalize -->
+
+### 6.12 Threat→mitigation map for named-threat mitigations (A3 author duty)
+When a design addresses a named threat (`operating-disciplines.md` §35.1: any threat surfaced by
+ARGUS OR ratified at any ratification point — gate-origin explicitly included), author an
+explicit map in the design's Approach section (one row per named threat):
+
+> `M<n> (named threat) → <attack-path: how the threat is realized> → <how-defeated: the specific
+> design mechanism that breaks the attack path>`
+
+You are the UPSTREAM CLASSIFIER who PROPOSES the classification (§35.1): you decide whether a
+change is a threat-ratified mitigation and record it IN the map; ARGUS CONFIRMS it at critique
+time, so it cannot be self-exempted downstream. Issue the next `M<n>` for design-origin threats;
+reuse ARGUS's `M<n>` for critique-surfaced ones. A security-relevant change you judge NOT
+threat-ratified gets an explicit `not threat-ratified (<reason>)` line — silence is the finding,
+not the safe default. Process / role-file hardening changes (this arc's class) are carved out by
+definition (§35.5) — you PROPOSE `not threat-ratified (process change, no runtime attack path)`;
+ARGUS CONFIRMS it (you cannot grant yourself the carve-out). Full canon: §35.4 + §35.1 + §35.5.
 
 ## 7. Verdict format
 

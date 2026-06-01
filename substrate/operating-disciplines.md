@@ -1299,6 +1299,157 @@ architecture: `.claude/hooks/README.md` (on-demand). Shipped Arc 46 (debloat Arc
 
 ---
 
+## 35. Threat-defeat prevention (named-threat coverage)
+
+The gauntlet verifies that built artifacts behave as built. This section adds the
+prevention layer that binds a security mitigation to the threat it was created to
+defeat, BEFORE build — so a mitigation cannot silently drift to a plausible-but-wrong
+surface. The regime verifies **named-threat coverage**, NOT threat-defeat in general:
+threat-ENUMERATION completeness (did we name every threat?) remains ARGUS's unmechanized
+judgment and a named residual risk (§35.5). Do not overclaim past named-threat coverage.
+
+Empirical anchor: `origindex-trw` shared-auth arc (2026-05-31) — a correctly-named threat
+("M2"), ambiguous ratification, a build that picked the easier wrong surface, a design that
+never bound mitigation to threat, five verify stages that all asked "does it work?" and none
+"does it defeat M2?", caught only at the close-gate. Full case study: `bw show u--ith`
+(directive) + `bw show u--tgc` (incident). This section is Arc A (prevention); the detection
+backstop is Arc B.
+
+### 35.1 Definitions (the shared vocabulary A1/A2/A3 consume)
+
+- **named threat** — any threat that is EITHER (a) surfaced by ARGUS during design critique,
+  OR (b) introduced or ratified at **ANY ratification point** in the arc. A ratification point
+  is any moment where a design, a scope item, or a risk set is blessed before build —
+  the design-critique pause, a PRINCIPAL or floor-manager scope ratification (**including a
+  mid-arc scope ratification, outside the design-critique pause**), or a ratification grid.
+  This definition is **locus-independent**: coverage does NOT depend on naming one canonical
+  gate — it rides on A1's UNCONDITIONAL restatement of EVERY ratification (§35.2), so a threat
+  ratified at a moment a reader does not pre-recognize is still swept in. **Gate-origin threats
+  are explicitly included** — they are the incident class; omitting them means the fix misses
+  the very incident that motivated it. A named threat is assigned a stable ID of the form
+  `M<n>` (M1, M2, …) at the moment it is named (ARGUS issues it at critique time; DAEDALUS
+  issues it at design time for design-origin threats; whoever introduces a ratified threat at
+  any other ratification point issues the next `M<n>`). The ID travels with the threat through
+  design, build, and verdict.
+
+- **threat-ratified mitigation** — any change whose stated purpose is to defeat a named
+  threat. The classification is PROPOSED by an UPSTREAM OWNER (DAEDALUS at design time, recorded
+  in the A3 threat→mitigation map — §35.4) and CONFIRMED by ARGUS at critique time, so it cannot
+  be self-exempted downstream. A security-relevant change that carries NO threat classification
+  (neither "defeats M<n>" nor an explicit "not threat-ratified" with reason — §35.5) is itself a
+  finding.
+
+### 35.2 A1 — Unconditional ratification restatement (the keystone)
+
+Before any build proceeds, the orchestrator (PLINY) MUST restate EVERY ratification as
+`threat + attack-path`. This is **UNCONDITIONAL** — there is no "if ambiguous" trigger. A MUST
+gated on a soft predicate ("restate when ambiguous") is effectively a MAY: the origindex-trw
+phrasing looked unambiguous to the builder, so a judgment-gated restatement would not have
+fired. The restatement is cheap and removes the judgment-call escape entirely. A1 fires at a
+NAMED gauntlet beat — the pre-ADA ratification-restatement beat (`MAJOR_PLINY.md` §5.13), which
+sits between ARGUS's verdict and the ADA dispatch — so the rule has a concrete WHEN a cold
+reader can locate, not just an unconditional WHAT.
+
+Mechanically: for each ratified item the orchestrator writes one line on the bw record of the
+form `<item> → addresses <named-threat M<n> | none>; attack-path: <how the threat is realized>`.
+"none" is a valid restatement (the item is not threat-ratified) — but it must be stated, not
+left implicit. A1's output is the input to A2's classification (§35.3). Because A1 restates
+EVERY ratification regardless of where it was ratified, named-threat coverage is locus-
+independent (§35.1) — it does not depend on identifying one canonical gate.
+
+### 35.3 A2 — Ratified items get a design pass (A1 gates A2)
+
+A1 and A2 are DISTINCT mechanisms with SEPARATE acceptance: A1 is interpretive (disambiguate);
+A2 is structural (fold into design). **A1 gates A2.**
+
+Any item that A1's restatement classifies as a **threat-ratified mitigation** MUST be folded
+back into the DESIGN — with its `threat → mitigation` map (§35.4) — BEFORE build. It is NOT
+acceptable to append it as a build-scope bullet (that was the incident's structural root cause:
+the ratified item bypassed design, so no design-time map bound it to the threat). The fold-in
+is a design revision: DAEDALUS is re-dispatched, or the design is amended before the ADA
+dispatch, so the item enters ADA's build with its map already present.
+
+A2's fold-in trigger is evaluated against A1's restatement output. An un-restated ratified item
+is an A1 violation and the build does not proceed — that is the gate: A2 cannot classify what A1
+has not restated.
+
+### 35.4 A3 — Threat→mitigation map in the design (ownership)
+
+Any mitigation addressing a named threat MUST carry, in the design artifact, an explicit map:
+
+> `M<n> (named threat) → <attack-path: how the threat is realized> → <how-defeated: the specific
+> design mechanism that breaks the attack path>`
+
+DAEDALUS authors this map at design time (`CAPTAIN_DAEDALUS.md` §3, §6.12). ARGUS flags any
+mitigation that addresses a named threat but carries no map as a **design smell**
+(`CAPTAIN_ARGUS.md` §6.9) — a `load_bearing: true` risk, because an unmapped mitigation is
+exactly the drift surface the incident demonstrated. DAEDALUS PROPOSES the classification
+(recorded IN the map per §35.1); ARGUS CONFIRMS it at critique time, so it cannot be
+self-exempted by a downstream seat.
+
+### 35.5 Honest claim + self-reference carve-out (ARGUS-confirmed)
+
+**Honest claim.** This regime verifies named-threat COVERAGE (every named threat has a mapped
+mitigation), not threat-defeat in general. Threat-ENUMERATION completeness — whether the set of
+named threats is complete — remains ARGUS's unmechanized judgment and a NAMED RESIDUAL RISK. Do
+not represent named-threat coverage as proof that all threats are defeated.
+
+**Named residual — during-build ratification is OUT of scope (Arc-B candidate).** A1 fires ONCE,
+before build (the pre-ADA beat — §35.2). A threat ratified AFTER that beat has fired — a
+*during-build* ratification — is OUTSIDE this regime's before-build scope and is NOT swept by A1;
+it is a NAMED RESIDUAL and an **Arc-B (detection) candidate**, not a coverage gap this prevention
+layer claims to close.
+
+**Self-reference carve-out (load-bearing).** The threat-defeat hardening arcs themselves
+(Arc 52 ARC A, ARC B, and any future process-hardening arc of this class) are carved OUT of
+"threat-ratified mitigation" when they are process / role-file changes with NO runtime attack
+path — there is no threat `M<n>` for a process discipline to defeat, so demanding a
+`threat → mitigation` map of them would be a category error (and would make Arc A's own build
+recursively demand threat probes of itself). The carve-out is classified
+`not threat-ratified (process change, no runtime attack path)` per §35.1.
+
+**The carve-out is NOT self-asserted — ARGUS CONFIRMS it.** The building seat (DAEDALUS at design
+time) PROPOSES the `not threat-ratified (process change, no runtime attack path)` classification;
+**ARGUS CONFIRMS it at critique time** (ARGUS already owns A4 classification — §35.1; no new seat).
+An UNCONFIRMED carve-out, or a carve-out ARGUS judges WRONG (the change does have a runtime attack
+path), is a finding ARGUS raises (`load_bearing: true`) — it is the exact self-exemption A4
+forbids, applied to the carve-out path. The building seat cannot grant itself the carve-out; only
+ARGUS's confirmation makes the classification stand. That ARGUS-confirmed explicit classification
+IS the required record; it is not a missing finding.
+
+### 35.6 Per-seat behavior summary (cross-refs)
+
+| Seat | Duty | Cross-ref |
+|---|---|---|
+| PLINY (orchestrator) | A1: at the pre-ADA ratification-restatement beat, restate every ratification as `threat + attack-path` (unconditional) before the ADA dispatch; gate A2's fold-in on A1's output. | `MAJOR_PLINY.md` §5.13 |
+| DAEDALUS (architect) | A3: author the `M<n> → attack-path → how-defeated` map for every threat-ratified mitigation; issue `M<n>` for design-origin threats; PROPOSE the not-threat-ratified / carve-out classification for non-security changes. | `CAPTAIN_DAEDALUS.md` §3, §6.12 |
+| ARGUS (plan-critic) | A3: flag a mapless mitigation as a design smell (`load_bearing: true`); issue/confirm `M<n>` for critique-surfaced threats; CONFIRM the carve-out / not-threat-ratified classification — a wrong or unconfirmed claim is a finding. | `CAPTAIN_ARGUS.md` §6.9 |
+| ADA (executor) | Builds the mapped mitigation; refuses a threat-ratified item that arrives WITHOUT its A3 map (the fold-in failed upstream). | inherits via universal read |
+
+### 35.7 N=1 provenance + accretion path
+
+Anchor: `u--ith` (threat-defeat directive + full case study) + `u--tgc` (incident capture) +
+`origindex-trw` (the arc + floor-manager post-mortem); the-stoa execution home `stoa--yfv`. N=1
+(one real incident, right-threat/wrong-surface shape). Per §6.7.1 honest-scope: enters canon on
+PRINCIPAL's directive ratification (the Arc 52 restructure-accepted decision, 2026-05-31);
+future-evidence accretion against the §6.7.1 gate still required for "structural lesson"
+promotion beyond this shape. Adjacent modes NOT covered (named residual): incomplete threat
+enumeration (§35.5); mitigation that defeats M<n> but regresses elsewhere; probe
+necessary-not-sufficient (Arc B surface). Recover via `bw show u--ith` / `bw show stoa--yfv`.
+
+### 35.8 Cross-references
+
+- §6 (single-checker thinking; redundancy IS the safety property) — the property the incident
+  violated (five checkers, only the last asked the threat question).
+- §25 (PRINCIPAL-gate discipline) — the universal-locus + per-seat-stub pattern this section
+  follows.
+- §15 (verification-complexity awareness) — threat-enumeration completeness is a hard-hard
+  surface (§35.5 names it as residual rather than mechanizing it).
+- `CAPTAIN_DAEDALUS.md` §3 + §6.12 (A3 map authoring); `CAPTAIN_ARGUS.md` §6.9 (design-smell +
+  classification + carve-out confirmation); `MAJOR_PLINY.md` §5.13 (A1 restatement beat).
+
+---
+
 ## Agent-regime inverses (the positive framing)
 
 The six anti-patterns above suppress failure modes. The corresponding positive framings express defaults:
