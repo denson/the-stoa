@@ -110,11 +110,15 @@
     {
       "text": "ARGUS-rev2 activated on stoa--yfv. Read rev1 verdict (r1-r5) + design-rev2 + adjudication. Cold re-derivation per floor-manager/user-tier directive: verifying each risk SUBSTANTIVELY closed (not relabeled) + W3 self-application carve-out exercise. Grounding all claims vs SHIPPED substrate now.",
       "timestamp": "2026-06-01T01:19:31Z"
+    },
+    {
+      "text": "Pass 1 complete. All 4 insertion points re-verified vs SHIPPED substrate (op-disc 35-after-34 before Agent-regime-inverses; PLINY 5.13-after-5.12; DAEDALUS 6.12-after-6.11 + s3; ARGUS 6.9-after-6.8). HARD STOP grep substrate/ = ZERO (purge confirmed). Now: r1/r4 locus-independence probe-of-the-probe + r5 byte-align extraction + W3 self-application carve-out.",
+      "timestamp": "2026-06-01T01:20:29Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T01:19:31Z"
+  "updated_at": "2026-06-01T01:20:29Z"
 }
