@@ -146,11 +146,15 @@
     {
       "text": "DAEDALUS activated on stoa--yfv rev3 (SURGICAL r6 fix). Reading rev2 (27c7d1f) + LOCKED r6 disposition. Scope: ONLY §35.1 (tighten 'before or during build'-\u003e'before build') + §35.5 (add during-build named residual) + P15 probe. Everything else byte-for-byte preserved.",
       "timestamp": "2026-06-01T01:34:35Z"
+    },
+    {
+      "text": "rev3 drafted: surgical r6 fix applied. Diff vs rev2 = ONE canon-body deletion (§35.1 'before or during build'-\u003e'before build') + pure additions (§35.5 during-build residual, P15 probe, W6 weak point, §6 out-of-scope bullet, header metadata). r1/r4 locus-breadth ('ANY ratification point' + mid-arc enumeration) untouched. author: unchanged. Committing.",
+      "timestamp": "2026-06-01T01:36:57Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T01:34:35Z"
+  "updated_at": "2026-06-01T01:36:57Z"
 }
