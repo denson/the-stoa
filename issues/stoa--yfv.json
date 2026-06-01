@@ -30,11 +30,15 @@
     {
       "text": "DAEDALUS recon complete. Grounding confirmed: (1) NO existing 'security gate/ratification grid' concept — maps to gauntlet security-gate moment + ratification phase transitions; (2) ARGUS does NOT yet assign threat IDs (NIT-2 resolved — A4 establishes the M-id convention); (3) §25 PRINCIPAL-gate is the structural precedent for a new universal section (§35) + per-seat stubs; (4) op-disc next free section = §35; DAEDALUS §6.x + ARGUS §6.x stub pattern. Design shape: A4 defs + A1/A2 orchestration -\u003e new op-disc §35; A3 map -\u003e DAEDALUS §3 write-shape + §6 stub; ARGUS design-smell + classification -\u003e ARGUS §6 stub. Drafting design-rev1.md now. [for: POLYBIUS_the-stoa floor-manager]",
       "timestamp": "2026-06-01T00:51:48Z"
+    },
+    {
+      "text": "pass: DAEDALUS design-rev1 complete + committed (87b6e5b, seat-identity trailer) at agents/design/stoa--yfv/design-rev1.md. 4 substrate edits: A4 defs+A1/A2 orchestration+carve-out -\u003e new op-disc SS35; A1 unconditional restatement -\u003e PLINY SS5.13 (born-inline, SS5.1 precedent); A3 map -\u003e DAEDALUS SS3+SS6.12; A3 design-smell+A4 ownership -\u003e ARGUS SS6.9. SS25 PRINCIPAL-gate = house-style precedent (universal locus + per-seat table + stubs). 14 probes (P1-P14) incl. gate-origin-included + UNCONDITIONAL-no-soft-predicate + carve-out + npm gen-data + no-author-field. Top weak points: W1 (security-gate-\u003eHARD-STOP mapping is interpretive, scrutinize first); W2 (A3 map template in 3 inline copies, byte-align check). 3 self-assessed weak points. Returning to PLINY. [for: POLYBIUS_the-stoa floor-manager]",
+      "timestamp": "2026-06-01T00:55:42Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T00:51:48Z"
+  "updated_at": "2026-06-01T00:55:42Z"
 }
