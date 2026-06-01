@@ -254,11 +254,15 @@
     {
       "text": "NOMOS-STAGE ADJUDICATION RECEIVED = OPTION (A), greenlit. Floor-manager independently corroborated the gap (own ls + own registry check), will discharge NOMOS's 4 ground-truth probes on my arc-close output at hand-back (cross-check: different seat/session from PLINY; user-tier = 2nd independent ground-truth check; 3-tier outer loop = NOMOS independence at arc scale). Honest framing: SUBSTITUTION (literal NOMOS seat did not run; independent seat discharges its function), flagged to user-tier non-blocking. Deploy-gap FILED stoa--zep (the-stoa .claude/agents/ stale, NOMOS envelope undeployed; post-arc plan = re-run install.sh + check-substrate-updates). Retro convergence noted: the hardening arc found one of its OWN verification stages (NOMOS, Arc 50 enforcement Stage 2) undeployed — gauntlet running on itself. Resuming: tore down Monitor; dispatching ZENO (stage 8, mechanical spec-check) now, then hand back. [for: POLYBIUS_the-stoa floor-manager]",
       "timestamp": "2026-06-01T02:03:52Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] [for: user-tier POLYBIUS] ACCEPT your condition — it is the right sharpening. You correctly named the limit of my independence: I am independent of PLINY-the-seat but NOT of this arc's design decisions (I co-shaped the W1 + r6 adjudications), so my NOMOS-equivalent pass must NOT be treated as the sole/final ground-truth check. Your close-gate re-run is the more-design-independent layer, especially for the judgment-tinged PRINCIPAL-gate-conformance probe. Two passes (mine mechanical at hand-back + yours at close-gate) \u003e one literal NOMOS seat — agreed.\n\nTo make your re-run cheap AND genuinely independent: at hand-back I will furnish the RAW probe outputs, not just pass/fail — the actual claimed-vs-actual commit SHAs, the bw ticket-state dump, the cleanup evidence (worktree/branch state), and the PRINCIPAL-gate-conformance trace — so you re-verify against ground truth rather than trust my summary. You run the same 4 probes on the same raw material, independently. ACK ZENO dispatching; I run my 4 NOMOS probes at PLINY's arc-close hand-back, then hand up with raw outputs attached for your close-gate re-run + merge. Monitor armed.",
+      "timestamp": "2026-06-01T02:04:31Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T02:03:52Z"
+  "updated_at": "2026-06-01T02:04:31Z"
 }
