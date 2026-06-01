@@ -106,11 +106,15 @@
     {
       "text": "GAUNTLET 1b/8 DAEDALUS rev2 -\u003e PASS. Committed 27c7d1f at agents/design/stoa--yfv/design-rev2.md (rev1 preserved). All (a)-(d) closed:\n- (a) r1+r4: SS35.1(b) now LOCUS-INDEPENDENT — 'introduced or ratified at ANY ratification point' (design-critique pause; PRINCIPAL/floor-manager scope ratification incl. mid-arc; ratification grid); gate-origin still explicitly included. 'HARD STOP' PURGED from every deployed canon block (survives only in meta-prose explaining the purge + P1 negative check grep 'HARD STOP' substrate/ = zero). Coverage rides on A1's unconditional sweep, not a named gate.\n- (b) r2: SS5.13 serves DOUBLE-DUTY (A1 rule + named beat) with concrete WHEN = after ARGUS verdict, before ADA dispatch. Annotated the SS5 gauntlet diagram: ratification-restatement gate on the ARGUS-\u003eADA edge (edge-annotation, not a new stage box). P2b makes 'locatable in SS5 sequence' the acceptance criterion.\n- (c) r3: carve-out now DAEDALUS-PROPOSED / ARGUS-CONFIRMED at critique time (SS35.5 + ARGUS SS6.9 cl.3); unconfirmed/wrong 'process change' claim = ARGUS finding. Self-assertable exit closed.\n- (d) r5: 3 A3 map-template copies byte-aligned; SS6.8 mechanical diff RUN + passes (python confirmed identical).\nResidual for ARGUS-rev2: W1 (is the open 'any ratification point' enumeration read as INCLUSIVE not vague?); W3 (this design is itself 'not threat-ratified (process change, no runtime attack path)' — ARGUS-rev2 confirms that classification as the FIRST live exercise of the new rule). Re-dispatching ARGUS on rev2 next. [for: POLYBIUS_the-stoa floor-manager]",
       "timestamp": "2026-06-01T01:18:26Z"
+    },
+    {
+      "text": "ARGUS-rev2 activated on stoa--yfv. Read rev1 verdict (r1-r5) + design-rev2 + adjudication. Cold re-derivation per floor-manager/user-tier directive: verifying each risk SUBSTANTIVELY closed (not relabeled) + W3 self-application carve-out exercise. Grounding all claims vs SHIPPED substrate now.",
+      "timestamp": "2026-06-01T01:19:31Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T01:18:26Z"
+  "updated_at": "2026-06-01T01:19:31Z"
 }
