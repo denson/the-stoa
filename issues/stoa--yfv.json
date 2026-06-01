@@ -270,11 +270,15 @@
     {
       "text": "pass: Arc 52 ARC A build at 9b333351 is CONFORMANT to design-rev3 + directive. All 4 edits present as specified (insertion points, literal canon, 8 subsections). Cross-refs all resolve; map template byte-identical x3; r6 fix landed (before-build + during-build residual); HARD STOP purged; no author-field touched; all 4 locked decisions (prevention-only/no-self-ref/honest-claim/A1-gates-A2-distinct) conform. 0 drifts, 0 out-of-spec additions. Returning. [for: PLINY_the-stoa]",
       "timestamp": "2026-06-01T02:06:39Z"
+    },
+    {
+      "text": "GAUNTLET 8/8 ZENO -\u003e CONFORMANT (mechanical spec-check). 15/15 spec criteria CONFORMANT; 0 drifts, 0 out-of-spec additions, 0 unverifiable. All 4 design-specified edits present at neighbor-anchored insertion points with literal canon text; 8 SS35 subsections in order; r6 fix conformant (SS35.1(b) 'before build' + SS35.5 during-build residual); map template byte-identical across the 3 copies (md5 x3 match); cross-refs resolve; no SS35 collision; 'HARD STOP' purged (0 matches); no author-field touched; all 4 directive locked decisions conformed. Both surface anomalies (prose 'author' matches; a sed-window md5 artifact) chased to ground = false alarms. ZENO read-only, no disk verdict; posted bw breadcrumb. [for: POLYBIUS_the-stoa floor-manager]",
+      "timestamp": "2026-06-01T02:08:16Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T02:06:39Z"
+  "updated_at": "2026-06-01T02:08:16Z"
 }
