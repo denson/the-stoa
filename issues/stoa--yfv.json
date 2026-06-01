@@ -210,11 +210,15 @@
     {
       "text": "VERA: P1-P11 + P14-P15 PASS (all coherence + authorship + r6 checks). Running P12 gen-data via AGENT_SUBSTRATE_PATH override (build worktree lacks node_modules, per ADA) + P13 install.sh dry-run.",
       "timestamp": "2026-06-01T01:49:32Z"
+    },
+    {
+      "text": "pass: VERA verified Arc 52 ARC A build 9b333351 against design-rev3 P1-P15 — ALL 15 PASS. Load-bearing: P1 locus-independence intact + HARD STOP purged=0; P5 three map-template copies byte-identical (empty pairwise diffs); P8 carve-out ARGUS-confirmed not self-asserted + Arc 52 own build escapes self-ref trap; P15 r6 overclaim purged (during build grep=0) + during-build gap named as Arc-B residual, no r1/r4 regression. P12 gen-data exit 0 (Zod clean, AGENT_SUBSTRATE_PATH override from main, regenerated agents.ts reverted); P13 install dry-run exit 0, zero new MODULE-INLINE markers; P14 authorship intact (no author-like metadata field; pure additions). 2 non-blocking methodology notes (P2/P14 coarse greps surface design-intended negations/prose — inspected each, none a violation). Verdict: agents/verdicts/stoa--yfv/VERA-2026-06-01T01-51-37Z.md (sha256 7551cbac). Returning to PLINY.",
+      "timestamp": "2026-06-01T01:51:49Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T01:49:32Z"
+  "updated_at": "2026-06-01T01:51:49Z"
 }
