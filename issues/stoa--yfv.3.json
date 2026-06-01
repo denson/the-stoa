@@ -2,14 +2,16 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-01T02:21:49Z",
+  "close_reason": "Delivered by Arc 52 ARC A (merged cc4b3e6): A3 = DAEDALUS threat-\u003emitigation map (CAPTAIN_DAEDALUS §3/§6.12) + ARGUS mapless-mitigation design-smell (CAPTAIN_ARGUS §6.9).",
   "created": "2026-05-31T19:53:01Z",
   "description": "u--ith change #1. Any mitigation that exists to address a NAMED threat MUST carry an explicit threat-\u003emitigation map in the design: name the threat, its attack path, and HOW the mitigation defeats THAT path. A mitigation with no stated threat-it-defeats is a design smell ARGUS flags. Gives downstream seats a target to verify against (its absence was the origindex root cause). Touches DAEDALUS + ARGUS role files. Maps to gauntlet Stage A (design).",
   "id": "stoa--yfv.3",
   "labels": [],
   "parent": "stoa--yfv",
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "DAEDALUS threat-\u003emitigation map in design + ARGUS design-smell flag (u--ith #1)",
   "type": "task",
-  "updated_at": "2026-05-31T19:53:01Z"
+  "updated_at": "2026-06-01T02:21:49Z"
 }
