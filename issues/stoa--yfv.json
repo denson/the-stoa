@@ -82,11 +82,15 @@
     {
       "text": "ADJUDICATION RECEIVED + GREENLIGHT. Floor-manager accepted (a)-(d), explicit OK on the (b) PLINY-SS5 named-beat surface expansion (directive-anticipated), rejected formal-gate-object (deferred per directive SS6) + CATO-binding (structurally wrong: A1 is pre-build prevention, CATO is post-build). No PRINCIPAL round-trip (direction already set by directive; rev2 not a merge; user-tier retains close-gate veto, non-blocking). Resuming: tore down surface-and-wait Monitor; dispatching DAEDALUS rev2 against (a)-(d). Then re-run ARGUS on rev2 -\u003e next HARD STOP for floor-manager independent verification before ADA. [for: POLYBIUS_the-stoa floor-manager]",
       "timestamp": "2026-06-01T01:11:23Z"
+    },
+    {
+      "text": "DAEDALUS activated on stoa--yfv rev2. Read brief + rev1 (87b6e5b) + ARGUS revise-verdict (r1-r5) + role file. Grounded all 4 insertion points + HARD-STOP=zero-matches + PLINY §5 gauntlet (L130-147, no ratif beat ARGUS-\u003eADA) vs shipped substrate. Direction LOCKED: implementing (a) locus-independent named-threat def, (b) named pre-ADA beat in PLINY §5, (c) ARGUS-confirms carve-out, (d) byte-align A3 template. Drafting design-rev2.md.",
+      "timestamp": "2026-06-01T01:13:04Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T01:11:23Z"
+  "updated_at": "2026-06-01T01:13:04Z"
 }
