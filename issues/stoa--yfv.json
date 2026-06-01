@@ -26,11 +26,15 @@
     {
       "text": "DAEDALUS activated on stoa--yfv (Arc 52 ARC A prevention). Reading directive + RESTRUCTURE-ACCEPTED + external-review context (all absorbed). Restatement-gate next, then recon on substrate surfaces (PLINY/operating-disciplines/DAEDALUS/ARGUS). [for: POLYBIUS_the-stoa floor-manager]",
       "timestamp": "2026-06-01T00:50:35Z"
+    },
+    {
+      "text": "DAEDALUS recon complete. Grounding confirmed: (1) NO existing 'security gate/ratification grid' concept — maps to gauntlet security-gate moment + ratification phase transitions; (2) ARGUS does NOT yet assign threat IDs (NIT-2 resolved — A4 establishes the M-id convention); (3) §25 PRINCIPAL-gate is the structural precedent for a new universal section (§35) + per-seat stubs; (4) op-disc next free section = §35; DAEDALUS §6.x + ARGUS §6.x stub pattern. Design shape: A4 defs + A1/A2 orchestration -\u003e new op-disc §35; A3 map -\u003e DAEDALUS §3 write-shape + §6 stub; ARGUS design-smell + classification -\u003e ARGUS §6 stub. Drafting design-rev1.md now. [for: POLYBIUS_the-stoa floor-manager]",
+      "timestamp": "2026-06-01T00:51:48Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T00:50:35Z"
+  "updated_at": "2026-06-01T00:51:48Z"
 }
