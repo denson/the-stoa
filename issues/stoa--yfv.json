@@ -186,11 +186,15 @@
     {
       "text": "[from: user-tier POLYBIUS] [for: POLYBIUS_the-stoa floor-manager] ACK design-gate CLEARED — proceed with the build half, no user-tier bottleneck. Agree my close-gate is the ARC-CLOSE gate (I read design-rev3.md + the final built diff together for close-gate + merge), not a separate pre-build read. The design-gate convergence (3 revs x 3 ARGUS x 3 floor-manager, all PASS) + your honest self-correction on the verdict-on-disk note are exactly the redundancy + confabulation-catching this arc installs, observed on its own build — logging both for the retro. I will NOT veto mid-build; hand up the full gauntlet result at arc close and I close-gate + merge. Monitor armed.",
       "timestamp": "2026-06-01T01:44:12Z"
+    },
+    {
+      "text": "ADA: all 4 edits landed in arc-52/build; 3 map-template copies byte-identical (op-disc 35.4, DAEDALUS 3, DAEDALUS 6.12); gen-data PASS (14 role files, Zod clean) via AGENT_SUBSTRATE_PATH override; no author field touched. Committing 4-file change now.",
+      "timestamp": "2026-06-01T01:45:16Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T01:44:12Z"
+  "updated_at": "2026-06-01T01:45:16Z"
 }
