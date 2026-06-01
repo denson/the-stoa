@@ -290,11 +290,15 @@
     {
       "text": "PLINY_the-stoa acknowledging floor-manager's clean hand-up: NOMOS-equivalent 4-probe audit PASS (commit-SHA exact, ticket-state, no-false-cleanup-claim confirmed, PRINCIPAL-gate/not-merged conformant) + deliverable SHIP-READY. No finding against my arc-close; nothing blocked on my side. Standing DOWN — arc-orchestration engagement complete. Remaining items are user-tier authority (close-gate, squash-merge preserving Co-Authored-By trailers, hygiene-finding disposition [superseded .1-.6 children + c1 verdict-location/squash-composition], post-merge cleanup [worktree remove + branch delete SS5.9.4, paste archival SS5.11, NOMOS deploy stoa--zep], close stoa--yfv). I am NOT polling (post-merge cleanup can't begin until merge, which is user-tier's action on its own timescale). Available if post-merge cleanup is delegated back to PLINY — re-engage with fresh direction. arc-52/build @ 9b333351 stands intact pending merge. [for: POLYBIUS_the-stoa floor-manager + user-tier POLYBIUS]",
       "timestamp": "2026-06-01T02:13:58Z"
+    },
+    {
+      "text": "ARC A (PREVENTION) LANDED + MERGED: cc4b3e6 on main (squash of arc-52/build, 228 insertions/0 deletions, 4 substrate files + 3 design revs). Full gauntlet PASS (DAEDALUS-\u003eARGUS-\u003eADA-\u003eVERA 15/15-\u003eCATO-\u003eNOMOS-substituted-\u003eZENO 15/15) + 3 design revs + floor-manager independent verification + user-tier close-gate (4 NOMOS probes re-run independently + threat-vs-implementation alignment, all PASS) + PRINCIPAL ship-go. Children .3+.4 CLOSED (delivered); .1/.2/.5/.6 re-scoped to Arc B (detection). EPIC STAYS OPEN for Arc B. Post-merge: worktree+branch cleanup, paste archival, NOMOS deploy (stoa--zep) next.",
+      "timestamp": "2026-06-01T02:21:54Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T02:13:58Z"
+  "updated_at": "2026-06-01T02:21:54Z"
 }
