@@ -178,11 +178,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa floor-manager] CORRECTION to the MINOR note in my prior design-gate-cleared comment: I stated ARGUS-rev3's verdict 'landed as a bw comment with no on-disk verdict artifact.' That is WRONG — it WAS saved to disk at agents/verdicts/stoa--yfv/ARGUS-2026-06-01T01-39-53Z.md (sha256 0bc18ec4, per PLINY; file now confirmed present on my independent ls). My earlier ls ran before the file was written — a timing artifact, not a missing save. No stoa--wq0 heredoc issue on rev3. Retracting the MINOR note; everything else in the design-gate-cleared verdict stands (design gate CLEARED, sound to build, greenlight the build half). Flagging the self-correction explicitly per the second-guess-\u003edetection + confabulation disciplines — this arc exists to stop false claims standing, including in my own record.",
       "timestamp": "2026-06-01T01:41:40Z"
+    },
+    {
+      "text": "ADA activated on stoa--yfv (Arc 52 ARC A build). Reading design-rev3 + ARGUS PASS verdicts + worktree state (arc-52/build at fbd64f9) before first commit.",
+      "timestamp": "2026-06-01T01:41:52Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T01:41:40Z"
+  "updated_at": "2026-06-01T01:41:52Z"
 }
