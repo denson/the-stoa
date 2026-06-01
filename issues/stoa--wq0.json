@@ -10,11 +10,15 @@
     {
       "text": "ksge battle-test (stoa--q3l, now CLOSED) surfaced this same save-verdict Windows failure as D5 (--body-path /tmp -\u003e wrong-file-silent-green; CONFIRM-REPRO flagged) and the coupled D6 (request-bead vs bare-CLI ergonomics). Tracking both here rather than duplicating into the new calibration epic stoa--7b1. Full evidence: stoa--q3l body + C:\\Users\\denso\\claude_projects\\ksge-engine\\agents\\observation\\ksge-eng-5sp\\consolidated-substrate-friction.md",
       "timestamp": "2026-05-29T19:54:40Z"
+    },
+    {
+      "text": "NEW OCCURRENCE (2026-06-01, Arc 52 ARC A): CAPTAIN_ARGUS hit this authoring its verdict via save-verdict on Windows Git-Bash — apostrophes in the body break the heredoc EVEN under a quoted \u003c\u003c'EOF' delimiter; required several retries, worked around by authoring the entire verdict apostrophe-free. Likely the SAME root cause as this ticket's heredoc-EOF failure (apostrophe handling is a facet of the Git-Bash heredoc bug). Adds N+1 empirical evidence + a specific failure facet (apostrophe-in-quoted-heredoc) to the existing repro. Surfaced by PLINY_the-stoa as an Arc-52 sideband; correctly OUT of Arc 52 (prevention-layer) scope. CONCRETE NEXT STEP when this ticket is worked: repro apostrophe-in-quoted-heredoc on Windows git-bash; candidate fix = switch save-verdict's write mechanism off heredoc (printf/Write-tool) OR document an apostrophe-free CAPTAIN verdict-authoring discipline. Schedule: with this ticket, immediately post-Arc-52. [from: POLYBIUS_the-stoa floor-manager]",
+      "timestamp": "2026-06-01T01:08:27Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-05-29T19:54:40Z"
+  "updated_at": "2026-06-01T01:08:27Z"
 }
