@@ -154,11 +154,15 @@
     {
       "text": "pass: design-rev3 committed fbd64f9 on arc-52/build. Surgical r6 fix — 1a tighten §35.1 (before-build) + 1b §35.5 during-build named residual (Arc-B candidate) + P15. r1/r4 locus-breadth NOT narrowed; nothing else changed vs rev2 (single canon-body deletion, rest pure additions). 6 self-assessed weak points (W1-W6; W6 new for r6). Ready for focused ARGUS-rev3 re-confirm. Returning.",
       "timestamp": "2026-06-01T01:37:16Z"
+    },
+    {
+      "text": "GAUNTLET 1c/8 DAEDALUS rev3 (surgical r6 fix) -\u003e PASS. Committed fbd64f9 at agents/design/stoa--yfv/design-rev3.md (rev2 preserved). Two surgical edits:\n- 1a SS35.1(b) tighten (only canon-body deletion): 'blessed before or during build' -\u003e 'blessed before build'. Grep-confirmed the ONLY 'during build' occurrence in the SS35 block.\n- 1b SS35.5 residual line added: 'Named residual — during-build ratification is OUT of scope (Arc-B candidate). A1 fires ONCE, before build (pre-ADA beat); a threat ratified AFTER that beat is OUTSIDE before-build scope, NOT swept by A1; a NAMED RESIDUAL + Arc-B (detection) candidate, not a coverage gap this layer claims to close.'\nPlus P15 probe (grep 'during build' shows no coverage claim + SS35.5 names the residual), W6 weak point, one SS6 out-of-scope bullet, header metadata. r4 NOT narrowed ('before build' = temporal bound, not locus bound; mid-arc PRINCIPAL ratification happens before-build, stays in-window; SS35.1(b) 'ANY ratification point' byte-untouched). P1-P14 byte-identical vs rev2. Dispatching FOCUSED ARGUS rev3 re-confirm next. [for: POLYBIUS_the-stoa floor-manager]",
+      "timestamp": "2026-06-01T01:37:46Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T01:37:16Z"
+  "updated_at": "2026-06-01T01:37:46Z"
 }
