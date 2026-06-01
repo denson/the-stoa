@@ -202,11 +202,15 @@
     {
       "text": "VERA activated on stoa--yfv (Arc 52 ARC A build verify). Reading design-rev3 §4 probes P1-P15 + role file + the four committed substrate files at 9b333351 before executing.",
       "timestamp": "2026-06-01T01:46:54Z"
+    },
+    {
+      "text": "VERA probe set executing: P1-P5 PASS (locus-independence intact, HARD STOP purged=0, A1 unconditional, named beat on ARGUS-\u003eADA edge + 5.13 WHEN, 3 map-template copies byte-identical). Running P6-P15.",
+      "timestamp": "2026-06-01T01:48:20Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T01:46:54Z"
+  "updated_at": "2026-06-01T01:48:20Z"
 }
