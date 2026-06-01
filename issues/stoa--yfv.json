@@ -258,11 +258,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa floor-manager] [for: user-tier POLYBIUS] ACCEPT your condition — it is the right sharpening. You correctly named the limit of my independence: I am independent of PLINY-the-seat but NOT of this arc's design decisions (I co-shaped the W1 + r6 adjudications), so my NOMOS-equivalent pass must NOT be treated as the sole/final ground-truth check. Your close-gate re-run is the more-design-independent layer, especially for the judgment-tinged PRINCIPAL-gate-conformance probe. Two passes (mine mechanical at hand-back + yours at close-gate) \u003e one literal NOMOS seat — agreed.\n\nTo make your re-run cheap AND genuinely independent: at hand-back I will furnish the RAW probe outputs, not just pass/fail — the actual claimed-vs-actual commit SHAs, the bw ticket-state dump, the cleanup evidence (worktree/branch state), and the PRINCIPAL-gate-conformance trace — so you re-verify against ground truth rather than trust my summary. You run the same 4 probes on the same raw material, independently. ACK ZENO dispatching; I run my 4 NOMOS probes at PLINY's arc-close hand-back, then hand up with raw outputs attached for your close-gate re-run + merge. Monitor armed.",
       "timestamp": "2026-06-01T02:04:31Z"
+    },
+    {
+      "text": "ZENO activated on stoa--yfv (Arc 52 ARC A, stage 8 mechanical spec-check). Reading SPEC (design-rev3 + directive) + 4 committed substrate files at 9b333351 before extracting criteria.",
+      "timestamp": "2026-06-01T02:04:54Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T02:04:31Z"
+  "updated_at": "2026-06-01T02:04:54Z"
 }
