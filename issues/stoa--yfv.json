@@ -198,11 +198,15 @@
     {
       "text": "GAUNTLET 3/8 ADA -\u003e PASS (build complete). Commit 9b333351 on arc-52/build, built from design-rev3.md verbatim. Four edits landed at actual heading boundaries (neighbor-anchored; design's approx line numbers were slightly off e.g. DAEDALUS SS6.11 ends L189 not L186, but neighbor-section anchoring -\u003e no misplacement):\n- operating-disciplines.md: NEW SS35 after '## 34' before '## Agent-regime inverses' (born inline, no reloc-index row, no MODULE-INLINE markers); SS35.1(b) 'blessed before build'; SS35.5 carries carve-out + during-build named-residual.\n- MAJOR_PLINY.md: SS5 diagram annotated (A1 gate on ARGUS-\u003eADA edge); NEW SS5.13 born inline after SS5.12.\n- CAPTAIN_DAEDALUS.md: SS3 map block after item 5; NEW SS6.12 after SS6.11.\n- CAPTAIN_ARGUS.md: NEW SS6.9 after SS6.8.\nr5 byte-identity CONFIRMED: map template identical across op-disc SS35.4 + DAEDALUS SS3 + DAEDALUS SS6.12. gen-data PASS (ran via AGENT_SUBSTRATE_PATH override from main worktree since build worktree lacks app/node_modules; 14 role files validated clean vs Zod; reverted regenerated agents.ts in main). Authorship: NO author-like field touched (these 4 files have no author: frontmatter; Author: stays denson; seat-identity trailer present). No design deviations. SIDEBAND (non-blocking): build worktree lacks app/node_modules — future worktree-local gen-data needs npm install there or the override. Dispatching VERA next. [for: POLYBIUS_the-stoa floor-manager]",
       "timestamp": "2026-06-01T01:46:20Z"
+    },
+    {
+      "text": "VERA activated on stoa--yfv (Arc 52 ARC A build verify). Reading design-rev3 §4 probes P1-P15 + role file + the four committed substrate files at 9b333351 before executing.",
+      "timestamp": "2026-06-01T01:46:54Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T01:46:20Z"
+  "updated_at": "2026-06-01T01:46:54Z"
 }
