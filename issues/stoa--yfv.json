@@ -206,11 +206,15 @@
     {
       "text": "VERA probe set executing: P1-P5 PASS (locus-independence intact, HARD STOP purged=0, A1 unconditional, named beat on ARGUS-\u003eADA edge + 5.13 WHEN, 3 map-template copies byte-identical). Running P6-P15.",
       "timestamp": "2026-06-01T01:48:20Z"
+    },
+    {
+      "text": "VERA: P1-P11 + P14-P15 PASS (all coherence + authorship + r6 checks). Running P12 gen-data via AGENT_SUBSTRATE_PATH override (build worktree lacks node_modules, per ADA) + P13 install.sh dry-run.",
+      "timestamp": "2026-06-01T01:49:32Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T01:48:20Z"
+  "updated_at": "2026-06-01T01:49:32Z"
 }
