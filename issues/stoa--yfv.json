@@ -46,11 +46,15 @@
     {
       "text": "Design pass 1 complete. Insertion points all verified accurate vs shipped substrate (op-disc 35 after 34; PLINY 5.13 after 5.12; DAEDALUS 6.12 after 6.11 + sec3 at L47; ARGUS 6.9 after 6.8). Now auditing W1 (security-gate-\u003eHARD-STOP binding) + A1-unconditional + A4 gate-origin coverage + carve-out hole. Quadrant-classifying candidate risks next.",
       "timestamp": "2026-06-01T00:58:00Z"
+    },
+    {
+      "text": "Audit complete; finalizing verdict. Key load-bearing finding (W1): 'HARD STOP' is NOT a canon term anywhere in shipped substrate (grep: zero matches across substrate/), and PLINY 5 gauntlet diagram has NO ratification gate between ARGUS and ADA. The design ships SS35.1 defining 'security gate' = 'the HARD STOP' — a reader of shipped canon cannot resolve that referent. Binding is structurally reasonable but the LOCUS is under-canonized. Also surfacing: A1 'EVERY ratification' scope ambiguity, carve-out gate-origin edge, W2 template short-form drift. Verdict: revise (HITL: for floor-manager/PRINCIPAL adjudication). Returning.",
+      "timestamp": "2026-06-01T00:58:47Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T00:58:00Z"
+  "updated_at": "2026-06-01T00:58:47Z"
 }
