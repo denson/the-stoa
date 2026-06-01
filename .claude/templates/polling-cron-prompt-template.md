@@ -260,7 +260,7 @@ per operating-disciplines.md §11 step 1.5); expected duration ~3 hours;
 standing by for handshake ack."
 ```
 
-The empirical lineage for this protocol stack lives in `operating-disciplines.md` §7's empirical-lineage subsection (§7.6) — read that for the lived-experience anchor.
+The empirical lineage for this protocol stack lives in the §7.6 PROVENANCE Anchor `ariadne--m20` / `stoa--e39` (the §7 body, including §7.6, relocated to `.claude/modules/two-polybius-coordination.md` in the Arc 47 op-disc cut; `bw show ariadne--m20` / `bw show stoa--e39` for the lived-experience anchor).
 
 ---
 

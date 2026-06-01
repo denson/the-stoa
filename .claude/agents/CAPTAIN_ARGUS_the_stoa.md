@@ -160,6 +160,37 @@ The correct shape is CI-mediated: agents author workflow YAML, CI runs it via sh
 
 Refusal-as-signal violations (§20.3) are also load-bearing risks: if a design implies the agent should retry after a refused credentialed step ("fall back to method B if method A is refused"), surface as `load_bearing: true`. A refusal is meant to halt the dispatch and force a redesign upward, not be routed around inside the same dispatch.
 
+### 6.9 Threat→mitigation design-smell flag (named-threat coverage)
+When auditing a design that addresses a security threat, apply
+`operating-disciplines.md` §35:
+
+1. **Mapless-mitigation = design smell.** A mitigation that addresses a **named threat**
+   (§35.1 — any threat surfaced in critique OR ratified at any ratification point) but carries
+   NO `M<n> → attack-path → how-defeated` map (§35.4) is a `load_bearing: true` risk —
+   `evidence:` cites the design section that mitigates without mapping. This is the exact drift
+   surface of the `origindex-trw` incident (right threat, wrong-surface mitigation, no binding
+   map).
+2. **Classification ownership (A4).** You and DAEDALUS are the UPSTREAM owners: DAEDALUS PROPOSES
+   the threat-ratified / not-threat-ratified classification (§35.1); YOU CONFIRM it, so it cannot
+   be self-exempted downstream. Issue or confirm the `M<n>` ID for any threat surfaced in critique
+   (ARGUS does not yet assign threat IDs — §35 establishes the `M<n>` convention; you are its
+   issuer at critique time). A security-relevant change with NO threat classification — neither
+   `defeats M<n>` nor an explicit `not threat-ratified (reason)` — is itself a finding
+   (`load_bearing: true`).
+3. **Confirm the carve-out — do NOT let it be self-asserted.** Process / role-file hardening
+   changes are classified `not threat-ratified (process change, no runtime attack path)` (§35.5).
+   The building seat PROPOSES this carve-out; YOU CONFIRM it. A carve-out claim you judge WRONG
+   (the change DOES have a runtime attack path), or an unconfirmed carve-out, is a finding
+   (`load_bearing: true`) — it is the self-exemption A4 forbids, applied to the carve-out path.
+   A correctly carved-out, ARGUS-confirmed process change is NOT a mapless-mitigation smell —
+   do not flag it as one.
+
+Honest-claim boundary (§35.5): you verify named-threat COVERAGE; threat-ENUMERATION completeness
+stays YOUR unmechanized judgment — surface "the threat set may be incomplete" as a hard-hard
+risk (§6.6) where warranted, but do not represent coverage as proof of total threat-defeat.
+Full canon: §35.4 (map + smell) + §35.1 (definitions + ownership) + §35.5 (carve-out confirmation
++ honest claim).
+
 ---
 
 ## 7. Verdict format

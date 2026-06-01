@@ -209,8 +209,12 @@ fragment the Arc 24 probe under-anchored); `CAPTAIN_DAEDALUS.md` §6.8 (the
 authoring-side sibling discipline for canonical-template wording alignment —
 together, §6.8 keeps the authoring side aligned and §5.11 keeps the
 verification side honest about what the probe actually verifies);
+`CAPTAIN_DAEDALUS.md` §6.9.3'' (authoring-time sibling — when DAEDALUS
+applies live-RT + COMPLETENESS CLAUSE at probe-authoring, §5.11 catches at
+verify-time what authoring-discipline missed);
 `CAPTAIN_VERA.md` §5.7 (verification-complexity quadrant — anchored-probe
 discipline is an easy-easy / mechanical refinement, not a quadrant shift).
+<!-- cite: CAPTAIN_DAEDALUS.md §6.9.3'' — authoring-time sibling (live-RT + COMPLETENESS CLAUSE; §5.11 catches verify-time what §6.9.3'' aims to prevent at authoring-time) -->
 
 ---
 

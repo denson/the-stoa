@@ -1,0 +1,11 @@
+# Stoa author-field gate — PRINCIPAL identity allow-list.
+# One accepted name or email per line ('#' comments + blanks ignored).
+# The pretooluse-author-field-audit.sh gate compares commit author
+# identity + staged author-like fields against this list; a value not
+# on the list is treated as 'not the PRINCIPAL' and the commit is denied
+# with a message naming this file. This is the GATE'S CONFIG, not an
+# author field of any repo artifact. Widen it when a legit PRINCIPAL
+# identity is missing. An ABSENT or EMPTY list leaves the gate dormant
+# (fail-open). Seeded from the target's global git identity at install.
+denson
+densonsmith2@gmail.com

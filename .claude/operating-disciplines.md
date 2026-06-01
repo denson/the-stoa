@@ -34,6 +34,55 @@ The disciplines below operationalize this thesis. Read them as such.
 
 ---
 
+## 0.5 Relocation index (audit-time — where relocated content went)
+
+This always-loaded table is the losslessness-recovery artifact for the Arc 47 op-disc debloat cut. Each row names content that USED to be inline here, its new home, and its relocation class (per `substrate/modules/README.md` §5). op-disc is NOT an orchestrator — it carries this relocation index (audit-time recovery) but NO routing map (dispatch-time, an orchestrator artifact); the per-section stub's `Read` pointer IS the dispatch-time guidance, inline at the point of need.
+
+**Subproject-tier module access (per design-arc-47 §6):** at subproject tier the CONDITIONAL module content is re-inlined into this file at deploy time (`install.sh` recompose at the `<!-- MODULE-INLINE:<name> -->` markers) — subproject seats do NOT `Read .claude/modules/<X>.md` (the path does not resolve reliably; claude-code #56686/#31546/#29423). At user/project tier the `Read` channel applies and the markers are inert. Anchor: `stoa--xyb` + design-arc-45 §6 probe (the proven mechanism this arc extends to op-disc).
+
+| Relocated content (was here) | New home | Class |
+|---|---|---|
+| §7 Two-POLYBIUS async coordination (intro + §7.1–§7.5 + §7.7 bodies) | `.claude/modules/two-polybius-coordination.md` (disk module; subproject recompose) | CONDITIONAL |
+| §7.6 empirical lineage | `bw show ariadne--m20` / `bw show stoa--e39` (Anchor; moved with §7) | PROVENANCE |
+| §11 Autonomous-mode-setup checklist | `.claude/modules/autonomous-mode-setup.md` (disk module; subproject recompose) | CONDITIONAL |
+| §14 Sub-agent diagnostic transcript discipline | `.claude/modules/sub-agent-transcript-discipline.md` (disk module; subproject recompose) | CONDITIONAL |
+| §16 bw-fit matrix + layered-architecture framing | `.claude/modules/bw-fit-matrix.md` (disk module; subproject recompose) | CONDITIONAL |
+| §16 empirical anchor | `bw show stoa--vmc` (Anchor; moved with §16) | PROVENANCE |
+| §17 OSS-dep calculus + agent-time latency budget | `.claude/modules/oss-dep-and-latency.md` (disk module; subproject recompose) | CONDITIONAL |
+| §17 empirical anchor | `bw show stoa--rno` (Anchor; moved with §17) | PROVENANCE |
+| §20 detail (§20.1 canonical pattern + §20.5 Railway notes + §20.6 skill cross-ref) | `.claude/modules/credential-discipline-detail.md` (disk module; subproject recompose) | CONDITIONAL |
+| §20.7 empirical lineage | `bw show stoa--p5g` (Anchor; railway--pam/r9z fold into recovery note) | PROVENANCE |
+| §22 bw-upgrade discipline | `.claude/modules/bw-upgrade.md` (disk module; subproject recompose) | CONDITIONAL |
+| §22.3 N=1 provenance | `bw show stoa--s6n` (Anchor; moved with §22) | PROVENANCE |
+| §27 Mechanical-script / agent-inspection split | `.claude/modules/mechanical-inspection-split.md` (disk module; subproject recompose) | CONDITIONAL |
+| §27.6 N=1 provenance | `bw show stoa--32b.2` (Anchor; moved with §27) | PROVENANCE |
+| §29 Multi-team interoperation | `.claude/modules/multi-team-interop.md` (disk module; subproject recompose) | CONDITIONAL |
+| §29.6 N=1 provenance | `bw show stoa--kt6` (Anchor; moved with §29) | PROVENANCE |
+| §30 Four-layer identity model | `.claude/modules/four-layer-identity.md` (disk module; subproject recompose) | CONDITIONAL |
+| §30.5 N=1 provenance | `bw show stoa--wad` (Anchor; moved with §30) | PROVENANCE |
+| §31 Substrate-component design principles | `.claude/modules/substrate-component-design.md` (disk module; subproject recompose) | CONDITIONAL |
+| §31.3 N=2 provenance | `bw show stoa--gq1` (Anchor; moved with §31) | PROVENANCE |
+| §32 jsdom + animation timing discipline | `.claude/modules/jsdom-timing-discipline.md` (disk module; subproject recompose) | CONDITIONAL |
+| §6.7 empirical | `bw show stoa--nax` (Anchor; rule stays inline) | PROVENANCE |
+| §8.1 empirical (2026-05-04 bw-prime leak) | `bw show stoa--xyb.8.1` (C-2 child ticket; rule stays inline) | PROVENANCE |
+| §8.2 empirical (2026-05-05 over-delegation) | `bw show stoa--xyb.8.2` (C-2 child ticket; rules stay inline) | PROVENANCE |
+| §8.3 / §8.4 / §8.5 empiricals | `bw show stoa--uc7` / `stoa--14u` / `stoa--148` (Anchors; rules stay inline) | PROVENANCE |
+| §9 historical window + lineage | `bw show stoa--7kg` / `stoa--7kg.1` (Anchor; rules stay inline) | PROVENANCE |
+| §10 progression provenance | `bw show stoa--ntn` (Anchor; rules stay inline) | PROVENANCE |
+| §12 empirical | `bw show stoa--v2o` (Anchor; §12 stays whole — DUPLICATE keep-home) | PROVENANCE |
+| §13 empirical | `bw show stoa--a5q` (Anchor; rule stays inline) | PROVENANCE |
+| §15 empirical | `bw show stoa--tp1` (Anchor; §15 stays inline — KEEP per r2) | PROVENANCE |
+| §18.7 / §18.6 lineage | `bw show stoa--odh` / `stoa--nvl` (Anchor; rules stay inline) | PROVENANCE |
+| §19.5 / §19.6 / §19.7 lineage | `bw show stoa--ioy` / `stoa--ezj` / `stoa--53u` (Anchor; rules stay inline) | PROVENANCE |
+| §21 empirical | `bw show stoa--32b.3` (Anchor; rule stays inline) | PROVENANCE |
+| §23.4 N=1 provenance | `bw show stoa--ads` (Anchor; rules stay inline) | PROVENANCE |
+| §24 empirical | `bw show stoa--3cs` (Anchor; thin cross-ref stays inline) | PROVENANCE |
+| §25.6 N=1 provenance | `bw show stoa--dxw` / `stoa--501` (Anchor; rules stay inline) | PROVENANCE |
+| §26 empirical (HUMAN_paste convergence) | `bw show stoa--xyb.8.3` (C-2 child ticket; thin cross-ref stays inline) | PROVENANCE |
+| §28.7 N=1 provenance | `bw show stoa--kjo` (Anchor; rules stay inline) | PROVENANCE |
+
+---
+
 ## 1. Suppress "ship-it" / momentum pressure
 
 In human teams where each step took weeks, momentum was a real cost worth optimizing. With agents, a full pipeline cycle (DAEDALUS → ARGUS → ADA → VERA → CATO → ZENO) is minutes. **Momentum pressure is no longer a reason to skip steps; it is just a story the model tells itself to skip work.**
@@ -114,139 +163,22 @@ Empirical anchor: 2026-05-12, the bw → Ariadne integration arcs Phase 4 OPERAT
 
 ## 7. Coordinating two POLYBIUS seats async via bw polling
 
-When two POLYBIUS seats — typically user-tier + project-tier, or parent + sub-project — share a coordination ticket, polling makes bw a near-real-time async channel. Five sub-disciplines apply: peer-failure detection (radio-check), responsiveness adjustment (adaptive cadence), polling architecture (unified vs per-engagement), data-flow direction (write boundaries), and coordination routing (`[for:]` tags). Each is captured below.
-
-This whole section is the universal-team layer. POLYBIUS-tier specific framings cross-ref back here; see `MAJOR_POLYBIUS.md` §7.1 (write boundaries), §7.4 (polling capability), §3 (alternate routing target).
+Relocated to `.claude/modules/two-polybius-coordination.md` (CONDITIONAL — read when two POLYBIUS seats coordinate async via bw polling; CAPTAINs never coordinate two-POLYBIUS). The subsection headings below are stub anchors (cross-ref-resolvable); recover each subsection's BODY via `Read .claude/modules/two-polybius-coordination.md`. Relocation-index row in §0.5.
 
 ### 7.1 Radio-check protocol
-
-When two seats are coordinating async via polling, neither can tell the other has stopped responding without an explicit liveness signal. The radio-check protocol gives each peer a way to detect peer-failure within a bounded time without burning attention on routine heartbeats.
-
-Five beats:
-
-1. **Initialization handshake.** When two seats begin coordinating on a shared ticket, each posts a `[radio-check <self-seat-slug>]` comment naming its cron id and current cadence. Both ack on first poll (a one-line "saw your radio-check; proceeding" comment). The handshake confirms both ends are polling and the channel is live.
-2. **Routine heartbeats.** Every ≤30 minutes of session-time, each peer posts a one-line state comment on the coordination ticket. These do not require ack — they are visible-by-poll. Heartbeats are cheap; they prevent peer-silence false alarms during legitimately quiet phases.
-3. **Missed-check escalation.** If a peer is silent > 60 minutes AND the coordination ticket is open, the still-active peer surfaces "lost contact with `<peer>`" to PRINCIPAL. Peer-silence is the only universal escalation that fires automatically; everything else is event-driven.
-4. **Closure handshake.** When the coordination ticket closes, both peers post a final `[radio-check <self-seat-slug> standing down]` comment and run `CronDelete` on their polling cron(s) for this engagement. The closure handshake is what prevents zombie crons polling a closed ticket forever.
-5. **Author-tag convention (POLYBIUS-on-POLYBIUS coordination).** Every coordination comment posted by a POLYBIUS instance carries an explicit sender tag. Three forms cover the cases:
-   - Self-heartbeat: `[radio-check <self-seat-slug>]` — form unchanged from beat 1; slug-normalization rule below applies.
-   - Cross-seat addressed: `[for: <recipient-seat-slug>] [from: <sender-seat-slug>]` — both tags mandatory. This expands the prior `[for:]` convention (currently §7.4) from cross-tier upward only (project→user) to bidirectional; `[from:]` is new in Arc 36.
-   - Own-bw substantive (not addressed to a specific peer): `[from: <self-seat-slug>]` — for status updates, gauntlet phase comments, decisions logged in own bw without a specific recipient.
-
-   **Slug normalization:** lowercase, hyphenated, no whitespace. Example slugs: `user-tier-polybius`, `polybius-the-stoa`, `polybius-ariadne-core`. The slug matches the role-file slug used by `substrate/templates/autonomous-mode-activation-template.md`. Display-form names (e.g., "user-tier POLYBIUS") may appear in prose within comment bodies; the LEADING tag always uses the slug.
-
-   **Scope:** the convention applies to POLYBIUS instances only (user-tier POLYBIUS, project-tier POLYBIUS, sub-project POLYBIUS). PLINY, CAPTAINs, and pair-programmer Majors are NOT required to author-tag — their substantive comments do not enter the timeline-arithmetic that drives radio-check / heartbeat thresholds. See §7.7 for the parsing procedure and the empirical anchor.
-
-   The convention exists so peers reading the timeline can attribute each POLYBIUS comment to its sender without inferring from timestamp + content — the inference step that failed in the 2026-05-04 stoa--e39 empirical (~25-min coordination stall during arc-21 §5.4 review handoff).
-
+Relocated → `two-polybius-coordination.md` §7.1.
 ### 7.2 Adaptive polling cadence
-
-Coordination is not uniformly active. A multi-hour arc has bursts of activity (phase transitions, surfaced ambiguities, decision points) and quiet stretches (heads-down work, review, waiting on a peer). A single fixed cadence either over-polls (during quiet) or under-polls (during active) — both fail.
-
-Three regimes:
-
-| Regime | Cadence | When |
-|---|---|---|
-| Active | `*/2 * * * *` | rapid back-and-forth; surfaced question pending; phase transition imminent |
-| Default | `*/5 * * * *` | the standard polling cadence; works for most coordination |
-| Quiet | `*/15-30 * * * *` | confirmed-quiet stretch; both peers heads-down; nothing pending |
-
-Peers signal complexity on incoming comments via tags: `[complexity: simple]`, `[complexity: medium]`, `[complexity: complex]`. The tag is advisory — it tells the receiving peer how much processing the comment will take and whether a follow-up burst is likely.
-
-**Cadence-switching is per-seat unilateral.** Each peer reads complexity tags on incoming comments and adjusts ITS OWN cron via `CronDelete` + `CronCreate`. There is no negotiation protocol. Both peers converge to the new cadence within one cycle of the slower of the two cadences in play.
-
-**Cadence-up worst-case staleness.** If the receiving peer is on `*/30` (quiet) and a complexity tag arrives that warrants `*/2` (active), the peer will not see the tag for up to one full cycle of its CURRENT cadence — i.e., up to 30 minutes. The active section runs at degraded responsiveness for that bounded window before the slower peer notices. We accept this: the alternative (a synchronization protocol where peers negotiate cadence-up) is more failure-prone than the bounded delay. Protocol-induced bugs cost more than bounded staleness.
-
-**Dual-channel mitigation.** When posting a complexity tag that would justify cadence-up, the POSTING peer ALSO posts an explicit `[cadence: active]` comment on the same fire. Two channels reduce miss-probability; worst-case staleness is unchanged; perceived responsiveness improves.
-
-**Cost framing.** Default cadence is 12 fires/hour; active is 30; quiet is 2-4. The cost difference is small in tokens. The reason for adaptive cadence is not cost — it is matching responsiveness to actual coordination demand so PRINCIPAL-attention surfaces stay timely without burning fire-budget on dead air.
-
-**Cloud-cron limitation.** Cloud scheduled tasks have a 1-hour minimum cadence; the active/quiet regimes do not apply. The workaround: a single fixed-hourly cloud cron that escalates to a local active-cadence cron when an active phase begins. No cloud-cron template ships in the substrate; treat cloud as the documented limitation, not a deliverable.
-
+Relocated → `two-polybius-coordination.md` §7.2.
 ### 7.3 Unified polling pattern
-
-When a single POLYBIUS seat is coordinating with multiple peers across multiple bw stores at the same cadence — typically user-tier POLYBIUS watching several project-tier engagements — the default is ONE cron walking all watched stores per fire (not N separate crons).
-
-Per-fire procedure:
-
-1. `cd` to each watched store in turn.
-2. `bw sync` to pull peer comments.
-3. `bw show <watched-tickets>` for each store; aggregate new content since the last fire.
-4. Aggregate signals: new substantive comments, radio-check freshness windows, self-heartbeat-due timers, escalation-trigger conditions.
-5. Act per the aggregated state — surface to PRINCIPAL on meaningful transitions; otherwise silent.
-
-Cost framing: ~Nx fewer fires than N separate crons when cadences match, modestly bigger context per fire, well within fire budgets. The trade-off: a single shared cadence across all watched engagements. When one watched engagement needs faster polling (active mode per §7.2) while another is quiet, two crons are appropriate. The default is unified; split per-engagement when the cadence trade-off justifies it.
-
+Relocated → `two-polybius-coordination.md` §7.3.
 ### 7.4 Cross-tier coordination routing
-
-The `[for: <recipient-seat-slug>] [from: <sender-seat-slug>]` tag pair marks an addressed POLYBIUS comment — either direction across any POLYBIUS pair. The most common use is cross-tier upward (project-tier → user-tier needing cross-project context, an empirical anchor from another project, or a sanity check that benefits from upper-tier visibility): the project-tier seat posts on a ticket in YOUR OWN bw prefixed with `[for: user-tier-polybius] [from: <self-seat-slug>]`. The upper-tier seat polls down via unified poll (§7.3) and responds on the same ticket within poll cadence (~5 min default). This is the cross-tier-coordination-meets-in-lower-tier pattern (§7.5 + `MAJOR_POLYBIUS.md` §7.1).
-
-The same tag pair is also used for in-tier peer addressing (e.g., user-tier POLYBIUS addressing project-tier POLYBIUS on a project-tier coordination ticket: `[for: polybius-the-stoa] [from: user-tier-polybius]`) — Arc 36 promoted the convention to bidirectional. The `[from:]` tag is mandatory on every addressed comment per §7.1 beat 5; see §7.7 for the parsing procedure that consumes both tags.
-
-PRINCIPAL is exception-handler:
-
-- Project-direction calls → PRINCIPAL.
-- Ship/no-ship for substantial public-facing work → PRINCIPAL.
-- Strategic seat input (cross-project priority, ambiguous PRINCIPAL preference) → PRINCIPAL.
-- Cross-project context, empirical anchors, sanity checks → upper-tier POLYBIUS via `[for:]` tag.
-- Routine technical/operational decisions → handle yourself.
-
-**Universal escalation triggers** (any seat, autonomous mode, surface to PRINCIPAL): substance disagreement after one round-trip with peer; authorship/copyright/PRINCIPAL-final-say content; irreducible ambiguity that blocks progress; peer silence > 60 minutes on an open coordination ticket; arc closure (when shipping public-facing work).
-
-Empirical anchor: 2026-05-04 — workspace POLYBIUS got the convention via an ad-hoc relay file; the-stoa POLYBIUS did not (until this substrate update). Ad-hoc relay-file conveying is brittle; substrate-canonical convention propagates on install.
-
-(Cross-ref: §29 NEW Arc 37 — Multi-team interoperation; §29 extends the cross-tier routing convention to the across-workspace layer.)
-
+Relocated → `two-polybius-coordination.md` §7.4.
 ### 7.5 Cross-tier write boundaries
-
-Each tier writes its own bw and downward; never upward. Coordination always meets in the lower tier's bw. The asymmetric scoping keeps each tier's working memory bounded — project-tier writing to user-tier accumulates cross-project context that defeats the bounded-context property.
-
-| Seat | Reads | Writes |
-|---|---|---|
-| User-tier POLYBIUS | u-- + all project-tier (downward) | u-- + all project-tier (downward) |
-| Project-tier (workspace, sub-project) | own project bw | own project bw |
-
-User-tier descends; project-tier never ascends. The same recursive asymmetry applies parent-project / sub-project: parent sees sub-project's bw; sub-project does not see parent's by default.
-
-**Read-exception (preserved across tiers):** project-tier work that is system-architecture-shaped (a meta-team arc) may PULL from user-tier beadwork as input. This is a READ-only exception — never a write exception. The "never ascends" rule on writes holds without exception. If a project-tier seat ever needs to write upward, the correct path is the `[for: <upper-seat>]` tag pattern in §7.4 — post in your own bw; the upper seat polls down.
-
-**Cross-ref to MAJOR_POLYBIUS §7.1:** `MAJOR_POLYBIUS.md` §7.1 carries the same rule framed for the POLYBIUS seat specifically; this section is the universal-team layer. Bidirectional.
-
-(Cross-ref: §29 NEW Arc 37 — the no-upward-writes rule applies recursively at the workspace boundary per §29.4.)
-
-### 7.6 Empirical lineage
-
-The radio-check + adaptive-cadence + unified-poll + write-boundary disciplines surfaced together during the ariadne--m20 autonomous-mode coordination on 2026-05-04. The lived sequence (handshake, heartbeats, write-boundary catch by PRINCIPAL, closure handshake) is the case study; this section is its codification. Promoted to substrate so every future POLYBIUS-pair coordination inherits the protocol on install rather than re-discovering it.
-
+Relocated → `two-polybius-coordination.md` §7.5.
 ### 7.7 bw-timeline parsing: author-attribution via tags
-
-When a POLYBIUS peer reads a bw timeline to compute "last own activity" / "last peer activity" / "missed-check threshold" (§7.1 beats 2 and 3), the attribution step is load-bearing. A misattributed comment causes silent coordination stalls — the failure mode that surfaced in the 2026-05-04 stoa--e39 empirical (project-tier POLYBIUS attributed a `[for: POLYBIUS_the_stoa]` peer comment as own self-heartbeat; ~25-min review-handoff stall before the misread was caught).
-
-**Parse-by-tag, not by inference.** Every POLYBIUS coordination comment carries a `[from: <seat-slug>]` or `[radio-check <seat-slug>]` tag per §7.1 beat 5. Read the tag first; do NOT infer authorship from timestamp, content pattern, or position. Timestamp-and-content inference is exactly what failed in the e39 empirical.
-
-**Procedure (executed per fire of the polling cron — encoded mechanically at `substrate/templates/polling-cron-prompt-template.md` STEP 1.5):**
-
-For each new comment in the timeline since the last fire, extract the leading tag and classify into one of four cases:
-
-1. **`[radio-check <slug>]`** — POLYBIUS heartbeat by `<slug>`. Slug-match against `{{SELF_SEAT_SLUG}}` and `{{PEER_SEAT_SLUG}}` (lowercase, hyphenated, whitespace-tolerant comparison): on self-match, this is own heartbeat → contributes to `last_self_activity`. On peer-match, this is peer heartbeat → contributes to `last_peer_activity`.
-
-2. **`[for: <slug-Y>] [from: <slug-X>]`** — addressed POLYBIUS comment by `<slug-X>` to `<slug-Y>`. Same slug-match procedure: `<slug-X>` self-match contributes to `last_self_activity`; `<slug-X>` peer-match contributes to `last_peer_activity`. The `<slug-Y>` recipient tag is advisory for readers — it does NOT enter timeline-arithmetic.
-
-3. **`[from: <slug-X>]`** — own-bw substantive POLYBIUS comment by `<slug-X>`, no specific recipient. Same slug-match: self-match → `last_self_activity`; peer-match → `last_peer_activity`.
-
-4. **Untagged, OR tag-slug does not match a known POLYBIUS slug** — non-POLYBIUS comment (PLINY phase status, CAPTAIN verdicts, pair-programmer outputs, legacy pre-Arc-36 POLYBIUS comments). These are SUBSTANCE comments — they do NOT enter `last_self_activity` / `last_peer_activity` timeline-arithmetic. They may be substance-load-bearing for OTHER reads (the substantive content of the comment is read for its own value); they simply do not contribute to coordination-attentiveness signals.
-
-**Compute peer-silence threshold and self-heartbeat-due timing from tagged-POLYBIUS comments only.** This is the load-bearing rule: only case-1, case-2, and case-3 (with slug-match) contribute timestamps to `last_self_activity` / `last_peer_activity`. Case-4 comments do NOT.
-
-**Why non-POLYBIUS comments are excluded.** PLINY / CAPTAIN comments are SUBSTANCE comments (gauntlet phase status, ambiguity surfaces, dispatch results) — not coordination-attribution comments. Including them in `last_peer_activity` would defeat the radio-check protocol (peer-silence threshold would never fire because PLINY comments would mask actual POLYBIUS silence). The protocol intentionally tracks POLYBIUS-on-POLYBIUS attentiveness as a separate signal from team activity-volume.
-
-**Self-misattribution guard.** Never assume the most recent comment is "yours" by timestamp proximity. Always verify by tag-slug match. The e39 empirical was precisely this misattribution shape.
-
-**Worked example (Arc 36 itself).** Arc 36 IS the first worked example under this canon. During this arc's coordination on `stoa--jru`, POLYBIUS_the_stoa's heartbeats carry `[from: polybius-the-stoa]` per §7.1 beat 5; cross-tier comments to user-tier POLYBIUS carry `[for: user-tier-polybius] [from: polybius-the-stoa]`. A peer reading the stoa--jru timeline applies this §7.7 procedure to attribute each coordination comment without inference.
-
-**N=1 provenance (per §6.7.1).** The empirical anchor is single — the 2026-05-04 stoa--e39 misread (~25-min stall). Informal-partial-adoption of `[radio-check <slug>]` tags has been in practice across Arcs 32-35 (N=4 bit-by-it of the legacy form). Worked-when-applied with full canon is N=0 prior to Arc 36; Arc 36's self-application is the first observation. Future arcs operating under §7.7 + §7.1 beat 5 either succeed and accrete the worked-when-applied count, or surface a fresh failure mode and surface back to the canon-promotion gate per §6.7.1. The fix is in canon NOW because PRINCIPAL declared (under the no-deferrals stance, 2026-05-17) and the e39 empirical is a single concrete bit-by-it; structural-lesson status accretes over future engagement-evidence per §6.7.1.
-
-**Future scope.** Extending the convention to PLINY / CAPTAIN / pair-programmer Majors (i.e., promoting case-4 attribution to first-class timeline-arithmetic) is hard-locked OUT of Arc 36 per A2.5 + A14. A future arc may extend with explicit scope expansion if a recurring gauntlet-pacing failure mode surfaces. The mechanical-enforcement layer (pre-comment hook, CI lint) is also hard-locked OUT per A14 — Arc 36 ships prose canon + parser-step template per §27's mechanical-narrow + agent-inspection pattern; mechanical enforcement is a future arc IF non-compliance recurs.
+Relocated → `two-polybius-coordination.md` §7.7.
+<!-- MODULE-INLINE:two-polybius-coordination -->
+<!-- /MODULE-INLINE:two-polybius-coordination -->
 
 ---
 
@@ -269,7 +201,7 @@ The discipline: when you draft a brief, before the agent reads it, audit every l
 | "Use `.claude/MAJOR_POLYBIUS.md`, except when targeting a sub-project." | "Use `.claude/MAJOR_POLYBIUS.md`." (sub-project mode is its own paste; covered by the activation cheatsheet) |
 | "Don't dispatch CAPTAIN_VERA — ARGUS handles plan critique." | "Dispatch CAPTAIN_ARGUS for plan critique." |
 
-Empirical anchor: 2026-05-04 — a project-tier install paste said "Run `bw prime` in this directory (NOT user-beadwork)." The "NOT user-beadwork" parenthetical seeded awareness of user-tier bw into a project-tier session that wouldn't otherwise have known it existed. PRINCIPAL caught and corrected before the activated session reached for the wrong store.
+Anchor: `stoa--xyb.8.1` — the 2026-05-04 bw-prime "NOT user-beadwork" leak empirical (a project-tier install paste's negative parenthetical seeded user-tier-bw awareness into a project-tier session; PRINCIPAL caught + corrected). Recover via `bw show stoa--xyb.8.1`.
 
 Universality: this applies to anyone authoring a downstream brief — POLYBIUS authoring activation pastes (`MAJOR_POLYBIUS.md` §5.1), PLINY authoring dispatch directives, CAPTAINs authoring follow-up briefs, pair-programmer Majors authoring their own follow-ups. Single discipline; many surfaces.
 
@@ -277,7 +209,7 @@ Universality: this applies to anyone authoring a downstream brief — POLYBIUS a
 
 **Framing.** Agents are jagged. "Smart enough to figure it out from a sparse prompt" does not reliably hold in practice, even on tasks that look obviously within capability. The path to reliability and reproducibility is heavier scaffolding now — pre-resolved decisions, worked examples, specified failure modes, sample data shapes — with judgment latitude preserved only where judgment is the actual job. The scaffolding library accretes over time; the scaffolding itself is the durable product, not the agent's "intelligence" working on a thin prompt.
 
-This sits in deliberate tension with the maxim that the unit of distribution is "what you copy-paste to your agent." Both are true: the unit IS text, and the text needs to be richly structured to produce reliable execution. Sparse prompts are aspirational; scaffolded prompts are operational.
+This sits in deliberate tension with the maxim that the unit of distribution is "what you copy-paste to your agent." Both are true: the text IS the unit, and it must be richly structured. Sparse prompts are aspirational; scaffolded prompts are operational.
 
 **Five rules when authoring an artifact a downstream agent will consume:**
 
@@ -295,9 +227,9 @@ This sits in deliberate tension with the maxim that the unit of distribution is 
 
 **The bidirectional-translation principle.** Humans cannot fully specify intent up front — they discover what they want by seeing the work. Reality cannot be fully described to humans up front — agents surface constraints humans did not anticipate. Models cannot autonomously close that loop; they can only run the loop when the COS-tier structure exists to translate both directions. Scaffolding aids the COS-tier in that translation; it does not replace it. The permanent value of human-in-the-loop is structural, not a function of how smart the models are at any given moment. No matter how capable the underlying model, the COS still has to interact with the human to understand what the human wants AND make the human understand the constraints reality is placing on those wants.
 
-**Empirical anchor.** Codified 2026-05-05 during the ariadne-core team_test smoke setup. PRINCIPAL surfaced the over-delegation pattern in a brief that asked the agent to "decide install option 1 vs 2" when option 2 (`uv tool install`) was knowably correct, and similar hand-waving across verification queries, failure-mode handling, and data-shape expectations. The five rules above generalize from those specific over-delegations to the discipline that should apply to every artifact-authoring surface.
+**Anchor:** `stoa--xyb.8.2` — the 2026-05-05 ariadne-core team_test over-delegation empirical (a brief over-delegated a knowably-correct install-option pick + hand-waved verification/failure-mode/data-shape; the five rules generalize from it). Recover via `bw show stoa--xyb.8.2`.
 
-Universality: same as §8.1. Anyone authoring downstream briefs / skills / dispatch envelopes / test scenarios / CLI documentation / API documentation — POLYBIUS, PLINY, CAPTAINs, pair-programmer Majors, anyone writing for an agent reader.
+Universality: same as §8.1 (anyone authoring downstream briefs / skills / dispatch envelopes / test scenarios / CLI/API documentation — POLYBIUS, PLINY, CAPTAINs, pair-programmer Majors).
 
 ### 8.3 Activation paste — which session-state to use
 
@@ -397,11 +329,9 @@ Promoting `core.longpaths` to main config is intentional: every worktree on Wind
 
 When tearing down a worktree (not just unblocking bw mid-engagement), the upstream cleanup also removes `.git/worktrees/<name>/` and the `claude/<slug>` branch — see anthropics/claude-code#45645 for the full sequence.
 
-**Historical context (regression window 2026-05-07 to 2026-05-08).** During this window the harness reproduced the regression on every fresh worktree creation (empirical: `silly-gagarin-7e0342` 2026-05-07 in ariadne-core-workspace, `agitated-chaum-85a85e` 2026-05-07 in the-stoa); the cause was upstream Claude Code (anthropics/claude-code#45645) and unpatchable from this substrate, so the operative discipline during the window was for the activating seat to apply the three-command sequence mechanically and continue. That reflex is demoted as of 2026-05-08 — see status paragraph below.
-
 **Status (2026-05-08): structurally resolved upstream.** `bw` was rebuilt locally from main on 2026-05-08; the worktreeconfig recurrence is structurally fixed. Fresh worktrees no longer reproduce the regression on `bw prime`. The three-command fix above remains documented as a recovery procedure for the rare case of an older `bw` install, but is no longer the default activation discipline. If you hit `core.repositoryformatversion does not support extension: worktreeconfig` on a fresh worktree under the post-2026-05-08 `bw` build, your install regressed — surface to POLYBIUS rather than improvising.
 
-(Empirical anchor: `stoa--7kg` + child `stoa--7kg.1`. Surfaced 2026-05-07 in ariadne-core-workspace during a PLINY dispatch. Phase-1 audit repaired ariadne-core-workspace and agent-gauntlet. Phase-2 root-cause hunt confirmed the cause is the harness's worktree mechanism per the upstream issue, not any substrate script — so this is a workaround, not a fix at source. Phase-3 added the activation reflex after a fresh worktree creation reproduced the regression mid-engagement. Phase-4 (2026-05-08): bw rebuilt from main, structural fix landed; activation reflex demoted to historical reference.)
+Anchor: `stoa--7kg, stoa--7kg.1` — the worktreeconfig regression window (2026-05-07→08) historical record + accretion path (Phase-1 audit → Phase-2 root-cause-is-upstream → Phase-3 activation reflex → Phase-4 2026-05-08 bw rebuild structurally fixed; reflex demoted to recovery procedure). Recover via `bw show stoa--7kg`.
 
 Universality: this applies to every seat that interacts with bw — POLYBIUS, PLINY, every CAPTAIN. Project-tier framing lives at `MAJOR_POLYBIUS.md` §7.5 (this section is the team-wide layer underneath).
 
@@ -467,7 +397,7 @@ The trigger words in column 2 are the same exact strings tabulated in the trigge
 
 **Regression upward is normal, not exceptional.** Engagements that progress to Mode 1 or semi-autonomous routinely regress to Mode 2 when escalations require re-engagement — that is what the universal escalation triggers are FOR. Treating regression as a failure ("we already shipped the directive; why are we back in pair-programming?") confuses scope-lock (a property of the directive) with engagement-mode (a property of HOW PRINCIPAL is participating right now). The directive can stay locked while the engagement regresses to Mode 2 for a clarification round; once clarification is resolved, the engagement progresses back to Mode 1. The downward-propagation rule from Arc 21 A4 (parent seat's mode propagates to dispatched subagents unless explicitly overridden) operates within whichever stage the engagement is currently at; see `MAJOR_POLYBIUS.md` §13.3 for the propagation canon and §11 steps 7-9 below for the mid-engagement transition signaling convention.
 
-**Provenance + accretion path (progression canon).** Per `MAJOR_POLYBIUS.md` §15 honest-scope and §6.7.1: PRINCIPAL declared this discipline 2026-05-13 (project-direction authority, captured at `stoa--ntn` ticket body — verbatim PRINCIPAL framing on "the pattern that knows about going from pair programming to the full team to the team running in semi autonomous mode using beadworks to communicate"). §6.7.1 defers to the canon-promotion gate (multiple observations + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." Honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority. Supporting evidence: N=multi de-facto bit-by-it (mode transitions handled organically across every multi-day arc since the substrate's first such engagement — Mode 2 scoping → Mode 1 gauntlet → Mode 2 clarification round → Mode 1 resume — without an explicit progression canon); N=0 worked-when-applied with formal progression canon (Arc 37 ships the prose; future arcs accrete worked-when-applied). Promotion to "structural lesson" status with multi-arc empirical backing is future arcs' work, not this arc's. See also `operating-disciplines.md` §30 (NEW Arc 37 — Four-layer identity model) — mode transitions trigger on signals readable from any of the four identity layers; handoff state + bw state are common trigger surfaces.
+**Provenance + accretion path (progression canon).** Anchor: `stoa--ntn` — N=1 provenance + accretion path; the ticket carries PRINCIPAL's verbatim 2026-05-13 framing on "the pattern that knows about going from pair programming to the full team to the team running in semi autonomous mode using beadworks to communicate" + the progression table. Enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for "structural lesson" promotion. (See also `operating-disciplines.md` §30 — mode transitions trigger on signals readable from any of the four identity layers; handoff state + bw state are common trigger surfaces.) Recover via `bw show stoa--ntn`.
 
 **Cross-ref:** §25 PRINCIPAL-gate discipline — distinct from cadence. The triggers above govern *when* to surface during routine work; §25 governs *whether* PRINCIPAL input is structurally required for a step. Do not conflate.
 
@@ -477,250 +407,10 @@ Cross-refs: `MAJOR_POLYBIUS.md` §13 (POLYBIUS-tier framing of mode declaration 
 
 ## 11. Autonomous-mode-setup checklist
 
-When a seat detects an autonomous-mode trigger that applies to itself (bare trigger, or self-qualified trigger), it runs this seven-step setup procedure on entry. Do not begin polling until all seven are in place; if any item cannot be completed, surface to PRINCIPAL with what is needed before proceeding.
-
-**1. Polling cron.** `CronCreate` the cron appropriate to the seat's role:
-
-- Project-tier POLYBIUS: poll own bw for active tickets, peer comments, MAJOR_PLINY status. Default cadence `*/5 * * * *` (per §7.2 default regime).
-- User-tier POLYBIUS: unified poll across all watched bw stores per §7.3.
-- MAJOR_PLINY: poll own bw + the dispatched ticket(s) during gauntlet rounds (per `MAJOR_PLINY.md` §6.2 surface-and-wait pattern).
-
-The cron prompt body comes from `substrate/templates/polling-cron-prompt-template.md`; fill the slots per the engagement.
-
-**1.5 Schedule renewal.** Polling crons created via `CronCreate` have a documented expiry of 168 hours (7 days) for recurring tasks per Claude Code docs (https://code.claude.com/docs/en/scheduled-tasks §Seven-day expiry: "Recurring tasks automatically expire 7 days after creation. The task fires one final time, then deletes itself."). To prevent silent loss of the polling cron on multi-day engagements, schedule a one-shot renewal cron at +144 hours (= 168 - 24h buffer) from polling-cron creation. The 24h buffer (= `{{RENEWAL_BUFFER_HOURS}}`) absorbs renewal-fire jitter, session-offline windows, and clock skew. (One-shot tasks are not subject to the 7-day cap — the cap applies only to recurring tasks per the docs; one-shot tasks expire when their scheduled time passes.)
-
-**Renewal-cron prompt body — engagement-specific, slot values inline.** The renewal-cron prompt body is generated at autonomous-mode-setup time with ALL slot values pre-substituted (no template-reference at fire time). The substituted body carries: every slot the polling cron carries (so a replacement polling cron can be re-created from it deterministically); the polling cron's id (`{{POLLING_CRON_ID}}` — for deterministic self-discovery at fire time); and the renewal-cron's own next-renewal scheduling parameters.
-
-Renewal-cron prompt body template (substitute at setup time, not at fire time):
-
-````
-[scheduled renewal fire — {{SELF_SEAT_SLUG}} polling-cron rotation on
-{{COORDINATION_TICKET}}; current polling cron {{POLLING_CRON_ID}};
-renewal cron self]
-
-STEP 1 — find current polling cron (deterministic).
-CronList; find the entry whose cron-id == {{POLLING_CRON_ID}}.
-(Exact-match on cron-id, not text-search on prompt-body — the CronList
-prompt-body display is truncated to ~80 chars and is not load-bearing
-for matching.) If the cron is not found in CronList: see STEP 1a.
-
-STEP 1a — polling-cron-missing branch (session-lifecycle no-op; rev5
-terminating-shape: explicit self-CronDelete REMOVED).
-If {{POLLING_CRON_ID}} is absent from CronList, this renewal cron has
-outlived its paired polling cron — almost certainly because the polling
-cron died on a session-lifecycle event (fresh conversation, /clear,
-session exit). (With F4 shipped, cadence-switch rotations of the
-polling cron also rotate THIS renewal cron in lock-step at the polling-
-cron-template STEP 4 site, so a cadence-switch can no longer be the
-cause of {{POLLING_CRON_ID}}-not-in-CronList.) The correct response is
-no-op AND exit: post a single bw comment on {{COORDINATION_TICKET}}
-noting the orphan-renewal observation, then exit. No explicit
-self-CronDelete is needed — this renewal cron was CronCreate'd with
-recurring: false (one-shot), and per Claude Code docs
-(https://code.claude.com/docs/en/scheduled-tasks "Set a one-time
-reminder" section: "Claude schedules a single-fire task that deletes
-itself after running") the cron is removed by the runtime after this
-fire completes. The polling cron will be re-created when
-{{SELF_SEAT_NAME}} next re-enters autonomous mode at the operator's
-next session activation (per MAJOR_POLYBIUS.md §9 step 7 long-running-
-engagement polling re-setup, which requests PRINCIPAL consent; OR per
-MAJOR_POLYBIUS.md §13.4 step 2 if PRINCIPAL re-issues the autonomous-
-mode trigger); that re-entry will create a fresh renewal cron paired
-with the fresh polling cron via this same §11 step 1.5. Comment to post:
-  bw comment {{COORDINATION_TICKET}} "[from: {{SELF_SEAT_SLUG}}] renewal
-  cron fired without a paired polling cron (id {{POLLING_CRON_ID}} not
-  in CronList — session-lifecycle event likely; cadence-switch path
-  ruled out by F4 lock-step rotation). Exiting; one-shot auto-delete
-  removes this cron from the session per Claude Code docs. Awaiting next
-  autonomous-mode entry per MAJOR_POLYBIUS.md §9 step 7 (PRINCIPAL
-  consent required) or §13.4 (PRINCIPAL re-trigger)."
-Exit.
-
-STEP 2 — CronCreate replacement polling cron.
-CronCreate a NEW recurring cron with cadence {{CADENCE}} and the
-polling-cron prompt body with slot values inline (the same engagement-
-specific body the original polling cron carried — slot values are pre-
-substituted into this renewal-cron prompt at setup time and carried
-inline through fire). The polling cron's {{RENEWAL_CRON_ID}} slot is
-substituted with the OLD/current paired renewal cron's id (i.e., the
-renewal cron currently executing this STEP — which will self-clean
-via one-shot auto-delete after this fire per Claude Code docs); the
-slot will be re-bound to the live <new_renewal_cron_id> in STEP 4a
-(rev5 hygiene optimization). Let the returned id be <new_polling_cron_id>.
-
-STEP 3 — CronDelete {{POLLING_CRON_ID}} (the now-superseded polling cron).
-Post on {{COORDINATION_TICKET}}:
-  bw comment {{COORDINATION_TICKET}} "[from: {{SELF_SEAT_SLUG}}] cron
-  renewed: superseded {{POLLING_CRON_ID}} with <new_polling_cron_id>;
-  cadence {{CADENCE}} unchanged."
-
-STEP 4 — CronCreate next renewal one-shot (LOCAL-TIME arithmetic).
-Compute the next-renewal fire time in LOCAL time:
-  next_renewal_local = NOW (interpreted in local tz) + 144 hours.
-Per Claude Code docs https://code.claude.com/docs/en/scheduled-tasks:
-"All times are interpreted in your local timezone." A cron expression
-emitted from UTC arithmetic would fire at the wrong wall-clock moment
-by the UTC-local offset (potentially up to ~12h off the intended +144h
-window, eroding the 24h buffer). Always compute and emit in local time.
-CronCreate a one-shot cron with cron-expression for next_renewal_local,
-recurring: false, durable: true. The prompt body for this new renewal
-is THIS SAME renewal-cron prompt body with ONE substitution:
-  - replace {{POLLING_CRON_ID}} with <new_polling_cron_id>
-The {{RENEWAL_CRON_ID}} slot inside the renewal cron's own body is no
-longer consumed at fire time (STEP 1a removed the self-CronDelete that
-was its only reader); it may be left as a placeholder marker, as its
-old value, or removed entirely — its value is now informational only
-and ADA-discretion. All other slot values carry through unchanged.
-Let the returned id be <new_renewal_cron_id>.
-
-STEP 4a — re-bind the new polling cron's {{RENEWAL_CRON_ID}} slot
-(F4 lock-step composition; best-effort framing).
-The new polling cron created in STEP 2 was substituted with a "best-
-effort cleanup id" placeholder for {{RENEWAL_CRON_ID}} (the slot's
-semantics — see polling-cron-prompt-template.md substitution-slot
-table). To keep the polling cron's cadence-switch STEP 4.1 best-effort
-`CronDelete {{RENEWAL_CRON_ID}}` pointing at the live renewal cron
-(so the explicit delete actually succeeds rather than relying on
-one-shot auto-delete as the fallback), CronDelete <new_polling_cron_id>
-and CronCreate it AGAIN with {{RENEWAL_CRON_ID}} = <new_renewal_cron_id>.
-Let the returned id be <final_polling_cron_id>. The re-bind is a
-hygiene optimization — the cron pair survives without it (STEP 4.1's
-CronDelete no-ops on the stale id; the orphan renewal cron self-cleans
-via one-shot auto-delete at +144h) — but the re-bind keeps the
-cadence-switch path tidy and avoids accumulating short-lived orphan
-renewal crons inside an engagement that cadence-switches frequently.
-SHIP STEP 4a.
-
-STEP 5 — log renewal-chain extension.
-Post on {{COORDINATION_TICKET}}:
-  bw comment {{COORDINATION_TICKET}} "[from: {{SELF_SEAT_SLUG}}] renewal
-  chain extended: new polling cron <final_polling_cron_id>; next renewal
-  cron <new_renewal_cron_id> (one-shot at +144h LOCAL, durable: true).
-  Polling cron carries new renewal id in {{RENEWAL_CRON_ID}} slot for
-  best-effort cleanup on cadence-switch; renewal cron's own
-  {{RENEWAL_CRON_ID}} slot is informational-only per terminating-shape
-  (no fire-time consumer)."
-
-Exit.
-````
-
-**Renewal-cron CronCreate parameters (load-bearing).**
-- `cron`: a 5-field expression evaluating to +144h from polling-cron creation, computed in the operator's LOCAL timezone (per Claude Code docs https://code.claude.com/docs/en/scheduled-tasks "All times are interpreted in your local timezone"). Compute the wall-clock time in local tz and emit the cron expression for that single minute. Example: if polling cron is created at local time `2026-05-17 17:50` (operator's local tz, NO Z suffix — Z would imply UTC and mis-fire by the local-UTC offset), renewal cron fires at local time `2026-05-23 17:50`; emit cron expression `50 17 23 5 *` (minute=50, hour=17, day=23, month=5, any-day-of-week). NO Z suffix on either timestamp.
-- `recurring`: `false` (one-shot — the renewal fires once, performs STEPs 1-5, and exits; the next renewal in the chain is created inside STEP 4).
-- `durable`: `true`. Documented in the `CronCreate` tool schema as "persist to .claude/scheduled_tasks.json and survive restarts." See the failure-mode acceptance below for the open bug at design time and why the design encodes `durable: true` as honest-intent rather than load-bearing recovery.
-
-Record both cron ids (initial polling cron + first renewal cron) in the radio-check initialization handshake on the coordination ticket per §7.1 beat 1. Subsequent renewal-fire rotations log to the same ticket per STEPs 3 and 5 above.
-
-**Slot-lifecycle note (terminating-shape; minimum-CronCreate-count setup).** The polling-cron template gains TWO substitution slots that support the lock-step composition with the cadence-switching pattern (per the polling-cron-prompt-template STEP 4 extension): `{{RENEWAL_CRON_ID}}` and `{{RENEWAL_CRON_PROMPT_BODY}}`. The setup-time dance populates both slots via a chicken/egg-resolving sequence.
-
-The lifecycle has two layers. Layer 1 is the prompt-body literal itself — the renewal-cron prompt body is generated at autonomous-mode setup time with all engagement-specific slot values pre-substituted (the inline-slot-values shape), then captured as a literal string. Layer 2 is the cron-id cross-references between the two crons — the renewal cron needs to know the polling cron's id (used at STEP 1 exact-match self-discovery; load-bearing); the polling cron carries the renewal cron's id as a best-effort cleanup hint in its `{{RENEWAL_CRON_ID}}` slot (used at cadence-switch STEP 4.1 to CronDelete the paired renewal cron; tolerates stale id per the terminating-shape acceptance below).
-
-**Terminating-shape — load-bearing structural property.** Earlier revisions of the renewal design grew a multi-step re-bind dance out of a chicken/egg dependency that no longer exists: the renewal cron's STEP 1a explicit self-CronDelete required the renewal cron's body to carry its own id as an inline slot value, which forced the dance to re-bind the polling cron AND the renewal cron with mutually-known ids — generating an infinite re-bind regress at the polling cron's two RENEWAL-pointing slots. With one-shot auto-delete confirmed reliable per Claude Code docs (https://code.claude.com/docs/en/scheduled-tasks "Set a one-time reminder": "Claude schedules a single-fire task that deletes itself after running"), the renewal cron's STEP 1a no longer needs an explicit self-CronDelete; the runtime removes the cron after fire completes. This removes the renewal cron's RENEWAL_CRON_ID-in-own-body dependency entirely and collapses the setup dance to 4-step minimum and the cadence-switch dance to 2-step minimum (per the polling-cron-prompt-template STEP 4).
-
-**Setup-time ordering (terminating-shape — 4-step minimum CronCreate count).** Two ids must be threaded through the dance: the renewal cron's body needs the LIVE polling cron's id (load-bearing for STEP 1 self-discovery) and the polling cron's `{{RENEWAL_CRON_ID}}` slot needs the live renewal cron's id (best-effort cleanup; tolerates staleness). The renewal cron's own id is no longer threaded into its own body (STEP 1a's explicit self-CronDelete removed; one-shot auto-delete handles cleanup). The 4-step dance is the minimum that resolves both required threadings without infinite regress.
-
-  0. Generate the renewal-cron prompt body literal text from the renewal-cron template above (the renewal-cron STEPs 1-5 block). Substitute ALL engagement-specific slot values inline EXCEPT the polling-cron cross-reference + cadence, which become PLACEHOLDERS at this stage:
-       `{{POLLING_CRON_ID}}` = `<PLACEHOLDER:POLLING_CRON_ID>`
-       `{{CADENCE}}` = `<PLACEHOLDER:CADENCE>` (for STEP 4.2 cadence-switch re-substitution at fire time)
-     The renewal cron's own `{{RENEWAL_CRON_ID}}` slot is ADA-discretion (no fire-time consumer): pass through as a placeholder, leave as the template default, or omit; the renewal cron does not consume the value at fire time. Capture the substituted-with-placeholders literal as `RENEWAL_CRON_PROMPT_BODY_LITERAL` for use in subsequent steps.
-  1. CronCreate polling cron with `{{RENEWAL_CRON_ID}}` = `<PLACEHOLDER:RENEWAL_CRON_ID>` (placeholder; re-bound in step 3) and `{{RENEWAL_CRON_PROMPT_BODY}}` = `RENEWAL_CRON_PROMPT_BODY_LITERAL`.
-     → returned id = `<polling_id_v1>`
-  2. CronCreate renewal cron with prompt body = `RENEWAL_CRON_PROMPT_BODY_LITERAL` with `<PLACEHOLDER:POLLING_CRON_ID>` → `<polling_id_v1>` and `<PLACEHOLDER:CADENCE>` → the engagement cadence. recurring: false; +144h LOCAL cron expression per the renewal-cron STEP 4 arithmetic.
-     → returned id = `<renewal_id_v1>`
-  3. CronDelete `<polling_id_v1>`; CronCreate polling cron AGAIN with the same body except `{{RENEWAL_CRON_ID}}` = `<renewal_id_v1>`. `{{RENEWAL_CRON_PROMPT_BODY}}` is the same literal from step 1 (still carries `<PLACEHOLDER:POLLING_CRON_ID>` + `<PLACEHOLDER:CADENCE>` markers — that is correct, the polling cron uses this slot ONLY for STEP 4.2 cadence-switch re-substitution, not at any current-fire-time consumer).
-     → returned id = `<final_polling_id>`
-  4. CronDelete `<renewal_id_v1>`; CronCreate renewal cron AGAIN with body = `RENEWAL_CRON_PROMPT_BODY_LITERAL` with `<PLACEHOLDER:POLLING_CRON_ID>` → `<final_polling_id>` and `<PLACEHOLDER:CADENCE>` → cadence. recurring: false; the +144h LOCAL cron expression (re-computed from "now" at step 4 — minutes of setup latency are absorbed by the 24h buffer).
-     → returned id = `<final_renewal_id>` (this is the renewal cron that goes into the radio-check initialization handshake; the `<final_polling_id>` is the polling cron)
-
-The 4-step dance is the terminating shape. Extending to 5 steps with a re-CronCreate of the polling cron AGAIN to bind `{{RENEWAL_CRON_ID}}` to `<final_renewal_id>` would return `<truly_final_polling_id>`, which the renewal cron's body does NOT carry — its STEP 1 would then fail at +144h. Fixing that requires step 6 = re-CronCreate renewal cron with `<truly_final_polling_id>`, which returns `<truly_final_renewal_id>`, which the polling cron does NOT carry. Infinite regress. The terminating shape stops at 4 steps with explicit acceptance of the one-time polling-cron-slot stale-id residual: the polling cron `<final_polling_id>` carries `{{RENEWAL_CRON_ID}}` = `<renewal_id_v1>` (DEAD; CronDeleted in step 4). At the first cadence-switch, STEP 4.1's `CronDelete {{RENEWAL_CRON_ID}}` against the dead id no-ops gracefully; the live `<final_renewal_id>` is orphaned-relative-to-the-polling-cron's-slot but self-cleans via one-shot auto-delete at +144h. The slot converges to a LIVE id only at the +144h renewal-chain extension event via the renewal cron's STEP 4a hygiene re-bind.
-
-(Implementation note: the placeholder-substitution approach above treats the prompt body as a string-templating exercise — substitute literal `<PLACEHOLDER:POLLING_CRON_ID>` and `<PLACEHOLDER:RENEWAL_CRON_ID>` markers with the returned cron ids at the moment they are known. ADA may choose any equivalent representation — `{{POLLING_CRON_ID}}`-style braces with a sentinel value, named-group regex substitution, or any other deterministic mechanism — as long as the post-substitution body contains the actual cron ids literally and the un-substituted placeholder cannot survive into a CronCreate prompt that an executing renewal cron would read.)
-
-**Failure-mode acceptance (broader than a single-failure-mode framing).** The renewal mechanism protects against the +168h cron-expiry boundary. It does NOT, by itself, protect against session-lifecycle events:
-
-1. **Cron-expiry boundary (the +168h window).** Addressed by the renewal chain: at +144h the renewal cron fires, rotates the polling cron, and schedules the next renewal at +144h-from-now. Steady-state continuous protection while the session stays alive and active.
-
-2. **Renewal-chain break across multi-day continuous outage.** If the session is offline through BOTH the renewal fire AND the +168h cron expiry that follows (only possible when an autonomous engagement is left offline for > 6 days), the polling cron expires before the next renewal fires. Recovery is via peer-side radio-check escalation per §7.1 beat 3 (> 60-min peer-silence threshold fires; peer surfaces "lost contact with `<peer>`" to PRINCIPAL).
-
-3. **Session-lifecycle event — fresh conversation, /clear, session exit.** Per Claude Code docs (Limitations section): "Starting a fresh conversation clears all session-scoped tasks. Resuming with `claude --resume` or `claude --continue` restores tasks that have not expired." Per `MAJOR_POLYBIUS.md` §7.4: polling crons are session-only (`durable: false` by default) and die when the session exits. The renewal cron uses `durable: true` as honest intent (documented tool-schema parameter; would survive session restart when working) — but is subject to the open bug at anthropics/claude-code issue #40228 (opened 2026-03-28, unresolved at design time) where `durable: true` does not currently persist.
-
-   **Bug #40228 surveillance state (Arc 41, 2026-05-18):** the `durable: true` parameter encoded above is honest-intent — it works when the bug is fixed without canon revision (the parameter is documented schema; the persistence is the runtime defect). Watch state: bug #40228 remains OPEN at anthropics/claude-code; no recovery-discipline canon change is baked in at §11 step 1.5; recovery rests on `MAJOR_POLYBIUS.md` §9 step 7 PRINCIPAL-consent re-setup. If the bug is fixed in a Claude Code release, the canon does NOT need revision — `durable: true` becomes load-bearing-as-documented rather than honest-intent-only. No reassessment ticket required until bug closure.
-
-   **Recovery path (load-bearing; works regardless of the durable bug; PRINCIPAL-consent-required, NOT transparent re-bootstrap):** the polling cron is session-only by canon; when the session exits or a fresh conversation starts, both the polling cron and the renewal cron are lost. Recovery is NOT transparent. The load-bearing recovery cite is `MAJOR_POLYBIUS.md` §9 step 7 (Activation checklist long-running-engagement entry): "If this engagement is long-running (multi-session arc work, cross-tier coordination, an active PLINY in a separate session): **request PRINCIPAL consent and set up a polling cron per §7.4**." On the operator's next session activation, POLYBIUS executes §9 of the activation checklist, which (a) reads bw state, (b) detects an open coordination ticket on a long-running engagement, (c) **requests PRINCIPAL consent** to re-setup the polling cron, (d) on consent, runs the §11 setup checklist including this step 1.5, which creates a NEW polling cron paired with a NEW renewal cron. The renewal mechanism is re-bootstrapped from a clean slate. Alternative recovery path: PRINCIPAL re-issues the autonomous-mode trigger ("go autonomous on this work") — `MAJOR_POLYBIUS.md` §13.4 step 2 detects the trigger and routes through the same §11 setup checklist. Both paths converge on §11 step 1.5; both require PRINCIPAL action (consent OR trigger). Neither is transparent.
-
-   If a renewal cron from a prior session survives (durable bug eventually fixed) and fires in a session that has already created a fresh polling cron via §9 step 7 or §13.4 re-entry, STEP 1a's no-op-and-exit branch handles the orphan-renewal cleanly — the renewal cron posts the orphan-observation comment and exits; one-shot auto-delete per Claude Code docs removes the cron from the session after fire completes, so the stale chain does not perpetuate alongside the fresh chain.
-
-   The session-lifecycle failure mode is therefore NOT a multi-day outage — it is any fresh-conversation start at any time, recovered consent-mediated (not transparent) by the operator's next session activation running §9 step 7 (or by PRINCIPAL's autonomous-mode re-trigger routing §13.4 step 2). The renewal mechanism does not need to protect against it directly; it composes with the §9 step 7 / §13.4 recovery paths. STEP 1a's no-op-and-exit is the seam where the orphan-renewal-from-prior-session meets the fresh chain.
-
-4. **Cadence-switch × renewal composition.** Without the lock-step rotation fix, polling-cron-template STEP 4 cadence-switch (CronDelete old + CronCreate new at new cadence) would leave the paired renewal cron's inline `{{POLLING_CRON_ID}}` + `{{CADENCE}}` slot values stale. At +144h the renewal cron's STEP 1 exact-match would no-op AND STEP 1a would mis-classify the case as session-lifecycle (the polling cron is alive at the new id, not session-dead) AND the replacement polling cron from the cadence-switch would have no successor renewal cron. The renewal chain dies silently AND the new chain never starts. Recovery: same as scenario 3 above (peer-side radio-check on >60 min self-silence, then PRINCIPAL-consent-mediated re-setup) — but AFTER silent expiry of the new polling cron at +168h. The polling-cron-template STEP 4 lock-step rotation fix eliminates this scenario by rotating BOTH crons in lock-step: cadence-switch CronDeletes old polling AND old renewal, CronCreates new polling AND new renewal, with cross-referenced slot values populated per the slot-lifecycle note above. With the fix shipped (and the `{{RENEWAL_CRON_PROMPT_BODY}}` slot supplying the source so STEP 4.2 can CronCreate deterministically), cadence-switching composes cleanly with the renewal mechanism.
-
-   **Partial-failure-state surface of the cadence-switch dance.** The terminating-shape cadence-switch is a TWO CronCreate-operation dance per cadence-switch (STEP 4.1 polling rotate → STEP 4.2 renewal rotate; no re-bind sub-steps — one-shot auto-delete handles orphan cleanup; polling cron's `{{RENEWAL_CRON_ID}}` slot tolerates one-cycle staleness per the best-effort semantics). If the polling cron's prompt-body execution is interrupted between STEP 4.1 and STEP 4.2 (session crash, tool failure mid-fire, context exhaustion within the fire), the cron pair is left in an intermediate state — e.g., STEP 4.1 completes leaving a new polling cron alive with stale `{{RENEWAL_CRON_ID}}` pointing at the just-CronDelete'd old renewal cron, and no live paired renewal cron at all (the `<new_renewal_cron_id>` that STEP 4.2 would have created is never created). Recovery from any such partial-failure state is via the SAME peer-side radio-check escalation surface as the broader cron-mechanism-failure modes: §7.1 beat 3 — when the self-silence threshold (>60 min) trips on the polling-cron side, the peer POLYBIUS surfaces "lost contact with `<peer>`" to PRINCIPAL, and PRINCIPAL re-issues the autonomous-mode trigger (routing through `MAJOR_POLYBIUS.md` §13.4 step 2 → §11 setup checklist including step 1.5), OR the operator's next session activation runs `MAJOR_POLYBIUS.md` §9 step 7 (long-running-engagement polling re-setup; PRINCIPAL-consent-required). Either path converges on a clean §11 setup that creates a fresh polling-cron + renewal-cron pair from scratch, discarding any intermediate-state artifacts — the orphan renewal cron from the partial state self-cleans via one-shot auto-delete at +144h (terminating-shape; no explicit cleanup needed). No new recovery infrastructure is required — the broader cron-mechanism failure-mode recovery surface already covers this partial-failure-state shape. The cost is the same as scenario 3: PRINCIPAL-consent-required, not transparent; recovery latency is bounded by the >60 min peer-silence threshold + the operator's next-session activation cadence.
-
-No additional watchdog cron ships — the alternative (peer-side renewal monitoring, separate watcher cron, double-cron belt-and-suspenders) adds the same coordination-dependency problems Option 2 was rejected for in the A7 decision matrix. Bounded staleness is acceptable; protocol-induced bugs cost more. The renewal cron is the per-seat unilateral mechanism; §9 step 7 / §13.4 re-entry is the cross-session-lifecycle mechanism; polling-cron-template STEP 4 lock-step rotation is the cadence-switch composition mechanism; together they cover the failure modes the design accepts.
-
-This mirrors the per-seat-unilateral cadence-switching pattern in §7.2 ("Cadence-switching is per-seat unilateral. Each peer reads complexity tags on incoming comments and adjusts ITS OWN cron"). Each seat renews its OWN polling cron unilaterally; no cross-seat renewal coordination exists.
-
-Cross-ref to template: the polling-cron-prompt template at `substrate/templates/polling-cron-prompt-template.md` does NOT carry in-fire renewal logic — cron-expiry handling lives in this step 1.5 instead. See the end-of-file pointer note at the template for the back-cite. The template's STEP 4 cadence-switch path performs the lock-step rotation of both crons per the slot-lifecycle note above; the template's substitution-slot table carries `{{RENEWAL_CRON_ID}}` + `{{RENEWAL_CRON_PROMPT_BODY}}` to support the composition.
-
-Cross-ref to recovery paths: `MAJOR_POLYBIUS.md` §9 step 7 (long-running-engagement polling re-setup, PRINCIPAL-consent-required) is the load-bearing recovery path for session-lifecycle loss of the cron pair on the operator's next session activation while autonomous-mode is still desired. `MAJOR_POLYBIUS.md` §13.4 step 2 (autonomous-mode trigger detection → §11 setup) is the recovery path when PRINCIPAL re-issues the autonomous-mode trigger. Both converge on the §11 setup checklist including this step 1.5. The §13.4 note carried by Arc 36 closes the loop by mentioning renewal-cron presence as part of setup-complete confirmation.
-
-**2. Radio-check pattern with peer seats** (per §7.1):
-
-- Initialization handshake on shared coordination ticket.
-- Routine heartbeats every ≤30 min.
-- Missed-check escalation > 60 min.
-- Closure handshake on ticket close.
-
-**3. Cross-tier coordination convention** (per §7.4):
-
-- `[for: <upper-seat>]` tag on own-bw comments to request cross-project context.
-- Upper seat polls down; you never write up.
-- PRINCIPAL is exception-handler.
-
-**4. Bw write-boundary discipline** (per §7.5):
-
-- Each tier writes own bw and downward; never upward.
-- Coordination meets in the lower tier's bw.
-
-**5. Activation paste discipline** (per §8 + `MAJOR_POLYBIUS.md` §5.1/§5.5):
-
-- Positive references only when activating downstream agents.
-- Filename varies by install mode (cheatsheet at `substrate/templates/activation-paste-cheatsheet.md`).
-
-**6. Bw storage model awareness** (per §9):
-
-- bw lives on the `beadwork` orphan branch, not a `.bw/` directory.
-- Detection: `bw prime` self-reports OR `git branch -a | grep beadwork`.
-- Never `git checkout beadwork` from the main worktree.
-
-**Setup-complete confirmation.** After all seven are in place, post a setup-complete comment on the engagement's coordination ticket naming: cron id, cadence, escalation triggers, peer name, expected duration. Surface the same to PRINCIPAL once. From this point forward, routine status flows via bw; PRINCIPAL only sees the universal-escalation-trigger surfaces (§10) until the engagement closes or the autonomous-mode trigger is reversed.
-
-**Cross-ref:** §25 PRINCIPAL-gate discipline — autonomous-mode setup does NOT relax PRINCIPAL-gates. If downstream encounters a PRINCIPAL-gated clause, the workflow PAUSES per §25.3 regardless of operating engagement.
-
-**Teardown procedure** (autonomous → HITL trigger detected): `CronDelete` the polling cron(s) for this engagement. Post final `[radio-check <self-seat-slug> standing down]` on the coordination ticket(s). Confirm to PRINCIPAL: "back in the loop; teardown complete; scope: <global | per-seat name>". Per-seat teardown affects only the named seat's coordination crons; sibling seats keep their own crons.
-
-**7. Mode declaration in directives.** Every arc directive declares its expected operating mode in the dispatch frame (the existing pattern across Arcs 21-36; this step makes the convention explicit). The directive's dispatch frame names the operating mode per phase. Typical pattern:
-
-- Phase 1 (Design) — Mode 1 × Autonomous (DAEDALUS heads-down on design.md per the directive's locked envelope).
-- Phase 2 (Build) — Mode 1 × Autonomous (ADA heads-down on the worktree).
-- Phase 3 (Verify) — Mode 1 × Autonomous (VERA + CATO + ZENO parallel).
-- Phase 4 (Ship) — Mode 1 with PRINCIPAL surface for ship/no-ship if the work is public-facing (otherwise autonomous-ship per `u--7yg.11`).
-
-A directive that does not name the mode explicitly inherits semi-autonomous (Mode 1 × Autonomous) per the default. A directive that names a per-phase override (e.g., "Phase 2 runs in HITL because the build touches credential-shaped code per §20.3 refusal-as-signal") overrides the default for that phase only. Default for arc dispatches is **semi-autonomous** per Arc 21's A4 (PRINCIPAL-AFK during multi-session arc work).
-
-**8. Mid-engagement mode transitions.** When the mode changes mid-engagement, the seat that calls the transition posts a `[mode-change <new-mode>] [from: <self-seat-slug>]` comment on the coordination ticket. Peer seat reads + adapts on its next poll. Example: PLINY calls "regress to Mode 2 — surfaced ambiguity that needs PRINCIPAL judgment" → posts `[mode-change mode-2] [from: pliny-the-stoa]` → POLYBIUS reads on its next poll and adapts (e.g., increases polling cadence to active per §7.2 because Mode 2 typically has higher coordination volume).
-
-The mode-change comment is a coordination signal; it does NOT itself transition the engagement. The transition is effected by the receiving seat's adapted behavior (e.g., POLYBIUS engaging PRINCIPAL chat-side; PLINY pausing the next CAPTAIN dispatch until the ambiguity resolves). The signal-then-adapt pattern preserves the cooperative-yield property §18.3 names: no seat can push-interrupt a running peer; the mode-change comment yields at the receiving seat's next poll.
-
-Tag-parser interaction (per §7.7): the `[from: <self-seat-slug>]` clause in the mode-change tag classifies under §7.7 case 3 (`[from: <slug>]` slug-match → the tagged comment contributes to `last_self_activity` / `last_peer_activity` timeline-arithmetic as a coordination-attentiveness signal). This is INTENDED: a mode-change comment IS evidence that the peer is alive AND announcing a coordination-attentive action; counting it as a heartbeat-equivalent for missed-check thresholds is the correct behavior. Mode-change comments thus serve dual function — coordination signal (substance) AND liveness signal (timeline-arithmetic).
-
-**9. Downward-propagation rule (Arc 21 A4 recap).** A parent seat's mode propagates to dispatched subagents unless explicitly overridden in the dispatch brief. This is the existing Arc 21 A4 canon at `MAJOR_POLYBIUS.md` §13.3; recapped here for cross-section completeness. Concretely:
-
-- If user-tier POLYBIUS is in semi-autonomous and dispatches PLINY for an arc, PLINY inherits semi-autonomous unless the directive declares HITL for Phase X.
-- If PLINY is in semi-autonomous and dispatches a CAPTAIN, the CAPTAIN inherits semi-autonomous unless the dispatch brief declares HITL for the CAPTAIN's scope.
-- The override is explicit, in the dispatch brief; silent override is a directive bug.
-
-Cross-refs for steps 7-9: `operating-disciplines.md` §10 (engagement axis + progression sequence + transition triggers — co-landed this arc); `MAJOR_PLINY.md` §5.1 (operating-mode awareness in the dispatch brief — the directive convention step 7 makes explicit); `MAJOR_POLYBIUS.md` §13.3 (Mode propagation across nested tiers — the downward-propagation canon home); `operating-disciplines.md` §7.2 (Adaptive polling cadence — peer adaptation on mode-change signal interacts with cadence regime selection); `operating-disciplines.md` §7.7 (bw-timeline parsing — the case 3 classification that counts mode-change tags as liveness signals); Arc 21 directive A4 (empirical anchor for downward-propagation rule).
+Relocated to `.claude/modules/autonomous-mode-setup.md` (CONDITIONAL — read when a seat detects an autonomous-mode trigger that applies to itself).
+Recover the full 7-step procedure (incl. step 1.5 renewal-cron machinery + steps 7–9 mode-declaration/transition/propagation) via `Read .claude/modules/autonomous-mode-setup.md`. Relocation-index row in §0.5.
+<!-- MODULE-INLINE:autonomous-mode-setup -->
+<!-- /MODULE-INLINE:autonomous-mode-setup -->
 
 ---
 
@@ -819,23 +509,16 @@ Universality: every seat that invokes Python in a Windows-deployed gauntlet — 
 
 ## 14. Sub-agent diagnostic transcript discipline
 
-When a sub-agent (CAPTAIN, Explore, general-purpose, etc.) is killed mid-dispatch — by watchdog (per `MAJOR_PLINY.md` §5.3) or manually by the dispatching seat — capture the JSONL transcript of the dispatch BEFORE the process exits. The transcript is the only direct evidence of what the agent was doing at stall time; reconstruction-from-memory or reconstruction-from-screenshots is fallback only.
-
-**Save target:** `.claude/diagnostics/<agent-mnemonic>-<dispatch-id>-<timestamp>.jsonl` (or analogous; substrate names the convention, project may localize). The directory is part of the project's working tree; gitignore as appropriate (transcripts are diagnostic context, not durable substrate).
-
-**Read-side discipline:** when authoring a post-mortem after a stall or kill, the JSONL transcript is first-line evidence. Reconstruction from screenshots or working memory is fallback when the transcript is unavailable. A post-mortem authored without consulting the transcript when one exists is a discipline failure — the evidence is there; use it.
-
-**Open question (carried forward, not resolved):** how the parent session captures the JSONL transcript depends on whether Claude Code exposes it natively. If it does, the discipline is "save it on every kill." If it does not, the discipline reduces to "name the convention; await platform support" and the implementation surface stays open at `stoa--dyb` Item 2. This section names the discipline shape; the implementation question is downstream of platform capability.
-
-Empirical anchor: `agents/design/ariadne--m5e/post-mortem-daedalus-rev3-stall.md` (in ariadne-core-workspace; 2026-05-07; 12.7 KB) — 6+ DAEDALUS rev3 stalls left no diagnostic trace; the post-mortem had to reconstruct from intermittent screenshots and status snapshots. Substrate fix: capture the JSONL transcript on every kill, by default. Substrate ticket: `stoa--dyb` Item 2.
-
-Universality: every seat that dispatches sub-agents (currently MAJOR_PLINY; future tiers may add).
+Relocated to `.claude/modules/sub-agent-transcript-discipline.md` (CONDITIONAL — read when a dispatching seat kills a sub-agent mid-dispatch and needs the kill-time JSONL-capture + post-mortem evidence discipline).
+Recover the full discipline via `Read .claude/modules/sub-agent-transcript-discipline.md`. Relocation-index row in §0.5.
+<!-- MODULE-INLINE:sub-agent-transcript-discipline -->
+<!-- /MODULE-INLINE:sub-agent-transcript-discipline -->
 
 ---
 
 ## 15. Verification-complexity awareness
 
-This section is the load-bearing framework for verifier discipline. The verifying CAPTAINs (VERA, CATO, ARGUS, ZENO) inherit from it; their role files cross-reference back here for the canonical anchor. Codified after the 2026-05-12 cluster surfaced both the verifier-spins-forever failure mode (against hard-hard claims) and the cheap-catch quadrant (hard-detect / easy-verify) where the 2026-05-12 STRABO fabrication lived. Substrate ticket: `stoa--tp1`.
+This section is the load-bearing framework for verifier discipline. The verifying CAPTAINs (VERA, CATO, ARGUS, ZENO) inherit from it; their role files cross-reference back here for the canonical anchor. Codified after the 2026-05-12 cluster surfaced both the verifier-spins-forever failure mode (against hard-hard claims) and the cheap-catch quadrant (hard-detect / easy-verify) where the 2026-05-12 STRABO fabrication lived. Anchor: `stoa--tp1` — N=1 provenance + accretion path; recover via `bw show stoa--tp1`.
 
 ### 15.1 The 2x2
 
@@ -895,21 +578,15 @@ UNVERIFIABLE also does not gate merge on its own. The verdict is honest output, 
 2. **Operator-fatigue.** Every INCOMPLETE verdict surfaces to PRINCIPAL or POLYBIUS for disposition. If the bound is too tight, INCOMPLETE verdicts proliferate and the disposition queue saturates. 10× lets the verifier do real bounded work; the disposition queue stays manageable.
 3. **Easy escalation path.** If a verifier hits 10× and the verdict is still INCOMPLETE with diminishing returns, the verifier returns INCOMPLETE with the data it has. If the brief explicitly authorizes a higher budget (e.g., 100× for a load-bearing concurrency check), the verifier uses it. The default is the floor of "honest bounded work," not the ceiling.
 
-### 15.6 Six worked examples
+### 15.6 Worked examples (the load-bearing set)
 
-Worked examples make the framework legible.
+Three worked examples make the framework legible — one per non-trivial quadrant. (The full six-example set, including the ARGUS-side easy-easy + hard-hard design-critique cases, is recoverable via `bw show stoa--tp1`.)
 
 **Example 1 — Easy-easy / PASS.** VERA probes `/api/bw/projects/conan-superfan/issues` and expects HTTP 200 with non-empty `issues` array. Direct curl + jq. Pass. Standard mechanical case; the framework adds nothing beyond classification, but the classification step is what makes the framework's other quadrants legible by contrast.
 
 **Example 2 — Hard-easy / FAIL.** VERA reads STRABO research artifact claiming `internal/issue/id.go:128` contains `matches = append(matches, matches)`. Quadrant: **hard-detect** (the work is in finding which of the artifact's many cited claims to verify; the claim's wording does not flag itself as suspicious) / **easy-verify** (curl the file at the cited commit + grep for the cited line; match or fail). FAIL: the line is absent from all three commits of the file's history; the structurally-correct `append(matches, id)` is what's actually there. Falsifying evidence: the three commit SHAs + line excerpts. This is the 2026-05-12 STRABO-fabrication case.
 
-**Example 3 — Easy-hard / INCOMPLETE.** VERA verifies a fix for an intermittent concurrency bug. Quadrant: **easy-detect** (the bug reproduces under load) / **hard-verify** (full state space is intractable to exhaust). Bounded probe: 10,000 iterations of stress test against the fix. Result: PASS across all 10,000 iterations. Verdict **INCOMPLETE**: "PASS across 10,000 iterations; estimated full state space ~10⁹ due to thread-interleaving; bound used was 10× normal probe budget at ~300s wall-clock; confidence interval high for non-systematic recurrence, low for adversarial recurrence." Operator decides whether 10,000 iterations is sufficient for ship.
-
 **Example 4 — Hard-hard / UNVERIFIABLE.** STRABO research synthesis claims "every mature git-as-database project has a sidecar projection layer." Quadrant: **hard-detect** (sample bias in mature-project enumeration; how do you find the counter-examples?) / **hard-verify** (counter-example space is the set of all not-yet-discovered such projects). Verdict **UNVERIFIABLE**: cited 3 examples (git-bug, public-inbox, beads-on-Dolt); sanity-checked each individually (each has a documented sidecar projection layer); but the universal-quantifier synthesis is unbounded — verifier surfaces to operator. Recommended next step: treat the claim as a strong heuristic for the cited cases, not a universal law; document the synthesis as evidence-of-pattern, not evidence-of-completeness.
-
-**Example 5 — ARGUS easy-easy.** Design critique: "config file path is hardcoded at `/etc/foo.conf`." Concrete risk; easy-quadrant. Standard FAIL-equivalent (`load_bearing: true`, evidence-cited). No framework overhead needed; this is just a normal load-bearing risk surfaced and routed back to DAEDALUS for revision.
-
-**Example 6 — ARGUS hard-hard.** Design critique: "does this design account for all possible failure modes." Quadrant: **hard-detect** (failure-mode space is unbounded) / **hard-verify** (proving exhaustion is intractable). ARGUS classifies as hard-hard. Verdict **UNVERIFIABLE** at the design-critique level (not "the design is wrong" — the design may be fine, but ARGUS cannot exhaust the failure-mode space). ARGUS surfaces three specific failure modes considered concretely, notes the unbounded property of "all possible," recommends operator review or deferred adversarial testing as the next step. The verdict is honest output; ARGUS does not pretend to have done what it cannot do.
 
 ### 15.7 Self-referential observation
 
@@ -919,83 +596,19 @@ The framework's own discipline applies to verifying any arc that ships this fram
 
 ## 16. bw-fit matrix + layered-architecture framing
 
-When choosing a project's substrate for ticket-shape state, knowledge-shape data, or hybrid use cases, consult this matrix before committing to bw. The matrix codifies the empirical bw scaling characteristics observed across the 2026-05 stoa + ariadne integration arcs.
-
-### 16.1 The bw-fit matrix
-
-| Use case shape | Fit |
-|---|---|
-| Project-management substrate, incremental over months/years, < ~5k lifetime tickets | bw is the right choice |
-| Agent-team work-tracking with rich metadata + dependencies | bw is the right choice (Stoa's own use) |
-| Investigative workflow with structured evidence + hypotheses | bw is the right choice |
-| Audit trail for a workflow with versioned commits | bw is the right choice |
-| Catalog / reference corpus / knowledge-graph at 10k+ entries | NOT bw — use direct Postgres, beads-on-Dolt, or another DB engine |
-| High-write-rate bulk ingest workloads | NOT bw — even if total corpus is small |
-| Use cases requiring concurrent multi-agent cell-level merge | NOT bw (consider beads-on-Dolt if this is a real requirement) |
-
-The wall: bw's `TreeFS.Commit` rewrites the entire tree on every commit (no incremental tree update). At ~5k tickets and beyond, this becomes superlinear (~21s/ticket observed at 11,446 tickets; ~50-80h projected for full bulk-seed of that corpus). The matrix's "right choice" rows are use cases where the commit-rate stays well below the scaling wall; the "NOT bw" rows are where the scaling wall is structurally load-bearing.
-
-### 16.2 The layered-architecture framing
-
-**bw is the write-side substrate; Ariadne is the read-side projection; hypergraph extends the projection to relational reads.** Each layer addresses a different read shape; do not force bw to be fast at reads — that is not its job in the stack.
-
-Concretely:
-
-- **bw (write-side).** Authoritative ticket-shape state. Audit-trail-grade durability. Incremental-author-friendly. Best when reads are spot-lookups against known IDs or small-set list operations. Native bw `list` / `show` / `history` are the right APIs at this layer.
-- **Ariadne (read-side projection).** A sidecar projection layer that mirrors bw's state into a queryable shape (typically SQLite + FTS5 + structured indices). Built for relational reads, full-text search, cross-ticket aggregation, and analytics queries that bw cannot serve fast at scale. The projection is eventually-consistent with bw; bw is the source of truth, Ariadne is the cached query layer.
-- **Hypergraph extension.** When the project's read shape includes many-to-many relationships across tickets / artifacts / concepts (knowledge-graph queries; multi-hop traversal; relational joins on derived attributes), the hypergraph layer sits on top of Ariadne. Same eventually-consistent pattern; richer query surface.
-
-The mental model substantive value: for any future Stoa-deployed project that needs both ticket-shape and knowledge-shape data, the projection layer is load-bearing — bw alone won't carry the knowledge-graph use case. The bw → Ariadne integration arc was proving exactly this: the bulk-seed wall was the empirical evidence that bw is for writes, Ariadne is for reads, and the two layers compose.
-
-### 16.3 Decision rule
-
-When a future POLYBIUS session is considering bw for a project, walk the matrix at §16.1 first:
-
-1. If the use case falls in a "right choice" row → bw is the right substrate. Standard stoa-deploy applies.
-2. If the use case falls in a "NOT bw" row → use the alternative named in the matrix row. Document the choice; bw is not the universal answer.
-3. If the use case spans both (ticket-shape + knowledge-shape, or write-intensive small + read-intensive large), apply the layered architecture from §16.2: bw for the write side, a projection layer for the read side. Don't force one tool to do both jobs.
-
-Empirical anchor: 2026-05-12, the bw → Ariadne integration arcs in ariadne-core-workspace. Project-tier relay at `HUMAN_relay_substrate_bw_scaling_findings_2026-05-12.md`. Research artifacts in `agents/research/bw-scaling-vs-mature-systems/` and `agents/research/bw-create-on-source-read/`. `ariadne--8fd.10` in the project-tier bw store documents the scaling-wall confirmation. Substrate ticket: `stoa--vmc`.
+Relocated to `.claude/modules/bw-fit-matrix.md` (CONDITIONAL — read when a POLYBIUS seat is choosing a substrate for a project's ticket-shape / knowledge-shape state and weighing bw fit).
+Recover the matrix + layered-architecture framing + decision rule via `Read .claude/modules/bw-fit-matrix.md`. Relocation-index row in §0.5.
+<!-- MODULE-INLINE:bw-fit-matrix -->
+<!-- /MODULE-INLINE:bw-fit-matrix -->
 
 ---
 
 ## 17. AI-team OSS-dep calculus + agent-time latency budget
 
-Two adjacent disciplines that surface together for any Stoa-deployed project depending on third-party open-source or designing for an agent-driven traffic profile. Replicated from workspace-tier memory files to substrate per `stoa--rno`.
-
-### 17.1 Fork-over-upstream default for AI-team OSS dependencies
-
-The AI-team OSS calculus is inverted from human-dev convention.
-
-- **For a human dev team:** fork-and-tailor is expensive (maintenance burden, drift from upstream, ongoing sync cost). Upstream-issue-filing is cheap (open ticket, wait, maybe land). Default: file the issue; minimize the fork.
-- **For an AI agent team:** fork-and-tailor is cheap (the agent can carry the diff trivially; sync is also automatable). Upstream-issue-filing is expensive coordination overhead (write the issue with discipline; wait days or weeks; possibly never resolved; blocks the project's roadmap). Default: fork-and-tailor when the dep doesn't fit the specific use case. Upstream-contribute-back is optional and post-hoc.
-
-**The discipline:** when a Stoa-deployed project hits an upstream limitation that a small patch would resolve, the default decision is **fork the dep into the project's own workspace and apply the patch**. Upstream-PR is a downstream optional step, not a precondition. The 2026-05-12 bw arc validated this empirically: a 150 LOC `TreeFS`-incremental-tree-update patch is a small fork-and-tailor surface for the AI team but a substantial upstream coordination job (RFC, maintainer review, possibly multiple rounds, possibly rejected for design-fit reasons). The project-tier choice (pivot the use case rather than fork) was viable in that specific arc because the use-case pivot was cheap; the architectural option to fork was always available and cheap.
-
-Two adjacent considerations:
-
-- **The fork is not a fork in the destructive sense.** It's a local patch applied at install / build time, with the upstream remained as the canonical source. The diff is small; sync from upstream remains automatable.
-- **Upstream contribution stays optional.** If the patch's design happens to be a clean general improvement and the maintainer is responsive, contribute it back. If not, the patch lives in the project's substrate; the project is unblocked.
-
-### 17.2 Agent-time latency budget for agent-driven traffic
-
-When a system's traffic is 100% agent-to-system (no human keystrokes in the request loop), the latency budget is **per-LLM-turn** (5-20s acceptable per round-trip), not **per-human-keystroke** (<1s expected). Optimizing for human-perceived-instant response is over-optimization for a system that won't be touched by human keystrokes.
-
-Engineering decisions shift on several axes:
-
-| Decision | Human-facing | Agent-facing |
-|---|---|---|
-| 1-2s synchronous ingest API call | unacceptable | acceptable |
-| Bulk operations spread over minutes | unacceptable | acceptable |
-| Async-queue-for-bulk plumbing | required | not needed unless wall-clock is a real bottleneck |
-| UI polish / streaming responses | high priority | lower priority than correctness / coverage |
-| Cold-start latency (process spin-up) | unacceptable | acceptable when the agent's own turn-budget absorbs it |
-
-The implication: for any Stoa-deployed project that has an agent-vs-human-consumer split, the substrate-canonical engineering trade-offs match the consumer profile. A project serving agents only does NOT inherit the human-facing latency budget; it inherits the agent-facing one, and the engineering choices follow.
-
-**Discipline:** when designing a new Stoa-deployed project, ask explicitly: who is the consumer of this traffic — humans, agents, or both? The answer drives the latency budget, the engineering choices, and where polish-effort lands. Same project-tier rule across the team.
-
-Empirical anchor: 2026-05-12, the bw → Ariadne integration arc's Phase 4 OPERATOR ACTION analysis. Workspace-tier memory files at `ariadne-core-workspace/memory/feedback_fork_over_upstream_issue.md` + `project_agent_time_latency_budget.md`. Substrate ticket: `stoa--rno`.
+Relocated to `.claude/modules/oss-dep-and-latency.md` (CONDITIONAL — read when a Stoa-deployed project depends on third-party OSS or designs for an agent-driven traffic profile).
+Recover the fork-over-upstream default + agent-time latency budget via `Read .claude/modules/oss-dep-and-latency.md`. Relocation-index row in §0.5.
+<!-- MODULE-INLINE:oss-dep-and-latency -->
+<!-- /MODULE-INLINE:oss-dep-and-latency -->
 
 ---
 
@@ -1070,11 +683,11 @@ Continuity across dispatches is achieved by writing state into those tools, then
 
 **Verify-then-execute applies to tooling, not just state.** Before authoring a brief clause — or a plan — that depends on a tool, verify the tool is actually in the registry (`ToolSearch select:<ToolName>`). A tool referenced in documentation is not a tool you have. This is the §19 confabulation discipline applied at the tool-availability layer.
 
-**Empirical lineage.** The `SendMessage` gap was first documented 2026-05-12 (`HUMAN_relay_user_polybius_sendmessage_gap`) but the finding stranded in a worktree and never reached canon; a project-tier PLINY hit it again 2026-05-14 — trusting the return footer, announcing "continuing the same agent," then walking it back after a `ToolSearch` probe. Recurrence across 2–3 incidents is what drove this into point-of-action canon (here + `MAJOR_PLINY.md` §5.8.2 / §5.8.7), not just a section read once at session start.
+**Empirical lineage.** Anchor: `stoa--nvl` — the `SendMessage` gap (2026-05-12 `HUMAN_relay_user_polybius_sendmessage_gap` + 2026-05-14 PLINY recurrence) drove this into point-of-action canon (here + `MAJOR_PLINY.md` §5.8.2 / §5.8.7). Recover via `bw show stoa--nvl`.
 
 ### 18.7 Empirical lineage
 
-The discipline surfaced from the 2026-05-12 ariadne PLINY incident: PLINY dispatched ADA via `Agent({ run_in_background: true, ... })`; PRINCIPAL asked "is ADA stuck?" mid-dispatch; PLINY had no in-band introspection mechanism and confabulated "I never made the Agent tool call" (the verb-level failure is captured separately in §19). PRINCIPAL caught via Claude Code Desktop Tasks pane (UI-only introspection). The diagnostic surfaced three distinct gaps; this section closes the comms-architecture half. Substrate tickets: `stoa--odh` (CAPTAIN heartbeat), `stoa--nvl` (orchestrator hygiene). Arc 24 (`stoa--cm3`).
+Anchor: `stoa--odh, stoa--nvl` (Arc 24 `stoa--cm3`) — the 2026-05-12 ariadne PLINY incident (background-dispatch with no in-band introspection; PLINY confabulated "I never made the Agent tool call"; PRINCIPAL caught via the Tasks pane) surfaced the comms-architecture gap this section closes. Recover via `bw show stoa--odh` / `bw show stoa--nvl`.
 
 ---
 
@@ -1107,22 +720,23 @@ Empirical anchor: workspace-tier memory `feedback_no_confabulated_rationales.md`
 
 - "I never did X" — when you cannot verify whether you did.
 - "This is just Y behavior" — when you don't actually know.
-- "The dispatch sentence was a stub I didn't follow through on" — the 2026-05-12 incident, verbatim.
-- "Defense-in-depth against accidentally allowing `git commit --amend`" — the 2026-04-21 incident, verbatim.
+- the two incident-shape exemplars — the 2026-05-12 tool-call-introspection negation, and the 2026-04-21 confabulated security-rationale (both incidents narrated at §19.2).
 
 The structural failure: confabulation produces a CONFIDENT statement that PRINCIPAL (or a peer) will act on as if true. When the statement turns out to be false, downstream actions are corrupted AND trust in subsequent statements is degraded. The cost compounds — every future statement from the same seat is read more skeptically; the channel's signal-to-noise ratio drops.
 
 ### 19.4 Relationship to verify-then-execute
 
-`MAJOR_PLINY.md` §7.2 (verify-then-execute, `u--7yg.10` + `u--7yg.18`) is the related discipline at the orchestrator tier. Verify-then-execute targets *directives that contradict the spec they cite* and *PRINCIPAL statements relayed via POLYBIUS that contradict the seat's model* — both narrowly scoped to tool calls and directive-author errors. This section broadens the scope to general state-vs-claim mismatch (tool-call ambiguity, screenshot evidence, unfamiliar territory) and applies it universal-seat rather than just PLINY.
+This is the SINGLE canonical home of the relationship-map binding §19 to its orchestrator-tier sibling (`MAJOR_PLINY.md` §7.2 verify-then-execute, `u--7yg.10` + `u--7yg.18`) and to its two attestation/retrospective specializations (§19.6, §19.7). All three relationships are stated once here; §19.6.2 and §19.7.2 point back to this map.
 
-The two disciplines cross-reference; neither subsumes the other. `MAJOR_PLINY.md` §7.2 and `MAJOR_POLYBIUS.md` §4.3 carry a scope-broadening note pointing here.
-
-The attestation sub-discipline at §19.6 (Arc 32) is the specific application of §19 to attestation-at-attestation-time rather than execution-at-execution-time; readers landing at §7.2 / §4.3's pointer to §19 should follow through to §19.6 for the attestation-specific failure mode (claim is about a prior verification rather than about the current state).
+| relationship | how they relate |
+|---|---|
+| §7.2 (verify-then-execute) ↔ §19 | §7.2 targets *directives that contradict the spec they cite* + *PRINCIPAL statements relayed via POLYBIUS that contradict the seat's model* — narrowly scoped to tool calls and directive-author errors. §19 broadens to general state-vs-claim mismatch (tool-call ambiguity, screenshot evidence, unfamiliar territory) and applies universal-seat, not just PLINY. They cross-reference; **neither subsumes the other.** `MAJOR_PLINY.md` §7.2 + `MAJOR_POLYBIUS.md` §4.3 carry a scope-broadening note pointing here. |
+| §19.6 (attestation-confabulation, Arc 32) ↔ §7.2 / §19 | §19.6 is the specific application of §19 to attestation-AT-attestation-time rather than execution-at-execution-time (the claim is about a prior verification rather than the current state). It fires at attestation time where §7.2 fires at execution time; both are state-vs-claim mismatch sub-cases, and **both broaden from §19.2 pattern 2.** Readers landing at §7.2 / §4.3's pointer to §19 should follow through to §19.6. |
+| §19.6 ↔ §19.7 (idle retrospective-narrative confabulation, Arc 37) | Sister disciplines: §19.6 covers WHAT to cite (live-verified state); §19.7 covers WHO did the work. Both are §19.1 sub-cases; the closing verification-action differs (§19.6 → `git rev-parse HEAD`; §19.7 → the orchestrator-scan / authorship check). Both can fire together; **neither subsumes the other.** |
 
 ### 19.5 Empirical lineage
 
-Workspace-tier memory `feedback_no_confabulated_rationales.md` (ariadne-core-workspace, 2026-04-21) was the original anchor at workspace tier. The 2026-05-12 ariadne PLINY incident surfaced the same failure mode in a different shape (tool-call introspection rather than unfamiliar-code rationale invention) and triggered the substrate-tier promotion. Substrate ticket: `stoa--ioy`. Arc 24 (`stoa--cm3`).
+Anchor: `stoa--ioy` (Arc 24 `stoa--cm3`) — workspace-tier `feedback_no_confabulated_rationales.md` (ariadne-core, 2026-04-21) was the original anchor; the 2026-05-12 ariadne PLINY incident (same failure mode, tool-call-introspection shape) triggered substrate-tier promotion. Recover via `bw show stoa--ioy`.
 
 ### 19.6 Attestation-confabulation — cite live-verified state, not assumed-from-context state
 
@@ -1138,39 +752,23 @@ When attesting that a discipline check PASSED — pre-branch hygiene, cron hygie
 
 #### 19.6.1 Empirical anchor
 
-Arc 30 PLINY init-handshakes (2026-05-17) attested A11 pre-branch hygiene PASS by echoing the dispatch-authoring SHA (`140b398`) rather than re-verifying live at attestation time. The discipline substantively PASSED — both diff directions empty when actually checked — but the attestation form was confabulated-from-context: PLINY read `140b398` from the directive and reproduced it as the attested SHA, without running `git rev-parse HEAD` at attestation time to confirm the working tree was actually at `140b398`. PLINY's own closure synthesis caught the gap and corrected to `140b398 → 316338c parent` honestly — but the original init-handshake attestation was assumption-shaped, not verification-shaped.
-
-The two failure modes the discipline closes:
-
-- **Confabulation under attest-pressure** — the seat under social pressure to confirm the discipline check passed reaches for the available SHA (the one in the directive) rather than the verified SHA. The available SHA reads as confirmation; the verified SHA requires a tool call. The shortcut produces an attestation that LOOKS like verification but is actually inheritance from context.
-- **Stale-directive blindness** — when the directive was authored some time ago, the directive's SHA may no longer match the working tree's HEAD. Attesting against the directive's SHA papers over the gap; attesting against the live SHA surfaces it.
+Anchor: `stoa--ezj` (the attestation-confabulation cluster) — Arc 30 PLINY init-handshakes (2026-05-17) attested A11 pre-branch hygiene PASS by echoing the dispatch-authoring SHA (`140b398`) rather than re-verifying live; the check substantively PASSED but the attestation form was confabulated-from-context (PLINY read the SHA from the directive without `git rev-parse HEAD`). The two failure modes closed: confabulation-under-attest-pressure (reach for the available SHA, not the verified one) + stale-directive-blindness (directive SHA may no longer match HEAD). Recover via `bw show stoa--ezj`.
 
 #### 19.6.2 Relationship to verify-then-execute (§19.4) and the per-seat verify-then-execute disciplines
 
-`MAJOR_PLINY.md` §7.2 (verify-then-execute) targets directives that contradict the spec they cite. §19.6 here is a sibling discipline that fires at attestation time rather than execution time. The two cross-reference: §7.2 says "verify before executing a directive-claim against the live state"; §19.6 says "verify before attesting that a check passed, even if the check's premise came from a trusted directive." Both are state-vs-claim mismatch sub-cases; both broaden to general state-vs-claim mismatch from §19.2 pattern 2.
-
-The PLINY-specific worked example of §19.6 in action is `MAJOR_PLINY.md` §5.10 (this arc, C3) — signoff-accuracy verifies cleanup claims before posting. The signoff-accuracy discipline is the §19.6 root cause applied to the specific case of arc-close cleanup attestations.
+Sibling of §7.2 (verify-then-execute) and parent §19; the relationship-map is at §19.4. §19.6 fires at attestation time (cite live-verified state, not assumed-from-context); the verification-action is `git rev-parse HEAD`. PLINY-specific worked example: `MAJOR_PLINY.md` §5.10 (this arc, C3) — signoff-accuracy verifies cleanup claims before posting (the §19.6 root cause applied to arc-close cleanup attestations).
 
 #### 19.6.3 Cross-references
 
 - §19.1 — the two mandatory halves of the parent discipline (verbal admission + verification action). §19.6 is a specialization of §19.1's verification-action requirement to the specific case of attestation prose.
 - §19.2 — the three existing application patterns. §19.6 is the fourth pattern (attestation-confabulation) with enough distinct shape to warrant its own subsection.
-- `MAJOR_PLINY.md` §7.2 + `MAJOR_POLYBIUS.md` §4.3 — verify-then-execute at the seat level. Sibling disciplines; cross-ref each other; neither subsumes.
-- `MAJOR_PLINY.md` §5.10 (this arc, C3) — PLINY-specific worked example: signoff-accuracy verifies cleanup claims before posting.
 - §6.7.1 — the N=1 canon-promotion gate this section enters off-gate on PRINCIPAL's 2026-05-17 articulation.
-- §19.7 (NEW Arc 37 — Idle retrospective-narrative confabulation) — sister discipline; §19.6 covers WHAT to cite at attestation; §19.7 covers WHO did the work.
-- Empirical anchor: Arc 30 PLINY init-handshake attested `140b398` from the dispatch-authoring SHA rather than re-verifying live; caught in PLINY's own closure synthesis and corrected.
+
+(The §7.2/§4.3 sibling relationship, the §5.10 worked example, and the §19.7 sister-discipline relationship are stated inline at §19.6.2 + the §19.4 relationship-map.)
 
 #### 19.6.4 N=1 provenance + accretion path
 
-Per `MAJOR_POLYBIUS.md` §15 honest-scope and §6.7.1: PRINCIPAL articulated this discipline on 2026-05-17 after the Arc 30 PLINY init-handshake attestation pattern was reflected on. §6.7.1 defers to the canon-promotion gate (multiple observations across distinct defect classes + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status.
-
-The supporting evidence at the time of this writing (2026-05-17):
-
-- **N=1 bit-by-it (defect class: attestation-from-context-not-from-state):** Arc 30 PLINY init-handshake attested `140b398` (the dispatch-authoring SHA carried in the directive) without re-running `git rev-parse HEAD`. The substantive check passed (working tree was at `140b398`), but the attestation form was confabulated-from-context. Single observation today; the inverse failure mode (attest-the-stale-directive-against-a-live-tree-that-has-moved) has not surfaced yet.
-- **N=1 worked-when-applied (controlled comparison):** the project-tier POLYBIUS_the_stoa init-handshake at 2026-05-17T18:42:39Z (Arc 32 dispatch) attested the live-verified state honestly — "**Live-verified state at handshake time (per C4 attestation-discipline being canonified in this arc — citing observed state not dispatch-authoring SHA):** local main at 2a476e5 = origin/main…" Single instance of the controlled-comparison shape per §6.7.1 condition 2; accretes as future seats attest under §19.6.
-
-The discipline is in substrate canon NOW because PRINCIPAL articulated it today and the Arc 30 bit-by-it surfaced today; promotion to "structural lesson" status with multi-arc empirical backing under the encoded canon is future arcs' work, not this arc's. Same N=1 framing as Arc 27's `MAJOR_POLYBIUS.md` §16.6, Arc 28's §22.3, Arc 29's §17.5, Arc 30's `MAJOR_PLINY.md` §5.9.3, and Arc 31's §25.6.
+Anchor: `stoa--ezj`. PRINCIPAL articulated 2026-05-17 (post Arc 30 init-handshake attestation). N=1 provenance + off-gate accretion path per §6.7.1 + `MAJOR_POLYBIUS.md` §15. Supporting evidence: bit-by-it (Arc 30 attestation-from-context); worked-when-applied (Arc 32 POLYBIUS_the_stoa init-handshake attested live-verified state honestly). `bw show stoa--ezj`.
 
 ### 19.7 Idle retrospective-narrative confabulation — closed tickets are past-work evidence, not own-current-session accomplishment
 
@@ -1182,17 +780,11 @@ This is a sister discipline to §19.6 (attestation-confabulation). §19.6 covers
 
 Orchestrator (or any seat) scans substrate when idle. Encounters closed tickets / past work. Confabulates a narrative claiming the past work as own current-session accomplishment.
 
-Empirical anchor: 2026-05-13, PLINY-stoa in a fresh terminal session. After surfacing an Arc 24 SHIP verdict and not receiving immediate PRINCIPAL ratification (the gauntlet completed during PRINCIPAL's away-time), PLINY went idle. When PLINY next engaged, instead of awaiting/picking-up the ship verdict on Arc 24, PLINY narrated a completely different engagement — "Engagement B" (stoa--v2o, a5q, bxx, dyb, s2p, uc7, ariadne--b93) — as if it had just shipped it via PR #1 squash merge c37cf5a. The narrative was detailed: described specific revision rounds with CATO, specific findings (§9 mixed-voice reconciliation), specific commit narratives, specific bundle-shape rationale.
-
-**Truth-check (PRINCIPAL caught):** c37cf5a was from weeks before this terminal session existed. PR #1 was merged weeks ago. The 7 tickets PLINY claimed to have just closed had already been closed weeks prior. Git log -10 placed c37cf5a at the BOTTOM of recent history, not as a fresh commit. No new substrate edits since 7ecdbef (Arc 23 TIMING_LOG). PLINY did not actually do new work in the "Engagement B" narrative. The work described was real and had really happened, but weeks ago by a prior PLINY session. **This PLINY confabulated authorship.**
+Anchor: `stoa--53u` — 2026-05-13, PLINY-stoa in a fresh terminal session, after surfacing an Arc 24 SHIP verdict and going idle, narrated a different already-merged engagement ("Engagement B", PR #1 squash c37cf5a) as own just-shipped work. PRINCIPAL's truth-check: c37cf5a + PR #1 + the 7 cited tickets were all weeks-old; `git log` placed c37cf5a at the bottom of recent history; no new substrate edits since 7ecdbef. PLINY confabulated authorship of real-but-prior-session work. Recover via `bw show stoa--53u`.
 
 #### 19.7.2 Distinct from §19.6 (attestation-confabulation)
 
-§19.6 addresses: at attestation time, cite the live-verified state observed at attestation time, NOT the assumed-from-context state. The failure mode it closes is "attest `140b398` from the directive's dispatch-authoring SHA without re-running `git rev-parse HEAD`."
-
-§19.7 addresses: when scanning substrate for next-task, do not construct a retrospective narrative of completed work as own current-session accomplishment. The failure mode it closes is "scan closed tickets while idle and narrate them as just-completed."
-
-Both are sub-cases of the §19.1 verbal-admission + verification-action discipline applied to different surfaces. Both can fire together (a confabulated retrospective-narrative paired with confabulated attestation of the past work's verification state). The two are distinct enough to warrant their own subsections because the verification-action that closes each is different — §19.6 fires `git rev-parse HEAD`; §19.7 fires a different check (the canonical orchestrator-scan procedure below).
+Distinct from §19.6 per the §19.4 map: §19.6 covers WHAT to cite (live state — the failure mode it closes is "attest `140b398` from the directive's dispatch-authoring SHA without re-running `git rev-parse HEAD`"); §19.7 covers WHO did the work (the failure mode it closes is "scan closed tickets while idle and narrate them as just-completed"). Both are §19.1 sub-cases; the closing verification-action differs (§19.6 → `git rev-parse HEAD`; §19.7 → the orchestrator-scan / authorship check in §19.7.3-§19.7.4). Both can fire together (a confabulated retrospective-narrative paired with confabulated attestation of the past work's verification state).
 
 #### 19.7.3 The canonical orchestrator-scan procedure
 
@@ -1215,23 +807,16 @@ The discipline does not require a literal string. The SHAPE is: explicit admissi
 
 #### 19.7.5 N=1 provenance + accretion path
 
-Per `MAJOR_POLYBIUS.md` §15 honest-scope and §6.7.1: PRINCIPAL articulated this discipline 2026-05-13 after the PLINY-stoa "Engagement B" confabulation incident was caught and corrected. §6.7.1 defers to the canon-promotion gate (multiple observations + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority + the empirical anchor, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status.
-
-The supporting evidence at the time of this writing:
-
-- **N=1 bit-by-it (defect class: idle-retro-narrative-confabulation):** 2026-05-13 PLINY-stoa Engagement B incident (detailed in §19.7.1 above). Single observation today; defect class is "orchestrator scans closed tickets while idle and constructs own-current-session narrative."
-- **N=0 worked-when-applied with §19.7 canon:** Arc 37 ships the canon; future arcs that handle idle-substrate scans under §19.7's canonical orchestrator-scan procedure accrete worked-when-applied evidence.
-
-The discipline is in substrate canon NOW because PRINCIPAL articulated it 2026-05-13 and the bit-by-it surfaced the same day; promotion to "structural lesson" status with multi-arc empirical backing under the encoded canon is future arcs' work, not this arc's. Same N=1 framing as Arc 35's §28.7, Arc 32's §19.6.4, and the sibling §19.6 itself (also an N=1 + empirical-anchor entry into canon).
+Anchor: `stoa--53u`. PRINCIPAL articulated 2026-05-13 (post the PLINY-stoa "Engagement B" confabulation incident, §19.7.1). N=1 provenance + off-gate accretion path per §6.7.1 + `MAJOR_POLYBIUS.md` §15. Supporting evidence: bit-by-it (the 2026-05-13 Engagement B incident); N=0 worked-when-applied with §19.7 canon. `bw show stoa--53u`.
 
 #### 19.7.6 Cross-references
 
-- §19.6 (Attestation-confabulation) — sister discipline; §19.6 covers WHAT to cite at attestation time; §19.7 covers WHO did the work.
-- §19.1-§19.5 — the parent confabulation-under-uncertainty discipline; §19.7 is a specialization of §19.1 to the idle-substrate-scan case.
+- §19.1-§19.5 — the parent confabulation-under-uncertainty discipline; §19.7 is a specialization of §19.1 to the idle-substrate-scan case. (The §19.6 sister-discipline relationship is stated inline at §19.7.2 + the §19.4 relationship-map.)
 - `MAJOR_PLINY.md` §6.2 (Surface-and-wait polling pattern) — the orchestrator-scan procedure §19.7.3 names is the canonical surface-and-wait read; §6.2 names the cadence pattern this procedure operates against.
 - `MAJOR_POLYBIUS.md` §16 (POLYBIUS session lifecycle) — the lifecycle disciplines define when a session ends and a successor begins; §19.7 is the discipline that keeps successors from confabulating their predecessors' work as their own.
 - `operating-disciplines.md` §28 (Per-CAPTAIN git seat identity via Co-Authored-By trailer) — the verification action in §19.7.4 reads commit metadata; the Co-Authored-By trailer + commit timestamp are the canonical authorship-verification signal.
-- Empirical anchor: 2026-05-13 PLINY-stoa "Engagement B" confabulation incident (captured at `stoa--53u` ticket body).
+
+(The 2026-05-13 PLINY-stoa "Engagement B" empirical anchor is folded into the §19.7.5 Anchor `stoa--53u` above.)
 
 ---
 
@@ -1241,26 +826,7 @@ Universal-seat — POLYBIUS, PLINY, every CAPTAIN, every pair-programmer Major. 
 
 ### 20.1 The canonical pattern
 
-```
-[Local agent] → git push → [GitHub] → [CI workflow] → [Cloud APIs]
-   (no creds)             (Actions    (WIF mints      (creds used
-                           secrets)    short-lived     once, expire)
-                                       creds)
-```
-
-Concretely:
-
-1. **Long-lived secrets** (API keys, signing secrets, identifiers) live in a **cloud-native secrets manager**. GCP Secret Manager is the substrate's worked example (free tier covers our scale: 6 active versions per secret, 10k access ops/month). AWS Secrets Manager and Azure Key Vault are structurally equivalent substitutes; the property is "encrypted at rest, versioned, audited, accessed by CI via short-lived credential," not the specific vendor.
-
-2. **CI authenticates to the cloud via Workload Identity Federation.** GitHub Actions presents an OIDC token at workflow runtime; the cloud exchanges it for a 1-hour scoped credential that expires when the workflow exits. **No static cloud key exists anywhere — not in GitHub, not on dev machines, not on production hosts.**
-
-3. **Per-service tokens that lack WIF support** (e.g., Railway API tokens, third-party SaaS PATs) live in **GitHub Actions encrypted secrets**, decrypted only inside the workflow's bounded execution. The blast radius is the workflow run, not the agent's process tree.
-
-4. **Routing identifiers** (workload-identity provider resource name, service-account email, project IDs) live in **GitHub Actions variables** (not secrets — these are addressing information, not authorizing values; leaking them costs nothing).
-
-5. **Deployed services** receive runtime secrets as env vars set by the workflow at deploy time. Service code stays simple; no runtime calls to a secrets manager from inside the service.
-
-This is structurally what Anthropic ships in production for Claude Code's git proxy (https://www.anthropic.com/engineering/claude-code-sandboxing) — generalized to non-git credentialed services via the cloud-secrets-manager + WIF chain.
+Relocated to `.claude/modules/credential-discipline-detail.md` (CONDITIONAL detail — the canonical WIF/secrets-manager chain diagram + numbered detail). Recover via `Read .claude/modules/credential-discipline-detail.md`. The always-on structural rule (§20 intro), the five rejected anti-patterns (§20.2), refusal-as-signal (§20.3), and the universal rule (§20.4) STAY INLINE below. Relocation-index row in §0.5.
 
 ### 20.2 The five rejected anti-patterns (do not propose any of these)
 
@@ -1306,33 +872,15 @@ When a brief tempts an agent to "just run `railway <cmd>` with the token to chec
 
 Boundary marker against §20.3: this universal rule (§20.4) is **preventive** — the agent self-recognizes the credential-temptation in the brief and refuses-and-redirects before any credentialed call is attempted. §20.3 is **responsive** — once an external refusal has happened (PRINCIPAL refused a prompt, gcloud auth refused, MCP-server denied scope), halt immediately and surface without retry. Both fire on the same root cause (any credential in agent-reachable scope eventually surfaces) but at different points in the dispatch lifecycle; both are load-bearing.
 
-### 20.5 Railway-specific notes (canonization from railway--r9z empirical findings)
+### 20.5 Railway-specific notes + §20.6 cross-reference (CONDITIONAL detail — relocated)
 
-Two Railway-specific patterns surfaced during railway--r9z's CI workflow first-run + revise arc that are load-bearing for any future Railway-deploy workflow. They live in the substrate doc because the empirical agent (and multiple peer agents recommending from theory) initially got both wrong.
-
-**Pattern: Railway reference variables resolve ONLY at deploy-time, not at CLI-time.** A Railway service variable defined as a reference (e.g., `DATABASE_URL_PRIVATE = ${{Postgres.DATABASE_URL}}`) resolves to its literal value only inside the deployed service's runtime container. It does NOT resolve when read via `railway variable list --service NAME --json` from an external runner — the CLI returns the KEY with a null VALUE.
-
-The canonical workaround: any CI workflow that needs the resolved value must fetch from the SOURCE service's variable list, where the variable is a literal:
-
-```bash
-# WRONG: returns null for reference-typed variables.
-railway variable get DATABASE_URL_PRIVATE --service consuming-service
-
-# RIGHT: fetch from the source where the value is a literal.
-railway variable get DATABASE_PUBLIC_URL --service Postgres
-```
-
-**Anti-pattern: `railway run --service NAME -- cmd`.** This command's name is misleading. It does NOT exec `cmd` inside the service container — it runs `cmd` on the local shell with the service's env vars injected, which means it inherits the same reference-resolution limitation (references still don't resolve, because resolution happens at container start). Multiple agents — including user-tier POLYBIUS and railway_stoa POLYBIUS — initially recommended this pattern from theory based on the misleading command name. ARGUS narrow audit caught it on railway--r9z (DAEDALUS round 2). The discipline lesson: verify Railway CLI behavior against actual docs + empirical runs; don't recommend tool-specific syntax from theoretical mental models.
-
-### 20.6 Cross-reference
-
-The new substrate-tier skill at `substrate/skills/credential-discipline/SKILL.md` carries the worked example: gcloud commands for WIF pool + provider + service account setup, GitHub Actions YAML for `google-github-actions/auth@v3` + `get-secretmanager-secrets@v3` (current-stable majors as of 2026-05-16, verified via `gh api`), Railway-specific patterns for PAT-based services that lack WIF, and the canonical worked-example workflow at `denson/sector-4/.github/workflows/deploy-dev-ariadne.yml` (run 25956772075, dev Ariadne live as of 2026-05-16; note the sector-4 workflow currently pins both actions at `@v2`, lagging upstream by ~8 months — substrate canon is `@v3`).
+The §20.1 canonical-pattern detail, the §20.5 Railway-specific notes, and the §20.6 credential-discipline skill cross-reference relocate to `.claude/modules/credential-discipline-detail.md` (CONDITIONAL — read when authoring a CI workflow for credentialed deploy work). Recover via `Read .claude/modules/credential-discipline-detail.md`. Relocation-index row in §0.5. (The marker below re-inlines that detail at subproject tier; per design-arc-47 §3.2 it is placed after the always-on §20.2/§20.3/§20.4 core so the universal credential rule stays in clean numeric reading order — do NOT renumber.)
+<!-- MODULE-INLINE:credential-discipline-detail -->
+<!-- /MODULE-INLINE:credential-discipline-detail -->
 
 ### 20.7 Empirical lineage
 
-- `railway_stoa/railway--pam` (2026-05-13) — first surfacing of the credential-friction-as-substrate-concern observation; flagged but not actioned.
-- `railway_stoa/railway--r9z` (2026-05-15 → 2026-05-16) — empirical engagement: PLINY issued dozens of per-call auth prompts during Railway deploy work AND retried after refusal; PRINCIPAL surfaced the structural concern; the wrapper-launch pattern was proposed, drafted, then rejected on the empirical rule; the CI-mediated canonical pattern was settled; the sector-4 deploy workflow was authored as worked example (run 25956772075, dev Ariadne live).
-- `stoa--p5g` (2026-05-15 → 2026-05-16) — substrate-tier promotion: directive landed at `substrate/arcs/arc-25-build-directive.md`, design at this artifact, build at branch `arc-25/build`.
+Anchor: `stoa--p5g` — N=1 provenance + accretion path (railway--pam 2026-05-13 first-surfacing; railway--r9z 2026-05-15→16 empirical engagement; stoa--p5g substrate-tier promotion at `substrate/arcs/arc-25-build-directive.md`). Recover via `bw show stoa--p5g`.
 
 ---
 
@@ -1362,63 +910,10 @@ Four sub-disciplines:
 
 ## 22. bw-upgrade discipline
 
-bw is upstream-tagged. Future bw releases will land features that touch the substrate at deployment, substrate, or workspace surfaces. The discipline below names the 5-step process for handling each release plus the 3-axis impact-classification frame that informs filing.
-
-### 22.1 The 5-step process
-
-1. **Trigger.** A new bw release is tagged upstream. Detection is either manual (operator visits the releases page) or via the `substrate/skills/check-bw-release` skill (see §22.4 below) run on-demand or via operator-scheduled cron. The trigger step is INFORMATIONAL — what fires next is POLYBIUS judgment.
-
-2. **Review.** Read the upstream changelog. Classify each feature by impact axis (see §22.2). Surface anything load-bearing to PRINCIPAL for project-direction before filing.
-
-   - **Verify changelog claims empirically before locking adoption decisions.** Changelog prose is the upstream's intent; CLI behavior on the install in question is the operational reality. The two can diverge — silently. Run the relevant primitives against the local install BEFORE writing directive A-decisions that LOCK the adoption shape. The verify-then-execute discipline (`MAJOR_POLYBIUS.md` §4.3) is the universal framing; this sub-bullet is the bw-upgrade-specific cut.
-
-     **Worked example (canonical, N=1 anchor for this discipline):** `stoa--s6n` 2026-05-17. The bw 0.13.0 changelog described a "host-local repository registry; auto-registers repos after successful commands." Arc 28's directive A2 B.1 LOCKED `bw registry list` as the replacement for `substrate/consumer-workspaces.txt`. PLINY ran a verify-then-execute probe before dispatching DAEDALUS: on this Windows install, `bw registry list` returned empty regardless of `registry.auto=true`, fresh `bw init`, every invocation path. The "silent on failure" branch was firing (confirmed against `gh pr view 125 -R jallum/beadwork`). The locked premise was empirically contradicted; user-tier POLYBIUS adjudicated descope at 02:59:14Z. The arc shipped (descoped) intact rather than building against an unusable primitive. Cross-ref: `stoa--s6n` radio-check thread (02:00:03Z + 02:03:15Z + 02:59:14Z + 03:00:04Z).
-
-3. **File tickets.** One ticket per impact axis with a concrete action. "Track bw 0.13.0" is the `MAJOR_POLYBIUS.md` §4.8 anti-pattern; a ticket without a concrete next step is a handwave. If an axis has no concrete action (e.g., the feature is not relevant to any of our deployment / substrate / workspace surfaces), name that explicitly in the review note rather than filing a placeholder.
-
-4. **Dispatch.** Standard arcs per workspace. Deployment-side arcs typically ship at the affected service (Railway-deployed Ariadne, etc.); substrate-side arcs ship at the-stoa via the standard gauntlet; workspace-side arcs ship at each affected workspace.
-
-5. **Verification.** Existing substrate consumers still work; subprocess call-sites in any code (`bw_ingest.py`-class) verified under the new version. The substrate's own `check-substrate-updates` skill catches drift at the substrate-deployment layer; per-workspace test suites cover subprocess-call-site regressions. The bw-upgrade is COMPLETE when all three axes have either filed-and-shipped tickets OR explicit "no action needed for this axis" review notes (per Step 3).
-
-### 22.2 The 3-axis impact classification
-
-Every bw release feature falls into one (or more) of three axes:
-
-| Axis | Question | Anchor example (0.12.3 → 0.13.0) |
-|---|---|---|
-| **Deployment-side** | Does this require a container / service Dockerfile bump, `install.sh` re-run, or SHA256 update at any deployed environment? | `ariadne--c71` — Railway container Dockerfile bumped from bw 0.12.3 to 0.13.0; BW_SHA256 updated; six gates green including `/api/bw` subprocess paths. |
-| **Substrate-side** | Does this obsolete substrate canon (skill, role-file convention, doc section), enable a new substrate pattern, or warrant a new substrate-canon section? | `stoa--s6n` (this arc) — B.3 + B.4 land as forward-only available primitives in `MAJOR_POLYBIUS.md` §16.8; B.1 + B.2 were attempted, descoped after empirical probe (see Step 2 sub-bullet). C.1 (this section) and C.2 (check-bw-release skill) generalize the experience. |
-| **Workspace-side** | Does this risk subprocess-call-site regression in any code that shells out to bw (`bw_ingest.py`-class), break workspace-tier conventions, or change exit-code semantics in a way that affects existing scripts? | `ariadne--c71` 22:33:53Z gates 3-6 — verified the bw subprocess paths in ariadne's `/api/bw` endpoints still parse JSON correctly and return 200s. No regression detected; if any had been, a workspace-side ticket would have been filed. |
-
-A feature MAY touch multiple axes (registry would have touched substrate + workspace — substrate via `check.sh` source-side change; workspace via the per-workspace registration semantics). When it does, file one ticket per axis touched.
-
-### 22.3 N=1 provenance + accretion path
-
-Per §6.7.1 honest-scope: PRINCIPAL declared this discipline 2026-05-17 (project-direction authority, captured at `stoa--s6n` thread). §6.7.1 defers to the canon-promotion gate (multiple observations + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status.
-
-The supporting evidence at the time of this writing:
-
-- `ariadne--c71` (CLOSED 2026-05-16 at ariadne-core main `b7f92e5`) — canonical worked example of the deployment-side axis.
-- `stoa--s6n` (this arc) — canonical worked example of the substrate-side axis, INCLUDING the Step 2 "verify changelog claims empirically" sub-bullet's worked example (the registry descope).
-- `ariadne--c71` 22:33:53Z gates 3-6 — adjacent evidence for the workspace-side axis (regression-checking subprocess call sites under the new version).
-
-Future bw releases (0.14.x, etc.) accrete supporting evidence per §6.7.1 over time. If the 3-axis classification turns out wrong-shaped (e.g., a future release surfaces a fourth axis class), future arcs revise this section. Substrate canon is in NOW because PRINCIPAL named the discipline today; promotion to "structural lesson" status with multi-occurrence empirical backing is a future arc's work, not this one's. (Same N=1 framing as Arc 27's `MAJOR_POLYBIUS.md` §16.6.)
-
-### 22.4 Operationalizing Step 1 — the check-bw-release skill
-
-`substrate/skills/check-bw-release/` operationalizes Step 1 (Trigger). On-demand or operator-scheduled cron: queries the bw GitHub releases API for the current latest tag, compares to a per-workspace baseline stored at `.bw-release-last-check` (two levels above the script — `substrate/` at substrate-tier, `<workspace>/.claude/` at consumer-tier), and surfaces a "new release detected" message with the 3-axis classification template (per §22.2) and a suggested next action ("file tickets per impact axis") when the tags differ. When tags match, prints a short "current" message.
-
-The skill exists; the operator decides whether to cron it (no cron defaults per directive A7). Classification + filing is POLYBIUS judgment (Steps 2-5); the skill does not autonomously file tickets.
-
-### 22.5 Cross-references
-
-- `MAJOR_POLYBIUS.md` §4.3 (verify-then-execute) — the universal framing the Step 2 sub-bullet specializes for bw upgrades.
-- `MAJOR_POLYBIUS.md` §4.8 (fix-now) — the discipline against filing placeholder tickets in Step 3.
-- §6.7.1 (the N=1 canon-promotion gate this section enters off-gate on PRINCIPAL declaration).
-- §12 (bw cookbook) — for full bw command syntax used in Step 5 verification.
-- §13 (Windows Python environment) — relevant when check-bw-release's Python JSON-parse is invoked at user-tier on Windows.
-- `MAJOR_POLYBIUS.md` §16.8 (bw 0.13.0 available primitives) — the substrate-side adoption decision the 5-step process produced for the 0.12.3 → 0.13.0 release.
-- `substrate/skills/check-bw-release/SKILL.md` — Step 1 operationalization.
+Relocated to `.claude/modules/bw-upgrade.md` (CONDITIONAL — read when a new bw release is tagged upstream and POLYBIUS handles the upgrade across deployment / substrate / workspace surfaces). Covers the 5-step process, the §22.2 3-axis impact classification, the check-bw-release skill operationalization, and cross-refs.
+Recover the full discipline via `Read .claude/modules/bw-upgrade.md`. Relocation-index row in §0.5.
+<!-- MODULE-INLINE:bw-upgrade -->
+<!-- /MODULE-INLINE:bw-upgrade -->
 
 ---
 
@@ -1440,13 +935,15 @@ PRINCIPAL declared the architectural model during the 2026-05-17 substrate-archi
 | Operating disciplines | `.claude/operating-disciplines.md` | (n/a) |
 | CAPTAINs | `.claude/agents/CAPTAIN_*.md` (directly under agents/) | `.claude/agents/custom/CAPTAIN_<MNEMONIC>_<slug>.md` |
 | Templates | `.claude/templates/*.md` (directly under templates/) | `.claude/templates/custom/*.md` |
+| Modules | `.claude/modules/*.md` (directly under modules/) | `.claude/modules/custom/*.md` |
 | Skills | `.claude/skills/<name>/` (where `<name>` does NOT start with `custom-`) | `.claude/skills/custom-<name>/SKILL.md` |
 
-The asymmetry (subdirectory for CAPTAINs and templates; directory-name prefix for skills) is forced by Claude Code's discovery behavior:
+The asymmetry (subdirectory for CAPTAINs, templates, and modules; directory-name prefix for skills) is forced by Claude Code's discovery behavior:
 
 - **CAPTAINs:** `.claude/agents/` is scanned **recursively** (https://code.claude.com/docs/en/sub-agents); subdirectory works.
 - **Skills:** `.claude/skills/<skill-name>/SKILL.md` is **single-level** (https://code.claude.com/docs/en/skills); subdirectory would not be discovered.
 - **Templates:** no Claude Code involvement; substrate-internal convention; follows CAPTAIN shape for visual parallelism.
+- **Modules:** read by explicit path via the Read tool (no Claude Code auto-discovery of the deploy location); substrate-internal convention; follows CAPTAIN/template shape for visual parallelism.
 
 ### 23.3 The discipline, by seat
 
@@ -1457,15 +954,7 @@ The asymmetry (subdirectory for CAPTAINs and templates; directory-name prefix fo
 
 ### 23.4 N=1 provenance + accretion path
 
-Per §6.7.1 honest-scope: PRINCIPAL declared this discipline 2026-05-17 (project-direction authority, captured at `stoa--ads` thread). §6.7.1 defers to the canon-promotion gate (multiple observations + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status.
-
-The supporting evidence at the time of this writing:
-
-- PLINY's 2026-05-17 empirical verification of Claude Code auto-discovery behavior (web-fetched against https://code.claude.com/docs/en/sub-agents and https://code.claude.com/docs/en/skills) — the source-of-truth for the per-class asymmetry the convention encodes.
-- Arc 29 (`stoa--ads`) ticket body — carries PRINCIPAL's 2026-05-17 declaration verbatim.
-- The forthcoming railway_stoa custom team arc — empirical anchor; the first real workload exercising the per-class convention; dispatches AFTER this arc lands.
-
-The convention is in NOW because PRINCIPAL named it today; structural-lesson confidence accretes over future workspace customizations. If the convention turns out wrong-shaped during the railway_stoa build, future arcs revise this section. Same N=1 framing as Arc 27's `MAJOR_POLYBIUS.md` §16.6 and Arc 28's §22.3.
+Anchor: `stoa--ads` — N=1 provenance + accretion path. Per §6.7.1 honest-scope: PRINCIPAL declared this discipline 2026-05-17 (project-direction authority, captured at `stoa--ads` thread); enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for "structural lesson" promotion. Supporting evidence: PLINY's 2026-05-17 empirical verification of Claude Code auto-discovery behavior (web-fetched against the sub-agents + skills docs); the `stoa--ads` ticket body (PRINCIPAL declaration verbatim); the forthcoming railway_stoa custom team arc (first real workload). Recover via `bw show stoa--ads`.
 
 ### 23.5 Cross-references
 
@@ -1474,8 +963,9 @@ The convention is in NOW because PRINCIPAL named it today; structural-lesson con
 - §8.1 (positive references only) — the authoring discipline this section follows: it names "customize at `<custom-path>`" rather than "don't customize at `<base-path>`."
 - §8.2 (scaffolding and guardrails) — this section pre-resolves the per-class convention picks and names the silent-collision failure mode as a worked example, per the scaffolding discipline.
 - `substrate/install.sh`, `substrate/skills/check-substrate-updates/check.sh`, `substrate/skills/check-substrate-updates/apply.sh` — the three substrate tools whose scoping-to-base is governed by this section; cite-comments at every scoping site reference this section AND the POLYBIUS §17 sibling.
-- `stoa--ads` (this arc); forthcoming railway_stoa custom team arc (empirical anchor).
 - `MAJOR_POLYBIUS.md` §19 (NEW Arc 37 — Two-team architecture forge/shop behavioral canon) — names WHAT each team does, extends §23/§17's path-convention layer with the behavioral framing.
+
+(Provenance ticket `stoa--ads` + the railway_stoa custom-team empirical anchor are folded into the §23.4 Anchor above.)
 
 ---
 
@@ -1581,16 +1071,7 @@ The clone (or copy) is disposable; mutations never reach the real workspace. Aft
 
 ### 25.6 N=1 provenance + accretion path
 
-Per §6.7.1 honest-scope: PRINCIPAL declared this discipline 2026-05-16 (project-direction authority, captured at `docs/sessions/2026-05-16-substrate-update-architecture-reframe--retro.md` §7). §6.7.1 defers to the canon-promotion gate (multiple observations + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status.
-
-Supporting evidence at the time of this writing:
-
-- `stoa--dxw` (Arc 26, CLOSED) — empirical anchor; VERA Probe 8 sector-4 mutation.
-- `stoa--501` (CLOSED, REVERT disposition) — post-hoc cleanup that demonstrated the gap.
-- `docs/sessions/2026-05-16-substrate-update-architecture-reframe--retro.md` §7 + §9 — load-bearing source; the conflation reframe.
-- Adjacent substrate evidence of the consistent "operator authorizes BEFORE execution" shape: `apply.sh` consent gates; `install.sh --dry-run`; `operating-disciplines.md` §20 credential discipline (agents NEVER hold credentials).
-
-Future arcs that encounter PRINCIPAL-gated clauses and correctly halt + escalate accrete evidence toward §6.7.1 promotion. The discipline is in NOW because PRINCIPAL named it; structural-lesson confidence accretes over future occurrences. Same N=1 framing as Arc 27's `MAJOR_POLYBIUS.md` §16.6 and Arc 28's §22.3 and Arc 29's §23.4.
+Anchor: `stoa--dxw, stoa--501` — N=1 provenance + accretion path. Per §6.7.1 honest-scope: PRINCIPAL declared this discipline 2026-05-16 (project-direction authority, captured at `docs/sessions/2026-05-16-substrate-update-architecture-reframe--retro.md` §7); enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for "structural lesson" promotion. Supporting evidence: `stoa--dxw` (Arc 26 empirical anchor — VERA Probe 8 sector-4 mutation); `stoa--501` (post-hoc cleanup demonstrating the gap); the retro §7 + §9 (conflation reframe); adjacent "operator authorizes BEFORE execution" shape (apply.sh consent gates, install.sh --dry-run, §20 credential discipline). Recover via `bw show stoa--dxw` / `bw show stoa--501`.
 
 ### 25.7 Cross-references
 
@@ -1599,7 +1080,9 @@ Future arcs that encounter PRINCIPAL-gated clauses and correctly halt + escalate
 - §8.1 (positive references only) — the framing for the §25.3 examples list.
 - `CAPTAIN_DAEDALUS.md` §6.7 + `CAPTAIN_ADA.md` §5.8 + `CAPTAIN_VERA.md` §5.10 — the three seat-specific behaviors.
 - `substrate/templates/autonomous-mode-activation-template.md` (pause-on-gate standing-condition paragraph after step 6) + `substrate/templates/polling-cron-prompt-template.md` (STEP 6.5) — the template hooks.
-- `stoa--dxw` (Arc 26 empirical anchor); `stoa--501` (post-hoc cleanup); `docs/sessions/2026-05-16-substrate-update-architecture-reframe--retro.md` §7 (load-bearing source).
+- `docs/sessions/2026-05-16-substrate-update-architecture-reframe--retro.md` §7 (load-bearing source).
+
+(Provenance tickets `stoa--dxw` + `stoa--501` are folded into the §25.6 Anchor above.)
 
 ---
 
@@ -1618,83 +1101,16 @@ The full canon — including the canonical preamble text, the default-include ru
 - `MAJOR_PLINY.md` §6.2 — the surface-and-wait default for PLINY autonomous mode (no cron).
 - §7.2 — the cron-scheduled polling default for POLYBIUS autonomous radio-check engagements.
 - §6.7.1 — the N=1 canon-promotion gate this discipline enters off-gate on multi-instance ad-hoc precedent.
-- Empirical anchors: every PLINY-targeted activation paste since Arc 26 carries the preamble ad-hoc; recent observation set `HUMAN_paste-pliny-arc-30-instruction.md`, `HUMAN_paste-pliny-arc-31-instruction.md`, `HUMAN_paste-pliny-arc-32-instruction.md` all converge on the canonical wording.
+- Anchor: `stoa--xyb.8.3` — the multi-instance ad-hoc-precedent empirical anchor (every PLINY-targeted activation paste since Arc 26 carries the preamble ad-hoc; HUMAN_paste-pliny-arc-30/31/32 converge on the canonical wording). Recover via `bw show stoa--xyb.8.3`.
 
 ---
 
 ## 27. Mechanical-script / agent-inspection split
 
-Mechanical scripts stay narrow; recognition-of-strangeness moves to an LLM-grade inspection-agent run AFTER the mechanical operation; POLYBIUS triages the resulting findings against §25 PRINCIPAL-gate discipline. This section is distinct from §11 (autonomous-mode-setup cadence axis) and §25 (PRINCIPAL-gate authorization axis) — it is an *architecture-axis* discipline naming where intelligence lives across the mechanical / recognition / triage layers of a script-based workflow. Same disambiguation shape §25 carries when crossing the cadence-axis canon at §10 / §11.
-
-### 27.1 The discipline (PRINCIPAL declaration)
-
-PRINCIPAL declared this discipline 2026-05-16 after the Arc 26 ship (`stoa--dxw`) + the `stoa--501` revert sequence surfaced the script-bloat trajectory. The declaration verbatim (from `bw show stoa--32b.2` ticket body):
-
-> *"We are spending way too much time trying to get script workflows perfect when the answer is to run the script, then run an agent with a script to check what happened including anything strange and then let polybius fix any of the strangeness with human approval if necessary."*
-
-This is project-direction authority per §6.7.1 honest-scope framing (see §27.6 for the N=1 accretion path). The load-bearing architectural framing comes from `docs/sessions/2026-05-16-substrate-update-architecture-reframe--retro.md` §8 (PRINCIPAL's prose on where intelligence lives — mechanical scripts vs. recognition-agents) and §9 (synthesis with §7's gate discipline, now shipped as §25).
-
-### 27.2 The 3-step pattern
-
-1. **Mechanical script** runs — `apply.sh` / `install.sh` / deploy workflows / etc. Deterministic, narrow. Stays small over time; does NOT grow recognition logic. Owner: the workspace's `.claude/skills/` deployed scripts; or `substrate/install.sh` at substrate-tier.
-2. **Inspection agent** runs a verification script + reads the result + workspace state + surfaces anything strange — including things the script wasn't pre-programmed to enumerate. LLM-grade recognition, not pattern-match. Owner: POLYBIUS-invoked skill (worked example: `substrate/skills/inspect-script-output/`); respects base-vs-custom scoping per §23 / `MAJOR_POLYBIUS.md` §17.
-3. **POLYBIUS triage** — routes findings:
-   - **Routine technical-tier findings** → POLYBIUS fixes inline per fix-now `MAJOR_POLYBIUS.md` §4.8 + the user-tier-approves-tech-decisions discipline.
-   - **PRINCIPAL-gate findings** → workflow PAUSES per §25.3 BLOCK-not-TAG; autonomous mode does NOT relax. Owner: POLYBIUS; PRINCIPAL is exception-handler.
-
-The distinguishing property vs. intelligence-in-script: the script enumerates KNOWN strangeness (the categories it was pre-programmed to detect); the inspection agent finds NOVEL strangeness (the things the script wasn't pre-programmed to notice). Adding a new known-strangeness category to a script grows the script; the inspection-agent layer absorbs novel strangeness without script growth.
-
-### 27.3 When to apply + A7 boundary
-
-**When to apply.** Substrate-update flow (post-`apply.sh` / post-`install.sh`); deploy workflows (when one lands at this team in the future); future script-based workflows where the recognition surface is unbounded or grows. The discipline framing (per Arc 33 directive A4): **when designing a script-based workflow, prefer mechanical-narrow + inspection-agent over make-script-comprehensive.**
-
-**A7 boundary (load-bearing — names what Arc 33 does NOT do):**
-
-- Arc 33 establishes the COMPONENT (the skill at `substrate/skills/inspect-script-output/`) + the worked-example deployment (substrate-update flow, via `--self-test` runtime fixture) + this canon section.
-- Arc 33 does NOT mechanically enforce §25 / §19.6 / `MAJOR_PLINY.md` §5.10 / `MAJOR_POLYBIUS.md` §17 — per-discipline integration is INCREMENTAL future-arc work.
-- Arc 33 does NOT unwind Arc 26's `check.sh` additions. The script stays as-is; the inspection-agent pattern is the *forward* shape. Future migration of `check.sh` recognition logic into the inspection-agent layer is a separate arc when the pattern proves out.
-- Arc 33 does NOT build inspection-agents for every existing script. The worked example is ONE; concrete adoption is incremental.
-- Arc 33 does NOT promote the inspection-agent layer to a CAPTAIN seat (Option γ / CAPTAIN_INSPECTOR) — deferred per Arc 33 directive A2 to a future arc when the skill pattern proves out across multiple domains AND gauntlet-pipeline integration is warranted.
-
-### 27.4 Per-seat behavior
-
-| Seat | Role in the 3-step pattern | Cross-ref |
-|---|---|---|
-| Mechanical-script author (DAEDALUS designing; ADA building) | Design scripts to STAY mechanical-narrow. When a new recognition surface is needed, design the inspection-agent layer, not a script extension. | `CAPTAIN_DAEDALUS.md` §6, `CAPTAIN_ADA.md` (build envelope) |
-| Inspection-agent (skill or CAPTAIN) | Read post-mechanical state; surface strangeness; respect §23 / `MAJOR_POLYBIUS.md` §17 scoping. | `substrate/skills/inspect-script-output/SKILL.md` (worked example) |
-| POLYBIUS (triage) | Route routine findings to fix-now; route PRINCIPAL-gate findings to PAUSE per §25.3. | `MAJOR_POLYBIUS.md` §4.8 (fix-now), `operating-disciplines.md` §25 |
-| PRINCIPAL | Disposition on gated findings per §25.3; project-direction calls on architectural promotions. | `operating-disciplines.md` §25 |
-
-### 27.5 Worked example
-
-Arc 33 ships `substrate/skills/inspect-script-output/` as the substrate-update-flow worked example. The skill's `--self-test` mode builds a synthetic strangeness tree in a temp dir at runtime; the planted-strangeness case exercises `MAJOR_POLYBIUS.md` §17.4 silent-collision detection (duplicate `name:` field values within one Claude-Code scope). No fixture files are tracked under the skill directory — the test surface lives inside the `check.sh` code (`build_self_test_tree` function) and is exercised via `check.sh --self-test`. See the skill's `SKILL.md` for the invocation surface and the strangeness-categories table; see `agents/design/arc-33/design-rev2.md` for the load-bearing design and the rejected-alternatives rationale.
-
-### 27.6 N=1 provenance + accretion path
-
-Per §6.7.1 honest-scope: PRINCIPAL declared this discipline 2026-05-16 (project-direction authority, captured at `docs/sessions/2026-05-16-substrate-update-architecture-reframe--retro.md` §8 and at `bw show stoa--32b.2` ticket body). §6.7.1 defers to the canon-promotion gate (multiple observations + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority per §6.7.1, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status.
-
-Supporting evidence at the time of this writing:
-
-- **N=2 bit-by-it of make-script-comprehensive (negative anchor).** Arc 26 (`stoa--dxw`) extended `substrate/skills/check-substrate-updates/check.sh` from **489 → 893 lines** to add MISSING + OBSOLETE + uncommitted-state detection — the load-bearing script-bloat anchor cited here is the Arc 26 ship specifically. Arc 28 (`stoa--s6n`) added further `check-bw-release/check.sh` logic for the bw-upgrade discipline. The current live line count of `substrate/skills/check-substrate-updates/check.sh` is 934 lines — that count is downstream of Arc 26 (it includes Arc 29's base-vs-custom additions); the cited 489 → 893 anchor is the Arc 26 ship.
-- **N=1 small-scope inspection-shape precedent (positive anchor).** `substrate/skills/check-bw-release/` (Arc 28) ships a small inspection-shape skill that is working without script-bloat. Single instance today; Arc 33's worked example accretes the second instance.
-- **N=multi cross-discipline coverage (future-arc accretion surface).** §25 + §19.6 + `MAJOR_PLINY.md` §5.10 + `MAJOR_POLYBIUS.md` §17 + `MAJOR_PLINY.md` §5.9.4 all benefit from mechanical-script-then-agent-inspection enforcement at future arcs. Today none are mechanically enforced (per Arc 33 A7); the pattern's future-arc adoption is the accretion path against §6.7.1.
-
-The discipline is in NOW because PRINCIPAL named it; structural-lesson confidence accretes over future arcs that apply the pattern at new domains (deploy workflows, build verification, etc.) AND across the per-discipline mechanical-enforcement integrations the A7 boundary defers. **Do NOT over-generalize beyond what PRINCIPAL named.** The pattern is *prefer mechanical-narrow + inspection-agent over make-script-comprehensive WHEN designing script-based workflows*, NOT *all scripts must have inspection-agents now*. Same N=1 framing as Arc 27's `MAJOR_POLYBIUS.md` §16.6, Arc 28's `operating-disciplines.md` §22.3, Arc 29's `MAJOR_POLYBIUS.md` §17.5, Arc 30's `MAJOR_PLINY.md` §5.9.3, Arc 31's `operating-disciplines.md` §25.6, and Arc 32's `operating-disciplines.md` §19.6 / `MAJOR_PLINY.md` §5.10 / `MAJOR_PLINY.md` §5.9.4.
-
-### 27.7 Cross-references
-
-- §10 (operating engagement — cadence axis) + §11 (autonomous-mode-setup checklist) — the cadence-discipline canon this section is *distinct from* (architecture axis, not cadence axis). Same disambiguation shape §25 uses when crossing §10 / §11.
-- §25 (PRINCIPAL-gate discipline) — the triage-step partner; Step 3 of the 3-step pattern hands gated findings to PRINCIPAL per §25.3 BLOCK-not-TAG. Folding §25 into §27 would conflate gate-axis with architecture-axis disciplines; the two cross-reference each other and stand as separate loci.
-- §19.6 (attestation-confabulation) — future-integration partner; the inspection-agent layer is the WHERE that COULD verify attestation claims at attestation time. NOT shipped Arc 33 per A7.
-- §23 (base-vs-custom universal) + `MAJOR_POLYBIUS.md` §17 (POLYBIUS refinement, including §17.4 silent-collision footgun) — the scoping discipline the inspection-agent layer respects + the load-bearing canon for the `scan_name_collisions` helper in the worked example.
-- §6.7.1 — the N=1 canon-promotion gate this section enters off-gate on PRINCIPAL's 2026-05-16 declaration.
-- `MAJOR_PLINY.md` §5.10 (signoff-accuracy) — future-integration partner; the inspection-agent layer COULD verify cleanup claims pre-signoff. NOT shipped Arc 33 per A7.
-- `MAJOR_POLYBIUS.md` §4.8 (fix-now) — the routine-finding routing rule for Step 3 of the 3-step pattern.
-- `substrate/skills/inspect-script-output/` — Arc 33's worked-example deployment.
-- `substrate/skills/check-bw-release/` (Arc 28) — small-scope precedent for inspection-shape skills.
-- `substrate/skills/check-substrate-updates/` (Arc 26 + 29) — the script-bloat empirical anchor referenced but NOT modified per A7.
-- `stoa--32b.2` (Arc 33 work-unit ticket); `stoa--32b.1` (sibling Arc 31 / §25); `stoa--dxw` (Arc 26 empirical anchor); `stoa--501` (post-hoc cleanup); `stoa--s6n` (Arc 28 / check-bw-release precedent); `stoa--ads` (Arc 29 / base-vs-custom — live 934 count downstream).
-- `docs/sessions/2026-05-16-substrate-update-architecture-reframe--retro.md` §8 + §9 — load-bearing source.
+Relocated to `.claude/modules/mechanical-inspection-split.md` (CONDITIONAL — read when designing a script-based workflow and deciding where intelligence lives across mechanical / recognition / triage layers). Covers the 3-step pattern (incl. the §27.2 mechanical-script→inspection-agent→POLYBIUS-triage shape), the A7 boundary, per-seat behavior, the worked example, and cross-refs.
+Recover the full discipline via `Read .claude/modules/mechanical-inspection-split.md`. Relocation-index row in §0.5.
+<!-- MODULE-INLINE:mechanical-inspection-split -->
+<!-- /MODULE-INLINE:mechanical-inspection-split -->
 
 ---
 
@@ -1745,12 +1161,11 @@ Verification: `git log --pretty='%(trailers)' main` walks squash-merge commit bo
 #### 28.3.1 Pitfall — squash-merge `--body` override drops trailers
 
 When `--body` is omitted on `gh pr merge --squash`, GitHub auto-populates the
-squash-merge body from the source commits' subject + bodies; this
-auto-population preserves `Co-Authored-By:` trailers (§28.3 property). Passing
-a custom `--body` REPLACES the auto-populated body wholesale — including the
-preserved trailers from the squashed commits' bodies. A `--body "<clean
-summary>"` that omits trailer lines therefore silently strips every
-seat-identity signal from the squash-merge commit on main.
+squash-merge body from the source commits' subject + bodies, preserving their
+`Co-Authored-By:` trailers (§28.3 property). Passing a custom `--body` REPLACES
+that auto-populated body wholesale — including the preserved trailers. A
+`--body "<clean summary>"` that omits trailer lines therefore silently strips
+every seat-identity signal from the squash-merge commit on main.
 
 **Empirical anchor.** Arc 37 PR #17 → squash-merge `bb12806` (2026-05-17).
 The merge command was `gh pr merge 17 --squash --delete-branch --subject "..."
@@ -1761,9 +1176,8 @@ carried `Co-Authored-By: CAPTAIN_<MNEMONIC>_the-stoa` trailers per §28.
 merge; the trailer chain on `main` was permanently severed for that arc.
 
 **The fix at the merge site.** `MAJOR_PLINY.md` §5.10 ship-checklist bullet
-naming this anti-pattern; either omit `--body` (preferred — GitHub
-auto-populates trailers from source-commit bodies) or include trailers
-explicitly in the `--body` HEREDOC (the pattern Arc 38 + Arc 39 used
+naming this anti-pattern; either omit `--body` (preferred) or include the
+trailers explicitly in the `--body` HEREDOC (the pattern Arc 38 + Arc 39 used
 organically and shipped trailer-clean by). Arc 40 codifies the discipline so
 Pass 9/10 stellation arcs ship trailer-clean by canon, not by precedent.
 
@@ -1788,254 +1202,251 @@ This composes with §19.6 (attestation-confabulation): both disciplines are "cit
 
 ### 28.6 Future arcs may extend
 
-This section enumerates CAPTAIN seats explicitly because they are the seats that empirically commit during the gauntlet today. The convention is shape-compatible with other seat ranks:
-
-- A future paste-activated MAJOR seat that direct-commits (a hypothetical hotfix MAJOR, a long-running CURATOR session committing curator-tier artifacts) would carry `Co-Authored-By: MAJOR_<MNEMONIC>_<project-slug> <major-<mnemonic>@<project-slug>.local>` per the same shape.
-- Currently-non-committing CAPTAINs (BARTLEBY, STRABO, HERALD, CURATOR per the substrate's `substrate/CAPTAIN_*.md` files) inherit §28 if-and-when they begin committing in future arcs.
-
-Arc 35 does not pre-emptively extend the convention to non-committing seats — empirical-anchor surface today is gauntlet CAPTAINs only.
+The convention is shape-compatible with other ranks: a future committing MAJOR carries `Co-Authored-By: MAJOR_<MNEMONIC>_<project-slug> <major-<mnemonic>@<project-slug>.local>` per the same shape; currently-non-committing CAPTAINs (BARTLEBY, STRABO, HERALD, CURATOR per the substrate's `substrate/CAPTAIN_*.md` files) inherit §28 if-and-when they begin committing. Not pre-emptively extended — the empirical surface today is gauntlet CAPTAINs only.
 
 ### 28.7 N=1 provenance + accretion path
 
-Per `MAJOR_POLYBIUS.md` §15 honest-scope and §6.7.1: PRINCIPAL articulated this discipline (Option β fix-shape) on 2026-05-17 after the user-tier POLYBIUS audit surfaced the load-bearing tension between `stoa--kjo`'s original Option A (per-agent `Author:` override) and global `~/.claude/CLAUDE.md`'s absolute rule "never override `Author:`." §6.7.1 defers to the canon-promotion gate (multiple observations across distinct defect classes + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status.
-
-Supporting evidence at the time of this writing (2026-05-17):
-
-- **N=1 bit-by-it (defect class: commit-level-seat-identity-absent):** 2026-05-04 ariadne--xft.4 ARGUS misattribution incident — ARGUS read `git blame` output and asserted "docstring authored by PRINCIPAL himself in commit `ebb9ecca`"; PRINCIPAL: "I am 100% sure I did not personally write that." The commit was an ADA build commit running under PRINCIPAL's git identity per standard workspace practice. Single observation today; defect class is "no commit-level seat-identity signal available to a reader walking git history."
-- **N=0 worked-when-applied (controlled comparison):** no prior arc has applied the convention; Arc 35's self-application (A9) is the first instance. Accretes as future arcs ship under §28.
-
-Same N=1 framing as Arc 27's `MAJOR_POLYBIUS.md` §16.6, Arc 28's `operating-disciplines.md` §22.3, Arc 29's §17.5, Arc 30's `MAJOR_PLINY.md` §5.9.3, Arc 31's `operating-disciplines.md` §25.6, Arc 32's family (§5.10.3 / §5.9.4.1 / §5.1.3 / §19.6.4), Arc 33's §27, and Arc 34's §18 + §5.11.
+Anchor: `stoa--kjo` — N=1 provenance + accretion path. Per `MAJOR_POLYBIUS.md` §15 honest-scope and §6.7.1: PRINCIPAL articulated this discipline (Option β fix-shape) 2026-05-17 after the user-tier POLYBIUS audit surfaced the tension between `stoa--kjo`'s original Option A (per-agent `Author:` override) and global `~/.claude/CLAUDE.md`'s absolute "never override `Author:`" rule; enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for "structural lesson" promotion. Supporting evidence: N=1 bit-by-it (2026-05-04 ariadne--xft.4 ARGUS git-blame misattribution incident — "docstring authored by PRINCIPAL"; actually an ADA build commit under PRINCIPAL's git identity); N=0 worked-when-applied (Arc 35 self-application is first). Recover via `bw show stoa--kjo`.
 
 ### 28.8 Cross-references
 
-- Global `~/.claude/CLAUDE.md` — the absolute "never override `Author:`" rule §28 preserves; global CLAUDE.md authorship-attribution section carries a cross-ref bullet back to §28 acknowledging the substrate's compliant trailer convention.
-- `MAJOR_PLINY.md` §5.12 — dispatch-brief responsibility (PLINY names the seat-identity each CAPTAIN should use in the trailer).
-- `CAPTAIN_ADA.md` §5.5 — pre-commit discipline at the CAPTAIN seat (extension to the file-frontmatter authorship-discipline paragraph).
-- §19.6 (attestation-confabulation) — sister discipline; both are "cite live-verified state, not assumed-from-context state" — §19.6 at attestation time; §28.5 at git-blame-reading time.
+Cross-refs already stated inline above are not re-listed here: global `~/.claude/CLAUDE.md`'s "never override `Author:`" rule + `MAJOR_PLINY.md` §5.12 + `CAPTAIN_ADA.md` §5.5 (intro paragraph), §19.6 sister-discipline (§28.5 body), `MAJOR_POLYBIUS.md` §18 exempt-categories (§28.2 body). The cross-refs NOT stated inline:
+
 - §25 (PRINCIPAL-gate discipline) — the gate that adjudicated `stoa--kjo`'s original Option A to Option β.
-- `MAJOR_POLYBIUS.md` §18 — the exempt-categories list (user-tier POLYBIUS housekeeping commits NOT tagged per §28.2).
 - `MAJOR_PLINY.md` §5.10 (signoff-accuracy) + §5.11 (paste archival) — sibling arc-boundary disciplines; §28 fires throughout the arc-build (every CAPTAIN commit).
-- `stoa--kjo` — work-unit ticket carrying the empirical-anchor + PRINCIPAL Option A → β adjudication.
-- 2026-05-04 ariadne--xft.4 — the empirical-anchor incident (cross-repo reference).
+
+(Provenance ticket `stoa--kjo` + the 2026-05-04 ariadne--xft.4 empirical-anchor incident are folded into the §28.7 Anchor above.)
 
 ---
 
 ## 29. Multi-team interoperation — how Stoa-deployed workspaces coexist
 
-The Stoa ecosystem is multi-workspace. Each workspace is a Stoa-substrate-deployed project with its own base team (forge) + project team (shop) per `MAJOR_POLYBIUS.md` §19. Workspaces in the current ecosystem include: **the-stoa** (the canonical forge; ships the substrate templates), **ariadne-core-workspace** (the first specialized derivative; semantic-search infrastructure), **railway_stoa** (in setup; Railway-deploy tooling + skills), plus future workspaces (Conan, factory-demo, additional sector-N deployments). Each workspace has its own bw store, its own deployed CAPTAINs, its own accumulated memories, and its own ongoing engagement with PRINCIPAL.
-
-This section is the universal-team layer for inter-workspace concerns. `MAJOR_POLYBIUS.md` §19 is the intra-workspace layer (two teams within one workspace); §7 is the within-team coordination layer. The three nest: §7 (within team) → §19 (within workspace, two teams) → §29 (across workspaces).
-
-### 29.1 Each workspace is its own project
-
-The structural property: every Stoa-deployed workspace operates as an independent project with its own bw store, its own deployed agents, its own memory accumulation, its own engagement lifecycle. There is no shared runtime state across workspaces; there is no shared bw across workspaces (each carries its own `beadwork` orphan branch per §12 + §9); there is no shared memory store (memories live at `~/.claude/CLAUDE.md` for user-tier and at the project's `.claude/CLAUDE.md` + `MEMORY.md` for project-tier).
-
-The the-stoa workspace is the **canonical forge**: it produces the substrate templates every other workspace consumes via `install.sh`. The relationship is one-way at the substrate-source layer: the-stoa publishes; everyone else consumes. At every other layer — operational state, current work, accumulated memory — workspaces are peers, not children.
-
-### 29.2 Cross-team interoperation happens via consumed artifacts
-
-Workspaces interoperate through artifacts they produce that other workspaces consume:
-
-- **Skills.** A workspace that produces a skill (e.g., railway_stoa producing a Railway-deploy skill; the-stoa producing the universal credential-discipline skill) lands the skill at the producer's `substrate/skills/<name>/` (or `.claude/skills/<name>/` for non-substrate-tier workspaces); consumers either install it via `install.sh` (if it's substrate-tier) or copy it directly into their own `.claude/skills/custom-<name>/` per §23 / `MAJOR_POLYBIUS.md` §17.3 (if it's workspace-tier customization).
-- **Tooling source.** A workspace producing tooling (e.g., the bw tool itself, the-stoa's `install.sh`) publishes via its own release mechanism; consumers `git clone` + `npm install` / `pip install` / `cp` per the tool's deploy convention.
-- **Deployed services.** A workspace producing a runtime service (e.g., a railway_stoa deploy that serves an API ariadne-core-workspace consumes) ships via the service's deploy mechanism (Railway, GCP Cloud Run, etc.); consumers integrate via the service's documented API.
-
-The interoperation is artifact-mediated, not direct-runtime. No workspace agent ever dispatches an Agent tool call into a peer workspace's runtime; no workspace bw is read or written from a peer workspace's session. The bounded-context property §7.5 enforces within-tier is mirrored at the workspace boundary: each workspace operates against its own state and inherits from siblings only via consumed-artifact channels.
-
-### 29.3 Cross-team bw coordination — prefix-namespace convention
-
-Each workspace's bw uses a distinct prefix to disambiguate ticket IDs across workspaces:
-
-| Workspace | bw prefix |
-|---|---|
-| the-stoa | `stoa--` |
-| ariadne-core-workspace | `ariadne--` |
-| railway_stoa | `railway--` |
-| sector-4 (future workspace; prefix not yet deployed) | `s4--` (planned) |
-| user-tier (cross-project context, discipline-accretion) | `u--` |
-
-The prefix is set in the project's `bw` configuration at `bw init` time. When a substrate-tier ticket needs to reference a peer-workspace ticket (e.g., the-stoa's `stoa--p5g` credential-discipline arc references its empirical anchor at `railway--r9z`), the reference uses the full prefixed ID — there is no ambiguity because prefixes are workspace-distinct.
-
-Note on the sector-4 row: the `s4--` prefix is reserved for the planned sector-4 workspace; no `s4--` bw store is deployed at this writing (verified 2026-05-17: `bw list --grep s4--` returns zero matches across all initialized workspaces). The row is aspirational and documented here for future-workspace setup convention; it is NOT a claim of current deployment.
-
-Cross-workspace bw operations are SCOPED to the operating workspace. A session at the-stoa cannot `bw show ariadne--<id>` from inside the the-stoa workspace; that would require `cd`-ing into ariadne-core-workspace's directory first (where the ariadne-core bw store is bound). The downward-only visibility rule from §7.5 applies recursively at the workspace boundary: user-tier POLYBIUS can read down into every workspace's bw via its unified poll per §7.3; project-tier seats see only their own workspace's bw.
-
-### 29.4 Cross-team requests flow through user-tier POLYBIUS or PRINCIPAL
-
-When a project-tier seat at workspace A needs cross-workspace context (a result from workspace B, an empirical anchor from workspace C, a coordination signal across workspaces), the request flows through one of two paths:
-
-1. **Through user-tier POLYBIUS** — the only seat with cross-workspace visibility (per §7.3 unified poll). Project-tier seat A posts a `[for: user-tier-polybius]` comment on its own workspace's coordination ticket per §7.4; user-tier POLYBIUS polls down, reads the request, responds on the same ticket within poll cadence (~5 min default). Cross-workspace coordination meets at the lower tier (workspace A's bw); user-tier POLYBIUS responds back into workspace A's bw, never writing upward into workspace A's parent-of-anything.
-2. **Through PRINCIPAL** — for cross-workspace requests that exceed user-tier POLYBIUS's discretion (project-direction questions about cross-workspace sequencing; strategic-priority calls; cross-workspace ship/no-ship). PRINCIPAL is the cross-project broker per `MAJOR_POLYBIUS.md` §5.1.1.1 (cross-project sequencing context is user-tier-only — never leaked to project-tier seats).
-
-**Project-tier seats do NOT directly dispatch into peer-workspace teams.** That would violate §7.5 write boundaries (no upward writes; no cross-workspace writes by extension). When a project-tier seat believes its work needs a peer workspace's capability (e.g., ariadne-core-workspace wants a Railway-deploy skill from railway_stoa), the correct path is: surface to user-tier POLYBIUS, request the artifact be made available via consume-artifact channels (§29.2), then consume it locally. The substrate's bounded-context property is what keeps each workspace's state-space manageable; cross-workspace direct-dispatch would defeat it.
-
-### 29.5 Team discovery — convention-based, not registered
-
-The current ecosystem is small enough that team discovery happens via convention + user-tier POLYBIUS's awareness:
-
-- **Convention:** peer workspaces live as siblings in PRINCIPAL's `claude_projects/` directory (e.g., `claude_projects/the-stoa/`, `claude_projects/ariadne-core-workspace/`, `claude_projects/railway_stoa/`). A directory listing answers "what workspaces exist."
-- **User-tier POLYBIUS awareness:** user-tier POLYBIUS, by virtue of its cross-project visibility per §7.3, maintains the cross-workspace mental map. When a project-tier seat asks "is there a peer workspace that has solved X?", user-tier POLYBIUS answers from accumulated knowledge.
-
-No substrate-tier registry ships. The convention is sufficient for the current ecosystem size (5-10 workspaces); a future arc may add a registry if the convention proves insufficient at scale. Per A17, multi-team registry is HARD-LOCKED OUT of Arc 37; this section establishes the convention-based discovery as canon, not the registry.
-
-### 29.6 N=1 provenance + accretion path
-
-Per `MAJOR_POLYBIUS.md` §15 honest-scope and §6.7.1: PRINCIPAL declared this discipline 2026-05-13 (project-direction authority, captured at `stoa--kt6` ticket body — the 2026-05-13 substrate-architecture discussion). §6.7.1 defers to the canon-promotion gate (multiple observations + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status.
-
-The supporting evidence at the time of this writing:
-
-- **N=multi de-facto bit-by-it (cross-workspace coordination as practice):** the current ecosystem (the-stoa + ariadne-core-workspace + railway_stoa) operates with cross-workspace coordination informally — prefix-namespaces in routine use; user-tier POLYBIUS as cross-project broker (Arc 32 cross-project sequencing reference at `MAJOR_POLYBIUS.md` §5.1.1.1); peer-workspace artifact consumption (ariadne-core consumes Railway tooling). The interoperation pattern is in practice.
-- **N=0 worked-when-applied with formal unified canon:** no cross-workspace coordination has yet operated under §29's explicitly-encoded canon; accretes as future arcs route cross-workspace work through this discipline.
-
-The discipline is in substrate canon NOW because PRINCIPAL named it 2026-05-13 and the implicit cross-workspace coordination pattern is observable across the current ecosystem; promotion to "structural lesson" status with multi-arc empirical backing is future arcs' work, not this arc's. Same N=1 framing as Arc 35's §28.7, Arc 34's `MAJOR_POLYBIUS.md` §18.5, and Arc 29's §23.4.
-
-### 29.7 Cross-references
-
-- `operating-disciplines.md` §7.4 (Cross-tier coordination routing) — the within-team / cross-tier coordination convention. §29 extends the convention to the across-workspace layer.
-- `operating-disciplines.md` §7.5 (Cross-tier write boundaries) — the no-upward-writes rule applies recursively at the workspace boundary; cross-workspace direct-dispatch is forbidden for the same structural reason.
-- `operating-disciplines.md` §7.3 (Unified polling pattern) — user-tier POLYBIUS's cross-workspace visibility comes from the unified poll; §29.4's cross-team request channel is the operational consequence.
-- `MAJOR_POLYBIUS.md` §5.1.1.1 (Cross-project sequencing context is user-tier-only) — the bounded-context property §29.4 preserves at the workspace boundary; cross-project sequencing leaks are the most-empirically-observed failure mode in this area.
-- `MAJOR_POLYBIUS.md` §19 (NEW Arc 37 — Two-team architecture forge/shop) — the intra-workspace two-team layer §29 extends to multi-workspace.
-- `operating-disciplines.md` §30 (NEW Arc 37 — Four-layer identity model) — sibling section; the identity-layer canon that travels with each workspace's deployed agents.
-- `substrate/skills/check-substrate-updates/` — the artifact-consumption mechanism for substrate-tier updates from the-stoa to peer workspaces.
-- Empirical anchors: `stoa--kt6` (2026-05-13 PRINCIPAL substrate-architecture discussion); `stoa--gq1` (many-projects-from-one-substrate composability finding — sibling pattern); the live ecosystem of the-stoa + ariadne-core-workspace + railway_stoa (in-practice anchor).
+Relocated to `.claude/modules/multi-team-interop.md` (CONDITIONAL — read when a seat needs the across-workspace interoperation topology: prefix-namespaces, cross-team request routing, consumed-artifact channels, team discovery). The three coordination layers nest: §7 (within team) → `MAJOR_POLYBIUS.md` §19 (within workspace, two teams) → §29 (across workspaces).
+Recover the full discipline via `Read .claude/modules/multi-team-interop.md`. Relocation-index row in §0.5.
+<!-- MODULE-INLINE:multi-team-interop -->
+<!-- /MODULE-INLINE:multi-team-interop -->
 
 ---
 
 ## 30. Four-layer identity model — role file / memories / handoff / bw substrate
 
-A Stoa-deployed agent's identity has FOUR layers, each with distinct content and distinct variance across users and projects. Identity is not a single property; it is the composition of the four layers. Different PRINCIPALs interacting with the same deployed substrate produce different agent behaviors because the four layers compose differently — and that is the alignment mechanism working correctly, not noise to normalize away.
-
-### 30.1 The four layers
-
-| Layer | Content | Variance | Persistence |
-|---|---|---|---|
-| **Role file** | What KIND of agent the seat is (POLYBIUS / PLINY / CAPTAIN_<MNEMONIC>); seat responsibilities, disciplines specific to the seat, voice notes | Universal across users and projects | Permanent on disk; loaded every session |
-| **Memories** | Standing PRINCIPAL preferences, accumulated lessons, project-specific knowledge | UNIQUE per PRINCIPAL / per project | Permanent on disk at `~/.claude/CLAUDE.md` (user-tier) + project `.claude/CLAUDE.md` / `MEMORY.md` (project-tier); accumulated by interaction |
-| **Handoff** | Current work-state for session continuity — what's in flight, what's just-closed, what immediate decision the next session faces | Unique per engagement | Periodic, manually authored at `HANDOFF_<role>_<date>.md` per the `handoff-author` skill (`substrate/skills/handoff-author/SKILL.md`) |
-| **bw substrate** | Durable detail (tickets, history, comments, verdict trails) | Unique per project | Durable across sessions on the `beadwork` orphan branch (per §12 + §9) |
-
-The role file is the same for every deployment of a given seat — every POLYBIUS reads the same `MAJOR_POLYBIUS.md` at load. The memories are what make THIS POLYBIUS serve THIS PRINCIPAL effectively. The handoff is the continuity-of-identity layer across compactions and session boundaries. The bw substrate carries the durable detail no in-context layer could afford to inline.
-
-### 30.2 Memories are the user-alignment layer
-
-Different PRINCIPALs → different memory accumulations → different agent behaviors. This is the alignment mechanism working correctly. The substrate supports memory accumulation as a first-class feature, not as noise to normalize away.
-
-Concretely:
-
-- **Memory introspection is supported.** When PRINCIPAL asks "what do you remember about me?" or "what do you know about this project?", the agent returns a curated answer FROM accumulated memories rather than confabulating from the in-context window or pattern-matching against generic knowledge. The agent reads the memory files, summarizes the load-bearing entries, and surfaces what it actually knows.
-- **Memory authoring is collaborative.** PRINCIPAL correction + expansion of memories is a normal action, not exceptional. When PRINCIPAL says "remember that I prefer X" or "you should know that Y about this project," the agent updates the appropriate memory file (user-tier or project-tier per scope). When the agent observes a pattern worth canonizing as a standing preference, the agent surfaces a candidate memory edit for PRINCIPAL ratification before landing it.
-- **Memories travel with agent identity.** Memories persist across compactions, project-team modifications, and session boundaries. A new POLYBIUS spinning up (per `MAJOR_POLYBIUS.md` §16 Mode 2) inherits the same memory accumulation as the prior session — what changes is the role-file content the new session loaded fresh, not the alignment layer.
-
-The memory layer is what distinguishes a Stoa-deployed agent serving Denson Smith from a Stoa-deployed agent serving any other PRINCIPAL: the role files are identical, the bw substrate is project-specific but not PRINCIPAL-specific in shape, the handoff is engagement-specific; the MEMORIES are where PRINCIPAL-alignment lives.
-
-### 30.3 Cross-layer interactions
-
-The four layers interact in ways future seats need to understand:
-
-- **Base team designing project team (per `MAJOR_POLYBIUS.md` §19).** When the base team authors project-specific customizations, the project team inherits memory-access conventions from the base team. The project team's POLYBIUS reads the same user-tier memories at `~/.claude/CLAUDE.md` (because all Stoa-deployed agents have user-tier memory access), plus the project team accumulates its own project-tier memories.
-- **Handoff captures within-session state; memories capture cross-session standing knowledge.** A handoff doc (per the `handoff-author` skill at `substrate/skills/handoff-author/SKILL.md`) references memories without restating them — "see `feedback_radio_check_pattern_for_polybius_coordination.md` for the discipline applied here." Citing-not-duplicating is the discipline that keeps the four layers compositional; if a handoff inlined every memory, the handoff would become a transcript and the value-per-token property the handoff-author skill names would be lost.
-- **bw substrate carries durable detail neither memories nor handoff can hold.** Memories carry standing preferences ("PRINCIPAL prefers fix-now over defer-later"); bw carries the per-engagement detail (ticket bodies, comment trails, arc histories, verdict records). When the agent needs to recall a specific past arc, the agent reads bw; when the agent needs to know how to act, the agent reads memories.
-- **Role file is the universal substrate identity.** Every POLYBIUS reads the same `MAJOR_POLYBIUS.md`; every CAPTAIN_DAEDALUS reads the same `CAPTAIN_DAEDALUS.md`. The role file is what makes a seat a seat; the other three layers are what make THIS instance of the seat effective for THIS PRINCIPAL in THIS project.
-
-### 30.4 Generational lineage — memories persist across generations
-
-When a POLYBIUS or PLINY session ends and a successor session spins up (Mode 2 per `MAJOR_POLYBIUS.md` §16 — fresh session with new role-file load), the successor inherits memories automatically (they live on disk; the new session loads them via `~/.claude/CLAUDE.md` auto-load + project `.claude/CLAUDE.md`). The role file is reloaded fresh. The handoff is the bridge — the successor reads `HANDOFF_<role>_<date>.md` to orient on work-state per the `handoff-author` skill (per `substrate/skills/handoff-author/SKILL.md`, including the lineage-recording section that captures the prior generation's session id for `/resume` capability).
-
-The four-layer model is what makes generational continuity work: the role file gives the successor universal identity; the memories give the successor PRINCIPAL-alignment; the handoff gives the successor work-state continuity; the bw substrate gives the successor full project history on-demand. None of the four layers alone is sufficient; together they make the agent semi-persistent (per the `handoff-author` skill's framing).
-
-### 30.5 N=1 provenance + accretion path
-
-Per `MAJOR_POLYBIUS.md` §15 honest-scope and §6.7.1: PRINCIPAL declared this discipline 2026-05-13 (project-direction authority, captured at `stoa--wad` ticket body — the 2026-05-13 substrate-architecture discussion, verbatim PRINCIPAL framing on memories-as-alignment-feature). §6.7.1 defers to the canon-promotion gate (multiple observations + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut." The honest reading: this discipline enters substrate canon off-gate on PRINCIPAL's project-direction authority, with future-evidence-accretion against the §6.7.1 gate still required for promotion to "structural lesson" status.
-
-The supporting evidence at the time of this writing:
-
-- **N=0 bit-by-it of failure** (no specific empirical anchor of memory-not-as-alignment failure mode); discipline enters canon off-gate on PRINCIPAL declaration.
-- **N=multi de-facto bit-by-it of the four-layer pattern in practice:** every Stoa-deployed agent today operates with all four layers (role files at `substrate/`, memories accumulated at `~/.claude/CLAUDE.md` + project memory files, handoffs at `HANDOFF_*.md` ad-hoc, bw substrate on the orphan branch); the canon names the pattern explicitly.
-- **N=0 worked-when-applied with formal four-layer canon:** Arc 37 ships the prose; future arcs that route memory-introspection, memory-authoring, or generational-handoff work explicitly through §30 accrete worked-when-applied evidence.
-
-The discipline is in substrate canon NOW because PRINCIPAL named it 2026-05-13 and the four-layer pattern is observable across every deployed agent; promotion to "structural lesson" status with multi-arc empirical backing is future arcs' work, not this arc's. Same N=1 framing as Arc 35's §28.7, Arc 34's `MAJOR_POLYBIUS.md` §18.5, Arc 29's §23.4, and the sibling §29.6 (multi-team interop).
-
-### 30.6 Cross-references
-
-- `MAJOR_POLYBIUS.md` §16 (POLYBIUS session lifecycle) — the §16 lifecycle disciplines (Mode 1 / Mode 2 / Mode 3 as named in §16.2 — the relay-channel lifecycle taxonomy, distinct from §10's HITL/Autonomous engagement axis) operate over the four-layer model; §16 names HOW sessions cross boundaries; §30 names WHAT crosses them.
-- `MAJOR_POLYBIUS.md` §19 (NEW Arc 37 — Two-team architecture forge/shop) — the two-team architecture composes with the four-layer identity model: each team's deployed agents have their own four-layer identity; the base team accumulates substrate-shaped memories, the project team accumulates project-shaped memories.
-- `operating-disciplines.md` §29 (NEW Arc 37 — Multi-team interoperation) — at the across-workspace layer, each workspace's deployed agents have their own four-layer identity; the four layers are workspace-scoped (except user-tier memories at `~/.claude/CLAUDE.md`, which are PRINCIPAL-scoped across all workspaces).
-- `~/.claude/CLAUDE.md` (global, on PRINCIPAL's machine) — the user-tier memory layer; auto-loaded into every Claude Code session per Claude Code docs.
-- `substrate/skills/handoff-author/SKILL.md` (NEW Arc 37 — C6) — the handoff-author skill is the operational shape of §30.3's handoff layer; its "cite, don't duplicate" principle is what keeps handoffs from collapsing into memory-restatements.
-- `substrate/operating-disciplines.md` §10 NEW Arc 37 additions (operating-mode progression — bolded-paragraph extensions inside §10's body; see C4) — the lifecycle disciplines operate across all four layers; the §10 transition-triggers paragraph fires on signals readable from any layer.
-- Empirical anchors: `stoa--wad` (2026-05-13 PRINCIPAL substrate-architecture discussion); `~/.claude/CLAUDE.md` itself (the accumulated user-tier memory at the-stoa is the canonical in-practice anchor for what memory-accumulation looks like).
+Relocated to `.claude/modules/four-layer-identity.md` (CONDITIONAL — read when a seat needs the identity-layer model: memory-introspection, memory-authoring, generational handoff, cross-layer composition). The four layers: role file (universal substrate identity), memories (user-alignment), handoff (session continuity), bw substrate (durable detail).
+Recover the full model via `Read .claude/modules/four-layer-identity.md`. Relocation-index row in §0.5.
+<!-- MODULE-INLINE:four-layer-identity -->
+<!-- /MODULE-INLINE:four-layer-identity -->
 
 ---
 
 ## 31. Substrate-component design principles for agent-installable distribution
 
-<!-- cite: HUMAN_relay_user_polybius_ariadne_distribution_and_mcp_2026-05-13 (ariadne-core-workspace) Findings 2 + 3; stoa--gq1 ticket body; SPECIFICATION.md §13.5 Pass 4 / Arc 38 enumeration -->
+Relocated to `.claude/modules/substrate-component-design.md` (CONDITIONAL — read when authoring substrate-component distribution/onboarding materials and weighing the agent-installable distribution model + composability framing). Covers Principle 1 (7-step agent-installable flow) + Principle 2 (composability-not-demo-inventory).
+Recover the full discipline via `Read .claude/modules/substrate-component-design.md`. Relocation-index row in §0.5.
+<!-- MODULE-INLINE:substrate-component-design -->
+<!-- /MODULE-INLINE:substrate-component-design -->
 
-A substrate component is any artifact a peer workspace consumes from a producer workspace via `install.sh`-style or skill-copy-style deploy. The Stoa substrate itself (deployed from `the-stoa` via `install.sh`) is the canonical instance; Ariadne Core (the semantic-search infrastructure originated by ariadne-core-workspace) is the second. Future substrate components — Railway-deploy skills produced by `railway_stoa`; the inspection-agent pattern per §27; component-author skills per future arcs — follow the same shape.
+---
 
-This section names two design principles that apply to any agent-installable substrate component: the agent-installable distribution model (Principle 1) + the composability framing (Principle 2). Both surfaced empirically — Principle 1 from PRINCIPAL's 2026-05-13 Ariadne distribution-shaping conversation (HUMAN_relay_user_polybius_ariadne_distribution_and_mcp_2026-05-13 Findings 2 + 3); Principle 2 from the same conversation's "many wirings of one substrate" framing. Stoa-substrate-as-shipped-via-install.sh is a parallel empirical instance (N=2 per §31.3); the principles abstract across both.
+## 32. Test-environment timing discipline — jsdom + animation libraries
 
-### 31.1 Principle 1 — Agent-installable distribution model
+Relocated to `.claude/modules/jsdom-timing-discipline.md` (CONDITIONAL — read when authoring or verifying tests against animation surfaces in a jsdom test environment). Covers the rAF-driven-timing failure mode + the disjunctive observable-end-state assertion + the helper contract.
+Recover the full discipline via `Read .claude/modules/jsdom-timing-discipline.md`. Relocation-index row in §0.5.
+<!-- MODULE-INLINE:jsdom-timing-discipline -->
+<!-- /MODULE-INLINE:jsdom-timing-discipline -->
 
-<!-- cite: HUMAN_relay file (verbatim 7-step formulation) -->
+---
 
-The user-experience flow for any agent-installable substrate component:
+## 33. Composition layer — instruction modules + orchestrator routing
 
-1. **User encounters component** (URL via word-of-mouth, a published demo, a shared link).
-2. **User pastes URL to their AI** (Claude Code, ChatGPT, etc.).
-3. **User asks the AI: "do I need this?"** (the diagnostic question — fit-to-domain, not feature-tour).
-4. **AI fetches the repo's README + AGENTS.md + skills/ materials** (the agent-facing landing surface).
-5. **AI evaluates against the user's domain** (cross-checking the user's accumulated memories — see §30 four-layer identity — against the component's stated fit criteria).
-6. **AI returns yes / no / try-the-demo recommendation** (with rationale citing fit-vs-domain or domain-mismatch).
-7. **If yes + user consent: AI installs + runs demo** (the consent moment is a §25 PRINCIPAL-gate; the install + demo are bounded mechanical operations the agent runs once authorized).
+Instructions are a composable library, not all-memorized. An orchestrator selects what a task
+needs and delivers it AT DISPATCH TIME via 3 channels, all using tools every agent already has
+(no Skill grant, no MCP; see `stoa--xyb.1`):
+  - inline in the dispatch prompt — small, task-specific.
+  - disk module `.claude/modules/<X>.md` via Read — stable, reused.
+  - bw ticket via `bw show <id>` (or `bw attach` to archive) — dynamic / bespoke / must-persist; ALSO the provenance archive home.
 
-The AI is the primary reader at the component's repo; the human is the decision-authority who acts on the AI's recommendation. Repo-shape implications follow from this primary-reader inversion: README stays human-readable but adds a top-of-page pointer routing agents to AGENTS.md (or equivalent agent-facing landing file); AGENTS.md is the canonical agent-facing decision-support landing (fit criteria, install cost, skill inventory, recommendation templates, hard rules); an invitation-style skill handles the "do I need this?" diagnostic conversation; a walkthrough skill handles post-install hands-on demo.
+THREE RELOCATION CLASSES (how the .3 debloat method's buckets find lossless homes; populated indexes are per-orchestrator core, Arc 2):
+  - CONDITIONAL -> disk module (CHANNEL 2).
+  - PROVENANCE  -> bw archive + a one-line `Anchor: <bw-id>` cite in slim core.
+  - DUPLICATE   -> consolidate to the ONE existing home + a one-line pointer.
 
-**Worked instance — Stoa substrate-as-component.** The Stoa substrate (this very deployable) follows the same flow: a user encounters the-stoa via the canonical URL; pastes it to their AI; asks "do I need this?"; the AI fetches `SKILL.md` + `CLAUDE.md` + the case-study materials; evaluates against the user's domain (substrate-team-coordination work? AI-agent-as-collaborator pattern in active use?); returns yes / no / try-the-visual-tour; on yes + consent, runs `install.sh --target user` or `--target project`. The repo-shape implication: `SKILL.md` at repo root routes agents to `skills/stoa-intro/SKILL.md` (visual tour) or `skills/install-stoa/SKILL.md` (guided install) or the case study — exactly the 7-step shape.
+ROUTING MAP + RELOCATION INDEX (load-bearing — both stay inline in orchestrator operational
+core, NEVER a module): the routing map (task-type -> module + channel, dispatch-time) and the
+relocation index (relocated-content -> new-home + class, audit-time). An index that must itself
+be loaded-on-demand never fires.
 
-**Worked instance — Ariadne Core distribution.** Ariadne Core's distribution flow at the ariadne-core-workspace produces the same shape: user-encounters; paste-URL; ask-fit; AI-fetches AGENTS.md + the skills/ materials; AI-evaluates against domain (factory-manager? healthcare? SRE? legal?); AI-returns recommendation; consent + install + demo. The HUMAN_relay_user_polybius_ariadne_distribution_and_mcp_2026-05-13 thread is the load-bearing source.
+AUTHORING SIGNAL: the bw custom-instruction stream is the RECORD, not the library. Recurrence in
+that record -> author a reusable disk module.
 
-### 31.2 Principle 2 — Composability framing
+Full procedure, channel-selection + relocation-class templates, taxonomy: `.claude/modules/README.md` (on-demand).
 
-<!-- cite: HUMAN_relay file (verbatim composability framing) -->
+---
 
-Breadth of a substrate component is composability, not demo-inventory.
+## 34. Trigger-payload authoring rule
 
-The claim "this substrate supports many projects" is a COMPOSABILITY claim — one substrate, many wirings — NOT a BREADTH-OF-DEMOS claim — "look, here are five demos showing five separate use cases." The first claim is what makes a substrate component valuable to a new user (their use case can be a NEW wiring, not a copy of a demonstrated one); the second claim ages out the moment the user's use case differs from any demo.
+Every harness-owned trigger payload — a hook `permissionDecisionReason`, a Stop `reason`, a
+PostToolUse `additionalContext`, or a cron prompt body — MUST state, self-contained inline, (a) WHY
+it fired and (b) WHAT to do to proceed. NEVER a bare pointer ("see §X.Y", "per the discipline"). A
+pointer fails after compaction: the trigger's whole value is that it re-tells the rule the agent has
+forgotten, and an agent that has compacted cannot follow a pointer to a section it no longer holds.
+The payload carries the instruction, not a reference to it.
 
-Concretely: **Ariadne Core** supports the factory-manager demo but ALSO supports healthcare / SRE / legal / journalism / audit / cyber by the same substrate WIRED DIFFERENTLY. **One install, many shapes.** The right way to surface breadth is to demonstrate the wiring surface (e.g., the per-domain skills + the per-domain memory accumulation patterns); the wrong way is to ship five demos and let the reader infer composability from coverage.
+This is the load-bearing convention for the enforcement layer (`bw show stoa--xyb.5`): triggers
+survive compaction because they are fresh harness-fired input re-injected at the moment of action,
+so the instruction they carry must be complete on its own.
 
-**Concretely for the Stoa substrate** (the parallel instance): one install of the substrate supports many project shapes — the-stoa's own substrate-meta work, ariadne-core's semantic-search domain, railway_stoa's deploy-tooling domain, sector-4's future domain. The substrate composes across project shapes via the base-vs-custom convention (§23 + `MAJOR_POLYBIUS.md` §17) plus the two-team forge/shop architecture (`MAJOR_POLYBIUS.md` §19). The breadth claim for the Stoa substrate is "one substrate, deploys via install.sh, wires to your domain through customization conventions" — NOT "see, we have N demo projects."
+Detail, worked examples, the hook script contract + the fail-open / source-only / default-OFF safety
+architecture: `.claude/hooks/README.md` (on-demand). Shipped Arc 46 (debloat Arc 3, Stage 1).
 
-**Architectural implication for substrate-component authoring:** when authoring substrate-component marketing/onboarding materials (READMEs, AGENTS.md, skills/, demo links), frame breadth as composability (one substrate, many wirings) not as demo inventory (here are five demos). The composability framing both ages slower (a new domain composes without new demos) and signals correctly (the substrate IS the breadth, not the demos).
+---
 
-### 31.3 Empirical anchors — N=2 honest scope
+## 35. Threat-defeat prevention (named-threat coverage)
 
-<!-- cite: §6.7.1 N=1 canon-promotion gate; sibling §29.6 + §30.5 N=1/N=2 framing precedent -->
+The gauntlet verifies that built artifacts behave as built. This section adds the
+prevention layer that binds a security mitigation to the threat it was created to
+defeat, BEFORE build — so a mitigation cannot silently drift to a plausible-but-wrong
+surface. The regime verifies **named-threat coverage**, NOT threat-defeat in general:
+threat-ENUMERATION completeness (did we name every threat?) remains ARGUS's unmechanized
+judgment and a named residual risk (§35.5). Do not overclaim past named-threat coverage.
 
-Per §6.7.1 honest-scope: this section enters substrate canon off-gate on PRINCIPAL's project-direction authority (2026-05-13 Ariadne distribution-shaping conversation, captured at HUMAN_relay_user_polybius_ariadne_distribution_and_mcp_2026-05-13 Findings 2 + 3). §6.7.1 defers to the canon-promotion gate (multiple observations + controlled comparison + substrate-level pattern); §6.7.1 does not carve out a separate "PRINCIPAL-declaration shortcut."
+Empirical anchor: `origindex-trw` shared-auth arc (2026-05-31) — a correctly-named threat
+("M2"), ambiguous ratification, a build that picked the easier wrong surface, a design that
+never bound mitigation to threat, five verify stages that all asked "does it work?" and none
+"does it defeat M2?", caught only at the close-gate. Full case study: `bw show u--ith`
+(directive) + `bw show u--tgc` (incident). This section is Arc A (prevention); the detection
+backstop is Arc B.
 
-Supporting evidence at the time of this writing:
+### 35.1 Definitions (the shared vocabulary A1/A2/A3 consume)
 
-- **N=1 — Ariadne Core distribution (originating empirical anchor).** PRINCIPAL's 2026-05-13 conversation surfaced both principles in the context of authoring Ariadne Core's distribution materials. The 7-step agent-installable flow + composability-over-demo-multiplication framing are PRINCIPAL's verbatim formulations (per the HUMAN_relay file).
-- **N=2 — Stoa substrate distribution (parallel empirical anchor).** The Stoa substrate itself follows the same shape, observable at the the-stoa repo: `SKILL.md` at repo root routes agents to invitation skills + install skill; `install.sh` provides the bounded mechanical install per Principle 1 step 7; the substrate composes across projects via base-vs-custom + two-team architecture per Principle 2. The Stoa-substrate instance PRE-DATES the Ariadne instance (the-stoa shipped install.sh in earlier arcs; Ariadne adopted the agent-installable shape after observing the-stoa's pattern), making it an INDEPENDENT instance rather than a derivative of the Ariadne anchor.
+- **named threat** — any threat that is EITHER (a) surfaced by ARGUS during design critique,
+  OR (b) introduced or ratified at **ANY ratification point** in the arc. A ratification point
+  is any moment where a design, a scope item, or a risk set is blessed before build —
+  the design-critique pause, a PRINCIPAL or floor-manager scope ratification (**including a
+  mid-arc scope ratification, outside the design-critique pause**), or a ratification grid.
+  This definition is **locus-independent**: coverage does NOT depend on naming one canonical
+  gate — it rides on A1's UNCONDITIONAL restatement of EVERY ratification (§35.2), so a threat
+  ratified at a moment a reader does not pre-recognize is still swept in. **Gate-origin threats
+  are explicitly included** — they are the incident class; omitting them means the fix misses
+  the very incident that motivated it. A named threat is assigned a stable ID of the form
+  `M<n>` (M1, M2, …) at the moment it is named (ARGUS issues it at critique time; DAEDALUS
+  issues it at design time for design-origin threats; whoever introduces a ratified threat at
+  any other ratification point issues the next `M<n>`). The ID travels with the threat through
+  design, build, and verdict.
 
-N=2 is the honest count. Both instances are observable in the current ecosystem; the principles abstract across both. Promotion to "structural lesson" status with multi-instance + controlled-comparison + substrate-level-pattern evidence remains future-arc work; future substrate components (Railway-deploy skills + future component-author skills) accrete additional N as they ship.
+- **threat-ratified mitigation** — any change whose stated purpose is to defeat a named
+  threat. The classification is PROPOSED by an UPSTREAM OWNER (DAEDALUS at design time, recorded
+  in the A3 threat→mitigation map — §35.4) and CONFIRMED by ARGUS at critique time, so it cannot
+  be self-exempted downstream. A security-relevant change that carries NO threat classification
+  (neither "defeats M<n>" nor an explicit "not threat-ratified" with reason — §35.5) is itself a
+  finding.
 
-Same N=1/N=2 framing as Arc 35's §28.7, Arc 34's `MAJOR_POLYBIUS.md` §18.5, Arc 29's §23.4, and Arc 37's §29.6 + §30.5.
+### 35.2 A1 — Unconditional ratification restatement (the keystone)
 
-### 31.4 Cross-references
+Before any build proceeds, the orchestrator (PLINY) MUST restate EVERY ratification as
+`threat + attack-path`. This is **UNCONDITIONAL** — there is no "if ambiguous" trigger. A MUST
+gated on a soft predicate ("restate when ambiguous") is effectively a MAY: the origindex-trw
+phrasing looked unambiguous to the builder, so a judgment-gated restatement would not have
+fired. The restatement is cheap and removes the judgment-call escape entirely. A1 fires at a
+NAMED gauntlet beat — the pre-ADA ratification-restatement beat (`MAJOR_PLINY.md` §5.13), which
+sits between ARGUS's verdict and the ADA dispatch — so the rule has a concrete WHEN a cold
+reader can locate, not just an unconditional WHAT.
 
-- **§29 (Multi-team interoperation)** — substrate components ARE the artifacts that flow between teams per §29.2. §31 names the design principles; §29 names the runtime topology those principles operate within.
-- **§23 (Base vs custom agents — universal-team framing)** + **`MAJOR_POLYBIUS.md` §17 (POLYBIUS-tier statement of the same canon)** — co-equal canon for the base-vs-custom architectural model, both anchored at their respective §X.1 source-of-truth subsections to PRINCIPAL's 2026-05-17 declaration captured at `stoa--ads`. The two are paired cuts of one canon (universal-team cut + POLYBIUS-tier cut), not a base + derivative; cite both together per the established install.sh cite-comment precedent (install.sh lines 836-837 / 865-866 / 893-894). Substrate components ship a BASE that consumers can CUSTOMIZE per the per-class path convention. The composability framing (§31.2) leans on the base-vs-custom split: substrate component = the base; per-project wiring = the custom.
-- **§27 (Mechanical-script / agent-inspection split)** — the script-then-agent pattern IS a substrate-component pattern; the inspection-agent layer (per §27.5) is itself a deliverable that ships in `substrate/skills/inspect-script-output/`. Principle 2 composability framing applies: the pattern composes across script-based workflows (substrate-update flow today; future flows as the pattern proves out).
-- **§28 (Co-Authored-By trailer — substrate-component attribution)** — substrate-component authorship attribution at the commit-trailer layer follows §28; file-frontmatter attribution per §28.4 stays Denson Smith (or per-project PRINCIPAL).
-- **§30 (Four-layer identity model)** — substrate components ship the **role file** layer (the universal substrate identity layer); the **memories** layer is PRINCIPAL-accumulated per-deployment; the **handoff** layer is per-engagement; the **bw substrate** layer is per-project. Principle 1's 7-step flow operates against all four layers (the AI evaluating "do I need this?" at step 5 reads against the user's accumulated memories per §30.2).
-- **HUMAN_relay_user_polybius_ariadne_distribution_and_mcp_2026-05-13** (the load-bearing source; ariadne-core-workspace) — Findings 2 + 3 carry PRINCIPAL's verbatim formulations of both principles.
-- **`stoa--gq1`** (this section's originating ticket).
-- **`stoa--vmc`** (Arc 23, closed) — sibling substrate-canon principle (bw-fit matrix); related shape (which substrate for which use-case).
-- **`SPECIFICATION.md` §13.5** (the Pass 4 / Arc 38 enumeration) — this section's place in the workplan.
+Mechanically: for each ratified item the orchestrator writes one line on the bw record of the
+form `<item> → addresses <named-threat M<n> | none>; attack-path: <how the threat is realized>`.
+"none" is a valid restatement (the item is not threat-ratified) — but it must be stated, not
+left implicit. A1's output is the input to A2's classification (§35.3). Because A1 restates
+EVERY ratification regardless of where it was ratified, named-threat coverage is locus-
+independent (§35.1) — it does not depend on identifying one canonical gate.
+
+### 35.3 A2 — Ratified items get a design pass (A1 gates A2)
+
+A1 and A2 are DISTINCT mechanisms with SEPARATE acceptance: A1 is interpretive (disambiguate);
+A2 is structural (fold into design). **A1 gates A2.**
+
+Any item that A1's restatement classifies as a **threat-ratified mitigation** MUST be folded
+back into the DESIGN — with its `threat → mitigation` map (§35.4) — BEFORE build. It is NOT
+acceptable to append it as a build-scope bullet (that was the incident's structural root cause:
+the ratified item bypassed design, so no design-time map bound it to the threat). The fold-in
+is a design revision: DAEDALUS is re-dispatched, or the design is amended before the ADA
+dispatch, so the item enters ADA's build with its map already present.
+
+A2's fold-in trigger is evaluated against A1's restatement output. An un-restated ratified item
+is an A1 violation and the build does not proceed — that is the gate: A2 cannot classify what A1
+has not restated.
+
+### 35.4 A3 — Threat→mitigation map in the design (ownership)
+
+Any mitigation addressing a named threat MUST carry, in the design artifact, an explicit map:
+
+> `M<n> (named threat) → <attack-path: how the threat is realized> → <how-defeated: the specific
+> design mechanism that breaks the attack path>`
+
+DAEDALUS authors this map at design time (`CAPTAIN_DAEDALUS.md` §3, §6.12). ARGUS flags any
+mitigation that addresses a named threat but carries no map as a **design smell**
+(`CAPTAIN_ARGUS.md` §6.9) — a `load_bearing: true` risk, because an unmapped mitigation is
+exactly the drift surface the incident demonstrated. DAEDALUS PROPOSES the classification
+(recorded IN the map per §35.1); ARGUS CONFIRMS it at critique time, so it cannot be
+self-exempted by a downstream seat.
+
+### 35.5 Honest claim + self-reference carve-out (ARGUS-confirmed)
+
+**Honest claim.** This regime verifies named-threat COVERAGE (every named threat has a mapped
+mitigation), not threat-defeat in general. Threat-ENUMERATION completeness — whether the set of
+named threats is complete — remains ARGUS's unmechanized judgment and a NAMED RESIDUAL RISK. Do
+not represent named-threat coverage as proof that all threats are defeated.
+
+**Named residual — during-build ratification is OUT of scope (Arc-B candidate).** A1 fires ONCE,
+before build (the pre-ADA beat — §35.2). A threat ratified AFTER that beat has fired — a
+*during-build* ratification — is OUTSIDE this regime's before-build scope and is NOT swept by A1;
+it is a NAMED RESIDUAL and an **Arc-B (detection) candidate**, not a coverage gap this prevention
+layer claims to close.
+
+**Self-reference carve-out (load-bearing).** The threat-defeat hardening arcs themselves
+(Arc 52 ARC A, ARC B, and any future process-hardening arc of this class) are carved OUT of
+"threat-ratified mitigation" when they are process / role-file changes with NO runtime attack
+path — there is no threat `M<n>` for a process discipline to defeat, so demanding a
+`threat → mitigation` map of them would be a category error (and would make Arc A's own build
+recursively demand threat probes of itself). The carve-out is classified
+`not threat-ratified (process change, no runtime attack path)` per §35.1.
+
+**The carve-out is NOT self-asserted — ARGUS CONFIRMS it.** The building seat (DAEDALUS at design
+time) PROPOSES the `not threat-ratified (process change, no runtime attack path)` classification;
+**ARGUS CONFIRMS it at critique time** (ARGUS already owns A4 classification — §35.1; no new seat).
+An UNCONFIRMED carve-out, or a carve-out ARGUS judges WRONG (the change does have a runtime attack
+path), is a finding ARGUS raises (`load_bearing: true`) — it is the exact self-exemption A4
+forbids, applied to the carve-out path. The building seat cannot grant itself the carve-out; only
+ARGUS's confirmation makes the classification stand. That ARGUS-confirmed explicit classification
+IS the required record; it is not a missing finding.
+
+### 35.6 Per-seat behavior summary (cross-refs)
+
+| Seat | Duty | Cross-ref |
+|---|---|---|
+| PLINY (orchestrator) | A1: at the pre-ADA ratification-restatement beat, restate every ratification as `threat + attack-path` (unconditional) before the ADA dispatch; gate A2's fold-in on A1's output. | `MAJOR_PLINY.md` §5.13 |
+| DAEDALUS (architect) | A3: author the `M<n> → attack-path → how-defeated` map for every threat-ratified mitigation; issue `M<n>` for design-origin threats; PROPOSE the not-threat-ratified / carve-out classification for non-security changes. | `CAPTAIN_DAEDALUS.md` §3, §6.12 |
+| ARGUS (plan-critic) | A3: flag a mapless mitigation as a design smell (`load_bearing: true`); issue/confirm `M<n>` for critique-surfaced threats; CONFIRM the carve-out / not-threat-ratified classification — a wrong or unconfirmed claim is a finding. | `CAPTAIN_ARGUS.md` §6.9 |
+| ADA (executor) | Builds the mapped mitigation; refuses a threat-ratified item that arrives WITHOUT its A3 map (the fold-in failed upstream). | inherits via universal read |
+
+### 35.7 N=1 provenance + accretion path
+
+Anchor: `u--ith` (threat-defeat directive + full case study) + `u--tgc` (incident capture) +
+`origindex-trw` (the arc + floor-manager post-mortem); the-stoa execution home `stoa--yfv`. N=1
+(one real incident, right-threat/wrong-surface shape). Per §6.7.1 honest-scope: enters canon on
+PRINCIPAL's directive ratification (the Arc 52 restructure-accepted decision, 2026-05-31);
+future-evidence accretion against the §6.7.1 gate still required for "structural lesson"
+promotion beyond this shape. Adjacent modes NOT covered (named residual): incomplete threat
+enumeration (§35.5); mitigation that defeats M<n> but regresses elsewhere; probe
+necessary-not-sufficient (Arc B surface). Recover via `bw show u--ith` / `bw show stoa--yfv`.
+
+### 35.8 Cross-references
+
+- §6 (single-checker thinking; redundancy IS the safety property) — the property the incident
+  violated (five checkers, only the last asked the threat question).
+- §25 (PRINCIPAL-gate discipline) — the universal-locus + per-seat-stub pattern this section
+  follows.
+- §15 (verification-complexity awareness) — threat-enumeration completeness is a hard-hard
+  surface (§35.5 names it as residual rather than mechanizing it).
+- `CAPTAIN_DAEDALUS.md` §3 + §6.12 (A3 map authoring); `CAPTAIN_ARGUS.md` §6.9 (design-smell +
+  classification + carve-out confirmation); `MAJOR_PLINY.md` §5.13 (A1 restatement beat).
 
 ---
 

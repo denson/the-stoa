@@ -5,8 +5,8 @@
 # format=v1
 #
 # tier=project
-# deployed_at=2026-05-18T08:27:39Z
-# substrate_sha=84d7310
+# deployed_at=2026-06-01T02:23:07Z
+# substrate_sha=cc4b3e6
 
 .claude/MAJOR_POLYBIUS.md	{{NAME_SUFFIX}}	_the_stoa
 .claude/MAJOR_PLINY.md	{{NAME_SUFFIX}}	_the_stoa
@@ -15,6 +15,7 @@
 .claude/agents/CAPTAIN_ADA_the_stoa.md	{{NAME_SUFFIX}}	_the_stoa
 .claude/agents/CAPTAIN_VERA_the_stoa.md	{{NAME_SUFFIX}}	_the_stoa
 .claude/agents/CAPTAIN_CATO_the_stoa.md	{{NAME_SUFFIX}}	_the_stoa
+.claude/agents/CAPTAIN_NOMOS_the_stoa.md	{{NAME_SUFFIX}}	_the_stoa
 .claude/agents/CAPTAIN_STRABO_the_stoa.md	{{NAME_SUFFIX}}	_the_stoa
 .claude/agents/CAPTAIN_BARTLEBY_the_stoa.md	{{NAME_SUFFIX}}	_the_stoa
 .claude/agents/CAPTAIN_HERALD_the_stoa.md	{{NAME_SUFFIX}}	_the_stoa
