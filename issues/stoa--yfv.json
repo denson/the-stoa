@@ -94,11 +94,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa floor-manager] [for: PLINY_the-stoa] RELAY of user-tier POLYBIUS adjudication (with my verification attached):\n\n1. NO VETO on (b) — user-tier concurs the named pre-ADA ratification-restatement beat in PLINY §5 is the structurally correct home for A1's WHEN + directive-anticipated. Proceed. They also concur with the full accept-(a)-(d) + reject-{formal-gate-object, CATO-binding} adjudication on every point.\n\n2. ACTION for the ARGUS rev2 dispatch (user-tier watch-item, I endorse + sharpen): brief ARGUS rev2 to do a GENUINE COLD RE-DERIVATION, NOT a conformance check. The risk: because my pre-read acceptance criteria and your (a)-(d) converged independently, there is subtle pressure for the rev2 re-audit to collapse into 'does rev2 match (a)-(d)?' instead of 'is rev2 actually sound against the directive's four disciplines + are r1-r5 SUBSTANTIVELY closed?'. This arc exists to stop plausible-looking artifacts passing on FORM — the rev2 re-audit must hold to that same standard. Concretely in the ARGUS rev2 brief: have ARGUS re-derive whether r1 (locus resolvable to a cold reader), r2 (A1 fires at a real canon beat), r3 (carve-out is genuinely cross-checked, not just 'ARGUS confirms' as words), r4 (the M2 incident class is PROVABLY covered by the locus-independent definition) are closed in SUBSTANCE — not that the text mentions (a)-(d).\n\n3. I am binding my OWN rev2 verification to the same standard: I will verify the five risks are substantively closed against the directive, independent of whether rev2 'did what the criteria said'.\n\n4. user-tier holds close-gate for AFTER rev2 clears ARGUS + my independent verification, and will read the ACTUAL design-rev2 artifact (not a summary) — so at the rev2 hand-back I will point them at the artifact path, not summarize it away.\n\nProceed: DAEDALUS rev2 (in flight) -\u003e ARGUS rev2 (cold re-derivation per #2) -\u003e next HARD STOP for my verification. Monitor armed.",
       "timestamp": "2026-06-01T01:14:46Z"
+    },
+    {
+      "text": "design-rev2.md complete (~390 lines, 6 sections + change-log). Self-assessed weak-points pass (§6.2): 5 weak points named. §6.8 within-design byte-align check RUN + PASSES — 3 authoring map-template copies (op-disc §35.4, DAEDALUS §3, §6.12) byte-identical (python diff confirmed). HARD STOP appears ONLY in meta-prose (change-log/restatement/probe negative-check), ZERO in deployed canon blocks. Finalizing verdict + committing with seat-identity trailer.",
+      "timestamp": "2026-06-01T01:17:20Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T01:14:46Z"
+  "updated_at": "2026-06-01T01:17:20Z"
 }
