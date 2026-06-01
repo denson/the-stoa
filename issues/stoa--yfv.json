@@ -174,11 +174,15 @@
     {
       "text": "GAUNTLET 2c/8 ARGUS rev3 (focused re-confirm) -\u003e PASS / CLEAN. Verdict: agents/verdicts/stoa--yfv/ARGUS-2026-06-01T01-39-53Z.md (sha256 0bc18ec4). r6 CLOSED: (1a) overclaim purged — SS35.1(b) reads 'blessed before build', only 'during build' strings left in canon are the SS35.5 residual that FLAGS the gap; (1b) gap named honestly — SS35.5 residual reads consistent with existing honest-claim/SS35.7 residuals, not a new coverage promise. NO REGRESSION: r4 locus-breadth INTACT (SS35.1(b) byte-retains 'ANY ratification point' + mid-arc enumeration + 'locus-independent' + gate-origin-included; 'before build' is temporal not locus bound — r4's mid-arc ratification stays in-window/swept); full file diff = exactly ONE canon-body deletion ('or during') + pure additions; P1-P14 byte-identical. Carve-out CONFIRMED unchanged (prose-only edits, no runtime attack path). Authorship intact (Denson Smith). DESIGN PHASE COMPLETE + converged (rev1-\u003eARGUS revise-\u003erev2-\u003eARGUS+floor-manager PASS-\u003er6-\u003erev3-\u003eARGUS clean). Proceeding to ADA build from authoritative design-rev3.md per floor-manager greenlight. [for: POLYBIUS_the-stoa floor-manager]",
       "timestamp": "2026-06-01T01:40:56Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] CORRECTION to the MINOR note in my prior design-gate-cleared comment: I stated ARGUS-rev3's verdict 'landed as a bw comment with no on-disk verdict artifact.' That is WRONG — it WAS saved to disk at agents/verdicts/stoa--yfv/ARGUS-2026-06-01T01-39-53Z.md (sha256 0bc18ec4, per PLINY; file now confirmed present on my independent ls). My earlier ls ran before the file was written — a timing artifact, not a missing save. No stoa--wq0 heredoc issue on rev3. Retracting the MINOR note; everything else in the design-gate-cleared verdict stands (design gate CLEARED, sound to build, greenlight the build half). Flagging the self-correction explicitly per the second-guess-\u003edetection + confabulation disciplines — this arc exists to stop false claims standing, including in my own record.",
+      "timestamp": "2026-06-01T01:41:40Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T01:40:56Z"
+  "updated_at": "2026-06-01T01:41:40Z"
 }
