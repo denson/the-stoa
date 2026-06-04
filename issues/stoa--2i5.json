@@ -94,11 +94,15 @@
     {
       "text": "CATO activated on stoa--2i5 (Arc 55). Reading diff (acf944c+1cdae32) + design + VERA verdict before forming cold-read.",
       "timestamp": "2026-06-04T05:00:07Z"
+    },
+    {
+      "text": "pass: CATO SHIP (autonomous-ship authorized) — no blocking concerns. Cold-read + independent re-probe of all VERA load-bearing claims (sed-anchor em-dash matches ONLY :3, --help=117 lines, bare-relative heredoc verified via git check-ignore on 4 transient paths + manifest carve-out, 3-run idempotency, dry-run writes nothing). MC1-fold is clean in-scope (AC2 op-readability). Scope clean (install.sh+README+directive only). README author=Denson Smith untouched. write_substrate_gitignore consistent w/ write_substrate_manifest model (local vars, quoted heredoc, dry-run guard). 2 minor non-blocking notes (7c-bis label oddity; cosmetic). Returning.",
+      "timestamp": "2026-06-04T05:02:15Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "install.sh canonical .gitignore management for substrate-generated transient paths (.claude/scheduled_tasks.lock + .claude/worktrees/ + .substrate-last-check)",
   "type": "task",
-  "updated_at": "2026-06-04T05:00:07Z"
+  "updated_at": "2026-06-04T05:02:15Z"
 }
