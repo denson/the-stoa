@@ -2,6 +2,7 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-04T17:48:02Z",
   "created": "2026-05-31T19:52:59Z",
   "description": "SOURCE: user-beadwork u--ith (the detailed threat-defeat directive — full case study + 7 role-by-role changes) + u--tgc (terse incident capture). Real incident: origindex-trw shared-auth arc, 2026-05-31. Read u--ith for full detail; this epic is the the-stoa-side execution home. Sequenced AHEAD of stoa--04n (workflow-composer skill promotion) per PRINCIPAL 2026-05-31.\n\nFAILURE MODE (one line): verification anchored to ARTIFACT-CORRECTNESS ('does the built thing behave as built?') instead of THREAT-DEFEAT ('does it defeat the threat it was created to address?'). A build drifted to a plausible-but-wrong surface; 5 verify stages passed it (all checked 'does it work?', none 'does it defeat threat M2?'); caught only at the user-tier close-gate. SEVERITY: MAJOR-but-BOUNDED (DoS amplification, not breach); the value is the PROCESS fix.\n\nCONVERGENCE with the 2026-05-30 workflow session: the KEYSTONE change (#5, threat-coverage assertion in verdict templates) IS the tier-iii schema-forced discipline-enforcement prototyped at stoa--aox. This incident is the real-world N=2 anchor for stoa--aox (discipline-enforcement), stoa--q36 (builds execute direction, never set it — the build silently picked the easier reading of an ambiguous ratification), and stoa--myd (thin multi-checker redundancy — only the last layer asked the threat question). Building it through the gauntlet doubles as the gauntlet-as-workflow battle-test + first real discipline-enforcement instantiation.\n\nCHILDREN map the 7 u--ith changes onto our framework (lead with C1 = #5 keystone). EXECUTION: multi-concern (7 changes) -\u003e external review before dispatch (MAJOR_POLYBIUS.md §5.4); substrate canon -\u003e gauntlet/PLINY (§3, §18.2), not a POLYBIUS hand-build.\n\nCROSS-REFS: u--ith, u--tgc (user-beadwork); stoa--aox, stoa--q36, stoa--myd; origindex-trw (the arc + floor-manager post-mortem).",
   "id": "stoa--yfv",
@@ -465,8 +466,8 @@
     }
   ],
   "priority": 2,
-  "status": "in_progress",
+  "status": "closed",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-04T17:47:43Z"
+  "updated_at": "2026-06-04T17:48:02Z"
 }
