@@ -326,11 +326,15 @@
     {
       "text": "DAEDALUS activated on stoa--yfv Arc B (Arc 59 detection layer). Reading brief + arc-59 directive + §35 foundation + the 6 surfaces. Ratified order locked: yfv.2(#4 probes)-\u003eyfv.1(#5 keystone)-\u003eyfv.5(#6)-\u003eyfv.6(#7). HARD STOP before build.",
       "timestamp": "2026-06-04T15:06:57Z"
+    },
+    {
+      "text": "All 6 surfaces read end-to-end. KEY FINDING: 'runner' skill does NOT exist in the-stoa (only an agent-gauntlet legacy example name in PLINY L269/arc-17). Probes are AUTHORED by DAEDALUS (design §3) + EXECUTED by VERA via Bash. So B1 home = CAPTAIN_DAEDALUS.md §3 (probe authoring) + CAPTAIN_VERA.md §5.2 (execution lens), NOT a runner skill. save-verdict precedent confirmed: verdict_shape caller-side validation, exit-4 on missing field. Drafting design now.",
+      "timestamp": "2026-06-04T15:08:26Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-04T15:06:57Z"
+  "updated_at": "2026-06-04T15:08:26Z"
 }
