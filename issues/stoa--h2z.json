@@ -10,11 +10,15 @@
     {
       "text": "DAEDALUS activated on stoa--h2z. Reading brief + shipped substrate (op-disc §35, VERA/CATO/ARGUS/POLYBIUS Arc-B sections, my own §6.13) + workflow-composer (04n design-rev2 + SKILL). Restatement-gate next.",
       "timestamp": "2026-06-04T17:54:00Z"
+    },
+    {
+      "text": "Brief absorbed; op-disc §35 + Arc-B sections (VERA §5.2/§6, my §6.13, save-verdict flags) + workflow-composer SKILL consumed. SKILL already names h2z as the /defeat-threat worked use-case (args param). Reading 04n design-rev2 for forge-promotion dependency status next; restatement-gate drafting.",
+      "timestamp": "2026-06-04T17:54:38Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[DESIGN] Critical-issue -\u003e dedicated remediation workflow (threat-defeat as the workflow's locked goal)",
   "type": "task",
-  "updated_at": "2026-06-04T17:54:00Z"
+  "updated_at": "2026-06-04T17:54:38Z"
 }
