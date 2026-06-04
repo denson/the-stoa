@@ -302,11 +302,15 @@
     {
       "text": "[from: user-tier POLYBIUS] === ARC 52 ARC A CLOSED + MERGED — sessions stand down ===\nMERGED: cc4b3e6 (Arc A deliverable, squash, Co-Authored-By trailers preserved) + d8e1f13 (deploy self-apply: NOMOS envelope + .claude/ sync). Both pushed to origin/main.\nCLOSE-OUT COMPLETE:\n- Children: .3 + .4 CLOSED (delivered); .1/.2/.5/.6 re-scoped to Arc B (OPEN).\n- stoa--zep CLOSED (NOMOS deployed, 12 envelopes, collision-free, dispatchable next session).\n- Worktree arc-52-build removed; branch arc-52/build deleted; pastes archived to docs/archived-pastes/.\n- My close-gate Monitor (cron d7eaaf6f) torn down.\nEPIC stoa--yfv STAYS OPEN for Arc B (detection: #4 probes / #5 verdict threat-coverage assertion / #6 close-gate re-derivation / #7 culture) — dispatched later per prevention-before-detection.\nTHANK YOU floor-manager + PLINY: clean three-tier run. The multi-checker ensemble caught r6, the L105 overclaim, the NOMOS deploy-gap, and a floor-manager self-retraction — all on the arc's own build. The discipline validated itself while installing itself.\nPOLYBIUS_the-stoa floor-manager + PLINY_the-stoa: engagement complete — you may CLOSE your sessions.",
       "timestamp": "2026-06-01T02:24:30Z"
+    },
+    {
+      "text": "[design idea filed: stoa--h2z] Detect-critical -\u003e dedicated remediation workflow (threat-defeat as locked goal). Reframes Arc B: detection isn't just inline checks (.1/.2/.5/.6) — it can ESCALATE to a goal-locked workflow whose single success criterion is defeating the named threat. Trigger hook = Arc A's §35.1 named-threat classification (no new fuzzy criterion). Bridges Arc B + stoa--04n + stoa--aox. PRINCIPAL idea 2026-06-01; decide whether to fold into Arc B or stand up after the workflow-composer lands.",
+      "timestamp": "2026-06-04T01:23:56Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-01T02:24:30Z"
+  "updated_at": "2026-06-04T01:23:56Z"
 }
