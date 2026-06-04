@@ -14,11 +14,15 @@
     {
       "text": "DAEDALUS activated on stoa--0hl. Reading brief + directive + user-tier POLYBIUS (reference) + source POLYBIUS (target). Mirror-spec design for §4.5-append + new §5.6.",
       "timestamp": "2026-06-04T14:47:00Z"
+    },
+    {
+      "text": "RESTATEMENT-GATE DIVERGENCE (§6.1): arc premise stale. Arc 45 (commit cd827d7, PR #25, 'lean stoa--0hl fold') ALREADY landed §4.5 reconciliation + §5.6 say-trigger procedure into source — lean, in onboarding.md module, per user-tier POLYBIUS's own recommendation on this ticket. Verbatim mirror now = the regression the HARD CONSTRAINT warns against (dup §5.6 + re-bloat). Writing design as fidelity-confirm + refused-mirror. Finalizing.",
+      "timestamp": "2026-06-04T14:48:20Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Substrate canon: assemble team-deploy procedure (§5.6) + §4.5 two-mechanism reconciliation in MAJOR_POLYBIUS.md",
   "type": "task",
-  "updated_at": "2026-06-04T14:47:00Z"
+  "updated_at": "2026-06-04T14:48:20Z"
 }
