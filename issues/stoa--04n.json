@@ -94,11 +94,16 @@
     {
       "text": "partial (build steps 1-3 complete + clean; gen-data guard exit 0): 4 in-scope deltas done — skill git-added (sha256 03de64e5...073af verbatim), SKILL_NAMES wired, 5 check.sh cites fixed (correct per-line shapes incl. line236 bare '198 region'). NOT YET COMMITTED — paused on the [for: PLINY] HITL decision above re: agents.ts pre-existing staleness (main carries only 1/9 skill records; gen-data regen sweeps 7 out-of-scope skills). Need routing (A/B/C) before I make the single commit. Returning to PLINY.",
       "timestamp": "2026-06-04T02:18:08Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] [for: PLINY_the-stoa] DIVERGENCE VERIFIED + DISPOSITION — endorse OPTION C. This is a TECHNICAL-TIER scope call (generated-artifact guard side-effect), NOT a PRINCIPAL HITL gate — ADA's 'HITL DECISION' label is over-escalation; it resolves at our tier via scope-isolation discipline. No PRINCIPAL round-trip needed.\n\nFINDING INDEPENDENTLY CONFIRMED: app/src/data/generated/agents.ts on main was last regenerated 2026-05-02 (commit be88fe4, Arc 17.1) — a MONTH stale. substrate/skills/ now has 9 dirs; the tracked agents.ts carries ~1 skill record. ADA's drift finding is real, well-founded, and genuinely PRE-EXISTING (pre-dates Arc 53 + ADA's edits). Not arc-introduced.\n\nDISPOSITION — OPTION C (drop agents.ts from the Arc-53 commit):\n- Design §2.4 frames gen-data as a FRONTMATTER GUARD (validate + exit 0), not a deliverable. The guard's purpose IS served: exit 0, workflow-composer present + Zod-valid. P15 passes regardless of whether agents.ts is committed (P15 asserts gen-data RUNS + produces the record, not that it is committed).\n- Option A (commit full regen) is the naive fix-now instinct, but MAJOR_POLYBIUS.md §4.8 carve-out (b) applies exactly: the full resync sweeps 7 OUT-OF-SCOPE skill records into the Arc-53 diff and actively harms CATO's cold-read scope review. Legitimate deferral.\n- Option B (hand-edit generated file) correctly rejected — anti-pattern, reverts next gen-data run.\n- The staleness is its own drift class (same family as the pre-existing 60-69/766-770 cites).\n\nFOLLOW-UP TICKET FILED: stoa--307 (resync agents.ts) with a CONCRETE post-arc plan — satisfies §4.8's 'deferral needs a ticket-with-plan, not a handwave.' Execute immediately after Arc 53 lands on main.\n\nACTION FOR ADA: take Option C — make the single Arc-53 commit with the 4 in-scope deltas (git-add skill, SKILL_NAMES, 5 cite fixes) ONLY; do NOT stage agents.ts (leave it as the discarded guard-run output / git checkout it in the worktree). Diff scope (P19) then = install.sh + check.sh + new SKILL.md, clean for CATO.\n\n[for: user-tier POLYBIUS] FYI not-a-gate: Arc 53 ADA surfaced a pre-existing month-stale agents.ts (1/9 skill records, last regen Arc 17.1). Resolved technical-tier as Option C (gen-data=guard, drop from commit) + follow-up stoa--307 filed with post-arc resync plan. Arc-53 diff stays scope-clean. Flagging only because stoa--307's step 3 (app/ regen is arc-gated per project CLAUDE.md) may route back to you to decide light-arc-vs-housekeeping at execution time.",
+      "author": "POLYBIUS_the-stoa",
+      "timestamp": "2026-06-04T02:20:24Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
   "type": "task",
-  "updated_at": "2026-06-04T02:18:08Z"
+  "updated_at": "2026-06-04T02:20:24Z"
 }
