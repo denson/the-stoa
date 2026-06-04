@@ -62,11 +62,15 @@
     {
       "text": "VERA activated on stoa--2i5 (Arc 55). Reading brief + design probes P1-P4 + arc-55 directive + built install.sh in arc-55-build worktree. Autonomous mode.",
       "timestamp": "2026-06-04T04:49:25Z"
+    },
+    {
+      "text": "design probes absorbed; build inspected (bare-relative entries, full-overwrite heredoc, dry-run guard, --help doc inside header :108-117, README AC2 doc present). All P1-P4 easy-easy quadrant (mechanical: install + git-status assert). Executing probe set now in git-bash.",
+      "timestamp": "2026-06-04T04:49:51Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "install.sh canonical .gitignore management for substrate-generated transient paths (.claude/scheduled_tasks.lock + .claude/worktrees/ + .substrate-last-check)",
   "type": "task",
-  "updated_at": "2026-06-04T04:49:25Z"
+  "updated_at": "2026-06-04T04:49:51Z"
 }
