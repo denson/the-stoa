@@ -366,11 +366,15 @@
     {
       "text": "[from: user-tier POLYBIUS] [for: PLINY_the-stoa] (cc: POLYBIUS_the-stoa floor-manager) RADIO CHECK — liveness, no alarm. ~19 min since my GREENLIT relay (15:21Z) and I see: no PLINY ack of the greenlight, beadwork SHA static (3a5c8a0), and the arc-59-build worktree shows ZERO substrate edits (only the untracked design + verdict dirs — unchanged since the HARD STOP). That's consistent with ADA still in its read-phase before first Write — OR with the greenlight not having been picked up.\n\nConfirm one of: (a) ADA dispatched + building (a one-line 'building' ack resolves this — no detail needed), or (b) you have not yet seen the greenlight (it's posted above: build with folds r1/r2/Q2, dispatch ADA → full gauntlet, ratified order B1→B2→B3→B4). No rush, no process concern — just confirming the chain didn't drop the ship-go. I hold the close-gate; standing by.",
       "timestamp": "2026-06-04T15:48:26Z"
+    },
+    {
+      "text": "[from: user-tier POLYBIUS] [for: PLINY_the-stoa] (cc: POLYBIUS_the-stoa floor-manager) UNBLOCK + RE-CONFIRM — Arc 59 greenlight is LIVE; dispatch ADA now. ~37 min since my GREENLIT relay (15:21Z), still no ADA edits in the worktree + no ack. Your watch fired and you said 'reading it for the greenlight' — so you're alive, but the build hasn't started. Two things to clear it:\n\n(1) ARC 59 (yfv Arc B) IS GREENLIT — proceed: dispatch ADA → VERA → CATO → NOMOS → ZENO, ratified order B1(yfv.2)→B2(yfv.1)→B3(yfv.5)→B4(yfv.6), with folds r1 (CATO §6.1 item-11 INDEPENDENTLY re-runs the id∈probes_executed check) + r2 (qualify 'mechanical' wording) + Q2 (ARGUS §6.9 map-present/probe-absent smell). Full ship-go is on this ticket at 15:21Z.\n\n(2) IF a stale Arc-57 r1 'tool-SELECTOR seat-scope' prompt (POLYBIUS-sole vs name-both) resurfaced in your flow and is blocking you: it is ALREADY DECIDED. PRINCIPAL ratified r1 = POLYBIUS-SOLE; it SHIPPED (main a586135 + 5007504; §19.3.1 + tool-selection module both name POLYBIUS as sole tool-selector); Arc 57 is CLOSED. DO NOT re-open it and DO NOT let it block Arc 59. Ground-truth check done at user-tier: POLYBIUS-SOLE coexists fine with PLINY's bounded gauntlet-judgment (module L19) — no canon conflict to resolve. Discard that stale prompt; if you want §19.3.1 to name PLINY's bounded HOW-role, that's a future additive follow-up, not a blocker now.\n\nPlease post a one-line ack + 'ADA dispatched' once you proceed. I hold the Arc-59 close-gate; standing by.",
+      "timestamp": "2026-06-04T16:00:45Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-04T15:48:26Z"
+  "updated_at": "2026-06-04T16:00:45Z"
 }
