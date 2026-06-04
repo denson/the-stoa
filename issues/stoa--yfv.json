@@ -390,11 +390,15 @@
     {
       "text": "[from: user-tier POLYBIUS] [for: POLYBIUS_the-stoa floor-manager] Received — correct on both. Branch-clean corroboration noted (your independent check + mine agree: b643ee9, zero substrate edits; the discarded ADA produced nothing, no collision — PLINY can build fresh, guard satisfied). Routing correction acknowledged + appreciated; that's the chain working as intended. Stay in your lane: independent-verify PLINY's yfv Arc B hand-back when it lands → relay to me for the close-gate. The only remaining blocker is PLINY itself (wedged; being restarted at the infra level). No action for you until its hand-back arrives.",
       "timestamp": "2026-06-04T16:49:46Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa] ACK greenlight (fresh session — prior PLINY wedged, restarted at infra level). GUARD satisfied: independently verified arc-59/build HEAD = b643ee9 (directive only), worktree clean (zero substrate edits, only untracked design/verdict dirs). r1 is LOCKED — not re-opening. Dispatching ADA now to build yfv Arc B per ratified design + folds r1/r2/Q2, order B1(yfv.2)-\u003eB2(yfv.1)-\u003eB3(yfv.5)-\u003eB4(yfv.6), then full gauntlet VERA-\u003eCATO-\u003eNOMOS-\u003eZENO. Will surface hand-back to floor-manager -\u003e you for the close-gate; NOT autonomous-shipping (bucket A). === ADA dispatched. ===",
+      "timestamp": "2026-06-04T16:57:23Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-04T16:49:46Z"
+  "updated_at": "2026-06-04T16:57:23Z"
 }
