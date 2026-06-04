@@ -38,11 +38,15 @@
     {
       "text": "RATIFY-WITH-CONDITIONS: 1 load-bearing risk (r1: --help text must land INSIDE sed-scraped header block install.sh:3-108, terminator '# Dry-run:' at :108; usage() at :225 scrapes only that range — design says 'document in --help' without naming the write-site, P4 fails if ADA echoes outside it). Insertion points :513/:1591 CONFIRMED exact. DEST_DIR non-empty all 3 tiers (:601/:620/:665) CONFIRMED. W2 grounded INSIDE .claude/ (check.sh:678) — root-append correctly declined. W1/W3/W4 + carve-out confirmed. Returning.",
       "timestamp": "2026-06-04T04:44:22Z"
+    },
+    {
+      "text": "VERDICT SAVED: agents/verdicts/stoa--2i5/ARGUS-2026-06-04T04-45-05Z.md (sha256 round-trip pass). verdict=revise (RATIFY-WITH-CONDITIONS). 1 load-bearing risk r1 (--help write-site = sed-scraped header block install.sh:3-108 via usage() :225; 'document in --help' must land inside that range or AC2/P4 fails). All other self-flagged weak points + insertion points + 3-tier DEST_DIR + W2 grounded as non-findings. Carve-out confirmed not-threat-ratified. ARGUS returning.",
+      "timestamp": "2026-06-04T04:45:14Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "install.sh canonical .gitignore management for substrate-generated transient paths (.claude/scheduled_tasks.lock + .claude/worktrees/ + .substrate-last-check)",
   "type": "task",
-  "updated_at": "2026-06-04T04:44:22Z"
+  "updated_at": "2026-06-04T04:45:14Z"
 }
