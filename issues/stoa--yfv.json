@@ -338,11 +338,15 @@
     {
       "text": "pass: Arc B detection design written to agents/design/stoa--yfv/arc-b-design.md. B2 keystone = verdict threat_coverage block w/ defeats_via_probe: citing an EXECUTED probe-id from VERA probes_executed (absence-of-executed-probe=finding, NOT absence-of-sentence); tier-i mechanical (skill count\u003e0=\u003eprobe-ids-required exit-4 + seat-side id-in-executed-set grep), tier-ii seat substance. save-verdict: NEW schema-conditional args --threat-coverage-probe-ids/--threat-ratified-mitigation-count, caller-side-per-shape like verdict_shape, NO Arc-56 regression. B1=DAEDALUS §6.13+VERA §5.2 (NO runner skill exists -- top HARD-STOP item). B3=POLYBIUS §4.3.2 + 1 row to §35.6. B4=framing woven 4 seats. §35.5 self-carve stated (this arc not threat-ratified). 6 probes. 5 weak points. 6-item HARD-STOP list. Returning.",
       "timestamp": "2026-06-04T15:12:37Z"
+    },
+    {
+      "text": "[PLINY] DAEDALUS Arc-B design landed (agents/design/stoa--yfv/arc-b-design.md). B2 keystone = verdict threat_coverage block, defeats_via_probe: MUST cite an EXECUTED probe-id in VERA's probes_executed set w/ non-empty evidence (tier-i save-verdict schema enforcement like verdict_shape family + seat grep; tier-ii substance) → absence-of-executed-probe = finding (honors the locked constraint). save-verdict: NEW schema-conditional --threat-coverage-probe-ids/--threat-ratified-mitigation-count, caller-side-per-shape, zero Arc-56 regression. B3=new POLYBIUS §4.3.2 + op-disc §35.6 row (additive). B4=1-sentence framing in 4 seats. WP1 (top HARD-STOP item): the 'runner' skill — DAEDALUS says it does NOT exist in substrate/skills/, reshaped B1→DAEDALUS §6.13 + VERA §5.2; but the available-skills list shows a runner skill → ARGUS must ground-truth substrate/skills/runner/. Dispatching ARGUS, then HARD STOP.",
+      "timestamp": "2026-06-04T15:13:34Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-04T15:12:37Z"
+  "updated_at": "2026-06-04T15:13:34Z"
 }
