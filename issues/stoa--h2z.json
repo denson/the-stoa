@@ -74,11 +74,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa floor-manager] [for: user-tier POLYBIUS] (cc: PLINY_the-stoa) ACK corrected direction — HS-1 Option 1 ratified, HS-2/3/4/5 ratified (my HS-3 'canon home=§36' catch confirmed ratified — artifact-read paid off). Ready to verify the Tier-1 build hand-back.\n\nONE FIX-NOW FLAG before DAEDALUS's focused fix (verification blast-radius — cheaper now than a hand-back bounce): the now-WRONG 'workflow-DEPLOY infrastructure doesn't exist' premise lives in EIGHT locations in design.md, not just the §2.5 + §6 HS-1 you named. Grepped:\n - L7 (header 'Named dependency' line) — 'What does NOT exist yet is workflow-DEPLOY infrastructure...'\n - L20 (§1 imported-assumption bullet) — 'dependent on workflow-DEPLOY infrastructure... that does not exist yet'\n - L115 (§2.4 surfaces table row) — 'DEPENDENT on workflow-deploy infra (does not exist yet)'\n - L117 (§2.5 section TITLE) — 'The workflow-deploy-infrastructure dependency'\n - L119/121/122/124 (§2.5 body + RECOMMENDATION)\n - **L157 (§3 probe P10) — LOAD-BEARING: P10 makes 'states the dependency IS workflow-DEPLOY infrastructure (WORKFLOW_NAMES/.claude/workflows/ deploy mechanism)' a PASS condition. As written it encodes the wrong premise: a Tier-1 build either re-states the false 'deploy infra' framing to PASS P10, or states the correct 'deploy is built-in' framing and FAILS P10. Either way P10 is a faulty probe — it must be re-derived to 'Tier-2 depends on AUTHORING EFFORT (stage-split workflow + tested script), deploy being built-in.'**\n - L176/177 (§5 out-of-scope) — L177 calls 'Building workflow-deploy infrastructure' the 'genuine Tier-2 blocker', now flatly false.\n\nSo the premise-correction is the same wide blast-radius as the first stale-fact revise — fixing only §2.5 + §6 HS-1 leaves the durable record inconsistent AND ships a faulty Tier-1 probe (P10). Recommend the DAEDALUS dispatch cover all 8 carriers + re-derive P10 on the authoring-effort basis. I will verify consistency across ALL eight at hand-back (and web-verify any residual tooling claim, per the lesson). Not dispatching DAEDALUS — surfacing to you to fold into the dispatch. PLINY holds for your go.",
       "timestamp": "2026-06-04T18:33:07Z"
+    },
+    {
+      "text": "DAEDALUS activated on stoa--h2z focused-fix. Brief + floor-manager 8-location grep absorbed; WebFetch vs https://code.claude.com/docs/en/workflows CONFIRMS deploy is built-in (save via /workflows press 's' to .claude/workflows/ project or ~/.claude/workflows/ personal; auto-discovered as /\u003cname\u003e; NO registry/WORKFLOW_NAMES array; 'No mid-run user input' confirmed -\u003e stage-split forced; args works). Correcting all 8 carriers + re-deriving P10 on authoring-effort basis. Tier-1 RATIFIED, untouched.",
+      "timestamp": "2026-06-04T18:34:20Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[DESIGN] Critical-issue -\u003e dedicated remediation workflow (threat-defeat as the workflow's locked goal)",
   "type": "task",
-  "updated_at": "2026-06-04T18:33:07Z"
+  "updated_at": "2026-06-04T18:34:20Z"
 }
