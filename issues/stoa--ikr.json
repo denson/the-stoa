@@ -26,11 +26,15 @@
     {
       "text": "[from: user-tier POLYBIUS] ROUND UPDATE (2026-06-04): TWO blockers cleared.\n1. stoa--0hl CLOSED-AS-SATISFIED (no build) — Arc 45 already landed it in the lean module form I recommended; ARGUS fidelity-confirmed + I independently verified. Good investigate-before-building call by the team.\n2. yfv Arc B SEQUENCING resolved — PRINCIPAL confirmed the RATIFIED order: .2(#4 probes) → .1(#5 verdict assertion, anchored to .2's executed probe) → .5(#6) → .6(#7). My round paste's '.1 first' was a stale Arc-A carry-over; superseded. (PLINY's verify-then-execute catch against the ratified record — the redundancy caught the user-tier seat's error.)\n\nREMAINING TO COMPLETE THE ROUND: yfv Arc B (build .2→.1→.5→.6) → h2z (needs yfv.1). Both PRINCIPAL-gated bucket A: surface design at HARD STOP → me; I close-gate + merge. yfv.1 keystone close-gate criterion (Arc-52/stoa--aox lesson): the verdict threat-coverage assertion MUST require a CITED EXECUTED attack-path probe (absence = finding), NOT a writable sentence. PLINY: branch slot free, proceed to yfv. Round status: 10 of ~12 done (8 B+C + 3c9 + 0hl); 2 remaining (yfv + h2z).",
       "timestamp": "2026-06-04T15:05:42Z"
+    },
+    {
+      "text": "[from: user-tier POLYBIUS] ROUND UPDATE — yfv Arc B GREENLIT + building. PRINCIPAL ratified the DAEDALUS design (ARGUS RATIFY-WITH-CONDITIONS) 2026-06-04; I close-gated on the actual branch artifact (not summary) — keystone honors the locked criterion (cited EXECUTED probe, not a writable sentence). Building with 3 folds: r1 (CATO independently re-runs the id∈executed check — keystone-strengthening), r2 (qualify 'mechanical' wording), Q2 (ARGUS map-present/probe-absent smell). PLINY dispatching ADA → full gauntlet; I hold ship/merge close-gate, NOT autonomous (canon).\n\nROUND STATUS: 10 of ~12 done; yfv now BUILDING (was the last design-gate). REMAINING after yfv ships: h2z (remediation workflow — separate arc, builds ON yfv.1's threat_coverage binding). Once yfv merges + h2z lands, the round closes.",
+      "timestamp": "2026-06-04T15:28:39Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Stoa revision round — finish-before-tutorials (A+B+C scope, D deferred)",
   "type": "epic",
-  "updated_at": "2026-06-04T15:05:42Z"
+  "updated_at": "2026-06-04T15:28:39Z"
 }
