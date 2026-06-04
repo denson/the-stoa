@@ -1,6 +1,8 @@
 {
   "assignee": "",
-  "blocked_by": [],
+  "blocked_by": [
+    "stoa--xyb.13"
+  ],
   "blocks": [],
   "created": "2026-06-04T23:24:36Z",
   "description": "Encode 4 mechanical disciplines into running structures + slim prose to stubs (PARTIAL encode -- keep the judgment). 7 -\u003e recurring cron-prompt (depends on 34 trim from Arc B). 11 -\u003e cron machinery in polling-cron template. 13 -\u003e Windows PYTHONUTF8 session-start env hook. 28 -\u003e git-seat-identity ship/pre-commit hook (coordinate with stoa--w6d; KEEP 28.5 do-not-infer-authorship as prose). Aligns with stoa--aox. Depends on Arc B (34). Spec: docs/debloat-decisions.md.",
@@ -11,5 +13,5 @@
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-04T23:24:36Z"
+  "updated_at": "2026-06-04T23:24:52Z"
 }

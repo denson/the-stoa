@@ -3,7 +3,9 @@
   "blocked_by": [
     "stoa--xyb.12"
   ],
-  "blocks": [],
+  "blocks": [
+    "stoa--xyb.14"
+  ],
   "created": "2026-06-04T23:24:35Z",
   "description": "operating-disciplines.md prose debloat, second pass (grounded via the decision surface). (1) MERGE sections 1+2+3+5 into one anti-pattern-stance section; section 4 (passivity) stays STANDALONE -- most-violated rule, earns emphasis. (2) Trim: 8,15,24,26,27,31,34. (3) CUT 32 redundant stub (module already relocated; update 0.5 index + 3 CAPTAIN cross-refs). Lossless-on-canon. Depends on Arc A (both edit op-disc -- sequence to avoid conflict). Spec: docs/debloat-decisions.md.",
   "id": "stoa--xyb.13",
@@ -13,5 +15,5 @@
   "status": "open",
   "title": "Arc B: op-disc prose consolidation — four-stance merge + 7 trims + jsdom cut (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-04T23:24:51Z"
+  "updated_at": "2026-06-04T23:24:52Z"
 }
