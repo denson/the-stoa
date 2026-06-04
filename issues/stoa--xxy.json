@@ -10,11 +10,15 @@
     {
       "text": "RELATED FACET (Arc 5 PLINY cut, PR #28, 2026-05-23): sub-agent file-WRITE location hazard, same root cause as the receipt collision. ARGUS (a sub-agent) ran save-verdict and the file resolved to MAIN ROOT, not the arc worktree — because sub-agents inherit the PARENT session cwd (no per-subagent cwd override; cf. the subproject-Read finding). PLINY caught it and moved the verdict + receipt into the worktree pre-build. So save-verdict (and any sub-agent file write) has TWO hygiene problems: (1) filename collision across arcs [original finding], (2) write resolves to main root not the worktree [this facet]. A robust save-verdict should write to an explicit per-arc worktree path AND namespace per-arc. Both belong to the same hardening pass.",
       "timestamp": "2026-05-23T11:06:24Z"
+    },
+    {
+      "text": "[PLINY_the-stoa] Arc 56 started — bundled save-verdict/Windows cluster (wq0+xxy+7b1.2+7ap) in worktree .claude/worktrees/arc-56-build (branch arc-56/build). Directive committed. Gauntlet DAEDALUS→ARGUS→ADA→VERA→CATO→NOMOS→ZENO, autonomous-ship (bucket B). In-progress note for de-collision.",
+      "timestamp": "2026-06-04T05:14:13Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "save-verdict skill: receipt filename collision — generic names overwrite prior arcs' receipts; namespace per-arc/ticket",
   "type": "task",
-  "updated_at": "2026-06-04T05:13:07Z"
+  "updated_at": "2026-06-04T05:14:13Z"
 }
