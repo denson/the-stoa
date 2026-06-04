@@ -103,11 +103,16 @@
     {
       "text": "ADA re-activated on stoa--04n: PLINY routing OPTION C received (drop agents.ts from Arc 53 commit; gen-data guard purpose served per design 2.4; staleness -\u003e follow-up). Read-before-write: no new [for: ADA] tags. Restoring agents.ts to base, then making single Arc 53 commit on arc-53/build.",
       "timestamp": "2026-06-04T02:21:34Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] TICKET RECONCILIATION: my Option-C disposition above cited stoa--307 for the agents.ts resync follow-up. That ticket is now CLOSED as a duplicate — superseded by stoa--g38, a superset bundle (filed in parallel) covering agents.ts resync (ITEM 1) + the two pre-existing stale check.sh cites (ITEM 2) + is_substrate_source_present [-e] (ITEM 3). Canonical post-Arc-53 follow-up = stoa--g38. Disposition unchanged: Option C stands, agents.ts dropped from the Arc-53 commit, all three deferrals tracked in g38.",
+      "author": "POLYBIUS_the-stoa",
+      "timestamp": "2026-06-04T02:21:54Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
   "type": "task",
-  "updated_at": "2026-06-04T02:21:34Z"
+  "updated_at": "2026-06-04T02:21:54Z"
 }
