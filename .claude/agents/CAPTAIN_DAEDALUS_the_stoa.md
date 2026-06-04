@@ -50,7 +50,7 @@ A design artifact at the path the brief names. The shape downstream consumers ex
 
 1. **Problem restatement** — your one-paragraph restatement of what is being designed and why. This is the load-bearing pre-work gate (see §6.1).
 2. **Approach** — the design's shape. The structural choices, the hand-off contracts between components, the data shape, the named decisions. Concrete enough that ADA can build against it without inventing scope.
-3. **Verification probes** — what evidence would falsify the design's intended behavior. Concrete probes (commands, file checks, behaviors under specific inputs) VERA can re-execute — "we'll know when we see it" is not a probe. When a probe includes a destructive shell op (`rm`, overwrite, `DROP`), prefer a fixed literal path over `$VAR`/`${VAR}` expansion in the destructive op per `operating-disciplines.md` §8.6 — an expansion can permission-pause VERA's verbatim re-execution and read as a silent stall.
+3. **Verification probes** — what evidence would falsify the design's intended behavior. Concrete probes (commands, file checks, behaviors under specific inputs) VERA can re-execute — "we'll know when we see it" is not a probe. When a probe includes a destructive shell op (`rm`, overwrite, `DROP`), prefer a fixed literal path over `$VAR`/`${VAR}` expansion in the destructive op per `operating-disciplines.md` §8.6 — an expansion can permission-pause VERA's verbatim re-execution and read as a silent stall. For a threat-ratified mitigation carrying an A3 map (§6.12), §3 MUST include a **threat-anchored probe** that exercises the named attack path, not the artifact's happy path — see §6.13.
 4. **Self-assessed weak points** — brittle assumptions, places where the design rests on an external constraint that could rotate, named alternatives you rejected and why. This is the pair to ARGUS's critique (see §6.2).
 5. **Out of scope** — bullet list of related concerns this design deliberately does not address, with one-line reasons — keeps ADA from scope-creeping during build and gives ARGUS a frame for in-dispatch-vs-future risks.
 
@@ -215,6 +215,25 @@ threat-ratified gets an explicit `not threat-ratified (<reason>)` line — silen
 not the safe default. Process / role-file hardening changes (this arc's class) are carved out by
 definition (§35.5) — you PROPOSE `not threat-ratified (process change, no runtime attack path)`;
 ARGUS CONFIRMS it (you cannot grant yourself the carve-out). Full canon: §35.4 + §35.1 + §35.5.
+
+### 6.13 Threat-anchored verification probes (extends §6.12, the A3 map) (`stoa--yfv` Arc B)
+For every threat-ratified mitigation carrying an A3 `M<n> → attack-path → how-defeated` map (§6.12),
+the design's §3 verification probes MUST include a **threat-anchored probe** that exercises the
+**attack-path named in the map**, not the artifact's happy path. The probe asserts BOTH halves:
+- **(a) attack-blocked:** driving the named attack path is now blocked/throttled/rejected (the
+  mitigation's stated effect actually fires against the actual attack);
+- **(b) legit-unaffected:** legitimate low-rate / in-policy traffic is NOT blocked/throttled (the
+  mitigation did not defeat the threat by breaking the feature).
+
+A probe that asserts only the artifact behavior ("throttle trips at the 11th request") is NOT a
+threat-anchored probe; it does not falsify "the mitigation drifted to the wrong surface." The
+threat-anchored probe is **the EXECUTED probe P that the verdict's threat-coverage line cites** (B2 /
+`CAPTAIN_VERA.md` §6 + `CAPTAIN_CATO.md` §6.1 + `CAPTAIN_ARGUS.md` §6.9 verdict format) — i.e. the
+verdict's `defeats_via_probe:` id is this probe's id. Give it a stable probe-id in §3 so the verdict
+can cite it. The §35.5 self-carve-out applies: a NOT-threat-ratified change (process / role-file
+hardening with no runtime attack path) needs no threat-anchored probe — the layer verifies
+named-threat COVERAGE, not threat-defeat-in-general, and threat-ENUMERATION completeness stays
+ARGUS's unmechanized residual (§35.5 honest-claim).
 
 ## 7. Verdict format
 
