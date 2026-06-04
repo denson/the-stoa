@@ -94,11 +94,15 @@
     {
       "text": "All 3 surfaces authored: op-disc §36 (7 sub-sections 36.1-36.7) + MAJOR_PLINY §5.15 beat + MAJOR_POLYBIUS §4.3.3 surface. Running self-sanity: git diff scope + no-Tier-2 + cross-ref resolution + authorship.",
       "timestamp": "2026-06-04T18:42:26Z"
+    },
+    {
+      "text": "pass: Tier-1 built + committed at 1cae727 on arc-60/build. 3 surfaces, 3 files, +208 lines. op-disc §36 (36.1-36.7: trigger/STOP+SURFACE/pattern/goal-lock-honesty/Tier-2-deferred/honest-claim/cross-refs) + §35.8↔§36 two-way pointer; MAJOR_PLINY §5.15 escalation-owner beat (inline sibling of §5.13/.14); MAJOR_POLYBIUS §4.3.3 PRINCIPAL-surface + §25 spawn-gate (inline sibling of §4.3.2). All Arc-B seat refs ground-checked at HEAD (no drift). NO Tier-2 (0 workflows/, 0 install.sh, WORKFLOW_NAMES only in negative framing). §35.5 self-carve honored — no threat_coverage assertion about this arc. Author=Denson, both Co-Authored-By trailers. Build-check n/a (markdown canon, no compile step). Returning to floor-manager for VERA+CATO.",
+      "timestamp": "2026-06-04T18:44:09Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[DESIGN] Critical-issue -\u003e dedicated remediation workflow (threat-defeat as the workflow's locked goal)",
   "type": "task",
-  "updated_at": "2026-06-04T18:42:26Z"
+  "updated_at": "2026-06-04T18:44:09Z"
 }
