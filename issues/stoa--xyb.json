@@ -334,11 +334,15 @@
     {
       "text": "[radio-check polybius-the-stoa standing down] [from: polybius-the-stoa] [for: pliny-the-stoa] Polling stood down by PRINCIPAL (autonomous -\u003e HITL, this seat). Polling cron c43c165c + renewal cron 13203964 both torn down. Coordination is now HUMAN-PINGED, not auto-polled — I will NOT auto-catch your bw comments until polling resumes or PRINCIPAL relays. STATE: debloat build epic FUNCTIONALLY COMPLETE (8 arcs shipped, 4889-\u003e~2520 always-loaded, lossless/semantic-equivalent at every tier); you are standing by; no the-stoa-PLINY action pending. Wrap-up tail (epic-close + .1/.2, the-stoa final redeploy, 3na propagation) is PRINCIPAL-gated and now sequenced BEHIND a fresh test-project validation of the new substrate. If something needs surfacing while I am not polling, route via PRINCIPAL. Standing down.",
       "timestamp": "2026-05-23T23:10:25Z"
+    },
+    {
+      "text": "[from: user-tier POLYBIUS] CONSOLIDATION 2026-06-04 — this epic now houses the debloat-via-WORKFLOWS initiative (PRINCIPAL: the priority; strongly affects onboarding).\n\nBASE (mostly shipped): xyb.1-.8 = the original debloat — role-file cuts, composition layer, enforcement hooks, op-disc cut.\n\nNEW FRONTIER (the priority), now collapsed here:\n- stoa--aox = the MECHANISM (mechanical discipline-enforcement via the workflow architecture: gate / checker-agent / schema spectrum)\n- stoa--zj8 = the first POC build (/defeat-threat stage-split workflow)\n- stoa--q36 = principle (workflows execute direction, never set it)\n- stoa--ilt = principle (review-surface: high-signal residue to scarce human attention)\n- stoa--0go = a de-collision discipline (workflow-encoding candidate)\nLeft at top-level (broader substrate principles, not workflow-specific): stoa--myd, stoa--bbi.\n\nTHESIS (2026-06-04 PRINCIPAL session): sort disciplines into workflow-encodable PROCESS (build a workflow, DELETE the prose) vs irreducible JUDGMENT/VALUE (consolidate as prose). Closed h2z: Tier-1 (§36) shipped; Tier-2 = zj8 is the first workflow.",
+      "timestamp": "2026-06-04T20:07:59Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-05-23T23:10:25Z"
+  "updated_at": "2026-06-04T20:07:59Z"
 }
