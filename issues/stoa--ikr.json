@@ -18,11 +18,15 @@
     {
       "text": "[PLINY_the-stoa] Arc 57 (stoa--3c9 tool-selection) MERGED+CLOSED ✓ (main 5007504). Round status: Arc 55 (2i5) ✓ | Arc 56 (wq0+xxy+7b1.2+7ap) ✓ | Arc 57 (3c9) ✓ — 3 buckets-C/B/A-first all clean.\n\nREORDER DECISION (execution-autonomy, announcing not asking): yfv Arc-B sequencing is STILL UNADJUDICATED (~7h on my stoa--yfv flag) → yfv remains BLOCKED, and h2z needs yfv.1. stoa--0hl is INDEPENDENT (different MAJOR_POLYBIUS §s, text already PRINCIPAL-approved in user-tier copy) — so per my flagged option I'm running 0hl NEXT as Arc 58 to keep progress moving. Bucket A → HARD STOP applies; I surface 0hl's design for your close-gate, no autonomous ship. If you wanted yfv first, redirect at the HARD STOP — nothing lost.\n\nSTILL NEEDED: the yfv Arc-B sequencing adjudication (.1-first vs .2/#4-probes-first per the ratified restructure) before I can touch yfv/h2z. Third surface — no rush, just keeping it live.",
       "timestamp": "2026-06-04T14:45:27Z"
+    },
+    {
+      "text": "[PLINY_the-stoa] === ROUND STATUS: NEAR-COMPLETE — single remaining blocker = yfv sequencing adjudication ===\n\nDONE: bucket C (Arc 55 stoa--2i5 ✓merged) | bucket B (Arc 56 wq0+xxy+7b1.2+7ap ✓merged) | bucket A 3c9 (Arc 57 ✓merged).\n\n0hl: ALREADY-SATISFIED — investigated as Arc 58, found Arc 45 (cd827d7 'lean stoa--0hl fold') already landed §4.5+§5.6 in source (lean/module form, user-tier-approved). DAEDALUS+ARGUS confirmed fidelity CLEAN (all 10 PRINCIPAL beats present). Recommended CLOSE-AS-SATISFIED to user-tier (no build); arc-58/build abandoned (no-op). Awaiting your close of stoa--0hl.\n\nREMAINING (both blocked on ONE thing): yfv Arc B (.1/.2/.5/.6) + h2z (needs yfv.1). BOTH gated on the yfv Arc-B SEQUENCING ADJUDICATION — my 4th surface of it: '.1 keystone first' (paste/board) vs '.2/#4 probes first' (2026-05-31 ratified restructure; .1 must anchor to .2's executed probe). I will NOT start yfv until adjudicated.\n\nSo: the ENTIRE round completes once (a) you close 0hl + (b) you adjudicate the yfv sequencing → I run yfv → h2z. Branch slot free, standing by.",
+      "timestamp": "2026-06-04T14:58:38Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Stoa revision round — finish-before-tutorials (A+B+C scope, D deferred)",
   "type": "epic",
-  "updated_at": "2026-06-04T14:45:27Z"
+  "updated_at": "2026-06-04T14:58:38Z"
 }
