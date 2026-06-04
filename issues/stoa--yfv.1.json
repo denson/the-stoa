@@ -2,6 +2,7 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-04T17:47:44Z",
   "created": "2026-05-31T19:52:59Z",
   "description": "u--ith change #5 — the highest-leverage, mechanizable fix. Verdict format (ARGUS/VERA/CATO + save-verdict) MUST require, per threat-ratified mitigation, an explicit line: 'mitigation M defeats threat T via attack-path probe P.' A verdict cannot PASS a threat-mitigation without an affirmative threat-coverage line; ABSENCE of the line is itself a finding. This is the schema-forced verdict field (tier-iii) from stoa--aox: presence-of-line is tier-i deterministic (grep, free); substance (does M defeat T) is tier-ii judgment. Would have caught the origindex incident at VERA, not the close-gate.",
   "id": "stoa--yfv.1",
@@ -14,8 +15,8 @@
     }
   ],
   "priority": 2,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Verdict templates require a threat-coverage assertion (u--ith #5, keystone)",
   "type": "task",
-  "updated_at": "2026-06-04T15:05:17Z"
+  "updated_at": "2026-06-04T17:47:44Z"
 }
