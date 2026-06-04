@@ -78,11 +78,15 @@
     {
       "text": "VERA activated on Arc 56 (wq0+xxy+7b1.2+7ap). Read brief + design §4 probes + _save_verdict.py build. No VERA-tagged comments outstanding. Classifying P-wq0a/b, P-xxy1/2, P-7b1.2, P-7ap, P-wq0r3 per verification-complexity quadrant; refining into runnable git-bash commands. Autonomous mode.",
       "timestamp": "2026-06-04T05:37:57Z"
+    },
+    {
+      "text": "design probes absorbed; build read (py guard L305-318, SKILL.md auth-section L102-129, .gitignore, both modules, r1 role-paras). Quadrant classify: P-wq0a/b/xxy1/xxy2/7b1.2/wq0r3 = easy-easy (mechanical run+assert); P-7ap = hard-easy (doc-probe, discovery-then-grep). Probe set executing now against git-bash on Windows.",
+      "timestamp": "2026-06-04T05:38:42Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T05:37:57Z"
+  "updated_at": "2026-06-04T05:38:42Z"
 }
