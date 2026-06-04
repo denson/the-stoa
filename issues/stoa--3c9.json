@@ -84,11 +84,15 @@
     {
       "text": "Ground-check complete: NO line-cite drift. SKILL.md cites 37/170/186/200 all match live file exactly; MAJOR_POLYBIUS §19.3 (:560-568) + §3.5 (:67-75) insertion points confirmed; module glob-deploy confirmed (no install.sh edit); POLYBIUS_MODULES correctly excludes new module (un-owned). Writing module + POLYBIUS wiring now.",
       "timestamp": "2026-06-04T06:42:48Z"
+    },
+    {
+      "text": "Commit 1 landed (5f5885d): module + POLYBIUS §19.3.1 (POLYBIUS-SOLE, verified 0 PLINY in block) + §3.5 row. 119 insertions. Now editing composer SKILL.md (3 cross-refs + c1 cite fix).",
+      "timestamp": "2026-06-04T06:44:34Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[DESIGN] Team gains orchestration-tool-selection: make/when-recommend/how-run workflows as part of the repertoire",
   "type": "task",
-  "updated_at": "2026-06-04T06:42:48Z"
+  "updated_at": "2026-06-04T06:44:34Z"
 }
