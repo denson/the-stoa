@@ -56,11 +56,15 @@
     {
       "text": "RATIFY-WITH-CONDITIONS: 2 load-bearing risks to fold before ADA (r1 part-3 line-cite drift in design §3 GAP bullets; r2 PLINY co-applier seam under-named in §19.3.1). Un-owned-module deploy claim CONFIRMED true against install.sh Checks A/B/C/D (:1011-1056) + README §7. Threat carve-out CONFIRMED (§35.5). Taxonomy fidelity + N=1 honesty: clean. Writing verdict to disk + returning.",
       "timestamp": "2026-06-04T06:22:10Z"
+    },
+    {
+      "text": "VERDICT (ARGUS, persisted: agents/verdicts/stoa--3c9/ARGUS-2026-06-04T06-23-24Z.md):\nverdict: RATIFY-WITH-CONDITIONS\n6-item HARD-STOP read:\n(1) SPLIT: SOUND. CONDITIONAL module is the right channel; thin pointer earns its always-loaded place. RATIFY.\n(2) Subproject degradation: ACCEPTED-FORK is correct + consistent w/ README §7. Own-the-module costs a never-inline MODULE-INLINE body in POLYBIUS, inverting the FORM call. RATIFY default (un-owned).\n(3) Cost figures: RETAINED-WITH-HEDGES is more honest; relative ordering is the value; triple-hedged + P3 enforces. RATIFY.\n(4) POLYBIUS sole vs PLINY co-applier: THE ONE GENUINE FORK (r1). PLINY makes a HOW-structured sub-call + is a named co-orchestrator (modules/README:4). PRINCIPAL decides: name PLINY co-applier in §19.3.1, or POLYBIUS-sole stands. load_bearing: uncertain.\n(5) §3.5/§19.3.1 row dup: FINE, not a smell. NIT: new row is the first routing-map module entry w/ no relocation-index pair (correct per README §3 step 4; new canon). RATIFY.\n(6) Part-3 near-no-op: CONFIRMED. Items already in skill (Arc 53). Real work = 3 cross-ref updates + c1. RATIFY.\nLOAD-BEARING STRUCTURAL CLAIM (un-owned module → clean subproject recompose): CONFIRMED TRUE vs install.sh Checks A-E (:1011-1056) + README §7. The counter (owned-set-without-marker → abort) also verified (Check B/D :1054-1055 → exit 2).\nThreat carve-out: CONFIRMED (§35.5). Taxonomy fidelity + N=1 honesty: clean. Returning.",
+      "timestamp": "2026-06-04T06:23:37Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[DESIGN] Team gains orchestration-tool-selection: make/when-recommend/how-run workflows as part of the repertoire",
   "type": "task",
-  "updated_at": "2026-06-04T06:22:10Z"
+  "updated_at": "2026-06-04T06:23:37Z"
 }
