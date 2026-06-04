@@ -132,11 +132,15 @@
     {
       "text": "ZENO activated on stoa--3c9 (Arc 57). Reading directive + shipped artifact (module + MAJOR_POLYBIUS + composer SKILL.md) before extracting criteria.",
       "timestamp": "2026-06-04T06:57:34Z"
+    },
+    {
+      "text": "pass / SPEC-CONFORMANT: Arc 57 / stoa--3c9. All 8 criteria SATISFIED. Part-2 module exists + carries §3 taxonomy + §2 cost-calibration; §19.3.1 names POLYBIUS-SOLE (0 PLINY in block, r1 ratification held); 8 shapes + row-4 anti-workflow + row-8 cross-cut + attention column all present; N=1 triple-hedged + §6.7.1 framing present; module UN-owned (not in any *_MODULES set, no MODULE-INLINE markers, no install.sh edit, glob-deploys); composer 3 cross-refs point at canon module (draft-doc phrasing gone) + c1 = (MAJOR_POLYBIUS.md §18.2); CATO c1 fix held (module:8 cites §19.3 where verbatim lives). No drifts, no out-of-spec additions. Returning.",
+      "timestamp": "2026-06-04T06:58:15Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[DESIGN] Team gains orchestration-tool-selection: make/when-recommend/how-run workflows as part of the repertoire",
   "type": "task",
-  "updated_at": "2026-06-04T06:57:34Z"
+  "updated_at": "2026-06-04T06:58:15Z"
 }
