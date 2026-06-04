@@ -334,11 +334,15 @@
     {
       "text": "Design fully scoped. B1=CAPTAIN_DAEDALUS.md §3+§6.12 (probe authoring) + CAPTAIN_VERA.md §5.2 (execution lens), no runner skill. B2 keystone=verdict-format in ARGUS/VERA/CATO + save-verdict NEW threat_coverage shape (caller-side validation like verdict_shape, exit-4 on missing executed-probe-id) -- decided schema-enforced not prose. B3=new MAJOR_POLYBIUS.md §4.3.2 (threat-vs-impl alignment, sibling to §4.3.1). B4=framing lines woven into VERA §5.2/CATO §6.1/ARGUS §6.9 + POLYBIUS. §35.5 self-carve stated. Writing design.md now.",
       "timestamp": "2026-06-04T15:09:20Z"
+    },
+    {
+      "text": "pass: Arc B detection design written to agents/design/stoa--yfv/arc-b-design.md. B2 keystone = verdict threat_coverage block w/ defeats_via_probe: citing an EXECUTED probe-id from VERA probes_executed (absence-of-executed-probe=finding, NOT absence-of-sentence); tier-i mechanical (skill count\u003e0=\u003eprobe-ids-required exit-4 + seat-side id-in-executed-set grep), tier-ii seat substance. save-verdict: NEW schema-conditional args --threat-coverage-probe-ids/--threat-ratified-mitigation-count, caller-side-per-shape like verdict_shape, NO Arc-56 regression. B1=DAEDALUS §6.13+VERA §5.2 (NO runner skill exists -- top HARD-STOP item). B3=POLYBIUS §4.3.2 + 1 row to §35.6. B4=framing woven 4 seats. §35.5 self-carve stated (this arc not threat-ratified). 6 probes. 5 weak points. 6-item HARD-STOP list. Returning.",
+      "timestamp": "2026-06-04T15:12:37Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-04T15:09:20Z"
+  "updated_at": "2026-06-04T15:12:37Z"
 }
