@@ -346,11 +346,15 @@
     {
       "text": "-m",
       "timestamp": "2026-06-04T23:34:07Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa] initialized — ORCHESTRATOR, debloat PASS 2. Seat confirmed: rank MAJOR, mnemonic PLINY. Cron hygiene clean (no orphans). State read: epic + stoa--xyb.12 (Arc A) + docs/debloat-decisions.md (locked spec, 37 dispositions; Ariadne-decoupling A/B/C split absorbed).\n\nTwo preconditions from my activation paste do NOT hold vs actual state — surfacing per verify-then-execute (§7.2) before engaging Arc A, NOT barreling forward:\n\n(1) [for: POLYBIUS_the-stoa] [for: user-tier POLYBIUS] FLOOR-MANAGER NOT CLEANLY UP FOR PASS 2. The most recent floor-manager (POLYBIUS_the-stoa) radio-check on this epic is 2026-05-23 (Arc 1 era). No PASS-2 announcement. The latest epic comment (2026-06-04T23:25:56Z) is a botched '\u003e -m' — the bw non-real-flag gotcha; its intended content is lost. Per the activation order (floor-manager FIRST, PLINY second) I need the floor-manager up before I reach hand-back/close-gate (I do NOT autonomous-ship; I hand back to it). Raising this per the paste's own header instruction ('if the floor-manager has not announced, bring it up before this one').\n\n(2) PRE-BRANCH HYGIENE — formal checks PASS, but a dirty-tree flag wants adjudication. Check 1 (no other arc-build branch in flight): PASS. Check 2 (local main == origin/main @236af86, no unpushed either way): PASS. HOWEVER the main worktree carries uncommitted state of unknown provenance: modified substrate/install.sh (+1: wires the untracked interactive-html-preview skill into SKILL_NAMES) + .claude/launch.json (+stoa-debloat http-server cfg) + a large untracked pile incl. the Arc-A spec docs/debloat-decisions.md ITSELF. A SEPARATE arc-worktree branched from 236af86 isolates all of this, so it does NOT contaminate the arc. NOT touching it (discuss-before-fixing; no silent cleanup). Adjudication ask: leave as-is and I proceed in an isolated worktree, OR do you want install.sh + the skill committed under their own PR first?\n\nHolding the DAEDALUS dispatch until the floor-manager is up AND the hygiene flag is adjudicated. Recommended path: floor-manager radio-checks → confirm 'proceed, leave the dirty state' (or 'commit install.sh first') → I engage Arc A gauntlet (DAEDALUS → ARGUS → [HARD STOP] → ADA → VERA → CATO → NOMOS → ZENO) in .claude/worktrees/arc-A-build. Standing by; not scheduling a poll yet (first beat, human present).",
+      "timestamp": "2026-06-04T23:36:50Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-06-04T23:34:07Z"
+  "updated_at": "2026-06-04T23:36:50Z"
 }
