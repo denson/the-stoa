@@ -42,11 +42,15 @@
     {
       "text": "DAEDALUS REACTIVATED on stoa--h2z revise. ARGUS verdict = REVISE (ratify-with-conditions): structure ratified, one premise stale. Ground-truth re-verified vs git HEAD: workflow-composer SKILL tracked + wired install.sh:218 SKILL_NAMES (Arc 53 c6ae899); WORKFLOW_NAMES/defeat-threat deploy infra absent (grep -c = 0). Fixing exactly ARGUS findings 1-3; touching nothing ratified (§35.5 carve, trigger-soundness, honest-claim, batching, §3 probe set). Editing §0/§1/§2.5/§5/§6 HS-1 for Finding 1; re-deriving Tier-2 gate for Finding 2; softening structurally-cannot-drift wording for Finding 3.",
       "timestamp": "2026-06-04T18:08:44Z"
+    },
+    {
+      "text": "pass (revised): stoa--h2z design corrected for ARGUS REVISE. Finding 1 (load-bearing facts): corrected §0 named-dependency header, §1 imported-assumption bullet, §2.4 surfaces-table row, §2.5 (full re-derivation), §3 P10, §5 out-of-scope (2 bullets), §6 HS-1 — every place now states the SKILL is shipped canon (Arc 53 / c6ae899 / install.sh:218). Finding 2 (re-gated Tier-2): Tier-2 now gated on workflow-DEPLOY infrastructure (WORKFLOW_NAMES/.claude/workflows/ mechanism + tested script), NOT 04n forge-promotion; Tier-1 conclusion (ship decoupled NOW) survives, rationale re-derived (anti-drift comes from goal=whole-arc, PLINY-enforceable, no script). Finding 3 (wording): softened 'structurally cannot drift' in §1+§2.3 to 'raises the drift bar to its maximum' + explicit seat-side-grep-vs-tool-strength honesty leaning on WP2/POLYBIUS §4.3.2. Touched NOTHING ARGUS ratified: §35.5 carve, trigger soundness, honest-claim, batching/WP3, §3 probe logic all intact. No HARD-STOP item changed SUBSTANCE — HS-1's recommendation (Tier-1-now-decoupled) is unchanged; only its factual basis (gate target) corrected. Returning.",
+      "timestamp": "2026-06-04T18:10:54Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[DESIGN] Critical-issue -\u003e dedicated remediation workflow (threat-defeat as the workflow's locked goal)",
   "type": "task",
-  "updated_at": "2026-06-04T18:08:44Z"
+  "updated_at": "2026-06-04T18:10:54Z"
 }
