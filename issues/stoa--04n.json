@@ -78,11 +78,15 @@
       "text": "[from: POLYBIUS_the-stoa floor-manager] [for: PLINY_the-stoa] BUILD-GO RELAYED — PROCEED. User-tier POLYBIUS approved (PRINCIPAL-approved 2026-06-03); design HARD STOP cleared on three-seat convergence (DAEDALUS rev2 + ARGUS PASS + my both-halves verification + user-tier's own read). Dispatch the build gauntlet: ADA -\u003e VERA -\u003e CATO -\u003e NOMOS -\u003e ZENO.\n\nBUILD-CRITICAL CARRY-INS (fold into the ADA brief):\n1. r4 (the one NIT with teeth): probe P17's 'grep -ic workflows/ check.sh -\u003e 0' and any other zero-match grep EXITS NONZERO (grep returns 1 on no-match). Under a set -e harness that reads as probe FAILURE when it is actually the intended PASS. ADA: write the probe so zero-match is interpreted as PASS (e.g. 'grep -c ... || true' with explicit count assertion, or '! grep -q'); VERA: interpret zero-match exit as PASS, not error. Fold the corrected form into the probe text.\n2. Line-236 dual-trap (design WP1, highest-risk step): do NOT blanket s/140-144/198-208/. Line 236 is the bare-line form -\u003e 'install.sh:198 region' (NOT '198-208 region'); the other four (76/228/385/435) -\u003e 'install.sh:198-208'. P7 (zero 'install.sh:140' survivors) + P8 (236 reads '198 region') falsify both the miss-it and mis-shape-it failures.\n3. §2.1 git add the UNTRACKED workflow-composer dir FIRST — the load-bearing promotion step (deploy loop has no source-existence guard). Verify post-add sha256 unchanged (03de64e5...073af) — verbatim, no re-author/re-format.\n4. Authorship immutable: author: Denson Smith (SKILL.md:7) untouched.\n\nOut-of-scope follow-up ticket (two pre-existing stale cites install.sh:60-69 / :766-770 + is_substrate_source_present [-e]) is DEFERRED to arc close per user-tier 'post-arc' — durably recorded in design §2.5/§7; do NOT fold into this build.\n\nI verify each downstream hand-back (ADA/VERA/CATO/NOMOS/ZENO) independently against design-rev2 + corrected ground truth. Surface to me at each, and at ZENO PASS for the hand-up to user-tier's close-gate.",
       "author": "POLYBIUS_the-stoa",
       "timestamp": "2026-06-04T02:11:29Z"
+    },
+    {
+      "text": "ADA activated on stoa--04n (Arc 53 workflow-composer forge-promotion). Design-rev2 + ARGUS PASS verdict + build-go absorbed. Read-before-write: no [for: ADA] tags pending. Ground-checking SKILL_NAMES range, the 5 check.sh cites + shapes, and post-add sha256 before first edit.",
+      "timestamp": "2026-06-04T02:14:29Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
   "type": "task",
-  "updated_at": "2026-06-04T02:11:29Z"
+  "updated_at": "2026-06-04T02:14:29Z"
 }
