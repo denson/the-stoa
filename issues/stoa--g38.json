@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-04T04:04:10Z",
+  "close_reason": "All 3 items shipped: item-1 agents.ts resync (f948654, merged); items 2+3 check.sh cite re-anchor + [-e] guard (3709837). Verified bash-n OK + functional. Re-anchored cites are drift-proof (literal patterns).",
   "created": "2026-06-04T02:20:53Z",
   "description": "Bundle of pre-existing-drift follow-ups deferred from Arc 53 (workflow-composer forge-promotion, stoa--04n) per the fix-now scope-pollution carve-out. All endorsed post-arc by floor-manager POLYBIUS_the-stoa + user-tier POLYBIUS during the Arc-53 HARD STOP. NONE are Arc-53 regressions — all pre-date the arc; deferred to keep the Arc-53 diff scoped to its two halves (deploy wiring + skill currency).\n\nITEM 1 — generated agents.ts is stale (NEW finding, ADA Arc-53 build). The tracked app/src/data/generated/agents.ts carries only 1 of 9 skill records (just agent-author). It has not been regenerated since agent-author was the only skill — many arcs of skill-adds (check-substrate-updates, credential-discipline, check-bw-release, inspect-script-output, handoff-author, save-verdict, validate-spec) never resynced it. Running 'npm run gen-data' produces a +97/-13 full-file resync to 9 records. PLAN: post-Arc-53-merge, on main, run 'npm run gen-data' in app/ and commit the resulting app/src/data/generated/agents.ts as its own scoped commit ('chore: resync generated agents.ts to substrate truth (9 skill records)'). BLOCKER: none — just must land AFTER Arc 53 merges to avoid mixing scope. NEXT ACTION: gen-data + single-file commit.\n\nITEM 2 — two pre-existing stale check.sh cites (different drift class than Arc-53's install.sh:140 SKILL_NAMES cite). check.sh L462/858/1013 cite 'install.sh:60-69' (claims pair-programmer-MAJOR ambiguity; actual content there is skills/modules deploy prose) and 'install.sh:766-770' (claims prune logic; actual content is template-deploy echo — real prune logic lives ~install.sh:1394-1415). Both already wrong on main; NOT shifted-wrong by Arc 53's +1 SKILL_NAMES line. PLAN: re-derive the correct line ranges for the pair-programmer-ambiguity + prune-logic regions and correct the cites; consider the durable fix (anchor comments on literal patterns, not line ranges). NEXT ACTION: grep the actual regions, correct all 3 occurrences.\n\nITEM 3 — is_substrate_source_present skills-branch lacks an [ -e ] existence test (latent, rev1 ARGUS MINOR carried through rev2 §2.5/§7). Not load-bearing for any current arc. PLAN: add the existence test symmetric with other branches. NEXT ACTION: locate the skills branch in check.sh, add [ -e ] guard.\n\nCross-ref: stoa--04n (Arc 53), design-rev2 §2.5/§7, the Arc-53 ARGUS r3 finding.",
   "id": "stoa--g38",
@@ -13,8 +15,8 @@
     }
   ],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "Post-Arc-53 deploy-tooling hygiene: resync generated agents.ts + 2 pre-existing stale check.sh cites + is_substrate_source_present [-e] asymmetry",
   "type": "task",
-  "updated_at": "2026-06-04T02:33:11Z"
+  "updated_at": "2026-06-04T04:04:10Z"
 }
