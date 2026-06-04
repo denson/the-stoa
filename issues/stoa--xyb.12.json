@@ -9,9 +9,15 @@
   "id": "stoa--xyb.12",
   "labels": [],
   "parent": "stoa--xyb",
+  "comments": [
+    {
+      "text": "DAEDALUS activated on stoa--xyb.12 (Arc A Ariadne decoupling). Reading brief + spec ledger (docs/debloat-decisions.md) + the four loci + role file. autonomous mode.",
+      "timestamp": "2026-06-04T23:54:22Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-04T23:24:51Z"
+  "updated_at": "2026-06-04T23:54:22Z"
 }
