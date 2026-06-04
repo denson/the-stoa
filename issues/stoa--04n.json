@@ -188,11 +188,15 @@
     {
       "text": "All probes run. Ground truth confirmed: 0 install.sh:140 survivors, 5 install.sh:198 cites at 76/228/236/385/435 (line-236 bare form, four range form) = matches PLINY/ADA claims exactly; SKILL.md sha256 03de64e5...073af verbatim match; author: Denson Smith @ SKILL.md:7; Author=denson configured + ADA trailer; out-of-scope cites 60-69/766-770 UNTOUCHED; stoa--g38 carries all 4 deferrals, stoa--307 closed-as-dup. Drafting verdict: CONFORMANT.",
       "timestamp": "2026-06-04T02:35:01Z"
+    },
+    {
+      "text": "CONFORMANT: all 5 conformance checks PASS against bw+repo ground truth. Scope clean (exactly 4 paths, out-of-scope cites untouched, no WORKFLOW_NAMES/.claude/workflows infra); claim-vs-repo fidelity exact (5 cites at 76/228/236/385/435, 0 :140 survivors, sha 03de64e5...073af verbatim, author Denson Smith @ SKILL.md:7, Author=denson + ADA trailer); directive off-by-one (FOUR-\u003eFIVE) is a documented-intent-preserving correction not a defect; all 4 deferrals tracked in stoa--g38, stoa--307 closed-as-dup; locked decisions #1/#2/#3 all held. 0 DIVERGENT. Returning to PLINY.",
+      "timestamp": "2026-06-04T02:35:11Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
   "type": "task",
-  "updated_at": "2026-06-04T02:35:01Z"
+  "updated_at": "2026-06-04T02:35:11Z"
 }
