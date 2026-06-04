@@ -2,6 +2,7 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-04T19:10:42Z",
   "created": "2026-06-04T03:15:00Z",
   "description": "PRINCIPAL direction 2026-06-04: finish THIS round of substrate revisions BEFORE writing the Windows-tester tutorials (tutorials against a moving substrate would be stale). Scope LOCKED to A+B+C; D explicitly DEFERRED to standing backlog (not this round). Done-definition: every A+B+C ticket closed or has a concrete-plan ticket; substrate stable enough that a tutorial written against it stays accurate.\n\n== IN SCOPE ==\nA — SUBSTRATE-SHAPE (a tutorial must document these; sequence-critical):\n- stoa--3c9  tool-selection discipline (when-to-use-what) — the tutorial IS this; do EARLY\n- stoa--yfv epic: .1 verdict threat-coverage assertion (keystone) / .2 threat-anchored probes / .5 floor-manager+close-gate alignment / .6 culture — Arc B threat-defeat DETECTION\n- stoa--h2z  critical-issue -\u003e dedicated remediation workflow (needs 3c9 + yfv.1)\n- stoa--0hl  team-deploy procedure canon (§5.6) + §4.5 reconciliation — a stand-up-a-team tutorial must match this\n\nB — TESTER-FACING BUGS (block the handoff demo; Windows tester confirmed):\n- stoa--wq0  save-verdict Windows git-bash fail (heredoc/-tmp) — HARD blocker, hit during Arc 52\n- stoa--7ap  Windows worktree-remove orphan dir\n- stoa--7b1.2 save-verdict ships .gitignore (pycache)\n- stoa--xxy  save-verdict receipt filename collision\n- stoa--x4j  autonomous gauntlet silent-stall on permission prompt (the pre-allowlist fix is now documented in workflow-composer skill — verify/canonize)\n\nC — HYGIENE (clean snapshot before docs):\n- stoa--g38  Arc-53 deferred tail (agents.ts resync + 2 stale check.sh cites + [-e] asymmetry)\n- stoa--rwp  bw 0.13.1 upgrade\n- stoa--2i5  install.sh canonical .gitignore for transient paths\n\n== DEFERRED (NOT this round — standing backlog; tutorials coexist) ==\nD: stoa--xyb debloat epic (+.1/.2), stoa--3na (apply canon to other workspaces), stoa--sp1, stoa--tvc, stoa--vr1, stoa--e8m, stoa--7b1.3/.4/.5/.6/.7, accretions stoa--q36/ilt/aox/myd/bbi.\n\n== SUGGESTED SEQUENCE ==\n1. C hygiene first (g38/rwp/2i5) — cheap, clears the deck.\n2. A substrate-shape: 3c9 (tool-selection) -\u003e yfv Arc B (.1 keystone first) -\u003e h2z. Sequence-critical (h2z needs 3c9+yfv.1).\n3. B tester-bugs (the save-verdict cluster wq0/7b1.2/xxy can bundle; 7ap; x4j) — can run parallel to A since different surface.\nThen: substrate frozen -\u003e write tutorials.",
   "id": "stoa--ikr",
@@ -65,8 +66,8 @@
     }
   ],
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "[EPIC] Stoa revision round — finish-before-tutorials (A+B+C scope, D deferred)",
   "type": "epic",
-  "updated_at": "2026-06-04T18:33:23Z"
+  "updated_at": "2026-06-04T19:10:42Z"
 }
