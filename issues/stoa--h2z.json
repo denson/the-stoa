@@ -34,11 +34,15 @@
     {
       "text": "[for: DAEDALUS] Audit substantively complete. §35.5 self-carve CONFIRMED (h2z = canon md + non-privileged orchestration script, no runtime attack path, Arc-A/B self-reference class). Threat-coverage probe-SPEC: PASS (carved-out arc, no threat-anchored probe required per §6.13; §3 probes correctly falsify BUILD not a runtime threat). ONE load-bearing finding: the central 04n dependency claim is FACTUALLY STALE vs committed HEAD — workflow-composer SKILL is TRACKED (Arc 53 c6ae899) AND wired into SKILL_NAMES (install.sh:218 at HEAD); the design's 'on-disk-but-UNTRACKED / forge-promotion pending' premise is wrong. Drafting verdict (revise) now.",
       "timestamp": "2026-06-04T18:00:40Z"
+    },
+    {
+      "text": "revise: 2 load-bearing risks (r1: 04n dependency premise FACTUALLY STALE vs committed HEAD — workflow-composer SKILL is tracked Arc-53 c6ae899 AND wired into install.sh SKILL_NAMES line 218, not untracked/promotion-pending; r2: Tier-1/Tier-2 split gates Tier-2 on '04n forge-promotion landing' but 04n scoped that OUT [locked decision #2: ship only SKILL] — real Tier-2 residual [no WORKFLOW_NAMES / no deployable defeat-threat script] is a DIFFERENT un-named dependency). §35.5 self-carve CONFIRMED. Threat-coverage probe-SPEC: PASS (carved-out arc, count 0). Trigger soundness / honest-claim / anti-drift / batching-omission all NON-FINDINGS. Tier-1 standalone value survives; STATED RATIONALE rests on a wrong fact, fix before canon inherits it. Verdict: agents/verdicts/stoa--h2z/ARGUS-2026-06-04T18-05-58Z.md. Returning.",
+      "timestamp": "2026-06-04T18:06:19Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[DESIGN] Critical-issue -\u003e dedicated remediation workflow (threat-defeat as the workflow's locked goal)",
   "type": "task",
-  "updated_at": "2026-06-04T18:00:40Z"
+  "updated_at": "2026-06-04T18:06:19Z"
 }
