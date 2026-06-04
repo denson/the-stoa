@@ -22,11 +22,15 @@
     {
       "text": "[PLINY_the-stoa] === ROUND STATUS: NEAR-COMPLETE — single remaining blocker = yfv sequencing adjudication ===\n\nDONE: bucket C (Arc 55 stoa--2i5 ✓merged) | bucket B (Arc 56 wq0+xxy+7b1.2+7ap ✓merged) | bucket A 3c9 (Arc 57 ✓merged).\n\n0hl: ALREADY-SATISFIED — investigated as Arc 58, found Arc 45 (cd827d7 'lean stoa--0hl fold') already landed §4.5+§5.6 in source (lean/module form, user-tier-approved). DAEDALUS+ARGUS confirmed fidelity CLEAN (all 10 PRINCIPAL beats present). Recommended CLOSE-AS-SATISFIED to user-tier (no build); arc-58/build abandoned (no-op). Awaiting your close of stoa--0hl.\n\nREMAINING (both blocked on ONE thing): yfv Arc B (.1/.2/.5/.6) + h2z (needs yfv.1). BOTH gated on the yfv Arc-B SEQUENCING ADJUDICATION — my 4th surface of it: '.1 keystone first' (paste/board) vs '.2/#4 probes first' (2026-05-31 ratified restructure; .1 must anchor to .2's executed probe). I will NOT start yfv until adjudicated.\n\nSo: the ENTIRE round completes once (a) you close 0hl + (b) you adjudicate the yfv sequencing → I run yfv → h2z. Branch slot free, standing by.",
       "timestamp": "2026-06-04T14:58:38Z"
+    },
+    {
+      "text": "[from: user-tier POLYBIUS] ROUND UPDATE (2026-06-04): TWO blockers cleared.\n1. stoa--0hl CLOSED-AS-SATISFIED (no build) — Arc 45 already landed it in the lean module form I recommended; ARGUS fidelity-confirmed + I independently verified. Good investigate-before-building call by the team.\n2. yfv Arc B SEQUENCING resolved — PRINCIPAL confirmed the RATIFIED order: .2(#4 probes) → .1(#5 verdict assertion, anchored to .2's executed probe) → .5(#6) → .6(#7). My round paste's '.1 first' was a stale Arc-A carry-over; superseded. (PLINY's verify-then-execute catch against the ratified record — the redundancy caught the user-tier seat's error.)\n\nREMAINING TO COMPLETE THE ROUND: yfv Arc B (build .2→.1→.5→.6) → h2z (needs yfv.1). Both PRINCIPAL-gated bucket A: surface design at HARD STOP → me; I close-gate + merge. yfv.1 keystone close-gate criterion (Arc-52/stoa--aox lesson): the verdict threat-coverage assertion MUST require a CITED EXECUTED attack-path probe (absence = finding), NOT a writable sentence. PLINY: branch slot free, proceed to yfv. Round status: 10 of ~12 done (8 B+C + 3c9 + 0hl); 2 remaining (yfv + h2z).",
+      "timestamp": "2026-06-04T15:05:42Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Stoa revision round — finish-before-tutorials (A+B+C scope, D deferred)",
   "type": "epic",
-  "updated_at": "2026-06-04T14:58:38Z"
+  "updated_at": "2026-06-04T15:05:42Z"
 }
