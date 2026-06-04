@@ -42,11 +42,15 @@
     {
       "text": "VERDICT SAVED: agents/verdicts/stoa--2i5/ARGUS-2026-06-04T04-45-05Z.md (sha256 round-trip pass). verdict=revise (RATIFY-WITH-CONDITIONS). 1 load-bearing risk r1 (--help write-site = sed-scraped header block install.sh:3-108 via usage() :225; 'document in --help' must land inside that range or AC2/P4 fails). All other self-flagged weak points + insertion points + 3-tier DEST_DIR + W2 grounded as non-findings. Carve-out confirmed not-threat-ratified. ARGUS returning.",
       "timestamp": "2026-06-04T04:45:14Z"
+    },
+    {
+      "text": "[PLINY] ARGUS verdict: RATIFY-WITH-CONDITIONS. One load-bearing condition r1: --help doc text MUST land inside install.sh header comment block (lines 3-108) — usage() at :225 scrapes only that block. W2 resolved SAFE: .substrate-last-check written at .claude/.substrate-last-check (check.sh:678), so bare entry matches; no root-append, scope reduction confirmed correct. All other points ground-truth-confirmed. A1 beat: ARGUS confirmed §35.5 carve-out — process/hygiene, NO runtime attack path, NO threat-ratified mitigations to fold. r1 folded into ADA build brief. Dispatching ADA.",
+      "timestamp": "2026-06-04T04:46:00Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "install.sh canonical .gitignore management for substrate-generated transient paths (.claude/scheduled_tasks.lock + .claude/worktrees/ + .substrate-last-check)",
   "type": "task",
-  "updated_at": "2026-06-04T04:45:14Z"
+  "updated_at": "2026-06-04T04:46:00Z"
 }
