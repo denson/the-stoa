@@ -34,11 +34,15 @@
     {
       "text": "Beat-by-beat audit complete. Confirmed: §7.5 'never git checkout beadwork from main' rule present in source (MAJOR_POLYBIUS.md:238); zero in-file §5.6 dup in MAJOR_POLYBIUS.md (lives once in onboarding.md:205-218); user-tier-approval of lean/module form confirmed in 2026-05-23 bw comment. Finalizing verdict.",
       "timestamp": "2026-06-04T14:52:39Z"
+    },
+    {
+      "text": "pass / CLOSE-AS-SATISFIED-CONFIRMED: all 10 PRINCIPAL-approved beats PRESENT in source (lean fold from Arc 45 cd827d7). Fidelity CLEAN -- no dropped beat, no altered beat. 4.5 reconciliation MAJOR_POLYBIUS.md:152; 5.6 say-trigger procedure onboarding.md:205-218; 3.5 routing row :82; 7.5 'never git checkout beadwork from main' anchor RESOLVES at :238. Relocation-crossref: CLEAN (lean fold placed 5.6 inside onboarding.md so the 5-above/5.5 in-file refs resolve, avoiding the dangle a verbatim paste into the relocation-stub source would cause). No in-file 5.6 dup, no re-bloat. User-tier-approval of lean/module form CONFIRMED (2026-05-23 comment). Optional in-file-5.6 residual: ARGUS AGREES with DAEDALUS AGAINST it (re-bloat+dup; the only module-skipping readers, subproject orchestrators, already get it via install.sh MODULE-INLINE recompose). Carve-out (not-threat-ratified, process change) CONFIRMED. 0 load-bearing risks. Verdict on disk: agents/verdicts/stoa--0hl/ARGUS-2026-06-04T14-56-18Z.md (worktree). Returning.",
+      "timestamp": "2026-06-04T14:56:32Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Substrate canon: assemble team-deploy procedure (§5.6) + §4.5 two-mechanism reconciliation in MAJOR_POLYBIUS.md",
   "type": "task",
-  "updated_at": "2026-06-04T14:52:39Z"
+  "updated_at": "2026-06-04T14:56:32Z"
 }
