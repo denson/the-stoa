@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-04T02:20:02Z",
+  "description": "PRE-EXISTING DRIFT surfaced by Arc 53 ADA build (stoa--04n), NOT Arc-53-introduced. The tracked generated artifact app/src/data/generated/agents.ts on main was last regenerated 2026-05-02 (commit be88fe4, Arc 17.1). Since then 7+ skills were added to substrate/skills/ without a gen-data regen, so the tracked agents.ts carries only ~1 of 9 current skill records. Running 'npm run gen-data' produces a +97/-13 full-file resync sweeping in 7 out-of-scope skill records (agent-author already present; missing: check-substrate-updates, credential-discipline, check-bw-release, inspect-script-output, handoff-author, save-verdict, validate-spec — plus workflow-composer from Arc 53).\n\nWHY DEFERRED (not folded into Arc 53): per MAJOR_POLYBIUS.md §4.8 fix-now carve-out (b) — committing the full resync inside Arc 53 mixes scopes and actively harms CATO's cold-read scope review (the Arc-53 diff would be dominated by 7 unrelated skill records). Different drift class (same family as the pre-existing stale check.sh cites install.sh:60-69 / :766-770). Arc 53 takes Option C: gen-data ran as a frontmatter guard (exit 0 + workflow-composer validated + present per design §2.4); its generated agents.ts output is DROPPED from the Arc-53 commit, leaving main exactly as stale as before (no worse).\n\nCONCRETE PLAN (execute IMMEDIATELY after Arc 53 lands on main):\n1. On main (post-merge): run 'npm run gen-data' in app/.\n2. Review the full agents.ts delta — confirm all 9 skills + any agent/lieutenant record changes are correct truth-resyncs, no surprises.\n3. Commit the resync as its own scoped change (app/ generated-data resync). Note: app/ changes are arc-gated per project CLAUDE.md — confirm whether this warrants a light arc or qualifies as a generated-artifact regen housekeeping commit; route to user-tier POLYBIUS if unclear.\n4. Consider a guard so agents.ts staleness is caught earlier (e.g. a gen-data drift check) — candidate scope-expansion, decide at execution.\n\nCross-ref: stoa--04n (Arc 53, source of finding); design-rev2 §2.4/§2.5 (gen-data-as-guard framing + out-of-scope-cite sibling); the two pre-existing stale check.sh cites + is_substrate_source_present [-e] asymmetry (same candidate-follow-up cluster).",
+  "id": "stoa--307",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "Resync stale app/src/data/generated/agents.ts (1/9 skill records; last regen 2026-05-02 Arc 17.1)",
+  "type": "task",
+  "updated_at": "2026-06-04T02:20:02Z"
+}
