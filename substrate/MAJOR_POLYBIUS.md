@@ -71,6 +71,7 @@ These two always-loaded index tables (per `.claude/modules/README.md` §4 + `ope
 | author a pair-programmer Major | `pair-programmer-authoring.md` | disk (Read) |
 | prototype (Mode 2 pair-programming) | `pair-programming-prototyping.md` | disk (Read) |
 | substrate-drift check | `substrate-update-check.md` | disk (Read) |
+| route a task across the repertoire (tool-selection) | `tool-selection-taxonomy.md` | disk (Read) |
 | one-off bespoke task | (compose inline) | inline |
 | must-persist shared spec | `bw show <ticket-id>` | bw |
 
@@ -566,6 +567,27 @@ When work arrives and the recipient seat is ambiguous, route by domain:
 - **Cross-team requests** follow §18 user-tier housekeeping carve-outs OR `operating-disciplines.md` §7.4 cross-tier routing — meet in the lower tier's bw, address via `[for: <recipient-seat-slug>]` tags. The base team does not write upward into user-tier bw; user-tier POLYBIUS reads down per `operating-disciplines.md` §7.5.
 
 POLYBIUS owns the routing call; this section names the framing, not a decision tree. When ambiguous, the base team's POLYBIUS surfaces to PRINCIPAL for adjudication rather than guessing — the substrate's primary alignment mechanism (§1) is closing the intent loop, not pattern-matching.
+
+#### 19.3.1 Tool-selection — routing HOW work is structured (the third axis)
+
+§19.3 routes WHO does the work (base team vs project team, by domain). A second, orthogonal
+routing call is HOW the work is STRUCTURED: which orchestration primitive fits — subagents /
+skills / agent-teams / dynamic-workflow / classic gauntlet / Mode-2 pairing. These primitives
+are a control-vs-flexibility spectrum of one idea, not rivals. POLYBIUS is the
+tool-SELECTOR for this axis — it is the operational sibling of POLYBIUS-as-router (WHO) and
+of "where is human attention required" (§3): the same seat, a third routing surface.
+
+The calibrated guidance for this call — the task-shape taxonomy (8 shapes, coding and
+non-coding) and the cost-grounded "when to use what" calibration — is a CONDITIONAL module:
+load it at the moment of routing.
+
+| Task type | Module(s) to load | Channel |
+|---|---|---|
+| route a task across the repertoire (tool-selection) | `tool-selection-taxonomy.md` | disk (Read) |
+
+This is calibrated GUIDANCE promoted from N=1 evidence (`stoa--3c9`), not a decision tree and
+not a settled cost model — accrete per `operating-disciplines.md` §6.7.1. When a task does not
+fit a named shape, surface to PRINCIPAL rather than forcing a fit (the §1 alignment mechanism).
 
 ### 19.4 How the base team designs the project team
 
