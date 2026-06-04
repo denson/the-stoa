@@ -6,9 +6,15 @@
   "description": "PRINCIPAL idea (2026-06-01): when the gauntlet DETECTS a critical issue (esp. a security bug / named threat), STOP + SURFACE to PRINCIPAL, then generate a DEDICATED dynamic workflow whose single explicit goal is to DEFEAT THAT SPECIFIC THREAT — rather than patching it inline as a sub-item of a larger arc.\n\nWHY IT'S RIGHT (root-cause fit): origindex M2 failed because the security fix was a SUB-ITEM of a larger build (a ratification-grid bullet). Sub-goals drift — they compete with the 'real' deliverable, inherit the arc's framing, take the easier reading. Making threat-defeat the WHOLE GOAL of a dedicated workflow means it structurally cannot drift: the goal IS the threat, no larger deliverable to hide behind.\n\nUNIFIES TONIGHT'S THREADS:\n- Detection (Arc B / stoa--yfv .1/.2/.5/.6) = the TRIGGER (a named threat surfaced / a threat-coverage assertion failed).\n- Dynamic workflows (stoa--04n workflow-composer) = the VEHICLE (goal-locked single-purpose orchestration).\n- Threat-coverage assertion (stoa--yfv.1) = the workflow's SUCCESS CRITERION (passes ONLY if an EXECUTED probe drives the real attack path to blocked).\n- 'Direction is scarce' thesis = the escalation logic (a security bug is a load-bearing human-attention moment; human confirms direction, agents execute remediation with goal locked).\n- Closes external-review MAJOR-1 (false-confidence): goal=threat-defeat + pass-criterion=executed-attack-path-probe (not a writable sentence) means remediation can't pass on a plausible-but-false assertion.\n\nWORKFLOW SHAPE (writes itself from shipped Arc A + Arc B disciplines): goal=block M\u003cn\u003e attack path. STRABO(map threat surface) -\u003e DAEDALUS(mitigation + mandatory threat-\u003emitigation map per op-disc §35.4) -\u003e ARGUS(audit: does design defeat T?) -\u003e HARD STOP -\u003e ADA(build) -\u003e VERA(threat-anchored probe, exercise the ACTUAL attack path per stoa--yfv.2) -\u003e verdict MUST carry 'M defeats T via probe P' or structural FAIL (stoa--yfv.1).\n\nTHE HARD DESIGN QUESTION = trigger criteria (what's 'critical enough' to stop-the-world). HOOK: reuse Arc A's named-threat classification (op-disc §35.1, M\u003cn\u003e, ARGUS-confirmed, non-self-exemptable) — NOT a new fuzzy 'is this critical?' judgment. Trigger = a named threat surfaced-but-not-yet-defeated -\u003e stop + surface + offer the remediation workflow.\n\nPOSITION: reframes Arc B (detection becomes 'detect -\u003e escalate to remediation workflow', not just 'add inline checks'); bridges Arc B + stoa--04n (workflow-composer) + stoa--aox (discipline-enforcement). N=0 (design idea, not yet decided). Decide: fold into Arc B scope, or its own arc after stoa--04n lands the workflow-composer.",
   "id": "stoa--h2z",
   "labels": [],
+  "comments": [
+    {
+      "text": "DAEDALUS activated on stoa--h2z. Reading brief + shipped substrate (op-disc §35, VERA/CATO/ARGUS/POLYBIUS Arc-B sections, my own §6.13) + workflow-composer (04n design-rev2 + SKILL). Restatement-gate next.",
+      "timestamp": "2026-06-04T17:54:00Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "[DESIGN] Critical-issue -\u003e dedicated remediation workflow (threat-defeat as the workflow's locked goal)",
   "type": "task",
-  "updated_at": "2026-06-04T01:23:55Z"
+  "updated_at": "2026-06-04T17:54:00Z"
 }
