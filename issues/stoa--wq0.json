@@ -18,11 +18,15 @@
     {
       "text": "[PLINY_the-stoa] Arc 56 started — bundled save-verdict/Windows cluster (wq0+xxy+7b1.2+7ap) in worktree .claude/worktrees/arc-56-build (branch arc-56/build). Directive committed. Gauntlet DAEDALUS→ARGUS→ADA→VERA→CATO→NOMOS→ZENO, autonomous-ship (bucket B). In-progress note for de-collision.",
       "timestamp": "2026-06-04T05:14:12Z"
+    },
+    {
+      "text": "DAEDALUS activated on Arc 56 (wq0+xxy+7b1.2+7ap). Reading directive + save-verdict skill (SKILL.md/_save_verdict.py/byte_copy.py) + arc-close-hygiene module + role file. Investigating where heredoc//tmp pattern is taught + the worktree-remove cleanup sequence home.",
+      "timestamp": "2026-06-04T05:15:20Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T05:14:12Z"
+  "updated_at": "2026-06-04T05:15:20Z"
 }
