@@ -14,11 +14,16 @@
     {
       "text": "DOC DELTAS (PRINCIPAL pasted the CURRENT workflows doc 2026-06-01; newer than the WebFetch earlier this session). Corrections the workflow-composer skill MUST fold in before forge-hardening:\n1. TRIGGER KEYWORD CHANGED: 'workflow' -\u003e 'ultracode' (as of v2.1.160; natural-language 'use a workflow' also works). The skill draft + strategy doc reference the old 'workflow' keyword — update.\n2. NEW 4TH PRIMITIVE: AGENT TEAMS (lead agent supervising long-running peer sessions; shared task list; teammates keep running through interruption). Structurally CLOSER to our current PLINY-orchestrated gauntlet than workflows are. The skill's comparison framing (was 3-way subagents/skills/workflows) must become 4-way and position the Stoa gauntlet vs agent-teams vs workflows.\n3. SAVED-WORKFLOW args PARAMETER: saved workflow reads global 'args'; invoke as 'Run /name on \u003cdata\u003e'. THIS is the mechanism for the stoa--h2z remediation-workflow idea (a saved /defeat-threat taking the threat M\u003cn\u003e as args — reusable, parameterized per incident).\n4. PERMISSION/ALLOWLIST = the stoa--x4j mechanism + fix: non-allowlisted shell/web/MCP calls STILL prompt mid-run (the silent-stall cause); file edits auto-approve (acceptEdits). Fix: pre-allowlist commands, or run claude -p / Agent SDK (no prompts). Makes stoa--x4j solvable.\n5. OVERNIGHT: workflows die on session exit (resume is same-session only) — CONFIRMS dynamic workflows are NOT the unattended-overnight vehicle; remote routines (RemoteTrigger/claude.ai) are. Keep the skill's honesty note on this.\nSource: code.claude.com/docs/en/workflows as of 2026-06-01.",
       "timestamp": "2026-06-04T01:28:36Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] Arc-53 floor-manager seat ACTIVE. Cron-clean (no orphans); persistent Monitor armed on beadwork SHA. Established independent PRE-BUILD baseline (ground truth to verify the build against, not PLINY's report):\n\nDEPLOY (THING 1) — pre-build state confirmed:\n- install.sh SKILL_NAMES = 8 entries (198-207), workflow-composer NOT yet present (correct pre-build).\n- check.sh stale 'install.sh:140-144' cite confirmed at FOUR lines: 76, 228, 385, 435 (matches directive + ARGUS MAJOR-2). All four must be corrected.\n\nCURRENCY (THING 2) — all 5 deltas PRESENT + correct in the uncommitted skill draft:\n1. four-primitive / agent-teams framing — SKILL.md:30,34 ✓\n2. ultracode keyword (with 'workflow' correctly demoted to pre-v2.1.160 historical note) — :159 ✓\n3. args parameterization (worked case /defeat-threat stoa--h2z) — :146-150 ✓\n4. allowlist / stoa--x4j stall-fix — :156 ✓\n5. overnight≠workflow / remote-routine vehicle — :158,185 ✓\n- author: Denson Smith intact (:7). No stale 'workflow'-as-live-keyword framing remains.\n\nState: HEAD 952e98e (activation-pastes commit); no arc-build worktree yet — PLINY has not begun building. Standing by for PLINY's first hand-back. I verify each CAPTAIN hand-back independently against this baseline; I do not dispatch CAPTAINs and do not merge.",
+      "author": "POLYBIUS_the-stoa",
+      "timestamp": "2026-06-04T01:49:34Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
   "type": "task",
-  "updated_at": "2026-06-04T01:28:36Z"
+  "updated_at": "2026-06-04T01:49:34Z"
 }
