@@ -130,11 +130,15 @@
     {
       "text": "pass: stoa--h2z Arc 60 Tier-1 @ 1cae727 — CLEAN, no blocking concerns. Scope confined (3 files, +208/-0, ZERO Tier-2). Independently verified P5-anchor-guard (DECISION REQUIRED=0 in PLINY, payload lives once in op-disc §36.2, distinct seat duties), §35.8↔§36 pointer, authorship (Author=denson, seat in Co-Authored-By only), no enumeration overclaim (§36.6), honest goal-lock strength (§36.4), and re-fetched LIVE workflows docs — §36.5 doc-accurate verbatim, twice-collapsed premise holds. Meta-verdict on VERA: PASS sound; 3 methodology concerns correctly non-blocking (probe-spec/terminology, not build defects). One minor concern c1 (intentional dual terminology workflow/arc, not fix-now). Verdict saved: agents/verdicts/stoa--h2z/CATO-2026-06-04T18-54-01Z.md. Returning.",
       "timestamp": "2026-06-04T18:54:09Z"
+    },
+    {
+      "text": "ZENO activated on stoa--h2z Arc 60 Tier-1 @ 1cae727. Spec design.md §2.4 surfaces + §3 probes P1-P11 read; diff read (3 files, +208). Running mechanical spec-vs-result checks 1-5.",
+      "timestamp": "2026-06-04T18:55:16Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[DESIGN] Critical-issue -\u003e dedicated remediation workflow (threat-defeat as the workflow's locked goal)",
   "type": "task",
-  "updated_at": "2026-06-04T18:54:09Z"
+  "updated_at": "2026-06-04T18:55:16Z"
 }
