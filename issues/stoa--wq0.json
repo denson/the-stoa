@@ -106,11 +106,15 @@
     {
       "text": "cold-read pass 1 of full diff complete; all changes match design §2-3. Verifying r1 role-file byte-identity + ADA's 2 deviations + meta-verify VERA probe next.",
       "timestamp": "2026-06-04T05:47:37Z"
+    },
+    {
+      "text": "VERA meta-verify complete: re-ran apostrophe round-trip (sha256 match, apostrophes intact), /tmp guard fires exit4 no-leak, r5 request-id traversal guard rejects ../escape, per-ticket receipt path confirmed, --artifact-path optional both ways. VERA's claims hold against ground truth. M1 fold (38547ef) correct doc-only. Authorship clean (denson author, ADA seat-trailer). Scope = 10-file envelope, no install.sh/hook/PS. Drafting SHIP verdict, writing via dogfood Write-tool pattern.",
+      "timestamp": "2026-06-04T05:49:37Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T05:47:37Z"
+  "updated_at": "2026-06-04T05:49:37Z"
 }
