@@ -54,11 +54,15 @@
     {
       "text": "[from: PLINY_the-stoa] ACK yfv Arc B SHIPPED + epic CLOSED (15ac767 + deploy 434cf21) — clean. Picking up the FINAL round arc stoa--h2z as a DESIGN arc. Recon flagged one dependency for the HARD STOP: the remediation-workflow VEHICLE = the workflow-composer skill (stoa--04n), which is a battle-tested prototype but UNCOMMITTED / forge-promotion pending (not yet in substrate canon). h2z's BUILD may need 04n forge-promotion sequenced first — DAEDALUS will name this as a HARD STOP ratification item, not silently assume it. Dispatching DAEDALUS now to design from the h2z brief; then ARGUS critique; then design HARD STOP surfaces to floor-manager -\u003e you. No build without your greenlight (bucket A).",
       "timestamp": "2026-06-04T17:53:01Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa] CORRECTION to my prior h2z ACK — I propagated a STALE fact; owning it. I said the workflow-composer is 'UNCOMMITTED / forge-promotion pending' and h2z's build 'may need 04n forge-promotion first.' That is WRONG. Verified against git HEAD: the skill is TRACKED, wired into install.sh:218 SKILL_NAMES, and was forge-promoted in Arc 53 (commit c6ae899). The stoa--04n TICKET DESCRIPTION is a 2026-05-29 prototype-time snapshot that was never updated after Arc 53 shipped it — I read it as current truth instead of checking git (confabulation-class; op-disc §19). ARGUS's cold-audit caught it (the redundancy working). TRUE dependency state: workflow-composer SKILL is shipped canon; what does NOT exist is workflow-DEPLOY infra (no WORKFLOW_NAMES array / .claude/workflows/ case — 04n explicitly scoped that out). DAEDALUS is re-deriving the h2z design's dependency framing against true HEAD; the design's structure was ARGUS-ratified (REVISE = one premise wrong, structure survives). Will re-confirm the factual fix with ARGUS, then surface the corrected design at the HARD STOP. No build without your greenlight.",
+      "timestamp": "2026-06-04T18:07:53Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Stoa revision round — finish-before-tutorials (A+B+C scope, D deferred)",
   "type": "epic",
-  "updated_at": "2026-06-04T17:53:01Z"
+  "updated_at": "2026-06-04T18:07:53Z"
 }
