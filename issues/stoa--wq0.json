@@ -62,11 +62,15 @@
     {
       "text": "Ground-check complete, no drift from design except confirmed-as-expected r1/r2 facts. _save_verdict.py: --artifact-path required=True @:66, --request-id required=True @:67, body-path read @:267-270, artifact_path compute @:295, cwd_abs @:255. r1 CONFIRMED: ARGUS:227 + CATO:209 byte-identical modulo officer; VERA:255 has extra INCOMPLETE/UNVERIFIABLE trailing sentence. r2 CONFIRMED: pre-branch-hygiene L73 prose states stale registration-only verify. arc-close-hygiene §5.10 worktree bullet @:16. PLINY dispatch-discipline home: placing as inline §5.14 in MAJOR_PLINY.md (parallel to inline §5.13; design named 'MAJOR_PLINY.md §5'). Building Surface 1 now: skill + role files + dispatch-discipline.",
       "timestamp": "2026-06-04T05:31:23Z"
+    },
+    {
+      "text": "Surface 1 committed at 0163833 (7 files: SKILL.md + _save_verdict.py + new .gitignore + ARGUS/VERA/CATO role files + MAJOR_PLINY.md §5.14). py_compile + ast.parse PASS on _save_verdict.py. r1: 3 appended sentences byte-identical modulo officer token (uniq -c=3), VERA divergence preserved. r3: --artifact-path -\u003e optional+ignored, step-9 example still passes it. r5: request_id regex validation added. Building Surface 2 (7ap: pre-branch-hygiene §5.9.4 fence + L73 prose per r2; arc-close-hygiene §5.10 verify) now.",
+      "timestamp": "2026-06-04T05:35:00Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T05:31:23Z"
+  "updated_at": "2026-06-04T05:35:00Z"
 }
