@@ -6,9 +6,10 @@
   "description": "DISCIPLINE-ACCRETION (post-round / D-bucket — NOT this round's scope). From the Arc-57 r1 race (2026-06-04): the floor-manager had an OPEN PRINCIPAL question on r1 (its framing, awaiting PRINCIPAL-in-its-session); user-tier adjudicated r1 = POLYBIUS-SOLE + built/merged 3c9 in parallel before that answer landed. Outcome was correct (POLYBIUS-SOLE confirmed once the axis-vs-execution distinction surfaced), but the parallel adjudication racing an open PRINCIPAL question was avoidable.\n\nLESSON / PROPOSED CANON: when a floor-manager flags (via a de-collision note) that it has an OPEN PRINCIPAL question on a specific item, user-tier should HOLD that specific item until the floor-manager's PRINCIPAL answer lands, rather than adjudicating it in parallel. Prevents two PRINCIPAL-answer tracks on the same question. Small edit to the de-collision protocol (MAJOR_POLYBIUS de-collision §ref + the floor-manager paste pattern).\n\nSEQUENCING: deferred — substrate-canon edit, runs as a future small arc after the current round + its fast-follows. Cross-ref: stoa--3c9 (the race), stoa--ikr (round).",
   "id": "stoa--0go",
   "labels": [],
+  "parent": "stoa--xyb",
   "priority": 3,
   "status": "open",
   "title": "De-collision refinement: user-tier holds an item when floor-manager has an OPEN PRINCIPAL question on it",
   "type": "task",
-  "updated_at": "2026-06-04T16:20:14Z"
+  "updated_at": "2026-06-04T20:06:03Z"
 }
