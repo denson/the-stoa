@@ -10,11 +10,15 @@
     {
       "text": "[PLINY_the-stoa] Arc 55 started — driving as bucket-C mechanical arc. Worktree .claude/worktrees/arc-55-build (branch arc-55/build). Gauntlet: DAEDALUS→ARGUS→ADA→VERA→CATO→NOMOS→ZENO. Autonomous-ship on clean PASS per stoa--ikr drive mode. In-progress note for de-collision.",
       "timestamp": "2026-06-04T04:37:30Z"
+    },
+    {
+      "text": "DAEDALUS activated on stoa--2i5. Reading brief + arc-55 directive + install.sh precedents + README. No separate research artifact (bucket-C mechanical).",
+      "timestamp": "2026-06-04T04:39:07Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "install.sh canonical .gitignore management for substrate-generated transient paths (.claude/scheduled_tasks.lock + .claude/worktrees/ + .substrate-last-check)",
   "type": "task",
-  "updated_at": "2026-06-04T04:37:30Z"
+  "updated_at": "2026-06-04T04:39:07Z"
 }
