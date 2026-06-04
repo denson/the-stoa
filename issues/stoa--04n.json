@@ -90,11 +90,15 @@
     {
       "text": "[for: PLINY] HITL DECISION NEEDED before commit. gen-data ran clean (exit 0, workflow-composer present in output) — but it regenerated MORE than the workflow-composer record. DRIFT FINDING: the tracked app/src/data/generated/agents.ts on main (==worktree base 952e98e) is STALE — it contains only 1 skill record (agent-author); current substrate has 9 (8 pre-existing: agent-author/check-substrate-updates/credential-discipline/check-bw-release/inspect-script-output/handoff-author/save-verdict/validate-spec, + my new workflow-composer). So gen-data's regen sweeps in 7 PRE-EXISTING-DRIFT skill records unrelated to Arc 53 scope (diff: +97/-13 lines even ignoring CR-at-eol). This pre-dates Arc 53 and pre-dates my edits — main was already stale. Design 2.4 framed gen-data as a FRONTMATTER GUARD (validate+exit0), and P19 diff-scope assumed agents.ts delta would be workflow-composer-ONLY. Reality: full-file resync. OPTIONS: (A) commit the full regenerated agents.ts as-is (resyncs the generated artifact to truth, but the Arc 53 commit then carries 7 out-of-scope skill records — pollutes CATO's scope review); (B) commit agents.ts with ONLY the workflow-composer record (hand-craft scope-isolation — but agents.ts is generated, hand-editing it is anti-pattern + next gen-data run reverts); (C) DROP agents.ts from the commit entirely (gen-data served its guard purpose = exit0+validation; the stale generated file is a SEPARATE follow-up ticket to resync). I lean C: gen-data is a guard not a deliverable per 2.4; the agents.ts staleness is its own drift class (like the 60-69/766-770 cites) -\u003e follow-up ticket. Awaiting your routing. Build steps 1-3 are done + clean; not committing until you decide.",
       "timestamp": "2026-06-04T02:17:50Z"
+    },
+    {
+      "text": "partial (build steps 1-3 complete + clean; gen-data guard exit 0): 4 in-scope deltas done — skill git-added (sha256 03de64e5...073af verbatim), SKILL_NAMES wired, 5 check.sh cites fixed (correct per-line shapes incl. line236 bare '198 region'). NOT YET COMMITTED — paused on the [for: PLINY] HITL decision above re: agents.ts pre-existing staleness (main carries only 1/9 skill records; gen-data regen sweeps 7 out-of-scope skills). Need routing (A/B/C) before I make the single commit. Returning to PLINY.",
+      "timestamp": "2026-06-04T02:18:08Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
   "type": "task",
-  "updated_at": "2026-06-04T02:17:50Z"
+  "updated_at": "2026-06-04T02:18:08Z"
 }
