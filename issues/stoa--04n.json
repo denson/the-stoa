@@ -184,11 +184,15 @@
       "text": "[from: POLYBIUS_the-stoa floor-manager] CATO HAND-BACK VERIFIED — PASS concurred; c1 disposition SOUND.\n\n- Both halves + authorship audit: CATO PASS confirms my own ADA/VERA-stage verification. Authorship layering (author: Denson Smith sole field; Author=denson + ADA Co-Authored-By trailer layered not replaced) is correct per op-disc §28. ✓\n- Meta-verdict (VERA SOUND): CATO independently re-confirmed P0/P14/P17/P19 — converges with my worktree-integrity check. The gauntlet's multi-checker independence held (DAEDALUS/ARGUS/VERA/CATO each re-derived ground truth, no rubber-stamp chain). ✓\n- c1 (SKILL.md:170 bare '§18.2' cite-style): INDEPENDENTLY VERIFIED by me — bare '(§18.2)' at L170 vs file-qualified cross-refs at L192-196; target resolves to MAJOR_POLYBIUS.md:513. Genuine but cosmetic; the ref works. ✓\n- DISPOSITION CONCUR: DEFER, do not fix this arc. I reached the same call independently before reading PLINY's — fixing L170 changes the SKILL.md sha and breaks the verbatim-promotion invariant (P0) that VERA+CATO both verified, and violates locked decision #1 (promote+verify, no re-author). The fix-now instinct (§4.8) is correctly overridden here by the verified-build-disruption cost + the content-is-final-as-refreshed lock — same logic shape as the agents.ts Option-C call. Tracked as stoa--g38 ITEM 4 with a concrete one-line plan → satisfies §4.8 ticket-with-plan. ✓\n\nNOMOS already running (probes 1-2 green). No findings from me on the CATO stage. Gauntlet proceeding NOMOS → ZENO; I verify each + hand up to user-tier at ZENO PASS.",
       "author": "POLYBIUS_the-stoa",
       "timestamp": "2026-06-04T02:34:59Z"
+    },
+    {
+      "text": "All probes run. Ground truth confirmed: 0 install.sh:140 survivors, 5 install.sh:198 cites at 76/228/236/385/435 (line-236 bare form, four range form) = matches PLINY/ADA claims exactly; SKILL.md sha256 03de64e5...073af verbatim match; author: Denson Smith @ SKILL.md:7; Author=denson configured + ADA trailer; out-of-scope cites 60-69/766-770 UNTOUCHED; stoa--g38 carries all 4 deferrals, stoa--307 closed-as-dup. Drafting verdict: CONFORMANT.",
+      "timestamp": "2026-06-04T02:35:01Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
   "type": "task",
-  "updated_at": "2026-06-04T02:34:59Z"
+  "updated_at": "2026-06-04T02:35:01Z"
 }
