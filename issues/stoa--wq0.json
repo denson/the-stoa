@@ -26,11 +26,15 @@
     {
       "text": "Investigations grounded. Key reframes vs directive ground-truth: (1) 7b1.2 — source tree has NO committed pycache (git ls-files clean); repo-root .gitignore already covers pycache (Arc39) + deployed .claude/.gitignore covers consumer-runtime (Arc55). Skill-local .gitignore is defense-in-depth/vendoring only — surfacing as judgment call. (2) 7ap — worktree-remove cleanup SEQUENCE lives in pre-branch-hygiene.md §5.9.4 (lines 65-73), NOT arc-close-hygiene §5.10 (which is verify-before-claim). Retry/rm-orphan belongs in §5.9.4; §5.10 verify hardens to assert dir-gone. Splitting the 7ap fix across both. (3) wq0 — heredoc//tmp pattern is NOT taught in role files; it's emergent (SKILL.md step-9 shows --body-path consumption but never how body file is created). Drafting design now.",
       "timestamp": "2026-06-04T05:16:21Z"
+    },
+    {
+      "text": "All four tickets grounded incl. live receipt-collision evidence (flat caller-named .txt in agents/save-verdict/, e.g. argus-rev2-reconfirm.txt) + Arc-55 verdict-split (verdicts in both main + worktree trees) + web-confirmed 7ap root cause (Windows file-lock on worktree dir from a process cwd'd inside / MCP holding handle; claude-code #41740, #32747). Writing design.md now.",
+      "timestamp": "2026-06-04T05:16:58Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T05:16:21Z"
+  "updated_at": "2026-06-04T05:16:58Z"
 }
