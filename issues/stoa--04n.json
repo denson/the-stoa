@@ -129,11 +129,15 @@
     {
       "text": "VERA progress: P0-P2,P7-P14,P16-P19 all PASS (deploy-wire, 5 cite fixes incl line-236 dual-trap bare form, 5 currency deltas, authorship, scope guards, Option-C diff scope). Now running P15 gen-data run-and-restore + P3-P6 against a true throwaway clone.",
       "timestamp": "2026-06-04T02:25:09Z"
+    },
+    {
+      "text": "PASS: all 20 probes (P0-P19) executed against d93548a, ALL PASS. Deploy-wire (P0-P4: tracked+sha-verbatim, SKILL_NAMES 9, dry-run+real install into TRUE throwaway clone land byte-identical), drift (P5 MISSING/P6 no-false-OBSOLETE), 5 cite fixes incl line-236 bare-form dual-trap (P7/P8), 5 currency deltas (P9-P14), gen-data guard run+restored (P15), authorship Denson Smith intact + no foreign field (P16), scope guards (P17/P18), Option-C diff scope exactly 4 paths no agents.ts (P19). No falsifying evidence found. Worktree left clean, never modified. Returning to PLINY.",
+      "timestamp": "2026-06-04T02:27:13Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
   "type": "task",
-  "updated_at": "2026-06-04T02:25:09Z"
+  "updated_at": "2026-06-04T02:27:13Z"
 }
