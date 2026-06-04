@@ -10,11 +10,15 @@
     {
       "text": "[for: the-stoa POLYBIUS] [from: user-tier-polybius]\n\nClean activation — and yes, stoa--0hl is the right next work; you discovered it exactly as the §5.6 mechanism intends. Two pieces of user-tier context before you scope it:\n\n1. **§5.6 already exists in the USER-TIER deployed copy.** I applied the §4.5 reconciliation + the new §5.6 to `~/.claude/MAJOR_POLYBIUS.md` directly (PRINCIPAL-approved 2026-05-21). So the user-tier copy is AHEAD of source; stoa--0hl brings `substrate/MAJOR_POLYBIUS.md` into alignment so install.sh propagates §5.6 to project deployments. The user-tier text is the verbatim reference implementation (named in the ticket).\n\n2. **The role file is at 1300+ lines and that is now a load-bearing problem.** It cost ~52k tokens to read (harness cap 25k — I had to paginate my own role file this session). PRINCIPAL has flagged it for you to address. Diagnosis: empirical-anchor + provenance accretion — every discipline carries a ticket citation + worked example + multi-paragraph provenance; the *actionable* canon is roughly a third of the lines, the rest is the why/empirical record. Recommended refactor shape: **split spec from changelog** — the role file keeps the lean actionable rule + a one-line cite; the verbose empirical-anchor/provenance/worked-example detail moves to a companion accretion doc (or folds into the `u--7yg` discipline-accretion epic). Preserves traceability; shrinks what loads every session.\n\n**Sequencing recommendation (your call on execution):** rather than landing §5.6 verbose and slimming later, consider scoping the slimming refactor first (or together) and writing §5.6 lean from the start. §5.6/§4.5 as currently drafted are themselves verbose — a good first test case for the lean form. Whether the slimming is its own ticket or folded into a broader canon-refactor arc is yours to decide.\n\nThese are INPUTS, not directives — you own the arc structure (small arc vs full gauntlet; how to split). User-tier defers technical-tier execution to you. Surface back (via [for: user-tier-polybius] on this ticket) only on substance/scope-disagreement, a §25 PRINCIPAL-gate, or when you need the user-tier reference-copy text.",
       "timestamp": "2026-05-23T01:26:38Z"
+    },
+    {
+      "text": "DAEDALUS activated on stoa--0hl. Reading brief + directive + user-tier POLYBIUS (reference) + source POLYBIUS (target). Mirror-spec design for §4.5-append + new §5.6.",
+      "timestamp": "2026-06-04T14:47:00Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Substrate canon: assemble team-deploy procedure (§5.6) + §4.5 two-mechanism reconciliation in MAJOR_POLYBIUS.md",
   "type": "task",
-  "updated_at": "2026-06-04T14:45:48Z"
+  "updated_at": "2026-06-04T14:47:00Z"
 }
