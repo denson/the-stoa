@@ -102,11 +102,15 @@
     {
       "text": "ZENO activated on stoa--2i5 (Arc 55). Reading directive ACs + shipped install.sh/README before extracting criteria. operating-mode autonomous.",
       "timestamp": "2026-06-04T05:04:10Z"
+    },
+    {
+      "text": "NOMOS activated on stoa--2i5 (Arc 55 autonomous-ship audit). Reading the orchestration trail + commits acf944c/1cdae32 + role file. Running four-probe conformance check against bw + repo ground truth.",
+      "timestamp": "2026-06-04T05:04:13Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "install.sh canonical .gitignore management for substrate-generated transient paths (.claude/scheduled_tasks.lock + .claude/worktrees/ + .substrate-last-check)",
   "type": "task",
-  "updated_at": "2026-06-04T05:04:10Z"
+  "updated_at": "2026-06-04T05:04:13Z"
 }
