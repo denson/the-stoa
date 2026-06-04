@@ -245,6 +245,18 @@ threat→mitigation map before the ADA dispatch, not as a build-scope bullet). F
 definitions: `operating-disciplines.md` §35 (A1 = §35.2; A1-gates-A2 = §35.3; "named threat" /
 "threat-ratified mitigation" = §35.1). Anchor: `origindex-trw` / `stoa--yfv`.
 
+### 5.14 Arc-worktree dest-pinning for save-verdict (stoa--xxy facet-2)
+When you dispatch any verdict-producing CAPTAIN (ARGUS / VERA / CATO) inside an arc-build context,
+the dispatch brief MUST name the **absolute arc-worktree root** as the save-verdict `--cwd` /
+`inputs.cwd`: `<repo>/.claude/worktrees/arc-<N>-build`. A sub-agent inherits the parent session's cwd,
+so a CAPTAIN dispatched from the main session resolves a *relative* or *defaulted* cwd to the MAIN
+tree — landing the verdict + receipt at main `agents/verdicts/` instead of the worktree (observed live
+in Arc 55: VERA/CATO → main, ARGUS → worktree). Pin it explicitly; do not rely on the default. The
+arc directive's per-CAPTAIN dispatch section SHOULD echo the pinned path once so every per-CAPTAIN
+dispatch in the arc inherits it. The skill-side half of this fix is the tightened `cwd` contract in
+`substrate/skills/save-verdict/SKILL.md` (the skill writes where `--cwd` points; only the dispatcher
+knows which tree is correct). Anchor: `stoa--xxy`.
+
 ---
 
 ## 6. Communication
