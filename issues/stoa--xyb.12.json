@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-04T23:24:34Z",
+  "description": "Make Ariadne an OPTIONAL per-project add-on; base Stoa drops the assumption it is present (it already accepts add-ons via op-disc 23/31). Scope A (+optional C), leave B (provenance anchors). Loci: op-disc 21 CUT + 16 de-name; MAJOR_POLYBIUS.md 16.4 CUT; modules/bw-fit-matrix.md de-name framing but KEEP stoa--vmc anchor; templates/handoff-doc-template.md cross-ref; optional-C example genericizations. Per-line A/B/C split + full spec: docs/debloat-decisions.md. PRINCIPAL-decided 2026-06-04 via the decision surface. First of 3 execution arcs; self-contained.",
+  "id": "stoa--xyb.12",
+  "labels": [],
+  "parent": "stoa--xyb",
+  "priority": 2,
+  "status": "open",
+  "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
+  "type": "task",
+  "updated_at": "2026-06-04T23:24:34Z"
+}
