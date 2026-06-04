@@ -46,11 +46,15 @@
     {
       "text": "[PLINY] ARGUS verdict: RATIFY-WITH-CONDITIONS. One load-bearing condition r1: --help doc text MUST land inside install.sh header comment block (lines 3-108) — usage() at :225 scrapes only that block. W2 resolved SAFE: .substrate-last-check written at .claude/.substrate-last-check (check.sh:678), so bare entry matches; no root-append, scope reduction confirmed correct. All other points ground-truth-confirmed. A1 beat: ARGUS confirmed §35.5 carve-out — process/hygiene, NO runtime attack path, NO threat-ratified mitigations to fold. r1 folded into ADA build brief. Dispatching ADA.",
       "timestamp": "2026-06-04T04:46:00Z"
+    },
+    {
+      "text": "ADA activated on stoa--2i5 (Arc 55). Read design + ARGUS RATIFY-WITH-CONDITIONS (r1: --help doc must land inside sed-scraped header block install.sh:3-108). Ground-checking shipped install.sh in arc-55-build worktree before first commit.",
+      "timestamp": "2026-06-04T04:46:41Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "install.sh canonical .gitignore management for substrate-generated transient paths (.claude/scheduled_tasks.lock + .claude/worktrees/ + .substrate-last-check)",
   "type": "task",
-  "updated_at": "2026-06-04T04:46:00Z"
+  "updated_at": "2026-06-04T04:46:41Z"
 }
