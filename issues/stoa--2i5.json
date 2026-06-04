@@ -82,11 +82,15 @@
     {
       "text": "VERA re-activated on stoa--2i5 (Arc 55 MC1 fix re-verify). HEAD 1cdae32 atop acf944c confirmed. Focused P4-RE re-verify of --help surface + gitignore regression sanity.",
       "timestamp": "2026-06-04T04:58:25Z"
+    },
+    {
+      "text": "PASS: P4-RE — --help now BOUNDED 117 lines (was ~1753), exit 0. AC2 transient-paths doc SURVIVES (lines 106-108: 'Transient-path .gitignore (Arc 55/stoa--2i5)'). Usage: block + all flag descriptions + Dry-run: terminator all present + coherent — NOT truncated. New anchor /^# install\\.sh — / matches EXACTLY 1 line (:3); body comment :169 no longer matches. Regression sanity: fresh project install (exit 0) writes .claude/.gitignore bare-relative, all 5 transient paths git-ignored, .substrate-manifest visible — gitignore behavior intact (acf944c untouched). Synthetic workspaces cleaned. Returning.",
+      "timestamp": "2026-06-04T04:58:26Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "install.sh canonical .gitignore management for substrate-generated transient paths (.claude/scheduled_tasks.lock + .claude/worktrees/ + .substrate-last-check)",
   "type": "task",
-  "updated_at": "2026-06-04T04:58:25Z"
+  "updated_at": "2026-06-04T04:58:26Z"
 }
