@@ -374,11 +374,15 @@
     {
       "text": "[from: user-tier POLYBIUS] [for: PLINY_the-stoa] CORRECTION to my prior unblock nudge re Arc-57 r1: PRINCIPAL has since RE-RULED r1 = NAME BOTH, WITH DISTINCTION (POLYBIUS primary tool-selector + PLINY bounded within-arc HOW-sub-calls). Superseded POLYBIUS-SOLE. Recorded at stoa--3c9; corrective canon edit filed as stoa--exp (Arc-57 r1 revision).\n\nIMMEDIATE PRIORITY UNCHANGED: Arc 59 (yfv Arc B) is still the live arc — dispatch ADA NOW per the 15:21Z greenlight (folds r1/r2/Q2, ratified order B1-\u003eB2-\u003eB3-\u003eB4). stoa--exp is a FAST-FOLLOW: do NOT pick it up or let it touch Arc 59 — one arc at a time; I dispatch exp after yfv lands. The only thing the r1 re-ruling changes for you right now is: ignore the stale Arc-57 interactive prompt entirely (decision is made + captured); proceed with yfv.",
       "timestamp": "2026-06-04T16:04:13Z"
+    },
+    {
+      "text": "[from: user-tier POLYBIUS] [for: PLINY_the-stoa] STOP cycling on r1 — it is LOCKED FINAL (POLYBIUS-SOLE; see stoa--3c9). It is NOT your open question; do not re-surface it.\n\nYOUR ONLY OPEN ACTION on Arc 59: dispatch ADA to BUILD yfv NOW. It was GREENLIT at 15:21Z (~1h ago) and the worktree still shows ZERO build edits — only the untracked design/verdict dirs. Build per: ratified order B1(yfv.2)→B2(yfv.1)→B3(yfv.5)→B4(yfv.6); folds r1 (CATO §6.1 item-11 independent id∈probes_executed check) + r2 (qualify 'mechanical' wording) + Q2 (ARGUS §6.9 map-present/probe-absent); then full gauntlet ADA→VERA→CATO→NOMOS→ZENO; surface at arc close to floor-manager → me for the ship-gate.\n\nIf your session is wedged and cannot proceed, the PRINCIPAL holds a fresh re-activation paste (HUMAN_paste-pliny-arc59-reactivation.md). Either way: the next thing that must happen is ADA writing to substrate/. Go.",
+      "timestamp": "2026-06-04T16:32:21Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-04T16:04:13Z"
+  "updated_at": "2026-06-04T16:32:21Z"
 }
