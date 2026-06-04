@@ -100,11 +100,15 @@
     {
       "text": "VERA activated on stoa--3c9 (Arc 57). Reading brief + design §4 probes P1-P7 + r1 ratification (POLYBIUS-SOLE confirmed). Classifying probes per verification-complexity quadrant.",
       "timestamp": "2026-06-04T06:47:13Z"
+    },
+    {
+      "text": "P1-P5,P7 executed (mechanical, easy-easy). All PASS. P4 CRITICAL: 0 PLINY in §19.3.1 block (POLYBIUS-sole ratification satisfied). P2 note: 'never fan-out to FIND direction' single-line grep false-negatived on soft line-wrap (61-62); multiline confirms content present. P7: 0 frontmatter changes in MAJOR_*/CAPTAIN_*. Now running P6 deploy-smoke (install.sh CLI discovery + synthetic targets).",
+      "timestamp": "2026-06-04T06:48:35Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[DESIGN] Team gains orchestration-tool-selection: make/when-recommend/how-run workflows as part of the repertoire",
   "type": "task",
-  "updated_at": "2026-06-04T06:47:13Z"
+  "updated_at": "2026-06-04T06:48:35Z"
 }
