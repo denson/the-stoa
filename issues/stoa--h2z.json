@@ -82,11 +82,15 @@
     {
       "text": "pass: stoa--h2z Tier-2 premise corrected across all 8 carriers (L7 header, L20 §1 bullet, §2.4 table row, §2.5 title+body, §3 P10, §5 out-of-scope x2, §6 HS-1) + ratification preamble. WebFetch CONFIRMED workflow deploy is built-in (save via /workflows 's' -\u003e .claude/workflows/ or ~/.claude/workflows/, auto-discovered as /\u003cname\u003e, NO WORKFLOW_NAMES array). Re-stated Tier-2 reason: separable by AUTHORING EFFORT (runtime forbids mid-run input -\u003e HARD-STOP forces stage-split Stage A-\u003eratify-\u003eStage B, schema-wired+battle-tested, arc-sized) -\u003e debloat-via-workflows first arc. P10 re-derived: now asserts authoring-effort/stage-split + 0-hits on stale infra premise. HS-1 noted RATIFIED=Option 1; HS-2/3/4/5 noted ratified. Tier-1, §2.6 §35.5 carve, §2.1 trigger, Tier-1 probe logic UNTOUCHED. Returning.",
       "timestamp": "2026-06-04T18:36:34Z"
+    },
+    {
+      "text": "ADA activated on stoa--h2z Tier-1. Read design.md in full (DAEDALUS premise-fix confirmed landed). Reading ARGUS PASS + ground-checking shipped Arc-A/Arc-B section numbers (op-disc §35, VERA §5.2/§6, DAEDALUS §6.13, CATO §6.1 item 11, ARGUS §6.9, POLYBIUS §4.3.2) against worktree HEAD before first edit. Building Tier-1 only (op-disc §36 + PLINY beat + POLYBIUS surface); Tier-2 OUT OF SCOPE.",
+      "timestamp": "2026-06-04T18:39:06Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[DESIGN] Critical-issue -\u003e dedicated remediation workflow (threat-defeat as the workflow's locked goal)",
   "type": "task",
-  "updated_at": "2026-06-04T18:36:34Z"
+  "updated_at": "2026-06-04T18:39:06Z"
 }
