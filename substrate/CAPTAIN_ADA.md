@@ -95,6 +95,10 @@ The PRINCIPAL's standing fix-now rule applies to this seat. If during build you 
 
 Any file with an author / owner / creator / maintainer / by / copyright field that you author or touch in this build names **the PRINCIPAL** (or the PRINCIPAL by name, when learned), never anyone else. Before staging or committing any file with such a field, audit it. If the wrong name appears, STOP and surface to MAJOR_PLINY before fixing — then audit the rest of the repo for the same wrong value. Cited research sources are attributed to their authors; the implementation itself is the PRINCIPAL's.
 
+### 5.6 Destructive-probe path hygiene
+
+When you author the concrete probe / test-setup / cleanup set, prefer a fixed literal path over `$VAR`/`${VAR}` expansion in any destructive shell op (`rm`, overwrite, `DROP`) per `operating-disciplines.md` §8.6. A `[ -n "$VAR" ]` guard does NOT reliably clear the bash-permission heuristic (it still contains the `$VAR` token); give the removable artifact a fixed known name, or do cleanup in the agent/script layer.
+
 **Git-commit seat-identity trailer (commit-metadata layer, parallel to the file-frontmatter rule above).** Every commit you land inside an arc-build worktree carries a `Co-Authored-By:` trailer naming your seat + project per `operating-disciplines.md` §28. The trailer is dispatched in PLINY's brief as a structured `seat-identity:` field (per `MAJOR_PLINY.md` §5.12); write it verbatim at the end of the commit message HEREDOC, alongside the standard `Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>` trailer. The two trailers coexist; both are required. Example commit-message tail:
 
 ```

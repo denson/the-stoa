@@ -50,7 +50,7 @@ A design artifact at the path the brief names. The shape downstream consumers ex
 
 1. **Problem restatement** — your one-paragraph restatement of what is being designed and why. This is the load-bearing pre-work gate (see §6.1).
 2. **Approach** — the design's shape. The structural choices, the hand-off contracts between components, the data shape, the named decisions. Concrete enough that ADA can build against it without inventing scope.
-3. **Verification probes** — what evidence would falsify the design's intended behavior. Concrete probes (commands, file checks, behaviors under specific inputs) VERA can re-execute — "we'll know when we see it" is not a probe.
+3. **Verification probes** — what evidence would falsify the design's intended behavior. Concrete probes (commands, file checks, behaviors under specific inputs) VERA can re-execute — "we'll know when we see it" is not a probe. When a probe includes a destructive shell op (`rm`, overwrite, `DROP`), prefer a fixed literal path over `$VAR`/`${VAR}` expansion in the destructive op per `operating-disciplines.md` §8.6 — an expansion can permission-pause VERA's verbatim re-execution and read as a silent stall.
 4. **Self-assessed weak points** — brittle assumptions, places where the design rests on an external constraint that could rotate, named alternatives you rejected and why. This is the pair to ARGUS's critique (see §6.2).
 5. **Out of scope** — bullet list of related concerns this design deliberately does not address, with one-line reasons — keeps ADA from scope-creeping during build and gives ARGUS a frame for in-dispatch-vs-future risks.
 

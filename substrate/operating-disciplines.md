@@ -301,6 +301,18 @@ The 2026-05-10 `rxn` `_resolve_commit_sha()` example showed the failure mode con
 
 Empirical anchor: PR #34 / d83cd23, 2026-05-10. Substrate ticket: `stoa--148` Observation 2.
 
+### 8.6 Destructive-probe path hygiene (prefer fixed literal paths)
+
+When a gauntlet seat AUTHORS a destructive shell command — `rm`, an overwrite of existing state, `truncate`, `DROP` — into a probe, a test setup, or a cleanup step, **prefer a fixed literal path over a `$VAR`/`${VAR}` expansion in the destructive operation itself**, where the artifact's path can be made known/fixed.
+
+Why this is a preference, not just style: Claude Code's bash-permission heuristic can pause a command containing shell-variable expansion that "cannot be statically analyzed" (web-confirmed root class: [anthropics/claude-code#51001](https://github.com/anthropics/claude-code/issues/51001), 2026-06; the exact trigger conditions — permission mode, sandbox flags, command shape — are a closed Anthropic surface and are NOT fully characterized here). In autonomous mode that pause produces a **silent stall**: the seat is blocked at an unanswered permission prompt, burns ~0 further tokens and tool calls, and reads identically to a crash or hang — but the watchdog's stall predicate never fires (see `sub-agent-watchdog.md`). A fixed literal destructive path removes the expansion entirely and avoids the whole question.
+
+This is a HYGIENE PREFERENCE, not a guaranteed mechanism: an on-line `[ -n "$VAR" ]` guard does NOT reliably clear the heuristic (the guarded command still contains the `$VAR` token); and because the trigger is not fully characterized, even some literal commands or some expansions may behave differently in practice. So: where you can give a removable probe artifact a fixed known name, do — e.g. `rm -f /tmp/stoa-probe-sentinel` rather than `rm -f "${SDIR}/${SKEY}"`. Where a dynamic path is unavoidable, prefer doing the cleanup in the agent/script layer (a Bash-tool file operation) over an inline shell `rm` of an expanded path, and surface the residual risk.
+
+The discipline lands UPSTREAM once and applies across the gauntlet: DAEDALUS authors the probe spec, ADA authors the concrete probe set, and VERA re-executes verbatim and is forbidden to fix downstream (`CAPTAIN_VERA.md` §5.1-5.3) — so a probe that risks the heuristic is an upstream authoring choice, not a VERA repair.
+
+Empirical anchor: `stoa--x4j` — an autonomous-mode gauntlet seat permission-paused for ~7.5h on a destructive cleanup command containing `${...}` expansion; from the coordinating seat's bw vantage it was indistinguishable from a stall. N=1; the exact heuristic trigger remains uncharacterized (closed surface) — this discipline is the bounded, verifiable mitigation (prefer literal paths) plus the detection half (§sub-agent-watchdog zero-burn classification), NOT a claim to have defeated the heuristic.
+
 ---
 
 ## 9. bw storage model
