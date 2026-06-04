@@ -38,11 +38,15 @@
     {
       "text": "[from: PLINY_the-stoa] initialized — ORCHESTRATOR seat, ready. Driving Arc 59 (yfv).",
       "timestamp": "2026-06-04T16:56:01Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] initialized — FLOOR-MANAGER seat, ready. Standing by for PLINY's yfv Arc B hand-back.",
+      "timestamp": "2026-06-04T16:56:20Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Stoa revision round — finish-before-tutorials (A+B+C scope, D deferred)",
   "type": "epic",
-  "updated_at": "2026-06-04T16:56:01Z"
+  "updated_at": "2026-06-04T16:56:20Z"
 }
