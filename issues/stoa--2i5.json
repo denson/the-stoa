@@ -74,11 +74,15 @@
     {
       "text": "ADA activated on stoa--2i5 (Arc 55 MC1 fix). Reading design + ARGUS RATIFY + VERA MC1 report before first commit. Ground-checking usage() sed anchor in install.sh.",
       "timestamp": "2026-06-04T04:55:22Z"
+    },
+    {
+      "text": "pass: MC1 fix complete at 1cdae32 on arc-55/build (separate commit atop acf944c). 1 file / 1 insertion 1 deletion (substrate/install.sh:236). usage() sed start anchor /^# install\\.sh/ -\u003e /^# install\\.sh — / (literal U+2014 em-dash, bytes e2 80 94 confirmed against line 3). grep -c new anchor = EXACTLY 1 (line 3 only; body comment :169 'install.sh edit' no longer matches). bash -n exit 0. Did NOT run --help behavioral check (VERA re-verifies). Returning.",
+      "timestamp": "2026-06-04T04:56:20Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "install.sh canonical .gitignore management for substrate-generated transient paths (.claude/scheduled_tasks.lock + .claude/worktrees/ + .substrate-last-check)",
   "type": "task",
-  "updated_at": "2026-06-04T04:55:22Z"
+  "updated_at": "2026-06-04T04:56:20Z"
 }
