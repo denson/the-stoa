@@ -233,7 +233,7 @@ CLAUDE_MD_BASE_VS_CUSTOM_MARKER="<!-- agent-substrate: base-vs-custom convention
 # ----- helpers ---------------------------------------------------------------
 
 usage() {
-  sed -n '/^# install\.sh/,/^# Dry-run:.*$/p' "$0" | sed 's/^# \{0,1\}//'
+  sed -n '/^# install\.sh — /,/^# Dry-run:.*$/p' "$0" | sed 's/^# \{0,1\}//'
   exit "${1:-0}"
 }
 
