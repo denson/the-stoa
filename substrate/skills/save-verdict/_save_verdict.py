@@ -302,6 +302,12 @@ def main(argv=None) -> int:
             # dangerous FORM (/tmp); the SKILL.md "Authoring the body file"
             # procedure (Write-tool -> worktree-relative path) closes the general
             # case. See save-verdict SKILL.md.
+            # NOTE: this guard is a literal-string BACKSTOP, not a general /tmp
+            # catch -- MSYS git-bash rewrites a /tmp/ arg to the real Windows temp
+            # path BEFORE argparse sees it, so under ordinary git-bash invocation
+            # the arg never reaches here as "/tmp/..."; the guard fires only on a
+            # genuinely-divergent literal /tmp/ string. The Write-tool procedure
+            # above is the load-bearing fix.
             if (
                 raw_bp.startswith("/tmp/")
                 or raw_bp.startswith("/tmp\\")
