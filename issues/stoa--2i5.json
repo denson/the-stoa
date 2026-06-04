@@ -50,11 +50,15 @@
     {
       "text": "ADA activated on stoa--2i5 (Arc 55). Read design + ARGUS RATIFY-WITH-CONDITIONS (r1: --help doc must land inside sed-scraped header block install.sh:3-108). Ground-checking shipped install.sh in arc-55-build worktree before first commit.",
       "timestamp": "2026-06-04T04:46:41Z"
+    },
+    {
+      "text": "pass: build complete at acf944c on arc-55/build. 2 files / 67 insertions (substrate/install.sh + substrate/README.md). write_substrate_gitignore fn @ install.sh:541, call-site @:1657, r1 honored (--help doc @ install.sh:108-117 inside sed-scraped header block, verified usage()-scrape surfaces gitignore|transient). bare-relative entries confirmed. bash -n exit 0. Zero design-vs-shipped drift (all citations :513/:1591/:225/:108 confirmed exact; W2 resolved INSIDE .claude/ per check.sh:662/:678). Returning.",
+      "timestamp": "2026-06-04T04:48:20Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "install.sh canonical .gitignore management for substrate-generated transient paths (.claude/scheduled_tasks.lock + .claude/worktrees/ + .substrate-last-check)",
   "type": "task",
-  "updated_at": "2026-06-04T04:46:41Z"
+  "updated_at": "2026-06-04T04:48:20Z"
 }
