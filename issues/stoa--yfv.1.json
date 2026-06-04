@@ -14,8 +14,8 @@
     }
   ],
   "priority": 2,
-  "status": "open",
+  "status": "in_progress",
   "title": "Verdict templates require a threat-coverage assertion (u--ith #5, keystone)",
   "type": "task",
-  "updated_at": "2026-06-01T02:21:51Z"
+  "updated_at": "2026-06-04T15:05:17Z"
 }
