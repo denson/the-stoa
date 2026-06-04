@@ -22,11 +22,15 @@
     {
       "text": "pass: design complete at agents/design/stoa--h2z/design.md (192 lines, 6 sections). Trigger predicate = named threat M\u003cn\u003e surfaced-but-not-yet-defeated (reuses §35.1, no new criticality scale); fires at Arc-B detection surfaces (ARGUS/PLINY-A1/VERA/CATO/POLYBIUS-§4.3.2). Workflow shape = goal-locked /defeat-threat (args-param): STRABO-\u003eDAEDALUS(+A3 map)-\u003eARGUS-\u003eHARD STOP-\u003eADA-\u003eVERA(threat-anchored probe)-\u003eCATO; single success criterion = defeats_via_probe in probes_executed (B2 keystone). Self-carve: PROPOSE 'not threat-ratified (process change, no runtime attack path)' (ARGUS confirms). 04n dependency: RECOMMEND Tier-1 (discipline+pattern) ships decoupled NOW, Tier-2 executable workflow follows 04n forge-promotion. 5 HARD-STOP items + 4 self-assessed weak points. Returning.",
       "timestamp": "2026-06-04T17:57:50Z"
+    },
+    {
+      "text": "ARGUS activated on stoa--h2z. Reading design artifact end-to-end + cited shipped disciplines (op-disc §35, Arc-B seat surfaces, workflow-composer SKILL + 04n design-rev2) before audit.",
+      "timestamp": "2026-06-04T17:58:54Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[DESIGN] Critical-issue -\u003e dedicated remediation workflow (threat-defeat as the workflow's locked goal)",
   "type": "task",
-  "updated_at": "2026-06-04T17:57:50Z"
+  "updated_at": "2026-06-04T17:58:54Z"
 }
