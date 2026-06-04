@@ -116,11 +116,15 @@
     {
       "text": "CATO activated on stoa--3c9 (Arc 57 tool-selection discipline). Reading full diff cc27c59..HEAD + directive + design + VERA verdict before forming cold-read.",
       "timestamp": "2026-06-04T06:52:19Z"
+    },
+    {
+      "text": "cold-read of diff + design + directive + VERA verdict complete. Now running independent meta-verify probes (POLYBIUS-SOLE block, taxonomy fidelity vs source, composer cross-refs, authorship audit) before classifying findings.",
+      "timestamp": "2026-06-04T06:52:37Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[DESIGN] Team gains orchestration-tool-selection: make/when-recommend/how-run workflows as part of the repertoire",
   "type": "task",
-  "updated_at": "2026-06-04T06:52:19Z"
+  "updated_at": "2026-06-04T06:52:37Z"
 }
