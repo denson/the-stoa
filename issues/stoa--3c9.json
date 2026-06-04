@@ -128,11 +128,15 @@
     {
       "text": "VERDICT (CATO): pass / SHIP. diff cc27c59..HEAD. 1 minor non-blocking concern (c1: module:8 quote-attributes 'names the framing, not a decision tree' to §19.3.1; verbatim phrase home is parent §19.3:569 - cite resolves, reader not misled). All bucket-A focus items confirmed: scope exact (no install.sh/other-role edits), POLYBIUS-SOLE held (0 PLINY in §19.3.1, boundary crisp via positive framing), v2 voice canon-grade (source 2nd-person canonicalized correctly), taxonomy faithful (8 rows+attention col vs source §3), N=1 triple-hedged, un-owned module/no relocation row/§3.5 placed, c1 fixed+target resolves (:514), authorship clean. VERA meta-verify: re-ran P4/P2/P5 independently - VERA verified what it claimed, 2 methodology concerns are probe-authoring quality (correctly non-blocking). Verdict saved CATO-2026-06-04T06-54-32Z.md (sha256 match, printf dogfood OK).",
       "timestamp": "2026-06-04T06:54:45Z"
+    },
+    {
+      "text": "ZENO activated on stoa--3c9 (Arc 57). Reading directive + shipped artifact (module + MAJOR_POLYBIUS + composer SKILL.md) before extracting criteria.",
+      "timestamp": "2026-06-04T06:57:34Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[DESIGN] Team gains orchestration-tool-selection: make/when-recommend/how-run workflows as part of the repertoire",
   "type": "task",
-  "updated_at": "2026-06-04T06:54:45Z"
+  "updated_at": "2026-06-04T06:57:34Z"
 }
