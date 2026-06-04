@@ -138,11 +138,15 @@
     {
       "text": "NOMOS activated on Arc 56 (save-verdict/Windows cluster: wq0+xxy+7b1.2+7ap). Reading PLINY orchestration trail + the 4 cluster tickets + arc-56/build commit chain + role file. Autonomous mode, bucket-B ship-arc.",
       "timestamp": "2026-06-04T06:02:22Z"
+    },
+    {
+      "text": "ZENO activated on Arc 56 (wq0+xxy+7b1.2+7ap). Reading directive + shipped artifacts before mechanical per-ticket spec-\u003eresult mapping.",
+      "timestamp": "2026-06-04T06:02:27Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T06:02:22Z"
+  "updated_at": "2026-06-04T06:02:27Z"
 }
