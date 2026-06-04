@@ -209,11 +209,15 @@
     {
       "text": "Items 1-2 (deploy wiring): PASS. workflow-composer @ install.sh:207 inside SKILL_NAMES (198-208); live array parse returns count=9 incl workflow-composer. Now checking the 5 currency deltas (item 3) + stale-framing gone (item 4).",
       "timestamp": "2026-06-04T02:37:23Z"
+    },
+    {
+      "text": "ZENO clean-restart: items 1-5,7-10 all PASS. 5 deltas hit; stale workflow-as-keyword GONE (only v2.1.160 historical survives); 5 check.sh cites @76/228/236/385/435 + 0 :140 survivors; sha 03de64e5...073af verbatim; author Denson Smith @ SKILL.md:7; 0 WORKFLOW_NAMES; out-of-scope cites untouched (install.sh 1 hunk @204, check.sh 5 cite-only lines). Now running item 6 (gen-data exits clean) then finalizing.",
+      "timestamp": "2026-06-04T02:58:42Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
   "type": "task",
-  "updated_at": "2026-06-04T02:37:23Z"
+  "updated_at": "2026-06-04T02:58:42Z"
 }
