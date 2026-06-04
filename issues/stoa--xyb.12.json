@@ -13,11 +13,15 @@
     {
       "text": "DAEDALUS activated on stoa--xyb.12 (Arc A Ariadne decoupling). Reading brief + spec ledger (docs/debloat-decisions.md) + the four loci + role file. autonomous mode.",
       "timestamp": "2026-06-04T23:54:22Z"
+    },
+    {
+      "text": "All four loci + inbound-ref scans + CUT-convention research done. §21 stub-vs-renumber: corpus keys cross-refs by number + line-889 'do NOT renumber' =\u003e tombstone-stub convention. Found 2 cascade de-names (POLYBIUS 16.5/16.7) + entangled C-targets. Drafting design §1-§8 now.",
+      "timestamp": "2026-06-04T23:56:25Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-04T23:54:22Z"
+  "updated_at": "2026-06-04T23:56:25Z"
 }
