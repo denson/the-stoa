@@ -34,7 +34,7 @@ The Claude Code docs name **four** ways to run multi-step work, distinguished by
 | Tier coordination (POLYBIUS ↔ floor-manager ↔ PLINY) | **agent teams** — a lead supervising long-running peer sessions, coordinating through a shared task list (for us, **bw**); teammates keep running through interruption | canonized chain-of-command, three-tier independence, surface/escalation disciplines |
 | CAPTAIN execution (PLINY → DAEDALUS/ARGUS/…) | **subagents** — turn-by-turn dispatch, results land in context | canonized pipeline order, role-file disciplines, HARD STOP gates, verdict formats |
 
-So the gauntlet is **agent-teams-for-coordination + subagents-for-execution, wrapped in the substrate's control.** A **workflow** is that same gauntlet with the control moved *into a script* instead of living in PLINY's judgment — repeatable and context-cheap, at the cost of mid-run flexibility. The four primitives are therefore a **control-vs-flexibility spectrum of one idea**, not rivals: pick the point on the spectrum that fits the task (the *when-to-recommend* judgment; the task-shape taxonomy is its draft form, cross-ref `docs/sessions/2026-05-30-stoa-workflows-integration-strategy.md`).
+So the gauntlet is **agent-teams-for-coordination + subagents-for-execution, wrapped in the substrate's control.** A **workflow** is that same gauntlet with the control moved *into a script* instead of living in PLINY's judgment — repeatable and context-cheap, at the cost of mid-run flexibility. The four primitives are therefore a **control-vs-flexibility spectrum of one idea**, not rivals: pick the point on the spectrum that fits the task (the *when-to-recommend* judgment; the task-shape taxonomy is the when-to-recommend layer, now canon at `.claude/modules/tool-selection-taxonomy.md` (cf. `MAJOR_POLYBIUS.md` §19.3.1)).
 
 ## When to use this skill
 
@@ -167,7 +167,7 @@ Composing the script is half the job; the team also owns *how to set up and run*
 5. **Emit a review-surface** as a data transform and `return` it alongside the verdict.
 6. **Do not land in the script** — return the verdict for the launching seat to write to bw / commit.
 7. **Test the run** before saving (small real target; read the result; confirm the seats fired and the schema validated).
-8. **Save to the right location** only after it does what was wanted — forge (`.claude/workflows/`) for canonical, user-tier (`~/.claude/workflows/`) for personal. Promotion of a substrate-canonical workflow to forge is a **gauntlet-hardening arc** (§18.2), not a direct commit.
+8. **Save to the right location** only after it does what was wanted — forge (`.claude/workflows/`) for canonical, user-tier (`~/.claude/workflows/`) for personal. Promotion of a substrate-canonical workflow to forge is a **gauntlet-hardening arc** (MAJOR_POLYBIUS.md §18.2), not a direct commit.
 
 ## Honesty / N=1
 
@@ -183,7 +183,7 @@ Composing the script is half the job; the team also owns *how to set up and run*
 - **Not /deep-research.** That bundled workflow is a research tool; this skill composes Stoa-specific orchestration.
 - **Not a cross-session durability layer.** That is bw. Workflows are intra-session execution.
 - **Not the overnight / unattended vehicle.** Workflow resume is same-session-only; close the session and it restarts fresh. Unattended-while-PRINCIPAL-sleeps work is a remote routine (claude.ai), not a workflow.
-- **Not the *whole* tool-selection judgment.** This skill makes + runs workflows; *which* primitive (subagents / skills / agent-teams / workflow / classic gauntlet / Mode-2 pairing) fits a given task is the separate when-to-recommend discipline (cross-ref `stoa--3c9` + the task-shape taxonomy).
+- **Not the *whole* tool-selection judgment.** This skill makes + runs workflows; *which* primitive (subagents / skills / agent-teams / workflow / classic gauntlet / Mode-2 pairing) fits a given task is the separate when-to-recommend discipline (cross-ref `.claude/modules/tool-selection-taxonomy.md` + `MAJOR_POLYBIUS.md` §19.3.1; ticket `stoa--3c9`).
 
 ## Cross-references
 
@@ -197,5 +197,5 @@ Composing the script is half the job; the team also owns *how to set up and run*
 - Empirical anchors: `stoa--7b1.7` / ksge P4 (the pre-build HARD-STOP this skill's stage boundary implements); `stoa--myd` (multi-checker convergence the adversarial-verify pattern makes cheap); `stoa--wq0` / `stoa--7b1.2` (the save-verdict file-write bugs that `schema` retires).
 - `stoa--x4j` (autonomous gauntlet silently stalls on a permission prompt) — the failure the pre-allowlist operational rule fixes.
 - `stoa--h2z` (detect-critical → goal-locked remediation workflow) — the worked use-case for the `args` parameterization.
-- `stoa--3c9` (orchestration tool-selection discipline) — the *when-to-recommend* layer this skill's *how-to-make* layer sits inside.
+- `stoa--3c9` (orchestration tool-selection discipline) — the *when-to-recommend* layer this skill's *how-to-make* layer sits inside — now canon at `.claude/modules/tool-selection-taxonomy.md` + `MAJOR_POLYBIUS.md` §19.3.1.
 - the 4-primitive comparison + `args` + the allowlist/overnight facts are current as of the 2026-06-01 Workflow docs (`stoa--04n` doc-delta comment).
