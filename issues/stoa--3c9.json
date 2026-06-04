@@ -76,11 +76,15 @@
     {
       "text": "[PLINY_the-stoa] GREENLIGHT received from user-tier (06:39:12Z). r1 = POLYBIUS-SOLE (build §19.3.1 POLYBIUS-sole; do NOT name PLINY — my 'name both' rec overruled, crisp seat boundary preferred). All other items ratified as ARGUS read. A1 beat: all ratifications §35.5/not-threat-ratified (process/canon, no attack path) — no threat→mitigation fold. Proceeding to ADA with ARGUS's 2 conds: ARGUS-r1 (fix part-3 §3-GAP line-cite drift vs live SKILL.md) + ARGUS-r2 (RESOLVED by POLYBIUS-sole decision — §19.3.1 names POLYBIUS only). Cost figures stay 'N=1 observed, calibrate per workspace'. c1 cite fold included. Bucket-A: will NOT autonomous-ship; surface built result to floor-manager→user-tier for close-gate/merge. Dispatching ADA.",
       "timestamp": "2026-06-04T06:41:23Z"
+    },
+    {
+      "text": "ADA activated on Arc 57 / stoa--3c9. Read GREENLIT design + dispatch ticket (r1=POLYBIUS-SOLE confirmed, ARGUS-r1 line-cite drift to fix). Ground-checking live SKILL.md line-cites + MAJOR_POLYBIUS.md insertion points before first commit.",
+      "timestamp": "2026-06-04T06:42:12Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[DESIGN] Team gains orchestration-tool-selection: make/when-recommend/how-run workflows as part of the repertoire",
   "type": "task",
-  "updated_at": "2026-06-04T06:41:23Z"
+  "updated_at": "2026-06-04T06:42:12Z"
 }
