@@ -402,11 +402,15 @@
     {
       "text": "Progress: B1 landed (DAEDALUS §6.13 + §3 pointer; VERA §5.2 threat-anchored para + B4 framing). B2 keystone in progress on VERA §6 (threat_coverage block + definition note, with r2 enforcement-strength qualifier). Moving to CATO §6.1/§7 next.",
       "timestamp": "2026-06-04T17:00:24Z"
+    },
+    {
+      "text": "B2 keystone complete + sanity-checked: _save_verdict.py py_compiles; p1a exit-4 fires correctly (count\u003e0, no probe-ids); controls pass (with-ids-\u003e0, count-0/no-args reach write stage = new validation correctly inert; malformed-id-\u003e4). r1 (CATO item-11 independent grep), r2 (enforcement-strength qualifiers), Q2 (ARGUS §6.9 map-present/probe-absent) all folded. Test artifacts cleaned. Moving to B3 (POLYBIUS §4.3.2 + op-disc §35.6 row).",
+      "timestamp": "2026-06-04T17:03:38Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-04T17:00:24Z"
+  "updated_at": "2026-06-04T17:03:38Z"
 }
