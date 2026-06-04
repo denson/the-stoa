@@ -86,11 +86,15 @@
     {
       "text": "ADA activated on stoa--h2z Tier-1. Read design.md in full (DAEDALUS premise-fix confirmed landed). Reading ARGUS PASS + ground-checking shipped Arc-A/Arc-B section numbers (op-disc §35, VERA §5.2/§6, DAEDALUS §6.13, CATO §6.1 item 11, ARGUS §6.9, POLYBIUS §4.3.2) against worktree HEAD before first edit. Building Tier-1 only (op-disc §36 + PLINY beat + POLYBIUS surface); Tier-2 OUT OF SCOPE.",
       "timestamp": "2026-06-04T18:39:06Z"
+    },
+    {
+      "text": "Ground-check PASS: all Arc-B seat refs resolve at worktree HEAD — VERA §5.2 (L80, 'absence-of-an-executed-probe') + §6 verdict (L223); DAEDALUS §6.13 (L219); CATO §6.1 item 11 (L99); ARGUS §6.9 (L163); POLYBIUS §4.3.2 (L137); op-disc §35.1 carve-string (L1421), §35.5 during-build residual (L1409), §25 PRINCIPAL-gate (L1006). Header convention = '## N. Title'. §35 ends at §35.8 (L1453); inserting §36 before 'Agent-regime inverses' (L1466). No design-vs-shipped drift. Building Surface 1 (§36).",
+      "timestamp": "2026-06-04T18:39:58Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[DESIGN] Critical-issue -\u003e dedicated remediation workflow (threat-defeat as the workflow's locked goal)",
   "type": "task",
-  "updated_at": "2026-06-04T18:39:06Z"
+  "updated_at": "2026-06-04T18:39:58Z"
 }
