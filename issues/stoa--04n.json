@@ -48,11 +48,15 @@
     {
       "text": "ARGUS activated on Arc 53 (workflow-composer forge-promotion, design-rev2). Read design + directive end-to-end. Re-deriving all factual claims directly against worktree: 5 cites, post-edit range arithmetic, untracked-source step, 5-delta map, scope guards. HITL mode.",
       "timestamp": "2026-06-04T01:58:22Z"
+    },
+    {
+      "text": "pass (PARTIAL — clean with minors): all factual claims re-derived against worktree and CONFIRMED — 5 cites at 76/228/236/385/435 (4 range + 1 bare-line at 236); post-edit range 198-208 correct (current 198-207, +1 entry -\u003e close paren 208); untracked-source step is load-bearing (deploy loop L1107-1120 has no src-existence guard, cp -R fails on fresh clone w/o git add); all 5 deltas present at design's claimed lines; external currency CONFIRMED via web (ultracode replaced workflow at v2.1.160, matches L159); authorship Denson Smith intact + consistent across all 9 skills. Threat-class CONFIRM: NOT threat-ratified (process change, no runtime attack path) — correct. 0 BLOCKER, 0 MAJOR, 4 MINOR/NIT (probe-text precision + out-of-scope-cites-already-stale note). Returning.",
+      "timestamp": "2026-06-04T02:00:53Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
   "type": "task",
-  "updated_at": "2026-06-04T01:58:22Z"
+  "updated_at": "2026-06-04T02:00:53Z"
 }
