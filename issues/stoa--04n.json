@@ -82,11 +82,15 @@
     {
       "text": "ADA activated on stoa--04n (Arc 53 workflow-composer forge-promotion). Design-rev2 + ARGUS PASS verdict + build-go absorbed. Read-before-write: no [for: ADA] tags pending. Ground-checking SKILL_NAMES range, the 5 check.sh cites + shapes, and post-add sha256 before first edit.",
       "timestamp": "2026-06-04T02:14:29Z"
+    },
+    {
+      "text": "Build steps 1-3 complete: skill git-added (sha256 match 03de64e5...073af, author Denson Smith untouched); SKILL_NAMES wired (workflow-composer appended); all 5 check.sh cites fixed (0 install.sh:140 survivors; 5 install.sh:198 at 76/228/236/385/435; line 236 = bare '198 region'). gen-data needs deps in fresh worktree — running npm ci before the guard.",
+      "timestamp": "2026-06-04T02:15:42Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
   "type": "task",
-  "updated_at": "2026-06-04T02:14:29Z"
+  "updated_at": "2026-06-04T02:15:42Z"
 }
