@@ -438,11 +438,15 @@
     {
       "text": "NOMOS activated on stoa--yfv Arc B @ 68666ed. Reading the build commit diff + arc directive + ratified design + bw ground truth. Running 5 probes: directive-build conformance, bw-vs-artifact, authorship, scope-guard (35.1-35.5), branch hygiene.",
       "timestamp": "2026-06-04T17:16:12Z"
+    },
+    {
+      "text": "ZENO activated on stoa--yfv Arc B @ 68666ed. Spec read; §2 surfaces all present on first sweep. Now re-running §3 probes (p1a skill exit-codes + p1b/p2/p3/p4/p5/p6 greps) + cross-ref integrity.",
+      "timestamp": "2026-06-04T17:16:50Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-04T17:16:12Z"
+  "updated_at": "2026-06-04T17:16:50Z"
 }
