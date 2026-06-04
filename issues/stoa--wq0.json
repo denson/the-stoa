@@ -54,11 +54,15 @@
     {
       "text": "[PLINY] ARGUS: RATIFY-WITH-CONDITIONS (5 conds, all cheap/non-structural). W4-split premise CONFIRMED TRUE (cleanup seq at pre-branch-hygiene.md:65-73; §5.10 verify-only). ARGUS hit the wq0 bug LIVE authoring its own verdict (heredoc broke on apostrophes; worked around via printf to worktree-relative file) = N+1 confirmation. Conds for ADA: r1 (VERA role file NOT byte-identical to ARGUS/CATO — has extra INCOMPLETE/UNVERIFIABLE sentence; teaching append must account); r2 MOST-IMPORTANT (harden pre-branch-hygiene.md:73 prose verify-list too, else §5.9.4 self-contradicts); r3 (relax --artifact-path to optional, keep example); r4 (state §34 silent-green honestly: guard closes /tmp form, PROCEDURE closes general case); r5 (validate request_id vs path-seps). A1 beat: ALL ratifications §35.5/not-threat-ratified — no attack-path, no design threat-fold needed. Dispatching ADA.",
       "timestamp": "2026-06-04T05:29:32Z"
+    },
+    {
+      "text": "ADA activated on Arc 56 (wq0+xxy+7b1.2+7ap). Read design + directive + ARGUS RATIFY-WITH-CONDITIONS (r1-r5) + worktree state. Ground-checking shipped code (_save_verdict.py signatures, 3 CAPTAIN role-file paras incl VERA divergence per r1, pre-branch-hygiene §5.9.4 L65-73 + L73 prose per r2, arc-close-hygiene §5.10) before first commit. Autonomous mode.",
+      "timestamp": "2026-06-04T05:30:22Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T05:29:32Z"
+  "updated_at": "2026-06-04T05:30:22Z"
 }
