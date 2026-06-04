@@ -130,11 +130,15 @@
     {
       "text": "ADA activated on Arc 56 (stoa--wq0 toolset-parenthetical correction). Read dispatch + worktree HEAD d7cd8c5. Located the over-broad enumeration at SKILL.md line 106 (Bash-only seats parenthetical lists WebSearch/WebFetch which ZENO/NOMOS/TIRO lack). Applying common-subset fix. Autonomous mode.",
       "timestamp": "2026-06-04T06:00:21Z"
+    },
+    {
+      "text": "pass: toolset-parenthetical correction complete. 1 commit (0377ce6) atop d7cd8c5, 1 file (save-verdict/SKILL.md), 1-line change. Bash-only-seats parenthetical now reads common toolset 'Bash, Read, Grep, Glob' with web tools noted as ARGUS/CATO-only — factually accurate (ZENO/NOMOS/TIRO lack WebSearch/WebFetch). printf teaching untouched. Author stays Denson Smith; ADA seat-trailer present. Returning.",
+      "timestamp": "2026-06-04T06:00:55Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T06:00:21Z"
+  "updated_at": "2026-06-04T06:00:55Z"
 }
