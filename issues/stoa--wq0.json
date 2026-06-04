@@ -110,11 +110,15 @@
     {
       "text": "VERA meta-verify complete: re-ran apostrophe round-trip (sha256 match, apostrophes intact), /tmp guard fires exit4 no-leak, r5 request-id traversal guard rejects ../escape, per-ticket receipt path confirmed, --artifact-path optional both ways. VERA's claims hold against ground truth. M1 fold (38547ef) correct doc-only. Authorship clean (denson author, ADA seat-trailer). Scope = 10-file envelope, no install.sh/hook/PS. Drafting SHIP verdict, writing via dogfood Write-tool pattern.",
       "timestamp": "2026-06-04T05:49:37Z"
+    },
+    {
+      "text": "pass (SHIP): Arc 56 clean. 10-file envelope, no scope leak (no install.sh/hook/PS). _save_verdict.py correct (/tmp guard pre-exists-check, artifact_path computed once, ticket/officer/request_id all regex-validated before path composition, --artifact-path optional verified both ways). r1 role-files byte-identical modulo officer token. Both ADA deviations clean calls (step-9 comment-above required for bash line-continuation; PLINY §5.14 parallel to §5.13). VERA meta-verify: all claims hold against ground-truth re-run; M1 fold (38547ef) correct doc-only. Authorship clean (denson author, ADA seat-trailer, SKILL.md author: Denson Smith). 1 minor non-blocking nit (arc-N vs arc-\u003cN\u003e spelling = convention-matching, not drift). DOGFOOD SUCCEEDED: this verdict Write-\u003eworktree-relative-\u003esave-verdict --cwd=worktree, exit0 sha256-match 7239a5bd270f, landed in worktree not main. Returning SHIP.",
+      "timestamp": "2026-06-04T05:50:37Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T05:49:37Z"
+  "updated_at": "2026-06-04T05:50:37Z"
 }
