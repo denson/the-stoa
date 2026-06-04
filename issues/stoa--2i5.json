@@ -18,11 +18,15 @@
     {
       "text": "Precedents absorbed: arg-parse case (549-586), usage sed-extract (224-227), run_or_print dry-run helper (242-249), write_substrate_manifest dry-run pattern (453-513), pycache cleanup (1119-1134), summary block (1642+), 3-tier DEST_DIR. README target = 'What gets deployed' (L20-29). Drafting design — option pick: α (.claude/.gitignore, no root-gitignore flag needed). Writing now.",
       "timestamp": "2026-06-04T04:39:52Z"
+    },
+    {
+      "text": "pass: design written to agents/design/stoa--2i5/design.md. Option α (write .claude/.gitignore, NO root-gitignore flag — dropped the directive's optional --manage-gitignore append; justified §2). New fn write_substrate_gitignore after install.sh:513, called after :1591. Full-overwrite heredoc = idempotency. Bare entries (worktrees/ not .claude/worktrees/) = §3.1 path-relativity. 4 probes (P1 AC3 / P2 idempotency / P3 dry-run / P4 docs), fixed literal /tmp paths. 4 self-assessed weak points. Biggest: W1 path-relativity prefix bug (VERA P1 is the live catch). Returning.",
+      "timestamp": "2026-06-04T04:41:48Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "install.sh canonical .gitignore management for substrate-generated transient paths (.claude/scheduled_tasks.lock + .claude/worktrees/ + .substrate-last-check)",
   "type": "task",
-  "updated_at": "2026-06-04T04:39:52Z"
+  "updated_at": "2026-06-04T04:41:48Z"
 }
