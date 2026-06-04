@@ -65,11 +65,31 @@ Subsequent arc-build work happens entirely within `.claude/worktrees/arc-N-build
 **At arc close, the cleanup sequence (PLINY runs after PR merge, before posting signoff):**
 
 ```
-git worktree remove .claude/worktrees/arc-N-build
+# Run this from the MAIN worktree root — NEVER while cwd is inside
+# .claude/worktrees/arc-N-build (an inside-cwd process IS the Windows file lock
+# that makes `git worktree remove` leave an orphan dir — stoa--7ap, claude-code
+# #41740 / #32747). cd to the repo root first.
+
+git worktree remove .claude/worktrees/arc-N-build || git worktree remove --force .claude/worktrees/arc-N-build
+
+# Windows: `git worktree remove` can DE-REGISTER the worktree (`git worktree list`
+# shows it gone) yet FAIL to delete the directory — observed "Permission denied"
+# (Arc 2) and "Device or resource busy" (Arc 3). Assert the DIRECTORY is gone,
+# not just the registration; retry the orphan-dir removal if it survived.
+if [ -d .claude/worktrees/arc-N-build ]; then
+  git worktree prune
+  rm -rf .claude/worktrees/arc-N-build
+fi
+[ ! -d .claude/worktrees/arc-N-build ] || { echo "ORPHAN: worktree dir still present at .claude/worktrees/arc-N-build — a process likely holds a lock (cwd inside? MCP handle?). Resolve before posting signoff." >&2; }
+
 git branch -D arc-N/build
 git push origin --delete arc-N/build
 ```
 
-The §5.10 signoff-accuracy discipline requires PLINY to verify each of these completed before posting the signoff: `git worktree list` should not show `.claude/worktrees/arc-N-build`; `git branch` should not show `arc-N/build`; `git ls-remote --heads origin arc-N/build` should return empty. The verification commands are stable across arcs because the worktree path and branch name follow the same template every time.
+**Windows orphan-dir root cause (stoa--7ap).** On Windows `git worktree remove` fails with **"Permission denied"** (observed Arc 2) or **"Device or resource busy"** (observed Arc 3) when a process holds a lock on the worktree directory — most commonly **a process whose cwd is inside the worktree** (the agent itself), or an MCP server holding a handle ([claude-code #41740](https://github.com/anthropics/claude-code/issues/41740), [#32747](https://github.com/anthropics/claude-code/issues/32747)). The remove can still *de-register* the worktree (so `git worktree list` no longer shows it) while leaving the directory on disk as an invisible orphan. The mitigation is in the fence above: run from the main root (never cwd-inside), `git worktree remove` (force-fallback), then `git worktree prune` + `rm -rf` the orphan if the dir survived, then **assert the directory itself is gone** — not just the registration.
+
+The `rm -rf` targets a **fixed literal template path** `.claude/worktrees/arc-N-build` (the `arc-N` is substituted to a concrete arc number at author time, not a runtime `$VAR`) per `operating-disciplines.md` §8.6 — verbatim re-execution does not permission-pause on a variable expansion.
+
+The §5.10 signoff-accuracy discipline requires PLINY to verify each of these completed before posting the signoff: `git worktree list` should not show `.claude/worktrees/arc-N-build` **AND** `[ ! -d .claude/worktrees/arc-N-build ]` must hold (the directory itself is gone, not just the registration — on Windows the registration can be gone while the orphan dir survives, per the root-cause note above); `git branch` should not show `arc-N/build`; `git ls-remote --heads origin arc-N/build` should return empty. The verification commands are stable across arcs because the worktree path and branch name follow the same template every time.
 
 Anchor: `stoa--32b.1` (2026-05-17 Arc 31 divergence — PLINY operated `arc-31/build` in the main workspace path; the checkout flipped main→arc-31/build; user-tier POLYBIUS held position). De-facto pattern Arcs 26-30 (N=5 bit-by-it, separate worktrees shipped clean); Arc 31 N=1 bit-by-it of the failure mode. Enters substrate canon off-gate per `operating-disciplines.md` §6.7.1 on the 2026-05-17 project-direction declaration; accretes per §6.7.1. Recover via `bw show stoa--32b.1`.
