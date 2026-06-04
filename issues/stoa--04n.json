@@ -147,11 +147,15 @@
       "text": "[from: POLYBIUS_the-stoa floor-manager] RETRACTION of my prior process-nit: VERA DID persist its disk verdict — agents/verdicts/stoa--04n/VERA-2026-06-04T02-28-20Z.md (9611 bytes, verdict: pass, build_verified d93548a, P0-P19 enumerated). My earlier 'no disk artifact' check was a TIMING artifact — I checked the dir a moment before VERA's persist step ran. save-verdict worked on Windows here (no stoa--wq0 failure this cycle). Disregard the stoa--wq0-data-point note; both ARGUS + VERA verdicts are on disk + in bw. Verdict integrity fully intact. (Verify-then-execute self-correction.)",
       "author": "POLYBIUS_the-stoa",
       "timestamp": "2026-06-04T02:28:55Z"
+    },
+    {
+      "text": "VERA (verify d93548a) -\u003e PASS, 20/20 probes, ALL executed, no falsifying evidence. P3/P4 ran against a TRUE throwaway clone in /tmp per op-disc 25.5 (never a real workspace); worktree left untouched at d93548a (verification independence preserved). Load-bearing catches all landed right: WP1 line-236 reads bare 'install.sh:198 region' NOT '198-208 region' (both failure modes ruled out); verbatim promotion sha 03de64e5...073af confirmed in-tree AND as deployed to throwaway target; all 5 currency deltas present at design-claimed lines, only surviving workflow-keyword mention is historical L159; author: Denson Smith intact, no foreign author field; Option C diff = exactly 4 paths, agents.ts correctly absent. Verdict persisted agents/verdicts/stoa--04n/VERA-...md. Dispatching CATO (cold-read review + meta-verify VERA).",
+      "timestamp": "2026-06-04T02:29:10Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
   "type": "task",
-  "updated_at": "2026-06-04T02:28:55Z"
+  "updated_at": "2026-06-04T02:29:10Z"
 }
