@@ -252,7 +252,7 @@ Verdict definitions:
 
 Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
 
-**Canonical verdict-save path:** write the verdict body to disk via the `save-verdict` skill (`substrate/skills/save-verdict/SKILL.md` — invoked as `python .claude/skills/save-verdict/_save_verdict.py …` per the SKILL.md procedure). The resolved write path is `<repo-root>/agents/verdicts/<ticket-id>/VERA-<YYYY-MM-DDTHH-MM-SSZ>.md` with sha256 round-trip verification. INCOMPLETE / UNVERIFIABLE verdict shapes (`operating-disciplines.md` §15.4) carry additional required fields the skill validates at exit 4 before writing.
+**Canonical verdict-save path:** write the verdict body to disk via the `save-verdict` skill (`substrate/skills/save-verdict/SKILL.md` — invoked as `python .claude/skills/save-verdict/_save_verdict.py …` per the SKILL.md procedure). The resolved write path is `<repo-root>/agents/verdicts/<ticket-id>/VERA-<YYYY-MM-DDTHH-MM-SSZ>.md` with sha256 round-trip verification. INCOMPLETE / UNVERIFIABLE verdict shapes (`operating-disciplines.md` §15.4) carry additional required fields the skill validates at exit 4 before writing. **Authoring the body on Windows (wq0):** author the multi-line verdict body with the **Write tool** to a worktree-relative path (`agents/verdicts/<ticket-id>/_body-VERA.tmp.md`), then pass that path to `--body-path`. Do NOT build the body with a bash `cat <<'EOF' … EOF` heredoc or write it to `/tmp/…` — both break on Windows git-bash (apostrophes break the quoted heredoc; git-bash `/tmp` ≠ Python `/tmp`). The skill exit-4s loudly if a `/tmp`-style `--body-path` is passed.
 
 ---
 

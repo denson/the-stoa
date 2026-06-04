@@ -43,6 +43,9 @@ from _lib.byte_copy import write_with_verify  # noqa: E402
 _OFFICER_RE = re.compile(r"^[A-Z][A-Z0-9_]*$")
 # Ticket-ids must start with [a-zA-Z0-9]; bare-dot / ".." / leading-dash rejected.
 _TICKET_RE = re.compile(r"^[a-zA-Z0-9][a-zA-Z0-9._-]*$")
+# request-id composes the receipt filename (xxy facet-1); same path-traversal
+# defense as ticket-id — no path separators, no leading-dash, no bare-dot.
+_REQUEST_ID_RE = re.compile(r"^[a-zA-Z0-9][a-zA-Z0-9._-]*$")
 
 _QUADRANT_ENUM = {"easy-easy", "hard-easy", "easy-hard", "hard-hard"}
 _SHAPE_ENUM = {"pass", "fail", "needs-revisions", "INCOMPLETE", "UNVERIFIABLE"}
@@ -63,7 +66,12 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument("--timestamp", default=None, help="ISO-8601 UTC; default = now")
     p.add_argument("--overwrite", action="store_true")
     p.add_argument("--cwd", required=True)
-    p.add_argument("--artifact-path", required=True)
+    # xxy facet-1 (r3): the receipt path is now computed canonically by the skill
+    # (agents/save-verdict/<ticket>/<officer>-<request-id>.txt). --artifact-path is
+    # RELAXED to optional and retained only as a back-compat no-op so the SKILL.md
+    # step-9 example (which still passes it) does not self-break argparse at exit 4.
+    # Its value is IGNORED; the canonical computed path always wins. See main().
+    p.add_argument("--artifact-path", default=None)
     p.add_argument("--request-id", required=True)
     p.add_argument("--caller", required=True)
     p.add_argument(
@@ -205,6 +213,16 @@ def main(argv=None) -> int:
         return _exit_with(
             4, "ticket-id must match ^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
         )
+    # xxy facet-1 (r5): request_id now composes the receipt filename
+    # (agents/save-verdict/<ticket>/<officer>-<request-id>.txt), so it must be
+    # path-separator-safe — same path-traversal defense class as the officer /
+    # ticket_id regex above. Reject path separators and shell-meta before the
+    # receipt path is composed.
+    if not _REQUEST_ID_RE.match(args.request_id):
+        return _exit_with(
+            4, "request-id must match ^[a-zA-Z0-9][a-zA-Z0-9._-]*$ "
+            "(no path separators; it composes the receipt filename)"
+        )
 
     # Shape-conformance validation per op-disc §15.4.
     shape = args.verdict_shape
@@ -257,6 +275,17 @@ def main(argv=None) -> int:
         return _exit_with(5, f"could not resolve --cwd: {e}")
     resolved_dest = cwd_abs / "agents" / "verdicts" / args.ticket_id / f"{args.officer}-{ts_fn}.md"
 
+    # xxy facet-1: namespace the receipt per ticket+officer+request-id to stop the
+    # flat-name collision (e.g. argus-rev2-reconfirm.txt overwrote across arcs). The
+    # caller-supplied --artifact-path is RETAINED as an accepted-but-ignored arg
+    # (back-compat for the SKILL.md step-9 example); the canonical computed path
+    # always wins so two arcs/tickets cannot collide. ticket_id / officer /
+    # request_id are all validated path-safe above (steps 2 + r5 guard).
+    artifact_path = (
+        cwd_abs / "agents" / "save-verdict" / args.ticket_id
+        / f"{args.officer}-{args.request_id}.txt"
+    )
+
     # Step 5: read body bytes.
     body_source = "inline" if has_body else "body_path"
     body_bytes: bytes
@@ -264,7 +293,36 @@ def main(argv=None) -> int:
         if has_body:
             body_bytes = args.body.encode("utf-8")
         else:
-            body_path = pathlib.Path(args.body_path)
+            raw_bp = args.body_path
+            # wq0 loud-fail: a bash-/tmp-style body-path is the Windows silent-green
+            # trap. git-bash /tmp (MSYS) and Python /tmp resolve to DIFFERENT
+            # locations on Windows; reject the ambiguous form outright so a path
+            # mismatch FAILS LOUD rather than reading a stale file and writing a
+            # green verdict with wrong content. The guard closes the one observed
+            # dangerous FORM (/tmp); the SKILL.md "Authoring the body file"
+            # procedure (Write-tool -> worktree-relative path) closes the general
+            # case. See save-verdict SKILL.md.
+            # NOTE: this guard is a literal-string BACKSTOP, not a general /tmp
+            # catch -- MSYS git-bash rewrites a /tmp/ arg to the real Windows temp
+            # path BEFORE argparse sees it, so under ordinary git-bash invocation
+            # the arg never reaches here as "/tmp/..."; the guard fires only on a
+            # genuinely-divergent literal /tmp/ string. The Write-tool procedure
+            # above is the load-bearing fix.
+            if (
+                raw_bp.startswith("/tmp/")
+                or raw_bp.startswith("/tmp\\")
+                or raw_bp == "/tmp"
+            ):
+                return _exit_with(
+                    4,
+                    "body-path looks like a bash /tmp path (" + raw_bp + "): on "
+                    "Windows git-bash this resolves differently than Python and "
+                    "risks a silent-green wrong-content verdict. Author the body "
+                    "via the Write tool to a worktree-relative path "
+                    "(agents/verdicts/<ticket-id>/_body-<officer>.tmp.md) and pass "
+                    "that. See save-verdict SKILL.md 'Authoring the body file'.",
+                )
+            body_path = pathlib.Path(raw_bp)
             if not body_path.exists():
                 return _exit_with(4, f"body-path does not exist: {body_path}")
             body_bytes = body_path.read_bytes()
@@ -292,7 +350,8 @@ def main(argv=None) -> int:
     verification = "skipped"
     diagnostics_for_artifact = ""
 
-    artifact_path = pathlib.Path(args.artifact_path)
+    # artifact_path was computed canonically in step 4 (xxy facet-1); the raw
+    # --artifact-path arg is ignored.
 
     try:
         result = write_with_verify(

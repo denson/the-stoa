@@ -37,7 +37,7 @@ Request bead fields:
   - `body_path: <path>` — optional. Path to a file whose contents are the verdict body. Mutually exclusive with `body`.
   - `timestamp: <ISO-8601-string>` — optional. Default = current UTC time. Filename-encoded as `YYYY-MM-DDTHH-MM-SSZ` (colons replaced with hyphens for cross-platform filename safety).
   - `overwrite: <bool>` — optional. Default false. If false and the resolved dest exists, fails before writing.
-  - `cwd: <repo-relative-path>` — optional. Default = gauntlet repo root.
+  - `cwd: <absolute-path>` — optional. Default = current process cwd's repo root. **In an arc-build context the caller MUST pass the absolute arc-worktree root** (`<repo>/.claude/worktrees/arc-<N>-build`). Sub-agents inherit the parent session cwd — a CAPTAIN dispatched from the main session resolves a relative/defaulted cwd to the MAIN tree, not the worktree, so the verdict + receipt land at main `agents/verdicts/` instead of the worktree (the Arc-55 split: VERA/CATO wrote to main while ARGUS wrote to the worktree — stoa--xxy facet-2). Passing the explicit worktree path is the fix; the PLINY dispatch-discipline (`MAJOR_PLINY.md` §5.14) guarantees it is passed.
   - `verdict_shape: <pass | fail | needs-revisions | INCOMPLETE | UNVERIFIABLE>` — optional. Default unset (caller's body carries the shape). When set to `INCOMPLETE` or `UNVERIFIABLE`, additional fields below are required per the verification-complexity framework at `operating-disciplines.md` §15.
   - `quadrant_classification: <easy-easy | hard-easy | easy-hard | hard-hard>` — REQUIRED when `verdict_shape` is `INCOMPLETE` or `UNVERIFIABLE`. The verifier's classification of the claim per `operating-disciplines.md` §15.1.
   - `coverage_description: <free-form prose>` — REQUIRED when `verdict_shape` is `INCOMPLETE`. Describes what was checked, what was NOT checked, the bound used (iterations / state-space subset / time budget), and the verifier's confidence interval.
@@ -50,7 +50,7 @@ The validation enforcement is **caller-side per shape**: the skill accepts the i
 
 Resolved path: `<cwd>/agents/verdicts/<ticket-id>/<officer>-<timestamp-filename-safe>.md`.
 
-SAVE_VERDICT writes a single text record at `agents/save-verdict/<request-id>.txt`:
+SAVE_VERDICT writes a single text record at `agents/save-verdict/<ticket-id>/<officer>-<request-id>.txt` (per-ticket subdirectory + officer + request-id — all three the skill already receives as args). The path is **computed by the skill**, not caller-chosen, so generic request-ids cannot overwrite across tickets/arcs (stoa--xxy facet-1). The `--artifact-path` arg is still accepted for back-compat but its value is **ignored** — the canonical computed path always wins:
 
 ```
 === SAVE_VERDICT record ===
@@ -89,7 +89,7 @@ SAVE_VERDICT complete: request=<request-id> overall=<pass|fail> dest=<resolved_d
 
 ## Procedure
 
-1. **Resolve cwd** to gauntlet repo root by default.
+1. **Resolve cwd.** In an arc-build context the caller passes the absolute arc-worktree root (see the `cwd` input-contract note); otherwise it defaults to the current process cwd's repo root.
 2. **Validate inputs.** Officer matches `^[A-Z][A-Z0-9_]*$`; ticket id matches `^[a-zA-Z0-9._-]+$`; exactly one of `body` / `body_path` is provided. **Shape conformance:** when `verdict_shape` is provided, validate per the verification-complexity framework at `operating-disciplines.md` §15.4. If `verdict_shape` is `INCOMPLETE` or `UNVERIFIABLE`, require `quadrant_classification` from the enum `{easy-easy, hard-easy, easy-hard, hard-hard}`. If `INCOMPLETE`, require `coverage_description`. If `UNVERIFIABLE`, require both `sanity_check_performed` and `recommended_next_step`. Missing-required-field or out-of-enum cases exit 4 with the diagnostics enumerated in **Failure modes** below.
 3. **Resolve timestamp.** If not provided, use `datetime.now(timezone.utc)`. Encode for filename as `strftime('%Y-%m-%dT%H-%M-%SZ')`.
 4. **Compute resolved dest.** `<cwd>/agents/verdicts/<ticket_id>/<officer>-<ts-fn>.md`.
@@ -99,7 +99,26 @@ SAVE_VERDICT complete: request=<request-id> overall=<pass|fail> dest=<resolved_d
 8. **Re-hash** the on-disk file as defense-in-depth.
 9. **Write record artifact.**
 
+### Authoring the body file (Windows-safe; do this BEFORE the script call)
+
+When the verdict body is multi-line, author it to a **worktree-relative path inside the same tree the verdict will land in**: `agents/verdicts/<ticket-id>/_body-<officer>.tmp.md`. Then pass that same path to `--body-path`. The **mechanism is seat-aware** because seats carry different toolsets, but the shared invariant below is identical for all of them:
+
+- **Write-tool seats** (ADA, VERA, DAEDALUS, HERALD, CURATOR, STRABO, BARTLEBY) author it with the **Write tool** (harness runtime — no shell quoting, no heredoc, apostrophes safe) to that path.
+- **Bash-only seats** (ARGUS, CATO, ZENO, NOMOS, TIRO — no Write/Edit tool; their common toolset is Bash, Read, Grep, Glob — only ARGUS and CATO additionally carry WebSearch/WebFetch) author it via **`printf` redirection** to that same path: `printf '%s' '<body>' > agents/verdicts/<ticket-id>/_body-<officer>.tmp.md`. Quoting caveat: a single-quoted `printf '%s' '…'` body is literal (no `$`/backtick expansion) but cannot contain a bare apostrophe — escape each embedded apostrophe as `'\''` (close-quote, escaped-apostrophe, reopen-quote). This is the proven Bash-only path the no-Write reviewer seats (ARGUS, CATO) used this arc; the escaping is required, not optional.
+
+The **shared invariant** both mechanisms preserve: an explicit worktree-relative path, no quoted heredoc, no `/tmp`, and identical Write-vs-Python (or printf-vs-Python) path resolution.
+
+Whichever mechanism the seat uses, do **NOT** author the body via a bash `cat <<'EOF' … EOF` heredoc, and do **NOT** write it to `/tmp/…`:
+
+- On Windows git-bash the quoted `<<'EOF'` heredoc **still breaks on apostrophes** (confirmed Arc 52: a verdict had to be authored apostrophe-free after repeated retries).
+- git-bash `/tmp` (MSYS) does **not** resolve to the same location as Python's `/tmp` on Windows, so `--body-path /tmp/…` either exit-4s ("body-path does not exist") or — the dangerous facet — reads a stale/wrong file and writes a **silent-green** verdict with wrong content.
+
+An explicit repo/worktree-relative path is resolved **identically** by the Write tool (or `printf` redirection) and by Python's `pathlib`, sidestepping both root causes. The skill **exit-4s loudly** if a `/tmp`-style `--body-path` is passed (the loud-fail guard closes the one observed `/tmp` form; this worktree-relative-path PROCEDURE — via either authoring mechanism above — closes the general case — it eliminates any cross-runtime temp file, not just the `/tmp` spelling, satisfying the §34 fail-loud-on-mismatch constraint). Note the guard is a **literal-string backstop, not a general `/tmp` catch**: MSYS git-bash auto-converts a `/tmp/…` argument to the real Windows temp path *before* Python's argparse sees it, so under an ordinary git-bash invocation the guard never sees the `/tmp/` form (the conversion is self-consistent, so the read content stays correct) — it fires only when a genuinely-divergent literal `/tmp/…` string reaches Python; the worktree-relative authoring procedure (Write tool for Write-tool seats, `printf` redirection for Bash-only seats) is the load-bearing fix. The `_body-*.tmp.md` scratch file is left on disk (harmless, inside the verdict dir); it is not auto-deleted.
+
 ```bash
+# $inputs.body_path = the worktree-relative file authored above (Write tool for
+# Write-tool seats, printf redirection for Bash-only seats; NOT a /tmp heredoc).
+# A /tmp-style --body-path is rejected at exit 4.
 python skills/save-verdict/_save_verdict.py \
   --ticket-id "$inputs.ticket_id" \
   --officer "$inputs.officer" \
@@ -113,12 +132,16 @@ python skills/save-verdict/_save_verdict.py \
   --caller "$caller"
 ```
 
+`--artifact-path` is passed here for back-compat but its value is **ignored** — the skill computes the receipt path canonically as `<cwd>/agents/save-verdict/<ticket-id>/<officer>-<request-id>.txt` (stoa--xxy facet-1). It may be omitted entirely (the arg is optional).
+
 Exit codes per `_save_verdict.py` docstring: 0 ok / 2 sha256 mismatch / 3 dest exists / 4 argument error / 5 internal error.
 
 ## Failure modes
 
 - **Both `body` and `body_path` given** (or neither). Exit 4 with a diagnostic naming which.
 - **Officer or ticket id contains invalid chars.** Exit 4. Path-traversal defense. Ticket-ids must start with `[a-zA-Z0-9]`; bare-dot inputs (`.`, `..`) and leading-dash inputs (`-x`) are rejected at exit 4 before dest path construction.
+- **`body_path` is a `/tmp`-style bash path** (`/tmp/…`, `/tmp\…`, or exactly `/tmp`). Exit 4 (wq0 loud-fail). On Windows git-bash `/tmp` resolves differently than Python's `/tmp`, risking a silent-green wrong-content verdict; the guard rejects the form outright with a diagnostic pointing at the Write-tool-to-worktree-relative-path procedure.
+- **`request-id` contains invalid chars** (path separators, leading-dash, bare-dot). Exit 4. Path-traversal defense — `request-id` composes the receipt filename (stoa--xxy facet-1, r5).
 - **`body_path` does not exist.** Exit 4.
 - **Dest exists, no `--overwrite`.** Exit 3. Common when an officer accidentally re-dispatches with the same timestamp; caller picks `overwrite: true` or a different timestamp.
 - **OS error during write** (perms, disk-full). Exit 5.
