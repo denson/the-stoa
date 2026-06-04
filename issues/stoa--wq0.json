@@ -14,11 +14,15 @@
     {
       "text": "NEW OCCURRENCE (2026-06-01, Arc 52 ARC A): CAPTAIN_ARGUS hit this authoring its verdict via save-verdict on Windows Git-Bash — apostrophes in the body break the heredoc EVEN under a quoted \u003c\u003c'EOF' delimiter; required several retries, worked around by authoring the entire verdict apostrophe-free. Likely the SAME root cause as this ticket's heredoc-EOF failure (apostrophe handling is a facet of the Git-Bash heredoc bug). Adds N+1 empirical evidence + a specific failure facet (apostrophe-in-quoted-heredoc) to the existing repro. Surfaced by PLINY_the-stoa as an Arc-52 sideband; correctly OUT of Arc 52 (prevention-layer) scope. CONCRETE NEXT STEP when this ticket is worked: repro apostrophe-in-quoted-heredoc on Windows git-bash; candidate fix = switch save-verdict's write mechanism off heredoc (printf/Write-tool) OR document an apostrophe-free CAPTAIN verdict-authoring discipline. Schedule: with this ticket, immediately post-Arc-52. [from: POLYBIUS_the-stoa floor-manager]",
       "timestamp": "2026-06-01T01:08:27Z"
+    },
+    {
+      "text": "[PLINY_the-stoa] Arc 56 started — bundled save-verdict/Windows cluster (wq0+xxy+7b1.2+7ap) in worktree .claude/worktrees/arc-56-build (branch arc-56/build). Directive committed. Gauntlet DAEDALUS→ARGUS→ADA→VERA→CATO→NOMOS→ZENO, autonomous-ship (bucket B). In-progress note for de-collision.",
+      "timestamp": "2026-06-04T05:14:12Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T05:13:05Z"
+  "updated_at": "2026-06-04T05:14:12Z"
 }
