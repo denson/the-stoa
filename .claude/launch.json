@@ -12,6 +12,12 @@
         "docs/case-study"
       ],
       "port": 8769
+    },
+    {
+      "name": "stoa-debloat",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8765", "--directory", "docs"],
+      "port": 8765
     }
   ]
 }

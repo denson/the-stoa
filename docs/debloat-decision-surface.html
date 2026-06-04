@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stoa Debloat — Decision Surface</title>
+<style>
+  :root{
+    --bg:#0e1116; --panel:#161b22; --panel2:#1c232d; --line:#2a3441;
+    --ink:#e6edf3; --dim:#8b97a6; --accent:#58a6ff;
+    --encode:#3fb950; --consolidate:#d29922; --keep:#58a6ff; --cut:#f85149; --undecided:#6e7681;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+  header{padding:24px 28px 16px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#11161d,#0e1116)}
+  h1{margin:0 0 6px;font-size:22px}
+  .sub{color:var(--dim);font-size:13.5px;max-width:980px}
+  .frame{margin:14px 0 4px;padding:12px 16px;background:var(--panel);border:1px solid var(--line);border-radius:8px;max-width:980px;font-size:13.5px;color:#c9d4e0}
+  .frame b{color:var(--ink)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:12.5px}
+  .pill{display:inline-flex;align-items:center;gap:6px;padding:2px 9px;border-radius:20px;font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em}
+  .dot{width:9px;height:9px;border-radius:50%}
+  .b-encode{background:rgba(63,185,80,.14);color:var(--encode)} .d-encode{background:var(--encode)}
+  .b-consolidate{background:rgba(210,153,34,.14);color:var(--consolidate)} .d-consolidate{background:var(--consolidate)}
+  .b-keep{background:rgba(88,166,255,.14);color:var(--keep)} .d-keep{background:var(--keep)}
+  .b-cut{background:rgba(248,81,73,.14);color:var(--cut)} .d-cut{background:var(--cut)}
+  .b-undecided{background:rgba(110,118,129,.16);color:var(--undecided)} .d-undecided{background:var(--undecided)}
+  .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:16px 28px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(14,17,22,.96);backdrop-filter:blur(6px);z-index:5}
+  select,button,input{background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:7px;padding:7px 10px;font-size:13px}
+  button{cursor:pointer} button:hover{border-color:var(--accent)}
+  .stat{color:var(--dim);font-size:13px;margin-left:auto}
+  .stat b{color:var(--ink)}
+  main{padding:18px 28px 80px}
+  .group{margin:6px 0 22px}
+  .group h2{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--dim);border-bottom:1px solid var(--line);padding-bottom:6px;margin:0 0 12px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:13px 15px;margin-bottom:10px;display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:start}
+  .num{font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;font-size:15px}
+  .title{font-weight:600;margin-bottom:5px}
+  .cat{color:var(--dim);font-size:12px}
+  .why{color:#b3c0cf;font-size:13px;margin-top:7px}
+  .flags{display:flex;gap:7px;margin-top:8px;flex-wrap:wrap;align-items:center}
+  .dilemma{background:rgba(248,81,73,.10);color:#ff7b72;border:1px solid rgba(248,81,73,.3);padding:2px 8px;border-radius:6px;font-size:11.5px;font-weight:600}
+  .call{display:flex;flex-direction:column;gap:6px;align-items:flex-end;min-width:150px}
+  .call label{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.05em}
+  .call select{padding:6px 8px;font-size:12.5px}
+  .hidden{display:none}
+  .ft-toggle{background:var(--panel2);color:var(--accent);border:1px solid var(--line);border-radius:6px;padding:2px 9px;font-size:11.5px;cursor:pointer}
+  .ft-toggle:hover{border-color:var(--accent)}
+  .fulltext{grid-column:1 / -1;margin-top:10px;background:#0b0e13;border:1px solid var(--line);border-radius:7px;padding:12px 14px;font:12px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#c9d4e0;white-space:pre-wrap;max-height:440px;overflow:auto}
+  .writeup{grid-column:1 / -1;margin-top:10px;background:#12181f;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:7px;padding:11px 15px;font-size:13.5px;line-height:1.62;color:#cdd9e5}
+  .writeup.recp{border-left-color:var(--consolidate)}
+  .writeup b{display:block;margin-bottom:5px;color:var(--ink);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em}
+  .pending{color:var(--dim);font-style:italic}
+  footer{position:fixed;bottom:0;left:0;right:0;padding:8px 28px;background:var(--panel2);border-top:1px solid var(--line);font-size:12px;color:var(--dim);display:flex;gap:16px;align-items:center}
+  footer b{color:var(--ink)}
+  .reset{margin-left:auto;font-size:11.5px;padding:4px 9px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Stoa Debloat — Decision Surface</h1>
+  <div class="sub">37 top-level disciplines from <code>operating-disciplines.md</code> (§0.5–§36; 1675 lines, +80 sub-sections), categorized so they can be managed — and worked through, one debloat decision at a time.</div>
+  <div class="frame">
+    <b>The dilemma underneath every row (pick 2 of 3):</b> you cannot simultaneously have full <b>coverage</b>, low <b>complexity/economy</b>, and reliable <b>execution</b> at current agent capacity. The debloat leans <b>performance</b> — pay complexity to get coverage+reliability, then <b>shrink</b> the complexity by encoding process-rules into structure (workflows/hooks/gates) so the prose can be deleted.<br>
+    <b>The dispositions below are proposals, not verdicts.</b> ENCODE = mechanical process → make a workflow/hook enforce it, delete the prose. CONSOLIDATE = irreducible judgment/value → keep as prose, but trim/merge. KEEP = load-bearing or just-shipped, leave it. CUT = redundant/stale/niche candidate. <b>Rows flagged ⚠ DILEMMA are genuinely your value-call</b> — I won't fake a recommendation on those.
+    <div class="legend">
+      <span class="pill b-encode"><span class="dot d-encode"></span>encode → delete prose</span>
+      <span class="pill b-consolidate"><span class="dot d-consolidate"></span>consolidate (trim prose)</span>
+      <span class="pill b-keep"><span class="dot d-keep"></span>keep as-is</span>
+      <span class="pill b-cut"><span class="dot d-cut"></span>cut / merge candidate</span>
+      <span class="dilemma">⚠ DILEMMA = your call</span>
+    </div>
+  </div>
+</header>
+
+<div class="controls">
+  <label>Group: <select id="groupBy"><option value="category">by category</option><option value="proposed">by disposition (grounded)</option><option value="yourcall">by your call</option><option value="none">flat list</option></select></label>
+  <label>Filter: <select id="filterCat"><option value="">all categories</option></select></label>
+  <label><select id="filterDisp"><option value="">all dispositions</option><option value="encode">encode</option><option value="consolidate">consolidate</option><option value="keep">keep</option><option value="cut">cut</option></select></label>
+  <label><input type="checkbox" id="onlyDilemmas"> dilemmas only</label>
+  <span class="stat" id="stat"></span>
+</div>
+
+<main id="main"></main>
+
+<footer>
+  <span>Your decisions persist in this browser (localStorage). <b id="decided">0</b> of <b id="total">0</b> decided.</span>
+  <span>Grounded mix: <b id="mix"></b></span>
+  <button class="reset" id="reset">reset my calls</button>
+</footer>
+
+<script src="disciplines-text.js"></script>
+<script src="writeups.js"></script>
+<script>
+// ── DATA: grounded from operating-disciplines.md (§ + title verbatim). disp = PROPOSED disposition (hypothesis). ──
+const CATS = {
+  mindset:"Mindset / anti-pattern stance", verify:"Verification & redundancy", coord:"Coordination & orchestration",
+  bwtool:"bw / substrate tooling", author:"Authoring", build:"Build & arc hygiene",
+  idsec:"Identity & security", envarch:"Engagement, environment & architecture"
+};
+const D = [
+ {n:"0.5", t:"Relocation index (audit-time — where relocated content went)", c:"bwtool", d:"encode", dl:false, w:"Mechanical bookkeeping/index — generated, not authored. A tool can maintain it.", rev:"keep"},
+ {n:"1", t:'Suppress "ship-it" / momentum pressure', c:"mindset", d:"consolidate", dl:true, w:"Pure stance — can't be a hook. §1–§5 are five separate suppressors that could merge into one 'anti-pattern stance' section. DILEMMA: trimming risks weakening the very pressure-resistance that defines the team."},
+ {n:"2", t:'Suppress "MVP" / "minimize round-trips"', c:"mindset", d:"consolidate", dl:true, w:"Stance. Merge candidate with §1/§3/§4/§5."},
+ {n:"3", t:'Suppress "don\'t gold-plate"', c:"mindset", d:"consolidate", dl:true, w:"Stance. Merge candidate."},
+ {n:"4", t:'Suppress "wait for explicit instruction" (passivity)', c:"mindset", d:"consolidate", dl:true, w:"Stance. Merge candidate."},
+ {n:"5", t:"Suppress plausible-source citation without verification", c:"mindset", d:"consolidate", dl:false, w:"Stance — but the verify-don't-assume PART is partly encodable (a citation-check hook). Split: keep the stance, encode the check."},
+ {n:"6", t:"Suppress single-checker thinking; redundancy IS the safety property", c:"verify", d:"keep", dl:false, w:"The redundancy PRINCIPLE is load-bearing value. The gauntlet structure that realizes it is already encoded."},
+ {n:"7", t:"Coordinating two POLYBIUS seats async via bw polling", c:"coord", d:"encode", dl:false, w:"Mechanical coordination protocol — a strong workflow/hook candidate (the polling + handoff is process)."},
+ {n:"8", t:"Authoring downstream artifacts", c:"author", d:"consolidate", dl:false, w:"Authoring guidance — mostly judgment; trim to essentials."},
+ {n:"9", t:"bw storage model", c:"bwtool", d:"keep", dl:false, w:"Factual reference about how bw stores data — keep as concise reference."},
+ {n:"10", t:"Operating engagement (HITL vs Autonomous)", c:"envarch", d:"keep", dl:false, w:"Core operating-mode framing — structural, keep."},
+ {n:"11", t:"Autonomous-mode-setup checklist", c:"envarch", d:"encode", dl:false, w:"A CHECKLIST = process. Encode as a setup workflow that runs the steps."},
+ {n:"12", t:"bw cookbook", c:"bwtool", d:"encode", dl:false, w:"Recipes = mechanical. Candidate to become a skill/tool rather than memorized prose.", rev:"keep"},
+ {n:"13", t:"Windows Python — set PYTHONUTF8=1", c:"envarch", d:"encode", dl:false, w:"A config rule — enforce via env-setup/hook, delete the reminder."},
+ {n:"14", t:"Sub-agent diagnostic transcript discipline", c:"verify", d:"consolidate", dl:false, w:"Mostly judgment about reading transcripts; trim.", rev:"keep"},
+ {n:"15", t:"Verification-complexity awareness", c:"verify", d:"consolidate", dl:false, w:"Judgment/calibration — irreducible prose, trim."},
+ {n:"16", t:"bw-fit matrix + layered-architecture framing", c:"bwtool", d:"consolidate", dl:false, w:"Framing/judgment — trim; has an open extension ticket (tvc).", rev:"keep"},
+ {n:"17", t:"AI-team OSS-dep calculus + agent-time latency budget", c:"envarch", d:"consolidate", dl:false, w:"Judgment heuristic — trim.", rev:"keep"},
+ {n:"18", t:"Subagent status via bw + orchestrator dispatch hygiene", c:"coord", d:"encode", dl:false, w:"Dispatch/status protocol = process — workflow/hook candidate.", rev:"keep"},
+ {n:"19", t:"Confabulation-under-uncertainty discipline", c:"verify", d:"keep", dl:true, w:"The verify-don't-assume STANCE is the spine of the whole system — keep. But its checks (author-field, ground-truth) are partly hook-encodable. DILEMMA: how much to mechanize vs leave as cultivated judgment."},
+ {n:"20", t:"Credential discipline", c:"idsec", d:"keep", dl:false, w:"Security — load-bearing; partly already a skill (credential-discipline). Keep + lean on the skill."},
+ {n:"21", t:"Ariadne-search-ready authoring", c:"author", d:"cut", dl:true, w:"Narrow/project-specific. CUT/relocate candidate — does it belong in universal canon? DILEMMA.", rev:"consolidate"},
+ {n:"22", t:"bw-upgrade discipline", c:"bwtool", d:"encode", dl:false, w:"Already partly a skill (check-bw-release). Encode fully, delete the prose.", rev:"keep"},
+ {n:"23", t:"Base vs custom agents (universal-team framing)", c:"envarch", d:"keep", dl:false, w:"Architectural framing — keep."},
+ {n:"24", t:"Arc-build branch hygiene", c:"build", d:"encode", dl:false, w:"Mechanical git hygiene — already a hook (clean-tree-before-branch). Encode fully, trim prose.", rev:"consolidate"},
+ {n:"25", t:"PRINCIPAL-gate discipline", c:"build", d:"keep", dl:true, w:"The gate itself is load-bearing (HITL). Some checks are hook-encodable. DILEMMA: the gate is a value (human authority), not purely mechanical."},
+ {n:"26", t:"Activation-paste cron hygiene", c:"coord", d:"encode", dl:false, w:"Cron cleanup = mechanical — hook/workflow candidate.", rev:"consolidate"},
+ {n:"27", t:"Mechanical-script / agent-inspection split", c:"build", d:"consolidate", dl:false, w:"A design principle — trim to the rule."},
+ {n:"28", t:"Per-CAPTAIN git seat identity via Co-Authored-By trailer", c:"idsec", d:"encode", dl:false, w:"Mechanical identity-stamping — exactly the stoa--w6d work (promote to committer + gate). Encode."},
+ {n:"29", t:"Multi-team interoperation", c:"coord", d:"consolidate", dl:false, w:"Coordination framing — trim.", rev:"keep"},
+ {n:"30", t:"Four-layer identity model", c:"idsec", d:"keep", dl:false, w:"Architectural identity framing — load-bearing, keep."},
+ {n:"31", t:"Substrate-component design principles", c:"envarch", d:"consolidate", dl:false, w:"Design principles — trim."},
+ {n:"32", t:"Test-environment timing — jsdom + animation libraries", c:"envarch", d:"cut", dl:true, w:"Very niche/specific. CUT/relocate candidate from universal canon. DILEMMA."},
+ {n:"33", t:"Composition layer — instruction modules + orchestrator routing", c:"envarch", d:"keep", dl:false, w:"This IS the debloat's own mechanism (modules + routing) — keep, it's load-bearing."},
+ {n:"34", t:"Trigger-payload authoring rule", c:"author", d:"consolidate", dl:false, w:"Authoring rule — trim."},
+ {n:"35", t:"Threat-defeat prevention (named-threat coverage)", c:"idsec", d:"keep", dl:false, w:"Just shipped (Arc 52); load-bearing security canon. The gauntlet already enforces it. Keep."},
+ {n:"36", t:"Threat-remediation escalation (detect → goal-locked workflow)", c:"idsec", d:"keep", dl:false, w:"Just shipped (Arc 60). Keep; Tier-2 (the workflow) is stoa--zj8."}
+];
+
+const LS="stoa-debloat-calls";
+let calls = JSON.parse(localStorage.getItem(LS)||"{}");
+const save=()=>localStorage.setItem(LS,JSON.stringify(calls));
+const DISP=["encode","consolidate","keep","cut"];
+const LBL={encode:"encode",consolidate:"consolidate",keep:"keep",cut:"cut",undecided:"— undecided —"};
+const TXT = window.DISCIPLINE_TEXTS||{};
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const eff = x => x.rev || x.d;  // grounded disposition (agent read the real §-text) overrides the from-memory proposal
+// ── WRITEUPS: per-§ "why we have it" + "recommendation". Loaded from writeups.js (workflow-generated + 3 hand-authored). ──
+const WRITEUPS = window.WRITEUPS||{};
+
+const main=document.getElementById('main');
+const fcat=document.getElementById('filterCat');
+Object.entries(CATS).forEach(([k,v])=>{const o=document.createElement('option');o.value=k;o.textContent=v;fcat.appendChild(o);});
+
+function card(x){
+  const your = calls[x.n]||"undecided";
+  const wu = WRITEUPS[x.n]||{};
+  const body = s => s ? esc(s) : '<span class="pending">— write-up pending —</span>';
+  const el=document.createElement('div'); el.className='card';
+  el.innerHTML=`
+    <div class="num">§${x.n}</div>
+    <div>
+      <div class="title">${x.t}</div>
+      <div class="cat">${CATS[x.c]}</div>
+      <div class="why">${x.w}</div>
+      <div class="flags">
+        ${x.rev
+          ? `<span class="pill b-${x.rev}"><span class="dot d-${x.rev}"></span>grounded: ${x.rev}</span><span style="font-size:11px;color:var(--dim);margin-left:4px">↻ was proposed: ${x.d}</span>`
+          : `<span class="pill b-${x.d}"><span class="dot d-${x.d}"></span>proposed: ${x.d}</span>`}
+        ${x.dl?'<span class="dilemma">⚠ DILEMMA — your call</span>':''}
+        <button class="ft-toggle" data-t="whyp" type="button">❓ why we have it</button>
+        <button class="ft-toggle" data-t="recp" type="button">✍ recommendation</button>
+        <button class="ft-toggle" data-t="ftp" type="button">📄 full §-text</button>
+      </div>
+    </div>
+    <div class="call">
+      <label>your call</label>
+      <select data-n="${x.n}">
+        <option value="undecided"${your==='undecided'?' selected':''}>— undecided —</option>
+        ${DISP.map(d=>`<option value="${d}"${your===d?' selected':''}>${d}</option>`).join('')}
+      </select>
+    </div>
+    <div class="writeup whyp hidden"><b>Why we have it</b>${body(wu.why)}</div>
+    <div class="writeup recp hidden"><b>Recommendation — ${x.rev?`proposed: ${x.d} → grounded: ${x.rev}`:`proposed: ${x.d}`}</b>${body(wu.rec)}</div>
+    <pre class="fulltext ftp hidden">${esc(TXT[x.n]||'(full §-text not loaded)')}</pre>`;
+  el.querySelector('select').addEventListener('change',e=>{
+    const v=e.target.value; if(v==='undecided') delete calls[x.n]; else calls[x.n]=v; save(); render();
+  });
+  el.querySelectorAll('.ft-toggle').forEach(btn=>{
+    const panel=el.querySelector('.'+btn.dataset.t);
+    btn.addEventListener('click',()=>{ panel.classList.toggle('hidden'); });
+  });
+  return el;
+}
+
+function render(){
+  const gb=document.getElementById('groupBy').value;
+  const fc=fcat.value, fd=document.getElementById('filterDisp').value, od=document.getElementById('onlyDilemmas').checked;
+  let rows=D.filter(x=>(!fc||x.c===fc)&&(!fd||eff(x)===fd)&&(!od||x.dl));
+  main.innerHTML='';
+  const groups={};
+  rows.forEach(x=>{
+    let key;
+    if(gb==='category')key=CATS[x.c];
+    else if(gb==='proposed')key='disposition: '+eff(x);
+    else if(gb==='yourcall')key='your call: '+(calls[x.n]||'undecided');
+    else key='';
+    (groups[key]=groups[key]||[]).push(x);
+  });
+  Object.keys(groups).sort().forEach(k=>{
+    const g=document.createElement('div'); g.className='group';
+    if(k)g.innerHTML=`<h2>${k} <span style="color:var(--dim);font-weight:400">(${groups[k].length})</span></h2>`;
+    groups[k].forEach(x=>g.appendChild(card(x)));
+    main.appendChild(g);
+  });
+  document.getElementById('stat').innerHTML=`showing <b>${rows.length}</b> of ${D.length}`;
+  document.getElementById('total').textContent=D.length;
+  document.getElementById('decided').textContent=Object.keys(calls).length;
+  const mix={}; D.forEach(x=>{const e=eff(x);mix[e]=(mix[e]||0)+1;});
+  const nrev=D.filter(x=>x.rev).length;
+  document.getElementById('mix').textContent=DISP.map(d=>`${mix[d]||0} ${d}`).join(' · ')+`  ·  ${nrev} grounded-revised`;
+}
+['groupBy','filterCat','filterDisp','onlyDilemmas'].forEach(id=>document.getElementById(id).addEventListener('change',render));
+document.getElementById('reset').addEventListener('click',()=>{calls={};save();render();});
+render();
+</script>
+</body>
+</html>
