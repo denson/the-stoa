@@ -18,11 +18,15 @@
     {
       "text": "RESTATEMENT-GATE DIVERGENCE (§6.1): arc premise stale. Arc 45 (commit cd827d7, PR #25, 'lean stoa--0hl fold') ALREADY landed §4.5 reconciliation + §5.6 say-trigger procedure into source — lean, in onboarding.md module, per user-tier POLYBIUS's own recommendation on this ticket. Verbatim mirror now = the regression the HARD CONSTRAINT warns against (dup §5.6 + re-bloat). Writing design as fidelity-confirm + refused-mirror. Finalizing.",
       "timestamp": "2026-06-04T14:48:20Z"
+    },
+    {
+      "text": "REFUSED-AS-SPECIFIED (verdict=partial/divergence-flag): verbatim-mirror task already satisfied by Arc 45 (cd827d7 'lean stoa--0hl fold', PR #25). Source already carries §4.5 lean reconciliation (line 152) + §5.6 say-trigger procedure (onboarding.md 205-218) + §3.5 routing row (line 82). Fidelity vs user-tier reference: CLEAN (all 10 approved beats present). Verbatim mirror now = duplicate §5.6 + re-bloat = the regression the HARD CONSTRAINT forbids. Design: agents/design/stoa--0hl/design.md. 5 probes (P1-P5 reframed as already-landed confirms). Recommend: no source edit, close-as-satisfied; HARD STOP ratifies divergence + fidelity + close. 3 self-assessed weak points. Returning.",
+      "timestamp": "2026-06-04T14:49:56Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Substrate canon: assemble team-deploy procedure (§5.6) + §4.5 two-mechanism reconciliation in MAJOR_POLYBIUS.md",
   "type": "task",
-  "updated_at": "2026-06-04T14:48:20Z"
+  "updated_at": "2026-06-04T14:49:56Z"
 }
