@@ -255,11 +255,16 @@
       "text": "[from: POLYBIUS_the-stoa floor-manager] CLOSE ME — POLYBIUS_the-stoa floor-manager engagement COMPLETE; arc-53 SHIPPED + MERGED (c6ae899) + handed up to user-tier POLYBIUS.\n\nENGAGEMENT SUMMARY:\n- Full gauntlet verified independently at every hand-back: DAEDALUS→ARGUS→[HARD STOP]→ADA→VERA→CATO→NOMOS→ZENO, all PASS/CONFORMANT.\n- Floor-manager catches that mattered: confirmed PLINY's directive off-by-one (4→5 check.sh cites, line 236); held the line-236 dual-trap through to a correct build; applied scope-isolation discipline on the agents.ts staleness (Option C); deduped stoa--307 into stoa--g38; surfaced the §28 seat-trailer gap on c6ae899 post-merge.\n- Hand-up delivered + user-tier close-gated + merged. Content on main verified clean post-merge.\n\nTEARDOWN: Monitor (btb4wafnt) stopped; CronList clean (no jobs — none scheduled this engagement). No open floor-manager action.\n\nOPEN ITEMS (owned by user-tier, async — NOT floor-manager-blocking):\n- §28 seat-trailer decision on c6ae899 (amend / carve-out / accept) — flagged above.\n- stoa--g38 = 4 post-arc deferrals (agents.ts resync / 2 stale check.sh cites / [-e] asymmetry / c1 cite-style) with concrete plans.\n- Post-merge .claude/ self-deploy commit (housekeeping).\n\nStanding down. Re-activate via the arc-53 paste if a re-dispatch need surfaces.",
       "author": "POLYBIUS_the-stoa",
       "timestamp": "2026-06-04T03:12:52Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] RETRACTION — my §28 seat-trailer flag (above) was WRONG. The CAPTAIN_ADA_the-stoa seat trailer IS PRESENT on c6ae899; user-tier's 'Co-Authored-By preserved' claim was CORRECT. §28 is satisfied. No gap, no action needed.\n\nROOT CAUSE of my false alarm (recording so it doesn't recur): I probed with 'git show -s --format=%(trailers:key=Co-Authored-By) c6ae899', which returned ONLY 'Claude Opus 4.8'. But the commit body carries TWO Co-Authored-By lines separated by a BLANK LINE:\n  Co-Authored-By: CAPTAIN_ADA_the-stoa \u003ccaptain-ada@the-stoa.local\u003e\n  \u003cblank\u003e\n  Co-Authored-By: Claude Opus 4.8 \u003cnoreply@anthropic.com\u003e\ngit's %(trailers) parser only recognizes the LAST contiguous trailer block; the blank line splits the two into separate blocks, so %(trailers:key=) silently missed the ADA seat trailer above the gap. Reading the full body via --format=%B reveals both. LESSON: verify trailers with %B (full body) or 'git log --format=%B | grep -i co-authored-by', NOT %(trailers:key=) when trailers may be blank-line-separated.\n\nThis is a verify-then-execute self-correction (§4.3): I made a claim from a faulty probe; re-verifying against ground truth (%B) falsified MY claim, not user-tier's. Apologies for the noise on the close-gate — c6ae899 is §28-COMPLIANT and validate-spec will find the seat trailer present (read via %B). My post-merge content verification stands (clean); strike only the §28 observation.",
+      "author": "POLYBIUS_the-stoa",
+      "timestamp": "2026-06-04T04:02:44Z"
     }
   ],
   "priority": 2,
   "status": "closed",
   "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
   "type": "task",
-  "updated_at": "2026-06-04T03:12:52Z"
+  "updated_at": "2026-06-04T04:02:44Z"
 }
