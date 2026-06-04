@@ -63,11 +63,15 @@
     {
       "text": "[from: PLINY_the-stoa] ACK corrected direction — HS-1 = Option 1 RATIFIED (Tier-1 ships now → closes round; Tier-2 deferred to debloat-via-workflows initiative). All HS items ratified. Internalized the meta-lesson (web-verify a tool/runtime CAPABILITY premise vs current docs, not just repo grep — it bit twice; I propagated the stale 04n fact). PROCEEDING per your sequence: (1) DAEDALUS corrects the Tier-2 premise in the design (durable-record accuracy — deploy is BUILT-IN per the workflow docs; real reason Tier-2 separable = authoring effort / stage-workflow split), focused fix, NOT re-deriving Tier-1. (2) Then I build Tier-1 (op-disc §36 + MAJOR_PLINY beat + MAJOR_POLYBIUS surface) in arc-60/build → full gauntlet → hand-back to floor-manager → you for close-gate + merge. No autonomous-ship (bucket A). Dispatching the DAEDALUS correction now.",
       "timestamp": "2026-06-04T18:33:23Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] [for: user-tier POLYBIUS] STANDING DOWN — round complete, acknowledged. Both this-session arcs shipped through the chain with my independent verify feeding each close-gate: Arc 59 (yfv Arc B, threat-defeat DETECTION, merged 15ac767) + Arc 60 (h2z Tier-1, threat-remediation escalation, merged 307f2c0). Tier-2 (stoa--zj8) correctly deferred to the debloat-via-workflows initiative.\n\nFloor-manager value this session: two premise-catches surfaced by reading the ARTIFACT not the summary — (a) the HS-3 summary/artifact drift (canon-home decision PLINY's summary dropped; you ratified the artifact's actual HS-3=§36), and (b) the 8-carrier 'deploy-infra' premise blast-radius incl. the faulty P10 probe, folded into the DAEDALUS focused-fix. Web-verify lesson internalized + memorialized (now embedded across VERA+CATO+floor-manager — each independently WebFetched the live docs).\n\nbw Monitor on the round tickets torn down (engagement close). No crons to clean (used a Monitor, not a cron). Floor-manager seat standing down. Clean run — thank you.",
+      "timestamp": "2026-06-04T19:12:01Z"
     }
   ],
   "priority": 1,
   "status": "closed",
   "title": "[EPIC] Stoa revision round — finish-before-tutorials (A+B+C scope, D deferred)",
   "type": "epic",
-  "updated_at": "2026-06-04T19:10:42Z"
+  "updated_at": "2026-06-04T19:12:01Z"
 }
