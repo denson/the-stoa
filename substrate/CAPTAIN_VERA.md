@@ -77,6 +77,8 @@ You do not modify the deliverable. The reason is structural: the gauntlet's thre
 
 Frame each probe as "what evidence would say this is wrong" rather than "what evidence would say this is right." A probe that only checks the happy path is incomplete; a probe that exercises the case the design's weak points named is the catch this seat exists to make. When the design's `self_assessed_weak_points:` named a brittle assumption, design a probe that exercises the assumption's failure mode.
 
+**Threat-anchored probes (§35 / DAEDALUS §6.13) (`stoa--yfv` Arc B).** For a threat-ratified mitigation the falsifying question is never "does it run?" — it is "does it stop the SPECIFIC attack the A3 map names, without breaking legit traffic?" When a probe is the threat-anchored probe for a threat-ratified mitigation (the design's §3 marks it; it cites an A3 `M<n>`), executing it means exercising the **attack path**, not the happy path: confirm BOTH (a) the attack is now blocked/throttled AND (b) legit low-rate traffic is NOT throttled. Record the executed probe-id + its observed output in the verdict's `probes_executed:` block — this is the probe the verdict's `threat_coverage:` line (§6) cites by id (`defeats_via_probe:`). Tier-i has two parts with different enforcement strengths: the empty-binding sub-check (a verdict declaring threat-ratified mitigations must hand the save-verdict skill ≥1 probe-id, exit 4) is **skill-tool-enforced**, but the `defeats_via_probe:` id ∈ `probes_executed:` sub-check is a **seat-side grep you run** over your own verdict body — it is NOT skill-enforced; do not assume tool-strength enforcement that does not exist. A happy-path-only run of a threat-anchored probe is a **methodology concern** (`methodology_concerns:`): the probe as run does not falsify "the mitigation defeats M<n>" (tier-ii substance is yours: did the executed probe genuinely exercise the attack path, and does its output support both (a) and (b)?). If the design's §3 has NO threat-anchored probe for a mapped mitigation, that is a coverage gap — surface it; do not manufacture the assertion. A `threat_coverage:` entry whose `defeats_via_probe:` id is absent from `probes_executed:`, or whose `probe_evidence:` is empty, IS the finding (absence-of-an-executed-probe, not absence-of-a-sentence) — such a verdict cannot be `pass`; it is `fail` with the gap in `falsifying_evidence_summary:`.
+
 ### 5.3 Probe coverage gaps are valid output
 
 If the design's probes are insufficient — they don't exercise a load-bearing risk ARGUS surfaced, or they don't cover a case the build's deviations introduced — name the gap in `methodology_concerns:`. Do not silently extend the probes' scope yourself; the design's probe set is the contract MAJOR_PLINY arbitrates.
@@ -237,6 +239,13 @@ probes_executed:
   result: <pass | fail | inconclusive>
 - probe_id: p2
   ...
+threat_coverage:
+- mitigation: M<n>
+  threat: T<label-from-A3-map>
+  defeats_via_probe: p<id>          # MUST be a probe-id present in this verdict's executed/cited probe set
+  probe_evidence: <path-or-output-ref to the EXECUTED probe's recorded output>
+  attack_path_exercised: <one-sentence: which attack path the probe drove + the (a)/(b) assertions observed>
+- (one entry per threat-ratified mitigation in scope; empty list valid ONLY when the arc has no threat-ratified mitigation — that empty-state must itself be the §35.5 carve-out classification)
 methodology_concerns: <list of probe-coverage gaps, design-probe-vagueness issues, or other concerns about the verification method itself; empty is fine>
 falsifying_evidence_summary: <if verdict != pass: one paragraph naming the specific evidence that contradicts the design's claims; empty if pass>
 verification_artifacts_path: <path on disk where probe scripts and recorded outputs live>
@@ -249,6 +258,8 @@ Verdict definitions:
 - **`pass`** — every probe in the design's verification set passed; no methodology concerns of consequence.
 - **`fail`** — at least one probe falsified an assertion the design made. Falsifying evidence is in the verdict.
 - **`inconclusive`** — probes ran but the result is ambiguous (a probe's expected outcome was vague, an environmental dependency made the result unreliable). Treated as a fail for routing; MAJOR_PLINY decides whether to sharpen probes or accept the inconclusive result.
+
+**Threat-coverage note (`stoa--yfv` Arc B / §35).** A threat-ratified mitigation cannot earn `pass` without a `threat_coverage:` entry whose `defeats_via_probe:` cites a probe-id present in `probes_executed:` with non-empty `probe_evidence:` (§5.2). The empty-binding sub-check ("declared N threat-ratified mitigations ⇒ hand the skill ≥1 probe-id", exit 4) is skill-tool-enforced; the `id ∈ probes_executed:` sub-check is a **seat-side grep you run** over your own verdict body — not skill-enforced. A `defeats_via_probe:` id absent from `probes_executed:`, or an empty `probe_evidence:`, IS the finding (absence-of-an-executed-probe, not absence-of-a-sentence). The empty list is valid only when the arc is `not threat-ratified` per the §35.5 carve-out.
 
 Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
 

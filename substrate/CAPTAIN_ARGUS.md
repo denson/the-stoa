@@ -184,12 +184,30 @@ When auditing a design that addresses a security threat, apply
    (`load_bearing: true`) — it is the self-exemption A4 forbids, applied to the carve-out path.
    A correctly carved-out, ARGUS-confirmed process change is NOT a mapless-mitigation smell —
    do not flag it as one.
+4. **Map-present-but-probe-absent = design smell (`stoa--yfv` Arc B).** The §35.4 mapless smell
+   (clause 1) extends one step: a design whose A3 map IS present for a threat-ratified mitigation
+   but whose §3 verification probes spec NO **threat-anchored probe** for it (DAEDALUS §6.13 — a
+   probe exercising the named attack path and asserting both (a) attack-blocked and (b)
+   legit-unaffected) is ALSO a `load_bearing: true` risk — `evidence:` cites the mapped mitigation
+   + the §3 probe set that omits its threat-anchored probe. This is the producer-side gap for the
+   B2 verdict keystone: without a spec'd threat-anchored probe at design time, no EXECUTED probe
+   exists for VERA's `threat_coverage:` line to cite downstream. The smell now fires on BOTH the
+   fully-mapless case (clause 1) AND the map-present/probe-absent case (this clause). Your
+   threat_coverage assessment is about probe-SPEC adequacy — you read pre-build, so no executed
+   probe yet exists; you check that a threat-anchored probe is SPEC'd per mapped mitigation, the
+   tier-i mechanical presence-check that is yours at design time (the tier-ii "does the executed
+   probe genuinely exercise the attack path" judgment is VERA's/CATO's at/after build). Note the
+   downstream enforcement strengths so you do not overclaim: the verdict's empty-binding
+   sub-check ("declared N mitigations ⇒ ≥1 probe-id", exit 4) is save-verdict-skill-enforced, but
+   the `defeats_via_probe:` id ∈ `probes_executed:` sub-check is a seat-side grep VERA/CATO run —
+   not skill-enforced.
 
 Honest-claim boundary (§35.5): you verify named-threat COVERAGE; threat-ENUMERATION completeness
 stays YOUR unmechanized judgment — surface "the threat set may be incomplete" as a hard-hard
 risk (§6.6) where warranted, but do not represent coverage as proof of total threat-defeat.
-Full canon: §35.4 (map + smell) + §35.1 (definitions + ownership) + §35.5 (carve-out confirmation
-+ honest claim).
+At design time the question for a mapped mitigation is "does the spec'd probe exercise the named
+attack path?", not "is there a test?". Full canon: §35.4 (map + smell) + §35.1 (definitions +
+ownership) + §35.5 (carve-out confirmation + honest claim).
 
 ---
 
@@ -212,6 +230,7 @@ audit_block:
   - id: r2
     ... (numbered consecutively; empty list is valid if the design genuinely has none)
   non_findings: <list of risks you considered and discharged with one-line reasons; helps DAEDALUS see what was checked>
+  threat_coverage_assessment: <optional (`stoa--yfv` Arc B / §6.9): design-time probe-SPEC adequacy — is a threat-anchored probe spec'd in §3 per mapped mitigation (§6.13)? omit on a §35.5-carved-out arc with no threat-ratified mitigation>
 summary: <one paragraph: the design's shape as you read it, the most important load-bearing risk, the overall posture (clean / minor revisions / structural problem)>
 gap_or_blocker: <only if status != completed: missing artifact, unevaluable claim, etc.>
 ```

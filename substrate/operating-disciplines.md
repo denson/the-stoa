@@ -1437,6 +1437,7 @@ IS the required record; it is not a missing finding.
 | DAEDALUS (architect) | A3: author the `M<n> → attack-path → how-defeated` map for every threat-ratified mitigation; issue `M<n>` for design-origin threats; PROPOSE the not-threat-ratified / carve-out classification for non-security changes. | `CAPTAIN_DAEDALUS.md` §3, §6.12 |
 | ARGUS (plan-critic) | A3: flag a mapless mitigation as a design smell (`load_bearing: true`); issue/confirm `M<n>` for critique-surfaced threats; CONFIRM the carve-out / not-threat-ratified classification — a wrong or unconfirmed claim is a finding. | `CAPTAIN_ARGUS.md` §6.9 |
 | ADA (executor) | Builds the mapped mitigation; refuses a threat-ratified item that arrives WITHOUT its A3 map (the fold-in failed upstream). | inherits via universal read |
+| POLYBIUS (floor-manager/close-gate) | B-detection: threat-vs-implementation alignment check at relay + close-gate, distinct from artifact-correctness | `MAJOR_POLYBIUS.md` §4.3.2 |
 
 ### 35.7 N=1 provenance + accretion path
 

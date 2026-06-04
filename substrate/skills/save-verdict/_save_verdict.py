@@ -87,7 +87,22 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument("--coverage-description", default=None)
     p.add_argument("--sanity-check-performed", default=None)
     p.add_argument("--recommended-next-step", default=None)
+    # stoa--yfv Arc B (B2 keystone): threat-coverage shape-conditional enforcement.
+    # Both optional with safe defaults; a verdict with no threat-ratified mitigation
+    # passes unchanged. --threat-ratified-mitigation-count > 0 REQUIRES non-empty,
+    # well-formed --threat-coverage-probe-ids (the empty-binding tier-i check). The
+    # skill does NOT parse the verdict body; the body-level id-in-executed-set
+    # cross-check is seat-side grep (VERA/CATO/ARGUS), not skill-enforced.
+    p.add_argument("--threat-coverage-probe-ids", default=None,
+                   help="Comma-separated probe-ids the verdict's threat_coverage: lines cite (e.g. 'p3,p7').")
+    p.add_argument("--threat-ratified-mitigation-count", default=None, type=int,
+                   help="Count of threat-ratified mitigations in scope; 0 / unset = §35.5 carve-out.")
     return p
+
+
+# stoa--yfv Arc B: well-formed probe-id (no path-meta; reuses the path-traversal
+# defense posture of the officer / ticket-id regexes).
+_PROBE_ID_RE = re.compile(r"^p[0-9A-Za-z._-]+$")
 
 
 def _exit_with(code: int, diagnostic: str) -> int:
@@ -256,6 +271,37 @@ def main(argv=None) -> int:
                 "UNVERIFIABLE verdict requires sanity_check_performed AND "
                 "recommended_next_step per operating-disciplines.md §15.4",
             )
+
+    # Threat-coverage shape-conditional enforcement (stoa--yfv Arc B / B2 keystone).
+    # Tier-i empty-binding check ONLY: if the verdict declares >0 threat-ratified
+    # mitigations, it MUST hand over >=1 well-formed probe-id. The skill does NOT
+    # parse the body to confirm each id appears in probes_executed: — that body-level
+    # cross-check is seat-side grep (VERA/CATO/ARGUS), not skill-enforced. A
+    # count of 0 / unset is the §35.5 carve-out path: no new validation fires.
+    trm_count = args.threat_ratified_mitigation_count
+    if trm_count is not None and trm_count > 0:
+        raw_ids = args.threat_coverage_probe_ids
+        probe_ids = (
+            [pid.strip() for pid in raw_ids.split(",") if pid.strip()]
+            if raw_ids else []
+        )
+        if not probe_ids:
+            return _exit_with(
+                4,
+                f"verdict declares {trm_count} threat-ratified mitigation(s) but "
+                "cites no threat-coverage probe-ids; per stoa--yfv B2 a "
+                "threat-ratified mitigation cannot pass without a cited EXECUTED "
+                "attack-path probe (op-disc §35 / Arc B). Pass "
+                "--threat-coverage-probe-ids, or --threat-ratified-mitigation-count 0 "
+                "if this arc is §35.5-carved-out.",
+            )
+        for pid in probe_ids:
+            if not _PROBE_ID_RE.match(pid):
+                return _exit_with(
+                    4,
+                    f"threat-coverage probe-id '{pid}' is malformed; each id must "
+                    "match ^p[0-9A-Za-z._-]+$ (well-formed probe-id, no path-meta).",
+                )
 
     # Step 3: resolve timestamp.
     try:

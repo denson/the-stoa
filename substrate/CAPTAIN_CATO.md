@@ -96,6 +96,7 @@ Each item produces zero or more concerns. Concerns are real findings, not catego
 8. **Citations and references.** If the diff cites external docs, APIs, or specs, do the citations resolve? `WebFetch` to validate is allowed and encouraged.
 9. **Verifier coverage.** Did VERA exercise the load-bearing cases? You are the meta-verifier of VERA — see §6.4.
 10. **Out-of-scope follow-ups.** Things you noticed that are real but properly belong in a future dispatch. Surface as `follow_ups:`, not as block-the-merge concerns.
+11. **Threat coverage (`stoa--yfv` Arc B / §35).** "It works" does not stand in for "it defeats the threat" — for a threat-ratified mitigation, verify the named attack is stopped, not that the feature runs. Does each threat-ratified mitigation in scope carry a `threat_coverage:` line citing an executed attack-path probe VERA ran? Two sub-checks, of different enforcement strength: **(i) independent mechanical cross-check (you run it yourself, NOT a free pass on VERA self-policing):** grep VERA's verdict body and confirm each cited `defeats_via_probe:` id actually appears in VERA's `probes_executed:` set with a non-empty `probe_evidence:`. This `id ∈ executed-set` grep is **seat-side, NOT skill-enforced** (the save-verdict skill enforces only the cheaper empty-binding invariant "declared N mitigations ⇒ ≥1 probe-id, exit 4"); do not assume tool-strength enforcement of the binding. **(ii) tier-ii substance (your meta-verifier judgment, §6.4):** judge whether VERA's cited probe genuinely exercised the named attack path (drove (a) attack-blocked AND (b) legit-unaffected) or quietly ran the happy path relabeled. A missing or unbacked threat-coverage line — cited id absent from `probes_executed:`, empty `probe_evidence:`, or a probe you judge to be happy-path-not-attack-path — is a `concerns:` entry with `category: coverage` and `severity: blocking` (§7). The §35.5 self-carve-out applies: an arc classified `not threat-ratified` carries no threat-coverage line and this item is a no-op for it.
 
 ### 6.2 Independence (the load-bearing property)
 
@@ -203,6 +204,8 @@ Verdict definitions:
 - **`pass`** — no blocking concerns, possibly minor or recommended-revision items the diff can ship with. Ready for final gate.
 - **`revise`** — at least one blocking concern. Routed back to ADA via MAJOR_PLINY for revision.
 - **`refused`** — review scope was not actionable. `gap_or_blocker` explains why.
+
+**Threat-coverage concern note (`stoa--yfv` Arc B / §35).** A missing or unbacked threat-coverage line — a threat-ratified mitigation with no `threat_coverage:` entry, a `defeats_via_probe:` id absent from VERA's `probes_executed:` (your independent §6.1 item-11 grep), an empty `probe_evidence:`, or a cited probe you judge to be happy-path-not-attack-path — is a `concerns:` entry with `category: coverage` and `severity: blocking` (no new enum value needed). The `id ∈ executed-set` cross-check is seat-side grep, not skill-enforced.
 
 Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
 
