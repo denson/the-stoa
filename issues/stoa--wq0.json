@@ -86,11 +86,15 @@
     {
       "text": "probe set executed. P-wq0a part(a) FALSIFIED a design assumption: MSYS git-bash auto-converts /tmp/ ARGS to C:/Users/.../AppData/Local/Temp BEFORE Python sees them, so the literal-/tmp guard CANNOT fire under ordinary git-bash invocation (only fires under MSYS2_ARG_CONV_EXCL or a non-MSYS literal-string caller). In ordinary path the conversion is self-consistent (no silent-green). Guard IS correct backstop for literal-string form (proven). Verifying issue-cite liveness next, then verdict.",
       "timestamp": "2026-06-04T05:41:33Z"
+    },
+    {
+      "text": "pass: Arc 56 VERA verdict PASS. 7 probes (P-wq0a/b, P-xxy1/2, P-7b1.2, P-wq0-r3, P-7ap) all PASS on real Windows git-bash (MINGW64, Py3.11.4). Blocker FIXED via Write-tool-\u003eworktree-relative PROCEDURE (proven: apostrophe body \"it's a pass; don't ship\" round-tripped exit0, sha256 match, 0 retries). P-wq0b: guard fires loud (exit4) on literal-/tmp divergence trap, NO silent-green. xxy facet-1 (receipt namespacing) + facet-2 (worktree dest) verified. 7b1.2 gitignore keeps status clean despite on-disk pyc. r3 --artifact-path optional both ways. 7ap doc-probe: dir-gone+orphan-retry+both error strings present, r2 stale registration-only claim resolved, #41740 cite live+on-topic. DOGFOOD SUCCEEDED: this verdict authored via Write-tool-\u003eworktree-relative-\u003e_save_verdict.py --cwd=worktree, landed IN worktree not main, apostrophes intact. One NON-BLOCKING docs nicety (M1: MSYS arg-conv means /tmp guard is literal-string backstop only; Write-tool procedure is load-bearing fix — add a clarifying sentence in a future fix-it-now). Verdict saved: agents/verdicts/stoa--wq0/VERA-2026-06-04T05-43-12Z.md (in worktree). Returning.",
+      "timestamp": "2026-06-04T05:43:37Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T05:41:33Z"
+  "updated_at": "2026-06-04T05:43:37Z"
 }
