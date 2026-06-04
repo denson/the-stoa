@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-04T06:09:04Z",
+  "close_reason": "Arc 56 shipped. save-verdict hardened for Windows git-bash: wq0 loud-fail guard on /tmp body-path (exit 4, never silent-green) + Write-tool/printf worktree-relative-path authoring procedure in SKILL.md + ARGUS/CATO/VERA role files (seat-aware: Bash-only seats use printf). Dogfooded on actual Windows git-bash by floor-manager: happy-path exit-0 sha-roundtrip with apostrophe body, /tmp→exit-4, request-id traversal→exit-4. FF-merged 0377ce6; self-applied cc27c59.",
   "created": "2026-05-25T03:21:57Z",
   "description": "SUBSTRATE BUG — surfaced by origindex ARGUS during the wfd.1 verdict-write (2026-05-24); routed up by user-tier POLYBIUS.\n\nThe save-verdict skill fails on Windows git-bash:\n- heredoc-with-quoted-EOF blocks (\u003c\u003c'EOF' ... EOF) fail in the skill's invocation pattern.\n- /tmp/ resolves differently between git-bash and Python on Windows — a path written by one isn't found by the other.\n\nIMPACT: CAPTAINs (e.g. ARGUS) can't reliably write verdicts via save-verdict on Windows. They work around it, but it is friction + a latent correctness risk (a failed write that reads as success).\n\nFIX DIRECTION: make save-verdict Windows-robust — drop the bash-heredoc-with-quoted-EOF pattern; resolve a portable temp location consistently (don't assume bash /tmp == Python /tmp on Windows); ideally write + read through the same runtime. Verify on a Windows git-bash + Python combo.\n\nRELATED: u--h8q (user-tier) — PowerShell-tool canary. Same class of Windows-shell quirk; a native PowerShell tool would sidestep heredoc/temp-path mismatches. If the canary passes, that may be the broader fix; this skill fix stands regardless.",
   "id": "stoa--wq0",
@@ -157,8 +159,8 @@
     }
   ],
   "priority": 2,
-  "status": "in_progress",
+  "status": "closed",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T06:04:49Z"
+  "updated_at": "2026-06-04T06:09:04Z"
 }
