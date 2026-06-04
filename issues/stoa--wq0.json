@@ -58,11 +58,15 @@
     {
       "text": "ADA activated on Arc 56 (wq0+xxy+7b1.2+7ap). Read design + directive + ARGUS RATIFY-WITH-CONDITIONS (r1-r5) + worktree state. Ground-checking shipped code (_save_verdict.py signatures, 3 CAPTAIN role-file paras incl VERA divergence per r1, pre-branch-hygiene §5.9.4 L65-73 + L73 prose per r2, arc-close-hygiene §5.10) before first commit. Autonomous mode.",
       "timestamp": "2026-06-04T05:30:22Z"
+    },
+    {
+      "text": "Ground-check complete, no drift from design except confirmed-as-expected r1/r2 facts. _save_verdict.py: --artifact-path required=True @:66, --request-id required=True @:67, body-path read @:267-270, artifact_path compute @:295, cwd_abs @:255. r1 CONFIRMED: ARGUS:227 + CATO:209 byte-identical modulo officer; VERA:255 has extra INCOMPLETE/UNVERIFIABLE trailing sentence. r2 CONFIRMED: pre-branch-hygiene L73 prose states stale registration-only verify. arc-close-hygiene §5.10 worktree bullet @:16. PLINY dispatch-discipline home: placing as inline §5.14 in MAJOR_PLINY.md (parallel to inline §5.13; design named 'MAJOR_PLINY.md §5'). Building Surface 1 now: skill + role files + dispatch-discipline.",
+      "timestamp": "2026-06-04T05:31:23Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T05:30:22Z"
+  "updated_at": "2026-06-04T05:31:23Z"
 }
