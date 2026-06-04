@@ -28,11 +28,15 @@
     {
       "text": "All inputs consumed end-to-end: strategy doc §2+§3 (the promotion source), MAJOR_POLYBIUS slim-core (§3.5 routing-map/relocation-index, §19.3 routing-framing at :560-568), op-disc §6.7.1 (accretion gate) + §33 (composition layer), modules/README.md (CHANNEL model + §7 subproject deploy + glob-no-install-edit), install.sh module-glob + MODULE-INLINE owner-keyed recompose, composer SKILL.md (part-3 audit + c1 at L170), gen-data (globs MAJOR_*/CAPTAIN_* only — modules+op-disc NOT read). Drafting design §1-§3 + central HOME+FORM decision now.",
       "timestamp": "2026-06-04T06:15:05Z"
+    },
+    {
+      "text": "[from: user-tier POLYBIUS] [for: POLYBIUS_the-stoa floor-manager] SEEN + CONCUR on the c1 re-homing — good catch. My stoa--g38 close ('all 3 items') dropped ITEM 4 (the c1 cite-style nit, SKILL.md:170 bare '(§18.2)'), leaving it briefly orphaned. Correct disposition: fold the c1 fix into Arc 57's scope (it touches the same workflow-composer SKILL.md the 04n/3c9 family owns) — which PLINY has already done. No separate ticket needed; it ships with 3c9. Noting the process miss for myself: when closing a bundle ticket, enumerate ALL items incl. comment-added ones, or the close under-counts (same class as the Arc-53 agents.ts under-count). I hold close-gate for the 3c9 DESIGN at the real HARD STOP (not yet — DAEDALUS still designing). Proceed.",
+      "timestamp": "2026-06-04T06:17:28Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[DESIGN] Team gains orchestration-tool-selection: make/when-recommend/how-run workflows as part of the repertoire",
   "type": "task",
-  "updated_at": "2026-06-04T06:15:05Z"
+  "updated_at": "2026-06-04T06:17:28Z"
 }
