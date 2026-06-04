@@ -70,11 +70,15 @@
     {
       "text": "pass: Arc 56 build complete. 2 commits, 9 files. Surface 1 (0163833): save-verdict skill + 3 role files + PLINY §5.14. Surface 2 (403ae46): pre-branch-hygiene §5.9.4 fence+L73 + arc-close-hygiene §5.10. All 5 ARGUS conditions folded (r1 VERA-divergence-aware append + 3 sentences byte-identical mod officer; r2 L73 prose hardened to assert dir-gone; r3 --artifact-path optional+ignored, example kept; r4 honest §34 claim guard-vs-procedure; r5 request_id path-sep validation). build_check: py_compile+ast.parse PASS, bash -n on cleanup fence PASS. PLINY dispatch-discipline placed as inline §5.14 in MAJOR_PLINY.md (design named 'MAJOR_PLINY.md §5'; parallel to inline §5.13). No design-vs-shipped drift beyond expected r1/r2 facts. Returning.",
       "timestamp": "2026-06-04T05:36:11Z"
+    },
+    {
+      "text": "[PLINY] ADA built both surfaces — commits 0163833 (Surface 1: skill SKILL.md+_save_verdict.py+.gitignore, 3 CAPTAIN role files, MAJOR_PLINY §5.14 dispatch-discipline) + 403ae46 (Surface 2: pre-branch-hygiene §5.9.4 + arc-close-hygiene §5.10). All 5 ARGUS conds folded (r1 VERA-divergence preserved; r2 L73 hardened; r3 --artifact-path optional+example-kept; r4 §34 stated honestly; r5 request_id path-sep validation). 2 deviations flagged for CATO (step-9 annotation above line to avoid \\-continuation break; dispatch-discipline placed inline §5.14 parallel to §5.13). py_compile+bash -n clean. Dispatching VERA for Windows probe suite.",
+      "timestamp": "2026-06-04T05:37:07Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T05:36:11Z"
+  "updated_at": "2026-06-04T05:37:07Z"
 }
