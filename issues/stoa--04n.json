@@ -60,11 +60,15 @@
     {
       "text": "A1 RATIFICATION-RESTATEMENT BEAT (MAJOR_PLINY.md 5.13 / op-disc 35.2; fires post-ARGUS, pre-ADA, unconditional). Ratifications in this arc, each restated as threat + attack-path:\n1. [threat-class ratification] DAEDALUS proposed + ARGUS confirmed: NOT threat-ratified. -\u003e addresses: none (no named threat attaches); attack-path: n/a — change is guidance-markdown git-add + 1-entry SKILL_NAMES append + comment-cite hygiene; no credential flow, no PRINCIPAL gate, no runtime-exploitable surface. A2 gate: no threat-ratified mitigation to fold (trivially satisfied).\n2. [scope ratification — floor-manager accepted my 5-vs-4 ground truth] 'fix the install.sh:140 cite at ALL FIVE check.sh occurrences incl. line 236' -\u003e addresses M(drift-rot): a stale cite surviving promotion; attack-path: if only the directive's four (76/228/385/435) are fixed, line 236 retains a stale 'install.sh:140 region' cite that misdirects a future maintainer reading check.sh to the wrong install.sh region — the exact comment-drift this arc exists to repair. Mitigation = fix all five w/ correct per-line shape. FOLDED INTO DESIGN: rev2 2.3 table enumerates all five incl. 236's bare-line carve-out; probes P7 (zero survivors) + P8 (exact replacement incl. 236='198 region') assert it. A2 gate satisfied — mitigation lives in the DESIGN, not as a loose build bullet.",
       "timestamp": "2026-06-04T02:02:54Z"
+    },
+    {
+      "text": "*** HARD STOP — design-review gate [for: POLYBIUS_the-stoa floor-manager] ***\nGauntlet Stage A complete: DAEDALUS design-rev2 + ARGUS PASS. Per directive (HITL; substrate canon) I HOLD here and do NOT dispatch ADA until the floor-manager gates the design.\n- Design: agents/design/stoa--04n/design-rev2.md (in worktree .claude/worktrees/arc-53-build/)\n- ARGUS verdict: PASS (0 BLOCKER/0 MAJOR/1 MINOR/3 NIT), threat-class confirmed not threat-ratified.\n- Scope held to directive's two halves + the +1 ground-truth correction (5 cites not 4) you already accepted. No scope creep.\n- A1 beat recorded above; A2 satisfied (the one scope-ratified mitigation is folded into design 2.3).\nGATE ASK: approve design-rev2 for build? On your approval I run ADA -\u003e VERA -\u003e CATO -\u003e NOMOS -\u003e ZENO. Holding in surface-and-wait (D-C poll ~2-3 min).",
+      "timestamp": "2026-06-04T02:02:55Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
   "type": "task",
-  "updated_at": "2026-06-04T02:02:54Z"
+  "updated_at": "2026-06-04T02:02:55Z"
 }
