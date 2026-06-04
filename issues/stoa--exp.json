@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-04T16:03:44Z",
+  "description": "BUCKET-A canon-accuracy follow-up. PRINCIPAL re-ruled r1 (2026-06-04, see stoa--3c9): shipped POLYBIUS-SOLE framing -\u003e NAME BOTH, WITH DISTINCTION. Corrects shipped canon (Arc 57 closed POLYBIUS-SOLE).\n\nSCOPE (small additive-distinction edit, NOT a co-ownership flip):\n- substrate/MAJOR_POLYBIUS.md S19.3.1 (currently L576-578): 'POLYBIUS is the tool-SELECTOR for this axis' -\u003e 'POLYBIUS is the PRIMARY tool-SELECTOR / WHEN-TO-RECOMMEND seat for this axis (routes the full repertoire to PRINCIPAL).' ADD: 'PLINY makes BOUNDED tool-selection sub-calls WITHIN an arc it already drives (e.g. workflow-vs-classic-gauntlet for a stage), consistent with the orchestrator (POLYBIUS/PLINY) framing (modules/README) + the control-living-in-PLINYs-judgment note (tool-selection module L19); PLINY does NOT own the cross-repertoire recommendation axis -\u003e that stays POLYBIUS.'\n- substrate/modules/tool-selection-taxonomy.md L89-90 pointer: light touch so 'names POLYBIUS as the tool-selector seat' reads as PRIMARY/recommendation seat, not exclusive-of-PLINY-bounded-role.\n- npm run gen-data if frontmatter description changes (body-only edits expected -\u003e likely none; verify).\n\nRATIONALE: verify-then-execute; removes latent inconsistency between S19.3.1 (sole) and modules/README (orchestrator POLYBIUS/PLINY) + module L19. PRINCIPAL + PLINY + ARGUS aligned.\n\nSEQUENCING: FAST-FOLLOW after stoa--yfv (Arc 59) lands. Do NOT fold into Arc 59 (one arc at a time; Arc 59 mid-build). Bucket A PRINCIPAL-gated: DAEDALUS authors precise wording -\u003e gauntlet -\u003e user-tier close-gate. The re-ruling is already PRINCIPAL-decided; the gate is on the WORDING faithfully reflecting it + no over-edit.\n\nCROSS-REF: stoa--3c9 (source + re-ruling record), stoa--ikr (round epic).",
+  "id": "stoa--exp",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "Arc-57 r1 revision: name-both tool-selector seat-scope in §19.3.1 (POLYBIUS primary + PLINY bounded)",
+  "type": "task",
+  "updated_at": "2026-06-04T16:03:44Z"
+}
