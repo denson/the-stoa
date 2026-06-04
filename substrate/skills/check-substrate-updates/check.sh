@@ -459,7 +459,7 @@ enumerate_deployed() {
 #   - .claude/agents/* not matching CAPTAIN_*.md  user-added pair-programmer agents
 #   - loose files directly under .claude/skills/  not deployed by install.sh
 #
-# Important precedent: install.sh's prune logic at install.sh:766-770
+# Important precedent: install.sh's prune logic (see the install.sh '--prune-obsolete' comment block + the 'pair-programmer Majors land in the same agents/' note, ~install.sh:92-93)
 # deliberately excludes MAJOR_*.md from obsolete detection (pair-programmer
 # MAJOR ambiguity). Directive A4 nonetheless specifies .claude/MAJOR_*.md is
 # in scope for check.sh's OBSOLETE detection — a deliberate divergence
@@ -576,7 +576,11 @@ is_substrate_source_present() {
       sname="${sname%%/*}"
       local known
       while IFS= read -r known; do
-        [ "$known" = "$sname" ] && return 0
+        # g38 item-3: name-match is necessary but not sufficient — require the
+        # source dir to actually exist on disk too, symmetric with the default
+        # branch's [ -e ] test below. A name in SKILL_NAMES whose source dir was
+        # removed should NOT report as substrate-present.
+        [ "$known" = "$sname" ] && [ -e "${SUBSTRATE_DIR}/skills/${sname}" ] && return 0
       done < <(parse_skill_names_from_install)
       return 1
       ;;
@@ -855,8 +859,8 @@ check_workspace() {
 
     if ! is_substrate_source_present "$ws_dep" "$tier" "$slug"; then
       # Partition: MAJOR_*.md basenames go to manual-rm bucket; everything
-      # else goes to install.sh --prune-obsolete bucket. install.sh:60-69,
-      # :766-770 deliberately exclude MAJORs from prune (pair-programmer
+      # else goes to install.sh --prune-obsolete bucket. install.sh (the 'pair-programmer Majors land in the same agents/' note + --prune-obsolete handling)
+      # deliberately excludes MAJORs from prune (pair-programmer
       # MAJOR ambiguity); emitting install.sh --prune-obsolete for a
       # flagged-OBSOLETE MAJOR would silently no-op — actively misleading.
       case "$ws_dep" in
@@ -1010,7 +1014,7 @@ check_workspace() {
     fi
     if [ "${#obsolete_major_files[@]}" -gt 0 ]; then
       # MAJOR_*.md is deliberately excluded from install.sh's prune scope
-      # (install.sh:60-69, :766-770: pair-programmer MAJOR ambiguity).
+      # (install.sh: the 'pair-programmer Majors land in the same agents/' note, ~L92-93 — re-grep that literal if line numbers drift).
       # check.sh nonetheless surfaces flagged MAJORs per directive A4.
       # Manual rm is the safer path; emit a dedicated routing block so the
       # operator isn't sent to a no-op install.sh prune.
