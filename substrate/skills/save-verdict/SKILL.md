@@ -101,18 +101,24 @@ SAVE_VERDICT complete: request=<request-id> overall=<pass|fail> dest=<resolved_d
 
 ### Authoring the body file (Windows-safe; do this BEFORE the script call)
 
-When the verdict body is multi-line, author it with the **Write tool** (harness runtime — no shell quoting, no heredoc, apostrophes safe) to a **worktree-relative path inside the same tree the verdict will land in**: `agents/verdicts/<ticket-id>/_body-<officer>.tmp.md`. Then pass that same path to `--body-path`.
+When the verdict body is multi-line, author it to a **worktree-relative path inside the same tree the verdict will land in**: `agents/verdicts/<ticket-id>/_body-<officer>.tmp.md`. Then pass that same path to `--body-path`. The **mechanism is seat-aware** because seats carry different toolsets, but the shared invariant below is identical for all of them:
 
-Do **NOT** author the body via a bash `cat <<'EOF' … EOF` heredoc, and do **NOT** write it to `/tmp/…`:
+- **Write-tool seats** (ADA, VERA, DAEDALUS, HERALD, CURATOR, STRABO, BARTLEBY) author it with the **Write tool** (harness runtime — no shell quoting, no heredoc, apostrophes safe) to that path.
+- **Bash-only seats** (ARGUS, CATO, ZENO, NOMOS, TIRO — no Write/Edit tool; their toolset is Bash, Read, Grep, Glob, WebSearch, WebFetch) author it via **`printf` redirection** to that same path: `printf '%s' '<body>' > agents/verdicts/<ticket-id>/_body-<officer>.tmp.md`. Quoting caveat: a single-quoted `printf '%s' '…'` body is literal (no `$`/backtick expansion) but cannot contain a bare apostrophe — escape each embedded apostrophe as `'\''` (close-quote, escaped-apostrophe, reopen-quote). This is the proven Bash-only path the no-Write reviewer seats (ARGUS, CATO) used this arc; the escaping is required, not optional.
+
+The **shared invariant** both mechanisms preserve: an explicit worktree-relative path, no quoted heredoc, no `/tmp`, and identical Write-vs-Python (or printf-vs-Python) path resolution.
+
+Whichever mechanism the seat uses, do **NOT** author the body via a bash `cat <<'EOF' … EOF` heredoc, and do **NOT** write it to `/tmp/…`:
 
 - On Windows git-bash the quoted `<<'EOF'` heredoc **still breaks on apostrophes** (confirmed Arc 52: a verdict had to be authored apostrophe-free after repeated retries).
 - git-bash `/tmp` (MSYS) does **not** resolve to the same location as Python's `/tmp` on Windows, so `--body-path /tmp/…` either exit-4s ("body-path does not exist") or — the dangerous facet — reads a stale/wrong file and writes a **silent-green** verdict with wrong content.
 
-An explicit repo/worktree-relative path is resolved **identically** by the Write tool and by Python's `pathlib`, sidestepping both root causes. The skill **exit-4s loudly** if a `/tmp`-style `--body-path` is passed (the loud-fail guard closes the one observed `/tmp` form; this Write-tool-to-worktree-relative-path PROCEDURE closes the general case — it eliminates any cross-runtime temp file, not just the `/tmp` spelling, satisfying the §34 fail-loud-on-mismatch constraint). Note the guard is a **literal-string backstop, not a general `/tmp` catch**: MSYS git-bash auto-converts a `/tmp/…` argument to the real Windows temp path *before* Python's argparse sees it, so under an ordinary git-bash invocation the guard never sees the `/tmp/` form (the conversion is self-consistent, so the read content stays correct) — it fires only when a genuinely-divergent literal `/tmp/…` string reaches Python; the Write-tool-to-worktree-relative procedure is the load-bearing fix. The `_body-*.tmp.md` scratch file is left on disk (harmless, inside the verdict dir); it is not auto-deleted.
+An explicit repo/worktree-relative path is resolved **identically** by the Write tool (or `printf` redirection) and by Python's `pathlib`, sidestepping both root causes. The skill **exit-4s loudly** if a `/tmp`-style `--body-path` is passed (the loud-fail guard closes the one observed `/tmp` form; this worktree-relative-path PROCEDURE — via either authoring mechanism above — closes the general case — it eliminates any cross-runtime temp file, not just the `/tmp` spelling, satisfying the §34 fail-loud-on-mismatch constraint). Note the guard is a **literal-string backstop, not a general `/tmp` catch**: MSYS git-bash auto-converts a `/tmp/…` argument to the real Windows temp path *before* Python's argparse sees it, so under an ordinary git-bash invocation the guard never sees the `/tmp/` form (the conversion is self-consistent, so the read content stays correct) — it fires only when a genuinely-divergent literal `/tmp/…` string reaches Python; the worktree-relative authoring procedure (Write tool for Write-tool seats, `printf` redirection for Bash-only seats) is the load-bearing fix. The `_body-*.tmp.md` scratch file is left on disk (harmless, inside the verdict dir); it is not auto-deleted.
 
 ```bash
-# $inputs.body_path = the worktree-relative file authored via the Write tool above
-# (NOT a /tmp heredoc). A /tmp-style --body-path is rejected at exit 4.
+# $inputs.body_path = the worktree-relative file authored above (Write tool for
+# Write-tool seats, printf redirection for Bash-only seats; NOT a /tmp heredoc).
+# A /tmp-style --body-path is rejected at exit 4.
 python skills/save-verdict/_save_verdict.py \
   --ticket-id "$inputs.ticket_id" \
   --officer "$inputs.officer" \
