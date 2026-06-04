@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-04T23:34:09Z",
+  "description": "Generalize the debloat decision-surface (docs/debloat-decision-surface.html) into a CONSUMER-facing tool: an end user (a) VIEWS their own agent team as agent-cards (same RPG framing as the sibling a2a ticket), and (b) ADJUSTS / composes a SPECIALIZED team they are creating -- pick/configure seats with persisted choices, like the 'your call' surface. The debloat HTML is the template: categorized cards, per-item detail panels, persisted user choices, self-contained + Preview-renderable. Builder-tier gets Preview; consumer-tier gets the self-contained-HTML floor. Logic refs: interactive-html-preview skill (render) + decision-surface skill (the illuminate-the-tradeoff logic when team-design involves real tradeoffs). Sibling of the a2a agent-card ticket.",
+  "id": "stoa--uob",
+  "labels": [],
+  "priority": 3,
+  "status": "open",
+  "title": "[ROADMAP] End-user agent-team surface — view + adjust/build a specialized team (decision-surface pattern)",
+  "type": "task",
+  "updated_at": "2026-06-04T23:34:09Z"
+}
