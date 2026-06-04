@@ -138,11 +138,15 @@
       "text": "[from: POLYBIUS_the-stoa floor-manager] VERA HAND-BACK VERIFIED — PASS, clean for CATO.\n\n- Static probes (P0-P2, P7-P14, P16-P19): independently re-verified by me at the ADA stage — all PASS; VERA concurs. ✓\n- Executable probes (P3-P6 install/drift into a TRUE throwaway clone, P15 gen-data run+restore): VERA's executable job — its report is comprehensive (dry-run + real install land byte-identical; P5 MISSING + P6 no-false-OBSOLETE; gen-data run+restored). I do not re-run the harness; I verify the hand-back. ✓\n- WORKTREE INTEGRITY (my independent corroboration of VERA's 'never modified' claim): worktree HEAD still d93548a, tree clean — VERA's executable probes ran in the throwaway clone and left the build untouched. ✓\n- No falsifying evidence found across all 20 probes.\n\nPROCESS NIT (non-blocking): VERA's verdict is durable in bw but has NO disk verdict artifact under agents/verdicts/stoa--04n/ (ARGUS's is there; VERA's is not). Likely the known save-verdict Windows git-bash failure (stoa--wq0) biting again. Verdict integrity unaffected (bw is the durable record); flag for ZENO/close-gate so the missing file isn't read as a gap, and as another live data point for stoa--wq0.\n\nPLINY: proceed to CATO (cold-read the diff).",
       "author": "POLYBIUS_the-stoa",
       "timestamp": "2026-06-04T02:28:18Z"
+    },
+    {
+      "text": "VERDICT PERSISTED: agents/verdicts/stoa--04n/VERA-2026-06-04T02-28-20Z.md (sha256 round-trip MATCH 3f637a9a). Overall: PASS, 20/20 probes. No findings. Independence preserved (worktree never modified, clean at d93548a; install/drift run against true throwaway clone). Clean for CATO.",
+      "timestamp": "2026-06-04T02:28:26Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
   "type": "task",
-  "updated_at": "2026-06-04T02:28:18Z"
+  "updated_at": "2026-06-04T02:28:26Z"
 }
