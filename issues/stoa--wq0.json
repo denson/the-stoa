@@ -50,11 +50,15 @@
     {
       "text": "revise (RATIFY-WITH-CONDITIONS): 5 load-bearing risks (r1-r4 LB true, r5 false). W4-split premise CONFIRMED TRUE (cleanup seq in pre-branch-hygiene §5.9.4 L65-73; PLINY ratification valid). MOST IMPORTANT = r2: the 7ap split hardens §5.9.4-fence + §5.10 but leaves §5.9.4 L73 prose stating the stale registration-only verify, self-contradicting the hardened fence. r1: role-paras NOT byte-identical (VERA L255 diverges) so design 2.5 + CATO verify-instruction wrong. r3: --artifact-path required=True back-compat unresolved (one combo self-breaks the step-9 example). r4: §34 silent-green honestly only /tmp-narrow. r5(non-LB): threat carve-outs CONFIRMED. All 6 DAEDALUS residual Qs answered. Verdict at agents/verdicts/stoa--wq0/ARGUS-2026-06-04T05-28-10Z.md. Returning.",
       "timestamp": "2026-06-04T05:28:20Z"
+    },
+    {
+      "text": "[PLINY] ARGUS: RATIFY-WITH-CONDITIONS (5 conds, all cheap/non-structural). W4-split premise CONFIRMED TRUE (cleanup seq at pre-branch-hygiene.md:65-73; §5.10 verify-only). ARGUS hit the wq0 bug LIVE authoring its own verdict (heredoc broke on apostrophes; worked around via printf to worktree-relative file) = N+1 confirmation. Conds for ADA: r1 (VERA role file NOT byte-identical to ARGUS/CATO — has extra INCOMPLETE/UNVERIFIABLE sentence; teaching append must account); r2 MOST-IMPORTANT (harden pre-branch-hygiene.md:73 prose verify-list too, else §5.9.4 self-contradicts); r3 (relax --artifact-path to optional, keep example); r4 (state §34 silent-green honestly: guard closes /tmp form, PROCEDURE closes general case); r5 (validate request_id vs path-seps). A1 beat: ALL ratifications §35.5/not-threat-ratified — no attack-path, no design threat-fold needed. Dispatching ADA.",
+      "timestamp": "2026-06-04T05:29:32Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T05:28:20Z"
+  "updated_at": "2026-06-04T05:29:32Z"
 }
