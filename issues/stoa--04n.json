@@ -36,11 +36,15 @@
     {
       "text": "Ground-truth recon re-verified directly against worktree: SKILL_NAMES at install.sh 198-207 (open-paren 198, entries 199-206, close 207) -\u003e post-edit 198-208 confirmed by awk. Five install.sh:140 cites confirmed at check.sh 76/228/236/385/435. workflow-composer dir UNTRACKED (git ls-files empty). All 5 deltas located: four-primitive L28-37, ultracode L159, args L146-150, allowlist/x4j L156, overnight!=workflow L158/185. author:Denson Smith L7. WORKFLOW_NAMES count=0, workflows/ in check.sh=0 (scope guards green). gen-data globs substrate/skills/\u003cname\u003e/SKILL.md, Zod requires name+description only -\u003e will validate. Drafting design-rev2 now.",
       "timestamp": "2026-06-04T01:55:19Z"
+    },
+    {
+      "text": "pass: design-rev2 complete. Path: .claude/worktrees/arc-53-build/agents/design/stoa--04n/design-rev2.md. Build-list: (1) git add the UNTRACKED workflow-composer dir = the actual promotion step rev1 missed; (2) append workflow-composer to SKILL_NAMES (array 198-207 -\u003e 198-208); (3) fix install.sh:140 cite at ALL FIVE check.sh occurrences (76/228/236/385/385/435) to POST-edit 198-208 -- with line-236 carved out as the bare-line form 198 region (NOT 198-208 region); (4) gen-data guard. 5-delta currency map + 20 VERA probes (P0 sha256 verbatim-promotion through P19 diff-scope). 3 self-assessed weak points (top: line-236 dual-trap; re-stale-able cite; throwaway-harness assumption). Returning to PLINY.",
+      "timestamp": "2026-06-04T01:56:59Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
   "type": "task",
-  "updated_at": "2026-06-04T01:55:19Z"
+  "updated_at": "2026-06-04T01:56:59Z"
 }
