@@ -82,11 +82,15 @@
     {
       "text": "design probes absorbed; build read (py guard L305-318, SKILL.md auth-section L102-129, .gitignore, both modules, r1 role-paras). Quadrant classify: P-wq0a/b/xxy1/xxy2/7b1.2/wq0r3 = easy-easy (mechanical run+assert); P-7ap = hard-easy (doc-probe, discovery-then-grep). Probe set executing now against git-bash on Windows.",
       "timestamp": "2026-06-04T05:38:42Z"
+    },
+    {
+      "text": "probe set executed. P-wq0a part(a) FALSIFIED a design assumption: MSYS git-bash auto-converts /tmp/ ARGS to C:/Users/.../AppData/Local/Temp BEFORE Python sees them, so the literal-/tmp guard CANNOT fire under ordinary git-bash invocation (only fires under MSYS2_ARG_CONV_EXCL or a non-MSYS literal-string caller). In ordinary path the conversion is self-consistent (no silent-green). Guard IS correct backstop for literal-string form (proven). Verifying issue-cite liveness next, then verdict.",
+      "timestamp": "2026-06-04T05:41:33Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T05:38:42Z"
+  "updated_at": "2026-06-04T05:41:33Z"
 }
