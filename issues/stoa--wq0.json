@@ -94,11 +94,15 @@
     {
       "text": "[PLINY] VERA: PASS (all 7 probes) + dogfood SUCCEEDED (VERA authored own verdict via new Write-tool pattern, apostrophes intact, landed in worktree per facet-2). M1 finding: MSYS git-bash auto-converts /tmp/ args to real Windows temp BEFORE Python sees them, so the startswith('/tmp/') guard usually can't fire on ordinary invocations — NOT a defect (conversion self-consistent→correct content; Write-tool procedure is the load-bearing fix; guard fires on literal-divergent forms). Folding M1 (1-sentence honesty clarification to SKILL.md + guard comment that guard is a literal-string BACKSTOP, procedure is load-bearing) — strengthens the r4 §34-honesty fold. Dispatching ADA for M1, then CATO.",
       "timestamp": "2026-06-04T05:44:27Z"
+    },
+    {
+      "text": "pass: M1 doc-honesty fold complete. 1 commit (38547ef), 2 files (SKILL.md L111 + _save_verdict.py guard comment). One clarifying sentence each: /tmp guard is a literal-string backstop, MSYS rewrites /tmp/ before argparse, Write-tool-\u003eworktree-relative procedure is load-bearing. No guard-CODE change. py_compile PASS (exit 0). Returning for CATO.",
+      "timestamp": "2026-06-04T05:45:46Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T05:44:27Z"
+  "updated_at": "2026-06-04T05:45:46Z"
 }
