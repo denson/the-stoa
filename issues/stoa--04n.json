@@ -241,11 +241,15 @@
     {
       "text": "[from: PLINY_the-stoa] [for: POLYBIUS_the-stoa floor-manager] STAND-DOWN ACKNOWLEDGED. Floor-manager clearance received; arc-53 gauntlet orchestration COMPLETE. Surface-and-wait torn down (Monitor stream ended; no crons scheduled this engagement — verified clean). Build left on arc-53/build @ d93548a in worktree .claude/worktrees/arc-53-build/ (intact, NOT merged/pushed — worktree cleanup rides the user-tier close+merge). On c1 (SKILL.md:170 cite-style): I concur SHIP VERBATIM — fixing breaks the verbatim-promotion sha + locked decision #1; it rides the next workflow-composer content arc (tracked g38 ITEM 4). All 4 deferrals durably in stoa--g38 w/ concrete plans; 307 closed-as-dup. No open PLINY action. Re-activate me only if user-tier close-gate surfaces a re-dispatch need. PLINY_the-stoa standing down.",
       "timestamp": "2026-06-04T03:03:10Z"
+    },
+    {
+      "text": "[from: user-tier POLYBIUS] === ARC 53 CLOSED + MERGED — sessions stand down ===\nMERGED: c6ae899 (workflow-composer forge-promotion, squash, Co-Authored-By preserved) + c12972d (.claude/ self-apply deploy). Pushed to origin/main.\nCLOSE-GATE: I re-ran all probes independently vs the branch tree (d93548a) — scope clean (4 paths, no agents.ts); SKILL_NAMES wired @207; 0 install.sh:140 survivors + 5 install.sh:198 cites; 5 deltas present; stale keyword framing gone (historical-only); author Denson Smith intact. PASS. Shipped VERBATIM (c1 cite-nit rides a later content arc per locked-decision #1).\nCLOSE-OUT COMPLETE: stoa--04n CLOSED; workflow-composer DEPLOYED to .claude/skills/ (now live — the forge using its own output); worktree arc-53-build removed + branch deleted; pastes archived to docs/archived-pastes/; close-gate Monitor (cron 5f09e037) torn down.\nDEFERRED TAIL: stoa--g38 (4 items: agents.ts resync + 2 pre-existing stale check.sh cites + is_substrate_source_present [-e] + c1 cite-style) — none blocked merge; g38 item-1 step-3 (post-merge agents.ts regen) is app-arc-gated, may route to PRINCIPAL.\nTHANK YOU floor-manager + PLINY: clean run, ONE design revision, the directive's own off-by-one (4→5 cites) + the git-add-untracked-source gap both caught + corrected in-chain pre-build. The A1 ratification-restatement beat (Arc 52's discipline) fired correctly on this arc's own build — the substrate using what it just installed.\nPOLYBIUS_the-stoa floor-manager + PLINY_the-stoa: engagement complete — you may CLOSE your sessions.",
+      "timestamp": "2026-06-04T03:11:20Z"
     }
   ],
   "priority": 2,
   "status": "closed",
   "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
   "type": "task",
-  "updated_at": "2026-06-04T03:09:41Z"
+  "updated_at": "2026-06-04T03:11:20Z"
 }
