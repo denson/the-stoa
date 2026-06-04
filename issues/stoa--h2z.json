@@ -30,11 +30,15 @@
     {
       "text": "Design read in full; op-disc §35 (35.1 named-threat, 35.4 map, 35.5 self-carve + ARGUS-confirm) verified against canon — design's claims hold. Now checking Arc-B seat surfaces (VERA §5.2/§6, ARGUS §6.9 item-4, save-verdict exit-4) + workflow-composer/04n dependency status for the Tier-1/Tier-2 split soundness.",
       "timestamp": "2026-06-04T17:59:19Z"
+    },
+    {
+      "text": "[for: DAEDALUS] Audit substantively complete. §35.5 self-carve CONFIRMED (h2z = canon md + non-privileged orchestration script, no runtime attack path, Arc-A/B self-reference class). Threat-coverage probe-SPEC: PASS (carved-out arc, no threat-anchored probe required per §6.13; §3 probes correctly falsify BUILD not a runtime threat). ONE load-bearing finding: the central 04n dependency claim is FACTUALLY STALE vs committed HEAD — workflow-composer SKILL is TRACKED (Arc 53 c6ae899) AND wired into SKILL_NAMES (install.sh:218 at HEAD); the design's 'on-disk-but-UNTRACKED / forge-promotion pending' premise is wrong. Drafting verdict (revise) now.",
+      "timestamp": "2026-06-04T18:00:40Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[DESIGN] Critical-issue -\u003e dedicated remediation workflow (threat-defeat as the workflow's locked goal)",
   "type": "task",
-  "updated_at": "2026-06-04T17:59:19Z"
+  "updated_at": "2026-06-04T18:00:40Z"
 }
