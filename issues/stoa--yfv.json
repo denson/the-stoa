@@ -346,11 +346,15 @@
     {
       "text": "ARGUS Arc-B audit: ground-truth complete. WP1 RESOLVED: substrate/skills/runner/ does NOT exist (9 source skills, no runner); 'runner' appears only in app/ legacy data-samples + PLINY L269 non-exhaustive example list + arc-59-directive itself -- skill-runner.md states its source-of-truth is agent-gauntlet's repo, NOT the-stoa. DAEDALUS's B1 reshape to DAEDALUS §6.13 + VERA §5.2 is CORRECT. save-verdict new args compose cleanly into the §15.4 shape-conformance block (no Arc-56/Windows/tmp regression). §35.5 carve-out phrasing matches canon exactly. All seat-file anchors verified present. Finalizing verdict + B2-keystone assessment.",
       "timestamp": "2026-06-04T15:15:27Z"
+    },
+    {
+      "text": "REVISE (RATIFY-WITH-CONDITIONS): 2 load-bearing conditions to fold before ADA, 1 non-load-bearing. B2 KEYSTONE CLOSES the false-confidence trap but as a 3-LAYER closure not a single gate: empty-binding=skill-tool-enforced (SOLID); phantom-id=seat-self-grep+CATO; happy-path=tier-ii substance+CATO. r1 (LB): phantom-id case -- CATO meta-verify is scoped to SUBSTANCE (L78/L83), NOT to re-run the id-in-probes_executed cross-check, so the only INDEPENDENT catch for a fabricated defeats_via_probe id is incompletely assigned; fold = extend CATO item-11 to re-run the mechanical id-existence check. r2 (LB): design labels the seat-side cross-check 'mechanical/grep-able/free' but the enforcer is the seat self-grepping, not the skill -- qualify the wording. r3 (non-LB): WP4 inline-copy drift, §6.8 diff mitigates. WP1 CONFIRMED (no runner skill; DAEDALUS reshape correct). §35.5 carve-out + honest-claim + Arc-56 no-regression + B3 additive all CONFIRMED clean. Verdict at agents/verdicts/stoa--yfv/ARGUS-2026-06-04T15-16-53Z.md. Returning.",
+      "timestamp": "2026-06-04T15:17:03Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-04T15:15:27Z"
+  "updated_at": "2026-06-04T15:17:03Z"
 }
