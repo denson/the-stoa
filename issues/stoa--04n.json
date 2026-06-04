@@ -205,11 +205,15 @@
     {
       "text": "ZENO activated on stoa--04n (Arc 53). Reading spec + shipped artifact (commit d93548a, arc-53/build) before extracting criteria.",
       "timestamp": "2026-06-04T02:36:59Z"
+    },
+    {
+      "text": "Items 1-2 (deploy wiring): PASS. workflow-composer @ install.sh:207 inside SKILL_NAMES (198-208); live array parse returns count=9 incl workflow-composer. Now checking the 5 currency deltas (item 3) + stale-framing gone (item 4).",
+      "timestamp": "2026-06-04T02:37:23Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
   "type": "task",
-  "updated_at": "2026-06-04T02:36:59Z"
+  "updated_at": "2026-06-04T02:37:23Z"
 }
