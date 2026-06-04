@@ -105,6 +105,17 @@
 # templates/), and does NOT run bw init (sub-project shares parent's bw repo).
 # --modify-claude-md and --templates-related flags are rejected in this mode.
 #
+# Transient-path .gitignore (Arc 55 / stoa--2i5): after deploying, the script
+# writes a canonical <target>/.claude/.gitignore so a consumer's `git status`
+# is not polluted by the transient runtime state the substrate generates inside
+# .claude/. Ignored paths (relative to .claude/): scheduled_tasks.lock (cron
+# lock), worktrees/ (per-arc-build worktree residue), .substrate-last-check
+# (check-substrate-updates state), and __pycache__/ + *.pyc (skill bytecode
+# regenerated at consumer runtime). The file is full-overwrite idempotent
+# (rewritten verbatim on every run) and honors --dry-run. The deploy artifact
+# .substrate-manifest is NOT ignored — it is read by check.sh/apply.sh and is
+# meant to be visible.
+#
 # Dry-run: --dry-run prints every action without writing anything.
 
 set -euo pipefail
@@ -510,6 +521,55 @@ write_substrate_manifest() {
     fi
   } > "$manifest"
   echo "wrote manifest: $manifest"
+}
+
+# write_substrate_gitignore <dest-dir>
+#
+# Writes <dest-dir>/.gitignore covering substrate-generated transient runtime
+# paths so a consumer's `git status` is not polluted by cache/lock/worktree
+# noise (Arc 55 / stoa--2i5). The file lives INSIDE .claude/, so entries are
+# relative to .claude/ (e.g. `worktrees/`, NOT `.claude/worktrees/`) — a
+# .gitignore ignores paths relative to its own directory, and getting that
+# prefix wrong silently matches nothing.
+#
+# Idempotent by full-overwrite: the body is a fixed quoted heredoc, so
+# re-running install.sh reproduces it verbatim — no duplicate lines possible
+# (the same idempotency mechanism write_substrate_manifest uses above). The
+# quoted delimiter (<<'EOF') is required so `*.pyc`, `$`, and `#` write
+# literally under `set -euo pipefail` with no expansion. Honors --dry-run
+# (prints intent, writes nothing).
+write_substrate_gitignore() {
+  local dest="$1"
+  local gi="${dest}/.gitignore"
+
+  if [ "$DRY_RUN" -eq 1 ]; then
+    echo "[dry-run] write: $gi (substrate-transient paths: scheduled_tasks.lock, worktrees/, .substrate-last-check, __pycache__/, *.pyc)"
+    return 0
+  fi
+
+  cat > "$gi" <<'EOF'
+# Stoa substrate — transient runtime state (auto-generated, do not commit).
+# Written by install.sh (Arc 55 / stoa--2i5). Paths are relative to this
+# .claude/ directory. Re-running install.sh regenerates this file verbatim.
+# DO NOT EDIT MANUALLY — install.sh overwrites it on every run.
+
+# Cron state — durable scheduled-task lock (CronCreate durable:true).
+scheduled_tasks.lock
+
+# Per-arc-build worktrees; transient/empty residue post-merge (Windows
+# file-lock leaves orphan dirs — stoa--7ap).
+worktrees/
+
+# check-substrate-updates state file.
+.substrate-last-check
+
+# Skill bytecode — stripped at deploy, but regenerated when a consumer runs
+# a skill (Arc 40 / stoa--t9u strips the deploy-time copy; this catches the
+# consumer-runtime regeneration).
+__pycache__/
+*.pyc
+EOF
+  echo "wrote gitignore: $gi"
 }
 
 # ----- argument parsing ------------------------------------------------------
@@ -1589,6 +1649,12 @@ fi
 # substitution in MAJOR_POLYBIUS.md; project-tier + subproject-tier write
 # informational manifests with derivable {{NAME_SUFFIX}} entries).
 write_substrate_manifest "$DEST_DIR" "$TARGET" "$PROJECT_SLUG"
+
+# 7c-bis. Write canonical .claude/.gitignore for substrate-transient runtime
+# paths (Arc 55 / stoa--2i5). Unconditional like the manifest write: $DEST_DIR
+# is non-empty at all 3 tiers (user/project/subproject), so no [ -n ] guard is
+# needed. The file lives inside .claude/, so entries are relative to .claude/.
+write_substrate_gitignore "$DEST_DIR"
 
 # 7b. Operator visibility: surface custom files that coexist at the convention
 # paths. Read-only; substrate tools never touch these. The discipline is at

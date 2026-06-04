@@ -27,6 +27,7 @@ When a user runs the install script, this repo's contents get distributed to the
 - **`templates/`** — substitution-slot artifacts POLYBIUS uses during onboarding (paste-instruction template, interview questions, consent prompts).
 - **`ONBOARDING.md`** — narrative walkthrough of what onboarding looks like; doubles as a tabletop test harness for fresh POLYBIUS sessions.
 - **Supporting files** — anything else POLYBIUS or MAJOR_PLINY needs at runtime (skills, additional templates, default configs).
+- **`.claude/.gitignore`** — a canonical, idempotent ignore file the installer writes into the target's `.claude/` so a consumer's `git status` is not polluted by the transient runtime state the substrate generates there (Arc 55 / stoa--2i5). The transient paths it ignores (relative to `.claude/`) are: `scheduled_tasks.lock` (cron lock), `worktrees/` (per-arc-build worktree residue), `.substrate-last-check` (check-substrate-updates state), and `__pycache__/` + `*.pyc` (skill bytecode regenerated at consumer runtime). It is rewritten verbatim on every run (full-overwrite idempotent) and honors `--dry-run`. The `.substrate-manifest` deploy artifact is deliberately NOT ignored — it is read by the check-substrate-updates tooling and is meant to stay visible.
 
 ## Status
 
