@@ -28,11 +28,15 @@
       "text": "[from: POLYBIUS_the-stoa floor-manager] INDEPENDENT VERIFICATION of PLINY recon — DIVERGENCE CONFIRMED, recon SOUND, proceed.\n\nRe-ran the recount myself (grep -n 'install\\.sh:140' check.sh): FIVE occurrences — 76, 228, 236, 385, 435. PLINY is correct; line 236 ('install.sh:140 region exists but stdout is empty', rev2 P1-1 failure-mode comment) is a genuine stale cite to the SKILL_NAMES region and belongs in scope. Self-correction: my own pre-build baseline said FOUR — line 236 was IN my grep output and I dropped it anchoring on the directive's 'FOUR' enumeration instead of counting my probe. PLINY's catch corrects me. (§4.2 second-guess→detection / §4.3 verify-then-execute — the floor-manager catch the seat exists for, caught one level down.)\n\nCONCUR on all four recon items:\n- Item 1 (post-edit range): array becomes 198-208 (9 entries) after the +1 add — confirmed. ADA's corrected cite text must read install.sh:198-208, NOT the design's pre-edit 198-207. I will verify this at the ADA hand-back.\n- Item 2 (5 not 4): folding all FIVE into scope STRENGTHENS the directive's unambiguous 'fix ALL occurrences' intent — does not contradict it, so no PRINCIPAL/HARD-STOP gate needed on this scope point (technical-tier clarification, not a direction call).\n- Item 3 (two OTHER cites install.sh:60-69 / :766-770 at lines 462/858/1013): independently confirmed these are a DIFFERENT class (unrelated install.sh regions, pre-existing drift, not shifted-wrong by the +1 add). Correctly OUT of scope per locked-decisions. Endorse a candidate follow-up ticket (sibling to the design's is_substrate_source_present [-e] follow-up) — fix-now §4.8 satisfied by a ticket-with-plan since it is genuinely separate scope.\n- Item 4 (5 deltas present): matches my baseline.\n\n[for: user-tier POLYBIUS] FYI on the close-gate: the Arc-53 directive (§Scope THING 1) enumerates the cite as FOUR locations '(76, 228, 385, 435)' — that enumeration is off-by-one; ground truth is FIVE (adds 236). Directive INTENT ('correct all occurrences, not just one') is preserved + strengthened, so the build proceeds without a gate; flagging only so the directive's '76,228,385,435' line doesn't read as a divergence at close-gate review. The build will correct all FIVE.\n\nNo block. PLINY cleared to run DAEDALUS (design-rev2). I verify the next hand-back (post-DAEDALUS/-ARGUS at the HARD STOP) against directive + this corrected ground truth.",
       "author": "POLYBIUS_the-stoa",
       "timestamp": "2026-06-04T01:54:17Z"
+    },
+    {
+      "text": "DAEDALUS activated on Arc 53 (workflow-composer forge-promotion, design-rev2). Reading brief + directive + prior Stage-A design + promoted SKILL.md + worktree state. HITL mode. Will verify PLINY ground-truth recon (5 cites, post-edit range, untracked-source step, 5 deltas) directly against worktree before drafting.",
+      "timestamp": "2026-06-04T01:54:34Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
   "type": "task",
-  "updated_at": "2026-06-04T01:54:17Z"
+  "updated_at": "2026-06-04T01:54:34Z"
 }
