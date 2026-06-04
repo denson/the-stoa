@@ -56,11 +56,15 @@
     {
       "text": "ARGUS (cold-audit design-rev2) -\u003e PASS. 0 BLOCKER / 0 MAJOR / 1 MINOR / 3 NIT. Every load-bearing claim RE-DERIVED against the worktree (not trusted): 5 cites exactly (76/228/236/385/435, no 6th); both line-236 traps falsified by P7+P8; post-edit 198-208 correct (install.sh +1 line does NOT shift check.sh line numbers); untracked git-add is load-bearing (deploy loop install.sh:1107-1120 cp -R has NO source-existence guard, so SKILL_NAMES enrollment w/o git add breaks every fresh-clone install); all 5 deltas present at claimed lines; P14 stale-framing returns only L159 (historical, correct); EXTERNAL currency web-confirmed (ultracode replaced workflow at v2.1.160 — matches SKILL.md L159); author:Denson Smith intact; scope clean (WORKFLOW_NAMES=0, workflows/=0, no re-author). Findings (all non-load-bearing): r3 MINOR confirms the 2 out-of-scope cites are CORRECT to leave (already-stale, NOT newly-broken by +1); r4 NIT P17 grep exit-1 under set -e -\u003e VERA must read zero-match as PASS (I will carry into VERA brief); r1/r2 NIT cosmetic design-prose line-claim looseness, no probe depends. THREAT CLASS: CONFIRMED not threat-ratified.",
       "timestamp": "2026-06-04T02:02:53Z"
+    },
+    {
+      "text": "A1 RATIFICATION-RESTATEMENT BEAT (MAJOR_PLINY.md 5.13 / op-disc 35.2; fires post-ARGUS, pre-ADA, unconditional). Ratifications in this arc, each restated as threat + attack-path:\n1. [threat-class ratification] DAEDALUS proposed + ARGUS confirmed: NOT threat-ratified. -\u003e addresses: none (no named threat attaches); attack-path: n/a — change is guidance-markdown git-add + 1-entry SKILL_NAMES append + comment-cite hygiene; no credential flow, no PRINCIPAL gate, no runtime-exploitable surface. A2 gate: no threat-ratified mitigation to fold (trivially satisfied).\n2. [scope ratification — floor-manager accepted my 5-vs-4 ground truth] 'fix the install.sh:140 cite at ALL FIVE check.sh occurrences incl. line 236' -\u003e addresses M(drift-rot): a stale cite surviving promotion; attack-path: if only the directive's four (76/228/385/435) are fixed, line 236 retains a stale 'install.sh:140 region' cite that misdirects a future maintainer reading check.sh to the wrong install.sh region — the exact comment-drift this arc exists to repair. Mitigation = fix all five w/ correct per-line shape. FOLDED INTO DESIGN: rev2 2.3 table enumerates all five incl. 236's bare-line carve-out; probes P7 (zero survivors) + P8 (exact replacement incl. 236='198 region') assert it. A2 gate satisfied — mitigation lives in the DESIGN, not as a loose build bullet.",
+      "timestamp": "2026-06-04T02:02:54Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
   "type": "task",
-  "updated_at": "2026-06-04T02:02:53Z"
+  "updated_at": "2026-06-04T02:02:54Z"
 }
