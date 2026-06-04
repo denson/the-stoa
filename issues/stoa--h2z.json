@@ -102,11 +102,15 @@
     {
       "text": "VERA activated on stoa--h2z Arc 60 Tier-1. Reading brief + design §3 probes (P1-P11) + role file. Arc is §35.5-carved (not threat-ratified), threat-ratified-mitigation-count=0. P1-P11 are ordinary artifact-conformance grep/file probes. Classifying + executing verbatim; web-verifying the §36.5 tooling-capability claim vs live docs.",
       "timestamp": "2026-06-04T18:46:09Z"
+    },
+    {
+      "text": "[VERA] Probes executing. P1a literal 'surfaced-but-not-yet-defeated' (hyphenated) is in DESIGN but NOT shipped §36 (build paraphrased to 'surfaced but not yet defeated' / 'no passing threat-coverage binding') -\u003e P1 clause-a literal FAILS; P1b TRIGGER count 0-\u003e3 PASS. P2b 'is this critical' matches once in REFUTATION context (line 1492 negates it) -\u003e literal\u003e0 but intent satisfied. Capturing both as methodology concerns (probe-wording-vs-build drift, §5.11). Continuing P3-P11 + WebFetch.",
+      "timestamp": "2026-06-04T18:46:54Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[DESIGN] Critical-issue -\u003e dedicated remediation workflow (threat-defeat as the workflow's locked goal)",
   "type": "task",
-  "updated_at": "2026-06-04T18:46:09Z"
+  "updated_at": "2026-06-04T18:46:54Z"
 }
