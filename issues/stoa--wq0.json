@@ -122,11 +122,15 @@
     {
       "text": "pass: seat-aware body-authoring fold complete. 1 commit (d7cd8c5), 3 files (CAPTAIN_ARGUS.md + CAPTAIN_CATO.md + save-verdict/SKILL.md). ARGUS/CATO appends now teach printf redirection (the Bash-only mechanism they actually have) instead of the Write tool they lack, with the '\\'' apostrophe-escape caveat. SKILL.md authoring section split seat-aware (Write-tool seats vs Bash-only seats) under the shared worktree-relative invariant; §34-honesty + MSYS-backstop content intact; author stays Denson Smith. VERA role file + _save_verdict.py UNTOUCHED (confirmed not in diff). No code change. Returning for CATO re-review.",
       "timestamp": "2026-06-04T05:56:57Z"
+    },
+    {
+      "text": "[PLINY] Post-CATO defect caught from CATO's dogfood note: the wq0 teaching told ARGUS+CATO to author via the Write tool, but those 2 reviewer seats are Bash-only (no Write/Edit) — they hit this bug most (ARGUS live this arc). Folded seat-aware fix d7cd8c5 (doc-only): ARGUS/CATO role files now teach printf-to-worktree-relative-path with '\\'' apostrophe-escaping; SKILL.md seat-split (Write-tool seats vs Bash-only seats); VERA + _save_verdict.py untouched. Seat lists verified vs registry. Deeper fully-quoting-safe Bash mechanism (--body-stdin) = follow-up ticket, NOT this arc. Focused CATO re-glance on d7cd8c5, then NOMOS+ZENO.",
+      "timestamp": "2026-06-04T05:57:55Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T05:56:57Z"
+  "updated_at": "2026-06-04T05:57:55Z"
 }
