@@ -38,11 +38,15 @@
     {
       "text": "revise: 2 load-bearing risks (r1: 04n dependency premise FACTUALLY STALE vs committed HEAD — workflow-composer SKILL is tracked Arc-53 c6ae899 AND wired into install.sh SKILL_NAMES line 218, not untracked/promotion-pending; r2: Tier-1/Tier-2 split gates Tier-2 on '04n forge-promotion landing' but 04n scoped that OUT [locked decision #2: ship only SKILL] — real Tier-2 residual [no WORKFLOW_NAMES / no deployable defeat-threat script] is a DIFFERENT un-named dependency). §35.5 self-carve CONFIRMED. Threat-coverage probe-SPEC: PASS (carved-out arc, count 0). Trigger soundness / honest-claim / anti-drift / batching-omission all NON-FINDINGS. Tier-1 standalone value survives; STATED RATIONALE rests on a wrong fact, fix before canon inherits it. Verdict: agents/verdicts/stoa--h2z/ARGUS-2026-06-04T18-05-58Z.md. Returning.",
       "timestamp": "2026-06-04T18:06:19Z"
+    },
+    {
+      "text": "DAEDALUS REACTIVATED on stoa--h2z revise. ARGUS verdict = REVISE (ratify-with-conditions): structure ratified, one premise stale. Ground-truth re-verified vs git HEAD: workflow-composer SKILL tracked + wired install.sh:218 SKILL_NAMES (Arc 53 c6ae899); WORKFLOW_NAMES/defeat-threat deploy infra absent (grep -c = 0). Fixing exactly ARGUS findings 1-3; touching nothing ratified (§35.5 carve, trigger-soundness, honest-claim, batching, §3 probe set). Editing §0/§1/§2.5/§5/§6 HS-1 for Finding 1; re-deriving Tier-2 gate for Finding 2; softening structurally-cannot-drift wording for Finding 3.",
+      "timestamp": "2026-06-04T18:08:44Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[DESIGN] Critical-issue -\u003e dedicated remediation workflow (threat-defeat as the workflow's locked goal)",
   "type": "task",
-  "updated_at": "2026-06-04T18:06:19Z"
+  "updated_at": "2026-06-04T18:08:44Z"
 }
