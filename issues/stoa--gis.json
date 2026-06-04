@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-04T23:34:09Z",
+  "description": "In-progress HTML displays the agent roster as 'agent cards' in a role-playing-game framing. Roadmap: (1) modify it to consume the a2a (agent-to-agent) marketplace card as its single-source-of-truth data feed for the roster; (2) add per-agent imagery (PRINCIPAL generating images per agent via OpenAI image generation). Rendering/interaction template: docs/debloat-decision-surface.html + the interactive-html-preview skill. App home: app/. Sibling of the end-user team-surface roadmap ticket.",
+  "id": "stoa--gis",
+  "labels": [],
+  "priority": 3,
+  "status": "open",
+  "title": "[ROADMAP] Agent-card display (RPG framing) — consume a2a marketplace card + per-agent OpenAI images",
+  "type": "task",
+  "updated_at": "2026-06-04T23:34:09Z"
+}
