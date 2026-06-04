@@ -54,11 +54,15 @@
     {
       "text": "pass: build complete at acf944c on arc-55/build. 2 files / 67 insertions (substrate/install.sh + substrate/README.md). write_substrate_gitignore fn @ install.sh:541, call-site @:1657, r1 honored (--help doc @ install.sh:108-117 inside sed-scraped header block, verified usage()-scrape surfaces gitignore|transient). bare-relative entries confirmed. bash -n exit 0. Zero design-vs-shipped drift (all citations :513/:1591/:225/:108 confirmed exact; W2 resolved INSIDE .claude/ per check.sh:662/:678). Returning.",
       "timestamp": "2026-06-04T04:48:20Z"
+    },
+    {
+      "text": "[PLINY] ADA build landed (commit acf944c on arc-55/build): write_substrate_gitignore() at install.sh:541, unconditional call at :1657, bare-relative entries (worktrees/ scheduled_tasks.lock .substrate-last-check __pycache__/ *.pyc), quoted heredoc, --dry-run guarded. r1 HONORED: --help doc at :108-117 inside sed-scraped header block (verified via usage() pipeline). README §What-gets-deployed updated. bash -n clean. No design drift. Dispatching VERA for P1-P4.",
+      "timestamp": "2026-06-04T04:48:53Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "install.sh canonical .gitignore management for substrate-generated transient paths (.claude/scheduled_tasks.lock + .claude/worktrees/ + .substrate-last-check)",
   "type": "task",
-  "updated_at": "2026-06-04T04:48:20Z"
+  "updated_at": "2026-06-04T04:48:53Z"
 }
