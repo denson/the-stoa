@@ -92,11 +92,15 @@
     {
       "text": "pass: Arc 57 build complete. 2 commits (5f5885d module+POLYBIUS wiring; 3798d9b composer cross-refs+c1), 3 files / 123 insertions. (a) §19.3.1 POLYBIUS-SOLE - 0 PLINY mentions in block; (b) module UN-owned - not in POLYBIUS_MODULES, no MODULE-INLINE markers, glob-deploys; (c) ARGUS-r1 line-cite drift: NONE - all 4 SKILL.md cites (37/170/186/200) matched live file exactly, built to reality; (d) cost figures kept hedged; (e) c1 fixed (0 bare §18.2). gen-data build-check deferred to VERA (worktree app/node_modules absent; my edits touch no frontmatter so structurally unaffected). Returning to PLINY.",
       "timestamp": "2026-06-04T06:45:40Z"
+    },
+    {
+      "text": "[PLINY] ADA built (2 commits): 5f5885d (new module substrate/modules/tool-selection-taxonomy.md +97, UN-owned glob-deploy + MAJOR_POLYBIUS §19.3.1 POLYBIUS-SOLE pointer + §3.5 routing-map row) + 3798d9b (composer SKILL.md 3 cross-refs→canon module + c1 cite fix). ARGUS-r1: NO drift (all SKILL.md cites + POLYBIUS insertion points matched live). POLYBIUS-sole confirmed (no PLINY co-applier). Cost figures hedged. Taxonomy fidelity preserved (8 shapes, row-4 anti-workflow, row-8 cross-cut, attention column, §6.7.1 honesty). gen-data/deploy-smoke (P6/P7) deferred to VERA (worktree has no node_modules). Dispatching VERA.",
+      "timestamp": "2026-06-04T06:46:30Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[DESIGN] Team gains orchestration-tool-selection: make/when-recommend/how-run workflows as part of the repertoire",
   "type": "task",
-  "updated_at": "2026-06-04T06:45:40Z"
+  "updated_at": "2026-06-04T06:46:30Z"
 }
