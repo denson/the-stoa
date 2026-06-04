@@ -1460,6 +1460,194 @@ necessary-not-sufficient (Arc B surface). Recover via `bw show u--ith` / `bw sho
   surface (§35.5 names it as residual rather than mechanizing it).
 - `CAPTAIN_DAEDALUS.md` §3 + §6.12 (A3 map authoring); `CAPTAIN_ARGUS.md` §6.9 (design-smell +
   classification + carve-out confirmation); `MAJOR_PLINY.md` §5.13 (A1 restatement beat).
+- §36 (threat-remediation escalation) — the REMEDIATION layer that consumes this section's
+  detection outputs. §35 is coverage/detection *within* the arc that surfaced the threat; §36 is
+  the escalate-into-a-dedicated-arc *response* when a §35-classified threat is surfaced but not
+  yet defeated.
+
+---
+
+## 36. Threat-remediation escalation (detect → goal-locked workflow)
+
+§35 BINDS a mitigation to its threat before build (prevention) and DETECTS a named threat that
+ships without a defeating probe (the Arc-B layer: VERA/CATO/POLYBIUS at verify/relay/close). This
+section adds the **RESPONSE** layer: on such a detection, the gauntlet does NOT patch the threat
+inline as a sub-item of the arc that surfaced it — it **STOPS, surfaces to the PRINCIPAL, and
+escalates the fix into a DEDICATED, goal-locked remediation arc** whose only deliverable is
+"defeat THAT specific named threat `M<n>`." §36 is NOT a third detector — it reads §35 / Arc-B's
+existing detection outputs as a TRIGGER and names the response. The novelty is the response
+shape, not the detection.
+
+Empirical anchor: the same `origindex-trw` M2 incident §35 names — but §35 closes the *detection*
+gap ("nobody asked does-it-defeat-M2"), while §36 closes the *remediation-drift* gap: M2 failed
+because the fix was a SUB-ITEM of a larger build, competing with the arc's "real" deliverable and
+taking the easier reading. A whole-goal remediation arc structurally cannot drift the way a
+sub-goal can — there is no larger deliverable to hide the threat-fix under. Anchor recovery:
+`bw show u--ith` / `bw show u--tgc` / `bw show stoa--h2z` (this section's directive).
+
+### 36.1 The trigger predicate (reuses §35.1 classification — no new criticality judgment)
+
+The trigger is built ENTIRELY on the already-shipped named-threat vocabulary (§35.1: `M<n>`,
+ARGUS-confirmable, non-self-exemptable). It imports NO fuzzy criticality scale — there is no
+"is this critical?" severity judgment. §36 adds NO new condition; it names the RESPONSE to two
+already-shipped Arc-B failure shapes:
+
+> **TRIGGER(M\<n\>) := the threat `M<n>` is §35.1-classified (named, ARGUS-confirmable,
+> non-self-exemptable) AND has NO passing threat-coverage binding** — i.e. EITHER
+> **(T-a)** a `threat_coverage:` entry for `M<n>` whose `defeats_via_probe:` id is **absent from
+> `probes_executed:`**, OR whose `probe_evidence:` is **empty** (the VERA §5.2 / §6 finding —
+> "absence-of-an-executed-probe, not absence-of-a-sentence"), OR
+> **(T-b)** a mapped/named `M<n>` with **NO threat-anchored probe spec'd at all** (the ARGUS §6.9
+> "map-present-but-probe-absent" design smell, OR a mid-arc-ratified threat that bypassed design —
+> the §35.5 named residual "during-build ratification").
+
+**Where it fires (detection sources, in pipeline order):**
+
+| Detection surface (already shipped) | What it emits that §36 reads | Trigger shape |
+|---|---|---|
+| ARGUS critique (`CAPTAIN_ARGUS.md` §6.9) | mapless-mitigation OR map-present-but-probe-absent design smell (`load_bearing: true`) | T-b (pre-build) |
+| PLINY A1 (§35.2, pre-ADA beat) | a ratified item restated as `addresses M<n>` but with no design-folded map | T-b (pre-build) |
+| VERA verdict (`CAPTAIN_VERA.md` §5.2 / §6) | `threat_coverage:` entry with `defeats_via_probe:` ∉ `probes_executed:`, or empty `probe_evidence:`; verdict is `fail` | T-a (post-build) |
+| CATO (`CAPTAIN_CATO.md` §6.1 item 11) | independent cross-check disagrees with VERA's threat-coverage line | T-a (post-build) |
+| POLYBIUS (`MAJOR_POLYBIUS.md` §4.3.2, relay + close-gate) | shipped mitigation's cited probe did not exercise the mapped attack path | T-a (at relay/close) |
+
+A CAPTAIN that detects a trigger surfaces it in its verdict (it already does — these are shipped
+findings). §36's addition is the escalation OWNER and the response, below.
+
+### 36.2 STOP + SURFACE (the human-attention gate) — and escalate-don't-inline-patch
+
+**The escalation owner is PLINY → user-tier POLYBIUS, NOT the detecting CAPTAIN.** On a triggered
+finding, the load-bearing rule (the drift surface §36 exists to remove):
+
+> **PLINY does NOT route the fix back as an inline ADA re-dispatch on the SAME arc.** It HALTS the
+> originating arc's threat-fix path (the rest of the arc may proceed or pause per PLINY judgment —
+> §36 scopes only the threat-fix), surfaces to the PRINCIPAL, and OFFERS the dedicated remediation
+> workflow (§36.3). The inline-patch path is exactly the drift surface §36 removes: a fix that
+> rides as a sub-item of a larger build competes with that build's deliverable and takes the
+> easier reading (the origindex M2 root cause).
+
+PLINY surfaces (via user-tier POLYBIUS, the PRINCIPAL-channel owner) this FIXED payload verbatim:
+
+```
+THREAT-REMEDIATION TRIGGER
+threat: M<n>  (ARGUS-confirmed: <yes|pending>)
+attack-path: <the A3-map attack-path string, verbatim>
+detected-at: <ARGUS critique | PLINY A1 | VERA verdict | CATO | POLYBIUS relay/close>
+trigger-shape: <T-a: probe-bound-but-not-executed | T-b: no-threat-anchored-probe>
+originating-arc: <ticket-id>
+proposed-response: spawn dedicated /defeat-threat remediation workflow with goal = block M<n>
+DECISION REQUIRED: authorize remediation workflow? (the goal is locked to defeating M<n>;
+  human confirms DIRECTION; agents execute remediation with the goal un-droppable)
+```
+
+This is the load-bearing attention moment: a security bug is a human-attention moment (the
+"direction is scarce" thesis). The human confirms *direction* (this threat is real, defeat it
+now); the agents execute remediation against a goal they structurally cannot re-scope.
+**The PRINCIPAL's authorization is the §25 PRINCIPAL-gate on spawning the remediation workflow** —
+PLINY/POLYBIUS do not spawn it un-authorized.
+
+### 36.3 The remediation workflow (DOCUMENTED PATTERN — not an executable, this tier)
+
+The remediation vehicle is **goal-locked**: its single returned success criterion is "`M<n>`'s
+attack path is driven-to-blocked by an EXECUTED probe." The shape below is the **DOCUMENTED
+PATTERN** — a spec PLINY hand-orchestrates as a dedicated goal-locked arc. (The executable
+stage-split `/defeat-threat` workflow is **Tier-2, deferred to the debloat-via-workflows
+initiative** — see §36.5.)
+
+```
+goal (LOCKED — the arc's single returned success criterion):
+  "block the M<n> attack path; the threat_coverage assertion passes ONLY if an
+   EXECUTED probe drives the real attack path to blocked (the B2 keystone)."
+
+stage A (design):
+  STRABO   → map the M<n> threat surface (attack-path enumeration)
+  DAEDALUS → mitigation + MANDATORY threat→mitigation map (§35.4): M<n> → <attack-path>
+             → <how-defeated>; + spec the threat-anchored probe (CAPTAIN_DAEDALUS.md §6.13):
+             asserts (a) attack-blocked AND (b) legit-unaffected
+  ARGUS    → audit: does the design DEFEAT M<n>? (not merely "is it sound?"); confirm the
+             A3 map binds mitigation→threat; confirm a threat-anchored probe is SPEC'd
+             (the §6.9 map-present-but-probe-absent smell if not)
+
+=== HARD STOP (floor-manager → user-tier POLYBIUS): design defeats M<n>? authorize build? ===
+
+stage B (build + verify):
+  ADA  → build the mapped mitigation
+  VERA → EXECUTE the threat-anchored probe against the REAL attack path (§5.2): observe
+         (a) attack-blocked AND (b) legit-unaffected; emit threat_coverage: { mitigation: M<n>,
+         defeats_via_probe: pX, probe_evidence: <recorded output>, attack_path_exercised: ... }
+  CATO → independent cross-check (§6.1 item 11): is defeats_via_probe ∈ probes_executed, and did
+         it drive the MAPPED attack path?
+
+success criterion (the single returned PASS gate):
+  threat_coverage.defeats_via_probe ∈ probes_executed
+  AND probe_evidence non-empty
+  AND the executed probe exercised the MAPPED attack-path (not a happy-path proxy)
+  → else STRUCTURAL FAIL (the arc cannot return PASS).
+```
+
+### 36.4 Goal-lock strength (stated honestly — NOT tool-strength)
+
+The goal-lock **raises the drift bar to its maximum**: the returned success object has exactly ONE
+pass gate (the threat-coverage assertion above) and no "larger deliverable" field for the
+threat-fix to become a sub-bullet of. Because the goal IS the threat, the intended path to PASS is
+an executed-attack-path probe. **But the strength is asymmetric, and §36 does not overclaim
+"structurally cannot drift":**
+
+- Only the **empty-binding** sub-check (declared-mitigations ⇒ ≥1 probe-id) is skill-tool-enforced
+  (save-verdict exit 4 for the landing seat).
+- The `defeats_via_probe ∈ probes_executed` AND "the executed probe drove the MAPPED attack path"
+  sub-checks are **seat-side greps** (VERA §5.2/§6, CATO §6.1 item 11, POLYBIUS §4.3.2) — Arc-B's
+  existing enforcement, NOT tool-strength.
+
+So a seat could still emit a probe-id that did not exercise the real attack path, caught by the
+**redundant seat-side net** (the POLYBIUS §4.3.2 relay/close alignment check) rather than by the
+schema. This is the SAME residual shipped Arc B already carries and names honestly (VERA §5.2:
+"do not assume tool-strength enforcement that does not exist"); §36 inherits it, does not worsen
+it. The whole-goal shape is what makes the bar HIGH where a *sub-goal* bullet's bar is low — that
+asymmetry, not a tool guarantee, is the anti-drift property.
+
+### 36.5 Tier-2 (executable workflow) is deferred — separable by AUTHORING EFFORT, not missing infra
+
+The DOCUMENTED PATTERN (§36.3) ships NOW as canon and degrades gracefully: with no executable
+script, the response is **a classic PLINY-run dedicated goal-locked arc** — PLINY hand-orchestrates
+the stages above, surfacing the HARD STOP to user-tier POLYBIUS. The anti-drift property comes from
+the GOAL being the whole arc, which **PLINY enforces with NO script at all**; §36 depends only on
+PLINY honoring the dedicated-arc-per-threat discipline, not on any tooling.
+
+The executable, `args`-parameterized `/defeat-threat` workflow (authored once, re-run per threat) is
+**Tier-2, deferred to the debloat-via-workflows initiative** (its own future arc). It is separable
+by **AUTHORING EFFORT, not missing infrastructure**: workflow deploy is built-in runtime infra (a
+workflow is saved via `/workflows` → press `s` to `.claude/workflows/` (project, repo-shared) or
+`~/.claude/workflows/` (personal), and auto-discovered as a `/<name>` command — there is **no
+registry and no `WORKFLOW_NAMES` array**; `install.sh`'s only possible role is an optional one-line
+copy to propagate the workflow to consumer projects' `.claude/workflows/`, the same pattern as
+skills). The genuine Tier-2 work is the AUTHORING: the runtime **forbids mid-run human input**, so a
+gauntlet-faithful `/defeat-threat` carrying the §36.3 HARD STOP cannot be one script — it must be
+SPLIT into stage-workflows (Stage A → human ratify → Stage B), schema-wired with the cross-stage
+threat-coverage object threaded through `args`, and battle-tested. That is arc/team-sized work.
+
+### 36.6 Honest-claim boundary (HS-5 — do NOT overclaim past named-threat defeat)
+
+§36 enforces named-threat-DEFEAT as a LOCKED GOAL; it does **NOT** claim to catch un-named threats.
+Threat-ENUMERATION completeness — whether the set of named threats is complete — remains ARGUS's
+unmechanized judgment and a NAMED RESIDUAL RISK (§35.5). A threat no one names is invisible to §36
+exactly as it is to §35 / Arc A/B. The STOP+SURFACE payload (§36.2) confirms "this named threat,
+defeated" — it does not imply broader coverage. Do not represent §36 as proof that all threats are
+defeated; it is the response layer for threats §35 already named.
+
+### 36.7 Cross-references
+
+- §35 (threat-defeat prevention + Arc-B detection) — the layer §36 consumes; §35 is
+  coverage/detection *within* the arc, §36 is escalation *into a dedicated* arc. Two-way pointer:
+  §35.8 → §36.
+- §25 (PRINCIPAL-gate discipline) — the spawn-authorization gate (§36.2) is a §25 PRINCIPAL-gate.
+- §6 (redundancy IS the safety property) — the seat-side net (§36.4) that backs the non-tool-
+  enforced sub-checks.
+- `CAPTAIN_VERA.md` §5.2 + §6 (T-a finding source); `CAPTAIN_DAEDALUS.md` §6.13 (threat-anchored
+  probe spec); `CAPTAIN_ARGUS.md` §6.9 (T-b design smell); `CAPTAIN_CATO.md` §6.1 item 11 (T-a
+  cross-check); `MAJOR_POLYBIUS.md` §4.3.2 (relay/close detection + the PRINCIPAL-surface).
+- `MAJOR_PLINY.md` (the escalation-owner beat: STOP + surface, do not inline-re-dispatch ADA);
+  `MAJOR_POLYBIUS.md` (the PRINCIPAL-surface + spawn-authorization gate).
 
 ---
 

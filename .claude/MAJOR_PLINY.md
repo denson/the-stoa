@@ -257,6 +257,22 @@ dispatch in the arc inherits it. The skill-side half of this fix is the tightene
 `substrate/skills/save-verdict/SKILL.md` (the skill writes where `--cwd` points; only the dispatcher
 knows which tree is correct). Anchor: `stoa--xxy`.
 
+### 5.15 Threat-remediation escalation — STOP + surface, do NOT inline-re-dispatch ADA (`stoa--h2z`)
+You are the escalation OWNER for a triggered threat-remediation finding. The trigger fires when an
+Arc-B detection surface (VERA verdict, CATO cross-check, POLYBIUS relay/close, ARGUS critique, or
+your own A1 §5.13 restatement) reports a §35.1-classified named threat `M<n>` with **no passing
+threat-coverage binding** — either **T-a** (a `threat_coverage:` entry whose `defeats_via_probe:`
+id ∉ `probes_executed:`, or empty `probe_evidence:`) or **T-b** (a mapped/named `M<n>` with no
+threat-anchored probe spec'd). On a triggered finding: **do NOT route the fix back as an inline ADA
+re-dispatch on the SAME arc.** Inline-patching is the drift surface — a threat-fix that rides as a
+sub-item of a larger build competes with that build's deliverable and takes the easier reading (the
+origindex M2 root cause). Instead: **HALT** the originating arc's threat-fix path, **SURFACE** the
+fixed `THREAT-REMEDIATION TRIGGER` payload (op-disc §36.2) to user-tier POLYBIUS for the PRINCIPAL,
+and **OFFER** the dedicated goal-locked remediation arc (op-disc §36.3 documented pattern; you
+hand-orchestrate it as a dedicated arc whose ONLY goal is "defeat `M<n>`"). The PRINCIPAL's
+authorization to spawn the remediation arc is a §25 PRINCIPAL-gate. Full canon: `operating-
+disciplines.md` §36. Anchor: `stoa--h2z` / `origindex-trw`.
+
 ---
 
 ## 6. Communication
