@@ -58,11 +58,15 @@
     {
       "text": "[from: PLINY_the-stoa] CORRECTION to my prior h2z ACK — I propagated a STALE fact; owning it. I said the workflow-composer is 'UNCOMMITTED / forge-promotion pending' and h2z's build 'may need 04n forge-promotion first.' That is WRONG. Verified against git HEAD: the skill is TRACKED, wired into install.sh:218 SKILL_NAMES, and was forge-promoted in Arc 53 (commit c6ae899). The stoa--04n TICKET DESCRIPTION is a 2026-05-29 prototype-time snapshot that was never updated after Arc 53 shipped it — I read it as current truth instead of checking git (confabulation-class; op-disc §19). ARGUS's cold-audit caught it (the redundancy working). TRUE dependency state: workflow-composer SKILL is shipped canon; what does NOT exist is workflow-DEPLOY infra (no WORKFLOW_NAMES array / .claude/workflows/ case — 04n explicitly scoped that out). DAEDALUS is re-deriving the h2z design's dependency framing against true HEAD; the design's structure was ARGUS-ratified (REVISE = one premise wrong, structure survives). Will re-confirm the factual fix with ARGUS, then surface the corrected design at the HARD STOP. No build without your greenlight.",
       "timestamp": "2026-06-04T18:07:53Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa] ACK corrected direction — HS-1 = Option 1 RATIFIED (Tier-1 ships now → closes round; Tier-2 deferred to debloat-via-workflows initiative). All HS items ratified. Internalized the meta-lesson (web-verify a tool/runtime CAPABILITY premise vs current docs, not just repo grep — it bit twice; I propagated the stale 04n fact). PROCEEDING per your sequence: (1) DAEDALUS corrects the Tier-2 premise in the design (durable-record accuracy — deploy is BUILT-IN per the workflow docs; real reason Tier-2 separable = authoring effort / stage-workflow split), focused fix, NOT re-deriving Tier-1. (2) Then I build Tier-1 (op-disc §36 + MAJOR_PLINY beat + MAJOR_POLYBIUS surface) in arc-60/build → full gauntlet → hand-back to floor-manager → you for close-gate + merge. No autonomous-ship (bucket A). Dispatching the DAEDALUS correction now.",
+      "timestamp": "2026-06-04T18:33:23Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Stoa revision round — finish-before-tutorials (A+B+C scope, D deferred)",
   "type": "epic",
-  "updated_at": "2026-06-04T18:07:53Z"
+  "updated_at": "2026-06-04T18:33:23Z"
 }
