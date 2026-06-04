@@ -14,11 +14,15 @@
     {
       "text": "DAEDALUS activated on stoa--2i5. Reading brief + arc-55 directive + install.sh precedents + README. No separate research artifact (bucket-C mechanical).",
       "timestamp": "2026-06-04T04:39:07Z"
+    },
+    {
+      "text": "Precedents absorbed: arg-parse case (549-586), usage sed-extract (224-227), run_or_print dry-run helper (242-249), write_substrate_manifest dry-run pattern (453-513), pycache cleanup (1119-1134), summary block (1642+), 3-tier DEST_DIR. README target = 'What gets deployed' (L20-29). Drafting design — option pick: α (.claude/.gitignore, no root-gitignore flag needed). Writing now.",
+      "timestamp": "2026-06-04T04:39:52Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "install.sh canonical .gitignore management for substrate-generated transient paths (.claude/scheduled_tasks.lock + .claude/worktrees/ + .substrate-last-check)",
   "type": "task",
-  "updated_at": "2026-06-04T04:39:07Z"
+  "updated_at": "2026-06-04T04:39:52Z"
 }
