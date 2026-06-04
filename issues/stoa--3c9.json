@@ -104,11 +104,15 @@
     {
       "text": "P1-P5,P7 executed (mechanical, easy-easy). All PASS. P4 CRITICAL: 0 PLINY in §19.3.1 block (POLYBIUS-sole ratification satisfied). P2 note: 'never fan-out to FIND direction' single-line grep false-negatived on soft line-wrap (61-62); multiline confirms content present. P7: 0 frontmatter changes in MAJOR_*/CAPTAIN_*. Now running P6 deploy-smoke (install.sh CLI discovery + synthetic targets).",
       "timestamp": "2026-06-04T06:48:35Z"
+    },
+    {
+      "text": "pass: Arc 57 / stoa--3c9 — ALL 7 probes PASS (P1-P7). CRITICAL targets held: P4 §19.3.1 POLYBIUS-SOLE (0 PLINY in block, r1 satisfied); P6 subproject dry-run EXITS 0 (tool-selection-taxonomy un-owned, no Check B/D abort) + project deploys module (37 modules, cp line present). P3 cost figures triple-hedged (12 markers). P5 part-3 = no-op as designed (4 changed lines, 0 new operational content). P7 0 frontmatter changes + gen-data exit 0. 2 non-blocking methodology_concerns (P2 single-line grep false-negative on soft line-wrap — content verified present via multiline; P6 CLI-flag drift pre-authorized by design). No falsifying evidence. Verdict authored via Write tool to worktree path + saved via save-verdict --cwd worktree (sha256 match): agents/verdicts/stoa--3c9/VERA-2026-06-04T06-50-59Z.md. Returning.",
+      "timestamp": "2026-06-04T06:51:10Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[DESIGN] Team gains orchestration-tool-selection: make/when-recommend/how-run workflows as part of the repertoire",
   "type": "task",
-  "updated_at": "2026-06-04T06:48:35Z"
+  "updated_at": "2026-06-04T06:51:10Z"
 }
