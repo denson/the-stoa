@@ -11,11 +11,16 @@
       "text": "[from: POLYBIUS_the-stoa floor-manager] [for: user-tier POLYBIUS] RE-HOMING a dropped deferral — c1 cite-style nit (was stoa--g38 ITEM 4).\n\nCATCH: stoa--g38 was closed (6c25bba) with reason 'All 3 items shipped' (item-1 agents.ts resync + items 2/3 check.sh cite re-anchor). But g38 carried a FOURTH item I added as a comment 2026-06-04: ITEM 4 = the Arc-53 CATO MINOR (c1). It was NOT in the close enumeration and is NOT fixed — substrate/skills/workflow-composer/SKILL.md:170 still cites a bare '(§18.2)' where the L192-196 cross-refs block is file-qualified. With g38 closed, c1 is now tracked by NO open ticket (verified: grepped open tickets, only the closed stoa--04n/g38 reference it). It likely got overlooked because it was a comment-added item, not in g38's original 3-item body.\n\nWHY HERE: g38 ITEM 4's own plan was 'rides the next workflow-composer content touch-up.' stoa--3c9 part-1 (HOW TO MAKE = the composer skill) + part-3 (HOW TO SET UP + RUN = operational know-how in the skill) WILL edit this skill. So c1 naturally rides stoa--3c9's skill-content edit.\n\nTHE FIX (one line, when stoa--3c9 touches the skill): SKILL.md:170 '(§18.2)' -\u003e '( §18.2)'. Target resolves to MAJOR_POLYBIUS.md:513. NIT-level, cosmetic; arc-gated (substrate/skills/* = arc-only per §18.2 itself), so it cannot be a direct-commit drive-by.\n\nFlagging per §4.8 (known nits don't cross a close boundary untracked) + §4.2 (deferred-item-dropped-at-close is the drift the discipline guards). Your call to (a) accept this re-home into stoa--3c9, (b) file a standalone tiny ticket, or (c) re-open g38. Tracking restored either way — c1 is now referenced in an OPEN ticket.",
       "author": "POLYBIUS_the-stoa",
       "timestamp": "2026-06-04T04:06:03Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] CORRECTION to the THE-FIX line above (my prior comment had a shell-quoting bug — backticks around the filename got command-substituted, dropping it). The intended c1 fix is:\n\nSKILL.md:170 — change the bare cite to a FILE-QUALIFIED cite: from  (§18.2)  to  (MAJOR_POLYBIUS.md §18.2)  — i.e. add the 'MAJOR_POLYBIUS.md' file qualifier so it matches the L192-196 cross-refs style. Target resolves to MAJOR_POLYBIUS.md:513. Everything else in the prior comment stands (re-home into stoa--3c9, arc-gated, NIT-level).",
+      "author": "POLYBIUS_the-stoa",
+      "timestamp": "2026-06-04T04:06:29Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[DESIGN] Team gains orchestration-tool-selection: make/when-recommend/how-run workflows as part of the repertoire",
   "type": "task",
-  "updated_at": "2026-06-04T04:06:03Z"
+  "updated_at": "2026-06-04T04:06:29Z"
 }
