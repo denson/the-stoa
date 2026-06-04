@@ -342,11 +342,15 @@
     {
       "text": "[PLINY] DAEDALUS Arc-B design landed (agents/design/stoa--yfv/arc-b-design.md). B2 keystone = verdict threat_coverage block, defeats_via_probe: MUST cite an EXECUTED probe-id in VERA's probes_executed set w/ non-empty evidence (tier-i save-verdict schema enforcement like verdict_shape family + seat grep; tier-ii substance) → absence-of-executed-probe = finding (honors the locked constraint). save-verdict: NEW schema-conditional --threat-coverage-probe-ids/--threat-ratified-mitigation-count, caller-side-per-shape, zero Arc-56 regression. B3=new POLYBIUS §4.3.2 + op-disc §35.6 row (additive). B4=1-sentence framing in 4 seats. WP1 (top HARD-STOP item): the 'runner' skill — DAEDALUS says it does NOT exist in substrate/skills/, reshaped B1→DAEDALUS §6.13 + VERA §5.2; but the available-skills list shows a runner skill → ARGUS must ground-truth substrate/skills/runner/. Dispatching ARGUS, then HARD STOP.",
       "timestamp": "2026-06-04T15:13:34Z"
+    },
+    {
+      "text": "ARGUS Arc-B audit: ground-truth complete. WP1 RESOLVED: substrate/skills/runner/ does NOT exist (9 source skills, no runner); 'runner' appears only in app/ legacy data-samples + PLINY L269 non-exhaustive example list + arc-59-directive itself -- skill-runner.md states its source-of-truth is agent-gauntlet's repo, NOT the-stoa. DAEDALUS's B1 reshape to DAEDALUS §6.13 + VERA §5.2 is CORRECT. save-verdict new args compose cleanly into the §15.4 shape-conformance block (no Arc-56/Windows/tmp regression). §35.5 carve-out phrasing matches canon exactly. All seat-file anchors verified present. Finalizing verdict + B2-keystone assessment.",
+      "timestamp": "2026-06-04T15:15:27Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-04T15:13:34Z"
+  "updated_at": "2026-06-04T15:15:27Z"
 }
