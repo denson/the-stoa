@@ -108,11 +108,15 @@
     {
       "text": "pass: Arc 57 / stoa--3c9 — ALL 7 probes PASS (P1-P7). CRITICAL targets held: P4 §19.3.1 POLYBIUS-SOLE (0 PLINY in block, r1 satisfied); P6 subproject dry-run EXITS 0 (tool-selection-taxonomy un-owned, no Check B/D abort) + project deploys module (37 modules, cp line present). P3 cost figures triple-hedged (12 markers). P5 part-3 = no-op as designed (4 changed lines, 0 new operational content). P7 0 frontmatter changes + gen-data exit 0. 2 non-blocking methodology_concerns (P2 single-line grep false-negative on soft line-wrap — content verified present via multiline; P6 CLI-flag drift pre-authorized by design). No falsifying evidence. Verdict authored via Write tool to worktree path + saved via save-verdict --cwd worktree (sha256 match): agents/verdicts/stoa--3c9/VERA-2026-06-04T06-50-59Z.md. Returning.",
       "timestamp": "2026-06-04T06:51:10Z"
+    },
+    {
+      "text": "[PLINY] VERA: PASS (all 7 probes). CRITICAL targets held: P4 POLYBIUS-SOLE (§19.3.1 zero PLINY mentions — r1 ratification satisfied) + P6 subproject dry-run exit 0 (un-owned module, no Check B/D abort; project tier deploys the module, 37 modules). P2 taxonomy fidelity (8 shapes + row-4/row-8/attention all present), P3 N=1 hedged (12 hedge markers, no cost-as-guarantee), P5 (4 SKILL.md lines: 3 cross-refs + c1; no dup), P7 (0 frontmatter changes; gen-data exit 0). Dogfood succeeded (Write-tool→worktree path). 2 non-blocking methodology concerns (probe-authoring quality: single-line grep vs line-wrap; design illustrative CLI flag) — NOT build defects, no fold. Dispatching CATO.",
+      "timestamp": "2026-06-04T06:51:45Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[DESIGN] Team gains orchestration-tool-selection: make/when-recommend/how-run workflows as part of the repertoire",
   "type": "task",
-  "updated_at": "2026-06-04T06:51:10Z"
+  "updated_at": "2026-06-04T06:51:45Z"
 }
