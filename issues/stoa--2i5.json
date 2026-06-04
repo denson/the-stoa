@@ -26,11 +26,15 @@
     {
       "text": "[PLINY] DAEDALUS design landed: agents/design/stoa--2i5/design.md (in arc-55-build worktree). Option α — write idempotent .claude/.gitignore (bare-relative entries: scheduled_tasks.lock, worktrees/, .substrate-last-check, __pycache__/*.pyc), no new flag, full-overwrite heredoc. Residual Qs for ARGUS: (1) dropping --manage-gitignore root-append OK? (2) AC3 excludes the .gitignore+manifest themselves? (3) W2: is .substrate-last-check written at repo-root not .claude/ — reopens root-append? Dispatching ARGUS.",
       "timestamp": "2026-06-04T04:42:28Z"
+    },
+    {
+      "text": "ARGUS activated on stoa--2i5 (Arc 55). Reading design artifact end-to-end + arc-55 directive + install.sh ground-truth before audit. Autonomous mode.",
+      "timestamp": "2026-06-04T04:42:57Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "install.sh canonical .gitignore management for substrate-generated transient paths (.claude/scheduled_tasks.lock + .claude/worktrees/ + .substrate-last-check)",
   "type": "task",
-  "updated_at": "2026-06-04T04:42:28Z"
+  "updated_at": "2026-06-04T04:42:57Z"
 }
