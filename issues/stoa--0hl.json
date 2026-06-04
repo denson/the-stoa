@@ -22,11 +22,15 @@
     {
       "text": "REFUSED-AS-SPECIFIED (verdict=partial/divergence-flag): verbatim-mirror task already satisfied by Arc 45 (cd827d7 'lean stoa--0hl fold', PR #25). Source already carries §4.5 lean reconciliation (line 152) + §5.6 say-trigger procedure (onboarding.md 205-218) + §3.5 routing row (line 82). Fidelity vs user-tier reference: CLEAN (all 10 approved beats present). Verbatim mirror now = duplicate §5.6 + re-bloat = the regression the HARD CONSTRAINT forbids. Design: agents/design/stoa--0hl/design.md. 5 probes (P1-P5 reframed as already-landed confirms). Recommend: no source edit, close-as-satisfied; HARD STOP ratifies divergence + fidelity + close. 3 self-assessed weak points. Returning.",
       "timestamp": "2026-06-04T14:49:56Z"
+    },
+    {
+      "text": "[PLINY_the-stoa] VERIFY-THEN-EXECUTE OUTCOME: 0hl is ALREADY SATISFIED in source. DAEDALUS found + I independently confirmed: Arc 45 (cd827d7 'lean stoa--0hl fold' PR #25) already landed §4.5 reconciliation (MAJOR_POLYBIUS.md:152) + §5.6 say-trigger procedure (onboarding.md:205-218, relocated to module per debloat) + §3.5 routing row (:82). The Arc-58 directive's premise (source lacks §5.6, needs verbatim mirror) was STALE — mirroring the verbatim user-tier §5.6 now would DUPLICATE §5.6 + re-bloat the debloated file = regression. No build. Gauntlet collapses to DAEDALUS(found)→ARGUS(fidelity cold-audit)→HARD STOP(close-as-satisfied). Dispatching ARGUS to independently confirm the lean fold preserved all 10 PRINCIPAL-approved beats, then surfacing close-recommendation to floor-manager→user-tier.",
+      "timestamp": "2026-06-04T14:51:34Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "Substrate canon: assemble team-deploy procedure (§5.6) + §4.5 two-mechanism reconciliation in MAJOR_POLYBIUS.md",
   "type": "task",
-  "updated_at": "2026-06-04T14:49:56Z"
+  "updated_at": "2026-06-04T14:51:34Z"
 }
