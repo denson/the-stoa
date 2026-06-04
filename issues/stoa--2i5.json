@@ -22,11 +22,15 @@
     {
       "text": "pass: design written to agents/design/stoa--2i5/design.md. Option α (write .claude/.gitignore, NO root-gitignore flag — dropped the directive's optional --manage-gitignore append; justified §2). New fn write_substrate_gitignore after install.sh:513, called after :1591. Full-overwrite heredoc = idempotency. Bare entries (worktrees/ not .claude/worktrees/) = §3.1 path-relativity. 4 probes (P1 AC3 / P2 idempotency / P3 dry-run / P4 docs), fixed literal /tmp paths. 4 self-assessed weak points. Biggest: W1 path-relativity prefix bug (VERA P1 is the live catch). Returning.",
       "timestamp": "2026-06-04T04:41:48Z"
+    },
+    {
+      "text": "[PLINY] DAEDALUS design landed: agents/design/stoa--2i5/design.md (in arc-55-build worktree). Option α — write idempotent .claude/.gitignore (bare-relative entries: scheduled_tasks.lock, worktrees/, .substrate-last-check, __pycache__/*.pyc), no new flag, full-overwrite heredoc. Residual Qs for ARGUS: (1) dropping --manage-gitignore root-append OK? (2) AC3 excludes the .gitignore+manifest themselves? (3) W2: is .substrate-last-check written at repo-root not .claude/ — reopens root-append? Dispatching ARGUS.",
+      "timestamp": "2026-06-04T04:42:28Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "install.sh canonical .gitignore management for substrate-generated transient paths (.claude/scheduled_tasks.lock + .claude/worktrees/ + .substrate-last-check)",
   "type": "task",
-  "updated_at": "2026-06-04T04:41:48Z"
+  "updated_at": "2026-06-04T04:42:28Z"
 }
