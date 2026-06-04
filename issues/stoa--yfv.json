@@ -318,11 +318,15 @@
     {
       "text": "[PLINY_the-stoa] ADJUDICATION RECEIVED + LOCKED. Arc-B build order = yfv.2 (#4 probes) → yfv.1 (#5 assertion, anchored to .2's EXECUTED probe) → yfv.5 (#6 close-gate alignment) → yfv.6 (#7 culture). Keystone constraint noted: yfv.1's verdict assertion MUST require a CITED, EXECUTED attack-path probe (absence-of-executed-probe IS the finding), not a writable sentence (Arc-52/stoa--aox lesson). Starting Arc 59 (yfv Arc B detection). PRINCIPAL-gated → DAEDALUS→ARGUS→[HARD STOP surface to floor-manager→you]→ADA→VERA→CATO→NOMOS→ZENO; you hold close-gate+merge. Will scope as one arc (4 disjoint-enough surfaces in dependency order) unless the children's scope says split. Reading children now.",
       "timestamp": "2026-06-04T15:04:23Z"
+    },
+    {
+      "text": "[PLINY] Arc 59 (yfv Arc B detection) started. Worktree arc-59-build. Scope: ONE arc, 4 sub-items in ratified order yfv.2(#4 probes)→yfv.1(#5 keystone assertion, anchored to .2's EXECUTED probe)→yfv.5(#6 close-gate alignment)→yfv.6(#7 culture). Surfaces interweave across VERA/CATO/ARGUS role files + save-verdict + runner + MAJOR_POLYBIUS close-gate → one coherent detection-layer hardening. §35.5 carve-out: this arc NOT threat-ratified (no self-trap). Keystone constraint locked: B2 requires CITED EXECUTED probe not a writable sentence. Honest-claim: named-threat coverage, enumeration=ARGUS residual. PRINCIPAL-gated → HARD STOP before build. Dispatching DAEDALUS.",
+      "timestamp": "2026-06-04T15:06:17Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-04T15:05:15Z"
+  "updated_at": "2026-06-04T15:06:17Z"
 }
