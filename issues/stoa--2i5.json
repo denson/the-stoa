@@ -90,11 +90,15 @@
     {
       "text": "[PLINY] VERA: PASS (all 4 probes) + MC1 re-verify PASS. MC1 (--help over-emit 1753 lines) folded into this arc as commit 1cdae32 — justified: AC2 requires --help doc operator-readable, over-emit buried it. --help now 117 lines, doc at L106-108, not truncated, gitignore undisturbed. Dispatching CATO (reviews both commits acf944c+1cdae32).",
       "timestamp": "2026-06-04T04:59:27Z"
+    },
+    {
+      "text": "CATO activated on stoa--2i5 (Arc 55). Reading diff (acf944c+1cdae32) + design + VERA verdict before forming cold-read.",
+      "timestamp": "2026-06-04T05:00:07Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "install.sh canonical .gitignore management for substrate-generated transient paths (.claude/scheduled_tasks.lock + .claude/worktrees/ + .substrate-last-check)",
   "type": "task",
-  "updated_at": "2026-06-04T04:59:27Z"
+  "updated_at": "2026-06-04T05:00:07Z"
 }
