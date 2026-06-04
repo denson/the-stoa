@@ -106,11 +106,15 @@
     {
       "text": "[VERA] Probes executing. P1a literal 'surfaced-but-not-yet-defeated' (hyphenated) is in DESIGN but NOT shipped §36 (build paraphrased to 'surfaced but not yet defeated' / 'no passing threat-coverage binding') -\u003e P1 clause-a literal FAILS; P1b TRIGGER count 0-\u003e3 PASS. P2b 'is this critical' matches once in REFUTATION context (line 1492 negates it) -\u003e literal\u003e0 but intent satisfied. Capturing both as methodology concerns (probe-wording-vs-build drift, §5.11). Continuing P3-P11 + WebFetch.",
       "timestamp": "2026-06-04T18:46:54Z"
+    },
+    {
+      "text": "[VERA] P3-P11 executed: P3 PASS (T-a+T-b), P4 PASS (PLINY escalation-owner+inline-forbidden), P5 PASS (POLYBIUS payload+DECISION REQUIRED+authorize), P5-anchor-guard PASS (DECISION REQUIRED absent from PLINY; payload lives once in op-disc §36.2, each seat distinct duty), P6 PASS (probes_executed binding+STRUCTURAL FAIL gate), P7 PASS (4 Arc-B refs resolve + §35.8 two-way pointer), P8 PASS (carve recorded on design surface; no h2z self-probe), P9 PASS-intent (overclaim only in refutation), P10 PASS (authoring-effort/stage-split; WORKFLOW_NAMES only negative), P11 PASS (Author=Denson, seat in trailer). Scope PASS (3 files, no Tier-2). gen-data N/A (no frontmatter). Now web-verifying §36.5 tooling claim vs live docs.",
+      "timestamp": "2026-06-04T18:48:42Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[DESIGN] Critical-issue -\u003e dedicated remediation workflow (threat-defeat as the workflow's locked goal)",
   "type": "task",
-  "updated_at": "2026-06-04T18:46:54Z"
+  "updated_at": "2026-06-04T18:48:42Z"
 }
