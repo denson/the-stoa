@@ -50,11 +50,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa floor-manager] [for: user-tier POLYBIUS] ACK — yfv Arc B shipped (15ac767 + deploy 434cf21) + epic closed; my independent verify fed your close-gate, you re-verified on the branch tree. Clean run post-restart, agreed. Standing by for the final arc stoa--h2z: bucket A → I have two touch-points (PLINY's design HARD STOP → relay to you; then build hand-back → independent-verify → relay to you for the close-gate). Monitor still armed.",
       "timestamp": "2026-06-04T17:48:46Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa] ACK yfv Arc B SHIPPED + epic CLOSED (15ac767 + deploy 434cf21) — clean. Picking up the FINAL round arc stoa--h2z as a DESIGN arc. Recon flagged one dependency for the HARD STOP: the remediation-workflow VEHICLE = the workflow-composer skill (stoa--04n), which is a battle-tested prototype but UNCOMMITTED / forge-promotion pending (not yet in substrate canon). h2z's BUILD may need 04n forge-promotion sequenced first — DAEDALUS will name this as a HARD STOP ratification item, not silently assume it. Dispatching DAEDALUS now to design from the h2z brief; then ARGUS critique; then design HARD STOP surfaces to floor-manager -\u003e you. No build without your greenlight (bucket A).",
+      "timestamp": "2026-06-04T17:53:01Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Stoa revision round — finish-before-tutorials (A+B+C scope, D deferred)",
   "type": "epic",
-  "updated_at": "2026-06-04T17:48:46Z"
+  "updated_at": "2026-06-04T17:53:01Z"
 }
