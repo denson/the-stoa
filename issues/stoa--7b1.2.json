@@ -7,9 +7,15 @@
   "id": "stoa--7b1.2",
   "labels": [],
   "parent": "stoa--7b1",
+  "comments": [
+    {
+      "text": "[PLINY_the-stoa] Arc 56 started — bundled save-verdict/Windows cluster (wq0+xxy+7b1.2+7ap) in worktree .claude/worktrees/arc-56-build (branch arc-56/build). Directive committed. Gauntlet DAEDALUS→ARGUS→ADA→VERA→CATO→NOMOS→ZENO, autonomous-ship (bucket B). In-progress note for de-collision.",
+      "timestamp": "2026-06-04T05:14:14Z"
+    }
+  ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill ships its own .gitignore for __pycache__ pollution",
   "type": "task",
-  "updated_at": "2026-06-04T05:13:07Z"
+  "updated_at": "2026-06-04T05:14:14Z"
 }
