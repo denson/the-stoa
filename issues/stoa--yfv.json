@@ -446,11 +446,15 @@
     {
       "text": "CONFORMANT: NOMOS audit of Arc 59 build @ 68666ed — all 5 probes pass. (1) Directive-build conformance: 8 files = exactly the 8 design-named surfaces (DAEDALUS 6.13/3-ptr, VERA 5.2/6, CATO 6.1-item11/7, ARGUS 6.9/7, POLYBIUS 4.3.2, op-disc 35.6 row, save-verdict SKILL.md+_save_verdict.py); nothing extraneous. (2) bw-vs-artifact: VERA verdict file (verdict:pass, threat_count=0) + CATO verdict file (verdict:pass) match the bw PASS comments; no confabulated claim. (3) Authorship: Author=denson \u003cdensonsmith2@gmail.com\u003e, seat-id ADA only in Co-Authored-By trailer. (4) Scope guard: op-disc diff = ONE appended 35.6 POLYBIUS row at L1440; 35.1-35.5 untouched. (5) Branch hygiene: HEAD 68666ed atop directive b643ee9 atop merged main 5007504 (merge-base==main HEAD); worktree carries only the 3 legitimate untracked design/verdict/save dirs. Keystone p1a INDEPENDENTLY re-run (5 cases): count\u003e0+no-ids-\u003eexit4 threat diagnostic; well-formed ids-\u003eexit0; count=0 + count-omitted carve-out-\u003ereach write stage (inert); malformed ../etc-\u003eexit4. No divergences. Returning.",
       "timestamp": "2026-06-04T17:17:38Z"
+    },
+    {
+      "text": "PASS (ZENO mechanical spec-check, stoa--yfv Arc B @ 68666ed). All 4 §2 surface-groups present; all §3 probes hold (p1a re-run: count\u003e0/no-ids-\u003eexit4 w/ exact diagnostic, carve-out 0/omitted-\u003eexit0, malformed-id-\u003eexit4; p1b/p2/p3/p4/p5/p6 greps green; Arc-56 /tmp guard-\u003eexit4); cross-refs §6.13/§4.3.2/§35.6-row all resolve; probe-id regex ^p[0-9A-Za-z._-]+$ byte-identical py\u003c-\u003eSKILL.md. No out-of-spec additions, no spec-vs-result mismatch. Returning.",
+      "timestamp": "2026-06-04T17:18:20Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-04T17:17:38Z"
+  "updated_at": "2026-06-04T17:18:20Z"
 }
