@@ -6,9 +6,15 @@
   "description": "Empirical: Arc 7 Stage 2 (stoa--xyb.7), 2026-05-23. A CATO sub-agent's isolation-test cleanup 'rm -f ${SDIR}/${SKEY}' (variable path) tripped the harness 'dangerous rm on possibly-empty variable path' permission heuristic, pausing the ENTIRE PLINY gauntlet on an unanswered prompt for ~7.5h. From the coordinating POLYBIUS seat's bw vantage this was INDISTINGUISHABLE from a PLINY stall: no breadcrumb, no commits, no progress — only a git/PR ground-truth check + a look at PLINY's terminal revealed it was a permission gate, not a crash. The rm itself was safe (single just-created sentinel file, non-empty literal components). TWO FINDINGS: (1) PROBE-AUTHORING HYGIENE: test commands (esp. cleanup rms) in gauntlet sub-agents must avoid the dangerous-op heuristic — use fixed/guaranteed-non-empty literal paths or an explicit [ -n $VAR ] guard — so they run unattended in autonomous mode. (2) AUTONOMOUS-MODE OBSERVABILITY GAP: a permission-gated pause emits NO bw signal, so the coordinating seat cannot distinguish 'blocked on permission' from 'stalled/crashed' without an out-of-band terminal check. Consider a pre-dispatch permission-audit of probe commands, and/or a gauntlet heartbeat, so peer-silence escalation can classify the cause. Sibling to the NOMOS judgment-divergence remit.",
   "id": "stoa--x4j",
   "labels": [],
+  "comments": [
+    {
+      "text": "PARTIAL FIX SHIPPED (Arc 54, merged 06eb28c). Safe-subset: op-disc §8.6 (prefer literal paths in destructive probe commands — hygiene preference) + sub-agent-watchdog zero-burn permission-pause detection + DAEDALUS/ADA cross-refs. RESIDUAL (kept OPEN, concrete plan): the EXACT permission-heuristic trigger is a closed Anthropic surface — install.sh rm sites use $VAR and run fine, contradicting 'any expansion trips it', so prevention can't be guaranteed without real-harness testing. NEXT STEP when picked up: on a throwaway, run an autonomous gauntlet probe with (a) literal-path rm and (b) $VAR-expansion rm under the actual permission mode, observe which pauses, characterize the real trigger, then upgrade §8.6 from preference to mechanism IF a reliable rule exists. Detection half (watchdog) already shipped + sufficient to AVOID the 7.5h silent hang. 2 design FAILs caught the overclaim pre-build (good).",
+      "timestamp": "2026-06-04T04:00:16Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "Autonomous-mode gauntlet silently blocks on a sub-agent permission prompt (indistinguishable from a stall via bw)",
   "type": "task",
-  "updated_at": "2026-05-23T20:02:48Z"
+  "updated_at": "2026-06-04T04:00:16Z"
 }
