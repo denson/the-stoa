@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-04T03:24:38Z",
+  "description": "GAP found 2026-06-04 during handoff-MVP-loop verification: the install-stoa + stoa-intro skills live at THE-STOA's root skills/ (skills/install-stoa, skills/stoa-intro), NOT in substrate/skills/ — so install.sh does NOT deploy them to consumer projects. A fresh consumer project has the bootstrap knowledge ONLY as MAJOR_POLYBIUS §5/§5.6 role-file PROSE, not as a runnable onboarding skill the project's POLYBIUS (or a newcomer) can invoke.\n\nIMPACT: the handoff-MVP loop (beadwork-init -\u003e polling agent -\u003e reads instructions from bw) is OPERATOR-ASSISTED, not self-serve. Fine for a Zoom-hand-held handoff (PRINCIPAL IS the onboarding skill live). NOT fine for a self-serve newcomer.\n\nALSO: install.sh does git-init+bw-init ONLY for user-tier; project-tier bw is initialized INTERACTIVELY by POLYBIUS in §5 onboarding (install.sh:21,105 explicitly 'does NOT run bw init'). A self-serve onboarding skill would close this too — guided bw-init + prefix-pick + first polling-cron + first-instruction-ticket.\n\nFIX (future, post-handoff via forge-\u003eshop update): author/port a substrate-deployed onboarding skill (substrate/skills/onboard-project/ or similar) that walks a consumer project's POLYBIUS through: bw init + prefix, deploy verify, set polling cron (polling-cron-prompt-template exists), post the first instruction ticket. Then a newcomer's loop is self-serve, not operator-assisted. Cross-ref: the Windows-tester handoff; stoa--ikr round (candidate add or separate); MAJOR_POLYBIUS §5/§5.6; templates/activation-paste-cheatsheet.md.",
+  "id": "stoa--sok",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "Deploy an onboarding skill to consumer projects (install-stoa/stoa-intro live at the-stoa root, NOT in substrate/skills — don't deploy)",
+  "type": "task",
+  "updated_at": "2026-06-04T03:24:38Z"
+}
