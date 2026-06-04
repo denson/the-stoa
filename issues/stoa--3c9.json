@@ -52,11 +52,15 @@
     {
       "text": "ARGUS pass 1 complete. Ground-truthed the load-bearing un-owned-module claim against install.sh recompose (Checks A/B/C/D/E at :1011-1056) + module-deploy glob (:790,:1211) + subproject DEST_MODULES_DIR='' skip (:938-939) — claim CONFIRMED. Part-3 line cites verified against live SKILL.md (all accurate). Now verifying c1 §18.2 target resolves to MAJOR_POLYBIUS.md:513 + §6.7.1 gate + modules/README §7. 3-4 candidate risks surfacing for quadrant classification.",
       "timestamp": "2026-06-04T06:21:22Z"
+    },
+    {
+      "text": "RATIFY-WITH-CONDITIONS: 2 load-bearing risks to fold before ADA (r1 part-3 line-cite drift in design §3 GAP bullets; r2 PLINY co-applier seam under-named in §19.3.1). Un-owned-module deploy claim CONFIRMED true against install.sh Checks A/B/C/D (:1011-1056) + README §7. Threat carve-out CONFIRMED (§35.5). Taxonomy fidelity + N=1 honesty: clean. Writing verdict to disk + returning.",
+      "timestamp": "2026-06-04T06:22:10Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[DESIGN] Team gains orchestration-tool-selection: make/when-recommend/how-run workflows as part of the repertoire",
   "type": "task",
-  "updated_at": "2026-06-04T06:21:22Z"
+  "updated_at": "2026-06-04T06:22:10Z"
 }
