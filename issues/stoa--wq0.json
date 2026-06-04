@@ -30,11 +30,15 @@
     {
       "text": "All four tickets grounded incl. live receipt-collision evidence (flat caller-named .txt in agents/save-verdict/, e.g. argus-rev2-reconfirm.txt) + Arc-55 verdict-split (verdicts in both main + worktree trees) + web-confirmed 7ap root cause (Windows file-lock on worktree dir from a process cwd'd inside / MCP holding handle; claude-code #41740, #32747). Writing design.md now.",
       "timestamp": "2026-06-04T05:16:58Z"
+    },
+    {
+      "text": "pass: Arc 56 design written to agents/design/arc-56/design.md. wq0 = Write-tool-to-worktree-relative-path (adopts PLINY steer) + /tmp loud-fail guard in _save_verdict.py (closes silent-green) + appended authoring sentence to SKILL.md + ARGUS/VERA/CATO role paras. xxy facet-2 = skill --cwd prose tightened AND a new PLINY dispatch-discipline (recommended home MAJOR_PLINY.md §5) to pin the absolute arc-worktree --cwd. facet-1 = skill computes receipt path agents/save-verdict/\u003cticket\u003e/\u003cofficer\u003e-\u003crequest-id\u003e.txt (ignores caller --artifact-path). 7b1.2 = ship skill-local .gitignore (cp -R deploys it; NO committed pyc exists -\u003e nothing to git rm; directive premise disproven). 7ap = SPLIT: retry+rm-orphan+dir-gone-assert into pre-branch-hygiene §5.9.4 (where cleanup cmds live), verify-dir-not-just-registration into arc-close-hygiene §5.10. 7 probes. BIGGEST weak point W4: 7ap lands in a different module than directive named (§5.9.4 not only §5.10) - surfaced for PLINY ratification. Returning.",
+      "timestamp": "2026-06-04T05:20:49Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T05:16:58Z"
+  "updated_at": "2026-06-04T05:20:49Z"
 }
