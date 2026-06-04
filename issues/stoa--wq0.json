@@ -38,11 +38,15 @@
     {
       "text": "[PLINY] DAEDALUS design landed (agents/design/arc-56/design.md). wq0: Write-tool→worktree-relative-path + /tmp loud-fail guard in _save_verdict.py + teaching at SKILL.md + 3 CAPTAIN role paras. xxy: per-ticket receipt path + tightened --cwd contract + NEW PLINY dispatch-discipline (pin absolute worktree --cwd; the live Arc-55 regression). 7b1.2: skill-local .gitignore (directive's 'committed pyc' premise DISPROVEN — git ls-files clean). 7ap (W4): DAEDALUS splits fix across pre-branch-hygiene §5.9.4 (cleanup seq, where cmds live) + arc-close-hygiene §5.10 (verify discipline). PLINY RATIFIES the split — my directive cited §5.10 from memory but the cleanup command sequence genuinely lives in §5.9.4; splitting avoids two-sources-of-truth. Dispatching ARGUS.",
       "timestamp": "2026-06-04T05:22:18Z"
+    },
+    {
+      "text": "ARGUS activated on Arc 56 (wq0+xxy+7b1.2+7ap). Read design + directive end-to-end. Ground-truthing now: W4 module-split premise (does cleanup seq live in pre-branch-hygiene §5.9.4?), wq0 /tmp guard correctness, xxy receipt-path back-compat, 7b1.2 git ls-files, role-file paths. Autonomous mode.",
+      "timestamp": "2026-06-04T05:23:05Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T05:22:18Z"
+  "updated_at": "2026-06-04T05:23:05Z"
 }
