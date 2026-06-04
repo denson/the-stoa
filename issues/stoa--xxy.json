@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-04T06:09:05Z",
+  "close_reason": "Arc 56 shipped. facet-1: receipt path now computed canonically as agents/save-verdict/\u003cticket\u003e/\u003cofficer\u003e-\u003crequest-id\u003e.txt (per-ticket namespacing) — collision dogfood-verified (same officer+request-id across 2 tickets land in separate dirs). --artifact-path relaxed to ignored back-compat no-op. facet-2: SKILL.md cwd-contract tightened + MAJOR_PLINY §5.14 dispatch dest-pinning to absolute arc-worktree root. request-id path-traversal guard added (exit 4). Part of arc-56 0377ce6/cc27c59.",
   "created": "2026-05-23T10:23:45Z",
   "description": "Surfaced in Arc 4 op-disc close (PR #27, 2026-05-23). The save-verdict skill wrote a verdict RECEIPT under a generic filename (argus-rev2-reconfirm.txt) that OVERWROTE the Arc-45 receipt of the same generic name. PLINY caught it and reverted to preserve the Arc-45 receipt, committing only properly-named arc-47 records (the actual verdict .md was safe — only the receipt collided). FIX: save-verdict should namespace receipts per-arc or per-ticket (e.g. \u003carc\u003e/\u003cseat\u003e-\u003cphase\u003e.txt) to prevent cross-arc overwrite. Skill-hygiene note; sibling tooling-finding to stoa--7ap (both surfaced during the debloat engagement, both non-blocking, both for a future hardening pass).",
   "id": "stoa--xxy",
@@ -17,8 +19,8 @@
     }
   ],
   "priority": 3,
-  "status": "in_progress",
+  "status": "closed",
   "title": "save-verdict skill: receipt filename collision — generic names overwrite prior arcs' receipts; namespace per-arc/ticket",
   "type": "task",
-  "updated_at": "2026-06-04T05:14:13Z"
+  "updated_at": "2026-06-04T06:09:05Z"
 }
