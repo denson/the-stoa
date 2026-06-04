@@ -106,11 +106,15 @@
     {
       "text": "NOMOS activated on stoa--2i5 (Arc 55 autonomous-ship audit). Reading the orchestration trail + commits acf944c/1cdae32 + role file. Running four-probe conformance check against bw + repo ground truth.",
       "timestamp": "2026-06-04T05:04:13Z"
+    },
+    {
+      "text": "criteria extracted: 3 ACs. AC1 met (write_substrate_gitignore :541, unconditional call :1657). AC2 met (--help header :108-117 bounded to 117 lines, README :30). AC3 met (heredoc :557-570 covers all 4 directive transient classes bare-relative). Finalizing verdict — no out-of-spec additions, no drifts.",
+      "timestamp": "2026-06-04T05:04:41Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "install.sh canonical .gitignore management for substrate-generated transient paths (.claude/scheduled_tasks.lock + .claude/worktrees/ + .substrate-last-check)",
   "type": "task",
-  "updated_at": "2026-06-04T05:04:13Z"
+  "updated_at": "2026-06-04T05:04:41Z"
 }
