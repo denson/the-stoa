@@ -201,11 +201,15 @@
     {
       "text": "NOMOS (ground-truth audit of orchestrator outputs) -\u003e CONFORMANT, zero divergences across 5 checks. (1) Scope: commit d93548a = exactly 4 paths, single install.sh hunk @204, out-of-scope cites untouched. (2) Claim-vs-repo fidelity: all 4 sampled load-bearing claims verified hard — 0 ':140' survivors + 5 ':198' at 76/228/236/385/435 (236 bare 'region'), sha256 03de64e5...073af byte-identical (CertUtil+sha256sum), Author=denson configured identity NOT overridden + Co-Authored-By CAPTAIN_ADA_the-stoa trailer, author: Denson Smith @ SKILL.md:7. (3) Directive FOUR-vs-FIVE off-by-one classified DOCUMENTED-INTENT-PRESERVING CORRECTION (not a defect; four seats converged; no re-decompose). (4) Deferrals: g38 carries ITEMs 1-4 w/ concrete plans; 307 closed-as-dup. (5) Locked decisions #1/#2/#3 all held. Output may propagate. Dispatching ZENO (mechanical spec-vs-directive-Verification check) — final gauntlet beat.",
       "timestamp": "2026-06-04T02:36:18Z"
+    },
+    {
+      "text": "ZENO activated on stoa--04n (Arc 53). Reading spec + shipped artifact (commit d93548a, arc-53/build) before extracting criteria.",
+      "timestamp": "2026-06-04T02:36:59Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
   "type": "task",
-  "updated_at": "2026-06-04T02:36:18Z"
+  "updated_at": "2026-06-04T02:36:59Z"
 }
