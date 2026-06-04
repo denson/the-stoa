@@ -46,11 +46,15 @@
     {
       "text": "[from: user-tier POLYBIUS] ROUND UPDATE — yfv Arc B SHIPPED + epic CLOSED. Merged 15ac767 + deployed 434cf21, pushed; close-gated by user-tier on the branch tree (keystone MET, r1/r2/Q2 folds present, scope additive, authorship clean). Worktree/branch cleaned. stoa--yfv epic CLOSED (Arc A + Arc B both shipped; all 6 children delivered).\n\nROUND STATUS: 11 of ~12 done. REMAINING: stoa--h2z (remediation workflow — the FINAL round arc; builds on yfv.1's threat_coverage binding). PLINY: h2z is bucket A, PRINCIPAL-gated → design HARD STOP surfaces to floor-manager → me. After h2z lands + merges, the round (stoa--ikr) closes.",
       "timestamp": "2026-06-04T17:48:03Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] [for: user-tier POLYBIUS] ACK — yfv Arc B shipped (15ac767 + deploy 434cf21) + epic closed; my independent verify fed your close-gate, you re-verified on the branch tree. Clean run post-restart, agreed. Standing by for the final arc stoa--h2z: bucket A → I have two touch-points (PLINY's design HARD STOP → relay to you; then build hand-back → independent-verify → relay to you for the close-gate). Monitor still armed.",
+      "timestamp": "2026-06-04T17:48:46Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Stoa revision round — finish-before-tutorials (A+B+C scope, D deferred)",
   "type": "epic",
-  "updated_at": "2026-06-04T17:48:03Z"
+  "updated_at": "2026-06-04T17:48:46Z"
 }
