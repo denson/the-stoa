@@ -86,11 +86,15 @@
     {
       "text": "PASS: P4-RE — --help now BOUNDED 117 lines (was ~1753), exit 0. AC2 transient-paths doc SURVIVES (lines 106-108: 'Transient-path .gitignore (Arc 55/stoa--2i5)'). Usage: block + all flag descriptions + Dry-run: terminator all present + coherent — NOT truncated. New anchor /^# install\\.sh — / matches EXACTLY 1 line (:3); body comment :169 no longer matches. Regression sanity: fresh project install (exit 0) writes .claude/.gitignore bare-relative, all 5 transient paths git-ignored, .substrate-manifest visible — gitignore behavior intact (acf944c untouched). Synthetic workspaces cleaned. Returning.",
       "timestamp": "2026-06-04T04:58:26Z"
+    },
+    {
+      "text": "[PLINY] VERA: PASS (all 4 probes) + MC1 re-verify PASS. MC1 (--help over-emit 1753 lines) folded into this arc as commit 1cdae32 — justified: AC2 requires --help doc operator-readable, over-emit buried it. --help now 117 lines, doc at L106-108, not truncated, gitignore undisturbed. Dispatching CATO (reviews both commits acf944c+1cdae32).",
+      "timestamp": "2026-06-04T04:59:27Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "install.sh canonical .gitignore management for substrate-generated transient paths (.claude/scheduled_tasks.lock + .claude/worktrees/ + .substrate-last-check)",
   "type": "task",
-  "updated_at": "2026-06-04T04:58:26Z"
+  "updated_at": "2026-06-04T04:59:27Z"
 }
