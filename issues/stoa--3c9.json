@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-04T14:42:07Z",
+  "close_reason": "Arc 57 SHIPPED + MERGED (a586135). Tool-selection discipline in canon: new CONDITIONAL module tool-selection-taxonomy.md + POLYBIUS §19.3.1 tool-SELECTOR pointer (POLYBIUS-SOLE per PRINCIPAL r1, 0 PLINY verified) + §3.5 row + c1 cite fix. Full gauntlet PASS + floor-manager + user-tier close-gate (diff re-verified vs branch tree). First dynamic-workflows-family piece in canon; stoa--h2z (remediation workflow) can now reference the routing axis.",
   "created": "2026-06-04T01:34:07Z",
   "description": "PRINCIPAL direction (2026-06-01): two linked insights.\n\nINSIGHT 1 (framing, confirmed by direct observation this session): the Stoa gauntlet IS a version of agent teams with MORE CONTROL. Precise: it spans TWO primitives — the tier layer (POLYBIUS\u003c-\u003efloor-manager\u003c-\u003ePLINY, separate long-running sessions coordinating via bw-as-shared-task-list) is AGENT-TEAMS-shaped; the CAPTAIN layer (PLINY-\u003eDAEDALUS/ARGUS/...) is SUBAGENTS-shaped. The 'more control' = the substrate (role files + disciplines + canonized pipeline order + HARD STOP gates + three-tier independence + verdict formats). A workflow = the same gauntlet with control moved INTO CODE instead of PLINY's judgment. So the four primitives are a control-vs-flexibility spectrum of one idea, not rivals.\n\nINSIGHT 2 (the direction): make workflows one of the things the TEAM knows how to make, when to recommend, and how to set up + run. Decomposes into THREE parts:\n1. HOW TO MAKE -\u003e the workflow-composer skill (stoa--04n, already scoped).\n2. WHEN TO RECOMMEND -\u003e a TOOL-SELECTION discipline (the real gap). The team routes a task across the WHOLE repertoire: subagents / skills / agent-teams / workflow / full gauntlet / Mode-2 pairing. Workflows JOIN the repertoire; routing judgment is the new capability. This makes POLYBIUS a TOOL-SELECTOR (route HOW work is structured), not just a router (route WHO does it) — operational sibling to 'where is human attention required'. The task-shape taxonomy already drafted in docs/sessions/2026-05-30-stoa-workflows-integration-strategy.md (the 8-row coding+non-coding table) IS this logic — promote it from session doc to routing canon.\n3. HOW TO SET UP + RUN -\u003e operational know-how (belongs in the composer skill): pre-allowlist commands (stoa--x4j stall-fix), args for reuse, 'cost: run a small slice first', save-for-reuse (.claude/workflows vs ~/.claude/workflows), overnight=remote-routine-not-workflow.\n\nOPEN: where #2 (tool-selection discipline) lives — a new operating-disciplines section? a POLYBIUS §? — and whether it's one arc with stoa--04n or sequenced after. Cross-ref: stoa--04n (composer), stoa--h2z (remediation-workflow), stoa--aox (discipline-enforcement), strategy doc (taxonomy). N=0 design.",
   "id": "stoa--3c9",
@@ -147,8 +149,8 @@
     }
   ],
   "priority": 2,
-  "status": "in_progress",
+  "status": "closed",
   "title": "[DESIGN] Team gains orchestration-tool-selection: make/when-recommend/how-run workflows as part of the repertoire",
   "type": "task",
-  "updated_at": "2026-06-04T06:59:27Z"
+  "updated_at": "2026-06-04T14:42:07Z"
 }
