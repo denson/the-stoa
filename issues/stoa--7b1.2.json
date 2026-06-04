@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-04T06:09:05Z",
+  "close_reason": "Arc 56 shipped. save-verdict ships its own skill-local .gitignore (__pycache__/ + *.pyc) so the skill stays self-contained when vendored outside repo-root/.claude .gitignore coverage. Part of arc-56 0377ce6/cc27c59.",
   "created": "2026-05-29T19:54:21Z",
   "description": "ksge D4 (RECURRENCE-CLASS: recurred across 3 seats x 2 sub-builds). Running save-verdict leaves __pycache__ in the tree. Skill should ship a .gitignore. Distinct from stoa--wq0 (/tmp Windows bug) and stoa--xxy (receipt filename collision) — all three are separate save-verdict issues. Detail: stoa--q3l body + artifact.",
   "id": "stoa--7b1.2",
@@ -14,8 +16,8 @@
     }
   ],
   "priority": 2,
-  "status": "in_progress",
+  "status": "closed",
   "title": "save-verdict skill ships its own .gitignore for __pycache__ pollution",
   "type": "task",
-  "updated_at": "2026-06-04T05:14:14Z"
+  "updated_at": "2026-06-04T06:09:05Z"
 }
