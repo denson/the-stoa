@@ -66,11 +66,15 @@
     {
       "text": "design probes absorbed; build inspected (bare-relative entries, full-overwrite heredoc, dry-run guard, --help doc inside header :108-117, README AC2 doc present). All P1-P4 easy-easy quadrant (mechanical: install + git-status assert). Executing probe set now in git-bash.",
       "timestamp": "2026-06-04T04:49:51Z"
+    },
+    {
+      "text": "pass: VERA verdict PASS — all 4 design probes pass (P1 AC3 W1-catch / P2 idempotency / P3 dry-run / P4 docs+r1), ACs 1-3 satisfied. Core P1: git check-ignore confirms all 4 bare-relative transient paths (worktrees/ scheduled_tasks.lock .substrate-last-check __pycache__/*.pyc) IGNORED via nested .claude/.gitignore; -uall shows none untracked. Full-overwrite idempotent (3 runs, no dup lines). git-bash MINGW64 clean — no heredoc/path-mismatch failures. ONE methodology_concern MC1 (pre-existing, Arc-55-ORTHOGONAL, NON-blocking): install.sh --help over-emits 1753 lines because usage() sed start-anchor ^# install\\.sh double-matches (header :3 AND body comment :169), re-opening range to EOF — verified pre-existing on main (:158, overruns to 1687). Does NOT falsify any AC (AC2 doc lands inside correct first range 3-\u003e119). Recommend PLINY fast-follow ticket to tighten the anchor. Verdict saved: agents/verdicts/stoa--2i5/VERA-2026-06-04T04-53-08Z.md (sha256 round-trip pass). Returning.",
+      "timestamp": "2026-06-04T04:53:17Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "install.sh canonical .gitignore management for substrate-generated transient paths (.claude/scheduled_tasks.lock + .claude/worktrees/ + .substrate-last-check)",
   "type": "task",
-  "updated_at": "2026-06-04T04:49:51Z"
+  "updated_at": "2026-06-04T04:53:17Z"
 }
