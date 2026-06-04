@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-04T18:30:58Z",
+  "description": "DEFERRED from stoa--h2z per PRINCIPAL HS-1 = Option 1 (2026-06-04). Tier-1 (discipline + pattern, op-disc §36) ships in the round; this Tier-2 is its own arc/team in the debloat-via-workflows initiative.\n\nSCOPE: author + battle-test the executable /defeat-threat workflow. Substantial because: (1) a workflow forbids mid-run human input, so the gauntlet HARD STOP forces a STAGE-SPLIT — Stage A (STRABO-\u003eDAEDALUS-\u003eARGUS) -\u003e human ratify -\u003e Stage B (ADA-\u003eVERA-\u003eCATO); each stage is its own saved workflow per the docs. (2) per-agent schemas (verdict typed returns). (3) args parameterization (Run /defeat-threat on M\u003cn\u003e). (4) success criterion = threat_coverage.defeats_via_probe in probes_executed (the yfv.1 keystone). (5) battle-test on a real threat before canon.\n\nDEPLOY IS BUILT-IN (verified vs https://code.claude.com/docs/en/workflows): save to .claude/workflows/ via /workflows 's'; auto-discovered as /\u003cname\u003e; no registry. install.sh optional one-line copy for consumer propagation.\n\nROLE IN THE INITIATIVE: this is the PROOF-OF-CONCEPT first workflow of the debloat-via-workflows plan (encode process-disciplines as enforcing workflows). Lessons generalize. To be planned with the PRINCIPAL alongside the broader debloat + release-cycle work. Cross-ref stoa--h2z (design), stoa--04n (composer skill), stoa--ikr (round).",
+  "id": "stoa--zj8",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "Tier-2: /defeat-threat executable workflow — first arc of debloat-via-workflows initiative (deferred from h2z)",
+  "type": "task",
+  "updated_at": "2026-06-04T18:30:58Z"
+}
