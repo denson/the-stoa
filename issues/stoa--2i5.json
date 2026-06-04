@@ -114,11 +114,15 @@
     {
       "text": "pass: SPEC-CONFORMANT. All 3 ACs SATISFIED. AC1 write_substrate_gitignore :541 + unconditional call :1657. AC2 --help header :108-117 (bounded 117 lines, start-anchor matches exactly 1) + README :30. AC3 heredoc :557-570 covers all 4 directive transient classes bare-relative; .substrate-manifest carve-out honored; author=Denson Smith untouched. 0 out-of-spec additions, 0 drifts. Returning.",
       "timestamp": "2026-06-04T05:05:00Z"
+    },
+    {
+      "text": "CONFORMANT: PLINY's Arc-55 trail matches bw + repo ground truth across all 4 probes. Commits acf944c (gitignore fn :541/:1657) + 1cdae32 (MC1 sed em-dash anchor :236) exist on arc-55/build atop b67aa1d with claimed content; both carry CAPTAIN_ADA_the-stoa seat trailer; directive b280751 carries standard Claude trailer (no false PLINY identity). Ticket in_progress (not premature-closed). Scope clean (install.sh+README+directive only, 141 insertions). Main still b67aa1d == origin/main (nothing leaked). NOTE not a divergence: ARGUS verdict lives in the worktree tree (.claude/worktrees/arc-55-build/agents/verdicts/stoa--2i5/ARGUS-...md, 4523B) while VERA x2 + CATO landed in main-tree agents/verdicts/ — split-location, both present+non-empty. Safe to autonomous-ship. Returning.",
+      "timestamp": "2026-06-04T05:05:12Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "install.sh canonical .gitignore management for substrate-generated transient paths (.claude/scheduled_tasks.lock + .claude/worktrees/ + .substrate-last-check)",
   "type": "task",
-  "updated_at": "2026-06-04T05:05:00Z"
+  "updated_at": "2026-06-04T05:05:12Z"
 }
