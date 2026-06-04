@@ -66,11 +66,15 @@
     {
       "text": "Surface 1 committed at 0163833 (7 files: SKILL.md + _save_verdict.py + new .gitignore + ARGUS/VERA/CATO role files + MAJOR_PLINY.md §5.14). py_compile + ast.parse PASS on _save_verdict.py. r1: 3 appended sentences byte-identical modulo officer token (uniq -c=3), VERA divergence preserved. r3: --artifact-path -\u003e optional+ignored, step-9 example still passes it. r5: request_id regex validation added. Building Surface 2 (7ap: pre-branch-hygiene §5.9.4 fence + L73 prose per r2; arc-close-hygiene §5.10 verify) now.",
       "timestamp": "2026-06-04T05:35:00Z"
+    },
+    {
+      "text": "pass: Arc 56 build complete. 2 commits, 9 files. Surface 1 (0163833): save-verdict skill + 3 role files + PLINY §5.14. Surface 2 (403ae46): pre-branch-hygiene §5.9.4 fence+L73 + arc-close-hygiene §5.10. All 5 ARGUS conditions folded (r1 VERA-divergence-aware append + 3 sentences byte-identical mod officer; r2 L73 prose hardened to assert dir-gone; r3 --artifact-path optional+ignored, example kept; r4 honest §34 claim guard-vs-procedure; r5 request_id path-sep validation). build_check: py_compile+ast.parse PASS, bash -n on cleanup fence PASS. PLINY dispatch-discipline placed as inline §5.14 in MAJOR_PLINY.md (design named 'MAJOR_PLINY.md §5'; parallel to inline §5.13). No design-vs-shipped drift beyond expected r1/r2 facts. Returning.",
+      "timestamp": "2026-06-04T05:36:11Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T05:35:00Z"
+  "updated_at": "2026-06-04T05:36:11Z"
 }
