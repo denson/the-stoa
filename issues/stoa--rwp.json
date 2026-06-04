@@ -8,9 +8,15 @@
   "labels": [
     "beadwork-upgrade"
   ],
+  "comments": [
+    {
+      "text": "UPGRADE ATTEMPT 2026-06-04: 'bw upgrade --yes' DOWNLOADED 0.13.1 (5.2MB, extracted OK) but FAILED the final in-place swap with 'Access is denied' on rename C:\\Users\\denso\\bin\\bw.exe — the classic Windows 'cannot overwrite a running executable' lock. Rolled back cleanly; still on 0.13.0 (staged temp file removed, nothing half-broken). Root: on a Stoa machine bw is ALWAYS in use (sessions + polling crons + agents hold the binary), so 'bw upgrade' self-replace cannot win the lock. FIX = manual swap when bw is quiescent: close other Claude/project sessions + bw-using terminals, download beadwork_0.13.1_windows_amd64.zip from the bw releases page, extract bw.exe, back up the old binary (cf. the existing bw-v0.12.3-release.exe already in C:\\Users\\denso\\bin\\), overwrite, verify 'bw --version' = 0.13.1. NOTE FOR HANDOFF: a Windows tester upgrading bw will hit this same lock — worth a one-line note in the tester runbook ('upgrade bw with all sessions closed, or do a manual swap'). Ticket stays OPEN until the swap lands.",
+      "timestamp": "2026-06-04T04:13:18Z"
+    }
+  ],
   "priority": 1,
   "status": "open",
   "title": "Upgrade bw to 0.13.1",
   "type": "task",
-  "updated_at": "2026-05-31T19:52:57Z"
+  "updated_at": "2026-06-04T04:13:18Z"
 }
