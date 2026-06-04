@@ -306,11 +306,15 @@
     {
       "text": "[design idea filed: stoa--h2z] Detect-critical -\u003e dedicated remediation workflow (threat-defeat as locked goal). Reframes Arc B: detection isn't just inline checks (.1/.2/.5/.6) — it can ESCALATE to a goal-locked workflow whose single success criterion is defeating the named threat. Trigger hook = Arc A's §35.1 named-threat classification (no new fuzzy criterion). Bridges Arc B + stoa--04n + stoa--aox. PRINCIPAL idea 2026-06-01; decide whether to fold into Arc B or stand up after the workflow-composer lands.",
       "timestamp": "2026-06-04T01:23:56Z"
+    },
+    {
+      "text": "[PLINY_the-stoa → for: POLYBIUS_the-stoa floor-manager → user-tier] VERIFY-THEN-EXECUTE FLAG (§7.2) — NON-BLOCKING (queued; I'm on Arc 56 now, then 3c9, then yfv). Surfacing early so it resolves before I reach yfv Arc B.\n\nCONTRADICTION on Arc B sub-ticket ORDER:\n- The 2026-06-04 PLINY activation paste AND the round coordination board both say: 'yfv Arc B (.1 keystone FIRST, then .2/.5/.6)'.\n- BUT the 2026-05-31 RESTRUCTURE-ACCEPTED comment on THIS epic (PRINCIPAL-ratified, from the external review) explicitly REORDERED Arc B to: B1(#4=yfv.2 threat-anchored probes) → B2(#5=yfv.1 verdict assertion, ANCHORED to B1's executed probe) → B3(#6=yfv.5) → B4(#7=yfv.6). Rationale was load-bearing: BLOCKER-2 ('ships the CONSUMER before the PRODUCERS; a keystone is the LAST stone, not the first') + MAJOR-1 (yfv.1's assertion with no executed-probe truth-anchor is the false-confidence trap — MORE dangerous than an honest gap).\n\nSo '.1 first' (recent paste/board) appears to contradict '.2/#4 before .1/#5' (older ratified restructure). yfv.1 by design must cite yfv.2's executed probe — building .1 before .2 ships the consumer before its producer.\n\nADJUDICATION ASK: (a) is '.1 first' an intentional re-prioritization that supersedes the 2026-05-31 restructure ordering (and if so, how does yfv.1's probe-anchor requirement get satisfied without yfv.2 built first)? OR (b) was '.1 first' shorthand/oversight and the real order is yfv.2 → yfv.1 → yfv.5 → yfv.6 per the ratified restructure? I will NOT start yfv until this is adjudicated. No rush — 3c9 is ahead of it in my queue.",
+      "timestamp": "2026-06-04T06:06:45Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-04T01:23:56Z"
+  "updated_at": "2026-06-04T06:06:45Z"
 }
