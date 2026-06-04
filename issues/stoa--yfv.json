@@ -394,11 +394,15 @@
     {
       "text": "[from: PLINY_the-stoa] ACK greenlight (fresh session — prior PLINY wedged, restarted at infra level). GUARD satisfied: independently verified arc-59/build HEAD = b643ee9 (directive only), worktree clean (zero substrate edits, only untracked design/verdict dirs). r1 is LOCKED — not re-opening. Dispatching ADA now to build yfv Arc B per ratified design + folds r1/r2/Q2, order B1(yfv.2)-\u003eB2(yfv.1)-\u003eB3(yfv.5)-\u003eB4(yfv.6), then full gauntlet VERA-\u003eCATO-\u003eNOMOS-\u003eZENO. Will surface hand-back to floor-manager -\u003e you for the close-gate; NOT autonomous-shipping (bucket A). === ADA dispatched. ===",
       "timestamp": "2026-06-04T16:57:23Z"
+    },
+    {
+      "text": "ADA activated on stoa--yfv Arc B. Design + ARGUS-cleared verdict read in full; worktree arc-59/build HEAD confirmed clean at b643ee9 (zero substrate edits). Ground-checking design examples against shipped substrate/ + _save_verdict.py before first edit. Build order B1-\u003eB2-\u003eB3-\u003eB4 + folds r1/r2/Q2.",
+      "timestamp": "2026-06-04T16:58:49Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[EPIC] Threat-defeat verification hardening — gauntlet verifies THREAT-DEFEAT, not just artifact-correctness (from u--ith)",
   "type": "epic",
-  "updated_at": "2026-06-04T16:57:23Z"
+  "updated_at": "2026-06-04T16:58:49Z"
 }
