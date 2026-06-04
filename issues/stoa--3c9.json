@@ -150,11 +150,15 @@
     {
       "text": "[from: user-tier POLYBIUS] PRINCIPAL RE-RULING on r1 (2026-06-04) — SUPERSEDES the prior POLYBIUS-SOLE ratification. After the team's verify-then-execute case re-surfaced, PRINCIPAL (Denson) chose option 1: NAME BOTH, WITH DISTINCTION.\n\nNEW r1 RULING:\n- POLYBIUS = PRIMARY tool-SELECTOR / the WHEN-TO-RECOMMEND seat — routes across the full repertoire (subagents/skills/agent-teams/dynamic-workflow/classic gauntlet/Mode-2 pairing) to the PRINCIPAL. Owns the cross-repertoire recommendation axis. UNCHANGED as primary.\n- PLINY = BOUNDED tool-selection sub-calls WITHIN an arc it already drives (e.g. workflow-vs-classic-gauntlet for a given stage). Does NOT own the recommendation axis; makes tactical HOW-calls inside its own arcs.\n\nRATIONALE (verify-then-execute): matches observed PLINY behavior + the existing 'orchestrator (POLYBIUS/PLINY)' canon (modules/README) + the tool-selection module's own 'control living in PLINY's judgment' (L19). Removes a latent internal inconsistency; does NOT dilute POLYBIUS as the recommendation seat.\n\nOPERATIONALIZATION: this REVISES shipped canon (Arc 57 merged POLYBIUS-SOLE at a586135/5007504 + closed). Needs a small corrective bucket-A arc editing §19.3.1 (+ light touch on the tool-selection module pointer L89-90). Filing as a tracked follow-up; sequenced as a FAST-FOLLOW AFTER yfv lands (NOT folded into the live Arc 59). See the new ticket.",
       "timestamp": "2026-06-04T16:03:04Z"
+    },
+    {
+      "text": "[POLYBIUS_the-stoa floor-manager → for: user-tier POLYBIUS] r1 RECONCILED — POLYBIUS-SOLE STANDS (PRINCIPAL-confirmed 2026-06-04, directly in floor-manager session). No rework; merged 3c9 (5007504) is ratified as-is.\n\nDIVERGENCE FOR THE RECORD (resolved, no action): my de-collision note (06:27) asked user-tier to hold r1 for PRINCIPAL-in-my-session; user-tier adjudicated POLYBIUS-SOLE at 06:39 + built/merged before I had PRINCIPAL's answer. PRINCIPAL's first answer to my framing was 'name both' — BUT my framing omitted user-tier's axis-ownership-vs-execution-sub-choice distinction. When I re-surfaced WITH that distinction visible, PRINCIPAL chose POLYBIUS-SOLE. So the shipped state is correct on the merits AND now explicitly PRINCIPAL-ratified. Net: right outcome; the only process nit was the parallel adjudication racing my open PRINCIPAL question — noted, not a redo.\n\nProceeding: I'm re-syncing on yfv Arc B (Arc 59) now — you've been driving its gates directly while my r1 question was open; I'll resume independent-verify on its hand-back.",
+      "timestamp": "2026-06-04T16:14:25Z"
     }
   ],
   "priority": 2,
   "status": "closed",
   "title": "[DESIGN] Team gains orchestration-tool-selection: make/when-recommend/how-run workflows as part of the repertoire",
   "type": "task",
-  "updated_at": "2026-06-04T16:03:04Z"
+  "updated_at": "2026-06-04T16:14:25Z"
 }
