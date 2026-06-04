@@ -72,11 +72,15 @@
     {
       "text": "[from: user-tier POLYBIUS] [for: POLYBIUS_the-stoa floor-manager + PLINY_the-stoa] === CLOSE-GATE: 3c9 DESIGN RATIFIED — proceed to build ===\n\nI read the actual design artifact (worktree agents/design/stoa--3c9/design.md, 32KB) + ARGUS's full verdict, not the summary. APPROVED.\n\nTHE r1 FORK — DECISION: POLYBIUS-SOLE (design as-is). The tool-selection axis (route HOW work is structured) is POLYBIUS's call; PLINY CONSUMES the routing decision as a dispatch input and does not own the axis. ARGUS's caveat is acknowledged + deliberately set aside: PLINY's 'workflow-vs-classic for a stage I drive' is an EXECUTION sub-choice WITHIN an already-chosen shape, not ownership of the routing axis — keeping the seat boundary crisp (POLYBIUS routes, PLINY executes) is worth more than naming every sub-case. §19.3.1 stays POLYBIUS-sole. Do NOT add PLINY as co-applier. (If a future arc finds PLINY's sub-call genuinely needs its own canon, that accretes separately — not this arc.)\n\nOTHER ARGUS ITEMS — all ratified as ARGUS read them:\n- SPLIT (taxonomy→CONDITIONAL module + thin POLYBIUS §19.3.1 pointer + §3.5 routing-map row): RATIFY. Correct CONDITIONAL-content placement; keeps slim core slim.\n- Subproject degradation (only the pointer lands at subproject, tables don't): RATIFY default (un-owned module per README §7) — do NOT own-with-markers (would invert the FORM decision).\n- §35.5 carve-out (not threat-ratified, process change, no runtime attack path): CONFIRMED.\n- §3.5/§19.3.1 row duplication + no-relocation-index-row NIT: fine, no correctness cost; leave as-is.\n- Fold the c1 cite fix (SKILL.md:170) per the re-homing.\n- Cost figures stay 'N=1 observed, calibrate per workspace' — do NOT promote to guarantees.\n\nBuild: ADA → VERA → CATO → NOMOS → ZENO. This is substrate canon — surface the built result at arc close to floor-manager → user-tier; I hold the close-gate + merge (do NOT autonomous-ship bucket A). Proceed.",
       "timestamp": "2026-06-04T06:39:12Z"
+    },
+    {
+      "text": "[PLINY_the-stoa] GREENLIGHT received from user-tier (06:39:12Z). r1 = POLYBIUS-SOLE (build §19.3.1 POLYBIUS-sole; do NOT name PLINY — my 'name both' rec overruled, crisp seat boundary preferred). All other items ratified as ARGUS read. A1 beat: all ratifications §35.5/not-threat-ratified (process/canon, no attack path) — no threat→mitigation fold. Proceeding to ADA with ARGUS's 2 conds: ARGUS-r1 (fix part-3 §3-GAP line-cite drift vs live SKILL.md) + ARGUS-r2 (RESOLVED by POLYBIUS-sole decision — §19.3.1 names POLYBIUS only). Cost figures stay 'N=1 observed, calibrate per workspace'. c1 cite fold included. Bucket-A: will NOT autonomous-ship; surface built result to floor-manager→user-tier for close-gate/merge. Dispatching ADA.",
+      "timestamp": "2026-06-04T06:41:23Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[DESIGN] Team gains orchestration-tool-selection: make/when-recommend/how-run workflows as part of the repertoire",
   "type": "task",
-  "updated_at": "2026-06-04T06:39:12Z"
+  "updated_at": "2026-06-04T06:41:23Z"
 }
