@@ -40,11 +40,15 @@
     {
       "text": "pass: design-rev2 complete. Path: .claude/worktrees/arc-53-build/agents/design/stoa--04n/design-rev2.md. Build-list: (1) git add the UNTRACKED workflow-composer dir = the actual promotion step rev1 missed; (2) append workflow-composer to SKILL_NAMES (array 198-207 -\u003e 198-208); (3) fix install.sh:140 cite at ALL FIVE check.sh occurrences (76/228/236/385/385/435) to POST-edit 198-208 -- with line-236 carved out as the bare-line form 198 region (NOT 198-208 region); (4) gen-data guard. 5-delta currency map + 20 VERA probes (P0 sha256 verbatim-promotion through P19 diff-scope). 3 self-assessed weak points (top: line-236 dual-trap; re-stale-able cite; throwaway-harness assumption). Returning to PLINY.",
       "timestamp": "2026-06-04T01:56:59Z"
+    },
+    {
+      "text": "DAEDALUS (design-rev2) -\u003e agents/design/stoa--04n/design-rev2.md (in worktree). Verdict PASS, ready for ARGUS. Key decisions: (1) the actual promotion is 'git add' the untracked skill dir into tracked tree FIRST (rev1's gap) — P0 asserts post-add sha256 unchanged 03de64e5...073af (verbatim, no re-author); (2) post-edit SKILL_NAMES range is 198-208 not 198-207 (the +1 entry moves closing paren); (3) FIVE cites confirmed (76/228/236/385/435) AND line 236 is a DIFFERENT SHAPE — bare-line 'install.sh:140 region' vs the range form 'install.sh:140-144' at the other four; a naive s/140-144/198-208/ would mis-write 236 as '198-208 region'. DAEDALUS gave 236 its own table row + warning; (4) 20 VERA probes (deploy wiring, all 5 cites w/ zero-survivors + exact-replacement checks, 5 deltas, gen-data, authorship, 3 scope guards); (5) proposed threat-class: NOT threat-ratified (process change, no runtime attack path) per op-disc 35.5 — ARGUS to confirm. Self-assessed weak points: line-236 dual-trap (riskiest step); corrected cite 198-208 is itself re-stale-able (anchor-on-pattern is the durable fix, out of scope, follow-up); throwaway-harness should be a true fresh clone not the worktree. Dispatching ARGUS next.",
+      "timestamp": "2026-06-04T01:57:35Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
   "type": "task",
-  "updated_at": "2026-06-04T01:56:59Z"
+  "updated_at": "2026-06-04T01:57:35Z"
 }
