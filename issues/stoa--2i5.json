@@ -34,11 +34,15 @@
     {
       "text": "Design read. W2 GROUNDED: .substrate-last-check written at ${ws}/.claude/.substrate-last-check (check.sh:678,:662) — INSIDE .claude/. Bare entry matches; root-append decision does NOT reopen. Now verifying install.sh insertion points (line 513, 1591, DEST_DIR 3-tier).",
       "timestamp": "2026-06-04T04:43:21Z"
+    },
+    {
+      "text": "RATIFY-WITH-CONDITIONS: 1 load-bearing risk (r1: --help text must land INSIDE sed-scraped header block install.sh:3-108, terminator '# Dry-run:' at :108; usage() at :225 scrapes only that range — design says 'document in --help' without naming the write-site, P4 fails if ADA echoes outside it). Insertion points :513/:1591 CONFIRMED exact. DEST_DIR non-empty all 3 tiers (:601/:620/:665) CONFIRMED. W2 grounded INSIDE .claude/ (check.sh:678) — root-append correctly declined. W1/W3/W4 + carve-out confirmed. Returning.",
+      "timestamp": "2026-06-04T04:44:22Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "install.sh canonical .gitignore management for substrate-generated transient paths (.claude/scheduled_tasks.lock + .claude/worktrees/ + .substrate-last-check)",
   "type": "task",
-  "updated_at": "2026-06-04T04:43:21Z"
+  "updated_at": "2026-06-04T04:44:22Z"
 }
