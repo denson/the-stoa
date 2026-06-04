@@ -90,11 +90,15 @@
     {
       "text": "pass: Arc 56 VERA verdict PASS. 7 probes (P-wq0a/b, P-xxy1/2, P-7b1.2, P-wq0-r3, P-7ap) all PASS on real Windows git-bash (MINGW64, Py3.11.4). Blocker FIXED via Write-tool-\u003eworktree-relative PROCEDURE (proven: apostrophe body \"it's a pass; don't ship\" round-tripped exit0, sha256 match, 0 retries). P-wq0b: guard fires loud (exit4) on literal-/tmp divergence trap, NO silent-green. xxy facet-1 (receipt namespacing) + facet-2 (worktree dest) verified. 7b1.2 gitignore keeps status clean despite on-disk pyc. r3 --artifact-path optional both ways. 7ap doc-probe: dir-gone+orphan-retry+both error strings present, r2 stale registration-only claim resolved, #41740 cite live+on-topic. DOGFOOD SUCCEEDED: this verdict authored via Write-tool-\u003eworktree-relative-\u003e_save_verdict.py --cwd=worktree, landed IN worktree not main, apostrophes intact. One NON-BLOCKING docs nicety (M1: MSYS arg-conv means /tmp guard is literal-string backstop only; Write-tool procedure is load-bearing fix — add a clarifying sentence in a future fix-it-now). Verdict saved: agents/verdicts/stoa--wq0/VERA-2026-06-04T05-43-12Z.md (in worktree). Returning.",
       "timestamp": "2026-06-04T05:43:37Z"
+    },
+    {
+      "text": "[PLINY] VERA: PASS (all 7 probes) + dogfood SUCCEEDED (VERA authored own verdict via new Write-tool pattern, apostrophes intact, landed in worktree per facet-2). M1 finding: MSYS git-bash auto-converts /tmp/ args to real Windows temp BEFORE Python sees them, so the startswith('/tmp/') guard usually can't fire on ordinary invocations — NOT a defect (conversion self-consistent→correct content; Write-tool procedure is the load-bearing fix; guard fires on literal-divergent forms). Folding M1 (1-sentence honesty clarification to SKILL.md + guard comment that guard is a literal-string BACKSTOP, procedure is load-bearing) — strengthens the r4 §34-honesty fold. Dispatching ADA for M1, then CATO.",
+      "timestamp": "2026-06-04T05:44:27Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T05:43:37Z"
+  "updated_at": "2026-06-04T05:44:27Z"
 }
