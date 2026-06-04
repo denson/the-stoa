@@ -138,11 +138,15 @@
     {
       "text": "CONFORMANT: NOMOS ground-truth audit of Arc 60 Tier-1 build (commit 1cae727 on arc-60/build). All 5 audit claims CONFORMANT. (1) Design-build: exactly the 3 design-§2.4 surfaces changed (op-disc new §36 +§35.8 pointer, MAJOR_PLINY §5.15, MAJOR_POLYBIUS §4.3.3) — zero Tier-2 (no .claude/workflows/, no install.sh workflow-deploy case; install.sh:218 'workflow-composer' is pre-existing Arc-53 SKILL; WORKFLOW_NAMES only in negative framing). (2) bw vs disk: VERA+CATO PASS on bw match verdict:pass in both on-disk files. (3) Authorship: Author=denson \u003cdensonsmith2@gmail.com\u003e, seat-id only in Co-Authored-By trailer. (4) Scope: +208/-0, single hunk at L1460, §35.1-35.5 untouched (all \u003cL1460), §35.8 pointer additive. (5) Hygiene: HEAD=1cae727 atop merged main 434cf21 (merge-base=main HEAD), only legit untracked stoa--h2z dirs. Note (not a divergence): a ZENO seat activated post-CATO (18:55Z) but my brief named only the VERA/CATO pair; ZENO verdict not in scope of this audit. Returning.",
       "timestamp": "2026-06-04T18:56:06Z"
+    },
+    {
+      "text": "pass: ZENO mechanical spec-check stoa--h2z Arc 60 Tier-1 @ 1cae727 — PASS. C1 all 3 §2.4 Tier-1 surfaces present (op-disc §36 header+§36.1-36.7+payload+T-a/T-b predicate+§35.8↔§36 two-way; PLINY §5.15 escalation-owner+do-NOT-inline-re-dispatch-ADA; POLYBIUS §4.3.3 verbatim-relay+§25 authorize/spawn gate). C2 scope confined: exactly 3 substrate files +208/-0, ZERO Tier-2 (no .claude/workflows/, no install.sh), WORKFLOW_NAMES single hit in refutation only. C3 cross-refs resolve: §36.1-36.7 exist; all 5 Arc-B seat refs ground (VERA §5.2 L76, DAEDALUS §6.13 L219, CATO §6.1 item11 L99, ARGUS §6.9 L163, POLYBIUS §4.3.2 L137). C4 §36.6 enumeration=ARGUS residual + §36.4 honest 'does not overclaim structurally cannot drift'. C5 P10 stale-premise guard CLEAN (0 'deploy infrastructure does not exist'/'WORKFLOW_NAMES array' hits outside refutation). P5-anchor-guard PASS (payload block single-homed op-disc §36.2; PLINY carries reference only, DECISION REQUIRED=0 in PLINY). P11 authorship clean. 0 drifts, 0 out-of-spec additions. Returning.",
+      "timestamp": "2026-06-04T18:56:46Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[DESIGN] Critical-issue -\u003e dedicated remediation workflow (threat-defeat as the workflow's locked goal)",
   "type": "task",
-  "updated_at": "2026-06-04T18:56:06Z"
+  "updated_at": "2026-06-04T18:56:46Z"
 }
