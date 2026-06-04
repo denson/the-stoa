@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-04T06:04:31Z",
+  "description": "Arc 56 (wq0) shipped a WORKING Bash-only verdict-authoring mechanism for no-Write seats (ARGUS/CATO/ZENO/NOMOS/TIRO): printf '%s' '\u003cbody\u003e' \u003e worktree-relative-path, with '\\'' apostrophe-escaping. That mechanism works (ARGUS used it live in Arc 56) but is ergonomically tedious: single-quoted printf needs '\\'' for every apostrophe; double-quoted printf is apostrophe-safe but not $/backtick-safe. NOT a blocker (wq0 is fixed) — this is an ergonomic follow-up. Concrete candidate: add a --body-stdin option to _save_verdict.py (read sys.stdin.buffer) + a documented heredoc-free piping recipe, so Bash-only seats can author arbitrary bodies without manual shell-escaping. Decide at design time whether --body-stdin actually removes the get-bytes-into-bash friction or just relocates it; if it doesn't, the printf-with-escaping discipline stands as the canonical Bash-only mechanism. Cross-ref: stoa--wq0 (the arc that established printf as the working baseline), Arc 56 seat-aware teaching d7cd8c5.",
+  "id": "stoa--7b1.8",
+  "labels": [],
+  "parent": "stoa--7b1",
+  "priority": 4,
+  "status": "open",
+  "title": "save-verdict: cleaner fully-quoting-safe Bash-only body-authoring (candidate: --body-stdin)",
+  "type": "task",
+  "updated_at": "2026-06-04T06:04:31Z"
+}
