@@ -204,6 +204,7 @@ SKILL_NAMES=(
   handoff-author
   save-verdict
   validate-spec
+  workflow-composer
 )
 
 # Marker line written into CLAUDE.md when --modify-claude-md is used; presence

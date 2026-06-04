@@ -73,7 +73,7 @@ done
 # mirrors that used to live here were removed. Source-of-truth enumeration is
 # now derived live from the substrate dir on every run — CAPTAINs and
 # templates via globs against substrate/, skills via parse_skill_names_from_install
-# (which parses install.sh:140-144's SKILL_NAMES array). The mirror approach
+# (which parses install.sh:198-208's SKILL_NAMES array). The mirror approach
 # silently drifted in Arc 25 (credential-discipline was added to install.sh
 # but not to the local SKILL_NAMES mirror) — the exact failure mode Arc 26
 # closes for the operator-side equivalent. See design-rev2.md §2.2 / §2.4 for
@@ -225,7 +225,7 @@ apply_substitutions_from_manifest() {
 # parse_skill_names_from_install: echo one skill name per line.
 # Reads substrate/install.sh and extracts the SKILL_NAMES=(...) array contents.
 #
-# CITE: parses install.sh:140-144 (SKILL_NAMES array, multi-line form). If
+# CITE: parses install.sh:198-208 (SKILL_NAMES array, multi-line form). If
 # install.sh changes the array name, moves to a single-line / non-parenthesized
 # form, or uses += append syntax, this function must update its awk expression
 # to match. Cite mirror of the apply_substitutions() pattern above (cite-at-
@@ -233,7 +233,7 @@ apply_substitutions_from_manifest() {
 # design-rev2.md §3 cite-comment policy).
 #
 # FAILURE-MODE SYMPTOM (rev2 P1-1, per ARGUS): if this awk returns empty for a
-# substrate that has skills (i.e. install.sh:140 region exists but stdout is
+# substrate that has skills (i.e. install.sh:198 region exists but stdout is
 # empty), the parser is broken and the run is UNTRUSTWORTHY — every MISSING
 # and OBSOLETE result will be wrong. MISSING will under-report (nothing
 # enumerated → nothing can be "missing"). OBSOLETE will over-report any
@@ -382,7 +382,7 @@ detect_tier() {
 #
 # Arc 26: source-side enumeration is fully live — CAPTAINs and templates are
 # glob-derived from substrate/, skills are derived from
-# parse_skill_names_from_install (which parses install.sh:140-144). No
+# parse_skill_names_from_install (which parses install.sh:198-208). No
 # hand-maintained mirrors. The source-side set returned here IS the live
 # ground truth; if parse_skill_names_from_install ever returns empty for a
 # substrate that has skills, the parser is broken and the whole run is
@@ -432,7 +432,7 @@ enumerate_deployed() {
 
   # Skills: enumerate every file under each skill subtree in the source.
   # Skill names come from parse_skill_names_from_install (live-parsed from
-  # install.sh:140-144); the find-walk inside each named dir is source-side
+  # install.sh:198-208); the find-walk inside each named dir is source-side
   # enumeration of per-skill files.
   local sn rel f
   while IFS= read -r sn; do
