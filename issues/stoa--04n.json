@@ -171,11 +171,15 @@
     {
       "text": "CATO (cold-read review d93548a) -\u003e PASS. 1 MINOR / 0 BLOCKER / 0 MAJOR. Authorship audit PASS (author: Denson Smith sole author-field; Co-Authored-By: CAPTAIN_ADA_the-stoa is a trailer layered on top, not a replacement of Author=denson). Meta-verdict on VERA: SOUND, no gap — CATO independently re-confirmed P0 (sha verbatim), P19 (4 paths, agents.ts absent), P14/P17 (scope). All 5 deltas web-verified against the LIVE 2026-06-01 Workflow docs. Half-1 + Half-2 both clean; line-236 dual-trap reads correctly in-context.\nMINOR (CATO L170): SKILL.md:170 cites a bare '§18.2' without file-qualifier while other cross-refs (L192-196) are file-qualified; the ref RESOLVES (MAJOR_POLYBIUS.md:513), only cite-style is inconsistent. DISPOSITION = DEFER, do NOT fix this arc: editing the skill would change its sha256 and break the verbatim-promotion invariant (P0) the whole arc verified + violates locked decision #1 (promote+verify, no re-author). Tracked as stoa--g38 ITEM 4. Proceeding to NOMOS -\u003e ZENO.",
       "timestamp": "2026-06-04T02:33:10Z"
+    },
+    {
+      "text": "NOMOS activated on Arc 53 (workflow-composer forge-promotion). Reading the build commit d93548a + bw record on stoa--04n + follow-up tickets stoa--g38/stoa--307 + directive + design-rev2 ground truth.",
+      "timestamp": "2026-06-04T02:33:54Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[prototype] workflow-composer skill + gauntlet-as-workflow hybrid — battle-test PASS (N=1), forge-promotion pending",
   "type": "task",
-  "updated_at": "2026-06-04T02:33:10Z"
+  "updated_at": "2026-06-04T02:33:54Z"
 }
