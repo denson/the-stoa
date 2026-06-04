@@ -58,11 +58,15 @@
     {
       "text": "[PLINY] ADA build landed (commit acf944c on arc-55/build): write_substrate_gitignore() at install.sh:541, unconditional call at :1657, bare-relative entries (worktrees/ scheduled_tasks.lock .substrate-last-check __pycache__/ *.pyc), quoted heredoc, --dry-run guarded. r1 HONORED: --help doc at :108-117 inside sed-scraped header block (verified via usage() pipeline). README §What-gets-deployed updated. bash -n clean. No design drift. Dispatching VERA for P1-P4.",
       "timestamp": "2026-06-04T04:48:53Z"
+    },
+    {
+      "text": "VERA activated on stoa--2i5 (Arc 55). Reading brief + design probes P1-P4 + arc-55 directive + built install.sh in arc-55-build worktree. Autonomous mode.",
+      "timestamp": "2026-06-04T04:49:25Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "install.sh canonical .gitignore management for substrate-generated transient paths (.claude/scheduled_tasks.lock + .claude/worktrees/ + .substrate-last-check)",
   "type": "task",
-  "updated_at": "2026-06-04T04:48:53Z"
+  "updated_at": "2026-06-04T04:49:25Z"
 }
