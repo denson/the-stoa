@@ -26,11 +26,15 @@
     {
       "text": "ARGUS activated on stoa--h2z. Reading design artifact end-to-end + cited shipped disciplines (op-disc §35, Arc-B seat surfaces, workflow-composer SKILL + 04n design-rev2) before audit.",
       "timestamp": "2026-06-04T17:58:54Z"
+    },
+    {
+      "text": "Design read in full; op-disc §35 (35.1 named-threat, 35.4 map, 35.5 self-carve + ARGUS-confirm) verified against canon — design's claims hold. Now checking Arc-B seat surfaces (VERA §5.2/§6, ARGUS §6.9 item-4, save-verdict exit-4) + workflow-composer/04n dependency status for the Tier-1/Tier-2 split soundness.",
+      "timestamp": "2026-06-04T17:59:19Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[DESIGN] Critical-issue -\u003e dedicated remediation workflow (threat-defeat as the workflow's locked goal)",
   "type": "task",
-  "updated_at": "2026-06-04T17:58:54Z"
+  "updated_at": "2026-06-04T17:59:19Z"
 }
