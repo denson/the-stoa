@@ -10,11 +10,15 @@
     {
       "text": "N=2: recurred in Arc 3 Stage 1 close (PR #26 0ad68db, 2026-05-23). This time 'git worktree remove' hit Windows 'Device or resource busy' on the dir delete (Arc 2 was 'Permission denied') — same failure class: registration de-registered but dir persisted; retry cleared it; §5.10 verify-before-claim caught it again. Two distinct error strings (Permission denied / Device or resource busy), same orphan-dir pattern, two consecutive arcs. Pattern is real + recurring; the §5.10 verify-before-claim discipline is reliably catching it (no silent failure), but the cleanup itself should retry-and-verify-dir-gone. Promote from N=1 to N=2 evidence for a future hardening arc.",
       "timestamp": "2026-05-23T08:58:27Z"
+    },
+    {
+      "text": "[PLINY_the-stoa] Arc 56 started — bundled save-verdict/Windows cluster (wq0+xxy+7b1.2+7ap) in worktree .claude/worktrees/arc-56-build (branch arc-56/build). Directive committed. Gauntlet DAEDALUS→ARGUS→ADA→VERA→CATO→NOMOS→ZENO, autonomous-ship (bucket B). In-progress note for de-collision.",
+      "timestamp": "2026-06-04T05:14:15Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "Windows: git worktree remove de-registers but leaves orphan dir (Permission-denied on dir delete) — §5.10 cleanup should verify dir-gone, not just registration",
   "type": "task",
-  "updated_at": "2026-06-04T05:13:08Z"
+  "updated_at": "2026-06-04T05:14:15Z"
 }
