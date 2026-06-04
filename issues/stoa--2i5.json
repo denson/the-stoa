@@ -30,11 +30,15 @@
     {
       "text": "ARGUS activated on stoa--2i5 (Arc 55). Reading design artifact end-to-end + arc-55 directive + install.sh ground-truth before audit. Autonomous mode.",
       "timestamp": "2026-06-04T04:42:57Z"
+    },
+    {
+      "text": "Design read. W2 GROUNDED: .substrate-last-check written at ${ws}/.claude/.substrate-last-check (check.sh:678,:662) — INSIDE .claude/. Bare entry matches; root-append decision does NOT reopen. Now verifying install.sh insertion points (line 513, 1591, DEST_DIR 3-tier).",
+      "timestamp": "2026-06-04T04:43:21Z"
     }
   ],
   "priority": 3,
   "status": "in_progress",
   "title": "install.sh canonical .gitignore management for substrate-generated transient paths (.claude/scheduled_tasks.lock + .claude/worktrees/ + .substrate-last-check)",
   "type": "task",
-  "updated_at": "2026-06-04T04:42:57Z"
+  "updated_at": "2026-06-04T04:43:21Z"
 }
