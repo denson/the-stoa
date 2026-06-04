@@ -74,11 +74,15 @@
     {
       "text": "[PLINY] ADA built both surfaces — commits 0163833 (Surface 1: skill SKILL.md+_save_verdict.py+.gitignore, 3 CAPTAIN role files, MAJOR_PLINY §5.14 dispatch-discipline) + 403ae46 (Surface 2: pre-branch-hygiene §5.9.4 + arc-close-hygiene §5.10). All 5 ARGUS conds folded (r1 VERA-divergence preserved; r2 L73 hardened; r3 --artifact-path optional+example-kept; r4 §34 stated honestly; r5 request_id path-sep validation). 2 deviations flagged for CATO (step-9 annotation above line to avoid \\-continuation break; dispatch-discipline placed inline §5.14 parallel to §5.13). py_compile+bash -n clean. Dispatching VERA for Windows probe suite.",
       "timestamp": "2026-06-04T05:37:07Z"
+    },
+    {
+      "text": "VERA activated on Arc 56 (wq0+xxy+7b1.2+7ap). Read brief + design §4 probes + _save_verdict.py build. No VERA-tagged comments outstanding. Classifying P-wq0a/b, P-xxy1/2, P-7b1.2, P-7ap, P-wq0r3 per verification-complexity quadrant; refining into runnable git-bash commands. Autonomous mode.",
+      "timestamp": "2026-06-04T05:37:57Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T05:37:07Z"
+  "updated_at": "2026-06-04T05:37:57Z"
 }
