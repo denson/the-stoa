@@ -112,11 +112,15 @@
     {
       "text": "[PLINY] VERA: PASS (all 7 probes). CRITICAL targets held: P4 POLYBIUS-SOLE (§19.3.1 zero PLINY mentions — r1 ratification satisfied) + P6 subproject dry-run exit 0 (un-owned module, no Check B/D abort; project tier deploys the module, 37 modules). P2 taxonomy fidelity (8 shapes + row-4/row-8/attention all present), P3 N=1 hedged (12 hedge markers, no cost-as-guarantee), P5 (4 SKILL.md lines: 3 cross-refs + c1; no dup), P7 (0 frontmatter changes; gen-data exit 0). Dogfood succeeded (Write-tool→worktree path). 2 non-blocking methodology concerns (probe-authoring quality: single-line grep vs line-wrap; design illustrative CLI flag) — NOT build defects, no fold. Dispatching CATO.",
       "timestamp": "2026-06-04T06:51:45Z"
+    },
+    {
+      "text": "CATO activated on stoa--3c9 (Arc 57 tool-selection discipline). Reading full diff cc27c59..HEAD + directive + design + VERA verdict before forming cold-read.",
+      "timestamp": "2026-06-04T06:52:19Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[DESIGN] Team gains orchestration-tool-selection: make/when-recommend/how-run workflows as part of the repertoire",
   "type": "task",
-  "updated_at": "2026-06-04T06:51:45Z"
+  "updated_at": "2026-06-04T06:52:19Z"
 }
