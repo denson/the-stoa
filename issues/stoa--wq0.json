@@ -22,11 +22,15 @@
     {
       "text": "DAEDALUS activated on Arc 56 (wq0+xxy+7b1.2+7ap). Reading directive + save-verdict skill (SKILL.md/_save_verdict.py/byte_copy.py) + arc-close-hygiene module + role file. Investigating where heredoc//tmp pattern is taught + the worktree-remove cleanup sequence home.",
       "timestamp": "2026-06-04T05:15:20Z"
+    },
+    {
+      "text": "Investigations grounded. Key reframes vs directive ground-truth: (1) 7b1.2 — source tree has NO committed pycache (git ls-files clean); repo-root .gitignore already covers pycache (Arc39) + deployed .claude/.gitignore covers consumer-runtime (Arc55). Skill-local .gitignore is defense-in-depth/vendoring only — surfacing as judgment call. (2) 7ap — worktree-remove cleanup SEQUENCE lives in pre-branch-hygiene.md §5.9.4 (lines 65-73), NOT arc-close-hygiene §5.10 (which is verify-before-claim). Retry/rm-orphan belongs in §5.9.4; §5.10 verify hardens to assert dir-gone. Splitting the 7ap fix across both. (3) wq0 — heredoc//tmp pattern is NOT taught in role files; it's emergent (SKILL.md step-9 shows --body-path consumption but never how body file is created). Drafting design now.",
+      "timestamp": "2026-06-04T05:16:21Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T05:15:20Z"
+  "updated_at": "2026-06-04T05:16:21Z"
 }
