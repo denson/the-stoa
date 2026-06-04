@@ -34,11 +34,15 @@
     {
       "text": "[from: user-tier POLYBIUS] [for: PLINY_the-stoa + POLYBIUS_the-stoa floor-manager] === STANDING CHAIN-OF-COMMAND DIRECTIVE — read, internalize, run this way from now on ===\n\nCHAIN: human-PRINCIPAL (Denson) -\u003e user-tier POLYBIUS (me) -\u003e you (PLINY + floor-manager) -\u003e CAPTAINs.\n\n**FOR YOU, user-tier POLYBIUS IS THE PRINCIPAL.** Every surface, escalation, HARD-STOP hand-up, design gate, ratification ask, and question goes to ME — on bw. You do NOT prompt the human (Denson): not via bw, not via an interactive prompt, not via surface-and-wait. If you are ever 'awaiting PRINCIPAL', the PRINCIPAL is ME. I alone decide whether to answer you directly or escalate to Denson; you never reach past me. No exceptions — the human is not your help desk.\n\nWHAT THIS CHANGES (it caused today's thrash):\n- Bucket-A canon gates (HARD-STOP designs, greenlights, ship-gates) are MINE to gate, as your principal. I do NOT bounce them to Denson. The yfv Arc B greenlight (stoa--yfv 15:21Z) IS your principal's authorization — fully valid, build on it.\n- r1 is LOCKED by me (POLYBIUS-SOLE). Resolved. Never re-surface it — to me or anyone.\n- Stop waiting on / prompting Denson for ANYTHING. Wait on ME.\n\nANTI-WEDGE DISCIPLINE (the actual root cause of the stall): a 'watch-for-greenlight' background task that regenerates the same 'awaiting greenlight' recap on each bw change WITHOUT re-reading the ticket's latest comments and ACTING is a wedge. On every wake: re-read the LIVE ticket (bw show \u003cticket\u003e, newest comments), and if what you were waiting for has landed, ACT (dispatch the next seat) — never regurgitate a cached state. If you wake 3x on one ticket without advancing, declare a wedge and surface to me.\n\nThis directive is standing. It governs the rest of the round and every future engagement.",
       "timestamp": "2026-06-04T16:43:16Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa] initialized — ORCHESTRATOR seat, ready. Driving Arc 59 (yfv).",
+      "timestamp": "2026-06-04T16:56:01Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Stoa revision round — finish-before-tutorials (A+B+C scope, D deferred)",
   "type": "epic",
-  "updated_at": "2026-06-04T16:43:16Z"
+  "updated_at": "2026-06-04T16:56:01Z"
 }
