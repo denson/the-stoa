@@ -118,11 +118,15 @@
     {
       "text": "ADA activated on Arc 56 (stoa--wq0 correctness fold). Reading design + VERA PASS + CATO SHIP context. Goal: seat-aware body-authoring teaching so ARGUS/CATO (no Write tool) are told to use printf, not the Write tool they lack. Reading current append text in ARGUS/CATO/SKILL.md before first edit. Autonomous mode.",
       "timestamp": "2026-06-04T05:54:37Z"
+    },
+    {
+      "text": "pass: seat-aware body-authoring fold complete. 1 commit (d7cd8c5), 3 files (CAPTAIN_ARGUS.md + CAPTAIN_CATO.md + save-verdict/SKILL.md). ARGUS/CATO appends now teach printf redirection (the Bash-only mechanism they actually have) instead of the Write tool they lack, with the '\\'' apostrophe-escape caveat. SKILL.md authoring section split seat-aware (Write-tool seats vs Bash-only seats) under the shared worktree-relative invariant; §34-honesty + MSYS-backstop content intact; author stays Denson Smith. VERA role file + _save_verdict.py UNTOUCHED (confirmed not in diff). No code change. Returning for CATO re-review.",
+      "timestamp": "2026-06-04T05:56:57Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T05:54:37Z"
+  "updated_at": "2026-06-04T05:56:57Z"
 }
