@@ -80,11 +80,15 @@
     {
       "text": "ADA activated on Arc 57 / stoa--3c9. Read GREENLIT design + dispatch ticket (r1=POLYBIUS-SOLE confirmed, ARGUS-r1 line-cite drift to fix). Ground-checking live SKILL.md line-cites + MAJOR_POLYBIUS.md insertion points before first commit.",
       "timestamp": "2026-06-04T06:42:12Z"
+    },
+    {
+      "text": "Ground-check complete: NO line-cite drift. SKILL.md cites 37/170/186/200 all match live file exactly; MAJOR_POLYBIUS §19.3 (:560-568) + §3.5 (:67-75) insertion points confirmed; module glob-deploy confirmed (no install.sh edit); POLYBIUS_MODULES correctly excludes new module (un-owned). Writing module + POLYBIUS wiring now.",
+      "timestamp": "2026-06-04T06:42:48Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "[DESIGN] Team gains orchestration-tool-selection: make/when-recommend/how-run workflows as part of the repertoire",
   "type": "task",
-  "updated_at": "2026-06-04T06:42:12Z"
+  "updated_at": "2026-06-04T06:42:48Z"
 }
