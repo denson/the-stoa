@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-04T06:09:06Z",
+  "close_reason": "Arc 56 shipped. Windows worktree-remove orphan-dir hardening: pre-branch-hygiene §5.9.4 cleanup sequence now runs from main root, force-fallback, prune+rm-rf if orphan survives, asserts DIR-gone not just registration; arc-close-hygiene §5.10 signoff requires both registration-gone AND dir-gone. §8.6 fixed-literal-path honored. Dogfooded on this very arc-56 worktree removal. Part of arc-56 0377ce6/cc27c59.",
   "created": "2026-05-23T08:10:12Z",
   "description": "Finding surfaced during Arc 2 (stoa--xyb.6, PR #25 cd827d7, 2026-05-23). On Windows, 'git worktree remove' can de-register a worktree (so 'git worktree list' reports it gone) yet FAIL to delete the directory with Permission denied, leaving an ORPHAN DIR invisible to the registration view. §5.10 verify-before-claim caught it because PLINY verified the dir was actually gone (not just the registration); rm -rf cleaned it. PROPOSED FIX: §5.10 signoff cleanup (and/or the Arc-3 enforcement-layer clean-tree hook) should explicitly assert the worktree DIR is removed, not just the registration. N=1 (first observation). Accrete per §15 / op-disc §6.7.1; fold into a future substrate arc. Empirical anchor: stoa--xyb.6 close verdict 2026-05-23T08:06:52Z.",
   "id": "stoa--7ap",
@@ -17,8 +19,8 @@
     }
   ],
   "priority": 3,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Windows: git worktree remove de-registers but leaves orphan dir (Permission-denied on dir delete) — §5.10 cleanup should verify dir-gone, not just registration",
   "type": "task",
-  "updated_at": "2026-06-04T05:14:15Z"
+  "updated_at": "2026-06-04T06:09:06Z"
 }
