@@ -46,11 +46,15 @@
     {
       "text": "ARGUS pass 1 done. Ground truth CONFIRMED: (1) W4-split premise TRUE — cleanup cmd seq lives in pre-branch-hygiene §5.9.4 L65-73, §5.10 is verify-only; PLINY ratification rests on a true premise. (2) git ls-files clean, NO committed pyc — directive premise disproven, design correct. (3) all 3 role files + paras exist. (4) #41740 web-confirmed = Windows worktree lock. Surfacing 4 load-bearing risks for quadrant classification: role-para-not-byte-identical (VERA diverges), artifact-path required=True back-compat, silent-green residual beyond /tmp, §5.9.4-L73 verify-list also needs dir-gone hardening. Drafting verdict + answering DAEDALUS 4 residual Qs.",
       "timestamp": "2026-06-04T05:24:20Z"
+    },
+    {
+      "text": "revise (RATIFY-WITH-CONDITIONS): 5 load-bearing risks (r1-r4 LB true, r5 false). W4-split premise CONFIRMED TRUE (cleanup seq in pre-branch-hygiene §5.9.4 L65-73; PLINY ratification valid). MOST IMPORTANT = r2: the 7ap split hardens §5.9.4-fence + §5.10 but leaves §5.9.4 L73 prose stating the stale registration-only verify, self-contradicting the hardened fence. r1: role-paras NOT byte-identical (VERA L255 diverges) so design 2.5 + CATO verify-instruction wrong. r3: --artifact-path required=True back-compat unresolved (one combo self-breaks the step-9 example). r4: §34 silent-green honestly only /tmp-narrow. r5(non-LB): threat carve-outs CONFIRMED. All 6 DAEDALUS residual Qs answered. Verdict at agents/verdicts/stoa--wq0/ARGUS-2026-06-04T05-28-10Z.md. Returning.",
+      "timestamp": "2026-06-04T05:28:20Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict skill fails on Windows git-bash (heredoc-EOF + /tmp bash-vs-Python mismatch)",
   "type": "task",
-  "updated_at": "2026-06-04T05:24:20Z"
+  "updated_at": "2026-06-04T05:28:20Z"
 }
