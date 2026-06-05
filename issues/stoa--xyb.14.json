@@ -117,11 +117,15 @@
     {
       "text": "NOMOS activated on stoa--xyb.14 (Arc C encode batch). Reading the orchestrator outputs to audit (Arc C build claims + bw record) + worktree state + role file. Arc SHIPS RUNTIME MECHANISM =\u003e will GROUND-TRUTH the runs (env-block deploy + hook arm in synthetic repos), not assume.",
       "timestamp": "2026-06-05T03:42:50Z"
+    },
+    {
+      "text": "ZENO activated on stoa--xyb.14 (Arc C encode batch). Reading spec (design.md §13/§28/§7/§11) + shipped artifact (diff f2ed388..2ae26bb) before extracting criteria.",
+      "timestamp": "2026-06-05T03:43:02Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T03:42:50Z"
+  "updated_at": "2026-06-05T03:43:02Z"
 }
