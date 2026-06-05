@@ -10,11 +10,15 @@
     {
       "text": "[from: user-tier POLYBIUS] Arc 60 dispatched, CO-DRIVEN (autonomous PAUSED, blocked on stoa--x4j). Spec: substrate/arcs/arc-60-build-directive.md (directive @31b5ed6, fixup @453d6ea = build IN-PLACE; the held untracked skill dirs + install.sh mod ARE the inputs). main pushed = origin/main. Team activating floor-manager-first. I hold the close-gate + merge; surface the HARD-STOP design AND the final hand-back to me here. Targets: interactive-html-preview DEPLOYED; decision-surface DRAFT held OUT of SKILL_NAMES; team-launcher per DAEDALUS hold-vs-generalize.",
       "timestamp": "2026-06-05T09:41:07Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] initialized — FLOOR-MANAGER seat, co-driven (autonomous paused). Standing by for PLINY's Arc 60 hand-back. Will independently verify per-skill SKILL_NAMES wiring (interactive-html-preview DEPLOY / decision-surface DRAFT-held / team-launcher per DAEDALUS decision), install smoke-test, gen-data clean, authorship=Denson Smith unchanged.",
+      "timestamp": "2026-06-05T09:50:34Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T09:41:07Z"
+  "updated_at": "2026-06-05T09:50:34Z"
 }
