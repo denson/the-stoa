@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Set up your Stoa — what to expect</title>
+  <meta name="description" content="Setting up the Stoa is a few one-time steps your assistant runs for you — install git, install beadwork, deploy your AI team. Here's what to expect, including the Windows security prompts, so nothing catches you off guard.">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="The Stoa">
+  <meta property="og:title" content="Set up your Stoa — what to expect">
+  <meta property="og:description" content="A few one-time steps your assistant runs for you — install git, install beadwork, deploy your own AI team. Here's what to expect.">
+  <meta property="og:url" content="https://denson.github.io/the-stoa/bootstrap-stoa.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    :root {
+      --ink: #0f172a; --body: #1e293b; --muted: #475569;
+      --bg: #f7f5f0; --card: #ffffff; --line: #e2e8f0;
+      --amber-bg: #fef3c7; --amber-edge: #d97706;
+      --accent: #0f766e;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--body); font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .container { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+    .eyebrow { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 0.75rem; }
+    h1 { color: var(--ink); font-size: 2.05rem; line-height: 1.16; margin: 0 0 1rem; }
+    h2 { color: var(--ink); font-size: 1.2rem; margin: 2.1rem 0 0.85rem; }
+    p { margin: 0 0 1rem; }
+    a { color: var(--accent); }
+    code { background: #eef2f7; padding: 0.1em 0.35em; border-radius: 4px; font-size: 0.92em; }
+    .lead { font-size: 1.08rem; margin-bottom: 1.5rem; }
+    .steps { list-style: none; counter-reset: step; padding: 0; margin: 1rem 0 0.5rem; }
+    .steps li { counter-increment: step; position: relative; padding: 0 0 0.9rem 2.6rem; }
+    .steps li::before { content: counter(step); position: absolute; left: 0; top: 0; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; }
+    .hand { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+    .hand > p:first-child { margin-top: 0; }
+    .hand p:last-child { margin-bottom: 0; }
+    .hand .cmd { display: block; background: #0f172a; color: #e2e8f0; border-radius: 8px; padding: 0.7rem 0.9rem; margin: 0.6rem 0 0; font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.86rem; word-break: break-all; }
+    .heads-up { background: var(--amber-bg); border-left: 4px solid var(--amber-edge); border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin: 1.25rem 0; }
+    .heads-up p { margin: 0 0 0.6rem; color: var(--ink); }
+    .heads-up p:last-child { margin-bottom: 0; }
+    .callout { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 1.25rem 1.5rem; margin: 2rem 0 0; }
+    .callout > p:first-child { margin-top: 0; }
+    .callout p:last-child { margin-bottom: 0; }
+    footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="eyebrow">The Stoa &middot; getting set up</div>
+    <h1>Set up your Stoa &mdash; what to expect.</h1>
+
+    <p class="lead">Setting up the Stoa is a handful of one-time steps, and your assistant does the actual work &mdash; you just approve a couple of things along the way. At the end you have your own small AI team: a chief-of-staff you talk to, an orchestrator that runs the work, and a set of specialists &mdash; all remembering across sessions.</p>
+
+    <div class="hand">
+      <p><strong>How to start.</strong> Open <strong>Claude Code Desktop</strong> and hand it this page &mdash; paste the link, or just say <em>"set up the Stoa for me."</em> Your assistant reads the setup instructions and drives it. You don't need git, an account, or any prior setup &mdash; that's what this installs.</p>
+      <span class="cmd">https://raw.githubusercontent.com/denson/the-stoa/main/skills/bootstrap-stoa/SKILL.md</span>
+    </div>
+
+    <h2>What your assistant does</h2>
+    <ol class="steps">
+      <li>Installs <strong>git</strong>, if your computer doesn't already have it &mdash; the tool everything else rides on.</li>
+      <li>Installs <strong>beadwork</strong> (<code>bw</code>) &mdash; a small open-source program that gives your AI memory that survives across sessions.</li>
+      <li>Downloads <strong>the Stoa</strong> and deploys your <strong>team</strong> into your AI's home folder.</li>
+      <li>Creates your <strong>notes store</strong> so the team remembers your projects and decisions over time.</li>
+    </ol>
+    <p>You okay each step as it comes; your assistant runs it. It checks what you already have first &mdash; if git's already on your machine, it skips that step.</p>
+
+    <h2>On Windows, expect a security prompt or two</h2>
+    <div class="heads-up">
+      <p>When a new tool is installed or run for the first time, Windows usually shows a warning &mdash; a <strong>"Windows protected your PC"</strong> box, or <strong>"Do you want to allow this app to make changes?"</strong> That's Windows being careful about a tool it hasn't seen before, <em>not</em> a sign anything's wrong.</p>
+      <p>And it isn't a leap of faith. <strong>Git</strong> is one of the most widely used tools in all of software. And <strong>beadwork is a fully open project</strong> &mdash; your assistant can read its actual source and confirm it's the genuine thing before installing. Your assistant will tell you which prompt is coming and that it's safe to allow; you click through, and you're done. (On a Mac it's similar: you may be asked for your login password once.)</p>
+    </div>
+
+    <h2>What you're allowing</h2>
+    <p>The whole permission surface is small: install git (if it's missing), install beadwork, download the Stoa, deploy the team's files into your AI's home folder, and create a projects folder. None of it can make purchases, send messages, or reach outside those folders.</p>
+
+    <h2>If a step balks</h2>
+    <p>Setup is where the occasional hiccup lives &mdash; a different Windows version, a tool installed in an unexpected place, a download that didn't land. If something stalls, just tell your assistant what you saw on screen. It can almost always work around it, and the steps are reversible. (This is new, and you're among the first to run it &mdash; so if anything's rough, that's useful signal, not a dead end.)</p>
+
+    <h2>What you end up with</h2>
+    <p>A running <strong>user-level Stoa team</strong>. Open a fresh Claude Code session and say <strong>"POLYBIUS"</strong> (or "chief of staff") &mdash; the chief-of-staff introduces itself, learns your name, and walks you through the rest. From there you have an AI team that holds context across sessions instead of starting cold every time.</p>
+
+    <div class="callout">
+      <p>All told it's a few minutes, mostly your assistant working. The friction, when there's any, is your computer being cautious &mdash; not the Stoa being broken.</p>
+    </div>
+
+    <footer>
+      <p>The Stoa is an open-source (MIT) agent architecture by <a href="https://github.com/denson/the-stoa">Denson Smith</a>. It's built on <code>bw</code> (<a href="https://github.com/jallum/beadwork">beadwork</a>), an open-source memory tool by <strong>jallum</strong> &mdash; a dependency the Stoa runs on, not part of the Stoa itself.</p>
+    </footer>
+  </div>
+</body>
+</html>
