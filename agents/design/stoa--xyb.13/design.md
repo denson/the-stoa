@@ -13,7 +13,7 @@ This is a **lossless-on-canon prose-consolidation** arc. Three mechanical operat
 
 2. **7 TRIMS (lossless)** — §8, §15, §24, §26, §27, §31, §34. Compress provenance/redundant prose; keep every load-bearing RULE. NOTE the actual file state (the from-memory ledger could not see this): **§27 and §31 are ALREADY relocated module-stubs** (Arc 47), so their "trim" is a stub-prose trim, not a body trim. §24 and §26 are ALREADY thin cross-refs (Arc-era). §8 and §15 are the only two with substantial inline bodies. This matters for the losslessness bar — see each sub-section in §3.
 
-3. **§32 CUT** — delete the redundant `## 32. Test-environment timing discipline — jsdom + animation libraries` stub. Its module `substrate/modules/jsdom-timing-discipline.md` is **confirmed already relocated** (3504 bytes, full discipline present). Update the §0.5 relocation-index row; re-point the inbound `§32` cross-refs so nothing dangles.
+3. **§32 STUB-PROSE CUT (markers + module source RETAINED)** — cut the redundant human-facing stub PROSE of `## 32. Test-environment timing discipline — jsdom + animation libraries` down to a minimal tombstone heading, **but RETAIN the `<!-- MODULE-INLINE:jsdom-timing-discipline -->` … `<!-- /MODULE-INLINE:jsdom-timing-discipline -->` marker pair AND the `substrate/modules/jsdom-timing-discipline.md` source file**. Both are **LOAD-BEARING for subproject deploy** (see §4.2 — install.sh Check A/B hard-abort the deploy if either is missing). The module is **confirmed already relocated** (3504 bytes, full discipline present). Update the §0.5 relocation-index row to "stub-prose CUT, markers retained"; re-point the inbound `§32` cross-refs so nothing dangles.
 
 **No-renumber convention (confirmed, Arc-A precedent):** the corpus keys cross-refs by section number. Following Arc A's `## 21. [CUT — ...]` tombstone precedent (line 903), vacated/cut numbers keep their `## N.` heading as a **stub/tombstone**; the section sequence §1…§36 stays intact. **Verified inbound-ref state:** NO substrate file outside `arcs/` cross-references §1/§2/§3/§5 by number; the only internal labeled ref is op-disc line 254 `§1 (suppress momentum pressure)`, which stays valid because §1 IS the merge target and keeps the momentum stance as its lead. This makes the merge low-risk on cross-ref breakage.
 
@@ -137,9 +137,10 @@ Losslessness bar for every trim: **PRESERVED** rules stay grep-findable in the l
 
 ### 3.1 §8 — Authoring downstream artifacts
 Large section (§8.1–§8.7). The load-bearing rules are dense; provenance narration is the trim target.
-- **PRESERVED (every rule):** §8.1 positive-references-only rule + the 4-row anti-pattern→discipline table; §8.2 five scaffolding rules + bidirectional-translation principle; §8.3 four-state continuum table + decision heuristic + default-bias-toward-lighter; §8.4 install.sh deploy-plan smoke-beat + the bash beat block + acceptance + fail-handling; §8.5 fallback-chain per-path probe rule + the symmetric ADA/VERA/CATO breakdown + the two pattern tables; §8.6 destructive-probe literal-path hygiene (full — it is cross-referenced from CAPTAIN_DAEDALUS §3 and is load-bearing); §8.7 compaction-recovery authoring rule. All `bw show` anchors kept.
-- **CUT (non-load-bearing):** §8.4's "Substrate-canonical implication for Arc 23 itself" paragraph (a one-arc-specific note that Arc 23 doesn't exercise the discipline — historical, not a rule; provenance preserved via the §8.4 anchor). §8.3's doubled statement of the bidirectional-translation/permanent-value-of-HITL principle where it ALSO appears verbatim in §8.2 and in the thesis preamble (line 29) — keep it in §8.2 (its canonical home), compress §8.3's restatement to a one-line pointer. The narrative re-explanation of each empirical anchor MAY compress to the anchor line + one clause (the `bw show` recovers the full story).
-- **Edit plan:** mechanical paragraph deletions + the two compressions above. No rule touched. Est. −8 to −14 lines.
+- **PRESERVED (every rule):** §8.1 positive-references-only rule + the 4-row anti-pattern→discipline table; §8.2 five scaffolding rules + the bidirectional-translation principle paragraph (its canonical home — UNTOUCHED, see the rev2 note below); §8.3 four-state continuum table + decision heuristic + default-bias-toward-lighter (ALL load-bearing — UNTOUCHED, see rev2 note); §8.4 install.sh deploy-plan smoke-beat + the bash beat block + acceptance + fail-handling; §8.5 fallback-chain per-path probe rule + the symmetric ADA/VERA/CATO breakdown + the two pattern tables; §8.6 destructive-probe literal-path hygiene (full — it is cross-referenced from CAPTAIN_DAEDALUS §3 and is load-bearing); §8.7 compaction-recovery authoring rule. All `bw show` anchors kept.
+- **CUT (non-load-bearing):** §8.4's "Substrate-canonical implication for Arc 23 itself" paragraph (a one-arc-specific note that Arc 23 doesn't exercise the discipline — historical, not a rule; provenance preserved via the §8.4 anchor). The narrative re-explanation of each empirical anchor MAY compress to the anchor line + one clause (the `bw show` recovers the full story).
+- **rev2 correction (DROPPED a phantom cut — ARGUS r2):** the prior design instructed compressing "§8.3's restatement of the bidirectional-translation principle." **That restatement does not exist in §8.3.** I re-read §8.2 + §8.3 + thesis line 29 directly: the bidirectional-translation principle lives at the **thesis (op-disc line 29, which itself points to §8.2)** and in **§8.2 (line 228, "The bidirectional-translation principle" paragraph — its canonical home)**. **§8.3 (lines 234–258) is the four-state session-state continuum** — the table + decision heuristic + default-bias-toward-lighter — and contains NO bidirectional-translation restatement; every line in it is load-bearing rule content. Cutting from §8.3 would drop a real rule. I took **option (b): DROP the §8 bidirectional-translation cut ENTIRELY.** There is no clean lossless trim of the principle: the line-29 thesis statement and the §8.2 canonical-home application are **distinct roles** (thesis preamble vs the authoring-discipline statement), not a redundant duplicate pair — line 29 even cross-references §8.2 as the home, so collapsing either orphans the other. **Named surviving canonical home of the bidirectional-translation principle: §8.2 (line 228), with the thesis pointer at line 29 — both retained verbatim, untouched.** Under no circumstance is anything cut from §8.3.
+- **Edit plan:** mechanical paragraph deletion of the §8.4 Arc-23 historical note + per-anchor narrative compression only. **No §8.2 or §8.3 edit.** No rule touched. Est. −5 to −9 lines (smaller than the prior −8 to −14 because the phantom §8.3 cut is dropped).
 
 ### 3.2 §15 — Verification-complexity awareness
 Large section (§15.1–§15.7). The 2x2, the rule, the four strategies, the two verdict shapes, the time-box defaults are ALL load-bearing (verifier CAPTAINs inherit from here).
@@ -177,44 +178,46 @@ Short inline section (already compact, ~16 lines).
 - **CUT:** the second paragraph ("This is the load-bearing convention for the enforcement layer … fresh harness-fired input re-injected at the moment of action") restates the compaction reasoning already given in ¶1; compress to a one-clause cross-ref keeping the `bw show stoa--xyb.5` anchor. The "Shipped Arc 46 (debloat Arc 3, Stage 1)" provenance tag stays (one line).
 - **Edit plan:** merge the two compaction-reasoning paragraphs into one. Est. −3 to −4 lines. **NOTE the dependency the ledger flags:** Arc C §7 (recurring cron-prompt) "depends on §34 trim from Arc B" — so the §34 trim must leave the trigger-payload rule intact and grep-findable for Arc C to build on. The trim does NOT touch the rule, only the duplicate justification. Safe.
 
-**Trims summary:** 7 sections, est. total −31 to −49 lines, **zero load-bearing rules dropped**. Two trims (§24/§26) are paragraph compressions of already-thin cross-refs; two (§27/§31) are already-relocated stub compressions; two (§8/§15) are the real body trims; one (§34) is a duplicate-justification merge. No NEW relocations to modules are needed (the ledger hinted "a couple trims relocate to modules" — but the relocatable sections §27/§31 are ALREADY relocated; nothing in the 7 needs a fresh module).
+**Trims summary:** 7 sections, est. total −28 to −44 lines (rev2: −3 to −5 lower than the prior estimate because the phantom §8.3 bidirectional-translation cut is dropped — §8 now trims only the §8.4 Arc-23 historical note + per-anchor narrative compression), **zero load-bearing rules dropped**. Two trims (§24/§26) are paragraph compressions of already-thin cross-refs; two (§27/§31) are already-relocated stub compressions; two (§8/§15) are the real body trims; one (§34) is a duplicate-justification merge. No NEW relocations to modules are needed (the ledger hinted "a couple trims relocate to modules" — but the relocatable sections §27/§31 are ALREADY relocated; nothing in the 7 needs a fresh module).
 
 ---
 
-## §4 — The §32 CUT
+## §4 — The §32 STUB-PROSE CUT (markers + module source RETAINED)
 
 ### 4.1 Module-relocation confirmation
-`substrate/modules/jsdom-timing-discipline.md` exists (3504 bytes) and carries the FULL discipline: the rAF-driven-timing failure mode, the 3-step test-authoring discipline, the disjunctive observable-end-state assertion, the `expectXHidden()` helper contract, the Pass-10 empirical anchor, and cross-refs. **The §32 stub in op-disc is genuinely redundant** — its content is the module's; the cut loses nothing.
+`substrate/modules/jsdom-timing-discipline.md` exists (3504 bytes) and carries the FULL discipline: the rAF-driven-timing failure mode, the 3-step test-authoring discipline, the disjunctive observable-end-state assertion, the `expectXHidden()` helper contract, the Pass-10 empirical anchor, and cross-refs. **The §32 stub's human-facing PROSE in op-disc is genuinely redundant** — its content is the module's; cutting the prose loses nothing. **The module source file and the MODULE-INLINE markers are NOT redundant** — see §4.2; they are load-bearing for subproject deploy and MUST survive.
 
-### 4.2 The delete + tombstone
-Replace the §32 stub body (and its MODULE-INLINE markers) with an Arc-A-style tombstone, number preserved:
+### 4.2 The stub-prose cut + marker-retaining tombstone (install.sh Check A/B — LOAD-BEARING)
+
+**This is a stub-PROSE cut, NOT a full delete. Two things MUST survive the cut, both verified against `substrate/install.sh` source (rev2 correction of the prior design's optional framing):**
+
+1. **The module source `substrate/modules/jsdom-timing-discipline.md` MUST NOT be removed.** `install.sh` recompose **Check A** (install.sh:1025) fires `fail()` → `exit 2` if a MODULE-INLINE marker references a module with no source file at `${SRC_MODULES_DIR}/jsdom-timing-discipline.md`. Deleting the module source aborts the entire subproject deploy.
+
+2. **The `<!-- MODULE-INLINE:jsdom-timing-discipline -->` … `<!-- /MODULE-INLINE:jsdom-timing-discipline -->` marker PAIR MUST stay in the §32 location.** `jsdom-timing-discipline` is in the `OPDISC_MODULES` owned-set (install.sh:1115) and is passed to `recompose_module_inline "$DEST_OPERATING_DISCIPLINES" "$OPDISC_MODULES"` (install.sh:1122). Recompose **Check B** (install.sh:1055) fires `fail()` → `exit 2` for any OWNED module that has no matching MODULE-INLINE marker in the deployed op-disc file ("body would be DROPPED at subproject tier"); the trailing handler (install.sh:1061–1062) then `rm`s the partial output AND the slim role file and aborts the deploy. **Dropping the markers HARD-ABORTS every subproject install.** The prior design's "case (b) — markers can be dropped" branch is NON-VIABLE and is removed; markers-in-tombstone is **MANDATORY, not a safe default**.
+
+**The cut:** replace ONLY the §32 stub's redundant human-facing prose with a minimal tombstone heading, number preserved (Arc-A §21 precedent), with the marker pair retained intact and adjacent:
 
 ```markdown
-## 32. [CUT — jsdom + animation timing discipline]
+## 32. [STUB-PROSE CUT — jsdom + animation timing discipline]
 
-**CUT (Arc B, `stoa--xyb.13`).** This was a relocated module-stub whose full discipline already lives at `.claude/modules/jsdom-timing-discipline.md` (rAF-driven-timing failure mode + disjunctive observable-end-state assertion + helper contract). The stub was redundant with the module + the §0.5 relocation-index row; cut to remove the duplicate pointer. Read the module directly, or recover via the §0.5 index. Number preserved as a stable cross-reference key (do NOT renumber).
+**Stub-prose CUT (Arc B, `stoa--xyb.13`).** The human-facing stub prose was redundant with the relocated module + the §0.5 relocation-index row and is cut. The full discipline lives at `.claude/modules/jsdom-timing-discipline.md` (rAF-driven-timing failure mode + disjunctive observable-end-state assertion + helper contract); read it directly or recover via the §0.5 index. The MODULE-INLINE marker pair below is **LOAD-BEARING and RETAINED** — `install.sh` recompose Check A/B (install.sh:1025/1055) hard-abort the subproject deploy if the marker pair or the module source `substrate/modules/jsdom-timing-discipline.md` is missing; do NOT remove either. Number preserved as a stable cross-reference key (do NOT renumber).
+
+<!-- MODULE-INLINE:jsdom-timing-discipline -->
+<!-- /MODULE-INLINE:jsdom-timing-discipline -->
 ```
 
-**MODULE-INLINE marker decision (load-bearing — must get this right):** the §32 stub currently carries `<!-- MODULE-INLINE:jsdom-timing-discipline -->` markers that `install.sh` uses to re-inline the module at **subproject** tier. CUTting the stub removes the re-inline insertion point. **ADA must verify** whether jsdom-timing is in install.sh's subproject-recompose set. Two cases:
-- (a) If install.sh recomposes jsdom-timing at subproject tier via these markers → **the markers must MOVE to the tombstone**, not be deleted, or subproject installs lose the discipline. Tombstone keeps the markers:
-  ```
-  <!-- MODULE-INLINE:jsdom-timing-discipline -->
-  <!-- /MODULE-INLINE:jsdom-timing-discipline -->
-  ```
-- (b) If jsdom-timing is NOT in the subproject-recompose set → markers can be dropped with the stub.
-
-This is a **residual question for ARGUS + a build-time check for ADA** (flagged in §8 + §5 probe). The safe default is (a): keep the markers in the tombstone. The grep `MODULE-INLINE:jsdom-timing-discipline` against `substrate/install.sh` settles it; I have not run install.sh source inspection in this design pass — ADA confirms at build.
+The marker pair stays an empty open/close adjacency (no body between them) at user/project tier — `install.sh` re-inlines the module body between them at subproject tier (the same idempotent recompose mechanism §27/§31 rely on). ADA must NOT delete the markers and must NOT delete the module source; this is now a build INVARIANT, not a build-time question.
 
 ### 4.3 §0.5 index row update
 Baseline row (line 65):
 ```
 | §32 jsdom + animation timing discipline | `.claude/modules/jsdom-timing-discipline.md` (disk module; subproject recompose) | CONDITIONAL |
 ```
-Update to reflect the CUT (mirror the §21 CUT row at line 77):
+Update to reflect the **stub-prose cut with markers retained** (NOT a full CUT — the module is still a live subproject-recompose target, so the class stays CONDITIONAL, not CUT):
 ```
-| §32 CUT — jsdom + animation timing discipline (Arc B `stoa--xyb.13`) | full discipline at `.claude/modules/jsdom-timing-discipline.md`; provenance `bw show stoa--xyb.8` | CUT |
+| §32 jsdom + animation timing discipline (Arc B `stoa--xyb.13`: stub-prose cut, MODULE-INLINE markers retained) | `.claude/modules/jsdom-timing-discipline.md` (disk module; subproject recompose) | CONDITIONAL |
 ```
-The index row stays (it is the audit-time recovery pointer) — only its class flips CONDITIONAL→CUT and the new-home cell points at the module.
+The index row stays (it is the audit-time recovery pointer). The class stays **CONDITIONAL** — flipping it to CUT (as the prior design proposed, mirroring the §21 CUT row) would be wrong: §21 is a genuine full delete, whereas §32 keeps the module + the live recompose markers. The only change is the note that the human-facing stub prose was cut while the marker block survives.
 
 ### 4.4 Inbound §32 reference re-point scan
 `grep -rn '§32' substrate/ --include='*.md'` excluding `substrate/arcs/` returns these live refs (the floor-manager expected ~3 CAPTAIN-file re-points; actual breakdown below):
@@ -229,7 +232,7 @@ The index row stays (it is the audit-time recovery pointer) — only its class f
 
 **NOT re-pointed (provenance — keep):** `modules/jsdom-timing-discipline.md:3` and `:6` say "Relocated from `operating-disciplines.md` §32" — that is **historical provenance** (where it came from), not a live pointer to read; KEEP verbatim. Same B-LEAVE principle as Arc A (don't scrub the substrate's own history).
 
-**Total live re-points: 4** (2 in CAPTAIN_ADA.md, 2 internal to the module) + 1 index-row class-flip. The floor-manager's "~3 CAPTAIN cross-refs" estimate is close — the actual CAPTAIN-file count is 2 (both in ADA); the other 2 are module-internal self-references that would dangle if not fixed. **After re-point: zero live `§32` references resolve to a deleted target** (only the tombstone heading + the two provenance "relocated from §32" mentions remain, both intentional).
+**Total live re-points: 4** (2 in CAPTAIN_ADA.md, 2 internal to the module) + 1 index-row note update (NOT a class-flip — the class stays CONDITIONAL, §4.3). The floor-manager's "~3 CAPTAIN cross-refs" estimate is close — the actual CAPTAIN-file count is 2 (both in ADA); the other 2 are module-internal self-references that would dangle if not fixed. **After re-point: zero live `§32` references resolve to a deleted target** (only the `## 32. [STUB-PROSE CUT —` tombstone heading + the retained MODULE-INLINE marker pair + the two provenance "relocated from §32" mentions remain, all intentional).
 
 ---
 
@@ -272,11 +275,23 @@ grep -c 'MODULE-INLINE:mechanical-inspection-split' substrate/operating-discipli
 grep -c 'MODULE-INLINE:substrate-component-design' substrate/operating-disciplines.md     # expect 2
 ```
 
-**P4 — §32 no-dangling-ref.** After the cut + re-points, no live `§32` pointer resolves to a deleted target:
+**P4 — §32 no-dangling-ref.** After the stub-prose cut + re-points, no live `§32` pointer resolves to a deleted target:
 ```bash
 grep -rn '§32' substrate/ --include='*.md' | grep -v 'substrate/arcs/'
 ```
-Acceptance: the ONLY remaining `§32` mentions are (a) the `## 32. [CUT —` tombstone heading, (b) the §0.5 CUT index row, (c) the two `Relocated from … §32` provenance lines in the module. ZERO live "read §32 for X" pointers. Specifically: `CAPTAIN_ADA.md` has zero `§32` after re-point (both now point at the module); module lines 46/49 no longer say "reads §32".
+Acceptance: the ONLY remaining `§32` mentions are (a) the `## 32. [STUB-PROSE CUT —` tombstone heading, (b) the §0.5 index row (CONDITIONAL, note-updated), (c) the two `Relocated from … §32` provenance lines in the module. ZERO live "read §32 for X" pointers. Specifically: `CAPTAIN_ADA.md` has zero `§32` after re-point (both now point at the module); module lines 46/49 no longer say "reads §32".
+
+**P4b — §32 subproject-deploy safety: MODULE-INLINE marker pair PRESENT + module source exists (LOAD-BEARING — install.sh Check A/B).** The stub-prose cut MUST NOT drop the marker pair or the module source, or subproject deploy hard-aborts (install.sh:1025/1055 → exit 2). Assert both survive:
+```bash
+# (i) the OPEN+CLOSE marker pair is present in the deployed/source op-disc §32 location (Check B):
+grep -c '^<!-- MODULE-INLINE:jsdom-timing-discipline -->$' substrate/operating-disciplines.md      # expect 1 (open)
+grep -c '^<!-- /MODULE-INLINE:jsdom-timing-discipline -->$' substrate/operating-disciplines.md     # expect 1 (close)
+# (ii) the module SOURCE file still exists (Check A):
+test -f substrate/modules/jsdom-timing-discipline.md && echo PRESENT
+# (iii) end-to-end: a subproject dry-run recompose does NOT abort (the strongest proof):
+bash substrate/install.sh --dry-run --target subproject --parent-dir /tmp/stoa-rev2-parent --subproject probe 2>&1 | grep -iE 'jsdom-timing|error: recompose' ; echo "exit=$?"
+```
+Acceptance: (i) exactly 1 open + 1 close marker line in op-disc; (ii) module source PRESENT; (iii) the dry-run recompose plan references jsdom-timing WITHOUT a `error: recompose:` Check-A/B abort line (no `exit 2`). This probe is the subproject-deploy-safety guard that the prior design left as an un-inspected build-time question — rev2 makes it a hard VERA assertion. (VERA: a real `--target subproject` recompose, not dry-run, is the gold check if the parent fixture is available; the dry-run plan is the floor.)
 
 **P5 — No-renumber (section sequence stable).** The heading sequence §1…§36 is unbroken except the merged/cut heading FORMS:
 ```bash
@@ -295,7 +310,7 @@ Acceptance: empty (no author-field lines added or removed; the only Co-Authored-
 ```bash
 git diff --stat 1cb9160 -- substrate/operating-disciplines.md
 ```
-Acceptance: net deletions > net insertions for op-disc (debloat invariant). Expect roughly −35 to −55 net on op-disc. (CAPTAIN_ADA.md re-points are net-neutral; the module re-points are net-neutral.)
+Acceptance: net deletions > net insertions for op-disc (debloat invariant). Expect roughly −28 to −48 net on op-disc (rev2: floor lowered from the prior −35 to −55 because the §8.3 phantom cut is dropped AND the §32 change is a prose-cut-to-tombstone that retains the heading + marker pair rather than a clean delete — both add a handful of lines back vs the prior design's assumptions). The debloat invariant (net-negative) still holds; magnitude is secondary to losslessness. (CAPTAIN_ADA.md re-points are net-neutral; the module re-points are net-neutral.)
 
 ---
 
@@ -311,9 +326,9 @@ Acceptance: net deletions > net insertions for op-disc (debloat invariant). Expe
 
 - **weak_point:** The merge's line-count win is near-flat at the merged-§1 locus (four 4-line stances → one ~30-line section); a reviewer expecting a large negative delta FROM THE MERGE could read it as "consolidation that didn't consolidate." **why_this_shape_anyway:** The merge's value is coherence (four scattered stances become one teachable "human-team stories that invert" section), not line-count; the negative delta lives in §3 trims + §4 cut. Stated explicitly in §2.4 so the reviewer's expectation is set correctly. The alternative (cramming all four stances into one dense paragraph to maximize line-cut) would sacrifice the per-stance grep-findability that §8.7 requires — rejected.
 
-- **weak_point:** "Redundant" in the §8/§15/§34 trims is a judgment call — e.g. §8.3's restatement of the bidirectional-translation principle, or §34's second compaction paragraph. A reviewer could judge one of these as load-bearing emphasis rather than redundancy. **why_this_shape_anyway:** I marked each CUT with its surviving canonical home (§8.3's principle survives in §8.2 + thesis line 29; §34's reasoning survives in ¶1) so the rule is never dropped, only de-duplicated; if ARGUS disagrees on a specific CUT, the fix is "keep that paragraph" — a trim-back, not a re-architecture. Listed as `residual_questions_for_argus`.
+- **weak_point:** "Redundant" in the §8.4/§15/§34 trims is a judgment call — e.g. §8.4's Arc-23 historical implication note, or §34's second compaction paragraph. A reviewer could judge one of these as load-bearing emphasis rather than redundancy. **why_this_shape_anyway:** I marked each CUT with its surviving canonical home (§8.4's discipline + anchor survive in ¶1 of §8.4; §34's reasoning survives in ¶1) so the rule is never dropped, only de-duplicated; if ARGUS disagrees on a specific CUT, the fix is "keep that paragraph" — a trim-back, not a re-architecture. (rev2: the §8.3 bidirectional-translation CUT that the prior design flagged here was a PHANTOM — that text is not in §8.3; the cut is dropped entirely, §8.2/§8.3 are untouched.) Listed as `residual_questions_for_argus`.
 
-- **weak_point:** The §32 MODULE-INLINE marker handling depends on whether install.sh recomposes jsdom-timing at subproject tier — I did NOT inspect install.sh source in this design pass. If it does and the markers are dropped, subproject installs silently lose the discipline (the exact §8.4 failure class). **why_this_shape_anyway:** I specified the safe default (keep markers in the tombstone) + a one-line grep that settles it deterministically at build time, so ADA cannot proceed without resolving it; the risk is bounded to "ADA must run one grep." Flagged as the top residual question for ARGUS.
+- **weak_point:** (rev2 — RESOLVED, was the prior design's top weak point) The §32 MODULE-INLINE marker handling is no longer a question: it is a verified build INVARIANT. `jsdom-timing-discipline` is in `OPDISC_MODULES` (install.sh:1115) and install.sh recompose Check A (install.sh:1025, module source) + Check B (install.sh:1055, OWNED marker) hard-abort the subproject deploy (`exit 2`, install.sh:1061–1062) if either the marker pair or the module source is dropped. **why_this_shape_anyway:** The design now mandates markers-in-tombstone + module-source-retained (§4.2) and probes both presence + a dry-run recompose that must not abort (P4b). The prior design's "case (b) — drop the markers" branch is removed as non-viable. No residual question remains here.
 
 - **weak_point:** The ledger's trim list assumed full bodies for §27/§31/§24/§26, but the actual file state is already-relocated-stubs / thin-cross-refs, so the realizable trim from those four is small (paragraph compressions). The arc's losslessness is safe but its debloat magnitude is smaller than a naive read of the ledger implies. **why_this_shape_anyway:** Losslessness is the locked bar; magnitude is secondary. I restated the actual state in §1 + §3 so no downstream seat builds against the stale "full bodies" assumption. Net is still negative (§8/§15 bodies + §32 cut carry it).
 
@@ -326,18 +341,16 @@ status: completed
 ticket: stoa--xyb.13
 verdict: pass
 design_artifact_path: agents/design/stoa--xyb.13/design.md
-restatement: Merge the four non-contiguous anti-pattern stances (§1/§2/§3/§5, §4 carved out and untouched) into one section at §1 with pointer-stubs for the vacated numbers; losslessly trim seven sections (§8/§15/§24/§26/§27/§31/§34) keeping every load-bearing rule; cut the redundant §32 jsdom stub (module already relocated), update the §0.5 index row, and re-point inbound §32 refs — all no-renumber, authorship unchanged.
+restatement: Merge the four non-contiguous anti-pattern stances (§1/§2/§3/§5, §4 carved out and untouched) into one section at §1 with pointer-stubs for the vacated numbers; losslessly trim seven sections (§8/§15/§24/§26/§27/§31/§34) keeping every load-bearing rule; cut the redundant human-facing PROSE of the §32 jsdom stub to a tombstone while RETAINING the MODULE-INLINE marker pair + the module source (both load-bearing for subproject deploy per install.sh Check A/B), update the §0.5 index row note (class stays CONDITIONAL), and re-point inbound §32 refs — all no-renumber, authorship unchanged.
 self_assessed_weak_points:
 - weak_point: merge's line win is near-flat at the merge locus (coherence win, not line-cut win)
   why_this_shape_anyway: negative delta lives in trims+cut; per-stance grep-findability (§8.7) beats a dense single paragraph
-- weak_point: "redundant" in the §8/§15/§34 trims is a judgment call
+- weak_point: "redundant" in the §8.4/§15/§34 trims is a judgment call
   why_this_shape_anyway: every CUT names its surviving canonical home so no rule drops; disagreement is a trim-back not a re-architecture
-- weak_point: §32 MODULE-INLINE marker handling depends on un-inspected install.sh subproject-recompose behavior
-  why_this_shape_anyway: specified safe default (keep markers in tombstone) + a deterministic build-time grep that settles it
 - weak_point: §27/§31/§24/§26 are already stubs/thin-refs so realizable trim is small
-  why_this_shape_anyway: losslessness is the locked bar; net stays negative via §8/§15 bodies + §32 cut
-residual_questions_for_argus: (1) Confirm the §35.5 NOT-threat-ratified carve-out (process/canon prose, no runtime/attack path). (2) Does install.sh recompose jsdom-timing at subproject tier — i.e. must the MODULE-INLINE markers move to the §32 tombstone (safe default = yes)? (3) For the §8.3 bidirectional-translation restatement and §34 second paragraph CUTs — is either load-bearing emphasis rather than redundancy? (4) Should the line-1642 "six anti-patterns above" rewrite count §1's four sub-stances + §4 + §6, or is a different framing cleaner?
-summary: Arc B is a lossless-on-canon consolidation of operating-disciplines.md. The primary artifact merges the four non-contiguous anti-pattern stances (§1/§2/§3/§5) into one section at §1 — passivity (§4) carved out and kept byte-identical because it is the most-violated stance — with §2/§3/§5 becoming no-renumber pointer-stubs; a full rule-by-rule preservation map shows all 12 enumerated rules surviving (shared human-team framing de-duplicated, no rule dropped). Seven trims compress provenance narration and duplicate justification while keeping every load-bearing rule grep-findable (§8/§15 are the real body trims; §24/§26/§27/§31 are already-thin and yield paragraph compressions; §34 merges a duplicate justification and preserves the rule Arc C depends on). The §32 jsdom stub is cut to a tombstone (its module is confirmed relocated), the §0.5 index row flips to CUT, and four live inbound §32 refs are re-pointed at the module. The load-bearing structural choice is merge-into-§1 (lowest number, only one with an inbound labeled ref, keeps head-of-file order). Most important weak point: the §32 MODULE-INLINE marker handling needs a one-grep install.sh check at build time or subproject installs could silently lose the discipline — mitigated by a specified safe default and a deterministic probe.
+  why_this_shape_anyway: losslessness is the locked bar; net stays negative via §8/§15 bodies + §32 prose cut
+residual_questions_for_argus: (1) Confirm the §35.5 NOT-threat-ratified carve-out (process/canon prose, no runtime/attack path). (2) For the §8.4 Arc-23 historical note and §34 second paragraph CUTs — is either load-bearing emphasis rather than redundancy? (3) Should the line-1642 "six anti-patterns above" rewrite count §1's four sub-stances + §4 + §6, or is a different framing cleaner? (rev2 note: the prior r1 question — "does install.sh recompose jsdom-timing at subproject tier" — is RESOLVED to YES at the source by ARGUS and re-verified here; markers-in-tombstone + module-source-retained is now a hard build invariant, §4.2 + P4b. The prior r2 phantom §8.3 cut is DROPPED.)
+summary: Arc B is a lossless-on-canon consolidation of operating-disciplines.md. The primary artifact merges the four non-contiguous anti-pattern stances (§1/§2/§3/§5) into one section at §1 — passivity (§4) carved out and kept byte-identical because it is the most-violated stance — with §2/§3/§5 becoming no-renumber pointer-stubs; a full rule-by-rule preservation map shows all 12 enumerated rules surviving (shared human-team framing de-duplicated, no rule dropped). Seven trims compress provenance narration and duplicate justification while keeping every load-bearing rule grep-findable (§8/§15 are the real body trims; §24/§26/§27/§31 are already-thin and yield paragraph compressions; §34 merges a duplicate justification and preserves the rule Arc C depends on). rev2 surgical corrections to two ARGUS BLOCKING findings: (r1) the §32 jsdom change is a STUB-PROSE cut, NOT a full delete — the MODULE-INLINE marker pair and the module source are RETAINED because install.sh recompose Check A (install.sh:1025) + Check B (install.sh:1055) hard-abort the subproject deploy (exit 2) if either is dropped (jsdom-timing is in OPDISC_MODULES, install.sh:1115); §0.5 row stays CONDITIONAL (note-updated, not flipped to CUT); a new probe P4b asserts the marker pair present + module source exists + a dry-run recompose that does not abort. (r2) the prior design's §8.3 bidirectional-translation CUT targeted a phantom — that restatement is not in §8.3 (the principle lives at thesis line 29 + §8.2 line 228, its canonical home); §8.3 is the all-load-bearing four-state continuum, so the §8 bidi cut is DROPPED entirely and §8.2/§8.3 are untouched. The load-bearing structural choice is merge-into-§1; the four-stance merge, §4 carve-out, line-1642 rewrite, the §15/§24/§26/§27/§31/§34 trims, and no-renumber all PASSED ARGUS and are unchanged.
 follow_ups:
 - Arc C (§7 cron-prompt) depends on the §34 trim leaving the trigger-payload rule grep-findable — verified preserved here; Arc C can build on it.
 - The "six anti-patterns above" framing at line 1642 is a maintenance hazard whenever the head-of-file stance count changes; consider rephrasing to not hard-code a count.
