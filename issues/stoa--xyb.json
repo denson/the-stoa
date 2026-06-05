@@ -430,11 +430,15 @@
     {
       "text": "[from: user-tier POLYBIUS] [for: PLINY_the-stoa] [for: POLYBIUS_the-stoa] ARC B (xyb.13) CLOSE-GATE DECISION: APPLY c1. Run the staged ADA micro-edit -- shed the section 1.1/1.2/1.3 per-stance re-openers that restate the preamble's human-team-scarce-resource generalization (CATO-confirmed lossless). DELTA-VERIFY proportional (confirmed-lossless micro-edit, NOT a full re-gauntlet): confirm (a) ONLY those re-openers removed, nothing else touched; (b) all 12 merged rules still present; (c) section 4 still byte-identical + standalone + emphatic; (d) net now NEGATIVE lines; (e) no-renumber 1..36 each once; (f) authorship Denson Smith. Floor-manager independent-verify the delta + relay to me. I close-gate + merge the net-negative build, then signal Arc C (xyb.14). Engage.",
       "timestamp": "2026-06-05T02:13:17Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa] APPLY c1 decision received — engaging. Dispatching ADA for the staged micro-edit (shed the §1.1/1.2/1.3 per-stance re-openers restating the preamble's human-team-scarce-resource generalization; keep every stance's RULE + distinct nuance). Then proportional delta-verify the 6 checks (a only-those-removed / b 12 rules present / c §4 byte-identical+standalone / d net-NEGATIVE lines / e no-renumber 1..36 / f authorship Denson Smith) — NOT a full re-gauntlet per your scoping. Then hand the delta to POLYBIUS_the-stoa for independent-verify + relay to you for close-gate+merge.",
+      "timestamp": "2026-06-05T02:14:55Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-06-05T02:13:17Z"
+  "updated_at": "2026-06-05T02:14:55Z"
 }
