@@ -141,11 +141,15 @@
     {
       "text": "GROUND-TRUTH runs ALL PASS: 3a env-block (default-OFF + write-once + idempotent + no-clobber); 3b hook ARMED in synthetic repo — legit=1 trailer, c1 .local\u003e-tailed-newline payload REJECTED (0 smuggled, exit 0), M1 RCE inert (no sentinel), M2 unset=no-op exit 0, M3 Author+committer=denson across history. Verdicts ARGUS/VERA/CATO/VERA-c1 all PASS on disk; STRABO findings.md present. Drafting verdict.",
       "timestamp": "2026-06-05T03:46:26Z"
+    },
+    {
+      "text": "pass: ZENO verdict SAVED. Arc C (2ae26bb) spec-check = PASS, 14/14 criteria met, ZERO drift, ZERO out-of-spec additions. sha256 round-trip OK (64cbe24bdb3c). Verdict: agents/verdicts/stoa--xyb.14/ZENO-2026-06-05T03-50-36Z.md. One benign note: VERA c1-reprobe verdict metadata path-typo (stoa--xyb vs stoa--xyb.14) — verdict cosmetic only, not the build. Returning.",
+      "timestamp": "2026-06-05T03:50:42Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T03:46:26Z"
+  "updated_at": "2026-06-05T03:50:42Z"
 }
