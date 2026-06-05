@@ -27,11 +27,15 @@
     {
       "text": "ARGUS mid-audit: read real §1/2/3/4/5, §6, §8, §15, §0.5, §24/26/27/31/32/34 cold + install.sh recompose. RESOLVED DAEDALUS wp#1: jsdom-timing IS in OPDISC_MODULES (install.sh:1115) -\u003e Check B (line 1055) HARD-ABORTS subproject deploy if §32 marker dropped. Design case (b) is non-viable; markers-in-tombstone is MANDATORY not optional. Also found: §3.1 CUT targets a §8.3 bidirectional-translation restatement that does NOT exist (principle is at line 29 + §8.2 only). Drafting verdict.",
       "timestamp": "2026-06-05T01:14:04Z"
+    },
+    {
+      "text": "revise: 2 BLOCKING load-bearing risks. r1 (§32 markers): jsdom-timing IS in OPDISC_MODULES (install.sh:1115); recompose Check B (install.sh:1055) HARD-ABORTS subproject deploy (err exit 2) if §32 MODULE-INLINE marker dropped. Design case (b) drop-the-markers is NON-VIABLE; markers-in-tombstone is MANDATORY, and the jsdom module source must NOT be removed. r2 (§8 phantom CUT): design §3.1 instructs cutting a §8.3 bidirectional-translation restatement that does NOT exist (principle is at op-disc line 29 + §8.2 only); §8.3 is the four-state continuum, all rule content -\u003e phantom CUT risks dropping a real §8.3 rule. CLEAN: 12-rule merge map faithful (all present), §4 untouched/emphatic, §15+§24+§26+§27+§31+§34 trims lossless (§34 preserves the Arc-C rule), §32 inbound-ref scan matches reality + module relocated (3504B), no-renumber + line-1642 count-rewrite handled, net-negative, authorship Denson Smith. Confirm §35.5 carve-out: not threat-ratified (canon prose, no attack path). Verdict: agents/verdicts/stoa--xyb.13/ARGUS-2026-06-05T01-22-06Z.md. Routing to PLINY; not fixing. Returning.",
+      "timestamp": "2026-06-05T01:22:21Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc B: op-disc prose consolidation — four-stance merge + 7 trims + jsdom cut (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T01:14:04Z"
+  "updated_at": "2026-06-05T01:22:21Z"
 }
