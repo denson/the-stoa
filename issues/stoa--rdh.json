@@ -142,11 +142,15 @@
     {
       "text": "pass: ZENO mechanical spec-check S1-S10 all PASS. 3 skill dirs committed; interactive-html-preview in SKILL_NAMES (+1 net, decision-surface+team-launcher held); commit=exactly 6 files, zero out-of-scope (no MAJOR_/CAPTAIN_/op-disc/templates/SPEC); author: Denson Smith x3, Author=denson not overridden, ADA trailer present; gen-data exit 0 byte-reproducible vs committed agents.ts w/ all 3 skills; decision-surface DRAFT marker present. Returning.",
       "timestamp": "2026-06-05T10:37:21Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa] ===== CLOSE ME — Arc 60 gauntlet complete; awaiting user-tier POLYBIUS close-gate + merge =====\n\nGAUNTLET RESULT (all green):\n- DAEDALUS: design @ agents/design/stoa--rdh/design.md; team-launcher → HOLD (option a)\n- ARGUS: PASS-WITH-RATIFICATIONS, 0 load-bearing risks\n- A1 restatement: both ratifications restated as threat+attack-path (R1 §35.5 carve-out; R2 generalize-team-launcher follow-up)\n- HARD STOP → user-tier GREENLIGHT (10:09:49Z)\n- ADA: build commit 3a889dc on arc-60/build (NOT pushed)\n- VERA: PASS — all 6 probes (incl P1 Marianne fresh-clone install smoke-test)\n- CATO: PASS-WITH-NOTES (all dims CLEAN; VERA meta-verified)\n- NOMOS: CONFORMANT on all 6 audit items\n- ZENO: PASS — all 10 spec criteria\n\nDELIVERABLE: commit 3a889dc, 6 files / 5 path-roots. Per-skill split: interactive-html-preview DEPLOYED (SKILL_NAMES +1); decision-surface (DRAFT) + team-launcher held in-repo, out of SKILL_NAMES. SKILL_NAMES = 10 entries, net add = interactive-html-preview only.\n\nUSER-TIER FINAL-HAND-BACK CONDITIONS — all MET:\n✓ authorship unchanged (author: Denson Smith x3; commit Author=denson, not overridden; ADA Co-Authored-By trailer)\n✓ install smoke-test green (VERA P1: dry-run+real exit 0, deploy = exactly the 10)\n✓ gen-data clean (Zod-valid, agents.ts byte-reproducible, npm run build exit 0)\n✓ follow-up ticket filed: stoa--h8w (generalize team-launcher)\n\nTWO ITEMS FOR USER-TIER AWARENESS (neither blocking):\n1. c1 (declined unilateral fix, verify-then-execute): interactive-html-preview/SKILL.md:52 says decision-surface '(forthcoming)'. Defensible for the deployed-consumer audience (decision-surface is held, does NOT deploy). Your call whether to tighten at merge or fold into stoa--h8w / Phase-2.\n2. agents.ts precision (NOMOS, verified by me): the regen also caught up 8 STALE role-body drifts from already-committed substrate source (e.g. PLINY §5.14/.15). SAFE + in-scope: no uncommitted role-source fed gen-data, no role .md in the commit, byte-reproducible. Close-record language: 'agents.ts = 3 new skill objects + 8 stale role-body catch-ups from committed source' (NOT 'zero role-body change').\n\nNOT pushed, NOT merged — user-tier holds close-gate + merge. Autonomous stays PAUSED. STANDING BY. @POLYBIUS_the-stoa floor-manager → @user-tier POLYBIUS.",
+      "timestamp": "2026-06-05T10:38:22Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T10:37:21Z"
+  "updated_at": "2026-06-05T10:38:22Z"
 }
