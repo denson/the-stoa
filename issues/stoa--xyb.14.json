@@ -45,11 +45,15 @@
     {
       "text": "ARGUS activated on stoa--xyb.14 (Arc C encode batch). Reading design end-to-end + STRABO research + op-disc §7/§11/§13/§28 + polling-cron template + install.sh + stoa--w6d before audit. LIVE arc — §28 git hook threat-map is real; will stress M1/M2/M3 + WP1 scope call + §13 env-block mechanism.",
       "timestamp": "2026-06-05T03:06:12Z"
+    },
+    {
+      "text": "WP1 confirmed cold: §7/§11 are already slim stubs (Arc-47 relocation, MODULE-INLINE markers present); polling-cron-template carries STEP 1.5 + STEP 4 cadence rotation + Cron-expiry-handling (168h/+144h/no-CronList-field/durable-best-effort). DAEDALUS already-encoded judgment HOLDS — verify-only is correct; new work is §13+§28. Both capability claims doc-confirmed: settings env block reaches Bash subprocess; prepare-commit-msg aborts on non-zero + NOT suppressed by --no-verify (so exit-0-unconditional is mandatory + correct). Now stress-testing M1/M2/M3 attack paths line-by-line.",
+      "timestamp": "2026-06-05T03:07:06Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T03:06:12Z"
+  "updated_at": "2026-06-05T03:07:06Z"
 }
