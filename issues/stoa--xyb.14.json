@@ -9,9 +9,15 @@
   "id": "stoa--xyb.14",
   "labels": [],
   "parent": "stoa--xyb",
+  "comments": [
+    {
+      "text": "STRABO activated on stoa--xyb.14 (Arc C encode batch). Pre-gate (6.1) confirmed: research directly gates DAEDALUS design — different findings (SessionStart can/cannot env-inject; additionalContext working/broken) produce different mechanisms. Non-trivial. Starting WebSearch pass on current Claude Code hook + cron docs.",
+      "timestamp": "2026-06-05T02:48:10Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-04T23:24:52Z"
+  "updated_at": "2026-06-05T02:48:10Z"
 }
