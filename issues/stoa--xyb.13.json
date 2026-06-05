@@ -23,11 +23,15 @@
     {
       "text": "pass: Arc B design committed ab0410f at agents/design/stoa--xyb.13/design.md. Merge target=§1 (vacated §2/§3/§5 -\u003e no-renumber pointer-stubs; §4 untouched). 12 rules merged (0 dropped, shared framing deduped); 7 trims (lossless); §32 cut-\u003etombstone + 4 inbound refs re-pointed + §0.5 row-\u003eCUT. Top weak point: §32 MODULE-INLINE markers need a 1-grep install.sh subproject-recompose check at build (safe default=keep markers in tombstone). Returning.",
       "timestamp": "2026-06-05T01:11:02Z"
+    },
+    {
+      "text": "ARGUS mid-audit: read real §1/2/3/4/5, §6, §8, §15, §0.5, §24/26/27/31/32/34 cold + install.sh recompose. RESOLVED DAEDALUS wp#1: jsdom-timing IS in OPDISC_MODULES (install.sh:1115) -\u003e Check B (line 1055) HARD-ABORTS subproject deploy if §32 marker dropped. Design case (b) is non-viable; markers-in-tombstone is MANDATORY not optional. Also found: §3.1 CUT targets a §8.3 bidirectional-translation restatement that does NOT exist (principle is at line 29 + §8.2 only). Drafting verdict.",
+      "timestamp": "2026-06-05T01:14:04Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc B: op-disc prose consolidation — four-stance merge + 7 trims + jsdom cut (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T01:11:02Z"
+  "updated_at": "2026-06-05T01:14:04Z"
 }
