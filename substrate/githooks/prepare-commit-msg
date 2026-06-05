@@ -41,12 +41,29 @@ esac
 # 3. Defensive: MSG_FILE must exist + be writable. If not, no-op (fail-open).
 [ -n "$MSG_FILE" ] && [ -f "$MSG_FILE" ] && [ -w "$MSG_FILE" ] || exit 0
 
-# 4. Validate the seat-trailer shape. We ONLY accept a value matching the
+# 4a. Reject any embedded newline / control char BEFORE the shape gate. A value
+#    whose WHOLE string ends in `.local>` but contains an embedded newline would
+#    pass the shape `case` below, then `git interpret-trailers` would SPLIT it
+#    into TWO Co-Authored-By trailers — smuggling a second non-canonical
+#    co-author. The POSIX `[[:cntrl:]]` bracket class inside a `case` pattern
+#    matches a newline as well as any other control char, with no command
+#    substitution (so no trailing-newline-stripping pitfall). If one is present
+#    we take the SAME no-op path the shape gate takes: no trailer added,
+#    fail-open exit 0, commit unaffected.
+case "$STOA_SEAT_TRAILER" in
+  *[[:cntrl:]]*) exit 0 ;;   # newline/control char present -> malformed, no-op, fail-open
+esac
+
+# 4b. Validate the seat-trailer shape. We ONLY accept a value matching the
 #    canonical Co-Authored-By: CAPTAIN_<X>_<slug> <captain-<x>@<slug>.local>
-#    shape. A malformed/injected value is REJECTED (no-op) rather than passed
-#    to interpret-trailers. This is the no-untrusted-input-execution mitigation:
-#    the value is never eval'd, never word-split into a command, only matched +
-#    handed to interpret-trailers as a single --trailer literal.
+#    shape. Values carrying a newline/control char (4a) or whose shape does not
+#    match are REJECTED (no-op) rather than passed to interpret-trailers. This
+#    gate blocks the newline/control-char-smuggle class (4a) and the
+#    shape-mismatch class (metacharacter / multi-line / non-canonical values);
+#    it does NOT and cannot claim to neutralize execution — execution is
+#    prevented separately by never eval'ing the value, never word-splitting it
+#    into a command, only matching it + handing it to interpret-trailers as a
+#    single double-quoted --trailer literal (step 5).
 case "$STOA_SEAT_TRAILER" in
   "Co-Authored-By: "*" <"*".local>") : ;;   # shape OK
   *) exit 0 ;;                                # malformed -> no-op, fail-open
