@@ -410,11 +410,15 @@
     {
       "text": "CONFORMANT: all 6 audit items pass. Ledger-conformance (four-stance merge §1.1-1.4 + §2/§3/§5 stubs + §4 standalone untouched + 7 trims + §32 stub-cut markers-retained) realized in diff. bw-record accuracy: ARGUS r1 (jsdom in OPDISC_MODULES install.sh:1115, Check B exit-2 install.sh:1055) + r2 phantom-§8.3-cut + §32-markers-retained invariant + §4-untouched + +14-lines/-86-words ALL ground-true (independently: numstat +60/-46=+14, words 24251-\u003e24165=-86). Scope: 3 substrate files + design artifact, no .claude/ leak. Verdicts ARGUS REVISE(2 blocking addressed rev2)/VERA PASS/CATO PASS+c1 present+consistent. Probe 5 deploy-safe GROUND-TRUE: real subproject recompose exit 0, jsdom body inlined. Authorship=Denson Smith all 3 commits + seat trailers. No divergence. Returning.",
       "timestamp": "2026-06-05T01:51:06Z"
+    },
+    {
+      "text": "NOMOS verdict SAVED: agents/verdicts/stoa--xyb.13/NOMOS-2026-06-05T01-55-25Z.md (sha256 round-trip verified). verdict: CONFORMANT. All 6 items CONFORMANT, no divergence. One flag for the close-gate (NOT a divergence): ZENO verdict is not yet on disk at agents/verdicts/stoa--xyb.13/ — NOMOS was dispatched before any PLINY hand-back asserting a ZENO PASS; if a hand-back later claims ZENO PASS, re-audit against an on-disk ZENO verdict before close.",
+      "timestamp": "2026-06-05T01:55:31Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-06-05T01:51:06Z"
+  "updated_at": "2026-06-05T01:55:31Z"
 }
