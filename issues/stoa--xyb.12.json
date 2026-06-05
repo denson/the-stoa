@@ -105,11 +105,15 @@
     {
       "text": "pass: c1 de-tautologize landed at 32e0462 on arc-A/build. 1 file (bw-fit-matrix.md), 1 line, single-predicate change ('is the read-side projection' -\u003e 'serves the read side'). No B-anchor / author field touched. Seat trailer present. Returning.",
       "timestamp": "2026-06-05T00:33:19Z"
+    },
+    {
+      "text": "NOMOS activated on Arc A (stoa--xyb.12). Reading orchestrator outputs (engagement/A1 bw comments + arc commits) + ledger + on-branch verdicts to audit against bw+repo ground truth. autonomous mode.",
+      "timestamp": "2026-06-05T00:34:23Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T00:33:19Z"
+  "updated_at": "2026-06-05T00:34:23Z"
 }
