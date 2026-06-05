@@ -38,11 +38,15 @@
     {
       "text": "design pass 1 + repo verification complete. Confirmed: install.sh diff = exactly +interactive-html-preview; 3 skill dirs present; launch-team.ps1 + HUMAN_paste-* live at repo ROOT (not skill subtree) so HOLD justification holds; all 3 frontmatter author=Denson Smith, names match dirs, gray-matter parses decision-surface status line clean; Zod schema non-strict (status key passes); all 3 already in agents.ts. Classifying risks + confirming threat-class next.",
       "timestamp": "2026-06-05T09:56:54Z"
+    },
+    {
+      "text": "PASS-WITH-RATIFICATIONS: 0 load-bearing risks. team-launcher HOLD (a) justification SOUND (launch-team.ps1 + HUMAN_paste-* verified at repo ROOT, deploy unit = skill subtree only -\u003e deploying as-is = inert consumer skill). SKILL_NAMES = 10 entries, +interactive-html-preview is the only net-add (held diff = exactly +1 line). decision-surface/team-launcher genuinely landed-but-unlisted-and-undeployed; Zod non-strict so DRAFT status key passes; all 3 authors=Denson Smith (gray-matter-verified). Threat-class not-threat-ratified CONFIRMED (SS35.5 carve-out). 3 non-load-bearing notes: r1 off-by-one in SS2.4 prose (says '11 entries'/'10 pre-existing'; actual=10 total / 9 pre-existing; printed array + probes are CORRECT, install.sh unaffected); r2 team-launcher documents --dangerously-skip-permissions but held-out, no new attack path; r3 hold leaves un-generalized skill, mitigation=follow-up ticket. 2 ratifications for A1 restate: (1) not-threat-ratified carve-out; (2) generalize-team-launcher follow-up ticket is a REQUIRED arc deliverable filed before hand-back. Verdict @ agents/verdicts/stoa--rdh/ARGUS-2026-06-05T09-58-21Z.md. Returning to PLINY for HARD STOP.",
+      "timestamp": "2026-06-05T09:58:33Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T09:56:54Z"
+  "updated_at": "2026-06-05T09:58:33Z"
 }
