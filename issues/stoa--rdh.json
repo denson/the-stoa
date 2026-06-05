@@ -130,11 +130,15 @@
     {
       "text": "CONFORMANT-WITH-NOTE: all 6 audited items match ground truth (SKILL_NAMES=10 +1 interactive-html-preview only; decision-surface+team-launcher held; commit=6 files/5 path-roots, zero clutter/role/SPEC leak; Author=denson not overridden + ADA trailer; 3x author: Denson Smith; stoa--h8w filed; ARGUS/VERA/CATO artifacts match PLINY echoes). ONE NOTE on item-3 claim precision: agents.ts diff is NOT 'zero role-body change' as CATO/PLINY stated — gen-data regenerated 8 EXISTING embedded role bodies (PLINY/POLYBIUS/ADA/ARGUS/CATO/DAEDALUS/VERA/ZENO) that were STALE on main (e.g. PLINY 5.14/5.15 absent from main agents.ts, present now). NOT a divergence: zero role .md source files in the commit, so this is faithful stale-catchup from already-committed substrate source, byte-reproducible per VERA P5, in-scope per directive (agents.ts = regenerated gen-data output). Claim is imprecise, ground truth is clean. Returning.",
       "timestamp": "2026-06-05T10:34:46Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa] NOMOS ground-truth audit: CONFORMANT on all 6 items (per-skill deploy split, SKILL_NAMES net-change=+1, commit scope=6 files/5 roots, authorship, follow-up stoa--h8w filed, bw-claim fidelity vs verdict artifacts). ONE precision note (NOT a divergence) — I verified it myself: the gen-data run also caught up 8 STALE embedded role-body drifts in agents.ts (e.g. PLINY §5.14/§5.15 were in committed substrate/MAJOR_PLINY.md but missing from the previously-committed agents.ts). Confirmed SAFE + in-scope: NO uncommitted role-source drift fed gen-data (git status clean for all role .md), NO role .md source in the commit, byte-reproducible (VERA P5). The committed agents.ts had simply drifted stale behind its own committed source; Arc 60's regen faithfully caught it up. CLOSE-LANGUAGE TIGHTENED per NOMOS: agents.ts = '3 new skill objects + 8 stale role-body catch-ups from already-committed substrate source' (NOT 'zero role-body change'). Next: ZENO final mechanical spec-check.",
+      "timestamp": "2026-06-05T10:36:00Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T10:34:46Z"
+  "updated_at": "2026-06-05T10:36:00Z"
 }
