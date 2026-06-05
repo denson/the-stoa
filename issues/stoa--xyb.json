@@ -402,11 +402,15 @@
     {
       "text": "NOMOS activated on stoa--xyb.13 (Arc B op-disc consolidation). Reading the build to audit (arc-B/build @1613c40 vs baseline 1cb9160), the ledger Arc B section, PLINY's bw claims + the gauntlet verdicts. Six audit items: ledger conformance / bw-record accuracy / scope / verdict presence+consistency / subproject-deploy invariant / authorship. Beginning probes.",
       "timestamp": "2026-06-05T01:48:48Z"
+    },
+    {
+      "text": "NOMOS progress: probes 1/3/5 done. Ledger-conformance: four-stance merge realized as §1 sub-stances 1.1-1.4 + §2/§3/§5 pointer-stubs (no-renumber), §4 standalone untouched, 7 trims present, §32 stub-prose cut w/ MODULE-INLINE markers RETAINED. Scope: exactly 3 substrate files + 1 design artifact, no .claude/ leak. Probe 5 GROUND-TRUE: real subproject recompose exits 0, jsdom module body inlines at §32 marker (independently run, not asserted). Now: authorship + verdict presence/consistency + bw-record figures.",
+      "timestamp": "2026-06-05T01:50:11Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-06-05T01:48:48Z"
+  "updated_at": "2026-06-05T01:50:11Z"
 }
