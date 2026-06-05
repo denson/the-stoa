@@ -65,11 +65,15 @@
     {
       "text": "Artifacts built + grounded: settings-env-block.json (verbatim §2 JSON), githooks/prepare-commit-msg (char-for-char from design §2, LF-clean, +x, sh -n OK), githooks/README.md + .gitattributes(eol=lf). Next: wiring install.sh (5e env-block behind --enable-env-block DEFAULT-OFF; 5f git-hook candidate-deploy NO-auto-arm) + slimming op-disc §13/§28.1 stubs (§28.5 verbatim, §7/§11 untouched).",
       "timestamp": "2026-06-05T03:15:18Z"
+    },
+    {
+      "text": "install.sh wired + build-checked: bash -n OK; synthetic project-tier dry-run shows both mechanisms DEFAULT-OFF; --enable-env-block writes project-tier-no-existing settings.json + idempotent re-run no-ops; git-hook deploys as INERT candidate (exec bit + LF + README + .gitattributes), NEVER armed into .git/hooks/. Now slimming op-disc §13 + §28.1 stubs (§28.5 verbatim, §7/§11 untouched).",
+      "timestamp": "2026-06-05T03:18:04Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T03:15:18Z"
+  "updated_at": "2026-06-05T03:18:04Z"
 }
