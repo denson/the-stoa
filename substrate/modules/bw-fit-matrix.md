@@ -24,7 +24,7 @@ The wall: bw's `TreeFS.Commit` rewrites the entire tree on every commit (no incr
 
 ### 16.2 The layered-architecture framing
 
-**bw is the write-side substrate; an optional read-side projection add-on (hybrid search + KG) is the read-side projection; hypergraph extends the projection to relational reads.** Each layer addresses a different read shape; do not force bw to be fast at reads — that is not its job in the stack.
+**bw is the write-side substrate; an optional read-side projection add-on (hybrid search + KG) serves the read side; hypergraph extends the projection to relational reads.** Each layer addresses a different read shape; do not force bw to be fast at reads — that is not its job in the stack.
 
 Concretely:
 
