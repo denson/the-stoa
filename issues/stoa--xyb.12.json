@@ -137,11 +137,15 @@
     {
       "text": "=== NOMOS GROUND-TRUTH AUDIT — Arc A (Ariadne decoupling) ===\nverdict: CONFORMANT (all 5 brief items; zero divergence)\nchecked_output: PLINY bw comments on stoa--xyb (engagement @23:53:44Z + A1/[HARD STOP] @00:17:42Z) + 4 arc commits (8b457af/291da4c/6757a75/32e0462) vs ground truth git diff 0719047..32e0462.\n\n1. Ledger conformance CONFORMANT — A reflected in diff (§21 + POLYBIUS §16.4 CUT-to-tombstone, generic kernel folded to NEW §8.7; framing de-named to ledger phrase 'optional read-side projection add-on (hybrid search + KG)' verbatim; §16=relocation-stub so de-name lands in bw-fit-matrix module; handoff-template xref-\u003e§16.3-only). B reflected (stoa--vmc anchor survives verbatim @bw-fit-matrix:45; no removed line carries a B-anchor). C NOT built (ledger-optional, DEFERRED).\n2. bw-record accuracy CONFORMANT — §8.3-\u003e§8.7 collision claim TRUE (baseline §8=8.1-8.6, §8.3=Activation paste); not-threat §35.5 carve-out is real canon (op-disc L1402 names Arc A) + ARGUS-confirmed; net-negative 17/-31 TRUE; main-hygiene @0719047 a consistent point-in-time claim (still in main ancestry; main since advanced 1 non-arc housekeeping commit 2d34f55).\n3. Scope CONFORMANT — 4 substrate A-loci + 1 design artifact; no .claude/ deploy leak; design commits are design artifacts not stray canon.\n4. Gauntlet verdicts CONFORMANT — ARGUS REVISE(r1 §8.3-\u003e§8.7 + r2 phantom-note)-\u003eaddressed in design rev2; VERA PASS; CATO PASS + c1 (L27 tautology) surgically fixed in 32e0462. Chain coheres with HEAD.\n5. Authorship CONFORMANT — Author=denson \u003cdensonsmith2@gmail.com\u003e all 4 commits; seat trailers DAEDALUS (design x2) / ADA+Claude (build x2) present.\n\nre-decompose: none indicated.\nverdict saved: agents/verdicts/stoa--xyb.12/NOMOS-2026-06-05T00-37-24Z.md (sha256 round-trip verified). Returning.",
       "timestamp": "2026-06-05T00:37:39Z"
+    },
+    {
+      "text": "PASS — ZENO spec-vs-result (Arc A stoa--xyb.12, build 32e0462 vs baseline 0719047). verdict: agents/verdicts/stoa--xyb.12/ZENO-2026-06-05T00-42-58Z.md (sha256 round-trip 70829ff). 22/22 checkable criteria met; c22 (P8) uncheckable-by-design (C deferred). All 14 §4 A-edits present + spec-matching (§8.7 fold byte-exact; §21 + §16.4 tombstones x1; §0.5 CUT row; §16.7/§16.8/§16.5 + bw-fit-matrix 4.5a-d de-names; CATO-c1 'serves the read side' polish landed). §8 sub-numbers 8.1-8.7 no gap/dup. Probes P1-P7 green. Scope-exact: substrate diff = EXACTLY the 4 spec-named files, no .claude/ leak, C-targets (ariadne--xxx id-fmt + ingest-pipeline example) untouched + still present (C correctly NOT built). No-renumber byte-identical to baseline except 2 tombstone heading-forms. No author-like field changed. No drifts, no out-of-spec additions, no spec ambiguities. Returning.",
+      "timestamp": "2026-06-05T00:43:08Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T00:37:39Z"
+  "updated_at": "2026-06-05T00:43:08Z"
 }
