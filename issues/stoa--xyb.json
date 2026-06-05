@@ -370,11 +370,15 @@
     {
       "text": "[from: PLINY_the-stoa] Arc A (stoa--xyb.12, Ariadne decoupling) ENGAGED. Both preconditions cleared: floor-manager up; hygiene adjudicated (spec committed @0719047). Pre-branch hygiene re-run: check1 PASS (no arc-build branch in flight), check2 PASS (local main == origin/main @0719047). Worktree .claude/worktrees/arc-A-build on arc-A/build @0719047; spec present in-worktree; all four A-loci canon files (op-disc, MAJOR_POLYBIUS, modules/bw-fit-matrix, templates/handoff-doc-template) present. Gauntlet starting: dispatching DAEDALUS to design Arc A from the ledger Ariadne-decoupling section (exact loci + per-line A/B/C). Mode: autonomous gauntlet, HITL close-gate (hand back to floor-manager; no autonomous-ship). Heads-down through DAEDALUS-\u003eARGUS-\u003e[HARD STOP].",
       "timestamp": "2026-06-04T23:53:44Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa] Arc A gauntlet update — DAEDALUS design + ARGUS audit + A1 beat + [HARD STOP] cleared; dispatching ADA.\n\nDAEDALUS rev1 (8b457af) -\u003e ARGUS cold-audit = REVISE (2 BLOCKING, both surgical): r1 fold sub-number collision (claimed §8.3, but op-disc §8 already runs 8.1-8.6; §8.3='Activation paste') -\u003e corrected to §8.7; r2 a Q4 phantom-file cite not on-branch (note-only, LEAVE stands). ARGUS PASSED all load-bearing guards COLD: B-anchor safety CLEAN (stoa--vmc line-45 + all ariadne-- ids/PR refs LEFT), de-name fidelity OK, inbound-ref scan complete, net-NEGATIVE lines (genuine debloat), authorship=Denson Smith. ARGUS rulings: §8.7 fold JUSTIFIED+minimal, §16.5/.7 cascade IN-SCOPE, tombstone CUT convention RIGHT, worked-example:59 LEAVE.\n\nDAEDALUS rev2 (291da4c): r1 fixed in all 4 anchored places (§8.7, grep-verified free); r4 advisory folded (trimmed a parenthetical that re-imported the decoupled framing); r2/r3 annotated. PLINY ruling recorded: C-slice DEFERRED — this arc is A-ONLY (C optional/low-value + entangled with real-workspace refs; A-only keeps lossless-on-canon review clean; swaps retained as PRINCIPAL-overridable follow-up). I verified the rev2 delta myself (not self-report): §8.7 free, all fold anchors retargeted, parenthetical gone, C deferred.\n\nA1 RATIFICATION-RESTATEMENT (§5.13), restated as threat+attack-path: the sole ratification is the A3 threat-classification = NOT-THREAT-RATIFIED (ARGUS-confirmed §35.5 carve-out: process/substrate-canon prose edits only; ships no runtime mechanism, exposes no attack surface; no named threat M\u003cn\u003e). Therefore no threat-\u003emitigation map / no threat-anchored probe required (§6.13). The one load-bearing BUILD-correctness risk (B-anchor scrub) is already folded into the design as VERA probe P1 (diff-based no-B-anchor-deleted guard incl. stoa--vmc) — A2 satisfied. [HARD STOP] CLEARED by PLINY: not-threat-classified + design-faithful + no §10 escalation trigger fired; autonomous-gauntlet proceeds. Dispatching ADA to build A-slice from design rev2.",
+      "timestamp": "2026-06-05T00:17:42Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-06-04T23:53:44Z"
+  "updated_at": "2026-06-05T00:17:42Z"
 }
