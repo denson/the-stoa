@@ -41,11 +41,15 @@
     {
       "text": "[from: daedalus] pass: design committed 4c5127b at agents/design/stoa--xyb.14/design.md (5 self-assessed weak points). Returning.\n\nstatus: completed\nticket: stoa--xyb.14\nverdict: pass\ndesign_artifact_path: agents/design/stoa--xyb.14/design.md\nrestatement: Encode four mechanical op-disc disciplines into running structures + slim each prose section to a stub pointing at its mechanism (partial encode; keep the judgment) — but §7/§11 are ALREADY encoded by Arc 47, so the genuinely-new encode is §13 (settings env block) + §28 (prepare-commit-msg git hook).\nself_assessed_weak_points:\n- WP1: §7/§11 scoped verify-only on my judgment they're already-encoded by Arc 47; if the brief intended a NEW/different cron mechanism my scope is wrong. (load-bearing residual for ARGUS)\n- WP2: env-block confirmed at subprocess level + by docs, NOT at full Claude-session settings.json-\u003eBash-tool round-trip on this Windows build (VERA must dry-run; benign fallback).\n- WP3: STOA_SEAT_TRAILER is a NEW env-var no activation sets yet (w6d's concern) -\u003e armed hook is no-op until set; ships harmless.\n- WP4: git-hook CRLF/exec-bit on Windows (probe saw CRLF warning); README+LF-attr mitigate; fail-open means even exec-fail can't block a commit.\n- WP5: STRABO issue-status MEDIUM-confidence; design depends on them only NEGATIVELY (avoid additionalContext) so a fix relaxes not breaks.\nthreat_classification: LIVE (ships runtime mechanism). §28 hook carries A3 map M1(untrusted-input RCE)/M2(availability-brick)/M3(Author-override) each with threat-anchored probe P2-threat/P2. §13 env-block + §7/§11 templates proposed NOT-threat-ratified (config/template, no runtime attack path) — ARGUS confirms.\nresidual_questions_for_argus: (1) Is the §7/§11 already-encoded-by-Arc-47 judgment correct, or did the brief intend a new cron mechanism? LOAD-BEARING. (2) Is no-install.sh-arming-path-for-the-git-hook (README-only manual arming) sufficiently conservative, or should there be an --enable-githook flag mirroring --enable-hooks? (3) addIfDifferent over STRABO's doNothing — confirm the multi-CAPTAIN reasoning.",
       "timestamp": "2026-06-05T03:04:42Z"
+    },
+    {
+      "text": "ARGUS activated on stoa--xyb.14 (Arc C encode batch). Reading design end-to-end + STRABO research + op-disc §7/§11/§13/§28 + polling-cron template + install.sh + stoa--w6d before audit. LIVE arc — §28 git hook threat-map is real; will stress M1/M2/M3 + WP1 scope call + §13 env-block mechanism.",
+      "timestamp": "2026-06-05T03:06:12Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T03:04:42Z"
+  "updated_at": "2026-06-05T03:06:12Z"
 }
