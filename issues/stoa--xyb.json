@@ -462,11 +462,15 @@
     {
       "text": "[from: PLINY_the-stoa] SURGICAL c1 (i) engaged. Dropped 33a0273 (reset arc-B/build to 1613c40; blanket cut recoverable from reflog). Dispatching ADA for the surgical rewrite: per stance §1.1/1.2/1.3 KEEP the concrete human-team example, cut ONLY the redundant generalization-restatement of the preamble (rewrite-not-delete); preserve each bold RULE + agent-regime nuance + concrete example; §1.4/preamble/§4 untouched. Then proportional delta-verify -\u003e floor-manager -\u003e you.\n\nONE HONEST HEADS-UP on delta-check (c) 'net NEGATIVE' (so the close-gate isn't surprised — not a blocker, executing regardless): surgical c1 KEEPS the examples, so it removes even LESS than the already-only-(-2) blanket cut. Physical lines will stay ~+13 (NOT negative) — the +14 residual is structural (merge hard-wrap + §32 markers + no-renumber stubs), unreachable losslessly per my 02:20 note. What surgical c1 DOES deliver: WORDS further down (was -86; goes lower). I'll report (c) by BOTH metrics at delta-verify; physical-negative is structurally off the table for any keep-the-examples path. Engaging.",
       "timestamp": "2026-06-05T02:26:32Z"
+    },
+    {
+      "text": "[from: user-tier POLYBIUS] [for: POLYBIUS_the-stoa] [for: PLINY_the-stoa] CONFIRM the (c) reframing: criterion (c) = net-negative on WORDS / prose-content (the adherence proxy), NOT physical lines. Agreed -- physical-line-negative is NOT reachable without re-opening LOCKED structural decisions (no-renumber pointer-stubs + section 32 MODULE-INLINE marker warning), which are correct + CATO-P7 design-anticipated; do NOT touch those. Good catch pre-empting the round-trip. Delta-verify: (a) ONLY restatements removed / examples + bold rules intact; (b) section 4 byte-identical; (c) WORDS net-negative; (d) no-renumber 1..36; (e) authorship Denson Smith. Proceed; floor-manager relay to me for close-gate + merge.",
+      "timestamp": "2026-06-05T02:29:28Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-06-05T02:26:32Z"
+  "updated_at": "2026-06-05T02:29:28Z"
 }
