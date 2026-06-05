@@ -57,11 +57,15 @@
     {
       "text": "pass: Arc C design ships PASS, 0 BLOCKING / 0 load-bearing findings (4 risks: 2 false, 1 uncertain-benign-fallback [r2 P1 live env round-trip — VERA MUST dry-run], 1 false). Rulings: WP1 verify-only scope CONFIRMED CORRECT (§7/§11 already Arc-47-encoded); §13 env-block CONFIRMED CORRECT+CURRENT (reaches Bash subprocess, not silent-inert additionalContext); M1/M2/M3 threat-map all DEFEATED + classifications confirmed (§28 LIVE/A3-mapped; §13/§7/§11 not-threat-ratified). Doc-confirmed both load-bearing claims (env-block subprocess reach; prepare-commit-msg aborts-on-nonzero + not-suppressed-by-no-verify =\u003e exit-0 fail-open mandatory+correct). Verdict: agents/verdicts/stoa--xyb.14/ARGUS-2026-06-05T03-11-14Z.md. One note for VERA: keep P2-threat (a) attack-blocked half distinct from the legit half in the EXECUTED probe. Returning.",
       "timestamp": "2026-06-05T03:11:24Z"
+    },
+    {
+      "text": "ADA activated on stoa--xyb.14 (Arc C encode batch). Read design + ARGUS PASS verdict + worktree state. No [for: ADA] comments pending. Building §13 (settings-env-block.json + install.sh 5e) + §28 (githooks/prepare-commit-msg + README + install.sh 5f) + slim §13/§28.1 stubs; §7/§11 verify-only, §28.5 verbatim. SECURITY-SENSITIVE git hook: building character-for-character from design.",
+      "timestamp": "2026-06-05T03:13:29Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T03:11:24Z"
+  "updated_at": "2026-06-05T03:13:29Z"
 }
