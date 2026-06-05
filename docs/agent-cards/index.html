@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Stoa Team</title>
+<meta name="description" content="Meet the Stoa team — each agent named for a real figure from history or myth. The namesake tells you what the agent does.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Your Stoa Team">
+<meta property="og:description" content="Each agent is named for a real figure from history or myth — the namesake is the memory hook for what they do.">
+<meta property="og:url" content="https://denson.github.io/the-stoa/agent-cards/">
+<style>
+  :root{
+    --bg:#14110d; --bg2:#1c1813; --panel:#221d16; --panel2:#2a241b;
+    --line:#3a3024; --gold:#c9a25a; --gold-bright:#e6c886; --ink:#ece3d2; --muted:#a89a82;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(120% 80% at 50% -10%,#221d15 0%,var(--bg) 60%);color:var(--ink);
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:1180px;margin:0 auto;padding:2.4rem 1.4rem 4rem}
+  header{text-align:center;margin-bottom:2rem}
+  .eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700}
+  h1{font-size:2.5rem;margin:.5rem 0 .4rem;color:#fff;letter-spacing:.01em}
+  .lead{max-width:640px;margin:0 auto;color:var(--muted)}
+  .toggle{display:inline-flex;margin-top:1.3rem;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--panel)}
+  .toggle button{appearance:none;border:0;background:transparent;color:var(--muted);font:inherit;font-weight:600;
+    padding:.5rem 1.3rem;cursor:pointer;letter-spacing:.04em}
+  .toggle button.active{background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#1a1409}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.2rem;margin-top:1.6rem}
+  .card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:12px;
+    overflow:hidden;cursor:pointer;transition:transform .12s ease,border-color .12s ease,box-shadow .12s ease;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 10px 30px rgba(0,0,0,.5)}
+  .face{position:relative;aspect-ratio:3/4;background:#0e0b07;overflow:hidden}
+  .face img{width:100%;height:100%;object-fit:cover;object-position:86% 28%;display:block}
+  .face.ph{display:flex;align-items:center;justify-content:center;color:var(--line)}
+  .face.ph::after{content:"⛒";font-size:3rem}
+  .face .pill{position:absolute;top:.55rem;left:.55rem;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;
+    font-weight:700;padding:.18rem .5rem;border-radius:999px;background:rgba(20,16,10,.78);color:var(--gold);border:1px solid var(--line)}
+  .face .soon{position:absolute;bottom:.5rem;left:0;right:0;text-align:center;font-size:.7rem;color:var(--muted)}
+  .meta{padding:.8rem .9rem 1rem}
+  .name{font-weight:800;letter-spacing:.06em;color:var(--gold-bright);font-size:1.02rem}
+  .role{color:#fff;font-weight:600;font-size:.92rem;margin-top:.05rem}
+  .who{color:var(--muted);font-size:.8rem;margin-top:.25rem}
+  .hook{color:var(--ink);font-size:.86rem;margin-top:.5rem;opacity:.92}
+  /* modal */
+  .modal{position:fixed;inset:0;background:rgba(8,6,4,.86);backdrop-filter:blur(3px);z-index:30;
+    display:flex;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow:auto}
+  .modal[hidden]{display:none}
+  .sheet{max-width:900px;width:100%;background:linear-gradient(180deg,var(--panel2),var(--panel));
+    border:1px solid var(--gold);border-radius:14px;padding:1.6rem;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+  .x{float:right;border:0;background:transparent;color:var(--muted);font-size:1.6rem;cursor:pointer;line-height:1}
+  .m-name{font-size:1.9rem;font-weight:800;color:var(--gold-bright);letter-spacing:.05em}
+  .m-role{color:#fff;font-weight:600;margin:.1rem 0 .1rem}
+  .m-hook{color:var(--gold);font-style:italic;margin-bottom:1rem}
+  .m-img{width:100%;border-radius:10px;border:1px solid var(--line);background:#0e0b07;display:block;margin:.7rem 0}
+  .m-img.ph{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;color:var(--line)}
+  .m-img.ph::after{content:"image in progress";font-size:.9rem;color:var(--muted)}
+  .m-toggle{display:inline-flex;margin:.2rem 0 .4rem;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--bg)}
+  .m-toggle button{appearance:none;border:0;background:transparent;color:var(--muted);font:inherit;font-weight:600;padding:.35rem 1rem;cursor:pointer}
+  .m-toggle button.active{background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#1a1409}
+  .m-block h3{color:var(--gold);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;margin:1.2rem 0 .35rem}
+  .m-block p{margin:.2rem 0}
+  .m-who{color:var(--muted)}
+  footer{margin-top:3rem;text-align:center;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);padding-top:1.3rem}
+  a{color:var(--gold-bright)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">The Stoa</div>
+    <h1>Meet your team</h1>
+    <p class="lead">Every seat is named for a real figure from history or myth — the namesake is the memory hook for what the agent does. Tap a card for the full story. Toggle between their ancient and future selves.</p>
+    <div class="toggle" id="look-toggle">
+      <button data-look="period" class="active">Ancient</button>
+      <button data-look="future">Future</button>
+    </div>
+  </header>
+  <main class="grid" id="grid"></main>
+  <footer>
+    The Stoa is an open-source (MIT) agent architecture by <a href="https://github.com/denson/the-stoa">Denson Smith</a>,
+    built on <a href="https://github.com/jallum/beadwork">beadwork</a> (jallum). Character art generated per-agent.
+  </footer>
+</div>
+
+<div class="modal" id="modal" hidden>
+  <div class="sheet" id="sheet"></div>
+</div>
+
+<script>
+const AGENTS = [
+  {id:"polybius",name:"POLYBIUS",tier:"Major",major:true,role:"Chief of Staff",figure:"Polybius",dates:"c. 200–118 BC",
+   hook:"Keeps the record; sees the whole board.",
+   history:"Greek statesman and historian. His Histories traced Rome's rise with rigorous, source-checked “pragmatic history” — go to the evidence, verify, analyze cause and effect.",
+   job:"The seat you actually talk to. Holds the team's memory across sessions and keeps the big picture."},
+  {id:"pliny",name:"PLINY",tier:"Major",major:true,role:"Orchestrator",figure:"Pliny the Elder",dates:"AD 23–79",
+   hook:"Organizes everything; directs the team.",
+   history:"Roman author, naturalist, and naval commander. His Naturalis Historia was the first encyclopedia; he died leading a rescue fleet toward erupting Vesuvius.",
+   job:"Drives the work — dispatches the specialists and runs the review gauntlet."},
+  {id:"daedalus",name:"DAEDALUS",tier:"Captain",role:"Architect",figure:"Daedalus",dates:"Greek myth",
+   hook:"Designs the plan before anyone builds.",
+   history:"The master craftsman-inventor of Greek myth — built the Labyrinth and the wax-and-feather wings.",
+   job:"Turns a vague request into a concrete, buildable design."},
+  {id:"argus",name:"ARGUS",tier:"Captain",role:"Plan-Critic",figure:"Argus Panoptes",dates:"Greek myth",
+   hook:"The hundred eyes that catch every flaw.",
+   history:"Argus Panoptes, the hundred-eyed giant of Greek myth — the ever-watchful guardian who never fully sleeps.",
+   job:"Cold-audits the design and surfaces the risks — without proposing the fix, so the critique stays honest."},
+  {id:"ada",name:"ADA",tier:"Captain",role:"Executor",figure:"Ada Lovelace",dates:"1815–1852",
+   hook:"Writes the actual working code.",
+   history:"English mathematician — wrote the first published algorithm for Babbage's Analytical Engine, making her the first computer programmer.",
+   job:"Takes the approved design and produces the real change."},
+  {id:"vera",name:"VERA",tier:"Captain",role:"Verifier",figure:"Veritas",dates:"Roman goddess of truth",
+   hook:"Confirms what's actually true.",
+   history:"Vera — for veritas, truth. Veritas, the Roman goddess of truth, daughter of Saturn (Time), said to hide at the bottom of a well; depicted holding a mirror.",
+   job:"Designs and runs the tests that try to falsify the work — and reports what actually held."},
+  {id:"cato",name:"CATO",tier:"Captain",role:"Reviewer",figure:"Cato the Elder",dates:"234–149 BC",
+   hook:"Reviews the diff without mercy.",
+   history:"Roman senator and Censor — a byword for stern integrity and rigorous public scrutiny.",
+   job:"Cold-reads the change for craft, hygiene, security, and scope."},
+  {id:"nomos",name:"NOMOS",tier:"Captain",role:"Ground-Truth Auditor",figure:"Nomos",dates:"Greek personification of law",
+   hook:"Checks the claim against the ground truth.",
+   history:"Nomos, the Greek personification of law and custom — the divine authority of order against which conduct is measured.",
+   job:"Audits an output against the real record — conformant, divergent, or unverifiable."},
+  {id:"strabo",name:"STRABO",tier:"Captain",role:"Scout",figure:"Strabo",dates:"c. 64 BC – AD 24",
+   hook:"Goes out and brings back the lay of the land.",
+   history:"Greek geographer and historian — his Geographica mapped the known world.",
+   job:"External research — investigates current third-party constraints and brings back a cited brief."},
+  {id:"bartleby",name:"BARTLEBY",tier:"Captain",role:"File-Clerk",figure:"Bartleby the Scrivener",dates:"Melville, 1853",
+   hook:"Finds the exact line, returns the citation.",
+   history:"Title character of Herman Melville's 1853 story — a Wall Street copyist of meticulous, withdrawn precision (“I would prefer not to”).",
+   job:"Internal repo recon — returns focused file:line citations, no interpretation."},
+  {id:"herald",name:"HERALD",tier:"Captain",role:"Intake",figure:"The Herald (kēryx)",dates:"Ancient office",
+   hook:"Turns a vague ask into a clean brief.",
+   history:"The herald (kēryx) of the ancient world — the protected messenger who received, announced, and framed proclamations between parties.",
+   job:"Drafts a structured brief from a fuzzy request, naming the ambiguities."},
+  {id:"curator",name:"CURATOR",tier:"Captain",role:"Synthesist",figure:"The Curator",dates:"Roman office",
+   hook:"Weaves scattered work into one picture.",
+   history:"The Roman curator — an appointed overseer and custodian of archives, public works, and knowledge, keeping things ordered and whole.",
+   job:"Cross-ticket synthesis and retrospectives that span many landed pieces."},
+  {id:"zeno",name:"ZENO",tier:"Captain",role:"Spec-Checker",figure:"Zeno of Elea",dates:"c. 490–430 BC",
+   hook:"Checks the result against the spec, exactly.",
+   history:"Pre-Socratic philosopher — devised the paradoxes (Achilles and the tortoise) that relentlessly probed the logic of motion and infinity.",
+   job:"A late, mechanical spec-vs-result check — edge case by edge case."},
+  {id:"tiro",name:"TIRO",tier:"Captain",role:"Substrate Keeper",figure:"Marcus Tullius Tiro",dates:"c. 103–4 BC",
+   hook:"Keeps the durable memory intact.",
+   history:"Cicero's secretary and freedman — invented Tironian shorthand to capture speech verbatim, and preserved the record.",
+   job:"The beadwork substrate specialist — reads and advises on the team's durable memory store."},
+];
+
+const imgPath=(a,look,sheet)=>`images/${a.id}/${look}-${sheet}.png`;
+let look="period";
+const grid=document.getElementById("grid");
+
+function cardFace(a){
+  const f=document.createElement("div"); f.className="face";
+  const img=new Image(); img.alt=a.name;
+  img.src=imgPath(a,look,"turnaround");
+  img.onerror=()=>{ f.classList.add("ph"); img.remove();
+    const s=document.createElement("div"); s.className="soon"; s.textContent="art in progress"; f.appendChild(s); };
+  f.appendChild(img);
+  const pill=document.createElement("div"); pill.className="pill"; pill.textContent=a.tier; f.appendChild(pill);
+  return f;
+}
+function render(){
+  grid.innerHTML="";
+  AGENTS.forEach(a=>{
+    const c=document.createElement("div"); c.className="card"; c.onclick=()=>openModal(a);
+    c.appendChild(cardFace(a));
+    const m=document.createElement("div"); m.className="meta";
+    m.innerHTML=`<div class="name">${a.name}</div><div class="role">${a.role}</div>`+
+      `<div class="who">${a.figure} · ${a.dates}</div><div class="hook">${a.hook}</div>`;
+    c.appendChild(m); grid.appendChild(c);
+  });
+}
+
+const modal=document.getElementById("modal"), sheet=document.getElementById("sheet");
+function bigImg(a,lk,sh){
+  const img=new Image(); img.className="m-img"; img.alt=`${a.name} ${lk} ${sh}`;
+  img.src=imgPath(a,lk,sh);
+  img.onerror=()=>{ const d=document.createElement("div"); d.className="m-img ph"; img.replaceWith(d); };
+  return img;
+}
+function openModal(a){
+  let mlook="period";
+  function draw(){
+    sheet.innerHTML="";
+    sheet.insertAdjacentHTML("beforeend",
+      `<button class="x" aria-label="close">×</button>
+       <div class="m-name">${a.name}</div>
+       <div class="m-role">${a.role} · <span class="m-who">${a.figure}, ${a.dates}</span></div>
+       <div class="m-hook">${a.hook}</div>
+       <div class="m-toggle"><button data-l="period">Ancient</button><button data-l="future">Future</button></div>`);
+    const imgs=document.createElement("div");
+    imgs.appendChild(bigImg(a,mlook,"turnaround"));
+    if(a.major) imgs.appendChild(bigImg(a,mlook,"expressions"));
+    sheet.appendChild(imgs);
+    sheet.insertAdjacentHTML("beforeend",
+      `<div class="m-block"><h3>Why this name</h3><p>${a.history}</p></div>
+       <div class="m-block"><h3>What they do on your team</h3><p>${a.job}</p></div>`);
+    sheet.querySelector(".x").onclick=closeModal;
+    sheet.querySelectorAll(".m-toggle button").forEach(b=>{
+      b.classList.toggle("active",b.dataset.l===mlook);
+      b.onclick=()=>{mlook=b.dataset.l;draw();};
+    });
+  }
+  draw(); modal.hidden=false; document.body.style.overflow="hidden";
+}
+function closeModal(){modal.hidden=true; document.body.style.overflow="";}
+modal.onclick=e=>{ if(e.target===modal) closeModal(); };
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeModal(); });
+
+document.getElementById("look-toggle").querySelectorAll("button").forEach(b=>{
+  b.onclick=()=>{ look=b.dataset.look;
+    document.querySelectorAll("#look-toggle button").forEach(x=>x.classList.toggle("active",x===b));
+    render(); };
+});
+render();
+</script>
+</body>
+</html>
