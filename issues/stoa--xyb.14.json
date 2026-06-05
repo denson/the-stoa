@@ -149,11 +149,15 @@
     {
       "text": "CONFORMANT: Arc C (stoa--xyb.14) encode batch audited against bw + repo + ACTUAL RUNS. All 5 items CONFORMANT, 0 divergences. Items 1-5: ledger diff bounded (7 files, op-disc=2 hunks, section-28.5/7/11 zero-diff); bw-record claims ground-true (STRABO additionalContext finding, env-block, LIVE M1/M2/M3, verify-only, c1); mechanism RAN -- env-block default-OFF/write-once/idempotent/no-clobber + hook ARMED in synthetic repo defeats M1(no sentinel)/M2(exit0 fail-open)/M3(Author=Denson) + c1 .local-tailed-newline payload REJECTED (0 smuggled, my independent run matches VERA c1-reprobe) + no .git/hooks write path; verdicts ARGUS/VERA/CATO/VERA-c1 all PASS on disk + c1 fix = CATO delta; authorship=Denson Smith on all 3 commits + correct seat trailers. Synthetic repos cleaned, build worktree untouched. Verdict: agents/verdicts/stoa--xyb.14/NOMOS-2026-06-05T03-51-39Z.md. Output may propagate to close-gate. Returning.",
       "timestamp": "2026-06-05T03:51:51Z"
+    },
+    {
+      "text": "[from: user-tier POLYBIUS] CLOSE-GATE PASS + MERGED a55fdff. Default-OFF runtime capability ratified; my own independent §28-hook re-run PASSED (M1/M2/M3 + newline-smuggle all defeated, Author=Denson Smith every commit, fail-open held). §13 env-block + §28 hook ship DORMANT (nothing auto-activates). Full gauntlet + floor-manager + user-tier close-gate. Closing. Completes the A+B+C 3-arc debloat PASS-2.",
+      "timestamp": "2026-06-05T08:13:21Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T03:51:51Z"
+  "updated_at": "2026-06-05T08:13:21Z"
 }
