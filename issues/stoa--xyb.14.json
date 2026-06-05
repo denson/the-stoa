@@ -25,11 +25,15 @@
     {
       "text": "pass: research complete, 5/5 claims answered, ~10 citations (8 primary docs+issues, 1 secondary pattern). Confidence HIGH on doc facts, MEDIUM on live issue-status (verification_status: needs-vera). Artifact: agents/research/arc-C-hook-capabilities/findings.md. HEADLINE: (1) SessionStart CANNOT set env via additionalContext (text-into-prompt, not env var) -- correct mechanism is CLAUDE_ENV_FILE OR the simpler settings.json env block; §13 must NOT use additionalContext. (2) additionalContext broken in plugin hooks (#16538) + PreToolUse/PostToolUse Bash matcher (#55889, closed not-planned) -- but settings.json SessionStart additionalContext works. (3) CronCreate durable flag INERT (#40228); session-scoped + 7d expiry only. (4) §28 trailer = prepare-commit-msg hook, fails CLOSED, must exit 0, default-OFF. (5) SessionStart fail-open; git hooks fail-closed. Returning.",
       "timestamp": "2026-06-05T02:55:15Z"
+    },
+    {
+      "text": "DAEDALUS activated on stoa--xyb.14 (Arc C encode batch). Reading brief + STRABO research (consumed end-to-end) + role file + the 4 target sections + stoa--w6d. Threat-classification is LIVE (ships runtime mechanism); §28 git hook is the attack-surface focus.",
+      "timestamp": "2026-06-05T02:57:33Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T02:55:15Z"
+  "updated_at": "2026-06-05T02:57:33Z"
 }
