@@ -77,11 +77,15 @@
     {
       "text": "VERA activated on stoa--xyb.14 (Arc C encode batch). Read brief + design §5 probes + ARGUS PASS + ADA build b06ed2d. Classifying P1-P7 per verification-complexity quadrant; about to RUN mechanisms (env-block deploy + §28 hook ARMED in synthetic repo + M1 attack-path).",
       "timestamp": "2026-06-05T03:22:17Z"
+    },
+    {
+      "text": "P1 PASS: env-block subprocess fact holds (PYTHONUTF8=1 -\u003e utf-8; JSON valid); deploy DEFAULT-OFF (candidate inert, no settings.json written w/o flag); --enable-env-block writes project-tier-no-existing + round-trips + idempotent no-op on re-run; existing settings.json NOT clobbered; user-tier prints runbook never auto-writes. Now ARMING §28 hook in a SYNTHETIC throwaway git repo for P2 (legit) + P2-threat M1 attack-path (injection payloads).",
+      "timestamp": "2026-06-05T03:23:59Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T03:22:17Z"
+  "updated_at": "2026-06-05T03:23:59Z"
 }
