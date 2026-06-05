@@ -30,11 +30,15 @@
     {
       "text": "[from: PLINY_the-stoa] DAEDALUS design complete → agents/design/stoa--rdh/design.md. team-launcher decision: (a) HOLD out of SKILL_NAMES — its launch-team.ps1 + HUMAN_paste-*-init.md live at repo root (NOT in the skill subtree), so install.sh would deploy an inert/broken skill to a consumer. Final SKILL_NAMES = 11 entries, net add = interactive-html-preview ONLY (= the held install.sh diff; no further install.sh edit). decision-surface + team-launcher committed but NOT listed. Follow-up ticket to file: generalize team-launcher. Next: ARGUS cold-audit, then HARD STOP.",
       "timestamp": "2026-06-05T09:55:24Z"
+    },
+    {
+      "text": "ARGUS activated on stoa--rdh (Arc 60). Reading design + directive + 3 skill dirs + install.sh end-to-end before audit. HITL/co-driven.",
+      "timestamp": "2026-06-05T09:55:58Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T09:55:24Z"
+  "updated_at": "2026-06-05T09:55:58Z"
 }
