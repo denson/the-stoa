@@ -19,11 +19,15 @@
     {
       "text": "State: all in-scope sections read end-to-end (4 stances + §4 + 7 trims + §32). jsdom module confirmed relocated (3504B). §32 inbound refs: 2 in CAPTAIN_ADA.md + 2 module-internal self-refs + 1 §0.5 row. §21 Arc-A tombstone is the cut-convention precedent. Drafting design.",
       "timestamp": "2026-06-05T01:07:11Z"
+    },
+    {
+      "text": "pass: Arc B design committed ab0410f at agents/design/stoa--xyb.13/design.md. Merge target=§1 (vacated §2/§3/§5 -\u003e no-renumber pointer-stubs; §4 untouched). 12 rules merged (0 dropped, shared framing deduped); 7 trims (lossless); §32 cut-\u003etombstone + 4 inbound refs re-pointed + §0.5 row-\u003eCUT. Top weak point: §32 MODULE-INLINE markers need a 1-grep install.sh subproject-recompose check at build (safe default=keep markers in tombstone). Returning.",
+      "timestamp": "2026-06-05T01:11:02Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc B: op-disc prose consolidation — four-stance merge + 7 trims + jsdom cut (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T01:07:11Z"
+  "updated_at": "2026-06-05T01:11:02Z"
 }
