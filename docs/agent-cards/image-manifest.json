@@ -1,0 +1,379 @@
+{
+  "_comment": "Regeneration record for the Stoa agent-card character images. Pairs each VERBATIM image-generation prompt with its output file and the OpenAI session that produced it, so the full set can be redone if a file is lost or a restyle is wanted. Human-readable companion lives at docs/agent-cards/prompts.md (condensed); this manifest is the authoritative verbatim source.",
+  "artifact": "the-stoa agent-card character images",
+  "author": "Denson Smith",
+  "recorded": "2026-06-05",
+  "source": {
+    "tool": "OpenAI / ChatGPT image generation",
+    "session": "https://chatgpt.com/share/6a22d561-546c-83e8-a62d-9e13116964f5",
+    "note": "Shared ChatGPT session that generated the period + future sheets. Provenance only — open it to inspect or redo."
+  },
+  "rendered_by": "docs/agent-cards/index.html",
+  "live_url": "https://denson.github.io/the-stoa/agent-cards/",
+  "image_path_scheme": "docs/agent-cards/images/<id>/<look>-<sheet>.png   (look: period|future; sheet: turnaround|expressions). Majors carry an expressions sheet; captains carry turnaround only. The grid card crops to the rightmost (close-up) panel of the turnaround.",
+  "style_block": "World of Warcraft–style semi-realistic painterly heroic-fantasy character render, Blizzard-cinematic high detail (believable worn materials, ornate but grounded, dramatic light) — NOT cartoony or cel-shaded. 4-panel character turnaround sheet (front, 3/4, side profile, head-and-shoulders close-up), the SAME character identical across every panel, neutral studio backdrop, name hand-lettered across the top.",
+  "workflow": "Generate the period sheet first; then attach that sheet back in as the reference image for the matching future sheet so the face stays identical. Each future-sheet entry names its required reference in the 'reference' field.",
+  "priority_order": ["polybius", "pliny", "daedalus", "argus", "ada", "vera", "cato", "then nomos, strabo, bartleby, herald, curator, zeno, tiro as gold-plating"],
+  "agents": [
+    {
+      "id": "polybius",
+      "name": "POLYBIUS",
+      "tier": "Major",
+      "role": "Chief of Staff",
+      "figure": "Polybius",
+      "dates": "c. 200–118 BC",
+      "history": "Polybius (c. 200–118 BC), Greek statesman and historian. His Histories traced Rome's rise with rigorous, source-checked \"pragmatic history.\" → keeps the record, sees the whole board.",
+      "character_constant": "authoritative Greek man ~60, silver-grey hair and a short well-kept beard, keen analytical eyes, calm commanding bearing.",
+      "sheets": [
+        {
+          "look": "period", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/polybius/period-turnaround.png",
+          "generated": true, "reference": null,
+          "prompt": "WoW-style semi-realistic painterly heroic-fantasy render (Blizzard-cinematic detail, believable worn materials, dramatic light — not cartoony). 4-panel character turnaround sheet: front, 3/4, side profile, head-and-shoulders close-up — the SAME character identical in every panel, neutral studio backdrop, name \"POLYBIUS\" hand-lettered across the top. Character: an authoritative Greek man of ~60, silver-grey hair and a short well-kept beard, keen analytical eyes, calm commanding bearing. Authentic Hellenistic-Greek statesman's dress (2nd c. BC): a heavy wool himation draped over a linen chiton, leather sandals, a bronze signet ring; he carries rolled papyrus scrolls."
+        },
+        {
+          "look": "period", "sheet": "expressions",
+          "image": "docs/agent-cards/images/polybius/period-expressions.png",
+          "generated": true, "reference": null,
+          "prompt": "WoW-style semi-realistic painterly heroic render (Blizzard-cinematic, not cartoony), neutral backdrop, name \"POLYBIUS\" lettered on top. Same character — Greek man ~60, silver hair + short beard, in a wool himation over a chiton. Sheet of a large head-and-shoulders close-up plus three expression studies (warm, analytical-thoughtful, grave) and one signature pose: seated at a writing table unrolling a scroll."
+        },
+        {
+          "look": "future", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/polybius/future-turnaround.png",
+          "generated": true, "reference": "docs/agent-cards/images/polybius/period-turnaround.png",
+          "prompt": "Use the attached reference. SAME man — identical face, silver hair, short beard, build. WoW-style semi-realistic painterly render, 4-panel turnaround (front, 3/4, side, close-up), neutral backdrop, name \"POLYBIUS\" on top. Re-dress him in futuristic statesman attire: a sleek techno-robe / smart-suit with luminescent circuit-trim and alloy-and-gold accents echoing the Greek filigree; the scrolls become a glowing holographic record / datapad."
+        },
+        {
+          "look": "future", "sheet": "expressions",
+          "image": "docs/agent-cards/images/polybius/future-expressions.png",
+          "generated": true, "reference": "docs/agent-cards/images/polybius/period-expressions.png",
+          "prompt": "Use the attached reference. SAME man, same face. WoW-style render, name \"POLYBIUS\" on top. Large close-up + three expressions (warm, analytical-thoughtful, grave) + one signature pose seated reviewing a floating holographic ledger. Futuristic statesman techno-robe with circuit-trim and alloy-gold accents."
+        }
+      ]
+    },
+    {
+      "id": "pliny",
+      "name": "PLINY",
+      "tier": "Major",
+      "role": "Orchestrator",
+      "figure": "Pliny the Elder",
+      "dates": "AD 23–79",
+      "history": "Pliny the Elder (AD 23–79), Roman author, naturalist, and naval commander. His Naturalis Historia was the first encyclopedia; he died leading a rescue fleet toward erupting Vesuvius. → organizes everything, directs the team.",
+      "character_constant": "vigorous broad-shouldered Roman man ~55, close-cropped greying hair, alert energetic eyes, a doer's bearing.",
+      "sheets": [
+        {
+          "look": "period", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/pliny/period-turnaround.png",
+          "generated": true, "reference": null,
+          "prompt": "WoW-style semi-realistic painterly heroic render (Blizzard-cinematic, believable materials, dramatic light — not cartoony). 4-panel turnaround: front, 3/4, side profile, close-up — SAME character in every panel, neutral backdrop, name \"PLINY\" lettered on top. Character: a vigorous broad-shouldered Roman man of ~55, close-cropped greying hair, alert energetic eyes, a doer's bearing. Authentic 1st-c. Roman dress with a commander's edge: a toga over a tunic plus a hint of a military officer's cloak; he carries an armful of wax tablets and scrolls."
+        },
+        {
+          "look": "period", "sheet": "expressions",
+          "image": "docs/agent-cards/images/pliny/period-expressions.png",
+          "generated": true, "reference": null,
+          "prompt": "WoW-style semi-realistic painterly render (not cartoony), neutral backdrop, name \"PLINY\" on top. Same Roman man ~55, cropped greying hair, toga + officer's cloak. Large close-up + three expressions (commanding, curious, decisive) + one signature pose: striding while directing, an arm raised mid-instruction, tablets under the other arm."
+        },
+        {
+          "look": "future", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/pliny/future-turnaround.png",
+          "generated": true, "reference": "docs/agent-cards/images/pliny/period-turnaround.png",
+          "prompt": "Use the attached reference. SAME man — identical face, cropped greying hair, build. WoW-style render, 4-panel turnaround, neutral backdrop, name \"PLINY\" on top. Re-dress in a futuristic commander/executive techno-suit, layered like sleek alloy Roman segmented armor; instead of scrolls he directs a fan of floating holographic screens."
+        },
+        {
+          "look": "future", "sheet": "expressions",
+          "image": "docs/agent-cards/images/pliny/future-expressions.png",
+          "generated": true, "reference": "docs/agent-cards/images/pliny/period-expressions.png",
+          "prompt": "Use the attached reference. SAME man, same face. WoW-style render, name \"PLINY\" on top. Large close-up + three expressions (commanding, curious, decisive) + signature pose striding mid-instruction amid floating holo-screens. Futuristic alloy techno-armor suit."
+        }
+      ]
+    },
+    {
+      "id": "daedalus",
+      "name": "DAEDALUS",
+      "tier": "Captain",
+      "role": "Architect",
+      "figure": "Daedalus",
+      "dates": "Greek myth",
+      "history": "Daedalus, the master craftsman-inventor of Greek myth — built the Labyrinth and the wax-and-feather wings. The archetypal maker. → designs and builds the plan.",
+      "character_constant": "lean, capable Greek craftsman ~45, weathered clever face, dark curls greying at the temples, strong sculptor's hands.",
+      "sheets": [
+        {
+          "look": "period", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/daedalus/period-turnaround.png",
+          "generated": true, "reference": null,
+          "prompt": "WoW-style semi-realistic painterly heroic render (Blizzard-cinematic, not cartoony). 4-panel turnaround: front, 3/4, side, close-up — SAME character in all panels, neutral backdrop, name \"DAEDALUS\" on top. Character: a lean, capable Greek craftsman of ~45, weathered clever face, dark curls greying at the temples, strong sculptor's hands. Mythic ancient-Greek workshop dress: a one-shouldered exomis work-tunic, a heavy leather tool-belt and apron with bronze calipers, chisels, and twine; he holds a small intricate winged mechanical model."
+        },
+        {
+          "look": "future", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/daedalus/future-turnaround.png",
+          "generated": true, "reference": "docs/agent-cards/images/daedalus/period-turnaround.png",
+          "prompt": "Use the attached reference. SAME man — identical face, dark greying curls, hands. WoW-style render, 4-panel turnaround, neutral backdrop, name \"DAEDALUS\" on top. Re-dress in a futuristic industrial-designer/engineer rig — a utilitarian techno-jacket with tool harness and alloy bracers; instead of the model he projects a glowing holographic blueprint, a small hovering winged drone-prototype beside him."
+        }
+      ]
+    },
+    {
+      "id": "argus",
+      "name": "ARGUS",
+      "tier": "Captain",
+      "role": "Plan-Critic",
+      "figure": "Argus Panoptes",
+      "dates": "Greek myth",
+      "history": "Argus Panoptes, the hundred-eyed giant of Greek myth — the ever-watchful guardian who never fully sleeps. → sees every flaw.",
+      "character_constant": "rugged, broad, intensely watchful Greek guardian ~50, alert piercing eyes, weathered stern face, short grizzled hair and beard.",
+      "sheets": [
+        {
+          "look": "period", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/argus/period-turnaround.png",
+          "generated": true, "reference": null,
+          "prompt": "WoW-style semi-realistic painterly heroic render (Blizzard-cinematic, not cartoony). 4-panel turnaround: front, 3/4, side, close-up — SAME character in all panels, neutral backdrop, name \"ARGUS\" on top. Character: a rugged, broad, intensely watchful Greek guardian of ~50, alert piercing eyes, weathered stern face, short grizzled hair and beard. Mythic ancient-Greek herdsman-guardian garb: a coarse tunic and a thick cloak whose folds carry a subtle motif of many watching eyes; bronze-studded leather guards, a tall watch-staff. Vigilant, skeptical bearing."
+        },
+        {
+          "look": "future", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/argus/future-turnaround.png",
+          "generated": true, "reference": "docs/agent-cards/images/argus/period-turnaround.png",
+          "prompt": "Use the attached reference. SAME man — identical face, grizzled hair/beard, build. WoW-style render, 4-panel turnaround, neutral backdrop, name \"ARGUS\" on top. Re-dress in a futuristic security-analyst exosuit; a multi-lens AR visor (the \"many eyes\") and faint holographic surveillance feeds hovering around him; the watch-staff becomes a sleek scanner."
+        }
+      ]
+    },
+    {
+      "id": "ada",
+      "name": "ADA",
+      "tier": "Captain",
+      "role": "Executor",
+      "figure": "Ada Lovelace",
+      "dates": "1815–1852",
+      "history": "Ada Lovelace (1815–1852), English mathematician — wrote the first published algorithm for Babbage's Analytical Engine, making her the first computer programmer. → writes the actual working code.",
+      "character_constant": "poised, sharp-eyed young Englishwoman ~30, dark hair in a centre-parted Victorian updo, intelligent composed expression.",
+      "sheets": [
+        {
+          "look": "period", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/ada/period-turnaround.png",
+          "generated": true, "reference": null,
+          "prompt": "WoW-style semi-realistic painterly heroic render (Blizzard-cinematic, not cartoony). 4-panel turnaround: front, 3/4, side, close-up — SAME character in all panels, neutral backdrop, name \"ADA\" on top. Character: a poised, sharp-eyed young Englishwoman of ~30, dark hair in a centre-parted Victorian updo, intelligent composed expression. Authentic 1840s Victorian dress: a fitted gown with a structured bodice and full skirt in deep teal and ivory; she holds a notebook of equations, with a brass Analytical-Engine cog-and-punch-card motif worked into the scene."
+        },
+        {
+          "look": "future", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/ada/future-turnaround.png",
+          "generated": true, "reference": "docs/agent-cards/images/ada/period-turnaround.png",
+          "prompt": "Use the attached reference. SAME woman — identical face, dark updo. WoW-style render, 4-panel turnaround, neutral backdrop, name \"ADA\" on top. Re-dress in a sleek modern-futuristic software-engineer outfit whose silhouette still echoes the Victorian bodice line, in teal and chrome; streams of glowing holographic code flow around her hands instead of the notebook."
+        }
+      ]
+    },
+    {
+      "id": "vera",
+      "name": "VERA",
+      "tier": "Captain",
+      "role": "Verifier",
+      "figure": "Veritas",
+      "dates": "Roman goddess of truth",
+      "history": "Vera, for veritas — truth. Veritas, the Roman goddess of truth, daughter of Saturn (Time), said to hide at the bottom of a well; depicted holding a mirror. → confirms what's actually true.",
+      "character_constant": "serene, exacting woman of timeless ~35, fair features, hair bound up simply, a steady unflinching gaze.",
+      "sheets": [
+        {
+          "look": "period", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/vera/period-turnaround.png",
+          "generated": true, "reference": null,
+          "prompt": "WoW-style semi-realistic painterly heroic render (Blizzard-cinematic, not cartoony). 4-panel turnaround: front, 3/4, side, close-up — SAME character in all panels, neutral backdrop, name \"VERA\" on top. Character: a serene, exacting woman of timeless ~35, fair features, hair bound up simply, a steady unflinching gaze. Roman goddess attire (Veritas): flowing white-and-gold draped stola and palla, a single gold fillet; she holds a polished hand-mirror in one hand and a small balance-scale in the other. Luminous, calm, incorruptible."
+        },
+        {
+          "look": "future", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/vera/future-turnaround.png",
+          "generated": true, "reference": "docs/agent-cards/images/vera/period-turnaround.png",
+          "prompt": "Use the attached reference. SAME woman — identical face, bound hair. WoW-style render, 4-panel turnaround, neutral backdrop, name \"VERA\" on top. Re-dress as a futuristic forensic/verification analyst in white and chrome with subtle gold trim; the mirror becomes a glowing truth-scanner display and the scale a hovering holographic balance."
+        }
+      ]
+    },
+    {
+      "id": "cato",
+      "name": "CATO",
+      "tier": "Captain",
+      "role": "Reviewer",
+      "figure": "Cato the Elder",
+      "dates": "234–149 BC",
+      "history": "Cato the Elder (234–149 BC), Roman senator and Censor — a byword for stern integrity and rigorous public scrutiny. → reviews the work without mercy.",
+      "character_constant": "severe, lean Roman senator ~55, hard-set jaw, deep frown lines, short iron-grey hair, unforgiving eyes.",
+      "sheets": [
+        {
+          "look": "period", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/cato/period-turnaround.png",
+          "generated": true, "reference": null,
+          "prompt": "WoW-style semi-realistic painterly heroic render (Blizzard-cinematic, not cartoony). 4-panel turnaround: front, 3/4, side, close-up — SAME character in all panels, neutral backdrop, name \"CATO\" on top. Character: a severe, lean Roman senator of ~55, hard-set jaw, deep frown lines, short iron-grey hair, unforgiving eyes. Austere Roman Republic dress: a plain undyed wool toga with no ornament over a simple tunic, a single iron ring; arms crossed, scrutinizing. Forbidding, incorruptible bearing."
+        },
+        {
+          "look": "future", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/cato/future-turnaround.png",
+          "generated": true, "reference": "docs/agent-cards/images/cato/period-turnaround.png",
+          "prompt": "Use the attached reference. SAME man — identical stern face, iron-grey hair. WoW-style render, 4-panel turnaround, neutral backdrop, name \"CATO\" on top. Re-dress in a severe dark futuristic auditor's techno-suit, minimal and sharp; a red-tinged holographic audit interface with flagged items hovers at his side."
+        }
+      ]
+    },
+    {
+      "id": "nomos",
+      "name": "NOMOS",
+      "tier": "Captain",
+      "role": "Ground-Truth Auditor",
+      "figure": "Nomos",
+      "dates": "Greek personification of law",
+      "history": "Nomos, the Greek personification of law and custom — the divine authority of order against which conduct is measured. → audits output against the ground truth.",
+      "character_constant": "grave, upright Greek magistrate ~50, calm authoritative face, neatly bound dark hair greying, level gaze.",
+      "sheets": [
+        {
+          "look": "period", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/nomos/period-turnaround.png",
+          "generated": true, "reference": null,
+          "prompt": "WoW-style semi-realistic painterly heroic render (Blizzard-cinematic, not cartoony). 4-panel turnaround: front, 3/4, side, close-up — SAME character in all panels, neutral backdrop, name \"NOMOS\" on top. Character: a grave, upright Greek magistrate of ~50, calm authoritative face, neatly bound dark hair greying, level gaze. Classical Greek robes of a lawgiver: a deep-bordered himation over a chiton; he holds a pair of inscribed stone law-tablets and a tall staff of office. Measured, impartial bearing."
+        },
+        {
+          "look": "future", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/nomos/future-turnaround.png",
+          "generated": true, "reference": "docs/agent-cards/images/nomos/period-turnaround.png",
+          "prompt": "Use the attached reference. SAME man — identical face, bound greying hair. WoW-style render, 4-panel turnaround, neutral backdrop, name \"NOMOS\" on top. Re-dress as a futuristic compliance/policy officer in a structured slate techno-robe; the stone tablets become a glowing holographic rulebook / ground-truth ledger he checks against."
+        }
+      ]
+    },
+    {
+      "id": "strabo",
+      "name": "STRABO",
+      "tier": "Captain",
+      "role": "Scout",
+      "figure": "Strabo",
+      "dates": "c. 64 BC – AD 24",
+      "history": "Strabo (c. 64 BC – AD 24), Greek geographer and historian — his Geographica mapped the known world. → goes out and brings back the lay of the land.",
+      "character_constant": "hardy, sun-weathered Greek traveler ~45, wind-tousled brown hair greying, observant curious eyes.",
+      "sheets": [
+        {
+          "look": "period", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/strabo/period-turnaround.png",
+          "generated": true, "reference": null,
+          "prompt": "WoW-style semi-realistic painterly heroic render (Blizzard-cinematic, not cartoony). 4-panel turnaround: front, 3/4, side, close-up — SAME character in all panels, neutral backdrop, name \"STRABO\" on top. Character: a hardy, sun-weathered Greek traveler of ~45, wind-tousled brown hair greying, observant curious eyes. Greco-Roman traveler's dress: a short tunic under a traveling chlamys cloak pinned at the shoulder, sturdy boots, a satchel; he holds an unrolled map-scroll and a walking staff, an early bronze globe at his feet."
+        },
+        {
+          "look": "future", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/strabo/future-turnaround.png",
+          "generated": true, "reference": "docs/agent-cards/images/strabo/period-turnaround.png",
+          "prompt": "Use the attached reference. SAME man — identical weathered face, tousled greying hair. WoW-style render, 4-panel turnaround, neutral backdrop, name \"STRABO\" on top. Re-dress as a futuristic field-recon explorer in a rugged techno-traveling coat; the map becomes a glowing holographic world-map and a small recon drone hovers at his shoulder."
+        }
+      ]
+    },
+    {
+      "id": "bartleby",
+      "name": "BARTLEBY",
+      "tier": "Captain",
+      "role": "File-Clerk",
+      "figure": "Bartleby the Scrivener",
+      "dates": "Melville, 1853",
+      "history": "Bartleby, the scrivener — title character of Herman Melville's 1853 story, a Wall Street copyist famous for meticulous, withdrawn precision (\"I would prefer not to\"). → quietly searches and copies the record exactly.",
+      "character_constant": "pale, quiet, fastidious clerk ~35, neat dark hair, tired careful eyes, reserved posture.",
+      "sheets": [
+        {
+          "look": "period", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/bartleby/period-turnaround.png",
+          "generated": true, "reference": null,
+          "prompt": "WoW-style semi-realistic painterly heroic render (Blizzard-cinematic, not cartoony). 4-panel turnaround: front, 3/4, side, close-up — SAME character in all panels, neutral backdrop, name \"BARTLEBY\" on top. Character: a pale, quiet, fastidious clerk of ~35, neat dark hair, tired careful eyes, reserved posture. Authentic 1850s dress: a dark frock coat, buttoned waistcoat, cravat, ink-stained cuffs; he holds a ledger and quill, a stack of copied documents under one arm. Meticulous, unobtrusive."
+        },
+        {
+          "look": "future", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/bartleby/future-turnaround.png",
+          "generated": true, "reference": "docs/agent-cards/images/bartleby/period-turnaround.png",
+          "prompt": "Use the attached reference. SAME man — identical pale careful face, neat dark hair. WoW-style render, 4-panel turnaround, neutral backdrop, name \"BARTLEBY\" on top. Re-dress in a muted utilitarian futuristic archivist's outfit; the ledger and papers become neat stacks of glowing data-cards and a hovering index of citations."
+        }
+      ]
+    },
+    {
+      "id": "herald",
+      "name": "HERALD",
+      "tier": "Captain",
+      "role": "Intake",
+      "figure": "The Herald (kēryx)",
+      "dates": "Ancient office",
+      "history": "The herald (kēryx) of the ancient world — the protected messenger who received, announced, and framed proclamations between parties. → takes the raw ask and frames it cleanly.",
+      "character_constant": "clear-voiced, upright young Greek herald ~30, bright attentive face, neat short hair, poised.",
+      "sheets": [
+        {
+          "look": "period", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/herald/period-turnaround.png",
+          "generated": true, "reference": null,
+          "prompt": "WoW-style semi-realistic painterly heroic render (Blizzard-cinematic, not cartoony). 4-panel turnaround: front, 3/4, side, close-up — SAME character in all panels, neutral backdrop, name \"HERALD\" on top. Character: a clear-voiced, upright young Greek herald of ~30, bright attentive face, neat short hair, poised. Classical Greek herald's dress: a clean tunic under a chlamys cloak, simple sandals; he bears the herald's staff (a caduceus / kerykeion) in one hand and an unrolled proclamation in the other. Open, articulate bearing."
+        },
+        {
+          "look": "future", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/herald/future-turnaround.png",
+          "generated": true, "reference": "docs/agent-cards/images/herald/period-turnaround.png",
+          "prompt": "Use the attached reference. SAME man — identical face, neat short hair. WoW-style render, 4-panel turnaround, neutral backdrop, name \"HERALD\" on top. Re-dress as a futuristic intake-concierge / comms officer in a crisp techno-uniform with a sleek headset; the staff's caduceus becomes a glowing comm-emblem and the proclamation a floating holographic intake form."
+        }
+      ]
+    },
+    {
+      "id": "curator",
+      "name": "CURATOR",
+      "tier": "Captain",
+      "role": "Synthesist",
+      "figure": "The Curator",
+      "dates": "Roman office",
+      "history": "The Roman curator — an appointed overseer and custodian (of archives, public works, knowledge), responsible for keeping things ordered and whole. → synthesizes scattered work into one coherent picture.",
+      "character_constant": "thoughtful, organized Roman administrator ~50, warm discerning face, neat greying hair, an unhurried air.",
+      "sheets": [
+        {
+          "look": "period", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/curator/period-turnaround.png",
+          "generated": true, "reference": null,
+          "prompt": "WoW-style semi-realistic painterly heroic render (Blizzard-cinematic, not cartoony). 4-panel turnaround: front, 3/4, side, close-up — SAME character in all panels, neutral backdrop, name \"CURATOR\" on top. Character: a thoughtful, organized Roman administrator of ~50, warm discerning face, neat greying hair, an unhurried air. Roman administrator's dress: a fine bordered tunic and toga of an archive-keeper, a wax seal-ring and stylus; he stands among scroll-cases and labeled pigeonholes, drawing several scrolls together in his arms."
+        },
+        {
+          "look": "future", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/curator/future-turnaround.png",
+          "generated": true, "reference": "docs/agent-cards/images/curator/period-turnaround.png",
+          "prompt": "Use the attached reference. SAME man — identical warm face, greying hair. WoW-style render, 4-panel turnaround, neutral backdrop, name \"CURATOR\" on top. Re-dress as a futuristic knowledge-curator in a refined techno-robe; the scrolls become a glowing holographic web of connected nodes he is drawing together with both hands."
+        }
+      ]
+    },
+    {
+      "id": "zeno",
+      "name": "ZENO",
+      "tier": "Captain",
+      "role": "Spec-Checker",
+      "figure": "Zeno of Elea",
+      "dates": "c. 490–430 BC",
+      "history": "Zeno of Elea (c. 490–430 BC), pre-Socratic philosopher — devised the paradoxes (Achilles and the tortoise) that relentlessly probed the logic of motion and infinity. → checks the result against the spec, exactly, edge case by edge case.",
+      "character_constant": "precise, intense Greek philosopher ~45, sharp focused eyes, close-cropped beard, a debater's poise.",
+      "sheets": [
+        {
+          "look": "period", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/zeno/period-turnaround.png",
+          "generated": true, "reference": null,
+          "prompt": "WoW-style semi-realistic painterly heroic render (Blizzard-cinematic, not cartoony). 4-panel turnaround: front, 3/4, side, close-up — SAME character in all panels, neutral backdrop, name \"ZENO\" on top. Character: a precise, intense Greek philosopher of ~45, sharp focused eyes, close-cropped beard, a debater's poise. Classical Greek philosopher's dress: a plain draped himation over a chiton, barefoot; caught mid-argument with one index finger raised, the other hand holding a small inscribed wax tablet of premises. Exacting, unyielding bearing."
+        },
+        {
+          "look": "future", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/zeno/future-turnaround.png",
+          "generated": true, "reference": "docs/agent-cards/images/zeno/period-turnaround.png",
+          "prompt": "Use the attached reference. SAME man — identical sharp face, cropped beard. WoW-style render, 4-panel turnaround, neutral backdrop, name \"ZENO\" on top. Re-dress in a precise minimalist futuristic QA outfit; the raised finger now indicates a floating holographic checklist of spec criteria, each item ticked or flagged."
+        }
+      ]
+    },
+    {
+      "id": "tiro",
+      "name": "TIRO",
+      "tier": "Captain",
+      "role": "Substrate Keeper",
+      "figure": "Marcus Tullius Tiro",
+      "dates": "c. 103–4 BC",
+      "history": "Marcus Tullius Tiro (c. 103–4 BC), Cicero's secretary and freedman — invented Tironian shorthand to capture speech verbatim, and preserved the record. → keeps the durable substrate (the team's memory).",
+      "character_constant": "quick, attentive Roman scribe ~35, neat short hair, clever ready eyes, a poised readiness to write.",
+      "sheets": [
+        {
+          "look": "period", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/tiro/period-turnaround.png",
+          "generated": true, "reference": null,
+          "prompt": "WoW-style semi-realistic painterly heroic render (Blizzard-cinematic, not cartoony). 4-panel turnaround: front, 3/4, side, close-up — SAME character in all panels, neutral backdrop, name \"TIRO\" on top. Character: a quick, attentive Roman scribe of ~35, neat short hair, clever ready eyes, a poised readiness to write. Roman freedman-scribe's dress: a simple practical tunic with a leather writing-satchel; he holds a wax tablet and stylus mid-shorthand, several rolled scrolls in the satchel. Diligent, sharp."
+        },
+        {
+          "look": "future", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/tiro/future-turnaround.png",
+          "generated": true, "reference": "docs/agent-cards/images/tiro/period-turnaround.png",
+          "prompt": "Use the attached reference. SAME man — identical face, neat short hair. WoW-style render, 4-panel turnaround, neutral backdrop, name \"TIRO\" on top. Re-dress as a futuristic data-substrate specialist in a sleek technician's outfit; the wax tablet and stylus become a glowing stylus writing into a flowing holographic ledger-stream (shorthand turned to living data)."
+        }
+      ]
+    }
+  ]
+}
