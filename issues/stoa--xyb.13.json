@@ -39,11 +39,15 @@
     {
       "text": "pass (rev2): surgical fix of both ARGUS BLOCKING findings committed 09b31bd on arc-B/build. r1: §32 reframed full-delete -\u003e STUB-PROSE cut; marker pair + module source RETAINED (install.sh Check A:1025 + Check B:1055 hard-abort exit 2 if dropped; jsdom-timing in OPDISC_MODULES:1115); §0.5 row stays CONDITIONAL (note-updated, NOT flipped to CUT); new probe P4b asserts markers present + module source exists + dry-run recompose no-abort; case-(b) drop-markers branch removed as non-viable. r2: DROPPED the phantom §8.3 bidi-translation cut entirely (principle is at thesis line 29 + §8.2 line 228 canonical home; §8.3 is all-load-bearing four-state continuum); §8.2/§8.3 untouched; §8 now trims only the §8.4 Arc-23 historical note + per-anchor narrative compression; trim/net estimates retuned. Untouched per directive: four-stance merge, §4 carve-out, line-1642 rewrite, §15/§24/§26/§27/§31/§34 trims, no-renumber, authorship Denson Smith. 1 self-assessed weak point remains (small realizable trim from already-thin §27/§31/§24/§26; losslessness is the locked bar). Returning.",
       "timestamp": "2026-06-05T01:27:59Z"
+    },
+    {
+      "text": "ADA activated on stoa--xyb.13 (Arc B op-disc consolidation). Reading design rev2 (09b31bd, ARGUS r1/r2 surgically fixed) + worktree arc-B/build state before first edit. Grounding every edit on verbatim anchor text, file-is-canon.",
+      "timestamp": "2026-06-05T01:30:05Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc B: op-disc prose consolidation — four-stance merge + 7 trims + jsdom cut (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T01:27:59Z"
+  "updated_at": "2026-06-05T01:30:05Z"
 }
