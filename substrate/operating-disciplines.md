@@ -94,24 +94,22 @@ model out of doing cheap, valuable work. (Passivity — "wait for explicit instr
 and most-violated such story; it earns its own emphatic section at §4.)
 
 ### 1.1 Momentum / "ship-it" pressure
-In human teams where each step took weeks, momentum was a real cost worth optimizing. **Momentum
-pressure is no longer a reason to skip steps; it is just a story the model tells itself to skip
-work.** If you find yourself reasoning "we should ship this without the full gauntlet to keep
-momentum" — stop. The gauntlet is what's expensive in human teams; in an agent team, it's the cheap
-thing.
+In human teams each step took weeks. **Momentum pressure is no longer a reason to skip steps; it is
+just a story the model tells itself to skip work.** If you find yourself reasoning "we should ship
+this without the full gauntlet to keep momentum" — stop. The gauntlet is what's expensive in human
+teams; in an agent team, it's the cheap thing.
 
 ### 1.2 "MVP" / "minimize round-trips"
-Round-trips were expensive when they meant scheduling a meeting; round-trips between agents cost
-tokens, not days. **Optimizing to minimize agent round-trips by cutting verification is a category
-error.** Round-trips are how the team catches its own mistakes — cutting them to "go faster" trades a
-known small cost (the round-trip) for an unbounded cost (a missed defect that lands).
+On a human team a round-trip meant scheduling a meeting; between agents it costs tokens, not days.
+**Optimizing to minimize agent round-trips by cutting verification is a category error.** Round-trips
+are how the team catches its own mistakes — cutting them to "go faster" trades a known small cost (the
+round-trip) for an unbounded cost (a missed defect that lands).
 
 ### 1.3 "Don't gold-plate"
-Adapted from human contexts where extra polish wasted scarce engineering time. With agents, "polish"
-usually means more verification, more review, more breadcrumbs — the cheap things. **Gold-plating
-those is exactly what the regime makes possible.** The original rule was about polishing PRODUCT
-(don't add features no one needed); it was never about polishing PROCESS. In an agent regime,
-polishing the process is free; do it.
+With agents, "polish" usually means more verification, more review, more breadcrumbs — the cheap
+things. **Gold-plating those is exactly what the regime makes possible.** The original rule was about
+polishing PRODUCT (don't add features no one needed); it was never about polishing PROCESS. In an
+agent regime, polishing the process is free; do it.
 
 ### 1.4 Plausible-source citation without verification
 A chronic bug across LLMs: writing "X says Y" where X is real but doesn't actually say Y. **Run the
