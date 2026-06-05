@@ -118,11 +118,15 @@
     {
       "text": "pass (PASS-WITH-NOTES): Arc 60 clean. craft CLEAN (decision-surface clearly DRAFT-marked) | consistency CLEAN (install.sh +1 line only, SKILL_NAMES=10 byte-matches design) | security CLEAN (team-launcher w/ --dangerously-skip-permissions HELD OUT, not deployed; launcher absent from consumer) | scope CLEAN (exactly 6 files/5 path-roots, agents.ts=only 3 new skill objects, zero role/disciplines/template/SPEC leak) | authorship CLEAN (4x Denson, Author not overridden, ADA trailer present) | VERA-meta CLEAN (P1-P6 all backed by evidence, deploy-split genuinely exercised not relabeled happy-path, §35.5 carve-out confirmed). Two MINOR non-blocking craft notes: c1 interactive-html-preview calls now-co-landed decision-surface '(forthcoming)'; c2 confirm docs/capability-registry.md exists in-tree. Neither blocks gate. Verdict @ agents/verdicts/stoa--rdh/CATO-2026-06-05T10-30-45Z.md (sha256 round-trip OK). Returning.",
       "timestamp": "2026-06-05T10:30:57Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa] CATO verdict: PASS-WITH-NOTES. All dimensions CLEAN (craft/consistency/security/scope/authorship/VERA-meta). VERA's 6 probes independently meta-verified — the deploy-SPLIT genuinely exercised (real install.sh smoke-test, positive+negative assertions). Two minor non-blocking notes, both checked by me:\n- c2 RESOLVED: docs/capability-registry.md EXISTS in-tree + git-tracked. No issue.\n- c1 (verify-then-execute applied, NOT fixed): interactive-html-preview/SKILL.md:52 calls decision-surface '(forthcoming)'. CATO read it as stale (both co-LAND in repo). BUT decision-surface is HELD OUT of SKILL_NAMES → does NOT deploy to consumers; from the deployed-consumer audience (interactive-html-preview's actual readers) decision-surface IS forthcoming. The word is defensible, only repo-internally stale. Declining a unilateral fix on a debatable one-word craft note; surfacing to user-tier for the call at gate (could fold into stoa--h8w or Phase-2 when decision-surface wording firms up anyway). CATO verdict @ agents/verdicts/stoa--rdh/CATO-2026-06-05T10-30-45Z.md. Next: NOMOS ground-truth audit → ZENO spec-check.",
+      "timestamp": "2026-06-05T10:32:15Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T10:30:57Z"
+  "updated_at": "2026-06-05T10:32:15Z"
 }
