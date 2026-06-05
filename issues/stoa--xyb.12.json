@@ -73,11 +73,15 @@
     {
       "text": "P1 PASS (B-anchor gate): no B-anchor in any removed line; stoa--vmc L45 + all ariadne--/stoa--32b provenance survive in live canon. P2 PASS: bw-fit-matrix only L9+L45 ariadne (both B-provenance), framing L27/32/33/35 de-named w/ clauses intact; §16.5 assumption-naming gone + replacement landed. Executing P3 inbound-ref integrity.",
       "timestamp": "2026-06-05T00:24:16Z"
+    },
+    {
+      "text": "P3 PASS: all 3 dangling-ref scans clean; §16.8 re-point-\u003e§16.3 + op-disc §21 tombstone + POLYBIUS §16.4 sub-tombstone each exactly 1; independent broad §21/§16.4 scan = only intentional tombstone/row refs, no dangle. P4 PASS: §0.5 CUT row names §8.7 + stoa--32b.3 provenance; tombstone cites destinations+provenance. P5 PASS: op-disc section sequence byte-identical to baseline (diff empty), §21 heading-form only; POLYBIUS 16.1-16.8 intact. Executing P6 authorship + P7 losslessness.",
+      "timestamp": "2026-06-05T00:25:05Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T00:24:16Z"
+  "updated_at": "2026-06-05T00:25:05Z"
 }
