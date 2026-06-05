@@ -233,6 +233,7 @@ SKILL_NAMES=(
   save-verdict
   validate-spec
   workflow-composer
+  interactive-html-preview
 )
 
 # Marker line written into CLAUDE.md when --modify-claude-md is used; presence
