@@ -22,11 +22,15 @@
     {
       "text": "DAEDALUS activated on stoa--rdh (Arc 60). Read brief + directive + all 3 skill dirs + install.sh SKILL_NAMES + gen-data-lib/schemas. Confirmed: held install.sh = +interactive-html-preview only; launch-team.ps1 committed @repo-root; agents.ts already shows all 3 (gen-data discovers ALL skill dirs, decoupled from SKILL_NAMES). Drafting design — team-launcher decision underway.",
       "timestamp": "2026-06-05T09:52:40Z"
+    },
+    {
+      "text": "pass: design @ agents/design/stoa--rdh/design.md. team-launcher = (a) HOLD out of SKILL_NAMES (dangling ./launch-team.ps1 + HUMAN_paste-* live at repo root, NOT in the skill deploy subtree — a consumer would get an inert skill); follow-up ticket to file for generalization. Final SKILL_NAMES net-add = interactive-html-preview ONLY (10+1=11). decision-surface land-but-hold (DRAFT). 6 probes P1-P6 refined to runnable assertions; threat-class = not-threat-ratified (additive, ARGUS to confirm). Top weak point: P6 author-grep fires on the legit net-new Denson lines — VERA needs the inline interpretation note. 4 weak points named. Returning to PLINY.",
+      "timestamp": "2026-06-05T09:54:51Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T09:52:40Z"
+  "updated_at": "2026-06-05T09:54:51Z"
 }
