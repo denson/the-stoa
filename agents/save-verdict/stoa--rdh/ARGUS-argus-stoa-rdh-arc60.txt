@@ -1,0 +1,26 @@
+=== SAVE_VERDICT record ===
+request_id: argus-stoa-rdh-arc60
+caller: ARGUS
+ticket_id: stoa--rdh
+officer: ARGUS
+timestamp: 2026-06-05T09:58:21Z
+body_source: body_path
+overwrite: false
+cwd: C:\Users\denso\claude_projects\the-stoa
+
+=== execution ===
+exit_code: 0
+duration_ms: 16
+resolved_dest: C:\Users\denso\claude_projects\the-stoa\agents\verdicts\stoa--rdh\ARGUS-2026-06-05T09-58-21Z.md
+input_byte_length: 6821
+input_sha256: 032d4c348634203c6a19d72d7043e20ec3252d26e4da4600641b087f6c2cfd38
+dest_sha256: 032d4c348634203c6a19d72d7043e20ec3252d26e4da4600641b087f6c2cfd38
+verification: pass
+diagnostics_first_50_lines:
+~~~~
+(none)
+~~~~
+diagnostics_total_lines: 0
+
+=== assertion ===
+overall: pass

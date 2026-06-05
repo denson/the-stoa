@@ -10,6 +10,12 @@ CLAUDE.md.bak
 __pycache__/
 *.pyc
 
-# Agent run-output scratch — designs, verdicts, verification, save-verdict tmp files.
-# Produced by arc runs under agents/; never committed (the durable record is bw + the merged diff).
-agents/
+# Agent run-output SCRATCH — only the throwaway probe/test runs + tmp authoring files.
+# The real per-ticket arc artifacts (agents/{design,verdicts,verification,save-verdict}/stoa--*) ARE tracked + pushed.
+agents/**/r3test/
+agents/**/zzz/
+agents/**/ttt/
+agents/**/tkt-A/
+agents/**/tkt-B/
+agents/**/tkt-wt/
+agents/**/_body-*.tmp.md
