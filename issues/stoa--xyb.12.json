@@ -121,11 +121,15 @@
     {
       "text": "ZENO: spec criteria extracted (14 §4 A-edits + 7 probes + scope/renumber/authorship/C-deferred). Check 1 (each A-edit present) + §8 sub-numbering 8.1-8.7 no-gap: all PASS. Running probes P1-P7 + scope-exactness.",
       "timestamp": "2026-06-05T00:35:16Z"
+    },
+    {
+      "text": "probes 1-3 ground truth gathered (diff de-name/cut fidelity, scope clean, §16=relocation-stub→module de-name confirmed). Reading verdict files for probe 4 + authorship for probe 5.",
+      "timestamp": "2026-06-05T00:35:25Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T00:35:16Z"
+  "updated_at": "2026-06-05T00:35:25Z"
 }
