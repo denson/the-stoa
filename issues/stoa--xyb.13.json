@@ -67,11 +67,15 @@
     {
       "text": "VERA all probes executed. P1-P6 PASS (P1 two false-FAILs were probe line-wrap artifacts — rules survive when wrap-tolerant; recording as §5.11 methodology concern). P4b: REAL subproject deploy into throwaway parent exited 0, 50 jsdom body-lines inlined — deploy-safe. 12 merged rules + all trim PRESERVED lists independently confirmed present in build (not just trusting the map). §8.2/§8.3 byte-identical (phantom cut dropped). §4 byte-identical. P7: op-disc +14 physical lines / -86 words / +987 chars. Drafting verdict + P7 ruling.",
       "timestamp": "2026-06-05T01:40:54Z"
+    },
+    {
+      "text": "pass: Arc B op-disc consolidation is LOSSLESS — every load-bearing rule survived; deploy-safe. P1-P6 PASS, P7 reported-and-ruled-ACCEPTABLE.\n\nDecisive gate (rule-survival) verified INDEPENDENTLY (read pre-merge §1/2/3/5 at 1cb9160 + built merged §1, not just trusting the §2.3 map): all 12 rules land in merged §1, shared framing deduped ONCE (not dropped). §4 byte-identical (carved out). §8.2/§8.3 byte-identical — phantom bidi cut genuinely DROPPED. All 7 trims keep every PRESERVED rule (read line-by-line vs full diff); §34 trigger-rule that Arc C depends on confirmed grep-findable. §32 stub-prose cut DEPLOY-SAFE: REAL --target subproject deploy into throwaway parent inlined 50 jsdom body-lines between retained markers, exit 0, no Check A/B abort. No-renumber holds (1..36 each once). Authorship intact (Denson Smith).\n\nP7 RULING: op-disc +14 physical lines / -86 WORDS / +987 chars. ACCEPTABLE lossless consolidation, NOT a debloat-invariant fail — (a) epic thesis = 'line count is a proxy, adherence is the disease'; WORDS went DOWN; physical-line +14 is the merge reformatting 4 single-line paragraphs into hard-wrapped sub-stances. (b) design §2.4 + §8 + rev2 P7 note FORECAST near-flat-physical; the +14 is design-anticipated. (c) the +chars are the merge preamble (coherence win) + §32 marker-retention warning + the 3 mandated stub headers (no-renumber) — all locked invariants; cutting them would break coherence/deploy/cross-refs. FLAG for close-gate: 2nd debloat arc where physical-lines diverge from adherence; if physical-negative-per-arc is wanted as a hard invariant it conflicts with no-renumber+marker-retention+coherence-merge and is an epic-level re-decision — not a reason to fail Arc B.\n\n1 methodology_concern (non-blocking): P1's single-line grep false-FAILED 2b/5c against the hard-wrapped merged §1 (probe-anchoring defect per §5.11, NOT a build defect — rules present + verbatim when wrap-tolerant). §35.5 carve-out (NOT threat-ratified) concurred.\n\nVerdict: agents/verdicts/stoa--xyb.13/VERA-2026-06-05T01-42-32Z.md. Returning.",
+      "timestamp": "2026-06-05T01:42:49Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc B: op-disc prose consolidation — four-stance merge + 7 trims + jsdom cut (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T01:40:54Z"
+  "updated_at": "2026-06-05T01:42:49Z"
 }
