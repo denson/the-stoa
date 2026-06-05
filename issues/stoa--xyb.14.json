@@ -133,11 +133,15 @@
     {
       "text": "ZENO: criteria extracted (14). Artifacts checked: settings-env-block.json (valid JSON, env keys); hook (100755, LF, sh -n + dash -n clean, *[[:cntrl:]]* guard + double-quoted --trailer + unconditional exit 0); install.sh 5e+5f default-OFF (bash -n clean); op-disc §13+§28.1 stubs only; §28.5 md5-identical; no renumber (## 1..36 + §28.1-28.8 intact); §7/§11 zero op-disc hunk. Now: scope-exactness (.claude/ live-arm audit), authorship, probe-coverage cross-check.",
       "timestamp": "2026-06-05T03:44:17Z"
+    },
+    {
+      "text": "pass: ZENO SPEC-CHECK — Arc C (2ae26bb) PASS. All 14 criteria met, ZERO out-of-spec additions, ZERO drift. §13: settings-env-block.json (valid JSON, PYTHONUTF8/PYTHONIOENCODING) + install.sh 5e --enable-env-block default-OFF + op-disc §13 stub→mechanism. §28: prepare-commit-msg (100755, LF, sh -n+dash -n clean, *[[:cntrl:]]* c1 guard at L54, double-quoted --trailer literal, 9 exit-0 paths, no eval) + README (default-OFF/never auto-arm/2 manual methods) + install.sh 5f candidate-only NO arming flag NO .git/hooks write + op-disc §28.1 stub→mechanism; §28.5 md5-IDENTICAL. §7/§11 ZERO op-disc diff (stub targets resolve). Scope exact: design+githooks/+install.sh+op-disc stubs+json ONLY; no .claude/ live-arm. No renumber (## 1..36 each once, §28.1-28.8 intact). Authorship Denson Smith (CAPTAIN_* trailers=§28.4 seat-metadata). Probe coverage: VERA P1/P2/P2-threat+c1 re-probe all PASS; threat_coverage M1→p2-threat M2→p2 M3→p2-threat+p7, all ids in probes_executed w/ non-empty evidence. 1 benign note (VERA c1-verdict metadata path-typo stoa--xyb vs stoa--xyb.14 — verdict cosmetic, not build). Returning.",
+      "timestamp": "2026-06-05T03:45:21Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T03:44:17Z"
+  "updated_at": "2026-06-05T03:45:21Z"
 }
