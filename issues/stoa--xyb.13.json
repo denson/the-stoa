@@ -51,11 +51,15 @@
     {
       "text": "Done: line-1642 rewrite, §0.5 §32 row note, §32 stub-prose tombstone (marker pair RETAINED), and trims §24/§26/§27/§31/§34 (each PRESERVED list intact). Now the two body trims §8 (ONLY §8.4 Arc-23 note + per-anchor narrative; NOT §8.2/§8.3) + §15 (§15.5/§15.6/§15.7 prose only).",
       "timestamp": "2026-06-05T01:32:16Z"
+    },
+    {
+      "text": "All edits complete (op-disc body trims §8/§15 + 4 inbound §32 re-points in CAPTAIN_ADA.md + jsdom module). Running build-check sanity: jsdom module source exists, marker-pair balance, no-renumber sequence, §27/§31 markers balanced.",
+      "timestamp": "2026-06-05T01:34:05Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc B: op-disc prose consolidation — four-stance merge + 7 trims + jsdom cut (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T01:32:16Z"
+  "updated_at": "2026-06-05T01:34:05Z"
 }
