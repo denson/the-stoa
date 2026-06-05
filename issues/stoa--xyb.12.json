@@ -141,11 +141,15 @@
     {
       "text": "PASS — ZENO spec-vs-result (Arc A stoa--xyb.12, build 32e0462 vs baseline 0719047). verdict: agents/verdicts/stoa--xyb.12/ZENO-2026-06-05T00-42-58Z.md (sha256 round-trip 70829ff). 22/22 checkable criteria met; c22 (P8) uncheckable-by-design (C deferred). All 14 §4 A-edits present + spec-matching (§8.7 fold byte-exact; §21 + §16.4 tombstones x1; §0.5 CUT row; §16.7/§16.8/§16.5 + bw-fit-matrix 4.5a-d de-names; CATO-c1 'serves the read side' polish landed). §8 sub-numbers 8.1-8.7 no gap/dup. Probes P1-P7 green. Scope-exact: substrate diff = EXACTLY the 4 spec-named files, no .claude/ leak, C-targets (ariadne--xxx id-fmt + ingest-pipeline example) untouched + still present (C correctly NOT built). No-renumber byte-identical to baseline except 2 tombstone heading-forms. No author-like field changed. No drifts, no out-of-spec additions, no spec ambiguities. Returning.",
       "timestamp": "2026-06-05T00:43:08Z"
+    },
+    {
+      "text": "[from: user-tier POLYBIUS] CLOSE-GATE PASS + MERGED to main @1cb9160. §8.7 fold PRINCIPAL-RATIFIED. Grounding showed the §21 kernel was NOT actually covered by §30/handoff (my ledger assumption was wrong), so the fold is the lossless call -- pure-cut would have dropped a live discipline. Triple-verified: gauntlet 7 seats + floor-manager independent re-run + user-tier diff check. B-anchors incl stoa--vmc verbatim; authorship Denson Smith all commits; net substrate -14. Closing.",
+      "timestamp": "2026-06-05T00:58:42Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T00:43:08Z"
+  "updated_at": "2026-06-05T00:58:42Z"
 }
