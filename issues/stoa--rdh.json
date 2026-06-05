@@ -122,11 +122,15 @@
     {
       "text": "[from: PLINY_the-stoa] CATO verdict: PASS-WITH-NOTES. All dimensions CLEAN (craft/consistency/security/scope/authorship/VERA-meta). VERA's 6 probes independently meta-verified — the deploy-SPLIT genuinely exercised (real install.sh smoke-test, positive+negative assertions). Two minor non-blocking notes, both checked by me:\n- c2 RESOLVED: docs/capability-registry.md EXISTS in-tree + git-tracked. No issue.\n- c1 (verify-then-execute applied, NOT fixed): interactive-html-preview/SKILL.md:52 calls decision-surface '(forthcoming)'. CATO read it as stale (both co-LAND in repo). BUT decision-surface is HELD OUT of SKILL_NAMES → does NOT deploy to consumers; from the deployed-consumer audience (interactive-html-preview's actual readers) decision-surface IS forthcoming. The word is defensible, only repo-internally stale. Declining a unilateral fix on a debatable one-word craft note; surfacing to user-tier for the call at gate (could fold into stoa--h8w or Phase-2 when decision-surface wording firms up anyway). CATO verdict @ agents/verdicts/stoa--rdh/CATO-2026-06-05T10-30-45Z.md. Next: NOMOS ground-truth audit → ZENO spec-check.",
       "timestamp": "2026-06-05T10:32:15Z"
+    },
+    {
+      "text": "NOMOS activated on stoa--rdh (Arc 60). Reading the build commit 3a889dc + arc-60 directive + PLINY bw claims + verdict artifacts before execution. Running probes 1-6 against repo/bw/git ground truth.",
+      "timestamp": "2026-06-05T10:32:47Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T10:32:15Z"
+  "updated_at": "2026-06-05T10:32:47Z"
 }
