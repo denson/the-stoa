@@ -15,11 +15,15 @@
     {
       "text": "DAEDALUS activated on stoa--xyb.13 (Arc B op-disc consolidation). Reading spec ledger docs/debloat-decisions.md + operating-disciplines.md sections in scope + role file.",
       "timestamp": "2026-06-05T01:06:14Z"
+    },
+    {
+      "text": "State: all in-scope sections read end-to-end (4 stances + §4 + 7 trims + §32). jsdom module confirmed relocated (3504B). §32 inbound refs: 2 in CAPTAIN_ADA.md + 2 module-internal self-refs + 1 §0.5 row. §21 Arc-A tombstone is the cut-convention precedent. Drafting design.",
+      "timestamp": "2026-06-05T01:07:11Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc B: op-disc prose consolidation — four-stance merge + 7 trims + jsdom cut (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T01:06:14Z"
+  "updated_at": "2026-06-05T01:07:11Z"
 }
