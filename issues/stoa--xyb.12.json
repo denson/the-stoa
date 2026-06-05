@@ -17,11 +17,15 @@
     {
       "text": "All four loci + inbound-ref scans + CUT-convention research done. §21 stub-vs-renumber: corpus keys cross-refs by number + line-889 'do NOT renumber' =\u003e tombstone-stub convention. Found 2 cascade de-names (POLYBIUS 16.5/16.7) + entangled C-targets. Drafting design §1-§8 now.",
       "timestamp": "2026-06-04T23:56:25Z"
+    },
+    {
+      "text": "Design complete: agents/design/stoa--xyb.12/design.md. §1-§8 + out-of-scope. Self-catch revised the §21 pure-cut to CUT+§8.3 fold (compaction-recovery authoring mechanics surfaced as a unique non-Ariadne-premised bit, NOT covered by §8/§30/handoff-author). CUT convention = tombstone stub (no renumber). Committing with seat trailer.",
+      "timestamp": "2026-06-05T00:00:39Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-04T23:56:25Z"
+  "updated_at": "2026-06-05T00:00:39Z"
 }
