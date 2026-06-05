@@ -129,11 +129,15 @@
     {
       "text": "item-1/3c CONFORMANT (no .git/hooks write path; install.sh cp targets only githooks-candidate/). Now executing GROUND-TRUTH runs: (3a) --enable-env-block dry-run + real into synthetic project target; (3b) ARM hook in synthetic throwaway repo + fire c1 .local\u003e-tailed newline payload + legit + M3 Author check.",
       "timestamp": "2026-06-05T03:43:49Z"
+    },
+    {
+      "text": "ZENO: criteria extracted (14). Artifacts checked: settings-env-block.json (valid JSON, env keys); hook (100755, LF, sh -n + dash -n clean, *[[:cntrl:]]* guard + double-quoted --trailer + unconditional exit 0); install.sh 5e+5f default-OFF (bash -n clean); op-disc §13+§28.1 stubs only; §28.5 md5-identical; no renumber (## 1..36 + §28.1-28.8 intact); §7/§11 zero op-disc hunk. Now: scope-exactness (.claude/ live-arm audit), authorship, probe-coverage cross-check.",
+      "timestamp": "2026-06-05T03:44:17Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T03:43:49Z"
+  "updated_at": "2026-06-05T03:44:17Z"
 }
