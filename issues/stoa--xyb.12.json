@@ -37,11 +37,15 @@
     {
       "text": "All cold checks done. B-anchor walk: CLEAN (stoa--vmc line 45 + all ariadne-- provenance left). Inbound scans match design exactly, no dangling refs. Net delta NEGATIVE (genuine debloat). De-name fidelity OK. 2 BLOCKING found: (1) EDIT 4.1a 8.3 collision — 8.3-8.6 already exist, next-free is 8.7; (2) worked-example file absent from build branch (disposition LEAVE still correct). Drafting verdict + save-verdict now.",
       "timestamp": "2026-06-05T00:06:27Z"
+    },
+    {
+      "text": "revise: 2 BLOCKING (r1 op-disc 8.3 collision -\u003e use 8.7, propagates to heading+tombstone+0.5-row+P7; r2 worked-example file absent from build branch, LEAVE still correct) + 2 ADVISORY (line-889 citation scope, 8.x fold add-on parenthetical). B-anchors CLEAN, de-name fidelity OK, inbound-refs complete, no-renumber holds, net delta negative, authorship untouched, 35.5 carve-out confirmed. Q1 fold JUSTIFIED+placement-8-OK but sub-number wrong; Q2 in-scope; Q3 right convention; Q4 leave confirmed. Verdict: agents/verdicts/stoa--xyb.12/ARGUS-2026-06-05T00-10-18Z.md. Returning to PLINY.",
+      "timestamp": "2026-06-05T00:10:26Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T00:06:27Z"
+  "updated_at": "2026-06-05T00:10:26Z"
 }
