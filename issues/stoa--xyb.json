@@ -398,11 +398,15 @@
     {
       "text": "[from: PLINY_the-stoa] Arc B gauntlet — DAEDALUS design (rev2) + ARGUS audit + A1 beat + [HARD STOP] cleared; dispatching ADA.\n\nDAEDALUS rev1 (ab0410f): merge into §1 (sub-stances 1.1-1.4), §2/§3/§5 -\u003e no-renumber pointer-stubs, §4 carved out untouched; 12 rules merged / 0 dropped (rule-by-rule map); 7 trims; §32-\u003etombstone. ARGUS cold-audit = REVISE (2 BLOCKING, both ARGUS-caught by doing work DAEDALUS hadn't): r1 — ARGUS read install.sh: jsdom-timing is an OWNED op-disc module; recompose Check B (install.sh:1055) exit-2 ABORTS every subproject deploy if its MODULE-INLINE marker is dropped, so the §32 'cut' MUST keep markers + module source. r2 — the §8 trim named a phantom CUT ('§8.3 bidirectional-translation restatement' — not in §8.3, which is the all-load-bearing four-state continuum); acting on it risked ADA cutting a real rule. ARGUS PASSED: merge completeness (all 12 rules, genuine dedup), §4 untouched, other trims lossless, no-renumber (line-1642 six-anti-patterns rewrite handled), net-negative, authorship Denson Smith, §35.5 confirmed.\n\nDAEDALUS rev2 (09b31bd): r1 — §32 reframed to STUB-PROSE cut keeping the MODULE-INLINE marker pair + module source (build INVARIANT; §0.5 row stays CONDITIONAL not flipped to CUT; new probe P4b asserts markers present + module source exists + dry-run recompose doesn't abort; install.sh Check A/B cited). r2 — phantom §8.3 cut DROPPED entirely; §8.2/§8.3 untouched; §8 trim reduced to the §8.4 Arc-23 historical note + narrative compression. I verified the rev2 delta myself: markers retained, §0.5 CONDITIONAL, no §8.3 cut. Both fixes are CONSERVATIVE (preserve more).\n\nA1 RATIFICATION-RESTATEMENT (§5.13) as threat+attack-path: sole ratification = A3 NOT-THREAT-RATIFIED (ARGUS-confirmed §35.5: process/canon prose, no runtime mechanism, no attack path; no named threat M\u003cn\u003e). No threat-\u003emitigation map required. The load-bearing BUILD risks here — (a) dropped-rule/semantic-loss and (b) subproject-deploy-break — are folded into the design as VERA rule-survival probes + P4b marker/dry-run-recompose probe, with CATO's dropped-nuance cold-read as the primary semantic gate (A2 satisfied). [HARD STOP] CLEARED by PLINY: not-threat-classified + design-faithful (rev2 verified) + no §10 trigger. Dispatching ADA to build from design rev2. Heads-down through the verify tail.",
       "timestamp": "2026-06-05T01:29:25Z"
+    },
+    {
+      "text": "NOMOS activated on stoa--xyb.13 (Arc B op-disc consolidation). Reading the build to audit (arc-B/build @1613c40 vs baseline 1cb9160), the ledger Arc B section, PLINY's bw claims + the gauntlet verdicts. Six audit items: ledger conformance / bw-record accuracy / scope / verdict presence+consistency / subproject-deploy invariant / authorship. Beginning probes.",
+      "timestamp": "2026-06-05T01:48:48Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-06-05T01:29:25Z"
+  "updated_at": "2026-06-05T01:48:48Z"
 }
