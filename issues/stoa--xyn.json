@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-05T00:58:44Z",
+  "description": "ZENO flagged in Arc A: tool-layer quote pre-parser trips on large single-quoted heredoc bodies for Bash-only seats authoring save-verdict bodies; chunked printf w/ quotes stripped worked. Leftover _body-*.tmp.md in agents/verdicts/ dirs. Candidate fix vs save-verdict/SKILL.md (e.g. --body-stdin; cf stoa--7b1.8). Not arc-blocking.",
+  "id": "stoa--xyn",
+  "labels": [],
+  "priority": 3,
+  "status": "open",
+  "title": "[follow-up] save-verdict Bash-only body-authoring ergonomics (ZENO, Arc A)",
+  "type": "task",
+  "updated_at": "2026-06-05T00:58:44Z"
+}
