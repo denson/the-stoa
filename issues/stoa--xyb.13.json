@@ -63,11 +63,15 @@
     {
       "text": "VERA activated on stoa--xyb.13 (Arc B op-disc consolidation). Reading design rev2 §5 probes + §2 rule-preservation map + role file. Build under test 1613c40; baselines design-09b31bd content-1cb9160.",
       "timestamp": "2026-06-05T01:37:25Z"
+    },
+    {
+      "text": "VERA all probes executed. P1-P6 PASS (P1 two false-FAILs were probe line-wrap artifacts — rules survive when wrap-tolerant; recording as §5.11 methodology concern). P4b: REAL subproject deploy into throwaway parent exited 0, 50 jsdom body-lines inlined — deploy-safe. 12 merged rules + all trim PRESERVED lists independently confirmed present in build (not just trusting the map). §8.2/§8.3 byte-identical (phantom cut dropped). §4 byte-identical. P7: op-disc +14 physical lines / -86 words / +987 chars. Drafting verdict + P7 ruling.",
+      "timestamp": "2026-06-05T01:40:54Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc B: op-disc prose consolidation — four-stance merge + 7 trims + jsdom cut (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T01:37:25Z"
+  "updated_at": "2026-06-05T01:40:54Z"
 }
