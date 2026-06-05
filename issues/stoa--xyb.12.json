@@ -69,11 +69,15 @@
     {
       "text": "VERA activated on stoa--xyb.12 (Arc A Ariadne decoupling). Read brief + design rev2 §5 probes P1-P7 + role file. Build under test 6757a75, baseline 0719047. Classifying probes per verification-complexity quadrant; executing P1 (B-anchor integrity gate) first. autonomous mode.",
       "timestamp": "2026-06-05T00:23:18Z"
+    },
+    {
+      "text": "P1 PASS (B-anchor gate): no B-anchor in any removed line; stoa--vmc L45 + all ariadne--/stoa--32b provenance survive in live canon. P2 PASS: bw-fit-matrix only L9+L45 ariadne (both B-provenance), framing L27/32/33/35 de-named w/ clauses intact; §16.5 assumption-naming gone + replacement landed. Executing P3 inbound-ref integrity.",
+      "timestamp": "2026-06-05T00:24:16Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T00:23:18Z"
+  "updated_at": "2026-06-05T00:24:16Z"
 }
