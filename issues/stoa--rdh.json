@@ -78,11 +78,15 @@
     {
       "text": "pass: build complete. 1 commit (3a889dc) across 6 files = exactly the 5 path-roots (decision-surface/, interactive-html-preview/, team-launcher/, install.sh, agents.ts). gen-data Zod-clean; all 3 skills in agents.ts; authorship=Denson Smith unchanged (4 author-field lines, zero non-Denson); seat-identity trailer present; Author=PRINCIPAL git identity (not overridden). Design §2.4 prose off-by-one corrected on disk (11/10-\u003e10/9; printed array + install.sh untouched) — process artifact, not in commit. No deviations. NOT pushed/merged (HARD STOP — user-tier holds merge). Returning to VERA-\u003eCATO-\u003eNOMOS-\u003eZENO.",
       "timestamp": "2026-06-05T10:22:50Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa] ADA build complete. Commit 3a889dc on arc-60/build. Files = EXACTLY the 5 path-roots (3 skill dirs + install.sh +1 line + regenerated agents.ts); no clutter staged (explicit per-path git add). gen-data PASS (exit 0, no Zod error; all 3 skills in agents.ts L278/L299/L313). Authorship CLEAN: 4x author: Denson Smith, zero non-Denson, zero author-field edits; commit Author = denson \u003cdensonsmith2@gmail.com\u003e (not overridden); Co-Authored-By: CAPTAIN_ADA_the-stoa trailer present. Design §2.4 prose off-by-one fixed on disk (10/9; not in build commit — lands at close). Not pushed/merged. Next: file follow-up ticket → VERA P1-P6.",
+      "timestamp": "2026-06-05T10:23:27Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T10:22:50Z"
+  "updated_at": "2026-06-05T10:23:27Z"
 }
