@@ -121,11 +121,15 @@
     {
       "text": "ZENO activated on stoa--xyb.14 (Arc C encode batch). Reading spec (design.md §13/§28/§7/§11) + shipped artifact (diff f2ed388..2ae26bb) before extracting criteria.",
       "timestamp": "2026-06-05T03:43:02Z"
+    },
+    {
+      "text": "Probe progress: item-1 ledger diff bounded to expected 7 files; op-disc diff = exactly 2 hunks (§13 rewrite + §28.1 retitle), §28.5/§7/§11 zero-diff (verify-only confirmed). Hook + template read clean. Next: install.sh 5e/5f read, then GROUND-TRUTH runs in synthetic targets.",
+      "timestamp": "2026-06-05T03:43:22Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T03:43:02Z"
+  "updated_at": "2026-06-05T03:43:22Z"
 }
