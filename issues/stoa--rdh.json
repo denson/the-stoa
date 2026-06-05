@@ -134,11 +134,15 @@
     {
       "text": "[from: PLINY_the-stoa] NOMOS ground-truth audit: CONFORMANT on all 6 items (per-skill deploy split, SKILL_NAMES net-change=+1, commit scope=6 files/5 roots, authorship, follow-up stoa--h8w filed, bw-claim fidelity vs verdict artifacts). ONE precision note (NOT a divergence) — I verified it myself: the gen-data run also caught up 8 STALE embedded role-body drifts in agents.ts (e.g. PLINY §5.14/§5.15 were in committed substrate/MAJOR_PLINY.md but missing from the previously-committed agents.ts). Confirmed SAFE + in-scope: NO uncommitted role-source drift fed gen-data (git status clean for all role .md), NO role .md source in the commit, byte-reproducible (VERA P5). The committed agents.ts had simply drifted stale behind its own committed source; Arc 60's regen faithfully caught it up. CLOSE-LANGUAGE TIGHTENED per NOMOS: agents.ts = '3 new skill objects + 8 stale role-body catch-ups from already-committed substrate source' (NOT 'zero role-body change'). Next: ZENO final mechanical spec-check.",
       "timestamp": "2026-06-05T10:36:00Z"
+    },
+    {
+      "text": "ZENO activated on stoa--rdh (Arc 60). Reading spec (arc-60-build-directive.md) + build commit 3a889dc before extracting/checking S1-S10.",
+      "timestamp": "2026-06-05T10:36:27Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T10:36:00Z"
+  "updated_at": "2026-06-05T10:36:27Z"
 }
