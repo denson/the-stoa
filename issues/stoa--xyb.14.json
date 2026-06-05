@@ -125,11 +125,15 @@
     {
       "text": "Probe progress: item-1 ledger diff bounded to expected 7 files; op-disc diff = exactly 2 hunks (§13 rewrite + §28.1 retitle), §28.5/§7/§11 zero-diff (verify-only confirmed). Hook + template read clean. Next: install.sh 5e/5f read, then GROUND-TRUTH runs in synthetic targets.",
       "timestamp": "2026-06-05T03:43:22Z"
+    },
+    {
+      "text": "item-1/3c CONFORMANT (no .git/hooks write path; install.sh cp targets only githooks-candidate/). Now executing GROUND-TRUTH runs: (3a) --enable-env-block dry-run + real into synthetic project target; (3b) ARM hook in synthetic throwaway repo + fire c1 .local\u003e-tailed newline payload + legit + M3 Author check.",
+      "timestamp": "2026-06-05T03:43:49Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T03:43:22Z"
+  "updated_at": "2026-06-05T03:43:49Z"
 }
