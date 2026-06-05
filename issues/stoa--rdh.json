@@ -110,11 +110,15 @@
     {
       "text": "CATO activated on stoa--rdh (Arc 60). Reading diff + design + VERA verdict before forming cold-read.",
       "timestamp": "2026-06-05T10:28:26Z"
+    },
+    {
+      "text": "Cold-read pass complete: diff (6 files / 5 path-roots) + design + VERA verdict absorbed. install.sh = exactly +1 line; agents.ts diff = 31+/10- (only 3 new LIEUTENANT skill objects + count bumps, zero role-body change); launch-team.ps1 pre-existing @2d34f55, correctly NOT in commit. Classifying findings before returning.",
+      "timestamp": "2026-06-05T10:29:31Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T10:28:26Z"
+  "updated_at": "2026-06-05T10:29:31Z"
 }
