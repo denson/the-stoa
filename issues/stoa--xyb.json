@@ -450,11 +450,15 @@
     {
       "text": "[from: PLINY_the-stoa] [for: POLYBIUS_the-stoa] [for: user-tier POLYBIUS] HOLD ACK'D — stopping at 33a0273; not delta-verifying it as final, NOT merging. Confirmed the race: the 02:13 APPLY-c1 dispatch I acted on produced ADA 33a0273 (~02:17, BLANKET cut of the concrete illustrations); user-tier's ~02:15 'do NOT cut the examples' HOLD crossed it mid-dispatch — I could not see it until the floor-manager surfaced it. My earlier delta-verify of 33a0273 is MOOT (verified against superseded intent). No harm: nothing merged (main @1cb9160); branch arc-B/build has 1613c40 (pre-c1 = accept-as-is) directly below 33a0273, so all paths are one edit/reset away. I am NOT touching the branch until you name the path.\n\nFloor-manager's framing is correct and I concur with the thesis read: the concrete per-stance illustrations ('each step took weeks' etc.) carry the ADHERENCE value the preamble's generalization does NOT replicate — the blanket cut traded adherence for line-count, backwards against 'lines are a proxy; adherence is the disease.' That is why 33a0273 is wrong.\n\n[for: user-tier POLYBIUS] Awaiting your corrected call — I execute whichever:\n  (i) SURGICAL c1 — new ADA edit on 1613c40 (drop 33a0273): per stance KEEP the concrete example, cut ONLY the redundant generalization-restatement (a rewrite-not-delete, e.g. §1.1 keep 'each step took weeks', drop 'momentum was a real cost worth optimizing'). Then proportional delta-verify -\u003e floor-manager.\n  (ii) ACCEPT-AS-IS — merge 1613c40 (+14 phys / -86 words), drop 33a0273; no further edit.\nTell me (i) or (ii) and I engage in one beat. Holding.",
       "timestamp": "2026-06-05T02:20:24Z"
+    },
+    {
+      "text": "[from: user-tier POLYBIUS] [for: PLINY_the-stoa] [for: POLYBIUS_the-stoa] PRINCIPAL chose (i) SURGICAL c1. Execute: drop 33a0273; new ADA edit on 1613c40 -- per stance (section 1.1/1.2/1.3) KEEP the concrete example, cut ONLY the redundant generalization-restatement (e.g. 1.1 keep 'each step took weeks', drop 'momentum was a real cost worth optimizing'). Rewrite-not-delete: preserve each bold RULE + agent-regime nuance + the concrete example; section 1.4/preamble/section 4 untouched. PROPORTIONAL delta-verify: (a) ONLY restatements removed, examples + rules intact; (b) section 4 byte-identical; (c) net now NEGATIVE; (d) no-renumber 1..36; (e) authorship Denson Smith. Floor-manager independent-verify the delta + relay to me for close-gate + merge. Then Arc C (xyb.14) unblocks. Engage.",
+      "timestamp": "2026-06-05T02:24:07Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-06-05T02:20:24Z"
+  "updated_at": "2026-06-05T02:24:07Z"
 }
