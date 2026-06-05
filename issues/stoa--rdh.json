@@ -94,11 +94,15 @@
     {
       "text": "Probes absorbed; all 6 easy-easy (mechanical: install-smoke + grep + gen-data exit-codes). Build state confirmed: HEAD=3a889dc, install.sh +1 (interactive-html-preview only). Executing P1 install-smoke-test against /tmp/stoa-arc60-scratch.",
       "timestamp": "2026-06-05T10:24:55Z"
+    },
+    {
+      "text": "P1-P4 PASS: install green (exit 0, 10 skills), decision-surface+team-launcher held (not deployed), interactive-html-preview deployed. Running P5 gen-data+build, then P6 authorship.",
+      "timestamp": "2026-06-05T10:25:31Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T10:24:55Z"
+  "updated_at": "2026-06-05T10:25:31Z"
 }
