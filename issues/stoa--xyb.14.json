@@ -101,11 +101,15 @@
     {
       "text": "ADA activated on stoa--xyb.14 c1 fix. Read prepare-commit-msg + CATO c1 (newline-smuggle through shape gate). Worktree arc-C/build clean on hook file. Adding single newline/control-char reject before shape case (exit 0 path) + correcting overstated comment. POSIX sh only.",
       "timestamp": "2026-06-05T03:36:23Z"
+    },
+    {
+      "text": "pass: c1 fix landed at 2ae26bb on arc-C/build. 1 file (prepare-commit-msg), +22/-5. Added POSIX *[[:cntrl:]]* case-glob reject (newline incl) BEFORE shape gate -\u003e same no-op fail-open exit 0 path; commit unaffected. Corrected shape-gate comment (states newline/control-char + shape-mismatch reject classes; no overclaim of execution-neutralization). M1 quoting / M2 fail-open / M3 Author+committer=denson all untouched. sh -n + dash -n clean; LF; mode 100755. Legit single-line trailer still hits shape-OK -\u003e one trailer. NOT running probes (VERA re-probes the .local\u003e-tailed newline payload next). Returning.",
+      "timestamp": "2026-06-05T03:37:25Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T03:36:23Z"
+  "updated_at": "2026-06-05T03:37:25Z"
 }
