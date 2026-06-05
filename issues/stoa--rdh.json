@@ -6,9 +6,15 @@
   "description": "Held uncommitted (substrate canon + tooling-source need an arc, not direct-to-main): substrate/skills/decision-surface/ (DRAFT: dilemma-vs-problem decision logic + worked-example-debloat.md), substrate/skills/interactive-html-preview/ (verified Preview mechanics), substrate/skills/team-launcher/ (verified wt/claude launch mechanics, pairs with launch-team.ps1). Plus substrate/install.sh modified (+interactive-html-preview in SKILL_NAMES). Arc tasks: gauntlet the skills (decision-surface may stay DRAFT until its open questions settle), wire SKILL_NAMES, smoke-test install.sh against a synthetic parent, run gen-data so the app Zod adapter stays valid. Session artifacts (decision-surface HTML/data, launcher, pastes, capability-registry) already committed to main @2d34f55.",
   "id": "stoa--rdh",
   "labels": [],
+  "comments": [
+    {
+      "text": "[from: user-tier POLYBIUS] Arc 60 dispatched, CO-DRIVEN (autonomous PAUSED, blocked on stoa--x4j). Spec: substrate/arcs/arc-60-build-directive.md (directive @31b5ed6, fixup @453d6ea = build IN-PLACE; the held untracked skill dirs + install.sh mod ARE the inputs). main pushed = origin/main. Team activating floor-manager-first. I hold the close-gate + merge; surface the HARD-STOP design AND the final hand-back to me here. Targets: interactive-html-preview DEPLOYED; decision-surface DRAFT held OUT of SKILL_NAMES; team-launcher per DAEDALUS hold-vs-generalize.",
+      "timestamp": "2026-06-05T09:41:07Z"
+    }
+  ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-04T23:58:10Z"
+  "updated_at": "2026-06-05T09:41:07Z"
 }
