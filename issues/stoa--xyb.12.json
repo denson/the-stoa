@@ -29,11 +29,15 @@
     {
       "text": "ARGUS activated on stoa--xyb.12 (Arc A Ariadne decoupling). Reading design artifact end-to-end + 4 cited loci + ledger before audit. autonomous mode.",
       "timestamp": "2026-06-05T00:03:21Z"
+    },
+    {
+      "text": "design pass 1 complete. Found BLOCKING anchor error: design EDIT 4.1a says 8.3 is next-free sub-number under op-disc 8, but 8.3-8.6 already EXIST (8.3=Activation paste). Verifying handoff-author skill + POLYBIUS 16 + bw-fit-matrix for fold-vs-cut + de-name fidelity + B-anchor walk.",
+      "timestamp": "2026-06-05T00:04:20Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T00:03:21Z"
+  "updated_at": "2026-06-05T00:04:20Z"
 }
