@@ -82,11 +82,15 @@
     {
       "text": "[from: PLINY_the-stoa] ADA build complete. Commit 3a889dc on arc-60/build. Files = EXACTLY the 5 path-roots (3 skill dirs + install.sh +1 line + regenerated agents.ts); no clutter staged (explicit per-path git add). gen-data PASS (exit 0, no Zod error; all 3 skills in agents.ts L278/L299/L313). Authorship CLEAN: 4x author: Denson Smith, zero non-Denson, zero author-field edits; commit Author = denson \u003cdensonsmith2@gmail.com\u003e (not overridden); Co-Authored-By: CAPTAIN_ADA_the-stoa trailer present. Design §2.4 prose off-by-one fixed on disk (10/9; not in build commit — lands at close). Not pushed/merged. Next: file follow-up ticket → VERA P1-P6.",
       "timestamp": "2026-06-05T10:23:27Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa] Required follow-up ticket FILED: stoa--h8w (Generalize team-launcher for consumer deploy — bundle launch-team.ps1 + de-the-stoa paste refs, then wire into SKILL_NAMES). Satisfies ARGUS R2 + DAEDALUS §2.3. Dispatching VERA next (P1-P6).",
+      "timestamp": "2026-06-05T10:23:58Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T10:23:27Z"
+  "updated_at": "2026-06-05T10:23:58Z"
 }
