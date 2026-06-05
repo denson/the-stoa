@@ -74,7 +74,7 @@ This always-loaded table is the losslessness-recovery artifact for the Arc 47 op
 | §15 empirical | `bw show stoa--tp1` (Anchor; §15 stays inline — KEEP per r2) | PROVENANCE |
 | §18.7 / §18.6 lineage | `bw show stoa--odh` / `stoa--nvl` (Anchor; rules stay inline) | PROVENANCE |
 | §19.5 / §19.6 / §19.7 lineage | `bw show stoa--ioy` / `stoa--ezj` / `stoa--53u` (Anchor; rules stay inline) | PROVENANCE |
-| §21 empirical | `bw show stoa--32b.3` (Anchor; rule stays inline) | PROVENANCE |
+| §21 CUT — Ariadne-search-ready authoring (Arc A `stoa--xyb.12`) | generic compaction-recovery kernel → §8.7; provenance `bw show stoa--32b.3` | CUT |
 | §23.4 N=1 provenance | `bw show stoa--ads` (Anchor; rules stay inline) | PROVENANCE |
 | §24 empirical | `bw show stoa--3cs` (Anchor; thin cross-ref stays inline) | PROVENANCE |
 | §25.6 N=1 provenance | `bw show stoa--dxw` / `stoa--501` (Anchor; rules stay inline) | PROVENANCE |
@@ -312,6 +312,10 @@ This is a HYGIENE PREFERENCE, not a guaranteed mechanism: an on-line `[ -n "$VAR
 The discipline lands UPSTREAM once and applies across the gauntlet: DAEDALUS authors the probe spec, ADA authors the concrete probe set, and VERA re-executes verbatim and is forbidden to fix downstream (`CAPTAIN_VERA.md` §5.1-5.3) — so a probe that risks the heuristic is an upstream authoring choice, not a VERA repair.
 
 Empirical anchor: `stoa--x4j` — an autonomous-mode gauntlet seat permission-paused for ~7.5h on a destructive cleanup command containing `${...}` expansion; from the coordinating seat's bw vantage it was indistinguishable from a stall. N=1; the exact heuristic trigger remains uncharacterized (closed surface) — this discipline is the bounded, verifiable mitigation (prefer literal paths) plus the detection half (§sub-agent-watchdog zero-burn classification), NOT a claim to have defeated the heuristic.
+
+### 8.7 Author durable artifacts for compaction-recovery
+
+Whenever you author a durable artifact (bw ticket/comment, design doc, retro entry, commit subject, handoff doc, arc directive), write it so it survives being read **out of order, out of context, or in fragments** after a `/compact` or a fresh session: **titles** are search-friendly (distinct, specific, named-entities, readable without surrounding context — prefer `arc-26 check.sh adds MISSING+OBSOLETE categories` over `update X`); **cross-refs** name related artifacts explicitly (bw IDs, file paths `substrate/...md` §N, commit SHAs); **content density** favors semantic-chunked units (`## §N — <topic>` self-contained sections) over monolithic prose. This is the same discipline that serves a POLYBIUS re-reading the corpus after `/compact` — there is no trade-off. Forward-only: guidance for new artifacts, NOT a mandate to retroactively restructure existing ones (A8).
 
 ---
 
@@ -896,27 +900,9 @@ Anchor: `stoa--p5g` — N=1 provenance + accretion path (railway--pam 2026-05-13
 
 ---
 
-## 21. Ariadne-search-ready authoring
+## 21. [CUT — Ariadne-search-ready authoring]
 
-Every seat authors durable artifacts — bw tickets and comments (POLYBIUS, PLINY, every CAPTAIN), design docs (DAEDALUS, ARGUS), retrospective entries (POLYBIUS), commit messages (ADA, POLYBIUS), arc directives (POLYBIUS, MAJOR_PLINY pair-programmer mode), handoff docs (POLYBIUS). The discipline below applies to all of them.
-
-PRINCIPAL is setting up Ariadne tools for searching the substrate corpus across all repos. The implication for authoring discipline going forward is to write artifacts that are good both for human re-reading after compaction AND for vector retrieval against a query. The disciplines align — both want self-contained, well-titled, cross-referenced units that survive being read out of order, out of context, or in fragments.
-
-Four sub-disciplines:
-
-- **Titles matter.** bw ticket titles, retro doc titles, commit subjects, design-doc section headings should be search-friendly: distinct, specific, named-entities, no relying on context to disambiguate. A title that reads cleanly out of context retrieves cleanly out of context. Avoid `update X` / `fix the thing` / `next steps` — those collide with thousands of similar titles in the corpus. Prefer `arc-26 check.sh adds MISSING+OBSOLETE detection categories` — specific, named, distinct.
-
-- **Cross-refs matter.** Every artifact should name its related artifacts explicitly — bw ID cross-refs (`stoa--32b.3`, `u--7yg.20`), file paths (`substrate/MAJOR_POLYBIUS.md` §16.3), commit SHAs (`6ccfd0e`), retro doc paths. Implicit references that depend on the reader having recent context lose their value the moment the context decays.
-
-- **Content density matters.** Semantic-chunked sections (`## §N — <topic>` headings, each a self-contained retrieval unit, per the retro doc convention) make for better vector retrieval than long monolithic prose. A section should answer one question end-to-end without forcing the reader to scroll up for the framing or down for the punchline. The retro doc at `docs/sessions/2026-05-16-substrate-update-architecture-reframe--retro.md` is the canonical worked example.
-
-- **Authoring-for-ingestion aligns with authoring-for-compaction-recovery.** Both want self-contained, well-titled, cross-referenced units. There is no trade-off — the discipline that serves Ariadne retrieval is the same discipline that serves a POLYBIUS re-reading the doc after `/compact`.
-
-**Forward-only.** This is guidance for new artifacts authored going forward; it is not a mandate to retroactively restructure existing artifacts. Retroactive restructuring of bw tickets, commit messages, or prior retros is explicitly out of scope (per Arc 27 directive A8). When the discipline catches a new artifact that violates it, fix-now (per `MAJOR_POLYBIUS.md` §4.8); when it catches an old artifact, leave it alone — the cost of the rewrite exceeds the benefit until Ariadne search itself is operational and a specific retrieval failure motivates the fix.
-
-**POLYBIUS-specific framing.** The POLYBIUS session lifecycle uses this discipline to author multi-artifact handoffs (index doc + bw tickets + retro docs + design artifacts + commits + role files). See `substrate/MAJOR_POLYBIUS.md` §16.3 + §16.4 for the lifecycle-specific application.
-
-**Empirical anchor:** 2026-05-16 PRINCIPAL declaration during the `stoa--32b` epic-capture engagement (primary source: `stoa--32b.3` ticket body — carries PRINCIPAL's "we are setting up so you will have ariadne tools to search all work" declaration verbatim). The retro at `docs/sessions/2026-05-16-substrate-update-architecture-reframe--retro.md` is adjacent context for the broader epic; the Ariadne-readiness discipline surfaced after the retro was authored. N=1 per §6.7.1; substrate canon enters off-gate on PRINCIPAL's project-direction authority; supporting evidence accretes as future arcs author artifacts under this discipline.
+**CUT (Arc A, `stoa--xyb.12`).** This section encoded an authoring discipline premised on the assumption that an "Ariadne" search tool was being set up for the substrate corpus. Per the PRINCIPAL's 2026-06-04 decoupling decision (`docs/debloat-decisions.md`), Ariadne is an optional per-project add-on, not part of base Stoa. The generic, non-Ariadne-premised kernel (author durable artifacts for compaction-recovery — search-friendly titles, explicit cross-refs, semantic-chunked content density) is folded into §8.7 (authoring downstream artifacts); see also §30 (four-layer identity / what crosses session boundaries) and `substrate/skills/handoff-author/SKILL.md`. Number preserved as a stable cross-reference key (do NOT renumber); empirical provenance retained in §0.5. Original rationale: `bw show stoa--32b.3`.
 
 ---
 

@@ -66,7 +66,7 @@ A future POLYBIUS reading this template should understand *why* each slot is fil
 **For:** {{HANDOFF_FOR}}
 **Author:** {{AUTHOR_SESSION}}
 **Supersedes:** {{SUPERSEDES_HANDOFF}}{{SUPERSEDES_CLAUSE}}
-**Authoring discipline:** `substrate/MAJOR_POLYBIUS.md` §16.3 (multi-artifact handoff shape) + §16.4 (Ariadne-search-ready authoring).
+**Authoring discipline:** `substrate/MAJOR_POLYBIUS.md` §16.3 (multi-artifact handoff shape).
 
 ---
 

@@ -24,15 +24,15 @@ The wall: bw's `TreeFS.Commit` rewrites the entire tree on every commit (no incr
 
 ### 16.2 The layered-architecture framing
 
-**bw is the write-side substrate; Ariadne is the read-side projection; hypergraph extends the projection to relational reads.** Each layer addresses a different read shape; do not force bw to be fast at reads — that is not its job in the stack.
+**bw is the write-side substrate; an optional read-side projection add-on (hybrid search + KG) is the read-side projection; hypergraph extends the projection to relational reads.** Each layer addresses a different read shape; do not force bw to be fast at reads — that is not its job in the stack.
 
 Concretely:
 
 - **bw (write-side).** Authoritative ticket-shape state. Audit-trail-grade durability. Incremental-author-friendly. Best when reads are spot-lookups against known IDs or small-set list operations. Native bw `list` / `show` / `history` are the right APIs at this layer.
-- **Ariadne (read-side projection).** A sidecar projection layer that mirrors bw's state into a queryable shape (typically SQLite + FTS5 + structured indices). Built for relational reads, full-text search, cross-ticket aggregation, and analytics queries that bw cannot serve fast at scale. The projection is eventually-consistent with bw; bw is the source of truth, Ariadne is the cached query layer.
-- **Hypergraph extension.** When the project's read shape includes many-to-many relationships across tickets / artifacts / concepts (knowledge-graph queries; multi-hop traversal; relational joins on derived attributes), the hypergraph layer sits on top of Ariadne. Same eventually-consistent pattern; richer query surface.
+- **Read-side projection add-on (hybrid search + KG).** An optional sidecar projection layer that mirrors bw's state into a queryable shape (typically SQLite + FTS5 + structured indices). Built for relational reads, full-text search, cross-ticket aggregation, and analytics queries that bw cannot serve fast at scale. The projection is eventually-consistent with bw; bw is the source of truth, the projection is the cached query layer.
+- **Hypergraph extension.** When the project's read shape includes many-to-many relationships across tickets / artifacts / concepts (knowledge-graph queries; multi-hop traversal; relational joins on derived attributes), the hypergraph layer sits on top of the read-side projection. Same eventually-consistent pattern; richer query surface.
 
-The mental model substantive value: for any future Stoa-deployed project that needs both ticket-shape and knowledge-shape data, the projection layer is load-bearing — bw alone won't carry the knowledge-graph use case. The bw → Ariadne integration arc was proving exactly this: the bulk-seed wall was the empirical evidence that bw is for writes, Ariadne is for reads, and the two layers compose.
+The mental model substantive value: for any future Stoa-deployed project that needs both ticket-shape and knowledge-shape data, the projection layer is load-bearing — bw alone won't carry the knowledge-graph use case. The bw → read-side-projection integration arc was proving exactly this: the bulk-seed wall was the empirical evidence that bw is for writes, the projection add-on is for reads, and the two layers compose.
 
 ### 16.3 Decision rule
 
