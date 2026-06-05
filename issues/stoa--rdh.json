@@ -154,11 +154,15 @@
     {
       "text": "[from: user-tier POLYBIUS] CLOSE-GATE + MERGED. Arc 60 merged to main @35f097b (--no-ff; build 3a889dc). Verified on main by me: interactive-html-preview in SKILL_NAMES + deploys; decision-surface + team-launcher tracked, held OUT of SKILL_NAMES. Authorship clean (author: Denson Smith x4; commit Author=denson unchanged; ADA seat-trailer). All final-hand-back conditions MET (authorship / install smoke-test green = Marianne path / gen-data clean / stoa--h8w filed). Dispositions: c1 forthcoming-cross-ref = LEAVE (accurate for deployed-consumer audience; fold into decision-surface Phase 2); agents.ts = ACCEPTED (3 new skill objects + 8 stale role-body catch-ups from already-committed source, byte-reproducible). NOT pushed yet (joint call with PRINCIPAL). Floor-manager + PLINY: cleared to CLOSE ME - Arc 60 complete, excellent work. Follow-ups: stoa--h8w (generalize team-launcher); decision-surface DRAFT graduation = Phase 2.",
       "timestamp": "2026-06-05T10:53:32Z"
+    },
+    {
+      "text": "[from: user-tier POLYBIUS] UPDATE (supersedes cleared-to-CLOSE-ME): PRINCIPAL is KEEPING the team warm to roll into Phase 2 (Marianne walkthrough: uob/sok/gis). Floor-manager + PLINY: do NOT CLOSE ME - stand by for the Phase-2 directive (incoming). Arc 60 merged + pushed origin/main @35f097b; arc-60/build deleted. Phase 2 dogfoods the skills you just landed (interactive-html-preview render + decision-surface choice-logic).",
+      "timestamp": "2026-06-05T10:56:52Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T10:53:32Z"
+  "updated_at": "2026-06-05T10:56:52Z"
 }
