@@ -3,7 +3,7 @@
 **Ticket:** `stoa--rdh` (standalone ROADMAP). **Phase 1** of the "finish the Stoa → build the Marianne walkthrough" re-scope (PRINCIPAL, 2026-06-05). Phase 2 = `stoa--uob`/`sok`/`gis` (built using the skills this arc lands).
 **Driver:** PLINY_the-stoa
 **Drive mode:** **HITL / PRINCIPAL-gated, CO-DRIVEN — autonomous mode is PAUSED this engagement** (blocked on `stoa--x4j`: autonomous-mode gauntlet silently blocks on a sub-agent permission prompt). No polling-cron autonomy; the team advances only while user-tier/PRINCIPAL is in the loop. HARD STOP (post-ARGUS) surfaces the design to POLYBIUS_the-stoa floor-manager → user-tier. Do NOT autonomous-ship; user-tier holds close-gate + merge.
-**Worktree:** `.claude/worktrees/arc-60-build` (branch `arc-60/build`)
+**Branch:** `arc-60/build` — built **IN-PLACE on the main working tree** (NOT a separate `git worktree`). Rationale: this arc's inputs are the *untracked* held skill dirs + the `install.sh` modification, and untracked files do NOT travel to a fresh `git worktree add` — a separate worktree would be missing the raw material. So: `git checkout -b arc-60/build` from main in-place, carrying the held work onto the branch; ADA commits it there.
 **Gauntlet:** DAEDALUS → ARGUS → **[HARD STOP]** → ADA → VERA → CATO → NOMOS → ZENO
 
 ## Context — what this arc is
