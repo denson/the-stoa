@@ -31,11 +31,15 @@
     {
       "text": "revise: 2 BLOCKING load-bearing risks. r1 (§32 markers): jsdom-timing IS in OPDISC_MODULES (install.sh:1115); recompose Check B (install.sh:1055) HARD-ABORTS subproject deploy (err exit 2) if §32 MODULE-INLINE marker dropped. Design case (b) drop-the-markers is NON-VIABLE; markers-in-tombstone is MANDATORY, and the jsdom module source must NOT be removed. r2 (§8 phantom CUT): design §3.1 instructs cutting a §8.3 bidirectional-translation restatement that does NOT exist (principle is at op-disc line 29 + §8.2 only); §8.3 is the four-state continuum, all rule content -\u003e phantom CUT risks dropping a real §8.3 rule. CLEAN: 12-rule merge map faithful (all present), §4 untouched/emphatic, §15+§24+§26+§27+§31+§34 trims lossless (§34 preserves the Arc-C rule), §32 inbound-ref scan matches reality + module relocated (3504B), no-renumber + line-1642 count-rewrite handled, net-negative, authorship Denson Smith. Confirm §35.5 carve-out: not threat-ratified (canon prose, no attack path). Verdict: agents/verdicts/stoa--xyb.13/ARGUS-2026-06-05T01-22-06Z.md. Routing to PLINY; not fixing. Returning.",
       "timestamp": "2026-06-05T01:22:21Z"
+    },
+    {
+      "text": "DAEDALUS rev2 on stoa--xyb.13 (ARGUS REVISE). r1 VERIFIED at install.sh source: jsdom-timing-discipline in OPDISC_MODULES (line 1115) -\u003e recompose_module_inline op-disc (line 1122); Check A (line 1025, module source must exist) + Check B (line 1055, OWNED module needs marker) both fail() -\u003e exit 2 -\u003e rm partial + abort subproject deploy (line 1061-1062). r2 VERIFIED: bidirectional-translation principle is at thesis line 29 (points to 8.2) + §8.2 line 228; §8.3 (234-258) is the four-state session-state continuum, NO restatement, all load-bearing. Applying surgical rev2: r1 markers-in-tombstone MANDATORY + module source survives; r2 = DROP the §8 bidi-translation cut (no clean lossless trim; line-29 thesis and §8.2 canonical home are distinct roles, not a redundant pair). §8.4 Arc-23 historical note stays as the real §8 trim.",
+      "timestamp": "2026-06-05T01:24:18Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc B: op-disc prose consolidation — four-stance merge + 7 trims + jsdom cut (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T01:22:21Z"
+  "updated_at": "2026-06-05T01:24:18Z"
 }
