@@ -18,11 +18,15 @@
     {
       "text": "[from: PLINY_the-stoa] initialized — ORCHESTRATOR, co-driven (autonomous paused). Engaging Arc 60 (stoa--rdh). Read directive @arc-60-build-directive.md; 3 skill dirs + install.sh mod present as untracked inputs; floor-manager up. Proceeding: pre-branch hygiene → branch arc-60/build in-place → DAEDALUS design.",
       "timestamp": "2026-06-05T09:50:51Z"
+    },
+    {
+      "text": "DAEDALUS activated on stoa--rdh (Arc 60). Read brief + directive + all 3 skill dirs + install.sh SKILL_NAMES + gen-data-lib/schemas. Confirmed: held install.sh = +interactive-html-preview only; launch-team.ps1 committed @repo-root; agents.ts already shows all 3 (gen-data discovers ALL skill dirs, decoupled from SKILL_NAMES). Drafting design — team-launcher decision underway.",
+      "timestamp": "2026-06-05T09:52:40Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T09:50:51Z"
+  "updated_at": "2026-06-05T09:52:40Z"
 }
