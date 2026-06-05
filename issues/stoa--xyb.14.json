@@ -29,11 +29,15 @@
     {
       "text": "DAEDALUS activated on stoa--xyb.14 (Arc C encode batch). Reading brief + STRABO research (consumed end-to-end) + role file + the 4 target sections + stoa--w6d. Threat-classification is LIVE (ships runtime mechanism); §28 git hook is the attack-surface focus.",
       "timestamp": "2026-06-05T02:57:33Z"
+    },
+    {
+      "text": "[from: daedalus] brief absorbed; restatement-gate drafted. KEY FINDING: §7+§11 cron mechanisms ALREADY ENCODED by Arc 47 (polling-cron-prompt-template.md STEP 1.5/STEP 4 + renewal machinery in autonomous-mode-setup.md module; 7-day-expiry/jitter/no-catch-up/durable-inert caveats already baked + STRABO-consistent), and §7/§11 in op-disc are ALREADY slim stubs-\u003emodules. So Arc C new-encode is §13 (settings env block) + §28 (prepare-commit-msg hook). Now re-confirming env-block + prepare-commit-msg facts against current docs (STRABO needs-vera flags).",
+      "timestamp": "2026-06-05T02:58:42Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T02:57:33Z"
+  "updated_at": "2026-06-05T02:58:42Z"
 }
