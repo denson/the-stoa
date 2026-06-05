@@ -97,11 +97,15 @@
     {
       "text": "pass: Arc A (stoa--xyb.12) build 6757a75 — cold-read CLEAN, diff matches intent. Scope clean (4 substrate files + design doc, no .claude/ leak, C deferred/untouched). B-anchors verbatim (stoa--vmc L45, ariadne--8fd.10, L9). No-renumber (## 21. sequence byte-identical). Authorship untouched (grep matches are prose 'authoring'). §8.7 fold lossless (all 4 §21 mechanics preserved, only Ariadne premise dropped). Meta-verify VERA: PASS sound on every axis; no coverage gap. ONE minor craft finding c1 (ADVISORY, non-blocking): bw-fit-matrix L27 de-name left a tautology 'read-side projection add-on (...) is the read-side projection' — the one defect grep-based P2 structurally can't catch. Verdict: agents/verdicts/stoa--xyb.12/CATO-2026-06-05T00-31-26Z.md. Returning.",
       "timestamp": "2026-06-05T00:31:34Z"
+    },
+    {
+      "text": "ADA activated on stoa--xyb.12 c1. L27 anchor matched verbatim in worktree arc-A-build. Applying single-predicate de-tautologize ('is the read-side projection' -\u003e 'serves the read side'); no other line touched.",
+      "timestamp": "2026-06-05T00:33:02Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T00:31:34Z"
+  "updated_at": "2026-06-05T00:33:02Z"
 }
