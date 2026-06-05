@@ -113,11 +113,15 @@
     {
       "text": "PASS — VERA c1 re-probe (hook @ 2ae26bb, RAN under real /usr/bin/sh in synthetic throwaway repo). LOAD-BEARING (p1): the .local\u003e-tailed embedded-NEWLINE payload — the exact c1 gap (passes shape gate 4b, pre-fix smuggled a 2nd Co-Authored-By via interpret-trailers split) — is now REJECTED by *[[:cntrl:]]* at 4a: 0 trailers, SMUGGLED absent, exit 0. Confirmed *[[:cntrl:]]* MATCHES the newline at runtime (not assumed) AND that the shape gate does NOT independently catch it (so the new guard is load-bearing). p2: tab/CR variants also rejected. NO REGRESSION: p3a legit=1 trailer, p3b idempotent (no dup), p3c multi-CAPTAIN adds distinct 2nd; p4 empty+unset fail-open (M2). Author+Committer=Denson Smith across all 6 commits. M1 probe_evidence now includes the .local\u003e-tailed embedded-newline payload as rejected — CATO's coverage gap CLOSED. Verdict saved: agents/verdicts/stoa--xyb.14/VERA-2026-06-05T03-41-26Z.md (sha256 round-trip ok). Returning.",
       "timestamp": "2026-06-05T03:41:45Z"
+    },
+    {
+      "text": "NOMOS activated on stoa--xyb.14 (Arc C encode batch). Reading the orchestrator outputs to audit (Arc C build claims + bw record) + worktree state + role file. Arc SHIPS RUNTIME MECHANISM =\u003e will GROUND-TRUTH the runs (env-block deploy + hook arm in synthetic repos), not assume.",
+      "timestamp": "2026-06-05T03:42:50Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T03:41:45Z"
+  "updated_at": "2026-06-05T03:42:50Z"
 }
