@@ -81,11 +81,15 @@
     {
       "text": "P6 PASS: design-probe grep matched only prose 'authoring'/'author' (NOT metadata fields); tightened frontmatter/manifest-field scan = clean; build commit Author=denson, only ADA+Claude Co-Authored-By trailers (substrate §28). P7 PASS: §8.7 fold preserves FULL §21 generic kernel (4 mechanics + out-of-order/context/fragments + no-trade-off + forward-only/A8); only the Ariadne assumption dropped; tombstone §8.7/§30/handoff-author cross-refs all resolve; §16.3 + scale insight intact. Scope: build 6757a75 touches ONLY the 4 §4 A-scope files, no .claude/ self-apply, net 17/-31 debloat. Drafting verdict: PASS. Returning.",
       "timestamp": "2026-06-05T00:26:14Z"
+    },
+    {
+      "text": "pass: Arc A (stoa--xyb.12) build 6757a75 VERIFIED. All 7 probes PASS (P8 N/A, C deferred). P1 B-anchor gate PASS (no B-anchor removed; stoa--vmc L45 verbatim; all ariadne--/stoa--32b provenance survive live). P2 de-name PASS (only L9+L45 ariadne, framing de-named, clauses intact). P3 inbound-ref PASS (no dangle; tombstones+re-point each x1). P4 audit-recovery PASS. P5 no-renumber PASS (sequence byte-identical to baseline). P6 authorship PASS (Author=denson; only seat trailers; loose-grep matches are prose 'authoring'). P7 losslessness PASS (§8.7 fold preserves full §21 kernel, only Ariadne assumption dropped; all tombstone cross-refs resolve). Scope clean: only 4 §4 A-scope files touched, no .claude/ leak, net 17/-31 debloat. §35.5 carve-out confirmed (not threat-ratified). Verdict: agents/verdicts/stoa--xyb.12/VERA-2026-06-05T00-27-25Z.md. Returning to PLINY.",
+      "timestamp": "2026-06-05T00:27:37Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T00:26:14Z"
+  "updated_at": "2026-06-05T00:27:37Z"
 }
