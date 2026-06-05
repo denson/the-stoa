@@ -33,11 +33,15 @@
     {
       "text": "[from: daedalus] brief absorbed; restatement-gate drafted. KEY FINDING: §7+§11 cron mechanisms ALREADY ENCODED by Arc 47 (polling-cron-prompt-template.md STEP 1.5/STEP 4 + renewal machinery in autonomous-mode-setup.md module; 7-day-expiry/jitter/no-catch-up/durable-inert caveats already baked + STRABO-consistent), and §7/§11 in op-disc are ALREADY slim stubs-\u003emodules. So Arc C new-encode is §13 (settings env block) + §28 (prepare-commit-msg hook). Now re-confirming env-block + prepare-commit-msg facts against current docs (STRABO needs-vera flags).",
       "timestamp": "2026-06-05T02:58:42Z"
+    },
+    {
+      "text": "[from: daedalus] All load-bearing facts re-confirmed against CURRENT docs + LOCAL probes on the target Windows/git env: (1) settings.json env block applies to every session + spawned subprocesses incl Bash tool (docs); PYTHONUTF8=1 locally reaches python subprocess -\u003e utf-8, theta+em-dash print clean. (2) prepare-commit-msg runs on -m, aborts on non-zero (must exit 0), NOT suppressed by --no-verify (docs); local probe: hook appends trailer + exit 0 + git log %(trailers) walks it. (3) interpret-trailers --if-exists=addIfDifferent is idempotent AND appends a DIFFERENT CAPTAIN (multi-CAPTAIN safe -- doNothing would be WRONG). (4) cron 7d-expiry/session-scoped/no-catch-up/local-tz/jitter re-confirmed; durable not even a documented CronCreate param now. Drafting design at agents/design/stoa--xyb.14/design.md.",
+      "timestamp": "2026-06-05T02:59:44Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T02:58:42Z"
+  "updated_at": "2026-06-05T02:59:44Z"
 }
