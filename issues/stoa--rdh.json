@@ -66,11 +66,15 @@
     {
       "text": "ADA activated on stoa--rdh. Reading design + ARGUS PASS verdict + worktree state before first commit. Branch confirmed arc-60/build. Note: PLINY is filing the generalize follow-up ticket (per 10:19 comment), so not in my deliverable set.",
       "timestamp": "2026-06-05T10:21:20Z"
+    },
+    {
+      "text": "Ground-check complete: install.sh held diff = exactly +1 interactive-html-preview line; all 3 SKILL.md author=Denson Smith + frontmatter name matches dir name; SKILL_NAMES=10 entries (design prose §2.4 off-by-one corrected 11/10-\u003e10/9, printed array block + install.sh untouched). Running npm run gen-data (build-check).",
+      "timestamp": "2026-06-05T10:21:50Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T10:21:20Z"
+  "updated_at": "2026-06-05T10:21:50Z"
 }
