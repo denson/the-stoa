@@ -4,6 +4,8 @@ author: Denson Smith
 
 # Autonomous-mode activation template
 
+> **⚠ AUTONOMOUS MODE PAUSED (2026-06-05, PRINCIPAL).** Do NOT use this template to activate a seat into autonomous / unattended mode right now. Run the engagement **co-driven (HITL — user-tier/PRINCIPAL in the loop)** instead, via the standard `paste-instruction-template.md`. Reason: `stoa--x4j` — in autonomous mode the gauntlet can silently block on a sub-agent permission prompt, indistinguishable from a stall over bw. Temporary + reversible: **remove this banner and restore autonomous activation when `stoa--x4j` is fixed.**
+
 Paste-instruction template POLYBIUS instances reference when activating a downstream seat in autonomous mode. The downstream seat reads the filled paste-instruction on entry and uses it to run the autonomous-mode-setup checklist (`operating-disciplines.md` §11) before any substantive work begins.
 
 When to use this template:
