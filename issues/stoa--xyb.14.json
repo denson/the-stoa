@@ -85,11 +85,15 @@
     {
       "text": "pass: Arc C (b06ed2d) VERIFIED — RAN all mechanisms (third-shape). P1-P7 + p2-threat all PASS. §13 env-block: subprocess fact holds + deploy DEFAULT-OFF/idempotent/no-clobber/user-tier-runbook. §28 hook ARMED in synthetic repo: legit half (1 trailer, idempotent, multi-CAPTAIN addIfDifferent, exit 0); M1 attack-path (6 injection payloads — cmdsub/backtick/;rm/newline-smuggle/newline-exec/shape-passing-inner) ALL neutralized — ZERO sentinel files, shape-passing payload recorded as LITERAL inert interpret-trailers DATA, no fake-trailer smuggle, commit still exit 0; M2 fail-open every path; M3 Author+committer = Denson Smith across ENTIRE history (legit + all 6 attacks). §7/§11 zero-diff verify-only; §28.5 byte-identical; no dangling/no renumber; authorship Denson Smith. threat_coverage: M1 defeats_via_probe=p2-threat (executed attack-path), M2=p2, M3=p2-threat+p7; all cited ids in probes_executed (seat-side grep OK). 2 residuals benign+design-WP2-named (live-session env round-trip unprobeable from sub-agent; cp1252 crash not reproducible on already-utf-8 box) — NOT blockers. Synthetic repos cleaned, build worktree untouched. Verdict: agents/verdicts/stoa--xyb.14/VERA-2026-06-05T03-29-07Z.md. Returning.",
       "timestamp": "2026-06-05T03:29:29Z"
+    },
+    {
+      "text": "CATO activated on stoa--xyb.14 (Arc C encode batch). Reading the prepare-commit-msg hook line-by-line as adversary FIRST (independent cold-read), then design + VERA verdict for meta-verify. Security-sensitive shell hook is the load-bearing read.",
+      "timestamp": "2026-06-05T03:30:53Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T03:29:29Z"
+  "updated_at": "2026-06-05T03:30:53Z"
 }
