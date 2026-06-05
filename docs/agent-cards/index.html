@@ -72,7 +72,7 @@
     <h1>Meet your team</h1>
     <p class="lead">Every seat is named for a real figure from history or myth — the namesake is the memory hook for what the agent does. Tap a card for the full story. Toggle between their ancient and future selves.</p>
     <div class="toggle" id="look-toggle">
-      <button data-look="period" class="active">Ancient</button>
+      <button data-look="period" class="active">Period</button>
       <button data-look="future">Future</button>
     </div>
   </header>
@@ -189,7 +189,7 @@ function openModal(a){
        <div class="m-name">${a.name}</div>
        <div class="m-role">${a.role} · <span class="m-who">${a.figure}, ${a.dates}</span></div>
        <div class="m-hook">${a.hook}</div>
-       <div class="m-toggle"><button data-l="period">Ancient</button><button data-l="future">Future</button></div>`);
+       <div class="m-toggle"><button data-l="period">Period</button><button data-l="future">Future</button></div>`);
     const imgs=document.createElement("div");
     imgs.appendChild(bigImg(a,mlook,"turnaround"));
     if(a.major) imgs.appendChild(bigImg(a,mlook,"expressions"));
