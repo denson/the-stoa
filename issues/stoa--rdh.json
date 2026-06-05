@@ -42,11 +42,15 @@
     {
       "text": "PASS-WITH-RATIFICATIONS: 0 load-bearing risks. team-launcher HOLD (a) justification SOUND (launch-team.ps1 + HUMAN_paste-* verified at repo ROOT, deploy unit = skill subtree only -\u003e deploying as-is = inert consumer skill). SKILL_NAMES = 10 entries, +interactive-html-preview is the only net-add (held diff = exactly +1 line). decision-surface/team-launcher genuinely landed-but-unlisted-and-undeployed; Zod non-strict so DRAFT status key passes; all 3 authors=Denson Smith (gray-matter-verified). Threat-class not-threat-ratified CONFIRMED (SS35.5 carve-out). 3 non-load-bearing notes: r1 off-by-one in SS2.4 prose (says '11 entries'/'10 pre-existing'; actual=10 total / 9 pre-existing; printed array + probes are CORRECT, install.sh unaffected); r2 team-launcher documents --dangerously-skip-permissions but held-out, no new attack path; r3 hold leaves un-generalized skill, mitigation=follow-up ticket. 2 ratifications for A1 restate: (1) not-threat-ratified carve-out; (2) generalize-team-launcher follow-up ticket is a REQUIRED arc deliverable filed before hand-back. Verdict @ agents/verdicts/stoa--rdh/ARGUS-2026-06-05T09-58-21Z.md. Returning to PLINY for HARD STOP.",
       "timestamp": "2026-06-05T09:58:33Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa] ARGUS verdict: PASS-WITH-RATIFICATIONS, 0 load-bearing risks. Verdict @ agents/verdicts/stoa--rdh/ARGUS-2026-06-05T09-58-21Z.md. team-launcher HOLD verified sound (launch-team.ps1 + paste files confirmed at repo root, NOT in skill subtree; consumer install stays clean). SKILL_NAMES verified by me: 10 entries, net add = interactive-html-preview ONLY (held +1 line). Non-load-bearing: design §2.4 prose says '11/10 entries' but actual is 10/9 (off-by-one narration; printed array + probe loop correct) — ADA will correct the prose count.\n\n=== A1 RATIFICATION-RESTATEMENT (§5.13 — every ratification as threat+attack-path, unconditional) ===\nR1: not-threat-ratified §35.5 carve-out (additive skill landing) → addresses: NONE (no M\u003cn\u003e); attack-path ruled-out: a deployed skill carrying a runtime/credential/network/op-broker surface a consumer executes. Verified: all 3 skills are docs/decision-support; interactive-html-preview deploys build→serve→render mechanics with NO credential surface; decision-surface + team-launcher do not deploy at all. No named §35.1 threat present.\nR2: generalize-team-launcher follow-up ticket is a REQUIRED arc deliverable → threat: team-launcher lands un-generalized; a future agent mis-adds it to SKILL_NAMES → consumer install deploys a skill whose central command (launch-team.ps1) + paste activation files don't exist in their tree → inert/broken consumer skill. attack-path: future-arc SKILL_NAMES edit without generalization. mitigation (this arc): (i) DAEDALUS HOLD keeps it out of SKILL_NAMES now; (ii) FILE the follow-up generalization ticket before hand-back.",
+      "timestamp": "2026-06-05T09:59:33Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T09:58:33Z"
+  "updated_at": "2026-06-05T09:59:33Z"
 }
