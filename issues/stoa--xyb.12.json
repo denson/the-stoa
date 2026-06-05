@@ -25,11 +25,15 @@
     {
       "text": "pass: design committed 8b457af on arc-A/build. Path: agents/design/stoa--xyb.12/design.md. A-edits: 9 (op-disc 21 CUT+0.5 row+8.3 fold; POLYBIUS 16.4 CUT+16.5 de-name+16.7 ref-strip+16.8 re-point; bw-fit-matrix 4-line de-name; handoff-template 16.4 ref-strip). B-guards: stoa--vmc line + all ariadne-- provenance + arc directives + worked-example. C-edits: 6 enumerated, RECOMMEND minimal (skip C1-4/C6, maybe C5) — entangled w/ real-ecosystem refs; separable slice. CUT convention: tombstone stub (number preserved, no renumber). Top weak point: CUT-vs-CUT+fold judgment on §8.3 (kernel coverage) — flagged for ARGUS. Returning.",
       "timestamp": "2026-06-05T00:01:01Z"
+    },
+    {
+      "text": "ARGUS activated on stoa--xyb.12 (Arc A Ariadne decoupling). Reading design artifact end-to-end + 4 cited loci + ledger before audit. autonomous mode.",
+      "timestamp": "2026-06-05T00:03:21Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T00:01:01Z"
+  "updated_at": "2026-06-05T00:03:21Z"
 }
