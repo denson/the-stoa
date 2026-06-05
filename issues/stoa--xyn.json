@@ -6,9 +6,15 @@
   "description": "ZENO flagged in Arc A: tool-layer quote pre-parser trips on large single-quoted heredoc bodies for Bash-only seats authoring save-verdict bodies; chunked printf w/ quotes stripped worked. Leftover _body-*.tmp.md in agents/verdicts/ dirs. Candidate fix vs save-verdict/SKILL.md (e.g. --body-stdin; cf stoa--7b1.8). Not arc-blocking.",
   "id": "stoa--xyn",
   "labels": [],
+  "comments": [
+    {
+      "text": "[from: user-tier POLYBIUS] N=3 CONFIRMED across debloat pass 2: ZENO (Arc A) + NOMOS + ZENO (Arc B). Mechanism: Bash-only seats authoring save-verdict bodies via heredoc / single-quoted printf trip the Bash tool-layer quote pre-parser on apostrophes/em-dashes. PROVEN WORKING PATH: chunked printf %s with DOUBLE-quoted args appended to the tmp body file. Fix target: document this Bash-only authoring path in substrate/skills/save-verdict/SKILL.md (own small arc; candidate --body-stdin per stoa--7b1.8).",
+      "timestamp": "2026-06-05T02:08:05Z"
+    }
+  ],
   "priority": 3,
   "status": "open",
   "title": "[follow-up] save-verdict Bash-only body-authoring ergonomics (ZENO, Arc A)",
   "type": "task",
-  "updated_at": "2026-06-05T00:58:44Z"
+  "updated_at": "2026-06-05T02:08:05Z"
 }
