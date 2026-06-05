@@ -13,11 +13,15 @@
     {
       "text": "STRABO activated on stoa--xyb.14 (Arc C encode batch). Pre-gate (6.1) confirmed: research directly gates DAEDALUS design — different findings (SessionStart can/cannot env-inject; additionalContext working/broken) produce different mechanisms. Non-trivial. Starting WebSearch pass on current Claude Code hook + cron docs.",
       "timestamp": "2026-06-05T02:48:10Z"
+    },
+    {
+      "text": "First pass complete. KEY: SessionStart env-injection IS supported but via CLAUDE_ENV_FILE (write export statements to $CLAUDE_ENV_FILE), NOT additionalContext. additionalContext = text-into-prompt, and #55889 (closed not-planned) confirms PreToolUse/PostToolUse additionalContext+systemMessage+stdout DROPPED for Bash matcher in v2.1.123. SessionStart hooks CANNOT block (fail-open). Now verifying: settings env block alternative, Co-Authored-By trailer hook, CronCreate, SessionStart-specific additionalContext bug.",
+      "timestamp": "2026-06-05T02:48:59Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T02:48:10Z"
+  "updated_at": "2026-06-05T02:48:59Z"
 }
