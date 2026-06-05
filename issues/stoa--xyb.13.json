@@ -91,11 +91,15 @@
     {
       "text": "ZENO activated on stoa--xyb.13 (Arc B op-disc prose consolidation). Reading spec (design.md rev2) + shipped artifact (build 1613c40 vs baseline 1cb9160) before extracting criteria.",
       "timestamp": "2026-06-05T01:48:52Z"
+    },
+    {
+      "text": "Criteria extracted; mechanical checks underway. So far PASS: scope-exactness (3 files, no .claude); 12 merged rules present in §1 (wrap-tolerant); 1.1-1.4 each once; §2/§3/§5 pointer-stubs; §4 byte-identical; §8.2/§8.3 byte-identical (phantom cut dropped, only §8.4 Arc-23 note removed). Running P3/P5/P4b + 7-trim PRESERVED survival next.",
+      "timestamp": "2026-06-05T01:49:59Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc B: op-disc prose consolidation — four-stance merge + 7 trims + jsdom cut (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T01:48:52Z"
+  "updated_at": "2026-06-05T01:49:59Z"
 }
