@@ -61,11 +61,15 @@
     {
       "text": "ADA activated on stoa--xyb.14 (Arc C encode batch). Read design + ARGUS PASS verdict + worktree state. No [for: ADA] comments pending. Building §13 (settings-env-block.json + install.sh 5e) + §28 (githooks/prepare-commit-msg + README + install.sh 5f) + slim §13/§28.1 stubs; §7/§11 verify-only, §28.5 verbatim. SECURITY-SENSITIVE git hook: building character-for-character from design.",
       "timestamp": "2026-06-05T03:13:29Z"
+    },
+    {
+      "text": "Artifacts built + grounded: settings-env-block.json (verbatim §2 JSON), githooks/prepare-commit-msg (char-for-char from design §2, LF-clean, +x, sh -n OK), githooks/README.md + .gitattributes(eol=lf). Next: wiring install.sh (5e env-block behind --enable-env-block DEFAULT-OFF; 5f git-hook candidate-deploy NO-auto-arm) + slimming op-disc §13/§28.1 stubs (§28.5 verbatim, §7/§11 untouched).",
+      "timestamp": "2026-06-05T03:15:18Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T03:13:29Z"
+  "updated_at": "2026-06-05T03:15:18Z"
 }
