@@ -34,11 +34,15 @@
     {
       "text": "ARGUS activated on stoa--rdh (Arc 60). Reading design + directive + 3 skill dirs + install.sh end-to-end before audit. HITL/co-driven.",
       "timestamp": "2026-06-05T09:55:58Z"
+    },
+    {
+      "text": "design pass 1 + repo verification complete. Confirmed: install.sh diff = exactly +interactive-html-preview; 3 skill dirs present; launch-team.ps1 + HUMAN_paste-* live at repo ROOT (not skill subtree) so HOLD justification holds; all 3 frontmatter author=Denson Smith, names match dirs, gray-matter parses decision-surface status line clean; Zod schema non-strict (status key passes); all 3 already in agents.ts. Classifying risks + confirming threat-class next.",
+      "timestamp": "2026-06-05T09:56:54Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T09:55:58Z"
+  "updated_at": "2026-06-05T09:56:54Z"
 }
