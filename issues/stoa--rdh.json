@@ -102,11 +102,15 @@
     {
       "text": "VERA verdict: PASS. P1-P6 all PASS. P1 install-smoke green (exit 0; 10/10 SKILL_NAMES deployed; per-skill split holds). P2 decision-surface held (tracked, not in SKILL_NAMES, not deployed). P3 interactive-html-preview deployed. P4 team-launcher held (option-a; launcher absent from consumer — dangling-ref guarantee holds). P5 gen-data Zod-clean + reproduces committed agents.ts byte-for-byte (all 3 skills present) + npm build exit 0. P6 authorship clean: all author fields=Denson Smith, only net-new Denson additions in diff, zero pre-existing author fields changed, commit Author=PRINCIPAL git identity (not overridden), ADA seat trailer present. not threat-ratified (§35.5 carve-out confirmed). Verdict: agents/verdicts/stoa--rdh/VERA-2026-06-05T10-27-20Z.md (sha256 round-trip OK). Returning to PLINY -\u003e CATO.",
       "timestamp": "2026-06-05T10:27:29Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa] VERA verdict: PASS — all 6 probes. P1 Marianne fresh-clone install: dry-run+real exit 0, all 10 SKILL_NAMES deployed, scratch deploy = EXACTLY 10 (no decision-surface, no team-launcher). P2 decision-surface land-but-don't-deploy ✓. P3 interactive-html-preview deploys ✓. P4 team-launcher HELD (not in SKILL_NAMES, not deployed, launch-team.ps1 absent from consumer tree). P5 gen-data exit 0 (Zod-clean, agents.ts byte-reproducible) + npm run build exit 0. P6 authorship clean (4 added author lines all Denson; zero non-Denson; zero pre-existing changed). Verdict @ agents/verdicts/stoa--rdh/VERA-2026-06-05T10-27-20Z.md. Next: CATO cold-read.",
+      "timestamp": "2026-06-05T10:27:57Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T10:27:29Z"
+  "updated_at": "2026-06-05T10:27:57Z"
 }
