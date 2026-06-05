@@ -77,11 +77,15 @@
     {
       "text": "P3 PASS: all 3 dangling-ref scans clean; §16.8 re-point-\u003e§16.3 + op-disc §21 tombstone + POLYBIUS §16.4 sub-tombstone each exactly 1; independent broad §21/§16.4 scan = only intentional tombstone/row refs, no dangle. P4 PASS: §0.5 CUT row names §8.7 + stoa--32b.3 provenance; tombstone cites destinations+provenance. P5 PASS: op-disc section sequence byte-identical to baseline (diff empty), §21 heading-form only; POLYBIUS 16.1-16.8 intact. Executing P6 authorship + P7 losslessness.",
       "timestamp": "2026-06-05T00:25:05Z"
+    },
+    {
+      "text": "P6 PASS: design-probe grep matched only prose 'authoring'/'author' (NOT metadata fields); tightened frontmatter/manifest-field scan = clean; build commit Author=denson, only ADA+Claude Co-Authored-By trailers (substrate §28). P7 PASS: §8.7 fold preserves FULL §21 generic kernel (4 mechanics + out-of-order/context/fragments + no-trade-off + forward-only/A8); only the Ariadne assumption dropped; tombstone §8.7/§30/handoff-author cross-refs all resolve; §16.3 + scale insight intact. Scope: build 6757a75 touches ONLY the 4 §4 A-scope files, no .claude/ self-apply, net 17/-31 debloat. Drafting verdict: PASS. Returning.",
+      "timestamp": "2026-06-05T00:26:14Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T00:25:05Z"
+  "updated_at": "2026-06-05T00:26:14Z"
 }
