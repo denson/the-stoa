@@ -126,11 +126,15 @@
     {
       "text": "NOMOS activated on stoa--rdh (Arc 60). Reading the build commit 3a889dc + arc-60 directive + PLINY bw claims + verdict artifacts before execution. Running probes 1-6 against repo/bw/git ground truth.",
       "timestamp": "2026-06-05T10:32:47Z"
+    },
+    {
+      "text": "CONFORMANT-WITH-NOTE: all 6 audited items match ground truth (SKILL_NAMES=10 +1 interactive-html-preview only; decision-surface+team-launcher held; commit=6 files/5 path-roots, zero clutter/role/SPEC leak; Author=denson not overridden + ADA trailer; 3x author: Denson Smith; stoa--h8w filed; ARGUS/VERA/CATO artifacts match PLINY echoes). ONE NOTE on item-3 claim precision: agents.ts diff is NOT 'zero role-body change' as CATO/PLINY stated — gen-data regenerated 8 EXISTING embedded role bodies (PLINY/POLYBIUS/ADA/ARGUS/CATO/DAEDALUS/VERA/ZENO) that were STALE on main (e.g. PLINY 5.14/5.15 absent from main agents.ts, present now). NOT a divergence: zero role .md source files in the commit, so this is faithful stale-catchup from already-committed substrate source, byte-reproducible per VERA P5, in-scope per directive (agents.ts = regenerated gen-data output). Claim is imprecise, ground truth is clean. Returning.",
+      "timestamp": "2026-06-05T10:34:46Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T10:32:47Z"
+  "updated_at": "2026-06-05T10:34:46Z"
 }
