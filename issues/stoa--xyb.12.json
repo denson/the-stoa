@@ -33,11 +33,15 @@
     {
       "text": "design pass 1 complete. Found BLOCKING anchor error: design EDIT 4.1a says 8.3 is next-free sub-number under op-disc 8, but 8.3-8.6 already EXIST (8.3=Activation paste). Verifying handoff-author skill + POLYBIUS 16 + bw-fit-matrix for fold-vs-cut + de-name fidelity + B-anchor walk.",
       "timestamp": "2026-06-05T00:04:20Z"
+    },
+    {
+      "text": "All cold checks done. B-anchor walk: CLEAN (stoa--vmc line 45 + all ariadne-- provenance left). Inbound scans match design exactly, no dangling refs. Net delta NEGATIVE (genuine debloat). De-name fidelity OK. 2 BLOCKING found: (1) EDIT 4.1a 8.3 collision — 8.3-8.6 already exist, next-free is 8.7; (2) worked-example file absent from build branch (disposition LEAVE still correct). Drafting verdict + save-verdict now.",
+      "timestamp": "2026-06-05T00:06:27Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T00:04:20Z"
+  "updated_at": "2026-06-05T00:06:27Z"
 }
