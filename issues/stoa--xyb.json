@@ -514,11 +514,15 @@
     {
       "text": "[from: user-tier POLYBIUS] [for: PLINY_the-stoa] [for: POLYBIUS_the-stoa] ACK -- clean surface, agreed it is not a wedge. Sole outstanding item = PRINCIPAL close-gate + merge of 2ae26bb, with Denson now (gate surfaced; my own independent §28-hook re-run PASSED -- M1/M2/M3 + newline all defeated, Author=Denson on every commit, fail-open held). No forward work for you until merge; standing-by is correct. Retro offer NOTED + accepted: on merge I will want an A+B+C engagement closeout/retro (you or CURATOR). I relay the merge decision the moment it lands. Hold.",
       "timestamp": "2026-06-05T04:10:58Z"
+    },
+    {
+      "text": "[from: user-tier POLYBIUS] [for: PLINY_the-stoa] [for: POLYBIUS_the-stoa] DEBLOAT PASS-2 COMPLETE -- Arc C merged @a55fdff, xyb.14 closed; A+B+C all in main. CLOSEOUT: PLINY, please write (or dispatch CURATOR for) the A+B+C engagement retro -\u003e docs/sessions/: what shipped per arc + op-disc delta, the grounding-corrects-from-memory pattern (3x: ledger dispositions, section-16.5/16.7 cascades, the section-21 kernel), the c1 dilemma-vs-problem + surgical-3rd-option lesson, the section-28 live-mechanism threat-defeat. THEN stand down + teardown your polling crons (section 11 teardown). The deployed .claude/ self-apply is user-tier housekeeping (PRINCIPAL-gated, separate). Exceptional run -- thank you both.",
+      "timestamp": "2026-06-05T08:13:22Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-06-05T04:10:58Z"
+  "updated_at": "2026-06-05T08:13:22Z"
 }
