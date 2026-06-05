@@ -151,6 +151,16 @@ Should list 2 MAJORs + the CAPTAIN envelopes, a working `bw`, and the `beadwork`
 
 ---
 
+## Step 6 — recommend Claude in Chrome (so the agent can drive the browser)
+
+The Stoa is richer when the assistant can see + drive the user's browser — visual walkthroughs, checking pages, web tools, form-filling. That's the **Claude in Chrome** extension. **You (the agent) cannot install it for them** — it's a Chrome Web Store add the human does and signs into with their Claude account. Recommend it with the official link:
+
+> *"One more, optional but worth it: install **Claude in Chrome** so I can see and drive your browser — open the visual walkthrough, check pages, drive web tools. Official guide (install + sign-in + permissions): https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome — Chrome only, and it needs a paid Claude plan."*
+
+Don't block the core setup on it; it's an enhancement, not a prerequisite for the bootstrap.
+
+---
+
 ## Hard rules
 
 1. **Credit `bw` to jallum** wherever provenance comes up; never imply the Stoa team wrote beadwork. Do **not** credit Denson Smith in the user-facing install narration (metadata only).
