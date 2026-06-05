@@ -524,19 +524,9 @@ Empirical anchor: 2026-05-08 (`stoa--v2o`) — POLYBIUS bw dep direction confusi
 
 ---
 
-## 13. Windows Python environment — set PYTHONUTF8=1 for Python invocations
+## 13. Windows Python environment — PYTHONUTF8 via the settings `env` block
 
-Agent-authored helper Python scripts on Windows have stdout encoded `cp1252` by default. Printing non-ASCII content (Greek theta in PDFs, em-dashes in print statements, accented characters in citation strings) crashes with `UnicodeEncodeError`. Two complementary fixes apply.
-
-**Per-machine fix (PRINCIPAL handles):** `setx PYTHONUTF8 1` once per machine sets the variable in the user environment; covers every Python invocation thereafter without per-script discipline. Substrate cannot do this for the PRINCIPAL — it requires a one-time environment write.
-
-**Per-script substrate discipline (agents apply):** when invoking Python on Windows during a gauntlet run, either set `PYTHONUTF8=1` in the bash environment for the invocation, OR include `sys.stdout.reconfigure(encoding='utf-8')` at the top of any helper script that may print non-ASCII content. Detected via `os.name == 'nt'` or PRINCIPAL-flagged Windows deployment.
-
-Recommended: ship both. The per-machine fix is cheapest; the per-script discipline is the durable substrate that protects future deployments where the per-machine fix hasn't been applied.
-
-Empirical anchor: `ariadne--sh7` (CLI binary fix in code; 2026-05-07) reconfigured `sys.stdout` in ariadne CLI's `main()` entry — works for the CLI binary but does not cover ad-hoc helper scripts written by PLINY/VERA/ADA during gauntlet runs. Batch G smoke #1 Test 3 crashed on `cp1252` with an em-dash in PLINY's smoke probe print statement (2026-05-07). Both manifestations are now durable: `sh7` in code, this section in substrate (`stoa--a5q`).
-
-Universality: every seat that invokes Python in a Windows-deployed gauntlet — POLYBIUS, PLINY, every CAPTAIN that runs Python helpers (VERA, ADA, etc.).
+Agent-authored helper Python scripts on Windows default to `cp1252` stdout; printing non-ASCII (Greek theta in PDFs, em-dashes, accented citations) crashes with `UnicodeEncodeError`. The substrate fix is a `.claude/settings.json` **`env` block** carrying `PYTHONUTF8=1` (+ `PYTHONIOENCODING=utf-8`), which Claude Code applies to every session and every spawned subprocess including the Bash tool (https://code.claude.com/docs/en/settings, "env" key) — so every Python invocation gets UTF-8 stdout with no per-script discipline. `install.sh` deploys this env block (merged into an existing `settings.json` only with explicit operator consent; otherwise emitted as a candidate + runbook — same default-OFF posture as the enforcement-hook arming, since `settings.json` is operator-owned config). Mechanism + deploy wiring: `substrate/templates/settings-env-block.json` + `install.sh` step 5e. **Residual judgment (kept prose):** the per-machine `setx PYTHONUTF8 1` (PRINCIPAL handles, one-time, covers non-Claude invocations too) and the in-code `sys.stdout.reconfigure(encoding='utf-8')` for shipped CLI binaries (e.g. `ariadne--sh7`) remain complementary — the env block covers Claude-spawned subprocesses; the per-machine + in-code fixes cover invocations outside a Claude session. Detection: `os.name == 'nt'` or PRINCIPAL-flagged Windows deployment. Empirical anchor: `stoa--a5q` (recover via `bw show`).
 
 ---
 
@@ -1130,22 +1120,11 @@ Recover the full discipline via `Read .claude/modules/mechanical-inspection-spli
 
 Every commit a CAPTAIN agent lands inside an arc-build worktree (`.claude/worktrees/arc-N-build/`) during a gauntlet carries a `Co-Authored-By:` trailer that names the seat + project. The trailer is the seat-identity signal; the commit `Author:` field stays PRINCIPAL's configured identity (`<user-name> <user-email>` from the PRINCIPAL's `git config user.*`) per global `~/.claude/CLAUDE.md`'s absolute rule "Git commit `Author:` — always use the user's configured git identity, never override." This section is the substrate-canonical home; per-seat application at `MAJOR_PLINY.md` §5.12 (dispatch-brief naming) and `CAPTAIN_ADA.md` §5.5 (pre-commit discipline).
 
-### 28.1 The trailer format
+### 28.1 The trailer format + the optional prepare-commit-msg backstop
 
-```
-Co-Authored-By: CAPTAIN_<MNEMONIC>_<project-slug> <captain-<mnemonic>@<project-slug>.local>
-```
+The trailer is `Co-Authored-By: CAPTAIN_<MNEMONIC>_<project-slug> <captain-<mnemonic>@<project-slug>.local>` — name field binds seat-mnemonic + project-slug; email local-part lowercase-hyphen; `.local` TLD (RFC 6762 link-local, non-routable, GitHub renders as text not a fake avatar). ADA writes it verbatim in the commit HEREDOC per `CAPTAIN_ADA.md` §5.5, dispatched by `MAJOR_PLINY.md` §5.12. **Optional backstop:** an opt-in `prepare-commit-msg` git hook (candidate at `substrate/githooks/prepare-commit-msg`, deployed default-OFF by `install.sh` to `<dest>/.claude/githooks-candidate/`, never auto-armed) appends the trailer idempotently via `git interpret-trailers --if-exists=addIfDifferent`, sourcing the seat from the `STOA_SEAT_TRAILER` session env var and **exiting 0 unconditionally** (fail-open — a buggy hook can never abort a commit; `prepare-commit-msg` is NOT suppressed by `--no-verify`, so fail-open is mandatory). The hook is a safety-net for a *missed* manual trailer, not a replacement for the ADA discipline; it never touches `Author:` (stays PRINCIPAL's per the absolute rule). Coordinates with `stoa--w6d` (committer sub-identity): the hook writes the *trailer*; w6d sets the *committer* — the trailer is the squash-merge-surviving signal (§28.3), the committer is the git-blame-readable signal. Mechanism + deploy wiring: `substrate/githooks/prepare-commit-msg` + `install.sh` step 5f.
 
-- **Name field** — `CAPTAIN_<MNEMONIC>_<project-slug>`. `<MNEMONIC>` is the seat's substrate name (`ADA`, `DAEDALUS`, `ARGUS`, `VERA`, `CATO`, `ZENO`, etc., per the `substrate/CAPTAIN_*.md` files). `<project-slug>` is the project's canonical slug (`the-stoa`, `ariadne-core`, etc. — hyphen-or-underscore-shaped per the project's own conventions). Underscore separator between the two segments binds them as a single name token.
-- **Email field** — `captain-<mnemonic>@<project-slug>.local`. Lowercase-hyphen local-part. The `.local` TLD is reserved by RFC 6762 for link-local mDNS; it is non-routable on the public internet, so the trailer cannot accidentally generate email to a fake address. GitHub will not match the `.local` email to any real user account, so the trailer renders as a name+email text record without a fake-avatar pollution.
-
-Worked examples for the-stoa project-tier:
-
-```
-Co-Authored-By: CAPTAIN_ADA_the-stoa <captain-ada@the-stoa.local>
-Co-Authored-By: CAPTAIN_DAEDALUS_the-stoa <captain-daedalus@the-stoa.local>
-Co-Authored-By: CAPTAIN_CATO_the-stoa <captain-cato@the-stoa.local>
-```
+Worked example (the-stoa project tier; the hook's header carries the canonical example set): `Co-Authored-By: CAPTAIN_ADA_the-stoa <captain-ada@the-stoa.local>`.
 
 ### 28.2 Scope: CAPTAINs only
 

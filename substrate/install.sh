@@ -23,8 +23,8 @@
 # PRINCIPAL in the loop.
 #
 # Usage:
-#   ./install.sh --target user [--modify-claude-md] [--no-captains] [--no-templates] [--prune-obsolete] [--enable-hooks] [--dry-run]
-#   ./install.sh --target project --project-dir <path> [--modify-claude-md] [--no-captains] [--no-templates] [--prune-obsolete] [--enable-hooks] [--dry-run]
+#   ./install.sh --target user [--modify-claude-md] [--no-captains] [--no-templates] [--prune-obsolete] [--enable-hooks] [--enable-env-block] [--dry-run]
+#   ./install.sh --target project --project-dir <path> [--modify-claude-md] [--no-captains] [--no-templates] [--prune-obsolete] [--enable-hooks] [--enable-env-block] [--dry-run]
 #   ./install.sh --target subproject --parent-dir <path> --subproject <slug> [--no-captains] [--prune-obsolete] [--dry-run]
 #   ./install.sh --help
 #
@@ -85,6 +85,21 @@
 # Subproject-tier hook deploy is deferred (Arc 46 §11). The author-field gate
 # reads a PRINCIPAL-identity allow-list seeded at .claude/hooks/principal-identity.
 #
+# Arc C (stoa--xyb.14) adds TWO more candidate mechanisms, BOTH default-OFF,
+# BOTH mirroring the inert-candidate + separate-arming posture above:
+#   (1) op-disc §13 — a settings 'env' block (settings-env-block.json carrying
+#       PYTHONUTF8/PYTHONIOENCODING for the Windows UTF-8 fix). The candidate JSON
+#       always deploys (inert); --enable-env-block (step 5e) merges it into the
+#       TARGET's settings.json (project tier) or prints a manual-merge runbook
+#       (user tier — never auto-writes the running config). DEFAULT OFF.
+#   (2) op-disc §28 — a prepare-commit-msg git hook (substrate/githooks/). It
+#       deploys as an INERT candidate to <dest>/.claude/githooks-candidate/ (step
+#       5f) and is NEVER auto-armed into any .git/hooks/. Unlike --enable-hooks,
+#       the git hook has NO install.sh arming flag at all (arming a git hook means
+#       writing into a .git/hooks/ dir, which install.sh must never do — it would
+#       arm git-commit behavior in whatever repo install runs against). The
+#       candidate README's manual two-method runbook is the ONLY arming path.
+#
 # Staleness detection: after deploying, the script scans the destination for
 # files no longer in the substrate source — typically left over from a
 # renamed CAPTAIN, removed template, removed skill, or removed module. By default this is
@@ -133,6 +148,7 @@ WITH_CAPTAINS=1
 WITH_TEMPLATES=1
 PRUNE_OBSOLETE=0
 ENABLE_HOOKS=0          # Arc 46: arm enforcement hooks. DEFAULT OFF (HARD SAFETY CONSTRAINT). When 0, hook scripts + the candidate settings-hooks.json deploy but NO hook is registered in any settings.json.
+ENABLE_ENV_BLOCK=0      # Arc C (stoa--xyb.14 / op-disc §13): merge the candidate settings-env-block.json (PYTHONUTF8/PYTHONIOENCODING) into the TARGET's settings.json. DEFAULT OFF (same posture as --enable-hooks). When 0, the candidate env-block JSON deploys but NO env var is ever written into a running config.
 
 # Source files live next to this script.
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -180,6 +196,7 @@ TEMPLATE_NAMES=(
   autonomous-mode-activation-template.md
   handoff-doc-template.md
   settings-hooks.json
+  settings-env-block.json
 )
 
 # The 12 CAPTAIN envelope source files. Order is the gauntlet pipeline order
@@ -637,6 +654,20 @@ while [ "$#" -gt 0 ]; do
       ENABLE_HOOKS=1
       shift
       ;;
+    --enable-env-block)
+      # Arc C (stoa--xyb.14 / op-disc §13): ARM the Windows PYTHONUTF8 fix by
+      # merging the candidate settings-env-block.json 'env' block into the
+      # TARGET's settings.json. DEFAULT OFF — same safety posture as
+      # --enable-hooks. The candidate env-block JSON always deploys (inert: a
+      # candidate file sets no env var until merged into a live settings.json).
+      # When this flag is set it targets the INSTALL TARGET's settings.json,
+      # never the running build session's. At USER tier (where
+      # ~/.claude/settings.json IS the running config) it does NOT auto-write —
+      # it prints the merge as a manual instruction (ARGUS r4 / HARD SAFETY
+      # CONSTRAINT). See the --enable-env-block handling below (step 5e).
+      ENABLE_ENV_BLOCK=1
+      shift
+      ;;
     -h|--help)
       usage 0
       ;;
@@ -855,6 +886,16 @@ if [ "$ENABLE_HOOKS" -eq 1 ]; then
 else
   echo "  arm hooks        : no (default OFF — scripts deploy inert; no settings.json written)"
 fi
+if [ "$ENABLE_ENV_BLOCK" -eq 1 ]; then
+  if [ "$TARGET" = "user" ]; then
+    echo "  arm env block    : YES (--enable-env-block) -> print manual-merge runbook for ${DEST_SETTINGS_JSON} (user-tier never auto-writes the running config)"
+  else
+    echo "  arm env block    : YES (--enable-env-block) -> merge candidate 'env' block into ${DEST_SETTINGS_JSON} (target settings.json, never the running session)"
+  fi
+else
+  echo "  arm env block    : no (default OFF — candidate settings-env-block.json deploys inert; no settings.json written)"
+fi
+echo "  git hook (§28)   : candidate-only -> ${DEST_DIR}/githooks-candidate/prepare-commit-msg (INERT; never auto-armed into .git/hooks/ — manual arming per its README)"
 echo "  prune obsolete   : $([ "$PRUNE_OBSOLETE" -eq 1 ] && echo "yes (--prune-obsolete)" || echo "no (warn-only)")"
 echo "  dry-run          : $([ "$DRY_RUN" -eq 1 ] && echo "yes" || echo "no")"
 echo
@@ -1371,6 +1412,107 @@ if [ "$ENABLE_HOOKS" -eq 1 ]; then
       fi
     fi
   fi
+fi
+
+# 5e. Arm the Windows PYTHONUTF8 settings 'env' block — DEFAULT OFF
+# (--enable-env-block). op-disc §13 (stoa--xyb.14 / Arc C). Mirrors the step 5d
+# --enable-hooks posture EXACTLY (same HARD SAFETY CONSTRAINT):
+#   - When ENABLE_ENV_BLOCK=0 (default): do NOTHING here. The candidate
+#     settings-env-block.json deployed in step 4 is inert — a candidate file sets
+#     no env var until merged into a live settings.json. This is the path every
+#     routine install takes; no running config is touched.
+#   - When ENABLE_ENV_BLOCK=1 at PROJECT tier: write the candidate 'env' block as
+#     the TARGET's settings.json IF it has none; if one already exists, do NOT
+#     auto-merge (a JSON merge could drop operator config) — print the merge
+#     instruction. Never the running build session's settings.json.
+#   - When ENABLE_ENV_BLOCK=1 at USER tier: do NOT auto-write
+#     ~/.claude/settings.json (it IS the running config — ARGUS r4). PRINT the
+#     manual-merge runbook instead.
+# No code executes at config time: the block is two static env-var literals.
+if [ "$ENABLE_ENV_BLOCK" -eq 1 ]; then
+  if [ -z "$DEST_SETTINGS_JSON" ]; then
+    echo "install.sh: warning: --enable-env-block ignored in subproject mode (no target settings.json — Arc 46 §11)." >&2
+  else
+    _env_candidate="${DEST_TEMPLATES_DIR}/settings-env-block.json"
+    if [ ! -f "$_env_candidate" ] && [ "$DRY_RUN" -eq 0 ]; then
+      echo "install.sh: warning: --enable-env-block: candidate ${_env_candidate} not found (was --no-templates passed?). Cannot arm; env block not written." >&2
+    elif [ "$TARGET" = "user" ]; then
+      # USER TIER: never auto-write the live ~/.claude/settings.json. Print the
+      # manual-merge runbook (HARD SAFETY CONSTRAINT / ARGUS r4).
+      echo
+      echo "=========================================================================="
+      echo "  --enable-env-block at USER tier: MANUAL merge required (safety)"
+      echo "=========================================================================="
+      echo "  ~/.claude/settings.json IS your running Claude Code config. This script"
+      echo "  will NOT auto-write it. To apply the Windows PYTHONUTF8 fix, merge the"
+      echo "  'env' block from the candidate file into ~/.claude/settings.json:"
+      echo
+      echo "    candidate: ${_env_candidate}"
+      echo "    target   : ${DEST_SETTINGS_JSON}"
+      echo
+      echo "  The 'env' block ({PYTHONUTF8, PYTHONIOENCODING}) applies to every"
+      echo "  session + every spawned subprocess incl. the Bash tool. To remove"
+      echo "  later, delete the two keys from the 'env' block."
+      echo "=========================================================================="
+    else
+      # PROJECT TIER: write into the target's settings.json (NOT the running
+      # session). No existing file -> create it from the candidate (which is the
+      # bare 'env' block). Existing file -> do NOT silently overwrite (a JSON
+      # merge needs care; auto-overwriting could drop the operator's other
+      # config) — print the merge instruction. Idempotency: if the env block /
+      # its _comment marker is already present, no-op.
+      if [ "$DRY_RUN" -eq 1 ]; then
+        echo "[dry-run] --enable-env-block (project): would write ${_env_candidate} 'env' block into ${DEST_SETTINGS_JSON}"
+      elif [ -f "$DEST_SETTINGS_JSON" ]; then
+        if grep -Fq "PYTHONUTF8" "$DEST_SETTINGS_JSON" 2>/dev/null; then
+          echo "install.sh: --enable-env-block: ${DEST_SETTINGS_JSON} already carries PYTHONUTF8 — no-op (idempotent)."
+        else
+          echo
+          echo "install.sh: --enable-env-block: ${DEST_SETTINGS_JSON} already exists."
+          echo "  Not overwriting (would drop your other settings). Merge the 'env'"
+          echo "  block from ${_env_candidate} into it manually."
+        fi
+      else
+        cp "$_env_candidate" "$DEST_SETTINGS_JSON"
+        echo "armed env block: wrote ${DEST_SETTINGS_JSON} (project-tier target — PYTHONUTF8/PYTHONIOENCODING)"
+      fi
+    fi
+  fi
+fi
+
+# 5f. Deploy the §28 prepare-commit-msg git hook — as an INERT CANDIDATE ONLY
+# (op-disc §28 / stoa--xyb.14 / Arc C). LIVE-attack-surface mechanism, so the
+# posture is MORE conservative than --enable-hooks: there is NO arming flag.
+# Arming a git hook means writing into a .git/hooks/ dir, which install.sh must
+# NEVER do — it would arm git-commit behavior in whatever repo install runs
+# against (including this build worktree). The candidate is deployed to
+# <dest>/.claude/githooks-candidate/ and the colocated README's manual two-method
+# runbook is the ONLY arming path. A script in githooks-candidate/ is NOT in any
+# .git/hooks/ and is never fired by git. Skipped in subproject mode (consistent
+# with the hooks-dir-empty subproject branch).
+if [ -n "$DEST_DIR" ] && [ "$TARGET" != "subproject" ]; then
+  _githooks_cand_dir="${DEST_DIR}/githooks-candidate"
+  _src_githooks_dir="${SCRIPT_DIR}/githooks"
+  if [ -f "${_src_githooks_dir}/prepare-commit-msg" ]; then
+    if [ "$DRY_RUN" -eq 1 ]; then
+      echo "[dry-run] mkdir -p \"${_githooks_cand_dir}\""
+      echo "[dry-run] cp \"${_src_githooks_dir}/prepare-commit-msg\" \"${_githooks_cand_dir}/prepare-commit-msg\" && chmod +x (INERT candidate — NOT armed into .git/hooks/)"
+      echo "[dry-run] cp \"${_src_githooks_dir}/README.md\" \"${_githooks_cand_dir}/README.md\""
+      [ -f "${_src_githooks_dir}/.gitattributes" ] && echo "[dry-run] cp \"${_src_githooks_dir}/.gitattributes\" \"${_githooks_cand_dir}/.gitattributes\" (pins LF eol)"
+    else
+      mkdir -p "$_githooks_cand_dir"
+      cp "${_src_githooks_dir}/prepare-commit-msg" "${_githooks_cand_dir}/prepare-commit-msg"
+      chmod +x "${_githooks_cand_dir}/prepare-commit-msg"   # exec bit so a manual copy into .git/hooks/ is runnable; INERT here — not on any hook path
+      [ -f "${_src_githooks_dir}/README.md" ] && cp "${_src_githooks_dir}/README.md" "${_githooks_cand_dir}/README.md"
+      [ -f "${_src_githooks_dir}/.gitattributes" ] && cp "${_src_githooks_dir}/.gitattributes" "${_githooks_cand_dir}/.gitattributes"
+      echo "deployed git-hook CANDIDATE (INERT, never auto-armed): ${_githooks_cand_dir}/prepare-commit-msg"
+      echo "  To arm per-clone, follow ${_githooks_cand_dir}/README.md (copy into .git/hooks/ OR set core.hooksPath)."
+    fi
+  else
+    echo "install.sh: warning: §28 git-hook candidate ${_src_githooks_dir}/prepare-commit-msg not found — skipping git-hook candidate deploy." >&2
+  fi
+else
+  log "git-hook candidate deploy skipped (subproject mode — no .git/hooks layer at subproject tier, consistent with hooks deploy)"
 fi
 
 # 6. Optionally append reference to CLAUDE.md (informed consent required).
