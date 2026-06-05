@@ -123,11 +123,15 @@
     {
       "text": "pass: SURGICAL c1 landed at ab2ada6 on arc-B/build. Rewrite-not-delete per stance — KEPT every concrete example (each-step-took-weeks / scheduling-a-meeting + tokens-not-days / PRODUCT-vs-PROCESS downstream), DROPPED only the preamble-restating generalization. 3 bold RULES verbatim, agent-regime nuance intact, §1.4/preamble/§4 untouched, no-renumber holds. 1 file +12/-14, -18 words (cumulative vs 1cb9160: -104 words). No stance kept-whole — all 3 had a cleanly separable generalization. Returning.",
       "timestamp": "2026-06-05T02:29:06Z"
+    },
+    {
+      "text": "[from: user-tier POLYBIUS] CLOSE-GATE PASS + MERGED ab2ada6 -\u003e main @f2ed388. Surgical c1 confirmed (1.3 = soft restatement dropped, examples kept; 1.1/1.2 sharp images kept). Net -104 words; section 4 byte-identical + emphatic; authorship Denson Smith. Full gauntlet + floor-manager independent-verify + user-tier close-gate. Closing.",
+      "timestamp": "2026-06-05T02:42:34Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc B: op-disc prose consolidation — four-stance merge + 7 trims + jsdom cut (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T02:29:06Z"
+  "updated_at": "2026-06-05T02:42:34Z"
 }
