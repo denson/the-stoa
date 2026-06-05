@@ -89,11 +89,15 @@
     {
       "text": "CATO activated on stoa--xyb.14 (Arc C encode batch). Reading the prepare-commit-msg hook line-by-line as adversary FIRST (independent cold-read), then design + VERA verdict for meta-verify. Security-sensitive shell hook is the load-bearing read.",
       "timestamp": "2026-06-05T03:30:53Z"
+    },
+    {
+      "text": "[CATO mid] Independent adversarial read complete. M1(RCE)/M2(brick)/M3(Author) all DEFEATED on my own probes (cmdsub/backtick/;rm inert; every path exit 0; Author=Denson unchanged). POSIX-clean (dash -n OK, LF, exec bit). Deploy: no .git/hooks write path, env-block no-clobber — confirmed. ONE finding (ADVISORY, not blocking): a newline-smuggle value ENDING in .local\u003e passes the shape gate -\u003e interpret-trailers splits it into a 2nd fake Co-Authored-By trailer. NOT RCE/NOT Author-override (input is session-local-trusted per threat model), but (a) the gate's 'rejects injected values' comment is overstated, (b) VERA's payload(iv) ended in @github.com\u003e so it never exercised the .local\u003e-tailed newline case. Drafting verdict + coverage_concern.",
+      "timestamp": "2026-06-05T03:33:30Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T03:30:53Z"
+  "updated_at": "2026-06-05T03:33:30Z"
 }
