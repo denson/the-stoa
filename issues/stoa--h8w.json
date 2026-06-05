@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-05T10:23:36Z",
+  "description": "Follow-up from Arc 60 (stoa--rdh). team-launcher landed in substrate/skills/ but is HELD OUT of SKILL_NAMES because it is the-stoa-specific: its central command ./launch-team.ps1 and its HUMAN_paste-*-init.md activation refs live at the the-stoa repo ROOT, not in the skill subtree that install.sh deploys. Deploying as-is hands a consumer an inert/broken skill. To generalize: (1) bundle launch-team.ps1 (or a consumer-generic equivalent) INTO the skill subtree so it deploys; (2) de-the-stoa the paste/seat references (parameterize HUMAN_paste-*-init.md, project-slug, seat names); (3) add a Windows wt fallback; (4) THEN add team-launcher to install.sh SKILL_NAMES. ARGUS R2 + DAEDALUS design §2.3 named this as the required follow-up. Anchor: stoa--rdh Arc 60.",
+  "id": "stoa--h8w",
+  "labels": [],
+  "priority": 3,
+  "status": "open",
+  "title": "Generalize team-launcher skill for consumer deploy (bundle launch-team.ps1 + de-the-stoa paste refs, then wire into SKILL_NAMES)",
+  "type": "task",
+  "updated_at": "2026-06-05T10:23:36Z"
+}
