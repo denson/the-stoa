@@ -14,11 +14,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa floor-manager] initialized — FLOOR-MANAGER seat, co-driven (autonomous paused). Standing by for PLINY's Arc 60 hand-back. Will independently verify per-skill SKILL_NAMES wiring (interactive-html-preview DEPLOY / decision-surface DRAFT-held / team-launcher per DAEDALUS decision), install smoke-test, gen-data clean, authorship=Denson Smith unchanged.",
       "timestamp": "2026-06-05T09:50:34Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa] initialized — ORCHESTRATOR, co-driven (autonomous paused). Engaging Arc 60 (stoa--rdh). Read directive @arc-60-build-directive.md; 3 skill dirs + install.sh mod present as untracked inputs; floor-manager up. Proceeding: pre-branch hygiene → branch arc-60/build in-place → DAEDALUS design.",
+      "timestamp": "2026-06-05T09:50:51Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T09:50:34Z"
+  "updated_at": "2026-06-05T09:50:51Z"
 }
