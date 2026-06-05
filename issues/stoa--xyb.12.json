@@ -133,11 +133,15 @@
     {
       "text": "CONFORMANT: all 5 probes ground-truth-verified. Ledger A/B/C dispositions reflected in diff (A cut+de-name done, B incl stoa--vmc untouched, C deferred); PLINY bw claims (hygiene @0719047, §8.7=fold target genuinely §8.3-Activation-paste collision, net-negative debloat, §35.5 ARGUS-confirmed not-threat, C-deferred) all match repo+canon; scope clean (4 substrate files, no .claude leak); verdicts ARGUS REVISE→addressed/VERA PASS/CATO PASS+c1-fixed internally consistent (c1 fix 32e0462 de-tautologized L27); authorship=Denson Smith all 4 commits + seat trailers present. No divergence. Returning.",
       "timestamp": "2026-06-05T00:36:29Z"
+    },
+    {
+      "text": "=== NOMOS GROUND-TRUTH AUDIT — Arc A (Ariadne decoupling) ===\nverdict: CONFORMANT (all 5 brief items; zero divergence)\nchecked_output: PLINY bw comments on stoa--xyb (engagement @23:53:44Z + A1/[HARD STOP] @00:17:42Z) + 4 arc commits (8b457af/291da4c/6757a75/32e0462) vs ground truth git diff 0719047..32e0462.\n\n1. Ledger conformance CONFORMANT — A reflected in diff (§21 + POLYBIUS §16.4 CUT-to-tombstone, generic kernel folded to NEW §8.7; framing de-named to ledger phrase 'optional read-side projection add-on (hybrid search + KG)' verbatim; §16=relocation-stub so de-name lands in bw-fit-matrix module; handoff-template xref-\u003e§16.3-only). B reflected (stoa--vmc anchor survives verbatim @bw-fit-matrix:45; no removed line carries a B-anchor). C NOT built (ledger-optional, DEFERRED).\n2. bw-record accuracy CONFORMANT — §8.3-\u003e§8.7 collision claim TRUE (baseline §8=8.1-8.6, §8.3=Activation paste); not-threat §35.5 carve-out is real canon (op-disc L1402 names Arc A) + ARGUS-confirmed; net-negative 17/-31 TRUE; main-hygiene @0719047 a consistent point-in-time claim (still in main ancestry; main since advanced 1 non-arc housekeeping commit 2d34f55).\n3. Scope CONFORMANT — 4 substrate A-loci + 1 design artifact; no .claude/ deploy leak; design commits are design artifacts not stray canon.\n4. Gauntlet verdicts CONFORMANT — ARGUS REVISE(r1 §8.3-\u003e§8.7 + r2 phantom-note)-\u003eaddressed in design rev2; VERA PASS; CATO PASS + c1 (L27 tautology) surgically fixed in 32e0462. Chain coheres with HEAD.\n5. Authorship CONFORMANT — Author=denson \u003cdensonsmith2@gmail.com\u003e all 4 commits; seat trailers DAEDALUS (design x2) / ADA+Claude (build x2) present.\n\nre-decompose: none indicated.\nverdict saved: agents/verdicts/stoa--xyb.12/NOMOS-2026-06-05T00-37-24Z.md (sha256 round-trip verified). Returning.",
+      "timestamp": "2026-06-05T00:37:39Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T00:36:29Z"
+  "updated_at": "2026-06-05T00:37:39Z"
 }
