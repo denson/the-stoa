@@ -186,10 +186,10 @@ appearance) held under the narrower scope.
 **Cross-refs:**
 <!-- cite: CAPTAIN_DAEDALUS.md §6.11 — design-time sibling (API-docs-don't-generalize-to-differently-shaped-elements; the design-time discipline that catches this kind of overlap before the build) -->
 <!-- cite: CAPTAIN_ADA.md §5.3 — web-search before guessing on third-party APIs (operational mechanism for the build-time ground-check) -->
-<!-- cite: operating-disciplines.md §32 — test-environment sibling (jsdom + animation libraries: the same motion/jsdom interaction that this build-time scope reduction prevents, §32 catches at test-authoring time) -->
+<!-- cite: .claude/modules/jsdom-timing-discipline.md — test-environment sibling (jsdom + animation libraries: the same motion/jsdom interaction that this build-time scope reduction prevents, the module catches at test-authoring time) -->
 - `CAPTAIN_DAEDALUS.md` §6.11 (design-time sibling — API-docs-don't-generalize-to-differently-shaped-elements; the design-time discipline that catches this kind of overlap *before* the build)
 - §5.3 (web-search before guessing on third-party APIs — operational mechanism for the build-time ground-check)
-- `operating-disciplines.md` §32 (test-environment sibling — jsdom + animation libraries; the same motion/jsdom interaction that this build-time scope reduction prevents, §32 catches at test-authoring time)
+- `.claude/modules/jsdom-timing-discipline.md` (test-environment sibling — jsdom + animation libraries; the same motion/jsdom interaction that this build-time scope reduction prevents, the module catches at test-authoring time)
 
 ---
 
