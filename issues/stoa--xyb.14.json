@@ -53,11 +53,15 @@
     {
       "text": "Threat-map audit complete. M1(RCE): hook reads ONLY STOA_SEAT_TRAILER (a session-local var the seat sets for itself) — never commit-content/branch/filename; value is shape-gated + passed as quoted --trailer LITERAL (web-confirmed: interpret-trailers treats --trailer value as DATA not code; injection risk lives only in trailer.*.cmd config which hook does NOT use); newline-variant fails the .local\u003e-anchored case glob. M1 DEFEATED. M2(brick): every path ends at exit 0, no set -e, |\\|exit 0 idiom correct; default-OFF/no-auto-arm. M2 DEFEATED. M3(Author): hook appends ONLY Co-Authored-By trailer, never git config user.*/GIT_AUTHOR_*. M3 DEFEATED. P2-threat has both halves (attack-blocked+legit-unaffected). Classifications confirmed. Drafting verdict — leaning PASS with advisories.",
       "timestamp": "2026-06-05T03:08:06Z"
+    },
+    {
+      "text": "pass: Arc C design ships PASS, 0 BLOCKING / 0 load-bearing findings (4 risks: 2 false, 1 uncertain-benign-fallback [r2 P1 live env round-trip — VERA MUST dry-run], 1 false). Rulings: WP1 verify-only scope CONFIRMED CORRECT (§7/§11 already Arc-47-encoded); §13 env-block CONFIRMED CORRECT+CURRENT (reaches Bash subprocess, not silent-inert additionalContext); M1/M2/M3 threat-map all DEFEATED + classifications confirmed (§28 LIVE/A3-mapped; §13/§7/§11 not-threat-ratified). Doc-confirmed both load-bearing claims (env-block subprocess reach; prepare-commit-msg aborts-on-nonzero + not-suppressed-by-no-verify =\u003e exit-0 fail-open mandatory+correct). Verdict: agents/verdicts/stoa--xyb.14/ARGUS-2026-06-05T03-11-14Z.md. One note for VERA: keep P2-threat (a) attack-blocked half distinct from the legit half in the EXECUTED probe. Returning.",
+      "timestamp": "2026-06-05T03:11:24Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T03:08:06Z"
+  "updated_at": "2026-06-05T03:11:24Z"
 }
