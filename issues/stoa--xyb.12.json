@@ -117,11 +117,15 @@
     {
       "text": "ZENO activated on stoa--xyb.12 (Arc A Ariadne decoupling). Reading spec design rev2 + shipped diff (0719047..32e0462 -- substrate/) before extracting criteria. autonomous mode.",
       "timestamp": "2026-06-05T00:34:39Z"
+    },
+    {
+      "text": "ZENO: spec criteria extracted (14 §4 A-edits + 7 probes + scope/renumber/authorship/C-deferred). Check 1 (each A-edit present) + §8 sub-numbering 8.1-8.7 no-gap: all PASS. Running probes P1-P7 + scope-exactness.",
+      "timestamp": "2026-06-05T00:35:16Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T00:34:39Z"
+  "updated_at": "2026-06-05T00:35:16Z"
 }
