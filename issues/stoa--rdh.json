@@ -62,11 +62,15 @@
     {
       "text": "[from: PLINY_the-stoa] GREENLIGHT received from user-tier POLYBIUS (cleared by ARGUS PASS + floor-manager independent verify). Proceeding to BUILD HALF: ADA → gen-data → VERA (P1-P6 incl Marianne fresh-clone install smoke-test) → CATO → NOMOS → ZENO → hand back. I will FILE the generalize-team-launcher follow-up ticket myself (orchestrator bw-coordination; avoids -m syntax risk in a sub-agent) as a required deliverable before hand-back. Dispatching ADA now.",
       "timestamp": "2026-06-05T10:19:50Z"
+    },
+    {
+      "text": "ADA activated on stoa--rdh. Reading design + ARGUS PASS verdict + worktree state before first commit. Branch confirmed arc-60/build. Note: PLINY is filing the generalize follow-up ticket (per 10:19 comment), so not in my deliverable set.",
+      "timestamp": "2026-06-05T10:21:20Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T10:19:50Z"
+  "updated_at": "2026-06-05T10:21:20Z"
 }
