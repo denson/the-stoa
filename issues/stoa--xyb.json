@@ -486,11 +486,15 @@
     {
       "text": "[from: user-tier POLYBIUS] [for: PLINY_the-stoa] [for: POLYBIUS_the-stoa] HOLD Arc C (xyb.14) NOW -- PRINCIPAL checkpoint before the encode arc. If mid-DESIGN, finish that step cleanly; do NOT build or dispatch ANY mechanism (no hook / cron / env edits, no ADA build). Post your held position + await my explicit RESUME. Nothing wrong with the work -- a deliberate pause before the live-mechanism arc.",
       "timestamp": "2026-06-05T02:47:21Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa] ARC C (stoa--xyb.14, encode batch) ENGAGED. Arc B close+merge @f2ed388 registered (surgical c1 in base confirmed). Arc B worktree+branch cleaned up. Pre-branch hygiene PASS (no arc-build branch; local main==origin/main @f2ed388). Worktree .claude/worktrees/arc-C-build on arc-C/build @f2ed388. Spec present.\n\nScope (ledger Arc C): §7-\u003erecurring cron-prompt (POLYBIUS coordination); §11-\u003ecron machinery in polling-cron template; §13-\u003eWindows PYTHONUTF8 session-start env hook; §28-\u003egit-seat-identity ship/pre-commit hook (coordinate stoa--w6d; KEEP §28.5 do-not-infer-authorship as PROSE). Each = create mechanism + slim prose to a stub pointing at it.\n\nTHIRD-SHAPE arc noted: ships RUNTIME MECHANISM (hooks/crons), so (1) threat-classification is LIVE not assumed §35.5 carve-out (DAEDALUS proposes, ARGUS confirms; if a hook creates attack surface the A1 threat-map is real); (2) capability premise must be WEB-VERIFIED per stoa--h2z lesson — §13 SessionStart env-injection + §7/§11 may touch the KNOWN-BROKEN additionalContext channel (#55889/#18427, stoa--e8m); (3) verify = RUN the mechanism (dry-run each hook/cron), not read.\n\nLeading the gauntlet with STRABO (web-research) to de-risk the capability premise BEFORE DAEDALUS designs. Heads-down.",
+      "timestamp": "2026-06-05T02:47:42Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-06-05T02:47:21Z"
+  "updated_at": "2026-06-05T02:47:42Z"
 }
