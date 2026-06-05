@@ -49,11 +49,15 @@
     {
       "text": "WP1 confirmed cold: §7/§11 are already slim stubs (Arc-47 relocation, MODULE-INLINE markers present); polling-cron-template carries STEP 1.5 + STEP 4 cadence rotation + Cron-expiry-handling (168h/+144h/no-CronList-field/durable-best-effort). DAEDALUS already-encoded judgment HOLDS — verify-only is correct; new work is §13+§28. Both capability claims doc-confirmed: settings env block reaches Bash subprocess; prepare-commit-msg aborts on non-zero + NOT suppressed by --no-verify (so exit-0-unconditional is mandatory + correct). Now stress-testing M1/M2/M3 attack paths line-by-line.",
       "timestamp": "2026-06-05T03:07:06Z"
+    },
+    {
+      "text": "Threat-map audit complete. M1(RCE): hook reads ONLY STOA_SEAT_TRAILER (a session-local var the seat sets for itself) — never commit-content/branch/filename; value is shape-gated + passed as quoted --trailer LITERAL (web-confirmed: interpret-trailers treats --trailer value as DATA not code; injection risk lives only in trailer.*.cmd config which hook does NOT use); newline-variant fails the .local\u003e-anchored case glob. M1 DEFEATED. M2(brick): every path ends at exit 0, no set -e, |\\|exit 0 idiom correct; default-OFF/no-auto-arm. M2 DEFEATED. M3(Author): hook appends ONLY Co-Authored-By trailer, never git config user.*/GIT_AUTHOR_*. M3 DEFEATED. P2-threat has both halves (attack-blocked+legit-unaffected). Classifications confirmed. Drafting verdict — leaning PASS with advisories.",
+      "timestamp": "2026-06-05T03:08:06Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T03:07:06Z"
+  "updated_at": "2026-06-05T03:08:06Z"
 }
