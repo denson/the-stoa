@@ -11,9 +11,15 @@
   "id": "stoa--xyb.13",
   "labels": [],
   "parent": "stoa--xyb",
+  "comments": [
+    {
+      "text": "DAEDALUS activated on stoa--xyb.13 (Arc B op-disc consolidation). Reading spec ledger docs/debloat-decisions.md + operating-disciplines.md sections in scope + role file.",
+      "timestamp": "2026-06-05T01:06:14Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "Arc B: op-disc prose consolidation — four-stance merge + 7 trims + jsdom cut (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-04T23:24:52Z"
+  "updated_at": "2026-06-05T01:06:14Z"
 }
