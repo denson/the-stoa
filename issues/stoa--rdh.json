@@ -70,11 +70,15 @@
     {
       "text": "Ground-check complete: install.sh held diff = exactly +1 interactive-html-preview line; all 3 SKILL.md author=Denson Smith + frontmatter name matches dir name; SKILL_NAMES=10 entries (design prose §2.4 off-by-one corrected 11/10-\u003e10/9, printed array block + install.sh untouched). Running npm run gen-data (build-check).",
       "timestamp": "2026-06-05T10:21:50Z"
+    },
+    {
+      "text": "gen-data PASS (exit 0, no Zod error; 12 LIEUTENANTs incl all 3 new skills present in agents.ts). Authorship verified: only author-field assignments in staged diff are 4x 'author: Denson Smith' (3 SKILL.md + 1 agents.ts embed); zero non-Denson. Staged exactly 5 path-roots (6 files). Committing with seat-identity trailer.",
+      "timestamp": "2026-06-05T10:22:25Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T10:21:50Z"
+  "updated_at": "2026-06-05T10:22:25Z"
 }
