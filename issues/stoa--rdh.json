@@ -138,11 +138,15 @@
     {
       "text": "ZENO activated on stoa--rdh (Arc 60). Reading spec (arc-60-build-directive.md) + build commit 3a889dc before extracting/checking S1-S10.",
       "timestamp": "2026-06-05T10:36:27Z"
+    },
+    {
+      "text": "pass: ZENO mechanical spec-check S1-S10 all PASS. 3 skill dirs committed; interactive-html-preview in SKILL_NAMES (+1 net, decision-surface+team-launcher held); commit=exactly 6 files, zero out-of-scope (no MAJOR_/CAPTAIN_/op-disc/templates/SPEC); author: Denson Smith x3, Author=denson not overridden, ADA trailer present; gen-data exit 0 byte-reproducible vs committed agents.ts w/ all 3 skills; decision-surface DRAFT marker present. Returning.",
+      "timestamp": "2026-06-05T10:37:21Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T10:36:27Z"
+  "updated_at": "2026-06-05T10:37:21Z"
 }
