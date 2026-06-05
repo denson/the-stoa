@@ -129,11 +129,15 @@
     {
       "text": "pass: Arc A (stoa--xyb.12) build 32e0462 — spec-vs-result PASS. All 14 §4 A-edits present + exact (8.7 body byte-exact; §21+§16.4 tombstones; §0.5 CUT row; 16.5/4.5a-d de-names; c1 polish 'serves the read side' landed). §8 sub-numbers 8.1-8.7 no gap/dup. Probes P1-P7 all green (P8 N/A, C deferred). Scope-exact: substrate diff = EXACTLY 4 spec'd files, no .claude/ leak, C-targets (ariadne--xxx id-fmt, ingest-pipeline example) untouched + still present. No-renumber: op-disc + POLYBIUS 16.x byte-identical to baseline except 2 tombstone heading-forms. Authorship: no real author-field changed (grep matches are prose 'authoring'). §4.C DEFERRED correctly NOT built. Returning.",
       "timestamp": "2026-06-05T00:36:22Z"
+    },
+    {
+      "text": "CONFORMANT: all 5 probes ground-truth-verified. Ledger A/B/C dispositions reflected in diff (A cut+de-name done, B incl stoa--vmc untouched, C deferred); PLINY bw claims (hygiene @0719047, §8.7=fold target genuinely §8.3-Activation-paste collision, net-negative debloat, §35.5 ARGUS-confirmed not-threat, C-deferred) all match repo+canon; scope clean (4 substrate files, no .claude leak); verdicts ARGUS REVISE→addressed/VERA PASS/CATO PASS+c1-fixed internally consistent (c1 fix 32e0462 de-tautologized L27); authorship=Denson Smith all 4 commits + seat trailers present. No divergence. Returning.",
+      "timestamp": "2026-06-05T00:36:29Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T00:36:22Z"
+  "updated_at": "2026-06-05T00:36:29Z"
 }
