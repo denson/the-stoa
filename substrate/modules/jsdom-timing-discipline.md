@@ -43,8 +43,8 @@ exit correctly; jsdom rests at the early-frame state; both are
 
 **Cross-refs:**
 <!-- cite: CAPTAIN_ADA.md §5.9 — build-time sibling (motion-API scope reduction; both are properties of motion + jsdom interaction) -->
-<!-- cite: CAPTAIN_VERA.md §5.1 — verification-side test-discipline (VERA reads §32 when designing probes against animation surfaces) -->
+<!-- cite: CAPTAIN_VERA.md §5.1 — verification-side test-discipline (VERA reads this module when designing probes against animation surfaces) -->
 <!-- cite: CAPTAIN_CATO.md — honesty-audit consumer (when a test asserts disjunctively against the environment, CATO verifies the disjunction is the empirical reality, not a smoothed-over defect) -->
 - `CAPTAIN_ADA.md` §5.9 (build-time sibling — motion-API scope reduction; both are properties of motion + jsdom interaction)
-- `CAPTAIN_VERA.md` §5.1 (verification-side test-discipline — VERA reads §32 when designing probes against animation surfaces)
+- `CAPTAIN_VERA.md` §5.1 (verification-side test-discipline — VERA reads this module when designing probes against animation surfaces)
 - `CAPTAIN_CATO.md` (honesty-audit consumer — when a test asserts disjunctively against the environment, CATO verifies the disjunction is the empirical reality, not a smoothed-over defect)
