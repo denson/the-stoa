@@ -85,11 +85,15 @@
     {
       "text": "pass: Arc A (stoa--xyb.12) build 6757a75 VERIFIED. All 7 probes PASS (P8 N/A, C deferred). P1 B-anchor gate PASS (no B-anchor removed; stoa--vmc L45 verbatim; all ariadne--/stoa--32b provenance survive live). P2 de-name PASS (only L9+L45 ariadne, framing de-named, clauses intact). P3 inbound-ref PASS (no dangle; tombstones+re-point each x1). P4 audit-recovery PASS. P5 no-renumber PASS (sequence byte-identical to baseline). P6 authorship PASS (Author=denson; only seat trailers; loose-grep matches are prose 'authoring'). P7 losslessness PASS (§8.7 fold preserves full §21 kernel, only Ariadne assumption dropped; all tombstone cross-refs resolve). Scope clean: only 4 §4 A-scope files touched, no .claude/ leak, net 17/-31 debloat. §35.5 carve-out confirmed (not threat-ratified). Verdict: agents/verdicts/stoa--xyb.12/VERA-2026-06-05T00-27-25Z.md. Returning to PLINY.",
       "timestamp": "2026-06-05T00:27:37Z"
+    },
+    {
+      "text": "CATO activated on stoa--xyb.12 (Arc A Ariadne decoupling). Reading diff + design rev2 + VERA verdict before forming cold-read. autonomous mode.",
+      "timestamp": "2026-06-05T00:28:34Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T00:27:37Z"
+  "updated_at": "2026-06-05T00:28:34Z"
 }
