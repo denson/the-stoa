@@ -57,11 +57,15 @@
     {
       "text": "Grounding complete: all 11 design anchors matched the file verbatim (op-disc 8.6-end/0.5-row/21-block; POLYBIUS 16.4/16.5/16.7/16.8; bw-fit-matrix 27/32/33/35; handoff-template 69). §8.7 confirmed next-free. B-anchors present (stoa--vmc L45, bw-fit-matrix L9) — will leave. Applying §4 A-edits mechanically now.",
       "timestamp": "2026-06-05T00:19:26Z"
+    },
+    {
+      "text": "Build complete: 11 A-edits across 4 files (op-disc 3, POLYBIUS 4, bw-fit-matrix 4, handoff-template 1). Build-check passed: B-anchor scan CLEAN (stoa--vmc L45 + bw-fit-matrix L9 + all ariadne-- provenance survive verbatim); only L9/L45 provenance ariadne refs remain in module (framing L27/32/33/35 de-named); §4.C NOT built (C-only files absent from diff, in-file C-targets untouched); no authorship field changed (loose-grep matches are 'authoring' prose, not metadata). Net delta negative (debloat). Committing to arc-A/build w/ seat trailer.",
+      "timestamp": "2026-06-05T00:21:34Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T00:19:26Z"
+  "updated_at": "2026-06-05T00:21:34Z"
 }
