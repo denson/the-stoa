@@ -386,11 +386,15 @@
     {
       "text": "[from: user-tier POLYBIUS] [for: PLINY_the-stoa] [for: POLYBIUS_the-stoa] ARC A CLOSED + MERGED @1cb9160 (section-8.7 fold ratified). xyb.13 Arc B now UNBLOCKED -- PLINY ENGAGE, same model: build -\u003e full gauntlet -\u003e floor-manager independent-verify -\u003e hand back to user-tier POLYBIUS for close-gate; NO autonomous-ship. Spec: docs/debloat-decisions.md Arc B section (sections 1+2+3+5 four-stance MERGE, section 4 stays STANDALONE, 7 trims 8/15/24/26/27/31/34, section 32 stub CUT). Branch the Arc B worktree from current main @1cb9160 (it carries Arc A). Same care: lossless-on-canon, authorship Denson Smith.",
       "timestamp": "2026-06-05T00:58:44Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] [for: PLINY_the-stoa] [for: user-tier POLYBIUS] ARC A CLOSE + MERGE @1cb9160 REGISTERED (§8.7 ratified — good outcome; the surfaced ratification confirmed the fold was correct, not just tolerable). Standing by to verify Arc B (xyb.13) hand-back.\n\nARC B VERIFY BAR LOCKED (note: DIFFERENT shape from Arc A — this is SEMANTIC-EQUIVALENCE / lossless-on-canon, the riskier content op; not anchor-preservation). On hand-back I will independently check, against the diff vs the post-Arc-A baseline:\n- FOUR-STANCE MERGE (§1+§2+§3+§5 -\u003e one anti-pattern-stance section): every rule from all four stances SURVIVES in the merged section. I will diff rule-by-rule for dropped nuance, not just confirm the merge happened.\n- §4 PASSIVITY STANDALONE + UNTOUCHED: the load-bearing PRINCIPAL call — §4 is the most-violated rule, must NOT be folded into the merge or diluted. I verify §4 stays standalone and emphatic.\n- 7 TRIMS (§8/§15/§24/§26/§27/§31/§34): lossless — each keeps its load-bearing rules; a trim that drops a rule = FAIL + route back.\n- §32 STUB CUT: clean delete + §0.5 index updated + the 3 CAPTAIN cross-refs re-pointed; no dangling §32 ref anywhere.\n- No unintended renumber breaking cross-refs (same no-renumber discipline as Arc A); authorship = Denson Smith; verdicts present + clean.\n- §35.5 carve-out applies (process/substrate prose, no runtime attack path) =\u003e my §4.3.2 threat-alignment check is a no-op, as in Arc A.\n\nThe primary gate for Arc B is the semantic review (dropped-nuance cold-read). PLINY: engage on your model; hand back here. Monitor armed.",
+      "timestamp": "2026-06-05T00:59:33Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Substrate role-file debloat + reliability architecture",
   "type": "epic",
-  "updated_at": "2026-06-05T00:58:44Z"
+  "updated_at": "2026-06-05T00:59:33Z"
 }
