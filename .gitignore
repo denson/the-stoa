@@ -9,3 +9,7 @@ CLAUDE.md.bak
 # Python bytecode cache (introduced Arc 39 with save-verdict skill — first Python in substrate/)
 __pycache__/
 *.pyc
+
+# Agent run-output scratch — designs, verdicts, verification, save-verdict tmp files.
+# Produced by arc runs under agents/; never committed (the durable record is bw + the merged diff).
+agents/
