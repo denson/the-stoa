@@ -43,11 +43,15 @@
     {
       "text": "ADA activated on stoa--xyb.13 (Arc B op-disc consolidation). Reading design rev2 (09b31bd, ARGUS r1/r2 surgically fixed) + worktree arc-B/build state before first edit. Grounding every edit on verbatim anchor text, file-is-canon.",
       "timestamp": "2026-06-05T01:30:05Z"
+    },
+    {
+      "text": "Four-stance merge landed: §1 = merged section (verbatim from design §2.4, all 4 sub-stances 1.1-1.4); §2/§3/§5 -\u003e no-renumber pointer-stubs; §4 untouched byte-identical between §3-stub and §5-stub. Proceeding to line-1642 rewrite + §32 stub-prose cut + 7 trims.",
+      "timestamp": "2026-06-05T01:30:43Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc B: op-disc prose consolidation — four-stance merge + 7 trims + jsdom cut (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T01:30:05Z"
+  "updated_at": "2026-06-05T01:30:43Z"
 }
