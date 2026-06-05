@@ -105,11 +105,15 @@
     {
       "text": "pass: c1 fix landed at 2ae26bb on arc-C/build. 1 file (prepare-commit-msg), +22/-5. Added POSIX *[[:cntrl:]]* case-glob reject (newline incl) BEFORE shape gate -\u003e same no-op fail-open exit 0 path; commit unaffected. Corrected shape-gate comment (states newline/control-char + shape-mismatch reject classes; no overclaim of execution-neutralization). M1 quoting / M2 fail-open / M3 Author+committer=denson all untouched. sh -n + dash -n clean; LF; mode 100755. Legit single-line trailer still hits shape-OK -\u003e one trailer. NOT running probes (VERA re-probes the .local\u003e-tailed newline payload next). Returning.",
       "timestamp": "2026-06-05T03:37:25Z"
+    },
+    {
+      "text": "VERA activated on Arc C c1 re-probe (stoa--xyb.14). Hook HEAD 2ae26bb confirmed, [[:cntrl:]] guard present at L53-55. Building synthetic throwaway git repo to RUN the .local\u003e-tailed embedded-newline payload.",
+      "timestamp": "2026-06-05T03:38:44Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc C: encode batch — sections 7/11/13/28 into running structures (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T03:37:25Z"
+  "updated_at": "2026-06-05T03:38:44Z"
 }
