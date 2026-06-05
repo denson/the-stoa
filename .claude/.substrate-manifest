@@ -5,8 +5,8 @@
 # format=v1
 #
 # tier=project
-# deployed_at=2026-06-04T19:09:39Z
-# substrate_sha=307f2c0
+# deployed_at=2026-06-05T08:23:18Z
+# substrate_sha=a55fdff
 
 .claude/MAJOR_POLYBIUS.md	{{NAME_SUFFIX}}	_the_stoa
 .claude/MAJOR_PLINY.md	{{NAME_SUFFIX}}	_the_stoa

@@ -62,7 +62,7 @@ This always-loaded table is the losslessness-recovery artifact for the Arc 47 op
 | §30.5 N=1 provenance | `bw show stoa--wad` (Anchor; moved with §30) | PROVENANCE |
 | §31 Substrate-component design principles | `.claude/modules/substrate-component-design.md` (disk module; subproject recompose) | CONDITIONAL |
 | §31.3 N=2 provenance | `bw show stoa--gq1` (Anchor; moved with §31) | PROVENANCE |
-| §32 jsdom + animation timing discipline | `.claude/modules/jsdom-timing-discipline.md` (disk module; subproject recompose) | CONDITIONAL |
+| §32 jsdom + animation timing discipline (Arc B `stoa--xyb.13`: stub-prose cut, MODULE-INLINE markers retained) | `.claude/modules/jsdom-timing-discipline.md` (disk module; subproject recompose) | CONDITIONAL |
 | §6.7 empirical | `bw show stoa--nax` (Anchor; rule stays inline) | PROVENANCE |
 | §8.1 empirical (2026-05-04 bw-prime leak) | `bw show stoa--xyb.8.1` (C-2 child ticket; rule stays inline) | PROVENANCE |
 | §8.2 empirical (2026-05-05 over-delegation) | `bw show stoa--xyb.8.2` (C-2 child ticket; rules stay inline) | PROVENANCE |
@@ -74,7 +74,7 @@ This always-loaded table is the losslessness-recovery artifact for the Arc 47 op
 | §15 empirical | `bw show stoa--tp1` (Anchor; §15 stays inline — KEEP per r2) | PROVENANCE |
 | §18.7 / §18.6 lineage | `bw show stoa--odh` / `stoa--nvl` (Anchor; rules stay inline) | PROVENANCE |
 | §19.5 / §19.6 / §19.7 lineage | `bw show stoa--ioy` / `stoa--ezj` / `stoa--53u` (Anchor; rules stay inline) | PROVENANCE |
-| §21 empirical | `bw show stoa--32b.3` (Anchor; rule stays inline) | PROVENANCE |
+| §21 CUT — Ariadne-search-ready authoring (Arc A `stoa--xyb.12`) | generic compaction-recovery kernel → §8.7; provenance `bw show stoa--32b.3` | CUT |
 | §23.4 N=1 provenance | `bw show stoa--ads` (Anchor; rules stay inline) | PROVENANCE |
 | §24 empirical | `bw show stoa--3cs` (Anchor; thin cross-ref stays inline) | PROVENANCE |
 | §25.6 N=1 provenance | `bw show stoa--dxw` / `stoa--501` (Anchor; rules stay inline) | PROVENANCE |
@@ -83,23 +83,45 @@ This always-loaded table is the losslessness-recovery artifact for the Arc 47 op
 
 ---
 
-## 1. Suppress "ship-it" / momentum pressure
+## 1. Suppress the four human-team anti-pattern stories (momentum / MVP / gold-plating / plausible-citation)
 
-In human teams where each step took weeks, momentum was a real cost worth optimizing. With agents, a full pipeline cycle (DAEDALUS → ARGUS → ADA → VERA → CATO → ZENO) is minutes. **Momentum pressure is no longer a reason to skip steps; it is just a story the model tells itself to skip work.**
+Four anti-pattern "stories" carry over from human-team practice where each one was a rational
+optimization, and each one inverts under an agent team. The shared root: in human teams the scarce
+resource was engineer-time and scheduling latency, so momentum, minimized round-trips, and avoided
+polish all bought something real. With agents a full pipeline cycle (DAEDALUS → ARGUS → ADA → VERA →
+CATO → ZENO) is minutes and round-trips cost tokens, not days — so the same stories now just talk the
+model out of doing cheap, valuable work. (Passivity — "wait for explicit instruction" — is the fifth
+and most-violated such story; it earns its own emphatic section at §4.)
 
-If you find yourself reasoning "we should ship this without the full gauntlet to keep momentum" — stop. The gauntlet is what's expensive in human teams; in an agent team, it's the cheap thing.
+### 1.1 Momentum / "ship-it" pressure
+In human teams each step took weeks. **Momentum pressure is no longer a reason to skip steps; it is
+just a story the model tells itself to skip work.** If you find yourself reasoning "we should ship
+this without the full gauntlet to keep momentum" — stop. The gauntlet is what's expensive in human
+teams; in an agent team, it's the cheap thing.
 
-## 2. Suppress "MVP" / "minimize round-trips"
+### 1.2 "MVP" / "minimize round-trips"
+On a human team a round-trip meant scheduling a meeting; between agents it costs tokens, not days.
+**Optimizing to minimize agent round-trips by cutting verification is a category error.** Round-trips
+are how the team catches its own mistakes — cutting them to "go faster" trades a known small cost (the
+round-trip) for an unbounded cost (a missed defect that lands).
 
-Round-trips were expensive when they meant scheduling a meeting. Round-trips between agents cost tokens, not days. **Optimizing to minimize agent round-trips by cutting verification is a category error.**
+### 1.3 "Don't gold-plate"
+With agents, "polish" usually means more verification, more review, more breadcrumbs — the cheap
+things. **Gold-plating those is exactly what the regime makes possible.** The original rule was about
+polishing PRODUCT (don't add features no one needed); it was never about polishing PROCESS. In an
+agent regime, polishing the process is free; do it.
 
-Round-trips are how the team catches its own mistakes. Cutting them to "go faster" trades a known small cost (the round-trip) for an unbounded cost (a missed defect that lands).
+### 1.4 Plausible-source citation without verification
+A chronic bug across LLMs: writing "X says Y" where X is real but doesn't actually say Y. **Run the
+source. If you cannot, flag the citation as unverified and return.** This is distinct from POLYBIUS
+§4.3 / PLINY §7.2 (verify-then-execute), which is about verifying claims that contradict your model;
+plausible-source citation is about not making claims at all when you haven't checked. Both apply.
 
-## 3. Suppress "don't gold-plate"
+## 2. [MERGED → §1] Suppress "MVP" / "minimize round-trips"
+Merged into §1 (the four anti-pattern stances) on Arc B (`stoa--xyb.13`). Number preserved as a stable cross-reference key (do NOT renumber). The MVP / minimize-round-trips stance is §1's sub-stance "MVP" (§1.2).
 
-Adapted from human contexts where extra polish wasted scarce engineering time. With agents, "polish" usually means more verification, more review, more breadcrumbs — the cheap things. **Gold-plating those is exactly what the regime makes possible.**
-
-The original "don't gold-plate" rule was about polishing PRODUCT (don't add features no one needed). It was never about polishing PROCESS. In an agent regime, polishing the process is free; do it.
+## 3. [MERGED → §1] Suppress "don't gold-plate"
+Merged into §1 (the four anti-pattern stances) on Arc B (`stoa--xyb.13`). Number preserved as a stable cross-reference key (do NOT renumber). The don't-gold-plate stance is §1's sub-stance "Gold-plating" (§1.3).
 
 ## 4. Suppress "wait for explicit instruction" (passivity)
 
@@ -107,11 +129,8 @@ Adapted from corporate environments where exceeding scope was political risk. In
 
 The default IS the contract. If the gauntlet is the default, run it. If autonomous-ship-on-clean-PASS is the default (PLINY §7.4 / POLYBIUS §4.6), do it without asking. If fix-now is the default (global `CLAUDE.md` Fix-now discipline / POLYBIUS §4.8), fix it. **Do not wait for permission to run defaults.**
 
-## 5. Suppress plausible-source citation without verification
-
-A chronic bug across LLMs: writing "X says Y" where X is real but doesn't actually say Y. **Run the source. If you cannot, flag the citation as unverified and return.**
-
-This is distinct from POLYBIUS §4.3 / PLINY §7.2 (verify-then-execute), which is about verifying claims that contradict your model. Plausible-source citation is about not making claims at all when you haven't checked. Both apply.
+## 5. [MERGED → §1] Suppress plausible-source citation without verification
+Merged into §1 (the four anti-pattern stances) on Arc B (`stoa--xyb.13`). Number preserved as a stable cross-reference key (do NOT renumber). The plausible-source-citation stance is §1's sub-stance "Plausible-citation" (§1.4).
 
 ## 6. Suppress single-checker thinking; redundancy IS the safety property
 
@@ -275,8 +294,6 @@ bash substrate/install.sh --dry-run --target user | grep <new-file-name>
 
 **If the file does NOT appear:** install.sh's hardcoded list needs updating in the same arc. Surface as a Phase C SMOKE FAIL with the exact missing file name + the install.sh fix needed (e.g., "add `new-template.md` to `TEMPLATE_NAMES` array in install.sh; 1-line addition at line ~110"). Do NOT proceed to ship; fix the install.sh wiring in the same feature branch.
 
-**Substrate-canonical implication for Arc 23 itself.** Per the §10 save-verdict location decision (Option A — user-tier extension), this arc adds no new files under `substrate/templates/` or `substrate/skills/`. The §8.4 discipline is established in the canon for future arcs to apply; Arc 23 itself does not exercise it. The follow-up substrate ticket (per §10.1) for substrate-promotion of save-verdict will be the first arc to exercise §8.4 against itself.
-
 Empirical anchor: Arc 21 commit `e2d8b63` added 3 new templates to `substrate/templates/` without updating install.sh's `TEMPLATE_NAMES`. Re-installs at deployed tiers silently skipped the new templates. Caught only during post-arc routine propagation deploy verification (`51397da` is the 3-line install.sh fix that should have landed in arc 21). Substrate ticket: `stoa--14u`.
 
 ### 8.5 Probe coverage of fallback chains
@@ -312,6 +329,10 @@ This is a HYGIENE PREFERENCE, not a guaranteed mechanism: an on-line `[ -n "$VAR
 The discipline lands UPSTREAM once and applies across the gauntlet: DAEDALUS authors the probe spec, ADA authors the concrete probe set, and VERA re-executes verbatim and is forbidden to fix downstream (`CAPTAIN_VERA.md` §5.1-5.3) — so a probe that risks the heuristic is an upstream authoring choice, not a VERA repair.
 
 Empirical anchor: `stoa--x4j` — an autonomous-mode gauntlet seat permission-paused for ~7.5h on a destructive cleanup command containing `${...}` expansion; from the coordinating seat's bw vantage it was indistinguishable from a stall. N=1; the exact heuristic trigger remains uncharacterized (closed surface) — this discipline is the bounded, verifiable mitigation (prefer literal paths) plus the detection half (§sub-agent-watchdog zero-burn classification), NOT a claim to have defeated the heuristic.
+
+### 8.7 Author durable artifacts for compaction-recovery
+
+Whenever you author a durable artifact (bw ticket/comment, design doc, retro entry, commit subject, handoff doc, arc directive), write it so it survives being read **out of order, out of context, or in fragments** after a `/compact` or a fresh session: **titles** are search-friendly (distinct, specific, named-entities, readable without surrounding context — prefer `arc-26 check.sh adds MISSING+OBSOLETE categories` over `update X`); **cross-refs** name related artifacts explicitly (bw IDs, file paths `substrate/...md` §N, commit SHAs); **content density** favors semantic-chunked units (`## §N — <topic>` self-contained sections) over monolithic prose. This is the same discipline that serves a POLYBIUS re-reading the corpus after `/compact` — there is no trade-off. Forward-only: guidance for new artifacts, NOT a mandate to retroactively restructure existing ones (A8).
 
 ---
 
@@ -503,19 +524,9 @@ Empirical anchor: 2026-05-08 (`stoa--v2o`) — POLYBIUS bw dep direction confusi
 
 ---
 
-## 13. Windows Python environment — set PYTHONUTF8=1 for Python invocations
+## 13. Windows Python environment — PYTHONUTF8 via the settings `env` block
 
-Agent-authored helper Python scripts on Windows have stdout encoded `cp1252` by default. Printing non-ASCII content (Greek theta in PDFs, em-dashes in print statements, accented characters in citation strings) crashes with `UnicodeEncodeError`. Two complementary fixes apply.
-
-**Per-machine fix (PRINCIPAL handles):** `setx PYTHONUTF8 1` once per machine sets the variable in the user environment; covers every Python invocation thereafter without per-script discipline. Substrate cannot do this for the PRINCIPAL — it requires a one-time environment write.
-
-**Per-script substrate discipline (agents apply):** when invoking Python on Windows during a gauntlet run, either set `PYTHONUTF8=1` in the bash environment for the invocation, OR include `sys.stdout.reconfigure(encoding='utf-8')` at the top of any helper script that may print non-ASCII content. Detected via `os.name == 'nt'` or PRINCIPAL-flagged Windows deployment.
-
-Recommended: ship both. The per-machine fix is cheapest; the per-script discipline is the durable substrate that protects future deployments where the per-machine fix hasn't been applied.
-
-Empirical anchor: `ariadne--sh7` (CLI binary fix in code; 2026-05-07) reconfigured `sys.stdout` in ariadne CLI's `main()` entry — works for the CLI binary but does not cover ad-hoc helper scripts written by PLINY/VERA/ADA during gauntlet runs. Batch G smoke #1 Test 3 crashed on `cp1252` with an em-dash in PLINY's smoke probe print statement (2026-05-07). Both manifestations are now durable: `sh7` in code, this section in substrate (`stoa--a5q`).
-
-Universality: every seat that invokes Python in a Windows-deployed gauntlet — POLYBIUS, PLINY, every CAPTAIN that runs Python helpers (VERA, ADA, etc.).
+Agent-authored helper Python scripts on Windows default to `cp1252` stdout; printing non-ASCII (Greek theta in PDFs, em-dashes, accented citations) crashes with `UnicodeEncodeError`. The substrate fix is a `.claude/settings.json` **`env` block** carrying `PYTHONUTF8=1` (+ `PYTHONIOENCODING=utf-8`), which Claude Code applies to every session and every spawned subprocess including the Bash tool (https://code.claude.com/docs/en/settings, "env" key) — so every Python invocation gets UTF-8 stdout with no per-script discipline. `install.sh` deploys this env block (merged into an existing `settings.json` only with explicit operator consent; otherwise emitted as a candidate + runbook — same default-OFF posture as the enforcement-hook arming, since `settings.json` is operator-owned config). Mechanism + deploy wiring: `substrate/templates/settings-env-block.json` + `install.sh` step 5e. **Residual judgment (kept prose):** the per-machine `setx PYTHONUTF8 1` (PRINCIPAL handles, one-time, covers non-Claude invocations too) and the in-code `sys.stdout.reconfigure(encoding='utf-8')` for shipped CLI binaries (e.g. `ariadne--sh7`) remain complementary — the env block covers Claude-spawned subprocesses; the per-machine + in-code fixes cover invocations outside a Claude session. Detection: `os.name == 'nt'` or PRINCIPAL-flagged Windows deployment. Empirical anchor: `stoa--a5q` (recover via `bw show`).
 
 ---
 
@@ -585,24 +596,21 @@ UNVERIFIABLE also does not gate merge on its own. The verdict is honest output, 
 - **INCOMPLETE-verdict bounded verification gets a default time/cost box of 10× the dispatch's normal probe budget.** Concretely: if a routine probe-set takes ~30s wall-clock and ~5k tokens, the INCOMPLETE bound is 300s / 50k tokens. Configurable per dispatch (the brief may explicitly authorize a higher bound for a load-bearing INCOMPLETE check). 10× is the anchor from the tp1 elevation comment and reflects the principle that bounded verification is genuinely more work than easy-easy probing — but a 100× or 1000× allowance starts to defeat the purpose of bounding.
 - **UNVERIFIABLE pulls the verifier out within ~1× normal probe budget.** A sanity-check is allowed; full verification is not. The verifier confirms the quadrant classification (one or two cheap probes to rule out an easier shape), records what it did, returns.
 
-**Rationale for N=10 (the INCOMPLETE multiplier).** Three considerations:
-1. **Asymmetric cost.** A passing INCOMPLETE probe with too-tight a bound is a missed catch; a passing INCOMPLETE probe with too-loose a bound is wasted tokens. Tokens are cheap; missed catches in NP-hard territory are not. The bound errs generous.
-2. **Operator-fatigue.** Every INCOMPLETE verdict surfaces to PRINCIPAL or POLYBIUS for disposition. If the bound is too tight, INCOMPLETE verdicts proliferate and the disposition queue saturates. 10× lets the verifier do real bounded work; the disposition queue stays manageable.
-3. **Easy escalation path.** If a verifier hits 10× and the verdict is still INCOMPLETE with diminishing returns, the verifier returns INCOMPLETE with the data it has. If the brief explicitly authorizes a higher budget (e.g., 100× for a load-bearing concurrency check), the verifier uses it. The default is the floor of "honest bounded work," not the ceiling.
+**Rationale for N=10 (the INCOMPLETE multiplier).** 10× errs generous because the asymmetry favors it (tokens are cheap; missed catches in NP-hard territory are not) while staying tight enough to keep the operator-disposition queue manageable and to make 10× a floor of "honest bounded work," not a ceiling — a higher budget (e.g., 100× for a load-bearing concurrency check) is used when the brief authorizes it. Full three-point reasoning (asymmetric cost / operator-fatigue / easy-escalation): `bw show stoa--tp1`.
 
 ### 15.6 Worked examples (the load-bearing set)
 
 Three worked examples make the framework legible — one per non-trivial quadrant. (The full six-example set, including the ARGUS-side easy-easy + hard-hard design-critique cases, is recoverable via `bw show stoa--tp1`.)
 
-**Example 1 — Easy-easy / PASS.** VERA probes `/api/bw/projects/conan-superfan/issues` and expects HTTP 200 with non-empty `issues` array. Direct curl + jq. Pass. Standard mechanical case; the framework adds nothing beyond classification, but the classification step is what makes the framework's other quadrants legible by contrast.
+**Example 1 — Easy-easy / PASS.** VERA probes `/api/bw/projects/conan-superfan/issues`, expects HTTP 200 with non-empty `issues` array; direct curl + jq; pass.
 
-**Example 2 — Hard-easy / FAIL.** VERA reads STRABO research artifact claiming `internal/issue/id.go:128` contains `matches = append(matches, matches)`. Quadrant: **hard-detect** (the work is in finding which of the artifact's many cited claims to verify; the claim's wording does not flag itself as suspicious) / **easy-verify** (curl the file at the cited commit + grep for the cited line; match or fail). FAIL: the line is absent from all three commits of the file's history; the structurally-correct `append(matches, id)` is what's actually there. Falsifying evidence: the three commit SHAs + line excerpts. This is the 2026-05-12 STRABO-fabrication case.
+**Example 2 — Hard-easy / FAIL.** STRABO artifact claims `internal/issue/id.go:128` contains `matches = append(matches, matches)`. Quadrant: **hard-detect** (which of many cited claims to verify) / **easy-verify** (curl the file at the cited commit + grep). FAIL: the line is absent from all three commits of the file's history; the structurally-correct `append(matches, id)` is what's actually there. Falsifying evidence: the three commit SHAs + line excerpts. (2026-05-12 STRABO-fabrication case.)
 
-**Example 4 — Hard-hard / UNVERIFIABLE.** STRABO research synthesis claims "every mature git-as-database project has a sidecar projection layer." Quadrant: **hard-detect** (sample bias in mature-project enumeration; how do you find the counter-examples?) / **hard-verify** (counter-example space is the set of all not-yet-discovered such projects). Verdict **UNVERIFIABLE**: cited 3 examples (git-bug, public-inbox, beads-on-Dolt); sanity-checked each individually (each has a documented sidecar projection layer); but the universal-quantifier synthesis is unbounded — verifier surfaces to operator. Recommended next step: treat the claim as a strong heuristic for the cited cases, not a universal law; document the synthesis as evidence-of-pattern, not evidence-of-completeness.
+**Example 4 — Hard-hard / UNVERIFIABLE.** STRABO synthesis claims "every mature git-as-database project has a sidecar projection layer." Quadrant: **hard-detect** (how to find counter-examples) / **hard-verify** (counter-example space is all not-yet-discovered such projects). Verdict **UNVERIFIABLE**: cited 3 examples (git-bug, public-inbox, beads-on-Dolt), each sanity-checked to have a sidecar layer, but the universal-quantifier synthesis is unbounded — verifier surfaces to operator (treat as a strong heuristic for the cited cases, not a universal law).
 
 ### 15.7 Self-referential observation
 
-The framework's own discipline applies to verifying any arc that ships this framework. Each verifier (VERA, CATO, ZENO) classifies each probe per the framework. Most probes in a doc-revision arc are easy-easy (file contains string; schema accepts example; section heading present; cross-reference resolves). Some are hard-easy (wording-drift across the four verifier role files: the work is in spotting the drift across files; once spotted, the drift is mechanical to check). Almost none are easy-hard or hard-hard in doc-shaped arcs; the framework's harder quadrants emerge for verifying code-shaped deliverables with concurrency / synthesis claims.
+The framework applies to verifying any arc that ships it: each verifier (VERA, CATO, ZENO) classifies each probe, and most probes in a doc-revision arc are easy-easy (string present, schema accepts, heading present, cross-ref resolves) with some hard-easy (wording-drift across files: hard to spot, mechanical to check once spotted). The harder quadrants (easy-hard / hard-hard) emerge for code-shaped deliverables with concurrency / synthesis claims, almost never in doc-shaped arcs.
 
 ---
 
@@ -896,27 +904,9 @@ Anchor: `stoa--p5g` — N=1 provenance + accretion path (railway--pam 2026-05-13
 
 ---
 
-## 21. Ariadne-search-ready authoring
+## 21. [CUT — Ariadne-search-ready authoring]
 
-Every seat authors durable artifacts — bw tickets and comments (POLYBIUS, PLINY, every CAPTAIN), design docs (DAEDALUS, ARGUS), retrospective entries (POLYBIUS), commit messages (ADA, POLYBIUS), arc directives (POLYBIUS, MAJOR_PLINY pair-programmer mode), handoff docs (POLYBIUS). The discipline below applies to all of them.
-
-PRINCIPAL is setting up Ariadne tools for searching the substrate corpus across all repos. The implication for authoring discipline going forward is to write artifacts that are good both for human re-reading after compaction AND for vector retrieval against a query. The disciplines align — both want self-contained, well-titled, cross-referenced units that survive being read out of order, out of context, or in fragments.
-
-Four sub-disciplines:
-
-- **Titles matter.** bw ticket titles, retro doc titles, commit subjects, design-doc section headings should be search-friendly: distinct, specific, named-entities, no relying on context to disambiguate. A title that reads cleanly out of context retrieves cleanly out of context. Avoid `update X` / `fix the thing` / `next steps` — those collide with thousands of similar titles in the corpus. Prefer `arc-26 check.sh adds MISSING+OBSOLETE detection categories` — specific, named, distinct.
-
-- **Cross-refs matter.** Every artifact should name its related artifacts explicitly — bw ID cross-refs (`stoa--32b.3`, `u--7yg.20`), file paths (`substrate/MAJOR_POLYBIUS.md` §16.3), commit SHAs (`6ccfd0e`), retro doc paths. Implicit references that depend on the reader having recent context lose their value the moment the context decays.
-
-- **Content density matters.** Semantic-chunked sections (`## §N — <topic>` headings, each a self-contained retrieval unit, per the retro doc convention) make for better vector retrieval than long monolithic prose. A section should answer one question end-to-end without forcing the reader to scroll up for the framing or down for the punchline. The retro doc at `docs/sessions/2026-05-16-substrate-update-architecture-reframe--retro.md` is the canonical worked example.
-
-- **Authoring-for-ingestion aligns with authoring-for-compaction-recovery.** Both want self-contained, well-titled, cross-referenced units. There is no trade-off — the discipline that serves Ariadne retrieval is the same discipline that serves a POLYBIUS re-reading the doc after `/compact`.
-
-**Forward-only.** This is guidance for new artifacts authored going forward; it is not a mandate to retroactively restructure existing artifacts. Retroactive restructuring of bw tickets, commit messages, or prior retros is explicitly out of scope (per Arc 27 directive A8). When the discipline catches a new artifact that violates it, fix-now (per `MAJOR_POLYBIUS.md` §4.8); when it catches an old artifact, leave it alone — the cost of the rewrite exceeds the benefit until Ariadne search itself is operational and a specific retrieval failure motivates the fix.
-
-**POLYBIUS-specific framing.** The POLYBIUS session lifecycle uses this discipline to author multi-artifact handoffs (index doc + bw tickets + retro docs + design artifacts + commits + role files). See `substrate/MAJOR_POLYBIUS.md` §16.3 + §16.4 for the lifecycle-specific application.
-
-**Empirical anchor:** 2026-05-16 PRINCIPAL declaration during the `stoa--32b` epic-capture engagement (primary source: `stoa--32b.3` ticket body — carries PRINCIPAL's "we are setting up so you will have ariadne tools to search all work" declaration verbatim). The retro at `docs/sessions/2026-05-16-substrate-update-architecture-reframe--retro.md` is adjacent context for the broader epic; the Ariadne-readiness discipline surfaced after the retro was authored. N=1 per §6.7.1; substrate canon enters off-gate on PRINCIPAL's project-direction authority; supporting evidence accretes as future arcs author artifacts under this discipline.
+**CUT (Arc A, `stoa--xyb.12`).** This section encoded an authoring discipline premised on the assumption that an "Ariadne" search tool was being set up for the substrate corpus. Per the PRINCIPAL's 2026-06-04 decoupling decision (`docs/debloat-decisions.md`), Ariadne is an optional per-project add-on, not part of base Stoa. The generic, non-Ariadne-premised kernel (author durable artifacts for compaction-recovery — search-friendly titles, explicit cross-refs, semantic-chunked content density) is folded into §8.7 (authoring downstream artifacts); see also §30 (four-layer identity / what crosses session boundaries) and `substrate/skills/handoff-author/SKILL.md`. Number preserved as a stable cross-reference key (do NOT renumber); empirical provenance retained in §0.5. Original rationale: `bw show stoa--32b.3`.
 
 ---
 
@@ -990,7 +980,7 @@ Any seat that creates an arc-build branch (`arc-N/build` or equivalent) under th
 
 The full canon — including PRINCIPAL's 2026-05-17 verbatim phrasing, the surface-on-failure adjudication shape, the N=2 bit-by-it + N=1 worked-when-applied empirical anchor, and the §6.7.1 N=1 provenance + accretion path — lives at `MAJOR_PLINY.md` §5.9. The activation-paste convention that carries the preamble into every PLINY arc-build paste lives at `MAJOR_POLYBIUS.md` §5.1.2 plus the substrate-canonical template `substrate/templates/paste-instruction-template.md`.
 
-**Why thin cross-ref, not full universal-team mirror.** Under the current gauntlet pipeline, only PLINY creates arc-build branches. ADA works on a branch PLINY created; verifier and analysis CAPTAINs never touch git branch state. The universal-team framing is recorded here for completeness — if a future seat introduces branch-creating responsibilities (a hotfix CAPTAIN, a sibling-arc CAPTAIN), this section can promote to a full universal-team mirror at that point. Today, with PLINY as the only seat creating arc-build branches (POLYBIUS is paste-activated but does not create branches under the gauntlet pipeline; see §26 for the broader paste-activation framing), the substantive canon lives at `MAJOR_PLINY.md` §5.9 and the thin cross-ref here suffices.
+**Why thin cross-ref, not full universal-team mirror.** Only PLINY creates arc-build branches today, so the substantive canon lives at `MAJOR_PLINY.md` §5.9 and the thin cross-ref here suffices; promote to a full universal-team mirror if a future branch-creating seat (a hotfix or sibling-arc CAPTAIN) appears.
 
 **Cross-references:**
 
@@ -1104,7 +1094,7 @@ Any seat activated via an activation paste in a fresh terminal under this team's
 
 The full canon — including the canonical preamble text, the default-include rule + suppression criteria, the POLYBIUS-tier authoring discipline, and the §6.7.1 N=1 provenance + accretion path — lives at `MAJOR_POLYBIUS.md` §5.1.3. The substrate-canonical template `substrate/templates/paste-instruction-template.md` carries the preamble as a `{{CRON_HYGIENE_CLAUSE}}` slot the fill mechanism inserts automatically.
 
-**Why thin cross-ref, not full universal-team mirror.** Under the current coordination model, only PLINY and POLYBIUS sessions are activated via paste-instructions into fresh terminals. CAPTAINs are dispatched one-shot by PLINY via the `Agent` tool (no paste-activation; no cron-management role). The universal-team framing is recorded here for completeness — if a future seat is paste-activated (a hotfix MAJOR, a long-running CURATOR session, a sibling-arc orchestrator), the discipline applies to that seat too. Today, with PLINY + POLYBIUS as the only paste-activated seats, the substantive canon lives at `MAJOR_POLYBIUS.md` §5.1.3 and the thin cross-ref here suffices.
+**Why thin cross-ref, not full universal-team mirror.** Only PLINY + POLYBIUS sessions are paste-activated today (CAPTAINs are dispatched one-shot via the `Agent` tool with no cron-management role), so the substantive canon lives at `MAJOR_POLYBIUS.md` §5.1.3 and the thin cross-ref here suffices; the discipline applies to any future paste-activated seat too.
 
 **Cross-references:**
 
@@ -1119,7 +1109,7 @@ The full canon — including the canonical preamble text, the default-include ru
 
 ## 27. Mechanical-script / agent-inspection split
 
-Relocated to `.claude/modules/mechanical-inspection-split.md` (CONDITIONAL — read when designing a script-based workflow and deciding where intelligence lives across mechanical / recognition / triage layers). Covers the 3-step pattern (incl. the §27.2 mechanical-script→inspection-agent→POLYBIUS-triage shape), the A7 boundary, per-seat behavior, the worked example, and cross-refs.
+Relocated to `.claude/modules/mechanical-inspection-split.md` (CONDITIONAL — read when designing a script-based workflow and deciding where intelligence lives across mechanical / recognition / triage layers). Covers the 3-step pattern, the A7 boundary, per-seat behavior, a worked example, and cross-refs.
 Recover the full discipline via `Read .claude/modules/mechanical-inspection-split.md`. Relocation-index row in §0.5.
 <!-- MODULE-INLINE:mechanical-inspection-split -->
 <!-- /MODULE-INLINE:mechanical-inspection-split -->
@@ -1130,22 +1120,11 @@ Recover the full discipline via `Read .claude/modules/mechanical-inspection-spli
 
 Every commit a CAPTAIN agent lands inside an arc-build worktree (`.claude/worktrees/arc-N-build/`) during a gauntlet carries a `Co-Authored-By:` trailer that names the seat + project. The trailer is the seat-identity signal; the commit `Author:` field stays PRINCIPAL's configured identity (`<user-name> <user-email>` from the PRINCIPAL's `git config user.*`) per global `~/.claude/CLAUDE.md`'s absolute rule "Git commit `Author:` — always use the user's configured git identity, never override." This section is the substrate-canonical home; per-seat application at `MAJOR_PLINY.md` §5.12 (dispatch-brief naming) and `CAPTAIN_ADA.md` §5.5 (pre-commit discipline).
 
-### 28.1 The trailer format
+### 28.1 The trailer format + the optional prepare-commit-msg backstop
 
-```
-Co-Authored-By: CAPTAIN_<MNEMONIC>_<project-slug> <captain-<mnemonic>@<project-slug>.local>
-```
+The trailer is `Co-Authored-By: CAPTAIN_<MNEMONIC>_<project-slug> <captain-<mnemonic>@<project-slug>.local>` — name field binds seat-mnemonic + project-slug; email local-part lowercase-hyphen; `.local` TLD (RFC 6762 link-local, non-routable, GitHub renders as text not a fake avatar). ADA writes it verbatim in the commit HEREDOC per `CAPTAIN_ADA.md` §5.5, dispatched by `MAJOR_PLINY.md` §5.12. **Optional backstop:** an opt-in `prepare-commit-msg` git hook (candidate at `substrate/githooks/prepare-commit-msg`, deployed default-OFF by `install.sh` to `<dest>/.claude/githooks-candidate/`, never auto-armed) appends the trailer idempotently via `git interpret-trailers --if-exists=addIfDifferent`, sourcing the seat from the `STOA_SEAT_TRAILER` session env var and **exiting 0 unconditionally** (fail-open — a buggy hook can never abort a commit; `prepare-commit-msg` is NOT suppressed by `--no-verify`, so fail-open is mandatory). The hook is a safety-net for a *missed* manual trailer, not a replacement for the ADA discipline; it never touches `Author:` (stays PRINCIPAL's per the absolute rule). Coordinates with `stoa--w6d` (committer sub-identity): the hook writes the *trailer*; w6d sets the *committer* — the trailer is the squash-merge-surviving signal (§28.3), the committer is the git-blame-readable signal. Mechanism + deploy wiring: `substrate/githooks/prepare-commit-msg` + `install.sh` step 5f.
 
-- **Name field** — `CAPTAIN_<MNEMONIC>_<project-slug>`. `<MNEMONIC>` is the seat's substrate name (`ADA`, `DAEDALUS`, `ARGUS`, `VERA`, `CATO`, `ZENO`, etc., per the `substrate/CAPTAIN_*.md` files). `<project-slug>` is the project's canonical slug (`the-stoa`, `ariadne-core`, etc. — hyphen-or-underscore-shaped per the project's own conventions). Underscore separator between the two segments binds them as a single name token.
-- **Email field** — `captain-<mnemonic>@<project-slug>.local`. Lowercase-hyphen local-part. The `.local` TLD is reserved by RFC 6762 for link-local mDNS; it is non-routable on the public internet, so the trailer cannot accidentally generate email to a fake address. GitHub will not match the `.local` email to any real user account, so the trailer renders as a name+email text record without a fake-avatar pollution.
-
-Worked examples for the-stoa project-tier:
-
-```
-Co-Authored-By: CAPTAIN_ADA_the-stoa <captain-ada@the-stoa.local>
-Co-Authored-By: CAPTAIN_DAEDALUS_the-stoa <captain-daedalus@the-stoa.local>
-Co-Authored-By: CAPTAIN_CATO_the-stoa <captain-cato@the-stoa.local>
-```
+Worked example (the-stoa project tier; the hook's header carries the canonical example set): `Co-Authored-By: CAPTAIN_ADA_the-stoa <captain-ada@the-stoa.local>`.
 
 ### 28.2 Scope: CAPTAINs only
 
@@ -1251,17 +1230,17 @@ Recover the full model via `Read .claude/modules/four-layer-identity.md`. Reloca
 
 ## 31. Substrate-component design principles for agent-installable distribution
 
-Relocated to `.claude/modules/substrate-component-design.md` (CONDITIONAL — read when authoring substrate-component distribution/onboarding materials and weighing the agent-installable distribution model + composability framing). Covers Principle 1 (7-step agent-installable flow) + Principle 2 (composability-not-demo-inventory).
+Relocated to `.claude/modules/substrate-component-design.md` (CONDITIONAL — read when authoring substrate-component distribution/onboarding materials and weighing the agent-installable distribution model + composability framing). Covers the two design principles.
 Recover the full discipline via `Read .claude/modules/substrate-component-design.md`. Relocation-index row in §0.5.
 <!-- MODULE-INLINE:substrate-component-design -->
 <!-- /MODULE-INLINE:substrate-component-design -->
 
 ---
 
-## 32. Test-environment timing discipline — jsdom + animation libraries
+## 32. [STUB-PROSE CUT — jsdom + animation timing discipline]
 
-Relocated to `.claude/modules/jsdom-timing-discipline.md` (CONDITIONAL — read when authoring or verifying tests against animation surfaces in a jsdom test environment). Covers the rAF-driven-timing failure mode + the disjunctive observable-end-state assertion + the helper contract.
-Recover the full discipline via `Read .claude/modules/jsdom-timing-discipline.md`. Relocation-index row in §0.5.
+**Stub-prose CUT (Arc B, `stoa--xyb.13`).** The human-facing stub prose was redundant with the relocated module + the §0.5 relocation-index row and is cut. The full discipline lives at `.claude/modules/jsdom-timing-discipline.md` (rAF-driven-timing failure mode + disjunctive observable-end-state assertion + helper contract); read it directly or recover via the §0.5 index. The MODULE-INLINE marker pair below is **LOAD-BEARING and RETAINED** — `install.sh` recompose Check A/B (install.sh:1025/1055) hard-abort the subproject deploy if the marker pair or the module source `substrate/modules/jsdom-timing-discipline.md` is missing; do NOT remove either. Number preserved as a stable cross-reference key (do NOT renumber).
+
 <!-- MODULE-INLINE:jsdom-timing-discipline -->
 <!-- /MODULE-INLINE:jsdom-timing-discipline -->
 
@@ -1300,11 +1279,9 @@ PostToolUse `additionalContext`, or a cron prompt body — MUST state, self-cont
 it fired and (b) WHAT to do to proceed. NEVER a bare pointer ("see §X.Y", "per the discipline"). A
 pointer fails after compaction: the trigger's whole value is that it re-tells the rule the agent has
 forgotten, and an agent that has compacted cannot follow a pointer to a section it no longer holds.
-The payload carries the instruction, not a reference to it.
-
-This is the load-bearing convention for the enforcement layer (`bw show stoa--xyb.5`): triggers
-survive compaction because they are fresh harness-fired input re-injected at the moment of action,
-so the instruction they carry must be complete on its own.
+The payload carries the instruction, not a reference to it — this is the load-bearing convention for
+the enforcement layer (`bw show stoa--xyb.5`), since triggers are fresh harness-fired input re-injected
+at the moment of action.
 
 Detail, worked examples, the hook script contract + the fail-open / source-only / default-OFF safety
 architecture: `.claude/hooks/README.md` (on-demand). Shipped Arc 46 (debloat Arc 3, Stage 1).
@@ -1653,7 +1630,7 @@ defeated; it is the response layer for threats §35 already named.
 
 ## Agent-regime inverses (the positive framing)
 
-The six anti-patterns above suppress failure modes. The corresponding positive framings express defaults:
+The anti-pattern stances above (§1 four stories + §4 passivity + §6 redundancy) suppress failure modes. The corresponding positive framings express defaults:
 
 - **Verification is cheap.** Default for every deliverable is the full pipeline.
 - **Parallel work is cheap.** Multiple checkers, multiple aspects, multiple researchers can be dispatched in a single message; cost is one wall-clock unit, not N.
