@@ -114,11 +114,15 @@
     {
       "text": "Cold-read pass complete: diff (6 files / 5 path-roots) + design + VERA verdict absorbed. install.sh = exactly +1 line; agents.ts diff = 31+/10- (only 3 new LIEUTENANT skill objects + count bumps, zero role-body change); launch-team.ps1 pre-existing @2d34f55, correctly NOT in commit. Classifying findings before returning.",
       "timestamp": "2026-06-05T10:29:31Z"
+    },
+    {
+      "text": "pass (PASS-WITH-NOTES): Arc 60 clean. craft CLEAN (decision-surface clearly DRAFT-marked) | consistency CLEAN (install.sh +1 line only, SKILL_NAMES=10 byte-matches design) | security CLEAN (team-launcher w/ --dangerously-skip-permissions HELD OUT, not deployed; launcher absent from consumer) | scope CLEAN (exactly 6 files/5 path-roots, agents.ts=only 3 new skill objects, zero role/disciplines/template/SPEC leak) | authorship CLEAN (4x Denson, Author not overridden, ADA trailer present) | VERA-meta CLEAN (P1-P6 all backed by evidence, deploy-split genuinely exercised not relabeled happy-path, §35.5 carve-out confirmed). Two MINOR non-blocking craft notes: c1 interactive-html-preview calls now-co-landed decision-surface '(forthcoming)'; c2 confirm docs/capability-registry.md exists in-tree. Neither blocks gate. Verdict @ agents/verdicts/stoa--rdh/CATO-2026-06-05T10-30-45Z.md (sha256 round-trip OK). Returning.",
+      "timestamp": "2026-06-05T10:30:57Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Arc the 3 new substrate skills + install.sh SKILL_NAMES wiring",
   "type": "task",
-  "updated_at": "2026-06-05T10:29:31Z"
+  "updated_at": "2026-06-05T10:30:57Z"
 }
