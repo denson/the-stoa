@@ -45,11 +45,15 @@
     {
       "text": "DAEDALUS rev2 activated on stoa--xyb.12. Read current design.md in full + op-disc §8 (8.1-8.6 exist, 8.7 confirmed next-free + unused). Applying surgical fixes r1/r4/r2/r3 + PLINY C-defer ruling. No redesign.",
       "timestamp": "2026-06-05T00:13:39Z"
+    },
+    {
+      "text": "pass (rev2): design rev2 committed 291da4c on arc-A/build w/ seat trailer. r1: §8.3 collision fixed -\u003e §8.7 (next-free, confirmed unused via grep '^### 8.'; §8 runs 8.1-8.6, 8.3=Activation paste) in all 4 anchored places (EDIT 4.1a heading+note, 4.1b tombstone, 4.1c §0.5 row, P7 +weak-point refs). r4: read-side-projection parenthetical trimmed from §8.7 fold body (now clean fully-generic). r2: worked-example-debloat.md:59 annotated NOT-on-branch. r3: line-889 over-cite softened (rests on numeric keys + §16/§32 stub precedent; tombstone CANON text unchanged). C: §4.C DEFERRED (PLINY A-only) + P8 N/A; swaps retained as PRINCIPAL-overridable. A-arch/B-guards/de-name/tombstone/16.5-16.7 cascade untouched. Returning.",
+      "timestamp": "2026-06-05T00:16:20Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T00:13:39Z"
+  "updated_at": "2026-06-05T00:16:20Z"
 }
