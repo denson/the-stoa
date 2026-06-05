@@ -113,11 +113,15 @@
     {
       "text": "diff absorbed; reading LOCKED ledger Ariadne-decoupling section + on-branch gauntlet verdicts for probes 1+4.",
       "timestamp": "2026-06-05T00:34:36Z"
+    },
+    {
+      "text": "ZENO activated on stoa--xyb.12 (Arc A Ariadne decoupling). Reading spec design rev2 + shipped diff (0719047..32e0462 -- substrate/) before extracting criteria. autonomous mode.",
+      "timestamp": "2026-06-05T00:34:39Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T00:34:36Z"
+  "updated_at": "2026-06-05T00:34:39Z"
 }
