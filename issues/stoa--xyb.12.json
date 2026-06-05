@@ -65,11 +65,15 @@
     {
       "text": "pass: Arc A build landed at 6757a75 on arc-A/build. 11 A-edits / 4 files (op-disc 3, POLYBIUS 4, bw-fit-matrix 4, handoff-template 1; +17/-31, net debloat). (a) all 11 design anchors matched file verbatim (only cosmetic: design's §0.5 before-text omitted backticks around bw-show — full-row replace, no impact); (b) NO B-anchor touched (stoa--vmc L45 + L9 + all ariadne-- provenance verbatim); (c) §4.C NOT built; (d) authorship unchanged (Author=denson, seat+Claude trailers layered on top). Build-check passed. Did NOT run VERA probes — VERA's seat next. Returning.",
       "timestamp": "2026-06-05T00:22:02Z"
+    },
+    {
+      "text": "VERA activated on stoa--xyb.12 (Arc A Ariadne decoupling). Read brief + design rev2 §5 probes P1-P7 + role file. Build under test 6757a75, baseline 0719047. Classifying probes per verification-complexity quadrant; executing P1 (B-anchor integrity gate) first. autonomous mode.",
+      "timestamp": "2026-06-05T00:23:18Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc A: Ariadne decoupling — remove base-Stoa Ariadne assumptions (debloat pass 2)",
   "type": "task",
-  "updated_at": "2026-06-05T00:22:02Z"
+  "updated_at": "2026-06-05T00:23:18Z"
 }
