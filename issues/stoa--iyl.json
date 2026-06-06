@@ -14,11 +14,15 @@
     {
       "text": "FIXED via install.sh --principal-name. install.sh now accepts --principal-name \"\u003cFull Name\u003e\" and seeds it into .claude/hooks/principal-identity alongside git user.name/email. Smoke-tested both ways (with flag -\u003e display name added; without -\u003e backward-compat unchanged; bash -n clean), committed on the-stoa main. CUTOVER USAGE: pass it to each hook-bound deploy, e.g. install.sh --target user --principal-name \"Denson Smith\"; forks with their own principal name. CAVEAT 1: install.sh does NOT clobber an existing principal-identity file, so for an already-seeded workspace either delete that file first or add the name by hand. CAVEAT 2 (residual, separate decision): the DEPLOYED substrate files themselves carry author: Denson Smith (the upstream substrate author). On a non-Denson principal's machine (e.g. Marianne) those files would still flag unless her allow-list also accepts the substrate author OR the gate is changed to skip deployed-substrate paths. Resolve before enabling hooks on a non-Denson workspace.",
       "timestamp": "2026-06-06T21:57:17Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS] CONFORMANT: independent ground-truth audit of the --principal-name fix (commit 0f1890e). Probe1 (commit) PASS: Author=denson \u003cdensonsmith2@gmail.com\u003e (PRINCIPAL), touches substrate/install.sh only (1 file, +13/-1), carries Co-Authored-By: Claude Opus 4.8 trailer. Probe2 (source) PASS: --principal-name arm errs via err() exit 2 when no value, assigns PRINCIPAL_NAME=$2; seeding block writes [ -n ${PRINCIPAL_NAME:-} ] line into .claude/hooks/principal-identity alongside git name/email seeds. Probe3 (bash -n) PASS: no syntax error. Probe4 (smoke) PASS: A=with-flag exit0, exact line 'Testy Mcname' present (line 13) + git seeds; B=no-flag exit0, 'Testy Mcname' absent (backward-compat held); bonus: --principal-name with no value exits 2 'requires a name'. Throwaway dirs removed. All four claims hold. Returning.",
+      "timestamp": "2026-06-06T22:00:11Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "install.sh seeds author-audit allow-list with git identity only, not the artifact-author name -\u003e false-blocks PRINCIPAL's own commits",
   "type": "task",
-  "updated_at": "2026-06-06T21:57:17Z"
+  "updated_at": "2026-06-06T22:00:11Z"
 }
