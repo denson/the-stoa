@@ -6,9 +6,15 @@
   "description": "",
   "id": "stoa--iyl",
   "labels": [],
+  "comments": [
+    {
+      "text": "install.sh seeds .claude/hooks/principal-identity from the install's git user.name/email (denson / densonsmith2@gmail.com). But pretooluse-author-field-audit.sh audits author-like fields in staged files (plugin.json, *.md frontmatter, LICENSE, etc.) against that allow-list — and the substrate's OWN files carry 'author: Denson Smith' (confirmed 13x across 10 files: CAPTAIN_TIRO.md, templates/*, skills/handoff-author, arc directives). 'Denson Smith' is NOT on the seeded list, so once hooks are enabled the gate false-blocks any commit staging those files. FOUND enabling hooks fleet-wide 2026-06-06; worked around by appending 'Denson Smith' to all 7 deployed allow-lists. FIX: install.sh should seed the artifact-author NAME form into principal-identity in addition to git name+email. Until fixed, any --enable-hooks deploy (user-tier per REDEPLOY_RUNBOOK A.1; the forks) must add 'Denson Smith' to its allow-list manually.",
+      "timestamp": "2026-06-06T21:43:52Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "install.sh seeds author-audit allow-list with git identity only, not the artifact-author name -\u003e false-blocks PRINCIPAL's own commits",
   "type": "task",
-  "updated_at": "2026-06-06T21:43:51Z"
+  "updated_at": "2026-06-06T21:43:52Z"
 }
