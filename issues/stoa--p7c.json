@@ -14,11 +14,15 @@
     {
       "text": "ROLLOUT REQUIREMENT (Denson) -- not urgent; Marianne will not trigger her agent until Monday.\n\nWhen the agent-ID feature (or any substrate update she needs to pick up) is pushed out, POST THE UPDATE PATH on the commons channel (cm-) so her already-installed user-tier Stoa team can pull it in -- do NOT assume she re-installs from scratch.\n\nOPEN SUB-QUESTION to settle at ship time: what IS the update path for a user-tier install? Hers was deployed by the bootstrap via install.sh --target user. Candidates: re-run install.sh --target user (re-deploy), or the check-substrate-updates skill + apply.sh. VERIFY the chosen path actually works on a user-tier install before posting it -- this may be underspecified for --target user today (the drift tooling targets registered consumer workspaces). If non-trivial, split into its own ticket.",
       "timestamp": "2026-06-06T17:48:16Z"
+    },
+    {
+      "text": "LIVE DRIVER (substrate-upgrade transition, 2026-06-06): prior-gen agent sessions are being kept available as a consultable oracle for the new generation (see user-beadwork/handoffs/2026-06-05-substrate-upgrade/PROTOCOL_consult-prior-generation.md). It works ONLY with a generation marker to disambiguate old vs new instances that share a role name (e.g. 'prior-gen POLYBIUS-A2A'). This is the first concrete operational need for the ID scheme -\u003e the schema must carry a generation/instance axis, not just role+project+principal.",
+      "timestamp": "2026-06-06T21:04:48Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-06T17:48:16Z"
+  "updated_at": "2026-06-06T21:04:48Z"
 }
