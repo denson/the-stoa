@@ -10,11 +10,15 @@
     {
       "text": "install.sh seeds .claude/hooks/principal-identity from the install's git user.name/email (denson / densonsmith2@gmail.com). But pretooluse-author-field-audit.sh audits author-like fields in staged files (plugin.json, *.md frontmatter, LICENSE, etc.) against that allow-list — and the substrate's OWN files carry 'author: Denson Smith' (confirmed 13x across 10 files: CAPTAIN_TIRO.md, templates/*, skills/handoff-author, arc directives). 'Denson Smith' is NOT on the seeded list, so once hooks are enabled the gate false-blocks any commit staging those files. FOUND enabling hooks fleet-wide 2026-06-06; worked around by appending 'Denson Smith' to all 7 deployed allow-lists. FIX: install.sh should seed the artifact-author NAME form into principal-identity in addition to git name+email. Until fixed, any --enable-hooks deploy (user-tier per REDEPLOY_RUNBOOK A.1; the forks) must add 'Denson Smith' to its allow-list manually.",
       "timestamp": "2026-06-06T21:43:52Z"
+    },
+    {
+      "text": "FIXED via install.sh --principal-name. install.sh now accepts --principal-name \"\u003cFull Name\u003e\" and seeds it into .claude/hooks/principal-identity alongside git user.name/email. Smoke-tested both ways (with flag -\u003e display name added; without -\u003e backward-compat unchanged; bash -n clean), committed on the-stoa main. CUTOVER USAGE: pass it to each hook-bound deploy, e.g. install.sh --target user --principal-name \"Denson Smith\"; forks with their own principal name. CAVEAT 1: install.sh does NOT clobber an existing principal-identity file, so for an already-seeded workspace either delete that file first or add the name by hand. CAVEAT 2 (residual, separate decision): the DEPLOYED substrate files themselves carry author: Denson Smith (the upstream substrate author). On a non-Denson principal's machine (e.g. Marianne) those files would still flag unless her allow-list also accepts the substrate author OR the gate is changed to skip deployed-substrate paths. Resolve before enabling hooks on a non-Denson workspace.",
+      "timestamp": "2026-06-06T21:57:17Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "install.sh seeds author-audit allow-list with git identity only, not the artifact-author name -\u003e false-blocks PRINCIPAL's own commits",
   "type": "task",
-  "updated_at": "2026-06-06T21:43:52Z"
+  "updated_at": "2026-06-06T21:57:17Z"
 }
