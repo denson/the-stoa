@@ -234,6 +234,7 @@ SKILL_NAMES=(
   validate-spec
   workflow-composer
   interactive-html-preview
+  team-launcher
 )
 
 # Marker line written into CLAUDE.md when --modify-claude-md is used; presence

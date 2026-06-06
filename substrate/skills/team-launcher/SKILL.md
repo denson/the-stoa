@@ -1,59 +1,66 @@
 ---
 name: team-launcher
 description: |
-  Stand up a multi-seat agent team in terminal sessions on Windows, ready for activation. Each seat runs `claude --dangerously-skip-permissions --model <model> --name <seat>` in the project directory, named and ordered (floor-manager first). Three layouts: side-by-side PANES (default), TABS, or separate WINDOWS — all via the bundled `launch-team.ps1` and Windows Terminal (`wt`). Carries the VERIFIED `wt` + `claude` CLI mechanics (confirmed against Microsoft's Windows Terminal docs + smoke test, 2026-06-04) so a team comes up in one command instead of hand-opening terminals and pasting.
+  Stand up a multi-seat Stoa agent team (POLYBIUS + PLINY by default) in terminal sessions on Windows, ready for activation — in ONE command instead of hand-opening terminals. Consumer-generic: the bundled `launch-team.ps1` derives the project + slug from where it is deployed and defaults to SAY-TRIGGER activation (pre-seeds the bare "polybius"/"pliny" so the workspace CLAUDE.md auto-loads the role). Three layouts: side-by-side PANES (default), TABS, or separate WINDOWS, via Windows Terminal (`wt`) with a windows fallback. Carries the VERIFIED `wt` + `claude` CLI mechanics (Microsoft WT docs + smoke test).
 
-  Invoke when asked to "stand up / spin up / launch the team", "open POLYBIUS and PLINY", "start the agent sessions", "launch in panes/tabs/windows", or when a fresh project needs its team brought online for activation-paste. Windows + Claude Code Desktop (builder tier).
+  Invoke when asked to "stand up / spin up / launch the team", "open POLYBIUS and PLINY", "start the agent sessions", "launch in panes/tabs/windows", or when a workspace needs its team brought online. Windows + Claude Code Desktop (builder tier).
 author: Denson Smith
 ---
 
 # team-launcher — stand up an agent team in terminals (Windows)
 
-> **Verified mechanics, not theory.** The `wt` and `claude` flags below were confirmed against Microsoft's Windows Terminal command-line docs (updated 2025-11) and a live smoke test on 2026-06-04. Sibling of `interactive-html-preview` (both hold verified builder-tier mechanics).
+> **Verified mechanics, not theory.** The `wt` and `claude` flags below were confirmed against Microsoft's Windows Terminal command-line docs + a live smoke test (2026-06-04); the consumer-generic launcher was re-smoke-tested 2026-06-06 (parse + DryRun across panes / auto-derive / windows-fallback) under `stoa--h8w`. Sibling of `interactive-html-preview` (both hold verified builder-tier mechanics).
 
-## The tool: `launch-team.ps1`
-At the repo root. One command brings up the whole team, each session named and in the project dir, ready to paste the activation instructions into.
+## The tool: `launch-team.ps1` (ships in this skill dir)
+The script lives **beside this SKILL.md** and deploys with the skill into every workspace's `.claude/skills/team-launcher/`. One command brings up the whole team — each session named, in the project dir, and activated.
 
 ```powershell
-./launch-team.ps1                      # PANES (default): side-by-side split panes, one window
-./launch-team.ps1 -Layout Tabs         # one tab per seat, one window
-./launch-team.ps1 -Layout Windows      # one separate OS window per seat
-./launch-team.ps1 -Layout Windows -AutoPaste   # also feed each seat's paste file as the first prompt
-# a different/specialized team:
-./launch-team.ps1 -ProjectDir C:\path\to\proj -Seats @(@{Name='POLYBIUS_proj'},@{Name='PLINY_proj'})
+# it derives the project + slug from its own deployed location:
+.claude/skills/team-launcher/launch-team.ps1                 # PANES (default), say-trigger
+.claude/skills/team-launcher/launch-team.ps1 -Layout Tabs    # one tab per seat
+.claude/skills/team-launcher/launch-team.ps1 -Layout Windows # one OS window per seat (no wt needed)
+.claude/skills/team-launcher/launch-team.ps1 -DryRun         # print the command, open nothing
+# explicit project / slug, or a paste-trigger team:
+.claude/skills/team-launcher/launch-team.ps1 -ProjectDir C:\path\to\proj -Slug proj
+.claude/skills/team-launcher/launch-team.ps1 -Activation paste -Layout Windows -AutoPaste
 ```
 
-Default seats are in **activation order** (floor-manager FIRST → left pane / first tab): `POLYBIUS_the-stoa` then `PLINY_the-stoa`.
+**Project + slug auto-derive:** with no `-ProjectDir`, the script walks up from its own location to the workspace root (the dir containing `.claude/`); the slug defaults to that dir's leaf. So in `origindex` the seats are `POLYBIUS_origindex` / `PLINY_origindex`, floor-manager first.
+
+**Activation modes:**
+- **`say` (default)** — pre-seeds the bare word (`polybius` / `pliny`) as claude's positional prompt; the workspace `CLAUDE.md` say-trigger auto-loads the role. The common case for deployed workspaces. (If a pane doesn't fire, it is still named + ready — type the word.)
+- **`paste`** — opens sessions ready for a manual activation paste; with `-Layout Windows -AutoPaste`, feeds each seat's `Paste` file as the first prompt (the-stoa-style paste-trigger).
 
 ## The verified `wt` mechanics (the part that trips you up)
-- **Side-by-side panes = `split-pane -V` (`--vertical`).** `-H`/`--horizontal` stacks top/bottom. (The names feel backwards — verify, don't guess.) First seat is `new-tab`; each subsequent seat is `split-pane -V` (panes) or `new-tab` (tabs).
-- **`;` delimits `wt` commands** — `wt new-tab … ; split-pane -V …`. In PowerShell `;` is also a statement separator, so either backtick-escape it (`` `; ``) or pass it as its own argument token in an array.
-- **`--title <name>` per pane/tab; `--startingDirectory <dir>` per pane/tab.** The tab title reflects the focused pane.
-- **Launch NON-blocking with `Start-Process wt …`.** A bare `wt …` or `& wt …` makes PowerShell **wait for the whole window to close** before returning (WT is a Store app) — it hangs your script. `Start-Process` spawns detached and returns immediately.
-- Use the **full `claude.exe` path** as the pane's command (`(Get-Command claude).Source`) so PATH resolution inside the spawned pane never bites.
+- **Side-by-side panes = `split-pane -V` (`--vertical`).** `-H` stacks top/bottom. First seat is `new-tab`; each next seat is `split-pane -V` (panes) or `new-tab` (tabs).
+- **`;` delimits `wt` commands** — passed as its own array token so PowerShell does not eat it as a statement separator.
+- **`--title <name>` + `--startingDirectory <dir>` per pane/tab.**
+- **Launch NON-blocking with `Start-Process wt …`** — a bare `wt` / `& wt` makes PowerShell wait for the window to close (WT is a Store app).
+- Use the **full `claude.exe` path** (`(Get-Command claude).Source`) so PATH resolution inside the pane never bites.
 
 ## The verified `claude` CLI flags
-- `--dangerously-skip-permissions` — bypass permission prompts (the team runs unattended).
-- `--model <name>` — `opus` alias works; full id `claude-opus-4-8` if an alias is ever rejected.
-- `-n, --name <name>` — **sets the session display name + terminal title.** This is how each pane/window is labeled as its seat. (Note: this names the *session*, not the bw identity — bw identity comes from the activation paste the seat reads.)
-- positional `[prompt]` — a prompt arg starts the interactive session pre-seeded with it (this is how `-AutoPaste` feeds the activation file). `-p/--print` would make it non-interactive — do **not** use it here.
-- In-session, **`/rename "<name>"`** renames a live session — the manual equivalent of `--name`.
+- `--dangerously-skip-permissions` — the team runs unattended.
+- `--model <name>` — `opus` alias works; full id `claude-opus-4-8` if an alias is rejected.
+- `-n/--name <name>` — sets the session display name + terminal title (how each pane is labeled by seat).
+- positional `[prompt]` — pre-seeds the interactive session (this is how say-trigger feeds `polybius`/`pliny`). Do **not** use `-p/--print` (non-interactive).
+- In-session `/rename "<name>"` renames a live session.
 
-## The workflow
-1. **Author the activation pastes** (one per seat) — see the `HUMAN_paste-*-init.md` files. Floor-manager first.
-2. **Launch:** `./launch-team.ps1` (panes). Sessions come up named, in the project dir, at a ready `claude` prompt.
-3. **Activate:** paste each seat's file into its session, **floor-manager first** (left pane). Confirm its bw presence-announce lands before bringing the worker online. `-AutoPaste` (Windows layout) skips the manual step.
+## The workflow (say-trigger — the default)
+1. **Launch:** `.claude/skills/team-launcher/launch-team.ps1`. Panes come up named, in the project dir, each pre-seeded its bare word; the workspace `CLAUDE.md` auto-loads each role (floor-manager = left pane / first tab).
+2. **Confirm** the floor-manager's bw presence-announce before leaning on the worker.
+
+For paste-trigger workspaces, use `-Activation paste` and paste each seat's file (floor-manager first), or `-Layout Windows -AutoPaste`.
 
 ## Gotchas (verified)
-- **Don't reuse the seat names of a team that's already running** — two sessions both named `PLINY_the-stoa` is a seat-identity collision. For test/throwaway runs use distinct names (`POLYBIUS_test`) and a scratch `-ProjectDir`.
-- **`bw comment` text is POSITIONAL, not `-m`** (`bw comment <id> "text"`). The `-m` habit silently records the body as `-m` and drops your text — it has bitten the activation pastes. (Cross-ref: substrate §12 bw cookbook.)
-- **`-AutoPaste` is Windows-layout only** for now — feeding a multi-line paste file through `wt`'s pane command line is brittle; panes/tabs open for manual paste.
-- **Paths/names with spaces** aren't quoted by the script — keep them space-free.
-- **Panes/Tabs need Windows Terminal (`wt`).** If absent, the script falls back to separate windows.
+- **Don't reuse seat names of a team already running** — the same `--name` twice is a seat-identity collision. For throwaway runs use a distinct `-Slug` + a scratch `-ProjectDir`.
+- **`bw comment` text is POSITIONAL, not `-m`** (`bw comment <id> "text"`). The `-m` habit silently records the body as `-m`. (Cross-ref: substrate §12.)
+- **`-AutoPaste` is Windows-layout only** (a multi-line paste through a wt pane is brittle); a single bare word (say-trigger) is fine in panes.
+- **Paths/names with spaces** are not quoted — keep them space-free.
+- **Panes/Tabs need Windows Terminal (`wt`)** — absent → falls back to separate windows.
 
 ## Cross-references
-- `launch-team.ps1` (repo root) — the tool this skill documents.
-- `HUMAN_paste-polybius-the-stoa-init.md` / `HUMAN_paste-pliny-init.md` — the activation pastes the launched sessions consume.
+- `launch-team.ps1` (this dir) — the tool. `-DryRun` previews without opening anything.
 - `MAJOR_POLYBIUS.md` / `MAJOR_PLINY.md` — the seat roles; the activation order (floor-manager before worker) is theirs.
-- `interactive-html-preview` skill — sibling verified-mechanics skill (the rendering layer for decision surfaces).
-- Microsoft Windows Terminal command-line docs — the authority the `wt` mechanics were verified against.
+- The workspace `CLAUDE.md` — its say-trigger line ("when the user invokes POLYBIUS, read `.claude/MAJOR_POLYBIUS.md`") is what say-mode relies on.
+- `interactive-html-preview` skill — sibling verified-mechanics skill.
+- `stoa--h8w` — the generalization that made this skill consumer-deployable; `stoa--p7c` — the formal Role_Project_Instance id scheme to adopt for seat names later.
