@@ -10,11 +10,15 @@
     {
       "text": "NOMOS activated on stoa--h8w (generalize team-launcher for consumer deploy). Reading the deliverable + repo ground truth across 6 probes: SKILL_NAMES wiring, skill subtree, consumer-generic launcher, parse check, consumer deploy, source committed+pushed.",
       "timestamp": "2026-06-06T22:55:55Z"
+    },
+    {
+      "text": "Probes 1-3 absorbed; running parse check (pwsh ParseFile) + consumer-deploy + git ground-truth probes.",
+      "timestamp": "2026-06-06T22:56:09Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Generalize team-launcher skill for consumer deploy (bundle launch-team.ps1 + de-the-stoa paste refs, then wire into SKILL_NAMES)",
   "type": "task",
-  "updated_at": "2026-06-06T22:55:55Z"
+  "updated_at": "2026-06-06T22:56:09Z"
 }
