@@ -628,6 +628,16 @@ while [ "$#" -gt 0 ]; do
       MODIFY_CLAUDE_MD=1
       shift
       ;;
+    --principal-name)
+      # stoa--iyl: the PRINCIPAL's display NAME as it appears in author-like
+      # fields (e.g. "Denson Smith", "Marianne <Lastname>") — distinct from the
+      # git handle in `git config user.name` (which may be a short handle like
+      # "denson"). Seeded into the author-field gate's allow-list so the gate
+      # recognizes the PRINCIPAL's own authored artifacts and does not false-block.
+      [ "$#" -ge 2 ] || err "--principal-name requires a name"
+      PRINCIPAL_NAME="$2"
+      shift 2
+      ;;
     --dry-run)
       DRY_RUN=1
       shift
@@ -1343,9 +1353,11 @@ if [ -n "$DEST_HOOKS_DIR" ]; then
       echo "# with a message naming this file. This is the GATE'S CONFIG, not an"
       echo "# author field of any repo artifact. Widen it when a legit PRINCIPAL"
       echo "# identity is missing. An ABSENT or EMPTY list leaves the gate dormant"
-      echo "# (fail-open). Seeded from the target's global git identity at install."
+      echo "# (fail-open). Seeded from the target's global git identity + any"
+      echo "# --principal-name passed at install (the author-field display name)."
       [ -n "$_seed_name" ]  && echo "$_seed_name"
       [ -n "$_seed_email" ] && echo "$_seed_email"
+      [ -n "${PRINCIPAL_NAME:-}" ] && echo "$PRINCIPAL_NAME"
     } > "$PRINCIPAL_ID_FILE"
     echo "wrote principal-identity allow-list: $PRINCIPAL_ID_FILE (review + widen as needed)"
   fi
