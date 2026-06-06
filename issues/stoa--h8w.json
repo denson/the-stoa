@@ -18,11 +18,15 @@
     {
       "text": "CONFORMANT: all 6 probes PASS. (1) team-launcher in SKILL_NAMES (install.sh:237). (2) subtree has SKILL.md+launch-team.ps1. (3) launcher GENERIC - no the-stoa default ProjectDir literal (only an .EXAMPLE comment + descriptive prose); walk-up to .claude dir (L67-75), $Slug param-\u003edir-leaf (L53,80), Activation defaults 'say' (L59), seats POLYBIUS_$Slug/PLINY_$Slug (L91-92,96-97). (4) pwsh ParseFile =\u003e parse OK. (5) deployed to both consumers (~/.claude + origindex), SHA256-identical to source. (6) main==origin/main @ 5f304fa, working tree clean, 0/0 ahead/behind. Returning.",
       "timestamp": "2026-06-06T22:56:34Z"
+    },
+    {
+      "text": "DONE + NOMOS CONFORMANT (2026-06-06). Generalized launch-team.ps1 bundled INTO the skill subtree: auto-derives project+slug (walk up to .claude); say-trigger default pre-seeds bare polybius/pliny; wt panes/tabs + windows fallback; -DryRun. Added to install.sh SKILL_NAMES. Parse + DryRun smoke-tested (panes/auto-derive/windows). Committed the-stoa 5f304fa + pushed. Deployed SHA256-identical to user-tier ~/.claude + origindex. NOMOS verified all 6 probes incl. genuinely-generic (no the-stoa hardcoded default). Consumers run: .claude/skills/team-launcher/launch-team.ps1. Non-blocking remainder: the other 6 workspaces pick it up on their next install (now in SKILL_NAMES).",
+      "timestamp": "2026-06-06T22:58:04Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "Generalize team-launcher skill for consumer deploy (bundle launch-team.ps1 + de-the-stoa paste refs, then wire into SKILL_NAMES)",
   "type": "task",
-  "updated_at": "2026-06-06T22:56:34Z"
+  "updated_at": "2026-06-06T22:58:04Z"
 }
