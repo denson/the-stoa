@@ -4,6 +4,8 @@ author: Denson Smith
 
 # Polling-cron-prompt template
 
+> **⚠ AUTONOMOUS MODE PAUSED (2026-06-05, PRINCIPAL).** This is the cron body for AUTONOMOUS-mode peer-polling, which is paused right now — do NOT schedule autonomous polling crons. Run engagements **co-driven (HITL)** instead. Reason + restore condition: `stoa--x4j` (autonomous gauntlet can silently block on a permission prompt). Reversible — remove this banner when `stoa--x4j` is fixed.
+
 The cron-prompt body POLYBIUS uses when scheduling a polling cron for a coordination engagement with a peer POLYBIUS seat — peer-to-peer async via bw, the pattern `operating-disciplines.md` §7 codifies.
 
 When to use this template:

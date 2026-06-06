@@ -1,5 +1,7 @@
 # Autonomous-mode-setup checklist — instruction module
 
+> **⚠ AUTONOMOUS MODE PAUSED (2026-06-05, PRINCIPAL).** Do NOT run this autonomous-mode setup checklist (polling crons, renewal crons, unattended operation) right now. Operate **co-driven (HITL)** instead. Reason: `stoa--x4j` (autonomous gauntlet can silently block on a sub-agent permission prompt, indistinguishable from a stall). Reversible — remove this banner and restore when `stoa--x4j` lands. (Attended coordination polling between peer seats with a human in the loop is a separate mechanism and is unaffected.)
+
 > Relocated from `operating-disciplines.md` §11 (CONDITIONAL — read when a seat detects an
 > autonomous-mode trigger that applies to itself and must run the entry setup). Provenance:
 > composition-layer spec `bw show stoa--xyb.4`; debloat Arc 47 cut `agents/design/arc-47/design-rev2.md`
