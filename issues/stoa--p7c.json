@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-06T16:12:53Z",
+  "description": "",
+  "id": "stoa--p7c",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
+  "type": "task",
+  "updated_at": "2026-06-06T16:12:53Z"
+}
