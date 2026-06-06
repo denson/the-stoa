@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-06T21:43:51Z",
+  "description": "",
+  "id": "stoa--iyl",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "install.sh seeds author-audit allow-list with git identity only, not the artifact-author name -\u003e false-blocks PRINCIPAL's own commits",
+  "type": "task",
+  "updated_at": "2026-06-06T21:43:51Z"
+}
