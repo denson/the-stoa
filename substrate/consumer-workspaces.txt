@@ -24,5 +24,4 @@
 /c/Users/denso/claude_projects/prospector
 /c/Users/denso/claude_projects/origindex
 /c/Users/denso/claude_projects/lost-voice-engine
-/c/Users/denso/claude_projects/cartograph
 /c/Users/denso/.claude
