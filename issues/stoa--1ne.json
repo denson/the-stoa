@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-12T05:40:36Z",
+  "description": "PROBLEM: every save-verdict invocation leaves two untracked scratch artifacts in the working tree: (1) a CWD-relative agents/save-verdict/\u003carc\u003e/ receipt directory (duplicating the canonical agents/verdicts/\u003carc\u003e/ path), and (2) a _body-\u003cSEAT\u003e.tmp.md temp file INSIDE the canonical verdicts dir. EVIDENCE: origindex arc origindex-lf5, 2026-06-12 — the pair appeared after the rev1 ARGUS save-verdict run, was manually cleaned by PLINY, then RE-APPEARED identically after the re-clear save-verdict run; floor-manager flags it will recur on every VERA/CATO run too. The same pattern appeared in the nws-kyt arc at zeotek_newswire (save-verdict receipt .txt files ended up COMMITTED in merges there — inconsistent disposition across workspaces). IMPACT: untracked cruft pollutes close-gate git-status audits (which are load-bearing for teardown signoff); orchestrators burn a cleanup step per verdict; inconsistent receipt handling across consumer workspaces means some repos commit receipts and some treat them as trash. LOCATION: the save-verdict skill as deployed (substrate/skills/save-verdict). Whether receipts are durable-and-committed or transient-and-self-cleaned is the substrate team's call — current behavior is neither, consistently.",
+  "id": "stoa--1ne",
+  "labels": [],
+  "priority": 3,
+  "status": "open",
+  "title": "save-verdict skill leaves scratch strays every run (CWD-relative receipt dir + _body tmp)",
+  "type": "bug",
+  "updated_at": "2026-06-12T05:40:36Z"
+}
