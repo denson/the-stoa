@@ -2,7 +2,7 @@
 
 **Audience:** the fresh Claude Code session opened to build Arc 61.
 **Authored by:** user-tier POLYBIUS (chief-of-staff) + the PRINCIPAL (Denson Smith).
-**Status:** DRAFT for PRINCIPAL review — NOT yet dispatched. (Finalize + NOMOS-verify before activation.)
+**Status:** FINALIZED — all open design items (O1/O2/O3) resolved by PRINCIPAL 2026-06-16; NOMOS-verified; dispatch-ready. NOT yet dispatched — activate on PRINCIPAL go.
 **Builds on:** current the-stoa main (`5699292`). Charter: `stoa--p41` (read it + ALL its comments — the CHIRON charter, the model-philosophy refinement, the retire-decision, and the BLAST-RADIUS finding are the spec). Sibling seat `MAJOR_HAMILTON` (`stoa--yh2`) is a SEPARATE arc — out of scope here.
 
 **You are MAJOR_PLINY for the the-stoa Arc 61 engagement.** Read `substrate/MAJOR_PLINY.md` and assume the orchestrator role. Open Claude Code in `C:\Users\denso\claude_projects\the-stoa\`.
@@ -31,30 +31,30 @@ Coordinate via comments on the Arc 61 epic (file under / linked to `stoa--p41`).
 
 ---
 
-## Settled (locked by the charter — do NOT re-litigate)
+## Settled — do NOT re-litigate
 
+From the charter:
 - **CHIRON is a MAJOR, design-time TEAM-ARCHITECT.** Answers to POLYBIUS (who keeps review-literacy + roster control); does not command PLINY; co-designs with HAMILTON.
 - **The agent-author capability is inlined into `MAJOR_CHIRON.md` §7** (developed skill-shape, lives as instruction). Exclusivity is **by construction** — no scoping mechanism needed (this dissolved the earlier (a)/(b) question).
 - **The standalone `agent-author` skill is RETIRED** (capability now lives in CHIRON §7).
 - **POLYBIUS sheds the authoring tool, keeps the review-literacy.**
 
-## Open — SURFACE these in the design phase (DAEDALUS + a Colonel call to POLYBIUS)
-
-- **O1. `pair-programmer-authoring.md` module fate.** Fold its detail into CHIRON §7 and delete it, OR re-home it as a CHIRON-owned detail module. Either way: the module's "Invoke the agent-author skill" step repoints to CHIRON's inlined capability, and the install.sh recompose **ownership partition + MODULE-INLINE markers** must end FAIL-LOUD-consistent (Checks A/B/D green).
-- **O2. CHIRON deployment scope.** Does CHIRON deploy to every tier (like POLYBIUS/PLINY) or only where a team is designed? This depends on the still-open **user-tier vs per-project** question in `p41` — resolve with PRINCIPAL before wiring D2.
-- **O3. App LIEUTENANT slot.** Confirm whether removing `agent-author` leaves the slot populated (other deployed skills remain) or empties it; update `gen-data` + `generated.test.ts` accordingly so the app stays green.
+Resolved by PRINCIPAL 2026-06-16 (were the open design items O1/O2/O3):
+- **O1 → RE-HOME the module.** `pair-programmer-authoring.md` re-homes as a **CHIRON-owned** module (slim-core): `MAJOR_CHIRON.md` hosts it via a MODULE-INLINE-markered stub; the install.sh recompose **ownership partition reassigns it POLYBIUS → CHIRON**; the module's "Invoke the agent-author skill" line (~:39) repoints to CHIRON §7. All FAIL-LOUD recompose checks (A/B/C/D/E) must be green at a subproject dry-run. *Fallback only if DAEDALUS finds the module's unique content (lineage + pair-programmer framing) thin and mostly subsumed by §7: fold essentials into §7 + retire — surface that to POLYBIUS first.*
+- **O2 → DEPLOY EVERYWHERE.** `MAJOR_CHIRON` deploys at ALL tiers (user + project + subproject), suffixed `CHIRON_<slug>` at project/subproject parallel to POLYBIUS/PLINY. Standing-but-dormant architect — available wherever a team lives, engaged only for design work.
+- **O3 → slot stays populated.** Removing `agent-author` does NOT empty the LIEUTENANT slot: `gen-data-lib.ts` `discoverSkillFiles` renders ALL substrate skills (12 → 11 remain), so the count-assertion still passes. The ONLY app change is `app/src/data/__tests__/generated.test.ts:92` (`toContain("agent-author")`).
 
 ---
 
 ## Deliverables (the coupled cascade — land together)
 
 1. **Land `MAJOR_CHIRON.md`** — review/refine the draft to final; regenerate `docs/major-chiron.html`.
-2. **Wire CHIRON deploy in `install.sh`** — deploy the new MAJOR per the O2 decision (tier scope). New MAJORs have no `CAPTAIN_NAMES`-style array but DO need an explicit deploy step + any recompose-partition entry if CHIRON owns modules.
+2. **Wire CHIRON deploy in `install.sh`** — deploy `MAJOR_CHIRON` at ALL tiers (user + project + subproject), suffixed `CHIRON_<slug>` at project/subproject parallel to POLYBIUS/PLINY (O2=B). Add the deploy step alongside the existing MAJOR deploys; add the recompose ownership-partition entry assigning the re-homed `pair-programmer-authoring` module to CHIRON (per D5).
 3. **Retire `agent-author`** — `git rm -r substrate/skills/agent-author/`; remove `agent-author` from `install.sh` `SKILL_NAMES`.
 4. **Relocate POLYBIUS §11** — rewrite the §11 stub to point authoring at CHIRON (POLYBIUS reviews, doesn't author); update §3.5 **routing-map** (line ~71) + **relocation-index** (line ~84); fix the §7.6 cross-ref (line ~260, "pair-programmer activation flows (§11)").
-5. **Resolve O1** — module fold/re-home + the recompose ownership-partition + markers, FAIL-LOUD-consistent.
+5. **Re-home `pair-programmer-authoring.md` to CHIRON (O1)** — remove the §11 `MODULE-INLINE` marker from `MAJOR_POLYBIUS.md` (the module no longer inlines there); add a `MODULE-INLINE`-markered host stub in `MAJOR_CHIRON.md`; reassign the recompose ownership-partition POLYBIUS → CHIRON; repoint the module's "Invoke the agent-author skill" line (~:39) to CHIRON §7. Verify all FAIL-LOUD recompose checks (A/B/C/D/E) green at user AND subproject dry-runs.
 6. **Fix dangling refs** — `operating-disciplines.md` (~§955 "via the agent-author skill"), `skills/check-substrate-updates/SKILL.md:58`, `skills/handoff-author/SKILL.md:185`, `install.sh:57` comment.
-7. **Keep the app green (O3)** — `npm run gen-data && npm run build && npm test` in `app/`; update the adapter/test if the LIEUTENANT slot/test breaks.
+7. **Keep the app green (O3)** — update `app/src/data/__tests__/generated.test.ts:92` (drop/adjust the `toContain("agent-author")` assertion; the slot stays populated by the other 11 skills, so the count-assertion still passes — no adapter change needed). Then `npm run gen-data && npm run build && npm test` in `app/` all green.
 
 ---
 
