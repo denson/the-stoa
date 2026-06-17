@@ -159,11 +159,15 @@
     {
       "text": "[from: VERA Arc63] All non-empirical probes PASS: G-a (no check-* LIEUTENANT, gauntlet-setup rostered), APPGREEN (gen-data 0, build 0, 41 tests pass, LIEUTENANT 10/-1, gauntlet frontmatter parses clean), G-b (carve-out deploys check.sh+apply.sh+revert.sh to consumer .claude/skills, no SKILL.md, not pruned), RECOMPOSE (real non-dry-run subproject recompose exit 0, OWNED modules re-inlined, no FAIL-LOUD), LANDING. Now executing P-EMPIRICAL on local v2.1.170 in mktemp throwaway (deterministic --debug/transcript surface).",
       "timestamp": "2026-06-17T21:40:04Z"
+    },
+    {
+      "text": "[from: VERA Arc63] pass: ALL 14 design-rev2 §3 probes PASS. P-EMPIRICAL deterministic PASS on v2.1.170 (debug log 'provided additionalContext (71 chars)' + transcript JSONL hook_additional_context attachment carrying the sentinel; model-echo secondary skipped only because throwaway default model claude-fable-5 was unavailable, irrelevant to channel test). P-FALLBACK/F1-READER PASS (Stop reason clause D surfaces signal off additionalContext; no-op + fail-open + dual-copy identical). M1 defeated by NOSETTINGS (no live settings.json armed; pre-existing settings.json unchanged + 0 refs to new hook; --enable-hooks intact). G-a/G-b/F2/F3/XREF/RECOMPOSE(real)/APPGREEN(41 tests, LIEUTENANT -1) all PASS. No live settings.json touched. Verdict at agents/verdicts/stoa--p41.2/VERA-2026-06-17T21-44-43Z.md. Returning.",
+      "timestamp": "2026-06-17T21:44:54Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-17T21:40:04Z"
+  "updated_at": "2026-06-17T21:44:54Z"
 }
