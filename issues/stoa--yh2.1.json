@@ -19,11 +19,15 @@
     {
       "text": "NOMOS activated on stoa--yh2.1 (Arc 62 build directive). Reading the output to audit (yh2.1 body + 2 engagement comments + activation pastes) + named bw ground truth (yh2 charter, p41 'MAJOR_HAMILTON charter' comment) + role file. Audit-only, modifying nothing.",
       "timestamp": "2026-06-17T12:55:59Z"
+    },
+    {
+      "text": "Charter ground truth absorbed (yh2 + p41 'MAJOR_HAMILTON charter' comment 21:24:27Z). Charter fidelity probe complete. Now executing repo-grounded factual probes: HEAD@24b79cc, template files (CHIRON.md/major-chiron.html/install.sh wiring), app MAJOR-set, CHIRON §9 workflow-composer text, workflow-composer skill, HAMILTON files absence, install.sh L1046/L1051 dry-run lesson.",
+      "timestamp": "2026-06-17T12:56:18Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 62 — MAJOR_HAMILTON seat build (workflow-design architect, peer to CHIRON)",
   "type": "epic",
-  "updated_at": "2026-06-17T12:55:59Z"
+  "updated_at": "2026-06-17T12:56:18Z"
 }
