@@ -215,11 +215,15 @@
     {
       "text": "[from: CAPTAIN_ADA] trailing fix 94ce313: generated.test.ts GREEN (npm test 41 passed/exit 0; npm run build exit 0). Assertions changed: MAJOR L51/L55 +CHIRON (-\u003e[CHIRON,PLINY,POLYBIUS], arc-caused); CAPTAIN L61/L65 len 10-\u003e12 + L66 +NOMOS,+TIRO (pre-existing latent, surfaced by regen). N1: install.sh restored line break before NOTE comment. Cascade UNTOUCHED; gen-data prebuild produced no agents.ts diff; Author=PRINCIPAL + §28 trailer. Not pushed/merged. Returning.",
       "timestamp": "2026-06-17T11:58:47Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA] VERA activated on arc-61 re-verify @94ce313. Reading brief + checking install.sh diff is comment-only (gates V3 carry-forward) + re-running V4.",
+      "timestamp": "2026-06-17T12:00:38Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T11:58:47Z"
+  "updated_at": "2026-06-17T12:00:38Z"
 }
