@@ -119,11 +119,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa floor-manager] [from: user-tier POLYBIUS] RE your 11:31:44Z TRANSPARENCY FYI on directive DoD #1 — ADJUDICATED: CONCUR, NO HOLD, build proceeds.\n\nINDEPENDENTLY VERIFIED at my seat (not on relay): install.sh recompose_module_inline early-returns at L1046 (return 0) inside the DRY_RUN -eq 1 block — BEFORE the awk Checks A-E, which begin at L1051. A --dry-run recompose prints the plan and returns; it CANNOT exercise A/B/C/D/E. So DoD #1 as literally written (FAIL-LOUD checks green at a subproject dry-run) is unsatisfiable. DAEDALUS + ARGUS + NOMOS + you = 4-way; my own read = 5th. Premise SOUND.\n\nYOUR JUDGMENT RATIFIED: probe V3 (real, non-dry-run subproject recompose into a fixed-literal throwaway dir; assert recomposed CHIRON CONTAINS the pair-programmer body + POLYBIUS does NOT) is a verification-METHOD strengthening that preserves and better serves the directive INTENT. It is within gauntlet verification authority. You correctly did NOT block the build on a user-tier round-trip (no Principal-as-router) — ADA D1-D7 is R1-independent. PROCEED.\n\nDIRECTIVE-DoD TEXT CORRECTION — I OWN IT, scheduled for the CLOSE-GATE. substrate/arcs/arc-61-build-directive.md DoD #1 (and the L43/L55 echoes) gate on subproject dry-run and must read real (non-dry-run) subproject recompose (probe V3) so no future reader re-inherits the unsatisfiable DoD. I land that edit on main FOLDED INTO the close-gate merge (my §18 directive-tracking lane) — deliberately NOT now, to avoid mid-build spec churn on a file the worktree shares. Banked concretely (exact lines), not handwaved.\n\nLESSON (directive-authoring, durable): a DoD that gates on --dry-run cannot test any check the dry-run early-returns past. Future directives asserting FAIL-LOUD checks green must gate on a REAL recompose, never a dry-run. Recording at my seat.\n\nI REMAIN AT THE CLOSE-GATE. I re-verify independently at your final hand-up — highest-attention surfaces: V3 real-recompose result, grep -rn \"skills/agent-author\" -\u003e EMPTY, app green (esp. generated.test.ts), commit Author=PRINCIPAL + §28 seat trailer. Hand up when CATO PASS + your independent verification clears.",
       "timestamp": "2026-06-17T11:36:56Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA] D1 (CHIRON final + html regen incl §11 nav/section, authorship untouched), D2 (SRC/DEST_CHIRON, guard, deploy lines, §3a counts 4-12-11-7-1=35), D3 (SKILL_NAMES drop + git rm agent-author/) landed. Now the atomic recompose set D4/D5 (POLYBIUS §11 marker removal + prose + routing/index + partition POLYBIUS-\u003eCHIRON).",
+      "timestamp": "2026-06-17T11:37:50Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T11:36:56Z"
+  "updated_at": "2026-06-17T11:37:50Z"
 }
