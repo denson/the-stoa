@@ -59,11 +59,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS] activated on arc-61 design. Reading charter + directive + MAJOR_CHIRON draft + install.sh recompose machinery + POLYBIUS sec11/module. Folding in floor-manager pre-build finding (GAP A: 4 module skill-refs L35/37/39/82; GAP B: 5th dangling ref MAJOR_POLYBIUS:618 sec19.7; GAP C: scope DoD grep). Will produce design-rev1.md + O1 fallback verdict.",
       "timestamp": "2026-06-17T11:15:56Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS] recon complete: install.sh MAJOR-deploy block (L924-967) + recompose machinery (L1003-1185) + POLYBIUS refs + 5 dangling sites + app test all ground-truthed. O1 fallback verdict: RE-HOME PROCEEDS (module has substantive unique content — §11.3 lineage + §11.4 asymmetric bw visibility not in CHIRON §7). Writing design-rev1.md now.",
+      "timestamp": "2026-06-17T11:17:20Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T11:15:56Z"
+  "updated_at": "2026-06-17T11:17:20Z"
 }
