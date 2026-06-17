@@ -123,11 +123,15 @@
     {
       "text": "[from: CAPTAIN_ADA] D1 (CHIRON final + html regen incl §11 nav/section, authorship untouched), D2 (SRC/DEST_CHIRON, guard, deploy lines, §3a counts 4-12-11-7-1=35), D3 (SKILL_NAMES drop + git rm agent-author/) landed. Now the atomic recompose set D4/D5 (POLYBIUS §11 marker removal + prose + routing/index + partition POLYBIUS-\u003eCHIRON).",
       "timestamp": "2026-06-17T11:37:50Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA] D4/D5 atomic set landed (POLYBIUS §11 marker removed + prose pointer; routing-\u003eCHIRON; relocation-index row DELETED + see-CHIRON pointer per WP-3; partition pair-programmer-authoring POLYBIUS-\u003eCHIRON_MODULES; ungated CHIRON recompose call; module 4 GAP-A refs-\u003eCHIRON §7 + provenance). D6 5 dangling refs + D7 app (test assertion deleted, 2 example comments-\u003ehandoff-author). Now R3: npm gen-data regen of agents.ts.",
+      "timestamp": "2026-06-17T11:40:15Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T11:37:50Z"
+  "updated_at": "2026-06-17T11:40:15Z"
 }
