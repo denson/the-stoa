@@ -107,11 +107,15 @@
     {
       "text": "VERA activated on stoa--yh2.1 (Arc 62 MAJOR_HAMILTON). Reading brief + design-rev1 §4 probes + role file. Will re-execute P1-P6 independently against 21f172e; ADA self-checks NOT authoritative.",
       "timestamp": "2026-06-17T13:35:48Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA] P1 PASS — REAL non-dry-run subproject recompose exit=0, zero recompose-error lines; HAMILTON deployed suffixed (MAJOR_HAMILTON_arc62probe.md); MODULE-INLINE=0 in BOTH source+deployed HAMILTON (CHIRON=2 for contrast); HAMILTON absent from the 5-owner recompose list — not a 6th owner. install-divergence PASS (7 deploy lines only, no MODULES/recompose/manifest/owner-count). Continuing P2-P6.",
+      "timestamp": "2026-06-17T13:36:54Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 62 — MAJOR_HAMILTON seat build (workflow-design architect, peer to CHIRON)",
   "type": "epic",
-  "updated_at": "2026-06-17T13:35:48Z"
+  "updated_at": "2026-06-17T13:36:54Z"
 }
