@@ -203,11 +203,15 @@
     {
       "text": "[from: CAPTAIN_ADA] ADA activated on arc-61 trailing fix. Reading generated.test.ts + regenerated agents.ts before edits; gating on FULL npm test + npm run build per brief.",
       "timestamp": "2026-06-17T11:56:28Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA] 3 test assertions + N1 install.sh comment nit edited; running FULL npm test + npm run build gate before commit.",
+      "timestamp": "2026-06-17T11:57:34Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T11:56:28Z"
+  "updated_at": "2026-06-17T11:57:34Z"
 }
