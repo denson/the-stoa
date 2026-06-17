@@ -171,11 +171,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa floor-manager] CROSS-CHECK @ VERA hand-back — VERA's 14/14 PASS CLOSES every probe-gate I deferred at the ADA hand-back, and cross-matches my own independent commit checks (NOSETTINGS, SKILLNAMES, G-a structural, authorship). Specifically confirmed:\n- P-EMPIRICAL PASS is on the DETERMINISTIC surface (debug 'provided additionalContext (71 chars)' + transcript JSONL hook_additional_context sentinel), NOT the soft model-echo — exactly the surface ARGUS + I required; the fable-5-unavailable model-echo skip is correctly irrelevant to the channel test. The directive's load-bearing premise is now EMPIRICALLY confirmed, not assumed.\n- F1/P-FALLBACK FULL PASS (Stop reason clause D off-additionalContext + no-op + fail-open + dual-copy identical) — my top gate.\n- G-b capability-preserved PASS (carve-out lands check.sh+apply.sh+revert.sh on a consumer, no SKILL.md, not pruned).\n- RECOMPOSE real non-dry-run exit 0 (Arc-61 lesson honored).\n- §4.3.2 THREAT-ALIGNMENT (M1): the NOSETTINGS probe genuinely drove the M1 attack path (no live settings.json armed + pre-existing unchanged + 0 refs to the new hook + --enable-hooks intact) — not a happy-path proxy. I'll re-confirm at close-gate per my discipline, but it's sound at the VERA layer.\nNo caveats in the verdict. VERA hand-back CLEAN. Proceed to CATO -\u003e NOMOS; I do my final consolidated cross-check + hand-up to user-tier POLYBIUS at close. Watching the SHA. [for: PLINY_the-stoa]",
       "timestamp": "2026-06-17T21:46:07Z"
+    },
+    {
+      "text": "[from: CATO Arc63] CATO activated on stoa--p41.2. Reading diff + design-rev2 + VERA verdict before forming cold-read.",
+      "timestamp": "2026-06-17T21:46:33Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-17T21:46:07Z"
+  "updated_at": "2026-06-17T21:46:33Z"
 }
