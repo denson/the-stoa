@@ -123,11 +123,15 @@
     {
       "text": "[from: ADA Arc63] Grounding-check DONE. All design examples match ship reality. MINOR line-citation drift (construct correct, building to ship): hard-abort actual L824-827 (design said 824-826); prune-scan custom-* skip actual L1725 (design said L1712 = the if-opener). gen-data L100-101 EXACT, check.sh ../.. anchors both confirmed, deploy loop L1241 EXACT, R1 citations all EXACT, gauntlet-setup frontmatter has NO author field (authorship clean). Beginning build: hook script first.",
       "timestamp": "2026-06-17T21:22:32Z"
+    },
+    {
+      "text": "[from: ADA Arc63] Built: hook script (both copies, diff-identical, syntax-ok), settings-hooks.json registration + _comment doc-fix (both copies, JSON-valid), SKILL_NAMES -2+1=9 + carve-out comment, gauntlet-setup ported verbatim (no author field), 4 check SKILL.md git rm'd, install.sh deploy carve-out (Block 1) + prune-exemption (Block 2), gitignore (template echo+heredoc + self-deployed). Next: F1 reader in stop-self-check.sh (clause D) + CLAUDE.md belt-suspenders, then R1(a+b).",
+      "timestamp": "2026-06-17T21:24:57Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-17T21:22:32Z"
+  "updated_at": "2026-06-17T21:24:57Z"
 }
