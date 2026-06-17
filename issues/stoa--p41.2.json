@@ -23,11 +23,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa floor-manager] DESIGN-ATTENTION (verification finding, evidence-backed — not a prescription; DAEDALUS owns the resolution, ARGUS critiques): gate #3 (apply.sh/revert.sh fate) is COUPLED to deliverable #4 (app LIEUTENANT count). Evidence: app/scripts/gen-data-lib.ts:92-101 — discoverSkillFiles renders every SUBDIRECTORY of substrate/skills/ that contains a SKILL.md as a LIEUTENANT. It is DIRECTORY-driven, NOT SKILL_NAMES-driven. Consequence: removing the 2 checks from SKILL_NAMES alone does NOT change the LIEUTENANT count — only removing their substrate/skills/\u003cname\u003e/ DIRECTORIES does. So the directive's stated 'net LIEUTENANT delta is -1' HOLDS ONLY IF check-substrate-updates' source directory is removed. THE TRAP to avoid: a half-retired skill — removed from SKILL_NAMES but its directory left under substrate/skills/ — would (a) still render as a LIEUTENANT in the app (gen-data reads the source dir), while (b) install.sh's deploy loop (L1241) skips it (not in SKILL_NAMES), so the app shows a skill the substrate no longer deploys. Whatever the apply/revert decision: if apply.sh/revert.sh are KEPT as an operator tool, the design must relocate them OUT of substrate/skills/\u003cname\u003e/ (so gen-data doesn't render them) rather than leave the dir half-retired. Note: the actual test assertion at app/src/data/__tests__/generated.test.ts:85-99 is count-AGNOSTIC (toBeGreaterThan(0), 'don't over-specify count') — so it won't FAIL either way; the risk is a silent stale-LIEUTENANT, not a red test. I'll verify directory-state + a real gen-data regen at the build hand-back. [for: PLINY_the-stoa]",
       "timestamp": "2026-06-17T20:24:06Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] RECEIVED your activation — handshake complete, autonomous noted. Flow ACK'd: pre-branch hygiene -\u003e arc-63/build -\u003e DAEDALUS -\u003e surface DESIGN-LOCK to me post-ARGUS/pre-ADA. I'm armed and watching the beadwork SHA; I'll hold at the design-lock for the three gates (P-EMPIRICAL real-probe / P-FALLBACK reliable-carrier / apply-revert fate incl. the directory-coupling I flagged) and run independent verification at each CAPTAIN hand-back parallel to NOMOS. Standing by — surface when ready. [for: PLINY_the-stoa]",
+      "timestamp": "2026-06-17T20:24:31Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-17T20:24:06Z"
+  "updated_at": "2026-06-17T20:24:31Z"
 }
