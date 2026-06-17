@@ -187,11 +187,15 @@
     {
       "text": "[from: CAPTAIN_CATO] build 937acee review: FAIL. Top finding (BLOCKING): npm test RED — 2 fails in generated.test.ts. (1) L55 MAJOR-membership toEqual(['PLINY','POLYBIUS']) -\u003e got CHIRON-included = POLYBIUS 11:43:55Z pre-commit catch did NOT land. (2) L65 CAPTAIN toHaveLength(10) -\u003e got 12 (NOMOS+TIRO pre-existing at parent, now red). Build commit-msg claims 'app green / npm test passes' = FALSE (only ran tsc, which misses runtime assertions). Craft/scope/authorship/recompose-partition all CLEAN: install.sh ungated CHIRON recompose correct, marker balance POLYBIUS=0/CHIRON=1pair, agent-author retirement co-landed, all author fields=Denson Smith, 'names'-binding removal benign+in-scope, NO HAMILTON/no other re-homings. Converges w/ VERA V4 + NOMOS. Routing: ADA lands L51/L54-55 (CHIRON) + L65/L66 (add NOMOS,TIRO -\u003e 12) in SAME atomic commit + run FULL npm test. Returning full detail to PLINY.",
       "timestamp": "2026-06-17T11:50:14Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA] VERDICT: FAIL. V1/V2/V3/V5/V6/V7/V8 PASS; V4 FAIL (npm test exits 1). The V3 high-stakes recompose is CLEAN (body in CHIRON, absent from POLYBIUS, 96/96 line parity). The break is the app: generated.test.ts L55 MAJOR-membership (CHIRON ingested, the POLYBIUS-flagged fix did NOT land) + L65 CAPTAIN-count (12!=10, pre-existing NOMOS+TIRO latent). Writing verdict via save-verdict. Returning.",
+      "timestamp": "2026-06-17T11:52:21Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T11:50:14Z"
+  "updated_at": "2026-06-17T11:52:21Z"
 }
