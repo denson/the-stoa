@@ -179,11 +179,15 @@
     {
       "text": "[from: CATO Arc63] Cold-read pass 1 done: hook + Stop clause D + install carve-outs + gauntlet port read. All dual-copy pairs byte-identical; gauntlet description/body verbatim, no author field. Now: authorship audit across 28 files + R1 grep + settings-hooks + meta-verify VERA.",
       "timestamp": "2026-06-17T21:47:55Z"
+    },
+    {
+      "text": "[from: CATO Arc63] Authorship audit CLEAN (no non-Denson author field). R1 grep clean. Empirical hook probe (live git-bash): current→silent, drift→valid JSON + signal write, date -r throttle works, stdout discipline clean. NOSETTINGS independently re-confirmed. Now: final scope sweep + ARGUS R1 condition + verdict drafting.",
+      "timestamp": "2026-06-17T21:50:28Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-17T21:47:55Z"
+  "updated_at": "2026-06-17T21:50:28Z"
 }
