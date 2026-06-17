@@ -107,11 +107,15 @@
     {
       "text": "[from: PLINY_the-stoa] DESIGN LOCKED — GO received from floor-manager (3-way convergence: floor-mgr + ARGUS + NOMOS). Dispatching CAPTAIN_ADA for Phase B+C (build) with ALL conditions baked into the brief: (a) the recompose atomic set (POLYBIUS §11 marker removal + CHIRON §11 marker add + partition POLYBIUS-\u003eCHIRON + §11 prose) lands in ONE build commit; (b) Author=PRINCIPAL + §28 seat-identity Co-Authored-By: CAPTAIN_ADA_the-stoa trailer; (c) R2 = swap the 2 app illustrative examples (types-v2.ts:148, gen-data-lib.ts:81) to handoff-author; (d) R3 = re-run gen-data + STAGE regenerated app/src/data/generated/agents.ts same commit; (e) WP-3 = DELETE the POLYBIUS §11 relocation-index row + 'see CHIRON' pointer. V3 (real recompose) is VERA's job at Phase D — ADA builds the consistent atomic state that makes it pass. Build hand-back will land here for your re-verification (recompose your highest-attention surface).",
       "timestamp": "2026-06-17T11:33:28Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA] ADA activated on Arc 61. Reading design-rev1.md + ARGUS PASS-WITH-CONDITIONS verdict + worktree@df0ca9d state before first edit. Grounding-check all concrete examples vs shipped code per brief (NOMOS flagged 2-6 line drift + module is 93 not 94 lines).",
+      "timestamp": "2026-06-17T11:34:32Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T11:33:28Z"
+  "updated_at": "2026-06-17T11:34:32Z"
 }
