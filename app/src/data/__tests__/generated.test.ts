@@ -48,11 +48,11 @@ describe("the generated v2 roster", () => {
     expect(colonel.agents).toEqual([]);
   });
 
-  it("seats CHIRON, PLINY, and POLYBIUS at MAJOR rank", () => {
+  it("seats CHIRON, HAMILTON, PLINY, and POLYBIUS at MAJOR rank", () => {
     const slot = slotFor("MAJOR");
     if (slot.rank !== "MAJOR") throw new Error("MAJOR slot discriminator wrong");
     const mnemonics = slot.agents.map((a) => a.mnemonic).sort();
-    expect(mnemonics).toEqual(["CHIRON", "PLINY", "POLYBIUS"]);
+    expect(mnemonics).toEqual(["CHIRON", "HAMILTON", "PLINY", "POLYBIUS"]);
     for (const m of slot.agents) {
       expect(m.rank).toBe("MAJOR");
     }

@@ -155,6 +155,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SRC_POLYBIUS="${SCRIPT_DIR}/MAJOR_POLYBIUS.md"
 SRC_PLINY="${SCRIPT_DIR}/MAJOR_PLINY.md"
 SRC_CHIRON="${SCRIPT_DIR}/MAJOR_CHIRON.md"
+SRC_HAMILTON="${SCRIPT_DIR}/MAJOR_HAMILTON.md"
 SRC_OPERATING_DISCIPLINES="${SCRIPT_DIR}/operating-disciplines.md"
 SRC_TEMPLATES_DIR="${SCRIPT_DIR}/templates"
 SRC_SKILLS_DIR="${SCRIPT_DIR}/skills"
@@ -800,6 +801,7 @@ esac
 [ -f "$SRC_POLYBIUS" ]              || err "source file not found: $SRC_POLYBIUS"
 [ -f "$SRC_PLINY" ]                 || err "source file not found: $SRC_PLINY"
 [ -f "$SRC_CHIRON" ]                || err "source file not found: $SRC_CHIRON"
+[ -f "$SRC_HAMILTON" ]              || err "source file not found: $SRC_HAMILTON"
 [ -f "$SRC_OPERATING_DISCIPLINES" ] || err "source file not found: $SRC_OPERATING_DISCIPLINES"
 
 if [ "$WITH_CAPTAINS" -eq 1 ]; then
@@ -934,10 +936,12 @@ if [ "$SUFFIX_MAJORS" -eq 1 ]; then
   DEST_POLYBIUS="${DEST_DIR}/MAJOR_POLYBIUS${NAME_SUFFIX}.md"
   DEST_PLINY="${DEST_DIR}/MAJOR_PLINY${NAME_SUFFIX}.md"
   DEST_CHIRON="${DEST_DIR}/MAJOR_CHIRON${NAME_SUFFIX}.md"
+  DEST_HAMILTON="${DEST_DIR}/MAJOR_HAMILTON${NAME_SUFFIX}.md"
 else
   DEST_POLYBIUS="${DEST_DIR}/MAJOR_POLYBIUS.md"
   DEST_PLINY="${DEST_DIR}/MAJOR_PLINY.md"
   DEST_CHIRON="${DEST_DIR}/MAJOR_CHIRON.md"
+  DEST_HAMILTON="${DEST_DIR}/MAJOR_HAMILTON.md"
 fi
 # Arc 20: also substitute {{USER_TIER_DIR}} placeholder. At user-tier this is
 # the chosen user-tier dir from choose_user_tier_dir (above). At project-tier
@@ -959,6 +963,7 @@ if [ "$DRY_RUN" -eq 1 ]; then
   echo "[dry-run] deploy: $SRC_POLYBIUS -> $DEST_POLYBIUS (substitute {{NAME_SUFFIX}} -> '${NAME_SUFFIX}'$([ -n "$USER_TIER_DIR" ] && echo ", {{USER_TIER_DIR}} -> '${USER_TIER_DIR}'"))"
   echo "[dry-run] deploy: $SRC_PLINY -> $DEST_PLINY (substitute {{NAME_SUFFIX}} -> '${NAME_SUFFIX}')"
   echo "[dry-run] deploy: $SRC_CHIRON -> $DEST_CHIRON (substitute {{NAME_SUFFIX}} -> '${NAME_SUFFIX}')"
+  echo "[dry-run] deploy: $SRC_HAMILTON -> $DEST_HAMILTON (substitute {{NAME_SUFFIX}} -> '${NAME_SUFFIX}')"
 else
   if [ -n "$USER_TIER_DIR" ]; then
     sed -e "s/{{NAME_SUFFIX}}/${NAME_SUFFIX}/g" -e "s|{{USER_TIER_DIR}}|${USER_TIER_DIR}|g" "$SRC_POLYBIUS" > "$DEST_POLYBIUS"
@@ -967,9 +972,11 @@ else
   fi
   sed "s/{{NAME_SUFFIX}}/${NAME_SUFFIX}/g" "$SRC_PLINY" > "$DEST_PLINY"
   sed "s/{{NAME_SUFFIX}}/${NAME_SUFFIX}/g" "$SRC_CHIRON" > "$DEST_CHIRON"
+  sed "s/{{NAME_SUFFIX}}/${NAME_SUFFIX}/g" "$SRC_HAMILTON" > "$DEST_HAMILTON"
   echo "deployed: $DEST_POLYBIUS"
   echo "deployed: $DEST_PLINY"
   echo "deployed: $DEST_CHIRON"
+  echo "deployed: $DEST_HAMILTON"
 fi
 
 # 2b. Deploy operating-disciplines.md — team-wide disciplines doc referenced
