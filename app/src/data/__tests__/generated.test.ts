@@ -48,21 +48,21 @@ describe("the generated v2 roster", () => {
     expect(colonel.agents).toEqual([]);
   });
 
-  it("seats POLYBIUS and PLINY at MAJOR rank", () => {
+  it("seats CHIRON, PLINY, and POLYBIUS at MAJOR rank", () => {
     const slot = slotFor("MAJOR");
     if (slot.rank !== "MAJOR") throw new Error("MAJOR slot discriminator wrong");
     const mnemonics = slot.agents.map((a) => a.mnemonic).sort();
-    expect(mnemonics).toEqual(["PLINY", "POLYBIUS"]);
+    expect(mnemonics).toEqual(["CHIRON", "PLINY", "POLYBIUS"]);
     for (const m of slot.agents) {
       expect(m.rank).toBe("MAJOR");
     }
   });
 
-  it("seats the canonical 10 CAPTAINs", () => {
+  it("seats the canonical 12 CAPTAINs", () => {
     const slot = slotFor("CAPTAIN");
     if (slot.rank !== "CAPTAIN") throw new Error("CAPTAIN slot discriminator wrong");
     const mnemonics = slot.agents.map((a) => a.mnemonic).sort();
-    expect(slot.agents).toHaveLength(10);
+    expect(slot.agents).toHaveLength(12);
     expect(mnemonics).toEqual([
       "ADA",
       "ARGUS",
@@ -71,7 +71,9 @@ describe("the generated v2 roster", () => {
       "CURATOR",
       "DAEDALUS",
       "HERALD",
+      "NOMOS",
       "STRABO",
+      "TIRO",
       "VERA",
       "ZENO",
     ]);
@@ -85,11 +87,10 @@ describe("the generated v2 roster", () => {
     if (slot.rank !== "LIEUTENANT") {
       throw new Error("LIEUTENANT slot rank discriminator did not match");
     }
-    // Arc 17 deployed agent-author; Arc 17.1 made the gen-data adapter
-    // read it. Don't over-specify count — substrate may grow more skills.
+    // Arc 17.1 made the gen-data adapter read all substrate skills as
+    // LIEUTENANTs. (agent-author retired Arc 61; slot stays populated by the
+    // remaining skills.) Don't over-specify count — substrate may grow more.
     expect(slot.skills.length).toBeGreaterThan(0);
-    const names = slot.skills.map((s) => s.name);
-    expect(names).toContain("agent-author");
     for (const skill of slot.skills) {
       expect(skill.rank).toBe("LIEUTENANT");
       expect(skill.name).toMatch(/^[a-z][a-z0-9-]*$/); // kebab-case

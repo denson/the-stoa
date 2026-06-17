@@ -145,7 +145,7 @@ export type Skill = {
   rank: "LIEUTENANT";
 
   /**
-   * Skill name in canonical lowercase-kebab form, e.g. `"agent-author"`,
+   * Skill name in canonical lowercase-kebab form, e.g. `"handoff-author"`,
    * `"format-validate"`, `"runner"`. Matches the directory name under
    * `substrate/skills/`.
    */

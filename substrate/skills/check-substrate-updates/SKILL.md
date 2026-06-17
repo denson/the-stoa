@@ -55,7 +55,7 @@ substrate/skills/check-substrate-updates/
 substrate/consumer-workspaces.txt   # registry seed (one absolute path per line)
 ```
 
-`check-substrate-updates` is in `SKILL_NAMES` in `substrate/install.sh` so the skill deploys to every consumer workspace alongside `agent-author`.
+`check-substrate-updates` is in `SKILL_NAMES` in `substrate/install.sh` so the skill deploys to every consumer workspace alongside `handoff-author`.
 
 ## How to invoke
 

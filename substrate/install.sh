@@ -54,8 +54,8 @@
 #
 # Skills: the script deploys skills/<name>/ subdirectories from this directory
 # to <target>/.claude/skills/<name>/. Skills are LIEUTENANT-tier helpers
-# POLYBIUS invokes via the Skill tool — agent-author for drafting new role
-# files, etc. Skills are deployed unsuffixed at every tier (including
+# POLYBIUS invokes via the Skill tool — handoff-author, team-launcher, etc.
+# Skills are deployed unsuffixed at every tier (including
 # subproject — Claude Code loads skills from <project>/.claude/skills/ or
 # ~/.claude/skills/, NOT from a parent directory, so a subproject must have
 # its own skills/ dir to invoke them). There is no --no-skills opt-out:
@@ -154,6 +154,7 @@ ENABLE_ENV_BLOCK=0      # Arc C (stoa--xyb.14 / op-disc §13): merge the candida
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SRC_POLYBIUS="${SCRIPT_DIR}/MAJOR_POLYBIUS.md"
 SRC_PLINY="${SCRIPT_DIR}/MAJOR_PLINY.md"
+SRC_CHIRON="${SCRIPT_DIR}/MAJOR_CHIRON.md"
 SRC_OPERATING_DISCIPLINES="${SCRIPT_DIR}/operating-disciplines.md"
 SRC_TEMPLATES_DIR="${SCRIPT_DIR}/templates"
 SRC_SKILLS_DIR="${SCRIPT_DIR}/skills"
@@ -224,7 +225,6 @@ CAPTAIN_NAMES=(
 # ~/.claude/skills/, so a deployed substrate that omits skills leaves
 # POLYBIUS unable to invoke them.
 SKILL_NAMES=(
-  agent-author
   check-substrate-updates
   credential-discipline
   check-bw-release
@@ -799,6 +799,7 @@ esac
 
 [ -f "$SRC_POLYBIUS" ]              || err "source file not found: $SRC_POLYBIUS"
 [ -f "$SRC_PLINY" ]                 || err "source file not found: $SRC_PLINY"
+[ -f "$SRC_CHIRON" ]                || err "source file not found: $SRC_CHIRON"
 [ -f "$SRC_OPERATING_DISCIPLINES" ] || err "source file not found: $SRC_OPERATING_DISCIPLINES"
 
 if [ "$WITH_CAPTAINS" -eq 1 ]; then
@@ -932,9 +933,11 @@ fi
 if [ "$SUFFIX_MAJORS" -eq 1 ]; then
   DEST_POLYBIUS="${DEST_DIR}/MAJOR_POLYBIUS${NAME_SUFFIX}.md"
   DEST_PLINY="${DEST_DIR}/MAJOR_PLINY${NAME_SUFFIX}.md"
+  DEST_CHIRON="${DEST_DIR}/MAJOR_CHIRON${NAME_SUFFIX}.md"
 else
   DEST_POLYBIUS="${DEST_DIR}/MAJOR_POLYBIUS.md"
   DEST_PLINY="${DEST_DIR}/MAJOR_PLINY.md"
+  DEST_CHIRON="${DEST_DIR}/MAJOR_CHIRON.md"
 fi
 # Arc 20: also substitute {{USER_TIER_DIR}} placeholder. At user-tier this is
 # the chosen user-tier dir from choose_user_tier_dir (above). At project-tier
@@ -955,6 +958,7 @@ fi
 if [ "$DRY_RUN" -eq 1 ]; then
   echo "[dry-run] deploy: $SRC_POLYBIUS -> $DEST_POLYBIUS (substitute {{NAME_SUFFIX}} -> '${NAME_SUFFIX}'$([ -n "$USER_TIER_DIR" ] && echo ", {{USER_TIER_DIR}} -> '${USER_TIER_DIR}'"))"
   echo "[dry-run] deploy: $SRC_PLINY -> $DEST_PLINY (substitute {{NAME_SUFFIX}} -> '${NAME_SUFFIX}')"
+  echo "[dry-run] deploy: $SRC_CHIRON -> $DEST_CHIRON (substitute {{NAME_SUFFIX}} -> '${NAME_SUFFIX}')"
 else
   if [ -n "$USER_TIER_DIR" ]; then
     sed -e "s/{{NAME_SUFFIX}}/${NAME_SUFFIX}/g" -e "s|{{USER_TIER_DIR}}|${USER_TIER_DIR}|g" "$SRC_POLYBIUS" > "$DEST_POLYBIUS"
@@ -962,8 +966,10 @@ else
     sed "s/{{NAME_SUFFIX}}/${NAME_SUFFIX}/g" "$SRC_POLYBIUS" > "$DEST_POLYBIUS"
   fi
   sed "s/{{NAME_SUFFIX}}/${NAME_SUFFIX}/g" "$SRC_PLINY" > "$DEST_PLINY"
+  sed "s/{{NAME_SUFFIX}}/${NAME_SUFFIX}/g" "$SRC_CHIRON" > "$DEST_CHIRON"
   echo "deployed: $DEST_POLYBIUS"
   echo "deployed: $DEST_PLINY"
+  echo "deployed: $DEST_CHIRON"
 fi
 
 # 2b. Deploy operating-disciplines.md — team-wide disciplines doc referenced
@@ -999,14 +1005,15 @@ fi
 # aborts deploy) rather than shipping LOST CANON. Runs POST-sed/cp (markers are inert in the source;
 # the sed substitutes only {{NAME_SUFFIX}}/{{USER_TIER_DIR}}, neither of which appears in a marker;
 # op-disc is plain-cp'd so no substitution applies).
-# THIS ARC recomposes FOUR files (debloat Arc 47 / design-arc-47 §6.4–§6.5 + debloat Arc 48 /
-# design-arc-48 §6.4 + debloat Arc 6 / Arc 49 / design-arc-49 §6.4): $DEST_POLYBIUS (Arc 2, 5 owned
-# modules), $DEST_OPERATING_DISCIPLINES (Arc 47, 12 owned modules), $DEST_PLINY (Arc 48, 11 owned
-# modules), AND $DEST_DAEDALUS (Arc 6/Arc 49, 7 owned modules — the FOURTH owner). The shared
-# substrate/modules/ dir forces the MODULE-OWNERSHIP partition (ARGUS r3): each call passes its
-# OWNED-module set for Checks B/D while Check A tests the GLOBAL existence set inside the function.
-# The four owned-sets are basename-DISJOINT (design-arc-49 §3.8 / P-OWNERSHIP-NOCOLLIDE) so no marker
-# is ambiguously owned. NOTE (design-arc-49 §6.5): the recompose CALLS run in a separate
+# THIS ARC recomposes FIVE files (debloat Arc 47 / design-arc-47 §6.4–§6.5 + debloat Arc 48 /
+# design-arc-48 §6.4 + debloat Arc 6 / Arc 49 / design-arc-49 §6.4 + Arc 61): $DEST_POLYBIUS (Arc 2,
+# now 4 owned modules), $DEST_OPERATING_DISCIPLINES (Arc 47, 12 owned modules), $DEST_PLINY (Arc 48,
+# 11 owned modules), $DEST_DAEDALUS (Arc 6/Arc 49, 7 owned modules — the FOURTH owner), AND
+# $DEST_CHIRON (Arc 61, 1 owned module — the FIFTH owner). The shared substrate/modules/ dir forces
+# the MODULE-OWNERSHIP partition (ARGUS r3): each call passes its OWNED-module set for Checks B/D
+# while Check A tests the GLOBAL existence set inside the function. The five owned-sets are
+# basename-DISJOINT (design-arc-49 §3.8 / P-OWNERSHIP-NOCOLLIDE) so no marker is ambiguously owned.
+# NOTE (design-arc-49 §6.5): the recompose CALLS run in a separate
 # if-subproject block AFTER the CAPTAIN deploy loop (the fourth owner, CAPTAIN_DAEDALUS, deploys in
 # that loop and has no dedicated DEST_* var); the function DEFINITION below stays here.
 # Generality note: design §6.4/§6.5.
@@ -1017,9 +1024,9 @@ if [ "$TARGET" = "subproject" ]; then
     #      (only the markers/modules THIS file owns). DISTINCT from the GLOBAL existence set.
     # MODULE-OWNERSHIP partition (debloat Arc 47 / design-arc-47 §6.4, ARGUS r3; extended to a
     # THIRD owner in debloat Arc 48 / design-arc-48 §6.4; FOURTH owner in debloat Arc 6 / Arc 49 /
-    # design-arc-49 §6.4): the shared substrate/modules/ dir now holds modules owned by DIFFERENT
-    # role files (5 POLYBIUS + 12 op-disc + 11 PLINY + 7 DAEDALUS = 35, basename-disjoint per
-    # design-arc-49 §3.8). Two distinct sets are required:
+    # design-arc-49 §6.4; FIFTH owner CHIRON in Arc 61): the shared substrate/modules/ dir now holds
+    # modules owned by DIFFERENT role files (4 POLYBIUS + 12 op-disc + 11 PLINY + 7 DAEDALUS +
+    # 1 CHIRON = 35, basename-disjoint per design-arc-49 §3.8). Two distinct sets are required:
     #   - GLOBAL existence set (Check A): every real module source, owner-agnostic. A marker
     #     must reference a real module file REGARDLESS of owner — the Check A guarantee must NOT
     #     narrow with the owned-set. Built from the filesystem glob, NOT from arg 2.
@@ -1164,16 +1171,22 @@ if [ "$TARGET" = "subproject" ]; then
   # MODULE-OWNERSHIP owned-sets (design-arc-47 §6.4 / §3.8; FOURTH owner added Arc 6 / Arc 49). Each
   # role file's recompose call is scoped to the modules IT owns (Checks B/D); Check A still tests the
   # GLOBAL existence set (all 35 module sources minus README, owner-agnostic) inside the function.
-  POLYBIUS_MODULES="onboarding sub-project-spawning pair-programmer-authoring pair-programming-prototyping substrate-update-check"
+  POLYBIUS_MODULES="onboarding sub-project-spawning pair-programming-prototyping substrate-update-check"
   OPDISC_MODULES="two-polybius-coordination autonomous-mode-setup sub-agent-transcript-discipline bw-fit-matrix oss-dep-and-latency credential-discipline-detail bw-upgrade mechanical-inspection-split multi-team-interop four-layer-identity substrate-component-design jsdom-timing-discipline"
   PLINY_MODULES="ada-brief-preamble sub-agent-watchdog per-worktree-venv post-strabo-vera incomplete-unverifiable-routing smoke-beat-deploy-check background-dispatch-hygiene pre-branch-hygiene arc-close-hygiene seat-identity-brief pliny-polling-pattern"
   DAEDALUS_MODULES="canonical-code-block-fix credential-flow-design principal-gate-design canonical-template-alignment probe-grounding ssot-with-why api-docs-dont-generalize"
+  CHIRON_MODULES="pair-programmer-authoring"
   # CAPTAIN_DAEDALUS has NO dedicated DEST_* deploy var (it deploys in the CAPTAIN_NAMES loop above);
   # construct its deployed path here, mirroring the loop's dest= (CAPTAIN_${name}${NAME_SUFFIX}.md).
   DEST_DAEDALUS="${DEST_AGENTS_DIR}/CAPTAIN_DAEDALUS${NAME_SUFFIX}.md"
   recompose_module_inline "$DEST_POLYBIUS" "$POLYBIUS_MODULES"
   recompose_module_inline "$DEST_OPERATING_DISCIPLINES" "$OPDISC_MODULES"
   recompose_module_inline "$DEST_PLINY" "$PLINY_MODULES"
+  # FIFTH owner (CHIRON, Arc 61) — UNGATED. CHIRON deploys unconditionally in the §2 MAJOR-deploy
+  # block (always runs, like POLYBIUS/PLINY), so $DEST_CHIRON always exists at subproject tier when
+  # this call runs. UNLIKE DAEDALUS (below), CHIRON is not a CAPTAIN and is not behind WITH_CAPTAINS,
+  # so its call stays ungated next to the other three always-deploy owners.
+  recompose_module_inline "$DEST_CHIRON" "$CHIRON_MODULES"
   # FOURTH owner gated on WITH_CAPTAINS: CAPTAIN_DAEDALUS deploys ONLY inside the
   # WITH_CAPTAINS-gated loop above, so under --no-captains its $DEST_DAEDALUS file
   # was never written. Recomposing it then would fire recompose_module_inline's

@@ -68,18 +68,17 @@
   <a href="#top">Identity</a>
   <a href="#s1">§1</a><a href="#s2">§2</a><a href="#s3">§3</a><a href="#s4">§4</a>
   <a href="#s5">§5</a><a href="#s6">§6</a><a href="#s7">§7 author</a><a href="#s8">§8</a>
-  <a href="#s9">§9</a><a href="#s10">§10</a><a href="#tools">Tools</a>
+  <a href="#s9">§9</a><a href="#s10">§10</a><a href="#s11">§11</a><a href="#tools">Tools</a>
 </nav>
 
 <main id="top">
   <h1>MAJOR_CHIRON</h1>
-  <div class="sub">Team-Architect <span class="tag">draft · v1</span></div>
+  <div class="sub">Team-Architect <span class="tag">v1</span></div>
 
-  <blockquote class="draft"><strong>DRAFT — v1, 2026-06-16.</strong> First cut for review (working tree,
-  uncommitted). Charter: <code>stoa--p41</code>. Sibling architect: <code>MAJOR_HAMILTON</code>
-  (<code>stoa--yh2</code>). The agent-author capability (§7) is developed in skill-shape but lives here as
-  instruction, not as a shared <code>.claude/skills/</code> file — so it is CHIRON's by construction,
-  exclusive without any scoping mechanism.</blockquote>
+  <blockquote><strong>v1 — landed Arc 61.</strong> Charter: <code>stoa--p41</code>. Sibling architect:
+  <code>MAJOR_HAMILTON</code> (<code>stoa--yh2</code>, separate arc). The agent-author capability (§7) is
+  developed in skill-shape but lives here as instruction, not as a shared <code>.claude/skills/</code> file —
+  so it is CHIRON's by construction, exclusive without any scoping mechanism.</blockquote>
 
   <table class="idtable">
     <tr><td>Rank</td><td>MAJOR</td></tr>
@@ -237,6 +236,12 @@ grep -ni "the user" &lt;draft&gt;    # zero lines in a clean draft</code></pre>
     <li>Announce presence on the relevant bw ticket before authoring.</li>
   </ol>
 
+  <h2 id="s11"><span class="n">§11</span>Pair-programmer Major authoring (detail module)</h2>
+  <p>Re-homed from <code>MAJOR_POLYBIUS.md</code> §11 (Arc 61). CONDITIONAL — loaded at dispatch when authoring
+  a pair-programmer Major (the lightweight branch of §4). Recover the full procedure via
+  <code>Read .claude/modules/pair-programmer-authoring.md</code>. At subproject tier the body is
+  recompose-inlined at the marker in the markdown source.</p>
+
   <h2 id="tools">Tools</h2>
   <p>Full MAJOR / main-agent toolset (no CAPTAIN-style restriction): <code>Read</code>, <code>Write</code>,
   <code>Edit</code>, <code>Grep</code>, <code>Glob</code>, <code>Bash</code> (bw + git), <code>WebSearch</code> /
@@ -246,8 +251,8 @@ grep -ni "the user" &lt;draft&gt;    # zero lines in a clean draft</code></pre>
 </main>
 
 <footer>
-  Rendered view of <code>substrate/MAJOR_CHIRON.md</code> · v1 draft · the Stoa · markdown is the source of
-  truth, this is the view. Author: Denson Smith · 2026-06-16.
+  Rendered view of <code>substrate/MAJOR_CHIRON.md</code> · v1 (landed Arc 61) · the Stoa · markdown is the
+  source of truth, this is the view. Author: Denson Smith · 2026-06-16.
 </footer>
 </body>
 </html>

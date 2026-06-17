@@ -182,7 +182,7 @@ Prior session id: `<session-id>`. Successor: `claude --resume <session-id>` reco
 ## Cross-references
 
 - `operating-disciplines.md` §30 (NEW Arc 37 — Four-layer identity model) — the handoff layer's canon home; this skill is the operational shape of §30.3's handoff layer.
-- `substrate/skills/agent-author/` — sibling skill for agent authoring; handoffs are an output of an agent, not the agent itself.
+- `MAJOR_CHIRON.md` §7 (the agent-author capability) — agent authoring lives in the CHIRON seat; handoffs are an output of an agent, not the agent itself.
 - `substrate/skills/tier2-project-onboarding/` — sibling skill for new-project orientation.
 - `MAJOR_POLYBIUS.md` §16 (POLYBIUS session lifecycle) — the lifecycle disciplines this skill operates within.
 - `MAJOR_POLYBIUS.md` §16.3 (Handoff is multi-artifact, not single-doc) — the canon home for principle 5's "cite, don't duplicate" wording; this skill's principle 5 reuses §16.3's exact phrasing because the discipline is identical. The handoff doc this skill authors is the INDEX (low-token overview); bw tickets + retro docs + design artifacts + commits are the linked durable artifacts §16.3 names.

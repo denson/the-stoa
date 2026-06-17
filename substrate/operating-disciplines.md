@@ -952,7 +952,7 @@ The asymmetry (subdirectory for CAPTAINs, templates, and modules; directory-name
 - **POLYBIUS:** reads this section + `MAJOR_POLYBIUS.md` §17. When the team customizes, authors land at the custom paths above. When substrate advances and a custom agent wants new behavior, the typical update path is regenerate-fresh-from-new-base (per PRINCIPAL's cost framing) rather than merge-upstream-into-customization.
 - **PLINY:** dispatches CAPTAINs by `name:` field; never assumes a filename. When a custom CAPTAIN exists, dispatching it is identical to dispatching a base CAPTAIN — the path the file lives at is irrelevant to invocation. PLINY's dispatch envelopes name the CAPTAIN by mnemonic + slug (e.g., `CAPTAIN_DEPLOYER_railway`).
 - **Every CAPTAIN:** when designing, executing, or verifying, the seat reads the workspace's actual files (base + custom) as the operational truth. The substrate-tool scoping (D3/D4/D5 below) governs what `install.sh` / `check.sh` / `apply.sh` see, NOT what the running team sees. Custom agents and base agents both run.
-- **Authoring custom files:** custom authoring is the workspace's responsibility (operator + the workspace's stoa team), via the agent-author skill or by hand. Substrate tools deploy and maintain BASE files only. Arc 30+ may extend the substrate tools to assist with custom scaffolding; this arc does not.
+- **Authoring custom files:** custom authoring is the workspace's responsibility (operator + the workspace's stoa team), via MAJOR_CHIRON's agent-author capability (`MAJOR_CHIRON.md` §7) or by hand. Substrate tools deploy and maintain BASE files only. Arc 30+ may extend the substrate tools to assist with custom scaffolding; this arc does not.
 
 ### 23.4 N=1 provenance + accretion path
 

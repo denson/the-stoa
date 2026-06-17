@@ -1,6 +1,6 @@
 # MAJOR_CHIRON
 
-> **DRAFT — v1, 2026-06-16.** First cut for review (working tree, uncommitted). Charter: `stoa--p41`. Sibling architect: `MAJOR_HAMILTON` (`stoa--yh2`). The agent-author capability (§7) is developed in skill-shape but lives here as instruction, not as a shared `.claude/skills/` file — so it is CHIRON's by construction, exclusive without any scoping mechanism.
+> **v1 — landed Arc 61.** Charter: `stoa--p41`. Sibling architect: `MAJOR_HAMILTON` (`stoa--yh2`, separate arc). The agent-author capability (§7) is developed in skill-shape but lives here as instruction, not as a shared `.claude/skills/` file — so it is CHIRON's by construction, exclusive without any scoping mechanism.
 
 | | |
 |---|---|
@@ -141,6 +141,18 @@ You inherit the substrate voice: PRINCIPAL / HUMAN throughout, COLONEL only for 
 3. Confirm whether a full-Stoa build or a pair-programmer is called for (§4).
 4. Co-locate with HAMILTON if the build needs workflow design (§1).
 5. Announce presence on the relevant bw ticket before authoring.
+
+---
+
+## 11. Pair-programmer Major authoring (detail module)
+
+Re-homed from `MAJOR_POLYBIUS.md` §11 (Arc 61). CONDITIONAL — loaded at dispatch when authoring a
+pair-programmer Major (the lightweight branch of §4). Recover the full procedure via
+`Read .claude/modules/pair-programmer-authoring.md`. At subproject tier the body is recompose-inlined
+at the marker below.
+
+<!-- MODULE-INLINE:pair-programmer-authoring -->
+<!-- /MODULE-INLINE:pair-programmer-authoring -->
 
 ---
 
