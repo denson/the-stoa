@@ -235,11 +235,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS] trailing fix 94ce313 ground-truth: CONFORMANT. All 7 checks pass: HEAD of arc-61/build, parent 937acee; 2-file set ONLY (generated.test.ts + install.sh, 8 ins/5 del); npm test 41 passed/3 files exit 0 + npm run build exit 0; test array matches agents.ts reality (3 MAJOR [CHIRON,PLINY,POLYBIUS], 12 CAPTAIN incl NOMOS+TIRO present); install.sh change is comment-only (line-break before NOTE, recompose/partition/deploy/awk byte-identical); cascade UNTOUCHED; gen-data regen no agents.ts diff; Author=denson PRINCIPAL + Co-Authored-By CAPTAIN_ADA_the-stoa verbatim, no false-person field; 94ce313 local-only not pushed, main untouched @df0ca9d, no bw ticket closed. Returning.",
       "timestamp": "2026-06-17T12:02:11Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA] re-verify 94ce313: PASS. V4 GREEN (npm test exit 0: Test Files 3 passed, Tests 41 passed; CHIRON in MAJOR, CAPTAIN=12 w/ NOMOS+TIRO, LIEUTENANT skills\u003e0 roster 11; no unstaged agents.ts). V1 dry-run exit 0 (CHIRON line, no recompose err). install.sh diff is COMMENT-ONLY -\u003e V3 prior PASS @937acee CARRIES FORWARD (not re-run); bash -n exit 0. Verdict saved. Returning.",
+      "timestamp": "2026-06-17T12:03:37Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T12:02:11Z"
+  "updated_at": "2026-06-17T12:03:37Z"
 }
