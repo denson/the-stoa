@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-17T19:57:35Z",
+  "description": "INCONSISTENCY: who tears down the arc-build worktree is not consistently owned.\n- Arc 61: USER-TIER POLYBIUS tore down the worktree (git worktree remove --force), AFTER attaching the verdict artifacts to beadwork → verdicts preserved.\n- Arc 62: PLINY tore it down (its own orchestrator teardown), with --force, in the window between user-tier's push and user-tier's cleanup → the untracked verdict artifacts were destroyed before user-tier could preserve them (content survived in bw comments; the disk files are gone).\n\nThe save-verdict attach-at-write fix (scoped in the skills-housekeeping arc) makes verdict-PRESERVATION robust regardless of who tears down — so this ticket is the RESIDUAL consistency smell, not the verdict-loss harm (that is fixed elsewhere). Hence LOW priority.\n\nDECISION NEEDED: define ONE owner + ordering for arc-build worktree teardown relative to the user-tier close-gate. Candidate: user-tier owns teardown at the close-gate (PLINY does NOT destroy arc state user-tier has not yet ratified/merged) — OR codify PLINY-teardown-only-after-user-tier-merge-signal. Note: in Arc 62 PLINY's teardown did NOT block the merge (the arc-62/build branch survived the worktree removal; user-tier merged the branch), so the only observed harm was the verdict loss.\n\nSUBSTRATE-CANON: PLINY §5.9.x teardown discipline + the user-tier close-gate cleanup discipline → arc-gated (not a drive-by). Anchor: Arc 62 verdict-artifact loss, 2026-06-17.",
+  "id": "stoa--9s6",
+  "labels": [],
+  "priority": 3,
+  "status": "open",
+  "title": "[DISCIPLINE] Worktree-teardown ownership ambiguous (PLINY Arc-62 vs user-tier Arc-61) — define owner + ordering",
+  "type": "task",
+  "updated_at": "2026-06-17T19:57:35Z"
+}
