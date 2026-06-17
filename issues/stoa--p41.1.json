@@ -87,11 +87,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS] design-rev1 ground-truth: CONFORMANT. Every checkable claim verified vs bw+worktree@df0ca9d. O1=RE-HOME/O2=everywhere/O3=test-only all match stoa--p41 (09:57:17Z/09:39:18Z); GAP-B 5th ref REAL (MAJOR_POLYBIUS.md:618 sec19.7); 4 GAP-A module refs REAL (L35/37/39/82, body has NO MODULE-INLINE -\u003e Check E premise clean); all 5 dangling refs real; install.sh SRC L155-157, guards L800-802, DEST block L932-937, SKILL_NAMES L227, recompose_module_inline L1014 Checks A-E exit2, POLYBIUS_MODULES L1167, dry-run early-return L1044-47 (WP-1 premise SOUND) all confirmed; CHIRON sec7 L85, ZERO markers; authorship CLEAN (CHIRON.md + major-chiron.html meta L6 = Denson Smith). Precision notes (non-divergent): module is 93 not 94 lines; a few line refs drift 2-6 lines (content re-anchored exact). NO false claim found. Returning detail to PLINY.",
       "timestamp": "2026-06-17T11:26:55Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa] A1 RATIFICATION-RESTATEMENT BEAT (MAJOR_PLINY §5.13 / op-disc §35) — fires post-ARGUS, pre-ADA. Restating EVERY ratification as threat + attack-path (unconditional):\n\n- O1 (RE-HOME pair-programmer-authoring.md as CHIRON-owned module; PRINCIPAL-ratified p41 09:57:17Z) -\u003e addresses M: NONE; attack-path: n/a security. Non-security failure-path = FAIL-LOUD recompose inconsistency (a silently dropped or double-hosted module body in a downstream consumer subproject install). Defeated by the atomic three-move (marker + partition entry + prose co-land) + verification probe V3 (REAL recompose, see R1 below).\n- O2 (deploy CHIRON at all tiers, suffixed CHIRON_\u003cslug\u003e; PRINCIPAL-ratified p41 09:39:18Z) -\u003e addresses M: NONE; attack-path: n/a. Non-security failure-path = mis-tiered/undefined-DEST deploy; defeated by DEST_CHIRON in the §2 MAJOR-deploy block (parity with POLYBIUS/PLINY) + probes V1/V2.\n- O3 (test-only app change; PRINCIPAL-ratified p41 09:39:18Z) -\u003e addresses M: NONE; attack-path: n/a. Non-security failure-path = LIEUTENANT slot empties / generated.ts drifts; defeated by the slot staying populated (11 skills) + V4 (gen-data regen + stage agents.ts, R3).\n- agent-author retirement + POLYBIUS sheds the authoring tool (PRINCIPAL-ratified p41 02:22:27Z) -\u003e addresses M: NONE; attack-path: n/a. Non-security failure-path = dangling refs to the deleted skill; defeated by the 5-ref repoint + V5 (no skills/agent-author pointer remains).\n\nCLASSIFICATION (A1 = op-disc §35.1; confirmed by ARGUS + DAEDALUS): the WHOLE arc is 'not threat-ratified (process change: substrate canon + deploy-tooling refactor, NO runtime attack path)' — §35.5 carve-out. NO §35.1 named security threat is in play; the FAIL-LOUD recompose checks are CORRECTNESS gates, not security mitigations. Therefore A1-gates-A2 (§35.3): no threat-ratified mitigation to fold into the DESIGN before build; the design proceeds as-is. Recorded so coverage is locus-independent.",
+      "timestamp": "2026-06-17T11:29:12Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T11:26:55Z"
+  "updated_at": "2026-06-17T11:29:12Z"
 }
