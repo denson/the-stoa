@@ -1,9 +1,11 @@
 # Pair-programmer Major authoring — instruction module
 
-> Relocated from `MAJOR_POLYBIUS.md` §11 (CONDITIONAL — loaded at dispatch when authoring a
-> pair-programmer Major). Provenance: composition-layer spec `bw show stoa--xyb.4`; debloat Arc 2
-> cut `agents/design/arc-45/design-rev2.md` + epic `bw show stoa--xyb`. The slim-core residue is
-> the §11 stub + routing-map row in `MAJOR_POLYBIUS.md` §3.5.
+> Relocated from `MAJOR_POLYBIUS.md` §11 (debloat Arc 2), re-homed to `MAJOR_CHIRON.md` §11 (Arc 61).
+> CONDITIONAL — loaded at dispatch when authoring a pair-programmer Major. Now CHIRON-owned (the
+> authoring tool moved POLYBIUS→CHIRON; POLYBIUS keeps review literacy). Provenance: composition-layer
+> spec `bw show stoa--xyb.4`; debloat Arc 2 cut `agents/design/arc-45/design-rev2.md` + epic
+> `bw show stoa--xyb`; re-home charter `bw show stoa--p41`. The slim-core residue is now the §11 host
+> stub in `MAJOR_CHIRON.md` + the pointer at `MAJOR_POLYBIUS.md` §11 / §3.5.
 
 Beyond the two universal MAJOR roles per tier (POLYBIUS + PLINY), the architecture supports **pair-programmer Majors authored on demand** — specialized seats POLYBIUS spawns for substantive domain work that calls for a MAJOR-rank specialist sitting alongside the PRINCIPAL. Pair-programmer Majors are not structural (no fixed roster, no per-tier slot); they are dynamic additions you author when a task's shape calls for one and the PRINCIPAL agrees.
 
@@ -32,15 +34,16 @@ Smaller than §5 (onboarding) and §10 (sub-project spawn) — substrate is alre
 2. Pick the template basis. For a new pair-programmer Major: a previously
    authored pair-programmer (e.g., the deployed ~/.claude/agents/PYTHAGORAS.md
    or ATTICUS.md if one exists), or MAJOR_POLYBIUS.md as the structural
-   fallback when no pair-programmer exists yet. The agent-author skill's
-   "Template-basis selection" section (§"Template-basis selection" in
-   skills/agent-author/SKILL.md) carries the full table.
+   fallback when no pair-programmer exists yet. CHIRON's agent-author
+   capability (MAJOR_CHIRON.md §7, "Template-basis selection") carries the
+   full table.
 
-3. Invoke the agent-author skill (substrate/skills/agent-author/SKILL.md).
-   Inputs: agent_type=pair_programmer_major, name, mnemonic,
-   descriptive_role, specialization, responsibilities, non_responsibilities,
-   template_basis, dest_path. The skill drafts the role file with the v2
-   voice-discipline check applied and writes it to dest_path on disk.
+3. Route the authoring to MAJOR_CHIRON, whose agent-author capability
+   (MAJOR_CHIRON.md §7) drafts the role file. Inputs:
+   agent_type=pair_programmer_major, name, mnemonic, descriptive_role,
+   specialization, responsibilities, non_responsibilities, template_basis,
+   dest_path. CHIRON drafts the role file with the v2 voice-discipline check
+   applied and writes it to dest_path on disk.
 
 4. Review the draft in the working tree. Read the §1 framing for fit, read
    the §2 / §3 responsibility lists for accuracy, run the voice-check grep
@@ -79,7 +82,7 @@ Pair-programmer Majors POLYBIUS has authored across projects (illustrative, not 
 - **CODEX** — code-at-large pair-programmer (TypeScript, polyglot codebase work).
 - **LEX** — regulation analysis pair-programmer (legal text, compliance posture, regulatory diff reading).
 
-These are project-authored, not substrate-canonical — Arc 17 ships the *capability* (this section + the agent-author skill) without committing specific instances to the substrate canon. New pair-programmers join the lineage as PRINCIPALs+POLYBIUSes spawn them; the substrate stays small.
+These are project-authored, not substrate-canonical — Arc 17 shipped the *capability* (this section + the agent-author skill, now CHIRON §7 after Arc 61) without committing specific instances to the substrate canon. New pair-programmers join the lineage as PRINCIPALs+POLYBIUSes spawn them; the substrate stays small.
 
 ## §11.4 Asymmetric beadwork visibility
 

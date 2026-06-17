@@ -68,7 +68,7 @@ These two always-loaded index tables (per `.claude/modules/README.md` §4 + `ope
 |---|---|---|
 | onboard a new project | `onboarding.md` | disk (Read) |
 | spawn a sub-project | `sub-project-spawning.md` | disk (Read) |
-| author a pair-programmer Major | `pair-programmer-authoring.md` | disk (Read) |
+| author a pair-programmer Major | route to MAJOR_CHIRON (`MAJOR_CHIRON.md` §7/§11) | seat |
 | prototype (Mode 2 pair-programming) | `pair-programming-prototyping.md` | disk (Read) |
 | substrate-drift check | `substrate-update-check.md` | disk (Read) |
 | route a task across the repertoire (tool-selection) | `tool-selection-taxonomy.md` | disk (Read) |
@@ -81,7 +81,6 @@ These two always-loaded index tables (per `.claude/modules/README.md` §4 + `ope
 |---|---|---|
 | §5 Onboarding flow (+ §5.6 say-trigger deploy) | `onboarding.md` (disk module) | CONDITIONAL |
 | §10 Sub-project spawning | `sub-project-spawning.md` (disk module) | CONDITIONAL |
-| §11 Pair-programmer Major authoring | `pair-programmer-authoring.md` (disk module) | CONDITIONAL |
 | §12 Pair-programming-for-prototyping (Mode 2) | `pair-programming-prototyping.md` (disk module) | CONDITIONAL |
 | §14 Substrate-update check | `substrate-update-check.md` (disk module) | CONDITIONAL |
 | §4.3.1 PRINCIPAL-intent probe empirical | `bw show stoa--ezj` (Anchor cite) | PROVENANCE |
@@ -93,6 +92,8 @@ These two always-loaded index tables (per `.claude/modules/README.md` §4 + `ope
 | §18.5 N=1 provenance | `bw show stoa--k36` (Anchor cite) | PROVENANCE |
 | §19.6 N=1 provenance | `bw show stoa--86k` (Anchor cite) | PROVENANCE |
 | §7.3 bw cookbook (dupe) | `operating-disciplines.md` §12 (pointer kept) | DUPLICATE |
+
+> **§11 Pair-programmer Major authoring is no longer a POLYBIUS relocation** — it re-homed cross-seat to MAJOR_CHIRON (Arc 61). POLYBIUS no longer owns or hosts the `pair-programmer-authoring.md` module; see `MAJOR_CHIRON.md` §7/§11. The §11 section above is now a pointer-to-CHIRON, not a relocated-module stub.
 
 **Subproject-tier module access (per design-arc-45 §6):** at subproject tier the CONDITIONAL module content is re-inlined into this role file at deploy time (install.sh recompose at the `<!-- MODULE-INLINE:<name> -->` markers) — subproject orchestrators do NOT `Read .claude/modules/<X>.md` (the path does not resolve reliably at subproject tier; claude-code #56686/#31546/#29423). At user/project tier the routing-map's `disk (Read)` channel applies and the markers are inert. Anchor: `stoa--xyb` (Arc-1 tracked gating question, modules/README.md §7) + design-arc-45 §6 probe.
 
@@ -257,7 +258,7 @@ When you run `bw prime` (§9 step 2), `cd` to the appropriate tier's directory f
 
 ### 7.6 Orchestrator background-dispatch hygiene (Arc 24)
 
-When POLYBIUS dispatches a CAPTAIN via the `Agent` tool directly — ad-hoc dispatches (§2 / §7; rare), or pair-programmer activation flows (§11) — the same orchestrator background-dispatch hygiene applies as for MAJOR_PLINY.
+When POLYBIUS dispatches a CAPTAIN via the `Agent` tool directly — ad-hoc dispatches (§2 / §7; rare), or pair-programmer activation flows (now CHIRON-authored; §11) — the same orchestrator background-dispatch hygiene applies as for MAJOR_PLINY.
 
 **Canonical reference: `MAJOR_PLINY.md` §5.8.** That section carries the substrate-canonical sequence (load deferred tools at session start; capture `task_id` + materialize to bw + start Monitor; the canonical bash poll-loop template; TaskStop + read verdict on completion; PushNotification orthogonality). POLYBIUS uses the same template; the substance and the bash shape are identical, the dispatch ticket ID substitutes per-call. POLYBIUS does NOT carry the inline template (Arc 24 A8) — one canonical version with a cross-reference avoids wording drift between the two MAJOR files.
 
@@ -304,11 +305,16 @@ Routing-map + relocation-index rows in §3.5. Recover the full procedure via `Re
 
 ---
 
-## 11. Pair-programmer Major authoring
-Relocated to `.claude/modules/pair-programmer-authoring.md` (CONDITIONAL — loaded at dispatch).
-Routing-map + relocation-index rows in §3.5. Recover the full procedure via `Read .claude/modules/pair-programmer-authoring.md`.
-<!-- MODULE-INLINE:pair-programmer-authoring -->
-<!-- /MODULE-INLINE:pair-programmer-authoring -->
+## 11. Pair-programmer Major authoring — now CHIRON-owned
+
+Authoring agent envelopes (incl. pair-programmer Majors) is **MAJOR_CHIRON's** capability (the
+TEAM-ARCHITECT; `MAJOR_CHIRON.md` §7). POLYBIUS keeps the **review literacy** — POLYBIUS reviews
+and controls roster composition (the same reviewer-without-the-tool shape as ARGUS-reviews-DAEDALUS)
+— but no longer holds the authoring procedure. The pair-programmer authoring detail (trigger
+recognition, walk-through, lineage, asymmetric bw visibility) lives in the CHIRON-owned module
+`.claude/modules/pair-programmer-authoring.md` (recompose-hosted at `MAJOR_CHIRON.md` §11). When a
+pair-programmer-Major signal fires (§4.1-class project-direction call), POLYBIUS surfaces it and
+routes the authoring to CHIRON; POLYBIUS reviews the draft.
 
 ---
 
@@ -615,7 +621,7 @@ Anchor: `stoa--86k` — 2026-05-13 PRINCIPAL substrate-architecture discussion (
 
 ### 19.7 Cross-references
 
-`MAJOR_POLYBIUS.md` §17 (Base vs custom — WHERE files live, the path-convention layer; §19 names WHAT each team does, the behavioral layer; paired); §14 (Substrate-update check — keeps the base team in sync); §18 (User-tier direct-commit discipline — a carve-out within the two-team picture; user-tier POLYBIUS direct-commits housekeeping at the-stoa per §18.1 without violating the base/project separation because the-stoa is itself the FORGE workspace); `MAJOR_POLYBIUS.md` §17.4 (Custom CAPTAIN name discipline — the silent-collision footgun custom-CAPTAIN authoring respects; same-file cross-ref to the *specific subsection* — `operating-disciplines.md` §17 is unrelated OSS-dep calculus and is NOT the intended target); `operating-disciplines.md` §23 (Base vs custom — universal-team layer; §19 extends into the BEHAVIORAL layer); `operating-disciplines.md` §29 (Multi-team interoperation — §19 is intra-workspace, §29 is inter-workspace); `substrate/skills/check-substrate-updates/` (base-team sync skill); `substrate/skills/agent-author/` (skill for authoring project-team specialists); `substrate/skills/tier2-project-onboarding/` (existing onboarding skill, may extend with a project-team-design phase per §19.4 step 2); §17.5 / §18.5 (the per-class path convention + user-tier housekeeping carve-out this framing extends from).
+`MAJOR_POLYBIUS.md` §17 (Base vs custom — WHERE files live, the path-convention layer; §19 names WHAT each team does, the behavioral layer; paired); §14 (Substrate-update check — keeps the base team in sync); §18 (User-tier direct-commit discipline — a carve-out within the two-team picture; user-tier POLYBIUS direct-commits housekeeping at the-stoa per §18.1 without violating the base/project separation because the-stoa is itself the FORGE workspace); `MAJOR_POLYBIUS.md` §17.4 (Custom CAPTAIN name discipline — the silent-collision footgun custom-CAPTAIN authoring respects; same-file cross-ref to the *specific subsection* — `operating-disciplines.md` §17 is unrelated OSS-dep calculus and is NOT the intended target); `operating-disciplines.md` §23 (Base vs custom — universal-team layer; §19 extends into the BEHAVIORAL layer); `operating-disciplines.md` §29 (Multi-team interoperation — §19 is intra-workspace, §29 is inter-workspace); `substrate/skills/check-substrate-updates/` (base-team sync skill); `MAJOR_CHIRON.md` §7 (the agent-author capability — authoring project-team specialists); `substrate/skills/tier2-project-onboarding/` (existing onboarding skill, may extend with a project-team-design phase per §19.4 step 2); §17.5 / §18.5 (the per-class path convention + user-tier housekeeping carve-out this framing extends from).
 
 ---
 

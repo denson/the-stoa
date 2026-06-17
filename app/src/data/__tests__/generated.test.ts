@@ -85,11 +85,10 @@ describe("the generated v2 roster", () => {
     if (slot.rank !== "LIEUTENANT") {
       throw new Error("LIEUTENANT slot rank discriminator did not match");
     }
-    // Arc 17 deployed agent-author; Arc 17.1 made the gen-data adapter
-    // read it. Don't over-specify count — substrate may grow more skills.
+    // Arc 17.1 made the gen-data adapter read all substrate skills as
+    // LIEUTENANTs. (agent-author retired Arc 61; slot stays populated by the
+    // remaining skills.) Don't over-specify count — substrate may grow more.
     expect(slot.skills.length).toBeGreaterThan(0);
-    const names = slot.skills.map((s) => s.name);
-    expect(names).toContain("agent-author");
     for (const skill of slot.skills) {
       expect(skill.rank).toBe("LIEUTENANT");
       expect(skill.name).toMatch(/^[a-z][a-z0-9-]*$/); // kebab-case

@@ -78,7 +78,7 @@ export type SkillFile = {
   filename: string;
   /** Absolute path to the SKILL.md file. */
   fullPath: string;
-  /** Skill name from the parent directory (e.g. `agent-author`). */
+  /** Skill name from the parent directory (e.g. `handoff-author`). */
   name: string;
 };
 
