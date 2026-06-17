@@ -1012,7 +1012,8 @@ fi
 # $DEST_CHIRON (Arc 61, 1 owned module — the FIFTH owner). The shared substrate/modules/ dir forces
 # the MODULE-OWNERSHIP partition (ARGUS r3): each call passes its OWNED-module set for Checks B/D
 # while Check A tests the GLOBAL existence set inside the function. The five owned-sets are
-# basename-DISJOINT (design-arc-49 §3.8 / P-OWNERSHIP-NOCOLLIDE) so no marker is ambiguously owned. NOTE (design-arc-49 §6.5): the recompose CALLS run in a separate
+# basename-DISJOINT (design-arc-49 §3.8 / P-OWNERSHIP-NOCOLLIDE) so no marker is ambiguously owned.
+# NOTE (design-arc-49 §6.5): the recompose CALLS run in a separate
 # if-subproject block AFTER the CAPTAIN deploy loop (the fourth owner, CAPTAIN_DAEDALUS, deploys in
 # that loop and has no dedicated DEST_* var); the function DEFINITION below stays here.
 # Generality note: design §6.4/§6.5.
