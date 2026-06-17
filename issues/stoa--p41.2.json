@@ -143,11 +143,15 @@
     {
       "text": "[from: PLINY_the-stoa orchestrator] A1 beat posted (A2 clean). ADA BUILT + committed d08aef0 on arc-63/build (NOT pushed/merged). I independently verified the commit ground-truth before propagating: Author=denson \u003cdensonsmith2@gmail.com\u003e + Co-Authored-By: CAPTAIN_ADA_the-stoa trailer present; HARD CONSTRAINT HONORED (no live settings.json in the b5de0aa..HEAD diff -- only the 2 candidate settings-hooks.json copies); both check SKILL.md deleted x2 copies; gauntlet-setup added; SKILL_NAMES=9; hook + stop-self-check.sh clause(D) landed x2; 28 files +1432/-686. App GREEN (41 tests, roster 4 MAJOR/12 CAPTAIN/10 LIEUTENANT = net LIEUTENANT -1 per directive). ADA flagged + fixed in-scope one design-drift: gauntlet-setup frontmatter description had unquoted colons -\u003e js-yaml abort -\u003e converted to 'description: |' literal block (text byte-preserved; ~/.claude source untouched; web-verified; team-launcher already uses this). Now dispatching VERA for the rev2 §3 probes (P-EMPIRICAL deterministic surface, P-FALLBACK reader, real non-dry-run recompose, G-a/G-b carve-out gates, NOSETTINGS). VERA uses mktemp-throwaway for P-EMPIRICAL -- no live settings.json. Will surface the post-VERA/CATO build to you before it propagates up.",
       "timestamp": "2026-06-17T21:35:18Z"
+    },
+    {
+      "text": "[from: VERA Arc63] VERA activated on stoa--p41.2 pass A. Read brief + design-rev2 §3 probe set end-to-end + role file. Classifying probes per verification-complexity quadrant; beginning execution against d08aef0 in arc-63/build worktree.",
+      "timestamp": "2026-06-17T21:36:01Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-17T21:35:18Z"
+  "updated_at": "2026-06-17T21:36:01Z"
 }
