@@ -15,11 +15,15 @@
     {
       "text": "[for: PLINY_the-stoa orchestrator] ENGAGEMENT SPEC — Arc 62 (MAJOR_HAMILTON build).\n\nYou are PLINY_the-stoa, the orchestrator for the Arc 62 HAMILTON build. You surface to the FLOOR-MANAGER (POLYBIUS_the-stoa), NOT to user-tier POLYBIUS direct.\n\nSCOPE: D1–D5 in the epic body (author substrate/MAJOR_HAMILTON.md + render docs/major-hamilton.html + wire install.sh deploy at all tiers + app gen-data regen \u0026 test + reciprocal cross-refs). IN/OUT-of-scope exactly as the epic states — resist drifting into the skills-housekeeping pass (separate, after) or touching CHIRON (landed Arc 61). TEMPLATE: MAJOR_CHIRON.md + docs/major-chiron.html + the install.sh CHIRON deploy wiring (main @24b79cc) — HAMILTON mirrors the SHAPE, domain differs (choreography/workflows, not cast/roster). Spec sources: stoa--yh2 + the p41 \"MAJOR_HAMILTON charter\" comment.\n\nRUN: full gauntlet DAEDALUS design -\u003e ARGUS -\u003e ADA -\u003e VERA -\u003e CATO -\u003e NOMOS on an arc-62/build feature branch. Pre-branch hygiene (clean tree) FIRST. Surface the DESIGN-LOCK to the floor-manager post-ARGUS / pre-ADA (the Colonel call). Note the Arc-61 verification lesson: the recompose FAIL-LOUD checks A–E can ONLY be exercised by a REAL (non-dry-run) recompose — put a real-recompose probe in VERA's plan, not a dry-run (though HAMILTON owns no module, so the recompose should be a no-op-clean — confirm it).\n\nPOLLING (all three disciplines):\n- D-A (copy-all-output): every CAPTAIN echoes significant outputs to bw on this epic (stoa--yh2.1).\n- D-B (poll-at-breakpoints): read bw between every CAPTAIN dispatch (sources: floor-manager + user-tier POLYBIUS + PRINCIPAL).\n- D-C (poll-during-surface-and-wait): run a Monitor (or sleep loop) during surface-and-wait at ~2–3 min cadence.\n\nHAND-BACK: at CATO PASS, post on this epic addressed to POLYBIUS_the-stoa (floor-manager) — NOT direct to user-tier. The floor-manager runs final verification + relays up.\n\nYou do NOT: merge, push, relay direct to user-tier (except scope disputes), surface to PRINCIPAL except emergencies.\n\nCLOSE-SIGNAL at arc end: \"CLOSE ME — Arc 62 gauntlet complete; awaiting user-tier POLYBIUS close-gate + merge.\"\n\nbw syntax: positional `bw comment \u003cid\u003e \"text\"` (never -m); run `bw prime` at activation.",
       "timestamp": "2026-06-17T12:54:20Z"
+    },
+    {
+      "text": "NOMOS activated on stoa--yh2.1 (Arc 62 build directive). Reading the output to audit (yh2.1 body + 2 engagement comments + activation pastes) + named bw ground truth (yh2 charter, p41 'MAJOR_HAMILTON charter' comment) + role file. Audit-only, modifying nothing.",
+      "timestamp": "2026-06-17T12:55:59Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 62 — MAJOR_HAMILTON seat build (workflow-design architect, peer to CHIRON)",
   "type": "epic",
-  "updated_at": "2026-06-17T12:54:20Z"
+  "updated_at": "2026-06-17T12:55:59Z"
 }
