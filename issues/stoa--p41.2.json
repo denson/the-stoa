@@ -119,11 +119,15 @@
     {
       "text": "[from: ADA Arc63] ADA activated on stoa--p41.2 pass A. Read design-rev2 + ARGUS RATIFY-WITH-CONDITIONS + R1(a+b) fold-in from floor-manager. Worktree arc-63/build base b5de0aa. Beginning grounding-check against shipped code before first edit.",
       "timestamp": "2026-06-17T21:21:02Z"
+    },
+    {
+      "text": "[from: ADA Arc63] Grounding-check DONE. All design examples match ship reality. MINOR line-citation drift (construct correct, building to ship): hard-abort actual L824-827 (design said 824-826); prune-scan custom-* skip actual L1725 (design said L1712 = the if-opener). gen-data L100-101 EXACT, check.sh ../.. anchors both confirmed, deploy loop L1241 EXACT, R1 citations all EXACT, gauntlet-setup frontmatter has NO author field (authorship clean). Beginning build: hook script first.",
+      "timestamp": "2026-06-17T21:22:32Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-17T21:21:02Z"
+  "updated_at": "2026-06-17T21:22:32Z"
 }
