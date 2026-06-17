@@ -135,11 +135,15 @@
     {
       "text": "[from: ADA Arc63] DESIGN-DRIFT FLAG + fix-now: design §2.3/rev1 claimed gauntlet-setup 'frontmatter parses clean'. FALSE against gen-data's gray-matter/js-yaml parser: the description: scalar contains unquoted colons ('failure modes:') -\u003e 'mapping values not allowed' parse error -\u003e gen-data aborts -\u003e app NOT green. Shipped sibling team-launcher already uses YAML block scalar 'description: |' for exactly this. FIX (preserves description text byte-for-byte, only the YAML wrapper changes; body stays verbatim): convert gauntlet-setup frontmatter to 'description: |' block scalar. Web-verified (gsearch) this is the canonical gray-matter colon fix. Applying as in-scope fix-now; flagging in verdict. NOT touching the ~/.claude source-of-truth copy.",
       "timestamp": "2026-06-17T21:30:55Z"
+    },
+    {
+      "text": "[from: ADA Arc63] pass: build COMPLETE + committed d08aef0 on arc-63/build. 28 files, +1432/-686. App GREEN: gen-data 0, build 0, 41 tests pass (3 files); LIEUTENANT 11-\u003e10 (-1). All 9 deliverables + R1(a+b) landed; duality pairs byte-identical; SKILL_NAMES=9; 4 check SKILL.md deleted, scripts retained; both carve-outs in install.sh; F1 clause(D)+CLAUDE.md; gitignore both layers; doc-fix v2.1.170 narrow. Author=denso (PRINCIPAL), both Co-Authored-By trailers present. NO live settings.json. save-verdict scratch left untracked. NO gate fired. ONE design-drift flagged+fixed: gauntlet-setup description-\u003eYAML block scalar (gen-data colon parse; text byte-identical). NOT pushed/merged. Returning.",
+      "timestamp": "2026-06-17T21:33:46Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-17T21:30:55Z"
+  "updated_at": "2026-06-17T21:33:46Z"
 }
