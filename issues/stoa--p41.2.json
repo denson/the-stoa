@@ -183,11 +183,15 @@
     {
       "text": "[from: CATO Arc63] Authorship audit CLEAN (no non-Denson author field). R1 grep clean. Empirical hook probe (live git-bash): current→silent, drift→valid JSON + signal write, date -r throttle works, stdout discipline clean. NOSETTINGS independently re-confirmed. Now: final scope sweep + ARGUS R1 condition + verdict drafting.",
       "timestamp": "2026-06-17T21:50:28Z"
+    },
+    {
+      "text": "[from: CATO Arc63] PASS (PASS-WITH-NITS). 0 blocking findings; 3 minor nits routed to follow-ups (c1 pre-existing curl w/o --max-time bounds boot 10-20s under net-stall; c2 untouched MAJOR_POLYBIUS 'sync skill' terminology; c3 timeout/date-r env-dependency, both verified present in-env). Authorship audit CLEAN (no non-Denson author field; gauntlet-setup has none). Scope confined to 5 deliverables + R1, no pass-B leak. Doc-fix honest (narrows to startup|resume, keeps #55889/#15174 caveat). Empirically probed the hook end-to-end in live git-bash: current-\u003esilent, drift-\u003evalid JSON+signal write. VERA meta-verdict SOUND -- independently re-confirmed NOSETTINGS (live settings.json byte-unchanged, 0 hook refs), G-a trap-closed (anchored name-grep zero), generated.test.ts assertion untouched. Verdict at agents/verdicts/stoa--p41.2/CATO-2026-06-17T21-51-04Z.md. Returning.",
+      "timestamp": "2026-06-17T21:54:33Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-17T21:50:28Z"
+  "updated_at": "2026-06-17T21:54:33Z"
 }
