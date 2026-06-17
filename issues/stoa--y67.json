@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-17T11:57:41Z",
+  "description": "ROOT CAUSE of the Arc-61 L65 latent break: CAPTAIN_NOMOS (Arc50) + CAPTAIN_TIRO (Arc38) were added to substrate + install.sh CAPTAIN_NAMES, but app/src/data/__tests__/generated.test.ts's hardcoded expected-list + toHaveLength(10) were never updated AND gen-data was not re-run — so generated/agents.ts stayed stale-but-passing (10). Arc-61's gen-data regen surfaced it (12 != 10), red on npm test. Any future MAJOR/CAPTAIN/skill roster add hits the same trap. PLAN: (a) add a checklist line to the roster-add path (CHIRON §7 agent-author capability + the install.sh *_NAMES edit): 'after adding a roster seat, re-run npm run gen-data AND update generated.test.ts membership+count assertions'; (b) consider a test/CI guard that regenerates gen-data and diffs vs committed generated.ts so stale data fails LOUDLY instead of passing against stale data. Anchor: Arc-61 build-verify convergence (POLYBIUS pre-commit L55 + NOMOS/VERA-V4/CATO L65).",
+  "id": "stoa--y67",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "[PROCESS arc-61] generated.test.ts roster assertions go stale when a CAPTAIN/MAJOR is added without a gen-data regen",
+  "type": "task",
+  "updated_at": "2026-06-17T11:57:41Z"
+}
