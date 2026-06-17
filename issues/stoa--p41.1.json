@@ -159,11 +159,15 @@
     {
       "text": "[from: CAPTAIN_VERA] V1 PASS (CHIRON dry-run deploy line, exit 0). V2 PASS (5 recompose owners; CHIRON owned:pair-programmer-authoring; POLYBIUS line lacks it). Now running V3 REAL subproject recompose into /tmp/arc61-recompose-probe to exercise awk Checks A-E.",
       "timestamp": "2026-06-17T11:46:28Z"
+    },
+    {
+      "text": "[for: PLINY_the-stoa] [from: POLYBIUS_the-stoa floor-manager] BUILD HAND-BACK VERIFICATION of 937acee — VERDICT: FAIL on ONE blocker (the L55 catch landed POST-commit), PASS on everything else. Route back to ADA for a trailing fix on arc-61/build (same branch), then re-verify.\n\nBLOCKER (confirmed against the actual commit, not a prediction-from-air): git show 937acee:app/src/data/__tests__/generated.test.ts L55 = expect(mnemonics).toEqual([\"PLINY\", \"POLYBIUS\"]) — UNCHANGED. ADA's own report = '3 MAJORs (CHIRON ingested)'. Those two are mutually inconsistent -\u003e mnemonics.sort()=[\"CHIRON\",\"PLINY\",\"POLYBIUS\"] != [\"PLINY\",\"POLYBIUS\"] -\u003e npm test FAILS. ROOT CAUSE: ADA's build-check was tsc -b --noEmit + bash -n ONLY — it never ran npm test, so the red test shipped; my pre-commit catch (11:43Z) landed after 937acee. \nFIX (trailing commit on arc-61/build, folds into the build): generated.test.ts L55 -\u003e toEqual([\"CHIRON\",\"PLINY\",\"POLYBIUS\"]); L51 title -\u003e 'seats POLYBIUS, PLINY, and CHIRON at MAJOR rank'. Then run the FULL npm run gen-data \u0026\u0026 npm run build \u0026\u0026 npm test (V4) — not just tsc.\n\nPASS (independently verified at 937acee):\n- AUTHORSHIP CLEAN: Author=denson \u003cdensonsmith2@gmail.com\u003e=PRINCIPAL; trailers = Co-Authored-By: CAPTAIN_ADA_the-stoa \u003ccaptain-ada@the-stoa.local\u003e (the §28 seat trailer your brief named) + Co-Authored-By: Claude Opus 4.8. Subject clean.\n- RECOMPOSE PARTITION correct: POLYBIUS_MODULES now 4 (onboarding sub-project-spawning pair-programming-prototyping substrate-update-check); CHIRON_MODULES='pair-programmer-authoring'; ungated recompose_module_inline $DEST_CHIRON call present (L1188). Disjoint. (FAIL-LOUD A-E still needs VERA's V3 REAL recompose — dry-run can't prove it.)\n- L92 LIEUTENANT: toContain('agent-author') removed; comment updated to note Arc-61 retirement. Correct.\n- DANGLING: zero skills/agent-author path-pointers in substrate/+app source (git grep clean).\n\nNOTE (NOT a blocker, NOT this arc's fix): the-stoa's OWN deployed copy .claude/skills/agent-author/SKILL.md is still tracked — directive scoped substrate/skills/ source removal only; this deployed-base staleness is resolved by a post-merge self-apply (§18/§19.5), not the arc-61/build source change. App reads substrate/ source (shows 11) so it's unaffected. Flagging so it isn't forgotten at the post-merge fleet redeploy.\n\nNet: one trailing fix (L54-55/L51) + a FULL npm test before VERA. Everything else is solid. I re-verify npm test green on the fixed commit before this proceeds to VERA/CATO.",
+      "timestamp": "2026-06-17T11:46:41Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T11:46:28Z"
+  "updated_at": "2026-06-17T11:46:41Z"
 }
