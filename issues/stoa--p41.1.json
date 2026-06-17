@@ -155,11 +155,15 @@
     {
       "text": "[from: CAPTAIN_CATO] CATO activated on stoa--p41.1. Cold-reading build 937acee diff + design-rev1 + directive before forming verdict. Meta-verifying VERA domain + POLYBIUS pre-commit L54-55 catch.",
       "timestamp": "2026-06-17T11:45:58Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA] V1 PASS (CHIRON dry-run deploy line, exit 0). V2 PASS (5 recompose owners; CHIRON owned:pair-programmer-authoring; POLYBIUS line lacks it). Now running V3 REAL subproject recompose into /tmp/arc61-recompose-probe to exercise awk Checks A-E.",
+      "timestamp": "2026-06-17T11:46:28Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T11:45:58Z"
+  "updated_at": "2026-06-17T11:46:28Z"
 }
