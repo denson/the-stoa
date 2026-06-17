@@ -93,6 +93,27 @@ REASON='Self-check before ending this turn (Stoa Stop backstop):
 (C) Any commit you landed this turn carries the seat-identity Co-Authored-By trailer your dispatch brief named, and its Author: is the PRINCIPAL.
 If all three hold, restate "self-check A/B/C clear" and stop. If any fails, fix it now before stopping.'
 
+# (D) SUBSTRATE-DRIFT SIGNAL reader (Arc 63 / stoa--p41.2; design-rev2 §2.8 — the
+# F1 P-FALLBACK reader). The SessionStart(startup|resume) substrate-check hook
+# writes .claude/.substrate-drift-signal on drift; this is the GUARANTEED non-
+# additionalContext carrier — the signal rides the SAME decision:"block"+reason
+# JSON the A/B/C checklist already uses, so it surfaces even if additionalContext
+# regresses. The reader runs AFTER the infinite-block guard (the sentinel check
+# above), so it inherits the once-per-turn semantics (no loop). It does NOT clear
+# the signal — clearing is the check's job (a clean SessionStart check rm's it; a
+# Stop fire is not evidence the drift was resolved). FAIL-OPEN: any read failure
+# leaves REASON as the unchanged A/B/C.
+SIG_FILE="${CWD}/.claude/.substrate-drift-signal"
+if [ -f "$SIG_FILE" ]; then
+  SIG_BODY="$(cat "$SIG_FILE" 2>/dev/null)" || SIG_BODY=""
+  if [ -n "$SIG_BODY" ]; then
+    REASON="${REASON}
+(D) SUBSTRATE-DRIFT SIGNAL present (.claude/.substrate-drift-signal): ${SIG_BODY}
+    This is informational/non-blocking — surface it to the PRINCIPAL/operator; do not auto-apply.
+    Run check-substrate-updates/check.sh --workspace . (or apply.sh) per the body."
+  fi
+fi
+
 # Build the Stop block JSON (decision:"block" + reason). Encode the reason via
 # python3 so embedded quotes/newlines are escaped. If python3 is gone, FAIL-OPEN.
 REASON_JSON="$(REASON="$REASON" python3 -c 'import os,json,sys; sys.stdout.write(json.dumps(os.environ["REASON"]))' 2>/dev/null)" || allow
