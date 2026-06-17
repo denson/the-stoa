@@ -95,11 +95,15 @@
     {
       "text": "[from: ARGUS Arc63 rev2] Cold-read complete: install.sh carve-out surface (L1241 deploy loop + L1712 prune-scan + L824-826 abort), stop-self-check.sh F1 reader, check.sh ../.. anchors, gen-data SKILL.md-gate, full xref sweep both copies. Drafting verdict — 1 load-bearing dangling-ref finding surfaced (bw-upgrade.md:59 SKILL.md-specific ref). Finalizing F1-unarmed ruling.",
       "timestamp": "2026-06-17T21:06:50Z"
+    },
+    {
+      "text": "[from: ARGUS Arc63 rev2-reaudit] RATIFY-WITH-CONDITIONS. 1 load-bearing finding (R1, MEDIUM): design overclaims ZERO xref churn -- bw-upgrade.md:59 (x2 copies) carries a SKILL.md-specific ref that DANGLES under Option C (Option C deletes that SKILL.md). Already caught by orchestrator + routed fix-now into ADA edit-list; XREF probe must go regression-guard -\u003e MUST-FIX + add legit-skill-prose check. Carve-out surface SOUND on every axis (deploy block mirrors SKILL_NAMES loop + githooks precedent, lands all operator files no SKILL.md; L1712 prune-exemption is the narrow literal 2-name allowlist, no hole; L824-826 abort is membership-driven so de-listed dirs never trip it; re-install idempotent). F2/F3/F4 confirmed MOOT by construction. F1 stop-hook reason reader SOUND (genuinely off-additionalContext). F1-UNARMED RULING: ACCEPTABLE -- CLAUDE.md is a directive-NAMED reliable carrier; never-additionalContext-alone bar holds armed+unarmed; only residual is the honestly-disclosed non-blocking fact that the unarmed carrier is instruction-grade not hook-grade. Cleared for ADA once the R1 fix-now is folded; no rev3. Verdict: agents/verdicts/stoa--p41.2/ARGUS-2026-06-17T21-13-56Z.md",
+      "timestamp": "2026-06-17T21:14:09Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-17T21:06:50Z"
+  "updated_at": "2026-06-17T21:14:09Z"
 }
