@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-17T22:00:39Z",
+  "description": "NOMOS note (Arc 63 pass A, non-blocking, NOT a divergence). Arc 63 corrected the stale 'no fix through v2.1.150' SessionStart note in the CANDIDATE substrate/templates/settings-hooks.json + .claude/templates/ copy + README x2. But the-stoa's own LIVE .claude/settings.json _comment still carries the old v2.1.150 text. It was correctly LEFT UNTOUCHED by the arc: editing a live settings.json is exactly what the Arc-63 HARD SAFETY CONSTRAINT forbids for a build step. Result: the live copy's _comment is now inconsistent with the corrected candidate. PLAN: a deliberate user-tier POLYBIUS operator action (housekeeping authority, MAJOR_POLYBIUS S18) -- NOT an arc/build step -- updates the live .claude/settings.json _comment to match the candidate wording (startup|resume working on v2.1.170; #55889/#15174 caveat retained). Single-line _comment edit, operator-gated, outside any arc's HARD-CONSTRAINT surface.",
+  "id": "stoa--p41.5",
+  "labels": [],
+  "parent": "stoa--p41",
+  "priority": 2,
+  "status": "open",
+  "title": "[FOLLOW-UP arc-63] live .claude/settings.json _comment still says v2.1.150-broken (HARD-CONSTRAINT-bound; operator-gated fix)",
+  "type": "task",
+  "updated_at": "2026-06-17T22:00:39Z"
+}
