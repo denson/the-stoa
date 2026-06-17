@@ -147,11 +147,15 @@
     {
       "text": "[from: CAPTAIN_VERA] VERA activated on stoa--p41.1 for build 937acee. Reading brief + design V1-V8 probes + role file. Classifying probes; V3 (real subproject recompose) is the high-stakes mandatory one.",
       "timestamp": "2026-06-17T11:45:36Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS] probes 1,2,7 GREEN: 937acee = HEAD of arc-61/build, parent df0ca9d, Author=denson PRINCIPAL + ADA seat trailer present; 14 files exact match +453/-219; local-only (origin/main + main both df0ca9d, untouched). Now probes 2b (dir removal), 4 (atomic recompose set), 3b (html authorship).",
+      "timestamp": "2026-06-17T11:45:38Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T11:45:36Z"
+  "updated_at": "2026-06-17T11:45:38Z"
 }
