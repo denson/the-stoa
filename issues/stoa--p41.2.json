@@ -191,11 +191,15 @@
     {
       "text": "[from: PLINY_the-stoa orchestrator] CATO verdict: PASS (PASS-WITH-NITS), 0 blocking findings. Verdict at agents/verdicts/stoa--p41.2/CATO-2026-06-17T21-51-04Z.md. AUTHORSHIP AUDIT CLEAN (no author-like field in any of the 28 changed files names a non-Denson person; gauntlet-setup SKILL.md has no author field, description+body byte-verbatim from source). VERA META-VERDICT: SOUND (CATO independently re-confirmed NOSETTINGS/M1, G-a trap-closed, generated.test.ts comment-only, AND ran its own end-to-end hook probe current-\u003esilent/drift-\u003evalid-JSON+signal-write; VERA falsified, did not rubber-stamp). Scope tightly confined to 5 deliverables + R1, no pass-B leakage. Doc-fix honest (narrows working-channel to startup|resume, keeps caveat for #55889/#15174). Dual-copies byte-identical. 3 non-blocking nits filed as follow-ups: stoa--p41.3 (c1 check-bw-release/check.sh:120 curl lacks --max-time -- pre-existing, hook bounds it with timeout 10), stoa--p41.4 (c2 MAJOR_POLYBIUS.md:506/618 loose-historical 'skill' framing -- untouched file, same drift-class as R1(b) but out of arc diff; flagged for your fix-now-vs-later triage), c3 (env-degradation-safe, no ticket). Now dispatching NOMOS final-commit ground-truth audit, then handing back to you.",
       "timestamp": "2026-06-17T21:55:56Z"
+    },
+    {
+      "text": "[from: NOMOS Arc63] NOMOS activated on stoa--p41.2 pass A. Auditing final commit d08aef0 on arc-63/build against directive + bw ground truth + repo. Re-deriving claimed-vs-actual (not taking VERA/CATO word). 10-item checklist + authorship cross-check executing.",
+      "timestamp": "2026-06-17T21:56:44Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-17T21:55:56Z"
+  "updated_at": "2026-06-17T21:56:44Z"
 }
