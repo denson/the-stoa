@@ -143,11 +143,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS] NOMOS activated on stoa--p41.1. Auditing build 937acee on arc-61/build against git + worktree ground truth. Reading output + role file. 8 probes: SHA/branch, file set, authorship, atomic recompose set, SKILL_NAMES, app regen, no-premature-landing, bw consistency.",
       "timestamp": "2026-06-17T11:45:14Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA] VERA activated on stoa--p41.1 for build 937acee. Reading brief + design V1-V8 probes + role file. Classifying probes; V3 (real subproject recompose) is the high-stakes mandatory one.",
+      "timestamp": "2026-06-17T11:45:36Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T11:45:14Z"
+  "updated_at": "2026-06-17T11:45:36Z"
 }
