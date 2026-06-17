@@ -7,9 +7,15 @@
   "id": "stoa--p41.1",
   "labels": [],
   "parent": "stoa--p41",
+  "comments": [
+    {
+      "text": "NOMOS activated on the two Arc 61 activation pastes (floor-manager + PLINY) at attachments/stoa--p41.1/. Reading the pastes + the named bw tickets (p41 charter, p41.1 epic) + directive + role files. Read-only audit; will not edit the pastes or patch bw.",
+      "timestamp": "2026-06-17T10:45:40Z"
+    }
+  ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T10:42:54Z"
+  "updated_at": "2026-06-17T10:45:40Z"
 }
