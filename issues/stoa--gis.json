@@ -6,9 +6,15 @@
   "description": "In-progress HTML displays the agent roster as 'agent cards' in a role-playing-game framing. Roadmap: (1) modify it to consume the a2a (agent-to-agent) marketplace card as its single-source-of-truth data feed for the roster; (2) add per-agent imagery (PRINCIPAL generating images per agent via OpenAI image generation). Rendering/interaction template: docs/debloat-decision-surface.html + the interactive-html-preview skill. App home: app/. Sibling of the end-user team-surface roadmap ticket.",
   "id": "stoa--gis",
   "labels": [],
+  "comments": [
+    {
+      "text": "Gallery coverage gap (2026-06-16): docs/agent-cards/ (image-manifest.json) covers the 14 standard seats (POLYBIUS, PLINY + 12 CAPTAINs). The two NEW design-layer architects -- CHIRON (stoa--p41) and HAMILTON (stoa--yh2) -- have NO cards yet. Each needs: an OpenAI-generated image + a manifest entry (gen prompt + metadata, matching prompts.md style) + a gallery entry in index.html. Also worth a representative for the new SENTINEL seat kind. Roster is now 16; gallery is at 14.",
+      "timestamp": "2026-06-17T00:24:46Z"
+    }
+  ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Agent-card display (RPG framing) — consume a2a marketplace card + per-agent OpenAI images",
   "type": "task",
-  "updated_at": "2026-06-04T23:34:09Z"
+  "updated_at": "2026-06-17T00:24:46Z"
 }
