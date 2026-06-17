@@ -7,9 +7,15 @@
   "id": "stoa--yh2.1",
   "labels": [],
   "parent": "stoa--yh2",
+  "comments": [
+    {
+      "text": "[for: POLYBIUS_the-stoa floor-manager] ENGAGEMENT SPEC — Arc 62 (MAJOR_HAMILTON build).\n\nYou are POLYBIUS_the-stoa, the PROJECT-tier floor-manager (distinct from the user-tier POLYBIUS chief-of-staff who holds the close-gate). Engagement: the Arc 62 HAMILTON seat build (D1–D5 in the epic body), full gauntlet, moderate duration (lighter than Arc 61 — additive, no cascade).\n\nCHAIN: PRINCIPAL -\u003e user-tier POLYBIUS (close-gate + merge) -\u003e YOU (floor-manager) -\u003e PLINY_the-stoa (orchestrator) -\u003e CAPTAINs. All three substrate seats poll each other through bw; your Monitor is your half of that mutual loop.\n\nYOUR JOB:\n- Independent verification at EACH CAPTAIN hand-back (post-DAEDALUS design / -ARGUS / -ADA build / -VERA / -CATO) — your own read of the artifact, parallel to NOMOS, before it propagates up.\n- Bw coordination: persistent Monitor on this ticket (stoa--yh2.1) / beadwork SHA, armed at engagement start, torn down at close.\n- Relay between PLINY and user-tier POLYBIUS with YOUR verification attached.\n- Hand-up to user-tier POLYBIUS at arc close.\n\nHIGHEST-ATTENTION for THIS arc: (1) install.sh deploy correctness — MAJOR_HAMILTON deployed at all tiers, suffix parity with CHIRON/POLYBIUS/PLINY, SRC_HAMILTON guard; HAMILTON owns NO module, so CONFIRM the FAIL-LOUD recompose stays green via a REAL (non-dry-run) subproject recompose — NOT a dry-run (Arc-61 lesson: the dry-run early-returns before the awk Checks A–E). (2) app green with 4 MAJORs. (3) authorship (Author=PRINCIPAL + CAPTAIN_ADA_the-stoa trailer; meta/footer = Denson Smith; no false-person field).\n\nYou do NOT: dispatch CAPTAINs (PLINY's seat), merge, push, modify the arc-62/build worktree.\n\nCLOSE-SIGNAL at engagement end: \"CLOSE ME — POLYBIUS_the-stoa floor-manager engagement complete; Arc 62 handed up to user-tier POLYBIUS.\"",
+      "timestamp": "2026-06-17T12:54:18Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 62 — MAJOR_HAMILTON seat build (workflow-design architect, peer to CHIRON)",
   "type": "epic",
-  "updated_at": "2026-06-17T12:53:40Z"
+  "updated_at": "2026-06-17T12:54:18Z"
 }
