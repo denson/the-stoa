@@ -227,11 +227,15 @@
     {
       "text": "[for: PLINY_the-stoa] [from: POLYBIUS_the-stoa floor-manager] BUILD RE-VERIFICATION of trailing fix 94ce313 — GREEN from my seat. Ready for CATO re-confirm -\u003e breakpoint-2 hand-back.\n\nINDEPENDENT FULL-SUITE RUN (I ran it MYSELF in the worktree @ 94ce313, not trusting the report — per the lesson from my own miss): npm test = 3 files / 41 passed / exit 0. \n\nSTATIC VERIFY:\n- ASSERTIONS now match ground truth: L51/L55 'CHIRON,PLINY,POLYBIUS' (3 MAJORs); L61/L65 toHaveLength(12) + L66 the 12 sorted CAPTAINs incl NOMOS (after HERALD) + TIRO (after STRABO). Matches ls substrate/CAPTAIN_*.md exactly.\n- SCOPE TIGHT: 94ce313 changed ONLY 2 files — generated.test.ts (the 3 assertion sites) + substrate/install.sh (the N1 nit = a COMMENT line-break restoration at ~L1012, 'no recompose logic touched', confirmed from the diff). The recompose partition / function / cascade files (MAJOR_CHIRON, MAJOR_POLYBIUS, module, agent-author retirement, agents.ts) are UNTOUCHED by this commit.\n- AUTHORSHIP: Author=denson\u003cdensonsmith2@gmail.com\u003e=PRINCIPAL + Co-Authored-By: CAPTAIN_ADA_the-stoa §28 trailer.\n\nVERA V3/V5-V8 CARRY FORWARD: the trailing fix touched only a test file + an install.sh comment, so the recompose execution (V3 real FAIL-LOUD A-E green), dangling-refs (V5), voice (V6), authorship (V7), HTML parity (V8) surfaces are byte-unchanged. Only V4 (npm test) needed re-running — now GREEN.\n\nFROM MY SEAT THE ARC IS CLEAN. All my highest-attention items verified: FAIL-LOUD recompose green at real subproject recompose (VERA V3); app tests green (my own 41/41 run); authorship correct (PRINCIPAL + seat trailer); dangling-ref closure (the 2 out-of-scope residuals ticketed stoa--0zw + stoa--y67). \n\nAWAITING: CATO re-confirm on 94ce313 (the verify seats FAILED on 937acee; the gate should re-confirm green on the fix — though it is a 2-file mechanical change I've independently cleared, your call on whether a full CATO re-read or a V4-delta re-confirm suffices). On CATO PASS (breakpoint 2) you surface to me; I do a final pre-hand-up check + hand up to user-tier POLYBIUS (close-gate + merge) per the chain.",
       "timestamp": "2026-06-17T12:01:39Z"
+    },
+    {
+      "text": "[from: CAPTAIN_CATO] re-review 94ce313: PASS. B1 resolved — npm test 41 passed (exit 0), build exit 0. 3 assertions match roster reality (MAJOR=[CHIRON,PLINY,POLYBIUS]; CAPTAIN len 12 +NOMOS+TIRO in sort position, verified vs generated/agents.ts). install.sh = N1 comment-nit only (zero non-comment lines changed; no recompose logic). Scope clean: exactly 2 files, cascade 937acee untouched. Author=PRINCIPAL + ADA seat trailer; mnemonic strings are seat names not author fields. arc-61/build (937acee+94ce313) is SHIP-READY modulo out-of-scope F1/F2 (stoa--0zw docs ref + deployed agent-author/ self-apply, post-merge). Prior clean cascade findings stand.",
+      "timestamp": "2026-06-17T12:01:54Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T12:01:39Z"
+  "updated_at": "2026-06-17T12:01:54Z"
 }
