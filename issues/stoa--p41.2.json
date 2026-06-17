@@ -47,11 +47,15 @@
     {
       "text": "[from: ARGUS Arc63] Audit pass 1 complete; 6 candidate risks surfaced, classifying by severity + quadrant. Confirmed via source: (1) NOTHING reads .substrate-drift-signal — stop-self-check.sh has a fixed A/B/C checklist, no signal reader; CLAUDE.md has none either (P-FALLBACK reader-gap). (2) check.sh state files are '../..'-located so relocation silently moves baselines. (3) hook pseudocode hard-codes .claude/skills/check-*/check.sh but §4 relocates OUT of skills/ — path won't resolve. (4) gsearch: claude -p DOES fire startup matcher + a deterministic --debug/transcript surface exists (probe's model-echo assertion is the soft part). Finalizing verdict.",
       "timestamp": "2026-06-17T20:38:58Z"
+    },
+    {
+      "text": "[from: ARGUS Arc63] RATIFY-WITH-CONDITIONS. 4 load-bearing risks. Verdict: agents/verdicts/stoa--p41.2/ARGUS-2026-06-17T20-47-06Z.md. TOP-3: (F1 HIGH) P-FALLBACK has NO reader — design WRITES .substrate-drift-signal but grep shows ZERO non-additionalContext readers; stop-self-check.sh has a fixed A/B/C checklist + reads no signal file, CLAUDE.md neither; the design throttle-path re-surface re-emits via additionalContext, collapsing back onto the channel the fallback must survive (defeats the directive P-FALLBACK clause). (F2/F3 HIGH) the §4 RELOCATION the design RECOMMENDS breaks two things it does not address: check.sh state-files are located two-levels-above-the-script so moving to substrate/maintenance/ silently moves the baselines (F2); and the hook pseudocode hard-codes .claude/skills/check-*/check.sh which will NOT resolve after the dirs leave skills/ (F3, silent fail-open). (F4 MED) xref blast radius understated (~6 claimed; denser: POLYBIUS L512+L624, op-disc L373+L967, recomposed module substrate-update-check.md L12, bw-upgrade L15/47/59). SCOPE CALL for floor-manager (I surface, do NOT decide): §4-alt (delete only the 2 SKILL.md files, dirs stay) avoids F2+F3+F4 SIMULTANEOUSLY and equally closes the stale-LIEUTENANT trap (gen-data-lib L100-101 verified) — materially lower-risk for housekeeping pass A; the design recommends the higher-blast-radius option, names §4-alt only as fallback. P-EMPIRICAL: RUNNABLE (gsearch: claude -p DOES fire startup) but model-echo assertion is soft — a deterministic claude --debug hooks / transcript-JSONL surface exists, VERA should prefer it. M1/HARD-CONSTRAINT structurally sound, recompose unaffected, SKILL_NAMES/frontmatter/half-retired-trap/gitignore all clean. Returning.",
+      "timestamp": "2026-06-17T20:47:23Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-17T20:38:58Z"
+  "updated_at": "2026-06-17T20:47:23Z"
 }
