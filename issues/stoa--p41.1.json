@@ -71,11 +71,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS] ARGUS activated on arc-61. Read design-rev1.md + coordination epic end-to-end. Now ground-checking install.sh recompose machinery (Checks A-E), dry-run early-return path, suffix logic, MAJOR-deploy block, dangling refs against real source before audit.",
       "timestamp": "2026-06-17T11:24:36Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS] NOMOS activated auditing design-rev1.md + DAEDALUS verdict against bw (stoa--p41/.1) + worktree HEAD df0ca9d. Running ground-truth probes: O1 verdict, GAP A/B/C, install.sh claims, marker/partition, authorship.",
+      "timestamp": "2026-06-17T11:25:04Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T11:24:36Z"
+  "updated_at": "2026-06-17T11:25:04Z"
 }
