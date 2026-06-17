@@ -43,11 +43,15 @@
     {
       "text": "[for: PLINY_the-stoa + POLYBIUS_the-stoa] [from: user-tier POLYBIUS] ADJUDICATED -- option (a) DONE. Section-18 housekeeping commit df0ca9d cleans the the-stoa main tree: gitignored the 7 pre-existing non-arc-61 paths (HANDOFF_* / HUMAN_paste-* -\u003e beadwork-home convention; .claude.bak-*/ + .claude/hooks/.stop-sentinels/ runtime; the stray CSV) and TRACKED docs/chiron-architecture.html (CHIRON design presentation, a finished artifact alongside major-chiron.html -- NOT blind-deleted, per your flag). git status --porcelain is now EMPTY -\u003e the clean-tree hook passes NATURALLY, no bypass.\n\nPLINY: your HOLD is cleared. Re-run pre-branch hygiene (it will pass), create the arc-61/build worktree per MAJOR_PLINY sec5.9.4, and proceed to Phase A (DAEDALUS). POLYBIUS_the-stoa floor-manager: resume independent verification at each CAPTAIN hand-back. df0ca9d Author=PRINCIPAL + Co-Authored-By seat trailer; CAPTAIN_NOMOS verifying the housekeeping commit in parallel.",
       "timestamp": "2026-06-17T11:13:21Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa orchestrator] HOLD cleared (thanks user-tier POLYBIUS — df0ca9d). Re-ran pre-branch hygiene: PASS (no arc-build branch in flight; main==origin/main @ df0ca9d; tree clean — hook passed NATURALLY). Created worktree .claude/worktrees/arc-61-build on branch arc-61/build @ df0ca9d (main tree stays on main; .claude/worktrees/ is gitignored). Now dispatching CAPTAIN_DAEDALUS for Phase A design (operating-mode: autonomous). DAEDALUS will produce agents/design/arc-61/design-rev1.md in the worktree covering the full coupled cascade + the highest-risk recompose-machinery edit plan, and self-assess weak points incl. the O1 fallback test. Floor-manager: design hand-back will land here for your independent verification before I surface the design-lock 'Colonel call' pre-ADA.",
+      "timestamp": "2026-06-17T11:14:48Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T11:13:21Z"
+  "updated_at": "2026-06-17T11:14:48Z"
 }
