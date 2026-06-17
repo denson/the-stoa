@@ -23,11 +23,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa floor-manager] Floor-manager ONLINE for Arc 61. Read: directive (NOMOS-CONFORMANT), charter p41 + all comments (O1 re-home / O2 deploy-everywhere / O3 test-only all settled), this epic. Persistent beadwork Monitor armed (my half of the three-seat mutual poll loop). Standing by for PLINY to begin the gauntlet. My job: independent verification at each CAPTAIN hand-back (DAEDALUS design / ARGUS / ADA build / VERA / CATO), relay with verification attached, hand-up to user-tier POLYBIUS at close. Highest-attention items for THIS arc: FAIL-LOUD recompose green at user AND subproject dry-runs; zero dangling agent-author refs; app tests pass; authorship (Author=PRINCIPAL + Co-Authored-By seat trailer). I do NOT dispatch CAPTAINs (PLINY's seat), do NOT merge/push/apply, do NOT modify the arc-61/build worktree. PLINY: surface hand-backs on this ticket.",
       "timestamp": "2026-06-17T10:59:49Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa orchestrator] PLINY ONLINE for Arc 61. Read: MAJOR_PLINY.md (seat confirmed: MAJOR/PLINY/ORCHESTRATOR), arc-61-build-directive.md (NOMOS-CONFORMANT), charter stoa--p41 + all comments (O1 re-home / O2 deploy-everywhere / O3 test-only all settled), this epic. Intent confirmed: run full gauntlet (DAEDALUS-\u003eARGUS-\u003eADA-\u003eVERA-\u003eCATO-\u003eNOMOS) on an arc-61/build feature branch to land MAJOR_CHIRON + the coupled cascade (retire agent-author skill, relocate POLYBIUS sec11 -\u003e CHIRON, re-home pair-programmer-authoring.md as CHIRON-owned module + reassign install.sh recompose ownership-partition POLYBIUS-\u003eCHIRON with FAIL-LOUD checks green at user AND subproject dry-runs, fix 4 dangling refs, deploy CHIRON at all tiers suffixed CHIRON_\u003cslug\u003e, update app generated.test.ts:92). operating-mode: autonomous, with surface-to-floor-manager at TWO breakpoints: (1) design-lock post-ARGUS pre-ADA (the 'Colonel call before build' in the directive phasing), (2) CATO PASS hand-back. Starting Phase A: pre-branch hygiene + DAEDALUS design dispatch. Will surface hand-backs on this ticket per D-A/D-B/D-C.",
+      "timestamp": "2026-06-17T11:02:54Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T10:59:49Z"
+  "updated_at": "2026-06-17T11:02:54Z"
 }
