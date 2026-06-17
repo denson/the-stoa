@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-17T11:18:16Z",
+  "description": "User-tier rewrite DONE (2026-06-17): ~/.claude/skills/gauntlet-setup/SKILL.md now removes the manual hand-paste method entirely and prescribes launch-team.ps1 as the only launch method. REMAINING (the 'all tiers' half of PRINCIPAL's request): port that corrected skill into the substrate so the discipline deploys everywhere (a project-tier POLYBIUS currently has no gauntlet-setup skill at all).\n\nPLAN: copy the corrected ~/.claude/skills/gauntlet-setup/SKILL.md to substrate/skills/gauntlet-setup/SKILL.md + add 'gauntlet-setup' to install.sh SKILL_NAMES so install deploys it to user + project + subproject tiers. Smoke: install --dry-run; confirm it lands at a consumer's .claude/skills/.\n\nSEQUENCE / DEPS: (1) AFTER Arc 61 merges -- Arc 61 (stoa--p41.1) is concurrently editing install.sh SKILL_NAMES (removing agent-author); doing this now risks a collision + moves the ground under the running arc. (2) Substrate-canon/tooling edit -\u003e needs an arc per section-18. (3) stoa--waa (launch-team.ps1 panes multi-word-quote fix) lets a gauntlet launch in side-by-side panes instead of the -Layout Windows the skill currently prescribes.",
+  "id": "stoa--92e",
+  "labels": [],
+  "priority": 3,
+  "status": "open",
+  "title": "[FOLLOW-UP] Port gauntlet-setup skill into the substrate (deploy to all tiers)",
+  "type": "task",
+  "updated_at": "2026-06-17T11:18:16Z"
+}
