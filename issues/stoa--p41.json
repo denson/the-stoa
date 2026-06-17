@@ -54,11 +54,15 @@
     {
       "text": "NOMOS commit-audit verdict on b1d1caa (Arc 61 directive FINALIZE commit): DIVERGENT on Probe 2 (decision-fidelity, O1). Probes 1/3/4 + all other claims CONFORMANT. DIVERGENCE: the commit moves O1 to 'Resolved by PRINCIPAL 2026-06-16 -\u003e RE-HOME the module' (directive L42-46, D5 L?), but stoa--p41 records NO O1 re-home resolution. The most-recent p41 comment (09:39:18Z, ~14min BEFORE the 09:53:46Z UTC commit) explicitly states 'REMAINING open: O1 (pair-programmer-authoring.md module fate)' and frames it as an unresolved slim-core-vs-recompose tradeoff. O2 (EVERYWHERE/Option B, L114-117) and O3 (slot-stays-populated, generated.test.ts:92, L118+NOMOS-correction L108-109) ARE recorded on p41 and match the directive -- CONFORMANT. Only O1's PRINCIPAL re-home decision is unrecorded in bw ground truth. Spot-checks all CONFORMANT: generated.test.ts:92 = expect(names).toContain('agent-author'); pair-programmer-authoring.md:39 = 'Invoke the agent-author skill'; MAJOR_POLYBIUS.md sec11 MODULE-INLINE:pair-programmer-authoring marker L310-311. Author=denson=PRINCIPAL; scope=only arc-61-build-directive.md (cascade unexecuted); internal consistency clean (no leftover Open-SURFACE section; status FINALIZED/dispatch-ready). Classification: BLOCKED -- the directive asserts a PRINCIPAL ratification (probe-4 PRINCIPAL-gate) that the bw record does not carry. Read-only audit; no edit, no bw patch. Returning.",
       "timestamp": "2026-06-17T09:55:46Z"
+    },
+    {
+      "text": "O1 RESOLVED (PRINCIPAL, 2026-06-16): RE-HOME pair-programmer-authoring.md as a CHIRON-owned module (slim-core option). MAJOR_CHIRON.md hosts it via a MODULE-INLINE-markered stub; the install.sh recompose ownership-partition reassigns it POLYBIUS -\u003e CHIRON; the module's 'Invoke the agent-author skill' line (~:39) repoints to CHIRON section-7. All FAIL-LOUD recompose checks (A/B/C/D/E) must be green at user + subproject dry-runs. Rationale: the substrate's slim-core discipline (lean role files, detail in modules) + the recompose machinery is a known FAIL-LOUD-guarded mechanism POLYBIUS already uses -- one-time build cost, permanent slim-core benefit. FALLBACK (DAEDALUS, surface to POLYBIUS first): if the module's unique content (lineage + pair-programmer framing) is thin and mostly subsumed by CHIRON section-7, fold essentials into section-7 + retire.\n\nThis records the decision the Arc 61 directive (commit b1d1caa) already encodes -- reconciling the NOMOS DIVERGENT finding (the directive asserted O1=re-home before it was on the durable record; recording it here grounds the claim). With this, all three open items (O1/O2/O3) are on the durable record and the directive is faithfully grounded.",
+      "timestamp": "2026-06-17T09:57:17Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Skill-architecture rationalization: MAJOR_CHIRON agent-author seat + re-home specialist skills off the chief-of-staff",
   "type": "task",
-  "updated_at": "2026-06-17T09:55:46Z"
+  "updated_at": "2026-06-17T09:57:17Z"
 }
