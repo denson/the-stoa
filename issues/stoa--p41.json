@@ -46,11 +46,15 @@
     {
       "text": "NOMOS commit-audit verdict on f105512 (Arc 61 spec commit): CONFORMANT. (1) AUTHOR: git Author = denson \u003cdensonsmith2@gmail.com\u003e = PRINCIPAL; no ownership field names a non-Denson person; directive L4 'Authored by: user-tier POLYBIUS (chief-of-staff) + the PRINCIPAL (Denson Smith)' is benign seat+PRINCIPAL attribution (POLYBIUS = agent seat, not a person), not a false-person-authorship field; major-chiron.html L6 meta author = 'Denson Smith' + footer L250 'Author: Denson Smith'. (2) STAGED SET: exactly 3 files, all status A (new): docs/major-chiron.html, substrate/MAJOR_CHIRON.md, substrate/arcs/arc-61-build-directive.md; 499 insertions, 0 deletions. (3) CONTENT FIDELITY: all 3 committed blobs byte-identical to working tree (git diff f105512 -- \u003ceach\u003e empty); MAJOR_CHIRON.md sec7 'The agent-author capability' present at L85. (4) NO PREMATURE LANDING: f105512 touches NONE of install.sh / MAJOR_POLYBIUS.md / skills/agent-author/ (git show --name-only grep returns empty, exit 1); SKILL_NAMES L227 still lists agent-author; substrate/skills/agent-author/SKILL.md still tracked + present; MAJOR_POLYBIUS.md last-touched by 6757a75 (Arc A), NOT f105512. Commit lands ONLY the spec/drafts; cascade unexecuted. Read-only audit; no edit to commit, no bw patch. Returning.",
       "timestamp": "2026-06-17T08:51:48Z"
+    },
+    {
+      "text": "O2 RESOLVED (PRINCIPAL, 2026-06-16): CHIRON deploys at EVERY tier (Option B) -- user + project + subproject, suffixed CHIRON_\u003cslug\u003e at project/subproject parallel to POLYBIUS/PLINY, via the MAJOR deploy logic. Standing-but-dormant architect: available wherever a team lives, engaged only for design work. Rationale: 'ship CHIRON in the main team' (the main team auto-deploys everywhere) + teams should self-architect/evolve in place + tiny cost (one role file per deploy). Arc 61 D2 becomes concrete: install.sh deploys MAJOR_CHIRON at all tiers alongside POLYBIUS/PLINY.\n\nO3 (app LIEUTENANT slot) is effectively RESOLVED per the NOMOS correction above: the slot does NOT empty (12 skills render; removing agent-author leaves 11); only generated.test.ts:92 toContain('agent-author') needs updating.\n\nREMAINING open: O1 (pair-programmer-authoring.md module fate). Note: O2=B deploys CHIRON at SUBPROJECT tier, which makes the recompose machinery relevant if CHIRON owns a module -- so O1 is now a sharper slim-core-vs-recompose tradeoff. The Arc 61 directive will be finalized (O1/O2/O3 -\u003e settled, D2 concrete) + re-committed + NOMOS-verified before dispatch.",
+      "timestamp": "2026-06-17T09:39:18Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Skill-architecture rationalization: MAJOR_CHIRON agent-author seat + re-home specialist skills off the chief-of-staff",
   "type": "task",
-  "updated_at": "2026-06-17T08:51:48Z"
+  "updated_at": "2026-06-17T09:39:18Z"
 }
