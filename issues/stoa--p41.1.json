@@ -167,11 +167,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS] build 937acee ground-truth: DIVERGENT (1 divergence, classification SIZE-DERAIL/under-specified-app-break-set). app DoD ('npm test passes') FAILS on 937acee: ran full suite in worktree -\u003e 2 failed/39 passed, both in generated.test.ts. (a) L55 MAJOR-membership toEqual(['PLINY','POLYBIUS']) FAILS — actual ['CHIRON','PLINY','POLYBIUS'] (the floor-manager URGENT pre-commit catch did NOT land in the commit). (b) L65 CAPTAIN toHaveLength(10) FAILS — actual 12 (NOMOS+TIRO now discovered by gen-data; the FM 'CAPTAIN slot UNAFFECTED' assurance is FALSE by ground truth). ALL OTHER probes GREEN: SHA/branch/parent OK; 14-file set exact +453/-219; Author=denson PRINCIPAL + ADA §28 seat trailer verbatim; agent-author dir gone from committed tree; atomic recompose set (POLYBIUS marker=0, CHIRON 1 pair, partition POLYBIUS-\u003eCHIRON_MODULES, UNGATED L1188 recompose) ALL in 937acee; SKILL_NAMES drop; agents.ts skill-entry=0 path-pointer=0 (6 residual = CHIRON §7 prose); html author meta+footer=Denson Smith; NOT pushed, main+origin/main=df0ca9d untouched, no ticket closed. Routing is orchestrator's (trailing test fix + re-commit, not mine to make). Returning full detail.",
       "timestamp": "2026-06-17T11:47:41Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA] V3 PASS (the high-stakes one). Real recompose exit 0, all 5 success lines, no recompose error. Body parity: 96 inlined lines between CHIRON markers == 96-line source; CHIRON unique-phrase=1, POLYBIUS=0. NOTE: design's raw 'Trigger recognition' grep gives POLYBIUS=2 but those are HEADING-PHRASE COLLISIONS in POLYBIUS-owned sub-project-spawning/pair-programming-prototyping modules, NOT the dropped body (methodology_concern, §5.11). Used module-unique phrases to falsify cleanly. Running V4 app.",
+      "timestamp": "2026-06-17T11:47:47Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T11:47:41Z"
+  "updated_at": "2026-06-17T11:47:47Z"
 }
