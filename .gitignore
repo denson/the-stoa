@@ -19,3 +19,14 @@ agents/**/tkt-A/
 agents/**/tkt-B/
 agents/**/tkt-wt/
 agents/**/_body-*.tmp.md
+
+# user-tier POLYBIUS housekeeping (Arc 61 pre-branch hygiene, 2026-06-17) — keep the-stoa main tree clean.
+# HANDOFF_*/HUMAN_paste-*/PLAN_* tracked home is the beadwork branch (attach to a ticket), NOT main (§18).
+/HANDOFF_*.md
+/HUMAN_paste-*.md
+/PLAN_*.md
+# session backup dirs + Stop-hook runtime sentinels (runtime/throwaway)
+.claude.bak-*/
+.claude/hooks/.stop-sentinels/
+# stray data file (not a repo artifact)
+/LA_sea_level_data.csv

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="author" content="Denson Smith" />
+<title>CHIRON — the Team Architect</title>
+<style>
+  :root{
+    --bg:#0e1014; --bg2:#161a21; --bg3:#1c222c;
+    --ink:#e9e6df; --muted:#98a2b1; --faint:#6b7480;
+    --bronze:#d4af6a; --bronze-dim:#8a7a4f;
+    --blue:#6fa8d4; --green:#5fb38a; --open:#e0894a;
+    --line:#2a2f38; --line2:#363d49;
+    --serif:Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;
+    -webkit-font-smoothing:antialiased}
+  a{color:var(--bronze);text-decoration:none}
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(14,16,20,.86);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);display:flex;gap:2px;align-items:center;
+    padding:10px 20px;overflow-x:auto;font-size:13px}
+  nav .brand{font-family:var(--serif);color:var(--bronze);font-weight:700;letter-spacing:.5px;
+    margin-right:18px;white-space:nowrap}
+  nav a{color:var(--muted);padding:6px 11px;border-radius:6px;white-space:nowrap}
+  nav a:hover{color:var(--ink);background:var(--bg3)}
+  /* layout */
+  section{max-width:940px;margin:0 auto;padding:62px 28px 26px}
+  .sec-tag{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--bronze-dim);
+    font-weight:700;margin-bottom:10px}
+  h1{font-family:var(--serif);font-size:60px;line-height:1.02;margin:.1em 0 .15em;letter-spacing:.5px}
+  h2{font-family:var(--serif);font-size:31px;margin:.1em 0 .5em;letter-spacing:.3px}
+  h3{font-size:16px;margin:0 0 6px;letter-spacing:.3px}
+  p{margin:.5em 0;color:#d7d3ca}
+  .lead{font-size:19px;color:var(--ink)}
+  .muted{color:var(--muted)}
+  .accent{color:var(--bronze)}
+  .blue{color:var(--blue)}
+  strong{color:#fff}
+  /* hero */
+  .hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;
+    border-bottom:1px solid var(--line)}
+  .hero .sub{font-family:var(--serif);font-size:23px;color:var(--bronze);margin:0 0 18px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+  .chip{font-size:12px;border:1px solid var(--line2);border-radius:20px;padding:5px 13px;
+    color:var(--muted);background:var(--bg2)}
+  .chip.warn{border-color:#5a4326;color:var(--open)}
+  .chip.ok{border-color:#2f5040;color:var(--green)}
+  .hook{margin-top:30px;padding:16px 20px;border-left:3px solid var(--bronze-dim);
+    background:var(--bg2);border-radius:0 8px 8px 0;color:var(--muted);font-style:italic;max-width:680px}
+  /* bands */
+  .band{border-top:1px solid var(--line)}
+  .band:nth-child(even){background:#0c0e12}
+  /* cards / grid */
+  .grid{display:grid;gap:14px;margin:22px 0}
+  .g2{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:1fr 1fr 1fr}
+  .card{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:18px 18px}
+  .card h3{color:var(--bronze)}
+  .card.k{border-top:2px solid var(--line2)}
+  .card.k .kind{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--faint)}
+  .card.new{border-top-color:var(--open)}
+  .card.new h3{color:var(--open)}
+  .pill{display:inline-block;font-size:10px;letter-spacing:1px;text-transform:uppercase;
+    background:#3a2a14;color:var(--open);border-radius:4px;padding:2px 7px;margin-left:8px;vertical-align:middle}
+  ul{margin:.4em 0;padding-left:18px}li{margin:3px 0;color:#d0ccc3}
+  .small{font-size:14px}
+  /* figure */
+  figure{margin:24px 0;background:var(--bg2);border:1px solid var(--line);border-radius:12px;
+    padding:20px;overflow-x:auto}
+  figcaption{color:var(--muted);font-size:13px;margin-top:12px;text-align:center}
+  svg{display:block;margin:0 auto;max-width:100%;height:auto}
+  .box{fill:var(--bg3);stroke:var(--line2)}
+  .lbl{fill:var(--ink);font-family:var(--sans);font-size:13px}
+  .lbl.b{font-weight:700}
+  .sub-lbl{fill:var(--muted);font-family:var(--sans);font-size:11px}
+  .edge{stroke:var(--faint);stroke-width:1.5;fill:none}
+  .edge.dash{stroke-dasharray:5 4}
+  .ann{fill:var(--bronze-dim);font-family:var(--sans);font-size:11px;font-style:italic}
+  /* two-col principle */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);
+    border-radius:10px;overflow:hidden;margin:20px 0}
+  .split>div{padding:18px 20px}
+  .split>div:first-child{border-right:1px solid var(--line);background:var(--bg2)}
+  .split .h{font-family:var(--serif);font-size:18px;margin-bottom:6px}
+  /* decision panel */
+  .dec{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:6px 20px 16px;margin:14px 0}
+  .dec-row{padding:16px 0;border-bottom:1px solid var(--line)}
+  .dec-row:last-child{border-bottom:none}
+  .dec-q{font-weight:600;color:#fff;margin-bottom:8px}
+  .opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .opts label{font-size:13px;border:1px solid var(--line2);border-radius:20px;padding:5px 13px;
+    cursor:pointer;color:var(--muted);user-select:none;transition:.12s}
+  .opts label:hover{border-color:var(--bronze-dim);color:var(--ink)}
+  .opts input{display:none}
+  .opts input:checked+span{}
+  .opts label.sel{background:#2a2113;border-color:var(--bronze);color:var(--bronze)}
+  .note{width:100%;margin-top:9px;background:var(--bg);border:1px solid var(--line2);border-radius:7px;
+    color:var(--ink);font-family:var(--sans);font-size:13px;padding:8px 10px;resize:vertical;min-height:38px}
+  .saved{font-size:11px;color:var(--green);margin-left:10px;opacity:0;transition:.3s}
+  .saved.on{opacity:1}
+  .settled-list{columns:2;column-gap:26px}
+  .settled-list li{break-inside:avoid;margin:5px 0;list-style:none;padding-left:22px;position:relative}
+  .settled-list li:before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+  footer{max-width:940px;margin:0 auto;padding:34px 28px 70px;color:var(--faint);font-size:13px;
+    border-top:1px solid var(--line)}
+  .kv{color:var(--muted)}
+  @media(max-width:720px){
+    h1{font-size:42px}.g2,.g3,.split,.settled-list{grid-template-columns:1fr;columns:1}
+    .split>div:first-child{border-right:none;border-bottom:1px solid var(--line)}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="brand">CHIRON</span>
+  <a href="#essence">Essence</a>
+  <a href="#sits">Where he sits</a>
+  <a href="#designs">What he designs</a>
+  <a href="#kinds">Seat kinds</a>
+  <a href="#layers">Two layers</a>
+  <a href="#models">Model philosophy</a>
+  <a href="#example">Worked example</a>
+  <a href="#decide">Settled · Open</a>
+</nav>
+
+<!-- ESSENCE -->
+<section id="essence" class="hero">
+  <div class="sec-tag">The Stoa · a proposed seat</div>
+  <h1>CHIRON</h1>
+  <div class="sub">The Team Architect</div>
+  <p class="lead">A MAJOR-tier seat whose craft is the roster itself. He designs the custom Stoa
+  team a project needs — reusing the standard seats, authoring the specialised ones — then steps
+  back so the team can run.</p>
+  <div class="hook">Chiron, the centaur who tutored and formed the heroes — Achilles, Jason,
+  Asclepius. He doesn't fight the battles; he forms the ones who do.</div>
+  <div class="chips">
+    <span class="chip ok">Charter settled · 2026-06-16</span>
+    <span class="chip">Roadmap · stoa&#8209;&#8209;p41</span>
+    <span class="chip warn">Not yet built — this is the nail-it-down surface</span>
+  </div>
+</section>
+
+<!-- WHERE HE SITS -->
+<div class="band"><section id="sits">
+  <div class="sec-tag">01 · Position</div>
+  <h2>A design-time architect, off the command chain</h2>
+  <p>CHIRON is <strong>not</strong> in the chain of command. POLYBIUS stays the floor-manager;
+  PLINY stays the orchestrator. CHIRON works at <span class="accent">design-time</span>; the
+  existing chain works at <span class="blue">run-time</span>. That split is what keeps them from
+  colliding — <em>he builds the team the others then run.</em></p>
+  <p class="muted">He is to a <strong>team</strong> what DAEDALUS is to a <strong>change</strong>:
+  an architect. But MAJOR-tier — so he can spin up his own helper cast to do the heavy design work.
+  He <strong>answers to POLYBIUS</strong> (who reviews and controls roster decisions) and
+  <strong>does not command PLINY</strong>.</p>
+
+  <figure>
+  <svg viewBox="0 0 860 320" role="img" aria-label="CHIRON at design-time produces a team-spec that is launched into the run-time chain">
+    <!-- zones -->
+    <rect x="14" y="42" width="300" height="250" rx="12" fill="#12161d" stroke="#2a2f38"/>
+    <rect x="360" y="42" width="486" height="250" rx="12" fill="#0f141b" stroke="#2a2f38"/>
+    <text x="30" y="34" class="sub-lbl" style="fill:var(--bronze-dim)">DESIGN-TIME</text>
+    <text x="376" y="34" class="sub-lbl" style="fill:#4d6f8a">RUN-TIME</text>
+
+    <!-- CHIRON -->
+    <rect class="box" x="70" y="120" width="190" height="92" rx="10" stroke="var(--bronze)"/>
+    <text x="165" y="150" text-anchor="middle" class="lbl b" style="fill:var(--bronze)">CHIRON</text>
+    <text x="165" y="170" text-anchor="middle" class="sub-lbl">the architect</text>
+    <text x="165" y="194" text-anchor="middle" class="sub-lbl">designs the team-spec</text>
+
+    <!-- spec arrow to runtime -->
+    <path class="edge" d="M260 166 H332 q8 0 8 8 V160" marker-end="url(#ar)"/>
+    <text x="300" y="150" text-anchor="middle" class="ann">team-spec →</text>
+    <text x="300" y="200" text-anchor="middle" class="ann">team-launcher</text>
+
+    <!-- runtime chain -->
+    <rect class="box" x="392" y="70" width="130" height="58" rx="9"/>
+    <text x="457" y="94" text-anchor="middle" class="lbl b">POLYBIUS</text>
+    <text x="457" y="112" text-anchor="middle" class="sub-lbl">floor-manager</text>
+
+    <rect class="box" x="392" y="158" width="130" height="58" rx="9"/>
+    <text x="457" y="182" text-anchor="middle" class="lbl b">PLINY</text>
+    <text x="457" y="200" text-anchor="middle" class="sub-lbl">orchestrator</text>
+
+    <rect class="box" x="392" y="232" width="130" height="48" rx="9"/>
+    <text x="457" y="261" text-anchor="middle" class="lbl">CAPTAINs</text>
+
+    <rect class="box" x="600" y="158" width="218" height="58" rx="9" stroke="#33414f"/>
+    <text x="709" y="182" text-anchor="middle" class="lbl">runtime agent team</text>
+    <text x="709" y="200" text-anchor="middle" class="sub-lbl">sentinels · cheap cascade</text>
+
+    <path class="edge" d="M457 128 V158" marker-end="url(#ar)"/>
+    <path class="edge" d="M457 216 V232" marker-end="url(#ar)"/>
+    <path class="edge dash" d="M522 187 H600" marker-end="url(#ar)"/>
+
+    <!-- answers-to dotted -->
+    <path class="edge dash" d="M200 120 q0 -70 192 -50" marker-end="url(#ar)" style="stroke:var(--bronze-dim)"/>
+    <text x="300" y="74" text-anchor="middle" class="ann" style="fill:var(--bronze-dim)">answers to ↑</text>
+
+    <defs>
+      <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+        <path d="M0,0 L7,3 L0,6 Z" fill="var(--faint)"/>
+      </marker>
+    </defs>
+  </svg>
+  <figcaption>CHIRON produces a team-spec at design-time; <code>team-launcher</code> stands it up;
+  POLYBIUS → PLINY → CAPTAINs run it. CHIRON answers up to POLYBIUS, never down to PLINY.</figcaption>
+  </figure>
+</section></div>
+
+<!-- WHAT HE DESIGNS -->
+<div class="band"><section id="designs">
+  <div class="sec-tag">02 · Function</div>
+  <h2>He designs a custom team — narrow seats, near-determinism</h2>
+  <p>A custom team = <strong>reuse most standard seats as-is</strong> + <strong>author many narrow,
+  single-function specialists</strong>. The narrowness is the point:</p>
+  <div class="split">
+    <div>
+      <div class="h accent">The principle</div>
+      <p class="small">The narrower a seat's function, the fewer its degrees of freedom — and the
+      more <strong>deterministic</strong> its behaviour. A seat whose only job is "does this payload
+      look right?" has almost no room to wander. Many narrow seats push a whole task toward
+      near-determinism.</p>
+    </div>
+    <div>
+      <div class="h">The art</div>
+      <p class="small">Granularity is judgment. Too coarse and the seat wanders; too fine and you
+      drown in roster-maintenance and dispatch overhead. Finding the right grain is exactly why
+      this is a <strong>MAJOR judgment seat</strong>, not a template-filler.</p>
+    </div>
+  </div>
+  <p class="muted"><strong>Default composition is the full Stoa.</strong> A single pair-programmer
+  MAJOR is the lightweight branch — reserved for simple agents. Heavy team-builds get the full
+  treatment (and CHIRON's helper cast); simple ones get a one-shot draft.</p>
+</section></div>
+
+<!-- SEAT KINDS -->
+<div class="band"><section id="kinds">
+  <div class="sec-tag">03 · Building blocks</div>
+  <h2>The seat kinds CHIRON works with</h2>
+  <div class="grid g2">
+    <div class="card k"><div class="kind">existing</div><h3>MAJOR</h3>
+      <p class="small">Orchestration / architecture tier. Standing judgment seats (POLYBIUS, PLINY,
+      and CHIRON himself).</p></div>
+    <div class="card k"><div class="kind">existing</div><h3>CAPTAIN</h3>
+      <p class="small">Dispatched specialist — one-shot, summoned for a task in the gauntlet
+      (ADA, VERA, DAEDALUS…).</p></div>
+    <div class="card k"><div class="kind">existing</div><h3>LIEUTENANT</h3>
+      <p class="small">A skill-envelope seat — a capability packaged for invocation.</p></div>
+    <div class="card k new"><div class="kind">new — proposed</div>
+      <h3>SENTINEL <span class="pill">new kind</span></h3>
+      <p class="small">A <strong>standing monitor</strong>, trigger- or cron-driven — not summoned
+      per task. An early-warning system that watches continuously.</p></div>
+  </div>
+
+  <h3 style="margin-top:26px;color:var(--open)">The sentinel, concretely — the BLS data watchman</h3>
+  <p class="small muted">A seat whose only function is to check each incoming BLS API payload and
+  decide whether it <em>looks right</em>, distinguishing two failure modes:</p>
+  <div class="grid g2">
+    <div class="card"><h3 class="blue">…the query mechanism</h3>
+      <p class="small">Infra broke — API changed, auth failed, empty or suppressed response.
+      The pipe is the problem.</p></div>
+    <div class="card"><h3 class="blue">…the data itself</h3>
+      <p class="small">The values drifted — out of range, distribution shift, suppression changes.
+      The pipe works; the world moved.</p></div>
+  </div>
+  <p class="small muted">Built on the existing <code>Monitor</code>/cron + <code>sub-agent-watchdog</code>
+  machinery. <em>Naming that sentinel is, fittingly, CHIRON's own job.</em></p>
+
+  <h3 style="margin-top:26px">CHIRON's helper cast — a mini-authoring-gauntlet</h3>
+  <p class="small muted">For heavy designs he can dispatch his own support seats:
+  <strong>scout → draft → critique → spec-check → ship.</strong></p>
+  <div class="grid g2">
+    <div class="card small"><h3>template-scout</h3><span class="muted">finds the best template basis + cites the canonical sections</span></div>
+    <div class="card small"><h3>roster-researcher</h3><span class="muted">studies what specialisation a brief actually calls for</span></div>
+    <div class="card small"><h3>envelope-critic</h3><span class="muted">cold-audits a draft for scope creep, grant bloat, voice slips — surfaces, doesn't fix</span></div>
+    <div class="card small"><h3>envelope-spec-checker</h3><span class="muted">mechanical: frontmatter schema, template alignment, naming, refs resolve</span></div>
+  </div>
+  <p class="small" style="color:var(--faint)">Start with <strong>critic + spec-checker</strong>
+  (the two highest-value checks); add scout/researcher later.</p>
+</section></div>
+
+<!-- TWO LAYERS -->
+<div class="band"><section id="layers">
+  <div class="sec-tag">04 · Architecture</div>
+  <h2>Two layers — design and runtime — and the boundary is permeable</h2>
+  <p>The Stoa team (Opus, design-time, expensive, paid once) <strong>builds</strong> the product.
+  The product's <strong>runtime agent team</strong> (cheap, repeated) <strong>executes</strong>
+  workflows the Stoa designed. The intelligence is front-loaded into design; the runtime stays
+  cheap. <span class="muted">— this is <code>stoa&#8209;&#8209;q36</code>: workflows execute
+  direction, they never set it.</span></p>
+
+  <figure>
+  <svg viewBox="0 0 860 250" role="img" aria-label="Context-isolation cascade: an Opus orchestrator calls a Python tool that invokes a cheap model and only sees the returned output">
+    <rect class="box" x="24" y="92" width="170" height="66" rx="10" stroke="var(--bronze)"/>
+    <text x="109" y="120" text-anchor="middle" class="lbl b" style="fill:var(--bronze)">Opus 4.8</text>
+    <text x="109" y="139" text-anchor="middle" class="sub-lbl">orchestrator</text>
+
+    <path class="edge" d="M194 116 H250" marker-end="url(#ar2)"/>
+    <text x="222" y="106" text-anchor="middle" class="ann">tool call</text>
+
+    <rect class="box" x="250" y="92" width="160" height="66" rx="10"/>
+    <text x="330" y="120" text-anchor="middle" class="lbl b">Python tool</text>
+    <text x="330" y="139" text-anchor="middle" class="sub-lbl">deterministic step</text>
+
+    <path class="edge" d="M410 116 H470" marker-end="url(#ar2)"/>
+
+    <rect x="470" y="64" width="200" height="122" rx="10" fill="#0c0f14" stroke="#33414f" stroke-dasharray="5 4"/>
+    <text x="570" y="56" text-anchor="middle" class="sub-lbl" style="fill:#4d6f8a">isolated context</text>
+    <rect class="box" x="492" y="98" width="156" height="54" rx="9" stroke="var(--blue)"/>
+    <text x="570" y="120" text-anchor="middle" class="lbl b" style="fill:var(--blue)">cheap model</text>
+    <text x="570" y="138" text-anchor="middle" class="sub-lbl">N turns · 1000s of tokens</text>
+
+    <!-- return -->
+    <path class="edge" d="M470 150 q-240 86 -361 14" marker-end="url(#ar2)"/>
+    <text x="300" y="214" text-anchor="middle" class="ann">↩ only the small final output returns</text>
+    <text x="700" y="120" text-anchor="start" class="ann" style="fill:#4d6f8a">worker tokens</text>
+    <text x="700" y="136" text-anchor="start" class="ann" style="fill:#4d6f8a">never reach Opus</text>
+
+    <defs><marker id="ar2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="var(--faint)"/></marker></defs>
+  </svg>
+  <figcaption><strong>Context isolation.</strong> The orchestrator sees only the worker's final
+  output — never its intermediate tokens, and never re-pays for them on each later turn. The
+  primary win is a <em>clean orchestrator context</em>; the token savings is a side effect.</figcaption>
+  </figure>
+
+  <h3 style="margin-top:8px">The boundary is permeable — escalation on demand</h3>
+  <p class="small">A single Stoa-team agent can <strong>call</strong> the runtime workflow, and the
+  full team can then chew on the results for <strong>hours or days</strong> when depth warrants it.
+  The cheap sentinel is the <span class="accent">tripwire that detects</span>; the Stoa team is the
+  <span class="accent">responder that investigates</span>.</p>
+  <figure>
+  <svg viewBox="0 0 860 130" role="img" aria-label="Escalation: a cheap sentinel detects an anomaly and escalates to a full Stoa team for deep analysis">
+    <rect class="box" x="24" y="40" width="180" height="52" rx="9" stroke="var(--open)"/>
+    <text x="114" y="63" text-anchor="middle" class="lbl b" style="fill:var(--open)">SENTINEL</text>
+    <text x="114" y="80" text-anchor="middle" class="sub-lbl">cheap · always-on</text>
+    <path class="edge" d="M204 66 H300" marker-end="url(#ar3)"/>
+    <text x="252" y="56" text-anchor="middle" class="ann">routine → all-clear</text>
+    <path class="edge" d="M204 66 H300" style="display:none"/>
+    <rect class="box" x="300" y="40" width="150" height="52" rx="9"/>
+    <text x="375" y="71" text-anchor="middle" class="lbl">anomaly?</text>
+    <path class="edge" d="M450 66 H560" marker-end="url(#ar3)"/>
+    <text x="505" y="56" text-anchor="middle" class="ann" style="fill:var(--bronze)">escalate</text>
+    <rect class="box" x="560" y="34" width="276" height="64" rx="9" stroke="var(--bronze-dim)"/>
+    <text x="698" y="60" text-anchor="middle" class="lbl b">full STOA team</text>
+    <text x="698" y="80" text-anchor="middle" class="sub-lbl">deep analysis · hours to days</text>
+    <defs><marker id="ar3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="var(--faint)"/></marker></defs>
+  </svg>
+  <figcaption>Match analysis depth to stakes: routine paths stay cheap; complex ones pull the whole team.</figcaption>
+  </figure>
+</section></div>
+
+<!-- MODEL PHILOSOPHY -->
+<div class="band"><section id="models">
+  <div class="sec-tag">05 · Philosophy</div>
+  <h2>Performance first. Efficiency is a later, saturation-gated tuning.</h2>
+  <div class="grid g3">
+    <div class="card"><h3>Default to the strongest</h3>
+      <p class="small">Every seat starts on the most capable model available (Opus 4.8). Capability,
+      not price, is the default driver.</p></div>
+    <div class="card"><h3>Down-tier only on saturation</h3>
+      <p class="small">Move a step to a cheaper model <em>only</em> after proving the task is
+      <strong>saturated</strong> — the strong model's headroom is genuinely wasted. Then tune.</p></div>
+    <div class="card"><h3>The tailwind</h3>
+      <p class="small">Cost per unit of performance has fallen since GPT-2. A system economically
+      rational <em>today</em> only gets more rational. Spend for performance now.</p></div>
+  </div>
+  <p class="small muted">So the cost-ladder — <code>deterministic code → cheap model → … → Opus</code>
+  — is an <strong>efficiency tuning applied after saturation is proven</strong>, never the default
+  design stance. Unless a task saturates, the move is <em>more</em> capability, not less.</p>
+</section></div>
+
+<!-- WORKED EXAMPLE + POSITIONING -->
+<div class="band"><section id="example">
+  <div class="sec-tag">06 · Worked example & positioning</div>
+  <h2>labstat_bls — CHIRON's first real job</h2>
+  <p>A full-Stoa build of a <strong>data + ML prediction product</strong>: a team that understands
+  the nuance of many data sources <em>and</em> builds models that predict from them.</p>
+  <div class="grid g2">
+    <div class="card"><h3>The runtime team CHIRON designs</h3>
+      <ul class="small">
+        <li>a <strong>BLS data sentinel</strong> (standing, cheap) — early warning on every pull</li>
+        <li>data-source-understanding specialists (one narrow seat per source)</li>
+        <li>ML-modelling specialists that build + run the predictions</li>
+      </ul></div>
+    <div class="card"><h3>How it runs</h3>
+      <ul class="small">
+        <li><strong>routine path</strong> — cheap cascade (Opus orchestrator + cheap-model steps,
+        context-isolated)</li>
+        <li><strong>complex path</strong> — escalate to the full Stoa team for deep analysis</li>
+        <li>API keys via <code>credential-discipline</code> — runtime never holds raw secrets</li>
+      </ul></div>
+  </div>
+  <div class="hook" style="border-left-color:var(--bronze);max-width:none">
+    <strong style="color:var(--bronze)">Positioning.</strong> A capable mind that delegates to cheap
+    hands — and calls in the whole team when depth matters — riding a cost curve that only bends in
+    your favour. Design once with the best model; run forever at the cheapest that saturates.
+  </div>
+</section></div>
+
+<!-- DECISION PANEL -->
+<div class="band"><section id="decide">
+  <div class="sec-tag">07 · The point of this surface</div>
+  <h2>Settled vs. open — record your calls</h2>
+
+  <h3 style="color:var(--green);margin-top:14px">Settled in the charter</h3>
+  <ul class="settled-list small">
+    <li>MAJOR-tier seat, "the architect"</li>
+    <li>Off the command chain; design-time</li>
+    <li>Answers to POLYBIUS; doesn't command PLINY</li>
+    <li>Holds <code>agent-author</code> exclusively</li>
+    <li>POLYBIUS keeps the build-literacy, not the skill</li>
+    <li>Narrow seats → near-determinism</li>
+    <li>Full-Stoa default; pair-programmer for simple</li>
+    <li>SENTINEL = a new seat kind</li>
+    <li>Two layers, permeable; escalation on demand</li>
+    <li>Performance-first; saturation-gated down-tiering</li>
+  </ul>
+
+  <h3 style="color:var(--open);margin-top:22px">Open — your call (saved in this browser)</h3>
+  <div class="dec" id="decPanel">
+    <div class="dec-row" data-q="scope">
+      <div class="dec-q">Is CHIRON user-tier (one architect across all projects) or per-project (a CHIRON_&lt;proj&gt; per team)?</div>
+      <div class="opts">
+        <label><input type="radio" name="scope" value="user-tier"><span>User-tier, one architect</span></label>
+        <label><input type="radio" name="scope" value="per-project"><span>Per-project</span></label>
+        <label><input type="radio" name="scope" value="both"><span>Both / on-demand</span></label>
+      </div>
+      <textarea class="note" data-note="scope" placeholder="note…"></textarea>
+    </div>
+    <div class="dec-row" data-q="cast">
+      <div class="dec-q">How big is the helper cast at launch?</div>
+      <div class="opts">
+        <label><input type="radio" name="cast" value="two"><span>Critic + spec-checker only</span></label>
+        <label><input type="radio" name="cast" value="full"><span>Full cast (4)</span></label>
+        <label><input type="radio" name="cast" value="none"><span>None yet — CHIRON solo</span></label>
+      </div>
+      <textarea class="note" data-note="cast" placeholder="note…"></textarea>
+    </div>
+    <div class="dec-row" data-q="skill">
+      <div class="dec-q">Mechanism for "only CHIRON holds agent-author" (a MAJOR normally sees every workspace skill)?</div>
+      <div class="opts">
+        <label><input type="radio" name="skill" value="out-of-skillnames"><span>Pull from SKILL_NAMES, deploy only to CHIRON</span></label>
+        <label><input type="radio" name="skill" value="subagent"><span>Make it subagent-scoped</span></label>
+        <label><input type="radio" name="skill" value="verify"><span>Verify the mechanism first</span></label>
+      </div>
+      <textarea class="note" data-note="skill" placeholder="note…"></textarea>
+    </div>
+    <div class="dec-row" data-q="sentinel">
+      <div class="dec-q">Sentinel trigger model — cron, event/per-pull, or both?</div>
+      <div class="opts">
+        <label><input type="radio" name="sentinel" value="cron"><span>Cron / scheduled</span></label>
+        <label><input type="radio" name="sentinel" value="event"><span>Event / per-pull</span></label>
+        <label><input type="radio" name="sentinel" value="both"><span>Both</span></label>
+      </div>
+      <textarea class="note" data-note="sentinel" placeholder="note…"></textarea>
+    </div>
+    <div class="dec-row" data-q="arc">
+      <div class="dec-q">Build sequencing — CHIRON-only first arc, or bundle the skills re-homing?</div>
+      <div class="opts">
+        <label><input type="radio" name="arc" value="chiron-first"><span>CHIRON first, re-home later</span></label>
+        <label><input type="radio" name="arc" value="bundle"><span>Bundle into one arc</span></label>
+      </div>
+      <textarea class="note" data-note="arc" placeholder="note…"></textarea>
+    </div>
+  </div>
+  <p class="small" style="color:var(--faint)">Your selections + notes persist in this browser
+  (localStorage). <span id="savedFlag" class="saved">saved</span></p>
+</div></section>
+
+<footer>
+  <div class="kv">CHIRON architecture surface · v1 · content source: <strong>stoa&#8209;&#8209;p41</strong>
+  charter · the Stoa</div>
+  <div class="kv">Author: Denson Smith · 2026-06-16 · status: pre-build design artifact</div>
+</footer>
+
+<script>
+(function(){
+  var KEY='chiron-decisions-v1';
+  var state={};
+  try{ state=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){ state={}; }
+
+  function flash(){ var f=document.getElementById('savedFlag'); if(!f) return;
+    f.classList.add('on'); setTimeout(function(){f.classList.remove('on');},900); }
+  function save(){ localStorage.setItem(KEY, JSON.stringify(state)); flash(); }
+
+  // radios
+  document.querySelectorAll('.opts input[type=radio]').forEach(function(inp){
+    if(state[inp.name]===inp.value){ inp.checked=true; inp.parentElement.classList.add('sel'); }
+    inp.addEventListener('change', function(){
+      document.querySelectorAll('.opts input[name="'+inp.name+'"]').forEach(function(o){
+        o.parentElement.classList.remove('sel'); });
+      inp.parentElement.classList.add('sel');
+      state[inp.name]=inp.value; save();
+    });
+  });
+  // notes
+  document.querySelectorAll('textarea[data-note]').forEach(function(t){
+    var k='note_'+t.getAttribute('data-note');
+    if(state[k]) t.value=state[k];
+    t.addEventListener('input', function(){ state[k]=t.value; save(); });
+  });
+})();
+</script>
+</body>
+</html>
