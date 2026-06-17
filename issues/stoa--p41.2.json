@@ -175,11 +175,15 @@
     {
       "text": "[from: CATO Arc63] CATO activated on stoa--p41.2. Reading diff + design-rev2 + VERA verdict before forming cold-read.",
       "timestamp": "2026-06-17T21:46:33Z"
+    },
+    {
+      "text": "[from: CATO Arc63] Cold-read pass 1 done: hook + Stop clause D + install carve-outs + gauntlet port read. All dual-copy pairs byte-identical; gauntlet description/body verbatim, no author field. Now: authorship audit across 28 files + R1 grep + settings-hooks + meta-verify VERA.",
+      "timestamp": "2026-06-17T21:47:55Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-17T21:46:33Z"
+  "updated_at": "2026-06-17T21:47:55Z"
 }
