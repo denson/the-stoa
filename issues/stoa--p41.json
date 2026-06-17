@@ -26,11 +26,15 @@
     {
       "text": "Skill-disposition decision (PRINCIPAL, 2026-06-16): RETIRE the standalone agent-author skill. The capability is now inlined into MAJOR_CHIRON.md section 7 (developed in skill-shape but living as CHIRON instruction -\u003e exclusive by construction, no scoping mechanism needed; dissolves the earlier (a)/(b) exclusivity question). Retirement is COUPLED with the CHIRON-landing change and the POLYBIUS section-11 relocation -- three edits that must move TOGETHER or the substrate breaks in between: (1) remove 'agent-author' from install.sh SKILL_NAMES (else install.sh errors on the missing source file), (2) delete substrate/skills/agent-author/, (3) relocate MAJOR_POLYBIUS.md section-11 'Pair-programmer Major authoring' to CHIRON (POLYBIUS keeps the review-literacy, sheds the authoring tool). This coupled set is the arc-gated landing step (touches install.sh tooling + POLYBIUS canon); the current MAJOR_CHIRON.md + docs/major-chiron.html are working-tree drafts sitting AHEAD of it.",
       "timestamp": "2026-06-17T02:22:27Z"
+    },
+    {
+      "text": "BLAST-RADIUS finding (2026-06-16, grounded recon): retiring the agent-author skill + relocating POLYBIUS section-11 is ARC-SCALE, not safe working-tree drafts. Even edits 1-2 (the skill retirement) are not self-contained. Cascade:\n1. install.sh subproject-recompose is FAIL-LOUD (exit 2): Check A (a MODULE-INLINE marker needs a module source), Check B (an owned module needs a marker), Check D (zero markers + owned modules). So removing the section-11 marker REQUIRES also removing modules/pair-programmer-authoring.md AND updating install.sh's recompose ownership-partition -- mechanically coupled.\n2. modules/pair-programmer-authoring.md INVOKES the agent-author skill (line 39 'Invoke the agent-author skill') -- deleting the skill breaks that module's procedure. Skill + section-11 are not separable.\n3. 5+ dangling refs if the skill is deleted: operating-disciplines.md section near line 955 ('via the agent-author skill'), skills/check-substrate-updates/SKILL.md:58, skills/handoff-author/SKILL.md:185, install.sh:57 (comment).\n4. The Stoa APP renders agent-author as its ONLY LIEUTENANT slot via the gen-data adapter (Arc 17.1). Very likely app/src/data/__tests__/generated.test.ts requires \u003e=1 LIEUTENANT -\u003e deleting empties the slot + fails the test.\nCONCLUSION: fold the whole set -- retire agent-author + section-11 relocate + pair-programmer-authoring module fate + app/gen-data + test update + the 5 ref fixes -- into the CHIRON build ARC (NOMOS + gauntlet verify). The MAJOR_CHIRON.md + docs/major-chiron.html drafts + this charter are the spec the arc executes against. ZERO edits made this turn -- blast radius caught before touching anything.",
+      "timestamp": "2026-06-17T02:44:25Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Skill-architecture rationalization: MAJOR_CHIRON agent-author seat + re-home specialist skills off the chief-of-staff",
   "type": "task",
-  "updated_at": "2026-06-17T02:22:27Z"
+  "updated_at": "2026-06-17T02:44:25Z"
 }
