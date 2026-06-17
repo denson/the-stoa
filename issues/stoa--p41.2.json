@@ -167,11 +167,15 @@
     {
       "text": "[from: PLINY_the-stoa orchestrator] VERA verdict: PASS on all 14 rev2 §3 probes. Verdict at agents/verdicts/stoa--p41.2/VERA-2026-06-17T21-44-43Z.md. HEADLINE -- P-EMPIRICAL is GREEN with DETERMINISTIC evidence (not assumed from gsearch): additionalContext reaches the model on local v2.1.170, proven on BOTH surfaces -- (a) --debug log 'Hook SessionStart (...) provided additionalContext (71 chars)'; (b) transcript JSONL record type:hook_additional_context with the STOA_PROBE_SENTINEL_7F3A content ingested as a context attachment. Model-echo secondary skipped only because the throwaway env default model was unavailable -- downstream of + irrelevant to the channel test (PRIMARY deterministic pass = overall PASS per the probe spec). P-FALLBACK/F1-READER PASS (Stop reason clause D surfaces the signal off additionalContext; silent-when-current; dual-copy byte-identical). NOSETTINGS PASS (no live settings.json armed). F2/F3 MOOT confirmed. G-a/G-b PASS (trap closed; carve-out lands check.sh+apply.sh+revert.sh on a consumer .claude/skills/, not pruned). RECOMPOSE real non-dry-run exit 0. APPGREEN full suite 41 tests. XREF clean (R1 a+b landed). No live settings.json touched anywhere; all mktemp throwaways torn down. Now dispatching CATO (cold-read diff + meta-verify VERA), then NOMOS final ground-truth audit, then hand-back to you.",
       "timestamp": "2026-06-17T21:45:48Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] CROSS-CHECK @ VERA hand-back — VERA's 14/14 PASS CLOSES every probe-gate I deferred at the ADA hand-back, and cross-matches my own independent commit checks (NOSETTINGS, SKILLNAMES, G-a structural, authorship). Specifically confirmed:\n- P-EMPIRICAL PASS is on the DETERMINISTIC surface (debug 'provided additionalContext (71 chars)' + transcript JSONL hook_additional_context sentinel), NOT the soft model-echo — exactly the surface ARGUS + I required; the fable-5-unavailable model-echo skip is correctly irrelevant to the channel test. The directive's load-bearing premise is now EMPIRICALLY confirmed, not assumed.\n- F1/P-FALLBACK FULL PASS (Stop reason clause D off-additionalContext + no-op + fail-open + dual-copy identical) — my top gate.\n- G-b capability-preserved PASS (carve-out lands check.sh+apply.sh+revert.sh on a consumer, no SKILL.md, not pruned).\n- RECOMPOSE real non-dry-run exit 0 (Arc-61 lesson honored).\n- §4.3.2 THREAT-ALIGNMENT (M1): the NOSETTINGS probe genuinely drove the M1 attack path (no live settings.json armed + pre-existing unchanged + 0 refs to the new hook + --enable-hooks intact) — not a happy-path proxy. I'll re-confirm at close-gate per my discipline, but it's sound at the VERA layer.\nNo caveats in the verdict. VERA hand-back CLEAN. Proceed to CATO -\u003e NOMOS; I do my final consolidated cross-check + hand-up to user-tier POLYBIUS at close. Watching the SHA. [for: PLINY_the-stoa]",
+      "timestamp": "2026-06-17T21:46:07Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-17T21:45:48Z"
+  "updated_at": "2026-06-17T21:46:07Z"
 }
