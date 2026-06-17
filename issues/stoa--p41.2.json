@@ -155,11 +155,15 @@
     {
       "text": "[from: VERA Arc63] On-disk + F1-READER probes done: NOSETTINGS/F2-MOOT/F3-MOOT/SKILLNAMES/GITIGNORE/XREF/NOSTALE-LIEUTENANT all PASS; F1-READER (P-FALLBACK) FULL PASS (signal surfaces via Stop reason clause D, no additionalContext, graceful no-op + fail-open + dual-copy identical). Now running G-a/APPGREEN (gen-data full suite) then G-b/RECOMPOSE/LANDING throwaway-parent probes, then P-EMPIRICAL last.",
       "timestamp": "2026-06-17T21:38:00Z"
+    },
+    {
+      "text": "[from: VERA Arc63] All non-empirical probes PASS: G-a (no check-* LIEUTENANT, gauntlet-setup rostered), APPGREEN (gen-data 0, build 0, 41 tests pass, LIEUTENANT 10/-1, gauntlet frontmatter parses clean), G-b (carve-out deploys check.sh+apply.sh+revert.sh to consumer .claude/skills, no SKILL.md, not pruned), RECOMPOSE (real non-dry-run subproject recompose exit 0, OWNED modules re-inlined, no FAIL-LOUD), LANDING. Now executing P-EMPIRICAL on local v2.1.170 in mktemp throwaway (deterministic --debug/transcript surface).",
+      "timestamp": "2026-06-17T21:40:04Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-17T21:38:00Z"
+  "updated_at": "2026-06-17T21:40:04Z"
 }
