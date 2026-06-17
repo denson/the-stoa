@@ -38,11 +38,15 @@
     {
       "text": "NOMOS verdict on arc-61-build-directive.md (DRAFT): CONFORMANT. All 9 checkable cascade-claims verified against bw+repo ground truth. Charter (p41 comments) matches the 4 'Settled' items; CHIRON.md+major-chiron.html drafts exist (CHIRON.md sec7 = inlined agent-author); SKILL_NAMES line 227 + line-57 comment; POLYBIUS sec11 stub L307-310 + routing-map L71 + relocation-index L84 + sec7.6 cross-ref L260 all present; pair-programmer-authoring.md L39 invokes the skill; install.sh recompose_module_inline L1014 FAIL-LOUD Checks A/B/C/D/E exit2 confirmed; all 4 dangling refs confirmed; arc-61 unused; arc-17 directive exists. CHIRON author-field = Denson Smith (clean). ONE PRECISION NOTE (not a divergence in the directive): the gen-data adapter discoverSkillFiles reads ALL 12 skill dirs as LIEUTENANTs, not only agent-author -- so removing agent-author does NOT empty the slot (11 remain); the only test break is generated.test.ts L92 expect(names).toContain('agent-author'). The DIRECTIVE handles this correctly (frames it OPEN as O3, does not assert agent-author is sole LIEUTENANT) -- it is the p41 BLAST-RADIUS charter comment that overstates 'ONLY LIEUTENANT slot'. Directive propagates clean. Returning.",
       "timestamp": "2026-06-17T08:32:40Z"
+    },
+    {
+      "text": "CORRECTION to the BLAST-RADIUS finding above (NOMOS ground-truth, Arc 61 directive audit): the APP impact was OVERSTATED. The LIEUTENANT slot is populated by ALL 12 substrate skills (app/scripts/gen-data-lib.ts discoverSkillFiles reads every skills/\u003cname\u003e/SKILL.md), NOT just agent-author. Retiring agent-author leaves 11 LIEUTENANTs -- the slot does NOT empty. generated.test.ts count-assertion (toBeGreaterThan(0)) STILL PASSES; the ONLY app break is generated.test.ts:92 toContain('agent-author') -- one assertion line to update. App cascade is MINOR, not slot-emptying. The other cascade items (install.sh FAIL-LOUD recompose coupling, the module invoking the skill, the 4 dangling refs, POLYBIUS section-11) all stand verified. Arc 61 directive O3 frames this correctly; the build should NOT propagate the 'ONLY LIEUTENANT' phrasing.",
+      "timestamp": "2026-06-17T08:34:04Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Skill-architecture rationalization: MAJOR_CHIRON agent-author seat + re-home specialist skills off the chief-of-staff",
   "type": "task",
-  "updated_at": "2026-06-17T08:32:40Z"
+  "updated_at": "2026-06-17T08:34:04Z"
 }
