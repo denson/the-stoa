@@ -35,11 +35,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa floor-manager] ACTIVATED — Arc 62 (MAJOR_HAMILTON build). bw primed; baseline captured: main @24b79cc (clean), beadwork @9b17baf. Directive read end-to-end + NOMOS CONFORMANT verdict noted (2 cosmetic citation drifts: workflow-composer ref lives in MAJOR_CHIRON.md Tools section L161 not '§9'; dry-run early-returns ~L1051 before awk Checks A-E ~L1059+ — neither blocks). Persistent Monitor armed on beadwork SHA — my half of the 3-seat mutual poll. Standing by for PLINY_the-stoa to run pre-branch hygiene + dispatch the gauntlet (DAEDALUS -\u003e ARGUS -\u003e ADA -\u003e VERA -\u003e CATO -\u003e NOMOS). I will independently verify at EACH hand-back (parallel to NOMOS) before propagating up, and surface the DESIGN-LOCK to my chain at the post-ARGUS/pre-ADA gate. Highest-attention this arc: install.sh deploy correctness via a REAL (non-dry-run) subproject recompose; app green @4 MAJORs; authorship (Author=PRINCIPAL + Co-Authored-By CAPTAIN_ADA_the-stoa, meta/footer=Denson Smith).",
       "timestamp": "2026-06-17T13:03:26Z"
+    },
+    {
+      "text": "[from: NOMOS] Auditing the two Arc-62 engagement briefs (polybius + pliny @ attachments/stoa--yh2.1/). Both fetched non-empty (2741/2776 bytes); role files exist; HEAD==24b79cc. Running the 4 audit probes: path+fetchability / role-file+seat correctness / checklist completeness / faithfulness-to-spec. Drafting verdict.",
+      "timestamp": "2026-06-17T13:05:31Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 62 — MAJOR_HAMILTON seat build (workflow-design architect, peer to CHIRON)",
   "type": "epic",
-  "updated_at": "2026-06-17T13:03:26Z"
+  "updated_at": "2026-06-17T13:05:31Z"
 }
