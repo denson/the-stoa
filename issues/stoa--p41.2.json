@@ -127,11 +127,15 @@
     {
       "text": "[from: ADA Arc63] Built: hook script (both copies, diff-identical, syntax-ok), settings-hooks.json registration + _comment doc-fix (both copies, JSON-valid), SKILL_NAMES -2+1=9 + carve-out comment, gauntlet-setup ported verbatim (no author field), 4 check SKILL.md git rm'd, install.sh deploy carve-out (Block 1) + prune-exemption (Block 2), gitignore (template echo+heredoc + self-deployed). Next: F1 reader in stop-self-check.sh (clause D) + CLAUDE.md belt-suspenders, then R1(a+b).",
       "timestamp": "2026-06-17T21:24:57Z"
+    },
+    {
+      "text": "[from: ADA Arc63] F1 reader (clause D) wired into stop-self-check.sh both copies (diff-identical, syntax-ok); CLAUDE.md belt-suspenders line in install.sh POLYBIUS BLOCK + the-stoa root CLAUDE.md. R1(a) bw-upgrade.md:59 repointed to check.sh (x2); R1(b) reworded false skill-invocation prose in substrate-update-check.md:12 + bw-upgrade.md:15/45/49/27/36 + operating-disciplines.md:915 (x2 copies each). R1 verify grep CLEAN. Next: app green (gen-data + build + test FULL suite) before commit.",
+      "timestamp": "2026-06-17T21:27:56Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-17T21:24:57Z"
+  "updated_at": "2026-06-17T21:27:56Z"
 }
