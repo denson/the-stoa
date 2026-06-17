@@ -374,6 +374,78 @@
           "prompt": "Use the attached reference. SAME man — identical face, neat short hair. WoW-style render, 4-panel turnaround, neutral backdrop, name \"TIRO\" on top. Re-dress as a futuristic data-substrate specialist in a sleek technician's outfit; the wax tablet and stylus become a glowing stylus writing into a flowing holographic ledger-stream (shorthand turned to living data)."
         }
       ]
+    },
+    {
+      "id": "chiron",
+      "name": "CHIRON",
+      "tier": "Major",
+      "role": "Team Architect",
+      "figure": "Chiron",
+      "dates": "Greek myth",
+      "history": "Chiron, the wise centaur of Greek myth — unlike his wild kin, civilized and learned; the tutor who formed the great heroes (Achilles, Jason, Asclepius) in medicine, music, war, and justice. → designs and forms the team: the architect who decides who's on it.",
+      "character_constant": "a noble, learned centaur — the upper body of a powerful, wise Greek sage ~60 (silver-grey hair and a full well-kept beard, keen kindly-but-commanding eyes, the calm bearing of a master teacher) joined seamlessly to the strong body of a chestnut-bay stallion.",
+      "sheets": [
+        {
+          "look": "period", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/chiron/period-turnaround.png",
+          "generated": true, "reference": null,
+          "prompt": "WoW-style semi-realistic painterly heroic-fantasy render (Blizzard-cinematic detail, believable worn materials, dramatic light — not cartoony). 4-panel character turnaround sheet: front, 3/4, side profile, head-and-shoulders close-up — the SAME character identical in every panel, neutral studio backdrop, name \"CHIRON\" hand-lettered across the top. Character: a noble, learned centaur — the upper body of a powerful, wise Greek sage of ~60 (silver-grey hair and a full well-kept beard, keen kindly-but-commanding eyes, the calm bearing of a master teacher) joined seamlessly to the strong body of a chestnut-bay stallion. Mythic ancient-Greek sage's dress on the human torso: a himation draped over one shoulder leaving the chest bare, a simple laurel fillet; the tutor's tools about him — a hunting bow and quiver across the back, a small lyre at the hip, a healer's herb-pouch; in his hands a large unrolled plan-scroll sketched with a constellation of linked figures (the team he is composing), as if assigning each its role."
+        },
+        {
+          "look": "period", "sheet": "expressions",
+          "image": "docs/agent-cards/images/chiron/period-expressions.png",
+          "generated": true, "reference": null,
+          "prompt": "WoW-style semi-realistic painterly heroic render (Blizzard-cinematic, not cartoony), neutral backdrop, name \"CHIRON\" lettered on top. Same centaur character — Greek sage ~60, silver hair and beard, himation and laurel fillet, joined to a chestnut-bay stallion body. A large head-and-shoulders close-up plus three expression studies (warm-teaching, discerning-appraising, calm-commanding) and one signature pose: the centaur sage mid-instruction, one hand raised in guidance, the roster-scroll held open in the other, a young hero-pupil looking on."
+        },
+        {
+          "look": "future", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/chiron/future-turnaround.png",
+          "generated": true, "reference": "docs/agent-cards/images/chiron/period-turnaround.png",
+          "prompt": "Use the attached reference. SAME centaur — identical face, silver hair and beard, chestnut-bay coat, build. WoW-style semi-realistic painterly render, 4-panel turnaround (front, 3/4, side, close-up), neutral backdrop, name \"CHIRON\" on top. Re-style as a futuristic team-architect: the equine body fitted with sleek alloy barding and amber-bronze luminescent circuit-trim echoing the Greek filigree; the human torso in a techno-himation / smart-robe of slate and bronze; the plan-scroll becomes a glowing holographic roster — a floating constellation of agent-nodes he arranges with a gesture, one new agent-figure forming under his hand."
+        },
+        {
+          "look": "future", "sheet": "expressions",
+          "image": "docs/agent-cards/images/chiron/future-expressions.png",
+          "generated": true, "reference": "docs/agent-cards/images/chiron/period-expressions.png",
+          "prompt": "Use the attached reference. SAME centaur, same face. WoW-style render, name \"CHIRON\" on top. Large close-up + three expressions (warm-teaching, discerning-appraising, calm-commanding) + one signature pose composing a floating holographic team-roster, a hero-agent materializing at his gesture. Futuristic alloy barding and techno-himation in slate and bronze."
+        }
+      ]
+    },
+    {
+      "id": "hamilton",
+      "name": "HAMILTON",
+      "tier": "Major",
+      "role": "Workflow Architect",
+      "figure": "Margaret Hamilton",
+      "dates": "b. 1936",
+      "history": "Margaret Hamilton (b. 1936), American computer scientist — led the team that wrote the on-board flight software for NASA's Apollo missions, coined the term \"software engineering,\" and designed the priority-scheduled, error-recovering software that saved the Apollo 11 landing. → designs how the team's work flows and integrates: the workflow architect.",
+      "character_constant": "a brilliant, poised American woman ~30 in 1960s style — long dark hair with a soft period flip, warm intelligent intensely-focused eyes behind horn-rimmed glasses, a calm-under-pressure bearing.",
+      "sheets": [
+        {
+          "look": "period", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/hamilton/period-turnaround.png",
+          "generated": true, "reference": null,
+          "prompt": "WoW-style semi-realistic painterly heroic render (Blizzard-cinematic detail, believable materials, dramatic light — not cartoony). 4-panel character turnaround sheet: front, 3/4, side profile, head-and-shoulders close-up — the SAME character identical in every panel, neutral studio backdrop, name \"HAMILTON\" hand-lettered across the top. Character: a brilliant, poised American woman of ~30, 1960s style — long dark hair with a soft period flip, warm intelligent intensely-focused eyes behind horn-rimmed glasses, a calm-under-pressure bearing. Authentic mid-1960s professional dress: a simple elegant period shift dress in muted tones (or a smart blouse and slacks), sensible flats, an MIT/NASA ID badge on a lanyard; her signature scene — she stands beside a stack of bound computer source-code listings nearly as tall as she is, one hand resting on the stack, the other holding an open fan-fold printout of flowcharts; punch cards and a reel of magnetic tape nearby. Composed, formidable."
+        },
+        {
+          "look": "period", "sheet": "expressions",
+          "image": "docs/agent-cards/images/hamilton/period-expressions.png",
+          "generated": true, "reference": null,
+          "prompt": "WoW-style semi-realistic painterly heroic render (not cartoony), neutral backdrop, name \"HAMILTON\" on top. Same character — American woman ~30, long dark hair with a period flip, horn-rimmed glasses, 1960s professional dress. A large head-and-shoulders close-up plus three expression studies (focused-analytical, unflappable-decisive, warm-confident) and one signature pose: standing beside the tower of bound code listings, one hand resting atop it, a flowchart printout in the other — the \"software engineering\" stance."
+        },
+        {
+          "look": "future", "sheet": "turnaround",
+          "image": "docs/agent-cards/images/hamilton/future-turnaround.png",
+          "generated": true, "reference": "docs/agent-cards/images/hamilton/period-turnaround.png",
+          "prompt": "Use the attached reference. SAME woman — identical face, long dark hair, horn-rimmed glasses, build. WoW-style semi-realistic painterly render, 4-panel turnaround (front, 3/4, side, close-up), neutral backdrop, name \"HAMILTON\" on top. Re-dress as a futuristic systems/workflow architect: a sleek tailored techno-suit in midnight-blue and silver whose silhouette still echoes the 1960s line, with cyan luminescent trim; the towering paper code-stack becomes a vast glowing holographic workflow-graph rising around her — nodes and flows, a fault-tolerant orchestration she conducts with both hands; punch cards become floating data-tokens."
+        },
+        {
+          "look": "future", "sheet": "expressions",
+          "image": "docs/agent-cards/images/hamilton/future-expressions.png",
+          "generated": true, "reference": "docs/agent-cards/images/hamilton/period-expressions.png",
+          "prompt": "Use the attached reference. SAME woman, same face and glasses. WoW-style render, name \"HAMILTON\" on top. Large close-up + three expressions (focused-analytical, unflappable-decisive, warm-confident) + one signature pose conducting the floating holographic workflow-graph. Futuristic midnight-blue and silver techno-suit with cyan trim."
+        }
+      ]
     }
   ]
 }
