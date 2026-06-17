@@ -131,11 +131,15 @@
     {
       "text": "[from: CAPTAIN_ADA] gen-data regenerated agents.ts: 3 MAJORs (CHIRON ingested), 11 LIEUTENANTs (agent-author retired). Inlined skill body GONE; skills/agent-author path-pointer=0; remaining 4 'agent-author' matches are CHIRON §7 capability prose (intended). Running build-check (tsc typecheck) per §5.1 before commit.",
       "timestamp": "2026-06-17T11:41:51Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA] build complete on arc-61/build @ 937acee. D1-D7 all landed; 14 files (453+/219-). Atomic recompose set in ONE commit: POLYBIUS pair-programmer-authoring marker removed (0 in POLYBIUS), CHIRON §11 marker added (1 balanced pair), partition POLYBIUS_MODULES-\u003eCHIRON_MODULES, ungated CHIRON recompose call. gen-data regenerated: 3 MAJORs (CHIRON ingested), 11 LIEUTENANTs, inlined agent-author body GONE, skills/agent-author path-pointer=0. Build-check PASS (tsc -b --noEmit exit0; bash -n install.sh exit0). Authorship audit PASS (all author fields = Denson Smith; html meta+footer untouched). Seat trailer on commit; Author=PRINCIPAL (not overridden). Minor re-anchors: module header provenance quoted-text differed slightly from design (re-anchored on ship text). NOT pushed/merged; no ticket closed; V3/dry-runs left to VERA. Returning.",
+      "timestamp": "2026-06-17T11:43:18Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T11:41:51Z"
+  "updated_at": "2026-06-17T11:43:18Z"
 }
