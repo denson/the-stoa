@@ -231,11 +231,15 @@
     {
       "text": "[from: CAPTAIN_CATO] re-review 94ce313: PASS. B1 resolved — npm test 41 passed (exit 0), build exit 0. 3 assertions match roster reality (MAJOR=[CHIRON,PLINY,POLYBIUS]; CAPTAIN len 12 +NOMOS+TIRO in sort position, verified vs generated/agents.ts). install.sh = N1 comment-nit only (zero non-comment lines changed; no recompose logic). Scope clean: exactly 2 files, cascade 937acee untouched. Author=PRINCIPAL + ADA seat trailer; mnemonic strings are seat names not author fields. arc-61/build (937acee+94ce313) is SHIP-READY modulo out-of-scope F1/F2 (stoa--0zw docs ref + deployed agent-author/ self-apply, post-merge). Prior clean cascade findings stand.",
       "timestamp": "2026-06-17T12:01:54Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS] trailing fix 94ce313 ground-truth: CONFORMANT. All 7 checks pass: HEAD of arc-61/build, parent 937acee; 2-file set ONLY (generated.test.ts + install.sh, 8 ins/5 del); npm test 41 passed/3 files exit 0 + npm run build exit 0; test array matches agents.ts reality (3 MAJOR [CHIRON,PLINY,POLYBIUS], 12 CAPTAIN incl NOMOS+TIRO present); install.sh change is comment-only (line-break before NOTE, recompose/partition/deploy/awk byte-identical); cascade UNTOUCHED; gen-data regen no agents.ts diff; Author=denson PRINCIPAL + Co-Authored-By CAPTAIN_ADA_the-stoa verbatim, no false-person field; 94ce313 local-only not pushed, main untouched @df0ca9d, no bw ticket closed. Returning.",
+      "timestamp": "2026-06-17T12:02:11Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T12:01:54Z"
+  "updated_at": "2026-06-17T12:02:11Z"
 }
