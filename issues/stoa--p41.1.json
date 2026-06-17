@@ -111,11 +111,15 @@
     {
       "text": "[from: CAPTAIN_ADA] ADA activated on Arc 61. Reading design-rev1.md + ARGUS PASS-WITH-CONDITIONS verdict + worktree@df0ca9d state before first edit. Grounding-check all concrete examples vs shipped code per brief (NOMOS flagged 2-6 line drift + module is 93 not 94 lines).",
       "timestamp": "2026-06-17T11:34:32Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA] Grounding-check complete: all design line-cites within ~2-6 lines of ship reality (CHIRON.md=149L tools@147; module=93L; POLYBIUS §11@307-311 exact; 5 dangling refs all confirmed at cited lines; app files confirmed). Re-anchoring all edits on quoted before-text. Beginning build D1-D7.",
+      "timestamp": "2026-06-17T11:35:57Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T11:34:32Z"
+  "updated_at": "2026-06-17T11:35:57Z"
 }
