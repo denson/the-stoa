@@ -55,11 +55,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS] design-rev1.md written to agents/design/arc-62/ (PASS). Design specifies all 5 deliverables: D1 MAJOR_HAMILTON.md section-by-section (structural mirror of CHIRON — seat-ID/lead/§1-§8/Tools — but choreography-domain content: workflow craft, model-cascade+context-isolation topology, bw coordination contract, workflow-composer held as live skill; NO §11 module-stub, NO MODULE-INLINE marker); D2 major-hamilton.html mirroring major-chiron.html (style verbatim, meta+footer=Denson Smith); D3 install.sh 4 ADD anchors (SRC ~L157, guard ~L802, DEST ~L936/940 both branches, deploy ~L961/969/972) + 5 explicit DO-NOT-ADD (no HAMILTON_MODULES, no recompose call, no ownership-partition entry, no frontmatter-manifest entry, no marker) with the zero-owned-module no-op confirmation; D4 gen-data auto-discovers by filename regex (gen-data-lib L59) + generated.test.ts L51/L55 -\u003e [CHIRON,HAMILTON,PLINY,POLYBIUS]; D5 reciprocal pointer (CHIRON already names HAMILTON x6, untouched). §6 has 6 runnable probes incl the REAL non-dry-run subproject recompose (Arc-61 lesson). TOP WEAK POINT: W2 copy-paste leakage from the CHIRON template — a stray MODULE-INLINE marker would make HAMILTON a 6th recompose-owner; P1+P6 guard it. Returning to PLINY.",
       "timestamp": "2026-06-17T13:14:58Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS] ARGUS activated on Arc 62 (MAJOR_HAMILTON seat build). Reading design-rev1 end-to-end + epic stoa--yh2.1 + charter stoa--p41 + CHIRON template before audit.",
+      "timestamp": "2026-06-17T13:16:35Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 62 — MAJOR_HAMILTON seat build (workflow-design architect, peer to CHIRON)",
   "type": "epic",
-  "updated_at": "2026-06-17T13:14:58Z"
+  "updated_at": "2026-06-17T13:16:35Z"
 }
