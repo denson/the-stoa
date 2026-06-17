@@ -27,11 +27,15 @@
     {
       "text": "CONFORMANT (1 precision note, non-blocking): all 4 audit items CONFORMANT. Charter fidelity matches yh2 + p41 'MAJOR_HAMILTON charter' comment verbatim-in-substance (identity/CHIRON-peer/3-part domain/OUTPUT/Margaret-Hamilton hook/answers-POLYBIUS-not-command-PLINY). Repo facts all green: HEAD@24b79cc lands CHIRON; CHIRON.md+major-chiron.html+install.sh CHIRON wiring exist; app MAJOR-set = [CHIRON,PLINY,POLYBIUS] (generated.test.ts:55); workflow-composer skill exists; HAMILTON files absent (build-from-scratch); D5 agent-cards HAMILTON already present (index.html:104). PRECISION NOTE (not a divergence): the workflow-composer 'HAMILTON's' text is at CHIRON.md Tools section (after §11), NOT '§9' as the scope says (§9 = Voice discipline); text exists verbatim. Dry-run lesson MECHANISM exact (dry-run early-returns before awk Checks A-E) but line cites are off: actual early-return L1051/return L1053, awk Checks L1059+ (not L1046/L1051) — hedged with '~' in the directive so non-load-bearing. HAMILTON-owns-no-module =\u003e no recompose entry/marker is mechanically correct (Check D needs nowned\u003e0; Check B iterates owned only). Activation pastes name real workspace files (.claude/MAJOR_POLYBIUS.md, MAJOR_PLINY.md), correct ticket+seats, chain matches gauntlet. No false authorship. OUT-OF-SCOPE fencing (z2b/ruu/skills-housekeeping) internally consistent. Gauntlet may build. Returning.",
       "timestamp": "2026-06-17T12:57:48Z"
+    },
+    {
+      "text": "[NOMOS CONFORMANT — 2 citation fixes] User-tier POLYBIUS dispatched NOMOS to ground-truth this directive before team reactivation: CONFORMANT on all 4 items (charter fidelity, repo facts, paste correctness, authorship/scope). Two cosmetic citation corrections (texts + mechanism are correct, only the labels drift):\n1. The \"workflow-composer is HAMILTON's\" reference lives in MAJOR_CHIRON.md's unnumbered **Tools** section (L161), NOT \"§9\" (§9 = Voice discipline). Text is verbatim-correct.\n2. The Arc-61 dry-run lesson: the recompose dry-run early-returns at install.sh ~L1051 (return 0) BEFORE the awk FAIL-LOUD Checks A–E at ~L1059+ (not the ~L1046/~L1051 in the DoD). Mechanism unchanged: a dry-run cannot exercise A–E; verify HAMILTON's (no-owned-module, so no-op-clean) recompose via a REAL recompose.\nNeither blocks the build. Directive is dispatch-ready.",
+      "timestamp": "2026-06-17T12:58:56Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 62 — MAJOR_HAMILTON seat build (workflow-design architect, peer to CHIRON)",
   "type": "epic",
-  "updated_at": "2026-06-17T12:57:48Z"
+  "updated_at": "2026-06-17T12:58:56Z"
 }
