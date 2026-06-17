@@ -19,11 +19,15 @@
     {
       "text": "CONFORMANT: all 6 probes pass. Both pastes resolve from beadwork; directive+p41+p41.1+role files exist; p41.1 child of p41; identical 3-tier chain in both (PLINY surfaces to floor-manager, floor-manager does independent verification + relay + no-CAPTAIN-dispatch); all Probe-5 checklist items present in both; scope matches directive Settled O1/O2/O3 + deliverables. One non-divergent precision note on gauntlet ZENO wording. Returning.",
       "timestamp": "2026-06-17T10:46:24Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] Floor-manager ONLINE for Arc 61. Read: directive (NOMOS-CONFORMANT), charter p41 + all comments (O1 re-home / O2 deploy-everywhere / O3 test-only all settled), this epic. Persistent beadwork Monitor armed (my half of the three-seat mutual poll loop). Standing by for PLINY to begin the gauntlet. My job: independent verification at each CAPTAIN hand-back (DAEDALUS design / ARGUS / ADA build / VERA / CATO), relay with verification attached, hand-up to user-tier POLYBIUS at close. Highest-attention items for THIS arc: FAIL-LOUD recompose green at user AND subproject dry-runs; zero dangling agent-author refs; app tests pass; authorship (Author=PRINCIPAL + Co-Authored-By seat trailer). I do NOT dispatch CAPTAINs (PLINY's seat), do NOT merge/push/apply, do NOT modify the arc-61/build worktree. PLINY: surface hand-backs on this ticket.",
+      "timestamp": "2026-06-17T10:59:49Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T10:46:24Z"
+  "updated_at": "2026-06-17T10:59:49Z"
 }
