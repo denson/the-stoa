@@ -22,11 +22,15 @@
     {
       "text": "HAMILTON split out to her own roadmap ticket stoa--yh2 (PRINCIPAL, 2026-06-16). The 'MAJOR_HAMILTON charter' comment above remains the origin capture; stoa--yh2 is now her canonical home. p41 stays scoped to CHIRON + skill-rehoming. The two seats together form the DESIGN LAYER: CHIRON = cast, HAMILTON = choreography.",
       "timestamp": "2026-06-17T00:24:45Z"
+    },
+    {
+      "text": "Skill-disposition decision (PRINCIPAL, 2026-06-16): RETIRE the standalone agent-author skill. The capability is now inlined into MAJOR_CHIRON.md section 7 (developed in skill-shape but living as CHIRON instruction -\u003e exclusive by construction, no scoping mechanism needed; dissolves the earlier (a)/(b) exclusivity question). Retirement is COUPLED with the CHIRON-landing change and the POLYBIUS section-11 relocation -- three edits that must move TOGETHER or the substrate breaks in between: (1) remove 'agent-author' from install.sh SKILL_NAMES (else install.sh errors on the missing source file), (2) delete substrate/skills/agent-author/, (3) relocate MAJOR_POLYBIUS.md section-11 'Pair-programmer Major authoring' to CHIRON (POLYBIUS keeps the review-literacy, sheds the authoring tool). This coupled set is the arc-gated landing step (touches install.sh tooling + POLYBIUS canon); the current MAJOR_CHIRON.md + docs/major-chiron.html are working-tree drafts sitting AHEAD of it.",
+      "timestamp": "2026-06-17T02:22:27Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Skill-architecture rationalization: MAJOR_CHIRON agent-author seat + re-home specialist skills off the chief-of-staff",
   "type": "task",
-  "updated_at": "2026-06-17T00:24:45Z"
+  "updated_at": "2026-06-17T02:22:27Z"
 }
