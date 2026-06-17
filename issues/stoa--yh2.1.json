@@ -95,11 +95,15 @@
     {
       "text": "[from: CAPTAIN_ADA] Ground-check complete — design-rev1 examples match ship reality @24b79cc with ZERO drift: install.sh anchors exact (SRC L157, guard L802, DEST L936/940, deploy L961/969/972), manifest L524-534 has only POLYBIUS+PLINY (CHIRON absent, HAMILTON likewise), recompose L1178/1189 (no HAMILTON owner), test L51/L55 MAJOR-set + L65 CAPTAIN toHaveLength(12). Building D1 substrate/MAJOR_HAMILTON.md now (structural mirror of CHIRON, choreography domain, ZERO modules, NO MODULE-INLINE marker, NO frontmatter).",
       "timestamp": "2026-06-17T13:28:36Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA] D1-D3 landed in worktree. D1 MAJOR_HAMILTON.md: MODULE-INLINE=0, no frontmatter, voice clean (colonel=reserved-rank only, the-user=0), no body author-field. D2 major-hamilton.html: meta+footer=Denson Smith. D3 install.sh: 7 HAMILTON lines = SRC+guard+2xDEST+dryrun+sed+deployed ONLY (zero recompose/module/manifest/owner-count); bash -n clean. Running D4 app gen-data regen + generated.test.ts edit + build+test now.",
+      "timestamp": "2026-06-17T13:31:27Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 62 — MAJOR_HAMILTON seat build (workflow-design architect, peer to CHIRON)",
   "type": "epic",
-  "updated_at": "2026-06-17T13:28:36Z"
+  "updated_at": "2026-06-17T13:31:27Z"
 }
