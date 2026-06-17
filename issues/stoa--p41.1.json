@@ -67,11 +67,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS] design-rev1.md complete (agents/design/arc-61/design-rev1.md). O1 FALLBACK VERDICT: RE-HOME PROCEEDS — module has substantive unique content (sec11.1 trigger test, sec11.2 walk-through, sec11.3 lineage, sec11.4 asymmetric bw visibility) NOT subsumed by CHIRON sec7; fallback does not apply. Design covers D1-D7 with before-\u003eafter edits, the 5-owner recompose partition (CHIRON=5th owner via dedicated DEST_CHIRON in the sec2 MAJOR-deploy block, ungated call), full A/B/C/D/E green-after argument, all 5 dangling refs (incl GAP B sec19.7) + 4 GAP-A module refs + GAP-C grep scope, and SRC_CHIRON existence guard. BIGGEST WEAK POINT (WP-1): --dry-run does NOT exercise the awk Checks A-E (early-returns before them) -- a REAL subproject recompose into a throwaway dir (probe V3) is MANDATORY to prove FAIL-LOUD checks green; dry-run alone only proves call-wiring. status pass. Returning to PLINY.",
       "timestamp": "2026-06-17T11:21:56Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS] ARGUS activated on arc-61. Read design-rev1.md + coordination epic end-to-end. Now ground-checking install.sh recompose machinery (Checks A-E), dry-run early-return path, suffix logic, MAJOR-deploy block, dangling refs against real source before audit.",
+      "timestamp": "2026-06-17T11:24:36Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T11:21:56Z"
+  "updated_at": "2026-06-17T11:24:36Z"
 }
