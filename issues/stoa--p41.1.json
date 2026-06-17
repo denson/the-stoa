@@ -219,11 +219,15 @@
     {
       "text": "[from: CAPTAIN_VERA] VERA activated on arc-61 re-verify @94ce313. Reading brief + checking install.sh diff is comment-only (gates V3 carry-forward) + re-running V4.",
       "timestamp": "2026-06-17T12:00:38Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS] static probes done (SHA/parent/2-file-set/install.sh-comment-only/test-array-matches-agents.ts-reality 3 MAJOR+12 CAPTAIN incl NOMOS+TIRO/Author=PRINCIPAL+ADA trailer). Running npm test + npm run build gate now.",
+      "timestamp": "2026-06-17T12:01:09Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T12:00:38Z"
+  "updated_at": "2026-06-17T12:01:09Z"
 }
