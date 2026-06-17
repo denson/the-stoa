@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-17T11:03:10Z",
+  "description": "SYMPTOM: in the Panes/Tabs branch the positional claude prompt is appended as a bare wt token ($wtArgs += $p), so a multi-word activation (e.g. a gauntlet spawn-instruction 'Read .claude/MAJOR_PLINY.md. Then git show beadwork:... follow it') splits across wt args and breaks. Only -Layout Windows quotes it ($cmd += \" '$p'\"). Arc 61 dispatch (2026-06-17) used -Layout Windows as the workaround so the gauntlet (POLYBIUS_the-stoa + PLINY_the-stoa) could be launched with beadwork-brief activations.\n\nPLAN: in the Panes/Tabs branch, pass the positional prompt as a SINGLE quoted token that survives wt arg-splitting (mirror the Windows-branch single-quote wrap; verify wt's quoting rules for a positional arg passed after the claude exe + flags). Add a DryRun test with a multi-word prompt across all three layouts (Panes/Tabs/Windows) to the skill's smoke checklist. Also fix the cosmetic tail message (hardcoded 'Say-trigger: each pane was pre-seeded its bare word') to reflect the actual activation mode (say-word vs full instruction).\n\nOUTCOME: a gauntlet can launch side-by-side panes (nicer than separate windows). Source: substrate/skills/team-launcher/launch-team.ps1; gauntlet-setup skill references it. Per the launch-discipline HARD RULE (fix the script, do not hand-roll).",
+  "id": "stoa--waa",
+  "labels": [],
+  "priority": 3,
+  "status": "open",
+  "title": "[BUG] launch-team.ps1 panes/tabs append multi-word activation prompts UNQUOTED (gauntlet had to use -Layout Windows)",
+  "type": "task",
+  "updated_at": "2026-06-17T11:03:10Z"
+}
