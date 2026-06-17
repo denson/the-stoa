@@ -91,11 +91,15 @@
     {
       "text": "ADA activated on stoa--yh2.1 (Arc 62 MAJOR_HAMILTON). Reading design-rev1 + ARGUS PASS verdict + worktree state before first commit. Grounding-check pass to follow before D1.",
       "timestamp": "2026-06-17T13:27:43Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA] Ground-check complete — design-rev1 examples match ship reality @24b79cc with ZERO drift: install.sh anchors exact (SRC L157, guard L802, DEST L936/940, deploy L961/969/972), manifest L524-534 has only POLYBIUS+PLINY (CHIRON absent, HAMILTON likewise), recompose L1178/1189 (no HAMILTON owner), test L51/L55 MAJOR-set + L65 CAPTAIN toHaveLength(12). Building D1 substrate/MAJOR_HAMILTON.md now (structural mirror of CHIRON, choreography domain, ZERO modules, NO MODULE-INLINE marker, NO frontmatter).",
+      "timestamp": "2026-06-17T13:28:36Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 62 — MAJOR_HAMILTON seat build (workflow-design architect, peer to CHIRON)",
   "type": "epic",
-  "updated_at": "2026-06-17T13:27:43Z"
+  "updated_at": "2026-06-17T13:28:36Z"
 }
