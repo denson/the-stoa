@@ -251,11 +251,15 @@
     {
       "text": "NOMOS activated on Arc 61 user-tier close-gate output (merge 24b79cc). Auditing scope/authorship/dangling-refs/recompose-partition/app-test-roster against arc directive + bw + repo. Read-only.",
       "timestamp": "2026-06-17T12:39:03Z"
+    },
+    {
+      "text": "CONFORMANT — Arc 61 close-gate (merge 24b79cc) clears all 5 probes. (1) Scope: exactly 14 files, only adds agents/design/arc-61/design-rev1.md, only deletes substrate/skills/agent-author/SKILL.md. (2) Authorship: all 3 SHAs Author=denson\u003cdensonsmith2@gmail.com\u003e; 937acee+94ce313 carry Co-Authored-By CAPTAIN_ADA_the-stoa; every author-FIELD value=Denson Smith; no false-person field. (3) Dangling refs: zero live skills/agent-author refs outside arcs/+v1-historical; remaining agent-author refs are intended CHIRON-§7 pointers; dir deleted; SKILL_NAMES drops agent-author. (4) Recompose: CHIRON deploys all tiers; CHIRON_MODULES=pair-programmer-authoring as 5th UNGATED owner; MODULE-INLINE markers in CHIRON.md L154-155, absent from POLYBIUS.md. (5) App test: 12-CAPTAIN list + [CHIRON,PLINY,POLYBIUS] MAJORs match agents.ts. Merge is clean --no-ff (no merge-time edits). No divergences. CLEAR TO PUSH. Returning.",
+      "timestamp": "2026-06-17T12:40:41Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T12:39:03Z"
+  "updated_at": "2026-06-17T12:40:41Z"
 }
