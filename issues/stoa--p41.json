@@ -34,11 +34,15 @@
     {
       "text": "NOMOS activated on arc-61-build-directive.md (DRAFT, not dispatched). Auditing the directive's cascade-claims against bw + repo ground truth: charter alignment, draft existence, skill-retirement targets, POLYBIUS section-11 cascade, module coupling, recompose FAIL-LOUD, dangling refs, app dependency, arc number. Read-only audit; will not edit the directive or patch bw.",
       "timestamp": "2026-06-17T08:31:12Z"
+    },
+    {
+      "text": "NOMOS verdict on arc-61-build-directive.md (DRAFT): CONFORMANT. All 9 checkable cascade-claims verified against bw+repo ground truth. Charter (p41 comments) matches the 4 'Settled' items; CHIRON.md+major-chiron.html drafts exist (CHIRON.md sec7 = inlined agent-author); SKILL_NAMES line 227 + line-57 comment; POLYBIUS sec11 stub L307-310 + routing-map L71 + relocation-index L84 + sec7.6 cross-ref L260 all present; pair-programmer-authoring.md L39 invokes the skill; install.sh recompose_module_inline L1014 FAIL-LOUD Checks A/B/C/D/E exit2 confirmed; all 4 dangling refs confirmed; arc-61 unused; arc-17 directive exists. CHIRON author-field = Denson Smith (clean). ONE PRECISION NOTE (not a divergence in the directive): the gen-data adapter discoverSkillFiles reads ALL 12 skill dirs as LIEUTENANTs, not only agent-author -- so removing agent-author does NOT empty the slot (11 remain); the only test break is generated.test.ts L92 expect(names).toContain('agent-author'). The DIRECTIVE handles this correctly (frames it OPEN as O3, does not assert agent-author is sole LIEUTENANT) -- it is the p41 BLAST-RADIUS charter comment that overstates 'ONLY LIEUTENANT slot'. Directive propagates clean. Returning.",
+      "timestamp": "2026-06-17T08:32:40Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Skill-architecture rationalization: MAJOR_CHIRON agent-author seat + re-home specialist skills off the chief-of-staff",
   "type": "task",
-  "updated_at": "2026-06-17T08:31:12Z"
+  "updated_at": "2026-06-17T08:32:40Z"
 }
