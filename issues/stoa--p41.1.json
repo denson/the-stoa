@@ -83,11 +83,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS] PASS-WITH-CONDITIONS. Recompose A-E green-after argument is SOUND (ground-checked vs real awk L1051-1109); atomic three-move correctly identified. WP-1 CONFIRMED + ELEVATED: directive DoD (L43/55/63 'A-E green at subproject DRY-RUN') is mis-specified — dry-run early-returns at L1044-47 BEFORE the awk; V3 (real recompose into throwaway) is MANDATORY, not optional. WP-2 suffix-parity CONFIRMED (project tier SUFFIX_MAJORS=0; mirror POLYBIUS not directive prose). Top conditions: (C1) V3 must be in VERA plan w/ fixed-literal scratch path + the body-present/body-absent grep asserts; (C2) V5 grep must also scope/classify app/ matches (floor-mgr's types-v2.ts:148 + gen-data-lib.ts:81 — I confirm both are illustrative kebab examples, not skill-dir pointers; V5 currently scopes arcs/+v1-historical/ only -\u003e they surface UNCLASSIFIED). A1: I AGREE no named threat / no runtime attack path — process+tooling refactor; §35.5 carve-out is correct. Full detail to PLINY.",
       "timestamp": "2026-06-17T11:26:23Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS] design-rev1 ground-truth: CONFORMANT. Every checkable claim verified vs bw+worktree@df0ca9d. O1=RE-HOME/O2=everywhere/O3=test-only all match stoa--p41 (09:57:17Z/09:39:18Z); GAP-B 5th ref REAL (MAJOR_POLYBIUS.md:618 sec19.7); 4 GAP-A module refs REAL (L35/37/39/82, body has NO MODULE-INLINE -\u003e Check E premise clean); all 5 dangling refs real; install.sh SRC L155-157, guards L800-802, DEST block L932-937, SKILL_NAMES L227, recompose_module_inline L1014 Checks A-E exit2, POLYBIUS_MODULES L1167, dry-run early-return L1044-47 (WP-1 premise SOUND) all confirmed; CHIRON sec7 L85, ZERO markers; authorship CLEAN (CHIRON.md + major-chiron.html meta L6 = Denson Smith). Precision notes (non-divergent): module is 93 not 94 lines; a few line refs drift 2-6 lines (content re-anchored exact). NO false claim found. Returning detail to PLINY.",
+      "timestamp": "2026-06-17T11:26:55Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T11:26:23Z"
+  "updated_at": "2026-06-17T11:26:55Z"
 }
