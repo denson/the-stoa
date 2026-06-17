@@ -43,11 +43,15 @@
     {
       "text": "[from: ARGUS Arc63] ARGUS activated on stoa--p41.2 pass A. Read design-rev1 + NOMOS-CONFORMANT directive end-to-end. Now auditing against source: gen-data-lib discoverSkillFiles, check.sh state-file ownership, settings-hooks.json + Stop self-check carrier-read, install.sh SKILL_NAMES + deploy paths + gitignore template, and the P-EMPIRICAL/P-FALLBACK probe runnability. Surfacing risks (no fixes).",
       "timestamp": "2026-06-17T20:35:22Z"
+    },
+    {
+      "text": "[from: ARGUS Arc63] Audit pass 1 complete; 6 candidate risks surfaced, classifying by severity + quadrant. Confirmed via source: (1) NOTHING reads .substrate-drift-signal — stop-self-check.sh has a fixed A/B/C checklist, no signal reader; CLAUDE.md has none either (P-FALLBACK reader-gap). (2) check.sh state files are '../..'-located so relocation silently moves baselines. (3) hook pseudocode hard-codes .claude/skills/check-*/check.sh but §4 relocates OUT of skills/ — path won't resolve. (4) gsearch: claude -p DOES fire startup matcher + a deterministic --debug/transcript surface exists (probe's model-echo assertion is the soft part). Finalizing verdict.",
+      "timestamp": "2026-06-17T20:38:58Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-17T20:35:22Z"
+  "updated_at": "2026-06-17T20:38:58Z"
 }
