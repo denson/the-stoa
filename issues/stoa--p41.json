@@ -58,11 +58,15 @@
     {
       "text": "O1 RESOLVED (PRINCIPAL, 2026-06-16): RE-HOME pair-programmer-authoring.md as a CHIRON-owned module (slim-core option). MAJOR_CHIRON.md hosts it via a MODULE-INLINE-markered stub; the install.sh recompose ownership-partition reassigns it POLYBIUS -\u003e CHIRON; the module's 'Invoke the agent-author skill' line (~:39) repoints to CHIRON section-7. All FAIL-LOUD recompose checks (A/B/C/D/E) must be green at user + subproject dry-runs. Rationale: the substrate's slim-core discipline (lean role files, detail in modules) + the recompose machinery is a known FAIL-LOUD-guarded mechanism POLYBIUS already uses -- one-time build cost, permanent slim-core benefit. FALLBACK (DAEDALUS, surface to POLYBIUS first): if the module's unique content (lineage + pair-programmer framing) is thin and mostly subsumed by CHIRON section-7, fold essentials into section-7 + retire.\n\nThis records the decision the Arc 61 directive (commit b1d1caa) already encodes -- reconciling the NOMOS DIVERGENT finding (the directive asserted O1=re-home before it was on the durable record; recording it here grounds the claim). With this, all three open items (O1/O2/O3) are on the durable record and the directive is faithfully grounded.",
       "timestamp": "2026-06-17T09:57:17Z"
+    },
+    {
+      "text": "NOMOS re-audit verdict on b1d1caa (Arc 61 directive, prior DIVERGENT-on-O1): CONFORMANT — divergence RECONCILED. The new p41 comment (09:57:17Z) records O1 RESOLVED = RE-HOME pair-programmer-authoring.md as a CHIRON-owned module (recompose ownership-partition POLYBIUS-\u003eCHIRON; MAJOR_CHIRON.md MODULE-INLINE stub; module's '~:39 Invoke the agent-author skill' repoints to CHIRON section-7) — exactly the record the prior audit flagged missing. Directive L42-46 (O1=RE-HOME) + D5 L55 now match this p41 record verbatim-in-substance. O2 (deploy everywhere/Option B, suffixed CHIRON_\u003cslug\u003e; L44+D2 L52) matches p41 09:39:18Z; O3 (slot stays populated, only generated.test.ts:92 changes; L45+D7 L57) matches p41 NOMOS-corrections L106/L109/L117. Spot-checks at b1d1caa still green: generated.test.ts:92 = expect(names).toContain('agent-author'); pair-programmer-authoring.md:39 = 'Invoke the agent-author skill'; MAJOR_POLYBIUS.md sec11 MODULE-INLINE:pair-programmer-authoring L310-311. Internal consistency: status L5 FINALIZED/dispatch-ready/NOT-yet-dispatched; no leftover Open-SURFACE section (grep empty). Author=denson\u003cdensonsmith2@gmail.com\u003e=PRINCIPAL; no false-person author field; scope=ONLY substrate/arcs/arc-61-build-directive.md (cascade unexecuted — install.sh/MAJOR_POLYBIUS.md/skills/agent-author untouched at b1d1caa). All 5 confirmation points pass. Directive propagates. Read-only audit; no edit, no bw patch. Returning.",
+      "timestamp": "2026-06-17T10:18:51Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Skill-architecture rationalization: MAJOR_CHIRON agent-author seat + re-home specialist skills off the chief-of-staff",
   "type": "task",
-  "updated_at": "2026-06-17T09:57:17Z"
+  "updated_at": "2026-06-17T10:18:51Z"
 }
