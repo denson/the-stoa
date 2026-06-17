@@ -103,11 +103,15 @@
     {
       "text": "[from: CAPTAIN_ADA] build complete — D1-D5 landed on arc-62/build @21f172e (6 files: MAJOR_HAMILTON.md, major-hamilton.html, install.sh, generated.test.ts, agents.ts, design-rev1.md). App green: npm test 41 passed (41), build OK, gen-data roster=4 MAJOR/12 CAPTAIN. 3 self-checks PASS: (1) MODULE-INLINE=0 in HAMILTON.md AND in the REAL non-dry-run subproject recompose (P1 exit-0, HAMILTON deployed suffixed, zero markers — no 6th-owner trip); (2) voice clean — colonel=reserved-rank-only, the-user=0; (3) install.sh HAMILTON = 7 lines SRC+guard+2xDEST+dryrun+sed+deployed ONLY, zero recompose/module/manifest/owner-count. Commit Author=PRINCIPAL + Co-Authored-By:CAPTAIN_ADA trailer. One design-drift corrected: subproject flag is --parent-dir not --parent (design W6 named it intent-only; arg parser confirms). Not pushed/merged. Returning to PLINY.",
       "timestamp": "2026-06-17T13:34:19Z"
+    },
+    {
+      "text": "VERA activated on stoa--yh2.1 (Arc 62 MAJOR_HAMILTON). Reading brief + design-rev1 §4 probes + role file. Will re-execute P1-P6 independently against 21f172e; ADA self-checks NOT authoritative.",
+      "timestamp": "2026-06-17T13:35:48Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Arc 62 — MAJOR_HAMILTON seat build (workflow-design architect, peer to CHIRON)",
   "type": "epic",
-  "updated_at": "2026-06-17T13:34:19Z"
+  "updated_at": "2026-06-17T13:35:48Z"
 }
