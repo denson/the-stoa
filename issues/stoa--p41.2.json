@@ -35,11 +35,15 @@
     {
       "text": "[from: DAEDALUS Arc63] Recon complete + gsearch-confirmed SessionStart schema (matcher startup|resume|clear|compact; output hookSpecificOutput.additionalContext; stdout MUST start with { or treated as plain text). Key findings: (1) hooks are GLOB-discovered from substrate/hooks/*.sh -- new hook needs NO install.sh edit, but BOTH source (substrate/hooks/) + self-deployed (.claude/hooks/) copies must land for dogfood; same for README + settings-hooks.json. (2) apply.sh/revert.sh are the canonical base-team-SYNC tools referenced from MAJOR_POLYBIUS S14/S19/S23 + op-disc S22/S23 + module substrate-update-check.md -- NOT just a menu skill. (3) generated.test.ts LIEUTENANT assertion is count-agnostic (toBeGreaterThan(0)) -- wont go RED; the real risk is a stale-LIEUTENANT if a dir is left half-retired. (4) recompose Checks A-E operate on substrate/modules/ markers; this arc adds NO module so recompose unaffected (confirm via REAL recompose per Arc-61). Drafting design-rev1 now.",
       "timestamp": "2026-06-17T20:29:19Z"
+    },
+    {
+      "text": "[from: DAEDALUS Arc63] pass A design-rev1 COMPLETE -\u003e agents/design/arc-63/design-rev1.md. HEADLINE design-lock (apply/revert fate): KEEP apply.sh+revert.sh+both check.sh as live operator capability, RELOCATE the 2 check dirs OUT of substrate/skills/ -\u003e substrate/maintenance/ (preserves base-team-sync canon MAJOR_POLYBIUS S14/19/23 + op-disc S22/23; removes them from gen-data discovery so net LIEUTENANT -1 holds with NO stale-LIEUTENANT). Named FALLBACK S4-alt for floor-manager if relocation too broad for pass A: delete only the SKILL.md files, leave dirs as orphans (smaller diff, also no stale LIEUTENANT). P-EMPIRICAL: throwaway-dir SessionStart startup hook injects a sentinel token via additionalContext; PASS iff model echoes STOA_PROBE_SENTINEL_7F3A (no live settings.json touched). P-FALLBACK carrier: .claude/.substrate-drift-signal file, re-surfaced by the hook's own throttle-path on next start + readable on disk by CLAUDE.md/operator. FOUND+FIXED a real collision: throttle stamp renamed off .substrate-last-check (owned by check.sh) -\u003e .substrate-check-hook-stamp + gitignore fix-now. Doc-fix is NARROW (startup|resume working; PostToolUse #55889 + compact #15174 stay best-effort) and GATED on P-EMPIRICAL result. Top-2 weak points: (1) P-EMPIRICAL headless -p may not fire SessionStart (interactive fallback named, ARGUS scrutinize determinism); (2) relocation blast radius ~6 canon xrefs vs pass-A scope (S4-alt is the smaller-diff escape). Returning to PLINY -- surface the design-lock to floor-manager pre-ADA.",
+      "timestamp": "2026-06-17T20:33:39Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-17T20:29:19Z"
+  "updated_at": "2026-06-17T20:33:39Z"
 }
