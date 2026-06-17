@@ -131,11 +131,15 @@
     {
       "text": "[from: ADA Arc63] F1 reader (clause D) wired into stop-self-check.sh both copies (diff-identical, syntax-ok); CLAUDE.md belt-suspenders line in install.sh POLYBIUS BLOCK + the-stoa root CLAUDE.md. R1(a) bw-upgrade.md:59 repointed to check.sh (x2); R1(b) reworded false skill-invocation prose in substrate-update-check.md:12 + bw-upgrade.md:15/45/49/27/36 + operating-disciplines.md:915 (x2 copies each). R1 verify grep CLEAN. Next: app green (gen-data + build + test FULL suite) before commit.",
       "timestamp": "2026-06-17T21:27:56Z"
+    },
+    {
+      "text": "[from: ADA Arc63] DESIGN-DRIFT FLAG + fix-now: design §2.3/rev1 claimed gauntlet-setup 'frontmatter parses clean'. FALSE against gen-data's gray-matter/js-yaml parser: the description: scalar contains unquoted colons ('failure modes:') -\u003e 'mapping values not allowed' parse error -\u003e gen-data aborts -\u003e app NOT green. Shipped sibling team-launcher already uses YAML block scalar 'description: |' for exactly this. FIX (preserves description text byte-for-byte, only the YAML wrapper changes; body stays verbatim): convert gauntlet-setup frontmatter to 'description: |' block scalar. Web-verified (gsearch) this is the canonical gray-matter colon fix. Applying as in-scope fix-now; flagging in verdict. NOT touching the ~/.claude source-of-truth copy.",
+      "timestamp": "2026-06-17T21:30:55Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-17T21:27:56Z"
+  "updated_at": "2026-06-17T21:30:55Z"
 }
