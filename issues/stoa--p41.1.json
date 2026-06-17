@@ -11,11 +11,15 @@
     {
       "text": "NOMOS activated on the two Arc 61 activation pastes (floor-manager + PLINY) at attachments/stoa--p41.1/. Reading the pastes + the named bw tickets (p41 charter, p41.1 epic) + directive + role files. Read-only audit; will not edit the pastes or patch bw.",
       "timestamp": "2026-06-17T10:45:40Z"
+    },
+    {
+      "text": "Ground truth gathered: both pastes resolve from beadwork; directive + p41 + p41.1 + role files all exist; p41.1 is child of p41; generated.test.ts:92 = toContain('agent-author'). Running the 6 audit probes against the paste text now.",
+      "timestamp": "2026-06-17T10:45:58Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T10:45:40Z"
+  "updated_at": "2026-06-17T10:45:58Z"
 }
