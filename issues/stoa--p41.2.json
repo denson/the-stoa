@@ -31,11 +31,15 @@
     {
       "text": "[from: DAEDALUS Arc63] DAEDALUS activated on stoa--p41.2 pass A. Reading NOMOS-CONFORMANT directive + epic + recon files (install.sh SKILL_NAMES, settings-hooks.json, hooks README + sessionstart-compact-reprime.sh + Stop self-check, check skills, gauntlet-setup source, gen-data-lib + generated.test.ts). Noted POLYBIUS design-attention: discoverSkillFiles is DIRECTORY-driven (gen-data-lib:92-101), so apply/revert fate is COUPLED to LIEUTENANT count -- a half-retired dir renders a stale LIEUTENANT. Designing accordingly.",
       "timestamp": "2026-06-17T20:25:21Z"
+    },
+    {
+      "text": "[from: DAEDALUS Arc63] Recon complete + gsearch-confirmed SessionStart schema (matcher startup|resume|clear|compact; output hookSpecificOutput.additionalContext; stdout MUST start with { or treated as plain text). Key findings: (1) hooks are GLOB-discovered from substrate/hooks/*.sh -- new hook needs NO install.sh edit, but BOTH source (substrate/hooks/) + self-deployed (.claude/hooks/) copies must land for dogfood; same for README + settings-hooks.json. (2) apply.sh/revert.sh are the canonical base-team-SYNC tools referenced from MAJOR_POLYBIUS S14/S19/S23 + op-disc S22/S23 + module substrate-update-check.md -- NOT just a menu skill. (3) generated.test.ts LIEUTENANT assertion is count-agnostic (toBeGreaterThan(0)) -- wont go RED; the real risk is a stale-LIEUTENANT if a dir is left half-retired. (4) recompose Checks A-E operate on substrate/modules/ markers; this arc adds NO module so recompose unaffected (confirm via REAL recompose per Arc-61). Drafting design-rev1 now.",
+      "timestamp": "2026-06-17T20:29:19Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-17T20:25:21Z"
+  "updated_at": "2026-06-17T20:29:19Z"
 }
