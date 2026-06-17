@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-17T00:24:01Z",
+  "description": "NEW design-time seat, split out of stoa--p41 (charter first captured there; see the 'MAJOR_HAMILTON charter' comment on p41 for full detail + the shared runtime-architecture context).\n\nROLE: MAJOR-tier 'workflow architect', PEER to CHIRON. CHIRON designs the CAST (roster of seats); HAMILTON designs the CHOREOGRAPHY (how the team's work flows). Both design-time; both answer to POLYBIUS; neither commands PLINY. Hook: Margaret Hamilton -- led Apollo flight software, coined 'software engineering', designed the fault-tolerant orchestration that integrated Apollo's subsystems. Sits in ADA's computing lineage (roster balance: ADA + HAMILTON).\n\nDOMAIN: (1) Anthropic dynamic workflows -- Claude Code Workflow tool / Agent SDK: orchestration scripts, subagent fan-out, context-isolation cascade. (2) beadwork (bw) workflows -- tickets, dependencies, polling cadence, orphan-branch sync, seat-identity / Co-Authored-By trailer. (3) INTEGRATION of the two into ONE agentic-team workflow design -- her distinctive value is the seam between Anthropic-workflow execution and bw coordination.\n\nOUTPUT: the workflow design for a team CHIRON has cast -- orchestration scripts + the bw coordination contract + the runtime model-cascade topology (which steps are code / cheap model / Opus; where context isolation applies; sentinel -\u003e Stoa escalation paths). Likely holds the workflow-composer skill + bw-workflow expertise.\n\nCO-DESIGN: CHIRON (cast) and HAMILTON (choreography) co-constrain each other; they iterate together on a team-build, not in strict sequence.\n\nBUILD: separate seat, likely a separate build arc from the CHIRON + skill-rehoming arc (p41). Also needs an agent-card web page (see stoa--gis) -- CHIRON needs one too.\n\nCross-ref: stoa--p41 (CHIRON + the design layer), stoa--gis (agent-card display), stoa--q36 (workflows execute direction), workflow-composer skill.",
+  "id": "stoa--yh2",
+  "labels": [],
+  "priority": 3,
+  "status": "open",
+  "title": "[ROADMAP] MAJOR_HAMILTON -- workflow-design architect (peer to CHIRON; Anthropic + bw workflow integration)",
+  "type": "task",
+  "updated_at": "2026-06-17T00:24:01Z"
+}
