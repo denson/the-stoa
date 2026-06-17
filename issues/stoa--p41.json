@@ -50,11 +50,15 @@
     {
       "text": "O2 RESOLVED (PRINCIPAL, 2026-06-16): CHIRON deploys at EVERY tier (Option B) -- user + project + subproject, suffixed CHIRON_\u003cslug\u003e at project/subproject parallel to POLYBIUS/PLINY, via the MAJOR deploy logic. Standing-but-dormant architect: available wherever a team lives, engaged only for design work. Rationale: 'ship CHIRON in the main team' (the main team auto-deploys everywhere) + teams should self-architect/evolve in place + tiny cost (one role file per deploy). Arc 61 D2 becomes concrete: install.sh deploys MAJOR_CHIRON at all tiers alongside POLYBIUS/PLINY.\n\nO3 (app LIEUTENANT slot) is effectively RESOLVED per the NOMOS correction above: the slot does NOT empty (12 skills render; removing agent-author leaves 11); only generated.test.ts:92 toContain('agent-author') needs updating.\n\nREMAINING open: O1 (pair-programmer-authoring.md module fate). Note: O2=B deploys CHIRON at SUBPROJECT tier, which makes the recompose machinery relevant if CHIRON owns a module -- so O1 is now a sharper slim-core-vs-recompose tradeoff. The Arc 61 directive will be finalized (O1/O2/O3 -\u003e settled, D2 concrete) + re-committed + NOMOS-verified before dispatch.",
       "timestamp": "2026-06-17T09:39:18Z"
+    },
+    {
+      "text": "NOMOS commit-audit verdict on b1d1caa (Arc 61 directive FINALIZE commit): DIVERGENT on Probe 2 (decision-fidelity, O1). Probes 1/3/4 + all other claims CONFORMANT. DIVERGENCE: the commit moves O1 to 'Resolved by PRINCIPAL 2026-06-16 -\u003e RE-HOME the module' (directive L42-46, D5 L?), but stoa--p41 records NO O1 re-home resolution. The most-recent p41 comment (09:39:18Z, ~14min BEFORE the 09:53:46Z UTC commit) explicitly states 'REMAINING open: O1 (pair-programmer-authoring.md module fate)' and frames it as an unresolved slim-core-vs-recompose tradeoff. O2 (EVERYWHERE/Option B, L114-117) and O3 (slot-stays-populated, generated.test.ts:92, L118+NOMOS-correction L108-109) ARE recorded on p41 and match the directive -- CONFORMANT. Only O1's PRINCIPAL re-home decision is unrecorded in bw ground truth. Spot-checks all CONFORMANT: generated.test.ts:92 = expect(names).toContain('agent-author'); pair-programmer-authoring.md:39 = 'Invoke the agent-author skill'; MAJOR_POLYBIUS.md sec11 MODULE-INLINE:pair-programmer-authoring marker L310-311. Author=denson=PRINCIPAL; scope=only arc-61-build-directive.md (cascade unexecuted); internal consistency clean (no leftover Open-SURFACE section; status FINALIZED/dispatch-ready). Classification: BLOCKED -- the directive asserts a PRINCIPAL ratification (probe-4 PRINCIPAL-gate) that the bw record does not carry. Read-only audit; no edit, no bw patch. Returning.",
+      "timestamp": "2026-06-17T09:55:46Z"
     }
   ],
   "priority": 3,
   "status": "open",
   "title": "[ROADMAP] Skill-architecture rationalization: MAJOR_CHIRON agent-author seat + re-home specialist skills off the chief-of-staff",
   "type": "task",
-  "updated_at": "2026-06-17T09:39:18Z"
+  "updated_at": "2026-06-17T09:55:46Z"
 }
