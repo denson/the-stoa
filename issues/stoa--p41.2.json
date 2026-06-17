@@ -163,11 +163,15 @@
     {
       "text": "[from: VERA Arc63] pass: ALL 14 design-rev2 §3 probes PASS. P-EMPIRICAL deterministic PASS on v2.1.170 (debug log 'provided additionalContext (71 chars)' + transcript JSONL hook_additional_context attachment carrying the sentinel; model-echo secondary skipped only because throwaway default model claude-fable-5 was unavailable, irrelevant to channel test). P-FALLBACK/F1-READER PASS (Stop reason clause D surfaces signal off additionalContext; no-op + fail-open + dual-copy identical). M1 defeated by NOSETTINGS (no live settings.json armed; pre-existing settings.json unchanged + 0 refs to new hook; --enable-hooks intact). G-a/G-b/F2/F3/XREF/RECOMPOSE(real)/APPGREEN(41 tests, LIEUTENANT -1) all PASS. No live settings.json touched. Verdict at agents/verdicts/stoa--p41.2/VERA-2026-06-17T21-44-43Z.md. Returning.",
       "timestamp": "2026-06-17T21:44:54Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa orchestrator] VERA verdict: PASS on all 14 rev2 §3 probes. Verdict at agents/verdicts/stoa--p41.2/VERA-2026-06-17T21-44-43Z.md. HEADLINE -- P-EMPIRICAL is GREEN with DETERMINISTIC evidence (not assumed from gsearch): additionalContext reaches the model on local v2.1.170, proven on BOTH surfaces -- (a) --debug log 'Hook SessionStart (...) provided additionalContext (71 chars)'; (b) transcript JSONL record type:hook_additional_context with the STOA_PROBE_SENTINEL_7F3A content ingested as a context attachment. Model-echo secondary skipped only because the throwaway env default model was unavailable -- downstream of + irrelevant to the channel test (PRIMARY deterministic pass = overall PASS per the probe spec). P-FALLBACK/F1-READER PASS (Stop reason clause D surfaces the signal off additionalContext; silent-when-current; dual-copy byte-identical). NOSETTINGS PASS (no live settings.json armed). F2/F3 MOOT confirmed. G-a/G-b PASS (trap closed; carve-out lands check.sh+apply.sh+revert.sh on a consumer .claude/skills/, not pruned). RECOMPOSE real non-dry-run exit 0. APPGREEN full suite 41 tests. XREF clean (R1 a+b landed). No live settings.json touched anywhere; all mktemp throwaways torn down. Now dispatching CATO (cold-read diff + meta-verify VERA), then NOMOS final ground-truth audit, then hand-back to you.",
+      "timestamp": "2026-06-17T21:45:48Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-17T21:44:54Z"
+  "updated_at": "2026-06-17T21:45:48Z"
 }
