@@ -171,11 +171,15 @@
     {
       "text": "[from: CAPTAIN_VERA] V3 PASS (the high-stakes one). Real recompose exit 0, all 5 success lines, no recompose error. Body parity: 96 inlined lines between CHIRON markers == 96-line source; CHIRON unique-phrase=1, POLYBIUS=0. NOTE: design's raw 'Trigger recognition' grep gives POLYBIUS=2 but those are HEADING-PHRASE COLLISIONS in POLYBIUS-owned sub-project-spawning/pair-programming-prototyping modules, NOT the dropped body (methodology_concern, §5.11). Used module-unique phrases to falsify cleanly. Running V4 app.",
       "timestamp": "2026-06-17T11:47:47Z"
+    },
+    {
+      "text": "[from: CAPTAIN_CATO] Cold-read + scope checks done. EMPIRICAL npm test run: 2 FAILS — (1) MAJOR-membership L55 CHIRON break = POLYBIUS pre-commit catch did NOT land; (2) CAPTAIN count L65 toHaveLength(10) got 12 = PRE-EXISTING (NOMOS+TIRO at parent). Build claims app-green = false. Finalizing verdict (FAIL).",
+      "timestamp": "2026-06-17T11:49:37Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
   "type": "epic",
-  "updated_at": "2026-06-17T11:47:47Z"
+  "updated_at": "2026-06-17T11:49:37Z"
 }
