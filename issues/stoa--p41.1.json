@@ -1,0 +1,15 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-17T10:42:54Z",
+  "description": "Coordination epic for the Arc 61 BUILD. 3-tier chain: user-tier POLYBIUS -\u003e POLYBIUS_the-stoa (floor-manager) -\u003e PLINY_the-stoa -\u003e CAPTAINs.\n\nSPEC (read fully): substrate/arcs/arc-61-build-directive.md (committed + pushed, NOMOS-CONFORMANT). CHARTER: stoa--p41 (all design decisions O1 re-home / O2 deploy-everywhere / O3 test-only recorded in its comments).\n\nONE JOB: land MAJOR_CHIRON (design-time TEAM-ARCHITECT) + execute the coupled cascade: retire the agent-author skill (capability now inlined in MAJOR_CHIRON.md section-7); relocate POLYBIUS section-11 (authoring -\u003e CHIRON); re-home pair-programmer-authoring.md as a CHIRON-owned module + reassign the install.sh recompose ownership-partition POLYBIUS-\u003eCHIRON (FAIL-LOUD checks must stay green); deploy MAJOR_CHIRON at ALL tiers (suffixed CHIRON_\u003cslug\u003e); fix the 4 dangling agent-author refs; update app generated.test.ts:92. Full gauntlet (DAEDALUS -\u003e ARGUS -\u003e ADA -\u003e VERA -\u003e CATO -\u003e ZENO/NOMOS). Forward work on an arc-61/build feature branch.\n\nActivation pastes (floor-manager + PLINY) attached on the beadwork branch at attachments/\u003cthis-epic-id\u003e/. Coordinate on THIS ticket. PRINCIPAL is not the relay -- beadwork is.",
+  "id": "stoa--p41.1",
+  "labels": [],
+  "parent": "stoa--p41",
+  "priority": 1,
+  "status": "open",
+  "title": "[EPIC] Arc 61 — MAJOR_CHIRON seat + agent-author retirement + POLYBIUS section-11 relocation",
+  "type": "epic",
+  "updated_at": "2026-06-17T10:42:54Z"
+}
