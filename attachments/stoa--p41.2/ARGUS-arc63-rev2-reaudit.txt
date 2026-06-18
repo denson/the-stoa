@@ -1,0 +1,26 @@
+=== SAVE_VERDICT record ===
+request_id: arc63-rev2-reaudit
+caller: ARGUS
+ticket_id: stoa--p41.2
+officer: ARGUS
+timestamp: 2026-06-17T21:13:56Z
+body_source: body_path
+overwrite: false
+cwd: C:\Users\denso\claude_projects\the-stoa\.claude\worktrees\arc-63-build
+
+=== execution ===
+exit_code: 0
+duration_ms: 20
+resolved_dest: C:\Users\denso\claude_projects\the-stoa\.claude\worktrees\arc-63-build\agents\verdicts\stoa--p41.2\ARGUS-2026-06-17T21-13-56Z.md
+input_byte_length: 17622
+input_sha256: 43353df8dc6520d1b2101f583071c461c4ff6c45cf758a898d43cdc5d66e6dfa
+dest_sha256: 43353df8dc6520d1b2101f583071c461c4ff6c45cf758a898d43cdc5d66e6dfa
+verification: pass
+diagnostics_first_50_lines:
+~~~~
+(none)
+~~~~
+diagnostics_total_lines: 0
+
+=== assertion ===
+overall: pass
