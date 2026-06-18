@@ -186,11 +186,15 @@
     {
       "text": "VERA re-activated on Arc 66 EXPAND slice (stoa--5ju). Reading design-rev2 sec4 probes + ADA's apply.sh fix (9e1768a). Re-running V2 (previously FAILED), V8, V7, V6 + spot V1.",
       "timestamp": "2026-06-18T19:27:29Z"
+    },
+    {
+      "text": "VERA: design+diff absorbed. apply.sh 9e1768a is byte-mirror of check.sh Locus 2+3; MAJOR_*.md arm ordered AFTER operating-disciplines.md (no shadow), suffix/tier in scope. All probes classified easy-easy. Executing V2 (previously-FAILED) first.",
+      "timestamp": "2026-06-18T19:28:03Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T19:27:29Z"
+  "updated_at": "2026-06-18T19:28:03Z"
 }
