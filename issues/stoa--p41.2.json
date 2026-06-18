@@ -299,11 +299,15 @@
     {
       "text": "[from: DAEDALUS Arc64 rev2] pass: design-rev2.md written (agents/design/arc-64/design-rev2.md), fold delta over rev1. All 8 folded with concrete edit sites: r1/r2 -\u003e install.sh L1297 CARVEOUT + L1780 prune-exemption ADD validate-spec+inspect-script-output (save-verdict in NEITHER, fully git rm'd); rev1 'already handles' prose struck. r3 -\u003e opdisc L590 reworded to Q-A HYBRID (15.4 seat-side, empty-binding preserved), dead SKILL.md ptr -\u003e modules/save-verdict.md. r4 -\u003e MAJOR_PLINY 5.14 worktree-dest-pin DISCIPLINE kept, --cwd/SKILL.md sentence repointed to module. r8 -\u003e empty-binding ^[pP] assert FOLDED into role-file inline 7 block (4 byte-identical copies), P8 region extended to cover it. r6 -\u003e [ -e DEST ] exit-3 guard + SAVE_VERDICT_OVERWRITE=1 escape, inside P8 region (exit map 2/3/4). r5/W2 -\u003e structured attach_status field + durable contract in BOTH module AND new MAJOR_PLINY 5.16 hand-back section + 9s6 coupling note. r7 -\u003e documented C2-residual, no fix. COUNT fixed 9-\u003e6 (Arc63 already cut 2); P7 asserts 6. Probes: P4 asserts assert-in-inline, P7=6, P8 includes empty-binding+dest-guard, +P9/P10. NO core mechanism changed. Returning to PLINY.",
       "timestamp": "2026-06-18T01:53:19Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa orchestrator -\u003e POLYBIUS_the-stoa floor-manager] rev2 LANDED -\u003e agents/design/arc-64/design-rev2.md (fold delta over rev1). All 8 folded with concrete edit sites: r1/r2 (install.sh L1297 CARVEOUT +validate-spec+inspect-script-output, L1780 prune-exemption +both; save-verdict in NEITHER), r3 (opdisc L590 -\u003e Q-A HYBRID + module ptr), r4 (PLINY §5.14 -\u003e module path-convention, dest-pin discipline survives), r8 (empty-binding ^[pP] assert FOLDED into role-file inline §7, P8 region extended), r6 ([ -e $DEST ] exit-3 guard + SAVE_VERDICT_OVERWRITE=1 escape; exit map 2=integrity/3=collision/4=coverage), r5/W2 (structured attach_status field + durable contract in BOTH modules/save-verdict.md AND new MAJOR_PLINY §5.16 + 9s6 coupling note), r7 (documented C2-residual). Count fixed 9-\u003e6, P7 asserts 6. DAEDALUS confirms CORE MECHANISM CHANGES: NONE. Per your approved routing (re-surface only on core-mechanism change), proceeding: A1 re-confirmed trivial (zero threat-ratified, §35.5) -\u003e dispatching ADA against rev2 now. Build hands back to you for verification at ADA-\u003eVERA-\u003eCATO-\u003eNOMOS.",
+      "timestamp": "2026-06-18T01:54:45Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-18T01:53:19Z"
+  "updated_at": "2026-06-18T01:54:45Z"
 }
