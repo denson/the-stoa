@@ -227,10 +227,7 @@ CAPTAIN_NAMES=(
 # POLYBIUS unable to invoke them.
 SKILL_NAMES=(
   credential-discipline
-  inspect-script-output
   handoff-author
-  save-verdict
-  validate-spec
   workflow-composer
   interactive-html-preview
   team-launcher
@@ -244,6 +241,15 @@ SKILL_NAMES=(
 # (deploy block + prune-scan exemption). Their drift detection now fires via the
 # SessionStart(startup|resume) substrate-check hook. gauntlet-setup was PORTED in
 # this same pass (net -2 +1 = 9 entries).
+# Arc 64 / stoa--p41.2 (pass B): save-verdict + validate-spec + inspect-script-output
+# were REMOVED from SKILL_NAMES (9 -> 6). save-verdict was a Python skill, now fully
+# git rm'd and rewritten as the Bash-only module .claude/modules/save-verdict.md (no
+# retained script — absent from the carve-out + prune-exemption below). validate-spec
+# + inspect-script-output keep their callable scripts (check.sh / _check_runner.py /
+# _lib) as retained OPERATOR TOOLS: their SKILL.md was removed so gen-data no longer
+# renders them as LIEUTENANTs, and they are added BY NAME to the Option-C carve-out
+# (deploy block + prune-scan exemption below), same mechanism as the Arc-63 check-*
+# dirs. credential-discipline STAYS (out of scope / deferred). Resulting 6 entries.
 
 # Marker line written into CLAUDE.md when --modify-claude-md is used; presence
 # of this marker is how subsequent runs detect that the reference is already
@@ -1294,7 +1300,12 @@ done
 # the SKILL_NAMES loop's copy+pycache-cleanup. Paired with the prune-scan
 # exemption in step 7 (the obsolete scan would otherwise flag a dir not in
 # SKILL_NAMES and delete it under --prune-obsolete in the same run).
-CARVEOUT_SKILL_DIRS=(check-substrate-updates check-bw-release)
+# Arc 64 / stoa--p41.2 (pass B): validate-spec + inspect-script-output added by
+# the same mechanism — their SKILL.md was removed (retired from the skill menu)
+# but their check.sh / _check_runner.py / _lib stay callable operator tools, so
+# they must reach consumer workspaces here and must be prune-exempt below.
+# save-verdict is NOT here: it was fully git rm'd (Bash-only module, no script).
+CARVEOUT_SKILL_DIRS=(check-substrate-updates check-bw-release validate-spec inspect-script-output)
 for d in "${CARVEOUT_SKILL_DIRS[@]}"; do
   src_co="${SRC_SKILLS_DIR}/${d}"
   dest_co="${DEST_SKILLS_DIR}/${d}"
@@ -1777,7 +1788,12 @@ if [ -d "$DEST_SKILLS_DIR" ]; then
       # operator-owned); this named exemption is the honest skip for substrate-
       # shipped non-skill operator tools. A future generic mechanism (pass B+)
       # would replace both this and the step-5a carve-out.
-      check-substrate-updates|check-bw-release) continue ;;
+      # Arc 64 / stoa--p41.2 (pass B): validate-spec + inspect-script-output added
+      # for the same reason — retained operator-tool scripts (SKILL.md removed,
+      # check.sh/_check_runner.py/_lib kept) deployed by the step-5a carve-out;
+      # they must not be flagged obsolete + deleted in the run that deploys them.
+      # save-verdict is NOT here (fully git rm'd — no retained script to exempt).
+      check-substrate-updates|check-bw-release|validate-spec|inspect-script-output) continue ;;
     esac
     found=0
     for s in "${SKILL_NAMES[@]}"; do

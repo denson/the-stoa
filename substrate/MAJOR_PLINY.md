@@ -247,15 +247,16 @@ definitions: `operating-disciplines.md` §35 (A1 = §35.2; A1-gates-A2 = §35.3;
 
 ### 5.14 Arc-worktree dest-pinning for save-verdict (stoa--xxy facet-2)
 When you dispatch any verdict-producing CAPTAIN (ARGUS / VERA / CATO) inside an arc-build context,
-the dispatch brief MUST name the **absolute arc-worktree root** as the save-verdict `--cwd` /
-`inputs.cwd`: `<repo>/.claude/worktrees/arc-<N>-build`. A sub-agent inherits the parent session's cwd,
-so a CAPTAIN dispatched from the main session resolves a *relative* or *defaulted* cwd to the MAIN
-tree — landing the verdict + receipt at main `agents/verdicts/` instead of the worktree (observed live
-in Arc 55: VERA/CATO → main, ARGUS → worktree). Pin it explicitly; do not rely on the default. The
-arc directive's per-CAPTAIN dispatch section SHOULD echo the pinned path once so every per-CAPTAIN
-dispatch in the arc inherits it. The skill-side half of this fix is the tightened `cwd` contract in
-`substrate/skills/save-verdict/SKILL.md` (the skill writes where `--cwd` points; only the dispatcher
-knows which tree is correct). Anchor: `stoa--xxy`.
+the dispatch brief MUST name the **absolute arc-worktree root** as the save-verdict `<worktree-root>`:
+`<repo>/.claude/worktrees/arc-<N>-build`. A sub-agent inherits the parent session's cwd, so a CAPTAIN
+dispatched from the main session resolves a *relative* or *defaulted* path to the MAIN tree — landing
+the verdict at main `agents/verdicts/` instead of the worktree (observed live in Arc 55: VERA/CATO →
+main, ARGUS → worktree). Pin it explicitly; do not rely on the default. The arc directive's
+per-CAPTAIN dispatch section SHOULD echo the pinned path once so every per-CAPTAIN dispatch in the arc
+inherits it. The seat-side half of this fix is the path convention in `.claude/modules/save-verdict.md`
+§(a): the verdict lands at `<worktree-root>/agents/verdicts/<ticket-id>/…` via `printf` redirect, where
+`<worktree-root>` is the absolute arc-worktree root the dispatch brief pins (the module writes to the
+path the brief names; only the dispatcher knows which tree is correct). Anchor: `stoa--xxy`.
 
 ### 5.15 Threat-remediation escalation — STOP + surface, do NOT inline-re-dispatch ADA (`stoa--h2z`)
 You are the escalation OWNER for a triggered threat-remediation finding. The trigger fires when an
@@ -272,6 +273,27 @@ and **OFFER** the dedicated goal-locked remediation arc (op-disc §36.3 document
 hand-orchestrate it as a dedicated arc whose ONLY goal is "defeat `M<n>`"). The PRINCIPAL's
 authorization to spawn the remediation arc is a §25 PRINCIPAL-gate. Full canon: `operating-
 disciplines.md` §36. Anchor: `stoa--h2z` / `origindex-trw`.
+
+### 5.16 Verdict-attach hand-back handling (durability close at the orchestrator) (`stoa--p41.2`)
+The `save-verdict` module (`.claude/modules/save-verdict.md`) attaches each written verdict to the
+coordination ticket on beadwork (`bw attach`) so a worktree teardown cannot destroy it (the Arc-62
+verdict-loss fix). The attach is **FAIL-LOUD-but-write-preserving**: the seat does NOT hard-`exit` on
+attach failure (that would discard a valid integrity-checked artifact); instead it preserves the
+sha256-verified verdict on disk and reports a structured first-class `attach_status` field in its
+dispatch return. **You own the durability close.** On any verdict-producing CAPTAIN dispatch return
+(VERA / ARGUS / CATO) carrying `attach_status: FAILED`:
+1. **Retry** `bw attach <ticket> <DEST>` from the preserved on-disk artifact named in the
+   `attach_failure` field (the on-disk verdict is the retry source; it is sha256-verifiable against
+   the hash the field records).
+2. On continued failure, **escalate** per the universal escalation triggers.
+3. Treat the verdict as **NON-DURABLE**: do NOT advance the gauntlet to the next seat and do NOT
+   permit worktree teardown past this verdict until attach succeeds or the failure is escalated.
+`attach_status: OK` (or, on a seat that emits it, an explicit OK) means durable — proceed. Absence of
+the field is NOT silently read as success; a verdict-producing return that omits `attach_status`
+is itself a gap to surface back to the seat. The seat-side half of this contract is the "Durability
+contract (orchestrator obligation)" subsection of `.claude/modules/save-verdict.md`. The
+teardown-ORDERING that must honor this invariant is owned by `stoa--9s6` (separate); this section
+states the invariant the orchestrator enforces. Anchor: `stoa--p41.2`, `stoa--9s6` (teardown coupling).
 
 ---
 

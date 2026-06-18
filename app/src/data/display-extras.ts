@@ -8,7 +8,7 @@
 
 export interface Skill {
   name: string;
-  kind: "skill" | "subagent" | "script";
+  kind: "skill" | "subagent" | "script" | "module";
   description: string;
   callable_by: string[];
 }
@@ -84,9 +84,9 @@ export const skills: Skill[] = [
   },
   {
     name: "save-verdict",
-    kind: "skill",
+    kind: "module",
     description:
-      "Writes a structured verdict bead onto the ticket after a gate.",
+      "Bash-only verdict-write module (printf author + sha256 + bw-attach)",
     callable_by: ["VERA", "CATO", "ARGUS"],
   },
 ];
