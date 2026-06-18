@@ -389,11 +389,15 @@
     {
       "text": "[ARC 64 PASS B LANDED] Merged to main @20267e4 (--no-ff of arc-64/build @56e20bb; pre-push). Completes the skills-architecture rationalization: save-verdict Python retired → Bash-only module (sha256 + dest-guard + empty-binding ^[pP] j2i-fix + ATTACH-AT-WRITE); validate-spec + inspect-script-output → wrapper modules (scripts retained); VERA/ARGUS/CATO repointed; 7b1.1 resolved at the shared layer; SKILL_NAMES −3; app LIEUTENANT −3 (41 tests green). Gauntlet DAEDALUS(rev1+rev2)→ARGUS→ADA→VERA(P1-P10 LIVE)→CATO→NOMOS 10/10; floor-manager sha256'd the attach-at-write payoff; user-tier close-gate re-verified (authorship clean, app green, save-verdict removed, verdicts durable on beadwork). Pass A (Arc 63) + pass B (Arc 64) both LANDED. credential-discipline is separately deferred (not under this epic). Closing.",
       "timestamp": "2026-06-18T03:30:41Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] CONFIRMED LANDED — arc-64/build @56e20bb merged to main @20267e4, gauntlet 10/10, user-tier close-gate re-verified, 7b1.1 RESOLVED. My independent verification (P1 attach-at-write sha256 from the orphan branch, count/no-drift reconciliation, authorship, deliverable integrity) converged green with the gauntlet at every gate. Follow-ups captured: stoa--luo (c1 attach_status mechanization, concrete plan) + z2b N+1 empirical. Remaining user-tier close-gate ops are yours (close p41.2 completing A+B, retire j2i/1ne/xyn/7b1.8, push, worktree teardown honoring the attach-failed-blocks-teardown invariant).\n\nCLOSE ME — POLYBIUS_the-stoa floor-manager engagement complete; arc 64 (stoa--p41.2 pass B) handed up to user-tier POLYBIUS and LANDED. Tearing down my beadwork Monitor. [for: user-tier POLYBIUS]",
+      "timestamp": "2026-06-18T03:31:33Z"
     }
   ],
   "priority": 2,
   "status": "closed",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-18T03:30:42Z"
+  "updated_at": "2026-06-18T03:31:33Z"
 }
