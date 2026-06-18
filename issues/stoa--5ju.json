@@ -2,6 +2,8 @@
   "assignee": "denson",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-18T20:22:31Z",
+  "close_reason": "Arc 66 LANDED on main — merge c761db9 + close-gate correction e059fcd. Glob-derived the MAJOR set at 6 loci across check.sh/apply.sh/install.sh so CHIRON/HAMILTON + any future MAJOR auto-discover end-to-end. Surfaced by the live CHIRON/HAMILTON shakedown (deploy-stoa update path silently omitted the design layer for existing projects). Full gauntlet DAEDALUS-\u003eARGUS-\u003eADA-\u003eVERA(FAIL: apply.sh 5th/6th loci)-\u003eEXPAND-\u003eADA-\u003eVERA(PASS)-\u003eCATO(PASS)-\u003eZENO(PASS)-\u003eNOMOS(CONFORMANT); close-gate full-suite backstop green (app 41/41 + author-gate 16/16). Follow-ups OPEN: stoa--3nh (empty-glob FAIL-LOUD), stoa--kr7 (residual install.sh sweep).",
   "created": "2026-06-18T18:13:53Z",
   "description": "SURFACED BY THE LIVE SHAKEDOWN (u--k8z / nws-oq8, 2026-06-18): POLYBIUS-A2A_the_younger ran the deploy-stoa update path against an EXISTING-Stoa project (zeotek_newswire); the read-only check.sh reported CHIRON + HAMILTON as NEITHER drifted NOR missing. The deploy-stoa EXISTING-project update path therefore SILENTLY OMITS the design layer — apply.sh would bring arc-63-65 drift but skip CHIRON/HAMILTON. (A FRESH install.sh deploys them; the gap is the update path only.) Pause-to-fix invoked; shakedown is PAUSED awaiting this fix on main.\n\nVERIFIED DIAGNOSIS (POLYBIUS the Stoa A2A monitor, against current main 3b0bc4f):\nPRIMARY locus = check.sh enumerate_deployed() (substrate/skills/check-substrate-updates/check.sh:401-408). It HARDCODES the expected MAJOR set to POLYBIUS + PLINY, while CAPTAINs (glob substrate/CAPTAIN_*.md), templates (glob), and skills (parse install.sh SKILL_NAMES) are all auto-discovered. CHIRON + HAMILTON (Arc 61/62 MAJORs) were never added -\u003e invisible to MISSING detection. This is the root cause of the observed symptom.\nSECONDARY loci (same hardcoded-POLYBIUS/PLINY pattern, needed for full correctness once deployed):\n - check.sh source_path_for_deployed() :294-298 (deployed MAJOR -\u003e source map) — needed for DRIFTED detection.\n - check.sh apply_substitutions() :119 (NAME_SUFFIX case pattern) — needed for subproject-tier byte-compare.\n - install.sh write_substrate_manifest() :540-544 (manifest emission) — A2A's originally-cited locus; needed for deploy-time manifest completeness, but NOT the cause of the MISSING-detection symptom.\n\nFIX SHAPE: make MAJOR enumeration GLOB-derived (mirror the CAPTAIN auto-discovery pattern already in enumerate_deployed) so any future MAJOR auto-discovers and this class cannot recur. Verify CHIRON/HAMILTON's ACTUAL deploy suffix rules in install.sh DEST_* (955-963) per tier before encoding enumerate_deployed (MAJOR suffix rules differ project vs subproject).\n\nDoD: a REAL (non-dry-run) probe — deploy current substrate to a throwaway, remove the deployed CHIRON/HAMILTON to simulate a pre-design-layer deployment, run check.sh --workspace -\u003e CHIRON+HAMILTON now report MISSING (pre-fix they do not); apply.sh delivers them; re-check clean. The existing FAIL-LOUD subproject recompose stays green (probe V3). App green (gen-data/build/test). NOMOS CONFORMANT. SCOPE: only the MAJOR-enumeration completeness fix across check.sh + install.sh manifest; do NOT touch role files or expand check.sh refactors.",
   "id": "stoa--5ju",
@@ -293,8 +295,8 @@
     }
   ],
   "priority": 1,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T20:11:53Z"
+  "updated_at": "2026-06-18T20:22:31Z"
 }
