@@ -347,11 +347,15 @@
     {
       "text": "[from: VERA Arc64] ALL P1-P10 PASS. P1 attach-at-write REAL confirmed: synthetic verdict bytes on beadwork branch sha256-match disk (b2d5c2fd...). Authoring+saving my own verdict via the new module Bash procedure (dogfoods P1/P2/P3); attaching to epic.",
       "timestamp": "2026-06-18T02:20:22Z"
+    },
+    {
+      "text": "[from: VERA Arc64] VERDICT: PASS — all P1-P10 green. P1 attach-at-write REAL (synth bytes on beadwork sha256-match disk b2d5c2fd); P2 apostrophe-escape+dest-guard; P3 sha256-neg exit2; P4 j2i-fix (P-INJ pass, x9/empty exit4) + assert inline in all 3 role files; P5/P10 no dangling ptrs, opdisc L590+PLINY 5.14 repointed, no --cwd; P6 no recompose (5 owners, VERA/ARGUS/CATO absent); P7 regen 7 LIEUTENANT=6 SKILL_NAMES+decision-surface(pre-existing), -3 delta real, 41 tests green; P8 byte-align IDENTICAL x4 (35 lines incl empty-binding+dest-guard); P9 carveout+prune-exempt cover both operator dirs, save-verdict in neither, dry-run exit0. §35.5 carve-out correct (threat_coverage empty-state, no manufactured probe). Own verdict saved via module Bash procedure + attached (attach_status: OK, durable on beadwork 4aa68a84). Verdict: agents/verdicts/stoa--p41.2/VERA-2026-06-18T02-20-32Z.md. CATO meta-verifies next.",
+      "timestamp": "2026-06-18T02:22:15Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-18T02:20:22Z"
+  "updated_at": "2026-06-18T02:22:15Z"
 }
