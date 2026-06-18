@@ -202,11 +202,15 @@
     {
       "text": "VERA V7 PASS: all 6 fix loci glob-derived (.claude/MAJOR_*.md), no surviving POLYBIUS+PLINY enumeration list. Classified survivors: detect_tier sentinel (check.sh+apply.sh), USER_TIER_DIR POLYBIUS guard, NOT-STOA-DEPLOYED sentinels, doc cross-refs/comment-examples, install.sh:895 cosmetic echo (pre-named), install.sh:954-1003 fresh-DEPLOY block (out-of-scope per design sec0/sec6, already names all 4 MAJORs). Now V6 app full suite.",
       "timestamp": "2026-06-18T19:35:23Z"
+    },
+    {
+      "text": "VERA verdict: PASS (Arc 66 EXPAND re-verify). V2 (previously-FAILED) now PASSES both tiers — apply.sh delivers DRIFTED CHIRON+HAMILTON (project: applied both, 0 drifted after; subproject: suffixed CHIRON_arc66tw delivered). V8 PASS (no non-MAJOR regression; MAJOR_FOO not over-matched). V7 PASS (6 loci glob-derived). V6 PASS (gen-data 4MAJOR/12CAPTAIN, build OK, 41/41 tests). Spot V1+V9 green. 1 methodology concern: design V8(b) uses unsuffixed CAPTAIN name at suffixed project tier (probe-spec gap, not a build defect; re-ran with suffixed name -\u003e MISSING fires). Throwaways cleaned, worktree pristine. Verdict at agents/verdicts/stoa--5ju/VERA-2026-06-18T19-39-37Z.md. Returning.",
+      "timestamp": "2026-06-18T19:39:52Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T19:35:23Z"
+  "updated_at": "2026-06-18T19:39:52Z"
 }
