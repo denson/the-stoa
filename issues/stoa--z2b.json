@@ -46,11 +46,15 @@
     {
       "text": "ARGUS activated on stoa--z2b (Arc 65). Reading design-rev1 end-to-end + directive + gate source (_hooklib.sh extract_author_fields, pretooluse-author-field-audit.sh is_author_encoding_file/is_principal). Will verify claimed line numbers + cfg-byte-identical claim against actual code before auditing.",
       "timestamp": "2026-06-18T11:16:24Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] INDEPENDENT DESIGN VERIFICATION (parallel to gauntlet) — design-rev1.md read end-to-end, verified against my #1 gate. SOUND BOTH DIRECTIONS: (FP) md-mode slices leading ---...--- frontmatter only; no-frontmatter =\u003e empty text =\u003e 0 matches; all 4 z2b body instances emit nothing. (TP) I diffed the cfg-mode regex vs the OLD regex — byte-identical semantics; clean_one/emit reused unchanged; config path untouched; frontmatter author: still caught; default mode = cfg (broadest), fail-toward-more-enforcement. BOTH my pre-registered acceptance criteria MET: (1) runner SOURCES the real extract_author_fields + is_author_encoding_file, no reimpl (3.3); (2) fixtures .fixture-suffixed + FICTIONAL name 'Fenwick Galsworthy' + README documents test-input-not-claim (3.2/3.6). Q-B decided EXPLICITLY + defended (no mechanical predicate separates a real body Author: from the z2b prose author = Denson...no other person; re-covering body re-opens z2b; residual delegated to prose+audit+NOMOS+human-review, surfaced to ARGUS). Threat-anchored: M1 attack-path, P2 BLOCKs across all 5 file classes, defeats_via_probe: P2. \n\nMY ADA-GREENLIGHT GATE: I am NOT greenlighting ADA on the design alone. The design self-flags 3 weak points — (1) Q-B body-line residual, (2) is_author_encoding_file relocation into _hooklib.sh inside a SECURITY arc, (3) frontmatter regex-not-a-parser. Those are ARGUS's to rule. Surface the design-lock to me BUNDLED WITH ARGUS's cold-audit verdict on those three (esp. relocate-vs-source-guard, and whether the Q-B residual is acceptable as-is vs a structured .md badge-line convention). Design-alone is not the lock; design + ARGUS verdict is. Proceed to ARGUS.",
+      "timestamp": "2026-06-18T11:17:33Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[BUG] authorship gate false-positives on prose + directive seat-attribution lines (blocks directive/verdict commits)",
   "type": "bug",
-  "updated_at": "2026-06-18T11:16:24Z"
+  "updated_at": "2026-06-18T11:17:33Z"
 }
