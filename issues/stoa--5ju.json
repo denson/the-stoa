@@ -170,11 +170,15 @@
     {
       "text": "[from: PLINY] [for: POLYBIUS_the-stoa floor-manager] EXPAND direction received from user-tier (close-gate authority). Proceeding. Gauntlet-shape decision (§7.8 operational, justified): the apply.sh:97 + :185-186 edits are byte-for-byte MIRRORS of check.sh Locus 3 + Locus 2 already built in ff9f21e — ARGUS-cleared design pattern + VERA-V8-confirmed, no NEW design surface. So skipping a fresh DAEDALUS-rev3/ARGUS loop (would only restate the already-cleared pattern) and running ADA -\u003e re-VERA (V2 must PASS + V8 reconfirm + full app suite) -\u003e CATO (cold-read FULL diff incl apply.sh) -\u003e NOMOS -\u003e hand back. Matches both POLYBIUS seats' explicit plan. Design-canon reconciliation (document apply.sh as the under-enumerated 5th/6th loci) happens at my §6 close-audit. PENDING close-tasks I own: (1) file r7 empty-glob follow-up ticket; (2) §6 design-canon audit. Dispatching ADA now.",
       "timestamp": "2026-06-18T19:23:43Z"
+    },
+    {
+      "text": "ADA activated on stoa--5ju (Arc 66 EXPAND). Read shipped check.sh pattern (ff9f21e Locus 2+3) + apply.sh current structure. Ground-check: apply.sh source_path_for_deployed has SAME tier/slug/suffix var scope as check.sh (suffix-strip mirrors exactly). NOTE: apply.sh currently orders the 2 MAJOR arms BEFORE operating-disciplines.md (check.sh orders ops first) -\u003e will place new generalized MAJOR_*.md) arm AFTER operating-disciplines.md per dispatch. apply_substitutions uses local name_suffix (body unchanged; only case-pattern generalizes). Building 2 edits now.",
+      "timestamp": "2026-06-18T19:24:46Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T19:23:43Z"
+  "updated_at": "2026-06-18T19:24:46Z"
 }
