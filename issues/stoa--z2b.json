@@ -150,11 +150,15 @@
     {
       "text": "VERA: corpus P1-P3 GREEN (16/16, exit 0). P11 GREEN (classify def 1 lib/0 gate; is_author_encoding_file 0 across substrate/hooks). P9 mirrors byte-identical x3. tp3 pre-existing-gap CONFIRMED: OLD unmodified extractor emits nothing on 'Copyright (c) 2026 \u003cname\u003e' (both (c)/(C)) -\u003e Arc 65 did NOT widen the hole; ADA's separator form is a sound BLOCK. Now arming REAL throwaway gate at /tmp/arc65-gate-probe for live P4/P5/P6/P7 both-directions.",
       "timestamp": "2026-06-18T12:04:08Z"
+    },
+    {
+      "text": "VERA verdict: FAIL (on P10 only). #1 DoD SECURITY property GREEN BOTH DIRECTIONS: P1 fp/ ALLOW + P4 live ALLOW; P2 tp/ BLOCK all classes incl tp6 LICENSE.md(cfg) + tp7 .claude-plugin(cfg) + live P5/P6a/P6b/P6c all DENIED. M1 threat-coverage materialized by EXECUTED P2 (+ live P6b/P6c). P7 fail-open preserved; P8 tests/ not deployed; P9 mirrors byte-identical; P11 classify def-once + is_author_encoding_file 0 + cfg deny-set byte-identical. THE FAIL: P10 -- design-rev2.md is DENIED by the OLD live-armed gate (line-3 **Authored by:** + bare Fenwick fixture sketches) because the design doc is ITSELF a z2b false-positive; the FIXED gate ALLOWs it (md mode, no frontmatter). Landing/process defect, NOT a security regression -\u003e routes to PLINY for landing-path decision (commit narrowed mirror to parent .claude/hooks first / --no-verify the doc / re-wrap line-3+sketches). tp3 drift RULED sound; separator-less LICENSE gap CONFIRMED pre-existing (OLD extractor emits nothing on 'Copyright (c) \u003cyear\u003e \u003cname\u003e') + acceptably out-of-scope (stoa--y12). NOTE: save-verdict --threat-coverage-probe-ids regex is ^p... (lowercase); design probes are P1..P11 (uppercase) -- passed arg 'p2' to satisfy the mechanical check; body cites P2 and seat-side grep confirms P2 in probes_executed. Verdict: agents/verdicts/stoa--z2b/VERA-2026-06-18T12-12-35Z.md (sha256 909de163). Returning.",
+      "timestamp": "2026-06-18T12:12:56Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[BUG] authorship gate false-positives on prose + directive seat-attribution lines (blocks directive/verdict commits)",
   "type": "bug",
-  "updated_at": "2026-06-18T12:04:08Z"
+  "updated_at": "2026-06-18T12:12:56Z"
 }
