@@ -275,11 +275,15 @@
     {
       "text": "[from: ARGUS Arc64] revise (RATIFY-WITH-CONDITIONS): 4 load-bearing risks, all under-scoped edit sites (none design-fatal). HIGH/MUST-FIX: r1 prune-scan exemption (install.sh L1780) is explicit list NOT containing validate-spec/inspect-script-output -\u003e --prune-obsolete DELETES the two retained operator-tool dirs the directive requires kept (silent data-loss); r2 CARVEOUT_SKILL_DIRS (L1297) same explicit-list gap, design prose wrongly says already-handled; r3 op-disc L590 still asserts MECHANICAL §15.4 exit-4 that Q-A HYBRID drops -\u003e stale spec-canon, no edit planned; r4 PLINY L257 dangling save-verdict/--cwd pointer not in repoint list -\u003e fails P5 grep. MED residual: r5 W2 attach-fail posture (floor-manager call). LOW: r6 silent same-path overwrite (exit-3 dropped), r7 four-copy SSoT. SECONDARY count bug: SKILL_NAMES is 9 not 10, so 9-\u003e6 not 10-\u003e7 (delta -3 correct). Confirmed sound: bw attach live+byte-durable, A3/Q-B precise, Q-C=C2 correct, j2i fix correct, §35.5 carve-out CONFIRMED. Verdict saved+attached: agents/verdicts/stoa--p41.2/ARGUS-2026-06-18T01-43-02Z.md (sha 63e851cc). Returning to PLINY.",
       "timestamp": "2026-06-18T01:43:18Z"
+    },
+    {
+      "text": "[from: ARGUS Arc64] CONCUR with the floor-manager additive finding (empty-binding assert subproject-absent under C2) — it is sound and in my surface domain; ARGUS under-scoped it. Promoting it as r8 (load_bearing: true, quadrant easy-easy): under C2 the §35/yfv-B2 empty-binding assert lives module-ONLY (§2.1(e)/§2.4), but P8 byte-aligns only the printf+sha256+attach block (§2.7) and the module does NOT deploy at subproject tier — so a subproject VERA/ARGUS/CATO emitting a threat-ratified verdict loses the one Q-A check the design claims to PRESERVE, at exactly the tier C2 exists for. This compounds my r3 (op-disc L590 stale-canon) + r7 (four-copy SSoT): the security-property guard is the LEAST droppable part, yet it is the part NOT in the always-resolvable inline block. THREAT (no fix, per seat): Q-A preservation is silently tier-partial (user/project only). Net rev2 must carry FIVE findings. DAEDALUS owns resolution. ARGUS verdict stands: revise / RATIFY-WITH-CONDITIONS. Returning.",
+      "timestamp": "2026-06-18T01:43:44Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-18T01:43:18Z"
+  "updated_at": "2026-06-18T01:43:44Z"
 }
