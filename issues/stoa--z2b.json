@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-18T12:47:47Z",
+  "close_reason": "FIXED + landed on main @5fb9bd8 (pushed). Gate narrowed to frontmatter-only for .md; corpus 16/16 both directions; NOMOS drove the true-positive threat directly (still blocks). End-to-end proof: the previously-blocked Arc-61 directive-DoD fix committed cleanly @cde20b3.",
   "created": "2026-06-17T12:45:44Z",
   "description": "The authorship gate `substrate/hooks/pretooluse-author-field-audit.sh` (deployed to `.claude/hooks/`) FALSE-POSITIVES on prose + seat-attribution lines, treating them as structured author fields and rejecting the value because it is not a bare allow-listed identity. Blocked the Arc-61 close-gate housekeeping commit TWICE:\n\n1. VERA verdict file `agents/verdicts/stoa--p41.1/VERA-*.md` — its V7 authorship-AUDIT prose line `expected: html author = Denson Smith; no other person in any author field` was parsed as an `author` field with value \"Denson Smith; no other person in any author field\".\n2. `substrate/arcs/arc-61-build-directive.md:4` — the directive seat-attribution line `**Authored by:** user-tier POLYBIUS (chief-of-staff) + the PRINCIPAL (Denson Smith).` was parsed as a `by` field with the seat-inclusive value.\n\nNEITHER is a real violation: the only real PERSON named in both is Denson Smith (already allow-listed); \"user-tier POLYBIUS\" is a SEAT, not another person. The gate cannot distinguish (a) structured frontmatter `author:` fields from (b) prose containing \"author\" or markdown \"**Authored by:**\" lines.\n\nDECISION FOR PRINCIPAL (gate vs convention):\n(a) RECOMMENDED — narrow the gate matcher to only structured frontmatter/`author:`-style fields at line start, NOT markdown \"**Authored by:**\" prose nor mid-prose \"author = X\". Convention stays as-is (correct; Denson always named, no false person).\n(b) change the directive seat-attribution convention repo-wide.\n(c) path-exempt agents/verdicts/ + agents/save-verdict/ + directive \"Authored by:\" lines.\n\nDEPENDENCY: the Arc-61 directive-DoD correction is committed-but-blocked — it sits in `git stash@{0}` on the-stoa main. Once the gate is reconciled, pop the stash and land the directive-DoD fix (3 lines: DoD #1 + O1/D5 echoes \"subproject dry-run\" -\u003e \"real (non-dry-run) subproject recompose (probe V3)\").\n\nFixing the gate is a substrate change (substrate/hooks/) = its own small arc. Surfaced at the Arc-61 close.",
   "id": "stoa--z2b",
@@ -225,8 +227,8 @@
     }
   ],
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "[BUG] authorship gate false-positives on prose + directive seat-attribution lines (blocks directive/verdict commits)",
   "type": "bug",
-  "updated_at": "2026-06-18T12:47:45Z"
+  "updated_at": "2026-06-18T12:47:47Z"
 }
