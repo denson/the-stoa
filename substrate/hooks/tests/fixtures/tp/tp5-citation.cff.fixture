@@ -1,0 +1,6 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it."
+authors:
+  - family-names: Galsworthy
+    given-names: Fenwick
+title: "Example project"

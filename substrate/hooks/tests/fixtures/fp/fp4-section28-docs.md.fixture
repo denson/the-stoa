@@ -1,0 +1,8 @@
+# Section 28 docs
+
+Every CAPTAIN commit carries a trailer naming the seat:
+By `CAPTAIN_<MNEMONIC>_<slug>` — the seat-identity convention.
+
+Owner: the workspace's .claude/skills/ directory holds the deployed skills.
+
+These are discussion-of-authorship prose lines, not structured author fields.

@@ -109,31 +109,32 @@ fi
 STAGED="$(git -C "$CWD" diff --cached --name-only 2>/dev/null)" || STAGED=""
 [ -n "$STAGED" ] || allow   # nothing staged -> nothing to audit -> allow
 
-# Author-encoding file matcher. Path basename / suffix tests.
-is_author_encoding_file() {
-  local p="$1" base
-  base="$(basename "$p")"
-  case "$base" in
-    plugin.json|marketplace.json|package.json|pyproject.toml|setup.py|Cargo.toml|Gemfile|composer.json|NOTICE|CITATION.cff|metadata.json|manifest.json) return 0 ;;
-    LICENSE|LICENSE.*|LICENSE.md) return 0 ;;
-  esac
-  case "$p" in
-    *.claude-plugin/*) return 0 ;;
-    *.md) return 0 ;;   # YAML frontmatter author: lines live in *.md
-  esac
-  return 1
-}
+# Author-encoding membership AND extraction mode come from ONE function in the
+# lib — classify_author_file (Arc 65 / stoa--z2b). It returns BOTH "is this
+# author-encoding" (rc) AND which extraction mode to use (stdout), derived from
+# the SAME case arms in the SAME priority order, so the two can never disagree.
+# Config-class files (incl. LICENSE.md and *.claude-plugin/*.md docs) are tested
+# FIRST and get "cfg" = the OLD whole-file scan (byte-identical to pre-Arc-65); a
+# PROSE .md gets "md" = a frontmatter-only scan so body prose discussing
+# authorship does not false-positive. The gate no longer defines any classifier
+# inline (relocated to _hooklib.sh — C4); see classify_author_file there.
 
 while IFS= read -r f; do
   [ -n "$f" ] || continue
-  is_author_encoding_file "$f" || continue
+  # Arc 65 (stoa--z2b): one call returns BOTH "is this author-encoding" AND which
+  # extraction mode to use, derived from the same classification (see
+  # _hooklib.sh classify_author_file). Config-class files (incl. LICENSE.md and
+  # *.claude-plugin/*.md docs) get "cfg" = OLD whole-file scan; a PROSE .md gets
+  # "md" = frontmatter-only scan so body prose discussing authorship does not
+  # false-positive. Non-author-encoding files return non-zero and are skipped.
+  _mode="$(classify_author_file "$f")" || continue
   # Read the STAGED version of the file (the blob being committed), not the
   # worktree — the audit is on what is ACTUALLY being committed.
   blob="$(git -C "$CWD" show ":${f}" 2>/dev/null)" || continue
   [ -n "$blob" ] || continue
   # Field-anchored extraction (handles JSON / YAML / TOML; emits field<TAB>value
   # per author-like assignment). See _hooklib.sh extract_author_fields.
-  pairs="$(printf '%s' "$blob" | extract_author_fields)" || continue
+  pairs="$(printf '%s' "$blob" | extract_author_fields "$_mode")" || continue
   [ -n "$pairs" ] || continue
   while IFS="$(printf '\t')" read -r field val; do
     [ -n "$val" ] || continue

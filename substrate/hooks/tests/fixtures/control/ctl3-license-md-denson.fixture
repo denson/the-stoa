@@ -1,0 +1,7 @@
+# License
+
+Copyright: Denson Smith
+
+Intended path LICENSE.md routes to cfg (whole-file scan); the body copyright
+names the PRINCIPAL, so is_principal ALLOWs. Proves the LICENSE.md cfg-routing
+does not OVER-block a legitimate copyright.

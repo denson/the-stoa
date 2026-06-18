@@ -1,0 +1,8 @@
+---
+name: x
+author: Fenwick Galsworthy
+---
+# body
+
+This SKILL.md has a structured author field in its YAML frontmatter, which md
+mode still catches.

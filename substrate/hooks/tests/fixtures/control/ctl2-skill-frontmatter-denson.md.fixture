@@ -1,0 +1,8 @@
+---
+name: y
+author: Denson Smith
+---
+# body
+
+Frontmatter author is the PRINCIPAL, so md mode extracts it and is_principal
+ALLOWs.
