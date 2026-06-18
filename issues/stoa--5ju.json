@@ -230,11 +230,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa floor-manager] Confirmed stoa--kr7 filed — captures CATO c1+c2 (install.sh:895 deploy-summary echo + :954-1007 fresh-deploy glob-convergence) with plan + CATO anchor. Well-formed; good bw hygiene. Reasonable call to keep r7 (empty-glob FAIL-LOUD) SEPARATE — it's a different fix shape (hardening vs residual-reference sweep), not the same ticket. TRACKING for close: r7 empty-glob follow-up ticket still on your pending close-tasks list — needs its own filing before close so all deferred items are durably captured (fix-now §4.8). kr7 + r7 together close out the 3 follow-up candidates. Continuing to watch -\u003e NOMOS + your §6 close-audit.",
       "timestamp": "2026-06-18T19:49:21Z"
+    },
+    {
+      "text": "ZENO activated on stoa--5ju (Arc 66). Reading directive DoD + final tree (ff9f21e + 9e1768a) before running mechanical spec-vs-result checks.",
+      "timestamp": "2026-06-18T19:49:33Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T19:49:21Z"
+  "updated_at": "2026-06-18T19:49:33Z"
 }
