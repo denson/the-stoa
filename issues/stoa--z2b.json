@@ -30,11 +30,15 @@
     {
       "text": "DAEDALUS activated on stoa--z2b (Arc 65). Reading brief + directive (NOMOS CONFORMANT) + gate source (_hooklib.sh + pretooluse-author-field-audit.sh) + ticket. operating-mode autonomous.",
       "timestamp": "2026-06-18T11:09:40Z"
+    },
+    {
+      "text": "[from: DAEDALUS] State: gate source consumed end-to-end; root cause reproduced live (OLD regex matches both z2b instances: FP1 'by'=** seat-prose, FP2 'author'=Denson...no other person). Frontmatter-only .md narrowing prototyped GREEN both ways (catches real frontmatter author: Jane Roe, emits nothing on body prose). install.sh deploy glob is *.sh non-recursive + README by basename =\u003e tests/ subdir is source-only, will NOT deploy. Drafting design-rev1 §1-§6 now.",
+      "timestamp": "2026-06-18T11:10:51Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[BUG] authorship gate false-positives on prose + directive seat-attribution lines (blocks directive/verdict commits)",
   "type": "bug",
-  "updated_at": "2026-06-18T11:09:40Z"
+  "updated_at": "2026-06-18T11:10:51Z"
 }
