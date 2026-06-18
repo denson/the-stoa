@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-18T12:34:52Z",
+  "description": "Surfaced Arc 65 (stoa--z2b) by VERA. The save-verdict skill's --threat-coverage-probe-ids validation regex is ^p[0-9A-Za-z._-]+$ (requires a leading lowercase p). Designs/probes are conventionally labelled uppercase P1..P11. VERA had to pass 'p2' to satisfy the mechanical empty-binding check while the verdict body + probes_executed cite 'P2' (the seat-side grep confirmed P2 present, so the binding was sound — but the casing contract is brittle). PLAN: in substrate/skills/save-verdict/ (the validation that builds the threat_coverage block), make the probe-id pattern case-insensitive for the leading P/p (or normalize), so an uppercase P2 is accepted verbatim and the verdict-body citation matches the recorded binding id exactly. Add a tiny check that the recorded probe-id matches a probes_executed entry case-sensitively after normalization. Scope: save-verdict skill only; not the authorship gate. Non-blocking; verdicts still validate via the lowercase workaround today.",
+  "id": "stoa--qsf",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "[BUG] save-verdict --threat-coverage-probe-ids regex requires lowercase 'p' but designs label probes P1..P11 (uppercase)",
+  "type": "task",
+  "updated_at": "2026-06-18T12:34:52Z"
+}
