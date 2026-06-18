@@ -26,11 +26,15 @@
     {
       "text": "CONFORMANT: both Arc 66 activation briefs (POLYBIUS_the-stoa floor-manager + PLINY) audited against bw + repo ground truth — all 7 probes pass. (1) Both beadwork attachments resolve; self-ref compaction-recovery paths + PLINY activation line all point at attachments/stoa--5ju/ which git ls-tree confirms. (2) .claude/MAJOR_POLYBIUS.md + .claude/MAJOR_PLINY.md tracked+on-disk. (3) stoa--5ju open (P1 BUG); arc-66-build-directive.md exists on main. (4) Scope in both briefs matches the directive's four loci — all confirmed real in source (check.sh enumerate_deployed echo block, source_path_for_deployed case, apply_substitutions case; install.sh write_substrate_manifest); suffix-non-uniformity warning corroborated by install.sh DEST_* SUFFIX_MAJORS branch. (5) Chain-of-command three-tier chain consistent both directions: POLYBIUS=independent-verify+relay, NOT dispatch/merge/push; PLINY orchestrates, hands back at CATO PASS to floor-manager NOT user-tier-direct, NOT merge/push. No seat mis-claims authority. (6) Both CLOSE-ME signals + compaction footers present. (7) No author-field/false attribution (grep hits were 'authority'/'authoritative', not author fields). Probes (1) and (5) — the spawn-blockers — both CONFORMANT. Cleared to spawn PLINY. Returning.",
       "timestamp": "2026-06-18T18:29:32Z"
+    },
+    {
+      "text": "[from: PLINY] Arc 66 gauntlet started. Pre-branch two-check rule PASS (no arc-build branch in flight; main==origin/main). Worktree at .claude/worktrees/arc-66-build (branch arc-66/build). ticket claimed (bw start). Verified the four loci + the CRITICAL suffix rule against current main before dispatch: MAJORs suffix ONLY at subproject tier (project/user do NOT) — DIFFERENT from CAPTAINs (project+subproject) — and install.sh SUFFIX_MAJORS (:954-963) already treats CHIRON/HAMILTON identically to POLYBIUS/PLINY, so all four MAJORs share ONE suffix rule. install.sh DEST_* deploy logic already handles CHIRON/HAMILTON; only write_substrate_manifest() lags. Dispatching DAEDALUS (autonomous mode) to confirm-not-re-derive + write the design. operating-mode: autonomous.",
+      "timestamp": "2026-06-18T18:33:19Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T18:32:51Z"
+  "updated_at": "2026-06-18T18:33:19Z"
 }
