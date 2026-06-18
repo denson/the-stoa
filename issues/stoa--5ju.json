@@ -90,11 +90,15 @@
     {
       "text": "Real flags verified against source: install.sh project=--target project --project-dir \u003cpath\u003e; subproject=--target subproject --parent-dir \u003cpath\u003e --subproject \u003cslug\u003e; CAPTAINs default (--no-captains to skip; NO --with-captains). check.sh=--workspace \u003cpath\u003e. apply.sh requires --workspace + (--all-differing|--files); bare --workspace hard-errors (apply.sh:324); --all-differing harvests ONLY '  - ' DRIFTED lines (apply.sh:303-316). check.sh routing footer (:984-1000) itself routes MISSING -\u003e install.sh re-run (--project-dir/--parent-dir form), DRIFTED -\u003e apply.sh. Prefixes: DRIFTED '  - ', MISSING '  + ', OBSOLETE '  ! '. Writing design-rev2 sec4 against these; sec1-3 edit logic carried forward unchanged.",
       "timestamp": "2026-06-18T18:50:17Z"
+    },
+    {
+      "text": "pass (design-rev2): agents/design/stoa--5ju/design-rev2.md committed 80248b1. sec0-3 EDIT LOGIC CARRIED FORWARD UNCHANGED (the 4 loci + suffix table ARGUS/floor-manager/user-tier cleared). sec4 probes FULLY REWRITTEN against REAL flags verified by direct arg-parse read: install.sh project=--project-dir (NOT --dest), CAPTAINs default/--no-captains (NO --with-captains), subproject=--parent-dir+--subproject; check.sh/apply.sh=--workspace; apply.sh requires --all-differing|--files (bare --workspace hard-errors). ADDRESSED: r1 (real flags) / r2 (MISSING=install.sh re-run per check.sh footer :984-1000; apply.sh DRIFTED-only harvest in V2) / r3 (V1 visibility-flip baseline: pre-fix neither-category vs post-fix MISSING) / r4 (new V8 shared-machinery non-MAJOR regression across DRIFTED+MISSING+OBSOLETE incl op-disciplines/CAPTAIN/custom-agent/pair-programmer-MAJOR; +V6 app full suite +V9 author-gate +V3 REAL FAIL-LOUD recompose) / r6 (V7 pre-names every legit POLYBIUS/PLINY survivor + flags doc-comment leftovers as FAIL). RATIFIED: r5 RATIFY (Locus 3 superset force-subs a non-substrate MAJOR display-only; check.sh read-only, apply.sh untouched) / r7 DEFER w/ scoped follow-up ticket (pre-existing, CAPTAIN glob shares it; out of no-broader-refactor scope). Author=denson (clean); trailer present. Returning to PLINY for ARGUS re-critique.",
+      "timestamp": "2026-06-18T18:54:02Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T18:50:17Z"
+  "updated_at": "2026-06-18T18:54:02Z"
 }
