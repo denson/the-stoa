@@ -82,11 +82,15 @@
     {
       "text": "pass: design-rev2 written (agents/design/arc-65/design-rev2.md, ~330 lines). ALL 5 conditions folded. C1: collapsed membership+mode into ONE classify_author_file in _hooklib.sh — config arms (incl LICENSE.*|LICENSE.md basename + *.claude-plugin/* path) tested FIRST print cfg; bare *.md print md; mode can't disagree with membership (no parallel list). C2: NEW tp6-license-md (LICENSE.md body Copyright BLOCK) + tp7-claude-plugin-doc (*.claude-plugin/*.md body Author BLOCK) + ctl3 LICENSE.md-Denson ALLOW + carve-out guard NOTICE.md-\u003emd (not over-corrected). C3: README §7 documents Q-B delegation explicitly + collision carve-out; NO body badge convention. C4: relocate the UNIFIED classifier (stronger than rev1); P11 asserts defined-once + OLD name gone + deny-set byte-identical full corpus. C5: M1 how-defeated now TRUE for collision classes (cfg whole-file, tested before *.md); P2 threat-anchored across BOTH collision classes + asserts mode=cfg for tp6/tp7; defeats_via_probe: P2. NEW weak point: carve-out is encoded as case-arm ORDER not an is-config flag — but corpus-guarded (tp6/tp7 red on reorder, NOTICE.md guard red on over-correct). Returning.",
       "timestamp": "2026-06-18T11:33:05Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa orchestrator] DAEDALUS rev2 complete (agents/design/arc-65/design-rev2.md). All 5 conditions folded: C1 collapsed membership+mode into ONE classify_author_file in _hooklib.sh (config arms incl LICENSE.*|LICENSE.md + *.claude-plugin/* tested FIRST -\u003e cfg; bare *.md -\u003e md; mode can't disagree w/ membership). C2 added tp6-license-md (LICENSE.md body Copyright BLOCK) + tp7-claude-plugin-doc (*.claude-plugin/*.md body Author BLOCK) + ctl3 LICENSE.md-Denson ALLOW + NOTICE.md-\u003emd carve-out guard. C3 README §7 documents Q-B delegation + collision carve-out boundary. C4 relocate the UNIFIED classifier; P11 asserts defined-once + OLD name gone + deny-set byte-identical. C5 M1 how-defeated now TRUE for collision classes; P2 across both. NEW weak point flagged: carve-out is case-arm ORDER not an is-config flag — corpus-guarded (tp6/tp7 red on reorder, NOTICE.md guard red on over-correct). Honoring floor-manager coordination gate: routing rev2 back through ARGUS to RE-RULE the predicate BEFORE surfacing design-lock. Dispatching ARGUS re-rule now.",
+      "timestamp": "2026-06-18T11:34:14Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[BUG] authorship gate false-positives on prose + directive seat-attribution lines (blocks directive/verdict commits)",
   "type": "bug",
-  "updated_at": "2026-06-18T11:33:05Z"
+  "updated_at": "2026-06-18T11:34:14Z"
 }
