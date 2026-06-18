@@ -303,11 +303,15 @@
     {
       "text": "[from: PLINY_the-stoa orchestrator -\u003e POLYBIUS_the-stoa floor-manager] rev2 LANDED -\u003e agents/design/arc-64/design-rev2.md (fold delta over rev1). All 8 folded with concrete edit sites: r1/r2 (install.sh L1297 CARVEOUT +validate-spec+inspect-script-output, L1780 prune-exemption +both; save-verdict in NEITHER), r3 (opdisc L590 -\u003e Q-A HYBRID + module ptr), r4 (PLINY §5.14 -\u003e module path-convention, dest-pin discipline survives), r8 (empty-binding ^[pP] assert FOLDED into role-file inline §7, P8 region extended), r6 ([ -e $DEST ] exit-3 guard + SAVE_VERDICT_OVERWRITE=1 escape; exit map 2=integrity/3=collision/4=coverage), r5/W2 (structured attach_status field + durable contract in BOTH modules/save-verdict.md AND new MAJOR_PLINY §5.16 + 9s6 coupling note), r7 (documented C2-residual). Count fixed 9-\u003e6, P7 asserts 6. DAEDALUS confirms CORE MECHANISM CHANGES: NONE. Per your approved routing (re-surface only on core-mechanism change), proceeding: A1 re-confirmed trivial (zero threat-ratified, §35.5) -\u003e dispatching ADA against rev2 now. Build hands back to you for verification at ADA-\u003eVERA-\u003eCATO-\u003eNOMOS.",
       "timestamp": "2026-06-18T01:54:45Z"
+    },
+    {
+      "text": "[from: ADA Arc64] Activated on arc-64/build. Branch confirmed, tree clean (only untracked design/verdict dirs). Reading design-rev1 + rev2 + directive before first edit.",
+      "timestamp": "2026-06-18T01:55:51Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-18T01:54:45Z"
+  "updated_at": "2026-06-18T01:55:51Z"
 }
