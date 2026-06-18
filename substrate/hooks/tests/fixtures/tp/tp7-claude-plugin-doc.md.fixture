@@ -1,0 +1,7 @@
+# Plugin overview
+
+Author: Fenwick Galsworthy
+
+This body line is NOT in YAML frontmatter. Intended path
+.claude-plugin/docs/overview.md is config-class (the *.claude-plugin/* path arm)
+so it routes to cfg = whole-file scan, which still catches it.

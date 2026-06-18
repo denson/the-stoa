@@ -1,0 +1,9 @@
+# License
+
+Copyright: Fenwick Galsworthy
+Author: Fenwick Galsworthy
+
+These body lines are NOT in YAML frontmatter. Intended path LICENSE.md is
+config-class (LICENSE.* arm) so it routes to cfg = whole-file scan, which still
+catches these. If a future edit routed LICENSE.md to md mode, this fixture goes
+RED (md would slice only frontmatter, find none, emit nothing, ALLOW).

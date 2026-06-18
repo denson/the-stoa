@@ -71,6 +71,50 @@ event_field() {
   printf '%s' "$HOOK_EVENT_JSON" | json_field "$1"
 }
 
+# --- Arc 65 / stoa--z2b: unified author-file classify + mode contract ---------
+# classify_author_file (membership + mode in ONE decision) + the mode-aware
+# extract_author_fields below form a single contract: the gate caller calls
+# classify_author_file once to learn BOTH whether a path is author-encoding AND
+# which extraction mode to use, then passes that mode to extract_author_fields.
+# Config-class files (incl. LICENSE.md and *.claude-plugin/*.md docs) get "cfg"
+# = the OLD whole-file scan, byte-identical to pre-Arc-65; a PROSE .md gets "md"
+# = a frontmatter-only scan. The config arms are tested FIRST so they win over
+# the bare *.md arm — mode can never disagree with membership (no second list).
+
+# classify_author_file <path> : author-encoding membership AND extraction mode in
+# ONE decision, so the two can never disagree (Arc 65 / stoa--z2b r1). Prints the
+# extraction mode ("cfg" = OLD whole-file scan; "md" = frontmatter-only scan) and
+# returns 0 when <path> is an author-encoding file; prints nothing and returns 1
+# when it is NOT author-encoding. The mode is derived from the SAME case arms (in
+# the SAME priority order) as membership: every CONFIG-class arm yields cfg; ONLY
+# the bare *.md arm (a prose markdown file) yields md. Because the config arms are
+# tested first, LICENSE.md (LICENSE.* arm) and *.claude-plugin/*.md (plugin-path
+# arm) return cfg BEFORE the bare *.md arm is reached — they keep whole-file
+# coverage even though they end .md. NOTICE.md / package.json.md etc. are NOT
+# config-class (basename not in the literal list) so they fall to the bare *.md
+# arm and get md mode — the acceptable Q-B residual, identical OLD-vs-new.
+classify_author_file() {
+  local p="$1" base
+  base="$(basename "$p")"
+  # --- CONFIG-class (whole-file cfg scan) — tested FIRST so it wins over *.md ---
+  case "$base" in
+    plugin.json|marketplace.json|package.json|pyproject.toml|setup.py|Cargo.toml|Gemfile|composer.json|NOTICE|CITATION.cff|metadata.json|manifest.json)
+      printf 'cfg'; return 0 ;;
+    LICENSE|LICENSE.*|LICENSE.md)
+      printf 'cfg'; return 0 ;;
+  esac
+  case "$p" in
+    *.claude-plugin/*)
+      printf 'cfg'; return 0 ;;   # plugin docs incl. *.claude-plugin/*.md
+  esac
+  # --- prose markdown (frontmatter-only md scan) — reached only if NO config arm matched ---
+  case "$p" in
+    *.md)
+      printf 'md'; return 0 ;;    # author: lives in the leading YAML frontmatter
+  esac
+  return 1
+}
+
 # extract_author_fields : read a file's text on stdin, emit one
 # "<field>\t<value>" line per author-like field assignment found. Handles the
 # three encodings author-like fields appear in: JSON ("author": "X"), YAML
@@ -83,20 +127,54 @@ event_field() {
 #
 # Field set (case-insensitive): author authors owner creator created_by
 # maintainer maintainers by copyright holder vendor publisher.
+#
+# MODE (Arc 65 / stoa--z2b): the FIRST arg selects the extraction mode via the
+# MODE env var (default "cfg"). "cfg" = the OLD whole-blob scan (byte-identical
+# to pre-Arc-65), used for every config-class file incl. LICENSE.md and
+# *.claude-plugin/*.md docs. "md" = a PROSE markdown file: only the leading YAML
+# frontmatter block is scanned (body prose that merely DISCUSSES authorship is
+# NOT a structured field and must not trip the gate). The mode is decided by
+# classify_author_file (above) so it can never disagree with membership. A caller
+# that forgets the mode gets "cfg" — the SAFE broadest scan (fail toward MORE
+# enforcement).
 extract_author_fields() {
-  python3 -c '
-import sys, re
+  MODE="${1:-cfg}" python3 -c '
+import sys, re, os
 text = sys.stdin.read()
+mode = os.environ.get("MODE", "cfg")
 FIELDS = ["authors","author","owner","creator","created_by","maintainers","maintainer","by","copyright","holder","vendor","publisher"]
 # Match: optional quote, field name, optional quote, separator (: or =), then
 # the rest of the value up to end-of-line. Anchor the field as a whole word.
 key = "|".join(FIELDS)
-pat = re.compile(r"""(?ix)
-    (?<![A-Za-z0-9_])            # not part of a longer identifier
-    ["\x27]?(""" + key + r""")["\x27]?   # the field name (group 1)
-    \s*[:=]\s*                   # separator
-    (.*)$                        # the raw value (group 2)
-""", re.MULTILINE)
+
+# --- .md NARROWING (Arc 65 / stoa--z2b) -------------------------------------
+# md mode = a PROSE markdown file (classify_author_file returned "md", i.e. NOT
+# a config-class LICENSE.md / *.claude-plugin/*.md). Author-like fields are only
+# STRUCTURED in the leading YAML frontmatter block (--- ... ---). Body prose that
+# merely DISCUSSES authorship ("**Authored by:** <seat> + PRINCIPAL", "author =
+# Denson Smith; no other person...", a verdict AUDIT line) is NOT a structured
+# author field and must NOT trip the gate. So in md mode we (1) slice out the
+# leading frontmatter block (empty if absent), and (2) match author keys only at
+# YAML line-start with a ":" separator. cfg mode keeps the OLD whole-blob scan,
+# byte-identical, for every config-class file (incl. LICENSE.md / plugin docs).
+if mode == "md":
+    # Leading frontmatter only: optional UTF-8 BOM, "---" line, body, "---" line.
+    # Tolerant of CRLF and trailing spaces on the fence lines.
+    fm = re.match(r"^﻿?---[ \t]*\r?\n(.*?)\r?\n---[ \t]*(?:\r?\n|$)", text, re.DOTALL)
+    text = fm.group(1) if fm else ""
+    pat = re.compile(r"""(?ix)
+        ^[ \t]*                              # YAML key at line start (indent ok)
+        ["\x27]?(""" + key + r""")["\x27]?   # the field name (group 1)
+        \s*:\s*                              # YAML separator is ":" only
+        (.*)$                                # the raw value (group 2)
+    """, re.MULTILINE)
+else:
+    pat = re.compile(r"""(?ix)
+        (?<![A-Za-z0-9_])            # not part of a longer identifier
+        ["\x27]?(""" + key + r""")["\x27]?   # the field name (group 1)
+        \s*[:=]\s*                   # separator
+        (.*)$                        # the raw value (group 2)
+    """, re.MULTILINE)
 def clean_one(tok):
     tok = tok.strip()
     # Prefer a leading quoted string even if trailing chars (} ] ,) follow it,

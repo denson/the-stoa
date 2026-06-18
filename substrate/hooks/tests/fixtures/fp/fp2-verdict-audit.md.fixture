@@ -1,0 +1,4 @@
+# Verdict body
+
+Authorship AUDIT line (prose, not a structured field):
+expected: html author = Denson Smith; no other person in any author field

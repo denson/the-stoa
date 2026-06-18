@@ -82,7 +82,7 @@ When you author a new trigger payload anywhere in the substrate, this is the rul
 
 | Script | Event | Narrowing `if` | Blocks |
 |---|---|---|---|
-| `pretooluse-author-field-audit.sh` | PreToolUse | `Bash(git commit*)` | a commit whose git author identity OR a staged author-like field names someone other than the PRINCIPAL |
+| `pretooluse-author-field-audit.sh` | PreToolUse | `Bash(git commit*)` | a commit whose git author identity OR a staged author-like field (config files incl. `LICENSE.md` / `*.claude-plugin/*.md` whole-file; prose `.md` frontmatter only — see §7) names someone other than the PRINCIPAL |
 | `pretooluse-clean-tree-before-branch.sh` | PreToolUse | `Bash(git *)` | arc-build branch / worktree creation when the tree is dirty |
 | `pretooluse-no-dash-m-bw-comment.sh` | PreToolUse | `Bash(bw comment*)` | the `bw comment <id> -m "..."` data-loss footgun |
 | `stop-self-check.sh` | Stop | (none) | once per turn: a self-check backstop (checker-dispatched? gate not dodged? commit attributed?) |
@@ -209,3 +209,56 @@ INSIDE a subagent"). Even with layer-2 unarmed, the worst case is bounded: if la
 the orchestrator gets one no-op reminder it reads and recognizes as not-applicable. NOMOS is a leaf
 and cannot dispatch a further NOMOS, so there is no loop. The bounded-failure property is why this
 arc ships layer-2's read path ahead of its write site.
+
+---
+
+## 7. The `.md` frontmatter-only narrowing (Arc 65 / stoa--z2b)
+
+The author-field gate (`pretooluse-author-field-audit.sh` sub-check 2) used to treat **every** `*.md`
+file as an author-encoding file and run the multiline, anywhere-in-blob author-field regex over its
+whole text. That regex fires on any of 12 author-like field words followed by `:` / `=` ANYWHERE — so
+it false-positived on `.md` **body prose** that merely *discusses* authorship rather than declaring a
+structured author field. (Examples that tripped the OLD gate, written here with the value portion as a
+`<…>` placeholder so this README itself passes the gate: a seat-attribution line of the form
+`Authored by: <a seat name plus the PRINCIPAL>`; a verdict authorship-AUDIT line of the form
+`author = <PRINCIPAL, no other person>`.) None of those is a real violation — the only PERSON named was
+the PRINCIPAL, and a seat name is not a person.
+
+Arc 65 narrows the `.md` matcher. Membership AND extraction mode now come from ONE function,
+`classify_author_file` in `_hooklib.sh`, so the two can never disagree.
+
+**WHAT it covers now (unchanged value, plus the narrowed `.md` window):**
+
+- **Config files — UNCHANGED, whole-file scan (`cfg` mode):** `plugin.json`, `marketplace.json`,
+  `package.json`, `pyproject.toml`, `setup.py`, `Cargo.toml`, `Gemfile`, `composer.json`, `NOTICE`,
+  `CITATION.cff`, `metadata.json`, `manifest.json`, `LICENSE` / `LICENSE.*` — **INCLUDING `LICENSE.md`
+  and `*.claude-plugin/*.md` plugin docs**, which are config-class and keep the whole-file scan. The
+  `cfg` extraction is byte-identical to pre-Arc-65.
+- **Prose `.md` — NARROWED, frontmatter only (`md` mode):** an author-like field is matched ONLY in the
+  leading YAML frontmatter block (`--- ... ---`), at YAML line-start, with a `:` separator. A `.md` with
+  no frontmatter matches nothing.
+
+**WHAT it deliberately no longer matches (the explicit delegation — C3):** author-like words in a PROSE
+`.md` **body** (verdict authorship-AUDIT lines, `§28` seat-attribution docs, directive "Authored by"
+attribution lines, security/ownership discussion prose).
+
+- **WHY:** those are the structural site of authorship-*discussion*, not authorship-*claims*. Matching
+  them was the bug (stoa--z2b). There is no mechanical predicate that admits a real body
+  `Author: <some person>` line while rejecting the discussion prose — they are the same lexical surface,
+  so any rule re-covering body lines re-opens the false-positive. **No body badge-line convention is
+  added.**
+- **WHERE the residual goes:** the prose discipline (the global CLAUDE.md authorship rule) + the
+  pre-commit / pre-push **manual audit checklist** + NOMOS / human review. Stated plainly: **the gate is
+  a backstop, not the whole defense.** A body author-attribution line (an `Author` word with a value) in
+  a prose `.md` is OUT of mechanical scope by design.
+
+**The collision carve-out (stated explicitly):** `LICENSE.md` and `*.claude-plugin/*.md` are NOT
+prose-md — they are config-class and keep whole-file coverage (so a body copyright-or-author attribution
+naming a non-PRINCIPAL in those two classes still BLOCKs). By contrast `NOTICE.md` and other
+`<config-basename>.md` files ARE prose-md (basename not in the literal config list), so their body author
+line is the delegated residual above. The carve-out is encoded as `case`-arm ORDER (config arms tested
+FIRST) and is mechanically guarded by the regression corpus, not just by comment.
+
+**The regression corpus** at `substrate/hooks/tests/` is the guard for both directions of this narrowing
+(false-positives now pass; true-positives — including the two collision classes — still block). It is
+**source-only** (it does not deploy). Run `bash substrate/hooks/tests/run-author-gate-tests.sh`.

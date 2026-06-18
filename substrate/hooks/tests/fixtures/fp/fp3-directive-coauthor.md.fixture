@@ -1,0 +1,6 @@
+# Arc directive
+
+Author=PRINCIPAL
+Co-Authored-By: CAPTAIN_ADA_the-stoa <captain-ada@the-stoa.local>
+
+The seat-identity trailer is a commit-metadata signal, not a file author field.

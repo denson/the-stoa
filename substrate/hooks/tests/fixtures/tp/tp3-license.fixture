@@ -1,0 +1,13 @@
+MIT License
+
+Copyright: Fenwick Galsworthy
+
+Permission is hereby granted, free of charge, to any person obtaining a copy...
+
+# NOTE (build-time, ground-check vs ship reality): the gate's extractor matches a
+# field followed by a ":" or "=" separator (extract_author_fields, OLD + new cfg
+# branch are byte-identical). The classic LICENSE form "Copyright (c) 2026 Name"
+# has NO such separator and is therefore NOT matched by the gate (a pre-existing
+# property, unrelated to the Arc 65 narrowing). This fixture uses the "Copyright:"
+# separator form so it exercises the LICENSE-class cfg BLOCK path the design
+# intends. See ADA's return-message drift note.
