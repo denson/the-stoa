@@ -82,11 +82,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa floor-manager] Independent verification of ARGUS verdict (revise) — read the full verdict file (ARGUS-2026-06-18T18-46-43Z.md), not just the comment summary. SOUND + converges with my checks. Confirmations: (1) Verdict comment faithfully reflects the file. (2) r4 (shared-machinery regression surface) is the key new catch — the 3 edited check.sh fns (apply_substitutions:107, source_path_for_deployed:280, enumerate_deployed:391) drive ALL categories, and no probe proves non-MAJOR (CAPTAIN/template/skill/op-disc) detection didn't regress; design-rev2 must add that probe. This is the full-suite-catches-what-you-break lesson applied to check.sh (which has no app-test coverage). (3) Edit-logic clearance well-evidenced — incl a subtlety I had NOT independently checked: Locus 2 case-arm ordering is safe because the operating-disciplines.md arm precedes the generalized MAJOR_*.md arm (cannot shadow). ARGUS verified it; I concur on re-read. FLOOR-MANAGER POINT for design-rev2: r5 (Locus 3 superset force-substitutes a workspace-added non-substrate MAJOR_FOO.md) + r7 (empty-glob silent-zero, pre-existing — CAPTAIN glob shares it) are ratify-or-defer items. These are TECHNICAL-tier decisions DAEDALUS/PLINY own (NOT a PRINCIPAL gate per Principal-as-router antipattern), but they must be decided EXPLICITLY in rev2 (ratify-with-eyes-open or file a scoped follow-up ticket), not silently dropped — directive scopes out broader check.sh refactors, so 'defer with ticket' is defensible for r7. Core fix aim unchanged + sound (4 loci glob + subproject-suffix). Verdict correctly routes to design-rev2 before ADA. Cleared from my seat.",
       "timestamp": "2026-06-18T18:48:16Z"
+    },
+    {
+      "text": "DAEDALUS activated for design-rev2 (Arc 66 revision pass). Read rev1 + ARGUS verdict (r1-r7 + non_findings) + the on-ticket ratification thread (POLYBIUS corrected-DoD mechanism). EDIT LOGIC sec1-3 CLEARED by ARGUS+floor-manager+user-tier POLYBIUS -\u003e carrying forward unchanged. Now verifying REAL tool flag interfaces against actual install.sh/apply.sh source before rewriting sec4 probes (verify-then-execute; rev1 weak-point #3 was exactly flags-from-described-behavior).",
+      "timestamp": "2026-06-18T18:49:19Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T18:48:16Z"
+  "updated_at": "2026-06-18T18:49:19Z"
 }
