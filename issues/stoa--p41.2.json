@@ -339,11 +339,15 @@
     {
       "text": "[from: VERA Arc64] P2-P6,P8,P9,P10 PASS so far. Running P7 REAL regen (npm run gen-data \u0026\u0026 build \u0026\u0026 test); reading actual LIEUTENANT count, reconciling 6 SKILL_NAMES vs gen-data dir-driven count.",
       "timestamp": "2026-06-18T02:17:23Z"
+    },
+    {
+      "text": "[from: VERA Arc64] P7 PASS: regen 7 LIEUTENANT (6 SKILL_NAMES + decision-surface pre-existing), -3 delta confirmed (10-\u003e7 SKILL.md dirs, exactly the 3 retired), no masked drift, build+41 tests green. Now P1 attach-at-write REAL (bytes on beadwork branch).",
+      "timestamp": "2026-06-18T02:19:31Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-18T02:17:23Z"
+  "updated_at": "2026-06-18T02:19:31Z"
 }
