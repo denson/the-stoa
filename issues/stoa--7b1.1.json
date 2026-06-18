@@ -2,14 +2,16 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-18T03:30:47Z",
+  "close_reason": "RESOLVED by Arc-64 (main 20267e4): the Bash-only save-verdict module (printf authoring, no Write tool) dissolves the §4-no-Write vs §7-save-verdict tension at the SHARED review-seat layer; the empty-binding ^[pP] assert is inline+tier-uniform in all 3 role-file §7 blocks.",
   "created": "2026-05-29T19:54:20Z",
   "description": "ksge D2 (RECURRENCE-CLASS: recurred across 2 ARGUS dispatches). The read-only-review seats forbid Write in §4 but §7 mandates save-verdict, which writes. Fix once at the shared read-only-review-seat layer (affects ARGUS, NOMOS, ZENO together — do not patch one seat). Detail: stoa--q3l body + consolidated-substrate-friction.md.",
   "id": "stoa--7b1.1",
   "labels": [],
   "parent": "stoa--7b1",
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "Read-only-review-seat coherence: ARGUS/NOMOS/ZENO §4-no-Write vs §7-mandates-save-verdict",
   "type": "task",
-  "updated_at": "2026-05-29T19:54:20Z"
+  "updated_at": "2026-06-18T03:30:47Z"
 }
