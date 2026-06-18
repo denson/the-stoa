@@ -246,11 +246,15 @@
     {
       "text": "Probes 1-3,5-8 run. Commits ff9f21e+9e1768a exist, top-2 on arc-66/build, scope clean (only check.sh/apply.sh/install.sh + 2 design docs). All 6 loci confirmed glob-derived in final tree (check.sh enumerate_deployed:415 / source_path:296 / apply_subs:118; install.sh manifest:544; apply.sh apply_subs:97 / source_path:186) — MAJOR_*.md glob, subproject-only suffix, MAJOR-arm ordered AFTER operating-disciplines.md in both source_path fns. No surviving POLYBIUS/PLINY enumeration list at the 6 loci (survivors = tier-sentinels + USER_TIER_DIR guard + doc comments + install.sh:895/:954-1007 = stoa--kr7). EXPAND auth real (user-tier POLYBIUS close-gate, not PRINCIPAL-gate). Verdicts present. Ticket in_progress (not closed). Authorship clean. Now confirming VERA app-suite numbers in verdict file.",
       "timestamp": "2026-06-18T19:51:15Z"
+    },
+    {
+      "text": "CONFORMANT: Arc 66 hand-back audited against bw + repo ground truth — all 8 probes pass, zero divergence. Commits ff9f21e + 9e1768a are the only 2 build commits (top-2 on arc-66/build), scope clean (check.sh/install.sh/apply.sh + 2 design docs only). All 6 loci VERIFIED glob-derived in the final tree (not just claimed): check.sh enumerate_deployed/source_path/apply_subs, install.sh manifest, apply.sh apply_subs/source_path — MAJOR_*.md glob, subproject-ONLY suffix, MAJOR-arm ordered AFTER operating-disciplines.md in both source_path fns (no shadow). No surviving POLYBIUS/PLINY MAJOR-enumeration LIST at any fix locus; survivors all legit (tier-sentinels, USER_TIER_DIR guard, doc comments, install.sh:895/:954-1007 = filed follow-up stoa--kr7). EXPAND auth REAL (user-tier POLYBIUS close-gate authority, in-scope completion, NOT a PRINCIPAL-gate). Verdict artifacts (ARGUS/VERA r1 FAIL/VERA r2 PASS/CATO PASS) present. App suite independently re-run: 41/41 tests pass (matches VERA's 4 MAJOR/12 CAPTAIN/41 tests). Authorship clean (Author=denson both commits; CAPTAIN_ADA_the-stoa trailers). Ticket stoa--5ju in_progress, NOT closed (correct — push+close is user-tier close-gate per directive L75/L56). NON-DIVERGENT NOTE for close-gate: PLINY 'DoD met' covers the build+gauntlet DoD; directive L56 push+close clause correctly NOT yet executed at this hand-back; r7 empty-glob follow-up + directive-DoD-correction commit remain user-tier close-gate items. Verdict saved: agents/verdicts/stoa--5ju/NOMOS-2026-06-18T19-52-43Z.md (sha256 round-trip verified). Returning.",
+      "timestamp": "2026-06-18T19:53:01Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T19:51:15Z"
+  "updated_at": "2026-06-18T19:53:01Z"
 }
