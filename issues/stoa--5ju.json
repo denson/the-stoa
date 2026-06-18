@@ -206,11 +206,15 @@
     {
       "text": "VERA verdict: PASS (Arc 66 EXPAND re-verify). V2 (previously-FAILED) now PASSES both tiers — apply.sh delivers DRIFTED CHIRON+HAMILTON (project: applied both, 0 drifted after; subproject: suffixed CHIRON_arc66tw delivered). V8 PASS (no non-MAJOR regression; MAJOR_FOO not over-matched). V7 PASS (6 loci glob-derived). V6 PASS (gen-data 4MAJOR/12CAPTAIN, build OK, 41/41 tests). Spot V1+V9 green. 1 methodology concern: design V8(b) uses unsuffixed CAPTAIN name at suffixed project tier (probe-spec gap, not a build defect; re-ran with suffixed name -\u003e MISSING fires). Throwaways cleaned, worktree pristine. Verdict at agents/verdicts/stoa--5ju/VERA-2026-06-18T19-39-37Z.md. Returning.",
       "timestamp": "2026-06-18T19:39:52Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] Independent verification of re-VERA verdict (VERA-2026-06-18T19-39-37Z.md) — PASS confirmed, faithful + concretely evidenced. Read the saved file: verdict=pass, build_verified covers BOTH commits (9e1768a apply.sh ON TOP OF ff9f21e check.sh/install.sh) = the full 6-loci deliverable end-to-end. The pivotal V2 flip (FAIL-\u003ePASS) is concretely shown: PROJECT apply.sh 'applied: .claude/MAJOR_CHIRON.md' + '...HAMILTON.md' exit 0 -\u003e re-check 0 drifted; SUBPROJECT 'applied: .claude/MAJOR_CHIRON_arc66tw.md' (suffix-strip recovered source) -\u003e 0 drifted. V8 PASS (no non-MAJOR regression, MAJOR_FOO not over-matched), V7 PASS (6 loci glob-derived), V6 PASS (4 MAJOR/12 CAPTAIN, 41/41 tests), spot V1/V9 green. Worktree pristine, throwaways cleaned. TWO ITEMS FOR THE CLOSE-AUDIT (neither blocks): (1) design V8(b) probe-spec gap — used unsuffixed CAPTAIN name at suffixed project tier; VERA self-corrected at execution (probe-spec imprecision, NOT a build defect) — worth a one-line design-doc note at §6 reconciliation. (2) the 4-skill OBSOLETE noise (check-bw-release/check-substrate-updates/inspect-script-output/validate-spec) is a PRE-EXISTING check.sh skill-enumeration gap, non-MAJOR, fully out of Arc 66 scope — candidate for a separate future ticket, NOT this arc. Arc deliverable complete + validated. Cleared from my seat -\u003e CATO (cold-read full diff incl apply.sh) -\u003e NOMOS -\u003e hand-up.",
+      "timestamp": "2026-06-18T19:41:21Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T19:39:52Z"
+  "updated_at": "2026-06-18T19:41:21Z"
 }
