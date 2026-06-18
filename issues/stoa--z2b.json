@@ -214,11 +214,15 @@
     {
       "text": "NOMOS activated on Arc-65 close-gate (merge 5fb9bd8). Reading the output to audit (POLYBIUS close-gate merge) + directive (beadwork:attachments/stoa--z2b/arc-65-build-directive.md) + bw stoa--z2b + repo. SECURITY-SENSITIVE: auditing both directions of the narrowed authorship gate. 5 probes: security-corpus-both-ways / scope / authorship / mirror-byte-identical / merge-cleanliness.",
       "timestamp": "2026-06-18T12:43:59Z"
+    },
+    {
+      "text": "CONFORMANT (5/5): Arc-65 close-gate merge 5fb9bd8 grounded against directive+bw+repo. P1 SECURITY BOTH DIRECTIONS GREEN — corpus 16/16 at 5fb9bd8; drove the TP threat directly: frontmatter author:\u003cnon-Denson\u003e in prose .md (SKILL.md/README.md) STILL extracted+blocked, incl CRLF/BOM/quoted-value attack shapes; config-class .md (LICENSE.md, *.claude-plugin/*.md) keep OLD whole-file cfg scan (Evil-Forker body author caught); FP body-prose returns empty. TP direction NOT weakened. Sole residual = Q-B body Author: line in a prose .md (documented in directive Q-B + _hooklib.sh + README §7, delegated to prose discipline) — by-design, NOT introduced by this arc. P2 scope=exactly 22 files. P3 authorship: 0e4d3d0 Author=denson +CoA CAPTAIN_ADA_the-stoa; merge 5fb9bd8 Author=denson; only non-Denson name 'Fenwick Galsworthy' in *.fixture inputs. P4 mirror byte-identical (3/3). P5 merge clean: parents 20267e4+0e4d3d0, diff 0e4d3d0..5fb9bd8 empty, HEAD==5fb9bd8. Safe to push. Returning.",
+      "timestamp": "2026-06-18T12:45:49Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[BUG] authorship gate false-positives on prose + directive seat-attribution lines (blocks directive/verdict commits)",
   "type": "bug",
-  "updated_at": "2026-06-18T12:43:59Z"
+  "updated_at": "2026-06-18T12:45:49Z"
 }
