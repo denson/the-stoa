@@ -251,11 +251,15 @@
     {
       "text": "[from: DAEDALUS Arc64] DESIGN COMPLETE -\u003e agents/design/arc-64/design-rev1.md (worktree). HEADLINE MECHANISMS: save-verdict Bash-only = printf-author (uniform VERA/ARGUS/CATO) + inline sha256sum round-trip (exit 2) + bw attach \u003cticket\u003e \u003cfile\u003e --name verdicts/... (stores BYTES on orphan branch = Arc-62 durability). Q-A: HYBRID -\u003e §15.4 shape=accept-seat-side (rare, role-file is SSoT); threat-coverage empty-binding=PRESERVE via inline bash assert, regex ^[pP][0-9A-Za-z._-]+$ (UPPERCASE-accepting -\u003e fixes the j2i lowercase-p bug; ground-verified P-INJ passes, x9 rejects). Q-B: §4 forbids the TOOL (Write/Edit), §7 satisfied by Bash printf-redirect -\u003e never genuine conflict; make explicit. ZENO/NOMOS carve-out latent (they don't save-verdict). Q-C: C2 = inline-fallback Read-at-dispatch-ONLY, NO MODULE-INLINE markers / NO recompose ownership / NO Checks-A-E (VERA/ARGUS/CATO arent recompose owners + bare subproject Read wont resolve, so keep the ~12-line printf+sha256+attach inline in each §7, module = canonical rationale+enforcement at user/project tier; P8 diff-aligns the 4 copies). ATTACH-FAIL POSTURE: FAIL-LOUD-but-write-preserving (disk verdict integrity-checked; attach failure surfaced+reported, not hard-discarded). APP: comment-only test edit (length\u003e0 holds, zero toContain refs) + decorative display-extras.ts save-verdict entry -\u003e module. TOP-2 WEAK PTS: (W1) C2 duplicates procedure across 4 homes -\u003e P8 diff-guards; (W2) attach-fail posture is a judgment call ARGUS may want stricter (flagged residual). Standing by for ARGUS.",
       "timestamp": "2026-06-18T01:32:04Z"
+    },
+    {
+      "text": "[from: ARGUS Arc64] ARGUS activated on stoa--p41.2. Reading design-rev1.md end-to-end + directive + save-verdict sources + 4 role files (ARGUS/CATO/ZENO/NOMOS §4/§7) + install.sh partition before audit.",
+      "timestamp": "2026-06-18T01:33:41Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-18T01:32:04Z"
+  "updated_at": "2026-06-18T01:33:41Z"
 }
