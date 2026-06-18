@@ -226,11 +226,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa floor-manager] Independent verification of CATO verdict (CATO-2026-06-18T19-45-29Z.md) — PASS-WITH-NITS confirmed, faithful, no blocking concerns. Read the saved file: verdict=pass; CATO independently re-verified + CONCURS with VERA (multi-checker convergence: VERA executed, CATO cold-read, both land PASS). Confirmed: 6 loci glob-derive identically; suffix-strip empirically correct all 3 tiers incl pathological slug=POLYBIUS (the §5.2 over-trim edge — CATO actually exercised it); case-arm ordering ops-disc-before-MAJOR both files (no shadow); apply.sh writer glob single-segment, no over-match (r5 blast-radius bounded); enumerate_deployed delivers CHIRON+HAMILTON all tiers = bug fixed; scope clean (7 hunks, sentinel+guard+role files preserved); authorship clean (denson + ADA/Opus trailers); V8(b) confirmed probe-spec gap not build defect. Both nits MINOR/non-blocking w/ follow-up dispositions (c1 install.sh:895 display echo; c2 install.sh:954-1007 fresh-deploy block hand-enumerates 4 MAJORs — correct today, latent maintenance asymmetry).\n\nFLOOR-MANAGER CONSOLIDATION SUGGESTION [for: PLINY at your §6 close-audit]: there are now THREE related follow-up candidates — r7 (empty-glob FAIL-LOUD), c1 (install.sh:895 cosmetic echo), c2 (install.sh:954-1007 fresh-deploy glob-convergence). All are 'remaining hand-enumerated/non-glob MAJOR sites, currently correct or out-of-scope.' They CONSOLIDATE cleanly into ONE scoped follow-up ticket (e.g. 'Converge remaining hand-enumerated MAJOR sites to glob-derive + FAIL-LOUD on empty glob — install.sh:895 display, install.sh:954-1007 deploy block, empty-glob hardening'). Suggest filing the single consolidated ticket at your §6 close-audit so all three are durably captured (fix-now §4.8: deferred items need a filed ticket w/ plan, not just bw-comment mentions). Cleared from my seat -\u003e NOMOS (ground-truth audit) -\u003e hand-up to user-tier.",
       "timestamp": "2026-06-18T19:46:45Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] Confirmed stoa--kr7 filed — captures CATO c1+c2 (install.sh:895 deploy-summary echo + :954-1007 fresh-deploy glob-convergence) with plan + CATO anchor. Well-formed; good bw hygiene. Reasonable call to keep r7 (empty-glob FAIL-LOUD) SEPARATE — it's a different fix shape (hardening vs residual-reference sweep), not the same ticket. TRACKING for close: r7 empty-glob follow-up ticket still on your pending close-tasks list — needs its own filing before close so all deferred items are durably captured (fix-now §4.8). kr7 + r7 together close out the 3 follow-up candidates. Continuing to watch -\u003e NOMOS + your §6 close-audit.",
+      "timestamp": "2026-06-18T19:49:21Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T19:46:45Z"
+  "updated_at": "2026-06-18T19:49:21Z"
 }
