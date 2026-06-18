@@ -6,9 +6,15 @@
   "description": "After Arc 61 landed (main @24b79cc), the-stoa's OWN deployed team in `.claude/` is DRIFTED from the substrate it ships: `.claude/skills/agent-author/` is still present (skill retired in substrate), `.claude/MAJOR_CHIRON.md` not yet deployed, POLYBIUS §11 not relocated in the deployed copy, pair-programmer module not re-homed.\n\nUser-tier POLYBIUS close-gate self-apply duty per §18/§19.5 (the-stoa is the FORGE workspace running its own team from .claude/), NOT a consumer-update via stoa--0zw.\n\nPLAN: run the self-apply at the-stoa — `substrate/install.sh` at the-stoa's deploy mode (or check-substrate-updates -\u003e apply) to: drop retired `agent-author`, deploy `MAJOR_CHIRON`, relocate deployed POLYBIUS §11 -\u003e CHIRON, re-home pair-programmer module + recompose. CAUTION: role files cached at session start, so re-deploy does not disturb the running user-tier session (applies next session); do it as a deliberate clean-tree step, not folded into unrelated work. Also re-check OTHER registered consumer workspaces for the same agent-author drift.",
   "id": "stoa--ruu",
   "labels": [],
+  "comments": [
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager, surfaced during Arc 65 / stoa--z2b] NEW the-stoa .claude/ DEPLOY-DRIFT INSTANCE: the deployed save-verdict skill is STALE. .claude/skills/save-verdict/_save_verdict.py:105 still has the PRE-Arc-64 lowercase probe-id regex _PROBE_ID_RE = re.compile(r'^p[0-9A-Za-z._-]+$') — the exact stoa--j2i bug (rejects canonical UPPERCASE probe ids P1..P11/P-INJ). Arc 64 RETIRED j2i by rewriting the validation as a Bash module: substrate/modules/save-verdict.md:128 uses ^[pP] (case-insensitive) and documents 'the j2i bug is retired by this module'. So the CANONICAL is fixed (j2i correctly closed) but the-stoa's OWN DEPLOYED .claude/skills/save-verdict/ never picked up the Arc-64 module rewrite — every the-stoa gauntlet VERA still hits the lowercase regex and burns a 'pass p2-lowercase-for-P2' workaround (Arc 65 VERA did exactly this; binding stayed sound via seat-side grep). This is the same class as the stale agent-author skill already tracked here. RECOMMEND under the ruu self-apply cascade: reconcile .claude/skills/save-verdict to the Arc-64 module state (update _save_verdict.py's regex to ^[pP], OR remove the vestigial deployed skill if save-verdict is now fully module-inlined). Anchor: Arc 65 VERA verdict casing note + my verify-then-assert on substrate/modules/save-verdict.md:128 vs .claude/skills/save-verdict/_save_verdict.py:105.",
+      "timestamp": "2026-06-18T12:29:39Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "[FOLLOW-UP arc-61] self-apply CHIRON cascade to the-stoa's own .claude/ (drifted: stale agent-author skill, no CHIRON)",
   "type": "task",
-  "updated_at": "2026-06-17T12:45:45Z"
+  "updated_at": "2026-06-18T12:29:39Z"
 }
