@@ -226,9 +226,7 @@ CAPTAIN_NAMES=(
 # ~/.claude/skills/, so a deployed substrate that omits skills leaves
 # POLYBIUS unable to invoke them.
 SKILL_NAMES=(
-  check-substrate-updates
   credential-discipline
-  check-bw-release
   inspect-script-output
   handoff-author
   save-verdict
@@ -236,7 +234,16 @@ SKILL_NAMES=(
   workflow-composer
   interactive-html-preview
   team-launcher
+  gauntlet-setup
 )
+# Arc 63 / stoa--p41.2: check-substrate-updates + check-bw-release were REMOVED
+# from SKILL_NAMES (retired from the model-invokable skill menu — their SKILL.md
+# files were deleted so gen-data no longer renders them as LIEUTENANTs). They are
+# NOT dropped: their scripts (check.sh / apply.sh / revert.sh) stay on disk and
+# deploy to consumer .claude/skills/check-*/ via the Option-C carve-out below
+# (deploy block + prune-scan exemption). Their drift detection now fires via the
+# SessionStart(startup|resume) substrate-check hook. gauntlet-setup was PORTED in
+# this same pass (net -2 +1 = 9 entries).
 
 # Marker line written into CLAUDE.md when --modify-claude-md is used; presence
 # of this marker is how subsequent runs detect that the reference is already
@@ -563,7 +570,7 @@ write_substrate_gitignore() {
   local gi="${dest}/.gitignore"
 
   if [ "$DRY_RUN" -eq 1 ]; then
-    echo "[dry-run] write: $gi (substrate-transient paths: scheduled_tasks.lock, worktrees/, .substrate-last-check, __pycache__/, *.pyc)"
+    echo "[dry-run] write: $gi (substrate-transient paths: scheduled_tasks.lock, worktrees/, .substrate-last-check, .substrate-check-hook-stamp, .substrate-drift-signal, __pycache__/, *.pyc)"
     return 0
   fi
 
@@ -582,6 +589,12 @@ worktrees/
 
 # check-substrate-updates state file.
 .substrate-last-check
+
+# SessionStart substrate-check hook transients (Arc 63 / stoa--p41.2):
+# the per-session-start throttle stamp and the P-FALLBACK drift signal the
+# Stop self-check + CLAUDE.md read.
+.substrate-check-hook-stamp
+.substrate-drift-signal
 
 # Skill bytecode — stripped at deploy, but regenerated when a consumer runs
 # a skill (Arc 40 / stoa--t9u strips the deploy-time copy; this catches the
@@ -1269,6 +1282,36 @@ for sname in "${SKILL_NAMES[@]}"; do
   fi
 done
 
+# 5a. Deploy operator-tool carve-out (Arc 63 / stoa--p41.2; design-rev2 §4.3
+# Block 1; arc directive substrate/arcs/arc-63-build-directive.md). These two
+# dirs are substrate-shipped OPERATOR TOOLS, not model-invokable skills: their
+# SKILL.md was deleted in Arc 63 so gen-data does not render them as LIEUTENANTs
+# and they were removed from SKILL_NAMES, but their drift-check + apply/revert
+# scripts must still reach consumer workspaces so the SessionStart substrate-
+# check hook (and on-demand apply/revert) can run them. They are NOT custom-*
+# (those are operator-owned; these are substrate-shipped — design §4.2 rejects
+# masquerading them as custom-). The carve-out deploys them by name, mirroring
+# the SKILL_NAMES loop's copy+pycache-cleanup. Paired with the prune-scan
+# exemption in step 7 (the obsolete scan would otherwise flag a dir not in
+# SKILL_NAMES and delete it under --prune-obsolete in the same run).
+CARVEOUT_SKILL_DIRS=(check-substrate-updates check-bw-release)
+for d in "${CARVEOUT_SKILL_DIRS[@]}"; do
+  src_co="${SRC_SKILLS_DIR}/${d}"
+  dest_co="${DEST_SKILLS_DIR}/${d}"
+  [ -d "$src_co" ] || continue
+  if [ "$DRY_RUN" -eq 1 ]; then
+    echo "[dry-run] deploy operator-tool (carve-out, non-SKILL_NAMES): $src_co/ -> $dest_co/ (cp -R)"
+    echo "[dry-run] post-copy pycache cleanup: $dest_co (find __pycache__/*.pyc -delete)"
+  else
+    rm -rf "$dest_co"
+    mkdir -p "$dest_co"
+    cp -R "$src_co"/. "$dest_co"/
+    find "$dest_co" -type d -name __pycache__ -prune -exec rm -rf {} + 2>/dev/null || true
+    find "$dest_co" -type f -name '*.pyc' -delete 2>/dev/null || true
+    echo "deployed operator-tool (carve-out): $dest_co"
+  fi
+done
+
 # 5b. Deploy instruction modules (Arc 44 / stoa--xyb.4; always — no opt-out,
 # mirrors skills). GLOB-discovered flat .md files from substrate/modules/,
 # deployed unsuffixed (shared tooling like templates). cp overwrites in place
@@ -1560,6 +1603,8 @@ ${CLAUDE_MD_MARKER}
 ## Chief-of-Staff (MAJOR_POLYBIUS)
 
 This environment hosts the three-role agent substrate. The Chief-of-Staff role is defined in \`.claude/MAJOR_POLYBIUS.md\`. When the PRINCIPAL invokes \"POLYBIUS\" or \"chief of staff\", read that file and assume the role.
+
+If \`.claude/.substrate-drift-signal\` exists on disk, surface its contents to the PRINCIPAL at the start of the next orchestrator turn (substrate-drift was detected at session start; do not auto-apply).
 "
     if [ "$DRY_RUN" -eq 1 ]; then
       if [ -f "$DEST_CLAUDE_MD" ]; then
@@ -1723,6 +1768,16 @@ if [ -d "$DEST_SKILLS_DIR" ]; then
     # to prevent.
     case "$base" in
       custom-*) continue ;;
+      # CITE (Arc 63 / stoa--p41.2; design-rev2 §4.3 Block 2): these two dirs are
+      # substrate-shipped OPERATOR TOOLS deployed by the step-5a carve-out, not
+      # model-invokable skills (their SKILL.md was deleted in Arc 63) — so they
+      # are intentionally NOT in SKILL_NAMES and would otherwise be flagged
+      # obsolete and DELETED by --prune-obsolete in the same install run that
+      # the carve-out deployed them. They are not custom-* either (those are
+      # operator-owned); this named exemption is the honest skip for substrate-
+      # shipped non-skill operator tools. A future generic mechanism (pass B+)
+      # would replace both this and the step-5a carve-out.
+      check-substrate-updates|check-bw-release) continue ;;
     esac
     found=0
     for s in "${SKILL_NAMES[@]}"; do

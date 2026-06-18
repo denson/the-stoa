@@ -912,7 +912,7 @@ Anchor: `stoa--p5g` — N=1 provenance + accretion path (railway--pam 2026-05-13
 
 ## 22. bw-upgrade discipline
 
-Relocated to `.claude/modules/bw-upgrade.md` (CONDITIONAL — read when a new bw release is tagged upstream and POLYBIUS handles the upgrade across deployment / substrate / workspace surfaces). Covers the 5-step process, the §22.2 3-axis impact classification, the check-bw-release skill operationalization, and cross-refs.
+Relocated to `.claude/modules/bw-upgrade.md` (CONDITIONAL — read when a new bw release is tagged upstream and POLYBIUS handles the upgrade across deployment / substrate / workspace surfaces). Covers the 5-step process, the §22.2 3-axis impact classification, the check-bw-release tool (check.sh) operationalization, and cross-refs.
 Recover the full discipline via `Read .claude/modules/bw-upgrade.md`. Relocation-index row in §0.5.
 <!-- MODULE-INLINE:bw-upgrade -->
 <!-- /MODULE-INLINE:bw-upgrade -->

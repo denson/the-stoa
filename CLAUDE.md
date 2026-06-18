@@ -28,6 +28,12 @@ Repo layout in brief:
 
 ---
 
+## Substrate-drift signal (belt-and-suspenders carrier)
+
+If `.claude/.substrate-drift-signal` exists on disk, surface its contents to the PRINCIPAL at the start of the next orchestrator turn (substrate-drift was detected at session start by the SessionStart substrate-check hook; do not auto-apply). This is the hooks-unarmed-state carrier — it works even where `--enable-hooks` was never run, complementing the Stop self-check's clause (D) reader for the hooks-armed state (Arc 63 / stoa--p41.2).
+
+---
+
 ## If the PRINCIPAL has just cloned this and is exploring
 
 Read `SKILL.md` at the repo root and follow its procedure. That skill is the entry point for any agent landing in a freshly cloned repo. It gives a 30-second pitch and routes to the visual tour, the guided install, or the case study — depending on what the PRINCIPAL says they want.

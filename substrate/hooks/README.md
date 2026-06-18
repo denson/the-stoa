@@ -93,6 +93,7 @@ When you author a new trigger payload anywhere in the substrate, this is the rul
 |---|---|---|---|
 | `posttooluse-agent-checker-trigger.sh` | PostToolUse | `Agent` | on a sub-agent return (parent context): dispatch CAPTAIN_NOMOS to confirm the returned output conforms to bw ground truth before propagating it. Recursion-guarded by the **active** layer-1 `agent_type` match (no-op on a NOMOS return), plus a **forward-compatible / not-yet-armed** layer-2 session-sentinel fallback (see §6.1). |
 | `sessionstart-compact-reprime.sh` | SessionStart | `compact` | on a compact-triggered resume: re-prime the orchestrator's standing engagement context (seat, open epic, polling cadence, dispatch-NOMOS reminder). Payload from `.claude/hooks/reprime-context` if present, else a generic role reprime. |
+| `sessionstart-substrate-check.sh` (Arc 63) | SessionStart | `startup\|resume` | on a normal start/resume: run check-substrate-updates + check-bw-release CHECK logic once/session-start (throttled ~once/day, silent-when-current, fail-open) and surface drift. **NOT a best-effort hook** — its `startup\|resume` additionalContext is a WORKING channel (v2.1.170; §6 NARROW SCOPE) AND it writes a P-FALLBACK `.substrate-drift-signal` read by the Stop self-check clause (D) + CLAUDE.md, so drift surfaces off-additionalContext too. Listed here as a SessionStart sibling, but it is a reliable carrier, not Stage-2 best-effort. |
 
 The PRINCIPAL allow-list the author-field gate reads is `.claude/hooks/principal-identity` (one
 name/email per line; `#` comments + blanks ignored), written at install time. It is the gate's
@@ -144,8 +145,19 @@ When an operator genuinely wants the gates live on a target workspace:
 ## 6. The `additionalContext` injection bug — why the Stage-2 hooks are best-effort
 
 The two Stage-2 judgment-tier hooks (`posttooluse-agent-checker-trigger.sh`, `sessionstart-compact-reprime.sh`)
-inject their reminder/reprime via the `additionalContext` channel. **That channel is broken upstream
-across current shipping versions** (web-verified 2026-05-23, no fix through changelog **v2.1.150**):
+inject their reminder/reprime via the `additionalContext` channel. **Those specific channels are broken
+upstream across current shipping versions** (web-verified 2026-05-23; the PostToolUse/PreToolUse + the
+SessionStart-`compact` regressions persist through changelog **v2.1.170**):
+
+> **NARROW SCOPE (Arc 63 / stoa--p41.2).** The breakage is matcher/event-specific — it is NOT that
+> `additionalContext` is universally dead. The **SessionStart `startup|resume`** matcher's
+> `additionalContext` IS a WORKING injection channel as of **v2.1.170** (only the `compact` matcher,
+> #15174, is broken). That is why the Arc-63 `sessionstart-substrate-check.sh` hook (matcher
+> `startup|resume`) reaches the model on a normal start/resume and is NOT a Stage-2 best-effort hook —
+> it ships with a working primary surface PLUS a non-additionalContext P-FALLBACK (the
+> `.substrate-drift-signal` file read by the Stop self-check clause (D) + CLAUDE.md), so its drift
+> surface holds even if the channel ever regresses. The table below covers only the still-broken
+> PostToolUse/PreToolUse + SessionStart-`compact` cases.
 
 | Issue | State | Scope | What it confirms |
 |---|---|---|---|

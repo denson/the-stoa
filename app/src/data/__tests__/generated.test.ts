@@ -88,8 +88,11 @@ describe("the generated v2 roster", () => {
       throw new Error("LIEUTENANT slot rank discriminator did not match");
     }
     // Arc 17.1 made the gen-data adapter read all substrate skills as
-    // LIEUTENANTs. (agent-author retired Arc 61; slot stays populated by the
-    // remaining skills.) Don't over-specify count — substrate may grow more.
+    // LIEUTENANTs. (agent-author retired Arc 61; the 2 check skills had their
+    // SKILL.md removed in Arc 63 — kept as operator tools under skills/check-*/
+    // but no longer rendered as LIEUTENANTs — + gauntlet-setup ported in; net
+    // LIEUTENANT churn handled by re-deriving from the dir.)
+    // Don't over-specify count — substrate may grow more.
     expect(slot.skills.length).toBeGreaterThan(0);
     for (const skill of slot.skills) {
       expect(skill.rank).toBe("LIEUTENANT");

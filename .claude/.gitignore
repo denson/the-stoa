@@ -13,6 +13,12 @@ worktrees/
 # check-substrate-updates state file.
 .substrate-last-check
 
+# SessionStart substrate-check hook transients (Arc 63 / stoa--p41.2):
+# the per-session-start throttle stamp and the P-FALLBACK drift signal the
+# Stop self-check + CLAUDE.md read.
+.substrate-check-hook-stamp
+.substrate-drift-signal
+
 # Skill bytecode — stripped at deploy, but regenerated when a consumer runs
 # a skill (Arc 40 / stoa--t9u strips the deploy-time copy; this catches the
 # consumer-runtime regeneration).
