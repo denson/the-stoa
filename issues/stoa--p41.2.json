@@ -331,11 +331,15 @@
     {
       "text": "[from: VERA Arc64] activated on arc-64/build @ 56e20bb. Reading design-rev1/rev2 + save-verdict module before classifying P1-P10.",
       "timestamp": "2026-06-18T02:13:54Z"
+    },
+    {
+      "text": "[from: VERA Arc64] probes absorbed (rev1+rev2 §9). Classifying P1-P10 per verification-complexity quadrant; P1/P3/P4 mostly easy-easy mechanical, P7 easy-hard (real regen), P8 easy-easy diff. Beginning execution; first my own verdict save IS P1/P2/P3 dogfood.",
+      "timestamp": "2026-06-18T02:14:05Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-18T02:13:54Z"
+  "updated_at": "2026-06-18T02:14:05Z"
 }
