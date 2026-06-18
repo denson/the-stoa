@@ -10,11 +10,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa floor-manager] EMPIRICAL N+1 (Arc 64 / stoa--p41.2 pass B): the authorship-gate false-positive now demonstrably blocks VERDICT-record commits, not just directive/seat-attribution commits. During Arc 64, PLINY's trailing in-tree verdict-record commit was BLOCKED because the gate mis-parsed CATO's authorship-AUDIT prose ('Author: Denson Smith with a DAEDALUS seat breadcrumb...' inside the verdict body) as a literal author field. PLINY correctly did NOT dodge the gate (Stop self-check B) and did NOT tamper with the verdict. Impact on Arc 64 was NONE (verdicts are durable on the beadwork orphan branch via the new attach-at-write mechanism, so the in-tree commit was redundant) -- but this widens z2b's observed blast radius: any commit whose diff contains review/audit PROSE discussing authorship (verdict bodies, design docs, security/ownership discussion) is a false-positive target, not only directive seat-attribution lines. Recommend this raises z2b priority. Anchor: Arc 64 PLINY hand-back item 1, CATO verdict authorship-AUDIT prose.",
       "timestamp": "2026-06-18T02:39:13Z"
+    },
+    {
+      "text": "[from: NOMOS] CONFORMANT: Arc-65 directive (beadwork:attachments/stoa--z2b/arc-65-build-directive.md) audited against z2b ticket + repo. All 5 probes pass. (1) ticket-decision fidelity: directive correctly reflects PRINCIPAL option (a) narrow-the-matcher, NOT (b)/(c); cites the floor-manager Arc-64 N+1 verdict-commit blast-radius. (2) gate-source accuracy: regex/FIELDS in _hooklib.sh and is_author_encoding_file/is_principal/DENY in pretooluse-author-field-audit.sh match directive verbatim. (3) LOAD-BEARING constraint PRESENT + CORRECT: directive makes BOTH directions load-bearing; true-positive-preservation corpus IS the #1 DoD; not weak. (4) fix-surface complete: source substrate/hooks/ + deployed .claude/hooks/ both exist + byte-identical; FAILS-OPEN noted. (5) scope coherence: option-b excluded; stash@{0} present + matches the Arc-61 directive-DoD follow-up note. No author/commit check (directive uncommitted, content-only audit). Returning.",
+      "timestamp": "2026-06-18T11:01:10Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[BUG] authorship gate false-positives on prose + directive seat-attribution lines (blocks directive/verdict commits)",
   "type": "bug",
-  "updated_at": "2026-06-18T02:39:13Z"
+  "updated_at": "2026-06-18T11:01:10Z"
 }
