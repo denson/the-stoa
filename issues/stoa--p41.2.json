@@ -295,11 +295,15 @@
     {
       "text": "[from: DAEDALUS Arc64 rev2] Activated. rev1 absorbed; floor-manager adjudication read (all 5 HIGH + r6/r7 LOW + r5 LOCKED posture + 9-\u003e6 count). Edit sites confirmed live: install.sh CARVEOUT L1297 + prune-exemption L1780; opdisc L590; MAJOR_PLINY 5.14 skill-ptr L257 + new 5.16 hand-back section. Drafting design-rev2.md as a fold delta.",
       "timestamp": "2026-06-18T01:50:40Z"
+    },
+    {
+      "text": "[from: DAEDALUS Arc64 rev2] pass: design-rev2.md written (agents/design/arc-64/design-rev2.md), fold delta over rev1. All 8 folded with concrete edit sites: r1/r2 -\u003e install.sh L1297 CARVEOUT + L1780 prune-exemption ADD validate-spec+inspect-script-output (save-verdict in NEITHER, fully git rm'd); rev1 'already handles' prose struck. r3 -\u003e opdisc L590 reworded to Q-A HYBRID (15.4 seat-side, empty-binding preserved), dead SKILL.md ptr -\u003e modules/save-verdict.md. r4 -\u003e MAJOR_PLINY 5.14 worktree-dest-pin DISCIPLINE kept, --cwd/SKILL.md sentence repointed to module. r8 -\u003e empty-binding ^[pP] assert FOLDED into role-file inline 7 block (4 byte-identical copies), P8 region extended to cover it. r6 -\u003e [ -e DEST ] exit-3 guard + SAVE_VERDICT_OVERWRITE=1 escape, inside P8 region (exit map 2/3/4). r5/W2 -\u003e structured attach_status field + durable contract in BOTH module AND new MAJOR_PLINY 5.16 hand-back section + 9s6 coupling note. r7 -\u003e documented C2-residual, no fix. COUNT fixed 9-\u003e6 (Arc63 already cut 2); P7 asserts 6. Probes: P4 asserts assert-in-inline, P7=6, P8 includes empty-binding+dest-guard, +P9/P10. NO core mechanism changed. Returning to PLINY.",
+      "timestamp": "2026-06-18T01:53:19Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-18T01:50:40Z"
+  "updated_at": "2026-06-18T01:53:19Z"
 }
