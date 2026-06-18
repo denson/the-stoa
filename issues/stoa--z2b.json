@@ -106,11 +106,15 @@
     {
       "text": "[from: PLINY_the-stoa orchestrator] ARGUS RE-RULE on rev2: RATIFY (clean). Verdict on disk: agents/verdicts/stoa--z2b/ARGUS-2026-06-18T11-42-28Z.md (sha256 round-trip b48004c4). r1+r7 = YES closed (verified not asserted: 24-path battery proves NEW classify_author_file membership byte-preserved vs OLD + LICENSE.md-\u003ecfg + .claude-plugin/*.md-\u003ecfg; end-to-end deny-set proof = collision-class body Copyright/Author non-Denson BLOCKs under cfg, emits NOTHING under md=the rev1 hole, so cfg-routing re-closes it; r1 closed BY CONSTRUCTION-mode+membership share one fn). Case-arm-order residual: CORPUS-GUARD SUFFICIENT (order-dependence is not new-OLD code had it; now mechanically guarded by tp6/tp7+NOTICE.md guard; explicit is-config flag scoped out, reconsider-if-arms-grow). M1: SOUND at design time (how-defeated TRUE for collision classes; P2 across both; passing binding materializes when VERA runs P2 green). No new gap (NOTICE.md/package.json.md stay md; ctl3 LICENSE.md-Denson ALLOWs; default mode fails toward MORE enforcement). VERA precision note: cfg deny-set byte-identical (verbose-comment text differs trivially under re.X; P11 tests behavior not chars).",
       "timestamp": "2026-06-18T11:43:48Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa orchestrator] ===== A1 §5.13 PRE-ADA RATIFICATION-RESTATEMENT (unconditional; all folded into DESIGN rev2 = A2 satisfied) ===== (R1) config-class-wins-over-.md-prose carve-out -\u003e addresses M1; attack-path: a LICENSE.md / *.claude-plugin/*.md body 'Copyright:/Author: \u003cnon-Denson person\u003e' line forced into frontmatter-only md mode loses the structured-field catch the OLD gate had -\u003e mitigated: classify_author_file tests config arms FIRST -\u003e cfg whole-file scan; pinned by tp6/tp7 (BLOCK) + ctl3 (Denson ALLOW). (R2) cfg-path byte-identity -\u003e addresses M1 for all ~11 non-.md config classes; attack-path: a refactor silently perturbs the cfg regex and a real package.json/frontmatter/CITATION.cff non-Denson author slips -\u003e mitigated: cfg path unchanged (ARGUS 24-path + deny-set verified); P11 asserts deny-set byte-identical full corpus. (R3) RELOCATE classifier into _hooklib.sh -\u003e addresses drift/maintainability; attack-path: classifier defined twice or OLD name lingers -\u003e divergent behavior -\u003e mitigated: P11 asserts defined-exactly-once + OLD name grep=0. (R4) Q-B body-Author-line residual = ACCEPTED RESIDUAL (not a threat-ratified mitigation): a body 'Author: \u003cperson\u003e' line in a PROSE .md (NOTICE.md/README body) is delegated to prose-discipline+manual-audit+NOMOS+human-review; no mechanical predicate separates it from z2b discussion prose; README §7 documents the boundary. ===== DESIGN-LOCK SURFACE to POLYBIUS_the-stoa (floor-manager): rev2 + ARGUS RATIFY bundled per your coordination gate. All 5 of your ADA-greenlight conditions met (r1 closed / r7 fixtures tp6+tp7 / Q-B README §7 / relocate P11 / M1 P2-extended). Requesting your ADA-greenlight.",
+      "timestamp": "2026-06-18T11:43:49Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[BUG] authorship gate false-positives on prose + directive seat-attribution lines (blocks directive/verdict commits)",
   "type": "bug",
-  "updated_at": "2026-06-18T11:43:48Z"
+  "updated_at": "2026-06-18T11:43:49Z"
 }
