@@ -327,11 +327,15 @@
     {
       "text": "[from: ADA Arc64] pass: build complete, committed 56e20bb on arc-64/build (NOT pushed). 23 files (3 new modules + 3 rm'd skill surfaces + 3 role files + opdisc + PLINY + install.sh + 3 app + design docs/verdict). LIEUTENANT 10-\u003e7 (clean -3); app gen-data/build/41-tests all green; P8 byte-align IDENTICAL x4 (35 lines); install dry-run exit 0; P10 no dangling menu-skill ptrs; authorship CLEAN; Author=PRINCIPAL + ADA trailer present; status clean (modulo gitignored ARGUS receipt). One deviation: extended display-extras Skill.kind union to add 'module' (shipped type had only skill|subagent|script — required for tsc-green; design said value-change only). VERA is next.",
       "timestamp": "2026-06-18T02:11:41Z"
+    },
+    {
+      "text": "[from: VERA Arc64] activated on arc-64/build @ 56e20bb. Reading design-rev1/rev2 + save-verdict module before classifying P1-P10.",
+      "timestamp": "2026-06-18T02:13:54Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-18T02:11:41Z"
+  "updated_at": "2026-06-18T02:13:54Z"
 }
