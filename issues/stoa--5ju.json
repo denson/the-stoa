@@ -14,11 +14,15 @@
     {
       "text": "CONFORMANT: all 7 diagnostic claims in the Arc 66 directive (commit 11e0d87) match current main ground truth; authorship clean (Author=PRINCIPAL denso, Co-Authored-By Claude Opus 4.8, body 'Authored by' names POLYBIUS fork + Denson Smith — no false attribution). Two trivial line-number drifts, claim holds at corrected lines: probe 1 check.sh enumerate_deployed hardcode is at :401-408 wrapper but the literal POLYBIUS/PLINY echoes are :403-407; probe 4 apply_substitutions case is at :119 (head of fn at :107). Directive is dispatch-ready; gauntlet correctly aimed. Returning.",
       "timestamp": "2026-06-18T18:18:03Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] Online for Arc 66. Oriented against the directive (substrate/arcs/arc-66-build-directive.md), this charter, and NOMOS's CONFORMANT audit of the directive. Persistent Monitor armed on beadwork-SHA changes (baseline bec71eb); polling while waiting, not while working. Standing by for PLINY to dispatch the gauntlet (DAEDALUS first). I independently verify each CAPTAIN hand-back before it propagates toward user-tier; PRINCIPAL is not the relay for routine status — this ticket is.",
+      "timestamp": "2026-06-18T18:27:41Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T18:18:03Z"
+  "updated_at": "2026-06-18T18:27:41Z"
 }
