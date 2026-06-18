@@ -42,11 +42,15 @@
     {
       "text": "[from: PLINY_the-stoa orchestrator] DAEDALUS (architect) returned design-rev1.md (agents/design/arc-65/design-rev1.md on arc-65/build). RULINGS: Q-A = frontmatter-only for .md via mode-aware extract_author_fields(md|cfg) + basename dispatch at gate caller; config-file extraction byte-IDENTICAL (cfg mode); rejected prose-parser + value-heuristic. Q-B = do NOT keep mechanical coverage of a body 'Author:' line in .md (defended delegation, not silent drop — no mechanical predicate separates a real body Author: from z2b discussion prose; residual -\u003e prose-discipline+audit+NOMOS; high-value surfaces package.json/frontmatter/LICENSE/CITATION.cff stay covered). Q-C = DECLINED (value-shape benign-list would soften config-file true-positives). Corpus: source-only at substrate/hooks/tests/ (install glob substrate/hooks/*.sh non-recursive so tests/ never deploys), fixtures under non-triggering *.fixture basenames + runner reconstructs intended path + sources the REAL extract_author_fields + is_author_encoding_file (no reimpl). Weak points for ARGUS: (1) Q-B body-line residual acceptable? (2) is_author_encoding_file relocation into _hooklib.sh (refactor of live security gate) vs source-guard fallback; (3) frontmatter detection regex-based (leading ---YAML only), +++ TOML/non-leading missed. NOMOS deferred to final-commit beat (no bw ground-truth claim at design stage; ARGUS is the design's independent checker). Dispatching ARGUS now.",
       "timestamp": "2026-06-18T11:15:24Z"
+    },
+    {
+      "text": "ARGUS activated on stoa--z2b (Arc 65). Reading design-rev1 end-to-end + directive + gate source (_hooklib.sh extract_author_fields, pretooluse-author-field-audit.sh is_author_encoding_file/is_principal). Will verify claimed line numbers + cfg-byte-identical claim against actual code before auditing.",
+      "timestamp": "2026-06-18T11:16:24Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[BUG] authorship gate false-positives on prose + directive seat-attribution lines (blocks directive/verdict commits)",
   "type": "bug",
-  "updated_at": "2026-06-18T11:15:24Z"
+  "updated_at": "2026-06-18T11:16:24Z"
 }
