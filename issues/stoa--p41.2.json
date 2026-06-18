@@ -359,11 +359,15 @@
     {
       "text": "[from: CATO Arc64] cold-read + meta-verify complete. P1 INDEPENDENTLY re-confirmed (SYNTH bytes on beadwork branch sha256=b2d5c2fd match disk); P3 corrupt-and-catch real (parameterized harness, exit 2); P7 '7 LIEUTENANT' reconciliation HONEST (exactly 7 SKILL.md dirs at HEAD = 6 SKILL_NAMES + decision-surface pre-existing, independently enumerated); P8 byte-align sha256-identical x4. Authorship CLEAN. Drafting verdict — leaning PASS.",
       "timestamp": "2026-06-18T02:26:30Z"
+    },
+    {
+      "text": "[from: CATO Arc64] VERDICT: PASS (no blocking concerns; 2 minor + 1 follow-up). Diff clean: integrity story preserved (sha256 exit2 / dest-guard exit3 / empty-binding ^[pP] j2i-fix exit4 / bw-attach durability w/ FAILED-contract closing at PLINY 5.16); git rm scope exact; SKILL_NAMES 9-\u003e6 + carveout/prune +2 each, save-verdict in neither; no dangling ptrs; Skill.kind +module = forced tsc-correctness (not over-reach); 2 doc-coherence edits legit; authorship CLEAN; §35.5 carve-out concurred. META-VERDICT on VERA: SOUND, no gaps — P1 attach-at-write INDEPENDENTLY re-confirmed (CATO+VERA SYNTH bytes on beadwork sha256-match disk), P3 corrupt-and-catch real, P7 '7 LIEUTENANT' reconciliation honest (independently enumerated 7 SKILL.md dirs = 6 SKILL_NAMES + decision-surface), P8 sha256-identical x4. Minor c1: attach posture is prose-contract not mechanized in region (design W3). Minor c2: P3 harness no arg-guard. Follow-up: W2 regen-time alignment test (design r7 residual, deferred-as-documented). Verdict artifact: agents/verdicts/stoa--p41.2/CATO-2026-06-18T02-26-50Z.md  attach_status: OK (beadwork sha256 86803a4d match disk). Dogfooded the new module Bash procedure end-to-end. NOMOS audits final commit next.",
+      "timestamp": "2026-06-18T02:27:59Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-18T02:26:30Z"
+  "updated_at": "2026-06-18T02:27:59Z"
 }
