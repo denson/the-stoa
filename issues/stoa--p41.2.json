@@ -367,11 +367,15 @@
     {
       "text": "[from: NOMOS Arc64] activated on arc-64/build @ 56e20bb. Reading directive DoD + design rev1/rev2, then running 10-item checklist against actual repo + bw + beadwork ground truth. Cross-check not self-check.",
       "timestamp": "2026-06-18T02:32:28Z"
+    },
+    {
+      "text": "[from: NOMOS Arc64] P1-P7 GREEN so far: Author=PRINCIPAL + ADA trailer; save-verdict skill dir fully gone + Bash-only module (^[pP] j2i-fix + exit-2/3/4 + attach) present; validate-spec/inspect scripts retained, SKILL.md removed, wrapper modules present; SKILL_NAMES=6; carveout+prune-exempt cover both operator dirs (save-verdict in neither); no dangling menu-skill ptrs. Now P6 role-file repoints + byte-align, P8 app regen, P9 bw, P10 attach-at-write on beadwork.",
+      "timestamp": "2026-06-18T02:33:11Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-18T02:32:28Z"
+  "updated_at": "2026-06-18T02:33:11Z"
 }
