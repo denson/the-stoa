@@ -190,11 +190,15 @@
     {
       "text": "VERA: design+diff absorbed. apply.sh 9e1768a is byte-mirror of check.sh Locus 2+3; MAJOR_*.md arm ordered AFTER operating-disciplines.md (no shadow), suffix/tier in scope. All probes classified easy-easy. Executing V2 (previously-FAILED) first.",
       "timestamp": "2026-06-18T19:28:03Z"
+    },
+    {
+      "text": "VERA V2 PASS (both tiers): project apply.sh now delivers DRIFTED CHIRON+HAMILTON (applied: ...CHIRON.md / ...HAMILTON.md, exit 0, re-check 0 drifted) — prior FAIL was skip+still-drifted. Subproject: SUFFIXED CHIRON_arc66tw delivered (suffix-strip worked), 0 drifted after. Templates-MISSING/skill-OBSOLETE at subproject = PRE-EXISTING (confirmed on fresh deploy, unchanged by apply.sh edit). Now V8 (non-MAJOR regression).",
+      "timestamp": "2026-06-18T19:31:45Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T19:28:03Z"
+  "updated_at": "2026-06-18T19:31:45Z"
 }
