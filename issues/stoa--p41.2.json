@@ -239,11 +239,15 @@
     {
       "text": "[from: DAEDALUS Arc64] DAEDALUS activated on arc-64 skills-housekeeping pass B. Reading directive + bw tickets + save-verdict/validate-spec/inspect-script-output sources + VERA/ARGUS/CATO verdict-save sections + install.sh + gen-data before designing.",
       "timestamp": "2026-06-18T01:24:45Z"
+    },
+    {
+      "text": "[from: DAEDALUS Arc64] Recon complete: read directive + p41/p41.2/7b1.1 + save-verdict SKILL.md + _save_verdict.py (full) + VERA:266/ARGUS:246/CATO:212 verdict-save sections + ARGUS/CATO/ZENO/NOMOS §4 no-Write clauses + install.sh SKILL_NAMES(L228-234)+recompose-partition(L1194-1218) + mechanical-inspection-split.md + gen-data discoverSkillFiles + generated.test.ts + display-extras.ts. KEY GROUND-TRUTH: (a) VERA/ARGUS/CATO carry ZERO MODULE-INLINE markers + are NOT recompose-owners (partition = POLYBIUS/OPDISC/PLINY/DAEDALUS/CHIRON only) but DO deploy at subproject tier -\u003e a bare Read .claude/modules/save-verdict.md will NOT resolve at subproject. (b) only ARGUS+CATO have BOTH no-Write-§4 AND save-verdict-§7; ZENO/NOMOS are read-only but do NOT save-verdict (dispatch-return+bw only). (c) gen-data is DIRECTORY-driven, test asserts only length\u003e0, no toContain for the 3 names -\u003e app churn is comment-only + a decorative display-extras.ts save-verdict entry. Now web-verifying subproject module-path resolution + sha256-on-git-bash, then drafting §1-§3.",
+      "timestamp": "2026-06-18T01:27:26Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-18T01:24:45Z"
+  "updated_at": "2026-06-18T01:27:26Z"
 }
