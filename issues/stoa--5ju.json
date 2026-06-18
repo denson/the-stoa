@@ -174,11 +174,15 @@
     {
       "text": "ADA activated on stoa--5ju (Arc 66 EXPAND). Read shipped check.sh pattern (ff9f21e Locus 2+3) + apply.sh current structure. Ground-check: apply.sh source_path_for_deployed has SAME tier/slug/suffix var scope as check.sh (suffix-strip mirrors exactly). NOTE: apply.sh currently orders the 2 MAJOR arms BEFORE operating-disciplines.md (check.sh orders ops first) -\u003e will place new generalized MAJOR_*.md) arm AFTER operating-disciplines.md per dispatch. apply_substitutions uses local name_suffix (body unchanged; only case-pattern generalizes). Building 2 edits now.",
       "timestamp": "2026-06-18T19:24:46Z"
+    },
+    {
+      "text": "pass: apply.sh glob-derive complete. 1 commit (9e1768a), 1 file (+13/-3). Both loci byte-for-byte mirror check.sh ff9f21e: (1) apply_substitutions() case -\u003e .claude/MAJOR_*.md|.claude/agents/CAPTAIN_*.md (body unchanged); (2) source_path_for_deployed() -\u003e ONE generalized MAJOR_*.md) arm replacing the 2 POLYBIUS/PLINY arms, ORDERED AFTER operating-disciplines.md) (confirmed cannot shadow), subproject-only suffix-strip via mbase=${rel%.md}/${mbase%${suffix}}. PRESERVED: detect_tier POLYBIUS tier-sentinel + is_role_file (already MAJOR_*.md). install.sh:895 LEFT (non-functional plan-preview echo; comma-joined display string, glob-loop generalization not trivially clean). bash -n EXIT=0. No design-vs-shipped drift. Author=denson; trailer present. Returning to PLINY for re-VERA.",
+      "timestamp": "2026-06-18T19:26:01Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T19:24:46Z"
+  "updated_at": "2026-06-18T19:26:01Z"
 }
