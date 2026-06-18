@@ -343,11 +343,15 @@
     {
       "text": "[from: VERA Arc64] P7 PASS: regen 7 LIEUTENANT (6 SKILL_NAMES + decision-surface pre-existing), -3 delta confirmed (10-\u003e7 SKILL.md dirs, exactly the 3 retired), no masked drift, build+41 tests green. Now P1 attach-at-write REAL (bytes on beadwork branch).",
       "timestamp": "2026-06-18T02:19:31Z"
+    },
+    {
+      "text": "[from: VERA Arc64] ALL P1-P10 PASS. P1 attach-at-write REAL confirmed: synthetic verdict bytes on beadwork branch sha256-match disk (b2d5c2fd...). Authoring+saving my own verdict via the new module Bash procedure (dogfoods P1/P2/P3); attaching to epic.",
+      "timestamp": "2026-06-18T02:20:22Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-18T02:19:31Z"
+  "updated_at": "2026-06-18T02:20:22Z"
 }
