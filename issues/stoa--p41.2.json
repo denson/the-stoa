@@ -319,11 +319,15 @@
     {
       "text": "[from: ADA Arc64] opdisc L590 + PLINY 5.14/new 5.16 + install.sh (SKILL_NAMES 9-\u003e6, CARVEOUT +2, prune-exempt +2, 3 comment blocks) done. git rm: full save-verdict dir + validate-spec/inspect SKILL.md only (scripts+_lib kept). App GREEN: gen-data reports 4 MAJOR/12 CAPTAIN/7 LIEUTENANT (clean -3 from HEAD's 10 SKILL.md dirs; checked-in agents.ts was stale at 11, regen corrected it — NOT pre-existing roster drift), build OK, 41/41 tests pass. Running dangling-pointer grep + authorship audit before commit.",
       "timestamp": "2026-06-18T02:07:57Z"
+    },
+    {
+      "text": "[from: ADA Arc64] All probes green: P8 byte-align IDENTICAL (4 copies, 35 lines); install dry-run exit 0 (save-verdict deploys as MODULE, validate-spec+inspect via carve-out, none as menu skills, 6 SKILL_NAMES); P10 no dangling skill-menu pointers (fixed 1 stale table-cell ptr in mechanical-inspection-split + ARGUS L201); authorship audit CLEAN (only DAEDALUS design docs carry Author: Denson Smith; my modules carry none). Staging deliverables + design docs + ARGUS verdict (arc-63 build-commit precedent) and committing.",
+      "timestamp": "2026-06-18T02:10:52Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-18T02:07:57Z"
+  "updated_at": "2026-06-18T02:10:52Z"
 }
