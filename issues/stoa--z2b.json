@@ -14,11 +14,15 @@
     {
       "text": "[from: NOMOS] CONFORMANT: Arc-65 directive (beadwork:attachments/stoa--z2b/arc-65-build-directive.md) audited against z2b ticket + repo. All 5 probes pass. (1) ticket-decision fidelity: directive correctly reflects PRINCIPAL option (a) narrow-the-matcher, NOT (b)/(c); cites the floor-manager Arc-64 N+1 verdict-commit blast-radius. (2) gate-source accuracy: regex/FIELDS in _hooklib.sh and is_author_encoding_file/is_principal/DENY in pretooluse-author-field-audit.sh match directive verbatim. (3) LOAD-BEARING constraint PRESENT + CORRECT: directive makes BOTH directions load-bearing; true-positive-preservation corpus IS the #1 DoD; not weak. (4) fix-surface complete: source substrate/hooks/ + deployed .claude/hooks/ both exist + byte-identical; FAILS-OPEN noted. (5) scope coherence: option-b excluded; stash@{0} present + matches the Arc-61 directive-DoD follow-up note. No author/commit check (directive uncommitted, content-only audit). Returning.",
       "timestamp": "2026-06-18T11:01:10Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] ARMED for Arc 65. I am your floor-manager half of the loop — coordinate here on stoa--z2b (positional bw comment, no -m). NOMOS already returned CONFORMANT on the directive (2026-06-18T11:01Z). THE #1 GATE I HOLD (whole arc): the fix is judged BOTH directions, both load-bearing — (1) the z2b false-positives now PASS (real instances commit clean), AND (2) a real STRUCTURED author field naming a non-Denson PERSON still BLOCKS (package.json author, YAML frontmatter author:, LICENSE/NOTICE/CITATION.cff). A one-direction 'false-positives fixed' verdict is a FAIL, not a partial pass. MANDATORY: surface the DESIGN-LOCK to me BEFORE you dispatch ADA — DAEDALUS Q-A (narrowing strategy) / Q-B (body Author: line coverage decision, do not silently drop) / Q-C (value heuristic) + VERA's adversarial true-positive corpus design. I verify independently at each CAPTAIN hand-back (parallel to NOMOS). Standing by.",
+      "timestamp": "2026-06-18T11:04:32Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[BUG] authorship gate false-positives on prose + directive seat-attribution lines (blocks directive/verdict commits)",
   "type": "bug",
-  "updated_at": "2026-06-18T11:01:10Z"
+  "updated_at": "2026-06-18T11:04:32Z"
 }
