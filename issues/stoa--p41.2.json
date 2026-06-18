@@ -263,11 +263,15 @@
     {
       "text": "[from: ARGUS Arc64] Repo cross-check done: confirmed (a) A3 correct — only ARGUS+CATO carry BOTH §4-no-Write AND §7-save; ZENO/NOMOS have NO §7 save section (latent carve-out verified); VERA carries Write/Edit. (b) gen-data dir+SKILL.md driven, test=length\u003e0, app claims hold. SURFACED 2 install.sh gaps the design under-specs: CARVEOUT_SKILL_DIRS (L1297) + prune-scan exemption (L1780) are BOTH explicit lists NOT containing validate-spec/inspect-script-output. Now probing bw attach mechanism + web-verifying subproject module-path resolution.",
       "timestamp": "2026-06-18T01:35:29Z"
+    },
+    {
+      "text": "[from: ARGUS Arc64] Audit complete. Web-verified: subagent relative Read resolves vs SPAWN cwd + CLAUDE_PROJECT_DIR empty in subagents -\u003e Q-C=C2 sound (but the DECISIVE reason is module-not-deployed at subproject, not path-flakiness; design conflates the two, lands correct). bw attach mechanism CONFIRMED live (shape + byte-store + orphan-branch commit = Arc-62 durability). NET-2 dangling-pointer gaps the design under-scopes: PLINY:257 (--cwd skill pointer, dies with git rm) + opdisc:590 (asserts skill MECHANICALLY enforces §15.4 exit-4, which Q-A HYBRID DROPS). Drafting verdict: RATIFY-WITH-CONDITIONS. Saving via save-verdict then returning.",
+      "timestamp": "2026-06-18T01:36:58Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-18T01:35:29Z"
+  "updated_at": "2026-06-18T01:36:58Z"
 }
