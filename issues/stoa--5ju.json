@@ -282,11 +282,15 @@
     {
       "text": "Probe 1 (authorship, push-blocker) CONFORMANT: all 4 main-side commits Author=denson \u003cdensonsmith2@gmail.com\u003e; build commits ff9f21e+9e1768a carry CAPTAIN_ADA_the-stoa + Claude Opus 4.8 trailers, merge c761db9 + correction e059fcd carry Claude Opus 4.8 — no Author overridden. Zero author-like FIELD lines in the 3 changed .md files; the only 'Author:' prose is 'Denson Smith' (design docs) + 'user-tier POLYBIUS fork + the PRINCIPAL (Denson Smith)' (directive) — no non-Denson person in any authorship position. Moving to probe 2 (deliverable: 6 loci glob-derived, no surviving enumeration pair).",
       "timestamp": "2026-06-18T20:09:43Z"
+    },
+    {
+      "text": "Probe 2 (deliverable on main) CONFORMANT: all 6 fix loci glob-derived via MAJOR_*.md — check.sh enumerate_deployed:415 / source_path_for_deployed:296 / apply_substitutions:118; apply.sh apply_substitutions:97 / source_path_for_deployed:186; install.sh write_substrate_manifest:544. NO surviving MAJOR_POLYBIUS|MAJOR_PLINY enumeration PAIR at any fix locus. Every survivor is a named non-fix item: detect_tier POLYBIUS_*-sentinel (check.sh:360-375/728, apply.sh:221-279), USER_TIER_DIR POLYBIUS-only guard (install.sh:552), doc-comments, and the kr7-tracked install.sh:895 echo + :954-1007 fresh-DEPLOY block (SRC_*/DEST_* hand-enum — correct today, deploys all 4 MAJORs, just not globbed). Probe 5 also confirmed in passing: 5ju=in_progress, 3nh+kr7 open. Probes 3 (correction accuracy) + 4 (scope) next.",
+      "timestamp": "2026-06-18T20:10:59Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T20:09:43Z"
+  "updated_at": "2026-06-18T20:10:59Z"
 }
