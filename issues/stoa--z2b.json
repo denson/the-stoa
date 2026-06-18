@@ -98,11 +98,15 @@
     {
       "text": "[from: ARGUS] rev2 read in full + rev1 verdict + OLD gate source + directive #1 DoD. Now walking the classify_author_file predicate arm-by-arm against the OLD is_author_encoding_file (lines 113-125) + verifying cfg-branch byte-identity vs OLD extract_author_fields (94-99). Then ruling C1-closes-r1, carve-out boundary, case-arm-order residual, M1 binding.",
       "timestamp": "2026-06-18T11:35:30Z"
+    },
+    {
+      "text": "[from: ARGUS] RATIFY (verdict: pass) on design-rev2 — the RESERVED rev2 re-ruling. Verdict saved: agents/verdicts/stoa--z2b/ARGUS-2026-06-18T11-42-28Z.md (sha256 round-trip pass b48004c4). DESIGN CAN LOCK. (1) rev2 CLOSES r1+r7 — YES to both, verified not asserted: transcribed classify_author_file vs OLD is_author_encoding_file, ran a 24-path battery (membership rc byte-preserved every path; LICENSE.md-\u003ecfg, .claude-plugin/*.md-\u003ecfg), then an end-to-end deny-set proof (collision-class body Copyright/Author non-Denson line emits a value under cfg=BLOCK, emits NOTHING under md=the rev1 hole). r1 closed BY CONSTRUCTION (mode+membership share one fn, cannot drift). r7 closed by tp6(LICENSE.md)+tp7(.claude-plugin/*.md), each asserting mode=cfg+BLOCK, both RED on any reorder. (2) CASE-ARM-ORDER residual: CORPUS-GUARD SUFFICIENT — I do NOT require an is-config flag. The order-dependence is NOT new (OLD fn already depended on it); rev2 now MECHANICALLY guards it (tp6/tp7 RED on reorder, NOTICE.md-\u003emd guard RED on over-correct) which the OLD code never had; a flag refactor would need the SAME guard to prove it. DAEDALUS correctly scopes the flag OUT (sec 7). (3) M1 binding SOUND at design time: how-defeated now TRUE for collision classes (proven), P2 threat-anchored across both halves + both collision classes, defeats_via_probe P2; PASSING binding materializes once VERA EXECUTES P2 green (correct pre-build tier-i ruling). (4) Carve-out boundary EXACT both ways: NOTICE.md/package.json.md stay md (no over-correct), ctl3 LICENSE.md-Denson cfg ALLOWS (no over-block). (5) cfg byte-identity: behavioral/deny-set identical (verbose-mode comment text differs trivially, insignificant under re.X — VERA P11 tests behavior, the correct test; flagged so VERA does not chase a non-existent char-diff). (6) NO new gap: caller skip-rc propagates (no fail-open regression), MODE default fails toward MORE enforcement on empty/unset, out-of-class fail-open default-skip preserved. Carried to VERA: run P4/P5/P6 against a REAL armed throwaway gate (is_principal mirror backstop) + P11 deny-set byte-identity full corpus + classify_author_file defined once + OLD name gone. RATIFY clean — surface design-lock to floor-manager. Returning.",
+      "timestamp": "2026-06-18T11:42:47Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[BUG] authorship gate false-positives on prose + directive seat-attribution lines (blocks directive/verdict commits)",
   "type": "bug",
-  "updated_at": "2026-06-18T11:35:30Z"
+  "updated_at": "2026-06-18T11:42:47Z"
 }
