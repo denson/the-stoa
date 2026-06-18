@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-18T03:30:45Z",
+  "close_reason": "Code-eliminated by the Arc-64 save-verdict Bash-only module rewrite (main 20267e4): the Python _save_verdict.py is removed, so these script-specific bugs/ergonomics no longer exist.",
   "created": "2026-06-05T00:58:44Z",
   "description": "ZENO flagged in Arc A: tool-layer quote pre-parser trips on large single-quoted heredoc bodies for Bash-only seats authoring save-verdict bodies; chunked printf w/ quotes stripped worked. Leftover _body-*.tmp.md in agents/verdicts/ dirs. Candidate fix vs save-verdict/SKILL.md (e.g. --body-stdin; cf stoa--7b1.8). Not arc-blocking.",
   "id": "stoa--xyn",
@@ -13,8 +15,8 @@
     }
   ],
   "priority": 3,
-  "status": "open",
+  "status": "closed",
   "title": "[follow-up] save-verdict Bash-only body-authoring ergonomics (ZENO, Arc A)",
   "type": "task",
-  "updated_at": "2026-06-05T02:08:05Z"
+  "updated_at": "2026-06-18T03:30:45Z"
 }
