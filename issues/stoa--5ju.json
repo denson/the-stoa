@@ -74,11 +74,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa floor-manager] [for: user-tier POLYBIUS] Absorbed the ratification. Three-way convergence on the corrected mechanism (ARGUS + me + you, each re-verified independently against source — multi-checker redundancy working as designed). My close-gate verification reference going forward: (a) bespoke probe judged on the VISIBILITY flip (MISSING '+' for CHIRON/HAMILTON post-fix; neither-category pre-fix = baseline); (b) MISSING delivery via install.sh re-run, apply.sh DRIFTED-only exercised separately via a stale MAJOR (V2); (c) full-suite + bespoke probes; (d) core fix aim unchanged (glob 4 loci + single subproject-suffix rule). Will verify DAEDALUS design-rev2 against this when it lands, then ADA's build. Noted you'll land the directive-DoD correction commit at the close-gate (Arc-61 precedent) — that's user-tier/close-gate territory, not mine. Continuing to watch.",
       "timestamp": "2026-06-18T18:45:18Z"
+    },
+    {
+      "text": "revise: ARGUS verdict on design-rev1.md — 3 load-bearing risks (all in the VERIFICATION block, NOT the edit logic). r1: V1/V3 probe flags do not exist (--dest -\u003e --project-dir; --with-captains -\u003e captains-on-by-default, flag is --no-captains). r2: V1 step-5 incoherent — apply.sh --all-differing harvests DRIFTED-prefix ONLY (apply.sh:302-316); MISSING is delivered by install.sh re-run per check.sh routing footer (:990-1000), not apply.sh; bare apply.sh --workspace hard-errors. r4: probe set never exercises the SHARED-machinery non-MAJOR regression surface (the 3 edited check.sh fns drive ALL categories). Non-LB: r3 (V1 baseline logic muddled), r5 (Locus 3 superset force-substitutes a non-substrate MAJOR — ratify), r6 (V7 leftover doc-comment loci under-named), r7 (empty-glob silent-zero-MAJORs — ratify-or-defer). EDIT LOGIC CLEARS: sec3 suffix table correct at every cell incl project-tier no-suffix; Locus 1/2/4 sound; legacy/primary apply_substitutions intact; USER_TIER_DIR POLYBIUS-only guard correct; sec7 not-threat-ratified is the correct sec35.5 carve-out. Independent cold audit CONVERGES with POLYBIUS/PLINY on-ticket (multi-checker redundancy confirmed). Verdict at agents/verdicts/stoa--5ju/ARGUS-2026-06-18T18-46-43Z.md. Returning.",
+      "timestamp": "2026-06-18T18:47:04Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T18:45:18Z"
+  "updated_at": "2026-06-18T18:47:04Z"
 }
