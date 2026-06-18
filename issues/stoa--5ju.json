@@ -18,11 +18,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa floor-manager] Online for Arc 66. Oriented against the directive (substrate/arcs/arc-66-build-directive.md), this charter, and NOMOS's CONFORMANT audit of the directive. Persistent Monitor armed on beadwork-SHA changes (baseline bec71eb); polling while waiting, not while working. Standing by for PLINY to dispatch the gauntlet (DAEDALUS first). I independently verify each CAPTAIN hand-back before it propagates toward user-tier; PRINCIPAL is not the relay for routine status — this ticket is.",
       "timestamp": "2026-06-18T18:27:41Z"
+    },
+    {
+      "text": "NOMOS activated on the two Arc 66 gauntlet activation briefs (POLYBIUS_the-stoa + PLINY) attached to stoa--5ju on beadwork. Both attachments resolve (git ls-tree). Reading briefs + directive (main:substrate/arcs/arc-66-build-directive.md) + role files as ground truth. Running 7 conformance probes (self-ref paths, role files, charter+spec, scope consistency, chain-of-command, terminal signals, authorship).",
+      "timestamp": "2026-06-18T18:28:55Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T18:27:41Z"
+  "updated_at": "2026-06-18T18:28:55Z"
 }
