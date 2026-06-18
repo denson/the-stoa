@@ -6,9 +6,15 @@
   "description": "Surfaced during Arc 65 (stoa--z2b) VERA verdict; confirmed by CATO (c2 follow-up) + floor-manager.\n\nGAP: save-verdict's --threat-coverage-probe-ids mechanical check uses a regex anchored to lowercase '^p' (e.g. ^p[0-9]+). Design probes throughout the substrate are named UPPERCASE P1..P11 (CAPTAIN_DAEDALUS probe convention). To satisfy the mechanical check, VERA had to pass the lowercase ALIAS 'p2' while the verdict body's defeats_via_probe + probes_executed use 'P2'. \n\nWHY IT MATTERS: the check exists to enforce defeats_via_probe is in probes_executed (the §4.3.2 / op-disc §35.5 threat-coverage binding). If the tool accepts a lowercase 'p2' arg that need NOT case-match the body's uppercase 'P2', the mechanical enforcement is satisfiable by a string that doesn't actually match the cited probe id — an integrity gap. Today it is benign (VERA's body correctly cites P2 and seat-side grep confirmed P2 in probes_executed), but the mechanical check is meant to be the backstop precisely so a future verdict can't claim a binding that isn't there.\n\nFIX PLAN (concrete): make the save-verdict probe-id regex case-INSENSITIVE (^[Pp][0-9]+) OR normalize both the --threat-coverage-probe-ids arg and the parsed probes_executed ids to a common case before the membership check, so the mechanical assert compares the SAME normalized id the body uses. Add a test: a verdict whose defeats_via_probe=P2 + probes_executed=[P2] passes WITHOUT requiring a lowercase alias; a verdict whose defeats_via_probe=P9 but probes_executed lacks P9 FAILS regardless of case. NEXT ACTION: locate the regex in the save-verdict skill module (substrate/skills/save-verdict/) and the §-anchored check; fix + test.\n\nPre-existing (not Arc-65-introduced); out of Arc-65 scope. Severity: the binding is currently sound for z2b, but the enforcement integrity should be fixed before a future verdict relies on it.",
   "id": "stoa--6gg",
   "labels": [],
+  "comments": [
+    {
+      "text": "SUPERSEDED — closing. verify-then-assert (floor-manager, Arc 65) re-disposed this: it is NOT a canonical save-verdict bug. The canonical module substrate/modules/save-verdict.md was FIXED in Arc 64 (^[pP], retires stoa--j2i which is correctly closed). The live symptom is the-stoa's DEPLOYED .claude/skills/save-verdict/_save_verdict.py:105 being stale (pre-Arc-64 lowercase ^p Python) = a the-stoa self-apply DEPLOY-DRIFT instance, now folded into stoa--ruu (the-stoa .claude/ drift cascade). I filed this prematurely (created before reading the dup-check output that surfaced j2i). No separate ticket warranted; ruu owns the deploy-drift fix.",
+      "timestamp": "2026-06-18T12:29:40Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "[BUG] save-verdict --threat-coverage-probe-ids regex is ^p (lowercase) — mismatches uppercase P-prefixed probe ids, weakening the defeats_via_probe-in-probes_executed mechanical check",
   "type": "task",
-  "updated_at": "2026-06-18T12:25:37Z"
+  "updated_at": "2026-06-18T12:29:40Z"
 }
