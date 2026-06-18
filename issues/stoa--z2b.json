@@ -166,11 +166,15 @@
     {
       "text": "CATO activated on stoa--z2b (Arc 65). Reading diff + design + ARGUS/VERA verdicts before forming cold-read. Independence: code first.",
       "timestamp": "2026-06-18T12:16:31Z"
+    },
+    {
+      "text": "[from: CATO] Cold-read + independent meta-verification of VERA complete. Ran the corpus myself (16/16 green), independently confirmed C4 (classify def lib=1 gate=0; is_author_encoding_file=0 across substrate/hooks/), all 3 mirrors byte-identical, cfg-branch clean_one/emit/finditer byte-identical to 20267e4, P2 in probes_executed with defeats_via_probe:P2. Ran adversarial attack shapes NO fixture covers (indented FM key, unclosed FM, '=' in FM, .claude-plugin+.md collision, LICENSE.txt) — all route as designed; config arms win, value-check never relaxed. No true-positive leak found. Drafting verdict + classifying findings.",
+      "timestamp": "2026-06-18T12:19:30Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[BUG] authorship gate false-positives on prose + directive seat-attribution lines (blocks directive/verdict commits)",
   "type": "bug",
-  "updated_at": "2026-06-18T12:16:31Z"
+  "updated_at": "2026-06-18T12:19:30Z"
 }
