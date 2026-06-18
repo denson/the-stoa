@@ -24,6 +24,16 @@ If they're still exploratory, route back to the entry-point skill. If they want 
 
 Before the first question, run the checks that determine whether the install can succeed at all. If a pre-flight fails, surface the blocker and stop — do not proceed with the dialog and then dead-end at the install step.
 
+### Beat 0 — is a Stoa already deployed at the target? (install vs update)
+
+Before anything else: if the target already has a Stoa, this is an **update, not a fresh install** — and re-running `install.sh` over it overwrites any local edits to the standard seats with no diff to consent to. Detect first:
+
+```
+ls <target>/.claude/MAJOR_POLYBIUS*.md <target>/.claude/MAJOR_PLINY*.md 2>/dev/null
+```
+
+If any match, **stop the fresh-install dialog and route to the update path** — `check-substrate-updates` (read-only `check.sh` → consent-gated `apply.sh` → `revert.sh` net), not this skill. The `deploy-stoa` router automates this detect-and-branch and hands fresh installs back to this skill. If no match, this is a genuine fresh install — continue to Beat 1.
+
 ### Beat 1 — verify `bw` is installed
 
 The substrate uses beadworks (`bw`) as durable substrate. The install script does not initialize `bw` (POLYBIUS does that interactively after install), but the deployed substrate is unusable without `bw` on the PATH.
