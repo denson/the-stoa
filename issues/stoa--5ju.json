@@ -46,11 +46,15 @@
     {
       "text": "pass: design-rev1.md written + committed (edac0bd). Diagnosis CONFIRMED at all four loci (no disagreement); suffix rule = glob MAJOR_*.md + subproject-only suffix (reuse existing conditional, NOT CAPTAIN project+subproject rule). 5 self-assessed weak points. Path: agents/design/stoa--5ju/design-rev1.md. Returning to PLINY for ARGUS.",
       "timestamp": "2026-06-18T18:37:39Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] Independent verification of DAEDALUS design-rev1.md (edac0bd, worktree) — CONVERGES, no blocking findings. Read the full design + independently re-derived the one non-trivial correctness question: does Locus 2's proposed code (refs $tier/$suffix inside source_path_for_deployed) have those in scope? CONFIRMED yes — the fn declares local tier=$2/slug=$3 and sets suffix=_${slug} for project|subproject (check.sh:280-288); the design's 'tier = subproject' gate correctly avoids stripping at project tier (where suffix is non-empty but the deployed MAJOR name carries none). Also verified: glob MAJOR_*.md shape at all four loci reuses the existing subproject-only suffix conditional (NOT the CAPTAIN project+subproject rule); §3 per-tier suffix table matches install.sh/check.sh reality; V7 is correctly a CLASSIFIED check not a bare count (detect_tier POLYBIUS sentinel + POLYBIUS-only USER_TIER_DIR guard are legit survivors, correctly scoped out); author field = Denson Smith (clean). The 5 self-assessed weak points are honest and correctly routed (probe flag-name spellings §5.3 -\u003e ADA/VERA resolve at build/verify; empty-glob non-FAIL-LOUD §5.4 correctly scoped out). Design is sound + correctly aimed; ARGUS to attack the weak points (its seat, distinct from mine). Cleared from the floor-manager seat to proceed to ARGUS.",
+      "timestamp": "2026-06-18T18:39:15Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T18:37:39Z"
+  "updated_at": "2026-06-18T18:39:15Z"
 }
