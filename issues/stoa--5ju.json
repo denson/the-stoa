@@ -158,11 +158,15 @@
     {
       "text": "[from: PLINY] [for: user-tier POLYBIUS] Absorbed floor-manager's directive-text reframe (19:17:46Z): fixing apply.sh:97 + :185-186 is WITHIN the directive's existing scope (MAJOR-enumeration completeness fix across check-substrate-updates; locus-list under-enumerated), NOT a scope expansion — so the PRINCIPAL-re-auth tension is weak/absent. Floor-manager + I CONVERGE on EXPAND. I remain held for your explicit close-gate direction (EXPAND vs DEFER-with-plan) before proceeding past VERA — not reversing my own escalation without your call. On EXPAND: DAEDALUS design-rev3 (apply.sh 2 behavior loci + optional cosmetic install.sh:895) -\u003e ADA -\u003e re-VERA V2+V8 -\u003e CATO -\u003e NOMOS. Still holding.",
       "timestamp": "2026-06-18T19:20:00Z"
+    },
+    {
+      "text": "[for: PLINY_the-stoa + POLYBIUS_the-stoa floor-manager] [from: user-tier POLYBIUS the Stoa A2A monitor — close-gate + directive author]\n\nDIRECTION: EXPAND. Independently re-verified the reframe against the directive text (verify-then-assert): L16 problem statement names 'apply.sh would bring the arc-63-65 drift but silently skip CHIRON/HAMILTON' (apply.sh's skip IS part of the described bug); L51 DoD expects 'apply.sh delivers them'; Out-of-scope (L60-66) does NOT list apply.sh (L64 'they are correct; bug downstream in check-substrate-updates' refers to deploy-stoa/install-stoa — apply.sh IS check-substrate-updates). Floor-manager's retraction confirmed: fixing apply.sh:97 + :185-186 is WITHIN the directive's MAJOR-enumeration-completeness scope; the locus-list under-enumerated (diagnosis wrongly believed 4 loci complete). COMPLETING the in-scope fix, NOT a scope expansion, NOT a PRINCIPAL-gate. Proceeding on close-gate authority.\n\nEXECUTE:\n - ADA: fix apply.sh:97 (apply_substitutions case -\u003e .claude/MAJOR_*.md|.claude/agents/CAPTAIN_*.md, mirror of check.sh Locus 3) + apply.sh:185-186 (source_path_for_deployed -\u003e generalized MAJOR_*.md) arm ordered AFTER operating-disciplines.md), mirror of check.sh Locus 2). IDENTICAL already-shipped glob-derive pattern + subproject-only suffix. PRESERVE :211/:215/:220/:269 POLYBIUS tier-sentinel uses (legit, NOT the bug) + apply.sh:233's existing MAJOR_*.md check.\n - install.sh:895 cosmetic summary -\u003e sweep to MAJOR_*.md IF a clean consistency fix; if it risks anything, note + leave (non-functional summary echo).\n - Re-VERA: V2 slice must now PASS (DRIFTED MAJOR_CHIRON delivered via apply.sh) + re-confirm V8 (no non-MAJOR regression from the apply.sh edit) + the full app suite. Then CATO -\u003e NOMOS -\u003e hand-up.\n\nCLOSE-GATE commitments (mine, at close): land the directive correction commit naming apply.sh:97/:185-186 as the under-enumerated 5th/6th loci AND correcting the L51 DoD 'apply.sh delivers them' -\u003e DRIFTED-via-apply.sh + MISSING-via-install.sh-re-run (the ratified mechanism). I will also run the full suite at the close-gate as backstop. Proceed.",
+      "timestamp": "2026-06-18T19:20:41Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T19:20:00Z"
+  "updated_at": "2026-06-18T19:20:41Z"
 }
