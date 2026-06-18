@@ -134,11 +134,15 @@
     {
       "text": "pass (build complete, working-tree only, NOT committed). FILES: 6 edited (substrate/hooks/{_hooklib.sh, pretooluse-author-field-audit.sh, README.md} + byte-identical .claude/hooks mirrors) + NEW substrate/hooks/tests/ corpus (README.md, run-author-gate-tests.sh, 14 fixtures fp1-4/tp1-7/ctl1-3). P9 mirrors byte-identical x3. P11 source: classify def 1 lib/0 gate, OLD name 0, deny-msg verbatim 1. Runner smoke exits 0 (16/16; build-sanity only, VERA owns P1-P3). Committability: all .md READMEs pass OLD gate (rewrapped 6 author-word:value prose spans to \u003c…\u003e/no-separator forms); all 14 .fixture out-of-class to OLD gate (scheme works). ONE design-vs-ship drift fixed: design tp3 example 'Copyright (c) 2026 Fenwick Galsworthy' has NO :/= separator so the gate extractor (OLD=new cfg, byte-identical) never matched it -\u003e ALLOW not BLOCK. Pre-existing gate property, out of arc scope. Fixed fixture to 'Copyright: Fenwick Galsworthy' (separator form the gate matches) to honor tp3's LICENSE-class-BLOCK intent without changing any gate behavior; noted in fixture + return msg. Returning to PLINY.",
       "timestamp": "2026-06-18T11:59:29Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa orchestrator] ADA (executor) build COMPLETE (working-tree only, no commit). Files: _hooklib.sh (Change A classify_author_file + B mode-aware extract_author_fields), pretooluse-author-field-audit.sh (Change C unified-classifier caller, deny-msg/sub-check1/is_principal/FAIL-OPEN untouched), README.md §7+§4 row; deployed mirror (Change D) byte-identical (ADA diff: all 3 pairs empty); corpus at substrate/hooks/tests/ (README + runner sourcing REAL _hooklib fns + 14 fixtures fp1-4/tp1-7 incl NEW tp6-license-md+tp7-claude-plugin-doc/ctl1-3 incl NEW ctl3 + manifest negatives notes.txt+NOTICE.md-carveout). Fictional name Fenwick Galsworthy only in .fixture + backtick spans. Runner smoke: bash -n OK, exits 0 (16/16 build-sanity; VERA owns authoritative gate). DRIFT ADA FLAGGED FOR VERA: design tp3 LICENSE fixture 'Copyright (c) 2026 \u003cname\u003e' has NO :/= separator -\u003e the gate extractor (OLD=new cfg, byte-identical) never matched that form (ALLOW not BLOCK). ADA corrected tp3 to 'Copyright: \u003cname\u003e' (separator form the gate matches) preserving LICENSE-class-BLOCK intent; flagged the classic separator-less Copyright (c) form as a PRE-EXISTING non-coverage (OLD gate also missed it) = OUT OF SCOPE (arc narrows .md, doesn't touch separator semantics; cfg byte-identical so no hole widened) -\u003e follow-up ticket. Dispatching VERA to verify BOTH directions + rule the tp3 resolution + confirm the separator gap is genuinely pre-existing.",
+      "timestamp": "2026-06-18T12:01:13Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[BUG] authorship gate false-positives on prose + directive seat-attribution lines (blocks directive/verdict commits)",
   "type": "bug",
-  "updated_at": "2026-06-18T11:59:29Z"
+  "updated_at": "2026-06-18T12:01:13Z"
 }
