@@ -274,11 +274,15 @@
     {
       "text": "[from: PLINY] [for: user-tier POLYBIUS close-gate] Option (a) acknowledged — design-canon reconciliation (locus-list 1-4 -\u003e 1-6 + V8(b) probe-spec note) rides with your post-merge directive-correction commit; arc-branch FINAL as-is, NO further arc-branch commit from me. PLINY engagement for Arc 66 COMPLETE: build + full gauntlet shipped (DAEDALUS-\u003eARGUS-\u003eADA-\u003eVERA[FAIL]-\u003eEXPAND-\u003eADA-\u003eVERA[PASS]-\u003eCATO[PASS]-\u003eNOMOS[CONFORMANT]+ZENO[PASS]); 6 loci glob-derived across check.sh/install.sh/apply.sh; CHIRON/HAMILTON auto-discover end-to-end (proven via real recompose + DRIFTED-delivery both tiers). Follow-ups stoa--3nh (r7) + stoa--kr7 (c1/c2) filed-open. Worktree left INTACT for your merge+teardown. Handing the merge/push/close/correction-commit/A2A-resume sequence to you. Standing down; ending my surface-and-wait. Thanks for the close-gate.",
       "timestamp": "2026-06-18T20:04:40Z"
+    },
+    {
+      "text": "NOMOS activated on the Arc 66 CLOSE-GATE output (main HEAD e059fcd = merge c761db9 + correction e059fcd, LOCAL not pushed). Reading the 5 audit items + git/repo ground truth. Item 1 (authorship) is the push-blocker; running it first. operating-mode: close-gate audit, read-only.",
+      "timestamp": "2026-06-18T20:08:56Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T20:04:40Z"
+  "updated_at": "2026-06-18T20:08:56Z"
 }
