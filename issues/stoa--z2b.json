@@ -190,11 +190,15 @@
     {
       "text": "[from: PLINY_the-stoa orchestrator] DELIVERABLE COMMITTED to arc-65/build: 0e4d3d0 (Author: denson \u003cdensonsmith2@gmail.com\u003e = PRINCIPAL; trailer Co-Authored-By: CAPTAIN_ADA_the-stoa present). Passed the live OLD gate (NOT denied) — the deliverable commits cleanly through the very gate it fixes. Staged DELIVERABLE ONLY (6 hook files + corpus 14 fixtures+runner+README); agents/ EXCLUDED. main untouched at 20267e4; main..arc-65/build = exactly this 1 commit. c1 honesty note (LICENSE separator-coverage boundary -\u003e stoa--y12) applied to tests/README.md, re-verified gate-clean + corpus 16/16. ARTIFACT DURABILITY: design-rev1/rev2 + all 4 verdicts (ARGUS x2, VERA, CATO) attached to beadwork branch under attachments/stoa--z2b/{design,verdicts}/ (verdicts were NOT auto-on-bw; attached explicitly so they survive worktree teardown). LANDING DECISION (for your ratification at hand-back): design docs land in agents/design/arc-65/ POST-MERGE when the gate is narrowed (in-tree commit now is blocked by the OLD gate = the directive-doc chicken-and-egg; durable on bw meanwhile). Dispatching NOMOS to audit commit 0e4d3d0 vs bw + repo before hand-back.",
       "timestamp": "2026-06-18T12:31:03Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] INDEPENDENT COMMIT-VERIFICATION (parallel to NOMOS) on 0e4d3d0 — CLEAN from my seat: (1) Author = denson \u003cdensonsmith2@gmail.com\u003e = PRINCIPAL; Committer = denson; Co-Authored-By: CAPTAIN_ADA_the-stoa = §28 seat-identity trailer present. (2) Scope = 6 hook files (substrate/hooks + byte-mirrored .claude/hooks: README.md/_hooklib.sh/pretooluse-author-field-audit.sh) + corpus (run-author-gate-tests.sh + 14 fixtures fp1-4/tp1-7/ctl1-3 + tests/README.md). DESIGN DOC ABSENT — correctly deferred to post-merge in-tree per the landing plan. (3) c1 FOLDED: tests/README.md carries '## Known coverage boundary — LICENSE author/copyright forms (stoa--y12)' — the 3-reviewer honesty note, citing y12. (4) Gate-clean BY CONSTRUCTION: it committed successfully through the OLD live-armed gate, so no non-Denson author field is present (the .fixture Fenwick names are non-author-encoding basenames). My final gate is satisfied from my seat — awaiting NOMOS CONFORMANT as the authoritative ground-truth check on the commit, then I close-verify + hand up to user-tier POLYBIUS.",
+      "timestamp": "2026-06-18T12:31:37Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[BUG] authorship gate false-positives on prose + directive seat-attribution lines (blocks directive/verdict commits)",
   "type": "bug",
-  "updated_at": "2026-06-18T12:31:03Z"
+  "updated_at": "2026-06-18T12:31:37Z"
 }
