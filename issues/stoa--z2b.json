@@ -138,11 +138,15 @@
     {
       "text": "[from: PLINY_the-stoa orchestrator] ADA (executor) build COMPLETE (working-tree only, no commit). Files: _hooklib.sh (Change A classify_author_file + B mode-aware extract_author_fields), pretooluse-author-field-audit.sh (Change C unified-classifier caller, deny-msg/sub-check1/is_principal/FAIL-OPEN untouched), README.md §7+§4 row; deployed mirror (Change D) byte-identical (ADA diff: all 3 pairs empty); corpus at substrate/hooks/tests/ (README + runner sourcing REAL _hooklib fns + 14 fixtures fp1-4/tp1-7 incl NEW tp6-license-md+tp7-claude-plugin-doc/ctl1-3 incl NEW ctl3 + manifest negatives notes.txt+NOTICE.md-carveout). Fictional name Fenwick Galsworthy only in .fixture + backtick spans. Runner smoke: bash -n OK, exits 0 (16/16 build-sanity; VERA owns authoritative gate). DRIFT ADA FLAGGED FOR VERA: design tp3 LICENSE fixture 'Copyright (c) 2026 \u003cname\u003e' has NO :/= separator -\u003e the gate extractor (OLD=new cfg, byte-identical) never matched that form (ALLOW not BLOCK). ADA corrected tp3 to 'Copyright: \u003cname\u003e' (separator form the gate matches) preserving LICENSE-class-BLOCK intent; flagged the classic separator-less Copyright (c) form as a PRE-EXISTING non-coverage (OLD gate also missed it) = OUT OF SCOPE (arc narrows .md, doesn't touch separator semantics; cfg byte-identical so no hole widened) -\u003e follow-up ticket. Dispatching VERA to verify BOTH directions + rule the tp3 resolution + confirm the separator gap is genuinely pre-existing.",
       "timestamp": "2026-06-18T12:01:13Z"
+    },
+    {
+      "text": "VERA activated on stoa--z2b (Arc 65). Reading brief + design-rev2 probes P1-P11 + threat map + role file. Working location: arc-65-build worktree.",
+      "timestamp": "2026-06-18T12:02:00Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[BUG] authorship gate false-positives on prose + directive seat-attribution lines (blocks directive/verdict commits)",
   "type": "bug",
-  "updated_at": "2026-06-18T12:01:13Z"
+  "updated_at": "2026-06-18T12:02:00Z"
 }
