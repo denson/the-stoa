@@ -98,8 +98,7 @@ normalize_lf() {
 # referencing `{{NAME_SUFFIX}}`) creates false-positive drift. See design §2.4 table.
 #
 # Substitution policy by deployed-relative path:
-#   .claude/MAJOR_POLYBIUS*.md      : NAME_SUFFIX (and USER_TIER_DIR at user-tier; out of v0 scope)
-#   .claude/MAJOR_PLINY*.md         : NAME_SUFFIX
+#   .claude/MAJOR_*.md              : NAME_SUFFIX (and USER_TIER_DIR at user-tier; out of v0 scope)
 #   .claude/agents/CAPTAIN_*.md     : NAME_SUFFIX
 #   everything else                 : verbatim passthrough (no sed)
 #
@@ -116,7 +115,7 @@ apply_substitutions() {
   esac
 
   case "$dep_rel" in
-    .claude/MAJOR_POLYBIUS*.md|.claude/MAJOR_PLINY*.md|.claude/agents/CAPTAIN_*.md)
+    .claude/MAJOR_*.md|.claude/agents/CAPTAIN_*.md)
       # Same sed shape install.sh uses; the '|' delimiter for USER_TIER_DIR is
       # documented but USER_TIER_DIR substitution at user-tier is out of v0 scope
       # (see SKILL.md / design §10.2).
@@ -291,14 +290,21 @@ source_path_for_deployed() {
   local rel="${dep#.claude/}"
 
   case "$rel" in
-    MAJOR_POLYBIUS.md|MAJOR_POLYBIUS_*.md)
-      echo "MAJOR_POLYBIUS.md"
-      ;;
-    MAJOR_PLINY.md|MAJOR_PLINY_*.md)
-      echo "MAJOR_PLINY.md"
-      ;;
     operating-disciplines.md)
       echo "operating-disciplines.md"
+      ;;
+    MAJOR_*.md)
+      # Any deployed MAJOR maps back to its unsuffixed source name. Strip the
+      # subproject suffix (present only at subproject tier) before reattaching .md.
+      # MAJOR suffix rule: suffixed at subproject ONLY. ${suffix} is _${slug} for
+      # project|subproject, but MAJORs are unsuffixed at project, so only strip
+      # when tier=subproject. The deployed name's own suffix, if any, is what we strip.
+      # Ordered AFTER operating-disciplines.md so it cannot shadow that arm.
+      local mbase="${rel%.md}"            # "MAJOR_POLYBIUS_acme" or "MAJOR_POLYBIUS"
+      if [ "$tier" = "subproject" ] && [ -n "$suffix" ]; then
+        mbase="${mbase%${suffix}}"        # strip "_acme" -> "MAJOR_POLYBIUS"
+      fi
+      echo "${mbase}.md"
       ;;
     agents/CAPTAIN_*.md)
       # Extract mnemonic between CAPTAIN_ and ${suffix}.md (or .md for unsuffixed).
@@ -398,14 +404,19 @@ enumerate_deployed() {
     project|subproject) suffix="_${slug}" ;;
   esac
 
-  # MAJOR files: subproject-tier suffixes both; project/user-tier do not.
-  if [ "$tier" = "subproject" ]; then
-    echo ".claude/MAJOR_POLYBIUS${suffix}.md"
-    echo ".claude/MAJOR_PLINY${suffix}.md"
-  else
-    echo ".claude/MAJOR_POLYBIUS.md"
-    echo ".claude/MAJOR_PLINY.md"
-  fi
+  # MAJOR files: glob substrate/MAJOR_*.md so any future MAJOR (CHIRON, HAMILTON, ...)
+  # auto-discovers. MAJOR suffix rule (DIFFERENT from CAPTAINs): suffixed at
+  # subproject tier ONLY; project + user tiers carry no suffix. Mirror of the
+  # CAPTAIN glob below, but the MAJOR-suffix conditional replaces the CAPTAIN
+  # ${suffix}. install.sh SUFFIX_MAJORS governs the same rule at deploy time.
+  local majf maj_base major_suffix=""
+  [ "$tier" = "subproject" ] && major_suffix="${suffix}"
+  shopt -s nullglob
+  for majf in "${SUBSTRATE_DIR}/MAJOR_"*.md; do
+    maj_base="$(basename "$majf" .md)"   # "MAJOR_POLYBIUS"
+    echo ".claude/${maj_base}${major_suffix}.md"
+  done
+  shopt -u nullglob
 
   echo ".claude/operating-disciplines.md"
 
