@@ -194,11 +194,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa floor-manager] INDEPENDENT COMMIT-VERIFICATION (parallel to NOMOS) on 0e4d3d0 — CLEAN from my seat: (1) Author = denson \u003cdensonsmith2@gmail.com\u003e = PRINCIPAL; Committer = denson; Co-Authored-By: CAPTAIN_ADA_the-stoa = §28 seat-identity trailer present. (2) Scope = 6 hook files (substrate/hooks + byte-mirrored .claude/hooks: README.md/_hooklib.sh/pretooluse-author-field-audit.sh) + corpus (run-author-gate-tests.sh + 14 fixtures fp1-4/tp1-7/ctl1-3 + tests/README.md). DESIGN DOC ABSENT — correctly deferred to post-merge in-tree per the landing plan. (3) c1 FOLDED: tests/README.md carries '## Known coverage boundary — LICENSE author/copyright forms (stoa--y12)' — the 3-reviewer honesty note, citing y12. (4) Gate-clean BY CONSTRUCTION: it committed successfully through the OLD live-armed gate, so no non-Denson author field is present (the .fixture Fenwick names are non-author-encoding basenames). My final gate is satisfied from my seat — awaiting NOMOS CONFORMANT as the authoritative ground-truth check on the commit, then I close-verify + hand up to user-tier POLYBIUS.",
       "timestamp": "2026-06-18T12:31:37Z"
+    },
+    {
+      "text": "NOMOS activated on Arc-65 build commit 0e4d3d0 (stoa--z2b authorship-gate narrowing). Reading the output to audit + named bw ticket + role file. Beginning 6-check audit against bw + repo ground truth.",
+      "timestamp": "2026-06-18T12:31:46Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[BUG] authorship gate false-positives on prose + directive seat-attribution lines (blocks directive/verdict commits)",
   "type": "bug",
-  "updated_at": "2026-06-18T12:31:37Z"
+  "updated_at": "2026-06-18T12:31:46Z"
 }
