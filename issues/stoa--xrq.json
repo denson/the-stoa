@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-18T20:51:41Z",
+  "description": "Surfaced by the A2A shakedown (2026-06-18): deploy-stoa check.sh flagged 6 skills OBSOLETE in zeotek_newswire — agent-author, check-bw-release, check-substrate-updates, inspect-script-output, save-verdict, validate-spec. LIKELY genuine relocations/retirements (agent-author RETIRED Arc 61; check-substrate-updates/check-bw-release -\u003e SessionStart triggers Arc 63; save-verdict/validate-spec/inspect-script-output -\u003e modules Arc 64). BUT the Arc-66 gauntlet (VERA) flagged a possible PRE-EXISTING check.sh skill-ENUMERATION gap that can FALSE-flag skills OBSOLETE (4 of these showed OBSOLETE in BOTH pre/post-fix). RESOLVE: determine which of the 6 are genuinely retired/relocated (safe to --prune-obsolete in consumer projects) vs falsely-flagged by the check.sh skill-enum gap (do NOT prune; fix check.sh). Produce the safe-to-prune set. A2A is HOLDING --prune-obsolete pending this. Relates to VERA's Arc-66 4-skill OBSOLETE methodology note. Non-blocking.",
+  "id": "stoa--xrq",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "Verify 6 OBSOLETE-flagged skills: genuine retirements (safe to prune) vs check.sh skill-enum false-flags",
+  "type": "bug",
+  "updated_at": "2026-06-18T20:51:41Z"
+}
