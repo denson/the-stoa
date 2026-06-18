@@ -1,7 +1,0 @@
-# save-verdict ships Python; running it regenerates _lib/__pycache__/*.pyc in
-# this skill tree. This skill-local .gitignore keeps the skill self-contained
-# when vendored to a location not covered by the repo-root .gitignore (Arc 39)
-# or the deployed .claude/.gitignore (Arc 55 install.sh). Paths relative to
-# this skill dir. stoa--7b1.2.
-__pycache__/
-*.pyc

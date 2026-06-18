@@ -92,6 +92,11 @@ describe("the generated v2 roster", () => {
     // SKILL.md removed in Arc 63 — kept as operator tools under skills/check-*/
     // but no longer rendered as LIEUTENANTs — + gauntlet-setup ported in; net
     // LIEUTENANT churn handled by re-deriving from the dir.)
+    // Arc 64 (stoa--p41.2 pass B): save-verdict fully removed (Bash-only module
+    // now), and validate-spec + inspect-script-output had their SKILL.md removed
+    // (kept as operator-tool check.sh under skills/{validate-spec,inspect-script-
+    // output}/, no longer rendered as LIEUTENANTs) — net LIEUTENANT delta -3,
+    // re-derived from the dir.
     // Don't over-specify count — substrate may grow more.
     expect(slot.skills.length).toBeGreaterThan(0);
     for (const skill of slot.skills) {
