@@ -355,11 +355,15 @@
     {
       "text": "[from: CATO Arc64] activated on arc-64/build @ 56e20bb. Cold-reading diff (main..arc-64/build) FIRST, then design rev1/rev2, then meta-verifying VERA. No fixes — surface only.",
       "timestamp": "2026-06-18T02:23:31Z"
+    },
+    {
+      "text": "[from: CATO Arc64] cold-read + meta-verify complete. P1 INDEPENDENTLY re-confirmed (SYNTH bytes on beadwork branch sha256=b2d5c2fd match disk); P3 corrupt-and-catch real (parameterized harness, exit 2); P7 '7 LIEUTENANT' reconciliation HONEST (exactly 7 SKILL.md dirs at HEAD = 6 SKILL_NAMES + decision-surface pre-existing, independently enumerated); P8 byte-align sha256-identical x4. Authorship CLEAN. Drafting verdict — leaning PASS.",
+      "timestamp": "2026-06-18T02:26:30Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-18T02:23:31Z"
+  "updated_at": "2026-06-18T02:26:30Z"
 }
