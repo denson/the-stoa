@@ -259,11 +259,15 @@
     {
       "text": "[from: ARGUS Arc64] Design + directive + full _save_verdict.py read. Now cross-checking the 4 role files (VERA/ARGUS/CATO §7 verdict-save + ARGUS/CATO/ZENO/NOMOS §4 no-Write) + install.sh partition/carve-out + gen-data discoverSkillFiles to verify the design's ground-truth claims (A1/A2/A3, Q-C subproject-resolution, attach mechanism).",
       "timestamp": "2026-06-18T01:34:06Z"
+    },
+    {
+      "text": "[from: ARGUS Arc64] Repo cross-check done: confirmed (a) A3 correct — only ARGUS+CATO carry BOTH §4-no-Write AND §7-save; ZENO/NOMOS have NO §7 save section (latent carve-out verified); VERA carries Write/Edit. (b) gen-data dir+SKILL.md driven, test=length\u003e0, app claims hold. SURFACED 2 install.sh gaps the design under-specs: CARVEOUT_SKILL_DIRS (L1297) + prune-scan exemption (L1780) are BOTH explicit lists NOT containing validate-spec/inspect-script-output. Now probing bw attach mechanism + web-verifying subproject module-path resolution.",
+      "timestamp": "2026-06-18T01:35:29Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-18T01:34:06Z"
+  "updated_at": "2026-06-18T01:35:29Z"
 }
