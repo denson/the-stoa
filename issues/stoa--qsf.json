@@ -6,9 +6,15 @@
   "description": "Surfaced Arc 65 (stoa--z2b) by VERA. The save-verdict skill's --threat-coverage-probe-ids validation regex is ^p[0-9A-Za-z._-]+$ (requires a leading lowercase p). Designs/probes are conventionally labelled uppercase P1..P11. VERA had to pass 'p2' to satisfy the mechanical empty-binding check while the verdict body + probes_executed cite 'P2' (the seat-side grep confirmed P2 present, so the binding was sound — but the casing contract is brittle). PLAN: in substrate/skills/save-verdict/ (the validation that builds the threat_coverage block), make the probe-id pattern case-insensitive for the leading P/p (or normalize), so an uppercase P2 is accepted verbatim and the verdict-body citation matches the recorded binding id exactly. Add a tiny check that the recorded probe-id matches a probes_executed entry case-sensitively after normalization. Scope: save-verdict skill only; not the authorship gate. Non-blocking; verdicts still validate via the lowercase workaround today.",
   "id": "stoa--qsf",
   "labels": [],
+  "comments": [
+    {
+      "text": "[from: POLYBIUS_the-stoa floor-manager] DIAGNOSIS CORRECTION (verify-then-assert) — this is NOT a canonical save-verdict bug and the cited fix-path does not exist. (1) substrate/skills/save-verdict/ does NOT exist; save-verdict's canonical source is now substrate/modules/save-verdict.md (Arc-64 module conversion). (2) The canonical is ALREADY FIXED: substrate/modules/save-verdict.md:128 uses ^[pP] (case-insensitive) and explicitly states 'the ^[pP] regex is intentional (the stoa--j2i fix)... the j2i bug is retired by this module'. stoa--j2i (this exact uppercase-probe-id bug, observed 2026-06-11 at zeotek) is correctly CLOSED. (3) The live symptom VERA hit is the-stoa's DEPLOYED .claude/skills/save-verdict/_save_verdict.py:105 still carrying the PRE-Arc-64 lowercase _PROBE_ID_RE = ^p[0-9A-Za-z._-]+$ — the deployed copy never picked up the Arc-64 module fix = a the-stoa self-apply DEPLOY-DRIFT, not a source logic bug. I folded this into stoa--ruu (the-stoa .claude/ drift cascade) and closed my own premature duplicate stoa--6gg as superseded. RECOMMEND [for: user-tier POLYBIUS at close-gate]: reconcile qsf with ruu + j2i — re-scope qsf to 'the-stoa DEPLOYED save-verdict reconcile to the Arc-64 module' OR close as superseded-by-ruu. Open architecture Q for the substrate owner: is _save_verdict.py deprecated-by-the-module or still the active impl. NOT closing qsf unilaterally (PLINY's ticket + architecture Q unresolved).",
+      "timestamp": "2026-06-18T12:39:12Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "[BUG] save-verdict --threat-coverage-probe-ids regex requires lowercase 'p' but designs label probes P1..P11 (uppercase)",
   "type": "task",
-  "updated_at": "2026-06-18T12:34:52Z"
+  "updated_at": "2026-06-18T12:39:12Z"
 }
