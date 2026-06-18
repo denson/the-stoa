@@ -2,13 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-18T03:30:43Z",
+  "close_reason": "Code-eliminated by the Arc-64 save-verdict Bash-only module rewrite (main 20267e4): the Python _save_verdict.py is removed, so these script-specific bugs/ergonomics no longer exist.",
   "created": "2026-06-11T02:16:33Z",
   "description": "PROBLEM (observed 2026-06-11, consumer workspace zeotek_newswire, arc nws-22i): the save-verdict skill's --threat-coverage-probe-ids validation regex requires a leading LOWERCASE p (shape ^p[...]+$), but the probe ids used by gauntlet designs/verdicts are canonically UPPERCASE (P-INJ, P-ISO, P-RO, P-GATE, P-NOBACKDOOR, P-LANES...). EVIDENCE: the workspace's VERA seat could not pass P-INJ-form ids and worked around by submitting the p-INJ form; a seat-side grep then confirmed all defeats_via_probe ids were present in probes_executed, so the verdict content is fine — only the skill-side validation is wrong. IMPACT: every consumer workspace running threat-anchored gauntlet verdicts hits this; each VERA burns a workaround + the recorded probe ids diverge in case from the design's canonical ids (grep/audit friction). LOCATION: substrate/skills/save-verdict/ in this repo (canonical copy; deployed copies inherit on next substrate update). The team owns the fix shape — case-insensitive accept, uppercase-canonical, or doc change — against current workspace state.",
   "id": "stoa--j2i",
   "labels": [],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "save-verdict skill: --threat-coverage-probe-ids regex rejects canonical uppercase probe ids (P-INJ etc.)",
   "type": "bug",
-  "updated_at": "2026-06-11T02:16:33Z"
+  "updated_at": "2026-06-18T03:30:43Z"
 }
