@@ -534,18 +534,26 @@ write_substrate_manifest() {
     echo "# deployed_at=${now}"
     echo "# substrate_sha=${sha}"
     echo ""
-    # MAJOR_POLYBIUS.md: NAME_SUFFIX always; USER_TIER_DIR at user-tier only.
-    # Subproject-tier suffixes the MAJOR filename; project + user tiers do not.
-    if [ "$tier" = "subproject" ]; then
-      printf ".claude/MAJOR_POLYBIUS%s.md\t{{NAME_SUFFIX}}\t%s\n" "${name_suffix}" "${name_suffix}"
-      printf ".claude/MAJOR_PLINY%s.md\t{{NAME_SUFFIX}}\t%s\n" "${name_suffix}" "${name_suffix}"
-    else
-      printf ".claude/MAJOR_POLYBIUS.md\t{{NAME_SUFFIX}}\t%s\n" "${name_suffix}"
-      printf ".claude/MAJOR_PLINY.md\t{{NAME_SUFFIX}}\t%s\n" "${name_suffix}"
-      if [ "$tier" = "user" ] && [ -n "$USER_TIER_DIR" ]; then
-        printf ".claude/MAJOR_POLYBIUS.md\t{{USER_TIER_DIR}}\t%s\n" "$USER_TIER_DIR"
+    # MAJOR files: glob substrate/MAJOR_*.md so any future MAJOR auto-discovers
+    # in the manifest. NAME_SUFFIX substitution for all; subproject tier suffixes
+    # the deployed filename, project + user do not (mirror install.sh SUFFIX_MAJORS
+    # + check.sh enumerate_deployed). USER_TIER_DIR is a POLYBIUS-only placeholder
+    # (only MAJOR_POLYBIUS.md carries {{USER_TIER_DIR}}), emitted at user-tier only.
+    local srcmaj majname dep_name
+    shopt -s nullglob
+    for srcmaj in "${SCRIPT_DIR}/MAJOR_"*.md; do
+      majname="$(basename "$srcmaj" .md)"        # "MAJOR_POLYBIUS"
+      if [ "$tier" = "subproject" ]; then
+        dep_name=".claude/${majname}${name_suffix}.md"
+      else
+        dep_name=".claude/${majname}.md"
       fi
-    fi
+      printf "%s\t{{NAME_SUFFIX}}\t%s\n" "$dep_name" "${name_suffix}"
+      if [ "$tier" = "user" ] && [ -n "$USER_TIER_DIR" ] && [ "$majname" = "MAJOR_POLYBIUS" ]; then
+        printf "%s\t{{USER_TIER_DIR}}\t%s\n" "$dep_name" "$USER_TIER_DIR"
+      fi
+    done
+    shopt -u nullglob
     # CAPTAINs (always NAME_SUFFIX — empty at user-tier; _<slug> at project/subproject).
     if [ "$WITH_CAPTAINS" -eq 1 ]; then
       for name in "${CAPTAIN_NAMES[@]}"; do
