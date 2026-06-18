@@ -42,11 +42,15 @@
     {
       "text": "Diagnosis CONFIRMED at all four loci against worktree (line drift from directive is trivial, code matches): check.sh enumerate_deployed :401-408, source_path_for_deployed :293-299, apply_substitutions :118-124; install.sh write_substrate_manifest :537-548. Suffix rule CONFIRMED: SUFFIX_MAJORS=1 ONLY at subproject (install.sh :720 default 0, :813 set 1 in subproject branch); deploy path :954-998 already complete for CHIRON/HAMILTON. Drafting design-rev1.md.",
       "timestamp": "2026-06-18T18:34:57Z"
+    },
+    {
+      "text": "pass: design-rev1.md written + committed (edac0bd). Diagnosis CONFIRMED at all four loci (no disagreement); suffix rule = glob MAJOR_*.md + subproject-only suffix (reuse existing conditional, NOT CAPTAIN project+subproject rule). 5 self-assessed weak points. Path: agents/design/stoa--5ju/design-rev1.md. Returning to PLINY for ARGUS.",
+      "timestamp": "2026-06-18T18:37:39Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T18:34:57Z"
+  "updated_at": "2026-06-18T18:37:39Z"
 }
