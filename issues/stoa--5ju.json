@@ -138,11 +138,15 @@
     {
       "text": "[from: VERA] V3 PASS (subproject real recompose exit 0, Checks A-E green; all 4 MAJORs suffixed _arc66tw incl CHIRON/HAMILTON; suffixed-name MISSING slice correct, no unsuffixed footgun). V5 PASS (exactly 4 MAJOR manifest lines each tier; project unsuffixed no USER_TIER_DIR; subproject suffixed). V7 PASS (4 fix loci clean of paired enumeration; doc-comments #4/#5 swept to MAJOR_*.md; legit survivors = detect_tier sentinel + POLYBIUS-only USER_TIER_DIR guard + complete deploy-path enumeration which is out-of-scope per design §0). V8 PASS (a-d all correct: op-disc DRIFTED, suffixed CAPTAIN_VERA MISSING, custom PAIRBOT not-OBSOLETE + GHOST OBSOLETE, MAJOR_FOO OBSOLETE under manual-rm footer w/o over-matching op-disc). Methodology note: 4 skills show OBSOLETE in BOTH pre/post-fix (pre-existing check.sh skill-enum gap, non-MAJOR, out of scope). Running V6 (app suite) + V9 (author-gate) now.",
       "timestamp": "2026-06-18T19:09:30Z"
+    },
+    {
+      "text": "[from: VERA] VERDICT: FAIL. Probes V1,V3,V4,V5,V6,V7,V8,V9 PASS (8); V2 FAIL (1). Saved: agents/verdicts/stoa--5ju/VERA-2026-06-18T19-13-13Z.md (sha256 round-trip verified). V6 PASS: gen-data discovered 4 MAJOR/12 CAPTAIN, build green (1595 modules), 41/41 tests; agents.ts regen diff was pure CRLF noise (committed roster matches re-derivation) — restored to keep build pristine. V9 PASS: 16/16 author-gate. FALSIFICATION (V2): the CORE 4-loci fix is sound, but the arc's GOAL (remove hardcoded MAJOR enumeration from the UPDATE PATH) is HALF-met — apply.sh (the WRITER half of check-substrate-updates) carries an UNFIXED 5th locus of the identical bug (apply.sh:97 + :185-186). Concrete: DRIFTED MAJOR_CHIRON -\u003e apply.sh --all-differing skips it ('not a substrate-derived path') -\u003e re-check STILL DRIFTED. apply.sh byte-identical pre/post-fix (CRLF-only git diff) =\u003e pre-existing same-bug-class instance, not a regression. So DRIFTED CHIRON/HAMILTON cannot be delivered via the apply path. The expand-vs-defer scope call is PLINY/user-tier-POLYBIUS territory (already in-thread). threat_coverage: [] valid (§35.5 carve-out, count=0, ARGUS+PLINY confirmed). Methodology notes: pre-existing 4-skill OBSOLETE noise (non-MAJOR, out of scope); install.sh:895 cosmetic summary still POLYBIUS/PLINY-only (not a fix locus). Returning.",
+      "timestamp": "2026-06-18T19:13:32Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T19:09:30Z"
+  "updated_at": "2026-06-18T19:13:32Z"
 }
