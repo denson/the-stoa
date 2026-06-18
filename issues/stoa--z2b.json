@@ -126,11 +126,15 @@
     {
       "text": "ADA activated on stoa--z2b (Arc 65). Read design-rev2 + ARGUS RATIFY + floor-manager GREENLIT end-to-end. Ground-check vs shipped code DONE: OLD is_author_encoding_file confirmed at gate lines 112-125; OLD extract_author_fields regex at _hooklib.sh:94-99 confirmed char-for-char; real deny-message captured verbatim from gate line 141; source\u003c-\u003edeployed byte-identical at baseline (3 files). One drift noted: design Change B cfg-branch comment text is lightly reworded vs shipped ('separator (: or =)' vs 'separator'); per directive cfg MUST be char-for-char OLD regex, so I build the REAL shipped regex+comments verbatim (ARGUS precision note + floor-manager #3 confirm P11 tests behavior not chars). Building Changes A/B/C/D + corpus + README §7 now. Working-tree only, no commit.",
       "timestamp": "2026-06-18T11:47:58Z"
+    },
+    {
+      "text": "Changes A/B/C/D landed in working tree. A: classify_author_file added to _hooklib.sh (config arms first-\u003ecfg, bare *.md-\u003emd). B: extract_author_fields mode-aware via MODE env (default cfg; cfg-branch regex behaviorally byte-identical to OLD; md-branch slices leading frontmatter + matches keys at YAML line-start with ':' only; BOM literal \\ufeff present per design code block). C: gate is_author_encoding_file DELETED, single classify_author_file call yields _mode, extract_author_fields \"$_mode\"; deny-message line 141 untouched verbatim; sub-check 1/is_principal/allow-list/FAIL-OPEN unchanged. D: deployed mirror copied byte-identical. Smoke (build-sanity, NOT verification): bash -n both files OK; classify rc+mode correct for LICENSE.md-\u003ecfg, .claude-plugin/*.md-\u003ecfg, NOTICE.md-\u003emd, prose .md-\u003emd, package.json-\u003ecfg, notes.txt-\u003erc1; md body emits nothing, md frontmatter+cfg body emit. P11 source checks: classify def 1 in lib / 0 in gate; OLD name 0 anywhere; deny msg 1. P9 mirrors empty diff. Building corpus next.",
+      "timestamp": "2026-06-18T11:50:18Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[BUG] authorship gate false-positives on prose + directive seat-attribution lines (blocks directive/verdict commits)",
   "type": "bug",
-  "updated_at": "2026-06-18T11:47:58Z"
+  "updated_at": "2026-06-18T11:50:18Z"
 }
