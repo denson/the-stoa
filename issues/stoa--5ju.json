@@ -198,11 +198,15 @@
     {
       "text": "VERA V8 PASS: detection (a)op-disc DRIFTED (b)CAPTAIN_VERA suffixed MISSING (c)PAIRBOT-skip+GHOST-OBSOLETE (d)MAJOR_FOO OBSOLETE, op-disc NOT mis-mapped. apply.sh shared-machinery: delivers op-disciplines (non-MAJOR DRIFTED), MAJOR_FOO unchanged (no over-match write). NOTE: design V8(b) used unsuffixed CAPTAIN_VERA.md at project tier where CAPTAINs ARE suffixed; re-ran with suffixed name (probe-spec gap, not a build defect). Now V7 grep gate (6 loci).",
       "timestamp": "2026-06-18T19:34:10Z"
+    },
+    {
+      "text": "VERA V7 PASS: all 6 fix loci glob-derived (.claude/MAJOR_*.md), no surviving POLYBIUS+PLINY enumeration list. Classified survivors: detect_tier sentinel (check.sh+apply.sh), USER_TIER_DIR POLYBIUS guard, NOT-STOA-DEPLOYED sentinels, doc cross-refs/comment-examples, install.sh:895 cosmetic echo (pre-named), install.sh:954-1003 fresh-DEPLOY block (out-of-scope per design sec0/sec6, already names all 4 MAJORs). Now V6 app full suite.",
+      "timestamp": "2026-06-18T19:35:23Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T19:34:10Z"
+  "updated_at": "2026-06-18T19:35:23Z"
 }
