@@ -250,11 +250,15 @@
     {
       "text": "CONFORMANT: Arc 66 hand-back audited against bw + repo ground truth — all 8 probes pass, zero divergence. Commits ff9f21e + 9e1768a are the only 2 build commits (top-2 on arc-66/build), scope clean (check.sh/install.sh/apply.sh + 2 design docs only). All 6 loci VERIFIED glob-derived in the final tree (not just claimed): check.sh enumerate_deployed/source_path/apply_subs, install.sh manifest, apply.sh apply_subs/source_path — MAJOR_*.md glob, subproject-ONLY suffix, MAJOR-arm ordered AFTER operating-disciplines.md in both source_path fns (no shadow). No surviving POLYBIUS/PLINY MAJOR-enumeration LIST at any fix locus; survivors all legit (tier-sentinels, USER_TIER_DIR guard, doc comments, install.sh:895/:954-1007 = filed follow-up stoa--kr7). EXPAND auth REAL (user-tier POLYBIUS close-gate authority, in-scope completion, NOT a PRINCIPAL-gate). Verdict artifacts (ARGUS/VERA r1 FAIL/VERA r2 PASS/CATO PASS) present. App suite independently re-run: 41/41 tests pass (matches VERA's 4 MAJOR/12 CAPTAIN/41 tests). Authorship clean (Author=denson both commits; CAPTAIN_ADA_the-stoa trailers). Ticket stoa--5ju in_progress, NOT closed (correct — push+close is user-tier close-gate per directive L75/L56). NON-DIVERGENT NOTE for close-gate: PLINY 'DoD met' covers the build+gauntlet DoD; directive L56 push+close clause correctly NOT yet executed at this hand-back; r7 empty-glob follow-up + directive-DoD-correction commit remain user-tier close-gate items. Verdict saved: agents/verdicts/stoa--5ju/NOMOS-2026-06-18T19-52-43Z.md (sha256 round-trip verified). Returning.",
       "timestamp": "2026-06-18T19:53:01Z"
+    },
+    {
+      "text": "ZENO PASS (mechanical spec-vs-result, Arc 66 DoD). All 5 brief DoD lines met, 0 drifts, 0 out-of-spec additions. c1 grep gate clean (4 fix loci glob/case-derived; all surviving POLYBIUS/PLINY hits DoD-legitimate sentinels/guards). c2 6 loci glob-derived in final tree. c3 app green (gen-data 4M/12C/7L, build OK, 41/41 tests). c4 bash -n OK all 3 files. c5 REAL subproject recompose exit 0, all 5 FAIL-LOUD owners green, CHIRON+HAMILTON now in deployed MAJOR set + manifest (fix proven end-to-end). Throwaway cleaned, worktree pristine. Verdict at agents/verdicts/stoa--5ju/ZENO-2026-06-18T19-53-04Z.md. Returning.",
+      "timestamp": "2026-06-18T19:53:12Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T19:53:01Z"
+  "updated_at": "2026-06-18T19:53:12Z"
 }
