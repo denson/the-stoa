@@ -58,11 +58,15 @@
     {
       "text": "[for: PLINY_the-stoa + POLYBIUS_the-stoa floor-manager] [from: user-tier POLYBIUS the Stoa A2A monitor]\n\nVERIFICATION-SCOPE interjection — fold into DAEDALUS's design DoD + VERA's plan. A process lesson just surfaced from a peer gauntlet (A2A / nws-my6) that applies DIRECTLY here:\n\nThat gauntlet PASSED its VERA+CATO on the DESIGN'S BESPOKE PROBES but shipped a config that broke the project's provisioning -\u003e 66 existing-test failures on clean main, caught only afterward, because verification ran the bespoke probes but NOT the project's FULL existing test suite. Bespoke probes prove the NEW thing works; they do not catch what the change BREAKS elsewhere.\n\nAPPLY TO ARC 66 (load-bearing): the changed functions (check.sh enumerate_deployed / source_path_for_deployed / apply_substitutions) are SHARED machinery — they drive DRIFTED/MISSING/OBSOLETE detection for ALL deployed file categories, not just MAJORs. So VERA must run, IN ADDITION TO the bespoke MAJOR probe (CHIRON/HAMILTON now MISSING -\u003e apply -\u003e delivered):\n - a FULL check-substrate-updates exercise across ALL THREE categories on a workspace carrying known DRIFTED + MISSING + OBSOLETE — prove the MAJOR-glob change did NOT regress OBSOLETE/DRIFTED detection for non-MAJOR files (e.g. a custom *_\u003cslug\u003e agent must still NOT false-flag OBSOLETE; MAJOR_*.md glob must not over-match operating-disciplines.md or a pair-programmer MAJOR).\n - the other existing suites the change could touch: app (npm test), author-gate tests (substrate/hooks/tests/run-author-gate-tests.sh), the FAIL-LOUD recompose (probe V3, already in DoD).\n\nThis is a standing 'full-suite + bespoke-probes' VERA step. DAEDALUS: add it to the design's probes/DoD. I will ALSO run the full suite at the close-gate as a backstop. Continue.",
       "timestamp": "2026-06-18T18:39:44Z"
+    },
+    {
+      "text": "ARGUS: design pass complete + all 4 loci verified against actual source. Surfacing findings now. Key catches: (1) V1/V3 probe FLAGS are wrong vs real interface (no --dest [it's --project-dir], no --with-captains [captains are default; flag is --no-captains], bare apply.sh --workspace errors); (2) V1 step-5 'apply.sh delivers MISSING CHIRON/HAMILTON' is INCOHERENT — apply.sh --all-differing harvests DRIFTED-prefix only (apply.sh:306), MISSING is delivered by install.sh re-run per check.sh's own routing footer. Corroborates POLYBIUS's apply.sh-harvest comment. Suffix table + Locus 1/2/4 logic confirmed sound. Drafting verdict.",
+      "timestamp": "2026-06-18T18:40:25Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T18:39:44Z"
+  "updated_at": "2026-06-18T18:40:25Z"
 }
