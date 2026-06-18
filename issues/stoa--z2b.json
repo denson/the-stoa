@@ -130,11 +130,15 @@
     {
       "text": "Changes A/B/C/D landed in working tree. A: classify_author_file added to _hooklib.sh (config arms first-\u003ecfg, bare *.md-\u003emd). B: extract_author_fields mode-aware via MODE env (default cfg; cfg-branch regex behaviorally byte-identical to OLD; md-branch slices leading frontmatter + matches keys at YAML line-start with ':' only; BOM literal \\ufeff present per design code block). C: gate is_author_encoding_file DELETED, single classify_author_file call yields _mode, extract_author_fields \"$_mode\"; deny-message line 141 untouched verbatim; sub-check 1/is_principal/allow-list/FAIL-OPEN unchanged. D: deployed mirror copied byte-identical. Smoke (build-sanity, NOT verification): bash -n both files OK; classify rc+mode correct for LICENSE.md-\u003ecfg, .claude-plugin/*.md-\u003ecfg, NOTICE.md-\u003emd, prose .md-\u003emd, package.json-\u003ecfg, notes.txt-\u003erc1; md body emits nothing, md frontmatter+cfg body emit. P11 source checks: classify def 1 in lib / 0 in gate; OLD name 0 anywhere; deny msg 1. P9 mirrors empty diff. Building corpus next.",
       "timestamp": "2026-06-18T11:50:18Z"
+    },
+    {
+      "text": "pass (build complete, working-tree only, NOT committed). FILES: 6 edited (substrate/hooks/{_hooklib.sh, pretooluse-author-field-audit.sh, README.md} + byte-identical .claude/hooks mirrors) + NEW substrate/hooks/tests/ corpus (README.md, run-author-gate-tests.sh, 14 fixtures fp1-4/tp1-7/ctl1-3). P9 mirrors byte-identical x3. P11 source: classify def 1 lib/0 gate, OLD name 0, deny-msg verbatim 1. Runner smoke exits 0 (16/16; build-sanity only, VERA owns P1-P3). Committability: all .md READMEs pass OLD gate (rewrapped 6 author-word:value prose spans to \u003c…\u003e/no-separator forms); all 14 .fixture out-of-class to OLD gate (scheme works). ONE design-vs-ship drift fixed: design tp3 example 'Copyright (c) 2026 Fenwick Galsworthy' has NO :/= separator so the gate extractor (OLD=new cfg, byte-identical) never matched it -\u003e ALLOW not BLOCK. Pre-existing gate property, out of arc scope. Fixed fixture to 'Copyright: Fenwick Galsworthy' (separator form the gate matches) to honor tp3's LICENSE-class-BLOCK intent without changing any gate behavior; noted in fixture + return msg. Returning to PLINY.",
+      "timestamp": "2026-06-18T11:59:29Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[BUG] authorship gate false-positives on prose + directive seat-attribution lines (blocks directive/verdict commits)",
   "type": "bug",
-  "updated_at": "2026-06-18T11:50:18Z"
+  "updated_at": "2026-06-18T11:59:29Z"
 }
