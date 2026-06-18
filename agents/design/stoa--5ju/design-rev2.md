@@ -589,3 +589,19 @@ this arc. The suffix-correctness probes (V3/V4) and the shared-machinery probe (
 silent false-MISSING/false-OBSOLETE correctness footgun — but that is a correctness hazard, not a
 security threat. The r5 force-substitute behavior change is a display-only correctness consideration on
 a non-existent non-substrate MAJOR, also not a security attack path.
+
+---
+
+## Post-landing correction (close-gate, 2026-06-18)
+
+Superseded by the in-scope EXPAND (commit `9e1768a`): this design enumerates **loci 1-4** only, but the
+shipped fix is **6 loci**. `apply.sh` carried duplicate copies of `source_path_for_deployed`
+(`apply.sh:185-186`) and `apply_substitutions` (`apply.sh:97`) with the identical hardcoded MAJOR
+enumeration. VERA's V2 (DRIFTED-delivery) falsified this doc's repeated "`apply.sh` (the only writer) is
+UNTOUCHED by this arc" premise; the two apply.sh loci were fixed with the IDENTICAL glob-derive pattern
+(byte-mirror of check.sh Loci 2/3), subproject-only suffix, MAJOR-arm ordered after
+`operating-disciplines.md`. The locus-list is therefore **1-6**, not 1-4.
+
+Also: §4 probe **V8(b)** had a probe-spec gap — it removed an UNSUFFIXED `CAPTAIN_VERA.md` at a SUFFIXED
+project tier (exercises nothing as written); VERA self-corrected at execution by re-running with the
+suffixed name (probe-spec imprecision, NOT a build defect).

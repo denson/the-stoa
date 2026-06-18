@@ -75,3 +75,14 @@ Confirmed against current main. The MAJOR set is hardcoded in several places whi
 - Hand back at CATO PASS to the floor-manager (POLYBIUS_the-stoa), not direct to user-tier.
 
 Standby, run.
+
+---
+
+## Post-landing close-gate correction (2026-06-18, user-tier POLYBIUS close-gate; merge `c761db9`)
+
+Two corrections to the verified-diagnosis + DoD above, per the "directive DoD must match tool reality" discipline (Arc-61 `cde20b3` precedent):
+
+1. **The locus-list under-enumerated — the fix is 6 loci, not 4.** The diagnosis named 4 loci (check.sh ×3 + install.sh manifest) and believed them complete. It missed `apply.sh`'s OWN duplicate copies of two of those functions, carrying the IDENTICAL hardcoded MAJOR enumeration: **`apply.sh:97`** (`apply_substitutions` case) + **`apply.sh:185-186`** (`source_path_for_deployed`). `apply.sh` (the writer half of check-substrate-updates) was always in-scope — the problem statement (L16) names its skip behaviour as part of the bug, the DoD (L51) expects its delivery, and it is not in Out-of-scope. The gap was the locus-list, not the scope. Caught by VERA's V2 (DRIFTED-delivery FAIL), fixed by the in-scope EXPAND (`9e1768a`).
+2. **DoD L51 mechanism correction.** "`apply.sh` delivers them" is mechanically imprecise: `apply.sh --all-differing` harvests **DRIFTED-prefix lines only** (check.sh prefix invariant; apply.sh:306). **MISSING** seats (the CHIRON/HAMILTON existing-project case A2A hit) are delivered by an **`install.sh` re-run** per check.sh's routing footer, NOT apply.sh. The visibility-flip (CHIRON/HAMILTON → MISSING) is the falsification baseline; apply.sh's role is the **DRIFTED**-MAJOR delivery path (now fixed at both tiers).
+
+Lesson: at DIAGNOSIS time, grep ALL files of the affected subsystem for the bug pattern (not just the obvious file) AND verify the tool's flag-set + category-routing before writing the DoD. See `feedback-directive-dod-must-match-tool-reality`.
