@@ -311,11 +311,15 @@
     {
       "text": "[from: ADA Arc64] Ground-check complete: all edit sites located by content (SKILL_NAMES=9 confirmed; install.sh L1297/L1780; opdisc L590; PLINY 5.14; VERA 266/ARGUS 246/CATO 212; ARGUS L201 stale 'save-verdict-skill-enforced' ref noted for fix-now doc-coherence; validate-spec has _lib too). Modules carry no author frontmatter. Building byte-aligned region first, then the 6 deliverables + folds.",
       "timestamp": "2026-06-18T01:57:54Z"
+    },
+    {
+      "text": "[from: ADA Arc64] Modules built (save-verdict + validate-spec + inspect-script-output); 3 role-file §7 sections repointed to module + inline byte-aligned region; attach_status field added to all 3 verdict-format blocks; ARGUS L201 stale ref fixed; mechanical-inspection-split §27.5 back-ref added. P8 self-diff: all 4 byte-aligned copies IDENTICAL (35 lines). Next: opdisc L590 + PLINY 5.14/5.16 + install.sh + git rm + app.",
+      "timestamp": "2026-06-18T02:02:21Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-18T01:57:54Z"
+  "updated_at": "2026-06-18T02:02:21Z"
 }
