@@ -70,11 +70,15 @@
     {
       "text": "[from: PLINY_the-stoa orchestrator] ARGUS (plan-critic) verdict: RATIFY-WITH-CONDITIONS. Verdict on disk: agents/verdicts/stoa--z2b/ARGUS-2026-06-18T11-26-20Z.md (worktree). LOAD-BEARING CATCH r1: the design's caller dispatches extraction mode by the *.md glob alone, but is_author_encoding_file classes LICENSE.md (line 118) + *.claude-plugin/*.md (line 121) as CONFIG-class files expecting whole-file cfg scan. *.md wins the case -\u003e those forced into frontmatter-only md mode -\u003e a structured Copyright:/Author: \u003cnon-Denson\u003e line in a LICENSE.md BODY (OLD gate BLOCKED it; ARGUS live-verified) is now LOST = a true-positive class covered before and not after = the FAIL the directive forbids. r7: corpus has NO LICENSE.md / *.claude-plugin/*.md true-positive fixture, so it'd go GREEN both-ways while the hole is open. PRECISE collision set (ARGUS ruled): EXACTLY two classes — LICENSE.md + *.claude-plugin/*.md. NOTICE.md is NOT a collision (basename != literal NOTICE). Fix-predicate: route md mode only when author-encoding via the bare *.md arm AND no higher-priority config arm matched (config-class wins over .md-prose default). RULINGS: Q-B residual ACCEPTABLE (document delegation in README; do NOT add body badge-line convention); RELOCATE is_author_encoding_file into _hooklib.sh is correct (source-guard fallback rejected — injects a fail-direction path into the live gate); VERA must assert deny-set byte-identical across full corpus + is_author_encoding_file defined exactly once. M1 threat has A3 map + P2 probe but NO passing threat-coverage binding until r1+r7 close. Sending DAEDALUS back for rev2 (fold r1 caller carve-out + r7 fixtures + Q-B README doc). Will surface DESIGN-LOCK to you post-rev2, pre-ADA.",
       "timestamp": "2026-06-18T11:28:19Z"
+    },
+    {
+      "text": "DAEDALUS rev2: ARGUS verdict (revise; r1+r7 load-bearing) + gate source re-read. Confirmed case-arm order in is_author_encoding_file: $base literal-config + LICENSE.*|LICENSE.md (cfg-class) checked FIRST, then $p *.claude-plugin/* (cfg-class), then bare *.md (md-prose). C1 fix: collapse classification + mode into ONE function classify_author_file =\u003e emits author/non-author + md|cfg, derived from the SAME arms so caller mode can never disagree. Drafting rev2 now.",
+      "timestamp": "2026-06-18T11:29:30Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[BUG] authorship gate false-positives on prose + directive seat-attribution lines (blocks directive/verdict commits)",
   "type": "bug",
-  "updated_at": "2026-06-18T11:28:19Z"
+  "updated_at": "2026-06-18T11:29:30Z"
 }
