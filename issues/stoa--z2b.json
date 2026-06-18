@@ -198,11 +198,15 @@
     {
       "text": "NOMOS activated on Arc-65 build commit 0e4d3d0 (stoa--z2b authorship-gate narrowing). Reading the output to audit + named bw ticket + role file. Beginning 6-check audit against bw + repo ground truth.",
       "timestamp": "2026-06-18T12:31:46Z"
+    },
+    {
+      "text": "CONFORMANT: Arc-65 commit 0e4d3d0 audited against bw + repo ground truth; all 6 checks pass, no divergences. (1) Author=PRINCIPAL denson \u003cdensonsmith2@gmail.com\u003e, §28 trailer Co-Authored-By: CAPTAIN_ADA_the-stoa present, 1 commit main..build. (2) Ironic self-test PASSES: no author-like field names a non-Denson person; 'Fenwick Galsworthy' appears ONLY in *.fixture files + 2 explicitly-labeled 'FICTIONAL TEST INPUT' prose/comment lines (tests/README.md:88, runner:38) — never a real author field. (3) ticket OPEN (not premature-closed); option (a) narrow-the-matcher built. (4) deliverables all present: classify_author_file+extract_author_fields in _hooklib.sh, is_author_encoding_file removed from gate, source\u003c-\u003edeployed 3 mirrors byte-identical, corpus 16/16 green both directions incl tp6 LICENSE.md + tp7 .claude-plugin/*.md BLOCK, README sec.7 narrowing+delegation doc present. (5) scope clean: agents/ excluded from commit; design-rev1/rev2 + 4 verdicts durable on beadwork under attachments/stoa--z2b/. (6) verdict-chain: VERA fail-on-P10-only (security GREEN both ways), CATO pass+VERA-meta-verify SOUND — PLINY's bw summary matches the verdicts, no misrepresentation. Deliverable committed clean through the OLD live gate (main 20267e4, classify refs=0). Returning.",
+      "timestamp": "2026-06-18T12:33:34Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[BUG] authorship gate false-positives on prose + directive seat-attribution lines (blocks directive/verdict commits)",
   "type": "bug",
-  "updated_at": "2026-06-18T12:31:46Z"
+  "updated_at": "2026-06-18T12:33:34Z"
 }
