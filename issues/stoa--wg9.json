@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-18T17:26:22Z",
+  "description": "Pair-programming arc (2026-06-18; user-tier POLYBIUS the-stoa-stream A2A-monitor fork + PRINCIPAL). Landed DIRECT to main 3b0bc4f.\n\nWHAT: skills/deploy-stoa/SKILL.md — agent-facing install/update ROUTER. Detects whether a Stoa is deployed at a target project (probe .claude/MAJOR_POLYBIUS*.md) and branches: FRESH -\u003e install.sh --target project (dry-run first); EXISTING -\u003e the update path (check-substrate-updates check-\u003eapply-\u003erevert), NEVER a blind install.sh re-run; git/bw missing -\u003e bootstrap-stoa. Plus a Beat 0 added to skills/install-stoa/SKILL.md doing the same detect-and-route before its fresh-install dialog. Closes the gap where no skill detected an existing deployment and routed to the update path.\n\nSCOPE: root skills/ (repo-meta, NOT deployed substrate) -\u003e app roster unaffected (gen-data verified; only diff was a pre-existing CRLF artifact, tracked at u--k5s).\n\nVERIFICATION: NOMOS CONFORMANT on all 7 checks (authorship clean: Author=PRINCIPAL, Co-Authored-By convention, frontmatter author=Denson Smith; diff = the 2 files only, no agents.ts; cross-ref tooling resolves; not in SKILL_NAMES).\n\nDOGFOOD: this is the install path POLYBIUS-A2A_the_younger uses for the u--k8z shakedown (A2A's project already has a Stoa -\u003e EXISTING branch -\u003e check-substrate-updates). Shakedown-surfaced deploy-stoa bugs become new pause-to-fix tickets.",
+  "id": "stoa--wg9",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "deploy-stoa install/update router skill — landed main 3b0bc4f (pair-programming)",
+  "type": "task",
+  "updated_at": "2026-06-18T17:26:22Z"
+}
