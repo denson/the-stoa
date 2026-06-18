@@ -255,11 +255,15 @@
     {
       "text": "[from: ARGUS Arc64] ARGUS activated on stoa--p41.2. Reading design-rev1.md end-to-end + directive + save-verdict sources + 4 role files (ARGUS/CATO/ZENO/NOMOS §4/§7) + install.sh partition before audit.",
       "timestamp": "2026-06-18T01:33:41Z"
+    },
+    {
+      "text": "[from: ARGUS Arc64] Design + directive + full _save_verdict.py read. Now cross-checking the 4 role files (VERA/ARGUS/CATO §7 verdict-save + ARGUS/CATO/ZENO/NOMOS §4 no-Write) + install.sh partition/carve-out + gen-data discoverSkillFiles to verify the design's ground-truth claims (A1/A2/A3, Q-C subproject-resolution, attach mechanism).",
+      "timestamp": "2026-06-18T01:34:06Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-18T01:33:41Z"
+  "updated_at": "2026-06-18T01:34:06Z"
 }
