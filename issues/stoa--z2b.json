@@ -170,11 +170,15 @@
     {
       "text": "[from: CATO] Cold-read + independent meta-verification of VERA complete. Ran the corpus myself (16/16 green), independently confirmed C4 (classify def lib=1 gate=0; is_author_encoding_file=0 across substrate/hooks/), all 3 mirrors byte-identical, cfg-branch clean_one/emit/finditer byte-identical to 20267e4, P2 in probes_executed with defeats_via_probe:P2. Ran adversarial attack shapes NO fixture covers (indented FM key, unclosed FM, '=' in FM, .claude-plugin+.md collision, LICENSE.txt) — all route as designed; config arms win, value-check never relaxed. No true-positive leak found. Drafting verdict + classifying findings.",
       "timestamp": "2026-06-18T12:19:30Z"
+    },
+    {
+      "text": "[from: CATO] pass: build is CLEAN, security property HOLDS BOTH DIRECTIONS (independently re-verified, not asserted — no true-positive leak in any class incl LICENSE.md/*.claude-plugin collisions, nor in adversarial shapes no fixture covers: indented/quoted/unclosed FM, config+.md path collisions, separator variants). Meta-verify VERA: SOUND — drove the attack path not happy-path, P2 threat-binding real+valid (defeats_via_probe:P2 in probes_executed result pass), live deny JSON captured, tp3/separator rulings hold under my re-run. P10 = landing/process (PLINY seat), NOT a security regression — concur. Non-blocking: c1 recommended-revision (add LICENSE separator-coverage honesty note to corpus README so green is not misread as total LICENSE coverage) + 2 minor follow-ups (CITATION.cff value cleanliness pre-existing; save-verdict probe-id ^p lowercase casing quirk). Verdict: agents/verdicts/stoa--z2b/CATO-2026-06-18T12-23-17Z.md (sha256 29bd9dbc). Returning.",
+      "timestamp": "2026-06-18T12:23:28Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[BUG] authorship gate false-positives on prose + directive seat-attribution lines (blocks directive/verdict commits)",
   "type": "bug",
-  "updated_at": "2026-06-18T12:19:30Z"
+  "updated_at": "2026-06-18T12:23:28Z"
 }
