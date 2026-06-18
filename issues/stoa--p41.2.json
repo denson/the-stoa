@@ -371,11 +371,15 @@
     {
       "text": "[from: NOMOS Arc64] P1-P7 GREEN so far: Author=PRINCIPAL + ADA trailer; save-verdict skill dir fully gone + Bash-only module (^[pP] j2i-fix + exit-2/3/4 + attach) present; validate-spec/inspect scripts retained, SKILL.md removed, wrapper modules present; SKILL_NAMES=6; carveout+prune-exempt cover both operator dirs (save-verdict in neither); no dangling menu-skill ptrs. Now P6 role-file repoints + byte-align, P8 app regen, P9 bw, P10 attach-at-write on beadwork.",
       "timestamp": "2026-06-18T02:33:11Z"
+    },
+    {
+      "text": "[from: NOMOS Arc64] VERDICT: CONFORMANT — all 10 checklist items green against actual repo+bw+beadwork ground truth. P1 Author=denson\u003cdensonsmith2@gmail.com\u003e + ADA trailer, no non-PRINCIPAL author field. P2 save-verdict skill dir fully git-rm'd; Bash-only module (no python) w/ exit-2 sha256 / exit-3 dest-guard / exit-4 empty-binding ^[pP] j2i-fix / bw-attach. P3 validate-spec+inspect scripts retained, SKILL.md removed, wrapper modules present. P4 SKILL_NAMES=6 (trio absent, credential-discipline present). P5 carveout+prune-exempt both cover validate-spec+inspect; save-verdict in neither. P6 VERA/ARGUS/CATO §7 repoint to module + inline ^[pP] assert; opdisc L590 Q-A HYBRID; PLINY 5.14 repointed (no --cwd) + new 5.16. P7 no dangling menu-skill ptrs. P8 app regen 7 LIEUTENANT (clean -3), build+41 tests green, kind union +module disclosed. P8-byte-align: 4 regions sha256-IDENTICAL (de485e33). P9 epic OPEN + j2i/1ne/xyn/7b1.8 all OPEN — commit says 'retires' (code-elimination) not 'closed' (no false-close). P10 attach-at-write REAL: ARGUS+CATO+VERA verdicts durable on beadwork attachments/stoa--p41.2/verdicts/. Final gauntlet gate PASS. Returning to PLINY.",
+      "timestamp": "2026-06-18T02:34:19Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-18T02:33:11Z"
+  "updated_at": "2026-06-18T02:34:19Z"
 }
