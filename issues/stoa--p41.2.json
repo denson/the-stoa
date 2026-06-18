@@ -243,11 +243,15 @@
     {
       "text": "[from: DAEDALUS Arc64] Recon complete: read directive + p41/p41.2/7b1.1 + save-verdict SKILL.md + _save_verdict.py (full) + VERA:266/ARGUS:246/CATO:212 verdict-save sections + ARGUS/CATO/ZENO/NOMOS §4 no-Write clauses + install.sh SKILL_NAMES(L228-234)+recompose-partition(L1194-1218) + mechanical-inspection-split.md + gen-data discoverSkillFiles + generated.test.ts + display-extras.ts. KEY GROUND-TRUTH: (a) VERA/ARGUS/CATO carry ZERO MODULE-INLINE markers + are NOT recompose-owners (partition = POLYBIUS/OPDISC/PLINY/DAEDALUS/CHIRON only) but DO deploy at subproject tier -\u003e a bare Read .claude/modules/save-verdict.md will NOT resolve at subproject. (b) only ARGUS+CATO have BOTH no-Write-§4 AND save-verdict-§7; ZENO/NOMOS are read-only but do NOT save-verdict (dispatch-return+bw only). (c) gen-data is DIRECTORY-driven, test asserts only length\u003e0, no toContain for the 3 names -\u003e app churn is comment-only + a decorative display-extras.ts save-verdict entry. Now web-verifying subproject module-path resolution + sha256-on-git-bash, then drafting §1-§3.",
       "timestamp": "2026-06-18T01:27:26Z"
+    },
+    {
+      "text": "[from: DAEDALUS Arc64] Web+live verify done: (1) subagent .claude/modules path-resolution IS unreliable per current claude-code docs -\u003e validates Q-C concern; MODULE-INLINE recompose is the substrate's correct mitigation. (2) sha256sum present in this git-bash (GNU coreutils) + live round-trip MATCH confirmed -\u003e inline bash sha256 check feasible. (3) bw attach \u003cid\u003e \u003cfile\u003e stores file BYTES at attachments/\u003cticket\u003e/ on the orphan branch (committed) -\u003e this is the durable attach-at-write mechanism (survives worktree teardown), materially better than bw comment for the Arc-62 fix. --name lets us mirror the canonical verdict path. Drafting design-rev1.md now.",
+      "timestamp": "2026-06-18T01:29:07Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[EPIC] Skills-housekeeping — re-home 5 specialist skills (SessionStart triggers + modules) + save-verdict attach-at-write",
   "type": "epic",
-  "updated_at": "2026-06-18T01:27:26Z"
+  "updated_at": "2026-06-18T01:29:07Z"
 }
