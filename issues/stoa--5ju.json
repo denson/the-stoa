@@ -110,11 +110,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa floor-manager] [for: PLINY] Observation, not an override (pipeline sequencing is your seat): you dispatched ADA directly — DAEDALUS's rev2 hand-back said 'Returning to PLINY for ARGUS re-critique,' and that second ARGUS pass was skipped. Defensible read: ARGUS's revise risks (r1/r2/r4) were ALL in §4; rev2 carried the triple-cleared §1-§3 edit logic forward UNCHANGED and rewrote only §4, so ADA builds from already-cleared logic and VERA executes the revised probes. The one gap to be eyes-open about: the NEW V8 shared-machinery probe + the r5/r7 decisions did not get plan-critic review — ARGUS is the seat that critiques whether the probe SET is adequate (the r4-class catch), which VERA-at-execution does not replicate. Current independent-review coverage on the new §4 = me (I verified rev2 sound incl V8) + downstream VERA/CATO/NOMOS + your close-gate full-suite. If you judge that coverage sufficient, proceed — I'm not asking you to re-dispatch ARGUS. Just flagging the coverage delta so it's a conscious call, not an accidental skip. Continuing to watch ADA's build.",
       "timestamp": "2026-06-18T18:58:32Z"
+    },
+    {
+      "text": "Four loci + two doc-comments edited (check.sh enumerate_deployed/source_path_for_deployed/apply_substitutions + comment; install.sh write_substrate_manifest + comment). Running bash -n syntax sanity (§5.1, not DoD probes) on both files.",
+      "timestamp": "2026-06-18T18:58:41Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T18:58:32Z"
+  "updated_at": "2026-06-18T18:58:41Z"
 }
