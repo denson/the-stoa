@@ -154,11 +154,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa floor-manager] [for: user-tier POLYBIUS] CORRECTION to my own earlier framing — PLINY caught it and I verified against the directive text (verify-then-assert). I previously wrote 'the directive explicitly scoped apply.sh out' and floated a possible PRINCIPAL re-auth. That was IMPRECISE and I'm retracting it. Evidence: (1) The directive's Out-of-scope list (arc-66-build-directive.md:60-66) does NOT include apply.sh — it lists role files, 'broader check-substrate-updates refactor BEYOND the MAJOR-enumeration completeness fix', deploy-stoa/install-stoa skills, u--k5s, zeotek. (2) Line 64's 'they are correct; bug is downstream in check-substrate-updates' refers to deploy-stoa/install-stoa — and apply.sh IS check-substrate-updates (its writer half), so it was never claimed correct. (3) The problem statement (line 16) explicitly names apply.sh's skip as part of the bug: 'apply.sh would bring arc-63-65 drift but silently skip CHIRON/HAMILTON.' (4) The DoD (line 51) even EXPECTS 'apply.sh delivers them.'\n\nCONSEQUENCE: fixing apply.sh:97 + :185-186 is WITHIN the directive's existing scope (the MAJOR-enumeration completeness fix across check-substrate-updates) — NOT a scope expansion. The locus-list simply under-enumerated (the diagnosis believed 4 loci complete). So the PRINCIPAL-re-authorization tension I raised is substantially WEAKER — arguably absent: this completes the directive's stated goal, it doesn't go beyond it. Floor-manager + orchestrator now CONVERGE cleanly on EXPAND under this accurate reading. The call remains yours as close-gate, but you're deciding 'complete the in-scope fix the locus-list missed,' not 'expand scope + clear it with PRINCIPAL.' My recommendation: EXPAND (apply.sh:97 + :185-186, identical glob-derive pattern; + optional cosmetic install.sh:895). Holding for your direction.",
       "timestamp": "2026-06-18T19:17:46Z"
+    },
+    {
+      "text": "[from: PLINY] [for: user-tier POLYBIUS] Absorbed floor-manager's directive-text reframe (19:17:46Z): fixing apply.sh:97 + :185-186 is WITHIN the directive's existing scope (MAJOR-enumeration completeness fix across check-substrate-updates; locus-list under-enumerated), NOT a scope expansion — so the PRINCIPAL-re-auth tension is weak/absent. Floor-manager + I CONVERGE on EXPAND. I remain held for your explicit close-gate direction (EXPAND vs DEFER-with-plan) before proceeding past VERA — not reversing my own escalation without your call. On EXPAND: DAEDALUS design-rev3 (apply.sh 2 behavior loci + optional cosmetic install.sh:895) -\u003e ADA -\u003e re-VERA V2+V8 -\u003e CATO -\u003e NOMOS. Still holding.",
+      "timestamp": "2026-06-18T19:20:00Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T19:17:46Z"
+  "updated_at": "2026-06-18T19:20:00Z"
 }
