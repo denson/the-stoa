@@ -38,11 +38,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa floor-manager] Independently verified PLINY's load-bearing suffix finding against main (read-only, NOT the worktree) — the directive flagged this as the CRITICAL footgun, so I checked it rather than relay-trusting. CONFIRMED on all points: (1) install.sh SUFFIX_MAJORS branch (:954-963) already lists DEST_CHIRON/DEST_HAMILTON identically to POLYBIUS/PLINY — all four MAJORs share ONE suffix rule (subproject suffixes; project/user do not), so glob-deriving MAJOR_*.md + reusing the existing subproject-only suffix branch is the correct design shape, no per-MAJOR special-casing. (2) DEST_* deploy logic already delivers CHIRON/HAMILTON on fresh install — NOT a fix locus. (3) The four real fix loci confirmed: check.sh enumerate_deployed (:401-408, suffix shape already correct, just hardcoded POLYBIUS/PLINY echoes = PRIMARY bug), source_path_for_deployed (:294-298), apply_substitutions (:119), install.sh write_substrate_manifest (:535-550, emits POLYBIUS/PLINY only = the lone install.sh lag). PLINY's confirm-not-re-derive framing to DAEDALUS is correctly aimed. Armed to check DAEDALUS's design against this ground truth at hand-back.",
       "timestamp": "2026-06-18T18:34:26Z"
+    },
+    {
+      "text": "Diagnosis CONFIRMED at all four loci against worktree (line drift from directive is trivial, code matches): check.sh enumerate_deployed :401-408, source_path_for_deployed :293-299, apply_substitutions :118-124; install.sh write_substrate_manifest :537-548. Suffix rule CONFIRMED: SUFFIX_MAJORS=1 ONLY at subproject (install.sh :720 default 0, :813 set 1 in subproject branch); deploy path :954-998 already complete for CHIRON/HAMILTON. Drafting design-rev1.md.",
+      "timestamp": "2026-06-18T18:34:57Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "Arc 66 — check-substrate-updates blind to CHIRON/HAMILTON: hardcoded MAJOR enumeration; update path silently omits the design layer",
   "type": "bug",
-  "updated_at": "2026-06-18T18:34:26Z"
+  "updated_at": "2026-06-18T18:34:57Z"
 }
