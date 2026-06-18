@@ -218,11 +218,15 @@
     {
       "text": "CONFORMANT (5/5): Arc-65 close-gate merge 5fb9bd8 grounded against directive+bw+repo. P1 SECURITY BOTH DIRECTIONS GREEN — corpus 16/16 at 5fb9bd8; drove the TP threat directly: frontmatter author:\u003cnon-Denson\u003e in prose .md (SKILL.md/README.md) STILL extracted+blocked, incl CRLF/BOM/quoted-value attack shapes; config-class .md (LICENSE.md, *.claude-plugin/*.md) keep OLD whole-file cfg scan (Evil-Forker body author caught); FP body-prose returns empty. TP direction NOT weakened. Sole residual = Q-B body Author: line in a prose .md (documented in directive Q-B + _hooklib.sh + README §7, delegated to prose discipline) — by-design, NOT introduced by this arc. P2 scope=exactly 22 files. P3 authorship: 0e4d3d0 Author=denson +CoA CAPTAIN_ADA_the-stoa; merge 5fb9bd8 Author=denson; only non-Denson name 'Fenwick Galsworthy' in *.fixture inputs. P4 mirror byte-identical (3/3). P5 merge clean: parents 20267e4+0e4d3d0, diff 0e4d3d0..5fb9bd8 empty, HEAD==5fb9bd8. Safe to push. Returning.",
       "timestamp": "2026-06-18T12:45:49Z"
+    },
+    {
+      "text": "[ARC 65 LANDED] z2b FIXED — authorship gate narrowed to frontmatter-only for .md, merged to main @5fb9bd8 (--no-ff of arc-65/build @0e4d3d0). Verified GREEN BOTH DIRECTIONS: the 14-fixture adversarial corpus passes 16/16 (false-positives ALLOW, true-positives still BLOCK, Denson controls ALLOW) — re-run by user-tier at the close-gate; gauntlet 4-way (ARGUS RATIFY / VERA live armed-gate / CATO / NOMOS 6/6 + NOMOS merge-audit drove the threat directly: a frontmatter author: naming a non-Denson person still BLOCKS, incl CRLF/BOM/quoted evasion). END-TO-END PROOF: the Arc-61 directive-DoD fix (blocked by z2b since Arc 61, stash@{0}) committed cleanly through the narrowed live gate @cde20b3; arc-65 design docs landed in-tree post-merge. The prose-rework stopgap is RETIRED. Follow-ups: stoa--y12 (separator-less LICENSE true-positive MISS, pre-existing), qsf\u003c-\u003eruu\u003c-\u003ej2i save-verdict deploy-drift reconciliation, c2 (CITATION.cff cosmetic). Closing.",
+      "timestamp": "2026-06-18T12:47:45Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[BUG] authorship gate false-positives on prose + directive seat-attribution lines (blocks directive/verdict commits)",
   "type": "bug",
-  "updated_at": "2026-06-18T12:45:49Z"
+  "updated_at": "2026-06-18T12:47:45Z"
 }
