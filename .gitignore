@@ -30,3 +30,8 @@ agents/**/_body-*.tmp.md
 .claude/hooks/.stop-sentinels/
 # stray data file (not a repo artifact)
 /LA_sea_level_data.csv
+
+# Per-operator consumer-workspace registry — machine-specific (absolute project paths).
+# check-substrate-updates/check.sh reads it locally; ship consumer-workspaces.txt.example
+# as the template, never the real list (privacy + portability — your machine layout stays yours).
+/substrate/consumer-workspaces.txt

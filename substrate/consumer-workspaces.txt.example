@@ -1,0 +1,17 @@
+# Consumer workspaces for the Stoa substrate-update check skill.
+# One absolute path per line. Comments (#) and blank lines are ignored.
+#
+# Used by substrate/skills/check-substrate-updates/check.sh to know which
+# workspaces to scan for drift between deployed substrate files and the
+# current the-stoa source.
+#
+# SETUP: copy this file to `consumer-workspaces.txt` (same directory) and
+# replace the examples below with YOUR workspaces' absolute paths. The real
+# `consumer-workspaces.txt` is gitignored — it is per-operator config and is
+# never committed or shipped (your machine layout stays yours). check.sh also
+# accepts `--workspace <path>` for a one-off check or `--registry <path>` to
+# point at a registry elsewhere, so a registry file is optional.
+#
+# Example (replace with your own):
+# /home/you/projects/my-consumer-workspace
+# /home/you/.claude
