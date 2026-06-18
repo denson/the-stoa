@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-18T20:51:40Z",
+  "description": "Surfaced by the A2A shakedown (POLYBIUS-A2A_the_younger, 2026-06-18) re-running deploy-stoa against zeotek_newswire. VERIFIED: substrate/skills/team-launcher/launch-team.ps1 = 171 lines, NO -ArcId/-OnlySeat. ~/.claude/skills/team-launcher/launch-team.ps1 (user-level deployed) = 200 lines, HAS -ArcId/-OnlySeat (14 refs). The user-level deployed copy is AHEAD of the substrate SOURCE -\u003e substrate is NOT the SSoT for this skill. A blind install.sh (deploying the 171L source) would REGRESS a deployed copy carrying the flags (A2A re-synced its project copy from the user-level script to preserve them; shows as the only DRIFTED file, expected). FIX: backport the -ArcId/-OnlySeat param + usage from the user-level copy into substrate/skills/team-launcher/launch-team.ps1 so the substrate source is the SSoT; verify install.sh deploy + the team-launcher skill still work. Tooling source change -\u003e arc-shaped (contained backport). Non-blocking the shakedown.",
+  "id": "stoa--fpj",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "launch-team.ps1 SSoT inversion — substrate source (171L) lacks -ArcId/-OnlySeat the user-level deployed copy (200L) has",
+  "type": "bug",
+  "updated_at": "2026-06-18T20:51:40Z"
+}
