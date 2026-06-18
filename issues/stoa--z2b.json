@@ -34,11 +34,15 @@
     {
       "text": "[from: DAEDALUS] State: gate source consumed end-to-end; root cause reproduced live (OLD regex matches both z2b instances: FP1 'by'=** seat-prose, FP2 'author'=Denson...no other person). Frontmatter-only .md narrowing prototyped GREEN both ways (catches real frontmatter author: Jane Roe, emits nothing on body prose). install.sh deploy glob is *.sh non-recursive + README by basename =\u003e tests/ subdir is source-only, will NOT deploy. Drafting design-rev1 §1-§6 now.",
       "timestamp": "2026-06-18T11:10:51Z"
+    },
+    {
+      "text": "[from: DAEDALUS] pass: design-rev1 written (~290 lines, §1-§7). Q-A=frontmatter-only .md (config untouched, byte-identical cfg path); Q-B=do NOT keep body Author: coverage (explicit defended delegation to prose+audit+NOMOS); Q-C=DECLINED value-heuristic (would soften config true-positives). Mode-aware extract_author_fields(md|cfg); caller dispatches by basename; is_author_encoding_file UNCHANGED (.md still routes in for frontmatter). Corpus source-only at substrate/hooks/tests/ (install glob is *.sh non-recursive -\u003e tests/ never deploys); fixtures stored as *.fixture (non-triggering basename) + runner reconstructs intended path; sources REAL extract_author_fields + is_author_encoding_file (no reimpl). FICTIONAL name 'Fenwick Galsworthy' for TP fixtures. M1 threat-anchored probe = P2 (BLOCK across all 5 file classes). Top weak points for ARGUS: (1) Q-B body-line residual, (2) is_author_encoding_file relocation in a security arc, (3) frontmatter regex not a parser. design_artifact_path: agents/design/arc-65/design-rev1.md. Returning.",
+      "timestamp": "2026-06-18T11:14:17Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[BUG] authorship gate false-positives on prose + directive seat-attribution lines (blocks directive/verdict commits)",
   "type": "bug",
-  "updated_at": "2026-06-18T11:10:51Z"
+  "updated_at": "2026-06-18T11:14:17Z"
 }
