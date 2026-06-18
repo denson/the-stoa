@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-18T02:39:00Z",
+  "description": "Origin: CATO c1 / design-W3 (Arc 64 stoa--p41.2), floor-manager r5 lock, PLINY hand-back item 2. The save-verdict module's attach-at-write emits the structured attach_status (OK/FAILED) via a PROSE contract AFTER the byte-aligned printf+sha256+attach block, NOT as mechanized rc-capture INSIDE the 35-line aligned region. RISK: a seat copying ONLY the byte-aligned block (without the surrounding prose) could fire-and-forget the bw attach -\u003e losing the r5 durability signal. Mitigated TODAY by the 2-home durable contract (modules/save-verdict.md + MAJOR_PLINY 5.16) + the attach-failed-blocks-advancement invariant -\u003e non-blocking. PLAN: mechanize rc-capture inside the aligned block ('bw attach ... ; rc=$?' -\u003e set attach_status=FAILED on nonzero structurally within the aligned region) so the structured signal is emitted by the block itself, not by prose adherence, and survives a block-only copy; extend the P8 byte-align region to cover the rc-capture. This HARDENS the mechanism; the durability guarantee holds today via the contract.",
+  "id": "stoa--luo",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "[FOLLOW-UP arc-64] save-verdict attach_status is prose-contract, not mechanized rc-capture in the byte-aligned block",
+  "type": "task",
+  "updated_at": "2026-06-18T02:39:00Z"
+}
