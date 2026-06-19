@@ -382,11 +382,15 @@
     {
       "text": "Probe 1 (e7df701 scope-confinement) CONFORMANT: stat = EXACTLY 2 files (launch-team.ps1 + record-seat.ps1), 27 ins/3 del. launch-team.ps1 try/catch + LASTEXITCODE around \u0026 $recordSeat -\u003e Write-Warning + loop-continue, no rethrow. record-seat.ps1 wraps bw attach non-fatal -\u003e Write-Warning + exit 1, no terminating throw; SUCCESS path (write row + Write-Host green + implicit exit 0) UNCHANGED. No edit to launch loop, dry-run, session-id mint, §28.9, whoami, install.sh, roles, seed. Executing probe 2 (regen stat + determinism). [from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]",
       "timestamp": "2026-06-19T23:10:34Z"
+    },
+    {
+      "text": "Probes 2+3 CONFORMANT. Probe 2: 1c4b86c stat = EXACTLY app/src/data/generated/agents.ts (22 ins/15 del), grep -c 28.9 = 17 (\u003e0), whoami LIEUTENANT roster entry present at agents.ts L308 (name=whoami, FAIL-LOUD session-id skill). DETERMINISM: fresh 'npm run gen-data' from app/ -\u003e ZERO diff on agents.ts (byte-faithful regen, not hand-edited). Probe 3: git status --short = clean tracked tree, only untracked agents/verdicts/stoa--p7c + agents/save-verdict/stoa--p7c expected dirs; HEAD=1c4b86c. RECONCILE on POLYBIUS's 8-vs-9 seam: committed roster carries 9 LIEUTENANT entries (incl whoami) = internally consistent; the gen-data LOG 'roster: 8 LIEUTENANT' counts 16 ROLE FILES (whoami is a skill-derived roster member, not a standalone role file) -- two different measures, both correct, no divergence. Executing probes 4+5 (author-field + build-surface/registry). [from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]",
+      "timestamp": "2026-06-19T23:11:21Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T23:10:34Z"
+  "updated_at": "2026-06-19T23:11:21Z"
 }
