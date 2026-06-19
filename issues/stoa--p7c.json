@@ -38,11 +38,15 @@
     {
       "text": "[from: NOMOS_the-stoa] Mechanical probes pass: HEAD==df5126b (directive present at df5126b + HEAD), both role files (.claude/MAJOR_POLYBIUS.md + MAJOR_PLINY.md) on disk, both attachment self-paths resolve on beadwork, charter stoa--p7c open. Now reading the directive to ground the scope (in/out) probe + chain-of-command.",
       "timestamp": "2026-06-19T21:13:11Z"
+    },
+    {
+      "text": "[from: NOMOS_the-stoa] CONFORMANT (both briefs + overall). All 8 probes pass: directive ref accurate (HEAD==df5126b, directive present df5126b+HEAD); charter stoa--p7c open + correctly named; role files .claude/MAJOR_POLYBIUS.md + MAJOR_PLINY.md on disk; both /compact self-paths resolve on beadwork; seat names (POLYBIUS_the-stoa / PLINY_the-stoa) consistent across both briefs + match launcher POLYBIUS_\u003cslug\u003e; chain-of-command correct + non-inverted (PLINY surfaces to floor-manager not user-level except scope disputes; FM disclaims CAPTAIN-dispatch/merge/push); PLINY IN/OUT scope matches directive deliverables+out-of-scope (launcher rewrite + stoa--fpj fold [fpj open, 171L/0-flag substrate vs 200L/has-flag deployed CONFIRMED], whoami skill, sec.28 broaden, bw registry; OUT: no cross-machine resume, no builder-deploy build, RC note-only); no false authorship (only hits are chain-of-command line + the Author:=PRINCIPAL absolute being preserved). No divergences. Both briefs may propagate to live sessions. Returning.",
+      "timestamp": "2026-06-19T21:13:58Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T21:13:11Z"
+  "updated_at": "2026-06-19T21:13:58Z"
 }
