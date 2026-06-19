@@ -34,11 +34,15 @@
     {
       "text": "[from: NOMOS_the-stoa] NOMOS activated on stoa--p7c: auditing the two Arc-67 activation briefs (floor-manager + PLINY) against bw + repo ground truth. Reading both briefs + the directive + charter + role files.",
       "timestamp": "2026-06-19T21:12:51Z"
+    },
+    {
+      "text": "[from: NOMOS_the-stoa] Mechanical probes pass: HEAD==df5126b (directive present at df5126b + HEAD), both role files (.claude/MAJOR_POLYBIUS.md + MAJOR_PLINY.md) on disk, both attachment self-paths resolve on beadwork, charter stoa--p7c open. Now reading the directive to ground the scope (in/out) probe + chain-of-command.",
+      "timestamp": "2026-06-19T21:13:11Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T21:12:51Z"
+  "updated_at": "2026-06-19T21:13:11Z"
 }
