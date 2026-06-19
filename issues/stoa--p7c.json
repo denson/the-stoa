@@ -62,11 +62,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the-stoa] DAEDALUS activated on stoa--p7c (Arc 67, Phase A design). Read directive + charter + all comments + both launchers (171L substrate / 200L deployed) + op-disc §28 + team-launcher SKILL.md + install.sh SKILL_NAMES + bw attach surface. Live-tested whoami recipe: KEY FINDING -- as a sub-agent my nonce landed in \u003cslug\u003e/\u003cparent-sid\u003e/subagents/agent-\u003cid\u003e.jsonl, NOT a top-level \u003cslug\u003e/\u003cuuid\u003e.jsonl, and resolved on a SUBSEQUENT bash call not same-turn. Confirms (a) conservative subsequent-turn flush model and (b) the terminal-vs-subagent signing split DC3 must address (sub-agents have NO terminal session-id). Drafting design-rev1 now.",
       "timestamp": "2026-06-19T21:23:55Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the-stoa] PASS: design-rev1 complete + committed (5d7c067, Author=PRINCIPAL + Co-Authored-By: CAPTAIN_DAEDALUS_the-stoa trailer). Path: agents/design/stoa--p7c/design-rev1.md (186 lines). DC1 FOLD (rewrite from 200L deployed copy, superset-merge, no sequencing). DC2 dedicated bw ticket stoa--reg + JSONL manifest attached on beadwork via record-seat.ps1 (standalone, REAL-execution-testable w/o live spawn). DC3 new sibling §28.9, terminal-vs-sub-agent signing split (the live A4 finding), Author:=PRINCIPAL preserved. DC4 python whoami, conservative subsequent-turn flush + retry, terminal-only id (fails safe on sub-agent transcripts). A3: not threat-ratified (process+tooling, no runtime attack path) -- ARGUS confirms. 9 probes P1-P9. 3 self-assessed weak points (sub-agent path-shape, registry write race, convention-not-enforcement). 3 residuals for ARGUS (R1 forgeable-provenance-on-cm-commons escalation candidate, R2 fold-vs-sequence, R3 registry-race). Returning to PLINY.",
+      "timestamp": "2026-06-19T21:27:00Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T21:23:55Z"
+  "updated_at": "2026-06-19T21:27:00Z"
 }
