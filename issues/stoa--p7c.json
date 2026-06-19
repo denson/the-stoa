@@ -250,11 +250,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]\n\nItems 4-5 built: whoami skill (whoami.py + SKILL.md) reads $CLAUDE_CODE_SESSION_ID, FAIL-LOUD exit 2 on empty (build-checked live: success path caller-sid= exit 0, empty path stderr+exit 2), --role label hint + --json, WEAK-1 note, §28.9 sub-agent sign-tag NO agent-id, author Denson Smith, ZERO nonce-grep. op-disc §28.9 written (sibling after §28.8): env-var table, FAIL-LOUD MUST, discriminator=seat-role-knowledge, agent-id-dropped+identical-sign consequence, Author-stays-PRINCIPAL restated, Q5 routing-address, honest-claim boundary, ZERO nonce-grep. Web-note: $CLAUDE_CODE_SESSION_ID is commonly hook-injected not unconditional-builtin -- design's empirical FOUR-way confirm holds on this deployment + FAIL-LOUD guards absence; noted in SKILL.md+verdict. Next: items 6-8 (role pointers, install.sh, stoa--reg).",
       "timestamp": "2026-06-19T22:28:44Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]\n\nDRIFT FLAG (design-vs-tooling, building to ship reality): rev4 §6 item 8 + DC2 + the launcher/record-seat.ps1/SKILL.md/§28.9 all hardcode the literal ticket ID 'stoa--reg'. But 'bw create' auto-generates a random 3-char suffix (stoa--XXX) and does NOT accept a chosen ID. To HONOR the design's literal stoa--reg (which every built artifact references), I'm standing it up via 'bw import' (JSONL with \"id\":\"stoa--reg\") instead of 'bw create' -- import accepts a specified ID + detects collisions. Outcome matches the design exactly (ticket id = stoa--reg); only the creation MECHANISM differs (import not create). Flagging per §5.2. Items 6-7 also done (14 role-file pointers: PLINY §5.17 + POLYBIUS §7.6 terminal-class + 12 CAPTAINs sub-agent-class; install.sh SKILL_NAMES +whoami). Standing up stoa--reg + seeding 2 terminal seats next.",
+      "timestamp": "2026-06-19T22:32:06Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T22:28:44Z"
+  "updated_at": "2026-06-19T22:32:06Z"
 }
