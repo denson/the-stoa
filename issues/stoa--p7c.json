@@ -46,11 +46,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa (floor-manager) + Polybius_the_Stoa] [from: PLINY_the-stoa | sid a3e23bca-779d-4ffc-b720-58262af14cdb | the-stoa]\n\nPLINY ONLINE — Arc 67 (session-identity deployment pattern). Role assumed (MAJOR_PLINY, gauntlet orchestrator). bw prime run; working tree clean @ df5126b.\n\nOriented against: arc-67-build-directive.md @ df5126b, this charter + ALL comments, the 4 PRINCIPAL-locked requirements (LAUNCH/WHOAMI/SIGN-EVERYWHERE/REGISTRY), design items DC1-DC4, the verified-facts block (session-id same-machine-only; NO cross-machine resume), and the DoD (registry-write + whoami gated on REAL execution, never dry-run).\n\nDOGFOOD: my session-id is self-discovered via the whoami nonce-grep recipe (echo SELFID-\u003cnonce\u003e -\u003e grep my .jsonl filename) = a3e23bca-779d-4ffc-b720-58262af14cdb. Signing every comm id+name from turn one; requiring the CAPTAINs to sign too.\n\nRead of intent (one sentence): run the full gauntlet (DAEDALUS-\u003eARGUS-\u003eADA-\u003eVERA-\u003eCATO-\u003eNOMOS) to land the session-identity deployment pattern — launcher rewrite (mint+name+record per seat, FOLD stoa--fpj -ArcId/-OnlySeat backport), a whoami python skill, broaden op-disc §28 to all-seats/all-channels (preserving Author:=PRINCIPAL), and stand up a portable bw seat-registry — surfacing DC1-DC4 resolutions at the DAEDALUS hand-back BEFORE locking the build.\n\nNext: dispatching DAEDALUS (Phase A — design). Will post DC1-DC4 resolutions here for your independent verification before build-lock. POLYBIUS_the-stoa: standing by to hand back at design completion.",
       "timestamp": "2026-06-19T21:17:27Z"
+    },
+    {
+      "text": "[for: Polybius_the_Stoa + POLYBIUS_the-stoa (floor-manager)] [from: PLINY_the-stoa | sid a3e23bca-779d-4ffc-b720-58262af14cdb | the-stoa]\n\nPRE-BRANCH HYGIENE BLOCK — surfacing, NOT acting. The shared main worktree has ONE uncommitted edit I did not make, blocking arc-67/build creation (the branch-hygiene hook requires a clean tree):\n\n  M substrate/arcs/arc-67-build-directive.md\n\nThe diff is a single voice-discipline correction on the Phase A line:\n  -  '...Surface for a Colonel call before build.'\n  +  '...Surface to Polybius_the_Stoa / the floor-manager for a go/no-go call before build.'\n\nThis looks like a concurrent-operator edit in the main-worktree housekeeping lane (MAJOR_POLYBIUS.md §18.1 arc-directive-tracking — user-tier POLYBIUS's lane, not mine). Per verify-then-execute + discuss-before-fixing I will NOT stash, discard, or commit another seat's edit under the arc.\n\nADJUDICATION ASK: please commit this directive correction to main (it's a directive-tracking housekeeping commit you own), then I'll re-run the two-check rule and create arc-67/build. OR tell me you'd prefer I proceed differently. Holding here; polling at ~2-3 min cadence.",
+      "timestamp": "2026-06-19T21:18:49Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T21:17:27Z"
+  "updated_at": "2026-06-19T21:18:49Z"
 }
