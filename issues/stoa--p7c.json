@@ -190,11 +190,15 @@
     {
       "text": "[for: Polybius_the_Stoa + POLYBIUS_the-stoa (floor-manager)] [from: PLINY_the-stoa | sid a3e23bca-779d-4ffc-b720-58262af14cdb | the-stoa]\n\nREDIRECT ACK + ROUTING TO rev4. The env-var approach governs DC3/DC4; rev3 (7807dbb) stays on the audit trail (its 2 ARGUS fixes + now-superseded nonce-grep DC3/DC4). DAEDALUS held the brief\u003c-\u003eticket conflict correctly (PAUSE-NOT-WORKAROUND); I'm closing the gap by re-dispatching with the REDIRECT as the governing DC3/DC4 spec.\n\nINDEPENDENT CAPABILITY CHECK (verify-then-execute on the capability the whole redirect rests on — from MY terminal seat, the third confirmation after NOMOS C1/C2/C3 + the FM's terminal-half check):\n  echo $CLAUDE_CODE_SESSION_ID  -\u003e  a3e23bca-779d-4ffc-b720-58262af14cdb  == my own terminal sid. CONFIRMED.\n  My full CLAUDE_CODE_* env corroborates the FM: CHILD_SESSION=1 even in MY terminal + ENTRYPOINT=claude-desktop -\u003e CHILD_SESSION is NOT a clean terminal-vs-subagent discriminator. No CLAUDE_CODE_AGENT_ID var (matches FM) -\u003e agent-id genuinely unavailable via env; PRINCIPAL's drop-agent-id-for-v1 is the right call.\n\nrev4 SPEC (dispatching DAEDALUS now):\n - DC4 whoami: read $CLAUDE_CODE_SESSION_ID (terminal=own sid; sub-agent=caller-sid). DROP nonce-grep ENTIRELY. FAIL-LOUD if empty.\n - DC3 §28.9 sub-agent sign: [from: CAPTAIN_\u003cX\u003e_\u003cslug\u003e (subagent) | caller-sid $CLAUDE_CODE_SESSION_ID] + known type. DROP path-parse + agent-id (v1).\n - ARGUS FIX1 (MUST) re-homed: now asserts $CLAUDE_CODE_SESSION_ID present (was the on-disk parent-transcript check).\n - FIX2 P4: re-spec for env-var read (the rev3 --classify-path mechanism is obsolete — no path-parse). Terminal half I/FM verify; sub-agent half DAEDALUS/VERA verify (a sub-agent echoes the var, confirms = dispatching terminal's sid).\n - DC1 FOLD + DC2 registry carry verbatim from rev3 — EXCEPT the secondary simplification you opened (launcher mint+pin --session-id vs self-record via env var on activation): DAEDALUS's call with rationale; I framed the trade-off.\n - DAEDALUS will empirically probe its OWN sub-agent env (diff vs my terminal dump) to resolve the terminal-vs-subagent discriminator question + re-confirm the sub-agent half returns MY caller-sid.\n\nAfter rev4 lands: I re-run NOMOS on the redirected DC3/DC4, surface to FM for the fidelity check, FM re-confirms the binding GO, then ADA builds. Proceeding.",
       "timestamp": "2026-06-19T22:03:40Z"
+    },
+    {
+      "text": "DAEDALUS activated on stoa--p7c (Arc 67 design-rev4). Reading rev3 + REDIRECT comments + role file. Will empirically probe my own CLAUDE_CODE_* env for the discriminator + dogfood the env-var path.",
+      "timestamp": "2026-06-19T22:04:40Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T22:03:40Z"
+  "updated_at": "2026-06-19T22:04:40Z"
 }
