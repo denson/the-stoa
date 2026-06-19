@@ -110,7 +110,21 @@ $tmp = Join-Path ([System.IO.Path]::GetTempPath()) "stoa-seat-registry.jsonl"
 $content = ($kept -join "`n") + "`n"
 [System.IO.File]::WriteAllText($tmp, $content, (New-Object System.Text.UTF8Encoding($false)))
 
-& bw attach $ticket $tmp --name $attachName
-if ($LASTEXITCODE -ne 0) { throw "bw attach failed for $ticket ($readPath); seat '$Seat' not recorded." }
+# `bw attach` FAILURE is non-fatal here (defense-in-depth: record-seat.ps1 is ALSO called
+# standalone for the consumer desktop self-record path). On a workspace without the stoa--reg
+# ticket the attach fails -> Write-Warning + exit non-zero, but WITHOUT an unhandled terminating
+# throw (the launcher's try/catch OR a caller's exit-code check then handles it gracefully).
+# The SUCCESS path is unchanged: write the row, Write-Host, implicit exit 0.
+$attachOk = $true
+try {
+  & bw attach $ticket $tmp --name $attachName
+  if ($LASTEXITCODE -ne 0) { $attachOk = $false }
+} catch {
+  $attachOk = $false
+}
+if (-not $attachOk) {
+  Write-Warning "could not record seat '$Seat' to stoa--reg - bw attach failed (expected on a workspace without the registry ticket); seat not registered."
+  exit 1
+}
 
 Write-Host ("recorded seat '{0}' (name {1}, sid {2}, machine {3}) -> {4}" -f $Seat, $Name, $(if($SessionId){$SessionId}else{'<null>'}), $Machine, $readPath) -ForegroundColor Green

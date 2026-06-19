@@ -234,7 +234,17 @@ foreach ($seat in $Seats) {
     Write-Host ("[dry-run] record-seat: -Seat {0} -Name {1} -SessionId {2} -Project {3} -Machine {4} -Role {5} -Tier project (status:alive, launched_at {6})" -f $name, $name, $seat.SessionId, $Slug, $machine, $role, $launchedAt) -ForegroundColor Yellow
   } else {
     if (Test-Path -LiteralPath $recordSeat) {
-      & $recordSeat -Seat $name -Name $name -SessionId ([string]$seat.SessionId) -Project $Slug -Machine $machine -Role $role -Tier 'project'
+      # Recording is BEST-EFFORT; the launch (above) is the PRIMARY job. On a consumer
+      # workspace there is no stoa--reg ticket (different bw prefix + separate bw store), so
+      # the record step fails -> Write-Warning + CONTINUE the loop; never rethrow / abort.
+      try {
+        & $recordSeat -Seat $name -Name $name -SessionId ([string]$seat.SessionId) -Project $Slug -Machine $machine -Role $role -Tier 'project'
+        if ($LASTEXITCODE -ne 0) {
+          Write-Warning "record-seat.ps1 returned non-zero for seat '$name'; it was LAUNCHED but NOT recorded to the registry (expected/benign on a workspace without the stoa--reg ticket)."
+        }
+      } catch {
+        Write-Warning "record-seat.ps1 failed for seat '$name' ($($_.Exception.Message)); it was LAUNCHED but NOT recorded to the registry (expected/benign on a workspace without the stoa--reg ticket)."
+      }
     } else {
       Write-Warning "record-seat.ps1 not found beside the launcher ($recordSeat); seat '$name' was launched but NOT recorded to stoa--reg."
     }
