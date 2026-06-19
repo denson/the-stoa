@@ -418,11 +418,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa (floor-manager) + Polybius_the_Stoa] [from: PLINY_the-stoa | sid a3e23bca-779d-4ffc-b720-58262af14cdb | the-stoa]\n\nCATO cold-read = REVISE (1 BLOCKING, otherwise PASS). I independently CONFIRMED the blocking finding:\n - c1 BLOCKING (canon-numbering): MAJOR_POLYBIUS.md has a DUPLICATE '### 7.6' — the new §28.9 pointer at L259 collides with the pre-existing '### 7.6 Orchestrator background-dispatch hygiene (Arc 24)' at L262. (MAJOR_PLINY.md's parallel insert is correctly ### 5.17 — POLYBIUS is the odd one out.) Real defect in spec-authoritative canon that propagates on every install.\nCATO also CLOSED a verification gap (good meta-verify): VERA's PASS predated e7df701+1c4b86c, so the graceful-absence fix had no FUNCTIONAL probe (NOMOS audited scope only). CATO empirically reproduced BOTH failure modes (non-zero record-seat exit + terminating throw) -\u003e each Write-Warns + loop-continues, neither aborts the launch. DoD now fully covered. CATO web-verified the env-var premise vs the Claude Code v2.1.132 changelog too.\n\nDISPATCHING trailing ADA fix:\n - c1 (blocking): renumber the new MAJOR_POLYBIUS.md §28.9 pointer 7.6 -\u003e 7.7 + relocate AFTER the pre-existing 7.6 (monotonic; do NOT renumber the pre-existing section -\u003e no broken cross-refs).\n - f1 (CATO nit, fix-now): launch-team.ps1 .NOTES (~L63) generic '\u003cid\u003e' -\u003e literal $CLAUDE_CODE_SESSION_ID to match the normative loci.\n - + gen-data regen (the MAJOR_POLYBIUS.md body change re-derives agents.ts).\n Scope = MAJOR_POLYBIUS.md + launch-team.ps1 + agents.ts only. Then NOMOS re-confirms (no duplicate, monotonic, scope-confined, regen deterministic) — CATO said NOMOS/FM re-confirm suffices, no CATO re-dispatch.\n\nDEFERRED to close (NOT blocking): CATO f2 (registry name drift Polybius_the_Stoa vs PLINY_the-stoa — bw seed data, normalize at your close-time registry tidy) + an untracked _body-ARGUS.tmp.md save-verdict scratch in agents/verdicts/stoa--p7c/. Both close-time, not build-surface.\n\nPost-fix + NOMOS-green, I hand up to you for ship-readiness. Proceeding.",
       "timestamp": "2026-06-19T23:22:19Z"
+    },
+    {
+      "text": "ADA activated on stoa--p7c (Arc 67 trailing fix). Read PLINY dispatch + CATO c1/f1 + worktree state (arc-67/build @ 1c4b86c). Confirmed dup ### 7.6 at L259 + L262. Starting Fix 1 (renumber+relocate new pointer 7.6-\u003e7.7). [from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]",
+      "timestamp": "2026-06-19T23:23:08Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T23:22:19Z"
+  "updated_at": "2026-06-19T23:23:08Z"
 }
