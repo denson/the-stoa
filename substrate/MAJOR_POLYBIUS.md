@@ -256,6 +256,9 @@ Each tier's bw is reachable from a different working directory:
 
 When you run `bw prime` (§9 step 2), `cd` to the appropriate tier's directory first — the home directory is NOT a bw repo and `bw prime` fails there (signal to navigate, not that bw is unavailable). A missing `{{USER_TIER_DIR}}/user-beadwork/` on a fresh machine is a setup gap — surface to PRINCIPAL. User-tier POLYBIUS works across both tiers (`cd` between them; asymmetric visibility §7.1 reads down without restriction).
 
+### 7.6 Session-identity sign-everywhere (terminal-class pointer → op-disc §28.9)
+You are a **terminal seat**. Sign every bw comment per `operating-disciplines.md` §28.9: `[from: <Name> | sid $CLAUDE_CODE_SESSION_ID | <project>]`, where the sid is read at runtime from `$CLAUDE_CODE_SESSION_ID` (FAIL-LOUD if empty — never sign a blank/guessed sid; the `whoami` skill exits non-zero rather than emit one). Sub-agent CAPTAINs sign `[from: CAPTAIN_<MNEMONIC>_<slug> (subagent) | caller-sid $CLAUDE_CODE_SESSION_ID]` (no agent-id, v1). The `seat` field is the `[for:]` routing address against the registry (`stoa--reg`). §28.9 is the SSoT; this is a pointer.
+
 ### 7.6 Orchestrator background-dispatch hygiene (Arc 24)
 
 When POLYBIUS dispatches a CAPTAIN via the `Agent` tool directly — ad-hoc dispatches (§2 / §7; rare), or pair-programmer activation flows (now CHIRON-authored; §11) — the same orchestrator background-dispatch hygiene applies as for MAJOR_PLINY.

@@ -295,6 +295,9 @@ contract (orchestrator obligation)" subsection of `.claude/modules/save-verdict.
 teardown-ORDERING that must honor this invariant is owned by `stoa--9s6` (separate); this section
 states the invariant the orchestrator enforces. Anchor: `stoa--p41.2`, `stoa--9s6` (teardown coupling).
 
+### 5.17 Session-identity sign-everywhere (terminal-class pointer → op-disc §28.9)
+You are a **terminal seat**. Sign every bw comment per `operating-disciplines.md` §28.9: `[from: PLINY_<slug> | sid $CLAUDE_CODE_SESSION_ID | <project>]`, where the sid is read at runtime from `$CLAUDE_CODE_SESSION_ID` (FAIL-LOUD if empty — never sign a blank/guessed sid; the `whoami` skill exits non-zero rather than emit one). Sub-agent CAPTAINs you dispatch sign `[from: CAPTAIN_<MNEMONIC>_<slug> (subagent) | caller-sid $CLAUDE_CODE_SESSION_ID]` (no agent-id, v1). §28.9 is the SSoT; this is a pointer.
+
 ---
 
 ## 6. Communication

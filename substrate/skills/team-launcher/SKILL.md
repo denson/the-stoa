@@ -19,7 +19,8 @@ The script lives **beside this SKILL.md** and deploys with the skill into every 
 .claude/skills/team-launcher/launch-team.ps1                 # PANES (default), say-trigger
 .claude/skills/team-launcher/launch-team.ps1 -Layout Tabs    # one tab per seat
 .claude/skills/team-launcher/launch-team.ps1 -Layout Windows # one OS window per seat (no wt needed)
-.claude/skills/team-launcher/launch-team.ps1 -DryRun         # print the command, open nothing
+.claude/skills/team-launcher/launch-team.ps1 -DryRun         # print the command + the record step, run neither
+.claude/skills/team-launcher/launch-team.ps1 -RemoteControl  # add --remote-control to each launched session
 # explicit project / slug, or a paste-trigger team:
 .claude/skills/team-launcher/launch-team.ps1 -ProjectDir C:\path\to\proj -Slug proj
 .claude/skills/team-launcher/launch-team.ps1 -Activation paste -Layout Windows -AutoPaste
@@ -42,8 +43,32 @@ The script lives **beside this SKILL.md** and deploys with the skill into every 
 - `--dangerously-skip-permissions` — the team runs unattended.
 - `--model <name>` — `opus` alias works; full id `claude-opus-4-8` if an alias is rejected.
 - `-n/--name <name>` — sets the session display name + terminal title (how each pane is labeled by seat).
+- `--session-id <uuid>` — pins the seat's session-id at launch (the launcher mints one GUID per seat; see "Session-identity" below).
+- `--remote-control` — added to each session when `-RemoteControl` is passed (optional).
 - positional `[prompt]` — pre-seeds the interactive session (this is how say-trigger feeds `polybius`/`pliny`). Do **not** use `-p/--print` (non-interactive).
 - In-session `/rename "<name>"` renames a live session.
+
+## Session-identity: mint + name + record (stoa--p7c, Arc 67 — the HYBRID DC1 launcher half)
+Each terminal seat the launcher brings up gets:
+1. **A minted per-seat UUID** (`[guid]::NewGuid()`), pinned via `claude --session-id <uuid>`. The launcher KNOWS the id deterministically before the seat activates (it minted it), so there is no activation-ordering window where a launched seat is un-recorded.
+2. **A space-free human-friendly name** (`--name`, e.g. `POLYBIUS_the-stoa`).
+3. **A durable registry row.** After the launch loop (non-dry-run only), the launcher calls `record-seat.ps1` serially, once per seat, writing `{seat, name, session_id, project, machine, role, tier, launched_at, status:alive}` to the bw seat registry (`stoa--reg`).
+
+**Desktop self-record fallback (HYBRID DC1).** Desktop-UI sessions are created OUTSIDE this launcher, so it can neither mint nor pin their id. Those seats SELF-RECORD on activation: they read their own session-id from the `$CLAUDE_CODE_SESSION_ID` environment variable (the `whoami` skill returns it) and call this same `record-seat.ps1` with that sid. `$CLAUDE_CODE_SESSION_ID` is a terminal seat's OWN sid (and a sub-agent's CALLER sid); `whoami` FAILS LOUD if it is empty rather than recording a blank identity. This is the env-var-powered path that covers exactly the case the launcher pin cannot reach.
+
+**The registry read recipe** ("which seat owns which project / is it alive"):
+```powershell
+git show beadwork:attachments/stoa--reg/seat-registry.jsonl   # the JSONL manifest, one row per seat
+# filter to alive seats on a project (PowerShell):
+git show beadwork:attachments/stoa--reg/seat-registry.jsonl |
+  ForEach-Object { $_ | ConvertFrom-Json } |
+  Where-Object { $_.project -eq 'the-stoa' -and $_.status -eq 'alive' }
+# or with jq:
+git show beadwork:attachments/stoa--reg/seat-registry.jsonl | jq -c 'select(.project=="the-stoa" and .status=="alive")'
+```
+The full registry shape, schema, and the honest-claim boundary live in the `stoa--reg` ticket body; the signing convention these rows feed is `operating-disciplines.md` §28.9.
+
+`record-seat.ps1` (ships beside this SKILL.md) is the standalone read-modify-rewrite-attach helper: it reads the current manifest via `git show`, drops any existing row matching `(seat, machine)` (idempotent refresh), appends the new row, and re-attaches via `bw attach stoa--reg <temp> --name seat-registry.jsonl`. It is callable without spawning a live agent — the launcher calls it (terminal path), a desktop seat calls it (self-record), and verification calls it directly with a synthetic row.
 
 ## The workflow (say-trigger — the default)
 1. **Launch:** `.claude/skills/team-launcher/launch-team.ps1`. Panes come up named, in the project dir, each pre-seeded its bare word; the workspace `CLAUDE.md` auto-loads each role (floor-manager = left pane / first tab).
@@ -59,8 +84,11 @@ For paste-trigger workspaces, use `-Activation paste` and paste each seat's file
 - **Panes/Tabs need Windows Terminal (`wt`)** — absent → falls back to separate windows.
 
 ## Cross-references
-- `launch-team.ps1` (this dir) — the tool. `-DryRun` previews without opening anything.
+- `launch-team.ps1` (this dir) — the tool. `-DryRun` previews the launch + record steps without running either.
+- `record-seat.ps1` (this dir) — the standalone registry write helper (mint+name+record / desktop self-record).
+- `whoami` skill — returns the seat's session-id from `$CLAUDE_CODE_SESSION_ID` (FAIL-LOUD if empty); the desktop self-record path uses it.
+- `operating-disciplines.md` §28.9 — the session-identity sign-everywhere convention these registry rows feed.
 - `MAJOR_POLYBIUS.md` / `MAJOR_PLINY.md` — the seat roles; the activation order (floor-manager before worker) is theirs.
 - The workspace `CLAUDE.md` — its say-trigger line ("when the user invokes POLYBIUS, read `.claude/MAJOR_POLYBIUS.md`") is what say-mode relies on.
 - `interactive-html-preview` skill — sibling verified-mechanics skill.
-- `stoa--h8w` — the generalization that made this skill consumer-deployable; `stoa--p7c` — the formal Role_Project_Instance id scheme to adopt for seat names later.
+- `stoa--h8w` — the generalization that made this skill consumer-deployable; `stoa--p7c` — the seat session-identity scheme landed here (mint + name + record to `stoa--reg`); see §28.9 + the `stoa--reg` registry ticket.
