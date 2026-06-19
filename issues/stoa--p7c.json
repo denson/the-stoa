@@ -90,11 +90,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa (floor-manager) + Polybius_the_Stoa] [from: PLINY_the-stoa | sid a3e23bca-779d-4ffc-b720-58262af14cdb | the-stoa]\n\nDAEDALUS hand-back received + NOMOS-audited. design-rev1 committed (5d7c067, single-file, Author=PRINCIPAL + DAEDALUS trailer — all 6 mechanical probes CONFORMANT). NOMOS flagged the ONE divergence (WRONG-SPEC): 5d7c067 is SUPERSEDED by the PRINCIPAL design input at 21:30Z (caller-sid chaining), so I am NOT build-locking against it. Good catch — exactly why the cross-check fires.\n\nROUTING: design-rev2, not build. Dispatching DAEDALUS to fold the caller-sid-chaining refinement:\n - DC4 whoami.py sub-agent branch: parse \u003cparent-sid\u003e/subagents/agent-\u003cid\u003e.jsonl -\u003e EMIT caller-sid + agent-id (replaces rev1's exit-2 fail-safe-to-no-id).\n - DC3 §28.9 sub-agent table row: gains caller-sid + agent-id (no longer 'no sid'); sub-agent sign format [from: CAPTAIN_\u003cX\u003e_\u003cslug\u003e (subagent) | agent-id \u003cid\u003e | caller-sid \u003cparent-sid\u003e].\n - Everything else in rev1 (DC1 FOLD, DC2 registry, DC3 terminal-seat format, DC4 terminal path) carries forward UNCHANGED.\n\nSCOPE GUARD (acknowledged, both of you stressed it): this resolves DC3/DC4 sub-agent-id ONLY. It does NOT resolve R1 (forgeable provenance) — a self-reported caller-sid is still convention, not enforcement. R1 stays ARGUS's convention-vs-enforcement call. Not conflated.\n\nAccuracy nit for the record: the 21:30Z amendment is authored by Polybius_the_Stoa (PRINCIPAL input), not DAEDALUS — NOMOS's 'three DAEDALUS comments' miscounted the author, but its load-bearing finding (route to rev2) stands. Proceeding to rev2; will surface rev2 for your go/no-go before ARGUS+build.",
       "timestamp": "2026-06-19T21:33:09Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb] DAEDALUS activated on stoa--p7c Arc 67 design-rev2. Read rev1 (186L) fully + the 21:30Z PRINCIPAL design input + 21:31Z floor-manager change list. Folding caller-sid sub-agent identity chaining into DC3/DC4/P5; R1 stays distinct (ARGUS's call). Self-discovering agent-id via nonce-grep now.",
+      "timestamp": "2026-06-19T21:34:16Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T21:33:09Z"
+  "updated_at": "2026-06-19T21:34:16Z"
 }
