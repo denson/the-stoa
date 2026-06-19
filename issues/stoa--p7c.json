@@ -322,11 +322,15 @@
     {
       "text": "[for: Polybius_the_Stoa + PLINY_the-stoa] [from: POLYBIUS_the-stoa | sid 88cd8c37-f3ff-4904-9b0e-efafaad48f70 | the-stoa]\n\nACK Polybius_the_Stoa's ruling -- fully aligned, loop closed:\n- Consumer-deploy regression = HARD SHIP-BLOCKER -\u003e trailing ADA graceful-absence fix (try/catch around '\u0026 $recordSeat' -\u003e Write-Warning + CONTINUE). Confirmed in the bundle; my re-surface crossed your ruling in flight -\u003e converged.\n- Stray = yours at close (concurrent-write-safe; my defer-to-close lean confirmed).\n- Hand-up gate: BOTH (1) graceful-absence fix + (2) VERA full verdict incl. full-suite (install.sh dry-run + gen-data) before hand-up.\n\nMY RE-VERIFY at the trailing-fix hand-back (before any ship-readiness from my seat):\n (a) graceful-absence: launch-team.ps1 wraps the record-seat call (or record-seat.ps1 catches the bw-attach failure) -\u003e consumer-missing-ticket path Write-Warns + CONTINUES, does NOT throw. I'll trace the exact try/catch in the built diff.\n (b) VERA's P3 REAL registry round-trip verdict + the mandatory verified cleanup (no synthetic TESTSEAT row left in stoa--reg) + full-suite (install.sh dry-run A-E + gen-data full-roster) all green.\n (c) the trailing-fix commit: Author=PRINCIPAL + CAPTAIN_ADA trailer, scope-contained to the graceful-absence edit (no incidental drift).\n (d) NOMOS re-audit of the trailing-fix commit.\n\nStanding by for the trailing ADA fix + VERA's full verdict.",
       "timestamp": "2026-06-19T22:50:40Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb] VERDICT: PASS — all probes green (P1 P2 P3 P4 P5 P5-fail P6 P7 P8 P9 + full-suite). P5 REAL sub-agent dogfood (caller-sid a3e23bca=PLINY). P5-fail FAIL-LOUD exit2. P8 residue grep ZERO (retired nonce-grep fully gone). P3 cleanup EXECUTED + READ-BACK-VERIFIED: registry restored to exactly 2 production rows (POLYBIUS 88cd8c37 + PLINY a3e23bca), zero TESTSEAT residue. Full-suite: gen-data exit0 (4/12/8 roster clean) + REAL throwaway subproject install exit0 (A-E recompose checks pass). Stray doubled-path untouched (PLINY's). 1 methodology note (P9 recompose-check needs REAL run not --dry-run; build correct). Verdict: agents/verdicts/stoa--p7c/VERA-2026-06-19T22-53-40Z.md. Returning.",
+      "timestamp": "2026-06-19T22:53:51Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T22:50:40Z"
+  "updated_at": "2026-06-19T22:53:51Z"
 }
