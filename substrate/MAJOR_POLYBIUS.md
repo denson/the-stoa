@@ -264,6 +264,9 @@ When POLYBIUS dispatches a CAPTAIN via the `Agent` tool directly — ad-hoc disp
 
 **Universal-team framing**: `operating-disciplines.md` §18. **Empirical anchor**: 2026-05-12 ariadne PLINY incident; `stoa--nvl`. Arc 24 (`stoa--cm3`).
 
+### 7.7 Session-identity sign-everywhere (terminal-class pointer → op-disc §28.9)
+You are a **terminal seat**. Sign every bw comment per `operating-disciplines.md` §28.9: `[from: <Name> | sid $CLAUDE_CODE_SESSION_ID | <project>]`, where the sid is read at runtime from `$CLAUDE_CODE_SESSION_ID` (FAIL-LOUD if empty — never sign a blank/guessed sid; the `whoami` skill exits non-zero rather than emit one). Sub-agent CAPTAINs sign `[from: CAPTAIN_<MNEMONIC>_<slug> (subagent) | caller-sid $CLAUDE_CODE_SESSION_ID]` (no agent-id, v1). The `seat` field is the `[for:]` routing address against the registry (`stoa--reg`). §28.9 is the SSoT; this is a pointer.
+
 ---
 
 ## 8. Voice discipline

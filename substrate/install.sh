@@ -232,6 +232,7 @@ SKILL_NAMES=(
   interactive-html-preview
   team-launcher
   gauntlet-setup
+  whoami
 )
 # Arc 63 / stoa--p41.2: check-substrate-updates + check-bw-release were REMOVED
 # from SKILL_NAMES (retired from the model-invokable skill menu — their SKILL.md
