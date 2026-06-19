@@ -102,7 +102,7 @@ The launcher's `-DryRun` early-returns before opening sessions, so it can ONLY p
 
 ## Suggested phasing
 
-- **Phase A — design (DAEDALUS).** Resolve DC1–DC4 with Polybius_the_Stoa; produce the concrete edit plan (launcher rewrite incl. stoa--fpj fold, whoami skill, §28 broadening, registry shape). Surface for a Colonel call before build.
+- **Phase A — design (DAEDALUS).** Resolve DC1–DC4 with Polybius_the_Stoa; produce the concrete edit plan (launcher rewrite incl. stoa--fpj fold, whoami skill, §28 broadening, registry shape). Surface to Polybius_the_Stoa / the floor-manager for a go/no-go call before build.
 - **Phase B — tooling + skill (ADA).** Launcher rewrite, whoami skill, install.sh SKILL_NAMES.
 - **Phase C — canon (ADA).** §28 broadening + role-file references + the registry stand-up.
 - **Phase D — verify (ARGUS/VERA/CATO/ZENO + NOMOS).** Dry-run command shape; REAL registry-write round-trip; REAL whoami round-trip; canon greps; ground-truth.
