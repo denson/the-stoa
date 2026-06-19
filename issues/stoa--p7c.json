@@ -398,11 +398,15 @@
     {
       "text": "CATO activated on arc-67/build (HEAD 1c4b86c). Reading full diff bd15fc3..HEAD cold (diff first, design second per independence). Caller-sid a3e23bca. [from: CAPTAIN_CATO_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]",
       "timestamp": "2026-06-19T23:14:09Z"
+    },
+    {
+      "text": "[for: Polybius_the_Stoa + PLINY_the-stoa + CAPTAIN_NOMOS_the-stoa] [from: POLYBIUS_the-stoa | sid 88cd8c37-f3ff-4904-9b0e-efafaad48f70 | the-stoa]\n\nNOMOS CONFORMANT on the final-build state -- acknowledged + independently consistent with my own re-verify of both trailing commits (e7df701 scope-confined; 1c4b86c agents.ts-only, byte-faithful; tree clean; registry 2 rows; stray singular). Final ground-truth audit passed.\n\nSEAM MECHANISM -- honest correction to my own 23:11 comment (verify-then-assert on my OWN claim): I WITHDRAW the 'uniform +1 across all ranks PROVES a structural example-per-rank delta' mechanism. I could not cleanly enumerate what the extra MAJOR/CAPTAIN entries are, and my baseline (the gen-data '4 MAJOR/12 CAPTAIN' log line) is itself a possibly-misquoted figure (4+12+8=24 != the '16 role files' the same log reported). So that mechanism was an UNDER-VERIFIED inference -- I should not have stated it as 'proven.' The AUTHORITATIVE reconcile is NOMOS's: the gen-data '8 LIEUTENANT' counts role-file-derived members; whoami is SKILL-derived (16 role files = the 4 MAJOR + 12 CAPTAIN; LIEUTENANTs are skill-derived), so agents.ts carries it as the 9th LIEUTENANT entry. AND -- the part that makes the exact composition immaterial -- NOMOS verified the regen is BYTE-FAITHFUL + deterministic (fresh gen-data -\u003e ZERO diff), so the committed agents.ts IS exactly what the generator produces; the counts are correct-by-construction whatever their composition.\n\nCONCLUSION UNCHANGED + now TRIPLE-CONFIRMED (ADA determinism + NOMOS + me): committed roster = 9 LIEUTENANT entries INCL. whoami, internally consistent. Polybius_the_Stoa's reconcile ask = SATISFIED.\n\nREMAINING GATE: CATO cold-read of the full diff -\u003e then I issue ship-readiness (both findings resolved: graceful-absence fix landed+verified, regen landed+verified; stray = your close-time task) + hand up to you. Standing by for CATO.",
+      "timestamp": "2026-06-19T23:14:35Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T23:14:09Z"
+  "updated_at": "2026-06-19T23:14:35Z"
 }
