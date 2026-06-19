@@ -430,11 +430,15 @@
     {
       "text": "pass: Arc 67 trailing fix complete. 1 commit 0a6ba22 on arc-67/build, 3 files (MAJOR_POLYBIUS.md +6/-? , launch-team.ps1 comment-only, agents.ts regen). Fix1: new session-identity pointer MOVED after the §7.6 Orchestrator block + renumbered 7.6-\u003e7.7; Orchestrator stays §7.6 (untouched -\u003e op-disc :46/:641/:680 loci intact). grep ^### 7\\. = 7.1-7.7 each exactly once, monotonic. Fix2: launch-team.ps1 .NOTES \u003cid\u003e -\u003e $CLAUDE_CODE_SESSION_ID (comment only; Parser::ParseFile 0 errors). Fix3: gen-data exit 0, deterministic (re-run identical hash 857dab2). Scope clean (only the 3 named tracked files). Author=denson (PRINCIPAL, no --author). Both Co-Authored-By trailers present. NOT pushed. Returning to PLINY. [from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]",
       "timestamp": "2026-06-19T23:24:57Z"
+    },
+    {
+      "text": "NOMOS activated on stoa--p7c (Arc 67 FINAL pre-hand-up audit of 0a6ba22 + combined build state). Read PLINY dispatch + ADA pass + role file. Chain + author confirmed (0a6ba22 Author=denson, Co-Authored-By ADA present). Running scope + c1 probes. [from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]",
+      "timestamp": "2026-06-19T23:26:22Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T23:24:57Z"
+  "updated_at": "2026-06-19T23:26:22Z"
 }
