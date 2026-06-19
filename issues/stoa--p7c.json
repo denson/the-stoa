@@ -274,11 +274,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]\n\npass: build complete, all 8 items landed in commit 11b51f9 (arc-67/build), Author=denson (PRINCIPAL), dual trailers (CAPTAIN_ADA_the-stoa + Claude Opus 4.8). 21 files, 471 insertions. caller-sid above sourced from $CLAUDE_CODE_SESSION_ID (dogfood proof). Load-bearing contracts confirmed via build-check: launcher --session-id in BOTH wt-array + Windows $cmd + -RemoteControl token both layouts + dry-run-prints-record-but-executes-neither (registry untouched by dry-run); whoami FAIL-LOUD exit 2 on empty; §28.9 numbered correctly (sibling after §28.8) + Author-stays-PRINCIPAL restated; stoa--reg created (via import to honor literal id) + seeded 2 terminal seats + honest-claim note in body; P8 residue grep ZERO across whoami/§28.9/launcher-SKILL.md. Two drifts flagged + handled: (1) bw create can't set a literal id -\u003e used bw import; (2) record-seat.ps1 path-doubling defect found+fixed during seeding (--name must be bare filename). Hook-injection wording corrected to native-since-v2.1.132 per both POLYBIUS corrections. Returning to PLINY for VERA dispatch.",
       "timestamp": "2026-06-19T22:38:00Z"
+    },
+    {
+      "text": "NOMOS activated on Arc 67 / commit 11b51f9. Reading the ADA build output + stoa--reg ground truth + repo. Claims 1-2 confirmed on first pass (Author=denson, ADA trailer present, 21 files, stoa--reg exists with honest-claim note). Now verifying the load-bearing cleanup claim (registry = exactly 2 rows, no doubled-path artifact). [from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]",
+      "timestamp": "2026-06-19T22:40:19Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T22:38:00Z"
+  "updated_at": "2026-06-19T22:40:19Z"
 }
