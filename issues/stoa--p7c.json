@@ -394,11 +394,15 @@
     {
       "text": "verdict: CONFORMANT\nticket: stoa--p7c\nchecked_output: Arc-67 trailing build commits e7df701 (graceful-absence record-step fix) + 1c4b86c (gen-data regen) + combined final-build state on arc-67/build (HEAD=1c4b86c)\ndivergences: none\nground_truth_consulted: git log/show/diff/status on arc-67/build (HEAD 1c4b86c); npm run gen-data in app/; agents.ts L308 whoami entry; registry via git show beadwork:attachments/stoa--reg/seat-registry.jsonl; git ls-tree beadwork for doubled-path stray\nsummary: Chain bd15fc3\u003c-11b51f9\u003c-e7df701\u003c-1c4b86c=HEAD confirmed; all three arc commits Author=denson/PRINCIPAL (no --author override) + Co-Authored-By CAPTAIN_ADA_the-stoa. P1 e7df701 scope-confined to EXACTLY launch-team.ps1 + record-seat.ps1 (try/catch+LASTEXITCODE -\u003e Write-Warning+continue in launcher; bw attach non-fatal -\u003e Write-Warning+exit1 no throw in record-seat; SUCCESS path unchanged). P2 1c4b86c = EXACTLY agents.ts (22/15), 28.9 count 17, whoami LIEUTENANT roster entry present; fresh gen-data -\u003e ZERO diff (byte-faithful, deterministic). P3 tracked tree clean, only expected untracked verdict dirs, HEAD=1c4b86c. P4 no author-like JSON field key in generated roster. P5 §28.9 (5 in op-disc, 14 role-file pointers), whoami skill + install.sh L235, registry exactly 2 production rows (POLYBIUS 88cd8c37 + PLINY a3e23bca) all alive, doubled-path stray singular (did NOT multiply). RECONCILED POLYBIUS 8-vs-9 seam: committed roster carries 9 LIEUTENANT entries incl whoami (internally consistent); gen-data log '8 LIEUTENANT' counts 16 role files (whoami is skill-derived, not a standalone role file) -- both correct. Trailing commits touched NO build-surface file (11b51f9..1c4b86c diff over op-disc/whoami/install.sh/role files = empty).\ngap_or_blocker: none\nReturning. [from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]",
       "timestamp": "2026-06-19T23:12:01Z"
+    },
+    {
+      "text": "CATO activated on arc-67/build (HEAD 1c4b86c). Reading full diff bd15fc3..HEAD cold (diff first, design second per independence). Caller-sid a3e23bca. [from: CAPTAIN_CATO_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]",
+      "timestamp": "2026-06-19T23:14:09Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T23:12:01Z"
+  "updated_at": "2026-06-19T23:14:09Z"
 }
