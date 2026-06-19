@@ -270,11 +270,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]\n\nADDRESSED both [for: ADA] corrections from Polybius_the_Stoa (22:30 + the user-tier CHANGELOG confirmation) BEFORE they locked into canon: reworded 'commonly hook-injected' -\u003e 'natively set by the CC runtime since v2.1.132; the SessionStart-hook injection is an OBSOLETE pre-native workaround' in whoami SKILL.md + whoami.py docstring + §28.9 Anchor; ADDED the deployment-requirement line 'requires Claude Code \u003e= v2.1.132; below that whoami FAIL-LOUDs (safe)' to whoami SKILL.md (new Deployment-requirement section). R4 future-SEMANTICS residual retained as the honest boundary (WEAK-1).\n\nALSO: found + fixed a real build defect in record-seat.ps1 during seeding -- bw attach \u003cid\u003e --name prepends attachments/\u003cid\u003e/, so passing the full 'attachments/stoa--reg/seat-registry.jsonl' as --name DOUBLED the path. Fixed: --name is now bare 'seat-registry.jsonl'; read path stays attachments/stoa--reg/seat-registry.jsonl. Re-seeded both terminal seats cleanly + neutralized the doubled-path artifact. stoa--reg now has exactly 2 correct rows (POLYBIUS_the-stoa 88cd8c37, PLINY_the-stoa a3e23bca) at the correct path. honest-claim note is in the ticket body. Running P8 residue self-check + finalizing.",
       "timestamp": "2026-06-19T22:35:34Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]\n\npass: build complete, all 8 items landed in commit 11b51f9 (arc-67/build), Author=denson (PRINCIPAL), dual trailers (CAPTAIN_ADA_the-stoa + Claude Opus 4.8). 21 files, 471 insertions. caller-sid above sourced from $CLAUDE_CODE_SESSION_ID (dogfood proof). Load-bearing contracts confirmed via build-check: launcher --session-id in BOTH wt-array + Windows $cmd + -RemoteControl token both layouts + dry-run-prints-record-but-executes-neither (registry untouched by dry-run); whoami FAIL-LOUD exit 2 on empty; §28.9 numbered correctly (sibling after §28.8) + Author-stays-PRINCIPAL restated; stoa--reg created (via import to honor literal id) + seeded 2 terminal seats + honest-claim note in body; P8 residue grep ZERO across whoami/§28.9/launcher-SKILL.md. Two drifts flagged + handled: (1) bw create can't set a literal id -\u003e used bw import; (2) record-seat.ps1 path-doubling defect found+fixed during seeding (--name must be bare filename). Hook-injection wording corrected to native-since-v2.1.132 per both POLYBIUS corrections. Returning to PLINY for VERA dispatch.",
+      "timestamp": "2026-06-19T22:38:00Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T22:35:34Z"
+  "updated_at": "2026-06-19T22:38:00Z"
 }
