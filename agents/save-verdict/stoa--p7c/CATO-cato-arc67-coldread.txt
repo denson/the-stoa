@@ -1,0 +1,26 @@
+=== SAVE_VERDICT record ===
+request_id: cato-arc67-coldread
+caller: CATO
+ticket_id: stoa--p7c
+officer: CATO
+timestamp: 2026-06-19T23:19:19Z
+body_source: body_path
+overwrite: false
+cwd: C:\Users\denso\claude_projects\the-stoa\.claude\worktrees\arc-67-build
+
+=== execution ===
+exit_code: 0
+duration_ms: 20
+resolved_dest: C:\Users\denso\claude_projects\the-stoa\.claude\worktrees\arc-67-build\agents\verdicts\stoa--p7c\CATO-2026-06-19T23-19-19Z.md
+input_byte_length: 5315
+input_sha256: e2fdd56c32e8187e2ebd9e75de5b4276377461afd1b3ea0edea07499838ea5ae
+dest_sha256: e2fdd56c32e8187e2ebd9e75de5b4276377461afd1b3ea0edea07499838ea5ae
+verification: pass
+diagnostics_first_50_lines:
+~~~~
+(none)
+~~~~
+diagnostics_total_lines: 0
+
+=== assertion ===
+overall: pass
