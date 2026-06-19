@@ -342,11 +342,15 @@
     {
       "text": "ADA activated on stoa--p7c (Arc 67 trailing graceful-absence fix). Reading launch-team.ps1 record-step (~L226-239) + record-seat.ps1 bw-attach path before first edit. Scope: error handling ONLY, two loci. [from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]",
       "timestamp": "2026-06-19T22:59:00Z"
+    },
+    {
+      "text": "pass: graceful-absence fix landed e7df701 on arc-67/build. 2 files / 27 ins / 3 del — ONLY the two error-path loci. Locus 1 launch-team.ps1:240-247 (\u0026 $recordSeat try/catch + $LASTEXITCODE check -\u003e Write-Warning + CONTINUE, never rethrow). Locus 2 record-seat.ps1:117-128 (bw attach non-fatal: failure -\u003e Write-Warning + exit 1, no terminating throw; SUCCESS path write-row+exit-0 UNCHANGED). Author=denson (no --author override); CAPTAIN_ADA trailer present. Both PS1 parse-checked clean (Parser::ParseFile, 0 errors). agents.ts working-copy change was PRE-EXISTING (not mine) — left unstaged, flagged in verdict follow_ups. NOT pushed. Returning for VERA graceful-absence-path re-verify. [from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]",
+      "timestamp": "2026-06-19T23:00:44Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T22:59:00Z"
+  "updated_at": "2026-06-19T23:00:44Z"
 }
