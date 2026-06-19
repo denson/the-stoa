@@ -378,11 +378,15 @@
     {
       "text": "NOMOS activated on arc-67/build trailing commits (e7df701 graceful-absence + 1c4b86c gen-data regen) + combined final-build state. Reading the two commits to audit + ground truth. Chain confirmed: bd15fc3\u003c-11b51f9\u003c-e7df701\u003c-1c4b86c=HEAD. All three arc commits Author=denson/PRINCIPAL + Co-Authored-By CAPTAIN_ADA_the-stoa present. [from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]",
       "timestamp": "2026-06-19T23:10:16Z"
+    },
+    {
+      "text": "Probe 1 (e7df701 scope-confinement) CONFORMANT: stat = EXACTLY 2 files (launch-team.ps1 + record-seat.ps1), 27 ins/3 del. launch-team.ps1 try/catch + LASTEXITCODE around \u0026 $recordSeat -\u003e Write-Warning + loop-continue, no rethrow. record-seat.ps1 wraps bw attach non-fatal -\u003e Write-Warning + exit 1, no terminating throw; SUCCESS path (write row + Write-Host green + implicit exit 0) UNCHANGED. No edit to launch loop, dry-run, session-id mint, §28.9, whoami, install.sh, roles, seed. Executing probe 2 (regen stat + determinism). [from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]",
+      "timestamp": "2026-06-19T23:10:34Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T23:10:16Z"
+  "updated_at": "2026-06-19T23:10:34Z"
 }
