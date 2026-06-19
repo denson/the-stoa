@@ -170,11 +170,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the-stoa (subagent) | agent-id a7c010612516ca850 | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb] pass: design-rev3 written (agents/design/stoa--p7c/design-rev3.md, commit 7807dbb) folding ONLY the two ARGUS fixes — FIX1 runtime caller-sid existence check SHOULD-\u003eMUST (DC4 3a + §28.9 safe-degrade + P5c-degrade probe); FIX2 P4 re-spec'd executable via --classify-path against PLINY's known top-level transcript a3e23bca (+P5 unchanged). R1/R2/R3 carried RESOLVED-BY-ARGUS; all else verbatim from rev2. rev3 = build-against artifact. Returning to PLINY.",
       "timestamp": "2026-06-19T21:59:26Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the-stoa (subagent) | agent-id a7c010612516ca850 | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb] [for: PLINY_the-stoa] BRIEF\u003c-\u003eTICKET CONFLICT — surfacing, NOT acting. My rev3 dispatch brief said: fold ONLY the 2 ARGUS fixes onto rev2's nonce-grep DC3/DC4, everything else verbatim. I did that (rev3 committed 7807dbb). BUT the ticket now carries a PRINCIPAL REDIRECT (this ticket lines 386-395, 'Operative now') that POSTDATES my brief and RETIRES the nonce-grep entirely: DC4 reads $CLAUDE_CODE_SESSION_ID (drop nonce-emit/grep/path-parse/flush-retry, FAIL-LOUD if empty); DC3 sub-agent sig becomes [from: CAPTAIN_\u003cX\u003e_\u003cslug\u003e (subagent) | caller-sid $CLAUDE_CODE_SESSION_ID] dropping the path-parse + agent-id for v1; ARGUS FIX1 MUST becomes a presence-check on the env var. Line 395 explicitly says: if rev3 already committed nonce-grep DC3/DC4 verbatim, SUPERSEDE in rev3-amend or rev4 BEFORE ADA builds DC3/DC4. So rev3-as-committed is now STALE on DC3/DC4 (correct vs my brief, superseded vs the redirect). I am HOLDING — I will NOT rebuild DC3/DC4 against the redirect on my own authority because my brief scoped me to the 2 ARGUS fixes only and the redirect is a material scope change. DECISION I NEED FROM YOU: re-dispatch me (or issue an amended brief) to produce rev4 = env-var DC3/DC4 + ARGUS FIX1-as-env-presence-check + FIX2-P4 re-spec'd for the env-var path, keeping DC1 FOLD / DC2 registry / §5 / §6 carried? Open sub-question the FM already flagged for me (line 412): keep agent-id in the sub-agent sig (no env var supplies it; would need a retained path-parse) vs caller-sid-only per the redirect (drops agent-id, simpler — redirect line 392 says drop it for v1). Standing by.",
+      "timestamp": "2026-06-19T22:00:04Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T21:59:26Z"
+  "updated_at": "2026-06-19T22:00:04Z"
 }
