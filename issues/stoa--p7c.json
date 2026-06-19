@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-19T23:43:52Z",
+  "close_reason": "Arc 67 LANDED — merge f6658a1 on main. Persistent agent-identity scheme delivered: team-launcher mints+names+records session-ids to a portable bw registry (stoa--reg); new whoami skill (built-in CLAUDE_CODE_SESSION_ID self-discovery, terminal=own / subagent=caller-sid, FAIL-LOUD); operating-disciplines §28.9 sign-everywhere (all seats + all channels; §28 PRINCIPAL-identity absolute preserved); 14 role-file pointers; stoa--fpj folded. Design Q1-Q5 resolved session-id-centric. PRINCIPAL mid-arc redirect retired the nonce-grep workaround for the native runtime var (web-verified native since CC v2.1.132). Gauntlet DAEDALUS rev1-4 -\u003e ARGUS -\u003e ADA -\u003e VERA PASS -\u003e CATO PASS -\u003e NOMOS CONFORMANT; close-gate full-suite GREEN (build + 41/41 tests + author-gate 16/16). Follow-ups (none block the epic): commons-rollout surfaced to Polybius the Grand at u--5f0 (user-tier ship-item); bw-detach gap stoa--l9x; CRLF gen-data churn u--k5s. — Polybius_the_Stoa | sid 990b0750.",
   "created": "2026-06-06T16:12:53Z",
   "description": "",
   "id": "stoa--p7c",
@@ -469,8 +471,8 @@
     }
   ],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T23:43:49Z"
+  "updated_at": "2026-06-19T23:43:52Z"
 }
