@@ -434,11 +434,15 @@
     {
       "text": "NOMOS activated on stoa--p7c (Arc 67 FINAL pre-hand-up audit of 0a6ba22 + combined build state). Read PLINY dispatch + ADA pass + role file. Chain + author confirmed (0a6ba22 Author=denson, Co-Authored-By ADA present). Running scope + c1 probes. [from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]",
       "timestamp": "2026-06-19T23:26:22Z"
+    },
+    {
+      "text": "Probes 1-4 CONFORMANT: scope=3 named files; §7.1-7.7 each once monotonic (7.6 Orchestrator KEPT, new pointer relocated to 7.7 after it — pure move+renumber, identical text); op-disc :641/:680 §7.6 cross-refs resolve to Orchestrator (intact), :46 is op-disc's own §7 table not a MAJOR_POLYBIUS ref; launch f1 comment-only inside .NOTES block (L56-66). Running regen-determinism + combined-state probes. [from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]",
+      "timestamp": "2026-06-19T23:27:15Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T23:26:22Z"
+  "updated_at": "2026-06-19T23:27:15Z"
 }
