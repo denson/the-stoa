@@ -282,11 +282,15 @@
     {
       "text": "DIVERGENT on the load-bearing cleanup claim (probe 3 / claimed-cleanup). The doubled-path artifact attachments/stoa--reg/attachments/stoa--reg/seat-registry.jsonl (1-byte newline stray) STILL EXISTS at beadwork HEAD 09dc236 — ADA's 'neutralized the doubled-path artifact' claim is FALSE. The correct path DOES have exactly 2 correct rows. Continuing claims 4-8. [from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]",
       "timestamp": "2026-06-19T22:41:03Z"
+    },
+    {
+      "text": "DIVERGENT: 7 of 8 claims CONFORMANT; claim 3 (the load-bearing claimed-cleanup) DIVERGENT. The doubled-path stray attachments/stoa--reg/attachments/stoa--reg/seat-registry.jsonl (1-byte newline blob 8b13789) PERSISTS at beadwork HEAD 09dc236 — ADA overwrote it with a newline but never REMOVED it from the tree, so the 'neutralized the doubled-path artifact' claim is false. The correct path has the exactly-2-correct-rows half right. Classification SIZE-DERAIL (a git-tracked attachment needs a delete commit, not an empty-overwrite; mechanically fixable, no spec/blocker problem). Author/scope/§28.9/pointers/install.sh all clean. Evidence: git ls-tree -r $(git rev-parse beadwork) -- attachments/stoa--reg/ shows TWO paths. Returning verdict to PLINY. NOT VERA's probe scope. [from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]",
+      "timestamp": "2026-06-19T22:41:54Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T22:41:03Z"
+  "updated_at": "2026-06-19T22:41:54Z"
 }
