@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-19T22:57:08Z",
+  "description": "bw exposes 'bw attach \u003cid\u003e \u003cfile\u003e [--name PATH]' but NO removal/detach command. A stray attachment (e.g. from a doubled --name) can only be OVERWRITTEN (to empty), never REMOVED from the beadwork tree — removal requires a non-bw-native 'git rm' on the orphan branch (concurrent-write-risky mid-arc).\n\nSURFACED: Arc 67 (stoa--p7c). A record-seat.ps1 --name bug created attachments/stoa--reg/attachments/stoa--reg/seat-registry.jsonl (1-byte newline). record-seat.ps1 is FIXED (uses bare-basename --name); the live bug is gone, only the one-time stray artifact remains. Polybius_the_Stoa takes the orphan-branch git rm at Arc-67 CLOSE (folded into the beadwork-push step when bw write-activity quiesces — concurrent-write-safe).\n\nPLAN (fix-now, concrete next action): (a) file/seek an upstream bw feature request for 'bw detach \u003cid\u003e \u003cstored-path\u003e' (single-line removal intent, symmetric with attach); (b) until that lands, document the close-time-git-rm-on-beadwork pattern as the interim removal mechanism in the bw cookbook (operating-disciplines.md §12). Next action: open the upstream bw detach request.",
+  "id": "stoa--l9x",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "[TOOL GAP] bw has attach but no detach/remove — stray attachment artifacts can't be cleaned bw-natively",
+  "type": "task",
+  "updated_at": "2026-06-19T22:57:08Z"
+}
