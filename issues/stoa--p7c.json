@@ -242,11 +242,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]\n\nGrounding complete, no drift to flag: (a) 200L deployed launcher confirmed superset of substrate source; (b) op-disc §28 runs through §28.8 (Cross-references) -\u003e my new subsection numbers §28.9 correctly, no gap; (c) install.sh SKILL_NAMES is 6 entries (L228-235), adding whoami=7 (decision-surface drift left untouched per scope); stoa--reg does not yet exist. Beginning build: item 1 (launcher rewrite from 200L copy).",
       "timestamp": "2026-06-19T22:23:02Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]\n\nItems 1-3 built: launcher rewrite (200L copy + -ArcId/-OnlySeat FOLD kept; -RemoteControl + per-seat SessionId mint + --session-id in BOTH wt-array AND Windows $cmd + --remote-control token + post-loop serial record-seat calls + dry-run-prints-record-but-executes-neither + L49-50 note -\u003e §28.9/stoa--reg pointer); record-seat.ps1 (read-modify-rewrite-attach, idempotent on (seat,machine), standalone); team-launcher SKILL.md (mint+name+record, -RemoteControl, registry read recipe, desktop self-record fallback, cross-ref updated, ZERO nonce-grep). Next: whoami skill (item 4).",
+      "timestamp": "2026-06-19T22:26:31Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T22:23:02Z"
+  "updated_at": "2026-06-19T22:26:31Z"
 }
