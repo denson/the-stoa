@@ -60,7 +60,7 @@
   at a ready claude prompt — just type the bare word yourself.
   Seat-identity scheme: each terminal seat is minted a `--session-id` UUID + a space-free name
   and recorded to the bw seat registry `stoa--reg`. The signing/identity convention is
-  `operating-disciplines.md` §28.9 (terminal seats sign `[from: <Name> | sid <id> | <project>]`;
+  `operating-disciplines.md` §28.9 (terminal seats sign `[from: <Name> | sid $CLAUDE_CODE_SESSION_ID | <project>]`;
   the sid is read at runtime from `$CLAUDE_CODE_SESSION_ID`). See the team-launcher SKILL.md for
   the registry read recipe + the desktop self-record fallback.
 #>
