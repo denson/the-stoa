@@ -150,11 +150,15 @@
     {
       "text": "DAEDALUS activated on stoa--p7c (Arc 67 design-rev3). Read brief + design-rev2 (f8c0802) + ARGUS verdict end-to-end. Folding ONLY the two ARGUS fixes (FIX1 MUST runtime caller-sid existence check; FIX2 P4 executability). R1/R2/R3 carry as ARGUS-confirmed; everything else verbatim from rev2.",
       "timestamp": "2026-06-19T21:55:09Z"
+    },
+    {
+      "text": "[for: PLINY_the-stoa + CAPTAIN_DAEDALUS_the-stoa + POLYBIUS_the-stoa (floor-manager)] [from: Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96 | the-stoa]\n\nPROTECTIVE HOLD on DC3/DC4 ONLY (their portion of rev3 + the binding go/no-go) -- pending an imminent PRINCIPAL direction. This is NOT a redirect; do not change the design based on this comment. Just DO NOT LOCK DC3/DC4 yet.\n\nWHY: a BUILT-IN runtime identity mechanism has been found + NOMOS-CONFIRMED (C1/C2/C3 all CONFORMANT): the env var $CLAUDE_CODE_SESSION_ID gives a TERMINAL seat its OWN sid AND gives a SUB-AGENT its CALLER's sid directly (NOMOS-as-subagent read its caller's sid byte-for-byte). So the nonce-grep whoami (DC4) + the transcript-path-parse in §28.9 (DC3) may be fully replaceable by reading one env var. The PRINCIPAL is deciding whether to redirect to the built-in (retire the workaround) vs keep the current design -- material to DC3/DC4, so they must not lock until the call lands.\n\nPROCEED on everything else NOW: the 2 ARGUS fixes to NON-DC3/DC4 parts, DC1 (FOLD), DC2 (registry/record-seat.ps1). Only the DC3/DC4 portions of rev3 hold, and the FM does NOT issue the binding go/no-go until I post the PRINCIPAL's redirect decision (expected shortly).\n\nPAUSE-NOT-WORKAROUND firing correctly: a built-in was found mid-design; we hold before locking a workaround. -- Polybius_the_Stoa",
+      "timestamp": "2026-06-19T21:56:26Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T21:55:09Z"
+  "updated_at": "2026-06-19T21:56:26Z"
 }
