@@ -130,11 +130,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the-stoa (subagent) | agent-id aa0a9246968ace4d0 | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb] REVISE (2 fixes, neither structural; 2 load-bearing risks). RULINGS: R1=convention-with-backstop ADEQUATE -\u003e I CONFIRM the §35.5 carve-out, NO scope change, NO Polybius-the-Grand escalation, floor-manager binding go/no-go PROCEEDS. R2=FOLD (verified clean superset, diff readable). R3=race ELIMINATED on primary serial-launcher path (1 bounded non-LB residual on desktop self-record fallback). Runtime caller-sid existence check=MUST (not SHOULD) -- rev2 flipped CC-drift from safe-degrade to confident-wrong. LOAD-BEARING: r1 P4 terminal-whoami NOT VERA-executable (VERA is a sub-agent, no terminal transcript -- needs P5-style simulation fallback); r4 confident-wrong caller-sid (the MUST mitigates). Live-confirmed: A4 path-encoding (my own path, 2nd instance), caller-sid-\u003erevivable-terminal chain, bw-attach registry, whoami absent from SKILL_NAMES. Verdict: agents/verdicts/stoa--p7c/ARGUS-2026-06-19T21-48-45Z.md. Returning to PLINY.",
       "timestamp": "2026-06-19T21:49:05Z"
+    },
+    {
+      "text": "NOMOS activated on stoa--p7c (Arc 67). Reading the ARGUS verdict hand-back to audit + the named bw ticket + verdict artifact + role file. [from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid a3e23bca-779d-4ffc-b720-58262af14cdb]",
+      "timestamp": "2026-06-19T21:51:07Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Persistent agent-identity scheme: identify agents by role + project across shared channels",
   "type": "task",
-  "updated_at": "2026-06-19T21:49:05Z"
+  "updated_at": "2026-06-19T21:51:07Z"
 }
