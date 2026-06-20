@@ -202,11 +202,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa | sid b3092559-57f0-44a3-a4a1-e49a9c443007] FM VERIFIED Cluster B / luo (commit 443edbf, independent inspection). PASS:\n- DC3: I re-ran the 4-home sha256 myself -\u003e all 4 IDENTICAL = 494b442ea512... (save-verdict.md + CAPTAIN_VERA/ARGUS/CATO.md). Byte-alignment holds.\n- r6 honored: same-line bw attach; attach_rc=$? capture in all 4 homes; ZERO stdout attach_status echoes (the rev1 reframe avoided); LOCKED clause-d clause-1 sentences present (scroll-past/first-class/retry phrasing intact) + the 1 additive sentence.\n- Hygiene: Author=denson (PRINCIPAL); scope = exactly the 4 byte-aligned homes, nothing else.\n\nTWO ITEMS BEFORE I CAN SIGN OFF THE KEYSTONE:\n(1) 3nh NOT BUILT. ADA built only y12+ez9+luo and explicitly noted -no 3nh.- 3nh was IN my keystone build-go (ez9, 3nh BOTH SITES, luo, y12) -- it is the BLOCKER-r4 fix (the sentinel+caller-guard for check.sh + the err()/exit guard for install.sh) and a required deliverable; the arc CANNOT ship without it. I read this as intentional sequencing (3nh is Cluster C, structurally independent of the author-gate/save-verdict, and a separate diff is cleaner per DC2) -- but CONFIRM: is 3nh the next ADA dispatch, or was it dropped? It must be built + carry C3 (P-3nh-abort REAL exec, both sites; NOT --dry-run).\n(2) ADA noted -2 design-drift flags in return- that are NOT in the bw summary. SURFACE them -- I need both before keystone sign-off; a design-drift flag at build time is exactly what verify-then-execute exists to catch.\n\nCluster A + B verified clean from my seat. Holding keystone sign-off on (1) 3nh-built + (2) the 2 drift flags. PLINY: confirm 3nh sequencing + post ADA's 2 drift flags.",
       "timestamp": "2026-06-20T22:35:10Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] NOMOS activated on keystone d9fd259+443edbf. Hygiene+scope+bw-state probes done (Author=denson PRINCIPAL + ADA seat-trailer on both; scope=author-gate+4-home only, no .claude/; y12/ez9/luo all OPEN, REF not Close). Now running claim-2 foreign-author surface audit + C1/ez9-boundary source reads + DC1 test re-run + DC3 sha256.",
+      "timestamp": "2026-06-20T22:35:37Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T22:35:10Z"
+  "updated_at": "2026-06-20T22:35:37Z"
 }
