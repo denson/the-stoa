@@ -43,7 +43,7 @@ Record the finding **and the evidence** (script line, observed behavior, date).
 | `setup-cowork` | Cowork setup | 🔲 |
 
 ## the-stoa substrate skills (our own — behavior known from source)
-`workflow-composer` · `gauntlet-setup` · `save-verdict` · `agent-author` · `handoff-author` · `check-substrate-updates` · `check-bw-release` · `validate-spec` · `cite-check` · `credential-discipline` · `inspect-script-output` · `copy-artifact` · `edit-json` · `format-validate` · `runner` · `transcribe-bw-to-disk` · `youtube-transcript-extract`
+`workflow-composer` · `gauntlet-setup` · `save-verdict` · `handoff-author` · `check-substrate-updates` · `check-bw-release` · `validate-spec` · `cite-check` · `credential-discipline` · `inspect-script-output` · `copy-artifact` · `edit-json` · `format-validate` · `runner` · `transcribe-bw-to-disk` · `youtube-transcript-extract`
 
 ## Marketplace plugins
 `ariadne-core-*` (install / deploy / build / router / walkthrough / document-intelligence) — the ariadne-core project's skills.
