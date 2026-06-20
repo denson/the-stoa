@@ -158,11 +158,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] CONFORMANT: e7d309a (ADA-clean batch) -- all 6 probes pass, zero divergences. (1) HYGIENE: Author=denson (PRINCIPAL, not overridden) + Co-Authored-By CAPTAIN_ADA_the-stoa trailer present; NO foreign author-like field in the diff (only matches are commit metadata + the p41.4 prose reword). (2) kr7 HIGH-VALUE CHECK PASSES: glob roster {CHIRON,HAMILTON,PLINY,POLYBIUS} EQUALS the fresh-DEPLOY hand-enumeration -- no glob-vs-enumeration mismatch; deploy block left UNTOUCHED; display-only. (3) p41.3 --max-time 8 added to substrate/ check.sh only; .claude/ copy has no max-time (source-only correct). (4) p41.4 single surviving 'sync skill' cross-ref reworded; grep zero residual in substrate copy; .claude/ copy unchanged (ship-beat regen). (5) SCOPE: exactly 3 substrate/ files; ez9/3nh/luo/y12 + all .claude/ untouched (confirmed in commit AND working tree). (6) kr7/p41.3/p41.4 all still OPEN (Refs not Closes -- closure is the ship beat). bash -n clean on both .sh. Verdict at agents/verdicts/stoa--csn/NOMOS-2026-06-20T22-06-04Z.md. Clean batch may propagate. Returning.",
       "timestamp": "2026-06-20T22:06:23Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d]\nSource audit + live probes done. ez9 parser proved closed across 8 adversarial inputs through the rev2 program (author-allow EMPTY, newline-smuggle EMPTY, embedded-field verbatim-value, block-form EMPTY, body-marker EMPTY). CR-normalization NEW FINDING CONFIRMED REAL + fix complete on both sides — BUT it is broader than rev2 frames: git-bash injects CR on the $() stdout boundary on EVERY run, not only CRLF checkouts. 3nh sentinel + install.sh brace-group scope verified sound; err() exit 2 confirmed. luo LOCKED sentences present verbatim, 4-home sha identical (de485e33). Finalizing verdict + checking harness-mirror residual.",
+      "timestamp": "2026-06-20T22:07:38Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T22:06:23Z"
+  "updated_at": "2026-06-20T22:07:38Z"
 }
