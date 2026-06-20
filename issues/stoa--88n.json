@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-20T23:33:28Z",
+  "description": "From Arc 69 CATO review (c3). The y12 copyright extractor cpat in substrate/hooks/_hooklib.sh anchors the name-run to EOL (\\s*$), so a multi-author form 'Copyright (c) 2026 X and Y' matches NEITHER name. This is the SAME EOL-anchor discriminator that correctly keeps year-bearing prose OUT, so it is an ACCEPTED design tradeoff, not a regression (pre-y12 missed ALL copyright forms anyway). Plan: only act if multi-author LICENSE-header coverage is desired; a fix would need to split on ' and '/',' within the name-run without re-admitting prose (the hard part). Low priority. Anchor: stoa--csn (Arc 69), CATO verdict CATO-20260620T232459Z.md finding c3.",
+  "id": "stoa--88n",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "[FOLLOW-UP arc-69] y12 cpat multi-author LICENSE under-match (Copyright (c) Y X and Z extracts neither)",
+  "type": "task",
+  "updated_at": "2026-06-20T23:33:28Z"
+}
