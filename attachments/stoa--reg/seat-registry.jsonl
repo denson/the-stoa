@@ -1,2 +1,2 @@
-{"seat":"POLYBIUS_the-stoa","name":"Polybius_the_Stoa","session_id":"88cd8c37-f3ff-4904-9b0e-efafaad48f70","project":"the-stoa","machine":"DESKTOP-LLM90C9","role":"floor-manager","tier":"project","launched_at":"2026-06-19T22:34:12Z","status":"alive"}
 {"seat":"PLINY_the-stoa","name":"PLINY_the-stoa","session_id":"a3e23bca-779d-4ffc-b720-58262af14cdb","project":"the-stoa","machine":"DESKTOP-LLM90C9","role":"orchestrator","tier":"project","launched_at":"2026-06-19T22:34:15Z","status":"alive"}
+{"seat":"POLYBIUS_the-stoa","name":"POLYBIUS_the-stoa","session_id":"67aa59a3-91e9-4c0c-acf0-c3aae3463b04","project":"the-stoa","machine":"DESKTOP-LLM90C9","role":"floor-manager","tier":"project","launched_at":"2026-06-20T11:08:37Z","status":"alive"}
