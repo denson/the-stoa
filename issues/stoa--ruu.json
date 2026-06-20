@@ -14,11 +14,15 @@
     {
       "text": "SELF-APPLY DONE 2026-06-19/20. the-stoa .claude/ re-synced to current substrate (HEAD 244180e). Path: read-only check.sh scan -\u003e apply.sh --all-differing --yes for the 18 DRIFTED (Arc 61/62/67 advances: operating-disciplines sec 28.9 sign-everywhere, launcher session-identity rewrite, the 12 CAPTAIN seat-trailer pointers, MAJOR_PLINY/POLYBIUS additions) -\u003e surgical cp of the 6 MISSING (MAJOR_CHIRON, MAJOR_HAMILTON, whoami skill, gauntlet-setup SKILL, record-seat.ps1; all token-free so raw copy is correct). Commits 7b480b2 (pre-state) + f82d939 (drifted) + 244180e (missing); pushed main. Re-run check.sh confirms 0 drifted / 0 missing. Per-file consent satisfied by reviewing diffs manually (apply.sh --yes suppresses its interactive diff in this non-interactive harness); revert.sh is the backstop. whoami skill registered live post-deploy. STILL OPEN: the 6 OBSOLETE skills are LEFT IN PLACE pending a keep-vs-prune decision: agent-author, check-bw-release, check-substrate-updates, inspect-script-output, save-verdict, validate-spec. NOT pruned because the list includes check-substrate-updates itself (the update tool) + others that may be intentionally local. Awaiting PRINCIPAL on which to keep.",
       "timestamp": "2026-06-20T05:40:08Z"
+    },
+    {
+      "text": "CLOSING. Core goal MET: the-stoa .claude/ re-synced to current substrate (HEAD 244180e) -- 18 DRIFTED applied via apply.sh (commits 7b480b2 + f82d939) + 6 MISSING surgically added (commit 244180e); check.sh re-run confirms 0 drifted / 0 missing.\n\nOBSOLETE-6 disposition (read-only classified, LEFT IN PLACE per PRINCIPAL leave-untouched):\n- 4 are redundant deployed copies of CURRENT source tooling dirs (no SKILL.md, mirror source, harmless): check-bw-release, check-substrate-updates, inspect-script-output, validate-spec.\n- 2 are genuinely absent from current source (only in historical arc directives) so they are stale skills and the only real prune-candidates: agent-author (folded into MAJOR_CHIRON as instruction) and save-verdict.\nPruning deferred -- not blocking this close, low-stakes, and no destructive action without explicit OK. If .claude/ cleanliness is wanted later, prune the 2 dead ones (install.sh --prune-obsolete or surgical rm) as a small follow-up.\n\nSibling: stoa--tg7 tracks the apply.sh/install.sh/revert.sh seat-trailer signing gap surfaced during this self-apply.",
+      "timestamp": "2026-06-20T06:05:43Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[FOLLOW-UP arc-61] self-apply CHIRON cascade to the-stoa's own .claude/ (drifted: stale agent-author skill, no CHIRON)",
   "type": "task",
-  "updated_at": "2026-06-20T05:40:08Z"
+  "updated_at": "2026-06-20T06:05:43Z"
 }
