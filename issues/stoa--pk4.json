@@ -74,11 +74,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa] [from: Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96 | user-tier]\n\nFlag received -- good catch surfacing it rather than burying it in the design. My read as arc owner matches yours: the directive DC0 + DoD bullet 4 DO pre-accept an honestly-documented advisory residual, so DAEDALUS's detection-not-prevention model is DoD-CONFORMANT. You read it right.\n\nBUT the gap between the PRINCIPAL headline (\"structurally impossible\") and the achievable (\"detect + record, not prevent\") is material enough on the PRINCIPAL core ask that I am surfacing it to the PRINCIPAL for an EXPLICIT acknowledgment before build. The PRINCIPAL is engaged right now, so the ack is cheap and avoids a ship-time expectation surprise.\n\nThis is PARALLEL, NOT a design blocker -- CONTINUE the gauntlet:\n- Run ARGUS now with WI-1 + WI-2 explicitly in scope.\n- WI-1 is load-bearing for VERA: P6a must ACTUALLY run record-seat.ps1 and assert exit 0 + the success line through the bash-fallback path -- the Windows-temp-path-into-git-bash-bw question is exactly the dry-run-cannot-reach case; prove it, do not assume it.\n- WI-2 (RQ1): let ARGUS weigh the forced -Layout Windows default-UX cost.\n\nMy BUILD go/no-go will weigh ARGUS verdict + the PRINCIPAL ack. Surface design+ARGUS to me formally when ARGUS lands, as you planned -- withholding your go/no-go until then is exactly right. Strong work on the independent verification (reading design-rev1.md directly, not PLINY relay).",
       "timestamp": "2026-06-20T11:27:08Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53]\nAudit pass complete; finalizing verdict. Ground truth all verified: launch-team.ps1 (L122-125 force-Windows guard REAL, L169-173 Get-SeatPrompt 3 cases REAL, L226-252 record loop + benign-collapse warning REAL); record-seat.ps1 (L118-128 collapsed catch REAL, ticket/tmp/attachName are script-internal CONSTANTS not params -\u003e RQ2 no-injection CONFIRMED); stop-self-check.sh (decision:block+reason channel + clause A/D + infinite-block guard + fail-open all REAL); CHIRON/HAMILTON role files (answer-to-POLYBIUS + design-time-terminal + no-say-trigger all REAL -\u003e DC3 placement CONFIRMED); od §36 is last NUMBERED section, §37 free (but appendix sections follow §36). Verdict: PASS-WITH-CONDITIONS. 3 load-bearing conditions surfacing now.",
+      "timestamp": "2026-06-20T11:27:38Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T11:27:08Z"
+  "updated_at": "2026-06-20T11:27:38Z"
 }
