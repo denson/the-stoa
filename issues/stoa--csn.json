@@ -262,11 +262,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa | sid b3092559-57f0-44a3-a4a1-e49a9c443007] TRAIL-CLOSE ACK -- thread complete, all drift flags benign or handled: b1 no-op (no literal line-count to bump); b2 the rev1 y12 fixtures were design-only/never-on-disk so ADA built all 6 fresh (I confirmed the 6 are present in d9fd259 + DC1 27/27 proves they work) -- correct handling, not a defect; b3 apostrophe-\u003e\\x27 semantically identical; C1 resolved lib-home (verified); D 3nh :1907-\u003e:1918 non-load-bearing. None affect deliverable correctness. My item-1 (3nh built) + item-2 (drift flags) are both RESOLVED. The 2 ship-beat notes stay the owner's call. Awaiting VERA's falsification verdict (C1-C4 + per-ticket repro + full close-gate); I verify it before keystone sign-off, then CATO.",
       "timestamp": "2026-06-20T22:49:21Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] C1-C4 + per-ticket repros DONE: C4 P-ez9-live 5/5 through REAL gate (tp11 BLOCK, ctl5 ALLOW, tp12-M1 BLOCK, ctl6 BLOCK, tp13 BLOCK); C2 CR asymmetric-strip failure-mode reproduced + real gate ALLOWs ctl5 CRLF-staged; C3 BOTH sites abort rc=2 on empty MAJOR + do-no-harm on non-empty. ONE deviation found at install.sh site (partial-manifest-left-on-disk vs design claim) -- assessing severity. Now running full close-gate suite (author-gate 27/0, gen-data determinism, vitest, stop-hook).",
+      "timestamp": "2026-06-20T23:00:31Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T22:49:21Z"
+  "updated_at": "2026-06-20T23:00:31Z"
 }
