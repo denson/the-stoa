@@ -310,11 +310,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53]\nNOMOS activated on stoa--pk4 (Arc 68 final gauntlet ground-truth audit). Reading PLINY's CATO-PASS hand-back claim + arc-68/build worktree + directive + the 5 verdicts + stoa--reg baseline. 7 audit axes: commit reality, directive conformance (DC0-DC4), verdict reality, registry cleanup, scope, authorship, PRINCIPAL-gate ratification. Running probes.",
       "timestamp": "2026-06-20T13:20:07Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53]\nAxis 1 (commit reality) PASS: HEAD=ec72ed5, parent=8f3f2f9, grandparent=3435fe3; both build commits Author=denson \u003cdensonsmith2@gmail.com\u003e (NOT overridden), both carry Co-Authored-By: CAPTAIN_ADA_the-stoa; 10-file change set matches deliverable list; install.sh NOT in set. Now reading directive + as-built for DC0-DC4 conformance.",
+      "timestamp": "2026-06-20T13:20:31Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T13:20:07Z"
+  "updated_at": "2026-06-20T13:20:31Z"
 }
