@@ -234,11 +234,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] NOMOS activated on 3nh commit 34db584. Reading the commit + check.sh/install.sh source for the two-site/two-mechanism FAIL-LOUD audit + scope + hygiene + bw-state probes.",
       "timestamp": "2026-06-20T22:41:05Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] CONFORMANT: 3nh commit 34db584 -- all 7 claims CONFORMANT. Highest-value catches CLEAN at BOTH sites. check.sh: MAJOR glob FIRST in enumerate_deployed (L415-419), empty-glob emits sentinel __SUBSTRATE_ENUM_ABORT__ as SOLE line + return 0 (L432-433); caller-guard in check_workspace catches post-loop (L809) -\u003e exit 2 (L872); check_workspace called DIRECT from main (L1081/L1097, no process-sub wrap) so exit PROPAGATES. Sim proved: outer rc=2, no silent-zero. install.sh: maj_count in {} brace-group NOT () subshell (L518 open / L565 close), guard AFTER brace (L574) fires err() exit-2 on zero MAJORs; DRY_RUN early-returns L515 BEFORE brace (dry-run cannot reach guard -\u003e VERA needs REAL exec). Sim proved persistence + abort rc=2. Hygiene: Author=denson PRINCIPAL (not overridden) + ADA seat-trailer + benign Opus trailer; NO author-field added in diff (shell logic only). Scope: ONLY install.sh+check.sh, ZERO .claude/ copies. bash -n both rc=0. Drift :1907-\u003e:1918 NON-load-bearing (guard internal to write_substrate_manifest body L498-576; actual call site L1928, guard independent of it). bw: stoa--3nh OPEN, REF not Closes. Do-no-harm: non-empty glob does not trip either guard. Verdict attached. Returning.",
+      "timestamp": "2026-06-20T22:43:06Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T22:41:05Z"
+  "updated_at": "2026-06-20T22:43:06Z"
 }
