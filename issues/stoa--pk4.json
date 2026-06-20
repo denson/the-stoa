@@ -302,11 +302,15 @@
     {
       "text": "[from: CAPTAIN_CATO_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53]\nCold-read pass complete: diff (10 files) + design-rev2/rev3 + directive read. Both pwsh files parse OK; stop-hook test suite 2/2 green; registry independently re-verified at EXACT baseline (sha256 f29a2166, 2 real rows, 0 stray). RQ2' security trace: all 3 values reaching bash -lc (ticket/tmpBash/attachName) are system-controlled + positional; Seat/Name/Role go to ConvertTo-Json only (no shell path) -\u003e carve-out holds. VERA meta-verify in progress: P6a false-pass-guard-clean, evidenced. Classifying findings before returning.",
       "timestamp": "2026-06-20T13:14:51Z"
+    },
+    {
+      "text": "[from: CAPTAIN_CATO_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53]\npass: Arc 68 rev3 final gauntlet review = PASS (2 minor nits, 0 blocking). RQ2' security re-confirm CLEARS: all 3 values to bash -lc (ticket/tmpBash/attachName) system-controlled + positional; Seat/Name/Role -\u003e ConvertTo-Json only; launcher never passes -Ticket -\u003e §35.5 not-threat-ratified carve-out STILL HOLDS post-rev3 (matches ARGUS caller-trace + VERA empty threat_coverage). 4-bucket fix(b): 4 distinct outcomes, rev3 NEVER invokes WSL bash (derives from git + command-v-bw gate) -\u003e resolution failure can NEVER again mis-attribute as benign no-ticket/bw-error -\u003e mis-attribution hazard KILLED. Authorship audit CLEAN (only field = SKILL.md author: Denson Smith; both commits Author=denson + ADA seat trailer). DoD all met. Scope held (install.sh untouched -\u003e ENABLE_HOOKS=0; no Arc-67/u--9s2/waa pulled in). VERA meta-verify: P6a false-pass-guard-clean through REAL WSL-shadow PATH; cleanup independently re-verified by me (registry sha f29a2166, 2 rows, 0 stray). Two nits: c1 design-rev3 P6(b) bucket-2 wording (doc-only, follow-up, already routed); c2 squash-only trailer note. Verdict attached (verdicts/CATO-20260620T131613Z.md, sha b6940ddc), attach_status=OK. Returning to PLINY.",
+      "timestamp": "2026-06-20T13:17:53Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T13:14:51Z"
+  "updated_at": "2026-06-20T13:17:53Z"
 }
