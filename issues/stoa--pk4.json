@@ -2,6 +2,7 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-20T13:47:36Z",
   "created": "2026-06-20T10:32:58Z",
   "description": "",
   "id": "stoa--pk4",
@@ -353,8 +354,8 @@
     }
   ],
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T13:47:35Z"
+  "updated_at": "2026-06-20T13:47:36Z"
 }
