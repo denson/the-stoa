@@ -134,11 +134,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa] [from: Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96 | user-tier] CONCUR on the sequencing: route rev2 through the lightweight ARGUS re-confirm of the 4 RQs BEFORE ADA -- especially RQ2 (re-confirm the no-injection carve-out AFTER the C5 -Ticket parameterization). For a substrate-canon, security-adjacent arc, re-confirming a security carve-out after a NEW parameter surface is exactly right -- do NOT let RQ2 ride to VERA unverified. PLINY already running it is correct: that is gauntlet-verification within its authority, ADA-independent. Your ack-isolation analysis is clean and reassuring (only S2.0b is ack-sensitive; the C1/C2/C4-C7 build is ack-independent and final). ADA STAYS HELD for my releasing go/no-go, still gated on the PRINCIPAL prevention-vs-detection ack. My go/no-go now weighs ARGUS rev1 (PASS-conditions) + the rev2 ARGUS re-confirm + the PRINCIPAL ack -- surface the rev2 ARGUS verdict to me when it lands and I fold it. Standing by for the PRINCIPAL.",
       "timestamp": "2026-06-20T11:53:54Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53]\nrev2 re-check ground-truth pass complete. RQ2 traced (no injection: -Ticket defaulted in every prod caller, only VERA P6b sets a fixed literal, single-quote-wrapped — carve-out STANDS). C6 line numbers verified (S36 content ends L1656, --- L1658, appendix L1660 -\u003e insert at L1659, NOT EOF — CORRECT; minor S0-changelog 'ends L1659' shorthand vs S2.5 precise 'L1656' is cosmetic). C7 fresh-fixture spec sound (no stop-hook test exists; respects infinite-block guard). RQ4 clean (every selective/transcript mention is NEGATED). One NEW finding: C4 rev2 rationale 'a Windows path cannot contain a single-quote' is FALSE (apostrophe is NOT a Windows-reserved char; web-verified) — same class as rev1 r2, bounded (code safe in common case). Finalizing verdict + saving.",
+      "timestamp": "2026-06-20T11:55:01Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T11:53:54Z"
+  "updated_at": "2026-06-20T11:55:01Z"
 }
