@@ -540,7 +540,7 @@ write_substrate_manifest() {
     # the deployed filename, project + user do not (mirror install.sh SUFFIX_MAJORS
     # + check.sh enumerate_deployed). USER_TIER_DIR is a POLYBIUS-only placeholder
     # (only MAJOR_POLYBIUS.md carries {{USER_TIER_DIR}}), emitted at user-tier only.
-    local srcmaj majname dep_name
+    local srcmaj majname dep_name maj_count=0
     shopt -s nullglob
     for srcmaj in "${SCRIPT_DIR}/MAJOR_"*.md; do
       majname="$(basename "$srcmaj" .md)"        # "MAJOR_POLYBIUS"
@@ -553,6 +553,7 @@ write_substrate_manifest() {
       if [ "$tier" = "user" ] && [ -n "$USER_TIER_DIR" ] && [ "$majname" = "MAJOR_POLYBIUS" ]; then
         printf "%s\t{{USER_TIER_DIR}}\t%s\n" "$dep_name" "$USER_TIER_DIR"
       fi
+      maj_count=$((maj_count + 1))
     done
     shopt -u nullglob
     # CAPTAINs (always NAME_SUFFIX — empty at user-tier; _<slug> at project/subproject).
@@ -562,6 +563,15 @@ write_substrate_manifest() {
       done
     fi
   } > "$manifest"
+  # FAIL-LOUD (stoa--3nh). DIRECT-CALL SITE: write_substrate_manifest is called
+  # directly (not via process-sub), and the MAJOR loop above runs inside a `{ }`
+  # brace group (NOT a `( )` subshell), so maj_count persists out and err()'s
+  # `exit 2` propagates and aborts install.sh — the direct guard is correct here
+  # (contrast check.sh's enumerate_deployed, which is consumed via process-sub and
+  # needs a sentinel). Assert AFTER the brace group so the partial manifest is not
+  # left as the live artifact path. Do NOT convert the brace group to `( )` — that
+  # would lose maj_count and silently re-open this hazard.
+  [ "$maj_count" -ge 1 ] || err "write_substrate_manifest: zero MAJOR_*.md globbed from ${SCRIPT_DIR} — substrate checkout incomplete; refusing to write a manifest missing every MAJOR mapping."
   echo "wrote manifest: $manifest"
 }
 
