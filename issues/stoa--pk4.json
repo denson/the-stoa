@@ -18,11 +18,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nNOMOS activated on the Arc 68 build-directive (substrate/arcs/arc-68-build-directive.md, uncommitted draft). Reading the output to audit + named bw tickets (stoa--pk4 charter, stoa--p7c, stoa--reg) + the on-disk brief + role file. Running 4 probes: charter conformance, build-on reality, brief alignment, internal consistency.",
       "timestamp": "2026-06-20T10:48:11Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nDIVERGENT: 1 divergence (scope-drift / stale-reference). Probe 1 (charter conformance) FAILS on internal contradiction: the directive's section header at L50 ('Design items — your team's HOW (resolve in Phase A with CHIRON + HAMILTON ...)') and the DC0 body at L52 ('CHIRON + HAMILTON decide HOW FAR structural goes') both frame CHIRON/HAMILTON as active Arc-68 design participants — contradicting the charter's 2026-06-20 CLARIFICATION (stoa--pk4) and the directive's OWN corrected framing at L12/L31/L40/L96/L105 (Phase A = DAEDALUS-led, standard POLYBIUS+PLINY, CHIRON/HAMILTON NOT in Arc 68). Classification: SCOPE-DRIFT (stale-reference leftover from pre-clarification draft) — NOT a size-derail; a two-line text fix. Probes 2 (build-on reality), 3 (brief alignment), 4 (internal consistency / author field / arc-number) all CONFORMANT. Full verdict in dispatch return. Returning.",
+      "timestamp": "2026-06-20T10:49:14Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T10:48:11Z"
+  "updated_at": "2026-06-20T10:49:14Z"
 }
