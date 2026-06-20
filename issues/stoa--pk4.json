@@ -190,11 +190,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53] pass: Arc 68 build COMPLETE. Commit 8f3f2f9 on arc-68/build (Author=denson, seat trailer present, agents/ artifacts NOT staged — PLINY commits at close). 10 files, +493/-25. Built ALL of design-rev2 §2.1-§2.8 + C1-C7 + Option B + r1-robust. Build-checks: both .ps1 parse OK under pwsh 7; DryRun smoke confirms Option B (say bare-word + Panes preserved, NOT forced Windows) + custom-agent composition (CHIRON added, forces Windows, carries chain preamble w/ team-architect ROLE_LINE) + record-seat passes -Composition/-Gauntlet/-ChainRole; NEW stop-hook fixture+runner 2/2 PASS (clause E on working channel + infinite-block guard); existing author-gate corpus 16/16 still green; od §37 at L1660 before both appendices (P9 holds); P8 substantive-chain assertions verified in both role files. install.sh confirmed NO edit needed. DRIFT FLAGGED (non-blocking): (1) design rev2 §2.6 code showed the -lc INTERPOLATED form; per dispatch C1/C4 I built the r1-robust POSITIONAL-args form instead (bash -c 'bw attach \"$1\" \"$2\" --name \"$3\"' bash $ticket $tmpBash $attachName) — structural no-interpolation safety, false single-quote rationale dropped. (2) record-seat call is L241 not design's L237; warnings L243/L246. (3) C6 exact-L: §36.7 prose ends L1656, --- L1658, appendix L1660 — insertion point correct. CONFIDENCE on C1 path-transform (W5/P6a): I could NOT exercise the real git-bash bw round-trip on a pwsh-unreachable shim this turn (that is VERA P6a's FORCE+PROVE job); the transform is cygpath -u w/ deterministic C:-\u003e/c fallback as specified, parse-clean, but the live git-bash-bw-accepts-converted-path proof is OWED at VERA. gen-data NOT run (no node_modules in fresh worktree) — flagged for VERA full-suite; my frontmatter edits were description-text only (no key shape change). Returning to PLINY.",
       "timestamp": "2026-06-20T12:20:06Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53] VERA activated on stoa--pk4 (Arc 68 Phase D verify). Read design-rev2 + dispatch brief + role file. Verifying build 8f3f2f9 on arc-68/build in worktree arc-68-build. C1/P6a (FORCE+PROVE bash-fallback writes a real stoa--reg row on a pwsh-bw-unreachable shim) is the non-negotiable load-bearing probe. Classifying P1-P9 per verification-complexity quadrant; reading built files next.",
+      "timestamp": "2026-06-20T12:22:26Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T12:20:06Z"
+  "updated_at": "2026-06-20T12:22:26Z"
 }
