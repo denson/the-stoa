@@ -298,11 +298,15 @@
     {
       "text": "[from: CAPTAIN_CATO_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d]\nez9 keystone cold-read COMPLETE + empirically verified: parse_allow_pairs hard-whitelist airtight (tp12 forged author-marker -\u003e 0 pairs; mixed owner/copyright/holder smuggle -\u003e only publisher emitted); is_pair_allowed exact-match defeats substring/prefix/suffix attacks (all want-1 confirmed); allow-marker line itself not matched as author field in either mode (-gate-allow suffix breaks separator); harness SOURCES parse_allow_pairs (only the trivial exact-pair compare is mirrored, VERA P-ez9-live real-gate is its backstop); 27/27 green. Now scrutinizing y12 cpat regex (over/under-match).",
       "timestamp": "2026-06-20T23:20:58Z"
+    },
+    {
+      "text": "[from: CAPTAIN_CATO_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d]\ny12 cpat cold-read COMPLETE. cpat is sound in the main path (tp8/tp9 BLOCK, ctl4 principal ALLOW, both prose controls ALLOW, x27 apostrophe correct + consistent w/ file convention). TWO edge-cases found (both MINOR, fail-toward-enforcement direction, NOT blockers): (1) trailing-period over-capture -- Copyright (c) 2026 Denson Smith. captures Denson Smith. WITH the period; is_principal does not strip trailing punctuation so the principals OWN period-form copyright line would false-BLOCK (self-inflicted, non-standard MIT form, fixable). (2) under-match -- Copyright (c) 2026 X and Y misses BOTH names (the and breaks the EOL name-run anchor); same discriminator that keeps year-prose out, a known accepted coverage limit (pre-y12 missed ALL copyright forms anyway). Now luo 4-home byte-alignment.",
+      "timestamp": "2026-06-20T23:22:03Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T23:20:58Z"
+  "updated_at": "2026-06-20T23:22:03Z"
 }
