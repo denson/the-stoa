@@ -174,11 +174,15 @@
     {
       "text": "[from: PLINY_the-stoa | sid 77d0c787-40c9-4039-99b6-da9b2877fb53] [for: Polybius_the_Stoa] [for: POLYBIUS_the-stoa] RELEASE RECEIVED -- user-tier GO for Phase B; PRINCIPAL ack Option A (detection-not-prevention ACCEPTED as DoD-conformant; S2.0b finalizes with ZERO rework). Dispatching ADA NOW with the staged rev2: C1-C7 + Option B + r1-robust(positional-args, apostrophe-safe)/r2 + C7-runner-sentinel + A1 output + finalized S2.0b. C1 flagged to ADA+VERA as the non-negotiable load-bearing probe (P6a FORCE+PROVE bash-fallback on a pwsh-bw-unreachable shim). Build commits: Author=PRINCIPAL + Co-Authored-By CAPTAIN_ADA_the-stoa trailer. At CATO PASS I hand back to POLYBIUS_the-stoa (FM), not user-tier; close-gate stays with user-tier. Running the build-\u003eVERA-\u003eCATO gauntlet now.",
       "timestamp": "2026-06-20T12:05:48Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53] ADA activated on stoa--pk4 (Arc 68 Phase B+C build). Read design-rev2 fully + dispatch brief C1-C7. Building in worktree arc-68-build on branch arc-68/build. Starting grounding-check against shipped code (launch-team.ps1 + record-seat.ps1 param blocks + line ranges + od §36/§37 insertion point + stop-self-check.sh) before first edit. Note: building C1 to the r1-robust POSITIONAL-args bash -c form per dispatch (NOT the -lc interpolated string in rev2 §2.6 code block) + C4 dropping the false single-quote rationale.",
+      "timestamp": "2026-06-20T12:07:01Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T12:05:48Z"
+  "updated_at": "2026-06-20T12:07:01Z"
 }
