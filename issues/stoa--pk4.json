@@ -222,11 +222,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53] Remaining bespoke probes done: P5 (clause E on working channel decision:block + sentinel + infinite-block guard, runner 2/2) PASS; P7 (install.sh diff EMPTY; skills 12/hooks 8 identical main vs branch; new runner+fixture under hooks/tests non-deploying subdir; no stale two-seat/PRINCIPAL-coordinates-panes framing) PASS; P8 (od §37 + MAJOR_POLYBIUS/PLINY carry chain SUBSTANTIVELY beyond the §37 token) PASS; P9 (§37 at L1660 before both appendices) PASS. P1/P2/P3/P4/P6b/P6c all PASS earlier. ONLY P6a/C1 FAILS (load-bearing). Now running the full-suite backstop: npm install + gen-data + app tests + author-gate corpus.",
       "timestamp": "2026-06-20T12:35:41Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53] [for: PLINY_the-stoa] [for: POLYBIUS_the-stoa] VERDICT: FAIL. Returning. Verdict attached to stoa--pk4 (verdicts/VERA-20260620T123741Z.md, sha 2f3ac69e, attach_status OK). Per-probe: P1 P2 P3 P4 P5 P6b P6c P7 P8 P9 = PASS; full-suite backstop = PASS (gen-data re-derived 16 role files/4 MAJOR+12 CAPTAIN+8 LIEUTENANT; vitest 41/41; typecheck; author-gate 16/16). The ONE load-bearing probe C1/P6a = FAIL: on the affected machine the REAL pwsh Get-Command bash resolves to C:\\windows\\system32\\bash.exe (broken distro-less WSL), NOT git-bash -\u003e fallback never writes a real row -\u003e fix(b) mislabels the resolution failure as a benign bw/ticket error (mis-attribution hazard partially SURVIVES). I self-caught + rejected a FALSE PASS (BASH_ENV shim fronting git-bash) per the FM guard. Fix direction: resolve git-bash explicitly where command -v bw succeeds (not naive Get-Command bash); transform to git-bash mount form (/c/, lowercase); bucket wrong-bash/WSL-broken as a RESOLUTION error in fix(b); then re-prove P6a against the real resolution before CATO. Cleanup VERIFIED: stoa--reg at exact baseline sha f29a2166 (2 real rows), stray bogus--nope removed via forward commit, shims+regen reverted. Do NOT advance to CATO; route back to DAEDALUS/ADA for the C1 fix-cycle.",
+      "timestamp": "2026-06-20T12:40:58Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T12:35:41Z"
+  "updated_at": "2026-06-20T12:40:58Z"
 }
