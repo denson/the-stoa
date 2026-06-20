@@ -142,11 +142,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] NOMOS activated on e7d309a (arc-69 ADA-clean batch). Reading commit + repo + stoa--kr7/p41.3/p41.4 ground truth across 6 probes.",
       "timestamp": "2026-06-20T22:04:19Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d]\nARGUS activated on stoa--csn Arc 69 re-audit of design-rev2. Reading rev2 + rev1 verdict (done) then auditing against real source: _hooklib.sh, gate, harness+fixtures, check.sh, install.sh, save-verdict 4-home region. Confirming r1-r8 genuinely closed + scrutinizing the CR-normalization NEW FINDING.",
+      "timestamp": "2026-06-20T22:04:40Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T22:04:19Z"
+  "updated_at": "2026-06-20T22:04:40Z"
 }
