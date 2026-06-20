@@ -114,11 +114,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53]\nDAEDALUS activated on stoa--pk4 (Arc 68 design-rev2). Reading brief + design-rev1 + ARGUS verdict + convergence trail (FM endorse + user-tier BLESS of Option B + say-path dependency). Folding C1-C7 + Option B + say-path-not-thinner. Verifying od appendix line numbers (C6) + record-seat call-site lines + ticket constant (C5) before authoring.",
       "timestamp": "2026-06-20T11:43:02Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53]\nGround-truth verified for all folds: C6 = od S36 ends L1659, appendices Agent-regime-inverses (L1660) + Empirical-lineage (L1671) follow -\u003e S37 inserts at L1660 (NOT EOF, confirmed). C5 = ticket is hardcoded constant L58 (param it). C1/C4 = tmp at L108 via GetTempPath, bw block L118-128. C7 = no stop-hook fixture exists (tests dir = run-author-gate-tests.sh + fixtures + README only). Edit-B/Option-B = Get-SeatPrompt L169-173; panes block passes prompt unquoted L191 (confirms say-path must stay single-token). Authoring rev2 now.",
+      "timestamp": "2026-06-20T11:43:58Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T11:43:02Z"
+  "updated_at": "2026-06-20T11:43:58Z"
 }
