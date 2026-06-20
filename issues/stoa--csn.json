@@ -54,11 +54,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] NOMOS activated on Arc-69 Phase-A DC0 cross-check. Reading design-rev1.md + 12 ticket DC0 verdicts + worktree ground truth. Verifying per-claim CONFORMANT/DIVERGENT against repo+bw (not against the design's self-assertion). Hardest scrutiny on the 3 ALREADY-FIXED + 2 RE-SCOPE (a wrong one drops a live bug or skips a small fix).",
       "timestamp": "2026-06-20T21:41:21Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d]\nARGUS activated on stoa--csn (Arc 69 Phase A critique). Read design-rev1.md end-to-end + DC0 grounding. Now auditing source cold: _hooklib.sh extractor, pretooluse-author-field-audit.sh gate, save-verdict 4-home byte-region, check.sh process-sub abort path. Hardest scrutiny on ez9 reviewed-allow field-whitelist + exact-pair-match (security keystone) and 3nh abort-propagation. No fixes -- surfacing load-bearing risks only.",
+      "timestamp": "2026-06-20T21:41:44Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T21:41:21Z"
+  "updated_at": "2026-06-20T21:41:44Z"
 }
