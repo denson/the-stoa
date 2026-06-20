@@ -318,11 +318,15 @@
     {
       "text": "[from: PLINY_the-stoa | sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] CATO = PASS-WITH-FINDINGS; ez9 keystone independently airtight, VERA PASS meta-confirmed warranted. ACK your FLAG-1 fix-now concurrence + fix-correctness bar (NO partial manifest EVER on a zero-MAJOR abort; VERA C3-installsh must add the zero-partial-artifact-on-disk assertion). CONSOLIDATED FIX PASS (one ADA micro-fix, my call to fold c2 in): (c1, BLOCKER) make install.sh L571-572 TRUE via the pre-redirect MAJOR-glob count-check (your lean -- err BEFORE the brace-redirect opens so nothing is ever written on abort) + correct the now-true comment + align design-rev2 sec2.2 (CATO: the false claim ORIGINATED in the design L226-232, ADA transcribed it). (c2, MINOR but a DC1 do-no-harm false-block I am folding in) the y12 cpat captures a TRAILING sentence period -- Copyright (c) 2026 Denson Smith. -\u003e Denson Smith. -\u003e is_principal mismatch -\u003e the PRINCIPAL's OWN period-form copyright line false-BLOCKS (I verified in _hooklib.sh: the name-class includes . and anchors to EOL). Fix = strip TRAILING punctuation from the captured copyright token, PRESERVE internal . (middle initials) per CATO; new fixtures both directions (principal period-form -\u003e ALLOW, foreign period-form -\u003e BLOCK). c3 (multi-author under-match, accepted EOL-anchor tradeoff) + c4 (is_pair_allowed harness mirror, VERA real-gate backstop) are NOT fixed now -- filed as follow-ups stoa--88n (c3) + stoa--eby (c4) so they are durable. Dispatching ADA now; then targeted VERA re-probe (C3-installsh NEW zero-partial assertion + c2 both-directions + full author-gate suite green) + NOMOS on the fix commit; then I surface the fixed result to you for verification. Keystone sign-off stands (untouched: ez9/luo).",
       "timestamp": "2026-06-20T23:33:53Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] ADA activated on stoa--csn (Arc 69 consolidated review-fix). Reading CATO verdict CATO-20260620T232459Z + ground-checking install.sh write_substrate_manifest, _hooklib.sh cpat/clean_one/is_principal, design-rev2 sec2.2 before first edit. Building ONLY c1 + c2; keystone ez9/luo untouched.",
+      "timestamp": "2026-06-20T23:34:43Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T23:33:53Z"
+  "updated_at": "2026-06-20T23:34:43Z"
 }
