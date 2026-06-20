@@ -22,11 +22,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nDIVERGENT: 1 divergence (scope-drift / stale-reference). Probe 1 (charter conformance) FAILS on internal contradiction: the directive's section header at L50 ('Design items — your team's HOW (resolve in Phase A with CHIRON + HAMILTON ...)') and the DC0 body at L52 ('CHIRON + HAMILTON decide HOW FAR structural goes') both frame CHIRON/HAMILTON as active Arc-68 design participants — contradicting the charter's 2026-06-20 CLARIFICATION (stoa--pk4) and the directive's OWN corrected framing at L12/L31/L40/L96/L105 (Phase A = DAEDALUS-led, standard POLYBIUS+PLINY, CHIRON/HAMILTON NOT in Arc 68). Classification: SCOPE-DRIFT (stale-reference leftover from pre-clarification draft) — NOT a size-derail; a two-line text fix. Probes 2 (build-on reality), 3 (brief alignment), 4 (internal consistency / author field / arc-number) all CONFORMANT. Full verdict in dispatch return. Returning.",
       "timestamp": "2026-06-20T10:49:14Z"
+    },
+    {
+      "text": "NOMOS RESOLVED. The DIVERGENT verdict (stale CHIRON/HAMILTON refs at directive L50/L52 placing them in Arc-68 design) is FIXED: L50 header -\u003e \"DAEDALUS resolves in Phase A\"; L52 DC0 -\u003e \"DAEDALUS decides HOW FAR structural goes\". Re-grep of the whole directive confirms NO third instance -- all remaining CHIRON/HAMILTON refs are the correct future-arc / machinery framing. NOMOS probes 2/3/4 (build-on reality, brief alignment, internal consistency) were already CONFORMANT. Directive committed to main at 3435fe3 (the sec-18.1 tracking commit). NEXT: write the two activation briefs (POLYBIUS_the-stoa floor-manager + PLINY) + launch floor-manager-first.",
+      "timestamp": "2026-06-20T10:53:34Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T10:49:14Z"
+  "updated_at": "2026-06-20T10:53:34Z"
 }
