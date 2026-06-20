@@ -14,11 +14,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96] NOMOS activated on the Arc 69 build-directive (substrate/arcs/arc-69-build-directive.md, uncommitted draft). Reading charter stoa--csn + the 13 named bug tickets + repo surfaces as ground truth. Auditing on 4 axes: charter conformance, bug-ticket reality (exist + still OPEN), repo reality, internal consistency.",
       "timestamp": "2026-06-20T21:14:10Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96] DIVERGENT: 1 divergence (Probe 1, ticket-state, qsf). Probes 2/3/4 CONFORMANT.\n\nverdict: DIVERGENT\nchecked_output: Arc 69 build-directive (substrate/arcs/arc-69-build-directive.md, uncommitted ?? draft) vs charter stoa--csn + 13 bug tickets + repo.\n\nDIVERGENCE -- type: ticket-state | classification: WRONG-SPEC (for the qsf cluster-B framing; directive DC0 already routes such cases to RE-SCOPE).\ndetail: Directive line 34 frames stoa--qsf as a Cluster-B 'save-verdict module' FIX (probe-id regex lowercase-p vs uppercase P1..P11) to fix in substrate/modules/save-verdict.md. Ground truth: that canonical is ALREADY FIXED -- save-verdict.md:66 and :128 use ^[pP] (case-insensitive); :128 states the j2i bug 'is retired by this module'. Per qsf's own bw comments (floor-manager + PLINY, 2026-06-18, both ACK'd), the live symptom is a the-stoa DEPLOY-DRIFT (.claude/skills/save-verdict/_save_verdict.py:105 pre-Arc-64 lowercase regex) folded into stoa--ruu; qsf was DEFERRED to user-tier POLYBIUS for re-scope-or-supersede, NOT a clean save-verdict-source FIX. The directive's Cluster-B fix-path for qsf cannot pass as posed.\nevidence: bw show stoa--qsf (2 comments establishing canonical-already-fixed + deferred-to-rescope); grep save-verdict.md -\u003e L66/L128 ^[pP] intentional, j2i retired.\n\nNOTE (NOT divergences -- ground-truth corroboration): qsf is still OPEN (correct -- deferred, not closed); so it is NOT a 'closed ticket in the FIX target'. The other 12 tickets all EXIST and are OPEN. The directive's DC0 ('GROUND each ticket FIRST; ALREADY-FIXED -\u003e close with ref; RE-SCOPE -\u003e ticket-and-skip') is the orchestrator's own designed catch for exactly this -- so the unit is recoverable in-flight, not impossible. NOMOS flags it because the directive's CLUSTER-B narrative presents qsf as a live save-verdict-module FIX when bw says otherwise.\n\nCONFORMANT on: Probe 1 (4 clusters / DC0 / standard-POLYBIUS+PLINY no-CHIRON/HAMILTON all match charter); Probe 2 (13 tickets all exist + OPEN; y12/p41.3/tg7/qsf bodies carry real file:line repros); Probe 3 (all 9 named surfaces exist); Probe 4 (arc-69 no collision; builds-on 8e4b20c == HEAD; author line = Polybius_the_Stoa on behalf of PRINCIPAL Denson Smith, no foreign field; DC1 '16/16 author-gate tests' == actual suite: 16 passed/0 failed; DC3 byte-aligned region present in ARGUS/VERA/CATO).\nReturning.",
+      "timestamp": "2026-06-20T21:16:26Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T21:14:10Z"
+  "updated_at": "2026-06-20T21:16:26Z"
 }
