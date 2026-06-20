@@ -210,11 +210,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] ADA activated on 3nh (Cluster C, FAIL-LOUD empty MAJOR/CAPTAIN glob). Reading design-rev2 3nh section + ARGUS PASS + worktree arc-69/build at 443edbf. Ground-checking the two-site/two-mechanism table against shipped check.sh + install.sh write_substrate_manifest before first commit. Building ONLY 3nh.",
       "timestamp": "2026-06-20T22:35:42Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] Source probes CONFORMANT: claim2 (all Fenwick/CalGEM strings in .fixture basenames only, no real surface); C1 (parse_allow_pairs single home _hooklib.sh:286, gate carries only is_pair_allowed glue); claim4 (ALLOW_FIELDS={publisher,vendor,source,provider} exact, authorship fields hard-dropped L305, exact-pair = match not substring, both-side tr -d CR). Now re-running DC1 suite + recomputing DC3 4-home sha256.",
+      "timestamp": "2026-06-20T22:36:38Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T22:35:42Z"
+  "updated_at": "2026-06-20T22:36:38Z"
 }
