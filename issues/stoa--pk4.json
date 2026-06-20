@@ -194,11 +194,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53] VERA activated on stoa--pk4 (Arc 68 Phase D verify). Read design-rev2 + dispatch brief + role file. Verifying build 8f3f2f9 on arc-68/build in worktree arc-68-build. C1/P6a (FORCE+PROVE bash-fallback writes a real stoa--reg row on a pwsh-bw-unreachable shim) is the non-negotiable load-bearing probe. Classifying P1-P9 per verification-complexity quadrant; reading built files next.",
       "timestamp": "2026-06-20T12:22:26Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53] DryRun probes done: P1 (custom-agent: CHIRON added + Windows forced + chain preamble on CHIRON prompt) PASS; P2 (arc: PLINY surfaces to POLYBIUS NOT PRINCIPAL, POLYBIUS supervises PLINY) PASS; P3 (BLESSED Option B: standard say stays bare-word polybius/pliny + Panes preserved, NO Windows force, NO preamble) PASS. Baseline stoa--reg captured: 2 real rows (POLYBIUS/PLINY the-stoa), sha f29a2166. Now executing the NON-NEGOTIABLE C1/P6a: FORCE the bash-fallback on a pwsh-bw-unreachable shim + PROVE a real probeFallback row round-trips through git-bash bw.",
+      "timestamp": "2026-06-20T12:23:59Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T12:22:26Z"
+  "updated_at": "2026-06-20T12:23:59Z"
 }
