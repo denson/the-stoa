@@ -314,11 +314,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53]\nAxis 1 (commit reality) PASS: HEAD=ec72ed5, parent=8f3f2f9, grandparent=3435fe3; both build commits Author=denson \u003cdensonsmith2@gmail.com\u003e (NOT overridden), both carry Co-Authored-By: CAPTAIN_ADA_the-stoa; 10-file change set matches deliverable list; install.sh NOT in set. Now reading directive + as-built for DC0-DC4 conformance.",
       "timestamp": "2026-06-20T13:20:31Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53]\nAxis 2 (directive DC0-DC4 + guarantees + record-seat fix) PASS: DC1 Get-ChainPreamble on ARC+PASTE paths + role-file canon on say path; DC2 stop-self-check clause (E) + -GauntletWaiver (Option A detection-not-prevention, recorded gauntlet=waived); DC3 -Composition ValidateSet(standard/custom-agent/custom-workflow/both) + CHIRON/HAMILTON launcher-spun seats answering to POLYBIUS; DC4 ADDITIVE record-seat params (Composition/Gauntlet/ChainRole with safe defaults) -\u003e stoa--reg; record-seat git-bash fix = Resolve-GitBashWithBw (skips WSL system32 shadow, derives from git, command -v bw gate) + 4-bucket fix(b); §37.1-37.4 in operating-disciplines.md; substantive chain paragraphs in both MAJOR role files. Now auditing verdict reality (5 verdicts on beadwork).",
+      "timestamp": "2026-06-20T13:21:34Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T13:20:31Z"
+  "updated_at": "2026-06-20T13:21:34Z"
 }
