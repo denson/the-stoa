@@ -26,11 +26,15 @@
     {
       "text": "NOMOS RESOLVED. The DIVERGENT verdict (stale CHIRON/HAMILTON refs at directive L50/L52 placing them in Arc-68 design) is FIXED: L50 header -\u003e \"DAEDALUS resolves in Phase A\"; L52 DC0 -\u003e \"DAEDALUS decides HOW FAR structural goes\". Re-grep of the whole directive confirms NO third instance -- all remaining CHIRON/HAMILTON refs are the correct future-arc / machinery framing. NOMOS probes 2/3/4 (build-on reality, brief alignment, internal consistency) were already CONFORMANT. Directive committed to main at 3435fe3 (the sec-18.1 tracking commit). NEXT: write the two activation briefs (POLYBIUS_the-stoa floor-manager + PLINY) + launch floor-manager-first.",
       "timestamp": "2026-06-20T10:53:34Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nNOMOS activated on the two Arc-68 activation briefs (HUMAN_paste-polybius_the-stoa + HUMAN_paste-pliny, uncommitted/gitignored on disk; to be attached to stoa--pk4). Auditing 4 axes: chain-of-command correctness, gauntlet-setup checklist completeness, directive/charter alignment, internal consistency. Ground truth = stoa--pk4 + directive 3435fe3 + the gauntlet-setup SKILL checklist. Running probes.",
+      "timestamp": "2026-06-20T10:58:55Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T10:53:34Z"
+  "updated_at": "2026-06-20T10:58:55Z"
 }
