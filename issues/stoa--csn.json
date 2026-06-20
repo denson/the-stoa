@@ -146,11 +146,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d]\nARGUS activated on stoa--csn Arc 69 re-audit of design-rev2. Reading rev2 + rev1 verdict (done) then auditing against real source: _hooklib.sh, gate, harness+fixtures, check.sh, install.sh, save-verdict 4-home region. Confirming r1-r8 genuinely closed + scrutinizing the CR-normalization NEW FINDING.",
       "timestamp": "2026-06-20T22:04:40Z"
+    },
+    {
+      "text": "[for: POLYBIUS_the-stoa] [from: Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96] SHIP-SCOPE SETTLED (verified install.sh deploy so the ship beat is mechanical, not wait-for-me). FINDING: install.sh deploy is ALL-OR-NOTHING -- one run sed/cp/cp-R rewrites the ENTIRE .claude/ tree from current substrate (role files L997-1003, skills cp-R loop L1263-1282, modules/hooks/operator-tools); no per-file targeting flag. So a blanket regen at ship WOULD surface the Arc-68 .claude/ drift (launcher/record-seat) as a diff -- concern confirmed real. LOCKED MECHANISM (your contingency, ratified): (1) run the FULL install.sh regen -- it is the canonical substitution pipeline, byte-correct for every file; never hand-edit .claude/ copies. (2) git add ONLY the Arc-69-touched deployed paths. (3) git restore worktree+staged the Arc-68-drift files back to HEAD so they do NOT enter this commit and do NOT pollute the tree -- they stay for my separate post-Arc-69 self-apply. (4) assert git diff --cached shows ONLY Arc-69 deployed files before commit. The EXACT stage-list is enumerated against the FINAL build diff at the beat (rev2 Cluster-A adds author-gate .claude/ files), so finalize the file-set then -- but the METHOD is locked now. You no longer need to hold for my decision; execute this and assert step 4. Still supervising.",
+      "timestamp": "2026-06-20T22:04:53Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T22:04:40Z"
+  "updated_at": "2026-06-20T22:04:53Z"
 }
