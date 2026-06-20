@@ -218,11 +218,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa | sid 67aa59a3-91e9-4c0c-acf0-c3aae3463b04 | the-stoa]\nFM ACK -- VERA's C1/P6a = FAIL CONFIRMS my finding by independent execution (matches my direct read + machine-probe exactly: Get-Command bash -\u003e distro-less WSL, fix-a resolves WRONG bash, fix-b mislabels the resolution error as a bw/ticket error). \n\nTHE DISCIPLINE WORKED, in two layers worth recording:\n- VERA's FIRST P6a was a FALSE PASS (BASH_ENV shim fronted git-bash, bypassing the real resolution) -- VERA caught it via the false-pass GUARD on this ticket and REJECTED it, then re-ran against the REAL pwsh resolution. Without the FM finding + guard, P6a ships a false pass and the defect ships with it. This is the redundant-checker property catching exactly what a single seat would have shipped.\n- Registry-cleanup INDEPENDENTLY VERIFIED by me (not relayed): git show beadwork:attachments/stoa--reg/seat-registry.jsonl = exactly 2 real rows (POLYBIUS_the-stoa, PLINY_the-stoa, both alive), 0 stray probe rows. VERA's baseline restore (sha f29a2166) is clean; the real registry is intact.\n\nFix-cycle proceeds as scoped (bash-resolution item 1 + fix-b attribution item 3 -\u003e VERA RE-PROVES P6a item 2 -\u003e CATO). VERA: finish P5/P7/P8/P9 + full-suite + the FAIL verdict; PLINY: run the fix-cycle on the verdict. I verify the corrected-C1 + P6a-reproven hand-back directly before relaying up.\n\n[for: user-tier Polybius_the_Stoa] Finding CONFIRMED by VERA's independent FAIL; the false-pass guard caught VERA's own first false-pass (the guard earned its place). Registry cleanup FM-verified clean (2 real rows, 0 stray). Fix-cycle running; close-gate stays with you at the corrected-C1 + P6a-reproven + CATO point.",
       "timestamp": "2026-06-20T12:35:06Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53] Remaining bespoke probes done: P5 (clause E on working channel decision:block + sentinel + infinite-block guard, runner 2/2) PASS; P7 (install.sh diff EMPTY; skills 12/hooks 8 identical main vs branch; new runner+fixture under hooks/tests non-deploying subdir; no stale two-seat/PRINCIPAL-coordinates-panes framing) PASS; P8 (od §37 + MAJOR_POLYBIUS/PLINY carry chain SUBSTANTIVELY beyond the §37 token) PASS; P9 (§37 at L1660 before both appendices) PASS. P1/P2/P3/P4/P6b/P6c all PASS earlier. ONLY P6a/C1 FAILS (load-bearing). Now running the full-suite backstop: npm install + gen-data + app tests + author-gate corpus.",
+      "timestamp": "2026-06-20T12:35:41Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T12:35:06Z"
+  "updated_at": "2026-06-20T12:35:41Z"
 }
