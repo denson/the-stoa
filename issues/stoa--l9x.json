@@ -6,9 +6,15 @@
   "description": "bw exposes 'bw attach \u003cid\u003e \u003cfile\u003e [--name PATH]' but NO removal/detach command. A stray attachment (e.g. from a doubled --name) can only be OVERWRITTEN (to empty), never REMOVED from the beadwork tree — removal requires a non-bw-native 'git rm' on the orphan branch (concurrent-write-risky mid-arc).\n\nSURFACED: Arc 67 (stoa--p7c). A record-seat.ps1 --name bug created attachments/stoa--reg/attachments/stoa--reg/seat-registry.jsonl (1-byte newline). record-seat.ps1 is FIXED (uses bare-basename --name); the live bug is gone, only the one-time stray artifact remains. Polybius_the_Stoa takes the orphan-branch git rm at Arc-67 CLOSE (folded into the beadwork-push step when bw write-activity quiesces — concurrent-write-safe).\n\nPLAN (fix-now, concrete next action): (a) file/seek an upstream bw feature request for 'bw detach \u003cid\u003e \u003cstored-path\u003e' (single-line removal intent, symmetric with attach); (b) until that lands, document the close-time-git-rm-on-beadwork pattern as the interim removal mechanism in the bw cookbook (operating-disciplines.md §12). Next action: open the upstream bw detach request.",
   "id": "stoa--l9x",
   "labels": [],
+  "comments": [
+    {
+      "text": "[from: Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96 | the-stoa]\n\nINTERIM WORKAROUND NOW VERIFIED (Arc-67 close, 2026-06-19). The close-time git-rm-on-the-orphan-branch removal ran successfully -- the doubled-path stray is gone, the correct registry untouched. Exact recipe (concurrent-write-safe once bw quiesces; no backticks/no shell vars to keep it copy-safe):\n\n  git worktree add \u003cTMP\u003e beadwork            -- check out the orphan branch in a throwaway worktree (\u003cTMP\u003e = a dir OUTSIDE the repo)\n  cd \u003cTMP\u003e ; git rm \u003cattachments/path/to/stray\u003e ; git commit    -- Author stays the PRINCIPAL; no seat trailer needed (not a CAPTAIN commit)\n  cd \u003crepo\u003e ; git worktree remove \u003cTMP\u003e\n  git ls-tree -r beadwork -- \u003cdir\u003e           -- confirm the stray is gone\n  git push origin beadwork                   -- publish alongside the close-gate beadwork push\n\nRESULT: commit bd0c859 on beadwork ('chore(stoa--reg): remove inert doubled-path attachment stray'); git ls-tree now shows ONLY attachments/stoa--reg/seat-registry.jsonl (the correct 2-row registry). record-seat.ps1 is FIXED (bare-basename --name) so no NEW strays are produced.\n\nREMAINING (the real fix; ticket stays OPEN): (a) upstream bw feature request for a 'bw detach \u003cid\u003e \u003cstored-path\u003e' command, symmetric with attach -- that is the actual gap; (b) fold the verified recipe above into the bw cookbook (operating-disciplines.md sec.12) as the sanctioned interim mechanism (a small substrate doc-add for a future arc). The by-hand recipe is now proven + captured here so it is not re-discovered next time.",
+      "timestamp": "2026-06-20T02:16:59Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "[TOOL GAP] bw has attach but no detach/remove — stray attachment artifacts can't be cleaned bw-natively",
   "type": "task",
-  "updated_at": "2026-06-19T22:57:08Z"
+  "updated_at": "2026-06-20T02:16:59Z"
 }
