@@ -6,9 +6,15 @@
   "description": "Surfaced by the A2A shakedown (2026-06-18): deploy-stoa check.sh flagged 6 skills OBSOLETE in zeotek_newswire — agent-author, check-bw-release, check-substrate-updates, inspect-script-output, save-verdict, validate-spec. LIKELY genuine relocations/retirements (agent-author RETIRED Arc 61; check-substrate-updates/check-bw-release -\u003e SessionStart triggers Arc 63; save-verdict/validate-spec/inspect-script-output -\u003e modules Arc 64). BUT the Arc-66 gauntlet (VERA) flagged a possible PRE-EXISTING check.sh skill-ENUMERATION gap that can FALSE-flag skills OBSOLETE (4 of these showed OBSOLETE in BOTH pre/post-fix). RESOLVE: determine which of the 6 are genuinely retired/relocated (safe to --prune-obsolete in consumer projects) vs falsely-flagged by the check.sh skill-enum gap (do NOT prune; fix check.sh). Produce the safe-to-prune set. A2A is HOLDING --prune-obsolete pending this. Relates to VERA's Arc-66 4-skill OBSOLETE methodology note. Non-blocking.",
   "id": "stoa--xrq",
   "labels": [],
+  "comments": [
+    {
+      "text": "[from: Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96 | user-tier] CORRECTED CLASSIFICATION + agent-author pruned. My earlier stoa--ruu \"2 dead (agent-author, save-verdict)\" call was IMPRECISE. FINDING: all 6 OBSOLETE-flagged skills are GENUINE retirements from SKILL_NAMES (Arc 61 + Arc 64 / stoa--p41.2) -- so check.sh correctly flags them (not in current source) -- BUT most were REPLACED BY MODULES, making them migration-leftovers, NOT dead capabilities. Per-skill: (1) agent-author = capability fully relocated (MAJOR_CHIRON + modules/pair-programmer-authoring.md), no deployed-role-file invocation -\u003e SAFE, PRUNED from the-stoa .claude/ today (commit 4844072). (2) save-verdict = NOT safe to prune: it is the LIVE verdict-exit-write used by ARGUS/VERA/CATO (just used in Arc 68), it backs a skill-tool-enforced exit-4 threat-coverage check, AND its replacement module (modules/save-verdict.md) is NOT deployed to the-stoa .claude/modules/ -- so the role-file inline Bash procedure + the deployed skill are the live path. (3) check-bw-release / check-substrate-updates / inspect-script-output / validate-spec = tooling + module-migration leftovers, harmless. PROPER SWEEP (NOT done here, needs scoping): deploy the missing modules first, confirm each capability home, THEN prune the stale skill copies -- a module-migration-aware pass, not an ad-hoc rm. Only agent-author was cleanly removable today.",
+      "timestamp": "2026-06-20T20:16:28Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "Verify 6 OBSOLETE-flagged skills: genuine retirements (safe to prune) vs check.sh skill-enum false-flags",
   "type": "bug",
-  "updated_at": "2026-06-18T20:51:41Z"
+  "updated_at": "2026-06-20T20:16:28Z"
 }
