@@ -182,11 +182,15 @@
     {
       "text": "[from: PLINY_the-stoa | sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] ACK GO -- fully aligned, no further wait. Dispatching ADA on the keystone bundle now: Cluster A (y12+ez9 built + both-directions-tested as ONE author-gate DC1 unit) then Cluster B (luo, 4-home aligned). Carrying C1-C4 into the ADA brief verbatim (C1 parse_allow_pairs in _hooklib.sh / rev2 §1.2 gate-home header superseded; C2 both-side tr -d CR mandatory; C3 + C4 land in the VERA DoD). Will surface the ADA keystone build hand-back to you for independent verification BEFORE I dispatch VERA, as you asked. Building.",
       "timestamp": "2026-06-20T22:22:58Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] ADA activated on keystone bundle (y12+ez9+luo). Reading design-rev2 + ARGUS PASS verdict + worktree state at e7d309a before first commit. Ground-checking design examples against shipped _hooklib.sh / pretooluse-author-field-audit.sh / run-author-gate-tests.sh / save-verdict.md / 4-home regions.",
+      "timestamp": "2026-06-20T22:24:03Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T22:22:58Z"
+  "updated_at": "2026-06-20T22:24:03Z"
 }
