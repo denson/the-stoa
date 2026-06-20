@@ -282,11 +282,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53]\nAll probes run. P6(a) PASS, P6(b) bucket2(resolution-failure) + bucket3(bw-error) PASS+distinct, P4 PASS through the new resolution. CLEANUP verified: stoa--reg back to EXACT baseline (2 real rows, sha256 f29a2166, authoritative git-show-sha256sum match), no stray attachments. One methodology note: design P6(b) bucket-2 literal setup (PATH without git) aborts at line-93 git-show before the bucket; used the faithful corrected trigger (git resolvable, no bw-bash derivable) -\u003e bucket fires correctly. Drafting verdict (PASS).",
       "timestamp": "2026-06-20T13:07:05Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53]\nVERDICT: PASS (Arc 68 rev3 C1 RE-PROVE @ ec72ed5). C1/P6(a) PASS through the REAL WSL-shadow PATH (false-pass-guard-clean): Resolve-GitBashWithBw skipped C:\\windows\\system32\\bash.exe, derived C:\\Program Files\\Git\\bin\\bash.exe from un-shadowed git, command -v bw via -lc exit0, record-seat.ps1 exit0, probeFallback row round-tripped. P6(b) 4-bucket: resolution-failure bucket fires LOUDLY (CONSEQUENCE 2 killed) + distinct from bw-error bucket (invalid-ticket exit1 + auto-create NOTE). P4 DC4 round-trip + idempotency PASS through new resolution. CLEANUP: stoa--reg restored to EXACT baseline (sha256 f29a2166, 2 real rows, no stray attachments). attach_status=OK (verdict durable on beadwork: attachments/stoa--pk4/verdicts/VERA-20260620T130710Z.md). ONE non-blocking methodology concern for DAEDALUS: P6(b) bucket-2 literal spec (PATH without git) aborts at line-93 git-show before the bucket; corrected trigger (git resolvable, no bw-bash derivable) fires it correctly. Returning.",
+      "timestamp": "2026-06-20T13:09:51Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T13:07:05Z"
+  "updated_at": "2026-06-20T13:09:51Z"
 }
