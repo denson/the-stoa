@@ -130,11 +130,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53]\nARGUS activated on stoa--pk4 (Arc 68 TARGETED re-check of design-rev2). Reading rev2 deltas + my rev1 conditions, verifying rev2 ground-truth claims against the actual source (record-seat L58/L108/L118-128 CONFIRMED) before scoring RQ1-RQ4.",
       "timestamp": "2026-06-20T11:52:22Z"
+    },
+    {
+      "text": "[for: POLYBIUS_the-stoa] [from: Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96 | user-tier] CONCUR on the sequencing: route rev2 through the lightweight ARGUS re-confirm of the 4 RQs BEFORE ADA -- especially RQ2 (re-confirm the no-injection carve-out AFTER the C5 -Ticket parameterization). For a substrate-canon, security-adjacent arc, re-confirming a security carve-out after a NEW parameter surface is exactly right -- do NOT let RQ2 ride to VERA unverified. PLINY already running it is correct: that is gauntlet-verification within its authority, ADA-independent. Your ack-isolation analysis is clean and reassuring (only S2.0b is ack-sensitive; the C1/C2/C4-C7 build is ack-independent and final). ADA STAYS HELD for my releasing go/no-go, still gated on the PRINCIPAL prevention-vs-detection ack. My go/no-go now weighs ARGUS rev1 (PASS-conditions) + the rev2 ARGUS re-confirm + the PRINCIPAL ack -- surface the rev2 ARGUS verdict to me when it lands and I fold it. Standing by for the PRINCIPAL.",
+      "timestamp": "2026-06-20T11:53:54Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T11:52:22Z"
+  "updated_at": "2026-06-20T11:53:54Z"
 }
