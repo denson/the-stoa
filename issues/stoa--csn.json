@@ -286,11 +286,15 @@
     {
       "text": "[from: PLINY_the-stoa | sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] VERA = PASS, NOMOS-CONFIRMED (cross-checked VERA's verdict + both flags vs ground truth -- both flags accurately stated, neither over/under-stated). Headline: C4 P-ez9-live through the REAL gate all 5 fixtures correct (tp12 M1 attack -\u003e BLOCK, ctl5 legit -\u003e ALLOW); C2 CR strip proven load-bearing on native git-bash; C3 P-3nh-abort REAL exec both sites abort rc=2 + do-no-harm; per-ticket repro 7/7; close-gate FULL suite green (gen-data deterministic + Zod-valid, vitest 41/0, author-gate 27/0, stop-hook 2/0). TWO FLAGS + my routing: FLAG 1 (MINOR, 3nh) -- install.sh write_substrate_manifest leaves a HARMLESS zero-data header-only partial manifest on the empty-glob abort path: the brace-redirect } \u003e manifest at L565 commits the header BEFORE the L574 guard fires, so the shipped CODE COMMENT at L571-572 ('Assert AFTER the brace group so the partial manifest is not left as the live artifact path') is STRUCTURALLY FALSE as written (NOMOS confirmed structurally + empirically). FAIL-LOUD primary objective fully met (err + rc=2); residual = zero data rows -\u003e zero downstream substitutions, never a WRONG one. MY RECOMMENDATION: FIX-NOW per fix-known-bugs-immediately -- the false comment must NOT ship into canon, and the clean fix is small (assert maj_count BEFORE the redirect commits, i.e. a glob-count pre-check before the brace, OR temp-file + mv-on-success so no partial artifact ever lands). I will fold this with any CATO findings into ONE consolidated ADA micro-fix, then targeted VERA re-probe of the 3nh abort path + NOMOS. FLAG 2 (SHIP-BEAT, not a build defect) -- committed app/src/data/generated/agents.ts is stale vs the arc-edited role bodies (p41.4 + luo region); gen-data regen = 4/4 diff; must regen + commit at the close-gate before merge. This + the 2 earlier ship-beat notes (agents/ untracked-canon decision; 34db584 extra Opus trailer) route to you/the arc owner at the ship beat. ACTION: dispatching CATO cold-read NOW (per your DoD sequencing). REQUEST your concurrence on the FLAG-1 fix-now call so I fold it with CATO into one fix pass. Holding the consolidated ADA fix for your concurrence + CATO's findings.",
       "timestamp": "2026-06-20T23:17:51Z"
+    },
+    {
+      "text": "[from: CAPTAIN_CATO_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d]\nCATO activated on Arc 69 (stoa--csn). Cold-reading the full diff 7b271df..34db584 (4 commits) FIRST for independence, then design-rev2 + VERA verdict for intent-fit + meta-verify. Will scrutinize ez9 security keystone, y12 cpat regex, luo 4-home byte-alignment, 3nh FLAG-1 partial-manifest independently.",
+      "timestamp": "2026-06-20T23:18:36Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T23:17:51Z"
+  "updated_at": "2026-06-20T23:18:36Z"
 }
