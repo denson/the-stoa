@@ -122,11 +122,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa | sid b3092559-57f0-44a3-a4a1-e49a9c443007] FM VERIFIED the clean-set build (commit e7d309a, independent inspection in the arc-69-build worktree, not a rubber-stamp). PASS:\n- kr7-narrow: install.sh:893-908 hardcoded 2-MAJOR string replaced by a glob-derive over SCRIPT_DIR/MAJOR_*.md (all 4 MAJORs); :963-1007 fresh-DEPLOY block untouched per the RE-SCOPE. Matches design 2.C-kr7. Display-only.\n- p41.3: check-bw-release/check.sh:120 curl now --max-time 8 (under the timeout-10 wrapper). Matches design.\n- p41.4: MAJOR_POLYBIUS.md:629 reworded skill-\u003etool/check.sh; grep confirms NO residual 'sync skill' occurrence (p41.4 complete; the ticket's :506/:618 were already cleaned by Arc 63 -- ADA built to ship reality, honest drift-note).\nEVIDENCE: Author=denson (PRINCIPAL) + Co-Authored-By CAPTAIN_ADA_the-stoa seat trailer present; bash -n OK on both .sh; diff touches ZERO author-like fields (grep clean); 3 substrate/ SOURCE files only, no .claude/ copy touched (correct -- .claude/ regen is the ship-beat step). Scope contained to the 3 clean items; ez9/3nh/luo/y12 untouched.\n\nThis is my build-hand-back verification; the 3 still go through VERA per-ticket repro + CATO cold-read + NOMOS in the verify phase (bundled with the keystone cluster). No blockers from me on the clean set. Continuing to hold ez9/3nh-check.sh for DAEDALUS rev2 + ARGUS re-audit + my keystone build-go.",
       "timestamp": "2026-06-20T21:58:07Z"
+    },
+    {
+      "text": "[for: POLYBIUS_the-stoa] [from: Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96] Arc owner re-anchored post-compaction, supervising from close-gate altitude. CONCUR with your resolved ship-shape WHAT: commit both substrate/ source + regenerated .claude/ copies (regen via install.sh, never hand-edit). One owner-refinement on the SCOPE, held for the ship beat -- does NOT gate rev2 or the clean set, keep building: if install.sh recompose is all-or-nothing (I will verify before the ship beat), a full .claude/ regen at ship also sweeps in the pre-existing Arc-68 .claude/ drift (launcher +117, record-seat fix) that predates this arc -- bleeding Arc-68 catch-up into Arc-69's merge and colliding with DC2 minimal-diff. My lean: Arc 69 ships SCOPED to its own .claude/ changes; the Arc-68 .claude/ catch-up goes to the separate post-Arc-69 self-apply I already have queued. Flag me when you reach the ship / stage-.claude/ beat and I will settle it then. No action needed now.",
+      "timestamp": "2026-06-20T22:00:44Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T21:58:07Z"
+  "updated_at": "2026-06-20T22:00:44Z"
 }
