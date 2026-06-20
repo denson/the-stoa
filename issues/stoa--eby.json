@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-20T23:33:30Z",
+  "description": "From Arc 69 CATO review (c4). The ez9 reviewed-allow exact-pair compare is_pair_allowed is byte-copied (mirrored) into substrate/hooks/tests/run-author-gate-tests.sh compute_outcome rather than sourced. parse_allow_pairs IS sourced from _hooklib.sh (no mirror); only the trivial 4-line exact-pair compare is mirrored. Drift risk is low + VERA's P-ez9-live real-gate probe is the named backstop, so acceptable as-is. Plan: optional future tightening -- relocate is_pair_allowed into _hooklib.sh so the harness sources BOTH halves (like parse_allow_pairs), eliminating the mirror. Low priority. Anchor: stoa--csn (Arc 69), CATO verdict CATO-20260620T232459Z.md finding c4.",
+  "id": "stoa--eby",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "[FOLLOW-UP arc-69] ez9 is_pair_allowed mirrored in author-gate test harness (drift risk)",
+  "type": "task",
+  "updated_at": "2026-06-20T23:33:30Z"
+}
