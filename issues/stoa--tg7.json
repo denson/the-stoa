@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-20T05:50:56Z",
+  "description": "PROBLEM: the substrate update tools make git commits with Author=PRINCIPAL (correct) but NO Co-Authored-By seat trailer and no Stoa-Session-Id, inconsistent with operating-disciplines 28.9 sign-everywhere (shipped Arc 67 / stoa--p7c). Commit sites: apply.sh L350 (pre-state baseline) + L506 (the apply commit); install.sh and revert.sh also commit (same gap).\n\nSURFACED 2026-06-19/20 during the stoa--ruu self-apply: apply.sh landed commits 7b480b2 + f82d939 unsigned, while the hand-authored missing-files commit 244180e WAS signed -- the contrast made the gap visible.\n\nSEVERITY: MINOR. The load-bearing authorship invariant holds (Author=PRINCIPAL, never overridden). Only seat-traceability is lost (cannot walk git log trailers to learn which seat ran a self-apply). Not a regression Arc 67 introduced -- the tools predate 28.9 and were out of Arc 67 scope.\n\nWHY NOT A 2-LINE FIX (design question): the tools have no way to learn the running seat NAME today. CLAUDE_CODE_SESSION_ID gives the sid (a Stoa-Session-Id trailer is trivially addable) but not the seat name like Polybius_the_Stoa. Options: (a) caller passes seat identity via an env var (e.g. STOA_SEAT) or a --seat flag; (b) partial signing -- emit Stoa-Session-Id from the env sid plus a generic tool Co-Authored-By, omitting the seat name; (c) read the seat from a manifest/registry. Pick one.\n\nPLAN: when a substrate-tooling arc next touches these scripts (e.g. the obsolete-prune follow-up on stoa--ruu, or any apply.sh/install.sh change), add seat-identity signing to every tool commit site: apply.sh L350 + L506 plus the install.sh and revert.sh commit calls. Decide the seat-name-source mechanism first.\n\nSCOPE: substrate tooling change -\u003e MAJOR_POLYBIUS 18.2 -\u003e needs an arc (fold into the next tool-touching arc; not worth a standalone gauntlet for trailers alone).\n\nCROSS-REFS: operating-disciplines 28.9 (sign-everywhere); stoa--p7c (Arc 67, shipped the convention); stoa--ruu (self-apply where it surfaced).",
+  "id": "stoa--tg7",
+  "labels": [],
+  "priority": 3,
+  "status": "open",
+  "title": "substrate-tool commits (apply.sh/install.sh/revert.sh) omit the op-disc 28.9 seat-identity trailer",
+  "type": "bug",
+  "updated_at": "2026-06-20T05:50:56Z"
+}
