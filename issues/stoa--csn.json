@@ -114,11 +114,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] pass: 3 clean items built substrate/ SOURCE ONLY, 1 commit e7d309a, 3 files. (1) kr7-narrow install.sh:895-908 deploy-summary echo now glob-derives all 4 MAJORs (POLYBIUS/PLINY/CHIRON/HAMILTON) via SCRIPT_DIR/MAJOR_*.md instead of hardcoded 2; :963-1007 fresh-DEPLOY block left untouched per RE-SCOPE. (2) p41.3 check-bw-release/check.sh:120 curl now has --max-time 8 (bounded by hook timeout 10). (3) p41.4 MAJOR_POLYBIUS.md:629 cross-ref reworded base-team sync skill to base-team sync tool / check.sh. bash -n on both .sh files = OK exit 0. Author stays PRINCIPAL (denson); seat trailer present; no author-field touched. Did NOT touch ez9/3nh/luo/y12 or any .claude/ copy. Drift note: ticket p41.4 cited :506/:618 but only one occurrence survives (L629) - Arc 63 already cleaned the others; built to ship reality. Returning.",
       "timestamp": "2026-06-20T21:56:48Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] Source read end-to-end + all 4 items PROTOTYPED LIVE. ez9: PINNED inline-array form; spec'd NEW parser parse_allow_pairs (frontmatter-sliced, single-line bracket, hard field-whitelist); proved E2E hole-closing through REAL extractor (ctl5 ALLOW, tp11/tp12/ctl6 BLOCK, substring-evil BLOCK). Found+fixed a CR-normalization defect rev1 missed (CRLF appends \\r to extractor value -\u003e allow-pair never matches -\u003e silent false-BLOCK; fix = tr -d \\r both sides). 3nh: reproduced ARGUS r4 (bare exit-2 in process-sub -\u003e rc=0 parent continues) + proved SENTINEL fix aborts in caller scope. luo: rc-CAPTURE into attach_rc inside the region, dispatch-return field UNCHANGED (LOCKED). y12: control mandatory. Drafting design-rev2.md now.",
+      "timestamp": "2026-06-20T21:57:41Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T21:56:48Z"
+  "updated_at": "2026-06-20T21:57:41Z"
 }
