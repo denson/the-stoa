@@ -178,11 +178,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53] ADA activated on stoa--pk4 (Arc 68 Phase B+C build). Read design-rev2 fully + dispatch brief C1-C7. Building in worktree arc-68-build on branch arc-68/build. Starting grounding-check against shipped code (launch-team.ps1 + record-seat.ps1 param blocks + line ranges + od §36/§37 insertion point + stop-self-check.sh) before first edit. Note: building C1 to the r1-robust POSITIONAL-args bash -c form per dispatch (NOT the -lc interpolated string in rev2 §2.6 code block) + C4 dropping the false single-quote rationale.",
       "timestamp": "2026-06-20T12:07:01Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53] Grounding-check COMPLETE, no blocking drift. Findings flagged: (1) C6 line numbers — od.md §36.7 prose ends L1656, --- at L1658, ## Agent-regime inverses at L1660; insertion point (between --- and appendix) is CORRECT, design's exact-L shorthand slightly off but lands right. (2) record-seat call is L241 not L237; warnings L243/L246. Minor citation drift; building to ship reality. (3) install.sh confirmed NO edit needed — team-launcher+gauntlet-setup in SKILL_NAMES (record-seat intra-skill), hooks deploy by *.sh glob (stop-self-check intra-hook). (4) allow() exits 0 with EMPTY stdout — C7 assertion-2 asserts empty stdout not a block-JSON. Building now: record-seat.ps1 first (C1 positional-args bash -c form + C4 corrected rationale + C5 -Ticket + DC4 fields).",
+      "timestamp": "2026-06-20T12:08:54Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T12:07:01Z"
+  "updated_at": "2026-06-20T12:08:54Z"
 }
