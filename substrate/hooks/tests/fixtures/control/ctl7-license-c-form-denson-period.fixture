@@ -1,0 +1,12 @@
+MIT License
+
+Copyright (c) 2026 Denson Smith.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy...
+
+Intended path LICENSE -> cfg mode. PERIOD-FORM of the principal copyright line:
+the sentence-final period after the PRINCIPAL's name. Before c2 (Arc 69 / stoa--y12)
+the cpat captured "Denson Smith." WITH the trailing period, and is_principal -- which
+does not strip trailing punctuation -- false-BLOCKED the PRINCIPAL's OWN copyright
+line. The c2 trailing-terminal-punctuation strip yields "Denson Smith" -> is_principal
+ALLOWs. This is the both-directions PRINCIPAL half of the c2 fixture pair.

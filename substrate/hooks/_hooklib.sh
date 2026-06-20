@@ -254,7 +254,17 @@ for m in pat.finditer(text):
 # emit()/clean_one() path under the "copyright" field key.
 if cpat is not None:
     for m in cpat.finditer(text):
-        emit("copyright", m.group(1))
+        # c2 (Arc 69 / stoa--y12): strip a TRAILING terminal period/comma + any
+        # trailing whitespace from the captured copyright name run. The name-class
+        # includes "." (needed for middle initials, e.g. "J. R. R. Tolkien"), so a
+        # sentence-final period in "Copyright (c) 2026 Denson Smith." is captured as
+        # part of the token ("Denson Smith.") and would false-BLOCK the PRINCIPAL
+        # period-form copyright line (is_principal does not strip trailing
+        # punctuation). Strip ONLY the trailing terminal "." or "," — internal dots
+        # (middle initials) are preserved, so this introduces no new under-match.
+        # (No literal apostrophe in this block: it lives in a single-quoted shell -c.)
+        cname = re.sub(r"[.,]\s*$", "", m.group(1))
+        emit("copyright", cname)
 ' 2>/dev/null
 }
 

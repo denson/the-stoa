@@ -116,6 +116,9 @@ LICENSE|0|cfg|ALLOW|control/ctl4-license-c-form-denson.fixture
 docs/x.md|0|md|ALLOW|fp/fp5-copyright-prose.md.fixture
 LICENSE|0|cfg|ALLOW|control/ctl-y12-prose-in-cfg.fixture
 LICENSE|0|cfg|ALLOW|control/ctl-y12-year-prose-in-cfg.fixture
+# --- c2 (Arc 69 / stoa--y12): trailing-period false-block fix, both directions ---
+LICENSE|0|cfg|ALLOW|control/ctl7-license-c-form-denson-period.fixture
+LICENSE|0|cfg|BLOCK|tp/tp14-license-c-form-period.fixture
 # --- ez9 (Arc 69 / stoa--ez9): reviewed-allow for source-citation fields (inline-array) ---
 docs/x.md|0|md|BLOCK|tp/tp11-publisher-no-marker.md.fixture
 docs/x.md|0|md|ALLOW|control/ctl5-publisher-allowed.md.fixture
