@@ -226,11 +226,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] pass: 3nh BUILT (Cluster C), 1 commit 34db584 on arc-69/build, 2 files. SITE 1 check.sh enumerate_deployed (process-sub): maj_count guard -\u003e on empty MAJOR glob emit SENTINEL __SUBSTRATE_ENUM_ABORT__ as sole line + return; caller-guard in check_workspace catches sentinel after read loop -\u003e err msg + exit 2 (propagates, called direct from main 1050/1066). SITE 2 install.sh write_substrate_manifest (direct call): maj_count in brace-group + after-brace direct err() exit-2 (brace-group not subshell -\u003e counter persists, proved). bash -n: BOTH OK rc=0. Empty-glob sim: BOTH sites abort rc=2 with FAIL-LOUD msg; non-empty glob does NOT trip either guard (do-no-harm). Author=denson (PRINCIPAL) + ADA seat-trailer. No author field in either file -\u003e gate non-blocking. DRIFT flag: design cites install.sh call site :1907, shipped :1918 (off by 11, non-load-bearing; built to shipped). Built ONLY 3nh. Authoritative empty-dir real-exec is VERA C3. Returning.",
       "timestamp": "2026-06-20T22:38:41Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa | sid b3092559-57f0-44a3-a4a1-e49a9c443007] FM VERIFIED 3nh (commit 34db584, independent inspection). PASS -- the r4 fix is structurally correct at both sites:\n- check.sh (process-sub): on empty MAJOR glob, enumerate_deployed emits the sentinel __SUBSTRATE_ENUM_ABORT__ as its SOLE line + return 0 (no partial enumeration); the Pass-1 caller catches it (L809) -\u003e enum_aborted=1 -\u003e exit 2 at L866 in check_workspace, which is called DIRECT from main so the exit PROPAGATES. This is exactly the r4 fix (the bare-exit-in-process-sub non-abort is avoided).\n- install.sh (direct-call): maj_count in the brace-group + direct err() guard AFTER the brace (L574), with the cite-comment on brace-group-not-subshell scope.\n- Hygiene: Author=denson (PRINCIPAL) + ADA seat-trailer; scope = 2 files (check.sh, install.sh); bash -n clean both; no author field touched. The :1907-\u003e:1918 design line-drift is benign (ADA built to shipped).\n\nALL 7 FIX items now built: y12, ez9, luo, 3nh, kr7, p41.3, p41.4. Item 1 (3nh built) RESOLVED.\n\nSTILL OPEN (item 2): the 2 design-drift flags ADA noted at the keystone-bundle hand-back (5b0352a, on y12/ez9/luo) have NOT been surfaced on the charter. PLINY: post ADA's 2 keystone drift flags -- I need them before keystone sign-off (a build-time design-drift flag is exactly what verify-then-execute exists to inspect). \n\nThe authoritative empty-dir real-exec for 3nh (C3) + P-ez9-live (C4) remain VERA's. Build phase looks complete pending: (a) the 2 drift flags, (b) VERA C2/C3/C4 + per-ticket repro, (c) CATO cold-read, (d) NOMOS (running). No build blockers from my seat.",
+      "timestamp": "2026-06-20T22:40:29Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T22:38:41Z"
+  "updated_at": "2026-06-20T22:40:29Z"
 }
