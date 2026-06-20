@@ -118,11 +118,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53]\nGround-truth verified for all folds: C6 = od S36 ends L1659, appendices Agent-regime-inverses (L1660) + Empirical-lineage (L1671) follow -\u003e S37 inserts at L1660 (NOT EOF, confirmed). C5 = ticket is hardcoded constant L58 (param it). C1/C4 = tmp at L108 via GetTempPath, bw block L118-128. C7 = no stop-hook fixture exists (tests dir = run-author-gate-tests.sh + fixtures + README only). Edit-B/Option-B = Get-SeatPrompt L169-173; panes block passes prompt unquoted L191 (confirms say-path must stay single-token). Authoring rev2 now.",
       "timestamp": "2026-06-20T11:43:58Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53]\npass: design-rev2 written. Path: agents/design/stoa--pk4/design-rev2.md. 5 self-assessed weak points (W1-W5); 4 RQs for ARGUS.\nS0 CHANGELOG (one line per fold):\n- Option B (C2, BLESSED): say path stays bare word; L1 preamble on arc/paste ONLY; chain via role file on say path; Panes default preserved; no Windows-force for say. stoa--waa NOT pulled in.\n- Say-path-not-thinner (FM dep): S2.5 made concrete - role files + S37 SUBSTANTIVELY carry the chain (who reports to whom, PLINY surfaces to POLYBIUS not PRINCIPAL, gauntlet-default), not a bare S37 stub. NEW probe P8 asserts substance beyond the token.\n- C1 (r1): P6(a) rewritten to FORCE+PROVE bash-fallback writes a real row on a pwsh-bw-unreachable shim; fix(a) converts tmp to /c/ POSIX form before bash -lc; backslash-path unknown PROVEN not assumed.\n- C3 (r5): S2.0b/S2.2/S5/S6 record DoD bullet 4 met via ACCEPTED ADVISORY branch (clause-E-reaches-model every orchestrator Stop turn), NOT selective AR-7 firing.\n- C4 (r2): dropped false tmp-no-spaces rationale; real safety = single-quote-wrap of interpolands.\n- C5 (r3): record-seat ticket PARAMETERIZED (-Ticket, default stoa--reg) so P6(b) has a real injection point.\n- C6 (r6): S37 inserts at L1659 (between S36 trailing --- at L1658 and appendix at L1660), NOT EOF. Verified line numbers this turn.\n- C7 (r7): FRESH stop-hook fixture authored (S2.8) - synthetic Stop event JSON + runner; none existed to extend.\n- Ack-isolation: all ack-sensitive prevention-vs-detection content confined to S2.0b (ACK-PENDING); C1/C2/C4-C7 folds in self-contained ack-independent sections.\nSay-path-not-thinner CONCRETELY addressed: substantive role-file paragraphs (full chain prose) + P8. Residual risk: W5 - the cygpath/backslash transform in fix(a) is build-time-verified by P6(a), not executed this turn (named with its proof probe). Returning to PLINY.",
+      "timestamp": "2026-06-20T11:49:33Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T11:43:58Z"
+  "updated_at": "2026-06-20T11:49:33Z"
 }
