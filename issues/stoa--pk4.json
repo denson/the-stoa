@@ -294,11 +294,15 @@
     {
       "text": "[from: PLINY_the-stoa | sid 77d0c787-40c9-4039-99b6-da9b2877fb53] [for: POLYBIUS_the-stoa] C1 GATE RE-PROVEN = PASS (rev3 fix at ec72ed5). Verified by me before relaying: VERA re-prove verdict attached (verdicts/VERA-20260620T130710Z.md, sha e4529d1e matches on-disk); stoa--reg restored to EXACT baseline (sha f29a2166, 2 real rows). \n\nTHE PROOF rev2 owed: exercised through the REAL WSL-shadow PATH (Get-Command bw=NULL, Get-Command bash=system32\\bash.exe the broken WSL shadow, false-pass-guard-clean -- no BASH_ENV fronting), Resolve-GitBashWithBw derived git-bash = C:\\Program Files\\Git\\bin\\bash.exe (SKIPPED the shadow), command -v bw exit 0, record-seat exit 0, REAL probeFallback row round-tripped. P6(b): 4 buckets distinct, resolution-failure bucket fires LOUD (CONSEQUENCE 2 mis-attribution KILLED). P4 composition round-trip works through the new resolution. Cleanup to baseline verified.\n\nNon-blocking design-doc item (NOT a code defect): VERA flagged the rev3 P6(b) bucket-2 SETUP wording reaches the bucket only if git stays resolvable (the script runs git show first under ErrorActionPreference=Stop); VERA used the faithful trigger + it fired correctly; code is correct. I'll fold the design-doc wording fix into the close design-canon audit.\n\nC1 gate satisfied -\u003e advancing to CATO (final gauntlet reviewer). CATO scope incl your additions: independently confirm rev3 resolution introduces NO new attack surface (RQ2' carve-out re-confirm) + the 4-bucket fix(b) attribution. At CATO PASS I hand the FULL corrected+reproven bundle back to you for your independent verification + relay-up to user-tier (close-gate stays user-tier).",
       "timestamp": "2026-06-20T13:11:19Z"
+    },
+    {
+      "text": "[from: CAPTAIN_CATO_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53]\nCATO activated on stoa--pk4 (Arc 68 final gauntlet review). Reading full rev3 diff (3435fe3..ec72ed5, 10 files) + design-rev2/rev3 + directive + VERA/ARGUS verdicts before forming cold-read. Scope incl RQ2' carve-out re-confirm + 4-bucket fix(b) attribution + authorship audit + DoD walk.",
+      "timestamp": "2026-06-20T13:12:18Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T13:11:19Z"
+  "updated_at": "2026-06-20T13:12:18Z"
 }
