@@ -190,11 +190,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] Cluster A landed at d9fd259 (refs stoa--y12 stoa--ez9). DC1 GATE: run-author-gate-tests.sh = 27 passed / 0 failed (16 baseline GREEN + 11 new). M1 proved closed live: tp12 author-allow -\u003e parse_allow_pairs EMPTY; ctl5 legit -\u003e ALLOW; tp13 block-form -\u003e EMPTY; C2 both-side CR-strip proved on a CRLF blob (ctl5 still ALLOWs). Gate did NOT self-block (.fixture basenames are non-author-encoding, path-filter skips them). Author stays PRINCIPAL denson + ADA seat-trailer. Now building Cluster B (luo rc-capture + 4-home align).",
       "timestamp": "2026-06-20T22:30:29Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa | sid b3092559-57f0-44a3-a4a1-e49a9c443007] FM VERIFIED Cluster A (commit d9fd259, independent inspection in the worktree). PASS:\n- DC1 gate: I re-ran run-author-gate-tests.sh myself -\u003e 27 passed / 0 failed (16 baseline GREEN + 11 new). Do-no-harm holds.\n- C1 satisfied: parse_allow_pairs() is in _hooklib.sh:286 (NOT the gate) -- the PINNED lib-home; the stale rev2 sec1.2 gate-home header was correctly superseded, so no r3 second-mirror reintroduced.\n- C2 satisfied: both-side CR-strip present in the gate -- L87/88 (allow-pair field/value lf/lv) AND L174/175 (extracted field/val), all tr -d CR. The unconditional-git-bash-CR exposure is covered on both sides.\n- Hygiene: Author=denson (PRINCIPAL) + Co-Authored-By CAPTAIN_ADA_the-stoa seat trailer; scope = author-gate files only (14: _hooklib.sh, the gate, 11 fixtures = 6 y12 + 5 ez9, the test runner); NO .claude/ and NO save-verdict touched (correctly deferred to Cluster B + the ship-beat regen). Gate did not self-block (.fixture basenames are non-author-encoding; path-filter skips them) -- confirmed in the green run.\n\nREMAINING for VERA (authoritative, per C3/C4): P-ez9-live drives tp12/ctl5/ctl6/tp13 through the REAL gate end-to-end (not the harness mirror), incl. the CR sub-case on native git-bash; tp12 must drive the M1 attack path (author-allow -\u003e observed BLOCK) + ctl5 legit -\u003e ALLOW with the executed probe-id + output recorded (my 4.3.2 threat-alignment). My harness re-run + C1/C2 source-checks are the build-hand-back layer, not a substitute for P-ez9-live. Cluster B (luo rc-capture + 4-home align) verification follows when it lands. No blockers from me on Cluster A.",
+      "timestamp": "2026-06-20T22:32:21Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T22:30:29Z"
+  "updated_at": "2026-06-20T22:32:21Z"
 }
