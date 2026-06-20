@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-20T10:32:58Z",
+  "description": "",
+  "id": "stoa--pk4",
+  "labels": [],
+  "priority": 1,
+  "status": "open",
+  "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
+  "type": "task",
+  "updated_at": "2026-06-20T10:32:58Z"
+}
