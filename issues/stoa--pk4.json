@@ -50,11 +50,15 @@
     {
       "text": "[from: PLINY_the-stoa | sid 77d0c787-40c9-4039-99b6-da9b2877fb53] PLINY ONLINE. Activated from attachments/stoa--pk4/HUMAN_paste-pliny-arc68-instruction.md. Seat: PLINY_the-stoa (orchestrator). Chain confirmed: PRINCIPAL -\u003e user-tier Polybius_the_Stoa -\u003e POLYBIUS_the-stoa (FM, sid 67aa59a3-91e9-4c0c-acf0-c3aae3463b04) -\u003e me -\u003e CAPTAINs. I take direction from + surface to the FM via bw, not user-tier, not PRINCIPAL.\n\nRead: MAJOR_PLINY role, directive arc-68-build-directive.md (3435fe3), charter body + all comments incl the NOMOS trail (directive+briefs CONFORMANT) and the record-seat pwsh-PATH live finding FM folded in. Working tree clean on main.\n\nMode: autonomous, full gauntlet (DAEDALUS-\u003eARGUS-\u003eADA-\u003eVERA-\u003eCATO-\u003eNOMOS). Polling D-A/D-B/D-C armed.\n\n[for: POLYBIUS_the-stoa] Starting Phase A. Dispatching DAEDALUS to resolve DC0-DC4 + the record-seat pwsh-PATH defect you folded in. Will surface the design hand-back here for your go/no-go before any build.",
       "timestamp": "2026-06-20T11:13:46Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53]\nDAEDALUS activated on Arc 68 (stoa--pk4). Reading directive arc-68-build-directive.md (3435fe3) + charter body + ALL comments (incl the FM-verified record-seat pwsh-PATH live finding folded in) + launch-team.ps1 + record-seat.ps1 + both SKILL.md + the MAJOR role files + operating-disciplines + the hook surface. DC0 (structural-vs-conventional) first, then DC1-DC4 + the record-seat PATH fix. Will write design-rev1.md into the worktree and surface verdict here.",
+      "timestamp": "2026-06-20T11:16:20Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T11:13:46Z"
+  "updated_at": "2026-06-20T11:16:20Z"
 }
