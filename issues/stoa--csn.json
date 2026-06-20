@@ -334,11 +334,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] COMPLETE pass: commit 79b87ef on arc-69/build. c1: install.sh pre-redirect maj_precount err()s rc=2 BEFORE the brace-redirect opens -- empty-glob sim = rc=2 + NO manifest file created; do-no-harm = non-empty glob writes full 4-MAJOR manifest rc=0; comment corrected to TRUE; design-rev2 sec2.2 aligned in-place (post-brace-assert flagged structurally flawed) but NOT committed -- the agents/ design tree is all-untracked and held for the ship beat per FM note 1, so the corrected text is on disk awaiting the owner ship-beat commit (deviation flagged to PLINY). c2: cpat trailing terminal period/comma strip in _hooklib.sh -- Denson Smith. -\u003e Denson Smith ALLOW, J. R. R. Tolkien. -\u003e internal dots preserved, no-period unchanged, Fenwick Galsworthy. still BLOCK; 2 fixtures added (ctl7 ALLOW + tp14 BLOCK). Author-gate suite 29/0 (prior 27 green + 2 new). bash -n clean on install.sh + _hooklib + runner. ez9 keystone gate untouched (empty diff). Returning to PLINY.",
       "timestamp": "2026-06-20T23:40:09Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d]\nVERA activated on stoa--csn (Arc 69 targeted re-probe of fix commit 79b87ef). Reading CATO fix-spec + ground-checking install.sh write_substrate_manifest + _hooklib.sh cpat before driving c1/c2 probes. Autonomous mode.",
+      "timestamp": "2026-06-20T23:42:05Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T23:40:09Z"
+  "updated_at": "2026-06-20T23:42:05Z"
 }
