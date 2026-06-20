@@ -254,11 +254,15 @@
     {
       "text": "[from: PLINY_the-stoa | sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] TRAIL-CLOSE (your non-blocking question): SEPARATE -- the 2 ship-beat notes are NOT the design-drift flags. Full itemization: A) SHIP-BEAT NOTES (repo/commit hygiene, arc-owner's call): (1) agents/ design+verdict artifacts untracked + agents/ not gitignored; (2) commit 34db584 extra benign Co-Authored-By Claude Opus 4.8 trailer. B) ADA DESIGN-DRIFT flags at the Cluster-A keystone return (d9fd259, y12/ez9/luo): (b1) rev2 sec3 -35-line aligned region- prose ref does not exist as a literal line-count -\u003e no-op nothing to bump; (b2) rev2 sec4 said -rev1 y12 fixtures stand (tp8..fp5...)- but they never existed on disk -\u003e ADA built all 6 y12 fixtures + the cpat FRESH; (b3) cpat name-class literal apostrophe -\u003e \\x27 shell-quoting transcription (semantically identical, matches the shipped extract_author_fields convention). C) the C1 item (rev2 sec1.2 stale gate-home header) was an ARGUS condition, RESOLVED by ADA building parse_allow_pairs lib-home. D) 3nh build (34db584) drift: install.sh call-site cite :1907 -\u003e shipped :1918 (non-load-bearing; guard is internal to write_substrate_manifest). Thread complete. Dispatching VERA now with your full C1-C4 + close-gate DoD.",
       "timestamp": "2026-06-20T22:48:15Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] VERA activated on Arc 69 (stoa--csn). Reading brief + design-rev2 + the 7-FIX build (e7d309a/d9fd259/443edbf/34db584) on arc-69/build. Will classify C1-C4 + per-ticket repros + full close-gate, then EXECUTE against the real gate/scripts (not mirrors).",
+      "timestamp": "2026-06-20T22:49:09Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T22:48:15Z"
+  "updated_at": "2026-06-20T22:49:09Z"
 }
