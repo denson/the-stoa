@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-20T21:12:22Z",
+  "description": "",
+  "id": "stoa--csn",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
+  "type": "task",
+  "updated_at": "2026-06-20T21:12:22Z"
+}
