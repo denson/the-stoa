@@ -893,7 +893,18 @@ else
   echo "  modify CLAUDE.md : $([ "$MODIFY_CLAUDE_MD" -eq 1 ] && echo "yes (consent flag set)" || echo "no")"
 fi
 if [ "$SUFFIX_MAJORS" -eq 1 ]; then
-  echo "  MAJOR files      : suffixed (MAJOR_POLYBIUS${NAME_SUFFIX}.md, MAJOR_PLINY${NAME_SUFFIX}.md)"
+  # Glob-derive the MAJOR roster (POLYBIUS/PLINY/CHIRON/HAMILTON + any future
+  # MAJOR) so this display string stays consistent with the fresh-DEPLOY
+  # enumeration; the previous hardcoded 2-MAJOR list (POLYBIUS/PLINY) omitted
+  # CHIRON/HAMILTON. Display-only; zero behavior change (stoa--kr7).
+  _maj_list=""
+  shopt -s nullglob
+  for _mf in "${SCRIPT_DIR}/MAJOR_"*.md; do
+    _mb="$(basename "$_mf" .md)"
+    _maj_list="${_maj_list:+$_maj_list, }${_mb}${NAME_SUFFIX}.md"
+  done
+  shopt -u nullglob
+  echo "  MAJOR files      : suffixed (${_maj_list})"
 fi
 echo "  deploy CAPTAINs  : $([ "$WITH_CAPTAINS" -eq 1 ] && echo "yes (12 envelopes to ${DEST_AGENTS_DIR})" || echo "no (--no-captains)")"
 if [ "$WITH_CAPTAINS" -eq 1 ] && [ -n "$NAME_SUFFIX" ]; then

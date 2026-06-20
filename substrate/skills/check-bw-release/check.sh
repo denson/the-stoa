@@ -117,7 +117,7 @@ fetch_latest_release_tag() {
   fi
   # Defang at the pipeline boundary: catches curl-non-zero AND python-
   # non-zero; downstream sees the python stdout (empty on parse error).
-  { curl -fsSL "https://api.github.com/repos/jallum/beadwork/releases/latest" 2>/dev/null \
+  { curl -fsSL --max-time 8 "https://api.github.com/repos/jallum/beadwork/releases/latest" 2>/dev/null \
       | python3 -c "import json,sys
 try:
   print(json.load(sys.stdin).get('tag_name',''))
