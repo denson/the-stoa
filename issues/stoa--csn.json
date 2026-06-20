@@ -214,11 +214,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] Source probes CONFORMANT: claim2 (all Fenwick/CalGEM strings in .fixture basenames only, no real surface); C1 (parse_allow_pairs single home _hooklib.sh:286, gate carries only is_pair_allowed glue); claim4 (ALLOW_FIELDS={publisher,vendor,source,provider} exact, authorship fields hard-dropped L305, exact-pair = match not substring, both-side tr -d CR). Now re-running DC1 suite + recomputing DC3 4-home sha256.",
       "timestamp": "2026-06-20T22:36:38Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] Ground-check DONE, design 3nh confirmed against shipped. check.sh MAJOR block 412-419 in enumerate_deployed; caller loop 786-843 in check_workspace (709), called direct from main (1050/1066 -\u003e exit propagates). install.sh writer MAJOR loop 544-557 in brace-group (518 open / 564 close), err() 274-277 exit-2. DRIFT (minor, non-load-bearing): design cites install.sh call site :1907, shipped is :1918 (off by 11; building to shipped). DRY_RUN early-returns 515 BEFORE brace group, so direct guard after the brace fires only on real writes -\u003e dry-run smoke unaffected, matches design intent. Building both sites now: sentinel+caller-guard for check.sh, direct err() for install.sh.",
+      "timestamp": "2026-06-20T22:36:42Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T22:36:38Z"
+  "updated_at": "2026-06-20T22:36:42Z"
 }
