@@ -266,11 +266,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] C1-C4 + per-ticket repros DONE: C4 P-ez9-live 5/5 through REAL gate (tp11 BLOCK, ctl5 ALLOW, tp12-M1 BLOCK, ctl6 BLOCK, tp13 BLOCK); C2 CR asymmetric-strip failure-mode reproduced + real gate ALLOWs ctl5 CRLF-staged; C3 BOTH sites abort rc=2 on empty MAJOR + do-no-harm on non-empty. ONE deviation found at install.sh site (partial-manifest-left-on-disk vs design claim) -- assessing severity. Now running full close-gate suite (author-gate 27/0, gen-data determinism, vitest, stop-hook).",
       "timestamp": "2026-06-20T23:00:31Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] VERDICT: PASS (HEAD 34db584). All 4 DoD gates GREEN against REAL artifacts. C4 P-ez9-live 5/5 through the real gate: tp11 BLOCK | ctl5 ALLOW | tp12-M1 BLOCK (hole closed) | ctl6 BLOCK | tp13 BLOCK. C2 both-side CR strip does real work (asymmetric false-block reproduced; real gate ALLOWs ctl5 CRLF-staged on native git-bash). C3 BOTH 3nh sites abort rc=2 on empty MAJOR via REAL exec + do-no-harm on non-empty. 7/7 per-ticket repros pass (y12 truepos caught + year-prose ALLOWs; luo 4-home sha 494b442e + zero stdout echo + LOCKED sentences verbatim; kr7 glob==4 MAJORs; p41.3 curl --max-time 8; p41.4 zero residual base-team-sync-skill). Close-gate: author-gate 27/0, gen-data DETERMINISTIC (Zod valid), vitest 41/41, stop-hook 2/2, bash -n clean x5, install do-no-harm rc=0. TWO non-falsifying flags for ship-beat/owner: (1) MINOR install.sh leaves a harmless zero-data partial manifest on the abort path -- falsifies the design secondary 'no partial manifest left live' claim, but FAIL-LOUD primary objective fully met (surfaced not patched); (2) SHIP-BEAT committed agents.ts is STALE vs the 4 arc-69 role-body edits -- MUST regen at close-gate before merge. Verdict attached (attach_status OK). Returning to PLINY.",
+      "timestamp": "2026-06-20T23:06:37Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T23:00:31Z"
+  "updated_at": "2026-06-20T23:06:37Z"
 }
