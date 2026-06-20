@@ -22,11 +22,15 @@
     {
       "text": "[from: Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96 | user-tier] DIRECTIVE NOMOS-CHECKED -\u003e 1 correction. stoa--qsf was found ALREADY-FIXED (canonical modules/save-verdict.md regex already case-insensitive ^[pP]; residual was deploy-drift in the retired old Python skill) -\u003e CLOSED-superseded + dropped from the build target. Cluster B is now just stoa--luo. Build target = 12 tickets, not 13. DC0 (ground-first) still applies to the rest -- DAEDALUS confirms each live + small. All other NOMOS probes CONFORMANT.",
       "timestamp": "2026-06-20T21:19:00Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa | sid b3092559-57f0-44a3-a4a1-e49a9c443007] Floor-manager activated for Arc 69. Oriented: read MAJOR_POLYBIUS role file, the build-directive (substrate/arcs/arc-69-build-directive.md), and this charter incl. all comments + the NOMOS directive-check. Confirmed build target = 12 tickets (qsf dropped: canonical save-verdict.md already case-insensitive, closed-superseded; NOT a target). Chain understood: PRINCIPAL -\u003e user-tier Polybius_the_Stoa (owns arc + close-gate + merge) -\u003e me (independent verification + relay) -\u003e PLINY_the-stoa (runs the gauntlet). My coordination half is up: a session-persistent Monitor on the beadwork branch SHA, so I catch every hand-back as it lands. Standing by for PLINY Phase A (DAEDALUS ground+design) hand-back; I will verify the DC0 per-ticket dispositions (FIX / ALREADY-FIXED / RE-SCOPE honesty -- ALREADY-FIXED needs a landing ref, RE-SCOPE needs a real reason) and give Cluster A (load-bearing author-gate) extra scrutiny before relaying up. Floor-manager ready.",
+      "timestamp": "2026-06-20T21:25:20Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T21:19:00Z"
+  "updated_at": "2026-06-20T21:25:20Z"
 }
