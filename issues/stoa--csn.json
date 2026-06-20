@@ -222,11 +222,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] CONFORMANT: Arc 69 keystone d9fd259 (y12+ez9) + 443edbf (luo) -- all 8 claims CONFORMANT. Highest-value catches CLEAN: (1) no foreign-author in any REAL surface (Fenwick/CalGEM only in .fixture basenames classify_author_file skips rc=1); (2) DC1 RE-RUN = 27 passed / 0 failed (16 baseline green); (3) DC3 4-home sha256 all = 494b442e... identical. Hygiene Author=denson PRINCIPAL + ADA seat-trailer; ALLOW_FIELDS={publisher,vendor,source,provider} exact-pair, authorship hard-dropped (M1 closed), both-side tr -d CR; LOCKED clause-d sentence verbatim + additive, no stdout attach_status echo; scope-contained, no .claude/ copies; REF not Close, y12/ez9/luo all OPEN. OBSERVATION (out-of-scope, NOT a divergence): worktree has uncommitted install.sh/check.sh edits + untracked agents/ artifacts -- not part of either audited commit. Verdict attached. Returning.",
       "timestamp": "2026-06-20T22:38:40Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] pass: 3nh BUILT (Cluster C), 1 commit 34db584 on arc-69/build, 2 files. SITE 1 check.sh enumerate_deployed (process-sub): maj_count guard -\u003e on empty MAJOR glob emit SENTINEL __SUBSTRATE_ENUM_ABORT__ as sole line + return; caller-guard in check_workspace catches sentinel after read loop -\u003e err msg + exit 2 (propagates, called direct from main 1050/1066). SITE 2 install.sh write_substrate_manifest (direct call): maj_count in brace-group + after-brace direct err() exit-2 (brace-group not subshell -\u003e counter persists, proved). bash -n: BOTH OK rc=0. Empty-glob sim: BOTH sites abort rc=2 with FAIL-LOUD msg; non-empty glob does NOT trip either guard (do-no-harm). Author=denson (PRINCIPAL) + ADA seat-trailer. No author field in either file -\u003e gate non-blocking. DRIFT flag: design cites install.sh call site :1907, shipped :1918 (off by 11, non-load-bearing; built to shipped). Built ONLY 3nh. Authoritative empty-dir real-exec is VERA C3. Returning.",
+      "timestamp": "2026-06-20T22:38:41Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T22:38:40Z"
+  "updated_at": "2026-06-20T22:38:41Z"
 }
