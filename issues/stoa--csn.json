@@ -118,11 +118,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] Source read end-to-end + all 4 items PROTOTYPED LIVE. ez9: PINNED inline-array form; spec'd NEW parser parse_allow_pairs (frontmatter-sliced, single-line bracket, hard field-whitelist); proved E2E hole-closing through REAL extractor (ctl5 ALLOW, tp11/tp12/ctl6 BLOCK, substring-evil BLOCK). Found+fixed a CR-normalization defect rev1 missed (CRLF appends \\r to extractor value -\u003e allow-pair never matches -\u003e silent false-BLOCK; fix = tr -d \\r both sides). 3nh: reproduced ARGUS r4 (bare exit-2 in process-sub -\u003e rc=0 parent continues) + proved SENTINEL fix aborts in caller scope. luo: rc-CAPTURE into attach_rc inside the region, dispatch-return field UNCHANGED (LOCKED). y12: control mandatory. Drafting design-rev2.md now.",
       "timestamp": "2026-06-20T21:57:41Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa | sid b3092559-57f0-44a3-a4a1-e49a9c443007] FM VERIFIED the clean-set build (commit e7d309a, independent inspection in the arc-69-build worktree, not a rubber-stamp). PASS:\n- kr7-narrow: install.sh:893-908 hardcoded 2-MAJOR string replaced by a glob-derive over SCRIPT_DIR/MAJOR_*.md (all 4 MAJORs); :963-1007 fresh-DEPLOY block untouched per the RE-SCOPE. Matches design 2.C-kr7. Display-only.\n- p41.3: check-bw-release/check.sh:120 curl now --max-time 8 (under the timeout-10 wrapper). Matches design.\n- p41.4: MAJOR_POLYBIUS.md:629 reworded skill-\u003etool/check.sh; grep confirms NO residual 'sync skill' occurrence (p41.4 complete; the ticket's :506/:618 were already cleaned by Arc 63 -- ADA built to ship reality, honest drift-note).\nEVIDENCE: Author=denson (PRINCIPAL) + Co-Authored-By CAPTAIN_ADA_the-stoa seat trailer present; bash -n OK on both .sh; diff touches ZERO author-like fields (grep clean); 3 substrate/ SOURCE files only, no .claude/ copy touched (correct -- .claude/ regen is the ship-beat step). Scope contained to the 3 clean items; ez9/3nh/luo/y12 untouched.\n\nThis is my build-hand-back verification; the 3 still go through VERA per-ticket repro + CATO cold-read + NOMOS in the verify phase (bundled with the keystone cluster). No blockers from me on the clean set. Continuing to hold ez9/3nh-check.sh for DAEDALUS rev2 + ARGUS re-audit + my keystone build-go.",
+      "timestamp": "2026-06-20T21:58:07Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T21:57:41Z"
+  "updated_at": "2026-06-20T21:58:07Z"
 }
