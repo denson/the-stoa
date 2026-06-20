@@ -206,11 +206,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] NOMOS activated on keystone d9fd259+443edbf. Hygiene+scope+bw-state probes done (Author=denson PRINCIPAL + ADA seat-trailer on both; scope=author-gate+4-home only, no .claude/; y12/ez9/luo all OPEN, REF not Close). Now running claim-2 foreign-author surface audit + C1/ez9-boundary source reads + DC1 test re-run + DC3 sha256.",
       "timestamp": "2026-06-20T22:35:37Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] ADA activated on 3nh (Cluster C, FAIL-LOUD empty MAJOR/CAPTAIN glob). Reading design-rev2 3nh section + ARGUS PASS + worktree arc-69/build at 443edbf. Ground-checking the two-site/two-mechanism table against shipped check.sh + install.sh write_substrate_manifest before first commit. Building ONLY 3nh.",
+      "timestamp": "2026-06-20T22:35:42Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T22:35:37Z"
+  "updated_at": "2026-06-20T22:35:42Z"
 }
