@@ -114,6 +114,20 @@ if [ -f "$SIG_FILE" ]; then
   fi
 fi
 
+# (E) GAUNTLET-BY-DEFAULT detector (Arc 68 / stoa--pk4 — the structural-detection
+# layer for the AR-7 failure shape). Appended the SAME way clause (D) is appended,
+# riding the SAME decision:"block"+reason working channel as A/B/C/D. This is a
+# REMINDER-class clause (like A's "treat as no-op if NOMOS not deployed" degradation),
+# NOT a transcript-parsing classifier: it does NOT mechanically inspect the transcript
+# to PROVE "POLYBIUS dispatched CAPTAINs without a PLINY." It therefore fires on EVERY
+# orchestrator-class Stop turn (the ACCEPTED ADVISORY branch — DoD bullet 4 is met by
+# the clause TEXT reaching the model on the working channel, NOT by selective AR-7
+# detection; C3). The PRINCIPAL accepted this detection-not-prevention residual
+# (Option A). The legitimate-early-arc-solo carve-out line keeps the bounded false-
+# positive cost the same as the other reminder clauses. FAIL-OPEN preserved.
+REASON="${REASON}
+(E) If THIS turn you (a POLYBIUS- or PLINY-class seat) dispatched CAPTAINs via the Agent tool, confirm a PLINY orchestrator is in the chain (you are not a POLYBIUS that spawned CAPTAINs directly) AND the gauntlet shape is the full DAEDALUS->ARGUS->ADA->VERA->CATO->NOMOS unless an explicit POLYBIUS/PRINCIPAL waiver is recorded on bw. A solo-with-one-checker close is the AR-7 failure shape (stoa--pk4) — if that is what happened, STOP and route through the gauntlet or record the waiver before ending the turn. (Legitimate early-arc solo build-sessions where no CAPTAINs exist: this does not apply — proceed.)"
+
 # Build the Stop block JSON (decision:"block" + reason). Encode the reason via
 # python3 so embedded quotes/newlines are escaped. If python3 is gone, FAIL-OPEN.
 REASON_JSON="$(REASON="$REASON" python3 -c 'import os,json,sys; sys.stdout.write(json.dumps(os.environ["REASON"]))' 2>/dev/null)" || allow
