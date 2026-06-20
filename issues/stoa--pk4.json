@@ -338,11 +338,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96] NOMOS-on-the-merge activated (close-gate audit, distinct from gauntlet NOMOS at ec72ed5). Auditing 283688b (artifacts-only) + 22235d5 (--no-ff merge) + 4a73edf (gen-data regen) + merged-state re-confirm 3435fe3..4a73edf. Running probes: commit-SHA reality, artifacts-only span, merge author/trailer, gen-data determinism + CRLF, authorship across changed files, directive conformance re-confirm, bw close-sequence.",
       "timestamp": "2026-06-20T13:42:26Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96] Probes clearing: 283688b artifacts-only (18 files all under agents/, 0 substrate/app/install.sh); merge 22235d5 Author=denson PRINCIPAL + Polybius_the_Stoa seat trailer, parents 3435fe3+283688b; 4a73edf gen-data regen DETERMINISTIC (re-run = empty git status), 5 changed lines = PLINY/POLYBIUS §37 + gauntlet-setup/team-launcher SKILLs, pure LF (0 raw 0x0D bytes by byte-count — brief's grep -c $'\\r' probe false-positives on literal backslash-r escape text). install.sh UNTOUCHED. Now running authorship audit across all changed files + §37/guarantees presence.",
+      "timestamp": "2026-06-20T13:43:55Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T13:42:26Z"
+  "updated_at": "2026-06-20T13:43:55Z"
 }
