@@ -50,11 +50,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d]\nPASS. DC0 grounded all 12 live (extractor/glob/ps1 probes). Tally 7 FIX / 3 ALREADY-FIXED / 2 RE-SCOPE.\nFIX: y12 (copyright separator-less form), ez9 (reviewed-allow for source-citation fields), luo (4-home rc-capture), 3nh (empty-MAJOR-glob FAIL-LOUD), kr7-narrow (install.sh:896 display echo only), p41.3 (curl --max-time), p41.4 (retired-tool reword).\nALREADY-FIXED (with landing refs): a2x (Arc-65 md-narrowing; verdict-prose ALLOWs), iyl (commit 0f1890e --principal-name), waa (Arc-68 Windows-force guards L197/L238; multi-word cannot reach Panes/Tabs + tail-msg already say-gated).\nRE-SCOPE: vr1 (10-cat parser-refinement program, archived artifact, P3 -\u003e dedicated future arc), tg7 (3 commit sites apply.sh:350/506+revert.sh:106; install.sh does NOT commit; seat-name-source unresolved -\u003e tooling arc, Stoa-Session-Id+STOA_SEAT mechanism spec given).\nCluster-A both-directions fixtures designed per fix; ez9 carries an A3 M1 threat-map + threat-anchored probe (tp12 author-allow-attempt still BLOCKs). y12+ez9 cpat/allow-filter VERIFIED LIVE both directions.\nDesign: agents/design/stoa--csn/design-rev1.md.\nTop weak points: (1) ez9 allow-field whitelist is the security keystone (scrutinize hardest); (2) 3nh abort-propagation through process-substitution (VERA must drive a zero-MAJOR run); (3) kr7 split + the .claude/-copy-edit-vs-regen arc-convention question (residual for FM). Returning.",
       "timestamp": "2026-06-20T21:39:38Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] NOMOS activated on Arc-69 Phase-A DC0 cross-check. Reading design-rev1.md + 12 ticket DC0 verdicts + worktree ground truth. Verifying per-claim CONFORMANT/DIVERGENT against repo+bw (not against the design's self-assertion). Hardest scrutiny on the 3 ALREADY-FIXED + 2 RE-SCOPE (a wrong one drops a live bug or skips a small fix).",
+      "timestamp": "2026-06-20T21:41:21Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T21:39:38Z"
+  "updated_at": "2026-06-20T21:41:21Z"
 }
