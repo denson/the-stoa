@@ -54,11 +54,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53]\nDAEDALUS activated on Arc 68 (stoa--pk4). Reading directive arc-68-build-directive.md (3435fe3) + charter body + ALL comments (incl the FM-verified record-seat pwsh-PATH live finding folded in) + launch-team.ps1 + record-seat.ps1 + both SKILL.md + the MAJOR role files + operating-disciplines + the hook surface. DC0 (structural-vs-conventional) first, then DC1-DC4 + the record-seat PATH fix. Will write design-rev1.md into the worktree and surface verdict here.",
       "timestamp": "2026-06-20T11:16:20Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53]\nGround truth absorbed end-to-end: launch-team.ps1 (-ArcId/-Seats/-OnlySeat machinery, record-seat call site L226-252), record-seat.ps1 (the \u0026 bw L120 + collapsed try/catch L119-128), both SKILL.md, MAJOR_POLYBIUS/PLINY/CHIRON/HAMILTON, operating-disciplines (hooks deploy by *.sh glob = no HOOK_NAMES edit; §35 A3 map; §7 chain routing; gauntlet/redundancy §6), the hook surface (stop-self-check decision:block+reason is the WORKING channel; PostToolUse additionalContext BROKEN #55889). DC0 decision converging on a LAYERED structural model anchored on the existing Stop-hook working channel + launcher-recorded composition signal, with an HONEST advisory residual. Drafting design-rev1.md now.",
+      "timestamp": "2026-06-20T11:17:18Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T11:16:20Z"
+  "updated_at": "2026-06-20T11:17:18Z"
 }
