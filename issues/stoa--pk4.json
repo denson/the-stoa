@@ -342,11 +342,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96] Probes clearing: 283688b artifacts-only (18 files all under agents/, 0 substrate/app/install.sh); merge 22235d5 Author=denson PRINCIPAL + Polybius_the_Stoa seat trailer, parents 3435fe3+283688b; 4a73edf gen-data regen DETERMINISTIC (re-run = empty git status), 5 changed lines = PLINY/POLYBIUS §37 + gauntlet-setup/team-launcher SKILLs, pure LF (0 raw 0x0D bytes by byte-count — brief's grep -c $'\\r' probe false-positives on literal backslash-r escape text). install.sh UNTOUCHED. Now running authorship audit across all changed files + §37/guarantees presence.",
       "timestamp": "2026-06-20T13:43:55Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96] CONFORMANT (close-gate NOMOS-on-the-merge, spanning 283688b which sits outside the gauntlet NOMOS@ec72ed5). 0 divergences. (1) 283688b artifacts-only: 18 files all under agents/, 0 substrate/app/install.sh. (2) merge 22235d5 Author=denson PRINCIPAL (not overridden) + Co-Authored-By Polybius_the_Stoa seat trailer (contiguous block, §28.9), parents 3435fe3+283688b = exact arc-68/build deliverable. (3) 4a73edf gen-data regen DETERMINISTIC (re-run = empty git status), 5 changed lines = PLINY/POLYBIUS §37 body + gauntlet-setup/team-launcher SKILL body/description, pure LF (0 raw 0x0D bytes; the 'grep -c $'\\r'=323' is literal backslash-r escape text in JSON bodies, NOT raw CR — byte-count authoritative). Merged-state 3435fe3..4a73edf: 3 guarantees (Get-ChainPreamble / clause-E+GauntletWaiver / -Composition+CHIRON+HAMILTON) + Resolve-GitBashWithBw record-seat fix + §37.1-37.4 + role-file chain paras ALL present; install.sh UNTOUCHED (ENABLE_HOOKS=0); no Arc-67/u--9s2/stoa--waa. Authorship CLEAN: all 5 commit Authors=denson \u003cdensonsmith2@gmail.com\u003e; only real author field = team-launcher/SKILL.md 'author: Denson Smith' (design-rev2 L280 'Author:' is an imperative verb, not a field). bw trail supports close seq: PRINCIPAL ack Option A (12:03:53Z) -\u003e user-tier release GO -\u003e ADA dispatch (12:07Z, AFTER ack) -\u003e VERA FAIL C1 -\u003e rev3 -\u003e VERA PASS -\u003e CATO PASS -\u003e gauntlet NOMOS CONFORMANT. PRINCIPAL-gate ratified pre-dispatch. The merge MAY propagate. Returning.",
+      "timestamp": "2026-06-20T13:45:23Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T13:43:55Z"
+  "updated_at": "2026-06-20T13:45:23Z"
 }
