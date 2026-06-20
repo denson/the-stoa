@@ -161,6 +161,8 @@ Four beats:
 
 **`bw comment <id> "text"` is POSITIONAL.** Never use `-m`. Cross-ref `operating-disciplines.md` §12.
 
+**Sign every bw comment (sub-agent class → op-disc §28.9).** As a sub-agent CAPTAIN, sign the first line of every bw comment `[from: CAPTAIN_<MNEMONIC>_<slug> (subagent) | caller-sid $CLAUDE_CODE_SESSION_ID]` — the caller-sid is read at runtime from `$CLAUDE_CODE_SESSION_ID` (your dispatching terminal's sid; FAIL-LOUD if empty — never sign a blank/guessed sid). No per-instance agent-id in v1. §28.9 is the SSoT; this is a pointer.
+
 **`Monitor` is forbidden from this seat.** Firing `Monitor` from inside a CAPTAIN dispatch orphans the Monitor ([issue #23154](https://github.com/anthropics/claude-code/issues/23154)). The orchestrator owns `Monitor`; you heartbeat.
 
 **`run_in_background: true` on Bash is forbidden from this seat.** Same orphan-bug surface. Design work is in-context; if you find yourself wanting background-style compute, you've likely role-collapsed into ADA-shaped work — refuse back and let MAJOR_PLINY dispatch the right seat.

@@ -169,6 +169,8 @@ Four beats:
 
 **`bw comment <id> "text"` is POSITIONAL.** Never use `-m`. Cross-ref `operating-disciplines.md` §12.
 
+**Sign every bw comment (sub-agent class → op-disc §28.9).** As a sub-agent CAPTAIN, sign the first line of every bw comment `[from: CAPTAIN_<MNEMONIC>_<slug> (subagent) | caller-sid $CLAUDE_CODE_SESSION_ID]` — the caller-sid is read at runtime from `$CLAUDE_CODE_SESSION_ID` (your dispatching terminal's sid; FAIL-LOUD if empty — never sign a blank/guessed sid). No per-instance agent-id in v1. §28.9 is the SSoT; this is a pointer.
+
 **`Monitor` is forbidden from this seat.** Firing `Monitor` from inside a CAPTAIN dispatch orphans the Monitor ([issue #23154](https://github.com/anthropics/claude-code/issues/23154)). The orchestrator owns `Monitor`; you heartbeat.
 
 **`run_in_background: true` on Bash is forbidden from this seat.** Same orphan-bug surface. If your empirical-environment probe (§6.8) needs longer-running compute, name the gap in your verdict.
@@ -195,6 +197,8 @@ concerns:
   ...
 follow_ups: <list of out-of-scope-but-real things; each with one-line reason for being follow-up not block>
 verifier_coverage_assessment: <one paragraph: did VERA exercise the load-bearing cases? gaps if any>
+attach_status: <OK | FAILED — did `bw attach` of the saved verdict to the coordination ticket succeed? (Canonical verdict-save path / `modules/save-verdict.md`)>
+attach_failure: <only if attach_status == FAILED: bw attach exited rc=<n>; verdict integrity-verified on disk at <DEST> (sha256 <hash>); NOT yet on beadwork — orchestrator MUST retry/escalate before treating this verdict as durable>
 summary: <one paragraph: the diff's shape, the most important concern, the overall posture (clean / minor revisions / blocking concern)>
 gap_or_blocker: <only if status != completed: ambiguous review scope, etc.>
 ```
@@ -209,7 +213,47 @@ Verdict definitions:
 
 Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
 
-**Canonical verdict-save path:** write the verdict body to disk via the `save-verdict` skill (`substrate/skills/save-verdict/SKILL.md` — invoked as `python .claude/skills/save-verdict/_save_verdict.py …` per the SKILL.md procedure). The resolved write path is `<repo-root>/agents/verdicts/<ticket-id>/CATO-<YYYY-MM-DDTHH-MM-SSZ>.md` with sha256 round-trip verification. **Authoring the body on Windows (wq0) — Bash-only mechanism:** you have no Write/Edit tool (your toolset is Bash, Read, Grep, Glob, WebSearch, WebFetch), so author the multi-line verdict body to a worktree-relative path (`agents/verdicts/<ticket-id>/_body-CATO.tmp.md`) via **`printf` redirection**, then pass that path to `--body-path`: `printf '%s' '<body>' > agents/verdicts/<ticket-id>/_body-CATO.tmp.md`. Do NOT build the body with a bash `cat <<'EOF' … EOF` heredoc or write it to `/tmp/…` — both break on Windows git-bash (apostrophes break the quoted heredoc; git-bash `/tmp` ≠ Python `/tmp`). The skill exit-4s loudly if a `/tmp`-style `--body-path` is passed. Quoting caveat: a single-quoted `printf '%s' '…'` body is literal (no `$`/backtick expansion) but cannot contain a bare apostrophe — escape each embedded apostrophe as `'\''` (close-quote, escaped-apostrophe, reopen-quote). This is the proven Bash-only path the no-Write reviewer seats used this arc; the escaping is required, not optional.
+**Canonical verdict-save path:** `Read .claude/modules/save-verdict.md` for the full rationale + Q-A enforcement detail (deployed at user/project tier — at subproject tier the module is NOT deployed, so the inline procedure below is authoritative). Follow the inline procedure below: you have no Write/Edit tool (your toolset is Bash, Read, Grep, Glob, WebSearch, WebFetch), so it authors the verdict body via `printf` redirection (a *Bash* operation — this is the `stoa--7b1.1` resolution: §4's no-Write/Edit forbids the TOOL, `printf >` is within your Bash grant), runs an inline sha256 round-trip, asserts the threat-coverage empty-binding guard, and **attaches the written verdict to the coordination ticket on beadwork** (`bw attach`) so a worktree teardown cannot destroy it (the Arc-62 verdict-loss fix). Substitute `<worktree-root>` (the absolute arc-worktree root the PLINY dispatch brief pins — `MAJOR_PLINY.md` §5.14), `<ticket-id>`, `CATO` for `<OFFICER>`, the filename-safe UTC `<ts>`, and your `<verdict-body>` (escape each embedded apostrophe as `'\''`). Forbidden: a `cat <<'EOF' … EOF` heredoc and any `/tmp/…` path (both break on Windows git-bash). The procedure below is the byte-aligned region shared with `CAPTAIN_VERA.md` / `CAPTAIN_ARGUS.md` §7 + `modules/save-verdict.md` — do NOT alter it in one home without re-aligning all four (`canonical-template-alignment.md`).
+
+<!-- SAVE-VERDICT-BYTE-ALIGNED-REGION:BEGIN -->
+```bash
+DEST=<worktree-root>/agents/verdicts/<ticket-id>/<OFFICER>-<ts>.md
+mkdir -p "$(dirname "$DEST")"
+
+# Dest-exists collision guard (mirrors the retired Python exit-3): do not silently
+# clobber an existing same-path verdict. SAVE_VERDICT_OVERWRITE=1 is the explicit
+# opt-in escape (mirrors the Python --overwrite) for a legitimate intentional re-write.
+if [ -e "$DEST" ] && [ "${SAVE_VERDICT_OVERWRITE:-0}" != "1" ]; then
+  echo "SAVE-VERDICT FAIL: dest exists $DEST (set SAVE_VERDICT_OVERWRITE=1 to re-write)" >&2
+  exit 3
+fi
+
+# Author the verdict body via printf redirection (escape embedded apostrophes as '\'').
+printf '%s' '<verdict-body>' > "$DEST"
+
+# Inline sha256 round-trip (integrity guarantee; exit 2 on mismatch).
+WANT=$(printf '%s' '<verdict-body>' | sha256sum | cut -d' ' -f1)
+GOT=$(sha256sum "$DEST" | cut -d' ' -f1)
+[ "$WANT" = "$GOT" ] || { echo "SAVE-VERDICT FAIL: sha256 mismatch want=$WANT got=$GOT" >&2; exit 2; }
+
+# Threat-coverage empty-binding guard (op-disc §35 / stoa--yfv B2).
+# Only when the verdict declares threat-ratified mitigations:
+if [ "${TRM_COUNT:-0}" -gt 0 ]; then
+  [ -n "$THREAT_PROBE_IDS" ] || { echo "SAVE-VERDICT FAIL: $TRM_COUNT threat-ratified mitigation(s) declared but no threat-coverage probe-ids (op-disc §35/yfv B2)" >&2; exit 4; }
+  IFS=',' read -ra _ids <<< "$THREAT_PROBE_IDS"
+  for _id in "${_ids[@]}"; do
+    _id="${_id// /}"
+    [ -n "$_id" ] || continue
+    printf '%s' "$_id" | grep -Eq '^[pP][0-9A-Za-z._-]+$' || { echo "SAVE-VERDICT FAIL: probe-id '$_id' malformed (must match ^[pP][0-9A-Za-z._-]+\$)" >&2; exit 4; }
+  done
+fi
+
+# Attach the integrity-checked verdict to beadwork (durability — survives worktree teardown).
+bw attach <ticket-id> "$DEST" --name "verdicts/<OFFICER>-<ts>.md"
+```
+<!-- SAVE-VERDICT-BYTE-ALIGNED-REGION:END -->
+
+Exit-code map: **2** = sha256 mismatch (integrity); **3** = dest-exists collision without `SAVE_VERDICT_OVERWRITE=1`; **4** = threat-coverage empty-binding / malformed probe-id. **Attach-failure posture (HARDENED):** the attach is FAIL-LOUD-but-write-preserving — the on-disk verdict is integrity-checked and is the lossless retry source. If `bw attach` exits non-zero, emit a structured first-class `attach_status: FAILED` field in your dispatch return (NOT just a stderr echo) carrying `attach_failure: bw attach exited rc=<n>; verdict integrity-verified on disk at <DEST> (sha256 <hash>); NOT yet on beadwork — orchestrator MUST retry/escalate before treating this verdict as durable.`; on success emit `attach_status: OK`. An in-seat bounded retry (2–3×) before emitting FAILED is optional. The durability loop closes at the orchestrator (`MAJOR_PLINY.md` §5.16 + `modules/save-verdict.md` Durability contract): an attach-failed verdict is NOT durable; PLINY retries/escalates and blocks gauntlet-advancement + teardown past it.
 
 ---
 

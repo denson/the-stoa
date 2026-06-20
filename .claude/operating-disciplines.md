@@ -587,7 +587,7 @@ Operator decides whether the bound is sufficient. **INCOMPLETE does NOT gate mer
 
 UNVERIFIABLE also does not gate merge on its own. The verdict is honest output, not a failure.
 
-**Canonical write-path for INCOMPLETE + UNVERIFIABLE verdict bodies.** The `save-verdict` skill (`substrate/skills/save-verdict/SKILL.md`) validates shape-conformance for both new verdict shapes before writing. INCOMPLETE requires `quadrant_classification` + `coverage_description`; UNVERIFIABLE requires `quadrant_classification` + `sanity_check_performed` + `recommended_next_step`. Missing-required-field or out-of-enum cases exit 4 BEFORE any file write. Verdict bodies land at `agents/verdicts/<ticket-id>/<CAPTAIN>-<timestamp>.md` with sha256 round-trip verification (see also `CAPTAIN_VERA.md` / `CAPTAIN_CATO.md` / `CAPTAIN_ARGUS.md` §6 / §7 verdict-emit cross-refs).
+**Canonical write-path for INCOMPLETE + UNVERIFIABLE verdict bodies.** Verdict bodies land at `agents/verdicts/<ticket-id>/<CAPTAIN>-<timestamp>.md` via the Bash-only `printf`-author + inline sha256 round-trip + `bw attach` procedure in `.claude/modules/save-verdict.md` (Arc 64: the `save-verdict` Python skill was retired). **§15.4 shape validation is now SEAT-SIDE discipline (Q-A HYBRID):** the verifying CAPTAIN's verdict-format section in its role file is the SSoT for the required-field matrix — INCOMPLETE requires `quadrant_classification` + `coverage_description`; UNVERIFIABLE requires `quadrant_classification` + `sanity_check_performed` + `recommended_next_step`. There is no longer a pre-write mechanical exit-4 on shape; a malformed shape is caught by the seat following its role-file spec and by the downstream gauntlet (NOMOS / PLINY). The one mechanical pre-write guard that survives is the **threat-coverage empty-binding assert** — an inline bash check (`^[pP]` probe-id regex, exit 4 when a threat-ratified mitigation is declared with no well-formed probe-id) that lives in BOTH `.claude/modules/save-verdict.md` AND the role-file inline §7 block (byte-aligned), so it resolves at every tier including subproject. See `CAPTAIN_VERA.md` / `CAPTAIN_CATO.md` / `CAPTAIN_ARGUS.md` §6 / §7 verdict-emit cross-refs.
 
 ### 15.5 Time/cost-box defaults
 
@@ -952,7 +952,7 @@ The asymmetry (subdirectory for CAPTAINs, templates, and modules; directory-name
 - **POLYBIUS:** reads this section + `MAJOR_POLYBIUS.md` §17. When the team customizes, authors land at the custom paths above. When substrate advances and a custom agent wants new behavior, the typical update path is regenerate-fresh-from-new-base (per PRINCIPAL's cost framing) rather than merge-upstream-into-customization.
 - **PLINY:** dispatches CAPTAINs by `name:` field; never assumes a filename. When a custom CAPTAIN exists, dispatching it is identical to dispatching a base CAPTAIN — the path the file lives at is irrelevant to invocation. PLINY's dispatch envelopes name the CAPTAIN by mnemonic + slug (e.g., `CAPTAIN_DEPLOYER_railway`).
 - **Every CAPTAIN:** when designing, executing, or verifying, the seat reads the workspace's actual files (base + custom) as the operational truth. The substrate-tool scoping (D3/D4/D5 below) governs what `install.sh` / `check.sh` / `apply.sh` see, NOT what the running team sees. Custom agents and base agents both run.
-- **Authoring custom files:** custom authoring is the workspace's responsibility (operator + the workspace's stoa team), via the agent-author skill or by hand. Substrate tools deploy and maintain BASE files only. Arc 30+ may extend the substrate tools to assist with custom scaffolding; this arc does not.
+- **Authoring custom files:** custom authoring is the workspace's responsibility (operator + the workspace's stoa team), via MAJOR_CHIRON's agent-author capability (`MAJOR_CHIRON.md` §7) or by hand. Substrate tools deploy and maintain BASE files only. Arc 30+ may extend the substrate tools to assist with custom scaffolding; this arc does not.
 
 ### 23.4 N=1 provenance + accretion path
 
@@ -1207,6 +1207,35 @@ Cross-refs already stated inline above are not re-listed here: global `~/.claude
 - `MAJOR_PLINY.md` §5.10 (signoff-accuracy) + §5.11 (paste archival) — sibling arc-boundary disciplines; §28 fires throughout the arc-build (every CAPTAIN commit).
 
 (Provenance ticket `stoa--kjo` + the 2026-05-04 ariadne--xft.4 empirical-anchor incident are folded into the §28.7 Anchor above.)
+
+### 28.9 Session-identity sign-everywhere (all seats, all channels)
+
+`stoa--p7c` (Arc 67). §28.1–§28.8 govern the **git-trailer** identity for committing CAPTAINs. §28.9 broadens the scope: **every seat signs its identity in ALL channels** (bw comments, recordkeeping, and — where it commits — git trailers), carrying not just the seat mnemonic but the seat's **session-identity**. The identity source is the runtime environment variable **`$CLAUDE_CODE_SESSION_ID`**.
+
+**The terminal-vs-sub-agent signing table (env-var-sourced; agent-id dropped for v1):**
+
+| Seat class | What `$CLAUDE_CODE_SESSION_ID` is | bw-comment sign format (first line of every comment) | git trailer |
+|---|---|---|---|
+| **Terminal seat** (top-level session: POLYBIUS / PLINY, any `--session-id`-launched or desktop-created seat) | its OWN session-id | `[from: <Name> \| sid <session-id> \| <project>]` | existing §28.1 `Co-Authored-By` + optional `Stoa-Session-Id: <sid>` second trailer |
+| **Ephemeral sub-agent CAPTAIN** (Agent-tool dispatch: ADA / VERA / CATO / ARGUS / DAEDALUS / …) | its CALLER's session-id (the dispatching terminal's sid) | `[from: CAPTAIN_<MNEMONIC>_<slug> (subagent) \| caller-sid <caller-sid>]` — **NO agent-id** | existing §28.1 `Co-Authored-By: CAPTAIN_<MNEMONIC>_<slug>` (unchanged) |
+
+The sid in both formats is read at runtime from `$CLAUDE_CODE_SESSION_ID` (e.g. via the `whoami` skill, or a bare `echo $CLAUDE_CODE_SESSION_ID`).
+
+**FAIL-LOUD (the MUST).** Both sign formats require `$CLAUDE_CODE_SESSION_ID` to be present (non-empty). If the variable is empty/unset, `whoami` **MUST FAIL LOUD** — clear stderr error naming the variable, non-zero exit — rather than emit a blank or guessed sid. **There is no workaround fallback** (no derivation, no filesystem traversal): a built-in mechanism surfaced, so there is nothing to fall back to. This converts a missing-identity condition into a loud failure, never a silent or confident-wrong sign-tag. It is a *correctness / fail-loud* guard, not a security control against a forger.
+
+**The discriminator is seat-role-knowledge, NOT env-detection.** No environment variable cleanly discriminates a terminal seat from a sub-agent (`CLAUDE_CODE_CHILD_SESSION=1` is set in terminals too; there is no `CLAUDE_CODE_AGENT_ID`; a sub-agent's `$CLAUDE_CODE_SESSION_ID` is its caller's, byte-for-byte). A seat instead knows its class **structurally** from its role: a MAJOR (POLYBIUS / PLINY) is a terminal seat by construction; a CAPTAIN dispatched via the Agent tool is a sub-agent by construction. The §28.9 convention selects the sign-format/label by the seat's known class; `whoami` does NOT auto-detect the class (it cannot — there is no discriminator) — it returns the bare value and takes an optional `--role terminal|subagent` label hint the caller supplies from its known class.
+
+**Agent-id dropped for v1 (accepted consequence).** The sub-agent sign-tag carries `type + caller-sid` with **no per-instance agent-id** (there is no env-var source for one — `CLAUDE_CODE_AGENT_ID` does not exist). Consequence: **two concurrent same-type sub-agents under one caller sign IDENTICALLY** (e.g. two ADA instances dispatched by the same PLINY both sign `[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid <pliny-sid>]`). This is accepted for the locked audit goal — you can tell WHICH seat-type, under WHICH terminal, on WHICH ticket; the instance is ephemeral and you address the seat, not the instance. If a future arc needs per-instance disambiguation, the agent-id question re-opens (and would need a non-env source).
+
+**`Author:` stays the PRINCIPAL (the §28 absolute, restated).** §28.9 layers session-identity ON TOP of the git `Author:` field; it does NOT replace it. Git `Author:` remains the PRINCIPAL's configured identity (the global `~/.claude/CLAUDE.md` "never override `Author:`" absolute, §28.4). The session-identity is a bw-comment-channel + optional-trailer signal; the file-frontmatter `author:` discipline and the commit `Author:` field are unchanged.
+
+**Q5 — `seat` is the canonical `[for:]` routing address.** The `seat` field (the `ROLE_slug` mnemonic) is the routing address: `[for: POLYBIUS_the-stoa]` resolves against the seat registry's (`stoa--reg`) `seat` column. A sub-agent is addressed by its `seat` mnemonic the same way; its caller-sid is provenance, not a routing key (sub-agents are ephemeral — you address the seat, not the instance).
+
+**Honest-claim boundary (audit-only, not authz).** The `[from:]`/caller-sid tag is forgeable provenance metadata, not an authentication or authorization control — a seat can write any `[from:]` string, including a false caller-sid, bypassing `whoami` entirely. Sourcing the sid honestly from `$CLAUDE_CODE_SESSION_ID` is about correctness of the honest path, not defense against a forger. The registry (`stoa--reg`) gives an audit cross-check. If a future arc wires this tag into an access/authz decision, the forgeability re-opens as a named runtime threat and the enforcement question must be re-ratified.
+
+**Per-seat application.** Role files carry a one-line §28.9 *pointer* (not a restatement — §28.9 is the SSoT): `MAJOR_POLYBIUS.md` + `MAJOR_PLINY.md` (terminal class) and each CAPTAIN role file's bw-comment/heartbeat discipline (sub-agent class).
+
+**Anchor + dependency.** The whole mechanism rests on `$CLAUDE_CODE_SESSION_ID`, which is **natively set by the Claude Code runtime since v2.1.132** (every Bash subprocess / hook, zero config; verified NOMOS C1/C2/C3 + terminal/sub-agent live runs + changelog ground truth). The pre-v2.1.132 `SessionStart`-hook injection is an obsolete workaround, not the current mechanism — consumer installs on CC >= v2.1.132 get the var regardless of hook-arming. Below the floor (or in a non-CC context) the var is absent and `whoami` FAIL-LOUDs (safe). The genuine residual is a *future* CC changing the var's SEMANTICS (a sub-agent getting its own sid instead of the caller's) — re-verify NOMOS C1/C2/C3 if so; the whoami SKILL.md carries this note (WEAK-1). The `whoami` skill (`substrate/skills/whoami/`) is the read path; the registry is `stoa--reg`; the launcher/desktop write path is `record-seat.ps1` (team-launcher skill).
 
 ---
 
