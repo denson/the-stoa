@@ -30,11 +30,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nNOMOS activated on the two Arc-68 activation briefs (HUMAN_paste-polybius_the-stoa + HUMAN_paste-pliny, uncommitted/gitignored on disk; to be attached to stoa--pk4). Auditing 4 axes: chain-of-command correctness, gauntlet-setup checklist completeness, directive/charter alignment, internal consistency. Ground truth = stoa--pk4 + directive 3435fe3 + the gauntlet-setup SKILL checklist. Running probes.",
       "timestamp": "2026-06-20T10:58:55Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nCONFORMANT (both briefs). All 4 axes verified against ground truth (stoa--pk4 + directive 3435fe3 = current main HEAD + gauntlet-setup SKILL checklist).\n- Axis 1 chain-of-command: CLEAN. FM brief establishes PRINCIPAL-\u003euser-tier Polybius_the_Stoa-\u003ePOLYBIUS_the-stoa(FM)-\u003ePLINY-\u003eCAPTAINs (L12). PLINY brief routes PLINY-\u003efloor-manager explicitly, NOT user-tier, NOT PRINCIPAL (L7,L18,L20). No spot points PRINCIPAL at PLINY or lets PLINY surface past the FM. AR-7 failure NOT reintroduced.\n- Axis 2 checklist completeness: every mandatory gauntlet-setup item present in each brief (role-assumption opener, 3-tier chain, polling disciplines [FM beadwork-SHA Monitor; PLINY D-A/D-B/D-C], do-NOT list, hand-back-to-FM at CATO PASS, CLOSE ME signal, compaction footer naming the beadwork path). Nothing missing.\n- Axis 3 directive/charter alignment: both cite directive 3435fe3 + charter stoa--pk4; scope matches (3 guarantees; DC0 central DAEDALUS-led call); BOTH state Arc 68 design is DAEDALUS-led standard POLYBIUS+PLINY and CHIRON/HAMILTON NOT in this arc (L9 each). No 'design-heavy', no CHIRON/HAMILTON-as-participant.\n- Axis 4 internal consistency: cited user-tier sid 990b0750-5572-4836-b9c7-18d626a12e96 correct (L12 FM); compaction footers name attachments/stoa--pk4/\u003cown filename\u003e correctly (FM L28, PLINY L24); no foreign author, no broken self-ref.\nBriefs may propagate. Returning.",
+      "timestamp": "2026-06-20T10:59:43Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T10:58:55Z"
+  "updated_at": "2026-06-20T10:59:43Z"
 }
