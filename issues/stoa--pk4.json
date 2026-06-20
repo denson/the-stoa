@@ -266,11 +266,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53]\npass: rev3 C1 re-fix built. Commit ec72ed5 on arc-68/build (1 file, +86/-34). ONLY substrate/skills/team-launcher/record-seat.ps1 touched (agents/design + agents/verdicts + agents/verification left untracked, NOT swept in).\n\nBuilt per design-rev3 §2.6 + §4 P6:\n- Resolve-GitBashWithBw: derives git-bash FROM git (never WSL-shadowed), walk-up + git --exec-path candidates, picks FIRST where command -v bw succeeds via -lc. NO Get-Command bash.\n- Login shell (bash -lc) for BOTH the command-v-bw gate AND the attach (FM fold). Positional args retained.\n- Mount-form: cygpath -u THROUGH the resolved bash, else deterministic /c/ LOWERCASE fallback (not WSL /mnt/c).\n- fix(b) FOUR buckets: success / resolution-failure (NEW, loud, names WSL-skip — kills CONSEQUENCE 2 mis-attribution) / bw-error (benign-no-ticket language removed) / threw.\n\nParse-check: pwsh 7.6.2 ParseFile -\u003e PARSE OK, 0 errors.\nGrounding drift: NONE on variable names/structure — rev3 code matched as-built 8f3f2f9 ($ticket/$attachName/$tmp, param block). One placement choice: defined Resolve-GitBashWithBw immediately before the $bwExit invocation block (rev3 said 'after param block / before bw-invocation block'; placed it adjacent to its use site for locality — function is self-contained, no fwd-ref). Did NOT touch read-modify-rewrite, registry schema, or the DC4 param fields.\n\nNOT done (VERA's P6(a)/P6(b) job, per brief): no live registry round-trip, no resolution through real WSL-shadow PATH. Build + parse-check only. Returning to PLINY.",
       "timestamp": "2026-06-20T12:59:22Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53]\nVERA activated on stoa--pk4 (Arc 68 rev3 C1 RE-PROVE). Reading design-rev3 §2.6 + §4 P6 + built record-seat.ps1 at ec72ed5. Focused scope: P6(a) C1 gate (REAL pwsh WSL-shadow PATH, FORCE+PROVE), P6(b) 4-bucket, P4 round-trip. Autonomous mode.",
+      "timestamp": "2026-06-20T13:00:56Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T12:59:22Z"
+  "updated_at": "2026-06-20T13:00:56Z"
 }
