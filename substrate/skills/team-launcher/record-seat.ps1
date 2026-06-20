@@ -149,48 +149,97 @@ $content = ($kept -join "`n") + "`n"
 # throw (the launcher's try/catch OR a caller's exit-code check then handles it gracefully).
 # The SUCCESS path is unchanged: write the row, Write-Host, implicit exit 0.
 #
-# Arc 68 (stoa--pk4) fix (a) — RESOLVE bw even when it is on the bash PATH only.
-# The pre-Arc-68 bug: `& bw` in pwsh threw CommandNotFound on a machine where bw is
-# installed under git-bash only (on the bash PATH, not the pwsh PATH); the collapsed
-# catch then mis-labeled that total registry-write failure as the benign "no registry
-# ticket" case (a fail-OPEN that HID a real failure). The resolution below tries the
-# pwsh PATH first, then falls back to git-bash, converting the Windows temp path to a
-# git-bash-acceptable POSIX form first. $bwExit distinguishes the three outcomes:
+# Arc 68 (stoa--pk4) rev3 / C1 — RESOLVE bw even when it is on the git-bash PATH only,
+# WITHOUT touching `Get-Command bash`. The rev2 bug: rev2's fallback used `Get-Command bash`,
+# which on this (and many) Windows machines resolves WSL's distro-less, BROKEN
+# C:\windows\system32\bash.exe — it SHADOWS git-bash on a fresh-terminal PATH. Invoking it
+# failed (execvpe(/bin/bash): No such file -> exit 1) and fix(b) then MIS-bucketed that
+# resolution failure as a benign bw/ticket error. rev3 derives git-bash FROM `git` (which is
+# never shadowed by WSL), gates each candidate on `command -v bw`, uses a LOGIN shell (-lc) so
+# the gate proves bw in the EXACT context the attach uses, and adds a distinct resolution-failure
+# bucket so the WSL-broken case reports LOUDLY. $bwExit distinguishes the four outcomes:
 #   0     -> success
-#   <N>   -> bw ran but the attach exited non-zero (real attach error / no such ticket)
-#   $null -> bw could NOT be resolved any way (a PATH/resolution failure, NOT a missing ticket)
+#   <N>   -> bw resolved + ran, but the attach exited non-zero (real bw/store error)
+#   $null -> bw could NOT be resolved (no pwsh-PATH bw AND no git-bash carrying bw) — a
+#            PATH/RESOLUTION failure, NOT a missing ticket (the bucket that kills the mis-attribution)
+#   threw -> an unexpected pwsh exception
+
+# Arc 68 (stoa--pk4) rev3 / C1: resolve a git-bash that ACTUALLY carries bw, WITHOUT touching
+# `Get-Command bash` (which on this and many Windows machines resolves WSL's distro-less,
+# broken C:\windows\system32\bash.exe — it SHADOWS git-bash on the PATH). `git` is never
+# shadowed by WSL, so we derive git-bash FROM git's own location, then SELECT the first
+# candidate where `command -v bw` succeeds in the SAME login-shell invocation the attach uses.
+function Resolve-GitBashWithBw {
+  $cands = New-Object System.Collections.Generic.List[string]
+  $git = Get-Command git -ErrorAction SilentlyContinue
+  if ($git) {
+    # Walk up from git.exe's dir (git may be at cmd\git.exe OR mingw64\bin\git.exe — do NOT
+    # assume a fixed depth); at each level look for the wrapper bash, then the real bash.
+    $dir = Split-Path -Parent $git.Source
+    for ($i = 0; $i -lt 6 -and $dir; $i++) {
+      foreach ($rel in @('bin\bash.exe','usr\bin\bash.exe')) {
+        $c = Join-Path $dir $rel
+        if ((Test-Path $c) -and -not $cands.Contains($c)) { $cands.Add($c) }
+      }
+      $dir = Split-Path -Parent $dir
+    }
+    # Belt-and-suspenders: derive from `git --exec-path` (handles non-standard git.exe placement).
+    $ep = (& $git.Source --exec-path 2>$null)
+    if ($ep) {
+      $epDir = ($ep -replace '/','\').TrimEnd('\')
+      for ($j = 0; $j -lt 6 -and $epDir; $j++) {
+        foreach ($rel in @('bin\bash.exe','usr\bin\bash.exe')) {
+          $c = Join-Path $epDir $rel
+          if ((Test-Path $c) -and -not $cands.Contains($c)) { $cands.Add($c) }
+        }
+        $epDir = Split-Path -Parent $epDir
+      }
+    }
+  }
+  # Select the FIRST candidate where bw resolves IN THE LOGIN SHELL (-lc) the attach will use.
+  foreach ($c in $cands) {
+    & $c -lc 'command -v bw >/dev/null 2>&1' 2>$null
+    if ($LASTEXITCODE -eq 0) { return $c }
+  }
+  # No git-bash carrying bw could be resolved -> distinct from a bw error (see fix(b) bucket).
+  return $null
+}
+
 $bwExit = $null
 $attachThrew = ''
+$resolvedBash = $null
 try {
   $bwCmd = Get-Command bw -ErrorAction SilentlyContinue
   if ($bwCmd) {
-    # bw is on the pwsh PATH — invoke it directly.
+    # bw is directly on the pwsh PATH — invoke it directly.
     & $bwCmd.Source attach $ticket $tmp --name $attachName
     $bwExit = $LASTEXITCODE
   } else {
-    # bw NOT on the pwsh PATH — the affected-machine case (bw is on the bash PATH only).
-    $bash = Get-Command bash -ErrorAction SilentlyContinue
-    if ($bash) {
-      # git-bash bw does NOT reliably accept a Windows backslash path (C:\Users\...\Temp\...).
-      # Convert $tmp to a git-bash-acceptable POSIX form BEFORE handing it to bash:
-      #   cygpath -u is the robust tool when present; else a deterministic C:\ -> /c/ transform.
-      $cyg = Get-Command cygpath -ErrorAction SilentlyContinue
-      if ($cyg) {
-        $tmpBash = (& $cyg.Source -u $tmp).Trim()
-      } else {
-        # Backslashes -> slashes, then a leading drive letter "C:" -> "/c".
-        $tmpBash = $tmp -replace '\\','/' -replace '^([A-Za-z]):', '/$1'
+    # bw NOT on the pwsh PATH — resolve a git-bash that CARRIES bw (skips the WSL shadow).
+    $resolvedBash = Resolve-GitBashWithBw
+    if ($resolvedBash) {
+      # Convert the Windows temp path to the form THIS git-bash understands. cygpath -u THROUGH
+      # the resolved bash is robust (it emits git-bash's own mount form). Deterministic fallback:
+      # backslashes -> slashes, leading "X:" -> "/x" (LOWERCASE drive = git-bash mount form,
+      # NOT WSL's /mnt/c).
+      $tmpBash = $null
+      & $resolvedBash -lc 'command -v cygpath >/dev/null 2>&1' 2>$null
+      if ($LASTEXITCODE -eq 0) {
+        $tmpBash = (& $resolvedBash -lc 'cygpath -u "$1"' bash $tmp 2>$null).Trim()
       }
-      # r1-robust (stoa--pk4 C1/C4): pass the ticket, the converted path, and the
-      # attach-name as POSITIONAL args to `bash -c '<script>' bash "$1" "$2" "$3"`.
-      # There is NO string interpolation of the values into the bash script body, so
-      # the apostrophe-in-Windows-username case (e.g. C:\Users\O'Brien\...) cannot break
-      # the quoting — the safety here is STRUCTURAL (no interpolation), not a quote-wrap
-      # that relied on the (false) claim that a Windows path cannot contain a single quote.
-      & $bash.Source -c 'bw attach "$1" "$2" --name "$3"' bash $ticket $tmpBash $attachName
+      if ([string]::IsNullOrWhiteSpace($tmpBash)) {
+        $tmpBash = $tmp -replace '\\','/'
+        $tmpBash = [regex]::Replace($tmpBash, '^([A-Za-z]):', { param($m) '/' + $m.Groups[1].Value.ToLower() })
+      }
+      # LOGIN shell (-lc): bw lives at /c/Users/<user>/bin/bw, added to PATH by the login profile;
+      # a non-login -c may not have it on PATH even via the right bash (FM build detail). Positional
+      # args (no interpolation of values into the script body) keep the apostrophe-in-username case safe.
+      & $resolvedBash -lc 'bw attach "$1" "$2" --name "$3"' bash $ticket $tmpBash $attachName
       $bwExit = $LASTEXITCODE
     } else {
-      # No bw resolvable any way -> distinct from a bw error (stays $null).
+      # No git-bash carrying bw could be resolved (e.g. only a broken/WSL bash is present,
+      # or git-bash has no bw). This is a RESOLUTION failure, NOT a bw/ticket error. Leave
+      # $bwExit = $null and $resolvedBash = $null to route the distinct fix(b) bucket below.
       $bwExit = $null
     }
   }
@@ -198,17 +247,20 @@ try {
   $attachThrew = $_.Exception.Message
 }
 
-# Arc 68 (stoa--pk4) fix (b) — fail-LOUD with the REAL error; distinguish the THREE cases
-# so a CommandNotFound/PATH-miss can NEVER again hide behind the benign "no registry ticket" label.
+# Arc 68 (stoa--pk4) rev3 fix (b) — FOUR buckets so a wrong/broken-bash or no-bw-bash failure
+# reports AS a resolution error (LOUD), and can NEVER again hide behind the benign
+# "no registry ticket" / bw-error label.
 $attachOk = $false; $failReason = ''
 if ($attachThrew) {
   $failReason = "bw attach threw: $attachThrew"
 } elseif ($bwExit -eq 0) {
   $attachOk = $true
 } elseif ($null -eq $bwExit) {
-  $failReason = "bw NOT FOUND on the pwsh PATH or via bash - this is a PATH/resolution failure, NOT a missing-ticket case. On this machine bw may be on the bash PATH only; the launcher must invoke it pwsh-resolvably (Arc 68 / stoa--pk4)."
+  # BUCKET: resolution failure (no bw on pwsh PATH AND no git-bash carrying bw resolvable).
+  $failReason = "bw could NOT be resolved: not on the pwsh PATH, and no git-bash carrying bw was found (a git-bash derived from 'git' where 'command -v bw' succeeds). This is a PATH/RESOLUTION failure, NOT a missing-ticket or bw-error case. On this machine bw is on the git-bash PATH only; note WSL's C:\windows\system32\bash.exe (if present) is NOT git-bash and is intentionally skipped (Arc 68 / stoa--pk4 rev3)."
 } else {
-  $failReason = "bw attach to '$ticket' exited $bwExit (e.g. no such ticket on THIS bw store, or a bw error). If '$ticket' genuinely does not exist on this workspace's bw store, this is the benign no-registry-ticket case; otherwise it is a real attach failure."
+  # BUCKET: bw RAN (via the resolved git-bash or the pwsh PATH) but the attach exited non-zero.
+  $failReason = "bw attach to '$ticket' exited $bwExit (bw resolved and ran, but the attach failed: e.g. an invalid ticket id, or a real bw/store error). NOTE: a non-existent ticket may AUTO-CREATE on this bw version rather than error, so a non-zero exit here is a genuine bw/store error, not the benign no-ticket case."
 }
 if (-not $attachOk) {
   Write-Warning "record-seat: could not record seat '$Seat' to '$ticket'. $failReason"
