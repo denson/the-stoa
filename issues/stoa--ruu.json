@@ -2,6 +2,7 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-20T06:05:44Z",
   "created": "2026-06-17T12:45:45Z",
   "description": "After Arc 61 landed (main @24b79cc), the-stoa's OWN deployed team in `.claude/` is DRIFTED from the substrate it ships: `.claude/skills/agent-author/` is still present (skill retired in substrate), `.claude/MAJOR_CHIRON.md` not yet deployed, POLYBIUS §11 not relocated in the deployed copy, pair-programmer module not re-homed.\n\nUser-tier POLYBIUS close-gate self-apply duty per §18/§19.5 (the-stoa is the FORGE workspace running its own team from .claude/), NOT a consumer-update via stoa--0zw.\n\nPLAN: run the self-apply at the-stoa — `substrate/install.sh` at the-stoa's deploy mode (or check-substrate-updates -\u003e apply) to: drop retired `agent-author`, deploy `MAJOR_CHIRON`, relocate deployed POLYBIUS §11 -\u003e CHIRON, re-home pair-programmer module + recompose. CAUTION: role files cached at session start, so re-deploy does not disturb the running user-tier session (applies next session); do it as a deliberate clean-tree step, not folded into unrelated work. Also re-check OTHER registered consumer workspaces for the same agent-author drift.",
   "id": "stoa--ruu",
@@ -21,8 +22,8 @@
     }
   ],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "[FOLLOW-UP arc-61] self-apply CHIRON cascade to the-stoa's own .claude/ (drifted: stale agent-author skill, no CHIRON)",
   "type": "task",
-  "updated_at": "2026-06-20T06:05:43Z"
+  "updated_at": "2026-06-20T06:05:44Z"
 }
