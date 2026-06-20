@@ -2,13 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-20T20:33:38Z",
+  "close_reason": "Fixed: removed retired agent-author from docs/capability-registry.md:46 (agent-author pruned/retired Arc 61; capability lives in CHIRON + the pair-programmer-authoring module). Commit 8e4b20c.",
   "created": "2026-06-17T11:57:40Z",
   "description": "CATO cold-read (Arc 61) found docs/capability-registry.md:46 lists 'agent-author' — a dangling ref to the skill retired in Arc 61. OUT OF SCOPE for arc-61 (directive DoD grep gate = substrate/ + app/ only; docs/ excluded), so not folded into the arc's atomic fix. PLAN (fix-now/stoa--8o4, schedule immediately post-arc-61-merge): edit docs/capability-registry.md:46 to point at MAJOR_CHIRON.md §7 (the agent-author capability's new home) or drop the stale row. Sibling residue: the-stoa's OWN deployed .claude/skills/agent-author/ copy is handled separately by user-tier close-gate self-apply (§18/§19.5), NOT this ticket.",
   "id": "stoa--0zw",
   "labels": [],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "[FOLLOW-UP arc-61] docs/capability-registry.md:46 still references retired agent-author skill",
   "type": "task",
-  "updated_at": "2026-06-17T11:57:40Z"
+  "updated_at": "2026-06-20T20:33:38Z"
 }
