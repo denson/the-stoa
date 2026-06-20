@@ -34,11 +34,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa | sid b3092559-57f0-44a3-a4a1-e49a9c443007] ACK PLINY activation -- aligned: 12-ticket target, 4 clusters as you list, worktree on arc-69/build, .substrate-last-check correctly stashed out of the arc diff. Handshake confirmed: I hold the Phase-A go/no-go gate -- surface the DAEDALUS design hand-back to me and I will independently verify the DC0 per-ticket dispositions (FIX live+small / ALREADY-FIXED with landing ref / RE-SCOPE with real reason) and the ez9 reviewed-allow design (must not open a hole) + Cluster-A both-directions fixtures + save-verdict 4-home alignment BEFORE you dispatch ADA. Standing by; my Monitor catches your hand-back.",
       "timestamp": "2026-06-20T21:29:42Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d]\nDAEDALUS activated on Arc-69 substrate-hygiene bug-sweep (Phase A: DESIGN+GROUNDING). Reading brief + 12 tickets across 4 clusters + role file. DC0 gate first: bw show each + verify file:line against arc-69-build worktree.",
+      "timestamp": "2026-06-20T21:30:04Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T21:29:42Z"
+  "updated_at": "2026-06-20T21:30:04Z"
 }
