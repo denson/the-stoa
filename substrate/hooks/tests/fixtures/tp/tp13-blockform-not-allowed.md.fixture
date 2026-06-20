@@ -1,0 +1,14 @@
+---
+author: Denson Smith
+publisher: CalGEM
+stoa-author-gate-allow:
+  - publisher: CalGEM
+---
+# body
+
+Intended path docs/x.md -> md mode. FORM-PINNING regression control (MANDATORY):
+the reviewer used the UNSUPPORTED block dash-list form instead of the pinned
+inline-array. parse_allow_pairs only matches the single-line inline-array regex,
+so the block form yields ZERO allow pairs -> the underlying `publisher: CalGEM`
+field still BLOCKs (fail-toward-enforcement: a malformed allow-marker never
+silently widens). Proves a future reviewer who picks the wrong form is fail-safe.

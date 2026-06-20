@@ -109,6 +109,19 @@ LICENSE.md|0|cfg|ALLOW|control/ctl3-license-md-denson.fixture
 notes.txt|1|-|NONE|-
 # --- CARVE-OUT GUARD (classify-only: NOTICE.md stays md, NOT over-corrected) ---
 NOTICE.md|0|md|NONE|-
+# --- y12 (Arc 69 / stoa--y12): standard LICENSE "Copyright (c) <year> <Name>" form ---
+LICENSE|0|cfg|BLOCK|tp/tp8-license-c-form.fixture
+LICENSE|0|cfg|BLOCK|tp/tp9-license-copyright-symbol.fixture
+LICENSE|0|cfg|ALLOW|control/ctl4-license-c-form-denson.fixture
+docs/x.md|0|md|ALLOW|fp/fp5-copyright-prose.md.fixture
+LICENSE|0|cfg|ALLOW|control/ctl-y12-prose-in-cfg.fixture
+LICENSE|0|cfg|ALLOW|control/ctl-y12-year-prose-in-cfg.fixture
+# --- ez9 (Arc 69 / stoa--ez9): reviewed-allow for source-citation fields (inline-array) ---
+docs/x.md|0|md|BLOCK|tp/tp11-publisher-no-marker.md.fixture
+docs/x.md|0|md|ALLOW|control/ctl5-publisher-allowed.md.fixture
+docs/x.md|0|md|BLOCK|tp/tp12-author-allow-attempt.md.fixture
+docs/x.md|0|md|BLOCK|control/ctl6-publisher-mismatch.md.fixture
+docs/x.md|0|md|BLOCK|tp/tp13-blockform-not-allowed.md.fixture
 MANIFEST
 }
 
@@ -117,18 +130,50 @@ PASS=0
 FAIL=0
 TAB="$(printf '\t')"
 
+# is_pair_allowed MIRROR (Arc 69 / stoa--ez9 — C4 minimal skip-glue): the ONLY
+# new mirrored primitive. parse_allow_pairs itself is SOURCED from _hooklib.sh
+# (no second mirror — C1/r3); this is the tiny exact-pair compare the gate
+# applies around it. The live probe P-ez9-live (VERA, against the REAL gate) is
+# the authoritative backstop for this glue (C4). EXACT equality after CR-strip.
+is_pair_allowed() {
+  local af="$1" aval="$2" blob="$3" lf lv
+  [ -n "$blob" ] || return 1
+  while IFS="$TAB" read -r lf lv; do
+    lf="$(printf '%s' "$lf" | tr -d '\r')"
+    lv="$(printf '%s' "$lv" | tr -d '\r')"
+    [ -n "$lf" ] || continue
+    if [ "$lf" = "$af" ] && [ "$lv" = "$aval" ]; then
+      return 0
+    fi
+  done <<EOF
+$blob
+EOF
+  return 1
+}
+
 # compute_outcome <mode> <fixture_file> : run the REAL extractor in <mode> over
 # the fixture, then run each emitted value through the is_principal mirror.
+# ez9 (Arc 69): also build the reviewed-allow set from the fixture's own content
+# via the SOURCED parse_allow_pairs and skip a pair that is exact-allow-listed.
 # Echoes ALLOW or BLOCK.
 compute_outcome() {
-  local mode="$1" file="$2" pairs field val
+  local mode="$1" file="$2" pairs field val allow_pairs
   pairs="$(extract_author_fields "$mode" < "$file")"
   if [ -z "$pairs" ]; then
     echo "ALLOW"   # nothing extracted -> no deny
     return 0
   fi
+  # ez9: reviewed-allow set from the SAME fixture blob (parse_allow_pairs SOURCED
+  # from _hooklib.sh — no second mirror). md mode only ever reaches here with a
+  # frontmatter marker; cfg fixtures carry the marker in frontmatter too.
+  allow_pairs="$(parse_allow_pairs < "$file")"
   while IFS="$TAB" read -r field val; do
     [ -n "$val" ] || continue
+    field="$(printf '%s' "$field" | tr -d '\r')"
+    val="$(printf '%s' "$val" | tr -d '\r')"
+    if is_pair_allowed "$field" "$val" "$allow_pairs"; then
+      continue   # reviewed source-citation -> skip block for THIS pair only
+    fi
     if ! is_principal "$val"; then
       echo "BLOCK"
       return 0

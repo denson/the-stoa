@@ -1,0 +1,9 @@
+License notes
+
+Copyright 2026 was a busy year for Acme and its many contributors.
+
+Intended path LICENSE -> cfg mode (cpat IS active here). MANDATORY rev2 control:
+a YEAR-BEARING prose line that clears the required-year discriminator but is NOT
+an authorship claim. The name-run-to-EOL anchor ([A-Z]...\s*$) fails because the
+capitalized "Acme" is followed by lowercase " and its many...", so the run breaks
+before end-of-line. cpat returns None -> ALLOW (no false-block on year-prose).

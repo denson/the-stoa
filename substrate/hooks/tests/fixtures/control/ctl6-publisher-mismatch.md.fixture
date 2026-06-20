@@ -1,0 +1,12 @@
+---
+author: Denson Smith
+publisher: CalGEM
+stoa-author-gate-allow: [publisher: NOAA]
+---
+# body
+
+Intended path docs/x.md -> md mode. Exact-pair regression control: the marker
+whitelists `[publisher: NOAA]` but the actual field is `publisher: CalGEM`. The
+exact-pair compare requires field AND value to match -> (publisher,CalGEM) is not
+in the allow set {(publisher,NOAA)} -> BLOCK. A stale or mismatched marker is NOT
+a blanket allow; only the EXACT pair is suppressed.

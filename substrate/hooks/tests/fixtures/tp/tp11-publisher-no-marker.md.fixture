@@ -1,0 +1,10 @@
+---
+author: Denson Smith
+publisher: CalGEM
+---
+# body
+
+Intended path docs/x.md -> md mode. A structured `publisher:` source-citation
+field with NO reviewed-allow marker. The gate still fires (publisher CalGEM is
+not the PRINCIPAL and nothing whitelists it) -> BLOCK. Proves the allow path is
+opt-in: without a marker, a non-principal source-citation field still blocks.
