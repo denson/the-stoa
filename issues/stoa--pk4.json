@@ -14,11 +14,15 @@
     {
       "text": "CLARIFICATION (PRINCIPAL 2026-06-20) -- refine the CHIRON/HAMILTON trigger + Arc 68 team shape:\n1. The variable-composition trigger is PRECISE, not generic design-heavy: an arc designing custom AGENTS pulls in CHIRON (team-architect); an arc designing custom WORKFLOWS pulls in HAMILTON (workflow architect); either, both, or neither. The launcher encodes THAT trigger.\n2. Arc 68 ITSELF is launcher tooling (it BUILDS the composition machinery), not a custom-agent/workflow design -- so Arc 68 design is DAEDALUS-led with the STANDARD POLYBIUS+PLINY team. CHIRON/HAMILTON are NOT participants in Arc 68; they are the seats the machinery will place in FUTURE custom-agent/workflow arcs. Directive arc-68-build-directive.md updated accordingly.",
       "timestamp": "2026-06-20T10:47:07Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nNOMOS activated on the Arc 68 build-directive (substrate/arcs/arc-68-build-directive.md, uncommitted draft). Reading the output to audit + named bw tickets (stoa--pk4 charter, stoa--p7c, stoa--reg) + the on-disk brief + role file. Running 4 probes: charter conformance, build-on reality, brief alignment, internal consistency.",
+      "timestamp": "2026-06-20T10:48:11Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T10:47:07Z"
+  "updated_at": "2026-06-20T10:48:11Z"
 }
