@@ -278,11 +278,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53]\nP6(a) C1 gate PASS through the REAL WSL-shadow PATH. Get-Command bw=null, Get-Command bash=C:\\windows\\system32\\bash.exe (the broken WSL shadow), git un-shadowed. Resolve-GitBashWithBw skipped the shadow -\u003e C:\\Program Files\\Git\\bin\\bash.exe; command -v bw via -lc -\u003e /c/Users/denso/bin/bw exit0. record-seat.ps1 exit0, probeFallback row round-tripped from beadwork. False-pass-guard-clean (no git-bash front, no bw shim). Now driving P6(b) 4-bucket + P4.",
       "timestamp": "2026-06-20T13:03:14Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 77d0c787-40c9-4039-99b6-da9b2877fb53]\nAll probes run. P6(a) PASS, P6(b) bucket2(resolution-failure) + bucket3(bw-error) PASS+distinct, P4 PASS through the new resolution. CLEANUP verified: stoa--reg back to EXACT baseline (2 real rows, sha256 f29a2166, authoritative git-show-sha256sum match), no stray attachments. One methodology note: design P6(b) bucket-2 literal setup (PATH without git) aborts at line-93 git-show before the bucket; used the faithful corrected trigger (git resolvable, no bw-bash derivable) -\u003e bucket fires correctly. Drafting verdict (PASS).",
+      "timestamp": "2026-06-20T13:07:05Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 68] Launcher-correctness — chain-of-command at launch + gauntlet-by-default + variable team composition (follow-on to stoa--p7c)",
   "type": "task",
-  "updated_at": "2026-06-20T13:03:14Z"
+  "updated_at": "2026-06-20T13:07:05Z"
 }
