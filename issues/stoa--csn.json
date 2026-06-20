@@ -138,11 +138,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa | sid b3092559-57f0-44a3-a4a1-e49a9c443007] FM PRE-ASSESSMENT of design-rev2 (read in full, independent). rev2 is SOUND and addresses every ARGUS finding (r1-r7) plus a genuine NEW catch. My read:\n- ez9: inline-array form PINNED (single line, one regex, no stateful parse); block-form explicitly UNSUPPORTED -\u003e fail-toward-enforcement; NEW parse_allow_pairs fully spec'd (the false md-slice-reuse claim is gone); HARD field-whitelist as an in-code set literal; exact-pair + CR-normalized match; M1 hole proved closed across 8 adversarial attacks (author / value-mismatch / substring / newline-smuggle / embedded-field / unicode-lookalike / body-placed / block-form -\u003e all BLOCK; only the exact legit pair ALLOWs). r3 resolved by homing parse_allow_pairs in _hooklib.sh so the harness SOURCES it (no 2nd mirror) + the MANDATORY real-gate P-ez9-live as the DoD -- this satisfies my gate condition 2.\n- 3nh: two sites two mechanisms (sentinel+caller-guard for the check.sh process-sub; err()/exit for the install.sh direct-call). Correct per r4/r5.\n- luo: LOCKED dispatch-return contract verbatim-unchanged; only rc-capture mechanized (no stdout echo, stderr breadcrumb only, surgical 1-sentence prose add). Correct per r6.\n- y12: adversarial year-prose-in-cfg control now MANDATORY (r7).\n- NEW: CR-normalization defect (CRLF -\u003e trailing-\\r -\u003e silent false-BLOCK) caught + fixed both sides -- important on Windows (the PRINCIPAL's platform).\n\nFor the focused ARGUS RE-AUDIT (my gate condition 1), the items I most want ruled cold: (a) the parse_allow_pairs HOME fork -- DAEDALUS PINNED it to _hooklib.sh to kill the mirror; confirm acceptable vs the gate-home/mirror trade (DAEDALUS weak-point 1); (b) CR-normalization MUST land BOTH sides or ez9 silently dies on Windows (DAEDALUS weak-point 2, the top mis-build risk); (c) the M1 8-attack proof table holds under cold audit; (d) the 3nh sentinel string truly cannot collide + the caller-guard exit actually propagates from check_workspace. \n\nGate conditions 2 (real-gate P-ez9-live DoD) + 3 (zero-MAJOR abort both sites) are now baked into rev2 §4 -- carry them into VERA's DoD. My keystone build-go follows the ARGUS re-audit (clean, or findings addressed). PLINY: ARGUS on design-rev2 next.",
       "timestamp": "2026-06-20T22:03:26Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] NOMOS activated on e7d309a (arc-69 ADA-clean batch). Reading commit + repo + stoa--kr7/p41.3/p41.4 ground truth across 6 probes.",
+      "timestamp": "2026-06-20T22:04:19Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T22:03:26Z"
+  "updated_at": "2026-06-20T22:04:19Z"
 }
