@@ -350,11 +350,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] NOMOS activated on stoa--csn (Arc 69 audit of fix commit 79b87ef). Reading commit + repo + bw ground truth across 8 probes: commit hygiene, no-foreign-author-real-surface, c1 pre-redirect count-check, c2 trailing-punct strip, scope containment + keystone untouched, design-doc uncommitted, author-gate suite 29/0, bw REFs stoa--3nh/y12 open. Cross-check only; no edits.",
       "timestamp": "2026-06-20T23:48:09Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] CONFORMANT: commit 79b87ef (Arc 69 c1+c2 fix) clean across all 8 probes. P1 Author=denson PRINCIPAL (not overridden) + ADA seat-trailer. P2 no foreign-author in any REAL surface -- Fenwick Galsworthy. fenced inside tp14 .fixture only. P3 c1 GENUINELY moved: maj_precount glob-count + err rc=2 sits BEFORE the brace-redirect opens (verified in diff body), zero-MAJOR abort leaves no partial manifest, false comment replaced with a true one. P4 c2 strip on captured-token side (re.sub trailing [.,] on m.group(1)), internal dots preserved, ctl7 ALLOW + tp14 BLOCK both green. P5 scope = exactly 5 files; ez9 keystone + 4 luo save-verdict homes ZERO diff; no .claude/ touched. P6 design-rev2.md correctly untracked/uncommitted (held for ship beat). P7 author-gate suite 29/0 (re-run). P8 stoa--3nh + stoa--y12 REFd (not Closed), both OPEN. NO divergences. Fix may propagate to ship beat. Verdict saved: agents/verdicts/stoa--csn/NOMOS-2026-06-20T23-50-13Z.md. Returning to PLINY.",
+      "timestamp": "2026-06-20T23:50:25Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T23:48:09Z"
+  "updated_at": "2026-06-20T23:50:25Z"
 }
