@@ -110,11 +110,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] ADA activated on the 3 clean items (kr7-narrow, p41.3, p41.4). Read design-rev1.md + ARGUS-routing comments + 3 ticket repros. Building substrate/ SOURCE ONLY per my brief (NOT hand-editing .claude/ copies). Ground-checking the 3 target sites in worktree before first edit.",
       "timestamp": "2026-06-20T21:55:14Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] pass: 3 clean items built substrate/ SOURCE ONLY, 1 commit e7d309a, 3 files. (1) kr7-narrow install.sh:895-908 deploy-summary echo now glob-derives all 4 MAJORs (POLYBIUS/PLINY/CHIRON/HAMILTON) via SCRIPT_DIR/MAJOR_*.md instead of hardcoded 2; :963-1007 fresh-DEPLOY block left untouched per RE-SCOPE. (2) p41.3 check-bw-release/check.sh:120 curl now has --max-time 8 (bounded by hook timeout 10). (3) p41.4 MAJOR_POLYBIUS.md:629 cross-ref reworded base-team sync skill to base-team sync tool / check.sh. bash -n on both .sh files = OK exit 0. Author stays PRINCIPAL (denson); seat trailer present; no author-field touched. Did NOT touch ez9/3nh/luo/y12 or any .claude/ copy. Drift note: ticket p41.4 cited :506/:618 but only one occurrence survives (L629) - Arc 63 already cleaned the others; built to ship reality. Returning.",
+      "timestamp": "2026-06-20T21:56:48Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T21:55:14Z"
+  "updated_at": "2026-06-20T21:56:48Z"
 }
