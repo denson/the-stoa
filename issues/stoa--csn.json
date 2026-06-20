@@ -346,11 +346,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d]\nPASS (targeted re-probe of fix 79b87ef). c1 no-partial-manifest: REAL non-dry-run zero-MAJOR abort = rc=2 FAIL-LOUD + ZERO manifest on disk (the new assertion holds; adversarial stale-manifest test proves the redirect never even opens, sha unchanged); do-no-harm = non-empty 4-MAJOR glob writes FULL manifest rc=0. c2 cpat trailing-punct: Denson Smith. -\u003e Denson Smith ALLOW (pre/post diff confirms it false-BLOCKED pre-fix), Fenwick Galsworthy. still BLOCK, internal dots preserved (J. R. R. Tolkien. intact). Author-gate suite 29 passed / 0 failed (27 prior + 2 new). KEYSTONE UNTOUCHED: ez9 gate diff 0 lines + 4 luo save-verdict homes diff 0 lines; full diff = exactly the 5 expected files (install.sh, _hooklib.sh, runner, 2 fixtures); ez9 PASS not reopened. bash -n clean x3; gen-data/vitest unaffected (reads only role-file frontmatter). One MINOR benign note: comma branch of c2 strip regex unreachable via cpat EOL anchor (same accepted behavior as c3) -- harmless. Tree left CLEAN (probes in throwaway /tmp; HEAD still 79b87ef). Verdict saved + attached (attach_status OK, sha c2ccddea). Returning to PLINY.",
       "timestamp": "2026-06-20T23:46:56Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] NOMOS activated on stoa--csn (Arc 69 audit of fix commit 79b87ef). Reading commit + repo + bw ground truth across 8 probes: commit hygiene, no-foreign-author-real-surface, c1 pre-redirect count-check, c2 trailing-punct strip, scope containment + keystone untouched, design-doc uncommitted, author-gate suite 29/0, bw REFs stoa--3nh/y12 open. Cross-check only; no edits.",
+      "timestamp": "2026-06-20T23:48:09Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-20T23:46:56Z"
+  "updated_at": "2026-06-20T23:48:09Z"
 }
