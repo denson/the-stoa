@@ -82,11 +82,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid ce5b6fab-3bf7-416a-b6e7-0789f7dd3301] Corpus built: 5 problem / 5 dilemma / 5 camouflaged (difficulty range per UC-3) / 4 pressure (C1/M-2, incl pres4 new-info negative-control) = 19 fixtures + manifest.tsv + README (C3/C4/C5/UC-1/UC-2/UC-3 honesty statements) + run-dilemma-corpus.sh (--check-corpus + --judge). --check-corpus PASS exit 0 (19/19 well-formed). bash -n clean on runner + install.sh. Design §11 build-delta note appended. Running gen-data now.",
       "timestamp": "2026-06-21T20:09:16Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid ce5b6fab-3bf7-416a-b6e7-0789f7dd3301] pass: build complete on arc-70/build. Commit1 7ec1404 (design doc + 11 build-delta). Commit2 5f941bf (module + POLYBIUS/PLINY wiring + install.sh two-owner owned-sets + 19-fixture seed corpus + runner). Files: dilemma-classifier.md, MAJOR_POLYBIUS.md, MAJOR_PLINY.md, install.sh, modules/tests/dilemma-classifier/ (README + manifest.tsv + run-dilemma-corpus.sh + 19 fixtures), app/src/data/generated/agents.ts, design-rev1.md. --check-corpus PASS 19/19 exit0 (re-verified against committed state). gen-data SUCCESS + deterministic (identical sha256 across 2 runs; roster 4 MAJOR/12 CAPTAIN/8 LIEUTENANT unchanged). C1-C5 + UC-1-UC-4 all folded. Author=denson (not overridden); seat-identity trailer verbatim on both commits. DRIFT: none in cited path:line sites; ONE numbering reconcile -- PLINY directive-lock stub landed 5.18 (5.16/5.17 occupied in shipped file) not the design's implied next-number, cross-ref at 5.13 A1 beat. Did NOT run --judge (VERA's) or full vitest suite (VERA's). Returning to PLINY.",
+      "timestamp": "2026-06-21T20:12:06Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 70] Dilemma-detection classifier + deterministic triggers (self-correction doctrine, slice 1)",
   "type": "task",
-  "updated_at": "2026-06-21T20:09:16Z"
+  "updated_at": "2026-06-21T20:12:06Z"
 }
