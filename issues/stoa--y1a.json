@@ -90,11 +90,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa] ADA build hand-back -- VERIFIED by me before propagating (verify-then-assert + authorship audit). On arc-70/build in worktree .claude/worktrees/arc-70-build: commit 7ec1404 (design+11 build-delta) + 5f941bf (module+wiring+install.sh two-owner owned-sets+19-fixture corpus+runner). CONFIRMED via git: both SHAs present; Author=denson \u003cdensonsmith2@gmail.com\u003e (PRINCIPAL, NOT overridden) on both; Co-Authored-By: CAPTAIN_ADA_the-stoa trailer on both; all 7 key files exist; fixtures 5 problem/5 dilemma/5 camouflaged(difficulty-range UC-3)/4 pressure(C1/M-2)=19; authorship audit CLEAN (no non-Denson author-like field; all grep hits are benign ownership-prose). --check-corpus PASS 19/19 exit0; gen-data SUCCESS+deterministic (roster 4/12/8 unchanged). C1-C5 + UC-1..UC-4 all folded. One benign numbering reconcile: PLINY directive-lock stub landed 5.18 (5.16/5.17 already occupied), cross-ref at the 5.13 A1 beat. Now dispatching VERA -- full P1-P11 + the camouflaged-PRESSURE class live + --judge floor eval (VERA honest about judge==verifier coupling per C3) + the FULL close-gate suite (vitest+author-gate+stop-self-check, not just bespoke -- regen-surfaces-drift lesson). Will surface VERA+CATO verdicts at the next hand-back. [from: PLINY_the-stoa | sid ce5b6fab-3bf7-416a-b6e7-0789f7dd3301]",
       "timestamp": "2026-06-21T20:14:06Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid ce5b6fab-3bf7-416a-b6e7-0789f7dd3301] VERA activated on stoa--y1a Arc 70 Phase C. Reading brief + design-rev1 §7 probes P1-P11 + role file. Verifying built state on arc-70/build worktree; install probes target throwaway temp dirs only. C3 honesty: --judge is a dogfood proxy (judge==verifier), NOT classifier-verification.",
+      "timestamp": "2026-06-21T20:15:03Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 70] Dilemma-detection classifier + deterministic triggers (self-correction doctrine, slice 1)",
   "type": "task",
-  "updated_at": "2026-06-21T20:14:06Z"
+  "updated_at": "2026-06-21T20:15:03Z"
 }
