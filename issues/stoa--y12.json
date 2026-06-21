@@ -2,13 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-21T01:07:18Z",
+  "close_reason": "FIX shipped Arc 69 — author-gate copyright-form extraction; landed d9fd259 (cpat trailing-punct fixup 79b87ef), merged d4d45ca. Author-gate 29/0, both-directions fixtures green.",
   "created": "2026-06-18T12:02:04Z",
   "description": "Surfaced during Arc 65 (stoa--z2b) by ADA's tp3 fixture work; floor-manager (POLYBIUS_the-stoa) verified by direct probe.\n\nGAP: the authorship gate's cfg extractor regex (_hooklib.sh extract_author_fields, cfg branch) anchors every author-like FIELD with a mandatory separator: (?ix)(?\u003c![A-Za-z0-9_])[quote]?(FIELD)[quote]?\\s*[:=]\\s*(.*)$ . The 'copyright' field therefore matches 'Copyright: \u003cname\u003e' and 'copyright = \u003cname\u003e' but does NOT match the STANDARD license form 'Copyright (c) \u003cyear\u003e \u003cname\u003e' (no :/= after the field word). Probe confirmed: 'Copyright (c) 2026 Fenwick Galsworthy' -\u003e NO match (ALLOW); 'Copyright: Fenwick Galsworthy' -\u003e match (BLOCK).\n\nIMPACT: a real LICENSE / LICENSE.md / NOTICE naming a NON-DENSON person in the conventional 'Copyright (c) \u003cyear\u003e \u003cName\u003e' line slips the gate — a true-positive MISS in the gate's core purpose (the directive's named LICENSE/NOTICE block-class). The most common real-world copyright surface is exactly the un-matched form. the-stoa's own LICENSE names Denson, so not actively mis-attributed today, but a fork/downstream is exposed.\n\nPRE-EXISTING + OUT OF ARC-65 SCOPE: the cfg extractor is byte-identical/unchanged by Arc 65 (which only narrows the .md matcher). Arc 65 does NOT make this worse; r1's LICENSE.md-\u003ecfg closure is validly proven by tp6/tp3 using the matchable colon form. This is a separate defect in the cfg extractor.\n\nPLAN (concrete next-step): DAEDALUS designs a copyright-aware pattern that ALSO matches the separator-less standard form — e.g. for the 'copyright' field specifically, allow an optional '(c)'/(C)/© + optional year before the name: 'Copyright\\s*(\\(c\\)|©)?\\s*(\\d{4})?\\s+\u003cname\u003e'. Must NOT widen false-positives (prose like 'copyright is held by...' / 'the copyright field' must still pass) — needs its own adversarial both-directions corpus (mirror the Arc-65 tp/fp structure). Blocker: none; this is a scoped security-gate change warranting its own small arc after Arc 65 lands. NEXT ACTION: when picked up, start from the Arc-65 corpus harness (substrate/hooks/tests/) and add copyright-form fixtures (standard + colon + prose-negative).\n\nCONSIDER (Arc-65-adjacent, PLINY/DAEDALUS call): a one-line honesty note in the Arc-65 corpus README that LICENSE coverage is the 'field: value' separator form and the standard 'Copyright (c) \u003cyear\u003e \u003cname\u003e' form is a known un-matched gap tracked here — so the green corpus is not read as 'all LICENSE formats covered.'",
   "id": "stoa--y12",
   "labels": [],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "[BUG] author-gate cfg extractor requires :/= separator — standard 'Copyright (c) \u003cyear\u003e \u003cname\u003e' LICENSE line is NOT matched (true-positive MISS)",
   "type": "task",
-  "updated_at": "2026-06-18T12:02:04Z"
+  "updated_at": "2026-06-21T01:07:18Z"
 }
