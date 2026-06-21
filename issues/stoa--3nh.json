@@ -2,13 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-21T01:07:22Z",
+  "close_reason": "FIX shipped Arc 69 — FAIL-LOUD on empty MAJOR glob at both manifest sites; landed 34db584 (no-partial-manifest pre-check fixup 79b87ef), merged d4d45ca. Both sites abort rc=2; do-no-harm on non-empty.",
   "created": "2026-06-18T19:48:25Z",
   "description": "Arc 66 (stoa--5ju) ratified r7 as DEFER. The glob-derive MAJOR/CAPTAIN enumeration in check.sh enumerate_deployed(), install.sh write_substrate_manifest(), and apply.sh uses 'shopt -s nullglob', so a substrate checkout that globbed ZERO MAJOR_*.md (or CAPTAIN_*.md) would silently enumerate zero -\u003e no MISSING ever reported. Pre-existing (the CAPTAIN glob already had this property); out of Arc 66's no-broader-refactor scope. Plan: add a FAIL-LOUD guard (count\u003e=1 expected for MAJOR set; mirror the parse_skill_names_from_install empty-check pattern) for a FAIL-LOUD-adjacent update tool. Anchor: ARGUS r7 + VERA on stoa--5ju.",
   "id": "stoa--3nh",
   "labels": [],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "[FOLLOW-UP arc-66] FAIL-LOUD on empty MAJOR_*.md / CAPTAIN_*.md glob in check-substrate-updates + install.sh manifest writer (silent-zero hazard)",
   "type": "task",
-  "updated_at": "2026-06-18T19:48:25Z"
+  "updated_at": "2026-06-21T01:07:22Z"
 }
