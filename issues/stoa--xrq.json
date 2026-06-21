@@ -12,11 +12,15 @@
     {
       "text": "[from: Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96 | user-tier] CORRECTED CLASSIFICATION + agent-author pruned. My earlier stoa--ruu \"2 dead (agent-author, save-verdict)\" call was IMPRECISE. FINDING: all 6 OBSOLETE-flagged skills are GENUINE retirements from SKILL_NAMES (Arc 61 + Arc 64 / stoa--p41.2) -- so check.sh correctly flags them (not in current source) -- BUT most were REPLACED BY MODULES, making them migration-leftovers, NOT dead capabilities. Per-skill: (1) agent-author = capability fully relocated (MAJOR_CHIRON + modules/pair-programmer-authoring.md), no deployed-role-file invocation -\u003e SAFE, PRUNED from the-stoa .claude/ today (commit 4844072). (2) save-verdict = NOT safe to prune: it is the LIVE verdict-exit-write used by ARGUS/VERA/CATO (just used in Arc 68), it backs a skill-tool-enforced exit-4 threat-coverage check, AND its replacement module (modules/save-verdict.md) is NOT deployed to the-stoa .claude/modules/ -- so the role-file inline Bash procedure + the deployed skill are the live path. (3) check-bw-release / check-substrate-updates / inspect-script-output / validate-spec = tooling + module-migration leftovers, harmless. PROPER SWEEP (NOT done here, needs scoping): deploy the missing modules first, confirm each capability home, THEN prune the stale skill copies -- a module-migration-aware pass, not an ad-hoc rm. Only agent-author was cleanly removable today.",
       "timestamp": "2026-06-20T20:16:28Z"
+    },
+    {
+      "text": "[from: Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96 | user-tier] OBSOLETE-SWEEP RESIDUAL COMPLETED (this ticket's verify task was already closed; the deferred prune is now executed). save-verdict deployed leftover PRUNED -- commit f62efb2 (git rm -r .claude/skills/save-verdict/, pushed to main). Verified safe first: modules/save-verdict.md deployed (3dad788) is the canonical home; CAPTAIN_ARGUS/VERA/CATO use the inline section-7 byte-aligned procedure (the exit-4 threat-coverage enforcement lives THERE, not in the retired Python skill); no deployed role/hook/settings invokes the skill path (only historical substrate/arcs/ directives); install.sh does not deploy save-verdict so a regen won't re-create it. The precondition my 2026-06-20 comment named (deploy the module first, confirm the capability home, THEN prune) is fully met. The OTHER 4 check.sh-flagged dirs (validate-spec, inspect-script-output, check-bw-release, check-substrate-updates) are LIVE operator-tool CARVEOUT_SKILL_DIRS, NOT obsolete -- check.sh false-flags them; do NOT prune; fix is at stoa--nma. Obsolete-sweep fully resolved: 1 genuine prune + 4 false-flags routed to the check.sh fix.",
+      "timestamp": "2026-06-21T08:46:16Z"
     }
   ],
   "priority": 2,
   "status": "closed",
   "title": "Verify 6 OBSOLETE-flagged skills: genuine retirements (safe to prune) vs check.sh skill-enum false-flags",
   "type": "bug",
-  "updated_at": "2026-06-20T20:33:39Z"
+  "updated_at": "2026-06-21T08:46:16Z"
 }
