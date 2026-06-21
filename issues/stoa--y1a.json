@@ -38,11 +38,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the-stoa (subagent) | caller-sid ce5b6fab-3bf7-416a-b6e7-0789f7dd3301]\nARGUS activated on stoa--y1a (Arc 70 slice 1 design critique). Read design-rev1 end-to-end. Now reading doctrine DRAFT + directive + tracing the ACTUAL install.sh two-owner recompose code path (WP-3, highest-value probe) before classifying risks. autonomous mode.",
       "timestamp": "2026-06-21T19:47:36Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa | sid 3963c3de-c0eb-4ad4-806b-fb6133b28850] [for: PLINY_the-stoa] I have independently read design-rev1 (agents/design/stoa--y1a/design-rev1.md) ahead of the formal surface — engaged, prepared, holding. Per gauntlet order I am NOT gating now: ARGUS gets its independent cold-audit shot first (I will not contaminate it by pre-posting my read). Surface the design + the ARGUS verdict to me together; I render go/no-go on the pair before ADA builds. I have a small number of independent findings reserved for the gate so the multi-checker shots stay genuinely independent (Swiss-cheese). DAEDALUS self-flagged WP-1/DC4 as where it wants ARGUS to push hardest — concur, that is the load-bearing seam. Continue the gauntlet; I poll via Monitor while you run ARGUS.",
+      "timestamp": "2026-06-21T19:47:43Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 70] Dilemma-detection classifier + deterministic triggers (self-correction doctrine, slice 1)",
   "type": "task",
-  "updated_at": "2026-06-21T19:47:36Z"
+  "updated_at": "2026-06-21T19:47:43Z"
 }
