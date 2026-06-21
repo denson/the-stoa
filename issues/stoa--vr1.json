@@ -6,9 +6,15 @@
   "description": "Arc 43 A22 self-application produced FAIL 144→56 + STRANGE 36→12, a 61%/67% reduction. The remaining 56 + 12 are enumerated in 10 residue categories at agents/observation/spec-validation/mechanical-check-results.md (Arc 43 self-application section). Each category is a known parser limitation with a known fix-shape; closing them is future-arc scope.\n\n## Residue categories (per mech-check-results.md Arc 43 self-application)\n\n**check-1 (7 categories ~52 FAILs):**\n1. Form (a) over-capture of literal §N placeholder in spec line 7 'Reading note'\n2. Form (b) §13.x anchor over-capture (placeholder/glob in prose)\n3. Form (b) range-syntax over-capture (§N-§M / §13.5-§13.10)\n4. Form (b) trailing-dot anchor greedy capture (§5.10. / §7.1. etc.)\n5. Form (b) hyphenated prose token over-capture (§12-internal-staleness)\n6. Form (c) **PLINY** / **POLYBIUS** shorthand inference gap (Form (c) requires literal CAPTAIN_*/MAJOR_* prefix; bold-shorthand doesn't match)\n7. Misc legitimate cross-refs not resolving via current heuristics\n\n**check-2 (3 categories ~13 STRANGE):**\n8. Line-level vs ticket-level classification ambiguity (multiple tickets per line)\n9. \\bdeferred\\b over-match against 'Deferred-with-gating' compound\n10. Genuinely-ambiguous lines with no structured-claim shape\n\n## Empirical anchor\n\nArc 43 ship (cd9b11a, 2026-05-19); ARGUS rev1 pass-1 simulation surfaced; DAEDALUS rev1 enumerated; CATO + VERA + ZENO Phase 3 all ratified as honest residue per stoa--bbi refined-principle thesis (residue IS data; structural fix narrows drift surface but doesn't eliminate).\n\n## Out of scope here\n\n- Closing ALL 10 categories in one ticket — split into smaller scopes per future-arc cohesion\n- Wholesale parser rewrite — these are incremental refinements over the Arc 43 base\n- SPECIFICATION.md structural changes (e.g., escape the §N placeholders) — that's spec-edit scope, not parser-refinement scope\n\n## Sequencing\n\nP3. Not blocking. After PRINCIPAL transitions to product-mode-ready (post-Arc-43 substrate-team posture); pick up if/when validate-spec residue becomes operationally noisy in future arcs OR if a future substrate-team arc has scope-cohesion with parser refinement.\n\n## Cross-refs\n\n- Source: stoa--4zj (closed Arc 43; this is the residue-forward ticket)\n- Companion: stoa--bbi (refined-principle thesis evidence accretion)\n- Artifact: agents/observation/spec-validation/mechanical-check-results.md (Arc 43 self-application section)\n- Arc 43 ship: cd9b11a (PR #23)",
   "id": "stoa--vr1",
   "labels": [],
+  "comments": [
+    {
+      "text": "[Arc 69 DC0 RE-SCOPE — leave OPEN] Grounded during Arc 69 as bigger-than-a-cleanup: validate-spec residue is a ~10-category parser-refinement program (P3), not a one-spot fix; out of the bug-sweep scope. Next step: scope as its own small arc when prioritized. [from: Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96]",
+      "timestamp": "2026-06-21T01:07:32Z"
+    }
+  ],
   "priority": 3,
   "status": "open",
   "title": "validate-spec residue refinement — 10 categories from Arc 43 A22 self-application (stoa--FIX1..FIX9 bundled)",
   "type": "task",
-  "updated_at": "2026-05-19T21:20:22Z"
+  "updated_at": "2026-06-21T01:07:32Z"
 }
