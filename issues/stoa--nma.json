@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-21T01:23:43Z",
+  "description": "check.sh OBSOLETE detection flags deployed skill dirs not in SKILL_NAMES as 'dropped from source'. But operator-tool CARVEOUT_SKILL_DIRS (install.sh:1354 = check-substrate-updates, check-bw-release, validate-spec, inspect-script-output) are deployed-but-not-in-SKILL_NAMES BY DESIGN. Result: check.sh on the-stoa 2026-06-21 false-flagged check-bw-release/ + check-substrate-updates/ as OBSOLETE though they exist in substrate/skills/ and deploy via the carve-out path (install.sh --dry-run confirms: 'deploy operator-tool (carve-out, non-SKILL_NAMES): check-substrate-updates'). HAZARD: an operator acting on the OBSOLETE report could try to prune live operator-tools. FIX: check.sh OBSOLETE detection must EXEMPT CARVEOUT_SKILL_DIRS (read the same list install.sh uses). Anchor: stoa--7sv. Related: stoa--xrq.",
+  "id": "stoa--nma",
+  "labels": [],
+  "priority": 3,
+  "status": "open",
+  "title": "check-substrate-updates check.sh: OBSOLETE detection false-positives on CARVEOUT_SKILL_DIRS",
+  "type": "bug",
+  "updated_at": "2026-06-21T01:23:43Z"
+}
