@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-21T01:13:43Z",
+  "description": "Post-Arc-69 deploy refresh (the SEPARATE .claude/ self-apply, NOT part of Arc 69's merge d4d45ca). check-substrate-updates check.sh on 2026-06-21 (substrate HEAD d4d45ca) shows the-stoa's OWN .claude/ DRIFTED on 10 files: MAJOR_PLINY +2, MAJOR_POLYBIUS +2, operating-disciplines +86, CAPTAIN_ARGUS/CATO/VERA_the_stoa +8 each (Arc-69 luo region), team-launcher/launch-team.ps1 +117 + record-seat.ps1 +140 + SKILL.md +8 (Arc-68), gauntlet-setup/SKILL.md +3. PLAN: on MAIN (basename the-stoa -\u003e correct _the_stoa slug) run install.sh --target project --project-dir \u003cthe-stoa\u003e to regen .claude/ from substrate/ (this also refreshes .claude/hooks/_hooklib.sh so the Arc-69 author-gate ez9/y12 improvements go LIVE -- check.sh does NOT track .claude/hooks/, so apply.sh alone would miss it; install.sh full deploy is the path). Review the diff carefully (deployed role files the team runs on), commit as section-18 housekeeping (direct-to-main allowed), push main. WHY install.sh-on-main not apply.sh-in-worktree: install.sh project-tier slug derives from the checkout basename (install.sh:766); an arc-build worktree yields _arc_69_build and orphans _the_stoa (PLINY's Arc-69 verify-then-execute catch). SEPARATELY: the 5 OBSOLETE skill dirs check.sh flags (check-bw-release, check-substrate-updates, inspect-script-output, save-verdict, validate-spec) are the stoa--xrq module-migration sweep -- do NOT --prune-obsolete here; AND verify the check-bw-release/check-substrate-updates OBSOLETE flags (they exist in substrate/skills/, so may be a check.sh carve-out-detection gap).",
+  "id": "stoa--7sv",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": ".claude deploy self-apply: refresh deployed role files + skills to substrate HEAD (Arc 68 + 69 + accumulated drift)",
+  "type": "task",
+  "updated_at": "2026-06-21T01:13:43Z"
+}
