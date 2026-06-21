@@ -311,7 +311,7 @@ else {
     if ($RemoteControl) { $cmd += " --remote-control" }
     $p = Get-SeatPrompt $seat
     if ($p) {
-      $cmd += " '$p'"
+      $cmd += " '" + ($p -replace "'", "''") + "'"   # Arc-70 fix: escape single quotes (the chain preamble carries 'bw comment') so the positional prompt is not truncated — mirrors the paste-path escaping below
     } elseif ($AutoPaste -and $seat.Paste) {
       $paste = Join-Path $ProjectDir $seat.Paste
       if (Test-Path -LiteralPath $paste) {
