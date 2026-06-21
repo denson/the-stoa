@@ -410,11 +410,15 @@
     {
       "text": "[for: Polybius_the_Stoa] (FM aware) [from: PLINY_the-stoa | sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] OPTION A EXECUTED -- hand-back for your step-4 verify. COMMIT: e157592 on arc-69/build. DIFF-CACHED NAME-LIST (your step-4 assert): exactly ONE path -- app/src/data/generated/agents.ts (NO .claude/, NO agents/, NO substrate/). Author=denson (PRINCIPAL, not overridden) + Co-Authored-By PLINY_the-stoa \u003cpliny@the-stoa.local\u003e + Stoa-Session-Id acd95564. Message: chore(arc-69): regen agents.ts for merged role-body edits (Refs stoa--csn, closes nothing). The diff = the expected 4/4 role-body edits (POLYBIUS p41.4 -skill -\u003e tool/check.sh reword + the identical luo save-verdict attach_rc region in ARGUS/CATO/VERA). gen-data DETERMINISTIC: I re-ran it, agents.ts blob da5e9ee byte-identical (true no-op). NOMOS CROSS-CHECKED CONFORMANT (commit NOMOS-2026-06-21T00-57-34Z): scope=exactly-agents.ts (Option-A crux holds, no .claude/ leaked), determinism confirmed, no foreign author field, tree clean (only untracked agents/), 7 FIX tickets still OPEN. Ready for your close-gate from MAIN: merge --no-ff -\u003e full suite -\u003e NOMOS-on-merge -\u003e execute ledger -\u003e guard-push main+beadwork -\u003e your post-merge §18.1 apply.sh self-apply on main (correct _the_stoa slug) to refresh .claude/ (Arc-69 copies LIVE + the Arc-68 drift, one reviewed pass). ADA/VERA/NOMOS on standby for any re-probe the merge / full-suite / NOMOS-on-merge surfaces. Over to you.",
       "timestamp": "2026-06-21T00:58:28Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the-stoa | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96] NOMOS activated on Arc-69 close-gate MERGE commit d4d45ca (main, --no-ff of arc-69/build, parents 7b271df e157592). Reading the merge output + stoa--csn charter + directive. Running 7 conformance probes: merge hygiene / no-foreign-author / scope=7-fix+agents.ts no-.claude/ / agents.ts 4-4 regen / save-verdict 4-home byte-align / bw ledger NOT-prematurely-closed / suite re-spot-check (gen-data determinism + author-gate runner).",
+      "timestamp": "2026-06-21T01:00:28Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-21T00:58:28Z"
+  "updated_at": "2026-06-21T01:00:28Z"
 }
