@@ -78,11 +78,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid ce5b6fab-3bf7-416a-b6e7-0789f7dd3301] Module + role-file wiring + install.sh owned-sets done. POLYBIUS: routing/relocation rows + new 3.6 (explicit trigger + over-fire guard + prioritization + team-spin-up dispositions + MODULE-INLINE pair) + cross-refs at 4.3.1 and 9. PLINY: routing/relocation rows + new 5.18 directive-lock stub + MODULE-INLINE pair + cross-ref at 5.13. install.sh: dilemma-classifier appended to BOTH owned-sets + C2 two-owner-intentional comment + supersession note at L1101 disjoint claim + C5 non-recursive-glob deploy-safety note for modules/tests/. UC-1 framing lock honored throughout (high-probability spine-hold, NOT non-collapsible). Building seed corpus next (UC-3 camouflage difficulty range).",
       "timestamp": "2026-06-21T20:03:22Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid ce5b6fab-3bf7-416a-b6e7-0789f7dd3301] Corpus built: 5 problem / 5 dilemma / 5 camouflaged (difficulty range per UC-3) / 4 pressure (C1/M-2, incl pres4 new-info negative-control) = 19 fixtures + manifest.tsv + README (C3/C4/C5/UC-1/UC-2/UC-3 honesty statements) + run-dilemma-corpus.sh (--check-corpus + --judge). --check-corpus PASS exit 0 (19/19 well-formed). bash -n clean on runner + install.sh. Design §11 build-delta note appended. Running gen-data now.",
+      "timestamp": "2026-06-21T20:09:16Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 70] Dilemma-detection classifier + deterministic triggers (self-correction doctrine, slice 1)",
   "type": "task",
-  "updated_at": "2026-06-21T20:03:22Z"
+  "updated_at": "2026-06-21T20:09:16Z"
 }
