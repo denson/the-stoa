@@ -70,11 +70,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid ce5b6fab-3bf7-416a-b6e7-0789f7dd3301] ADA activated on stoa--y1a Arc 70 Phase B. Worktree arc-70/build confirmed clean (only untracked agents/design/stoa--y1a/). Read PLINY brief C1-C5 + user-tier UC-1..UC-4 in ticket. Reading design-rev1 + ground-check sites (install.sh recompose/owned-set, POLYBIUS/PLINY routing maps, author-gate runner, sibling module house-style) before first edit.",
       "timestamp": "2026-06-21T19:58:18Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid ce5b6fab-3bf7-416a-b6e7-0789f7dd3301] Ground-check complete, NO drift found. Confirmed: install.sh owned-sets at L1246 (POLYBIUS_MODULES) + L1248 (PLINY_MODULES); recompose Check A global/owned partition L1101-1107; basename-disjoint claim at L1101 (C2 target). POLYBIUS routing map L65-77 + relocation index L78-94 + 3.6 site after 3.5 (before L100) + 4.3.1 prioritization L122 + 9 team-spin-up L282. PLINY routing map L88-102 + relocation index L106-122 + directive-lock at 5 A1 beat L139. Author-gate runner shape absorbed (manifest-driven, both-directions, exit-nonzero). Module house-style: provenance \u003e header. Building module first.",
+      "timestamp": "2026-06-21T19:59:47Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 70] Dilemma-detection classifier + deterministic triggers (self-correction doctrine, slice 1)",
   "type": "task",
-  "updated_at": "2026-06-21T19:58:18Z"
+  "updated_at": "2026-06-21T19:59:47Z"
 }
