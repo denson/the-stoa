@@ -2,13 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-21T01:07:23Z",
+  "close_reason": "FIX shipped Arc 69 (kr7-narrow) — deploy-summary echo glob-derives all 4 MAJORs; landed e7d309a, merged d4d45ca. Display-only; fresh-DEPLOY block untouched per RE-SCOPE.",
   "created": "2026-06-18T19:48:26Z",
   "description": "Arc 66 (stoa--5ju) glob-derived the MAJOR set at the 6 ENUMERATION loci (check.sh x3, install.sh manifest, apply.sh x2). Two non-enumeration paths still hand-name POLYBIUS/PLINY (CATO nits c1/c2; both non-blocking, correct for current MAJORs): (c1) install.sh:895 deploy-summary echo is a comma-joined human-facing display string hardcoding MAJOR_POLYBIUS/MAJOR_PLINY -\u003e won't list CHIRON/HAMILTON in the suffixed-summary; display-only, zero behavior impact (consciously LEFT by ADA — generalizing a comma-joined display needs a glob-loop-into-string build, not a trivial one-liner). (c2) fresh-DEPLOY block install.sh:954-1007 hand-enumerates 4 MAJORs (DEST_*/SRC_* + sed writes) rather than globbing -\u003e latent maintenance asymmetry (correct today; a future MAJOR would need manual addition here even after Arc 66). Plan: glob-derive both for full consistency so a future MAJOR auto-discovers end-to-end. Anchor: CATO c1/c2 on stoa--5ju.",
   "id": "stoa--kr7",
   "labels": [],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "[FOLLOW-UP arc-66] Sweep residual POLYBIUS/PLINY-only MAJOR references off install.sh non-enumeration paths (deploy-summary echo :895 + fresh-DEPLOY block :954-1007) for glob-derive consistency",
   "type": "task",
-  "updated_at": "2026-06-18T19:48:26Z"
+  "updated_at": "2026-06-21T01:07:23Z"
 }
