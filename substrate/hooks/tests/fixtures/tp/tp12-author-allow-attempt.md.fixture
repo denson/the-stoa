@@ -1,0 +1,12 @@
+---
+author: Fenwick Galsworthy
+stoa-author-gate-allow: [author: Fenwick Galsworthy]
+---
+# body
+
+Intended path docs/x.md -> md mode. THE HOLE-CLOSING CONTROL (threat M1): a
+careless or hostile committer tries to whitelist a real AUTHORSHIP-claim field by
+adding `[author: Fenwick Galsworthy]`. parse_allow_pairs HARD-restricts allow-able
+fields to {publisher,vendor,source,provider}, so `author` is dropped BEFORE it can
+enter the allow set -> zero pairs -> the author field still BLOCKs. No forged
+allow-marker can ever suppress an authorship-claim block.

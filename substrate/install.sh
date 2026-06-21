@@ -515,6 +515,21 @@ write_substrate_manifest() {
     return 0
   fi
 
+  # FAIL-LOUD PRE-CHECK (stoa--3nh / Arc 69 c1). Count the MAJOR_*.md glob BEFORE
+  # the `{ ... } > "$manifest"` redirect opens, and err() (exit 2) if zero — so the
+  # manifest path is NEVER opened/truncated/written on the zero-MAJOR abort path.
+  # A post-brace assert (the earlier shape) could not satisfy this: the brace-group
+  # redirect commits the (header-only) file to disk the instant it opens, BEFORE any
+  # post-brace guard can fire — leaving a partial manifest as the live artifact. The
+  # pre-redirect check is the only placement that genuinely leaves no partial file.
+  local srcmaj maj_precount=0
+  shopt -s nullglob
+  for srcmaj in "${SCRIPT_DIR}/MAJOR_"*.md; do
+    maj_precount=$((maj_precount + 1))
+  done
+  shopt -u nullglob
+  [ "$maj_precount" -ge 1 ] || err "write_substrate_manifest: zero MAJOR_*.md globbed from ${SCRIPT_DIR} — substrate checkout incomplete; refusing to write a manifest missing every MAJOR mapping."
+
   {
     echo "# Stoa substrate deploy manifest — substitutions applied to deployed files."
     echo "# Written by install.sh at deploy time. Read by check.sh + apply.sh to normalize."
@@ -540,7 +555,9 @@ write_substrate_manifest() {
     # the deployed filename, project + user do not (mirror install.sh SUFFIX_MAJORS
     # + check.sh enumerate_deployed). USER_TIER_DIR is a POLYBIUS-only placeholder
     # (only MAJOR_POLYBIUS.md carries {{USER_TIER_DIR}}), emitted at user-tier only.
-    local srcmaj majname dep_name
+    # (zero-MAJOR is already guarded by the pre-redirect maj_precount check above,
+    #  so this loop is only reached when at least one MAJOR_*.md exists.)
+    local majname dep_name
     shopt -s nullglob
     for srcmaj in "${SCRIPT_DIR}/MAJOR_"*.md; do
       majname="$(basename "$srcmaj" .md)"        # "MAJOR_POLYBIUS"
@@ -562,6 +579,15 @@ write_substrate_manifest() {
       done
     fi
   } > "$manifest"
+  # FAIL-LOUD (stoa--3nh / Arc 69 c1). The zero-MAJOR guard fires in the PRE-CHECK
+  # above, BEFORE this brace-group redirect opens — so on a zero-MAJOR abort the
+  # manifest path is never written and no partial artifact is ever left on disk.
+  # (The earlier shape asserted AFTER the brace group, which could not work: the
+  # redirect commits the header-only file the instant it opens, before any
+  # post-brace guard can run. The pre-redirect check is the corrected mechanism.)
+  # DIRECT-CALL SITE: write_substrate_manifest is called directly (not via
+  # process-sub), so err()'s `exit 2` propagates and aborts install.sh — contrast
+  # check.sh's enumerate_deployed, consumed via process-sub, which needs a sentinel.
   echo "wrote manifest: $manifest"
 }
 
@@ -893,7 +919,18 @@ else
   echo "  modify CLAUDE.md : $([ "$MODIFY_CLAUDE_MD" -eq 1 ] && echo "yes (consent flag set)" || echo "no")"
 fi
 if [ "$SUFFIX_MAJORS" -eq 1 ]; then
-  echo "  MAJOR files      : suffixed (MAJOR_POLYBIUS${NAME_SUFFIX}.md, MAJOR_PLINY${NAME_SUFFIX}.md)"
+  # Glob-derive the MAJOR roster (POLYBIUS/PLINY/CHIRON/HAMILTON + any future
+  # MAJOR) so this display string stays consistent with the fresh-DEPLOY
+  # enumeration; the previous hardcoded 2-MAJOR list (POLYBIUS/PLINY) omitted
+  # CHIRON/HAMILTON. Display-only; zero behavior change (stoa--kr7).
+  _maj_list=""
+  shopt -s nullglob
+  for _mf in "${SCRIPT_DIR}/MAJOR_"*.md; do
+    _mb="$(basename "$_mf" .md)"
+    _maj_list="${_maj_list:+$_maj_list, }${_mb}${NAME_SUFFIX}.md"
+  done
+  shopt -u nullglob
+  echo "  MAJOR files      : suffixed (${_maj_list})"
 fi
 echo "  deploy CAPTAINs  : $([ "$WITH_CAPTAINS" -eq 1 ] && echo "yes (12 envelopes to ${DEST_AGENTS_DIR})" || echo "no (--no-captains)")"
 if [ "$WITH_CAPTAINS" -eq 1 ] && [ -n "$NAME_SUFFIX" ]; then

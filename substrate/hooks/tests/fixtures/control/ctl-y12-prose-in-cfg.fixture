@@ -1,0 +1,8 @@
+License notes
+
+copyright is held by the named author of this work.
+
+Intended path LICENSE -> cfg mode (cpat IS active here). This adversarial control
+proves cpat's discriminators reject prose EVEN in cfg mode: the verb "is" is
+lowercase (case-sensitive name run fails) and there is NO 4-digit year (the
+REQUIRED-year discriminator fails). cpat returns None -> ALLOW.

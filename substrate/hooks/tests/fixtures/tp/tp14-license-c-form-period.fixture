@@ -1,0 +1,12 @@
+MIT License
+
+Copyright (c) 2026 Fenwick Galsworthy.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy...
+
+This fixture is FICTIONAL TEST INPUT. Intended path LICENSE -> cfg mode. PERIOD-FORM
+of a FOREIGN copyright line (sentence-final period after a non-principal name). The
+c2 (Arc 69 / stoa--y12) trailing-terminal-punctuation strip yields "Fenwick Galsworthy"
+-> is_principal mismatch -> BLOCK. This is the CONTROL half of the c2 fixture pair:
+it proves the trailing-strip does NOT turn a foreign-name catch into a miss (the strip
+removes only a terminal period, it does not weaken the foreign-name detection).

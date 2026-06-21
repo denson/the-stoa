@@ -1,0 +1,9 @@
+MIT License
+
+Copyright (c) 2026 Fenwick Galsworthy
+
+Permission is hereby granted, free of charge, to any person obtaining a copy...
+
+This fixture is FICTIONAL TEST INPUT. Intended path LICENSE -> cfg mode. The
+"Copyright (c) <year> <Name>" form has NO :/= separator and was a true-positive
+MISS before y12 (Arc 69); the new cpat now extracts the name -> BLOCK.

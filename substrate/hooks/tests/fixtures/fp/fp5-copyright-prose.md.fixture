@@ -1,0 +1,10 @@
+---
+title: Notes on copyright
+---
+# Copyright discussion
+
+Copyright is held by the foundation; the copyright field names the author.
+
+This is a PROSE .md body. Intended path docs/x.md -> md mode. md mode scans only
+the leading frontmatter (which has no author-like field) and is given NO cpat, so
+this body discussion of copyright must ALLOW (no prose false-positive).

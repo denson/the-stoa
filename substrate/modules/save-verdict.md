@@ -68,7 +68,15 @@ if [ "${TRM_COUNT:-0}" -gt 0 ]; then
 fi
 
 # Attach the integrity-checked verdict to beadwork (durability — survives worktree teardown).
-bw attach <ticket-id> "$DEST" --name "verdicts/<OFFICER>-<ts>.md"
+# rc-CAPTURE the real exit code so the seat SETS the dispatch-return attach_status
+# field from the ACTUAL rc (not by prose assertion). The dispatch-return field
+# remains the LOCKED first-class signal PLINY keys retry off (clause d clause 1) —
+# this block does NOT emit that field; it captures the rc and leaves a stderr
+# breadcrumb. The seat reads $attach_rc to populate its dispatch return.
+bw attach <ticket-id> "$DEST" --name "verdicts/<OFFICER>-<ts>.md"; attach_rc=$?
+if [ "$attach_rc" -ne 0 ]; then
+  echo "SAVE-VERDICT WARN: bw attach failed (rc=$attach_rc); verdict is integrity-verified on disk at $DEST but NOT yet on beadwork — the seat MUST emit attach_status: FAILED in its dispatch return so the orchestrator retries/escalates (clause d / durability contract)." >&2
+fi
 ```
 <!-- SAVE-VERDICT-BYTE-ALIGNED-REGION:END -->
 
@@ -101,7 +109,7 @@ bw attach <ticket-id> "$DEST" --name "verdicts/<OFFICER>-<ts>.md"
    attach_status: FAILED
    attach_failure: bw attach exited rc=<n>; verdict integrity-verified on disk at <DEST> (sha256 <hash>); NOT yet on beadwork — orchestrator MUST retry/escalate before treating this verdict as durable.
    ```
-   On success the field is `attach_status: OK` (so absence-of-field is not silently read as success). The stderr breadcrumb (`echo "SAVE-VERDICT WARN: bw attach failed (rc=$?); verdict is on disk at $DEST but NOT yet on beadwork" >&2`) stays as the human-readable trail, but the `attach_status` field is the load-bearing signal PLINY keys its retry/escalate obligation off.
+   On success the field is `attach_status: OK` (so absence-of-field is not silently read as success). The stderr breadcrumb (`echo "SAVE-VERDICT WARN: bw attach failed (rc=$?); verdict is on disk at $DEST but NOT yet on beadwork" >&2`) stays as the human-readable trail, but the `attach_status` field is the load-bearing signal PLINY keys its retry/escalate obligation off. The byte-aligned region now CAPTURES `bw attach`'s real exit code into `attach_rc` (`; attach_rc=$?` on the attach line) so the seat SETS this dispatch-return field from the ACTUAL rc rather than asserting it by prose; the rc-capture is a durability mechanization of HOW the seat learns the attach outcome — the dispatch-return field remains the locked first-class signal, NOT replaced by the block's stderr breadcrumb.
 2. **Disk artifact preserved + sha256-verified** — the attach failure does NOT discard it; it is the lossless retry source.
 3. **The durability loop CLOSES AT THE ORCHESTRATOR** — see the Durability contract below.
 4. **NOT hard-exit** — in-seat bounded retry (2–3× with a short backoff before emitting `attach_status: FAILED`) is the seat's OPTIONAL judgment; the durability loop never depends on it.

@@ -1,0 +1,12 @@
+---
+author: Denson Smith
+publisher: CalGEM
+stoa-author-gate-allow: [publisher: CalGEM]
+---
+# body
+
+Intended path docs/x.md -> md mode. The legit reviewed-allow path: a
+`publisher: CalGEM` source-citation field WITH an exact-matching inline-array
+marker `[publisher: CalGEM]`. parse_allow_pairs emits (publisher, CalGEM); the
+gate's exact-pair compare skips the block for THAT pair only -> ALLOW. The author
+field is the PRINCIPAL, so nothing else blocks.
