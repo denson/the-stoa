@@ -72,6 +72,30 @@ done
 ACCEPTED="$(sed -e 's/#.*$//' -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' "$ALLOWLIST" 2>/dev/null \
   | tr '[:upper:]' '[:lower:]' | grep -v '^$')" || allow
 
+# is_pair_allowed <field> <val> <allow_pairs_blob> (Arc 69 / stoa--ez9):
+# returns 0 iff some allow line in <allow_pairs_blob> equals "<field>\t<val>"
+# EXACTLY (after CR-strip + trim on each allow field/value — C2 both-side). The
+# allow blob is parse_allow_pairs's output (one "<field>\t<val>" per RESERVED
+# allow-entry; _hooklib.sh already hard-restricts allow-able fields to
+# {publisher,vendor,source,provider}). EXACT string equality only, NEVER
+# substring — so publisher:CalGEM-evil != publisher:CalGEM, and an authorship
+# field can never appear in the blob to match in the first place (closes M1).
+is_pair_allowed() {
+  local af="$1" aval="$2" blob="$3" lf lv
+  [ -n "$blob" ] || return 1
+  while IFS="$(printf '\t')" read -r lf lv; do
+    lf="$(printf '%s' "$lf" | tr -d '\r')"
+    lv="$(printf '%s' "$lv" | tr -d '\r')"
+    [ -n "$lf" ] || continue
+    if [ "$lf" = "$af" ] && [ "$lv" = "$aval" ]; then
+      return 0
+    fi
+  done <<EOF
+$blob
+EOF
+  return 1
+}
+
 # is_principal <value> : 0 if the lower-cased value matches an accepted token.
 is_principal() {
   local v
@@ -136,8 +160,22 @@ while IFS= read -r f; do
   # per author-like assignment). See _hooklib.sh extract_author_fields.
   pairs="$(printf '%s' "$blob" | extract_author_fields "$_mode")" || continue
   [ -n "$pairs" ] || continue
+  # ez9 (Arc 69 / stoa--ez9): build the reviewed-allow set ONCE per file from its
+  # OWN staged frontmatter inline-array (parse_allow_pairs lives in _hooklib.sh —
+  # C1). A source-citation field (publisher/vendor/source/provider) whose EXACT
+  # CR-normalized field+value pair appears in the marker is skipped FOR THAT PAIR
+  # ONLY; everything else runs the unchanged is_principal -> emit_deny path.
+  allow_pairs="$(printf '%s' "$blob" | parse_allow_pairs)"
   while IFS="$(printf '\t')" read -r field val; do
     [ -n "$val" ] || continue
+    # C2 both-side CR-strip: extract_author_fields emits a trailing \r on git-bash
+    # command-sub capture; strip it on the EXTRACTED side too so the exact-pair
+    # compare (and is_principal) see the bare value.
+    field="$(printf '%s' "$field" | tr -d '\r')"
+    val="$(printf '%s' "$val" | tr -d '\r')"
+    if is_pair_allowed "$field" "$val" "$allow_pairs"; then
+      continue   # reviewed source-citation -> skip block for THIS pair only
+    fi
     if ! is_principal "$val"; then
       emit_deny "Commit blocked: author-like field \"${field}\" in staged file \"${f}\" names \"${val}\", which is not the PRINCIPAL. Per the authorship-attribution discipline, any author/owner/creator/maintainer/copyright field in a committed artifact must name the PRINCIPAL (a Co-Authored-By trailer is the only seat-identity layer, never a replacement). Fix the field to the PRINCIPAL, re-stage, and re-commit. If \"${val}\" is a legitimately-CITED SOURCE author (not an authorship claim on this artifact), move it out of the author field into prose or a citation. If \"${val}\" IS a valid PRINCIPAL identity this gate does not know, add it to the allow-list at: ${ALLOWLIST}"
     fi

@@ -168,12 +168,33 @@ if mode == "md":
         \s*:\s*                              # YAML separator is ":" only
         (.*)$                                # the raw value (group 2)
     """, re.MULTILINE)
+    cpat = None
 else:
     pat = re.compile(r"""(?ix)
         (?<![A-Za-z0-9_])            # not part of a longer identifier
         ["\x27]?(""" + key + r""")["\x27]?   # the field name (group 1)
         \s*[:=]\s*                   # separator
         (.*)$                        # the raw value (group 2)
+    """, re.MULTILINE)
+    # y12 (Arc 69 / stoa--y12): the cfg branch separator pattern above requires a
+    # ":"/"=", so the standard LICENSE form "Copyright (c) <year> <Name>" (NO
+    # separator) is a true-positive MISS. cpat is a SECOND cfg-only pattern that
+    # matches that copyright form. The discriminators that keep PROSE out: (1) ONLY
+    # the keyword "copyright" is case-insensitive — the name run is CASE-SENSITIVE so
+    # a lowercase prose verb ("is held by", "field names") cannot satisfy the name
+    # group; (2) a 4-digit year (or year-range) is REQUIRED before the name, which
+    # prose like "the copyright field names the author" lacks; (3) the name run is
+    # anchored to EOL (\s*$) so a year-bearing prose sentence that continues past the
+    # name ("Copyright 2026 was a busy year for Acme and its...") does NOT match.
+    # md mode gets NO cpat (cpat=None) — a prose .md body discussing copyright must
+    # still pass; md mode already only scans frontmatter.
+    cpat = re.compile(r"""(?x)
+        (?<![A-Za-z0-9_])
+        (?i:copyright)                       # ONLY the keyword is case-insensitive
+        \s+
+        (?:(?:\(c\)|\(C\)|©)\s*)?       # optional (c)/(C)/copyright-symbol marker
+        (?:\d{4}(?:\s*[-,]\s*\d{4})?\s+)     # REQUIRED 4-digit year (or range)
+        ([A-Z][A-Za-z.\x27-]*(?:\s+[A-Z][A-Za-z.\x27-]*)*)\s*$   # Capitalized name run to EOL
     """, re.MULTILINE)
 def clean_one(tok):
     tok = tok.strip()
@@ -226,6 +247,74 @@ for m in pat.finditer(text):
     # lines re-match when they contain an author-like key; bare "- Name" under
     # an authors: key is caught here when the value is on the same line).
     emit(field, raw)
+# y12 (Arc 69 / stoa--y12): second cfg-only pass for the standard LICENSE
+# "Copyright (c) <year> <Name>" form (no separator, so pat above misses it).
+# cpat is None in md mode, so this loop is a no-op there (prose .md bodies must
+# not trip on copyright discussion). Emits the captured name through the SAME
+# emit()/clean_one() path under the "copyright" field key.
+if cpat is not None:
+    for m in cpat.finditer(text):
+        # c2 (Arc 69 / stoa--y12): strip a TRAILING terminal period/comma + any
+        # trailing whitespace from the captured copyright name run. The name-class
+        # includes "." (needed for middle initials, e.g. "J. R. R. Tolkien"), so a
+        # sentence-final period in "Copyright (c) 2026 Denson Smith." is captured as
+        # part of the token ("Denson Smith.") and would false-BLOCK the PRINCIPAL
+        # period-form copyright line (is_principal does not strip trailing
+        # punctuation). Strip ONLY the trailing terminal "." or "," — internal dots
+        # (middle initials) are preserved, so this introduces no new under-match.
+        # (No literal apostrophe in this block: it lives in a single-quoted shell -c.)
+        cname = re.sub(r"[.,]\s*$", "", m.group(1))
+        emit("copyright", cname)
+' 2>/dev/null
+}
+
+# parse_allow_pairs (Arc 69 / stoa--ez9): emit one "<field>\t<value>" allow-pair
+# per RESERVED-FIELD entry found in the staged blob's leading-YAML-frontmatter
+# single-line inline-array `stoa-author-gate-allow: [publisher: CalGEM, ...]`.
+# Reads the blob on stdin; emits nothing if there is no marker. python3-only;
+# fail-OPEN if python3 absent (an EMPTY allow set just means nothing is allow-
+# listed -> the gate's normal BLOCK stands, the SAFE direction).
+#
+# This is the ez9 reviewed-allow mechanism. It lives HERE (next to
+# extract_author_fields, the PINNED rev2 §1.5 decision) so the test harness
+# SOURCES it rather than mirroring it (no second mirror — r3). The gate
+# (pretooluse-author-field-audit.sh) CALLS it and applies the EXACT-pair skip.
+#
+# Security boundary lives HERE, not in the caller:
+#   (1) FRONTMATTER-ONLY — the leading --- ... --- block; body markers ignored.
+#   (2) SINGLE BRACKETED LINE — the bracket capture is [^\]\n]*, so a newline
+#       ENDS the capture (no multi-line value smuggling; an unterminated bracket
+#       yields zero pairs).
+#   (3) HARD FIELD-WHITELIST {publisher,vendor,source,provider} — the authorship
+#       fields {author,authors,owner,creator,created_by,maintainer,maintainers,
+#       by,copyright,holder} are NEVER allow-able; a non-whitelist field is
+#       dropped BEFORE it can enter the allow set (closes threat M1).
+#   (4) EXACT field:value split on the FIRST colon; value taken verbatim+trimmed.
+#   (5) CR-NORMALIZE on read (text.replace("\r","")) — C2; git-bash injects \r on
+#       every command-substitution capture, so the allow side must strip it to
+#       match the gate's CR-stripped extracted field/value (both-side strip).
+parse_allow_pairs() {
+  python3 -c '
+import sys, re
+text = sys.stdin.read().replace("\r", "")          # C2 CR-NORMALIZE (allow side)
+ALLOW_FIELDS = {"publisher", "vendor", "source", "provider"}
+# leading frontmatter only — same fence shape as extract_author_fields md mode.
+fm = re.match(r"^﻿?---[ \t]*\n(.*?)\n---[ \t]*(?:\n|$)", text, re.DOTALL)
+fmtext = fm.group(1) if fm else ""
+# the ONE allow line; capture only the bracket inner, STOP at ] or newline.
+m = re.search(r"(?im)^[ \t]*stoa-author-gate-allow[ \t]*:[ \t]*\[([^\]\n]*)\]", fmtext)
+if not m:
+    sys.exit(0)
+for piece in m.group(1).split(","):
+    piece = piece.strip()
+    pm = re.match(r"^([A-Za-z_][A-Za-z0-9_-]*)[ \t]*:[ \t]*(.+)$", piece)
+    if not pm:
+        continue
+    field = pm.group(1).strip().lower()
+    value = pm.group(2).strip()
+    if field not in ALLOW_FIELDS:               # HARD whitelist — authorship fields rejected here
+        continue
+    sys.stdout.write(field + "\t" + value + "\n")
 ' 2>/dev/null
 }
 

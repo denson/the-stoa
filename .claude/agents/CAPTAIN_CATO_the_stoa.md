@@ -249,7 +249,15 @@ if [ "${TRM_COUNT:-0}" -gt 0 ]; then
 fi
 
 # Attach the integrity-checked verdict to beadwork (durability — survives worktree teardown).
-bw attach <ticket-id> "$DEST" --name "verdicts/<OFFICER>-<ts>.md"
+# rc-CAPTURE the real exit code so the seat SETS the dispatch-return attach_status
+# field from the ACTUAL rc (not by prose assertion). The dispatch-return field
+# remains the LOCKED first-class signal PLINY keys retry off (clause d clause 1) —
+# this block does NOT emit that field; it captures the rc and leaves a stderr
+# breadcrumb. The seat reads $attach_rc to populate its dispatch return.
+bw attach <ticket-id> "$DEST" --name "verdicts/<OFFICER>-<ts>.md"; attach_rc=$?
+if [ "$attach_rc" -ne 0 ]; then
+  echo "SAVE-VERDICT WARN: bw attach failed (rc=$attach_rc); verdict is integrity-verified on disk at $DEST but NOT yet on beadwork — the seat MUST emit attach_status: FAILED in its dispatch return so the orchestrator retries/escalates (clause d / durability contract)." >&2
+fi
 ```
 <!-- SAVE-VERDICT-BYTE-ALIGNED-REGION:END -->
 

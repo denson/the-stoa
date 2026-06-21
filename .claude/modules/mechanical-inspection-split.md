@@ -45,13 +45,13 @@ The distinguishing property vs. intelligence-in-script: the script enumerates KN
 | Seat | Role in the 3-step pattern | Cross-ref |
 |---|---|---|
 | Mechanical-script author (DAEDALUS designing; ADA building) | Design scripts to STAY mechanical-narrow. When a new recognition surface is needed, design the inspection-agent layer, not a script extension. | `CAPTAIN_DAEDALUS.md` §6, `CAPTAIN_ADA.md` (build envelope) |
-| Inspection-agent (skill or CAPTAIN) | Read post-mechanical state; surface strangeness; respect §23 / `MAJOR_POLYBIUS.md` §17 scoping. | `substrate/skills/inspect-script-output/SKILL.md` (worked example) |
+| Inspection-agent (skill or CAPTAIN) | Read post-mechanical state; surface strangeness; respect §23 / `MAJOR_POLYBIUS.md` §17 scoping. | `inspect-script-output.md` (Arc 64: operational module over the retained `substrate/skills/inspect-script-output/check.sh`; SKILL.md retired) |
 | POLYBIUS (triage) | Route routine findings to fix-now; route PRINCIPAL-gate findings to PAUSE per §25.3. | `MAJOR_POLYBIUS.md` §4.8 (fix-now), `operating-disciplines.md` §25 |
 | PRINCIPAL | Disposition on gated findings per §25.3; project-direction calls on architectural promotions. | `operating-disciplines.md` §25 |
 
 ### 27.5 Worked example
 
-Arc 33 ships `substrate/skills/inspect-script-output/` as the substrate-update-flow worked example. The skill's `--self-test` mode builds a synthetic strangeness tree in a temp dir at runtime; the planted-strangeness case exercises `MAJOR_POLYBIUS.md` §17.4 silent-collision detection (duplicate `name:` field values within one Claude-Code scope). No fixture files are tracked under the skill directory — the test surface lives inside the `check.sh` code (`build_self_test_tree` function) and is exercised via `check.sh --self-test`. See the skill's `SKILL.md` for the invocation surface and the strangeness-categories table; see `agents/design/arc-33/design-rev2.md` for the load-bearing design and the rejected-alternatives rationale.
+Arc 33 ships `substrate/skills/inspect-script-output/` as the substrate-update-flow worked example. The skill's `--self-test` mode builds a synthetic strangeness tree in a temp dir at runtime; the planted-strangeness case exercises `MAJOR_POLYBIUS.md` §17.4 silent-collision detection (duplicate `name:` field values within one Claude-Code scope). No fixture files are tracked under the skill directory — the test surface lives inside the `check.sh` code (`build_self_test_tree` function) and is exercised via `check.sh --self-test`. See `inspect-script-output.md` (Arc 64: the run-the-inspection-script operational entry; the SKILL.md was retired from the skill menu but `check.sh` stays callable) for the invocation surface; see `agents/design/arc-33/design-rev2.md` for the load-bearing design and the rejected-alternatives rationale.
 
 ### 27.6 N=1 provenance + accretion path
 

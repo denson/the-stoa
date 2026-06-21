@@ -1,7 +1,7 @@
 ---
 name: team-launcher
 description: |
-  Stand up a multi-seat Stoa agent team (POLYBIUS + PLINY by default) in terminal sessions on Windows, ready for activation — in ONE command instead of hand-opening terminals. Consumer-generic: the bundled `launch-team.ps1` derives the project + slug from where it is deployed and defaults to SAY-TRIGGER activation (pre-seeds the bare "polybius"/"pliny" so the workspace CLAUDE.md auto-loads the role). Three layouts: side-by-side PANES (default), TABS, or separate WINDOWS, via Windows Terminal (`wt`) with a windows fallback. Carries the VERIFIED `wt` + `claude` CLI mechanics (Microsoft WT docs + smoke test).
+  Stand up a multi-seat Stoa agent team (POLYBIUS + PLINY — the STANDARD composition) in terminal sessions on Windows, ready for activation — in ONE command instead of hand-opening terminals. Consumer-generic: the bundled `launch-team.ps1` derives the project + slug from where it is deployed and defaults to SAY-TRIGGER activation (pre-seeds the bare "polybius"/"pliny" so the workspace CLAUDE.md auto-loads the role). Three layouts: side-by-side PANES (default), TABS, or separate WINDOWS, via Windows Terminal (`wt`) with a windows fallback. Variable composition (`-Composition`: add CHIRON for custom agents / HAMILTON for custom workflows) + a chain-of-command preamble injected on arc/paste launches + gauntlet-by-default (`-GauntletWaiver` to opt out). Carries the VERIFIED `wt` + `claude` CLI mechanics (Microsoft WT docs + smoke test).
 
   Invoke when asked to "stand up / spin up / launch the team", "open POLYBIUS and PLINY", "start the agent sessions", "launch in panes/tabs/windows", or when a workspace needs its team brought online. Windows + Claude Code Desktop (builder tier).
 author: Denson Smith
@@ -26,7 +26,15 @@ The script lives **beside this SKILL.md** and deploys with the skill into every 
 .claude/skills/team-launcher/launch-team.ps1 -Activation paste -Layout Windows -AutoPaste
 ```
 
-**Project + slug auto-derive:** with no `-ProjectDir`, the script walks up from its own location to the workspace root (the dir containing `.claude/`); the slug defaults to that dir's leaf. So in `origindex` the seats are `POLYBIUS_origindex` / `PLINY_origindex`, floor-manager first.
+**Project + slug auto-derive:** with no `-ProjectDir`, the script walks up from its own location to the workspace root (the dir containing `.claude/`); the slug defaults to that dir's leaf. So in `origindex` the seats are `POLYBIUS_origindex` / `PLINY_origindex`, floor-manager first. POLYBIUS + PLINY is the *standard* composition, not a fixed default — see "Launcher-correctness" below.
+
+## Launcher-correctness (Arc 68 / stoa--pk4): chain, gauntlet, composition
+
+The launcher structurally lays down the by-the-book forge (canon: `operating-disciplines.md` §37):
+
+- **Chain-of-command at launch.** A fixed chain preamble (PRINCIPAL → POLYBIUS → PLINY → CAPTAINs; PLINY surfaces to POLYBIUS not the PRINCIPAL; seats are not co-equal panes) is injected on the **arc + paste** activation paths (which already force `-Layout Windows`). **Option B — the SAY path stays a bare word** (`polybius`/`pliny`): no preamble, no `-Layout Windows` force, so the **Panes default is preserved** for standard say launches. The bare-word say path establishes the chain via the role-file canon it loads (`MAJOR_POLYBIUS.md` / `MAJOR_PLINY.md` carry it substantively + §37).
+- **Gauntlet-by-default.** The full gauntlet is the default; `-GauntletWaiver "<reason>"` opts out (records `gauntlet=waived:<reason>`, a POLYBIUS/PRINCIPAL action — a seat cannot self-grant solo). The Stop self-check hook's clause (E) is the independent detector (detection + recorded-deviation, not prevention).
+- **Variable composition.** `-Composition standard|custom-agent|custom-workflow|custom-agent+workflow` — `custom-agent` adds **MAJOR_CHIRON** (team-architect), `custom-workflow` adds **MAJOR_HAMILTON** (workflow-architect); both are launcher-spun design-time terminal seats answering to POLYBIUS, parallel to PLINY. Architect seats carry full prompts → they force `-Layout Windows` (the prompt class only, not the say path). The composition / gauntlet / chain_role are recorded per seat to the ONE registry `stoa--reg`.
 
 **Activation modes:**
 - **`say` (default)** — pre-seeds the bare word (`polybius` / `pliny`) as claude's positional prompt; the workspace `CLAUDE.md` say-trigger auto-loads the role. The common case for deployed workspaces. (If a pane doesn't fire, it is still named + ready — type the word.)

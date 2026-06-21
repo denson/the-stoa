@@ -5,11 +5,13 @@
 # format=v1
 #
 # tier=project
-# deployed_at=2026-06-06T21:36:52Z
-# substrate_sha=529f6ba
+# deployed_at=2026-06-21T01:19:27Z
+# substrate_sha=d4d45ca
 
-.claude/MAJOR_POLYBIUS.md	{{NAME_SUFFIX}}	_the_stoa
+.claude/MAJOR_CHIRON.md	{{NAME_SUFFIX}}	_the_stoa
+.claude/MAJOR_HAMILTON.md	{{NAME_SUFFIX}}	_the_stoa
 .claude/MAJOR_PLINY.md	{{NAME_SUFFIX}}	_the_stoa
+.claude/MAJOR_POLYBIUS.md	{{NAME_SUFFIX}}	_the_stoa
 .claude/agents/CAPTAIN_DAEDALUS_the_stoa.md	{{NAME_SUFFIX}}	_the_stoa
 .claude/agents/CAPTAIN_ARGUS_the_stoa.md	{{NAME_SUFFIX}}	_the_stoa
 .claude/agents/CAPTAIN_ADA_the_stoa.md	{{NAME_SUFFIX}}	_the_stoa

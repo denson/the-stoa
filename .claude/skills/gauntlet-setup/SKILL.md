@@ -49,6 +49,8 @@ Before authoring either brief, user-tier POLYBIUS confirms:
 
 ## Mandatory content checklist for each brief
 
+> **Belt-and-suspenders note (Arc 68 / stoa--pk4).** The chain-of-command + gauntlet-by-default are now **launcher-injected** (the L1 chain preamble on the arc/paste paths) **+ canon** (`operating-disciplines.md` §37, carried substantively in `MAJOR_POLYBIUS.md` / `MAJOR_PLINY.md` — the carrier for the bare-word say path under Option B). So the brief items below that restate the chain are a **belt-and-suspenders confirm** of what the launcher already lays down — author them anyway (defense in depth), but they are no longer the SOLE carrier. For a **variable composition** (an arc designing custom agents/workflows), pass `launch-team.ps1 -Composition custom-agent|custom-workflow|custom-agent+workflow` to add MAJOR_CHIRON / MAJOR_HAMILTON (design-time seats answering to POLYBIUS); to opt out of the gauntlet default, pass `-GauntletWaiver "<reason>"`.
+
 The briefs are attached to the arc ticket on beadwork; the script's spawn-instruction fetches them (`git show beadwork:attachments/<arc-id>/<file>`).
 
 ### Floor-manager brief (`HUMAN_paste-polybius_<project>-<arc-id>-instruction.md`)
@@ -135,7 +137,8 @@ Read .claude/MAJOR_PLINY.md. Then get your brief: git show beadwork:attachments/
 5. **Wrong launch order** (PLINY before the floor-manager confirms) → PLINY begins before its verifier/relay is online.
 6. **Forget the CLOSE ME signal** → PRINCIPAL doesn't know which windows can close.
 7. **Forget to restart own Monitor** → user-tier sits silent while the gauntlet runs.
-8. **Chain-of-command set up wrong** → PLINY thinks it surfaces direct to user-tier; floor-manager thinks it has CAPTAIN-dispatch authority.
+8. **Chain-of-command set up wrong** → PLINY thinks it surfaces direct to user-tier; floor-manager thinks it has CAPTAIN-dispatch authority. **(Arc 68 / stoa--pk4: the launcher now establishes the chain structurally — the L1 chain-of-command preamble is injected on the arc/paste activation paths, and `operating-disciplines.md` §37 + the substantive `MAJOR_POLYBIUS.md` / `MAJOR_PLINY.md` chain paragraphs carry it on the bare-word say path. The brief checklist below is now a BELT-AND-SUSPENDERS confirm of what the launcher already lays down, not the sole carrier.)**
+9. **Solo run with one checker (the AR-7 shape)** → a seat runs as its own orchestrator, spawns CAPTAINs with no PLINY, self-certifies with one checker. **(Arc 68: the full gauntlet is now the launcher default; opt-out requires `launch-team.ps1 -GauntletWaiver "<reason>"` — a POLYBIUS/PRINCIPAL action recorded to `stoa--reg`, never a seat's silent solo opt-in. The Stop self-check hook's clause (E) is the independent detector.)**
 
 ## When NOT to use this skill
 

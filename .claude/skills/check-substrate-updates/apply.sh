@@ -94,7 +94,7 @@ apply_substitutions() {
     project|subproject) name_suffix="_${slug}" ;;
   esac
   case "$dep_rel" in
-    .claude/MAJOR_POLYBIUS*.md|.claude/MAJOR_PLINY*.md|.claude/agents/CAPTAIN_*.md)
+    .claude/MAJOR_*.md|.claude/agents/CAPTAIN_*.md)
       sed "s/{{NAME_SUFFIX}}/${name_suffix}/g" "$source_file"
       ;;
     *)
@@ -182,9 +182,19 @@ source_path_for_deployed() {
   esac
   local rel="${dep#.claude/}"
   case "$rel" in
-    MAJOR_POLYBIUS.md|MAJOR_POLYBIUS_*.md) echo "MAJOR_POLYBIUS.md" ;;
-    MAJOR_PLINY.md|MAJOR_PLINY_*.md)       echo "MAJOR_PLINY.md" ;;
     operating-disciplines.md)              echo "operating-disciplines.md" ;;
+    MAJOR_*.md)
+      # Any deployed MAJOR maps back to its unsuffixed source name. Strip the
+      # subproject suffix (present only at subproject tier) before reattaching .md.
+      # MAJOR suffix rule: suffixed at subproject ONLY (project/user carry none),
+      # so only strip when tier=subproject. Ordered AFTER operating-disciplines.md
+      # so it cannot shadow that arm. Mirror of check.sh source_path_for_deployed.
+      local mbase="${rel%.md}"            # "MAJOR_POLYBIUS_acme" or "MAJOR_POLYBIUS"
+      if [ "$tier" = "subproject" ] && [ -n "$suffix" ]; then
+        mbase="${mbase%${suffix}}"        # strip "_acme" -> "MAJOR_POLYBIUS"
+      fi
+      echo "${mbase}.md"
+      ;;
     agents/CAPTAIN_*.md)
       local base="${rel#agents/CAPTAIN_}"
       if [ -n "$suffix" ]; then base="${base%${suffix}.md}"; else base="${base%.md}"; fi

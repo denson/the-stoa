@@ -1657,6 +1657,92 @@ defeated; it is the response layer for threats §35 already named.
 
 ---
 
+## 37. Launcher-correctness — chain-of-command-at-launch, gauntlet-by-default, variable composition
+
+The launcher (`team-launcher/launch-team.ps1`) is the structural carrier for three correctness
+guarantees. The activation text it lays down is the by-the-book path; the deviation (AR-7 — a seat
+that runs SOLO as its own orchestrator, spawns CAPTAINs with no PLINY, and self-certifies with one
+checker) is loud, recorded, and independently detected. This is **detection + recorded-deviation, not
+prevention** — the realistic ceiling for a text-driven activation system, and the PRINCIPAL-accepted
+bar (a large step up from the AR-7 silent solo-run). The honest-claim discipline (§35.5) is the
+precedent for naming this residual rather than papering it. Empirical anchor: Arc 68 / `stoa--pk4`
+(AR-7 / `nws-iey`, 2026-06-20).
+
+### 37.1 Chain-of-command at launch
+
+The chain is **PRINCIPAL → POLYBIUS (chief/floor-manager) → PLINY (orchestrator) → CAPTAINs**. The
+PRINCIPAL/user-tier addresses POLYBIUS, never PLINY directly; PLINY takes direction from and surfaces
+TO POLYBIUS via bw, never to the PRINCIPAL; seats are not co-equal panes. The launcher establishes this
+chain at launch via two layers:
+
+- **L1 — activation injection (arc + paste paths).** The launcher injects a fixed chain-of-command
+  preamble into the arc (`$seat.Prompt`) and paste (`-AutoPaste`) activation prompts — the paths that
+  already force `-Layout Windows`, where the multi-line preamble passes robustly. The preamble is
+  concatenated in code (not authored per-arc), so every arc/paste-launched seat is TOLD its place +
+  who it reports to.
+- **L2 — role-file canon (all paths, and the SOLE carrier for the bare-word say path).** Under the
+  BLESSED **Option B**, the SAY path stays a single bare word (`polybius`/`pliny`) and does NOT carry
+  the preamble or force `-Layout Windows` — the Panes default is preserved. The bare-word say launch
+  establishes the chain via the role file it loads: the CLAUDE.md say-trigger reads `MAJOR_POLYBIUS.md`
+  / `MAJOR_PLINY.md`, which carry the chain SUBSTANTIVELY (who reports to whom, the surface-up
+  direction, the gauntlet-by-default) — not a bare cross-ref. Because the say path's ONLY
+  chain-establishment is the role file, that canon must genuinely carry the chain.
+
+A seat *can* still ignore text → the chain-at-launch is structural-at-launch (L1) + structural-via-canon
+(L2), not absolute. The residual is named in §37.2 + §6 (redundancy IS the safety property).
+
+### 37.2 Gauntlet-by-default
+
+The full gauntlet (DAEDALUS → ARGUS → ADA → VERA → CATO → NOMOS) is the **default**. Opt-out requires
+an explicit POLYBIUS/PRINCIPAL waiver: the launcher's `-GauntletWaiver "<reason>"` flag records
+`gauntlet=waived:<reason>` to the `stoa--reg` row AND replaces the preamble's gauntlet line with a
+WAIVED notice. A **seat cannot self-grant** the waiver — only the launch flag (a POLYBIUS/PRINCIPAL
+action) writes it. That is the "opt-out requires an explicit waiver, not a silent solo opt-in"
+guarantee, at the structural-at-launch tier.
+
+The independent detector is the Stop self-check hook's **clause (E)**, which rides the confirmed-working
+`decision:"block"` + `reason` channel (the same channel clauses A/B/C/D use; PostToolUse
+`additionalContext` is broken, so the detector MUST ride Stop). Clause (E) is honest about its class:
+it is a **reminder** that fires on EVERY orchestrator-class Stop turn (it does NOT mechanically parse
+the transcript to PROVE the AR-7 shape occurred, and does NOT selectively fire only on that shape). It
+carries an explicit "legitimate early-arc solo build-sessions: this does not apply — proceed" carve-out
+so a legitimate solo seat reads it, recognizes it does not apply, and proceeds (bounded false-positive
+cost). The mechanism is **detection + the loud-recorded-deviation property, not impossibility** — the
+PRINCIPAL-accepted advisory residual (§35.5 honest-claim precedent).
+
+### 37.3 Variable team composition
+
+Team composition is variable, keyed to the WORK by a precise trigger (NOT a generic "design-heavy"
+judgment), via the launcher's `-Composition` flag:
+
+- `standard` — POLYBIUS + PLINY (the default; Arc 68 itself used this).
+- `custom-agent` — adds **MAJOR_CHIRON** (team-architect) — the arc DESIGNS custom agents.
+- `custom-workflow` — adds **MAJOR_HAMILTON** (workflow-architect) — the arc DESIGNS custom workflows.
+- `custom-agent+workflow` — adds both.
+
+CHIRON/HAMILTON are **launcher-spun design-time TERMINAL seats** (MAJOR-rank, top-level sessions — they
+cannot be `Agent`-tool-dispatched), placed in the chain as **design-time peers answering to POLYBIUS,
+parallel to PLINY** (they co-design the cast/choreography, then step back so PLINY runs the team; they
+do NOT dispatch CAPTAINs). They have no CLAUDE.md say-trigger, so the launcher seeds a full activation
+prompt naming the role file (the arc-class path, which carries the L1 preamble + forces `-Layout
+Windows` — a property of the multi-word-prompt class only, NOT a say-path regression). Each composed
+seat is recorded per-row to the ONE registry `stoa--reg` with additive `composition` / `gauntlet` /
+`chain_role` fields (the row-shape is unchanged; a "composition" is the set of alive rows sharing a
+`(project, machine, launch-window)` with the same `composition` value — no second manifest artifact).
+
+### 37.4 Cross-references
+
+- §6 (redundancy IS the safety property) — the gauntlet-by-default + the independent clause-(E) detector
+  are the redundant-checker structure this discipline enforces at launch.
+- §35.5 (honest-claim discipline) — the precedent for naming the detection-not-prevention residual.
+- §28.9 (session-identity sign-everywhere) — the registry rows the launcher writes feed this convention.
+- `team-launcher/SKILL.md` + `gauntlet-setup/SKILL.md` — the operator-facing skills; the launcher flags
+  (`-Composition`, `-GauntletWaiver`) + the Option-B say-path-bare-word property live there.
+- `MAJOR_POLYBIUS.md` / `MAJOR_PLINY.md` — the role files that carry the chain substantively (the L2
+  carrier for the bare-word say path under Option B).
+
+---
+
 ## Agent-regime inverses (the positive framing)
 
 The anti-pattern stances above (§1 four stories + §4 passivity + §6 redundancy) suppress failure modes. The corresponding positive framings express defaults:
