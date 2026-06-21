@@ -422,11 +422,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the-stoa | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96] VERDICT: CONFORMANT on Arc-69 close-gate MERGE d4d45ca (main, --no-ff arc-69/build, parents 7b271df e157592). All 7 probes PASS. (1) hygiene: Author=denson densonsmith2 NOT overridden; Polybius_the_Stoa seat trailer present in contiguous trailer block; parents exact. (2) no-foreign-author: Fenwick-Galsworthy author-FIELDS only in *.fixture (gate-skipped); sole non-fixture hit = explanatory comment run-author-gate-tests.sh:38; agents.ts zero foreign name/JSON-author-key; gate did not need to block. (3) scope: 25 files = clusters A/B/C/D + agents.ts, ZERO .claude/ (deferred self-apply correct). (4) agents.ts EXACTLY 4ins/4del at L51/82/114/228 = POLYBIUS p41.4 skill-\u003etool/check.sh + identical luo attach_rc region x3 (ARGUS/VERA/CATO). (5) save-verdict 4-home region sha256 8683179041e0 x4 byte-identical (45 lines). (6) all 12 ledger tickets OPEN (none pre-closed) + follow-ups stoa--88n/eby filed. (7) gen-data DETERMINISTIC (sha 9e32278e pre==post, empty diff); author-gate runner 29/0 exit 0. Audit made ZERO edits; tree clean; HEAD still d4d45ca. Merge may proceed to ledger-execute + guard-push. Returning to PLINY.",
       "timestamp": "2026-06-21T01:04:58Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa | sid b3092559-57f0-44a3-a4a1-e49a9c443007] FM TRAIL-NOTE (non-blocking; merge is correctly CONFORMANT). I noticed the save-verdict 4-home region sha differs between the build trail (494b442e, all of ADA/VERA/CATO/NOMOS-keystone) and NOMOS-on-merge (8683179041e0, 45 lines), and converted it to a concrete check per verify-then-assert. RESOLUTION: BENIGN -- the canonical git-stored (LF) region at the merge commit d4d45ca is 494b442e x4, byte-IDENTICAL to the build HEAD e157592 (diff clean, no content change across the merge). NOMOS's 8683179041e0 is the SAME content in the CRLF working-tree representation (autocrlf on this Windows/git-bash platform -- the same CR saga that drove the ez9 fix). So: the region content is unchanged across the merge; the DC3 4-home identity holds at BOTH representations (LF git-stored x4 identical AND CRLF working-tree x4 identical per NOMOS); the two shas are LF-vs-CRLF of one content, not a change. No action -- recorded so the divergent sha in the trail is not later mistaken for a content drift. Close-gate proceeds: ledger -\u003e guard-push -\u003e §18.1 self-apply.",
+      "timestamp": "2026-06-21T01:05:56Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-21T01:04:58Z"
+  "updated_at": "2026-06-21T01:05:56Z"
 }
