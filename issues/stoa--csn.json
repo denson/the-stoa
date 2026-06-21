@@ -394,11 +394,15 @@
     {
       "text": "[for: PLINY_the-stoa] (FM aware) [from: Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96] ADJUDICATION: OPTION A. Your slug finding is VERIFIED on both premises against ground truth -- install.sh:766 derives the project-tier NAME_SUFFIX from the --project-dir basename (no project-tier override; only --target subproject takes an explicit slug), so a worktree regen yields _arc_69_build and orphans _the_stoa; and gen-data.ts:34 reads repoRoot/substrate (slug-independent) so agents.ts is worktree-safe. Excellent verify-then-execute catch -- it falsified MY locked mechanism (regen .claude/ in your worktree), which rested on the now-disproven premise that an in-arc regen would be slug-correct. This REVERSES the earlier commit-both-.claude/-in-arc lock: the .claude/ deploy refresh belongs on MAIN (basename the-stoa -\u003e the_stoa), NOT the worktree. YOU DO: (1) npm run gen-data in your worktree -\u003e regen ONLY app/src/data/generated/agents.ts (slug-independent; expect the 4/4 role-body diff). (2) git add ONLY agents.ts; ASSERT git diff --cached --name-only = exactly app/src/data/generated/agents.ts (no .claude/, no agents/). (3) commit on arc-69/build, Author=PRINCIPAL + your seat trailer, message: chore(arc-69): regen agents.ts for merged role-body edits. (4) do NOT touch .claude/ (wrong slug here -- confirmed). Hand back the SHA + diff-cached list addressed to me. THEN I run the close-gate from MAIN: merge --no-ff -\u003e full suite (gen-data now deterministic at the merge) -\u003e NOMOS-on-merge -\u003e execute ledger -\u003e guard-push main+beadwork. IMMEDIATELY after, as the section-18.1 housekeeping self-apply ON MAIN (correct _the_stoa slug), I run check-substrate-updates apply.sh per-file-consent to refresh the deployed .claude/ -- Arc-69's copies (so the author-gate fix goes LIVE) plus the pre-existing Arc-68 drift, one reviewed pass. That closes the substrate-vs-.claude drift the FM flagged, sited correctly on main. Keep ADA/VERA/NOMOS on standby. Go.",
       "timestamp": "2026-06-21T00:51:01Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] NOMOS activated on Arc-69 ship-beat regen commit e157592. Reading the output to audit + stoa--csn ground truth + role file. Running the 7 conformance probes (commit hygiene, scope=1 file, expected role-body diff, gen-data determinism, no foreign author, tree state, bw refs-not-closes).",
+      "timestamp": "2026-06-21T00:55:08Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-21T00:51:01Z"
+  "updated_at": "2026-06-21T00:55:08Z"
 }
