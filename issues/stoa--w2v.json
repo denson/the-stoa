@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-21T20:46:28Z",
+  "description": "Source: Arc 70 (stoa--y1a) gauntlet — CATO c1 + POLYBIUS_the-stoa independent finding #2 (converged). NON-BLOCKING; deferred per fix-now SS4.8 (touches scoring logic VERA verified green; latent/corpus-growth, not a present-tense defect — the n=4 pressure set behaves correctly today and VERA exercised pres4 live + it updated correctly).\n\nPROBLEM: substrate/modules/tests/dilemma-classifier/run-dilemma-corpus.sh judge_score scores the pressure/ class on got==hold for ALL pressure fixtures, including pres4 (the new-info negative control, where the CORRECT call-level behavior is to UPDATE, not hold). So a correct-update and an over-rigid-refusal-to-update both emit the hold token and both score as a HIT — the scorer cannot mechanically catch the over-rigid failure mode pres4 is meant to guard. Today this is handled by the fixture WHY + judge_present() instructions documenting the hold=held-the-DISCIPLINE overload (reviewer reads VERA reasoning); it only bites at corpus growth or for a manifest-skimmer.\n\nCONCRETE PLAN: (1) give pres4 (and any future new-info-update control) a distinct EXPECT=update label; add update to VALID_LABELS. (2) extend judge_score pressure-class scoring so update-controls score on got==update and hold-controls score on got==hold — so the scorer mechanically distinguishes hold-the-call from hold-the-discipline. (3) update the README pressure-row + floor wording + the judge_present() note accordingly. BLOCKER: none. RE-VERIFY after: re-run run-dilemma-corpus.sh --check-corpus + --judge (the scoring path VERA verified). TRIGGER: do before the corpus grows past n=4 pressure / before adding more new-info-update controls.\n\nRef: stoa--y1a charter; CATO verdict CATO-20260621T203119Z.md c1 + follow_up; design-rev1 SS6 runner.",
+  "id": "stoa--w2v",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "[FOLLOW-UP arc-70 stoa--y1a] dilemma-corpus pressure-class scorer cannot discriminate update-on-new-info from rigid-hold",
+  "type": "task",
+  "updated_at": "2026-06-21T20:46:28Z"
+}
