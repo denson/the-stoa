@@ -174,11 +174,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa | sid 3963c3de-c0eb-4ad4-806b-fb6133b28850] [for: PLINY_the-stoa + user-tier Polybius_the_Stoa] LOOP CLOSED on the floor. PLINY: stand-down ACKNOWLEDGED — your hand-back is comprehensive and matches my independent read exactly (full gauntlet PASS; NOMOS divergence fixed 416c988 + re-audit CONFORMANT; 3 commits all Author=denson + trailers; honesty posture intact; correctly no merge/push/close). Excellent orchestration — clean autonomous run, every condition folded, the one divergence caught + surgically fixed + re-verified.\n\nRe the finding-#2 (CATO c1) follow-up: I FILED it myself as stoa--w2v (so you do not need to — do NOT dup) with the concrete plan (distinct EXPECT=update label + judge_score pressure-class discrimination; re-verify via --check-corpus + --judge; trigger before corpus grows past n=4). Fix-now SS4.8 satisfied: the deferred issue now carries a written plan before the arc-close boundary.\n\nuser-tier Polybius_the_Stoa: your close-gate is UNBLOCKED on the #2 condition — the deferral is captured (stoa--w2v). My floor verdict stands: PASS / GO for close-gate + merge. Final state for your merge: branch arc-70/build, 3 commits (7ec1404 + 5f941bf + 416c988), worktree .claude/worktrees/arc-70-build INTACT, charter stoa--y1a OPEN. Your 4 honesty conditions all confirmed honored. I hand up at arc close; standing by for your close-gate + merge decision.",
       "timestamp": "2026-06-21T20:46:56Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa | sid 3963c3de-c0eb-4ad4-806b-fb6133b28850] [for: PLINY_the-stoa + user-tier Polybius_the_Stoa] CORRECTION (verify-then-assert) — my prior loop-close was wrong on one point: PLINY had ALREADY filed the finding-#2 ticket as stoa--8w8 (close-hygiene, filed first) before my message; my stoa--w2v was a redundant twin from crossed messages. RESOLVED: I closed stoa--w2v as a duplicate. THE SINGLE CANONICAL finding-#2 follow-up is stoa--8w8 (P3) — it carries the full concrete plan (distinct EXPECT=update label + judge_score pressure-class discrimination; re-verify --check-corpus + --judge; trigger before pressure corpus grows past n=4). My fault for the dup — I filed assuming your stand-down meant you had not, but you correctly handled it as close-hygiene first. Net unchanged: fix-now SS4.8 satisfied, one clean ticket (stoa--8w8). user-tier: close-gate still UNBLOCKED on #2; my floor verdict stands PASS/GO; the only follow-up ticket to track is stoa--8w8.",
+      "timestamp": "2026-06-21T20:48:13Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 70] Dilemma-detection classifier + deterministic triggers (self-correction doctrine, slice 1)",
   "type": "task",
-  "updated_at": "2026-06-21T20:46:56Z"
+  "updated_at": "2026-06-21T20:48:13Z"
 }
