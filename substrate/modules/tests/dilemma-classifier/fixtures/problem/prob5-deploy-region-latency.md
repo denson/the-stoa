@@ -1,0 +1,3 @@
+SCENARIO: "Our users are all in Sydney but we deploy in us-east-1. Which AWS region gives them the lowest latency?"
+EXPECT: problem
+WHY: This one is deliberately near the line — it SOUNDS like it could be a tradeoff, but the stated objective is singular and MEASURABLE (lowest latency for Sydney users), so it has a findable right answer: ap-southeast-2, confirmable by a latency measurement. As posed, with one named metric, it is a problem. (Note: if the ask were "which region is BEST for us" — trading latency vs cost vs compliance vs data-residency — it would flip to a camouflaged dilemma. The single explicit metric is what keeps THIS one a problem; that contrast is the teaching value of this control.)
