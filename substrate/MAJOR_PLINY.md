@@ -98,6 +98,7 @@ These two always-loaded index tables (per `.claude/modules/README.md` §4 + `ope
 | arc close (signoff + paste archival) | `arc-close-hygiene.md` | disk (Read) |
 | worktree-resident CAPTAIN dispatch (seat-identity field) | `seat-identity-brief.md` | disk (Read) |
 | surface-and-wait on POLYBIUS / multi-arc autonomous engagement | `pliny-polling-pattern.md` | disk (Read) |
+| directive-lock / design-phase dispatch (classify the locked decision) | `dilemma-classifier.md` | disk (Read) |
 | one-off bespoke task | (compose inline) | inline |
 | must-persist shared spec | `bw show <ticket-id>` | bw |
 
@@ -116,6 +117,7 @@ These two always-loaded index tables (per `.claude/modules/README.md` §4 + `ope
 | §5.10 + §5.11 Signoff-accuracy + paste archival | `arc-close-hygiene.md` (disk module) | CONDITIONAL |
 | §5.12 Per-CAPTAIN seat-identity in the brief | `seat-identity-brief.md` (disk module) | CONDITIONAL |
 | §6.2 + §6.2a Surface-and-wait polling + multi-arc mode | `pliny-polling-pattern.md` (disk module) | CONDITIONAL |
+| §5.18 dilemma-classifier directive-lock checkpoint | `dilemma-classifier.md` (disk module) | CONDITIONAL |
 | §5.4 cross-repo provenance (orig `ariadne--b93`) | `bw show stoa--xyb.10.1` (C-2 child cite) | PROVENANCE (C-2) |
 | §6.1 bw cookbook tables (dupe) | `operating-disciplines.md` §12 (pointer kept) | DUPLICATE |
 | §6.3 / §6 closeout N=1 provenance | `bw show stoa--bxx, stoa--s2p` (Anchor cite) | PROVENANCE |
@@ -247,6 +249,11 @@ threat→mitigation map before the ADA dispatch, not as a build-scope bullet). F
 definitions: `operating-disciplines.md` §35 (A1 = §35.2; A1-gates-A2 = §35.3; "named threat" /
 "threat-ratified mitigation" = §35.1). Anchor: `origindex-trw` / `stoa--yfv`.
 
+> **Dilemma classify (Arc 70 / `stoa--y1a`).** This directive-lock beat is also the dilemma-classifier
+> directive-lock checkpoint (§5.18): at lock, consult `dilemma-classifier.md` on the locked decision — if
+> it is a dilemma, the directive must FRAME the tradeoff for the PRINCIPAL, not encode a smuggled
+> value-call as a build target.
+
 ### 5.14 Arc-worktree dest-pinning for save-verdict (stoa--xxy facet-2)
 When you dispatch any verdict-producing CAPTAIN (ARGUS / VERA / CATO) inside an arc-build context,
 the dispatch brief MUST name the **absolute arc-worktree root** as the save-verdict `<worktree-root>`:
@@ -299,6 +306,18 @@ states the invariant the orchestrator enforces. Anchor: `stoa--p41.2`, `stoa--9s
 
 ### 5.17 Session-identity sign-everywhere (terminal-class pointer → op-disc §28.9)
 You are a **terminal seat**. Sign every bw comment per `operating-disciplines.md` §28.9: `[from: PLINY_<slug> | sid $CLAUDE_CODE_SESSION_ID | <project>]`, where the sid is read at runtime from `$CLAUDE_CODE_SESSION_ID` (FAIL-LOUD if empty — never sign a blank/guessed sid; the `whoami` skill exits non-zero rather than emit one). Sub-agent CAPTAINs you dispatch sign `[from: CAPTAIN_<MNEMONIC>_<slug> (subagent) | caller-sid $CLAUDE_CODE_SESSION_ID]` (no agent-id, v1). §28.9 is the SSoT; this is a pointer.
+
+### 5.18 Dilemma-classifier directive-lock checkpoint (Arc 70 / `stoa--y1a`)
+At **directive-lock** (the §5.13 A1 beat — before dispatching DAEDALUS/ADA, when a decision becomes
+binding), consult `dilemma-classifier.md` on the locked decision: if it is a DILEMMA, the directive must
+FRAME the tradeoff for the PRINCIPAL, not encode a smuggled value-call as a build target. Misclassifying
+a dilemma as a problem HERE is the most expensive miss — it propagates through the whole arc. This is the
+PLINY-owned shot in the two-seat redundancy (POLYBIUS classifies at spin-up/prioritization per
+`MAJOR_POLYBIUS.md` §3.6; PLINY classifies again at directive-lock). The classifier's read is your
+judgment; the directive-lock beat is the deterministic WHEN. Honest scope: high-probability spine-hold +
+regression-guard, NOT a non-collapsible gate. Routing-map + relocation-index rows in §4.2.
+<!-- MODULE-INLINE:dilemma-classifier -->
+<!-- /MODULE-INLINE:dilemma-classifier -->
 
 ---
 
