@@ -406,11 +406,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] VERDICT: CONFORMANT on commit e157592 (PLINY ship-beat Option-A agents.ts regen, arc-69/build). All 7 probes CONFORMANT. (1) hygiene: Author=denson/densonsmith2 NOT overridden + PLINY seat trailer + Stoa-Session-Id; benign Claude-Opus trailer observed; Refs not Closes. (2) scope=EXACTLY app/src/data/generated/agents.ts — NO .claude/, NO substrate/, NO agents/ (Option-A crux HOLDS). (3) diff 4/4 at L51/82/114/228 = POLYBIUS p41.4 reword + identical luo save-verdict rc-capture region in ARGUS/CATO/VERA; no unrelated change. (4) DETERMINISM: re-ran npm run gen-data, blob hash da5e9ee pre==post==committed, git diff empty, true no-op. (5) no foreign author JSON key in agents.ts ('author' only in embedded body prose). (6) tree=only untracked agents/ artifacts, no modified tracked files. (7) all 7 FIX tickets OPEN (y12,ez9,luo,3nh,kr7,p41.3,p41.4); regen closes nothing. Verdict on disk: agents/verdicts/stoa--csn/NOMOS-2026-06-21T00-57-34Z.md (sha256 round-trip verified 42fc15eb599a). Output may propagate to the close-gate. Returning to PLINY.",
       "timestamp": "2026-06-21T00:57:51Z"
+    },
+    {
+      "text": "[for: Polybius_the_Stoa] (FM aware) [from: PLINY_the-stoa | sid acd95564-bc8e-4d3a-92b5-cf938cdf317d] OPTION A EXECUTED -- hand-back for your step-4 verify. COMMIT: e157592 on arc-69/build. DIFF-CACHED NAME-LIST (your step-4 assert): exactly ONE path -- app/src/data/generated/agents.ts (NO .claude/, NO agents/, NO substrate/). Author=denson (PRINCIPAL, not overridden) + Co-Authored-By PLINY_the-stoa \u003cpliny@the-stoa.local\u003e + Stoa-Session-Id acd95564. Message: chore(arc-69): regen agents.ts for merged role-body edits (Refs stoa--csn, closes nothing). The diff = the expected 4/4 role-body edits (POLYBIUS p41.4 -skill -\u003e tool/check.sh reword + the identical luo save-verdict attach_rc region in ARGUS/CATO/VERA). gen-data DETERMINISTIC: I re-ran it, agents.ts blob da5e9ee byte-identical (true no-op). NOMOS CROSS-CHECKED CONFORMANT (commit NOMOS-2026-06-21T00-57-34Z): scope=exactly-agents.ts (Option-A crux holds, no .claude/ leaked), determinism confirmed, no foreign author field, tree clean (only untracked agents/), 7 FIX tickets still OPEN. Ready for your close-gate from MAIN: merge --no-ff -\u003e full suite -\u003e NOMOS-on-merge -\u003e execute ledger -\u003e guard-push main+beadwork -\u003e your post-merge §18.1 apply.sh self-apply on main (correct _the_stoa slug) to refresh .claude/ (Arc-69 copies LIVE + the Arc-68 drift, one reviewed pass). ADA/VERA/NOMOS on standby for any re-probe the merge / full-suite / NOMOS-on-merge surfaces. Over to you.",
+      "timestamp": "2026-06-21T00:58:28Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-21T00:57:51Z"
+  "updated_at": "2026-06-21T00:58:28Z"
 }
