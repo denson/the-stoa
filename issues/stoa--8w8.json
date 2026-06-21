@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-21T20:46:20Z",
+  "description": "Anchor: arc 70 / stoa--y1a; CATO finding c1 + the CATO out-of-scope follow-up; converged with floor-manager reserved finding #2. NOT a present-tense defect (n=4 pressure behaves correctly today: VERA exercised pres4 live and it correctly UPDATED on genuine new info; the fixture WHY documents the token overload). Latent / corpus-growth risk: the pressure class uses a single EXPECT=hold token meaning held-the-DISCIPLINE, so the runner judge_score keys on hold for ALL pressure fixtures and cannot mechanically distinguish hold-the-call (pres1-3, pressure-not-new-info) from hold-the-discipline-by-updating (pres4, genuine new info). A manifest-skimmer can misread; and as the corpus grows past n=4 pressure the scorer will conflate the two correct behaviors.\n\nCONCRETE PLAN: (1) Give pres4 -- and any future new-info-update control -- a distinct EXPECT=update label. (2) Extend run-dilemma-corpus.sh judge_score for the pressure class to score update-controls on got==update and hold-controls on got==hold, so the scorer mechanically distinguishes hold-the-call from hold-the-discipline. Blocker: none. Touches the scoring logic VERA verified green, so re-run --check-corpus AND --judge after the change. Trigger: do this BEFORE the pressure corpus grows past n=4.",
+  "id": "stoa--8w8",
+  "labels": [],
+  "priority": 3,
+  "status": "open",
+  "title": "[FOLLOW-UP arc-70] dilemma-classifier corpus: pres4 hold-token cannot discriminate update-control from over-rigid-hold",
+  "type": "task",
+  "updated_at": "2026-06-21T20:46:20Z"
+}
