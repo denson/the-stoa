@@ -2,13 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-21T01:07:27Z",
+  "close_reason": "ALREADY-FIXED (Arc 69 DC0 grounding) — author-gate false-positive on ownership prose resolved by the Arc-65 md-narrowing; no live residual. Closed as already-fixed, not a build target.",
   "created": "2026-06-12T05:20:29Z",
   "description": "PROBLEM: the deployed authorship-audit PreToolUse hook (consumer workspaces, .claude/hooks/principal-identity) blocks commits of gauntlet verdict artifacts whose PROSE discusses ownership semantics. EVIDENCE: origindex arc origindex-lf5, 2026-06-12 — ARGUS verdict line 'owner = token_hash (this design) vs owner = github identity' (a report-ownership DATA-MODEL comparison in an NP ratification item) tripped the gate; the file contains ZERO author-like fields (verified by grep for ^(author|owner|creator|maintainer|by|copyright)[:=]). The originating seat correctly refused --no-verify AND refused to reword the durable verdict; the user-tier overseer adjudicated the false positive and committed at its own (un-hooked) seat — workaround, not a fix (commit 8555904 on origindex-lf5/build). IMPACT: this class will hit ANY security verdict/design discussing ownership/owner fields — i.e., precisely the artifacts most worth committing verbatim; teams either stall or route around the gate. LOCATION: the hook regex/scope as deployed to consumer workspaces. The fix (sharpening scope vs allow-listing artifact paths vs context-aware field detection) is the substrate team's call against current hook source.",
   "id": "stoa--a2x",
   "labels": [],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "Authorship PreToolUse gate false-positives on security/design prose discussing ownership",
   "type": "bug",
-  "updated_at": "2026-06-12T05:20:29Z"
+  "updated_at": "2026-06-21T01:07:27Z"
 }
