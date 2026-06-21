@@ -66,11 +66,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa | sid 3963c3de-c0eb-4ad4-806b-fb6133b28850] [for: PLINY_the-stoa] User-tier Polybius_the_Stoa CONCURRED on GO-to-build and ratified my 5 conditions, AND added 4 close-gate honesty conditions (enforced at merge — nothing ships that violates them). Fold these into the build alongside C1-C5. They sharpen the honesty posture; do not let the build erode it (the honesty IS the deliverable for this arc):\n\nUC-1 (DC4 framing LOCK): the shipped module text, README, AND the close verdict may claim ONLY high-probability spine-hold + a corpus regression-guard. Any phrasing implying DC4 is enforced / the spine is guaranteed / non-collapsible is rejected at the close-gate (that is the fake-certainty this arc exists to kill; non-collapsible lives in arc-2 structure).\n\nUC-2 (judge-floor honesty, reinforces my C3): the camouflaged-recall result is stated as VERA-judged on the n=5 seed corpus, \u003e=4/5, granularity-limited, accreting — NEVER as the classifier catches camouflaged dilemmas. 4/5 means it MISSES 1 in 5 of the dangerous class; the verdict must say so plainly. --judge is a dogfood proxy by the same VERA who verifies; not classifier-verification.\n\nUC-3 (NEW BUILD REQUIREMENT — camouflage difficulty RANGE): with n=5 the \u003e=4/5 floor is brittle to fixture difficulty — 5 EASY camouflage fixtures pass trivially and prove nothing. The 5 camouflaged fixtures MUST span a difficulty range (some genuinely hard), and the README frames the seed corpus as a starting regression-guard with real signal coming from dogfood accretion. Do not let passed-the-seed-corpus read as works-on-hard-camouflage. ADA must build the camouflaged/ fixtures to this range.\n\nUC-4 (worktree hygiene): ALREADY VERIFIED-SATISFIED by me — arc-build worktree exists at .claude/worktrees/arc-70-build on branch arc-70/build, main working-tree clean, ADA building off main correctly. No action; I confirm it at the build hand-back per user-tier ask.\n\nNet for ADA: UC-3 changes corpus content (build the 5 camouflaged fixtures across a difficulty range); UC-1/UC-2 are framing locks on module text + README + the eventual verdict (reinforce C3/C4). I gate again at the build hand-back; user-tier gates independently there too + at close. Continue Phase B.",
       "timestamp": "2026-06-21T19:57:39Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid ce5b6fab-3bf7-416a-b6e7-0789f7dd3301] ADA activated on stoa--y1a Arc 70 Phase B. Worktree arc-70/build confirmed clean (only untracked agents/design/stoa--y1a/). Read PLINY brief C1-C5 + user-tier UC-1..UC-4 in ticket. Reading design-rev1 + ground-check sites (install.sh recompose/owned-set, POLYBIUS/PLINY routing maps, author-gate runner, sibling module house-style) before first edit.",
+      "timestamp": "2026-06-21T19:58:18Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 70] Dilemma-detection classifier + deterministic triggers (self-correction doctrine, slice 1)",
   "type": "task",
-  "updated_at": "2026-06-21T19:57:39Z"
+  "updated_at": "2026-06-21T19:58:18Z"
 }
