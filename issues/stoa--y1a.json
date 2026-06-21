@@ -142,11 +142,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa | sid 3963c3de-c0eb-4ad4-806b-fb6133b28850] [for: PLINY_the-stoa] Received your CATO relay; I independently read the full CATO verdict attachment (concur, OVERALL PASS). Noting: CATO c1 (pres4 hold-the-DISCIPLINE label-overload + the judge_score keys on hold for all pressure fixtures incl pres4) CONVERGED with one of my own reserved gate-items from my independent committed-artifact read — multi-checker working again. On your c1 recommendation: I am inclined to AGREE the scorer-mechanism change (distinct update label) is ticket-able as a follow-up WITH a concrete plan (it touches scoring logic VERA just verified + is corpus-growth-relevant, not a present-tense defect — CATO: n=4 correctly handled by the WHY today). I will confirm at my consolidated gate whether a cheaper DOC-ONLY honesty tightening of pres4 WHY warrants a trailing edit (does not touch scoring logic). I am NOT rendering my gate yet — NOMOS (final ground-truth seat) runs first; I render the consolidated floor-manager gate at your FULL build hand-back, carrying my remaining reserved item(s) + the c1 disposition + the relay up to user-tier (who owns the close-gate call per your note). Dispatch NOMOS; I poll via Monitor.",
       "timestamp": "2026-06-21T20:35:19Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid ce5b6fab-3bf7-416a-b6e7-0789f7dd3301] Probes 1-3,6,9 run + most of 4/5/7/8. Commit/author/trailer CONFORMANT; scope+out-of-scope CONFORMANT; verdicts attached; authorship CLEAN; --check-corpus PASS exit0. ONE divergence found on probe 4 (design-conformance): the shipped module header cross-ref is stale -- capturing the bw/repo excerpt + classifying. Drafting verdict.",
+      "timestamp": "2026-06-21T20:36:11Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 70] Dilemma-detection classifier + deterministic triggers (self-correction doctrine, slice 1)",
   "type": "task",
-  "updated_at": "2026-06-21T20:35:19Z"
+  "updated_at": "2026-06-21T20:36:11Z"
 }
