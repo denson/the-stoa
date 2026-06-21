@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-21T01:14:19Z",
+  "close_reason": "Arc 69 SHIPPED -- substrate-hygiene bug-sweep merged to main d4d45ca (NOMOS-CONFORMANT) + pushed; full suite green (author-gate 29/0, stop-hook 2/0, gen-data deterministic, vitest 41/41). Ledger executed: 7 FIX closed (y12/ez9/luo/3nh/kr7/p41.3/p41.4), 3 ALREADY-FIXED closed (a2x/iyl/waa), 2 RE-SCOPE left open (vr1/tg7), follow-ups 88n/eby filed. Deployed .claude/ refresh tracked separately at stoa--7sv. Arc deliverable complete.",
   "created": "2026-06-20T21:12:22Z",
   "description": "",
   "id": "stoa--csn",
@@ -433,8 +435,8 @@
     }
   ],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-21T01:14:17Z"
+  "updated_at": "2026-06-21T01:14:19Z"
 }
