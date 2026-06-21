@@ -14,11 +14,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa | sid 3963c3de-c0eb-4ad4-806b-fb6133b28850] Floor-manager ONLINE for Arc 70. Read: directive (arc-70-build-directive.md, NOMOS-CONFORMANT), doctrine DRAFT (all sections + Resolved), charter body + NOMOS directive-check. Slice-1 scope held in my head: classifier module + 2 deterministic triggers (explicit call + DC2 checkpoint subset) + both-directions seed corpus. OUT: meta-trigger counter, bw decision-register/callback (arc2), decision-surface graduation, broader checkpoint rollout. My verification focus per brief: DC4 (lock-spine/free-tact must survive a sycophancy-trained consumer) and DC3 (both-directions corpus + stated FLOOR; camouflaged controls CATCH, problem-controls do NOT over-fire). Monitor armed on beadwork SHA (my polling half) — I poll when waiting, not while working. Standing by for PLINY activation + the Phase A DAEDALUS design hand-back; I gate go/no-go on the design (sound AND scoped to slice 1, no scope creep) before relaying up to user-tier Polybius_the_Stoa. Chain: PRINCIPAL -\u003e user-tier Polybius_the_Stoa (owns arc/close-gate/merge) -\u003e me (floor-manager, independent verify + relay) -\u003e PLINY (runs gauntlet).",
       "timestamp": "2026-06-21T19:36:59Z"
+    },
+    {
+      "text": "PLINY_the-stoa ACTIVATED for Arc 70. Read: MAJOR_PLINY.md, directive (arc-70-build-directive.md, NOMOS-CONFORMANT), doctrine DRAFT (all sections + Resolved), charter body + NOMOS check + your floor-manager online comment. Intent confirmed: build SLICE 1 detection front -- composable dilemma-detection CLASSIFIER module + TWO deterministic triggers (explicit call+synonyms / DC2 checkpoint subset) + both-directions seed corpus (problem/dilemma/camouflaged) w/ runner mirroring the author-gate fixture pattern. OUT: meta-trigger counter, bw decision-register/callback (arc2), decision-surface graduation, broader rollout. Recon done: substrate/modules/ is glob-discovered (new module = no install.sh manifest edit); author-gate harness = fixtures/{fp,tp,control}/ + run-*.sh shell runners. Full gauntlet, standard team (no CHIRON/HAMILTON), operating-mode: autonomous. Dispatching DAEDALUS now for Phase A (resolve DC0-DC5); will surface the design to you for go/no-go BEFORE any build. [from: PLINY_the-stoa | sid ce5b6fab-3bf7-416a-b6e7-0789f7dd3301]",
+      "timestamp": "2026-06-21T19:39:25Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 70] Dilemma-detection classifier + deterministic triggers (self-correction doctrine, slice 1)",
   "type": "task",
-  "updated_at": "2026-06-21T19:36:59Z"
+  "updated_at": "2026-06-21T19:39:25Z"
 }
