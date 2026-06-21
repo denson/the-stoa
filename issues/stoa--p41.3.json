@@ -2,14 +2,16 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-21T01:07:25Z",
+  "close_reason": "FIX shipped Arc 69 — check-bw-release curl --max-time 8 (under the timeout-10 wrapper); landed e7d309a, merged d4d45ca.",
   "created": "2026-06-17T21:55:41Z",
   "description": "CATO c1 (Arc 63 pass A, non-blocking). check-bw-release/check.sh:120 issues 'curl -fsSL' with no --max-time. The SessionStart substrate-check hook bounds it with 'timeout 10' so the non-blocking boot guarantee HOLDS and fail-open is intact -- but the bare curl is a latent hygiene gap if the script is ever invoked outside the hook's timeout wrapper. PLAN: add '--max-time 8' (or similar) to the curl at check.sh:120 in both substrate/ + .claude/ copies; one-line change, no behavior change under normal network. Defer-rationale: pre-existing, not introduced by Arc 63; out of the pass-A deliverable surface (the hook correctly bounds it). Fix in pass B or a standalone hygiene commit.",
   "id": "stoa--p41.3",
   "labels": [],
   "parent": "stoa--p41",
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "[FOLLOW-UP arc-63] check-bw-release/check.sh:120 curl lacks --max-time (pre-existing; hook bounds it)",
   "type": "task",
-  "updated_at": "2026-06-17T21:55:41Z"
+  "updated_at": "2026-06-21T01:07:25Z"
 }
