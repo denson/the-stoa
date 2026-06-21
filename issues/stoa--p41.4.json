@@ -2,14 +2,16 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-21T01:07:26Z",
+  "close_reason": "FIX shipped Arc 69 — MAJOR_POLYBIUS base-team-sync doc reword skill to tool/check.sh; landed e7d309a, merged d4d45ca. (ticket cited :506/:618 already cleaned by Arc 63; built to ship reality.)",
   "created": "2026-06-17T21:55:42Z",
   "description": "CATO c2 (Arc 63 pass A, non-blocking). After Arc 63 retired check-substrate-updates + check-bw-release from the model-invokable skill menu (SKILL.md deleted; now SessionStart-hook + operator-script tools), MAJOR_POLYBIUS.md:506 + :618 still call them 'base-team sync skill'. This is LOOSE/HISTORICAL 'skill' usage (the path refs still resolve), NOT the false 'invoke via the Skill tool' instruction R1(b) targeted+cleared. Out of the Arc-63 diff + R1's enumerated scope, so left untouched. PLAN: reword ':506/:618' (both substrate/ + .claude/ copies) from 'base-team sync skill' -\u003e 'base-team sync tool / check.sh' to match the post-Arc-63 reality. ~2 lines x2 copies. SCOPE-NOTE for floor-manager/user-tier: decide fix-now-vs-later -- it is the same drift-class as R1(b) but in an untouched canon file; a substrate-canon edit normally wants an arc.",
   "id": "stoa--p41.4",
   "labels": [],
   "parent": "stoa--p41",
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "[FOLLOW-UP arc-63] MAJOR_POLYBIUS.md:506/618 'base-team sync skill' loose-historical skill framing for retired check tools",
   "type": "task",
-  "updated_at": "2026-06-17T21:55:42Z"
+  "updated_at": "2026-06-21T01:07:26Z"
 }
