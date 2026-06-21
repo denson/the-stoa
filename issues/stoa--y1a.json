@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-21T18:59:11Z",
+  "description": "Arc 70 builds SLICE 1 (the detection front) of the self-correction / dilemma-detection doctrine. Design input: docs/self-correction-doctrine-DRAFT.md.\n\nIN SCOPE: (1) a composable dilemma-detection CLASSIFIER module -- the problem-vs-dilemma check + plain-language explanation + route rule + lock-spine/free-tact delivery discipline; (2) wire it to fire at TWO DETERMINISTIC triggers ONLY: (a) explicit user call ('detect dilemma' + synonyms), (b) the identified workflow/agent checkpoints (DAEDALUS scopes the concrete arc-1 subset in design); (3) a SEED CORPUS of labeled problem-case and dilemma-case fixtures (both-directions, incl. camouflaged dilemmas) as the verification artifact.\n\nOUT OF SCOPE (named follow-on arcs): the META-TRIGGER auto-detect-circling counter (deferred -- to be designed later from dogfood data, not guessed now); the bw DECISION-REGISTER + complaint-time callback + re-verify gate (arc 2, the accountability/longitudinal loop); GRADUATING decision-surface from DRAFT (its own arc -- see stoa--ida re the SKILL_NAMES gap); the broader checkpoint rollout.\n\nDEFINITION OF DONE -- mechanical (close-gate): classifier module composes into the target role files; both triggers fire correctly; the seed corpus passes both-directions at a floor accuracy (the Arc-69 author-gate-fixture pattern); full suite green; deployed. Judgment: corpus-passing + dogfood-validated on our own churn; accreting, not 'perfect' (honest stance per the doctrine).\n\nTEAM: standard POLYBIUS+PLINY, full gauntlet (DAEDALUS-\u003eARGUS-\u003eADA-\u003eVERA-\u003eCATO-\u003eNOMOS), substrate-component design (no CHIRON/HAMILTON). Directive forthcoming (NOMOS-checked + committed before dispatch). Roadmap: slice 1 of 4 (detection front / black box / decision-surface graduation / checkpoint rollout).",
+  "id": "stoa--y1a",
+  "labels": [],
+  "priority": 1,
+  "status": "open",
+  "title": "[ARC 70] Dilemma-detection classifier + deterministic triggers (self-correction doctrine, slice 1)",
+  "type": "task",
+  "updated_at": "2026-06-21T18:59:11Z"
+}
