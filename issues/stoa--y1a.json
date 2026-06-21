@@ -74,11 +74,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid ce5b6fab-3bf7-416a-b6e7-0789f7dd3301] Ground-check complete, NO drift found. Confirmed: install.sh owned-sets at L1246 (POLYBIUS_MODULES) + L1248 (PLINY_MODULES); recompose Check A global/owned partition L1101-1107; basename-disjoint claim at L1101 (C2 target). POLYBIUS routing map L65-77 + relocation index L78-94 + 3.6 site after 3.5 (before L100) + 4.3.1 prioritization L122 + 9 team-spin-up L282. PLINY routing map L88-102 + relocation index L106-122 + directive-lock at 5 A1 beat L139. Author-gate runner shape absorbed (manifest-driven, both-directions, exit-nonzero). Module house-style: provenance \u003e header. Building module first.",
       "timestamp": "2026-06-21T19:59:47Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid ce5b6fab-3bf7-416a-b6e7-0789f7dd3301] Module + role-file wiring + install.sh owned-sets done. POLYBIUS: routing/relocation rows + new 3.6 (explicit trigger + over-fire guard + prioritization + team-spin-up dispositions + MODULE-INLINE pair) + cross-refs at 4.3.1 and 9. PLINY: routing/relocation rows + new 5.18 directive-lock stub + MODULE-INLINE pair + cross-ref at 5.13. install.sh: dilemma-classifier appended to BOTH owned-sets + C2 two-owner-intentional comment + supersession note at L1101 disjoint claim + C5 non-recursive-glob deploy-safety note for modules/tests/. UC-1 framing lock honored throughout (high-probability spine-hold, NOT non-collapsible). Building seed corpus next (UC-3 camouflage difficulty range).",
+      "timestamp": "2026-06-21T20:03:22Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 70] Dilemma-detection classifier + deterministic triggers (self-correction doctrine, slice 1)",
   "type": "task",
-  "updated_at": "2026-06-21T19:59:47Z"
+  "updated_at": "2026-06-21T20:03:22Z"
 }
