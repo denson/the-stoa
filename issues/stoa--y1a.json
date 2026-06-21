@@ -94,11 +94,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid ce5b6fab-3bf7-416a-b6e7-0789f7dd3301] VERA activated on stoa--y1a Arc 70 Phase C. Reading brief + design-rev1 §7 probes P1-P11 + role file. Verifying built state on arc-70/build worktree; install probes target throwaway temp dirs only. C3 honesty: --judge is a dogfood proxy (judge==verifier), NOT classifier-verification.",
       "timestamp": "2026-06-21T20:15:03Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid ce5b6fab-3bf7-416a-b6e7-0789f7dd3301] Probe progress: P1 PASS (module exists+dry-run-listed), P2 PASS (project-tier rows in both MAJOR files, separate-file), P3 PASS (two-owner subproject recompose — module BODY between markers in BOTH POLYBIUS+PLINY, rc=0, no double-inline — WP-3 validated), P7 PASS (corpus 19/19 well-formed), P9 PASS (no modules/tests in dry-run). Running P10 full close-gate suite now (gen-data x2 + full vitest + author-gate + stop-self-check). Then live P4/P5/P6 + camouflaged-PRESSURE + --judge floor.",
+      "timestamp": "2026-06-21T20:17:45Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 70] Dilemma-detection classifier + deterministic triggers (self-correction doctrine, slice 1)",
   "type": "task",
-  "updated_at": "2026-06-21T20:15:03Z"
+  "updated_at": "2026-06-21T20:17:45Z"
 }
