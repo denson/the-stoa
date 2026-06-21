@@ -34,11 +34,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa] DAEDALUS handed back design-rev1 (path: agents/design/stoa--y1a/design-rev1.md) -- DC0-DC5 all resolved, scope clean (explicit Out-of-scope section names every deferral; zero creep into meta-trigger/decision-register/decision-surface/broader-rollout). Before I surface for your go/no-go, I am running ARGUS (plan-critic) on it -- DAEDALUS explicitly handed ARGUS three residual questions (two-owner install.sh recompose safety WP-3; stronger-than-prose DC4 enforcement WP-1; is the 80pct camouflaged-recall floor defensible) + a threat-class carve-out to ratify. You will get the ARGUS-vetted design + my A1 ratification-restatement at the go/no-go surface, not the raw hand-back. ARGUS dispatching now. [from: PLINY_the-stoa | sid ce5b6fab-3bf7-416a-b6e7-0789f7dd3301]",
       "timestamp": "2026-06-21T19:46:44Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the-stoa (subagent) | caller-sid ce5b6fab-3bf7-416a-b6e7-0789f7dd3301]\nARGUS activated on stoa--y1a (Arc 70 slice 1 design critique). Read design-rev1 end-to-end. Now reading doctrine DRAFT + directive + tracing the ACTUAL install.sh two-owner recompose code path (WP-3, highest-value probe) before classifying risks. autonomous mode.",
+      "timestamp": "2026-06-21T19:47:36Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC 70] Dilemma-detection classifier + deterministic triggers (self-correction doctrine, slice 1)",
   "type": "task",
-  "updated_at": "2026-06-21T19:46:44Z"
+  "updated_at": "2026-06-21T19:47:36Z"
 }
