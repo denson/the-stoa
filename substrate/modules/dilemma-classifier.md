@@ -1,7 +1,7 @@
 # Dilemma-classifier — problem-vs-dilemma check + plain delivery + lock-spine/free-tact
 
 > New canonical content (Arc 70 / `stoa--y1a`), NOT relocated from a role file — it lives canonically
-> here and is reached by deterministic triggers in `MAJOR_POLYBIUS.md` §3.6 and `MAJOR_PLINY.md` §5.16.
+> here and is reached by deterministic triggers in `MAJOR_POLYBIUS.md` §3.6 and `MAJOR_PLINY.md` §5.18.
 > Provenance: design input `docs/self-correction-doctrine-DRAFT.md`; design `agents/design/stoa--y1a/design-rev1.md`;
 > directive `substrate/arcs/arc-70-build-directive.md`. Author of repo: Denson Smith.
 >
