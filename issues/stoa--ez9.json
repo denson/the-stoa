@@ -2,13 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-21T01:07:19Z",
+  "close_reason": "FIX shipped Arc 69 — author-gate ez9 reviewed-allow path (parse_allow_pairs in _hooklib.sh); landed d9fd259, merged d4d45ca. Hole proved closed through the real gate (tp12 BLOCK, ctl5 ALLOW).",
   "created": "2026-06-14T17:10:52Z",
   "description": "PROBLEM: the PreToolUse author-field audit hook (.claude/hooks/pretooluse-author-field-audit.sh) HARD-BLOCKS a commit whenever it matches an author-like field (incl. publisher:), with no sanctioned reviewed-allow path. Legitimate NON-authorship uses of those field names get blocked; the only escapes are a wrong-edit (false attribution) or narrowing/deferring the commit.\n\nEVIDENCE (origindex-box arc, 2026-06-14, two distinct incidents):\n1. publisher: CalGEM / CDFW-OSPR / NOAA-USCG / USCG in dataset-explainer skill frontmatter + research/design docs -- legitimate DATA-SOURCE citations (who publishes the cited dataset); author: was correctly Denson Smith throughout. Blocked the baseline commit.\n2. VERA + CATO verdict .md whose authorship-AUDIT prose quotes 'Author: Denson Smith (throttle.py ...)' and 'provider.organization = Denson Smith' -- i.e. the verdicts AFFIRMING correct authorship tripped the gate. These remain UNCOMMITTED (preserved on-disk, excluded) pending this fix.\n\nIMPACT: blocks legitimate commits; forces a FALSE edit (publisher:-\u003eDenson Smith would be false attribution) or narrowing/deferring; currently keeps immutable verification records (VERA/CATO verdicts) out of git.\n\nLOCATION: .claude/hooks/pretooluse-author-field-audit.sh (deployed substrate; consumer workspaces inherit it).\n\nGAP (problem, not prescription -- the substrate team owns the fix): no way to distinguish/allow a reviewed legitimate use (source-CITATION fields like publisher/source/provider, or audit-prose that affirms correct authorship) from an actual false-attribution. The flag itself is correct and wanted; the missing piece is a reviewed-allow path so legitimate uses are not hard-blocked. Filed by user-tier POLYBIUS-A2A on PRINCIPAL's instruction; origindex carries a user-tier Option-A ruling on incident 1 for reference.",
   "id": "stoa--ez9",
   "labels": [],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "author-field gate hard-blocks legitimate source-citation + audit-prose fields (no reviewed-allow path)",
   "type": "task",
-  "updated_at": "2026-06-14T17:10:52Z"
+  "updated_at": "2026-06-21T01:07:19Z"
 }
