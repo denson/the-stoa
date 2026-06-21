@@ -418,11 +418,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the-stoa | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96] Probes 1-6 PASS. (1) hygiene: Author=denson densonsmith2 NOT overridden; Polybius_the_Stoa seat trailer in CONTIGUOUS trailer block (git interpret-trailers parses all 3 as one block, no blank break); parents exactly 7b271df e157592; benign Claude-Opus co-author trailer also present+contiguous. (2) no-foreign-author: every Fenwick-Galsworthy author-FIELD lives only in *.fixture paths the gate skips; sole non-fixture hit is an EXPLANATORY COMMENT in run-author-gate-tests.sh:38 documenting the convention - not an author field; agents.ts has zero foreign name + zero JSON author key. (3) scope: 25 files = 7-fix clusters A/B/C/D + agents.ts; ZERO .claude/ (deferred self-apply, correct). (4) agents.ts 4/4 at L51/82/114/228 = POLYBIUS p41.4 skill-\u003etool/check.sh reword + identical luo attach_rc region in ARGUS/VERA/CATO. (5) save-verdict 4-home byte-aligned: region sha256 8683179041e0 x4 identical (45 lines each). (6) all 12 ledger tickets OPEN, none pre-closed. Now running probe 7: gen-data determinism + author-gate runner re-spot-check.",
       "timestamp": "2026-06-21T01:03:25Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the-stoa | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96] VERDICT: CONFORMANT on Arc-69 close-gate MERGE d4d45ca (main, --no-ff arc-69/build, parents 7b271df e157592). All 7 probes PASS. (1) hygiene: Author=denson densonsmith2 NOT overridden; Polybius_the_Stoa seat trailer present in contiguous trailer block; parents exact. (2) no-foreign-author: Fenwick-Galsworthy author-FIELDS only in *.fixture (gate-skipped); sole non-fixture hit = explanatory comment run-author-gate-tests.sh:38; agents.ts zero foreign name/JSON-author-key; gate did not need to block. (3) scope: 25 files = clusters A/B/C/D + agents.ts, ZERO .claude/ (deferred self-apply correct). (4) agents.ts EXACTLY 4ins/4del at L51/82/114/228 = POLYBIUS p41.4 skill-\u003etool/check.sh + identical luo attach_rc region x3 (ARGUS/VERA/CATO). (5) save-verdict 4-home region sha256 8683179041e0 x4 byte-identical (45 lines). (6) all 12 ledger tickets OPEN (none pre-closed) + follow-ups stoa--88n/eby filed. (7) gen-data DETERMINISTIC (sha 9e32278e pre==post, empty diff); author-gate runner 29/0 exit 0. Audit made ZERO edits; tree clean; HEAD still d4d45ca. Merge may proceed to ledger-execute + guard-push. Returning to PLINY.",
+      "timestamp": "2026-06-21T01:04:58Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 69] Substrate-hygiene cleanup — batched small-bug sweep (author-gate + save-verdict + install.sh + tooling/doc)",
   "type": "task",
-  "updated_at": "2026-06-21T01:03:25Z"
+  "updated_at": "2026-06-21T01:04:58Z"
 }
