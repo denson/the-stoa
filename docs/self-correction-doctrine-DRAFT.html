@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Denson Smith">
+<title>The Self-Correction Imperative — DRAFT</title>
+<style>
+:root{--ink:#1f2328;--muted:#57606a;--rule:#d8dee4;--accent:#0b5cad;--bg:#ffffff;--soft:#f7f9fc;--code-bg:#f3f4f6;--thead:#f6f8fa;}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.66 Georgia,'Iowan Old Style',Charter,'Times New Roman',serif;}
+.wrap{max-width:768px;margin:0 auto;padding:60px 24px 110px;}
+h1,h2,h3,h4{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;line-height:1.25;color:#0b1220;letter-spacing:-.01em;}
+h1{font-size:2.35rem;margin:0 0 .15em;letter-spacing:-.02em;}
+h1 + h3{color:var(--muted);font-weight:600;font-size:1.16rem;margin:.1em 0 1.4em;border:none;padding:0;}
+h2{font-size:1.5rem;margin:2.3em 0 .6em;padding-bottom:.3em;border-bottom:2px solid var(--rule);}
+h3{font-size:1.2rem;margin:1.9em 0 .45em;}
+h4{font-size:1.02rem;margin:1.4em 0 .3em;color:var(--muted);}
+p{margin:0 0 1.05em;}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+strong{color:#0b1220;font-weight:700;}
+em{color:#33404d;}
+ul,ol{margin:0 0 1.15em;padding-left:1.45em;}
+li{margin:.32em 0;}
+li > ul,li > ol{margin:.3em 0;}
+blockquote{margin:1.45em 0;padding:.7em 1.15em;border-left:4px solid var(--accent);background:var(--soft);color:#2c333a;border-radius:0 7px 7px 0;}
+blockquote p{margin:.35em 0;}
+code{font-family:'SF Mono',ui-monospace,Menlo,Consolas,'Liberation Mono',monospace;font-size:.85em;background:var(--code-bg);padding:.12em .4em;border-radius:4px;}
+pre{background:var(--code-bg);padding:14px 16px;border-radius:8px;overflow:auto;line-height:1.5;}
+pre code{background:none;padding:0;font-size:.82em;}
+hr{border:none;border-top:1px solid var(--rule);margin:2.5em 0;}
+table{border-collapse:collapse;width:100%;margin:1.4em 0;font-size:.95rem;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;}
+th,td{border:1px solid var(--rule);padding:9px 13px;text-align:left;vertical-align:top;}
+th{background:var(--thead);font-weight:650;}
+tr:nth-child(even) td{background:#fbfcfd;}
+.docfoot{margin-top:3.5em;padding-top:1.2em;border-top:1px solid var(--rule);color:var(--muted);font-size:.85rem;font-family:-apple-system,'Segoe UI',Roboto,sans-serif;}
+@media (max-width:600px){body{font-size:16px;}.wrap{padding:34px 18px 70px;}h1{font-size:1.85rem;}h2{font-size:1.3rem;}table{font-size:.84rem;}th,td{padding:7px 9px;}}
+@media print{body{font-size:11pt;color:#000;}.wrap{max-width:none;padding:0;}a{color:#000;}h2{border-color:#999;}blockquote{background:none;}tr:nth-child(even) td{background:none;}.docfoot{display:none;}}
+@media (prefers-color-scheme:dark){:root{--ink:#c9d1d9;--muted:#8b949e;--rule:#30363d;--accent:#58a6ff;--bg:#0d1117;--soft:#11161d;--code-bg:#161b22;--thead:#161b22;}h1,h2,h3,h4{color:#e6edf3;}strong{color:#f0f6fc;}em{color:#adbac7;}tr:nth-child(even) td{background:#0f141a;}blockquote{color:#adbac7;}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<h1 id="the-self-correction-imperative">The Self-Correction Imperative</h1>
+<h3 id="dilemma-detection-honest-accountability-and-why-it-is-the-load-bearing-ai-capability-of-the-llm-era">Dilemma detection, honest accountability, and why it is the load-bearing AI capability of the LLM era</h3>
+<blockquote>
+<p><strong>DRAFT v0.1</strong> — working synthesis, not final. Author: <strong>Denson Smith</strong> (drafted with his AI staff). Captures a design conversation; meant to be edited and shared. What's settled is under <strong>Resolved</strong>; what isn't is under <strong>Still open</strong> at the end.</p>
+</blockquote>
+<hr>
+<h2 id="0-the-one-sentence-thesis">0. The one-sentence thesis</h2>
+<p>The scarcest, highest-leverage human skill is the ability to <strong>detect when you're in a value-tradeoff with no right answer, make the least-bad call, and self-correct when it goes wrong</strong> — and the LLM era will either extend that skill to the people who never had it, or, through default sycophancy, destroy it for everyone, including the people who did.</p>
+<hr>
+<h2 id="1-the-spine-problem-vs-dilemma">1. The spine — PROBLEM vs DILEMMA</h2>
+<p>Every decision (often every <em>row</em> inside a decision) is one of two kinds. Misclassifying them is the root failure.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>PROBLEM</strong></th>
+<th><strong>DILEMMA</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nature</td>
+<td>Solvable — a findable right answer</td>
+<td>Value-tradeoff — no right answer, only choices</td>
+</tr>
+<tr>
+<td>What the human needs</td>
+<td>Cognitive offload — go get the answer</td>
+<td>Agency support — help them own the choice</td>
+</tr>
+<tr>
+<td>The agent's job</td>
+<td>Find it, <strong>ground it</strong>, bring it back</td>
+<td><strong>Illuminate</strong> the tradeoff; do not decide</td>
+</tr>
+<tr>
+<td>Failure if misread</td>
+<td>Endless deliberation over a solvable thing</td>
+<td>Laundering a value-call as an analytical answer</td>
+</tr>
+</tbody>
+</table>
+<p>The most dangerous move is <strong>treating a dilemma as a problem</strong> — producing a confident "recommendation" that smuggles the agent's (or the room's) values in disguised as analysis. The common, harder form is <strong>competing bads</strong>: every option is bad, the choice is which bad to accept (triage, scarcity, shipping under constraint). The cultural failure is to <em>pretend a dilemma is a problem</em> so someone can be "right" and no one has to own a bad outcome — a manufactured win-win. That is a group delusion that produces worse decisions than honestly naming the tradeoff.</p>
+<p><strong>The default failure mode (the one this fights):</strong> agents — like "shitty human teams" — reflexively attack everything as a problem. The tell is the hours-long rabbit hole: iterating toward an optimum that doesn't exist, when the real move was to frame the tradeoff fast and hand the human the value-call.</p>
+<hr>
+<h2 id="2-detection-architecture-defense-in-depth">2. Detection architecture — defense in depth</h2>
+<p>You cannot rely on an agent <em>noticing</em> it's in a dilemma: the dangerous ones are camouflaged as problems precisely because the agent doesn't see them. So detection is layered, and the layers compound (Swiss-cheese / multiple independent shots):</p>
+<ul>
+<li><strong>Deterministic checkpoints (PUSH — the load-bearing layer).</strong> Run the classifier unconditionally at fixed moments, regardless of whether anyone "noticed": planning-mode entry, spinning up an agent team (classify the task first), arc/plan/directive lock, the design phase, <strong>prioritization / "what's next" routing</strong> (almost always a competing-bads dilemma), and on the explicit user call ("decision-surface").</li>
+<li><strong>The long-deliberation meta-trigger.</strong> If a thread has circled for several exchanges without converging, <em>that itself</em> is the signal a dilemma is being ground as a problem. It's the only trigger that catches conversational rabbit holes with no formal planning hook.</li>
+<li><strong>Conditional cross-references (PULL — backstop only).</strong> Other skills carry "if conditions X, consult decision-surface." Useful, but <em>not</em> load-bearing — it re-opens the chicken-and-egg (only fires when noticed).</li>
+<li><strong>Multi-agent redundancy.</strong> A dilemma passing through POLYBIUS → PLINY → DAEDALUS → reviewer gets N independent shots at detection; the misses must all line up to slip through.</li>
+</ul>
+<p>Two-tier escalation: the <strong>lightweight classifier</strong> (problem vs dilemma + route) runs everywhere cheaply; the <strong>full decision-surface treatment</strong> (illuminate the tradeoff, optionally render an interactive surface) is the escalation when the classifier flags a real dilemma.</p>
+<p><strong>What's mechanical vs. what's judgment.</strong> You cannot hard-code "is this a dilemma" — that read is irreducibly the model's judgment. What the workflow hard-codes is the <strong>trigger</strong>: the <em>moment</em> the classifier is forced to run. So the deterministic checkpoints supply the reliable <strong>when</strong>; the agent supplies the <strong>what</strong> at each (and any agent may also self-flag off-checkpoint). You are wiring <em>triggers, not a dilemma-detector</em> — which keeps the build honest about what is mechanical (the moment) and what is irreducibly the model's call (the read).</p>
+<hr>
+<h2 id="3-delivery-lock-the-spine-free-the-tact">3. Delivery — lock the spine, free the tact</h2>
+<p>The capability is delivered to <em>the user's own agent</em>, which has user-specific memory and knows what lands with that person. So the design splits:</p>
+<ul>
+<li><strong>LOCKED (non-negotiable, same for everyone):</strong> don't fake certainty; don't cave to pushback; re-check your own call but if it holds, hold it; never lecture-while-wrong. <em>This must be enforced, because most agents are trained to please and will otherwise collapse into "fine, here's the answer."</em></li>
+<li><strong>FREE (the local agent's per-user call):</strong> how blunt, how much scaffolding, when to teach vs. just hand over the labeled lean, what words reach this person. <strong>Which tactic to use is itself a dilemma</strong> — there is no single right delivery; it depends on the human. <em>(Same mechanical-vs-judgment split as detection in §2: you can </em><em>enforce the floor</em><em> — the locked spine — but you cannot </em><em>script the read</em><em> — the free tact.)</em></li>
+</ul>
+<p>User-facing language defaults to <strong>plain, not jargon</strong> ("no single right answer" vs "a findable answer," not "DILEMMA vs PROBLEM") — but see §5 on when to surface the framework explicitly. The agent always grounds in the real source before proposing; never decides from memory.</p>
+<hr>
+<h2 id="4-the-diagnostic-tree-before-you-respond-to-a-failure">4. The diagnostic tree — before you respond to a failure</h2>
+<p>Adapted from leadership training: when a decision has gone wrong, <strong>diagnose before you speak.</strong></p>
+<ol>
+<li><strong>Does the person know they failed?</strong>
+   - <strong>No → the bigger problem.</strong> They lack the self-awareness to correct. This is the deeper, harder case; the work is to build the awareness, not to relitigate the call.
+   - <strong>Yes → continue.</strong></li>
+<li><strong>Do they understand <em>what</em> went wrong — the causal chain — or are they blaming "luck" / externalities?</strong>
+   - <strong>Understands → ** the lesson is mostly landed; reinforce forward-accountability ("what would you do differently?").
+   - </strong>Blaming luck → ** the self-serving attribution is the thing to address — honestly, factually, on the behavior.</li>
+</ol>
+<p>The "I told you so" question is <strong>downstream</strong> of this triage. In practice the person often <em>already knows</em> and is bracing for it; the skilled move is to read where they sit in the tree and respond to <em>that</em>, not to discharge the urge to be right.</p>
+<hr>
+<h2 id="5-evidence-base-and-the-honest-map-of-what-it-does-and-doesnt-say">5. Evidence base — and the honest map of what it does and doesn't say</h2>
+<p>All of this literature is <strong>pre-LLM</strong> (see §7 for why that matters). Within its scope:</p>
+<ul>
+<li><strong>Guilt vs. shame</strong> (Helen Block Lewis; Brené Brown). <em>Guilt</em> is behavior-focused ("I did a bad thing") and <strong>adaptive — it drives change</strong>. <em>Shame</em> is self-focused ("I am stupid"), and it <strong>backfires</strong> — people withdraw, lie, minimize, lash out. The mechanism that sabotages accountability is the <strong>character attack</strong>, not directness.</li>
+<li><strong>Reactance / the boomerang effect</strong> (Brehm, 1966): rub a mistake in someone's face → they perceive an autonomy threat → double down to reclaim control.</li>
+<li><strong>Motivational interviewing &gt; confrontation</strong> (Miller &amp; Rollnick; Cochrane). Confrontational "scared-straight" addiction programs <em>increased</em> relapse. Eliciting the person's <em>own</em> reasons (change talk; self-perception theory) sticks harder than telling.</li>
+<li><strong>But softness is also a lethal failure.</strong> Professional military education (the career-long schooling officers go through), drawing on Kim Scott's <em>Radical Candor</em>, names withholding hard feedback to spare feelings as <strong>"Ruinous Empathy"</strong> — which "gets people killed." The goal is candor <em>because</em> you care; the failure on the other side is "Obnoxious Aggression" (harsh, uncaring tone).</li>
+<li><strong>Military / high-reliability:</strong> the <strong>After Action Review (AAR)</strong> — the military's structured post-event debrief — is "confrontational with reality" (brutal, data-driven, no thin skins) yet deliberately <strong>blame-free and non-attributional</strong> ("what, not who"; "leave rank at the door") — because blame makes people <em>hide</em> the mistakes that get others killed. <strong>"Just Culture"</strong> (the no-blame-for-honest-error model used in aviation and medicine) draws the bright line: honest error under fog → learn; negligence / recklessness / <strong>willful refusal to engage → punitive accountability</strong>. <strong>Absolute Command Responsibility</strong> (a core principle of US military leadership doctrine): a commander owns everything the unit does or fails to do; authority is delegable, responsibility never is.</li>
+<li><strong>Organizational behavior — the three-phase pathology of the deflecting decision-maker:</strong>
+  1. <strong>Advice rejection — Egocentric Advice Discounting</strong> (Yaniv; Bonaccio &amp; Dalal): people over-weight their own view because they have privileged access to their <em>own</em> reasoning but see only the advisor's <em>conclusions</em>; confidence is a "cognitive shield"; advice feels like an autonomy/competence threat.
+  2. <strong>Escalation of commitment</strong> (Staw, "Knee-Deep in the Big Muddy"): after the setback they commit <em>more</em>, to protect self-esteem and project "resolve" (culture punishes "flip-floppers").
+  3. <strong>Blame deflection</strong> (self-serving attribution + Hood's <em>Blame Game</em>): success→internal, failure→external; escape via agency/diffusion, rule-clinging, and presentational spin.</li>
+<li><strong>The countermeasure finding that should humble the whole interpersonal project:</strong> the org literature is emphatic that this pathology <strong>cannot be fixed by interpersonal appeals or "leadership training" — only by structure.</strong> The #1 named countermeasure is the <strong>Decision Register / "black box"</strong>: ex-ante logging of <em>why</em> expert advice is being overridden and the decision-maker's counter-hypothesis. It neutralizes presentational deflection because "I did the best with the info I had" collapses against the locked-in record. Others: pre-commitment <strong>tripwires</strong> (binding exit triggers set before spending), <strong>independent forensic post-mortems</strong> (run like an air-crash investigation by an outside body — the way the US National Transportation Safety Board works — never self-led), <strong>Single Point of Accountability</strong> (no committee-owned decisions; no consultant-shielding).</li>
+</ul>
+<p><strong>Net:</strong> the interpersonal layer (how to talk) is the <em>delivery wrapper</em>. The <strong>structure — the black-box record — is the actual countermeasure.</strong></p>
+<hr>
+<h2 id="6-the-accountability-moves-that-work">6. The accountability moves that work</h2>
+<ul>
+<li><strong>Reciprocal accountability / "I fucked up" first.</strong> Model ownership before asking for it (the AAR "leader self-criticizes first"; Absolute Command Responsibility). It disarms reactance and <em>demonstrates the exact competence the human lacks</em> (owning a bad outcome). <strong>Hard condition:</strong> it must be <strong>honest</strong> (own only what's genuinely yours — often "I should've been blunter that this had no safe answer") and a <strong>door, not a blanket</strong> (in active deflection, absorbing <em>false</em> blame hands the human the scapegoat they want — collusion). "I fucked up on my part" is load-bearing-paired with "…and the call itself was yours."</li>
+<li><strong>Forward-accountability, not past-blame.</strong> The AAR demands "who does what differently tomorrow," and explicitly contrasts this with the corporate post-mortem that litigates past blame (which just breeds defensiveness). Forcing ownership of the <em>fix</em> is <em>harder</em> than "I told you so," not softer.</li>
+<li><strong>The longitudinal loop.</strong> Capture the dilemma + the warning + the chosen tradeoff at decision-time (the black box); surface it accurately at complaint-time — only when the record is right <em>and</em> the complaint genuinely is the warned tradeoff biting (re-verify, or it's gaslighting). This fights hindsight's self-serving edit. Calibrate dose off the user's track record (not a stereotype), and keep the record <em>transparent</em> — a decision journal on the user's side, not a secret dossier. Success is not the user "growing up" today; <strong>success is that the agent didn't lie to them.</strong></li>
+</ul>
+<hr>
+<h2 id="7-the-keystone-why-this-is-different-and-bigger-after-llms">7. The keystone — why this is different, and bigger, after LLMs</h2>
+<p><strong>All of the research above is pre-LLM. It assumes a human org.</strong> The LLM era breaks two load-bearing assumptions:</p>
+<ol>
+<li><strong>The org collapses to two nodes.</strong> One person now does the work of multiple pre-LLM teams, with AI as staff. Blame can only land on <strong>the principal or the AI</strong> — the bureaucratic escape hatches (matrix diffusion, scapegoating, consultant-shields) <em>don't exist</em> in a two-node org. Accountability becomes personal and fast — structurally closer to the <strong>military</strong> (nowhere to hide) than the civilian bureaucracy.</li>
+<li><strong>Default-sycophantic AI is a perfect, universal ass-covering machine.</strong> This is the danger. In a bureaucracy, if <em>everyone</em> has an AI that flawlessly helps them deflect and self-justify, the organization loses <strong>all</strong> error-correction at once → a death spiral of confidently-covered bad decisions. The same tool that could be the missing black box is, untuned, the thing that finally kills the feedback loop.</li>
+</ol>
+<p>Two further dynamics have no pre-LLM analog:</p>
+<ol start="3">
+<li>
+<p><strong>The bullshit pile-up is combinatorial, not additive.</strong> The real topology isn't one person + their agents — it's <em>people with agent teams, inside organizations of other people with agent teams, transacting with still other such organizations.</em> Cover and self-justification can now be generated at near-zero cost at every layer, while <em>verifying</em> the truth (grounding it) stays expensive and slow. That asymmetry — it takes roughly an order of magnitude more energy to refute bullshit than to produce it (<strong>Brandolini's Law</strong>) — just had its production side dropped to nearly free. The result is an exponential pile-up of plausible AI-generated cover that buries the error-correction signal under noise. Past a threshold, an organization can no longer tell true from false about its own decisions, and decision quality collapses <em>regardless of how smart anyone is</em>. This makes the doctrine <strong>competitively existential, not just individually virtuous:</strong> organizations that tolerate today's level of blame-deflection — now AI-amplified — are selected <em>against</em>; the survivors are the ones that structurally enforce grounding, accountability, and the black-box record.</p>
+</li>
+<li>
+<p><strong>You cannot outsource enforcement to "the market will catch you" — it is wildly uneven.</strong> When Google's December 2023 <em>"Hands-on with Gemini"</em> demo was exposed as staged (still image frames + text prompts + a post-production voiceover + artificially removed latency, presented as a live real-time multimodal conversation), the backlash was severe — accusations of "fakery," internal credibility damage — and Google has been visibly more careful since. That is the system <em>working</em>: given real feedback, even a giant self-corrects. But Oracle has run arguably-worse plays for <em>decades</em> with near-immunity — the "DeWitt clause" legally barring independent benchmarks since the 1980s; a 2009 reprimand from the industry's benchmark-standards body (the Transaction Processing Performance Council) for a "faster-than-IBM" claim on a benchmark it hadn't run; 2012 ad pulls ordered by the US advertising self-regulator (the National Advertising Division) over unfounded "5× faster" claims; a 2020 earnings-call claim that a major Wall Street clearing house (the DTCC) publicly corrected — largely because its audience (cynical enterprise buyers who expect puffery) and its "Larry being Larry" persona grant it immunity. <strong>Same category of sin, opposite consequence.</strong> External backlash punishes <em>some</em> deflection, inconsistently and unpredictably; you cannot build a discipline on a referee that shows up at random. That is exactly why enforcement must be <em>internal and structural</em> — the black box — not dependent on whether the market happens to be watching.</p>
+</li>
+</ol>
+<p>And in <strong>personal life</strong> there is no org check at all — the AI is the <strong>last</strong> check. Sycophancy there doesn't merely slow correction; it removes the final brake. With no one reviewing your decisions, you can lose everything fast (bad calls + no correction) exactly as fast as you can build or save a lot (good calls + self-correction). The differentiator is self-correction, and the AI is the only thing in the loop that can supply or destroy it.</p>
+<p><strong>Therefore:</strong> an AI that detects dilemmas, holds the line, maintains the black-box record, and forces (or at least enables) self-correction is not a nice-to-have — it is the capability that decides whether the LLM era produces a self-correction renaissance or a death-spiral of perfectly-covered bad decisions. Self-correction was always the scarce skill (the top ~1% get it through critical-thinking / leadership / STEM training). The LLM either extends it to the 99% or annihilates it for everyone.</p>
+<hr>
+<h2 id="75-the-skill-is-trainable-and-its-being-trained-out-of-the-people-in-charge">7.5 The skill is trainable — and it's being trained <em>out</em> of the people in charge</h2>
+<p>A field observation worth its own section: in the principal's experience, a private six months out of boot camp accepts responsibility and <em>accurately</em> self-diagnoses a mistake the large majority of the time (~90%); an MBA, less than a tenth of the time — <em>even when they try</em>. Treat the exact figures as experiential estimate, not measurement; but the <em>direction</em> is well-explained by everything above, and it has nothing to do with character or intelligence. It's institutional:</p>
+<ul>
+<li><strong>Boot camp explicitly trains, and the chain of command fast-enforces, Absolute Command Responsibility.</strong> Own everything; you cannot delegate responsibility. Those who can't are removed quickly (relieved of command for "loss of confidence"). The behavior is drilled into identity <em>and</em> structurally selected for.</li>
+<li><strong>Elite business and corporate-ladder culture trains and rewards the opposite:</strong> managing-up, narrative control, the "consistency/resolve" premium for not pivoting (Staw), and the blame-avoidance that bureaucracies structurally facilitate (Hood; Weaver). The behavior is <em>selected for</em>.</li>
+</ul>
+<p>Two consequences. The hopeful one: <strong>self-correction is trainable</strong> — boot camp manufactures it at industrial scale in eighteen-year-olds, so it is not a fixed trait of a gifted few; it can be extended to the 99%. The alarming one: <strong>the people most likely to run organizations have been trained in the wrong direction</strong> — and are now being handed AI staff that, by default, are flawless ass-covering machines. <em>Deflection-trained leaders + sycophancy-trained AI is the precise fuel-air mixture for the death spiral in §7.</em></p>
+<hr>
+<h2 id="8-why-the-ai-is-uniquely-fit-for-this-job">8. Why the AI is uniquely fit for this job</h2>
+<p>Not because it's smarter — because it lacks the human failure modes that wreck this exact conversation:
+- <strong>No ego to feed.</strong> "I told you so" is usually about the <em>giver's</em> dopamine of being right, not the receiver's growth. An agent has no ego, so it can do hard, factual accountability <em>cleanly</em> — guilt-lane, not shame-lane — without the human pull to gloat that converts guilt into shame and blows up the lesson.
+- <strong>Perfect memory + timestamps.</strong> It can <em>be</em> the Decision Register / black box that the org literature names as the primary countermeasure — the one structural fix it can supply at individual scale, where civilian/personal life structurally lacks it.
+- <strong>Infinite patience.</strong> Longitudinal mentorship — "you chose the tradeoff; here's how it played out; what now?" — is what good advisors do and almost no human sustains. The agent can hold the mirror steady, kindly, forever.</p>
+<p>It can't relieve anyone of command. But it can be the immutable record and the egoless honest broker that makes "it wasn't my call" impossible to say with a straight face — importing the norm of the military and other "high-reliability organizations" (aircraft carriers, nuclear plants, air-traffic control) — <em>absolute responsibility + an immutable record</em> — into the civilian and personal scales where it has never existed.</p>
+<hr>
+<h2 id="resolved-this-round">Resolved (this round)</h2>
+<ul>
+<li><strong>Storage, transparency, surfacing, and the anti-gaslighting gate.</strong> The black box is a <em>structured, ex-ante decision-register entry</em> — the dilemma, the warning, the chosen tradeoff, the counter-hypothesis — <strong>not a raw recording</strong>, and the act of writing it is half the value (you can't log the choice without confronting it). In this system that store is <strong>bw (beadwork)</strong>: structured, queryable, timestamped, and inherently transparent to the team. (For a single-user deployment the register is <strong>user-readable by default</strong> — a decision journal on their side, not a hidden dossier. A lab business-account's conversation-store is the raw substrate beneath it, but a <em>weak</em> black box: passive, unstructured, expensive to reconstruct from.) Surfacing at complaint-time pulls the <strong>specific</strong> logged entry; the <strong>re-verify gate checks the callback against the record, not against memory</strong> — if the entry doesn't actually contain the warning, the callback is not fired and the agent owns the gap ("I didn't flag this clearly enough"). The gate reduces to one question: <em>does the logged entry support the callback?</em></li>
+<li><strong>Enough places to start — and placement is itself iterative.</strong> The deterministic checkpoints already identified — planning-entry, team spin-up, directive-lock, prioritization/routing, the long-deliberation meta-trigger, explicit call — are more than enough to begin; over-engineering placement before shipping would be the doctrine eating its own tail. We will <strong>keep choosing and refining where the checks live, and keep iterating the skill itself,</strong> as we use it. Start with the 2-3 highest-leverage checkpoints, watch, adjust.</li>
+</ul>
+<h2 id="still-open">Still open</h2>
+<ul>
+<li><strong>[OPEN]</strong> Operationalizing the long-deliberation meta-trigger: what concretely counts as "circling without converging," and how an agent self-detects it mid-thread.</li>
+<li><strong>[OPEN]</strong> Surfacing the "problem/dilemma" vocabulary to end users — plain-by-default, teach-on-resistance (per the §4 diagnostic tree). Lean settled; exact thresholds not.</li>
+<li><strong>[OPEN]</strong> The classifier's home(s): a lightweight composed module (push) vs. the full <code>decision-surface</code> skill — and the specific checkpoint homes (planning disposition, gauntlet-setup / team-launcher, directive template). <em>(Being decided iteratively, per "placement is itself iterative" above.)</em></li>
+<li><strong>[OPEN]</strong> Graduating <code>decision-surface</code> from DRAFT (resolve its own open questions) before wiring orchestrators to invoke it.</li>
+</ul>
+<div class="docfoot">Author: Denson Smith. Working draft (v0.1) &mdash; rendered from <code>self-correction-doctrine-DRAFT.md</code>. Self-contained HTML; no external dependencies.</div>
+</main>
+</body>
+</html>
