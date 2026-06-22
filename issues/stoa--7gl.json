@@ -118,11 +118,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]\nADA activated on stoa--7gl Phase B build. Reading design rev3/rev2/rev1 + ARGUS-cleared floor-manager GO + worktree state before first commit. Ground-checking design examples against shipped Arc-70 dilemma-classifier template before authoring.",
       "timestamp": "2026-06-22T16:52:50Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]\nGround-check complete: design examples reconciled vs shipped Arc-70 dilemma-classifier template (field() awk run-dilemma-corpus.sh:71-80, install.sh TWO-OWNER block L1253-1261 + POLYBIUS_MODULES L1262 / PLINY_MODULES L1264, MODULE-INLINE wiring in both role files, save-verdict quoting caveat L35). All design path:line refs current. Authoring the 5 deliverables now starting with substrate/modules/decision-register.md.",
+      "timestamp": "2026-06-22T16:54:15Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 71] Decision-register CAPTURE — self-correction doctrine slice 2a (black box, capture half)",
   "type": "task",
-  "updated_at": "2026-06-22T16:52:50Z"
+  "updated_at": "2026-06-22T16:54:15Z"
 }
