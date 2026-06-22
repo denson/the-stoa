@@ -30,11 +30,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]\nDAEDALUS activated on stoa--7gl (Arc 71 Phase A, decision-register CAPTURE slice 2a). Reading directive + doctrine DRAFT (sec 5/6/Resolved) + Arc-70 surfaces (dilemma-classifier.md + checkpoints + corpus/runner + save-verdict.md) + install.sh two-owner composition. Will resolve DC0-DC5 to design-rev1.md and surface for the design-gate. Capture only, zero reach into 2b.",
       "timestamp": "2026-06-22T15:34:58Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]\nState: brief + doctrine (sec 5/6/Resolved) + all Arc-70 surfaces absorbed (dilemma-classifier.md, POLYBIUS 3.6 a/b/c, PLINY 5.18, corpus/runner + check-corpus/judge split + per-class floors, save-verdict.md bash-write precedent, install.sh two-owner MODULE-INLINE recompose). bw construct surface confirmed (standing ticket + comment stream, attach, labels, per-decision child via --parent). Drafting design-rev1.md now (DC0-DC5). Restatement-gate next.",
+      "timestamp": "2026-06-22T15:36:06Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 71] Decision-register CAPTURE — self-correction doctrine slice 2a (black box, capture half)",
   "type": "task",
-  "updated_at": "2026-06-22T15:34:58Z"
+  "updated_at": "2026-06-22T15:36:06Z"
 }
