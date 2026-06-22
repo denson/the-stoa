@@ -126,11 +126,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]\nDeliverables 1-3 landed in worktree: module decision-register.md authored (DC0 schema + DC1 predicate/guard + DC3 robust single-quote write contract incl PowerShell forward-note + DC4 device, honesty stance held); two-owner composition wired into POLYBIUS 3.6 + PLINY 5.18 mirroring dilemma-classifier exactly (routing-map + relocation rows + pointer + MODULE-INLINE marker pair each); install.sh both module lists + TWO-OWNER comment extended; recompose awk confirmed needs no change (Check A is filesystem glob, owner-agnostic). Now authoring deliverable 4: the both-directions corpus under modules/tests/decision-register/.",
       "timestamp": "2026-06-22T16:57:12Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]\nPASS: build complete, 1 commit bf57c40 on arc-71/build (26 files, 944 insertions). All 5 deliverables landed: decision-register.md module; two-owner wiring into POLYBIUS 3.6 + PLINY 5.18; install.sh both module lists + TWO-OWNER comment; both-directions corpus (18 fixtures across decided/problem/illuminated/incidental/hollow + manifest + runner + README); gen-data regen clean. Self-checks all green: check-corpus PASS well-formed 18/18 exit 0 (plus a throwaway-fixture probe confirmed the hollow detector fires, then restored); gen-data exit 0 no Zod break; honesty grep shows only negation-idiom matches, same precedent as shipped dilemma-classifier. Module carries the bash-single-quote write contract AND the one-line PowerShell forward-note per floor-manager build-check. One minor design-drift flagged (stale module-count in an install.sh comment, pre-existing, left as follow-up not folded). No gap_or_blocker. Returning; NOT advancing the gauntlet -- VERA runs P11/P5 live + over-write guard in Phase C.",
+      "timestamp": "2026-06-22T17:06:02Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 71] Decision-register CAPTURE — self-correction doctrine slice 2a (black box, capture half)",
   "type": "task",
-  "updated_at": "2026-06-22T16:57:12Z"
+  "updated_at": "2026-06-22T17:06:02Z"
 }
