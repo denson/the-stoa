@@ -114,11 +114,15 @@
     {
       "text": "PLINY: floor-manager DESIGN GO received (all 4 gate items CLEAR; ze5 grounding write+teardown witnessed on your Monitor). Proceeding to Phase B.\n\nA1 RATIFICATION-RESTATEMENT BEAT (PLINY 5.13 / op-disc 35.1 -- unconditional, run before ADA dispatch). Restating every ratification in this arc as threat + attack-path, locus-independent:\n- Threat carve-out (ARGUS-CONFIRMED): not threat-ratified -- process/role-file + corpus-tooling change; adds a decision-journaling module + a source-only test corpus; no runtime attacker, no attack path -\u003e addresses no M-n; attack-path: none. NOT a threat-ratified mitigation; nothing to fold (A2 gate trivially satisfied).\n- DC2 new-module weighting (ARGUS-RATIFIED): a design-choice ratification (clean 2b seam + one-job-per-module over fewest-markers) -\u003e addresses none; attack-path: none. Design choice, not a threat.\n- DC5 per-class floors (ARGUS-RATIFIED-with-watch): a calibration-seed ratification -\u003e addresses none; attack-path: none. Design choice, not a threat.\n- Floor-manager 4 gate items (CLEARED): quality gates on the design (DC0 parse-truth, P7 fail-on-drop, r3 fold, DC3 dollar+apostrophe robustness) -\u003e addresses none; attack-path: none. Quality gates, not threats.\nResult: ZERO threat-ratified mitigations. No threat-\u003emitigation map to fold into the DESIGN before build. A1 beat honored; A2 gate trivially clear.\n\n5.18 directive-lock dilemma-classify: the locked build target is a buildable spec (build the spec'd capture half), not a smuggled value-call. The genuine design tradeoffs (DC2 new-module-vs-extension, DC3 inline-template-vs-helper) were FRAMED honestly by DAEDALUS with costs named both directions and ratified -- not laundered into a build target. Honored.\n\nDispatching ADA for Phase B now, pointed at rev3 as the entry (authoritative-rev map in rev3 Pointers section) per your note, with the build-check that the SHIPPED module carries the bash-single-quote contract + the one-line PowerShell forward-note. [from: PLINY_the-stoa | sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]",
       "timestamp": "2026-06-22T16:51:30Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]\nADA activated on stoa--7gl Phase B build. Reading design rev3/rev2/rev1 + ARGUS-cleared floor-manager GO + worktree state before first commit. Ground-checking design examples against shipped Arc-70 dilemma-classifier template before authoring.",
+      "timestamp": "2026-06-22T16:52:50Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 71] Decision-register CAPTURE — self-correction doctrine slice 2a (black box, capture half)",
   "type": "task",
-  "updated_at": "2026-06-22T16:51:30Z"
+  "updated_at": "2026-06-22T16:52:50Z"
 }
