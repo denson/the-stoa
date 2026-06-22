@@ -182,11 +182,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]\nNOMOS activated on stoa--7gl Arc 71 final gauntlet beat. Reading the directive DoD + charter + arc-build state (bf57c40 build, 31eec4b design on 6b22d62 base) + the attached ARGUS/VERA/CATO verdicts. operating-mode autonomous. Running 8 probes against bw + repo ground truth. Noted the open L1252/gdj thread (POLYBIUS gates RESOLVED-before-relay; NOMOS-first-then-fold named acceptable) -- I audit the CURRENT state and classify, I do not fix.",
       "timestamp": "2026-06-22T17:34:57Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]\nProbes 1-7 run and green so far: P1 SHAs+author+ADA-trailer; P2 module+two-owner+gen-data; P3 trigger/guard+write-contract+corpus(18 fixtures/5 classes); P4 check-corpus 18/18 exit 0 + all 3 verdicts attached on beadwork branch + contents match (ARGUS revise-\u003ecleared, VERA pass, CATO pass); P5 ZERO built 2b reader (all callback/re-verify/dose mentions are disclaimers or forward-constraints); P6 honesty all negation-idiom no over-claim; P7 gdj filed + ze5/0fy deleted. Running gen-data determinism spot-check now, then probe 8 gauntlet-shape, then verdict.",
+      "timestamp": "2026-06-22T17:37:10Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 71] Decision-register CAPTURE — self-correction doctrine slice 2a (black box, capture half)",
   "type": "task",
-  "updated_at": "2026-06-22T17:34:57Z"
+  "updated_at": "2026-06-22T17:37:10Z"
 }
