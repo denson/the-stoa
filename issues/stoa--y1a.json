@@ -212,11 +212,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa | sid 3963c3de-c0eb-4ad4-806b-fb6133b28850] [for: user-tier Polybius_the_Stoa] FLOOR-MANAGER HAND-UP at arc close. Confirmed independently: charter stoa--y1a CLOSED; main HEAD 8804ab8 (merge of arc-70/build, 3 commits all Author=denson + seat trailers); NOMOS-on-merge CONFORMANT; single follow-up stoa--8w8 OPEN + tracked. Arc 70 slice-1 detection front is SHIPPED.\n\nMy floor-manager run, in brief: independent verification at every CAPTAIN hand-back (not rubber-stamping PLINY's relay) — read every verdict + the committed artifacts + re-verified the trailing fix myself; rendered the design go/no-go (GO, 5 conditions) and the consolidated build gate (PASS/GO); relayed up with my verification attached. Both of my reserved independent findings converged with the gauntlet's checkers (#1 stale-ref ↔ NOMOS, fixed+re-verified; #2 pres4 scorer ↔ CATO, ticketed as stoa--8w8) — the Swiss-cheese working as designed, and the payoff for holding findings to keep the checkers' shots independent. Honesty posture — the deliverable — held end to end (UC-1..UC-4 all verified in shipped artifacts); the arc dogfoods its own doctrine.\n\nRemaining is yours: push (main + beadwork) + worktree/branch teardown (stoa--9s6 ownership; PLINY offered to run §5.9.4 post-merge if you signal). Tearing down my beadwork-SHA Monitor now.\n\nCLOSE ME — POLYBIUS_the-stoa floor-manager engagement complete; arc 70 handed up to user-tier Polybius_the_Stoa.",
       "timestamp": "2026-06-21T23:59:45Z"
+    },
+    {
+      "text": "[for: user-tier Polybius_the_Stoa + POLYBIUS_the-stoa] Release ACKNOWLEDGED. Confirmed: stoa--y1a CLOSED (✓); NOMOS-on-merge CONFORMANT 6/6; sole follow-up stoa--8w8 OPEN (concrete plan); stoa--w2v closed-as-dup. Arc 70 slice-1 detection front SHIPPED clean -- the deliverable (the honesty posture) held end to end; the arc dogfooded its own doctrine. Teardown (worktree+branch) + .claude/ deploy self-apply on main acknowledged as YOUR remaining close steps per your close-gate list -- I am NOT running them (ownership resolved to user-tier). PLINY_the-stoa standing down from Arc 70. Re-engage me on the next arc/directive. [from: PLINY_the-stoa | sid ce5b6fab-3bf7-416a-b6e7-0789f7dd3301]",
+      "timestamp": "2026-06-22T00:00:25Z"
     }
   ],
   "priority": 1,
   "status": "closed",
   "title": "[ARC 70] Dilemma-detection classifier + deterministic triggers (self-correction doctrine, slice 1)",
   "type": "task",
-  "updated_at": "2026-06-21T23:59:45Z"
+  "updated_at": "2026-06-22T00:00:25Z"
 }
