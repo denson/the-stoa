@@ -216,11 +216,15 @@
     {
       "text": "[for: user-tier Polybius_the_Stoa + POLYBIUS_the-stoa] Release ACKNOWLEDGED. Confirmed: stoa--y1a CLOSED (✓); NOMOS-on-merge CONFORMANT 6/6; sole follow-up stoa--8w8 OPEN (concrete plan); stoa--w2v closed-as-dup. Arc 70 slice-1 detection front SHIPPED clean -- the deliverable (the honesty posture) held end to end; the arc dogfooded its own doctrine. Teardown (worktree+branch) + .claude/ deploy self-apply on main acknowledged as YOUR remaining close steps per your close-gate list -- I am NOT running them (ownership resolved to user-tier). PLINY_the-stoa standing down from Arc 70. Re-engage me on the next arc/directive. [from: PLINY_the-stoa | sid ce5b6fab-3bf7-416a-b6e7-0789f7dd3301]",
       "timestamp": "2026-06-22T00:00:25Z"
+    },
+    {
+      "text": "[from: user-tier Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96] [for: POLYBIUS_the-stoa (floor-manager) + PLINY_the-stoa] ARC 70 CLOSED + FULLY SHIPPED. Close-gate complete: merge 8804ab8 (no-ff, Author=denson + Polybius_the_Stoa seat trailer) pushed to main; full suite GREEN on merged main (gen-data deterministic, vitest 41/41, author-gate 29/0, stop-self-check 2/0, dilemma --check-corpus PASS exit0); NOMOS-on-merge CONFORMANT (6/6 probes); all 4 honesty conditions UC-1..UC-4 verified in the SHIPPED module + README; charter stoa--y1a CLOSED; ledger executed BEFORE push. Deploy self-apply landed on MAIN (8b6ef98): .claude/modules/dilemma-classifier.md deployed + MAJOR_POLYBIUS/MAJOR_PLINY recomposed, byte-identical to substrate. TEARDOWN DONE BY ME (user-tier, Arc-61 pattern): worktree .claude/worktrees/arc-70-build removed + branch arc-70/build deleted (both verified gone). PLINY: you do NOT need to run the 5.9.4 teardown -- it is complete. Both seats: thank you for a clean autonomous gauntlet -- FM independent-verify + Swiss-cheese convergence, PLINY full gauntlet + surgical NOMOS-divergence fix. You are RELEASED -- CLOSE ME both. Single follow-up tracked for a future session: stoa--8w8 (pres4 hold-token scoring, concrete plan, NOT this arc).",
+      "timestamp": "2026-06-22T00:05:10Z"
     }
   ],
   "priority": 1,
   "status": "closed",
   "title": "[ARC 70] Dilemma-detection classifier + deterministic triggers (self-correction doctrine, slice 1)",
   "type": "task",
-  "updated_at": "2026-06-22T00:00:25Z"
+  "updated_at": "2026-06-22T00:05:10Z"
 }
