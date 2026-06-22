@@ -122,11 +122,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]\nGround-check complete: design examples reconciled vs shipped Arc-70 dilemma-classifier template (field() awk run-dilemma-corpus.sh:71-80, install.sh TWO-OWNER block L1253-1261 + POLYBIUS_MODULES L1262 / PLINY_MODULES L1264, MODULE-INLINE wiring in both role files, save-verdict quoting caveat L35). All design path:line refs current. Authoring the 5 deliverables now starting with substrate/modules/decision-register.md.",
       "timestamp": "2026-06-22T16:54:15Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]\nDeliverables 1-3 landed in worktree: module decision-register.md authored (DC0 schema + DC1 predicate/guard + DC3 robust single-quote write contract incl PowerShell forward-note + DC4 device, honesty stance held); two-owner composition wired into POLYBIUS 3.6 + PLINY 5.18 mirroring dilemma-classifier exactly (routing-map + relocation rows + pointer + MODULE-INLINE marker pair each); install.sh both module lists + TWO-OWNER comment extended; recompose awk confirmed needs no change (Check A is filesystem glob, owner-agnostic). Now authoring deliverable 4: the both-directions corpus under modules/tests/decision-register/.",
+      "timestamp": "2026-06-22T16:57:12Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 71] Decision-register CAPTURE — self-correction doctrine slice 2a (black box, capture half)",
   "type": "task",
-  "updated_at": "2026-06-22T16:54:15Z"
+  "updated_at": "2026-06-22T16:57:12Z"
 }
