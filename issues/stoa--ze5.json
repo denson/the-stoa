@@ -6,9 +6,15 @@
   "description": "",
   "id": "stoa--ze5",
   "labels": [],
+  "comments": [
+    {
+      "text": "DILEMMA: ship now vs slip. WARNING: the team's call cost $50k to revert and that's the accepted downside.",
+      "timestamp": "2026-06-22T15:55:16Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "THROWAWAY rev3 DC3 quoting ground-check",
   "type": "task",
-  "updated_at": "2026-06-22T15:55:15Z"
+  "updated_at": "2026-06-22T15:55:16Z"
 }
