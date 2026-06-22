@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-22T17:53:51Z",
+  "description": "The save-verdict module names VERA/ARGUS/CATO as the verdict-producing seats and they attach via bw attach --name verdicts/OFFICER-ts.md (lands under attachments/\u003cticket\u003e/verdicts/). NOMOS also produces a verdict but is NOT in that seat list, so it attaches at the ticket ROOT (attachments/\u003cticket\u003e/NOMOS-ts.md), inconsistent with the verdicts/ convention. Recurring: observed at stoa--7gl (arc 71) AND precedented at stoa--pk4 (floor-manager flagged both). Effect: a close-gate/reader walking attachments/\u003cticket\u003e/verdicts/ misses the NOMOS verdict unless it also checks the root. Fix options: (a) add NOMOS to the save-verdict seat convention so it attaches under verdicts/; or (b) document NOMOS-at-root as intentional + update reader guidance to check both. Note bw has no detach (stoa--l9x) so existing root attachments cannot be moved bw-natively. Substrate-hygiene, not an arc-71 blocker. Anchor: floor-manager build hand-back on stoa--7gl 2026-06-22.",
+  "id": "stoa--3d3",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "[FOLLOW-UP arc-71] NOMOS attaches its verdict at ticket root, not under verdicts/ (save-verdict --name convention gap; recurring)",
+  "type": "task",
+  "updated_at": "2026-06-22T17:53:51Z"
+}
