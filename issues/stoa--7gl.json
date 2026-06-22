@@ -98,11 +98,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]\nbw capability investigated LIVE: bw comment is positional-arg ONLY (no stdin/file-body flag), so there is no quoting-sidestep path. Chosen mechanism = the proven save-verdict quoting applied to the positional arg: single-quote the WHOLE body, escape each embedded apostrophe as close-quote backslash-apostrophe reopen-quote. GROUNDED LIVE: a body carrying both an apostrophe and a bare fifty-dollars-k figure was written via bw comment to a throwaway ticket then re-read intact (apostrophe present, the dollar figure present and NOT mangled to zero-k); naive double-quote baseline DID mangle the dollar to zero-k (proves the probe can fail). Throwaway ticket deleted. Writing design-rev3 now: DC3 hardened + a new probe; everything else unchanged.",
       "timestamp": "2026-06-22T15:55:50Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]\npass: design-rev3 written. Delta = DC3 + one new probe (P11) ONLY; everything else carried unchanged.\n- bw comment is POSITIONAL-only (no stdin/file-body sidestep) -- confirmed live -- so DC3 specifies the proven save-verdict quoting on the positional arg: single-quote the WHOLE body, embedded apostrophe as close-quote backslash-apostrophe reopen-quote. Single quotes make dollar AND backtick AND dollar-paren literal at once (subsumes the rev1/rev2 backtick lock + closes the bare-dollar gate-item-4 footgun); the escape handles the apostrophe.\n- GROUNDED LIVE (in the design, not asserted): a body with both an apostrophe and a bare fifty-k dollar figure wrote intact via bw comment to throwaway ticket (now deleted) and re-read intact; naive double-quote baseline mangled the dollar to zero-k -- so P11 can FAIL on the dollar-mangle.\n- P11 (new, additive -- P5 untouched): VERA writes LIVE an entry whose WARNING/COUNTER-HYPOTHESIS carries both an apostrophe and a bare dollar amount, bw show re-reads, asserts apostrophe intact AND literal dollar figure present AND no bare zero-k mangle.\n- UNCHANGED: DC0/P7 (rev2), DC1/DC2/DC4/DC5, 2b boundary, honesty stance (no enforced/guaranteed/non-collapsible), carve-out, P1-P10 incl P5. No new scope.\n- One honest note: robust form is bash single-quote semantics = the path the seats use (Bash tool); PowerShell path is out of scope (no bare-dollar footgun there). design-rev3.md at agents/design/stoa--7gl/design-rev3.md. Returning. NOT advancing the gauntlet.",
+      "timestamp": "2026-06-22T15:57:28Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 71] Decision-register CAPTURE — self-correction doctrine slice 2a (black box, capture half)",
   "type": "task",
-  "updated_at": "2026-06-22T15:55:50Z"
+  "updated_at": "2026-06-22T15:57:28Z"
 }
