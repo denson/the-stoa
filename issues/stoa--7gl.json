@@ -154,11 +154,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]\nmechanical probes complete and GREEN: P1 composition (markers + 250-line body inlined byte-identical into both deployed hosts via real throwaway subproject install), P2 check-corpus 18/18 exit 0, P3 vacuity detector fired on hollow then restored clean, P4 judge DOGFOOD PROXY all floors met (decided 5/5, illuminated 4/4 load-bearing, problem 3/3, incidental 3/3 exit 0 -- reported as dogfood proxy NOT trigger-verified), P8 source-only (no tests/ or standalone module deployed), P9 full-body byte-identical across source + both hosts, P10 honesty grep negation-idiom only. Now creating a THROWAWAY bw ticket for the LIVE probes P5/P6/P7/P11 (NOT the real standing register ticket per brief), will delete it after.",
       "timestamp": "2026-06-22T17:15:03Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]\npass: all 11 probes P1-P11 GREEN + full close-gate suite green. Returning.\nPROBES: P1 composition (250-line body inlined byte-identical into both deployed hosts), P2 check-corpus 18/18 exit 0, P3 vacuity detector fired on hollow then restored clean, P4 judge DOGFOOD-PROXY all per-class floors met (decided 5/5, illuminated 4/4 load-bearing, problem 3/3, incidental 3/3) -- reported as dogfood proxy NOT trigger-verified (judge==verifier), P5 nine-field live entry landed intact on throwaway then deleted, P6 over-write guard holds both directions (illuminated cond-3 fails, problem cond-2 fails; throwaway carried exactly 2 deliberate entries), P7 bare field() recovers all 9 fields AND OPTIONS splits to exactly 3 known tokens on space-tilde-space (rev2 r1 fix holds), P8 source-only no tests/ deployed, P9 schema + full body byte-identical across source + both hosts, P10 honesty grep negation-idiom only, P11 dollar-AND-apostrophe round-trip intact via robust single-quote form (naive double-quote baseline mangle demonstrated as the failing control).\nSUITE: gen-data DETERMINISTIC + matches committed build (4 MAJOR/12 CAPTAIN/8 LIEUTENANT no Zod break), vitest 41/41, author-gate 29/0, stop-hook 2/0, check-corpus 18/18. No pre-existing reds; no this-arc-broke-it finding.\nTHREAT-COVERAGE: empty-state carve-out (not threat-ratified per design section-1 / op-disc 35.5, ARGUS-confirmed). TRM_COUNT=0.\nMETHODOLOGY CONCERN (not a fail): install.sh L1252 stale module-count annotation reads 35 but actual is 41 -- comment-only zero-runtime-impact on a file this arc edits; surfaced not fixed (independence-of-verification); already in your open gdj routing thread.\nVERDICT FILE: agents/verdicts/stoa--7gl/VERA-2026-06-22T17-20-00Z.md (sha256 d3385484...); bw attach OK to stoa--7gl. Throwaway ticket stoa--0fy deleted + confirmed gone. NOT advancing the gauntlet.",
+      "timestamp": "2026-06-22T17:22:58Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 71] Decision-register CAPTURE — self-correction doctrine slice 2a (black box, capture half)",
   "type": "task",
-  "updated_at": "2026-06-22T17:15:03Z"
+  "updated_at": "2026-06-22T17:22:58Z"
 }
