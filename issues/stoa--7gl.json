@@ -66,11 +66,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]\nDAEDALUS activated on rev2 (DC0 r1+r2 + r3 fold). Read rev1 + ARGUS verdict + the Arc-70 field() helper (run-dilemma-corpus.sh:71-80) + PLINY/POLYBIUS re-gate bar. Resolution chosen: single-line delimited OPTIONS (brief option a) -- keeps the bare proven field() parser UNCHANGED, no novel extractor to prove. Verified live: field() recovers the single-line value in full and a delimiter-split reconstructs all N options. Drafting design-rev2 now (restate DC0 + P7 in full; everything else unchanged-per-ARGUS-ratification).",
       "timestamp": "2026-06-22T15:48:36Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]\npass: design-rev2 complete. Path agents/design/stoa--7gl/design-rev2.md. Self-assessed weak points: 0 NEW (rev1 WP-1..WP-5 stand unchanged).\n\nrev1 -\u003e rev2 DELTA (DC0 + P7 only; everything else unchanged-per-ARGUS-ratification):\n1. DC0 OPTIONS is now SINGLE-LINE, options separated by a fixed space-tilde-space delimiter (was: indented continuation lines). RESOLVES r1: the bare unchanged Arc-70 field() (same-line/first-match/exit) recovers the WHOLE OPTIONS value; a one-line -F delimiter split reconstructs all N options. Zero new parser, nothing new to prove -- chose brief option (a) over (b) repeated OPTION-N labels and (c) prove-a-new-multi-line-extractor, both of which re-introduce an unproven parser (the exact rev1 risk). Minimal-sufficient per A2: keeps DC0s promise (re-readable by the PROVEN parse) literally true.\n2. P7 RESTATED to exercise FULL-OPTIONS recovery. RESOLVES r2: uses a reference entry with N\u003e=3 options and asserts field(OPTIONS) split on the delimiter yields EXACTLY N non-empty tokens equal to the known option set -- so P7 now FAILS if any option were dropped or the field were multi-line. A probe that cannot fail on its bug is not a probe.\n3. r3 (non-load-bearing watch) FOLDED while reworking the contract: single-line OPTIONS structurally removes the continuation-line shadow case; added a value-hygiene rule (no value may begin with a reserved LABEL token; space-tilde-space reserved as delimiter). NOT a security fix -- 35.5 carve-out UNCHANGED + ARGUS-CONFIRMED.\n\nDesign-time grounding run live: bare field() on single-line delimited OPTIONS returned the whole value; -F split returned the 3 expected options.\n\nUNCHANGED per ARGUS ratification: DC1 guard, DC2 two-owner composition, DC3 inline-template+footgun-lock+transparency, DC4 + honesty stance (no enforced/guaranteed/non-collapsible), DC5 corpus+floors (DC5 reference ENTRY fixtures just carry the single-line OPTIONS shape -- fixture-format consequence, not a redesign), the 2b boundary (zero reach), P1-P6/P8-P10, WP-1..WP-5. No new scope.\n\nReturning. NOT advancing the gauntlet -- POLYBIUS re-gates rev2 on hand-back.",
+      "timestamp": "2026-06-22T15:50:31Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 71] Decision-register CAPTURE — self-correction doctrine slice 2a (black box, capture half)",
   "type": "task",
-  "updated_at": "2026-06-22T15:48:36Z"
+  "updated_at": "2026-06-22T15:50:31Z"
 }
