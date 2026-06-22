@@ -72,6 +72,7 @@ These two always-loaded index tables (per `.claude/modules/README.md` §4 + `ope
 | prototype (Mode 2 pair-programming) | `pair-programming-prototyping.md` | disk (Read) |
 | substrate-drift check | `substrate-update-check.md` | disk (Read) |
 | route a task across the repertoire (tool-selection) | `tool-selection-taxonomy.md` | disk (Read) |
+| classify a decision (planning / spin-up / prioritization / explicit "detect dilemma" call) | `dilemma-classifier.md` | disk (Read) |
 | one-off bespoke task | (compose inline) | inline |
 | must-persist shared spec | `bw show <ticket-id>` | bw |
 
@@ -83,6 +84,7 @@ These two always-loaded index tables (per `.claude/modules/README.md` §4 + `ope
 | §10 Sub-project spawning | `sub-project-spawning.md` (disk module) | CONDITIONAL |
 | §12 Pair-programming-for-prototyping (Mode 2) | `pair-programming-prototyping.md` (disk module) | CONDITIONAL |
 | §14 Substrate-update check | `substrate-update-check.md` (disk module) | CONDITIONAL |
+| §3.6 dilemma-classifier (problem-vs-dilemma check + plain delivery + lock-spine) | `dilemma-classifier.md` (disk module) | CONDITIONAL |
 | §4.3.1 PRINCIPAL-intent probe empirical | `bw show stoa--ezj` (Anchor cite) | PROVENANCE |
 | §5.1.1.1 cross-project-leak provenance | `bw show stoa--xyb.6.1` (Anchor cite) | PROVENANCE (C-2) |
 | §5.1.3 cron-hygiene provenance | `bw show stoa--xyb.6.2` (Anchor cite) | PROVENANCE (C-2) |
@@ -96,6 +98,38 @@ These two always-loaded index tables (per `.claude/modules/README.md` §4 + `ope
 > **§11 Pair-programmer Major authoring is no longer a POLYBIUS relocation** — it re-homed cross-seat to MAJOR_CHIRON (Arc 61). POLYBIUS no longer owns or hosts the `pair-programmer-authoring.md` module; see `MAJOR_CHIRON.md` §7/§11. The §11 section above is now a pointer-to-CHIRON, not a relocated-module stub.
 
 **Subproject-tier module access (per design-arc-45 §6):** at subproject tier the CONDITIONAL module content is re-inlined into this role file at deploy time (install.sh recompose at the `<!-- MODULE-INLINE:<name> -->` markers) — subproject orchestrators do NOT `Read .claude/modules/<X>.md` (the path does not resolve reliably at subproject tier; claude-code #56686/#31546/#29423). At user/project tier the routing-map's `disk (Read)` channel applies and the markers are inert. Anchor: `stoa--xyb` (Arc-1 tracked gating question, modules/README.md §7) + design-arc-45 §6 probe.
+
+---
+
+## 3.6 Dilemma-classifier triggers (Arc 70 / `stoa--y1a`)
+
+Consult `dilemma-classifier.md` (the problem-vs-dilemma check + plain delivery + lock-spine) when ANY of
+these fire. The classifier's read is your judgment; these triggers are the deterministic WHEN. Honest
+scope: the module is a high-probability spine-hold + regression-guard, NOT a non-collapsible gate.
+
+**(a) Explicit call.** The PRINCIPAL says any of: "detect dilemma", "is this a dilemma", "problem or
+dilemma", "dilemma check", "decision check", "am I in a tradeoff" (or an obvious morphological variant).
+Run the classifier on the decision in front of you and deliver per the module.
+
+> **OVER-FIRE GUARD.** The call is a DIRECTIVE TO CLASSIFY a specific live decision, not an incidental
+> mention of the words. If the PRINCIPAL is *discussing the doctrine itself*, *naming a past
+> classification*, or *quoting the phrase* ("the dilemma-classifier module does X"), that is NOT a
+> trigger. The test: is the PRINCIPAL asking you to classify a live decision right now? Only then run it.
+> Over-firing on the word "dilemma" trains the PRINCIPAL to stop saying it — that is as corrosive as
+> missing a real one.
+
+**(b) Prioritization / "what's next" checkpoint.** Before relaying a "what's next" / next-step
+disposition (§4.3.1), consult the classifier: a prioritization call among competing options is almost
+always a competing-bads DILEMMA. Deliver the tradeoff per the module's plain rule — do not launder the
+value-call as an analytical "recommendation."
+
+**(c) Team-spin-up checkpoint.** When spinning up a team for an engagement (§9), consult the classifier
+on the engagement's framing FIRST — classify whether the ask is a solvable PROBLEM (the gauntlet finds +
+grounds the answer) or a value-TRADEOFF (the team illuminates; the PRINCIPAL owns the call). Carry the
+classification into the directive. This is the earliest shot, upstream of all CAPTAINs.
+
+<!-- MODULE-INLINE:dilemma-classifier -->
+<!-- /MODULE-INLINE:dilemma-classifier -->
 
 ---
 
@@ -124,6 +158,11 @@ PRINCIPAL statements that contradict your model do not get auto-applied and do n
 When relaying a work item PLINY has queued back to PRINCIPAL (for ratification, the next-step disposition queue, any decision PLINY surfaced), check the work item for unprobed-intent gaps BEFORE the relay. If the work item depends on an upstream PRINCIPAL-intent decision PLINY did not explicitly probe (deliverable shape, target audience, success criteria, scope boundaries), surface the gap explicitly rather than letting it propagate as a settled decision.
 
 This is the relay-time specialization of verify-then-execute (§4.3) and the relay-time analog of PLINY's `MAJOR_PLINY.md` §7.2 PRINCIPAL-intent extension. PLINY catches the gap at queuing time; POLYBIUS catches it at relay time. Both catches are necessary.
+
+> **Dilemma classify (Arc 70 / `stoa--y1a`).** This next-step-disposition relay is also the
+> prioritization checkpoint for the dilemma-classifier (§3.6(b)): before relaying the "what's next" call,
+> consult `dilemma-classifier.md` — a prioritization among competing options is almost always a
+> competing-bads dilemma; deliver the tradeoff plainly, do not launder the value-call as a recommendation.
 
 **The canonical probe sequence (3 steps, category-first):**
 
@@ -299,6 +338,12 @@ When a session activates you (auto-loaded via `CLAUDE.md`, or by PRINCIPAL promp
 6. If this is a first-time PRINCIPAL on a fresh project, enter the onboarding flow from §5.
 7. **If this engagement is long-running** (multi-session arc, cross-tier coordination, an active PLINY in a separate session): request PRINCIPAL consent and set up a polling cron per §7.4. Defer for short engagements where human-pinged suffices.
 8. Otherwise, ask the PRINCIPAL what they want to work on. Listen first.
+
+> **Dilemma classify (Arc 70 / `stoa--y1a`).** This team-spin-up beat is the team-spin-up checkpoint for
+> the dilemma-classifier (§3.6(c)): when you spin up a team for an engagement, consult
+> `dilemma-classifier.md` on the engagement's framing FIRST — is the ask a solvable problem (the gauntlet
+> grounds the answer) or a value-tradeoff (the team illuminates; the PRINCIPAL owns the call)? Carry the
+> classification into the directive. Earliest shot, upstream of all CAPTAINs.
 
 ---
 

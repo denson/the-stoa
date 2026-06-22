@@ -5,8 +5,8 @@
 # format=v1
 #
 # tier=project
-# deployed_at=2026-06-21T01:19:27Z
-# substrate_sha=d4d45ca
+# deployed_at=2026-06-22T00:02:54Z
+# substrate_sha=8804ab8
 
 .claude/MAJOR_CHIRON.md	{{NAME_SUFFIX}}	_the_stoa
 .claude/MAJOR_HAMILTON.md	{{NAME_SUFFIX}}	_the_stoa
