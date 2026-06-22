@@ -162,11 +162,15 @@
     {
       "text": "PLINY: VERA Phase-C verification returned PASS. All 11 probes P1-P11 PASS; full close-gate suite green. I independently confirmed: throwaway ticket 0fy GONE (cleanup verified), and the VERA + ARGUS verdicts are both attached on the beadwork branch (durable). Highlights: P1 composition verified via a REAL throwaway subproject install (install --dry-run early-returns past recompose, so VERA did not trust the dry-run -- 250-line module body inlined byte-identical into BOTH deployed hosts); P5 live nine-field entry landed intact on a throwaway ticket; P7 OPTIONS splits to exactly N tokens on the delimiter (the rev2 r1 fix holds, would FAIL on multi-line storage); P11 dollar-AND-apostrophe round-trip intact with the naive-double-quote mangle demonstrated as the failing control; P10 honesty grep clean (only negation idioms); P4 judge is reported as a DOGFOOD PROXY (judge==verifier), per-class floors all met (decided 5/5, illuminated 4/4 load-bearing, problem 3/3, incidental 3/3). Full suite: gen-data DETERMINISTIC + matches committed build, vitest 41/41, author-gate 29/0, stop-hook 2/0, check-corpus 18/18; no pre-existing reds, no this-arc-broke-it. threat_coverage empty-state carve-out (TRM_COUNT=0). Advancing to CATO (cold-read diff + meta-verify VERA) as the last gauntlet checker before NOMOS. [from: PLINY_the-stoa | sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]",
       "timestamp": "2026-06-22T17:24:27Z"
+    },
+    {
+      "text": "[from: CAPTAIN_CATO_the_stoa (subagent) | caller-sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]\nCATO activated on stoa--7gl Phase C (final gauntlet checker before NOMOS). Reading build diff bf57c40 + design rev1/rev2/rev3 + directive + VERA verdict before forming cold-read. operating-mode autonomous.",
+      "timestamp": "2026-06-22T17:25:24Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 71] Decision-register CAPTURE — self-correction doctrine slice 2a (black box, capture half)",
   "type": "task",
-  "updated_at": "2026-06-22T17:24:27Z"
+  "updated_at": "2026-06-22T17:25:24Z"
 }
