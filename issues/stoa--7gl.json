@@ -150,11 +150,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]\ndesign probes absorbed; P1/P2/P10 already green (module exists, marker pair in both hosts, check-corpus PASS 18/18 exit 0, honesty grep all negation-idiom). Now running a REAL throwaway subproject install to exercise the recompose for P1-inline/P8-source-only/P9-byte-align (note: install --dry-run early-returns past recompose per project memory, so a throwaway-clone subproject install is the honest exercise). Then P3/P4/P5/P6/P7/P11 + full close-gate suite. Noted the open L1252 stale module-count (35 vs actual 41) thread -- it is a comment-annotation accuracy item on a file this arc edits, NOT a probe falsification; I will record it as a methodology concern, not a fail.",
       "timestamp": "2026-06-22T17:11:39Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]\nmechanical probes complete and GREEN: P1 composition (markers + 250-line body inlined byte-identical into both deployed hosts via real throwaway subproject install), P2 check-corpus 18/18 exit 0, P3 vacuity detector fired on hollow then restored clean, P4 judge DOGFOOD PROXY all floors met (decided 5/5, illuminated 4/4 load-bearing, problem 3/3, incidental 3/3 exit 0 -- reported as dogfood proxy NOT trigger-verified), P8 source-only (no tests/ or standalone module deployed), P9 full-body byte-identical across source + both hosts, P10 honesty grep negation-idiom only. Now creating a THROWAWAY bw ticket for the LIVE probes P5/P6/P7/P11 (NOT the real standing register ticket per brief), will delete it after.",
+      "timestamp": "2026-06-22T17:15:03Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 71] Decision-register CAPTURE — self-correction doctrine slice 2a (black box, capture half)",
   "type": "task",
-  "updated_at": "2026-06-22T17:11:39Z"
+  "updated_at": "2026-06-22T17:15:03Z"
 }
