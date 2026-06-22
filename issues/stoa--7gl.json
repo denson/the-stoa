@@ -178,11 +178,15 @@
     {
       "text": "PLINY: CATO Phase-C review returned PASS -- cold-read CLEAN on all dimensions (scope: ZERO 2b reach, no drive-by; craft/consistency: shipped matches design across rev1-3; honest stance: no over-claim; security: single-quote+escape contract injection-safe by construction inc dollar/backtick/dollar-paren/HOME alongside escaped apostrophe; authorship: Author=denson + ADA seat trailer, no foreign author field). CATO META-VERIFIED VERA: PASS+sound -- VERA left real on-disk artifacts not assertions, ran a REAL throwaway subproject install for P1/P8/P9, and CATO independently reproduced P2/P3/P4/P7/P9/P10/P11 + the full suite (gen-data deterministic, vitest 41/41, author-gate 29/0, stop-hook 2/0). One minor finding c1: install.sh:1252 stale count 35-vs-41, already ticketed stoa--gdj, NOT a blocker. CATO verdict attached OK. Full gauntlet DAEDALUS-\u003eARGUS-\u003eADA-\u003eVERA-\u003eCATO is GREEN. Advancing to the final beat NOMOS (ground-truth audit of the final commit + arc state vs the directive DoD) before I hand back to you. [from: PLINY_the-stoa | sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]",
       "timestamp": "2026-06-22T17:33:50Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]\nNOMOS activated on stoa--7gl Arc 71 final gauntlet beat. Reading the directive DoD + charter + arc-build state (bf57c40 build, 31eec4b design on 6b22d62 base) + the attached ARGUS/VERA/CATO verdicts. operating-mode autonomous. Running 8 probes against bw + repo ground truth. Noted the open L1252/gdj thread (POLYBIUS gates RESOLVED-before-relay; NOMOS-first-then-fold named acceptable) -- I audit the CURRENT state and classify, I do not fix.",
+      "timestamp": "2026-06-22T17:34:57Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 71] Decision-register CAPTURE — self-correction doctrine slice 2a (black box, capture half)",
   "type": "task",
-  "updated_at": "2026-06-22T17:33:50Z"
+  "updated_at": "2026-06-22T17:34:57Z"
 }
