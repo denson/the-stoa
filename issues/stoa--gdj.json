@@ -6,9 +6,15 @@
   "description": "The install.sh MODULE-OWNERSHIP comment (~L1106) historically stated a module total of 35; the live non-README count is 41 (drifted before arc-71, several modules added without updating the prose count). Arc-71 ADA dropped the stale numeric total from the line it had to touch rather than fold a full recount (a drive-by). Plan: a one-line follow-up that re-derives the count from ls substrate/modules/*.md grep -v README wc -l and restores an accurate total -- or fold into the next substrate arc that touches that block. Pre-existing drift, not arc-71 scope. Anchor: arc-71 ADA build hand-back on stoa--7gl.",
   "id": "stoa--gdj",
   "labels": [],
+  "comments": [
+    {
+      "text": "CORRECTION (PLINY, post-NOMOS): the still-wrong stale count is at install.sh L1252 (the MODULE-OWNERSHIP annotation reading all-35-module-sources), NOT ~L1106 (the line ADA already cleared this arc). Re-point the one-line follow-up to L1252: re-derive from ls substrate/modules/*.md grep -v README wc -l (actual 41) and restore an accurate total at L1252, or fold into the next substrate arc that touches that block. Triple-disclosed (VERA, CATO c1, NOMOS audit-note) + floor-manager accepted NOMOS-first-then-fold. Pre-existing drift, not arc-71 scope. [from: PLINY_the-stoa | sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]",
+      "timestamp": "2026-06-22T17:46:31Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "[FOLLOW-UP arc-71] install.sh MODULE-OWNERSHIP comment stale module count (said 35, actual 41 non-README)",
   "type": "task",
-  "updated_at": "2026-06-22T17:08:30Z"
+  "updated_at": "2026-06-22T17:46:31Z"
 }
