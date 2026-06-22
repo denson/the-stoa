@@ -62,11 +62,15 @@
     {
       "text": "PLINY: ARGUS Phase-A cold-audit returned REVISE -- ONE load-bearing defect at DC0 (the highest-leverage seam), narrow fix surface; everything else ratified. The defect (I independently verified it against the source): the design claims all 9 schema fields are re-readable by the SAME proven Arc-70 field() awk helper, but field() (run-dilemma-corpus.sh:71-80) is index(line,LABEL)==1 then substr-this-line-then-EXIT -- same-line-only, first-match-only. The multi-line OPTIONS continuation-lines the schema specifies would be SILENTLY DROPPED by that parser. Since DC0's whole job is the schema the deferred 2b reader keys on, a parse-claim that is false for OPTIONS is revise-blocking. Also r2: the P7 probe as spec'd asserts each field returns A value, not that OPTIONS returns ALL its lines -- so the design's own probe can't expose the gap. ARGUS RATIFIED the other 5 seams (DC1 guard, DC4 + honesty stance, the 2b boundary is clean / no reach, DC2 composition mechanics verified line-by-line vs install.sh, DC5 corpus+floors) AND all 3 residual adjudications: (a) threat carve-out CONFIRMED per 35.5; (b) DC2 new-module weighting RATIFIED; (c) DC5 floors RATIFIED-with-watch (illuminated \u003e=3/4 is an honest granularity-limited seed). Routing to DAEDALUS for a tight rev2 resolving DC0 (a deterministic ALL-fields parse incl OPTIONS) + fixing P7 to actually exercise full-OPTIONS recovery. I will surface the ARGUS-cleared design-rev2 to you for the go/no-go BEFORE any build. Separately flagging for a follow-up ticket (not this arc's scope): ARGUS hit a real save-verdict tension -- the canonical printf '%s' body form is unusable for apostrophe-heavy bodies (the doctrine quotes we-will-see / time-will-tell), and the module's documented apostrophe escape vs its forbidden-heredoc guidance is worth a substrate look. ARGUS verdict attached OK (sha256 7ec0b56...). [from: PLINY_the-stoa | sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]",
       "timestamp": "2026-06-22T15:47:22Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]\nDAEDALUS activated on rev2 (DC0 r1+r2 + r3 fold). Read rev1 + ARGUS verdict + the Arc-70 field() helper (run-dilemma-corpus.sh:71-80) + PLINY/POLYBIUS re-gate bar. Resolution chosen: single-line delimited OPTIONS (brief option a) -- keeps the bare proven field() parser UNCHANGED, no novel extractor to prove. Verified live: field() recovers the single-line value in full and a delimiter-split reconstructs all N options. Drafting design-rev2 now (restate DC0 + P7 in full; everything else unchanged-per-ARGUS-ratification).",
+      "timestamp": "2026-06-22T15:48:36Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 71] Decision-register CAPTURE — self-correction doctrine slice 2a (black box, capture half)",
   "type": "task",
-  "updated_at": "2026-06-22T15:47:22Z"
+  "updated_at": "2026-06-22T15:48:36Z"
 }
