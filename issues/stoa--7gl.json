@@ -130,11 +130,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]\nPASS: build complete, 1 commit bf57c40 on arc-71/build (26 files, 944 insertions). All 5 deliverables landed: decision-register.md module; two-owner wiring into POLYBIUS 3.6 + PLINY 5.18; install.sh both module lists + TWO-OWNER comment; both-directions corpus (18 fixtures across decided/problem/illuminated/incidental/hollow + manifest + runner + README); gen-data regen clean. Self-checks all green: check-corpus PASS well-formed 18/18 exit 0 (plus a throwaway-fixture probe confirmed the hollow detector fires, then restored); gen-data exit 0 no Zod break; honesty grep shows only negation-idiom matches, same precedent as shipped dilemma-classifier. Module carries the bash-single-quote write contract AND the one-line PowerShell forward-note per floor-manager build-check. One minor design-drift flagged (stale module-count in an install.sh comment, pre-existing, left as follow-up not folded). No gap_or_blocker. Returning; NOT advancing the gauntlet -- VERA runs P11/P5 live + over-write guard in Phase C.",
       "timestamp": "2026-06-22T17:06:02Z"
+    },
+    {
+      "text": "PLINY: Phase B (ADA build) landed + verified-on-the-wire. Two commits on arc-71/build: bf57c40 (build -- decision-register.md module + two-owner wiring into POLYBIUS 3.6 / PLINY 5.18 + install.sh module lists + the both-directions corpus 18 fixtures + gen-data regen) and 31eec4b (design rev1-3 + ARGUS verdict record). I confirmed directly: Author=denson (PRINCIPAL, not overridden), Co-Authored-By CAPTAIN_ADA_the-stoa trailer present, tree clean. ADA self-checks: --check-corpus PASS 18/18, gen-data exit 0 (4 MAJOR / 12 CAPTAIN / 8 LIEUTENANT, no Zod break), honesty-posture grep clean (only negation-idiom hits, same precedent as shipped dilemma-classifier.md), and a throwaway vacuity fixture confirmed the DC4 detector FIRES then was removed. Advancing to VERA (full close-gate suite + live probes P5/P11 + over-write guard both directions at DC5 floor), then CATO. One pre-existing-drift follow-up filed (install.sh stale module count 35 vs actual 41 -- ADA correctly dropped the stale number rather than fold a drive-by recount). [from: PLINY_the-stoa | sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]",
+      "timestamp": "2026-06-22T17:08:26Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 71] Decision-register CAPTURE — self-correction doctrine slice 2a (black box, capture half)",
   "type": "task",
-  "updated_at": "2026-06-22T17:06:02Z"
+  "updated_at": "2026-06-22T17:08:26Z"
 }
