@@ -99,6 +99,7 @@ These two always-loaded index tables (per `.claude/modules/README.md` §4 + `ope
 | worktree-resident CAPTAIN dispatch (seat-identity field) | `seat-identity-brief.md` | disk (Read) |
 | surface-and-wait on POLYBIUS / multi-arc autonomous engagement | `pliny-polling-pattern.md` | disk (Read) |
 | directive-lock / design-phase dispatch (classify the locked decision) | `dilemma-classifier.md` | disk (Read) |
+| record a decided dilemma to the bw black box (directive-lock) | `decision-register.md` | disk (Read) |
 | one-off bespoke task | (compose inline) | inline |
 | must-persist shared spec | `bw show <ticket-id>` | bw |
 
@@ -118,6 +119,7 @@ These two always-loaded index tables (per `.claude/modules/README.md` §4 + `ope
 | §5.12 Per-CAPTAIN seat-identity in the brief | `seat-identity-brief.md` (disk module) | CONDITIONAL |
 | §6.2 + §6.2a Surface-and-wait polling + multi-arc mode | `pliny-polling-pattern.md` (disk module) | CONDITIONAL |
 | §5.18 dilemma-classifier directive-lock checkpoint | `dilemma-classifier.md` (disk module) | CONDITIONAL |
+| §5.18 decision-register (capture a decided dilemma to bw) | `decision-register.md` (disk module) | CONDITIONAL |
 | §5.4 cross-repo provenance (orig `ariadne--b93`) | `bw show stoa--xyb.10.1` (C-2 child cite) | PROVENANCE (C-2) |
 | §6.1 bw cookbook tables (dupe) | `operating-disciplines.md` §12 (pointer kept) | DUPLICATE |
 | §6.3 / §6 closeout N=1 provenance | `bw show stoa--bxx, stoa--s2p` (Anchor cite) | PROVENANCE |
@@ -316,8 +318,17 @@ PLINY-owned shot in the two-seat redundancy (POLYBIUS classifies at spin-up/prio
 `MAJOR_POLYBIUS.md` §3.6; PLINY classifies again at directive-lock). The classifier's read is your
 judgment; the directive-lock beat is the deterministic WHEN. Honest scope: high-probability spine-hold +
 regression-guard, NOT a non-collapsible gate. Routing-map + relocation-index rows in §4.2.
+
+> **Capture the decided dilemma (Arc 71 / `stoa--7gl`).** At directive-lock: if the classifier returned
+> DILEMMA AND the directive commits a path → record per `decision-register.md` (one structured `bw comment`
+> to the standing register ticket). The register journals *decisions*, not illuminated-but-undecided
+> tradeoffs — the over-write guard withholds on a problem, an undecided dilemma, or an incidental mention.
+
 <!-- MODULE-INLINE:dilemma-classifier -->
 <!-- /MODULE-INLINE:dilemma-classifier -->
+
+<!-- MODULE-INLINE:decision-register -->
+<!-- /MODULE-INLINE:decision-register -->
 
 ---
 

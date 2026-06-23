@@ -1103,9 +1103,9 @@ if [ "$TARGET" = "subproject" ]; then
     # THIRD owner in debloat Arc 48 / design-arc-48 §6.4; FOURTH owner in debloat Arc 6 / Arc 49 /
     # design-arc-49 §6.4; FIFTH owner CHIRON in Arc 61): the shared substrate/modules/ dir now holds
     # modules owned by DIFFERENT role files (4 POLYBIUS + 12 op-disc + 11 PLINY + 7 DAEDALUS +
-    # 1 CHIRON = 35, basename-disjoint per design-arc-49 §3.8 — but SUPERSEDED for the two-owner module
-    # `dilemma-classifier` added Arc 70 / stoa--y1a, see the owned-set comment in §3b ~L1246). Two
-    # distinct sets are required:
+    # 1 CHIRON, basename-disjoint per design-arc-49 §3.8 — but SUPERSEDED for the two-owner modules
+    # `dilemma-classifier` (Arc 70 / stoa--y1a) and `decision-register` (Arc 71 / stoa--7gl), see the
+    # owned-set comment in §3b). Two distinct sets are required:
     #   - GLOBAL existence set (Check A): every real module source, owner-agnostic. A marker
     #     must reference a real module file REGARDLESS of owner — the Check A guarantee must NOT
     #     narrow with the owned-set. Built from the filesystem glob, NOT from arg 2.
@@ -1250,18 +1250,20 @@ if [ "$TARGET" = "subproject" ]; then
   # MODULE-OWNERSHIP owned-sets (design-arc-47 §6.4 / §3.8; FOURTH owner added Arc 6 / Arc 49). Each
   # role file's recompose call is scoped to the modules IT owns (Checks B/D); Check A still tests the
   # GLOBAL existence set (all 35 module sources minus README, owner-agnostic) inside the function.
-  # TWO-OWNER MODULE (Arc 70 / stoa--y1a): `dilemma-classifier` is INTENTIONALLY owned by BOTH
-  # POLYBIUS_MODULES and PLINY_MODULES — the doctrine's multi-agent-redundancy property needs the
-  # classifier consulted at two seats (POLYBIUS spin-up/prioritization + PLINY directive-lock), so each
-  # role file carries its own MODULE-INLINE:dilemma-classifier marker pair. This SUPERSEDES the
-  # "basename-disjoint per design-arc-49 §3.8" invariant noted at the recompose_module_inline() comment
-  # above (~L1101) FOR THIS MODULE: ownership is no longer disjoint across owners. Runtime-proven safe —
-  # recompose runs ONCE PER FILE with that file's OWN owned-set (Checks B/D are per-file; Check A is
-  # owner-agnostic global existence), so two independent marker pairs in two files never collide. A
-  # future maintainer reading the disjoint comment must read it as superseded for dilemma-classifier.
-  POLYBIUS_MODULES="onboarding sub-project-spawning pair-programming-prototyping substrate-update-check dilemma-classifier"
+  # TWO-OWNER MODULES (Arc 70 / stoa--y1a; Arc 71 / stoa--7gl): `dilemma-classifier` AND
+  # `decision-register` are each INTENTIONALLY owned by BOTH POLYBIUS_MODULES and PLINY_MODULES — the
+  # self-correction doctrine's multi-agent-redundancy property needs both the READ (classify) and the
+  # WRITE (capture a decided dilemma) consulted at two seats (POLYBIUS spin-up/prioritization + PLINY
+  # directive-lock), so each role file carries its own MODULE-INLINE:dilemma-classifier AND
+  # MODULE-INLINE:decision-register marker pair. This SUPERSEDES the "basename-disjoint per
+  # design-arc-49 §3.8" invariant noted at the recompose_module_inline() comment above (~L1101) FOR THESE
+  # TWO MODULES: ownership is no longer disjoint across owners. Runtime-proven safe — recompose runs ONCE
+  # PER FILE with that file's OWN owned-set (Checks B/D are per-file; Check A is owner-agnostic global
+  # existence), so independent marker pairs in two files never collide. A future maintainer reading the
+  # disjoint comment must read it as superseded for dilemma-classifier and decision-register.
+  POLYBIUS_MODULES="onboarding sub-project-spawning pair-programming-prototyping substrate-update-check dilemma-classifier decision-register"
   OPDISC_MODULES="two-polybius-coordination autonomous-mode-setup sub-agent-transcript-discipline bw-fit-matrix oss-dep-and-latency credential-discipline-detail bw-upgrade mechanical-inspection-split multi-team-interop four-layer-identity substrate-component-design jsdom-timing-discipline"
-  PLINY_MODULES="ada-brief-preamble sub-agent-watchdog per-worktree-venv post-strabo-vera incomplete-unverifiable-routing smoke-beat-deploy-check background-dispatch-hygiene pre-branch-hygiene arc-close-hygiene seat-identity-brief pliny-polling-pattern dilemma-classifier"
+  PLINY_MODULES="ada-brief-preamble sub-agent-watchdog per-worktree-venv post-strabo-vera incomplete-unverifiable-routing smoke-beat-deploy-check background-dispatch-hygiene pre-branch-hygiene arc-close-hygiene seat-identity-brief pliny-polling-pattern dilemma-classifier decision-register"
   DAEDALUS_MODULES="canonical-code-block-fix credential-flow-design principal-gate-design canonical-template-alignment probe-grounding ssot-with-why api-docs-dont-generalize"
   CHIRON_MODULES="pair-programmer-authoring"
   # CAPTAIN_DAEDALUS has NO dedicated DEST_* deploy var (it deploys in the CAPTAIN_NAMES loop above);

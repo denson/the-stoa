@@ -1,0 +1,3 @@
+SCENARIO: "At a team-spin-up checkpoint the classifier returned DILEMMA on Postgres vs. a document store. The agent illuminated both costs fully. The PRINCIPAL said: let me think about it, I'll decide tomorrow."
+EXPECT: no-write
+WHY: THE LOAD-BEARING over-write guard. Checkpoint fired and the classifier returned DILEMMA (conditions 1 and 2 hold), but NO path was chosen -- condition 3 fails. The PRINCIPAL deferred. Logging an undecided tradeoff would pollute the journal the 2b callback reads AND let a non-decision masquerade later as a warned decision. The register journals choices, not illuminated-but-open tradeoffs. No entry until a path is actually taken.

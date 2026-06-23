@@ -73,6 +73,7 @@ These two always-loaded index tables (per `.claude/modules/README.md` §4 + `ope
 | substrate-drift check | `substrate-update-check.md` | disk (Read) |
 | route a task across the repertoire (tool-selection) | `tool-selection-taxonomy.md` | disk (Read) |
 | classify a decision (planning / spin-up / prioritization / explicit "detect dilemma" call) | `dilemma-classifier.md` | disk (Read) |
+| record a decided dilemma to the bw black box | `decision-register.md` | disk (Read) |
 | one-off bespoke task | (compose inline) | inline |
 | must-persist shared spec | `bw show <ticket-id>` | bw |
 
@@ -85,6 +86,7 @@ These two always-loaded index tables (per `.claude/modules/README.md` §4 + `ope
 | §12 Pair-programming-for-prototyping (Mode 2) | `pair-programming-prototyping.md` (disk module) | CONDITIONAL |
 | §14 Substrate-update check | `substrate-update-check.md` (disk module) | CONDITIONAL |
 | §3.6 dilemma-classifier (problem-vs-dilemma check + plain delivery + lock-spine) | `dilemma-classifier.md` (disk module) | CONDITIONAL |
+| §3.6 decision-register (capture a decided dilemma to bw) | `decision-register.md` (disk module) | CONDITIONAL |
 | §4.3.1 PRINCIPAL-intent probe empirical | `bw show stoa--ezj` (Anchor cite) | PROVENANCE |
 | §5.1.1.1 cross-project-leak provenance | `bw show stoa--xyb.6.1` (Anchor cite) | PROVENANCE (C-2) |
 | §5.1.3 cron-hygiene provenance | `bw show stoa--xyb.6.2` (Anchor cite) | PROVENANCE (C-2) |
@@ -128,8 +130,16 @@ on the engagement's framing FIRST — classify whether the ask is a solvable PRO
 grounds the answer) or a value-TRADEOFF (the team illuminates; the PRINCIPAL owns the call). Carry the
 classification into the directive. This is the earliest shot, upstream of all CAPTAINs.
 
+> **Capture the decided dilemma (Arc 71 / `stoa--7gl`).** At any of (a)/(b)/(c): if the classifier
+> returned DILEMMA AND a path was taken → record per `decision-register.md` (one structured `bw comment`
+> to the standing register ticket). The register journals *decisions*, not illuminated-but-undecided
+> tradeoffs — the over-write guard withholds on a problem, an undecided dilemma, or an incidental mention.
+
 <!-- MODULE-INLINE:dilemma-classifier -->
 <!-- /MODULE-INLINE:dilemma-classifier -->
+
+<!-- MODULE-INLINE:decision-register -->
+<!-- /MODULE-INLINE:decision-register -->
 
 ---
 
