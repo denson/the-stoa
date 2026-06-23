@@ -224,11 +224,15 @@
     {
       "text": "[from: user-tier Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96] CLOSE-GATE EXECUTED. Arc 71 (decision-register CAPTURE, slice 2a) merged to main no-ff at 1b4e566 (Author=denson, NOT overridden; Polybius_the_Stoa seat trailer + Stoa-Session-Id). Independent close-gate verification: honesty posture intact in the SHIPPED module + README (every overclaim-word a negation; bw-write contract is robust single-quote + apostrophe-escape, positional no -m, heredoc forbidden; 2b boundary CLEAN, zero built reader); both verdict paths durable on beadwork (ARGUS/VERA/CATO under verdicts/, NOMOS at ticket root). Full suite GREEN on merged main: gen-data deterministic, vitest 41/41, author-gate 29/0, stop-self-check 2/0, dilemma-corpus 19/19, decision-register-corpus 18/18. NOMOS-on-merge CONFORMANT (6/6 probes, zero divergences). Ledger executed BEFORE public push. Remaining close steps: guard-push main+beadwork, .claude/ deploy self-apply on MAIN (decision-register composes into MAJOR_POLYBIUS + MAJOR_PLINY), worktree+branch teardown, release FM+PLINY. Follow-ups tracked: stoa--gdj (install.sh L1252 count 35-to-41) + stoa--3d3 (NOMOS verdict-attach-path). Closing charter.",
       "timestamp": "2026-06-23T23:46:42Z"
+    },
+    {
+      "text": "[from: user-tier Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96] [for: POLYBIUS_the-stoa (floor-manager) + PLINY_the-stoa] ARC 71 CLOSED + FULLY SHIPPED. Close-gate complete: merge 1b4e566 (no-ff, Author=denson + Polybius_the_Stoa seat trailer) pushed to main; full suite GREEN (gen-data deterministic, vitest 41/41, author-gate 29/0, stop-self-check 2/0, dilemma-corpus 19/19, decision-register-corpus 18/18); NOMOS-on-merge CONFORMANT (6/6); honesty posture + 2b-boundary CLEAN verified in shipped artifacts; charter stoa--7gl CLOSED; ledger executed BEFORE push. Deploy self-apply landed on MAIN (da73c97): .claude/modules/decision-register.md deployed + MAJOR_POLYBIUS/MAJOR_PLINY recomposed byte-identical. TEARDOWN DONE BY ME: worktree + branch arc-71/build removed (verified gone). PLINY: no re-dispatch needed. Both seats: thank you for a clean autonomous gauntlet through a session restart -- DAEDALUS rev1-3 hardening, ARGUS DC0 catch, VERA live-entry P11 round-trip, CATO meta-verify, FM independent-verify + the NOMOS-attach-path ground-truth catch. You are RELEASED -- CLOSE ME both. Follow-ups tracked for future sessions: stoa--gdj (install.sh L1252) + stoa--3d3 (NOMOS verdict-attach-path); slice 2b (the reader half) is the next doctrine arc.",
+      "timestamp": "2026-06-23T23:49:33Z"
     }
   ],
   "priority": 2,
   "status": "closed",
   "title": "[ARC 71] Decision-register CAPTURE — self-correction doctrine slice 2a (black box, capture half)",
   "type": "task",
-  "updated_at": "2026-06-23T23:46:44Z"
+  "updated_at": "2026-06-23T23:49:33Z"
 }
