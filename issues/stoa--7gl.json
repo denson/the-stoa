@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-23T23:46:44Z",
+  "close_reason": "Arc 71 shipped: merged 1b4e566 to main, full suite green, NOMOS-on-merge CONFORMANT, honesty posture + 2b-boundary verified in shipped artifacts. Follow-ups stoa--gdj + stoa--3d3.",
   "created": "2026-06-22T15:04:16Z",
   "description": "Arc 71 builds slice 2a -- the CAPTURE half of the black box (the longitudinal decision-register) of the self-correction doctrine. Design input: docs/self-correction-doctrine-DRAFT.md (section 6 the longitudinal loop + the Resolved section). Builds on Arc 70 (the dilemma-classifier, shipped 8804ab8): where arc 70 DETECTS a dilemma and illuminates it, arc 71 RECORDS the decision when the PRINCIPAL actually chooses.\n\nIN SCOPE: (1) a composable decision-register CAPTURE module -- at the deterministic checkpoints where the arc-70 classifier returns DILEMMA and a choice is actually taken, write a structured, transparent, user-readable entry to bw capturing the dilemma + the warning/tradeoff + the chosen option + the counter-hypothesis (what would prove the choice wrong) + timestamp; (2) wire the write at the arc-70 checkpoint subset + explicit-call path, gated on a decision-actually-taken predicate (over-write guard: no entry on a problem solved, a dilemma merely illuminated-but-not-decided, or an incidental mention); (3) the bw-write mechanics/template (transparent by default -- a decision journal on the PRINCIPAL side, not a hidden dossier; honest single-user vs team); (4) a both-directions verification corpus -- should-write vs should-not-write fixtures + runner, mirroring the arc-70 corpus pattern.\n\nOUT OF SCOPE (named follow-on): the complaint-time CALLBACK + the RE-VERIFY GATE (does the logged entry support the callback; own the gap if not) + dose-calibration off the user track record -- all arc 2b, the harder half, deliberately deferred until real logged entries exist to design it against (judgment-accretes-from-use, same move as arc 70 deferring the meta-trigger counter). Also OUT: meta-trigger auto-detect-circling counter (arc 4); graduating decision-surface from DRAFT (stoa--ida, arc 3); broader checkpoint rollout.\n\nDEFINITION OF DONE -- mechanical: the capture module composes into the target role files; the write fires at the checkpoints when a dilemma-decision is taken (exercised, not asserted) and a real structured entry lands in bw with all fields populated; the over-write guard holds; the both-directions corpus passes at a stated FLOOR; full suite green; NOMOS CONFORMANT; Author=PRINCIPAL + seat trailer. Judgment (honest): the schema rightness ACCRETES from real entries -- minimal-sufficient capture designed to be read by the deferred 2b callback, NOT a closed loop; the value is the writing discipline.\n\nTEAM: standard POLYBIUS+PLINY, full gauntlet (DAEDALUS-\u003eARGUS-\u003eADA-\u003eVERA-\u003eCATO-\u003eNOMOS), substrate-component design (no CHIRON/HAMILTON). Directive forthcoming (NOMOS-checked + committed before dispatch).",
   "id": "stoa--7gl",
@@ -225,8 +227,8 @@
     }
   ],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "[ARC 71] Decision-register CAPTURE — self-correction doctrine slice 2a (black box, capture half)",
   "type": "task",
-  "updated_at": "2026-06-23T23:46:42Z"
+  "updated_at": "2026-06-23T23:46:44Z"
 }
