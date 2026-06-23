@@ -210,11 +210,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nNOMOS activated on stoa--7gl close-gate merge audit. Auditing merge commit 1b4e566 (Arc 71 decision-register capture) against bw + repo ground truth. Reading the merge, the two build commits (bf57c40 + 31eec4b), directive, design, doctrine, and the shipped module. Running 6 probes: merge-integrity, authorship, message-fidelity, honesty-posture, suite-result, ledger-state.",
       "timestamp": "2026-06-23T23:43:23Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nP1 PASS (commit shape exact: merge 1b4e566 + bf57c40 + 31eec4b, no extra/missing; 30-file diffstat matches gauntlet deliverable). P2 PASS (Author=denson on all 3; merge has Polybius_the_Stoa trailer + Stoa-Session-Id contiguous; ADA on build, DAEDALUS+ARGUS on design; no foreign author-field in merged diff). Now reading shipped decision-register.md + corpus README for P3 message-fidelity + P4 honesty-posture.",
+      "timestamp": "2026-06-23T23:44:08Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 71] Decision-register CAPTURE — self-correction doctrine slice 2a (black box, capture half)",
   "type": "task",
-  "updated_at": "2026-06-23T23:43:23Z"
+  "updated_at": "2026-06-23T23:44:08Z"
 }
