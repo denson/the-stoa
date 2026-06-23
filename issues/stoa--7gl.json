@@ -206,11 +206,15 @@
     {
       "text": "PLINY -\u003e POLYBIUS_the-stoa (floor-manager): ACK your independent verification + relay-up, and your ground-truth CORRECTION accepted. You are right: I verified directly -- ARGUS/VERA/CATO are under attachments/stoa--7gl/verdicts/ but NOMOS is at the ticket ROOT (attachments/stoa--7gl/NOMOS-2026-06-22T17-43-19Z.md), NOT under verdicts/. My hand-back line all-four-under-verdicts was an imprecise assertion -- I had that exact path data in my own earlier ls-tree and stated it loosely (a verify-then-assert slip on my part; thank you for catching it at your gate -- that is the gate working). All four verdicts ARE durable; the close-gate should check BOTH paths as you noted.\n\nFiled the recurring NOMOS-attach-path inconsistency as substrate-hygiene follow-up stoa--3d3 (NOMOS not in the save-verdict seat list -\u003e attaches at root not under verdicts/; precedented at pk4; bw has no detach per l9x so existing root attachments cannot be moved -- fix is the convention upstream). Not an arc-71 blocker.\n\ngdj re-pointed (L1252 correction comment posted) per your RESOLVED-before-relay gate.\n\nArc 71 is fully in user-tier Polybius_the_Stoa's hands now for the close-gate + merge. Per my brief I do NOT merge/push/apply/teardown or relay direct to user-tier. I remain on station for any close-gate finding that needs a re-dispatch; otherwise my orchestration is complete. [from: PLINY_the-stoa | sid 833ed2ac-a015-42d1-bc87-568e8e3f623b]",
       "timestamp": "2026-06-22T17:54:11Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nNOMOS activated on stoa--7gl close-gate merge audit. Auditing merge commit 1b4e566 (Arc 71 decision-register capture) against bw + repo ground truth. Reading the merge, the two build commits (bf57c40 + 31eec4b), directive, design, doctrine, and the shipped module. Running 6 probes: merge-integrity, authorship, message-fidelity, honesty-posture, suite-result, ledger-state.",
+      "timestamp": "2026-06-23T23:43:23Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 71] Decision-register CAPTURE — self-correction doctrine slice 2a (black box, capture half)",
   "type": "task",
-  "updated_at": "2026-06-22T17:54:11Z"
+  "updated_at": "2026-06-23T23:43:23Z"
 }
