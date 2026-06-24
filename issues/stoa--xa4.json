@@ -146,11 +146,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009] pass: regen fix landed. Trailing commit aa56d50 on arc-72/build (parent a973f31, NOT an amend). npm run gen-data regenerated ONLY app/src/data/generated/agents.ts (single tracked-file diff, +1/-1 on the decision-surface LIEUTENANT description line; the three agents/verdicts/*.md were pre-existing untracked, left unstaged). DRAFT phrase ('being refined as we use it') no longer in artifact = graduated body now embedded. Determinism: 2nd gen-data run produced NO further diff (idempotent). Author preserved denson (no --author); seat trailer Co-Authored-By CAPTAIN_ADA_the-stoa present. No bw tickets closed (stoa--ida close is PLINY at merge). Returning.",
       "timestamp": "2026-06-24T03:03:10Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009] NOMOS RE-AUDIT activated on stoa--xa4 (Arc 72). Prior verdict DIVERGENT on 1 item (gen-data-determinism SIZE-DERAIL, probe-7). ADA fix commit aa56d50 landed. Re-auditing: fix-commit shape, divergence-closed (re-derive gen-data determinism), no-regression on DC0-DC4, stoa--ida still OPEN. Reading ground truth.",
+      "timestamp": "2026-06-24T03:04:17Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 72] Graduate decision-surface — the guide front (self-correction doctrine slice 3)",
   "type": "task",
-  "updated_at": "2026-06-24T03:03:10Z"
+  "updated_at": "2026-06-24T03:04:17Z"
 }
