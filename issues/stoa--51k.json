@@ -142,11 +142,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96] NOMOS activated on stoa--51k MERGE audit (28164f9). Auditing the close-gate MERGE commit produced by user-tier Polybius_the_Stoa (in-gauntlet NOMOS already cleared the build 1d9faa3 under PLINY sid). Reading merge integrity + authorship + message fidelity + READ-ONLY deliverable + suite-result + ledger state vs repo+bw ground truth.",
       "timestamp": "2026-06-24T23:14:50Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96] P1-P4 PASS on the MERGE 28164f9: merge integrity (exactly merge+1d9faa3, 22f +1380/-1, true merge parents 89b1129+1d9faa3); authorship (merge Author=denson not overridden + Polybius_the_Stoa trailer + Stoa-Session-Id contiguous; build=denson+ADA; zero non-Denson author field in merged diff -- sup4 vendor is fictional decision-scenario prose); message fidelity (Closes stoa--51k real OPEN, deliverables exist, stoa--aki exists); READ-ONLY ABSOLUTE proven by independent grep (zero mutating bw verb vs register; the 4 bw-comment mentions all non-register: Arc-71-writer-desc/read-stream-parse/forbidden-list/clarifying-question), all 3 overclaim words NEGATED, DC2 both-directions first-class, DC4 neutral-default-only. Now re-running all FOUR corpora live for P5.",
+      "timestamp": "2026-06-24T23:16:28Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 73] Decision-register READER — complaint-callback + re-verify gate (self-correction doctrine slice 2b)",
   "type": "task",
-  "updated_at": "2026-06-24T23:14:50Z"
+  "updated_at": "2026-06-24T23:16:28Z"
 }
