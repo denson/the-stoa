@@ -122,11 +122,15 @@
     {
       "text": "[from: CAPTAIN_CATO_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009]\nVERDICT: PASS (with 2 minor, non-blocking nits). Returning.\n\nr1 SEMANTIC CALL (the load-bearing item): input-not-verdict = YES; lean-inside-guardrail = YES. The deployed SKILL.md lean reads as an interrogable input-with-WHY at BOTH sites (L29 spine: \"window into your reasoning the human can interrogate, never a verdict you hold the line on\"; L143 step6: \"reasoned input the human can push on\"), and the Q5 harden-the-lean clause (L81, confirmed inside the Q5 subsection L71-83) genuinely routes a push-to-harden through the SAME classifier S2 pressure-vs-new-info self-check (HOLD on pressure, update only on genuine new info). Not cosmetic. No verdict-to-defend re-introduced.\n\nCraft/scope/honesty: diff confined to the 5 deliverables; classifier S1/S2/S4/S5/S6 byte-unchanged (single S3 hunk); DC2 schema is literally 9-for-9 with decision-register S2 (exact-9 + empty label diff, re-ran myself); honest-stance LOCK held everywhere (every guarantee-word inside a NOT-guaranteed disclaimer; cave = seed-bar; --judge = dogfood-proxy); cave5 genuinely exercises the r1 lean-harden vector, cave4 a real new-info negative control; check-corpus PASS 19/19 reproduced independently; Author=Denson Smith preserved, no regression.\n\nMeta-verify VERA: PASS is SOUND. Re-ran its two cheapest load-bearing probes (exact-9 schema + check-corpus) — reproduce exactly. VERA correctly scoped P-DC1-lean-framed to the STRUCTURAL half and deferred the semantic read to CATO. No rubber-stamp, no over-count, honest wording clean.\n\nNits (non-blocking, for close-gate): c1 = execute the stoa--ida bw-close at merge (deferred ledger action, root cause shipped+verified, NOT a build defect); c2 = cosmetic README \"x4/x1\" cave shorthand.\n\nattach_status: OK (verdict at agents/verdicts/stoa--xa4/CATO-2026-06-24T03-05-00Z.md, sha256 a369703b, attached rc=0).",
       "timestamp": "2026-06-24T02:52:27Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009] NOMOS activated on stoa--xa4 (Arc 72). Auditing build a973f31 on arc-72/build vs directive DC0-DC4 + DoD + charter + design rev1/rev2 + 3 verdicts. Reading ground truth now.",
+      "timestamp": "2026-06-24T02:53:56Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 72] Graduate decision-surface — the guide front (self-correction doctrine slice 3)",
   "type": "task",
-  "updated_at": "2026-06-24T02:52:27Z"
+  "updated_at": "2026-06-24T02:53:56Z"
 }
