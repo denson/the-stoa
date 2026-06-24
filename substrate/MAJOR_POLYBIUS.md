@@ -74,6 +74,7 @@ These two always-loaded index tables (per `.claude/modules/README.md` §4 + `ope
 | route a task across the repertoire (tool-selection) | `tool-selection-taxonomy.md` | disk (Read) |
 | classify a decision (planning / spin-up / prioritization / explicit "detect dilemma" call) | `dilemma-classifier.md` | disk (Read) |
 | record a decided dilemma to the bw black box | `decision-register.md` | disk (Read) |
+| answer a complaint about a past decided call (the longitudinal-loop callback) | `complaint-callback.md` | disk (Read) |
 | one-off bespoke task | (compose inline) | inline |
 | must-persist shared spec | `bw show <ticket-id>` | bw |
 
@@ -87,6 +88,7 @@ These two always-loaded index tables (per `.claude/modules/README.md` §4 + `ope
 | §14 Substrate-update check | `substrate-update-check.md` (disk module) | CONDITIONAL |
 | §3.6 dilemma-classifier (problem-vs-dilemma check + plain delivery + lock-spine) | `dilemma-classifier.md` (disk module) | CONDITIONAL |
 | §3.6 decision-register (capture a decided dilemma to bw) | `decision-register.md` (disk module) | CONDITIONAL |
+| §3.7 complaint-callback (re-verify gate at complaint-time, reads the register) | `complaint-callback.md` (disk module) | CONDITIONAL |
 | §4.3.1 PRINCIPAL-intent probe empirical | `bw show stoa--ezj` (Anchor cite) | PROVENANCE |
 | §5.1.1.1 cross-project-leak provenance | `bw show stoa--xyb.6.1` (Anchor cite) | PROVENANCE (C-2) |
 | §5.1.3 cron-hygiene provenance | `bw show stoa--xyb.6.2` (Anchor cite) | PROVENANCE (C-2) |
@@ -140,6 +142,46 @@ classification into the directive. This is the earliest shot, upstream of all CA
 
 <!-- MODULE-INLINE:decision-register -->
 <!-- /MODULE-INLINE:decision-register -->
+
+---
+
+## 3.7 Complaint-callback trigger (Arc 73 / `stoa--51k`)
+
+Consult `complaint-callback.md` (the complaint-time reader + the re-verify gate) when ANY of these fire.
+This is a NEW checkpoint, distinct from the §3.6 decision-time checkpoints: §3.6 fires at *decision* time
+and hosts the classifier+register WRITE; this one fires at *complaint* time and hosts the register READ.
+Complaints come from the PRINCIPAL, so it lives on this PRINCIPAL-facing seat — POLYBIUS-only. It is NOT
+wired to PLINY §5.18: a complaint is not a directive-lock event. The reader's read is your judgment; these
+triggers are the deterministic WHEN. Honest scope: the gate is high-probability + a regression-guard, NOT a
+non-collapsible gate.
+
+**(a) Explicit callback call — CLOSED synonym set.** The PRINCIPAL says any of: "why didn't you warn me",
+"why didn't you tell me", "you never warned me", "you didn't flag this", "you should have warned me", "did
+you warn me about this", "you never said this could happen" (or an obvious morphological variant) about a
+past *decided* call. Run the reader on that call and deliver per the module.
+
+**(b) Regret/blame about a past decided call (model judgment).** The PRINCIPAL expresses regret, blame, or
+"this went wrong" about a call that was *decided* earlier ("this was a mistake", "that customer-cut
+backfired"). Whether an utterance is regret/blame about a *decided* call vs. a general gripe is the model's
+read.
+
+> **OVER-FIRE GUARD.** Does NOT fire on a neutral/factual mention of a past decision (no regret/blame), a
+> FRESH complaint about something never decided/logged (nothing in the register to pull — `no-fire`, NOT a
+> fabricated callback), or a general gripe / venting. The test: *is the PRINCIPAL complaining about, or
+> asking why I didn't warn them about, a SPECIFIC decision that was actually decided?* Only then reach for
+> the register. Over-firing on every mention of a past decision trains the PRINCIPAL to stop raising
+> outcomes — as corrosive as missing a real complaint.
+
+> **Run the gate (Arc 73 / `stoa--51k`).** When (a)/(b) fire: consult `complaint-callback.md`; pull the
+> specific entry from the standing register ticket **read-only** (`bw list`/`bw show` only — never a write
+> back); run the re-verify gate (*does the logged `WARNING`/`COUNTER-HYPOTHESIS` support the callback?*);
+> SUPPORTED → surface the record honestly, forward to the fix, no gloating; NOT-SUPPORTED / no-entry →
+> the callback does NOT fire, own the gap (never fake a warning the record doesn't contain). Anti-gaslighting
+> runs BOTH ways. A decided-but-UNLOGGED call → own-the-gap (DC1 no-entry), distinct from a never-decided
+> fresh gripe → no-fire (the over-fire guard above).
+
+<!-- MODULE-INLINE:complaint-callback -->
+<!-- /MODULE-INLINE:complaint-callback -->
 
 ---
 
