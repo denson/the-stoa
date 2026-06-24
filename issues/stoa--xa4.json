@@ -90,11 +90,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009] DC0+DC1+DC2+DC3 + worked-example done. Build-checks: classifier S1/S2 (L37-83) byte-IDENTICAL to main, S4/S5/S6 unchanged, only S3 edited (single diff hunk); SKILL.md exact-9 labels at line-start in register order (diff empty); zero bare labeled-lean; lean input-framing + Q5 harden-the-lean clause present; hard-gate grep hits all inside explicit NOT-guaranteed disclaimers (Delta4 OK). install.sh SKILL_NAMES has decision-surface. Now building DC4 corpus: 19 fixtures (5/5/5/4) + manifest with per-row want + runner + README.",
       "timestamp": "2026-06-24T02:30:47Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009] pass: build complete on arc-72/build, commit a973f31 (29 files, +1491/-17). DC0 classifier S3 retune (S1/S2/S4/S5/S6 byte-unchanged, single S3 diff hunk, Delta4 probabilistic). DC1 SKILL.md graduated (Q1 table, Q4 sharp threshold, Q5 cave-trap reusing classifier S2, Q2 v1, Q6 DRAFT stripped, Q3 line verbatim). r1 synthesis: lean reframed both sites as interrogable input + Q5 harden-the-lean clause; zero bare labeled-lean. DC2 exact-9 labels at line-start in register order (diff empty). DC3 install.sh SKILL_NAMES. DC4 corpus 5/5/5/4=19, per-row want for all classes (Delta3), cave5 harden-the-lean + cave4 update control (Delta5), check-corpus PASS 19/19 (build-correctness only; --judge floors are VERAs). Author=denson (PRINCIPAL, not overridden) + seat trailer. No drift, no no-touch tension. Returning to PLINY for VERA/CATO/NOMOS.",
+      "timestamp": "2026-06-24T02:36:22Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 72] Graduate decision-surface — the guide front (self-correction doctrine slice 3)",
   "type": "task",
-  "updated_at": "2026-06-24T02:30:47Z"
+  "updated_at": "2026-06-24T02:36:22Z"
 }
