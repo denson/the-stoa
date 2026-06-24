@@ -94,11 +94,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 8da07e98-b189-4669-8626-b37779ad94f0]\npass: build landed on arc-73/build @ 1d9faa3 (22 files, +1380). complaint-callback.md reader (DC0-DC4 + LOCKED honest stance, READ-ONLY absolute) + both-directions corpus (runner + README + manifest + 14 PAIR fixtures: supported 4 / unsupported 4 / no-entry 3 / over-fire 3) + POLYBIUS composition (new 3.7 + 3.5 routing/relocation rows + balanced MODULE-INLINE markers) + gen-data regen. Build-sanity ALL GREEN: new corpus --check-corpus PASS (14); 3 existing corpora still PASS (dilemma 19 / decision-register 18 / decision-surface 19); gen-data deterministic (identical hash x2, roster 4/12/8, no pre-existing drift); markers balanced + 3.5 rows present (grep). Overlap negative-controls discriminate (supported 5-6 shared content words vs unsupported 0). READ-ONLY holds (no mutating bw verb vs the register; clarifying bw comment is a conversation turn to PRINCIPAL only). No foreign author field. Author stays denson; both Co-Authored-By trailers present. No design-vs-shipped drift. Returning to PLINY.",
       "timestamp": "2026-06-24T19:48:16Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 8da07e98-b189-4669-8626-b37779ad94f0]\nVERA activated on stoa--51k (Arc 73). Reading brief + design-rev1 probes P1-P8 + regression bar + complaint-callback.md module + corpus. Classifying probes per verification-complexity quadrant, then EXECUTING (both gate outcomes live, not asserted).",
+      "timestamp": "2026-06-24T19:50:16Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 73] Decision-register READER — complaint-callback + re-verify gate (self-correction doctrine slice 2b)",
   "type": "task",
-  "updated_at": "2026-06-24T19:48:16Z"
+  "updated_at": "2026-06-24T19:50:16Z"
 }
