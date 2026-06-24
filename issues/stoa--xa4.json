@@ -212,11 +212,15 @@
     {
       "text": "PLINY CLEANUP SIGNOFF (S5.9.4 + S5.10 verify-before-claim) — Arc 72 fully shipped + torn down. Triggered by confirmed close-gate landing.\n\nCLOSE-GATE OBSERVED COMPLETE (user-tier Polybius_the_Stoa): merge d90fb9d + S18.1 self-apply regen b47a33e BOTH on origin/main (pushed); stoa--xa4 CLOSED; stoa--ida CLOSED. Ledger-before-push honored.\n\nPLINY TEARDOWN (each item verified this turn, not asserted):\n- git worktree remove .claude/worktrees/arc-72-build (force-fallback) -\u003e DIR ABSENT (confirmed [ ! -d ] + git worktree list shows only main).\n- git branch -D arc-72/build -\u003e BRANCH ABSENT (was aa56d50; confirmed git branch grep empty).\n- origin arc-72/build -\u003e REMOTE ABSENT (never pushed; git ls-remote --heads empty — origin --delete correctly a no-op).\n- main worktree clean; cwd was main root throughout (never cwd-inside the worktree — no Windows orphan-lock).\n\nArc 72 (charter stoa--xa4) is DONE: full gauntlet DAEDALUS-\u003eARGUS-\u003eADA-\u003eVERA-\u003eCATO-\u003eNOMOS clean; ARGUS r1 (relocated cave-vector) caught + resolved by synthesis; NOMOS gen-data SIZE-DERAIL caught + fixed; CATO r1-semantic GREEN; user-tier close-gate NOMOS CONFORMANT; honest stance held (high-probability + fingerprint, never a guarantee). decision-surface graduated + deployed (now a loadable skill); FLAG-\u003eGUIDE-\u003eRECORD one-loop wired on the shared 9-field schema; both regression corpora + the new one green. No open PLINY obligations remain. PLINY_the-stoa standing down on this arc.\n[from: PLINY_the-stoa | sid eb9b33fa-af77-4433-801c-8fb4bf909009]",
       "timestamp": "2026-06-24T18:42:12Z"
+    },
+    {
+      "text": "[from: user-tier Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96] [for: POLYBIUS_the-stoa + PLINY_the-stoa] ARC 72 CLOSED + FULLY SHIPPED. Close-gate complete: merge d90fb9d (no-ff, Author=denson + Polybius_the_Stoa seat trailer) pushed to main; full suite GREEN incl the regression bar (dilemma 19/19, decision-register 18/18, decision-surface 19/19, vitest 41/41, author-gate 29/0, stop-hook 2/0, gen-data deterministic); NOMOS-on-merge CONFORMANT (6/6 probes); DC0 spine PRESERVED + flag-and-guide retune verified in shipped artifacts; charters stoa--xa4 AND stoa--ida BOTH closed; ledger executed BEFORE push. Deploy self-apply landed on MAIN (b47a33e): decision-surface skill now deploys + dilemma-classifier section-3 retune deployed. TEARDOWN: I found arc-72/build worktree + branch ALREADY removed -- the team ran the 5.9.4 cleanup post-merge (the stoa--9s6 PLINY-side pattern); state verified clean (only main worktree at b47a33e). Both seats: excellent autonomous overnight run -- DAEDALUS rev1-2, ARGUS catching r1 the relocated cave-vector, CATO semantic-clearing it, VERA full regression, NOMOS divergent-then-conformant on the gen-data size-derail. You are RELEASED -- CLOSE ME both. The doctrine detect-guide-record loop is now complete (slices 1 + 2a + 3 shipped); slice 2b (the reader) is the remaining build.",
+      "timestamp": "2026-06-24T18:42:55Z"
     }
   ],
   "priority": 2,
   "status": "closed",
   "title": "[ARC 72] Graduate decision-surface — the guide front (self-correction doctrine slice 3)",
   "type": "task",
-  "updated_at": "2026-06-24T18:42:12Z"
+  "updated_at": "2026-06-24T18:42:55Z"
 }
