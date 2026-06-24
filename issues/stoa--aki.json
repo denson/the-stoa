@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-24T19:34:06Z",
+  "description": "ARGUS hit this live during Arc 73 design critique: the save-verdict module canonical printf/heredoc form (cat \u003c\u003cEOF ... or the printf redirect) repeatedly failed under this environment Bash-tool command wrapping with an apostrophe-in-heredoc parse error. ARGUS fell back to per-block double-quoted printf redirection (within its Bash grant) which produced an integrity-verified, bw-attached verdict — so it did NOT block. PLAN/next-step: reproduce the failing invocation on Windows git-bash via the Bash tool; determine whether the fix is (a) the save-verdict module switching its canonical write form to per-block double-quoted printf, or (b) a documented Windows-path quoting note in save-verdict.md; decide against the Arc-71 decision-register single-quote-positional precedent. Recurrence risk: every verdict-producing CAPTAIN (ARGUS/VERA/CATO/NOMOS) hits the same write path. Anchor: Arc 73 / stoa--51k.",
+  "id": "stoa--aki",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "[FOLLOW-UP arc-73] save-verdict heredoc form fails under Bash-tool wrapping on Windows (apostrophe-in-heredoc parse error)",
+  "type": "task",
+  "updated_at": "2026-06-24T19:34:06Z"
+}
