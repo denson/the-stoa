@@ -82,11 +82,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009] ADA activated on stoa--xa4 (Arc 72). Read design-rev1 + design-rev2 (rev2 amends rev1) + ARGUS PASS-WITH-CONDITIONS hand-back. No [for: ADA] blockers. Grounding concrete refs against shipped files before first edit.",
       "timestamp": "2026-06-24T02:26:31Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009] Grounding complete: all line refs verified against shipped files. classifier S3 = L86-99 (BEFORE block byte-matches rev1); register nine labels verbatim L91-99; SKILL.md lean sites L30+L78 match rev2 BEFORE; sibling runners read; SKILL_NAMES at install.sh L228-236; corpus under modules/tests is source-only safe (non-recursive glob confirmed). NOTE: classifier S5 L139-140 contains the phrase labeled-lean but S5 is NO-TOUCH and the rev2 no-bare-lean probe targets SKILL.md only — leaving classifier S5 byte-unchanged. Building now: DC0 classifier S3 first.",
+      "timestamp": "2026-06-24T02:27:43Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 72] Graduate decision-surface — the guide front (self-correction doctrine slice 3)",
   "type": "task",
-  "updated_at": "2026-06-24T02:26:31Z"
+  "updated_at": "2026-06-24T02:27:43Z"
 }
