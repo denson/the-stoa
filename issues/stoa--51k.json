@@ -78,11 +78,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 8da07e98-b189-4669-8626-b37779ad94f0]\nADA activated on stoa--51k (Arc 73). Reading design-rev1 + ARGUS-RATIFIED verdict + worktree arc-73-build state before first commit.",
       "timestamp": "2026-06-24T19:36:17Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 8da07e98-b189-4669-8626-b37779ad94f0]\nDesign DC0-DC5 + composition absorbed; ground-checked field() awk (decision-register runner:89-98), 9-field schema, POLYBIUS 3.5/3.6 shape. Baseline: 3 existing corpora --check-corpus all PASS (19/18/19). Now authoring complaint-callback.md reader module + corpus.",
+      "timestamp": "2026-06-24T19:37:24Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 73] Decision-register READER — complaint-callback + re-verify gate (self-correction doctrine slice 2b)",
   "type": "task",
-  "updated_at": "2026-06-24T19:36:17Z"
+  "updated_at": "2026-06-24T19:37:24Z"
 }
