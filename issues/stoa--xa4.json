@@ -130,11 +130,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009] Probes 1-6+8 ground-truth clean (SHA/author/trailer; spine single-hunk §3, §1/§2/§4/§5/§6 byte-identical; DRAFT stripped + Qs resolved; exact-9 schema-share order-match; SKILL_NAMES +decision-surface; non-recursive glob = tests source-only; honest-stance disclaimers only). Re-running corpora + author-gate + stop-hook for probe 7.",
       "timestamp": "2026-06-24T02:55:54Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009] VERDICT: DIVERGENT (1 divergence, classification SIZE-DERAIL). 9/10 probes CONFORMANT: SHA/author(denson)/seat-trailer; spine single-hunk S3, S1/S2/S4/S5/S6 byte-identical; DRAFT stripped + Qs resolved + consumer-tier intact; exact-9 schema-share order-match vs decision-register S2; SKILL_NAMES +decision-surface + non-recursive glob keeps tests source-only; corpus 19 (5/5/5/4) + per-row want; ALL re-run green (decision-surface 19/19, dilemma 19/19, register 18/18, author-gate 29/0, stop-hook 2/0, vitest 41/41); honest-stance disclaimers only; stoa--ida correctly OPEN (deferred close); internal-consistency clean. THE DIVERGENCE (gen-data determinism, type commit-sha): a973f31 changed SKILL.md (the body gen-data embeds) but did NOT regenerate the TRACKED app/src/data/generated/agents.ts -- committed agents.ts still carries the stale DRAFT skill body; a fresh npm run gen-data yields a real 1-file diff. Contradicts DoD line 68 (gen-data deterministic) + breaks Arc 70/71 pattern (agents.ts regenerated IN the build commit). Trivially fixable = SIZE-DERAIL (one regen + stage, trailing commit or post-merge). Five deliverables DC0-DC4 all CONFORMANT. DO NOT propagate as-is; reconcile agents.ts first, then build+verdicts may propagate. Verdict attached at verdicts/NOMOS-2026-06-24T03-20-00Z.md (attach_status OK rc=0, sha256 b0b96d61). Returning.",
+      "timestamp": "2026-06-24T03:00:03Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 72] Graduate decision-surface — the guide front (self-correction doctrine slice 3)",
   "type": "task",
-  "updated_at": "2026-06-24T02:55:54Z"
+  "updated_at": "2026-06-24T03:00:03Z"
 }
