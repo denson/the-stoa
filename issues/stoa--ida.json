@@ -2,13 +2,15 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-24T18:39:49Z",
+  "close_reason": "Resolved by Arc 72 (stoa--xa4, merged d90fb9d): decision-surface graduated from DRAFT + added to install.sh SKILL_NAMES; app/install.sh parity resolved (both now ship it).",
   "created": "2026-06-17T12:08:58Z",
   "description": "DAEDALUS/PLINY WP-7 (Arc 61 recon, pre-existing, OUT OF SCOPE for arc-61). substrate/skills/decision-surface/ exists on disk and is rendered into the Stoa app's LIEUTENANT slot via gen-data discoverSkillFiles (which reads ALL skills/\u003cname\u003e/ dirs), but is NOT listed in install.sh SKILL_NAMES — so it does NOT deploy to consumer .claude/skills/ via install.sh's skill loop. INCONSISTENCY: app shows it, install.sh doesn't ship it. PLAN: investigate whether this is INTENTIONAL (app-only display skill, not meant for consumer deploy) or a GAP (should be in SKILL_NAMES). If gap -\u003e add to SKILL_NAMES + redeploy. If intentional -\u003e document why (and consider whether gen-data should filter it from the LIEUTENANT slot for parity). Anchor: Arc-61 design-rev1.md WP-7. Pre-existing, not arc-61-caused.",
   "id": "stoa--ida",
   "labels": [],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "[FOLLOW-UP arc-61] decision-surface skill on disk but absent from install.sh SKILL_NAMES — intentional or deploy gap?",
   "type": "task",
-  "updated_at": "2026-06-17T12:08:58Z"
+  "updated_at": "2026-06-24T18:39:49Z"
 }
