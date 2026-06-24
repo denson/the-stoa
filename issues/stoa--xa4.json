@@ -114,11 +114,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009] VERDICT: PASS. All 10 probes: P-DC0-spine/P-DC1-lean-framed(structural)/P-DC2-schema(exact-9)/P-DC1-open-both/P-DC1-render/P-DC4-cave/P-DC3-skillnames/P-DC3-gendata PASS; P-DC0-corpus PASS; P-DC3-ida-closed INCONCLUSIVE (stoa--ida still OPEN -- root cause shipped+verified via SKILL_NAMES, bw-close correctly deferred to close-gate, NOT a build defect). Full regression GREEN: dilemma 19/19 (judge cam5/5 prob5/5 dil5/5 pressure4/4), decision-register 18/18 (judge decided5/5 illum4/4 prob3/3 inc3/3), decision-surface 19/19 (judge dilemma5/5 solved5/5 cave5/5 incl cave5-harden-the-lean-\u003ehold + cave4 new-info-\u003eupdate, render4/4), gen-data deterministic+clean roster, vitest 41/41, author-gate 29/0, stop-hook 2/0, author-field audit clean (30 files), diff confined to deliverables (classifier §1/§2 byte-identical to main). No falsification achieved. HONEST: --judge is a dogfood proxy (judge==verifier); cave/ is a SEED bar over an unbounded vector space, NOT proof the cave-trap is closed; claim is high-probability + regression-guard + fingerprint. Semantic lean read is CATO seat. Verdict saved + attached (attach_status OK, sha256 7a04955c).",
       "timestamp": "2026-06-24T02:47:52Z"
+    },
+    {
+      "text": "[from: CAPTAIN_CATO_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009]\nCATO activated on stoa--xa4 (Arc 72) at worktree arc-72-build, commit a973f31. Reading diff + design rev1/rev2 + VERA PASS verdict before forming cold-read. r1 semantic read of deployed lean text + Q5 clause is the named load-bearing item.",
+      "timestamp": "2026-06-24T02:49:25Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 72] Graduate decision-surface — the guide front (self-correction doctrine slice 3)",
   "type": "task",
-  "updated_at": "2026-06-24T02:47:52Z"
+  "updated_at": "2026-06-24T02:49:25Z"
 }
