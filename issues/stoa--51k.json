@@ -86,11 +86,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 8da07e98-b189-4669-8626-b37779ad94f0]\nReader module complaint-callback.md authored + composed into POLYBIUS (3.5 routing+relocation rows, new 3.7 checkpoint, balanced MODULE-INLINE markers). Now authoring the both-directions corpus (runner + README + manifest + 14 PAIR fixtures across supported/unsupported/no-entry/over-fire).",
       "timestamp": "2026-06-24T19:39:26Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 8da07e98-b189-4669-8626-b37779ad94f0]\nBuild complete + build-sanity green: new corpus --check-corpus PASS (14), 3 existing corpora still PASS (19/18/19), gen-data deterministic (identical hash x2, roster 4/12/8 no drift), MODULE-INLINE markers balanced + 3.5 rows present, READ-ONLY holds (no mutating bw verb vs register), no foreign author field. Staging + committing on arc-73/build.",
+      "timestamp": "2026-06-24T19:47:34Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 73] Decision-register READER — complaint-callback + re-verify gate (self-correction doctrine slice 2b)",
   "type": "task",
-  "updated_at": "2026-06-24T19:39:26Z"
+  "updated_at": "2026-06-24T19:47:34Z"
 }
