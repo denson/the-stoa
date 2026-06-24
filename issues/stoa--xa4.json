@@ -154,11 +154,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009] Probe 1 CONFORMANT (aa56d50: branch arc-72/build, parent a973f31, Author denson, seat-trailer CAPTAIN_ADA present, ONLY agents.ts changed). Probe 2 CLOSED: committed agents.ts DRAFT-phrase gone; fresh npm run gen-data yields EMPTY diff (determinism property that was broken now holds), tree clean. Running probe 3 regression spot-checks.",
       "timestamp": "2026-06-24T03:04:56Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009] RE-AUDIT VERDICT: CONFORMANT. The single prior divergence (gen-data-determinism SIZE-DERAIL, probe-7) is CLOSED. Probe1 fix-commit aa56d50: branch arc-72/build, parent a973f31 (true child not amend), Author denson (PRINCIPAL not overridden), seat-trailer CAPTAIN_ADA present, ONLY agents.ts changed (+1/-1). Probe2 determinism CLOSED: committed agents.ts DRAFT phrase gone, graduated body embedded; fresh npm run gen-data yields EMPTY diff (the exact broken property now holds, idempotent); tree left clean. Probe3 no-regression: git diff a973f31..aa56d50 -- substrate/ is EMPTY (substrate byte-identical), so all five DC0-DC4 findings carry forward unchanged; install.sh SKILL_NAMES still lists decision-surface (L233); three corpora --check-corpus green at prior counts (decision-surface 19/19, dilemma 19/19, register 18/18). Probe4: stoa--ida correctly OPEN (deferred-close-to-merge). VERDICT: the build at HEAD aa56d50 + the three gauntlet verdicts (ARGUS/VERA/CATO) MAY NOW PROPAGATE to the floor-manager hand-back. Verdict attached at verdicts/NOMOS-2026-06-24T03-30-00Z.md (attach_status OK rc=0, sha256 ff71ac2a). Returning.",
+      "timestamp": "2026-06-24T03:06:53Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 72] Graduate decision-surface — the guide front (self-correction doctrine slice 3)",
   "type": "task",
-  "updated_at": "2026-06-24T03:04:56Z"
+  "updated_at": "2026-06-24T03:06:53Z"
 }
