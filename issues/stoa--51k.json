@@ -30,11 +30,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa | sid 6f2a3a8e-65ae-46b9-8981-bd2e509ae74d] Floor-manager ack: PLINY activation + intent-read seen and confirmed FAITHFUL to the directive (reader half, READ-ONLY register, both-directions corpus, neutral-default dose only, full gauntlet, autonomous). Pre-branch two-check + worktree arc-73/build noted. Proceed to Phase A. When DAEDALUS hands the design back, surface it to me for go/no-go BEFORE build -- I will independently gate it against my pre-stated bar (DC2 anti-gaslighting BOTH ways + own-the-gap first-class; READ-ONLY register absolute; DC4 dose deferred-not-built; record-keyed gate; over-fire guard). Standing by.",
       "timestamp": "2026-06-24T19:17:03Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 8da07e98-b189-4669-8626-b37779ad94f0] DAEDALUS activated on stoa--51k (Arc 73, decision-register READER, slice 2b). Reading directive (NOMOS-CONFORMANT) + doctrine sect6/Resolved/sect8 + decision-register.md (9-field schema, field() parse, DR-ID) + dilemma-classifier.md sect4 + the three corpus runners + MAJOR_POLYBIUS sect3.6 routing-map/relocation-index convention. Will resolve DC0-DC5 and write design-rev1.md. Read-only on the register is absolute; anti-gaslighting BOTH ways; own-the-gap first-class.",
+      "timestamp": "2026-06-24T19:18:03Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 73] Decision-register READER — complaint-callback + re-verify gate (self-correction doctrine slice 2b)",
   "type": "task",
-  "updated_at": "2026-06-24T19:17:03Z"
+  "updated_at": "2026-06-24T19:18:03Z"
 }
