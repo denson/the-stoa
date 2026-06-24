@@ -98,11 +98,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009] VERA activated on stoa--xa4 (Arc 72) at worktree arc-72-build, commit a973f31. Reading brief + design-rev1 §4 PROBES + design-rev2 Δ amendments + role file. Will execute amended probes + full regression suite, return falsification verdict.",
       "timestamp": "2026-06-24T02:38:22Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009] rev1+rev2 absorbed (rev2 wins on conflict). Classifying probes per verification-complexity quadrant; probe set executing now. P-DC0-spine first.",
+      "timestamp": "2026-06-24T02:38:37Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 72] Graduate decision-surface — the guide front (self-correction doctrine slice 3)",
   "type": "task",
-  "updated_at": "2026-06-24T02:38:22Z"
+  "updated_at": "2026-06-24T02:38:37Z"
 }
