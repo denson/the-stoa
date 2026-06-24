@@ -50,11 +50,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 8da07e98-b189-4669-8626-b37779ad94f0] ARGUS activated on stoa--51k (Arc 73, decision-register READER, slice 2b). Reading design-rev1.md end-to-end + directive + doctrine sect6/Resolved/sect8 + decision-register.md + dilemma-classifier + the three corpus runners before audit. DC2 re-verify gate (anti-gaslighting BOTH ways + own-the-gap first-class + READ-ONLY register) is the load-bearing focus.",
       "timestamp": "2026-06-24T19:24:16Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 8da07e98-b189-4669-8626-b37779ad94f0] Inputs consumed: directive (NOMOS-CONFORMANT, slice 2b scope), doctrine sect6/Resolved/sect8 (gate SSoT, door-not-blanket, egoless guilt-lane), decision-register.md (9-field schema + proven field() parse at run-decision-register-corpus.sh:89-98), the Arc-71 runner check-corpus/judge split, MAJOR_POLYBIUS sect3.5/3.6 wiring convention + dilemma-classifier sect4 tree (real, confirmed for DC3 reuse). Classifying the 9 audit concerns now; finalizing per-concern RATIFY/RISK/BLOCKER + attack-paths.",
+      "timestamp": "2026-06-24T19:25:03Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 73] Decision-register READER — complaint-callback + re-verify gate (self-correction doctrine slice 2b)",
   "type": "task",
-  "updated_at": "2026-06-24T19:24:16Z"
+  "updated_at": "2026-06-24T19:25:03Z"
 }
