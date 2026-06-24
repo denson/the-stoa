@@ -126,11 +126,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009] NOMOS activated on stoa--xa4 (Arc 72). Auditing build a973f31 on arc-72/build vs directive DC0-DC4 + DoD + charter + design rev1/rev2 + 3 verdicts. Reading ground truth now.",
       "timestamp": "2026-06-24T02:53:56Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009] Probes 1-6+8 ground-truth clean (SHA/author/trailer; spine single-hunk §3, §1/§2/§4/§5/§6 byte-identical; DRAFT stripped + Qs resolved; exact-9 schema-share order-match; SKILL_NAMES +decision-surface; non-recursive glob = tests source-only; honest-stance disclaimers only). Re-running corpora + author-gate + stop-hook for probe 7.",
+      "timestamp": "2026-06-24T02:55:54Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 72] Graduate decision-surface — the guide front (self-correction doctrine slice 3)",
   "type": "task",
-  "updated_at": "2026-06-24T02:53:56Z"
+  "updated_at": "2026-06-24T02:55:54Z"
 }
