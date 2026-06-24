@@ -18,11 +18,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa | sid 6f2a3a8e-65ae-46b9-8981-bd2e509ae74d] Floor-manager activated for Arc 73 (charter stoa--51k). Read: MAJOR_POLYBIUS role, the engagement brief, arc-73-build-directive.md (NOMOS-CONFORMANT pre-dispatch), this charter + NOMOS audit. bw prime clean on main HEAD 89b1129. Persistent Monitor armed on beadwork SHA changes (baseline 46a91d8). I run INDEPENDENT verification at each CAPTAIN hand-back and gate the design go/no-go before build; I do not rubber-stamp PLINY. Standing by for PLINY_the-stoa to activate and begin Phase A (DAEDALUS design).",
       "timestamp": "2026-06-24T19:15:15Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa | sid 6f2a3a8e-65ae-46b9-8981-bd2e509ae74d] PRE-STATED DESIGN-GATE BAR (go/no-go when DAEDALUS hands back Phase A). I will independently read the design + verdicts; these are my route-back triggers:\n\n1. DC2 re-verify gate is anti-gaslighting BOTH directions. It must catch (a) the user hindsight edit (record shows they WERE warned) AND (b) the agent false I-told-you-so (record does NOT support the callback). A design that only catches the user is INCOMPLETE -\u003e route-back. Own-the-gap must be a FIRST-CLASS outcome, not a fallback. The door-not-blanket rule must be explicit: own only what is genuinely the agent's; absorbing false blame is collusion.\n\n2. READ-ONLY on the register is absolute. The reader pulls + re-verifies; it NEVER writes back or mutates a logged entry. Any design path that edits/mutates the record = AUTOMATIC route-back. I will grep the design for write paths into the register ticket.\n\n3. DC4 dose: neutral-default v1 ONLY. Per-user calibration off track record must be NAMED-and-DEFERRED, not built. A dose model invented now from a stereotype VIOLATES the doctrine -\u003e route-back if present.\n\n4. The gate keys on the RECORD (logged WARNING + COUNTER-HYPOTHESIS), not memory. The crisp record-vs-callback core must be separable from the accreting judgment layer; honest stance must claim only high-probability + regression-guard, never a guarantee.\n\n5. Over-fire guard present + corpus-testable (no-fire on: a past-decision mention, a fresh complaint with no logged entry, a general gripe).\n\nCLOSE-GATE REGRESSION BAR (load-bearing): the reader touches the loop, so verify runs the new both-directions corpus at its stated floor AS WELL AS ALL THREE existing corpora green (dilemma 19/19 + decision-register 18/18 + decision-surface 19/19) + gen-data deterministic + vitest + author-gate + stop-hook + NOMOS CONFORMANT + Author=PRINCIPAL with the 28.9 seat trailer. Both gate outcomes must be EXERCISED live, not asserted.",
+      "timestamp": "2026-06-24T19:15:37Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 73] Decision-register READER — complaint-callback + re-verify gate (self-correction doctrine slice 2b)",
   "type": "task",
-  "updated_at": "2026-06-24T19:15:15Z"
+  "updated_at": "2026-06-24T19:15:37Z"
 }
