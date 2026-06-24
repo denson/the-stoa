@@ -1,0 +1,4 @@
+SCENARIO: "The PRINCIPAL is reminiscing neutrally about an earlier architecture choice — no regret, no blame, no callback request. They mention a past decision factually while planning new work. There is NO complaint and NO 'why didn't you warn me' — just a neutral reference to a past decided call in the course of moving forward."
+COMPLAINT: "Remember when we chose Postgres over the document store? Anyway, let's plan the next migration on top of it."
+EXPECT: no-fire
+WHY: A neutral, factual MENTION of a past decision with no regret, blame, or callback request — the over-fire guard's first case. The reader must NOT fire: there is no complaint to answer. Firing here (pulling and reciting the record on a neutral mention) is corrosive — it trains the PRINCIPAL to stop referencing past decisions. The discriminator: is the PRINCIPAL COMPLAINING about a decided call? No — they're planning forward. No ENTRY block (no register lookup happens).

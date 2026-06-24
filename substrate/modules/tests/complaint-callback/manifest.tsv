@@ -1,0 +1,14 @@
+fixtures/supported/sup1-friday-ship-onboarding.md	surface
+fixtures/supported/sup2-customer-cut-churn.md	surface
+fixtures/supported/sup3-you-never-warned-me-region.md	surface
+fixtures/supported/sup4-build-vs-buy-auth-maintenance.md	surface
+fixtures/unsupported/uns1-mismatch-perf-vs-security.md	own-the-gap
+fixtures/unsupported/uns2-agent-false-told-you-so.md	own-the-gap
+fixtures/unsupported/uns3-warning-different-cost.md	own-the-gap
+fixtures/unsupported/uns4-counter-hypothesis-didnt-fire.md	own-the-gap
+fixtures/no-entry/noe1-decided-but-unlogged-pricing.md	own-the-gap
+fixtures/no-entry/noe2-decided-verbally-no-entry.md	own-the-gap
+fixtures/no-entry/noe3-decided-call-nothing-logged.md	own-the-gap
+fixtures/over-fire/ovf1-neutral-mention-postgres.md	no-fire
+fixtures/over-fire/ovf2-fresh-gripe-never-decided.md	no-fire
+fixtures/over-fire/ovf3-general-venting.md	no-fire
