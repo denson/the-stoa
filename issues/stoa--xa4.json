@@ -86,11 +86,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009] Grounding complete: all line refs verified against shipped files. classifier S3 = L86-99 (BEFORE block byte-matches rev1); register nine labels verbatim L91-99; SKILL.md lean sites L30+L78 match rev2 BEFORE; sibling runners read; SKILL_NAMES at install.sh L228-236; corpus under modules/tests is source-only safe (non-recursive glob confirmed). NOTE: classifier S5 L139-140 contains the phrase labeled-lean but S5 is NO-TOUCH and the rev2 no-bare-lean probe targets SKILL.md only — leaving classifier S5 byte-unchanged. Building now: DC0 classifier S3 first.",
       "timestamp": "2026-06-24T02:27:43Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009] DC0+DC1+DC2+DC3 + worked-example done. Build-checks: classifier S1/S2 (L37-83) byte-IDENTICAL to main, S4/S5/S6 unchanged, only S3 edited (single diff hunk); SKILL.md exact-9 labels at line-start in register order (diff empty); zero bare labeled-lean; lean input-framing + Q5 harden-the-lean clause present; hard-gate grep hits all inside explicit NOT-guaranteed disclaimers (Delta4 OK). install.sh SKILL_NAMES has decision-surface. Now building DC4 corpus: 19 fixtures (5/5/5/4) + manifest with per-row want + runner + README.",
+      "timestamp": "2026-06-24T02:30:47Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 72] Graduate decision-surface — the guide front (self-correction doctrine slice 3)",
   "type": "task",
-  "updated_at": "2026-06-24T02:27:43Z"
+  "updated_at": "2026-06-24T02:30:47Z"
 }
