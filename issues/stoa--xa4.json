@@ -208,11 +208,15 @@
     {
       "text": "PLINY observed: merge d90fb9d landed on LOCAL main (parents 772c67b + aa56d50); user-tier close-gate NOMOS CONFORMANT across all 6 probes. Both stoa--ida + stoa--xa4 still OPEN + origin not yet advanced = ledger-before-push correctly in-flight.\n\nTeardown sequencing (owning S5.9.4 per the FM correction): I will run the worktree teardown + cleanup signoff AFTER the user-tier completes its close-gate (execute ledger closures + push d90fb9d to origin), NOT now. Reason: the S5.9.4 teardown runs git worktree remove + branch -D from the MAIN root — the same checkout the user-tier is actively using for the in-flight close-gate; running concurrently risks a git-lock collision (the exact class S5.9.4 exists to avoid). The merge already incorporates aa56d50, so the branch/worktree are no longer load-bearing — no rush. Cleanest: user-tier finishes (tickets closed + pushed) -\u003e PLINY tears down collision-free -\u003e posts cleanup signoff.\n\nWatching for: stoa--xa4/stoa--ida closed AND d90fb9d on origin/main. On that confirmation I execute: git worktree remove .claude/worktrees/arc-72-build (force-fallback) + assert dir gone + git branch -D arc-72/build (origin --delete is a no-op; arc-72/build was never pushed). Standing by.\n[from: PLINY_the-stoa | sid eb9b33fa-af77-4433-801c-8fb4bf909009]",
       "timestamp": "2026-06-24T18:40:40Z"
+    },
+    {
+      "text": "PLINY CLEANUP SIGNOFF (S5.9.4 + S5.10 verify-before-claim) — Arc 72 fully shipped + torn down. Triggered by confirmed close-gate landing.\n\nCLOSE-GATE OBSERVED COMPLETE (user-tier Polybius_the_Stoa): merge d90fb9d + S18.1 self-apply regen b47a33e BOTH on origin/main (pushed); stoa--xa4 CLOSED; stoa--ida CLOSED. Ledger-before-push honored.\n\nPLINY TEARDOWN (each item verified this turn, not asserted):\n- git worktree remove .claude/worktrees/arc-72-build (force-fallback) -\u003e DIR ABSENT (confirmed [ ! -d ] + git worktree list shows only main).\n- git branch -D arc-72/build -\u003e BRANCH ABSENT (was aa56d50; confirmed git branch grep empty).\n- origin arc-72/build -\u003e REMOTE ABSENT (never pushed; git ls-remote --heads empty — origin --delete correctly a no-op).\n- main worktree clean; cwd was main root throughout (never cwd-inside the worktree — no Windows orphan-lock).\n\nArc 72 (charter stoa--xa4) is DONE: full gauntlet DAEDALUS-\u003eARGUS-\u003eADA-\u003eVERA-\u003eCATO-\u003eNOMOS clean; ARGUS r1 (relocated cave-vector) caught + resolved by synthesis; NOMOS gen-data SIZE-DERAIL caught + fixed; CATO r1-semantic GREEN; user-tier close-gate NOMOS CONFORMANT; honest stance held (high-probability + fingerprint, never a guarantee). decision-surface graduated + deployed (now a loadable skill); FLAG-\u003eGUIDE-\u003eRECORD one-loop wired on the shared 9-field schema; both regression corpora + the new one green. No open PLINY obligations remain. PLINY_the-stoa standing down on this arc.\n[from: PLINY_the-stoa | sid eb9b33fa-af77-4433-801c-8fb4bf909009]",
+      "timestamp": "2026-06-24T18:42:12Z"
     }
   ],
   "priority": 2,
   "status": "closed",
   "title": "[ARC 72] Graduate decision-surface — the guide front (self-correction doctrine slice 3)",
   "type": "task",
-  "updated_at": "2026-06-24T18:40:40Z"
+  "updated_at": "2026-06-24T18:42:12Z"
 }
