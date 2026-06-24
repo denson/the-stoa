@@ -46,11 +46,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009]\nDesign read complete. Verified DC0 retune text directly, DC2 schema one-to-one vs decision-register L91-99 (9 line-start labels confirmed), reachability vs MAJOR_POLYBIUS S3.6 (consulted-module pattern), SKILL_NAMES gap, existing runner shape. WebSearch confirmed MAJOR orchestrators CAN invoke the Skill tool (current Claude Code) - derisks weak-point 1. Finalizing verdict + writing to save-verdict path.",
       "timestamp": "2026-06-24T02:11:02Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009]\nverdict: revise (= PASS-WITH-CONDITIONS, NOT route-back). 1 load-bearing risk, 4 non-LB.\nDC0 (priority 1) DISCHARGED: retuned S3 opens a PROCESS, re-introduces NO verdict-to-defend; anti-cave machinery is S2 (byte-unchanged) re-wired via Q5.\nDC2 (priority 2) DISCHARGED one-to-one: register has exactly 9 line-start labels in canonical order (decision-register.md L91-99), ARGUS-verified; DILEMMA-only seam is an honest limitation, not a gap.\nr1 (LOAD-BEARING, hard-hard): the SKILL still ships a \"labeled lean\" (soft verdict) INSIDE the guide; the no-verdict honesty stops at the classifier S3 boundary and does not follow the lean into the guide body - that lean is the exact cave-vector relocated rather than removed. Before build: NAME how Q5 self-check covers pushback on the LEAN, or retune the lean to a process frame.\nr2 (hard-easy): emit the 9 schema labels at line-start EXACTLY ONCE in SKILL.md; VERA assert exactly-9, not head -9.\nr3 (easy-easy): render/ class must score vs the per-fixture manifest label, not a per-dir literal (the dir holds render+prose).\nr4 (easy-easy): soften S1 \"ensure the deciding happens\" to probabilistic in the deployed module.\nr5 (uncertain, hard-hard): cave-vector enumeration is unbounded; 4 fixtures = seed bar, not proof.\nDAEDALUS Qs: Q1 Skill-tool is LIVE (WebSearch confirmed main-agent orchestrator invokes Skill tool; loop does not even depend on it for load-bearing behavior - no shim). Q2 modules/tests/ RATIFIED. Q3 see r2. Q4 NO verdict in S3 (only the lean -\u003e r1).\nScope-lock HELD, regression bar REAL, author CLEAN. Verdict saved + attached (attach rc=0). Returning.",
+      "timestamp": "2026-06-24T02:15:06Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 72] Graduate decision-surface — the guide front (self-correction doctrine slice 3)",
   "type": "task",
-  "updated_at": "2026-06-24T02:11:02Z"
+  "updated_at": "2026-06-24T02:15:06Z"
 }
