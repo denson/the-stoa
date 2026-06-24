@@ -98,11 +98,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 8da07e98-b189-4669-8626-b37779ad94f0]\nVERA activated on stoa--51k (Arc 73). Reading brief + design-rev1 probes P1-P8 + regression bar + complaint-callback.md module + corpus. Classifying probes per verification-complexity quadrant, then EXECUTING (both gate outcomes live, not asserted).",
       "timestamp": "2026-06-24T19:50:16Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 8da07e98-b189-4669-8626-b37779ad94f0]\npass: Arc 73 build 1d9faa3 verified against design-rev1 P1-P8 + full regression bar. Both gate outcomes EXERCISED LIVE (not asserted): P1 supported -\u003e surface (sup3 user-hindsight-edit, record WARNING names the cost, no gloat/no false-blame); P2 unsupported -\u003e own-the-gap (uns2 agent-false-told-you-so, zero-overlap unrelated record, refuses to fake) -- the LOAD-BEARING direction holds. P3 no-entry -\u003e own-the-gap, P4 over-fire -\u003e no-fire, all clean. P5 READ-ONLY proven (no mutating bw verb writes the register; the 4 bw-comment matches are the Arc-71 writer desc, the read-unit desc, the forbidden-list, and the conversation-only clarifying question). P6 gen-data deterministic (byte-identical sha256 x2, git clean, MODULE-INLINE markers balanced, 3.5 rows + 3.7 checkpoint present). P7 --check-corpus PASS (14, both overlap controls discriminate); --judge per-class floors EXCEEDED: supported SURFACE 4/4, unsupported OWN-THE-GAP 4/4 (LOAD-BEARING), no-entry 3/3, over-fire 3/3 -- reported as a DOGFOOD PROXY (judge==verifier coupling), NEVER as \"the callback fires correctly\". P8 source-only (dry-run lists no modules/tests/ path; module itself deploys). REGRESSION GREEN: dilemma 19/19, decision-register 18/18, decision-surface 19/19, vitest 41/41, author-gate 29/0, stop-hook 2/0. HONEST-STANCE bar HOLDS: every fake-certainty phrase is a PROHIBITION not an application; all 3 LOCKED claims present (high-probability+regression-guard+record-didnt-lie; dogfood-proxy caveat; structural-proxy-never-decides-a-live-callback); anti-gaslighting runs BOTH ways (corpus not one-directional -\u003e NOT incomplete). Author=denson + 28.9 ADA seat trailer. Verdict saved to agents/verdicts/stoa--51k/vera-build.md (sha256 a2e2b068...); attach_status OK (bw attach rc=0). Returning to PLINY.",
+      "timestamp": "2026-06-24T19:55:51Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 73] Decision-register READER — complaint-callback + re-verify gate (self-correction doctrine slice 2b)",
   "type": "task",
-  "updated_at": "2026-06-24T19:50:16Z"
+  "updated_at": "2026-06-24T19:55:51Z"
 }
