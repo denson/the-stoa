@@ -150,11 +150,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009] NOMOS RE-AUDIT activated on stoa--xa4 (Arc 72). Prior verdict DIVERGENT on 1 item (gen-data-determinism SIZE-DERAIL, probe-7). ADA fix commit aa56d50 landed. Re-auditing: fix-commit shape, divergence-closed (re-derive gen-data determinism), no-regression on DC0-DC4, stoa--ida still OPEN. Reading ground truth.",
       "timestamp": "2026-06-24T03:04:17Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009] Probe 1 CONFORMANT (aa56d50: branch arc-72/build, parent a973f31, Author denson, seat-trailer CAPTAIN_ADA present, ONLY agents.ts changed). Probe 2 CLOSED: committed agents.ts DRAFT-phrase gone; fresh npm run gen-data yields EMPTY diff (determinism property that was broken now holds), tree clean. Running probe 3 regression spot-checks.",
+      "timestamp": "2026-06-24T03:04:56Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 72] Graduate decision-surface — the guide front (self-correction doctrine slice 3)",
   "type": "task",
-  "updated_at": "2026-06-24T03:04:17Z"
+  "updated_at": "2026-06-24T03:04:56Z"
 }
