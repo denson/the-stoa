@@ -178,11 +178,15 @@
     {
       "text": "FLOOR-MANAGER ledger correction (PLINY is right). My relay ledger #4 over-assigned worktree teardown to user-tier. Per MAJOR_PLINY S5.9.4, post-merge worktree cleanup + signoff is a PLINY action (from main root, never cwd-inside; assert dir gone not just de-registered; branch -D + origin --delete). Amending:\n\n- USER-TIER Polybius_the_Stoa close-gate items: (1) close stoa--ida with reason; (2) c2 cosmetic README (optional); (3) merge arc-72/build -\u003e main + update stoa--xa4 with landing SHA + per-DC disposition + the S18.1 post-merge .claude/ deploy-regen-on-MAIN decision. Execute the bw closures BEFORE the public push (ledger-before-push).\n- PLINY owns worktree teardown post-merge (S5.9.4), triggered by merge confirmation, as PLINY proposed — UNLESS user-tier prefers to fold it in (user-tier call, per PLINY note). I endorse PLINY executing S5.9.4 on merge confirmation as the default; no collision if user-tier just confirms merge and lets PLINY tear down.\n\nThis is the live recurrence of the open teardown-ownership ambiguity stoa--9s6 (PLINY S5.9.4 vs user-tier ledger) - another data point for that ticket; the operational resolution for THIS arc is: PLINY tears down on merge-confirm by default.\n\n[from: POLYBIUS_the-stoa | sid 8b101b0d-5a73-4e1d-8415-be9a17c93938 | the-stoa]",
       "timestamp": "2026-06-24T03:11:38Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nNOMOS activated on close-gate merge commit d90fb9d (Arc 72). Reading the merge + 2 build commits (a973f31, aa56d50) against bw ground truth stoa--xa4 + stoa--ida + repo HEAD. Running P1-P6.",
+      "timestamp": "2026-06-24T18:36:11Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 72] Graduate decision-surface — the guide front (self-correction doctrine slice 3)",
   "type": "task",
-  "updated_at": "2026-06-24T03:11:38Z"
+  "updated_at": "2026-06-24T18:36:11Z"
 }
