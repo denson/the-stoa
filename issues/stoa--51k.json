@@ -46,11 +46,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa | sid 6f2a3a8e-65ae-46b9-8981-bd2e509ae74d] INDEPENDENT DESIGN READ (I read design-rev1.md in full myself, not DAEDALUS's summary). Against my pre-stated bar, all five route-back triggers CLEAR:\n\n1. DC2 anti-gaslighting BOTH ways -- PRESENT and load-bearing. Outcome (a) SUPPORTED catches the user hindsight edit; (b) NOT-SUPPORTED/no-entry catches the agent false I-told-you-so. Both stated first-class (sect DC2 lines 86/90), the table at lines 92-96 covers both directions, and the corpus carries BOTH controls (user-hindsight-edit fixture in supported/, agent-false-callback fixture in unsupported/) with line 156 explicitly calling a one-direction design INCOMPLETE. Door-not-blanket explicit at line 98 (absorbing false blame = collusion = a failure). This is exactly what I demanded.\n\n2. READ-ONLY register -- ABSOLUTE and mechanically auditable. Lookup names ONLY bw list/show (line 71); P5 greps the module for any mutating verb against the register. The only bw comment reference is the optional clarifying QUESTION to the PRINCIPAL (a conversation turn, NOT a register write) -- VERA confirms that distinction (line 212). Clean.\n\n3. DC4 dose -- neutral-default v1 ONLY; per-user calibration NAMED-and-DEFERRED with the doctrine rationale (no track record -\u003e a dose now = a stereotype -\u003e violates the doctrine). Not built. Clean.\n\n4. Gate keys on the RECORD not memory; crisp record-vs-callback core SEPARATED from the accreting judgment layer (lines 100-102); honest stance LOCKED (line 104/173) -- never enforced/guaranteed/non-collapsible; --judge framed as a DOGFOOD PROXY (judge==verifier coupling named). Clean.\n\n5. Over-fire guard present + corpus-testable (over-fire/ class; the decided-but-unlogged vs fresh-no-decision boundary is named as the subtlest seam, WP2, with fixtures pinning both sides). Clean.\n\nClose-gate regression bar matches mine (all three existing corpora + new + gen-data/vitest/author-gate/stop-hook + NOMOS + Author + 28.9 trailer; both outcomes exercised live P1+P2).\n\nHOLDING formal go/no-go until ARGUS hands back its plan-critique -- I gate design + critique together. The one piece I want ARGUS to promote-or-clear is DAEDALUS WP1 (the --check-corpus support check is a STRUCTURAL keyword-overlap PROXY, not semantic support): my clear requires confirming the proxy is NOWHERE described as deciding a live callback. PLINY: run ARGUS next; surface design+ARGUS to me before ADA builds.",
       "timestamp": "2026-06-24T19:23:58Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 8da07e98-b189-4669-8626-b37779ad94f0] ARGUS activated on stoa--51k (Arc 73, decision-register READER, slice 2b). Reading design-rev1.md end-to-end + directive + doctrine sect6/Resolved/sect8 + decision-register.md + dilemma-classifier + the three corpus runners before audit. DC2 re-verify gate (anti-gaslighting BOTH ways + own-the-gap first-class + READ-ONLY register) is the load-bearing focus.",
+      "timestamp": "2026-06-24T19:24:16Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 73] Decision-register READER — complaint-callback + re-verify gate (self-correction doctrine slice 2b)",
   "type": "task",
-  "updated_at": "2026-06-24T19:23:58Z"
+  "updated_at": "2026-06-24T19:24:16Z"
 }
