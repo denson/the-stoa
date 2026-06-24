@@ -30,11 +30,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009]\nDAEDALUS activated on stoa--xa4 (Arc 72). Reading directive + decision-surface SKILL + worked-example + dilemma-classifier + decision-register + doctrine + corpus shapes + deploy surfaces. Restatement-gate + design draft next.",
       "timestamp": "2026-06-24T02:01:45Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009]\nAll inputs consumed end-to-end: directive, decision-surface SKILL (6 open Qs), worked-example, dilemma-classifier (S1/S2/S3), decision-register (9-field schema + corpus), both existing corpora (19/19 + 18/18 shape), install.sh SKILL_NAMES, POLYBIUS S3.6 + PLINY S5.18 checkpoints, gen-data discoverSkillFiles, stoa--ida. Restatement converges with brief. Drafting design-rev1 DC0-DC4 + probes + weak points now.",
+      "timestamp": "2026-06-24T02:02:49Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 72] Graduate decision-surface — the guide front (self-correction doctrine slice 3)",
   "type": "task",
-  "updated_at": "2026-06-24T02:01:45Z"
+  "updated_at": "2026-06-24T02:02:49Z"
 }
