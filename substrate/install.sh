@@ -230,6 +230,7 @@ SKILL_NAMES=(
   handoff-author
   workflow-composer
   interactive-html-preview
+  decision-surface
   team-launcher
   gauntlet-setup
   whoami
