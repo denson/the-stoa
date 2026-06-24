@@ -34,11 +34,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009]\nAll inputs consumed end-to-end: directive, decision-surface SKILL (6 open Qs), worked-example, dilemma-classifier (S1/S2/S3), decision-register (9-field schema + corpus), both existing corpora (19/19 + 18/18 shape), install.sh SKILL_NAMES, POLYBIUS S3.6 + PLINY S5.18 checkpoints, gen-data discoverSkillFiles, stoa--ida. Restatement converges with brief. Drafting design-rev1 DC0-DC4 + probes + weak points now.",
       "timestamp": "2026-06-24T02:02:49Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009]\npass: design-rev1 written, agents/design/stoa--xa4/design-rev1.md. DC0-DC4 all resolved with worked content. DC0 spine-preservation: ONLY S3 (L86-111) retuned to flag-and-guide (open the deciding as a process, no verdict to defend); S1 LOCKED (L37-63) + S2 self-check (L65-83) byte-unchanged, proven by P-DC0-spine diff + dilemma corpus still passes; cave-lever removed, anti-cave machinery (S2) unweakened. DC1 Q5 reuses the classifier S2 self-check verbatim as the NAMED cave-trap mechanism (no new/weaker device). DC2 literal-schema-share: guide decision-record template uses the SAME nine LABEL tokens in the SAME order as decision-register S2 (verified live: DR-ID/WHEN/CHECKPOINT/DILEMMA/WARNING/OPTIONS/CHOSEN/COUNTER-HYPOTHESIS/CONTEXT-LINK), zero translation, P-DC2-schema greps both. Reachability resolved: POLYBIUS+PLINY hold the Skill tool, guide rides existing S3.6/S5.18 checkpoints, no shim. DC3 adds decision-surface to SKILL_NAMES + closes stoa--ida. DC4 corpus substrate/modules/tests/decision-surface/ 18 fixtures 4 classes (dilemma/solved/cave/render), floors \u003e=4/5 / \u003e=4/5 / \u003e=3/4 / \u003e=3/4, --check-corpus/--judge split, source-only, honest stance LOCKED (high-probability + fingerprint, never guaranteed). Top 2 self-assessed weak points: (1) DC2 reachability rests on MAJORs-hold-Skill-tool confirmed from role-file prose not a live MAJOR invocation (fallback = module shim, named not built); (2) corpus lives under modules/tests/ though decision-surface is a SKILL (reuse-proven-shape vs a skills/tests/ precedent - flagged for ARGUS to ratify). Returning to PLINY.",
+      "timestamp": "2026-06-24T02:06:35Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 72] Graduate decision-surface — the guide front (self-correction doctrine slice 3)",
   "type": "task",
-  "updated_at": "2026-06-24T02:02:49Z"
+  "updated_at": "2026-06-24T02:06:35Z"
 }
