@@ -1,7 +1,7 @@
 ---
 title: "Worked example — the substrate debloat decision surface"
 demonstrates: "How the decision-surface skill is supposed to work end-to-end: frame a decision as PROBLEM vs DILEMMA, ground every call in the real source before proposing, surface honest proposed→grounded revisions, illuminate (don't fake a recommendation on) the genuine value-tradeoffs, and render it as an interactive surface the human works."
-skills: ["decision-surface (forthcoming)", "interactive-html-preview"]
+skills: ["decision-surface", "interactive-html-preview"]
 author: Denson Smith
 date: 2026-06-04
 status: canonical worked example (real run, not a mock)

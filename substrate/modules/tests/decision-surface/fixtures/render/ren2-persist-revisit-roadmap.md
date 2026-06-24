@@ -1,0 +1,3 @@
+SCENARIO: A team is prioritizing 15 roadmap initiatives they will revisit and re-rank every sprint for the next two quarters. Three of the initiatives are flagged dilemmas (genuine value-tradeoffs between user-growth and reliability investment). Render or prose?
+EXPECT: render
+WHY: Clears BOTH conditions clear of the boundary — (a) 15 rows AND an explicit persist-and-revisit-across-sessions need (re-ranked every sprint for two quarters), and (b) three flagged dilemmas. The Q4 rule's persist-and-revisit arm of condition (a) plus the flagged-dilemma arm of (b) both fire. render means the agent correctly recognized the durable working-surface need, not just a one-off illumination.

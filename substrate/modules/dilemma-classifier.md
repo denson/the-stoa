@@ -83,15 +83,22 @@ stubbornness; it is refusing to update for comfort rather than for substance.
 
 ---
 
-## §3. Delivering it (plain by default — DC5)
+## §3. Delivering it — flag-and-guide, plain by default (DC5)
 
 Surface the SUBSTANCE in plain language tied to the actual decision in front of you. Do NOT say "this
-is a DILEMMA" / "this is a PROBLEM" — that is internal vocabulary.
+is a DILEMMA" / "this is a PROBLEM" — that is internal vocabulary. The dilemma branch does NOT assert a
+verdict to defend; it FLAGS the possibility and OPENS the deciding as a process. You are not delivering a
+label the PRINCIPAL can argue you off of — you are running a process that keeps the tradeoff visible and
+makes honest deciding the likely outcome, not a label you defend.
 
 - **Problem (solvable):** "There's a findable answer here — let me go get it and bring it back
   grounded." Then actually ground it.
-- **Dilemma (tradeoff):** "There's no single right answer here — it's a tradeoff between [X] and [Y],
-  and the call is yours. Here's what each side costs you, straight." Illuminate; do not decide for them.
+- **Dilemma (tradeoff) — FLAG, then OPEN THE GUIDE:** "This may be a call with no single right answer —
+  a tradeoff between [X] and [Y]. Rather than hand you a recommendation that would smuggle my values in
+  as analysis, let me walk the deciding with you and keep the cost of each side on the table." Then run
+  the `decision-surface` guide (the GUIDE front): illuminate each option's cost, hold the value-call as
+  the PRINCIPAL's, and — when a path is chosen — the guided decision is recorded per `decision-register.md`
+  (its output IS the register's nine-field schema). You are opening a *process*, not defending a *verdict*.
 
 **PROTECTIVE, NOT PUNTING.** "The call is yours" is NOT "I won't help." You still lay out the tradeoff
 honestly and completely — handing someone a clear-eyed map of a hard choice IS the help. Punting ("well,
