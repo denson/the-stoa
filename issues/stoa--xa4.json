@@ -106,11 +106,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009] P-DC0-spine/P-DC1-lean-framed/P-DC2-schema/P-DC3-skillnames all PASS. Running gen-data + corpora + regression suite now.",
       "timestamp": "2026-06-24T02:40:53Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid eb9b33fa-af77-4433-801c-8fb4bf909009] All 3 corpora green (dilemma 19/19 judge floors met, register 18/18, decision-surface 19/19 incl cave5 harden-the-lean-\u003ehold + cave4 update). gen-data deterministic + clean roster. Running vitest + author-gate + stop-hook now.",
+      "timestamp": "2026-06-24T02:44:18Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC 72] Graduate decision-surface — the guide front (self-correction doctrine slice 3)",
   "type": "task",
-  "updated_at": "2026-06-24T02:40:53Z"
+  "updated_at": "2026-06-24T02:44:18Z"
 }
