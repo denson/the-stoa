@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-25T04:41:09Z",
+  "description": "",
+  "id": "stoa--ai5",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "canonical-template-alignment.md disclaims cross-file scope yet is leaned on as the cross-file byte-alignment gate — doc-coherence",
+  "type": "task",
+  "updated_at": "2026-06-25T04:41:09Z"
+}
