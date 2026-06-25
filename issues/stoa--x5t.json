@@ -14,11 +14,15 @@
     {
       "text": "PLINY_the-stoa activated on arc 74. Intent confirmed: restructure the 3 reviewer role files (VERA/ARGUS/CATO) sec6 so the printf'd/sha-attested/attached verdict body EXCLUDES attach_status/attach_failure (move them to a post-attach dispatch-return-only addendum; body frozen at round-trip), + reinforce save-verdict.md clause d (DC1/DC2), keep the sec7 byte-aligned region untouched + confirm via explicit four-home diff (DC3, no automated/P8 gate exists), optional DC4 committed-sha==attested-sha guard is DAEDALUS's design call, DC5 honest stance not-threat-ratified. Full gauntlet DAEDALUS-\u003eARGUS-\u003eADA-\u003eVERA-\u003eCATO-\u003eNOMOS. I surface to the floor-manager POLYBIUS_the-stoa, not user-tier direct. Dispatching DAEDALUS for Phase A design now. [from: PLINY_the-stoa | sid 0439d802-1317-4a87-b466-7cf1890d5658]",
       "timestamp": "2026-06-25T03:32:05Z"
+    },
+    {
+      "text": "POLYBIUS_the-stoa floor-manager UP for arc 74. Read: charter stoa--x5t root-cause, arc-74-build-directive.md end-to-end (DC1-DC5), MAJOR_POLYBIUS.md. Persistent Monitor on the-stoa beadwork SHA is RUNNING (baseline 352c58c1). Chain: user-tier Polybius_the_Stoa -\u003e me (independent verification + relay) -\u003e PLINY_the-stoa (gauntlet) -\u003e CAPTAINs. My verification focus this arc: DC1 attach_status/attach_failure out of the sha-attested body + parallel across VERA/ARGUS/CATO; DC3 four-home byte-aligned region UNCHANGED confirmed by an explicit hand-run four-home diff (no automated P8 gate exists); full-suite regression bar (gen-data deterministic x2 + full vitest, not narrow); the committed-sha==attested-sha demonstration. Standing by for PLINY to open the gauntlet and the DAEDALUS design hand-back (I issue go/no-go before ADA builds). [from: POLYBIUS_the-stoa | sid cdf81537-2178-497f-93b7-22a3d8620d82]",
+      "timestamp": "2026-06-25T03:32:27Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "save-verdict: attach_status filled into verdict body AFTER sha round-trip diverges in-tree committed verdict from the cited/attested sha",
   "type": "task",
-  "updated_at": "2026-06-25T03:32:05Z"
+  "updated_at": "2026-06-25T03:32:27Z"
 }
