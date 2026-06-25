@@ -189,10 +189,23 @@ independent current-GCP-docs check (2026-06-25, primary sources, VERA-confirmed 
 - Sources: `docs.cloud.google.com/billing/docs/how-to/{budgets, disable-billing-with-notifications,
   notify}`; Spend Caps = GCP Next 2026 Private Preview (no stable canonical doc yet — preview-tracked).
 
-⇒ a **hard per-builder budget boundary is only achievable at the project scope**, which **forces** the
-isolation unit to be a **per-builder GCP project** — and that **corrects a premise Polybius the Grand
-stated** (per-builder SA + budget cap implied shared-project + per-SA scoping). Per supervisor direction
-this is a **premise-correction-UP, not a team decision** — see the fork in §11.
+⇒ **the premise-correction routed UP to Grand is TWO-PART** (FM convergence-package-honesty
+precision, 2026-06-25):
+1. **Isolation UNIT:** the finest scope ANY dollar control binds to is the **project**, so a
+   per-builder budget boundary **forces the isolation unit to be a per-builder GCP project** — which
+   **corrects Grand's stated SA-isolation premise** (his "per-builder SA + budget cap" implied
+   shared-project + per-SA scoping). This is the structural fork (§11), held for Grand.
+2. **The word "budget CAP" itself needs honest correction:** there is **NO GA hard-DOLLAR cap at ANY
+   granularity** (per-SA *or* per-project). What a per-builder project actually delivers is a **MENU,
+   not a single hard cap**: **(a)** budget ALERTING (GA, alert-only); **(b)** Spend Caps auto-pause
+   (PRIVATE PREVIEW, service-limited to Vertex/Maps/CloudRun); **(c)** kill-switch (GA but REACTIVE/
+   lagging — hours — not a true hard cap); **(d)** per-service QUOTAS (GA, but RATE/request limits
+   that bound spend *velocity*, NOT total dollars). The Grand must rule on the isolation unit **with
+   this honest menu in front of him**, not on an implied per-project hard-dollar-cap that does not
+   GA-exist. *(This is NOT a redesign of the §5/§6 budget mechanism, which already splits alert +
+   quota + opt-in killswitch and is sound — it is the precision the convergence package carries.)*
+
+Per supervisor direction both parts are **premise-corrections-UP, not team decisions** — see §11.
 
 ---
 
@@ -269,14 +282,16 @@ slug** (both already carry it) — additive.
 ## 11. THE ONE HELD FORK — isolation UNIT (surfaced UP to Polybius the Grand)
 
 Everything above is converged in-team. This single decision is **not** closed below the Grand, because
-it corrects his stated premise.
+it corrects his stated premise — and note (§6) the correction is two-part: the isolation UNIT *and* an
+honest restatement that no GA hard-dollar "cap" exists at any granularity (the realizable control is
+the (a)-(d) menu, per-builder only under Branch A).
 
 | | **Branch A — per-builder GCP PROJECT (forced-by-evidence RECOMMENDATION)** | **Branch B — shared project + per-SA scoping (matches Grand's stated premise)** |
 |---|---|---|
 | Access isolation | ✓ (per-SA scope + per-secret accessor) | ✓ (per-SA scope + per-secret accessor) |
-| **Hard per-builder budget cap** | ✓ — only branch that delivers it (project budget + per-service quota) | ✗ — **impossible** (no per-SA budget scope; quotas shared project-wide) |
+| **Per-builder budget control** (no GA hard-dollar cap exists anywhere — §6) | **best achievable** — the (a)-(d) menu binds **per builder**: project alert + Preview Spend Caps + reactive killswitch + per-service rate-quotas | **cannot deliver per-builder budget control at all** — no per-SA budget scope; the whole menu is project-wide, shared across builders |
 | Premise impact | **corrects** Grand's SA→PROJECT premise | preserves Grand's stated premise |
-| Cost | more projects to create/manage | fewer projects; fails the directive's literal "budget cap per builder" |
+| Cost | more projects to create/manage | fewer projects; fails the directive's per-builder budget intent |
 
 **Settled evidence forcing the fork:** §6 (STRABO-cited, VERA-confirmed). **Team recommendation:**
 Branch A — it is the only branch satisfying the directive's per-builder budget-cap requirement.
