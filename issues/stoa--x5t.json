@@ -2,6 +2,8 @@
   "assignee": "denson",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-25T04:41:58Z",
+  "close_reason": "Arc 74 landed: --no-ff merge dc71022; full gauntlet CONFORMANT + user-tier independent verify + NOMOS-on-merge CONFORMANT; regression bar green (gen-data deterministic + vitest 41). Follow-ups: o1 -\u003e stoa--ai5; c1 correct-by-design. Post-merge: self-apply + redeploy to stoa_of_science.",
   "created": "2026-06-25T02:24:36Z",
   "description": "",
   "id": "stoa--x5t",
@@ -157,8 +159,8 @@
     }
   ],
   "priority": 2,
-  "status": "in_progress",
+  "status": "closed",
   "title": "save-verdict: attach_status filled into verdict body AFTER sha round-trip diverges in-tree committed verdict from the cited/attested sha",
   "type": "task",
-  "updated_at": "2026-06-25T04:41:57Z"
+  "updated_at": "2026-06-25T04:41:58Z"
 }
