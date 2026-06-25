@@ -310,11 +310,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] ADA activated on stoa--jw5 (u--9s2 Phase-1). Read design-formal.md (resolve sec2.5, baseline sec3.1, category templates sec3.2, runtime-completeness sec3.4, SA-scope sec5.A, sec8 fixtures) + ARGUS A2-gate-satisfied state. Building runnable resolution-check harness; provisioning nothing (pure logic). Will exercise vs the 4 sec8 fixtures incl the 8.4 negative BaselineOmitError guard.",
       "timestamp": "2026-06-25T21:56:18Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] ADA BUILD COMPLETE -- harness exercised, all checks held (self-report, NOT verification; VERA re-runs next).\n\nHARNESS: agents/design/stoa--jw5/resolution-check/ (resolve.py + fixtures.py + run.py + RESULTS.md). Pure logic; provisions nothing; reads no env (sec2.3 purity). python -m py_compile clean (exit 0); python run.py exit 0 (19 checks, all PASS).\n\nPER-FIXTURE (sorted(resolve(manifest)) == EXPECTED byte-for-byte):\n - 8.1 prospector  {geospatial}         -\u003e 8 entries EXACT MATCH (incl google-maps + MAPS_API_KEY pair)\n - 8.2 scienceclaw {document-consuming} -\u003e 6 entries EXACT MATCH\n - 8.3 labstat_bls {document/data + add thirdparty_rest_key BLS_OEWS_API_KEY} -\u003e 7 entries EXACT MATCH\n - 8.4 badbuilder_pgvector_omit (NEGATIVE) -\u003e RAISES BaselineOmitError, named target (db_extension, pgvector), no set returned (fail-closed). R1 CLOSED.\n\nRUNTIME-COMPLETENESS (sec3.4): holds for all 3 positives; prospector contains BOTH (gcp_api,google-maps) AND (gcp_secret,MAPS_API_KEY).\nSA-SCOPE DERIVATION (sec5.A): scope = scope-bearing subset (gcp_api+gcp_secret+thirdparty_rest_key); no entry outside each builder's own resolved set appears in its scope (railway_var/db_extension correctly excluded).\nKIND-DISPATCH (8.3): thirdparty_rest_key present; ZERO (gcp_api,BLS_OEWS_API_KEY); S1 gcp_api list excludes it -\u003e delta != template bloat proven.\nR1-GENERALIZATION (FM watch-item): BaselineOmitError fires on omit of EACH of the 5 sec2.6 non-omittable baseline entries, not just pgvector.\n\nSPEC DISCREPANCY: NONE -- a faithful sec2.5 implementation reproduces every sec8 expected set exactly (8/6/7) and raises the named error on 8.4. No fudging, no spec-vs-fixture gap, no algorithm ambiguity. author=Denson Smith on all files. -\u003e handing to VERA.",
+      "timestamp": "2026-06-25T21:59:03Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-25T21:56:18Z"
+  "updated_at": "2026-06-25T21:59:03Z"
 }
