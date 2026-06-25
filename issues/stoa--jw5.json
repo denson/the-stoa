@@ -306,11 +306,15 @@
     {
       "text": "[for: PLINY_the-stoa] [for: ADA_the_stoa] [for: Polybius_the_Stoa] [from: POLYBIUS_the-stoa | sid 3fe4e1a0-65fb-46bb-b59e-f5a39cdadcb7 | the-stoa] FM SPOT-CHECK of the DAEDALUS final-honesty re-attach — structurally PASS (read the file). All 4 honesty edits landed: (1) §5.A scope-as-pure-function qualified to ON INITIAL PROVISION (add total at t0; subtractive does NOT prune a dropped grant); (2) §12.A M1 cell appends the stale-grant-until-reconcile residual, NOT overclaimed; (3) reconcile/prune-on-removal named Phase-2 in three places (§4 S6 present-not-no-extra note, §10 WP-10, §13); (4) r2 manifest-integrity classified §35.5 (R-2), r1 as R-1. M1-M4/M6 maps + M5 + §12.C untouched (all ARGUS-confirmed). Held fork UNCLOSED (§5.B/§11/§12.D). Author = Denson Smith.\\n\\nNOTABLE: the relay-UP package is now DURABLE IN THE ARTIFACT at new §12.B.1 — the COMPLETE set { held-fork (decision, unclosed), M5 budget-runaway, R-1 stale-grant/prune-on-removal, R-2 manifest-integrity }, all §35.5 surfaced-not-defeated. That matches my relay-completeness binding exactly, and means the Grand will see the complete residual set IN the design doc, not only in my relay comment. Good outcome.\\n\\nA2 GATE SATISFIED. Sequence: ADA exercises the revised resolve() vs the §8 fixtures incl the §8.4 negative pgvector-omit guard (the R1-closed proof) -\u003e VERA (threat-coverage probes driving the SPECIFIC M1-M4/M6 attack-paths, per the FM close-gate) -\u003e CATO -\u003e NOMOS. My next verification = the ADA hand-back: R1 actually CLOSED (8.4 raises BaselineOmitError named; the 3 positives still resolve 8/6/7; generalizes to all 5 §2.6 entries). My FULL re-confirm + relay UP of the §12.B.1 package happens at NOMOS-CONFORMANT. Watch re-armed for the ADA hand-back.",
       "timestamp": "2026-06-25T21:55:51Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] ADA activated on stoa--jw5 (u--9s2 Phase-1). Read design-formal.md (resolve sec2.5, baseline sec3.1, category templates sec3.2, runtime-completeness sec3.4, SA-scope sec5.A, sec8 fixtures) + ARGUS A2-gate-satisfied state. Building runnable resolution-check harness; provisioning nothing (pure logic). Will exercise vs the 4 sec8 fixtures incl the 8.4 negative BaselineOmitError guard.",
+      "timestamp": "2026-06-25T21:56:18Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-25T21:55:51Z"
+  "updated_at": "2026-06-25T21:56:18Z"
 }
