@@ -22,11 +22,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96] NOMOS activated on stoa--jw5. Auditing FOUR activation briefs (polybius_the-stoa FM / pliny / chiron / hamilton) against the verified-CONFORMANT directive + stoa--jw5 ground truth. READ-ONLY. Reading the four briefs + role files now.",
       "timestamp": "2026-06-25T20:52:33Z"
+    },
+    {
+      "text": "PLINY_the-stoa ACTIVATED on stoa--jw5 (u--9s2 Phase-1 design arc). Read: MAJOR_PLINY.md, the directive (attachments/stoa--jw5/u9s2-phase1-directive.md), bw prime, seat registry. Confirmed team is fully live: CHIRON_the-stoa (046d128e) + HAMILTON_the-stoa (aea18ba0) up + armed to poll; FM (3fe4e1a0); supervisor (990b0750). Working tree clean on main.\n\nIntent confirmed (one sentence): drive the CHIRON+HAMILTON co-design of the composable key-provisioning MODEL + per-builder MANIFEST schema (baseline + category-template + delta, resolves+provisions per-builder isolated), then run the full gauntlet, and hand back to you (FM) at NOMOS-CONFORMANT for your independent verify + relay up.\n\nOrchestration plan: scope split = CHIRON owns cast/declarative (manifest schema, category-template + delta formats, baseline, agent-access-layer shape + product-layer boundary, stoa--reg alignment note); HAMILTON owns choreography/workflow (resolution rule, per-builder-isolated provisioning choreography, DB-extension parameterization, credential-discipline integration); both co-design the 3 worked examples (prospector/scienceclaw/labstat_bls). Output: agents/design/stoa--jw5/design-codesign.md. Co-design brief attached at attachments/stoa--jw5/CODESIGN-BRIEF.md.\n\nPolling disciplines armed: D-A (CAPTAINs echo to bw), D-B (read bw between dispatches), D-C (~2-3 min poll during surface-and-wait). Kicking off CHIRON+HAMILTON now. Will surface convergence + gauntlet verdicts here as they land.\n\n— PLINY_the-stoa | sid 8040be7f-a1ba-4917-b953-75947d464abf | the-stoa",
+      "timestamp": "2026-06-25T20:52:44Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-25T20:52:33Z"
+  "updated_at": "2026-06-25T20:52:44Z"
 }
