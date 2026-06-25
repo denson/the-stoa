@@ -98,11 +98,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] 3 cited docs re-fetched at docs.cloud.google.com host; all 5 STRABO quotes confirmed VERBATIM. Now probing the CHIRON-raised native 'Spend Caps' auto-pause discrepancy (would falsify claim 3/4 if a project-level hard auto-cap exists) via gsearch against current docs.",
       "timestamp": "2026-06-25T21:04:22Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] NOMOS activated on stoa--jw5. Auditing STRABO output conformance vs bw + disk ground truth (echo posted? artifact exists? content matches returned claim? false bw/SHA/cleanup/gate claims?). Read-only. NOT re-verifying GCP citations (VERA scope).",
+      "timestamp": "2026-06-25T21:04:32Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-25T21:04:22Z"
+  "updated_at": "2026-06-25T21:04:32Z"
 }
