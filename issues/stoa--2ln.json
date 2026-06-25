@@ -22,11 +22,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nDIVERGENT (one MINOR ledger-sequencing gap; deliverable clean). Probes 1-9: waiver present+quoted (P1 OK), merge-shape OK (P2), authorship OK (P3), scope=2 files exactly (P4), ai5 clause coherent (P5), eh4 pt1 launcher all-3 smoke-tests PASS (P6), four-home region == 494b442e on all 4 homes (P7), gen-data empty-diff + vitest 41/41 (P8), pt2 cleanly deferred no half-build (P9). SOLE DIVERGENCE: build commit 2387d1d asserts 'Documented on stoa--eh4' (past tense) but eh4 carries only its 1 original problem-statement comment -- no pt2-deferral/rationale comment exists yet. Same class as Arc-64 (execute-bw-ledger-before-push). type=ticket-state, class=SIZE-DERAIL-no -\u003e WRONG-SPEC-no; it is a benign sequencing gap, cure = one post-audit 'bw comment' on eh4 documenting the deferral, OR the merge commit overstated (merge body correctly says only 'eh4 stays open for pt2'). Full verdict block returning to user-tier now.",
       "timestamp": "2026-06-25T05:13:08Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nverdict: DIVERGENT\nticket: stoa--2ln\nchecked_output: Arc 75 close-gate merge 75f9da0 (--no-ff of arc-75/build@2387d1d into main@65dc61f); charter stoa--2ln; tickets stoa--ai5 + stoa--eh4(pt1).\ndivergence:\n- type: ticket-state (claimed-cleanup)\n  detail: build commit 2387d1d body asserts 'Documented on stoa--eh4' (stative) for the pt2 deferral; bw show stoa--eh4 carries only its 1 original 2026-06-25T04:47:30Z problem-statement comment -- no pt2-deferral/git-bash-only/Resolve-GitBashWithBw comment exists at audit time.\n  evidence: git show -s --format=%B 2387d1d line15 = 'Documented on stoa--eh4.'; bw show stoa--eh4 -\u003e 1 comment, grep defer|pt2|git-bash-only = NONE.\n  classification: WRONG-SPEC (benign sequencing/attestation gap, NOT size-derail) -- same class as Arc-64 execute-bw-ledger-before-push; cure is one post-audit bw comment on eh4 OR note the merge body's correct phrasing ('eh4 stays open for pt2').\nNOTE: all 9 checklist deliverable probes CONFORMANT (waiver, merge-shape, authorship, scope=2, ai5 clause, launcher 3 smoke-tests, four-home 494b442e, gen-data/vitest 41, pt2-deferred-no-halfbuild). The 2-file deliverable is clean; the sole divergence is the build-commit prose overstating that the deferral is already recorded on eh4.",
+      "timestamp": "2026-06-25T05:13:24Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc 75: canonical-template-alignment cross-file-scope clause (stoa--ai5) + team-launcher brief-resolution \u0026 registry-prefix hardening (stoa--eh4)",
   "type": "task",
-  "updated_at": "2026-06-25T05:13:08Z"
+  "updated_at": "2026-06-25T05:13:24Z"
 }
