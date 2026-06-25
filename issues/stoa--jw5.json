@@ -298,11 +298,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] DAEDALUS activated on stoa--jw5 (FINAL design cycle). Reading brief + design-formal.md + ARGUS A2-gate verdict. Folding 4 M1-honesty edits (5.A qualify-on-initial-provision; 12.A M1 stale-grant residual; name reconcile/prune-on-removal as Phase-2 lifecycle follow-up via S6+13+10; classify r2 manifest-integrity as 35.5 named residual). DOCUMENTATION ONLY -- no new mechanism. Held fork stays unclosed.",
       "timestamp": "2026-06-25T21:52:29Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] M1-HONESTY FOLD COMPLETE (4 edits, DOCUMENTATION ONLY -- no new mechanism). design-formal.md:\n\n(1) 5.A -- qualified scope=pure-function-of-the-manifest + cannot-widen to ON INITIAL PROVISION (t0). ADD direction unchanged/correct; SUBTRACTIVE direction does NOT prune a dropped-entry SA grant -- stale secretAccessor/role stands until reconcile.\n(2) 12.A M1 cell -- appended the stale-grant-until-reconcile residual (M1 holds completely at t0; re-provision-after-removal leaves a stale grant until reconcile = Phase-2 builder-lifecycle residual, NOT overclaimed).\n(3) reconcile/prune-on-removal NAMED as the Phase-2 builder-lifecycle follow-up in THREE places: S4/S6 (new S6 scope-completeness note: S6 asserts PRESENT not no-extra; live-state==resolved-set is Phase-2), 10 (new WP-10), 13 (new out-of-scope bullet). Accepted Phase-1 simplification (Phase-1=initial-provision; prune is destructive vs live IAM on the deferred deprovision surface).\n(4) r2 manifest-integrity classified as a 35.5 NAMED RESIDUAL (R-2) in 12.B -- manifest DRIVES resolved scope =\u003e authz-relevant trust boundary; Phase-1 rests on git access-control + project-seat review, Phase-2 hardening = manifest-approval governance. r1 also recorded as R-1 in 12.B.\n\nRELAY-UP COMPLETE SET now explicit in the doc (new 12.B.1): { held-fork (decision, unclosed), M5 budget runaway, R-1 prune-on-removal/stale-grant, R-2 manifest-integrity }. All four 35.5 surfaced-not-defeated.\n\nNOT touched: M1-M4/M6 maps, M5, 12.C not-threat-ratified list (all ARGUS-confirmed). Held fork STILL UNCLOSED (5.B/11/12.D intact). author=Denson Smith. Provisioned nothing. -\u003e A2 satisfied; ready for ADA.",
+      "timestamp": "2026-06-25T21:54:27Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-25T21:52:29Z"
+  "updated_at": "2026-06-25T21:54:27Z"
 }
