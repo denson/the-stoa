@@ -171,15 +171,23 @@ silent config drift. S3 injects only this builder's SA key. This half is closed 
 **Budget isolation (capability SETTLED; UNIT is a HELD FORK → Grand).** Verified via STRABO's
 independent current-GCP-docs check (2026-06-25, primary sources, VERA-confirmed verbatim):
 - GCP has **no per-service-account** budget scope; an SA's spend bills to its **project**.
-- Cloud Billing budgets are **alert-only** — *"Setting a budget does not automatically cap … usage or
-  spending."* No native hard auto-cap at any scope. *(This refuted CHIRON's first-pass "native
-  auto-pause Spend Caps" claim — retracted; HAMILTON's alert-only read was correct.)*
-- The kill-switch (budget → Pub/Sub → Cloud Function → detach billing) is documented but
-  **reactive/lagging** ("may take several hours"; "doesn't guarantee you won't spend more"; detaching
-  billing kills ALL project resources) — a footnote, not a tier.
-- The **real-time hard cap** is therefore **per-service QUOTA limits** (e.g. cap Vertex AI embedding
-  request/token quota) — load-bearing.
-- Sources: `docs.cloud.google.com/billing/docs/how-to/{budgets, disable-billing-with-notifications, notify}`.
+- **Classic Cloud Billing budgets are alert-only** — *"Setting a budget does not automatically cap …
+  usage or spending."* No hard cap.
+- **Native auto-pause Spend Caps DO exist — but Private Preview, not GA** (VERA verdict 2026-06-25,
+  correcting STRABO's over-absolute "no auto-cap at any scope" and *partially vindicating CHIRON's
+  first-pass discrepancy*): a GCP-Next-2026 (Apr 2026) **project-level** auto-pause Spend Cap exists,
+  **service-limited to Vertex AI / Maps / Cloud Run** (our cost-dominant APIs) — canonical docs page
+  currently 404s. Treat as a **PREVIEW dependency**, not a GA guarantee. It is itself project-level,
+  so the per-project conclusion is unaffected.
+- The **GA hard-control toolkit** (Branch A), in preference order: **(a) per-service QUOTA limits**
+  (GA, real-time — but request/rate limits, not dollar caps) on the cost-dominant APIs;
+  **(b) native project Spend Caps** where available (Preview, Vertex/Maps/CloudRun — the dollar
+  auto-cap *if* it reaches GA); **(c) project budget ALERT** (GA, notify-only); **(d) kill-switch**
+  (budget → Pub/Sub → Cloud Function → detach billing) as the GA fallback — **reactive/lagging**
+  ("may take several hours"; "doesn't guarantee you won't spend more"; detaching billing kills ALL
+  project resources), a footnote not a tier.
+- Sources: `docs.cloud.google.com/billing/docs/how-to/{budgets, disable-billing-with-notifications,
+  notify}`; Spend Caps = GCP Next 2026 Private Preview (no stable canonical doc yet — preview-tracked).
 
 ⇒ a **hard per-builder budget boundary is only achievable at the project scope**, which **forces** the
 isolation unit to be a **per-builder GCP project** — and that **corrects a premise Polybius the Grand
