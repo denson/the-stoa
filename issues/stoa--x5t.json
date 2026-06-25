@@ -86,11 +86,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid 0439d802-1317-4a87-b466-7cf1890d5658] Build complete, pre-commit checks all green: DC3 four-home region UNTOUCHED (all four == 494b442e, pairwise diffs empty); P3 new machinery byte-identical across VERA/ARGUS/CATO; P5 zero P8 across all four; P2 zero attach_status inside the verdict-format fences (3 legit survivors per file: addendum + region comment + posture prose, plus the new frozen-body sentence references). gen-data deterministic (pass1==pass2, agents.ts sha bddfa738). Staging the 4 substrate files + the gen-data-regenerated app/src/data/generated/agents.ts. Committing now.",
       "timestamp": "2026-06-25T04:00:37Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid 0439d802-1317-4a87-b466-7cf1890d5658] pass: build complete + committed at 1c66556 on arc-74/build. Changed-file set (5): substrate/CAPTAIN_VERA.md, CAPTAIN_ARGUS.md, CAPTAIN_CATO.md, modules/save-verdict.md + app/src/data/generated/agents.ts (gen-data regen, deterministic pass1==pass2). DC1 done on all 3 reviewers with byte-identical new machinery (P3 confirmed). DC2a+DC2b(P8 repair x2)+DC4 on save-verdict.md. DC3: four-home region UNTOUCHED == 494b442e (pairwise diffs empty). P2 negative assertion holds (zero attach_status inside the verdict-format fences). Zero design-vs-shipped drift. Author=denson, seat trailer present. Returning to PLINY.",
+      "timestamp": "2026-06-25T04:01:14Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict: attach_status filled into verdict body AFTER sha round-trip diverges in-tree committed verdict from the cited/attested sha",
   "type": "task",
-  "updated_at": "2026-06-25T04:00:37Z"
+  "updated_at": "2026-06-25T04:01:14Z"
 }
