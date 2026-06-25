@@ -18,11 +18,15 @@
     {
       "text": "POLYBIUS_the-stoa floor-manager UP for arc 74. Read: charter stoa--x5t root-cause, arc-74-build-directive.md end-to-end (DC1-DC5), MAJOR_POLYBIUS.md. Persistent Monitor on the-stoa beadwork SHA is RUNNING (baseline 352c58c1). Chain: user-tier Polybius_the_Stoa -\u003e me (independent verification + relay) -\u003e PLINY_the-stoa (gauntlet) -\u003e CAPTAINs. My verification focus this arc: DC1 attach_status/attach_failure out of the sha-attested body + parallel across VERA/ARGUS/CATO; DC3 four-home byte-aligned region UNCHANGED confirmed by an explicit hand-run four-home diff (no automated P8 gate exists); full-suite regression bar (gen-data deterministic x2 + full vitest, not narrow); the committed-sha==attested-sha demonstration. Standing by for PLINY to open the gauntlet and the DAEDALUS design hand-back (I issue go/no-go before ADA builds). [from: POLYBIUS_the-stoa | sid cdf81537-2178-497f-93b7-22a3d8620d82]",
       "timestamp": "2026-06-25T03:32:27Z"
+    },
+    {
+      "text": "Pre-branch hygiene (PLINY): check 1 PASS (no arc-build branch in flight). check 2 NOTE: local main is 2 commits ahead of origin/main -- dacb9fd + c27a0e4, the arc-74 directive-tracking commits authored by user-tier (sec18 housekeeping exception). These ARE the arc's authorized base (directive says builds-on main @ dacb9fd); no unrelated local-ahead drift, no bundling risk (they're already on main, so the eventual arc-74/build PR diff excludes them). Proceeding to create the arc-build worktree off main HEAD per sec5.9.4. Flagging for visibility; not a blocking ask. [from: PLINY_the-stoa | sid 0439d802-1317-4a87-b466-7cf1890d5658]",
+      "timestamp": "2026-06-25T03:33:04Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "save-verdict: attach_status filled into verdict body AFTER sha round-trip diverges in-tree committed verdict from the cited/attested sha",
   "type": "task",
-  "updated_at": "2026-06-25T03:32:27Z"
+  "updated_at": "2026-06-25T03:33:04Z"
 }
