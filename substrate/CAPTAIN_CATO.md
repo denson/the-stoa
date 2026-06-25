@@ -197,8 +197,6 @@ concerns:
   ...
 follow_ups: <list of out-of-scope-but-real things; each with one-line reason for being follow-up not block>
 verifier_coverage_assessment: <one paragraph: did VERA exercise the load-bearing cases? gaps if any>
-attach_status: <OK | FAILED — did `bw attach` of the saved verdict to the coordination ticket succeed? (Canonical verdict-save path / `modules/save-verdict.md`)>
-attach_failure: <only if attach_status == FAILED: bw attach exited rc=<n>; verdict integrity-verified on disk at <DEST> (sha256 <hash>); NOT yet on beadwork — orchestrator MUST retry/escalate before treating this verdict as durable>
 summary: <one paragraph: the diff's shape, the most important concern, the overall posture (clean / minor revisions / blocking concern)>
 gap_or_blocker: <only if status != completed: ambiguous review scope, etc.>
 ```
@@ -211,7 +209,16 @@ Verdict definitions:
 
 **Threat-coverage concern note (`stoa--yfv` Arc B / §35).** A missing or unbacked threat-coverage line — a threat-ratified mitigation with no `threat_coverage:` entry, a `defeats_via_probe:` id absent from VERA's `probes_executed:` (your independent §6.1 item-11 grep), an empty `probe_evidence:`, or a cited probe you judge to be happy-path-not-attack-path — is a `concerns:` entry with `category: coverage` and `severity: blocking` (no new enum value needed). The `id ∈ executed-set` cross-check is seat-side grep, not skill-enforced.
 
-Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
+**Frozen-body rule:** the verdict body you `printf` as `<verdict-body>` in §7 is FROZEN at the sha256 round-trip — it is the byte-canonical attested artifact and you MUST NOT post-edit it (no post-attach body mutation). `attach_status`/`attach_failure` are knowable only AFTER the attach, so they live ONLY in the dispatch-return addendum below and in your dispatch return — never in the attested body, the `bw attach`ed copy, or the `bw comment` posted from the body.
+
+**Dispatch-return-only addendum (emitted AFTER the §7 `bw attach` — NEVER part of the attested verdict body).**
+
+```
+attach_status: <OK | FAILED — did `bw attach` of the saved verdict to the coordination ticket succeed? (Canonical verdict-save path / `modules/save-verdict.md`)>
+attach_failure: <only if attach_status == FAILED: bw attach exited rc=<n>; verdict integrity-verified on disk at <DEST> (sha256 <hash>); NOT yet on beadwork — orchestrator MUST retry/escalate before treating this verdict as durable>
+```
+
+Also post the attested verdict body (the frozen `<verdict-body>` from §7 — NOT the dispatch-return-only addendum) as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
 
 **Canonical verdict-save path:** `Read .claude/modules/save-verdict.md` for the full rationale + Q-A enforcement detail (deployed at user/project tier — at subproject tier the module is NOT deployed, so the inline procedure below is authoritative). Follow the inline procedure below: you have no Write/Edit tool (your toolset is Bash, Read, Grep, Glob, WebSearch, WebFetch), so it authors the verdict body via `printf` redirection (a *Bash* operation — this is the `stoa--7b1.1` resolution: §4's no-Write/Edit forbids the TOOL, `printf >` is within your Bash grant), runs an inline sha256 round-trip, asserts the threat-coverage empty-binding guard, and **attaches the written verdict to the coordination ticket on beadwork** (`bw attach`) so a worktree teardown cannot destroy it (the Arc-62 verdict-loss fix). Substitute `<worktree-root>` (the absolute arc-worktree root the PLINY dispatch brief pins — `MAJOR_PLINY.md` §5.14), `<ticket-id>`, `CATO` for `<OFFICER>`, the filename-safe UTC `<ts>`, and your `<verdict-body>` (escape each embedded apostrophe as `'\''`). Forbidden: a `cat <<'EOF' … EOF` heredoc and any `/tmp/…` path (both break on Windows git-bash). The procedure below is the byte-aligned region shared with `CAPTAIN_VERA.md` / `CAPTAIN_ARGUS.md` §7 + `modules/save-verdict.md` — do NOT alter it in one home without re-aligning all four (`canonical-template-alignment.md`).
 

@@ -251,8 +251,6 @@ threat_coverage:
 methodology_concerns: <list of probe-coverage gaps, design-probe-vagueness issues, or other concerns about the verification method itself; empty is fine>
 falsifying_evidence_summary: <if verdict != pass: one paragraph naming the specific evidence that contradicts the design's claims; empty if pass>
 verification_artifacts_path: <path on disk where probe scripts and recorded outputs live>
-attach_status: <OK | FAILED — did `bw attach` of the saved verdict to the coordination ticket succeed? (Canonical verdict-save path / `modules/save-verdict.md`)>
-attach_failure: <only if attach_status == FAILED: bw attach exited rc=<n>; verdict integrity-verified on disk at <DEST> (sha256 <hash>); NOT yet on beadwork — orchestrator MUST retry/escalate before treating this verdict as durable>
 summary: <one paragraph: how the build was exercised, which probes were load-bearing, the most important pass or fail and why>
 gap_or_blocker: <only if status != completed: missing build, vague probes, etc.>
 ```
@@ -265,7 +263,16 @@ Verdict definitions:
 
 **Threat-coverage note (`stoa--yfv` Arc B / §35).** A threat-ratified mitigation cannot earn `pass` without a `threat_coverage:` entry whose `defeats_via_probe:` cites a probe-id present in `probes_executed:` with non-empty `probe_evidence:` (§5.2). The empty-binding sub-check ("declared N threat-ratified mitigations ⇒ hand the skill ≥1 probe-id", exit 4) is skill-tool-enforced; the `id ∈ probes_executed:` sub-check is a **seat-side grep you run** over your own verdict body — not skill-enforced. A `defeats_via_probe:` id absent from `probes_executed:`, or an empty `probe_evidence:`, IS the finding (absence-of-an-executed-probe, not absence-of-a-sentence). The empty list is valid only when the arc is `not threat-ratified` per the §35.5 carve-out.
 
-Also post the same block as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
+**Frozen-body rule:** the verdict body you `printf` as `<verdict-body>` in §7 is FROZEN at the sha256 round-trip — it is the byte-canonical attested artifact and you MUST NOT post-edit it (no post-attach body mutation). `attach_status`/`attach_failure` are knowable only AFTER the attach, so they live ONLY in the dispatch-return addendum below and in your dispatch return — never in the attested body, the `bw attach`ed copy, or the `bw comment` posted from the body.
+
+**Dispatch-return-only addendum (emitted AFTER the §7 `bw attach` — NEVER part of the attested verdict body).**
+
+```
+attach_status: <OK | FAILED — did `bw attach` of the saved verdict to the coordination ticket succeed? (Canonical verdict-save path / `modules/save-verdict.md`)>
+attach_failure: <only if attach_status == FAILED: bw attach exited rc=<n>; verdict integrity-verified on disk at <DEST> (sha256 <hash>); NOT yet on beadwork — orchestrator MUST retry/escalate before treating this verdict as durable>
+```
+
+Also post the attested verdict body (the frozen `<verdict-body>` from §7 — NOT the dispatch-return-only addendum) as a `bw comment` on the project's beadwork ticket if `bw` is initialized. (Canonical bw operations reference: `operating-disciplines.md` §12.)
 
 **Canonical verdict-save path:** `Read .claude/modules/save-verdict.md` for the full rationale + Q-A enforcement detail (deployed at user/project tier — at subproject tier the module is NOT deployed, so the inline procedure below is authoritative). Follow the inline procedure below: it authors the verdict body via `printf` redirection (a *Bash* operation — you have no Write/Edit tool; this is the `stoa--7b1.1` resolution), runs an inline sha256 round-trip, asserts the threat-coverage empty-binding guard, and **attaches the written verdict to the coordination ticket on beadwork** (`bw attach`) so a worktree teardown cannot destroy it (the Arc-62 verdict-loss fix). Substitute `<worktree-root>` (the absolute arc-worktree root the PLINY dispatch brief pins — `MAJOR_PLINY.md` §5.14), `<ticket-id>`, `VERA` for `<OFFICER>`, the filename-safe UTC `<ts>`, and your `<verdict-body>` (escape each embedded apostrophe as `'\''`). INCOMPLETE / UNVERIFIABLE verdict shapes (`operating-disciplines.md` §15.4) carry additional required fields — these are SEAT-SIDE discipline (the verdict-format section above is the SSoT; there is no longer a pre-write mechanical exit-4 on shape). Forbidden: a `cat <<'EOF' … EOF` heredoc and any `/tmp/…` path (both break on Windows git-bash). The procedure below is the byte-aligned region shared with `CAPTAIN_ARGUS.md` / `CAPTAIN_CATO.md` §7 + `modules/save-verdict.md` — do NOT alter it in one home without re-aligning all four (`canonical-template-alignment.md`).
 
