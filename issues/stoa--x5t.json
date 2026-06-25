@@ -6,9 +6,15 @@
   "description": "",
   "id": "stoa--x5t",
   "labels": [],
+  "comments": [
+    {
+      "text": "ROOT CAUSE (verified via raw git cat-file, stoa_of_science maiden arc sos--yn2). Seats (VERA/ARGUS/CATO) write the attach_status confirmation field INTO the verdict .md body AFTER the sha round-trip + bw attach, to record the attach outcome. That post-hash body mutation means: the as-attached/attested copy (what the seat cites + bw stores) carries attach_status blank; the later in-tree committed copy carries attach_status: OK. If the arc TRACKS the verdict in-tree (the new pattern), the committed verdict diverges from the cited sha by exactly that field. save-verdict.md clause (d) ALREADY says attach_status belongs in the seat DISPATCH RETURN, not the verdict body -- so the seats contradict clause (d).\n\nEVIDENCE: in-tree blob a6a16d9b vs bw-attached blob bbf9fe6f -- both pure-LF (zero CR), differ ONLY at line 100 attach_status (blank vs OK), a 3-byte delta (13525 vs 13528). NOT line-endings, NOT gitattributes, NOT tampering, NOT a save-verdict round-trip bug.\n\nWHY NEW: at the-stoa verdicts were attach-only (bw attachment = the durable canonical copy), so an in-tree-vs-attested divergence never arose. sos--yn2 is the first arc to TRACK verdict canon in-tree (commit a47d6cd) and travel it to main -- which is when a post-attach body edit becomes a committed-sha mismatch.\n\nFIX (concrete): make CAPTAIN_VERA/ARGUS/CATO section 7 inline blocks (and save-verdict.md) state explicitly that attach_status must NEVER be written into the verdict body -- it lives in the dispatch return only (clause d). Either keep it out of the file, or set it before the sha round-trip. Optional add: a mechanical committed-sha == cited-sha check at gate time. CAUTION: the section 7 procedure is the byte-aligned region (P8 diff-guarded canonical-template-alignment across save-verdict.md + the 3 role files); any edit must re-align all four homes -- so this is a forged the-stoa arc, not a drive-by edit.\n\nDISCOVERED-BY / CROSS-REF: stoa_of_science sos--wfr (local pointer) + sos--yn2 (maiden arc where it surfaced). This stoa--x5t is the durable the-stoa substrate home; the fix deploys down to every consumer on next install. [from: user-tier Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96]",
+      "timestamp": "2026-06-25T02:25:06Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "save-verdict: attach_status filled into verdict body AFTER sha round-trip diverges in-tree committed verdict from the cited/attested sha",
   "type": "task",
-  "updated_at": "2026-06-25T02:24:36Z"
+  "updated_at": "2026-06-25T02:25:06Z"
 }
