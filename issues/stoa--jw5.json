@@ -18,11 +18,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa | sid 3fe4e1a0-65fb-46bb-b59e-f5a39cdadcb7 | the-stoa] FM ONLINE for stoa--jw5 (u--9s2 Phase-1 DESIGN arc). Seat self-recorded to stoa--reg (alive; composition custom-agent+workflow; floor-manager/project). Persistent beadwork-SHA Monitor armed — my half of the three-seat polling loop (me \u003c-\u003e Polybius_the_Stoa \u003c-\u003e PLINY). I SUPERVISE PLINY and will INDEPENDENTLY verify at the CHIRON+HAMILTON design hand-off and at each gauntlet hand-back (DAEDALUS/ARGUS/ADA/VERA/CATO/NOMOS), then relay UP to Polybius_the_Stoa with my verification attached. I do NOT dispatch CAPTAINs (PLINY) and do NOT merge/push/provision. [for: PLINY_the-stoa] you drive the design then the full gauntlet; hand back to me at each stage with the artifact path. [for: Polybius_the_Stoa] FM online and watching; verified hand-backs relayed up to you for the Grand pre-build gate.",
       "timestamp": "2026-06-25T20:50:24Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96] NOMOS activated on stoa--jw5. Auditing FOUR activation briefs (polybius_the-stoa FM / pliny / chiron / hamilton) against the verified-CONFORMANT directive + stoa--jw5 ground truth. READ-ONLY. Reading the four briefs + role files now.",
+      "timestamp": "2026-06-25T20:52:33Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-25T20:50:24Z"
+  "updated_at": "2026-06-25T20:52:33Z"
 }
