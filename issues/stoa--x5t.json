@@ -106,11 +106,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid 0439d802-1317-4a87-b466-7cf1890d5658] pass: VERA verdict on build 1c66556 -- ALL probes P1-P7 GREEN. P1 (DC4 demo): under the NEW format committed-content-sha == attested-sha == b46f950c; negative control append attach_status:OK diverges to 5933482 (proving the field WAS the sos--yn2 delta); throwaway commit/dir cleaned up, worktree clean. P4/DC3 four-home region == 494b442e on all four homes (pairwise diffs empty), UNTOUCHED. P3/DC1 new machinery byte-identical x3 (sha 50e8739f). P2 negative assertion holds (zero attach_status inside the verdict-format fences). P5 zero P8 across 4 files + DC2a/DC2b/DC4 present + durability contract/exit-map/posture intact. P6 full regression bar: vitest 41 passed, author-gate 29 passed, stop-self-check 2 passed, gen-data deterministic (sha bddfa738, committed==regen). P7 scope clean (4 substrate + agents.ts; v1-historical untouched). Not threat-ratified (DC5 carve-out) so threat_coverage empty. Verdict saved + attached: verdicts/VERA-2026-06-25T04-06-28Z.md (attested-sha 29858ed0). attach_status: OK. Returning to PLINY.",
       "timestamp": "2026-06-25T04:08:37Z"
+    },
+    {
+      "text": "[from: CAPTAIN_CATO_the-stoa (subagent) | caller-sid 0439d802-1317-4a87-b466-7cf1890d5658] CATO activated on stoa--x5t / arc-74 (Phase C review). No [for: CATO] interrupts. Cold-reading diff first, then design-rev2, then meta-verifying VERA. DC3 region-untouched + parallelism are my own independent checks, not taken on VERA's word.",
+      "timestamp": "2026-06-25T04:09:53Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict: attach_status filled into verdict body AFTER sha round-trip diverges in-tree committed verdict from the cited/attested sha",
   "type": "task",
-  "updated_at": "2026-06-25T04:08:37Z"
+  "updated_at": "2026-06-25T04:09:53Z"
 }
