@@ -82,7 +82,7 @@ the cookie-cutter EMITS a spec; a human/CI APPLIES it — agents never hold cred
 | **GCP SA scoping** (per-builder) | derived = union of scope-bearing resolved entries (§2) | PRINCIPAL one-shot **or** CI via WIF (credential-discipline) | **one SA ⟷ one builder**, scope = *exactly* the resolved set; see §4 |
 | **Railway key set** | resolved `railway_var` + secret-backed entries | secrets-mgr / keyring → Railway service vars | values never touch an agent; cookie-cutter emits the var-name list only |
 | **GCP API enablement** | resolved `gcp_api` entries only | `gcloud services enable <list>` (human/CI) | exactly the resolved APIs, no superset |
-| **Budget cap** | model REQUIRES one per builder | PRINCIPAL sets the number (blast-radius limit) | per-builder cap = the runaway-isolation half of §4 |
+| **Budget cap** | model REQUIRES one per builder, applied **at the per-builder GCP PROJECT** (GCP has no per-SA cap — §4 callout) | PRINCIPAL sets the number (blast-radius limit) | per-builder **project-level** cap = the runaway-isolation half of §4 |
 | **DB extensions** | resolved `db_extension` entries | enabled at db-init on the builder's own DB | pgvector baseline; PostGIS only if geo template present |
 
 **The cookie-cutter's deploy-time output is a PROVISIONING SPEC, not an action.** It produces the
@@ -106,17 +106,37 @@ remember to follow:
    builder A's SA without first adding it to A's *manifest* — a visible, reviewed, obviously-wrong
    edit. Cross-builder leakage would require editing the **resolver itself**, making it a
    code-review-visible event, never a silent config drift.
-3. **Partitioned blast radius.** Each builder gets its **own budget cap** and its **own secret
-   namespace** (and ideally its own GCP project, or at minimum its own SA + cap + secret prefix).
-   A runaway or a compromised key in builder A cannot spend or read builder B's resources.
+3. **Partitioned blast radius — the per-builder GCP PROJECT is the structural isolation unit.**
+   Each builder gets its **own GCP project**, containing its single scoped SA, its secrets, its
+   enabled APIs, and its **project-level budget/spend cap**. A runaway or a compromised key in
+   builder A cannot spend or read builder B's resources. **(VERIFIED, see callout below — this is
+   no longer "ideally"; it is mandatory.)**
 4. **Least-privilege per secret.** `secretAccessor` is bound **per secret**, not project-wide, so
-   even within one GCP project an SA reads only its own resolved secrets.
+   an SA reads only its own resolved secrets even before the per-project boundary is counted.
+
+> **VERIFIED PREMISE (gsearch, 2026-06-25) — GCP has NO per-service-account spend cap.** Budget
+> caps, spend caps, and quotas in GCP are **project-level only** (Cloud Billing budgets scope to
+> billing-account / org / folder / **project** / service / resource-label; the native auto-pause
+> Spend Caps are project-level). A service account's spend is billed to **its project**, not to the
+> SA. **Consequence for the isolation LOCK:** the directive's *per-builder budget cap* is
+> **unachievable at SA granularity** — it therefore **mandates one GCP project per builder** (the
+> FinOps "project-isolation pattern", Google's own recommended approach). The "one shared project +
+> per-SA scoping" arrangement I'd hedged as a fallback **cannot deliver the budget cap at all**, so
+> it is not a valid fallback for the LOCK. *Weaker workaround only if per-builder projects are ever
+> operationally infeasible:* a budget→Pub/Sub→Cloud-Function "kill switch" that disables the SA's
+> keys / strips its IAM when a project-or-service budget threshold trips — strictly inferior
+> (reactive, not a hard cap) and explicitly NOT the recommended path.
 
 **The structural claim:** isolation is a *consequence of the derivation pipeline*
-(manifest → resolved set → SA scope is 1:1 and total), reinforced by the per-builder cap +
-namespace partition. It is not a checklist item an operator can forget. This is the difference
-between "we scope SAs narrowly (please)" and "an SA *cannot* hold a scope its manifest didn't
-declare." (ref `zeotek_newswire/SECURITY.md`, `u--eq6`, `newswire-builder-setup` §7.)
+(manifest → resolved set → SA scope is 1:1 and total), reinforced by the **per-builder GCP-project**
+boundary that carries the budget cap + secret namespace. It is not a checklist item an operator can
+forget. This is the difference between "we scope SAs narrowly (please)" and "an SA *cannot* hold a
+scope its manifest didn't declare, and *cannot* outspend its builder's project cap."
+(ref `zeotek_newswire/SECURITY.md`, `u--eq6`, `newswire-builder-setup` §7.)
+
+**Seam impact for HAMILTON:** the provisioning *sequence* must now **create/select the per-builder
+GCP project FIRST**, then the SA inside it, then scope-bind, then set the **project-level** budget
+cap. The "budget cap" step in §3's ownership map is a **project-level** action, not an SA-level one.
 
 ---
 
@@ -247,12 +267,13 @@ flagging the join key so the later integration is additive.
 
 ## 9. Self-assessed weak points (for ARGUS/DAEDALUS to pressure-test)
 
-1. **GCP project granularity.** "Own GCP project per builder" is the strongest isolation but may
-   be operationally heavy; the fallback (one project, per-builder SA + per-secret accessor +
-   per-builder budget cap + secret-prefix namespace) is weaker on the *budget-cap* axis (project-level
-   billing vs per-SA quota). **Open question for the design:** does GCP support a true per-SA spend
-   cap, or is the budget cap necessarily per-project? This determines whether per-builder isolation
-   *requires* per-builder projects. (Needs a web/docs check — flagging, not asserting.)
+1. **GCP project granularity — RESOLVED (gsearch, 2026-06-25).** GCP has **no per-SA spend cap**;
+   budgets/spend-caps are **project-level only**. Therefore per-builder isolation *with a real
+   budget cap* **requires one GCP project per builder** (now baked into §4 as the structural
+   isolation unit, not a hedge). Residual sub-question for DAEDALUS/ARGUS: is per-builder-project
+   creation acceptable operational weight at the projected builder count, or should the design name
+   the budget→Pub/Sub→Cloud-Function kill-switch as a documented (inferior) escape hatch? My
+   recommendation: **per-builder projects are the model; the kill-switch is a footnote, not a tier.**
 2. **Category vs delta boundary judgment.** When does a recurring delta "graduate" into a new
    category template? The model is silent; that's a governance call (probably: 2+ builders share it
    ⇒ promote to category via arc). Worth an explicit rule so deltas don't quietly accrete.
