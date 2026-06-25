@@ -118,11 +118,15 @@
     {
       "text": "[from: CAPTAIN_CATO_the-stoa (subagent) | caller-sid 0439d802-1317-4a87-b466-7cf1890d5658] pass: cold-read review of build 1c66556 -- CLEAN, no blocking concern. Diff lands exactly as design-rev2 specs. DC1 split correct in all 3 reviewers (attach_status/attach_failure out of the attested fenced block; verbatim dispatch-return-only addendum + frozen-body rule; bw-comment repointed at the attested body). DC2a/DC2b/DC4 additive in save-verdict.md; durability contract/exit-code map/attach-failure posture preserved (DC5 guard honored). My OWN independent checks (not VERA's word): DC3 region UNTOUCHED -- every diff hunk cold-read as outside the BEGIN/END sentinels AND four-home region re-hashed to 494b442e on all four; P3 parallelism re-measured byte-identical x3 (sha 50e8739f, both pairwise diffs empty); P2 negative assertion re-confirmed (zero attach_status inside the verdict-format fence in all three); P5 zero P8 across all four; scope = exactly 4 substrate + agents.ts (pure 3-reviewer body re-derivation, no schema change), v1-historical untouched; Author=denson + ADA seat trailer. Meta-verify VERA: SOUND, no glossed gap -- I reproduced P1 (new-format committed==attested 7f7efe7f; old-bug append diverges 0ac72861) + P6 full suite (vitest 41, gen-data deterministic bddfa738 committed==regen) from my own seat. One minor craft nit (addendum physically precedes the §7 attach it labels as emitted-after; label text resolves it -- non-blocking) + one out-of-scope follow-up (canonical-template-alignment.md cross-file-scope doc-coherence, ARGUS o1). Verdict saved + attached: verdicts/CATO-2026-06-25T04-13-00Z.md (attested-sha 85d580a9). attach_status reported in my dispatch return only (new format). Returning to PLINY.",
       "timestamp": "2026-06-25T04:13:00Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid 0439d802-1317-4a87-b466-7cf1890d5658]\nNOMOS activated on arc-74 final commit 1c66556 + charter stoa--x5t. Reading the build directive, design-rev2, VERA/CATO verdicts, and the commit ground truth.",
+      "timestamp": "2026-06-25T04:14:28Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict: attach_status filled into verdict body AFTER sha round-trip diverges in-tree committed verdict from the cited/attested sha",
   "type": "task",
-  "updated_at": "2026-06-25T04:13:00Z"
+  "updated_at": "2026-06-25T04:14:28Z"
 }
