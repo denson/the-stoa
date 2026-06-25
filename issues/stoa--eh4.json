@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-25T04:47:28Z",
+  "description": "",
+  "id": "stoa--eh4",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "team-launcher hardening: brittle brief-filename convention + record-seat stoa--reg hardcode",
+  "type": "task",
+  "updated_at": "2026-06-25T04:47:28Z"
+}
