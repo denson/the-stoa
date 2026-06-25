@@ -6,9 +6,15 @@
   "description": "",
   "id": "stoa--ai5",
   "labels": [],
+  "comments": [
+    {
+      "text": "Surfaced by Arc 74 (stoa--x5t) ARGUS o1 / CATO. canonical-template-alignment.md is a WITHIN-a-single-design.md discipline (its section 6.8 explicitly excludes cross-FILE templates), yet the save-verdict byte-aligned section-7 region is a CROSS-FILE template (4 homes: save-verdict.md + CAPTAIN_VERA/ARGUS/CATO section 7) whose alignment is enforced ONLY by a manual four-home diff. Arc 74 already repaired the stale P8/automated-gate references in save-verdict.md (DC2b) + the directive. REMAINING doc-coherence gap: canonical-template-alignment.md itself should state explicitly that cross-FILE byte-aligned regions (the section-7 region) are out of its automated scope and are enforced by the manual four-home diff at verify + close-gate. NON-BLOCKING; pure doc-coherence; no behavior change. Concrete fix: add a cross-file-scope clause to canonical-template-alignment.md naming the section-7 four-home region + the manual-diff enforcement. [from: user-tier Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96]",
+      "timestamp": "2026-06-25T04:41:11Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "canonical-template-alignment.md disclaims cross-file scope yet is leaned on as the cross-file byte-alignment gate — doc-coherence",
   "type": "task",
-  "updated_at": "2026-06-25T04:41:09Z"
+  "updated_at": "2026-06-25T04:41:11Z"
 }
