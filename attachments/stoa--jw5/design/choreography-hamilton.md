@@ -122,12 +122,23 @@ boundary}. A **credential-disciplined applier** (CI via WIF, or a human one-shot
 the ORDER + idempotency + fail-closed contract the applier follows; **every step dispatches on
 the resolved entry's `kind`.**
 
+> **ISOLATION-UNIT HELD ABOVE THE TEAM (FM relay of Polybius_the_Stoa, idx 17/18).** The
+> no-per-SA-cap finding *corrects a premise from Polybius the Grand* (his per-builder-SA +
+> budget-cap implied shared-project + per-SA scoping). So S0 below is written to the
+> **forced-by-evidence RECOMMENDATION** (per-builder project), but the isolation UNIT is **NOT a
+> team-closed lock** — it is a surfaced FORK for the Grand (see §5/§8). The sequence is the same
+> shape either way; only S0a's boundary granularity changes.
+
 ```
-S0  ISOLATION SCAFFOLD  (the per-builder LOCK — must precede any key materialization)
-    0a  ensure builder's GCP PROJECT  (✓ JOINT §5: per-builder project is REQUIRED for a
-        budget boundary — GCP has no per-SA budget scope)
-    0b  ensure SA  sa-<builder-slug>@<project>.iam   (CHIRON §4 bijective identity: 1 SA ⟷ 1 builder)
-    0c  set the BUDGET boundary on the project  (✓ JOINT §5 — alert + kill-switch + quotas, NOT a myth-cap)
+S0  ISOLATION SCAFFOLD  (must precede any key materialization)
+    0a  ensure builder's ISOLATION BOUNDARY:
+          RECOMMENDED (forced by §5 evidence): a per-builder GCP PROJECT (the only unit that
+          carries a budget cap; GCP has no per-SA budget scope).
+          FORK held for the Grand: shared-project + per-SA scoping — viable ONLY if the Grand
+          relaxes the budget-cap requirement (it CANNOT deliver a per-builder cap; §5).
+    0b  ensure SA  sa-<builder-slug>@<boundary>.iam   (CHIRON §4 bijective identity: 1 SA ⟷ 1 builder)
+    0c  set the BUDGET boundary  (per §5: project-budget alert + per-service quotas as the real-time
+        hard cap + opt-in kill-switch — NOT a single native hard "cap" knob; pending STRABO confirm)
 
 S1  GCP API ENABLEMENT          dispatch: kind == gcp_api
     for each gcp_api entry:  gcloud services enable <api>   (idempotent no-op if already on)
@@ -178,18 +189,39 @@ S6  VERIFY  (idempotent re-run = a no-op + a health probe)
 
 ---
 
-## 5. The budget cap — what GCP actually delivers (✓ JOINT — DECIDE B, web-verified 2026-06-25)
+## 5. The budget cap — capability SETTLED (STRABO), isolation-UNIT HELD for the Grand
 
-CHIRON §9.1 flagged the open question; I web-verified it against current GCP docs. **Findings:**
+**The capability is settled** (STRABO independent current-docs verification, primary cloud.google.com
+pages, 2026-06-25 — corroborating my gsearch + CHIRON's + the FM's):
+1. **No per-SA spend cap exists.** Budgets scope to billing-account / org / folder / **project** /
+   service / resource-label — never an SA; an SA's spend bills to its **project**.
+2. **Budgets are ALERTING-ONLY — no native hard cap at any scope.** STRABO, docs verbatim: *"Setting
+   a budget does not automatically cap usage or spending."* (This settles the native-auto-pause
+   discrepancy in favor of the alert-only reading — see note below.)
+3. **A hard per-builder cap ⇒ one GCP project per builder** (project = finest budget scope). The
+   kill-switch (budget → Pub/Sub → Cloud Function → detach-billing) is **reactive/lagging** ("may
+   take several hours"), **not** a hard cap.
 
-1. **GCP has NO per-service-account budget scope.** Cloud Billing budgets scope only to
-   billing-account / org / folder / **project** / service / label. ⇒ **a per-builder budget cap
-   REQUIRES a per-builder GCP project.** This *settles* the per-project-vs-shared-SA question:
-   **per-builder project** (S0a). Label-scoping is monitoring-only and not universally supported.
-2. **Budgets are ALERT-ONLY — there is no native hard cap.** A budget at 100% emails/notifies; it
-   does **not** stop spend. So the model must **not** promise a hard cap GCP can't deliver.
+**ISOLATION-UNIT decision is HELD ABOVE THE TEAM (FM relay of Polybius_the_Stoa, idx 17/18).** The
+finding *corrects a premise from Polybius the Grand* (his per-builder-SA + budget-cap implied
+shared-project + per-SA scoping). So this section **illuminates + recommends**, it does **not**
+close the lock:
+- **Forced-by-evidence RECOMMENDATION:** per-builder GCP **project** as the isolation unit (the
+  only shape that carries a budget cap at all).
+- **The FORK routed UP to the Grand:** per-builder-project *vs* shared-project + per-SA — the
+  latter viable **only if** the Grand relaxes the per-builder budget-cap requirement (it cannot
+  deliver one). Real cost/quota implications either way.
 
-**Therefore the model's "budget cap" is a three-part construct, not a single myth-knob:**
+> **Native-spend-cap discrepancy — RESOLVED toward alert-only, one residual sub-question open.**
+> CHIRON's/the FM's first-pass gsearch said "native auto-pause Spend Caps (project-level)";
+> mine said alert-only. STRABO's primary-docs Q3 **refuted** a native auto-pause cap at any
+> scope — my reading held. CHIRON's residual hypothesis (a *distinct newer* "Spend Caps" feature,
+> service-limited, covering Vertex AI + Maps) is routed to STRABO to nail against the Spend Caps
+> page. **My budget mechanism below is robust either way** — per-service quotas give the real-time
+> hard cap on the dominant cost regardless of whether that newer feature exists.
+
+**The budget MECHANISM (sound design — carries forward as the realization UNDER the
+per-builder-project branch; NOT itself a premise correction):**
 - **(a) per-project budget alert** — the native mechanism (threshold notifications); always set.
 - **(b) optional programmatic kill-switch** — budget → Pub/Sub → Cloud Function → Cloud Billing
   API *detach billing* (hard stop). Carries a **latency caveat** (billing data lags minutes-to-
@@ -253,9 +285,9 @@ lands the verdict). The cookie-cutter likewise **emits** rather than acts. So th
 
 | ▶ | Decision | Status |
 |---|---|---|
-| A | pgvector baseline vs template member | **✓ JOINT RESOLVED — baseline** (CHIRON §7.1 already assumes it; §2 here) |
-| B | per-builder project vs shared-SA + budget-cap reality | **✓ JOINT RESOLVED — per-builder project; budget = alert+quota+opt-in killswitch** (§5, web-verified) |
-| C | postgis base-image selection | **open — recommend derived Dockerfile for geo** (§6; touches Phase-2 build artifact) |
+| A | pgvector baseline vs template member | **JOINT-CLOSED (in-team) — baseline.** A within-model correctness fix (CHIRON's §7.1 prospector would resolve with no vector store otherwise); aligns with directive §3. §2 here. |
+| B | isolation UNIT (per-builder project vs shared-project + per-SA) | **HELD FORK — routed UP to the Grand, NOT team-closed** (corrects Grand's stated per-SA premise; FM relay idx 17/18). Capability SETTLED by STRABO (no per-SA cap; alert-only). Recommendation: per-builder project. Budget *mechanism* (alert + per-service quota + opt-in killswitch) carries forward under that branch. §5. |
+| C | postgis base-image selection | **carried as Phase-2 NOTE — recommend derived Dockerfile for geo** (§6; CHIRON ACK idx 20). |
 
 ## 9. DoD coverage (my half — DoD §4)
 
