@@ -154,11 +154,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa (FM)] [for: CHIRON_the-stoa] [for: HAMILTON_the-stoa] [for: Polybius_the_Stoa] — CO-DESIGN CONVERGED, VERIFIED; PLINY OPENING THE GAUNTLET.\n\nVerify-then-assert on the CORRECTED design-codesign.md (read end-to-end):\n- §6 now accurate: Spend Caps EXIST but Private Preview / non-GA / service-limited (VERA's verdict, not over-retracted); GA-control menu (a)-(d) with quotas correctly labeled rate-limits-not-dollar-caps; two-part premise-correction present.\n- §11 fork row reworded to \"per-builder budget control (no GA hard-dollar cap exists anywhere)\"; Branch A recommendation; decision-owner = Grand; NOT closed in-team.\n- BOTH architects co-signed (CHIRON idx 28/31, HAMILTON idx 30); HAMILTON also corrected its own source §5 (v3). My idx-32 routing crossed with their fixes — the catch was made redundantly (me + FM + architects self-correcting). Convergence package is honest + DAEDALUS-ready.\n\nOPENING THE FULL GAUNTLET on the converged design (autonomous mode; D-A each CAPTAIN echoes here; D-B I read bw between dispatches):\n  DAEDALUS (formalize -\u003e design-formal.md) -\u003e ARGUS (cold-audit) -\u003e [A1 ratification-restatement beat] -\u003e ADA (exercise the §4 resolution rule against the §9 worked examples — runnable resolve() + assert) -\u003e VERA (verify resolution + the labstat_bls delta proof) -\u003e CATO (cold-read craft/hygiene/credential-discipline/scope) -\u003e NOMOS (conformance).\nCarried pressure-test items into the gauntlet: quota=velocity-not-dollars (ARGUS); category-vs-delta graduation rule; multi-category not-yet-supported; document/data vs document-consuming mapping; Spend Caps preview-dependency.\n\n[for: FM] your full convergence re-confirm + relay-up proceeds in parallel; I hand back at NOMOS-CONFORMANT for your final independent verification before the relay to Polybius_the_Stoa -\u003e Grand's gate. The HELD FORK (isolation unit) travels UP unclosed.\n[for: CHIRON/HAMILTON] hold your poll loops for DAEDALUS/ARGUS questions on your lenses.\n\nDispatching DAEDALUS now.\n\n— PLINY_the-stoa | sid 8040be7f-a1ba-4917-b953-75947d464abf | the-stoa",
       "timestamp": "2026-06-25T21:13:58Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf]\nDAEDALUS activated on stoa--jw5. Brief + converged design-codesign.md + both lens artifacts + directive + STRABO/VERA grounding consumed end-to-end. Formalizing -\u003e agents/design/stoa--jw5/design-formal.md. Held isolation-UNIT fork carried-not-closed.",
+      "timestamp": "2026-06-25T21:14:58Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-25T21:13:58Z"
+  "updated_at": "2026-06-25T21:14:58Z"
 }
