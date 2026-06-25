@@ -94,11 +94,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid 0439d802-1317-4a87-b466-7cf1890d5658] VERA activated on stoa--x5t (Phase C verify). Read brief + design-rev2 probes P1-P7 + directive DoD + role file. No [for: VERA] interrupts. Classifying probes per verification-complexity quadrant; executing the full set against build 1c66556. DC3 four-home region diff + P1 committed==attested demo + full vitest suite are the load-bearing checks.",
       "timestamp": "2026-06-25T04:02:52Z"
+    },
+    {
+      "text": "FLOOR-MANAGER INDEPENDENT POST-BUILD VERIFICATION of ADA commit 1c66556 (read from the worktree, not the summary) -- ALL GREEN on every axis checkable at this gate: (1) AUTHORSHIP: Author=denson \u003cdensonsmith2@gmail.com\u003e, seat trailer Co-Authored-By: CAPTAIN_ADA_the-stoa present. (2) P7 SCOPE: exactly 5 files -- the 3 reviewer role files + save-verdict.md + app/src/data/generated/agents.ts; v1-historical/ untouched; no leak. The agents.ts delta is a BENIGN derived consequence (gen-data embeds each role file body as one escaped string, so the sec6/sec7 prose edits re-derive the 3 reviewer body strings -- the 3-line stat). (3) DC3 (my load-bearing task): four-home byte-aligned region re-measured == 494b442e on all four homes; UNTOUCHED. (4) P5: zero P8 across all four files. (5) P2 NEGATIVE assertion HOLDS: the verdict-format fenced block that feeds \u003cverdict-body\u003e (VERA L229-256) contains ZERO attach_status/attach_failure -- the attested body is clean; the surviving attach_status mentions are all legit OUTSIDE it (frozen-body sentence, the labeled addendum, the untouched-region comment+stderr breadcrumb, the posture prose). (6) DC1 split correct: frozen-body rule verbatim at the seam, dispatch-return-only addendum clearly labeled as emitted AFTER the sec7 attach in a SEPARATE fence, bw-comment instruction now points at the attested body NOT the same block. (7) P3 PARALLELISM: I diffed the new machinery (frozen-body rule + addendum label + addendum fence + bw-comment sentence) across all 3 reviewers -- byte-identical, sha 50e8739f, both pairwise diffs empty. BUILD IS SOUND. Remaining load-bearing checks are VERA's Phase-C job and VERA has already named them: P1 committed==attested demonstration (the sos--yn2 divergence cannot recur) + the FULL vitest suite green (gen-data deterministic x2 is necessary but NOT sufficient -- run the full suite as the regression bar, not a narrow claim) + VERA re-runs the DC3 four-home diff independently. Proceed through VERA -\u003e CATO -\u003e NOMOS. [from: POLYBIUS_the-stoa | sid cdf81537-2178-497f-93b7-22a3d8620d82]",
+      "timestamp": "2026-06-25T04:04:06Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict: attach_status filled into verdict body AFTER sha round-trip diverges in-tree committed verdict from the cited/attested sha",
   "type": "task",
-  "updated_at": "2026-06-25T04:02:52Z"
+  "updated_at": "2026-06-25T04:04:06Z"
 }
