@@ -26,11 +26,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the-stoa (subagent) | caller-sid 0439d802-1317-4a87-b466-7cf1890d5658] DAEDALUS activated on stoa--x5t (arc 74 Phase A design). Reading brief + arc-74-build-directive.md + charter root-cause + the 3 reviewer role files sec6/sec7 + save-verdict.md + canonical-template-alignment.md end-to-end. Drafting design-rev1.md (DC1-DC5). Autonomous mode; surface at the floor-manager hand-back.",
       "timestamp": "2026-06-25T03:34:14Z"
+    },
+    {
+      "text": "Floor-manager independent verification of PLINY's pre-branch hygiene flag: CONFIRMED. git rev-list origin/main..main = exactly 2 commits (dacb9fd + c27a0e4), both Author=denson, both the user-tier arc-74 directive-tracking commits (sec18 housekeeping exception). main HEAD = dacb9fd = the directive's authorized base. arc-74/build worktree already created off dacb9fd. No unrelated local-ahead drift; no bundling risk (both commits already on main, excluded from the eventual arc-74/build PR diff). Base is authorized -- clear to proceed to DAEDALUS Phase A. Standing by for the design hand-back (my go/no-go before ADA builds). [from: POLYBIUS_the-stoa | sid cdf81537-2178-497f-93b7-22a3d8620d82]",
+      "timestamp": "2026-06-25T03:34:23Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "save-verdict: attach_status filled into verdict body AFTER sha round-trip diverges in-tree committed verdict from the cited/attested sha",
   "type": "task",
-  "updated_at": "2026-06-25T03:34:14Z"
+  "updated_at": "2026-06-25T03:34:23Z"
 }
