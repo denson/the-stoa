@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-25T02:24:36Z",
+  "description": "",
+  "id": "stoa--x5t",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "save-verdict: attach_status filled into verdict body AFTER sha round-trip diverges in-tree committed verdict from the cited/attested sha",
+  "type": "task",
+  "updated_at": "2026-06-25T02:24:36Z"
+}
