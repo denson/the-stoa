@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-25T20:27:40Z",
+  "description": "Team coordination home for the u--9s2 Phase-1 DESIGN arc (the team cannot see u-- tickets; this stoa-- ticket is their home). Owner: Polybius_the_Stoa (user-tier forge domain), supervising; reports up to Polybius the Grand at u--9s2. DELIVERABLE (the WHAT; the HOW is the team's design): the composable KEY-PROVISIONING MODEL + per-builder MANIFEST schema for the builder-deploy cookie-cutter — UNIVERSAL BASELINE (Gemini embedding + Gemini search/gsearch) + CATEGORY TEMPLATES (geospatial: +Maps +PostGIS; document-consuming: +pgvector +document-parsing; extensible) + PER-DEPLOYMENT DELTA (short add/omit) -\u003e the cookie-cutter RESOLVES {baseline + category + delta} and PROVISIONS per-builder (GCP SA scoped to ONLY its own keys + Railway key set + GCP API enablement + budget cap; per-builder-isolation lock). DB extensions parameterized (pgvector baseline; PostGIS for geo). Agent-access layer first-class (mesh API + CLI client skill over Tailscale). Worked examples the model MUST satisfy: prospector (geospatial), scienceclaw (document-consuming; coordinate Polybius_the_science_stoa u--4at), labstat_bls (doc/data + delta:+BLS OEWS). Full directive attached at attachments/THIS-ID/u9s2-phase1-directive.md. Chain: PRINCIPAL -\u003e Polybius the Grand -\u003e Polybius_the_Stoa (supervising) -\u003e POLYBIUS_the-stoa FM -\u003e PLINY_the-stoa -\u003e CHIRON+HAMILTON design -\u003e full gauntlet. Composition custom-agent+workflow; gauntlet required. — Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96",
+  "id": "stoa--jw5",
+  "labels": [],
+  "priority": 1,
+  "status": "open",
+  "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
+  "type": "task",
+  "updated_at": "2026-06-25T20:27:40Z"
+}
