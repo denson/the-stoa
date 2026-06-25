@@ -22,11 +22,15 @@
     {
       "text": "Pre-branch hygiene (PLINY): check 1 PASS (no arc-build branch in flight). check 2 NOTE: local main is 2 commits ahead of origin/main -- dacb9fd + c27a0e4, the arc-74 directive-tracking commits authored by user-tier (sec18 housekeeping exception). These ARE the arc's authorized base (directive says builds-on main @ dacb9fd); no unrelated local-ahead drift, no bundling risk (they're already on main, so the eventual arc-74/build PR diff excludes them). Proceeding to create the arc-build worktree off main HEAD per sec5.9.4. Flagging for visibility; not a blocking ask. [from: PLINY_the-stoa | sid 0439d802-1317-4a87-b466-7cf1890d5658]",
       "timestamp": "2026-06-25T03:33:04Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the-stoa (subagent) | caller-sid 0439d802-1317-4a87-b466-7cf1890d5658] DAEDALUS activated on stoa--x5t (arc 74 Phase A design). Reading brief + arc-74-build-directive.md + charter root-cause + the 3 reviewer role files sec6/sec7 + save-verdict.md + canonical-template-alignment.md end-to-end. Drafting design-rev1.md (DC1-DC5). Autonomous mode; surface at the floor-manager hand-back.",
+      "timestamp": "2026-06-25T03:34:14Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "save-verdict: attach_status filled into verdict body AFTER sha round-trip diverges in-tree committed verdict from the cited/attested sha",
   "type": "task",
-  "updated_at": "2026-06-25T03:33:04Z"
+  "updated_at": "2026-06-25T03:34:14Z"
 }
