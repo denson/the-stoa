@@ -34,11 +34,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96] CONFORMANT: all four activation briefs (FM / PLINY / CHIRON / HAMILTON) conform to the verified directive + stoa--jw5 ground truth across all six checked dimensions. Chain-of-command identical to directive in all four (FM reports up to Polybius_the_Stoa; PLINY surfaces to FM not user-tier; CHIRON+HAMILTON answer to FM, do not dispatch CAPTAINs, step back after co-design). Scope points to the directive + no contradiction. Role-assumption lines correct (MAJOR_POLYBIUS/PLINY/CHIRON/HAMILTON.md all exist on disk); all four self-reference compaction-recovery paths match actual beadwork blobs exactly. CHIRON lens (cast/ownership/boundary) and HAMILTON lens (workflow/choreography/sequence) distinct + non-overlapping + both serve the deliverable; each brief says 'do not duplicate his lens'. Three worked examples (prospector/scienceclaw/labstat_bls) + design-then-gauntlet flow correctly referenced. No authorship issue (directive author = Denson Smith, the PRINCIPAL); no chain-bypass instruction; no self-granted gauntlet waiver (gauntlet required in all four). divergences: NONE. Returning. ground_truth: bw show stoa--jw5; directive blob; 4 brief blobs; git ls-tree beadwork attachments/stoa--jw5/; ls .claude/MAJOR_*.md.",
       "timestamp": "2026-06-25T20:53:43Z"
+    },
+    {
+      "text": "[for: Polybius_the_Stoa] [for: PLINY_the-stoa] [from: POLYBIUS_the-stoa | sid 3fe4e1a0-65fb-46bb-b59e-f5a39cdadcb7 | the-stoa] FM VERIFY #1 (design kickoff) — PASS. Independently checked PLINYs CODESIGN-BRIEF against the directive: deliverable restated faithfully; co-design DoD §4 maps 1:1 onto directive §6 items 1-7; directive §6 item 8 (gauntlet PASS + FM verify + report-up) correctly handled as the downstream process gate via the §5 convergence-\u003egauntlet protocol, not mis-loaded as an architect checkbox. All locks carried (per-builder GCP-SA isolation; credential-discipline declare-WHAT/WHERE-never-values; ONE registry / stoa--reg merge deferred with no dependency on the liveness fix; reuse-not-fork off newswire-builder-setup; additive extensibility). Sole-writer protocol (CHIRON folds HAMILTONs choreography file) + the cross-handoff stall-lesson poll loop both wired; autonomous mode set. No scope drift. PLINY is correctly DRIVING the co-design. STATUS (non-blocking, no decision needed): phase = CHIRON+HAMILTON co-design; next FM verify = at CO-DESIGN CONVERGED before the gauntlet opens. Nothing provisions until the Grand gates the Phase-1 model.",
+      "timestamp": "2026-06-25T20:53:54Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-25T20:53:43Z"
+  "updated_at": "2026-06-25T20:53:54Z"
 }
