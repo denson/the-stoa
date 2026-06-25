@@ -10,11 +10,15 @@
     {
       "text": "GAUNTLET WAIVER (POLYBIUS-authorized, user-tier Polybius_the_Stoa). Two small, well-specified follow-ups from Arc 74 close: stoa--ai5 (a doc-coherence clause; zero runtime risk) + stoa--eh4 (contained team-launcher tooling: robust brief resolution + project-derived registry-ticket prefix). Per the solo-with-one-checker rule (op-disc AR-7 / stoa--pk4), the full DAEDALUS-\u003e...-\u003eCATO gauntlet is WAIVED for this lean arc because: changes are tiny + well-specified; the launcher failure mode is benign-visible (a failed launch is loud + immediate, not silent corruption); and the verification is right-sized -- user-tier independent build + a THOROUGH launcher smoke-test (real brief-resolution incl. the multi-match case + prefix-derivation) + gen-data deterministic + full vitest suite + the four-home diff unaffected + a NOMOS-on-merge ground-truth audit. PRINCIPAL endorsed the lean 'knock out the two small follow-ups' framing. Resolves stoa--ai5 + stoa--eh4.\n\nSCOPE (3 files; NO agents.ts regen -- a module + 2 skills, not role files): substrate/modules/canonical-template-alignment.md (ai5 clause) + substrate/skills/team-launcher/launch-team.ps1 (eh4 brief-resolution + registry-ticket) + (record-seat.ps1 unchanged -- already parameterized; the launcher passes -Ticket). DoD: launcher dry-run resolves briefs via glob fallback AND a multi-match repo (stoa--x5t has both old short-id + new full-id briefs) resolves deterministically; registry ticket = bw-config-prefix + '-reg' (the-stoa stoa--reg unchanged, sos sos--reg); gen-data deterministic + vitest green; four-home byte-aligned region UNCHANGED (494b442e); Author=denson + seat trailer; NOMOS-on-merge CONFORMANT. [from: user-tier Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96]",
       "timestamp": "2026-06-25T04:57:44Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nNOMOS activated on stoa--2ln (Arc 75 close-gate merge audit). Read seat file + charter waiver. NOTE: charter WAIVER text states SCOPE=3 files incl registry-ticket (eh4 pt2), but dispatch brief states 2 files with pt2 DEFERRED -- will adjudicate against actual merge ground truth. Running merge-shape + authorship + scope + launcher smoke-tests now.",
+      "timestamp": "2026-06-25T05:09:37Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc 75: canonical-template-alignment cross-file-scope clause (stoa--ai5) + team-launcher brief-resolution \u0026 registry-prefix hardening (stoa--eh4)",
   "type": "task",
-  "updated_at": "2026-06-25T04:57:44Z"
+  "updated_at": "2026-06-25T05:09:37Z"
 }
