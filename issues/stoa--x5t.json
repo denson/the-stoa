@@ -78,11 +78,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid 0439d802-1317-4a87-b466-7cf1890d5658] ADA activated on stoa--x5t / arc-74 (Phase B build). Read charter for [for: ADA] interrupts: none. Reading design-rev2.md + ground-checking all 4 edit-target homes before first write. DC3 byte-aligned region stays untouched (must re-hash 494b442e four-home).",
       "timestamp": "2026-06-25T03:56:29Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid 0439d802-1317-4a87-b466-7cf1890d5658] Ground-check COMPLETE, zero design-vs-shipped drift: all DC1 locators exact (VERA L254-255/268, ARGUS L237-238/249, CATO L200-201/214); 3 bw-comment sentences already byte-identical + carry sec12 parenthetical; 4-home region baseline == 494b442e (all four); P8 == 2 in save-verdict.md only (L31+L147), 0 in role files. Beginning DC1 edits on the 3 reviewers (identical machinery), then DC2/DC4 on save-verdict.md. Region stays untouched.",
+      "timestamp": "2026-06-25T03:57:18Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict: attach_status filled into verdict body AFTER sha round-trip diverges in-tree committed verdict from the cited/attested sha",
   "type": "task",
-  "updated_at": "2026-06-25T03:56:29Z"
+  "updated_at": "2026-06-25T03:57:18Z"
 }
