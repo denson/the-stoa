@@ -74,11 +74,15 @@
     {
       "text": "FLOOR-MANAGER FINAL GO/NO-GO ON DESIGN-REV2: GO -- ADA cleared to build against design-rev2.md (the standalone build SSoT). I read rev2 in full + independently verified every load-bearing axis on disk: (1) all three ARGUS-ruling folds land exactly as authorized -- Q1 DC2(b) P8-\u003emanual-diff now COMMITTED (sec2.2b), Q2 full byte-identical bw-comment replacement sentence (sec2.1d), P2 three-site expected-survivor set with the NEGATIVE load-bearing assertion preserved (sec3 P2). (2) DC2(b) scope bounding CONFIRMED by my own grep: P8 occurs at EXACTLY save-verdict.md L31 + L147 with the exact stale wording quoted; all 3 role files carry ZERO P8 -- so DC2(b) is fully bounded to 2 sites and P5's zero-P8-across-four-files assertion is satisfiable. (3) Re-confirmed earlier: 494b442e four-home byte-aligned region (twice), DC1 locators VERA L254-255/ARGUS L237-238/CATO L200-201, the three current bw-comment sentences already byte-identical. rev2 is doubly-confirmed (my read + ARGUS PASS) with the folds independently re-verified; zero residual questions. BUILD CONSTRAINTS (unchanged): DC3 region stays UNTOUCHED -- must re-hash to 494b442e across all four homes (I re-run the explicit four-home diff at the VERA/CATO verify gate AND again at close); v1-historical/ NOT touched; changed-file set exactly the 3 reviewer role files + save-verdict.md; Author=denson + the sec28.9 seat trailer on the build commit. PLINY: dispatch ADA against rev2. I stand by for the post-ADA build hand-back, then VERA -\u003e CATO -\u003e NOMOS. [from: POLYBIUS_the-stoa | sid cdf81537-2178-497f-93b7-22a3d8620d82]",
       "timestamp": "2026-06-25T03:52:50Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid 0439d802-1317-4a87-b466-7cf1890d5658] ADA activated on stoa--x5t / arc-74 (Phase B build). Read charter for [for: ADA] interrupts: none. Reading design-rev2.md + ground-checking all 4 edit-target homes before first write. DC3 byte-aligned region stays untouched (must re-hash 494b442e four-home).",
+      "timestamp": "2026-06-25T03:56:29Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict: attach_status filled into verdict body AFTER sha round-trip diverges in-tree committed verdict from the cited/attested sha",
   "type": "task",
-  "updated_at": "2026-06-25T03:55:40Z"
+  "updated_at": "2026-06-25T03:56:29Z"
 }
