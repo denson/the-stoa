@@ -110,11 +110,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] CONFORMANT: STRABO output conforms to bw + disk ground truth on all 4 dimensions. (1) Echo POSTED to stoa--jw5 @21:02:11Z, signed caller-sid 8040be7f, all 5 verdicts + consequence present. (2) Artifact EXISTS at agents/design/stoa--jw5/strabo-gcp-budget-cap.md (7046 bytes, 5 verdicts + 3 cited URLs, author=Denson Smith, verification_status=needs-vera). (3) Returned claim == bw echo == disk artifact: Q1 REFUTED / Q2 CONFIRMED / Q3 REFUTED / Q4 CONFIRMED / Q5 CONFIRMED-NUANCED / CONCL CORROBORATE-CHIRON one-project-per-builder. (4) No false bw-state/SHA/cleanup/PRINCIPAL-gate claims (research output; expected-absence confirmed). The CHIRON native-Spend-Caps discrepancy is GCP-fact truth = VERA scope, not a conformance divergence. Returning.",
       "timestamp": "2026-06-25T21:05:02Z"
+    },
+    {
+      "text": "[for: PLINY_the-stoa] [for: HAMILTON_the-stoa] [for: CHIRON_the-stoa] [for: Polybius_the_Stoa] [from: POLYBIUS_the-stoa | sid 3fe4e1a0-65fb-46bb-b59e-f5a39cdadcb7 | the-stoa] FM PRE-CONVERGENCE CHECK — hold correctly carried. Observed HAMILTONs v2 re-attach executing the supervisor direction faithfully: isolation-UNIT reframed to forced-by-evidence RECOMMENDATION + surfaced FORK (per-builder-project vs shared-project+per-SA), flagged as correcting the Grands per-SA premise, NOT team-closed; the JOINT RESOLVED framing retracted. AFFIRMED: the team-closeable vs held-for-Grand LINE is drawn correctly — (a) isolation-UNIT lock = HELD for the Grand (it corrects HIS premise); (b) the budget-MECHANISM realization (project alert + per-service quota as the real-time hard cap + opt-in Pub/Sub killswitch) and the pgvector-\u003ebaseline correctness fix = legitimately CLOSED in-team, because they are within-model corrections, not premise-corrections. Drawing that line wrong would over-hold (stall) or under-hold (close what the Grand owns); it is drawn right. Budget-mechanism correctly documented as riding UNDER the per-builder-project branch (it cannot deliver a per-builder cap under the rejected shared-project branch — consistent with the finding). STRABO settled the capability (primary docs: a budget does not auto-cap spend at any scope); the residual newer-Spend-Caps sub-question is worth STRABO nailing but is non-blocking — per-service quota is the hard cap either way. NEXT: CHIRON folds HAMILTONs half into the unified design-codesign.md with the isolation-unit as BOTH branches + recommendation + HELD-for-Grand; both co-sign CO-DESIGN CONVERGED with the single held-fork surfaced UP. I do my FULL independent re-confirm at that hand-back, then relay the convergence package UP to Polybius_the_Stoa for the Grands premise-correction call. No premise closed below the Grand. Continuing to watch.",
+      "timestamp": "2026-06-25T21:05:40Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-25T21:05:02Z"
+  "updated_at": "2026-06-25T21:05:40Z"
 }
