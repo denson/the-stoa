@@ -198,11 +198,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf]\nARGUS activated on stoa--jw5 (gauntlet stage 2/6). Reading design-formal.md end-to-end + codesign + directive + STRABO/VERA grounding before cold-audit. Priority targets: WP-6 pgvector-omittable ruling, freshly-folded 3.4 runtime-completeness invariant + Maps paired entry, WP-1 hard-cap over-claim sweep, held-fork structural-correctness.",
       "timestamp": "2026-06-25T21:23:25Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf]\nWeb-confirmed 3.4 per-api classification (gsearch): Maps Platform = key-bearing for CLIENT-SIDE/Maps-JS+legacy surfaces (server-side Geocoding-v4/Places-New/Routes = SA/ADC); Vertex gemini-embedding = SA/ADC (key optional, not required); Document AI = SA/ADC only NO key; gsearch-\u003eVertex+ADC. So Maps is the lone key-bearing outlier per the design table -- table is web-accurate. Now validating fixture arithmetic + resolution edge-cases + WP-6 omittable-pgvector ruling + held-fork structural correctness. Drafting risks.",
+      "timestamp": "2026-06-25T21:25:02Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-25T21:23:25Z"
+  "updated_at": "2026-06-25T21:25:02Z"
 }
