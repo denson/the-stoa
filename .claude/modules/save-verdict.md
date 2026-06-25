@@ -28,7 +28,7 @@ The verdict lands at:
 
 ## (b) The Bash-only write procedure (the byte-aligned region)
 
-The procedure below is the **byte-aligned region** shared verbatim across this module AND the inline §7 blocks of `CAPTAIN_VERA.md`, `CAPTAIN_ARGUS.md`, `CAPTAIN_CATO.md` (the Q-C = C2 inline-fallback: the module is not deployed at subproject tier, so the inline copies are the always-resolvable home of the executable steps). The four copies MUST be byte-identical between the `BEGIN`/`END` sentinels modulo the documented named-slot substitutions (`<ticket-id>`, `<OFFICER>`, `<ts>`, `<verdict-body>`) — guarded at build time by the P8 `diff` (`canonical-template-alignment.md`). Do NOT alter the region in one home without re-aligning all four.
+The procedure below is the **byte-aligned region** shared verbatim across this module AND the inline §7 blocks of `CAPTAIN_VERA.md`, `CAPTAIN_ARGUS.md`, `CAPTAIN_CATO.md` (the Q-C = C2 inline-fallback: the module is not deployed at subproject tier, so the inline copies are the always-resolvable home of the executable steps). The four copies MUST be byte-identical between the `BEGIN`/`END` sentinels modulo the documented named-slot substitutions (`<ticket-id>`, `<OFFICER>`, `<ts>`, `<verdict-body>`) — kept byte-identical across the four homes by a manual four-home `diff` (`canonical-template-alignment.md`; there is no automated cross-file gate). Do NOT alter the region in one home without re-aligning all four.
 
 Sequence: **dest-exists guard → printf-author → inline sha256 round-trip → empty-binding threat-coverage assert → bw attach.**
 
@@ -114,6 +114,10 @@ bw attach <ticket-id> "$DEST" --name "verdicts/<OFFICER>-<ts>.md"
 3. **The durability loop CLOSES AT THE ORCHESTRATOR** — see the Durability contract below.
 4. **NOT hard-exit** — in-seat bounded retry (2–3× with a short backoff before emitting `attach_status: FAILED`) is the seat's OPTIONAL judgment; the durability loop never depends on it.
 
+**Body-freeze reinforcement (`stoa--x5t`).** The `<verdict-body>` written by the §7 `printf` is FROZEN at the sha256 round-trip: the bw-attached copy is the byte-canonical attested artifact, and `attach_status`/`attach_failure` (dispatch-return-only, this clause) MUST NOT be written into that body — a post-round-trip body edit diverges the committed in-tree verdict from the attested sha (the `stoa--x5t` / `sos--yn2` defect).
+
+> **Attestation invariant (DC4 / `stoa--x5t`).** Because the attested `<verdict-body>` excludes every field whose value is knowable only after the attach (`attach_status`/`attach_failure`), a verdict tracked in-tree has committed-sha == cited/attested-sha *by construction*. No mechanical gate enforces this beyond the §7 sha256 round-trip; the structural exclusion is the guarantee. A future arc MAY add a NOMOS-on-merge `git cat-file`-vs-attached-blob equality assertion if in-tree verdict tracking becomes universal.
+
 ### Durability contract (orchestrator obligation)
 
 A verdict whose `attach_status` is `FAILED` is **NOT durable**. The dispatching orchestrator (PLINY) MUST, on receiving an `attach_status: FAILED` dispatch return:
@@ -144,4 +148,4 @@ This module is process / role-file hardening — `not threat-ratified (process c
 - `CAPTAIN_VERA.md` §7 / `CAPTAIN_ARGUS.md` §7 / `CAPTAIN_CATO.md` §7 — the inline §7 procedure (byte-aligned with this module's region).
 - `MAJOR_PLINY.md` §5.14 (worktree-dest-pin discipline) + §5.16 (attach hand-back / durability close at the orchestrator).
 - `operating-disciplines.md` §15.4 (verification-complexity shapes — the §15.4 seat-side SSoT) + §35 / §35.5 (threat-ratification + carve-out) + §28 (cite-at-read-site SSoT).
-- `canonical-template-alignment.md` (the byte-alignment discipline the P8 `diff` enforces over the region above).
+- `canonical-template-alignment.md` (the byte-alignment discipline; the four-home byte-identity is enforced by a manual `diff`, not an automated gate).
