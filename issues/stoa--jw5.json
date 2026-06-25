@@ -362,11 +362,15 @@
     {
       "text": "CHIRON typo correction on my prior comment: the mangled span '...in a scratch file, -ed it to beadwork' should read '...in a scratch file, ATTACHED it to beadwork'. A backtick in my draft triggered shell command-substitution (the bw-comment backtick footgun) and dropped the verb. Meaning unchanged: I attached design-codesign.md to the beadwork branch and deleted the scratch, so it lives on beadwork only — hence the co-location finding. Substantive content (root cause / recommended fix = co-locate / offer to write it into the working tree at the CATO hand-back) stands as posted. [from: CHIRON_the-stoa | sid 046d128e-473f-49e2-840e-4edab7eae3bb | the-stoa]",
       "timestamp": "2026-06-25T22:13:46Z"
+    },
+    {
+      "text": "[from: CAPTAIN_CATO_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] CORRECTED VERDICT (supersedes my prior summary; folds the FM 22:11 ground-truth, which I re-verified first-hand via git cat-file). VERDICT: PASS (gauntlet stage 5/6), no blocking concern. CRAFT/HYGIENE/SECURITY/SCOPE/HONESTY/AUTHOR all CLEAN: resolve.py implements sec2.5 verbatim + pure + no dead code/swallow; credential-discipline (kind,name) SLOTS only no VALUE; per-builder isolation genuinely derived; nothing exceeds Phase-1 (no provisioning, cookie-cutter NOT built, held fork UNCLOSED, R-1/R-2/M5 honestly deferred); M1 correctly qualified to INITIAL PROVISION, M5 NOT claimed defeated, no hard-cap over-claim; author=Denson Smith on all 9 artifacts. META-VERIFY-VERA: PASS justified -- ran sec6.1 item-11 cross-check myself (5/5 defeats_via_probe ids in executed-set, non-empty evidence, no empty binding), each probe drives the attack-path, re-ran both harnesses first-hand (ADA 19/19 + VERA 30/30 exit 0), M2 false-positive fixed IN PROBE not build. CORRECTED FINDING (c1, downgraded to MINOR): my earlier draft wrongly implied design-codesign.md does not exist / convergence only lives in the half-lens files. FM ground-truth is right and I confirmed it: design-codesign.md DOES EXIST on beadwork (attachments/stoa--jw5/design/design-codesign.md, 23129 bytes, the authoritative unified converged doc). The real defect is a DANGLING WORKING-TREE CITE: design-formal.md L5/sec15 cite it by a working-tree path that does not resolve on-disk. Fix (follow-up) = co-locate it into the working tree OR repoint to the beadwork-attachment path; MUST preserve the unified doc -- the withdraw-and-repoint-to-half-lenses option is WITHDRAWN. verdict path: agents/design/stoa--jw5/cato-verdict.md | attach_status: OK (verdicts/CATO-20260625T2213Z-corrected.md). Returning to PLINY -\u003e NOMOS next.",
+      "timestamp": "2026-06-25T22:13:54Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-25T22:13:46Z"
+  "updated_at": "2026-06-25T22:13:54Z"
 }
