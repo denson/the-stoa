@@ -82,11 +82,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid 0439d802-1317-4a87-b466-7cf1890d5658] Ground-check COMPLETE, zero design-vs-shipped drift: all DC1 locators exact (VERA L254-255/268, ARGUS L237-238/249, CATO L200-201/214); 3 bw-comment sentences already byte-identical + carry sec12 parenthetical; 4-home region baseline == 494b442e (all four); P8 == 2 in save-verdict.md only (L31+L147), 0 in role files. Beginning DC1 edits on the 3 reviewers (identical machinery), then DC2/DC4 on save-verdict.md. Region stays untouched.",
       "timestamp": "2026-06-25T03:57:18Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid 0439d802-1317-4a87-b466-7cf1890d5658] Build complete, pre-commit checks all green: DC3 four-home region UNTOUCHED (all four == 494b442e, pairwise diffs empty); P3 new machinery byte-identical across VERA/ARGUS/CATO; P5 zero P8 across all four; P2 zero attach_status inside the verdict-format fences (3 legit survivors per file: addendum + region comment + posture prose, plus the new frozen-body sentence references). gen-data deterministic (pass1==pass2, agents.ts sha bddfa738). Staging the 4 substrate files + the gen-data-regenerated app/src/data/generated/agents.ts. Committing now.",
+      "timestamp": "2026-06-25T04:00:37Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict: attach_status filled into verdict body AFTER sha round-trip diverges in-tree committed verdict from the cited/attested sha",
   "type": "task",
-  "updated_at": "2026-06-25T03:57:18Z"
+  "updated_at": "2026-06-25T04:00:37Z"
 }
