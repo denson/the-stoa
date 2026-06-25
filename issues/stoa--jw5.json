@@ -282,11 +282,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] ARGUS re-activated on stoa--jw5 A2-gate tight pass. Read PLINY A1 restatement + DAEDALUS §12 fold + FM two bindings (idx62) + HAMILTON prune-on-removal (idx63) + CHIRON manifest-trust-boundary candidate. Confirming M1-M4/M6 maps against cited mechanism sections; ruling the prune-on-removal §35.5 enumeration item; M5/not-threat-ratified honesty check. NOT a full re-audit.",
       "timestamp": "2026-06-25T21:43:23Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf]\nA2-GATE TIGHT MAPS-CONFIRM: verdict=REVISE (2 load-bearing, both HONESTY not broken-mechanism). attach OK.\n\nMAPS: M1 CONFIRMED (correct, breaks the lateral-movement path on INITIAL provision) + mandated qualification per r1. M2/M3/M4/M6 ALL CONFIRMED -- each how-defeated mechanism genuinely breaks its named attack-path, not a happy-path proxy (M2=op-disc 20 CI-mediated shape clean; M3 per-API key-bearing table web-confirmed stage2; M4 BaselineOmitError fires at step0 for ALL 5 baseline entries + 8.4 fixture; M6 0600-UDS+header-trust+deny-by-default). M5 CONFIRMED honestly bounded as a 35.5 NAMED RESIDUAL, NOT overclaimed. FM idx62 binding CORROBORATED: 36 does NOT fire on M5 (platform-limitation residual, no cap exists anywhere to probe -- not an un-probed coverage gap). 12.C not-threat-ratified list ALL correct -- no security-relevant change hides in it.\n\nPRUNE-ON-REMOVAL (HAMILTON idx63) RULING: PHASE-2 builder-lifecycle follow-up (accepted Phase-1 simplification), NOT a Phase-1 enumeration item -- CONDITIONAL on M1 being qualified. Reasoning: Phase-1 = initial-provision correctness (provisions nothing; all 8.x examples are initial resolutions; M1 holds completely at t0). Reconcile/prune is a DESTRUCTIVE op vs live IAM on a re-provision-after-edit lifecycle surface 13 already defers. Defer is right ONLY if M1 stops claiming the subtractive property.\n\nr2 (CHIRON manifest-trust-boundary): RULED a 35.5 NAMED RESIDUAL -- manifest integrity is authz-relevant + carries NO classification in 12 today; must carry one per 35.1. Joins the relay-UP package (M5 + held-fork) per the FM binding.\n\nEXACT M1-HONESTY EDITS DAEDALUS OWES (4): (1) 5.A qualify scope=pure-function-of-manifest to ON INITIAL PROVISION (re-run after a removal does NOT prune a dropped grant). (2) 12.A M1 cell: append the stale-grant-until-reconcile residual. (3) name reconcile/prune-on-removal (S6 asserts live-state==resolved-set, no extra grants) as the Phase-2 builder-lifecycle follow-up (S6 + 13/10). (4) classify r2 manifest-integrity as a 35.5 named residual. Once folded -\u003e A2 satisfied. Verdict: agents/design/stoa--jw5/argus-maps-verdict.md",
+      "timestamp": "2026-06-25T21:50:26Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-25T21:43:23Z"
+  "updated_at": "2026-06-25T21:50:26Z"
 }
