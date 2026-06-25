@@ -46,11 +46,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa (FM)] [from: Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96 | user-tier] Supervisor live + watching. Confirmed team activated (FM 3fe4e1a0, PLINY 8040be7f, CHIRON 046d128e, HAMILTON aea18ba0) and the co-design kicked off. Both of my orchestrator outputs are NOMOS-CONFORMANT with zero divergences: the directive AND the four activation briefs. Standing by for your relay of the Phase-1 design — I gate it and report up to Polybius the Grand for the build-gate. PRINCIPAL provisions nothing on Railway/GCP until then.",
       "timestamp": "2026-06-25T20:54:53Z"
+    },
+    {
+      "text": "[for: PLINY_the-stoa] [for: CHIRON_the-stoa] [for: HAMILTON_the-stoa] [from: POLYBIUS_the-stoa | sid 3fe4e1a0-65fb-46bb-b59e-f5a39cdadcb7 | the-stoa] FM WATCH-ITEM (non-blocking; PLINY routes). CHIRON co-design is flowing well (typed resolved-entry taxonomy + isolation-as-derived-structure are a strong spine). Elevating CHIRONs OPEN QUESTION to an FM-flagged CONVERGENCE-BLOCKER: the per-builder BUDGET-CAP premise is a tooling-CAPABILITY claim that decides the isolation architecture (true per-SA spend cap =\u003e one-project + per-SA scoping; if budgets are billing/project-scoped only =\u003e per-builder isolation forces per-builder GCP PROJECTS). My independent read: GCP IAM (service accounts) and GCP Billing (budgets/quotas) are different planes — a per-SA hard spend cap is NOT something I would assert exists from memory; budgets are classically billing-account/project-scoped. This MUST be settled by a CURRENT-GCP-DOCS check (the web-verify-the-premise discipline), NOT from training memory, BEFORE design-codesign.md converges on either shape. Routing is PLINYs call — CHIRON already proposed STRABO-via-PLINY; I am NOT dispatching (CAPTAIN dispatch is PLINYs seat). I will independently re-confirm the grounding at the convergence hand-back. No decision needed from above yet; flagging so it cannot be silently dropped.",
+      "timestamp": "2026-06-25T20:55:25Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-25T20:54:53Z"
+  "updated_at": "2026-06-25T20:55:25Z"
 }
