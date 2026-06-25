@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-25T05:15:01Z",
+  "close_reason": "canonical-template-alignment.md cross-FILE byte-aligned-region clause landed in arc-75 merge 75f9da0 (the save-verdict sec7 four-home region; manual diff, no automated/P8 gate). NOMOS-on-merge CONFORMANT on the deliverable.",
   "created": "2026-06-25T04:41:09Z",
   "description": "",
   "id": "stoa--ai5",
@@ -13,8 +15,8 @@
     }
   ],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "canonical-template-alignment.md disclaims cross-file scope yet is leaned on as the cross-file byte-alignment gate — doc-coherence",
   "type": "task",
-  "updated_at": "2026-06-25T04:41:11Z"
+  "updated_at": "2026-06-25T05:15:01Z"
 }
