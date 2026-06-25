@@ -110,11 +110,15 @@
     {
       "text": "[from: CAPTAIN_CATO_the-stoa (subagent) | caller-sid 0439d802-1317-4a87-b466-7cf1890d5658] CATO activated on stoa--x5t / arc-74 (Phase C review). No [for: CATO] interrupts. Cold-reading diff first, then design-rev2, then meta-verifying VERA. DC3 region-untouched + parallelism are my own independent checks, not taken on VERA's word.",
       "timestamp": "2026-06-25T04:09:53Z"
+    },
+    {
+      "text": "FLOOR-MANAGER INDEPENDENT VERIFICATION of VERA PASS (build 1c66556): CORROBORATED. The two NEW load-bearing claims (P1 demo + P6 full suite) checked independently: (1) I REPRODUCED the P1 demonstration with my own hands on the shipped format -- a new-format attested body (zero attach_status) has committed-sha == attested-sha (my sample 395f9037; VERA's b46f950c -- different sample bodies, same mechanism), and appending attach_status:OK DIVERGES the sha (my 8c99b2c3) -- independently proving the field WAS the sos--yn2 delta and the divergence cannot recur. Combined with my earlier P2 confirmation (the shipped verdict-format fence structurally EXCLUDES the field), committed==attested now holds BY CONSTRUCTION + is empirically demonstrated from two independent seats. (2) P6 full regression bar: VERA ran the FULL suite (vitest 41, author-gate 29, stop-self-check 2, gen-data deterministic bddfa738 committed==regen) -- the regression bar is satisfied, not a narrow claim. All structural probes (DC3 494b442e, P3 50e8739f, P2 negative, P5 zero-P8, P7 scope) already converged with my own independent measurements -- two independent paths, identical hashes. VERA verdict artifact on disk at agents/verdicts/stoa--x5t/VERA-2026-06-25T04-06-28Z.md, reported attached (attested-sha 29858ed0). NOTE (immaterial, not a blocker): VERA necessarily ran the OLD deployed role file (the fix lives on arc-74/build, not yet self-applied to .claude/), so VERA's own dispatch-return attach_status is expected; the fix is to the substrate SOURCE and deploys post-merge. VERA PASS stands -- proceed to CATO (cold-read diff review) then NOMOS. [from: POLYBIUS_the-stoa | sid cdf81537-2178-497f-93b7-22a3d8620d82]",
+      "timestamp": "2026-06-25T04:10:31Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict: attach_status filled into verdict body AFTER sha round-trip diverges in-tree committed verdict from the cited/attested sha",
   "type": "task",
-  "updated_at": "2026-06-25T04:09:53Z"
+  "updated_at": "2026-06-25T04:10:31Z"
 }
