@@ -185,8 +185,25 @@ $gauntletLine
 # seat reads it with `git show beadwork:attachments/<ArcId>/<paste>` then assumes its role.
 # Floor-manager paste carries the slug; the PLINY paste does not (gauntlet-setup naming).
 if (-not $Seats -and $ArcId) {
-  $fmFile = "HUMAN_paste-polybius_${Slug}-${ArcId}-instruction.md"
-  $plFile = "HUMAN_paste-pliny-${ArcId}-instruction.md"
+  # Resolve each brief filename robustly (stoa--eh4): the historical attachment naming is
+  # inconsistent (arc-NN / short-id / full-id), so PREFER the canonical name but FALL BACK to a
+  # glob of the beadwork attachment dir, and FAIL LOUD on zero/ambiguous. Prevents the silent
+  # "-ArcId path can't find the brief" failure when a brief was attached under a non-canonical name.
+  function Resolve-Brief([string]$pattern, [string]$canonical) {
+    $names = @(git -C $ProjectDir ls-tree -r --name-only beadwork "attachments/$ArcId/" 2>$null |
+      ForEach-Object { Split-Path $_ -Leaf } | Where-Object { $_ -like $pattern })
+    if ($names -contains $canonical) { return $canonical }                 # canonical present -> use it
+    if ($names.Count -eq 1) {
+      Write-Warning "[-ArcId] brief '$canonical' not found; resolved by glob to the single match '$($names[0])'."
+      return $names[0]
+    }
+    if ($names.Count -eq 0) {
+      throw "[-ArcId] no brief matching '$pattern' under beadwork:attachments/$ArcId (expected '$canonical'); attach the brief first."
+    }
+    throw "[-ArcId] ambiguous brief: $($names.Count) match '$pattern' under beadwork:attachments/$ArcId ($($names -join ', ')) and none is the canonical '$canonical'; rename to the canonical form or remove the extras."
+  }
+  $fmFile = Resolve-Brief 'HUMAN_paste-polybius_*instruction.md' "HUMAN_paste-polybius_${Slug}-${ArcId}-instruction.md"
+  $plFile = Resolve-Brief 'HUMAN_paste-pliny-*instruction.md'    "HUMAN_paste-pliny-${ArcId}-instruction.md"
   $Seats = @(
     @{ Name = "POLYBIUS_$Slug"; Role = 'floor-manager'; Prompt = "Read .claude/MAJOR_POLYBIUS.md. Then read your engagement brief from the beadwork branch by running: git show beadwork:attachments/$ArcId/$fmFile then assume the project-tier floor-manager role for $Slug on arc $ArcId and follow it." },
     @{ Name = "PLINY_$Slug";    Role = 'orchestrator'; Prompt = "Read .claude/MAJOR_PLINY.md. Then read your engagement brief from the beadwork branch by running: git show beadwork:attachments/$ArcId/$plFile then assume the orchestrator role for $Slug on arc $ArcId and follow it." }
