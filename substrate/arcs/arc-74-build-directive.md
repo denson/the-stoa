@@ -33,9 +33,9 @@ Coordinate on the charter `stoa--x5t`. Polybius_the_Stoa (user-level owner) moni
 ## Read first
 
 1. **Charter `stoa--x5t`** (the root-cause + evidence + this concrete plan).
-2. **`substrate/CAPTAIN_VERA.md` §6 (L225-258) + §7 (the byte-aligned region L272+)** — the verdict format that conflates attested-body with dispatch-return, AND the printf/sha/attach bash region that must NOT change. Then the parallel **`CAPTAIN_ARGUS.md`** (attach_status L237; bash region L287+) and **`CAPTAIN_CATO.md`** (attach_status L200; bash region L252+).
+2. **`substrate/CAPTAIN_VERA.md` §6 (L225-258) + §7 (the byte-aligned region L272+)** — the verdict format that conflates attested-body with dispatch-return, AND the printf/sha/attach bash region that must NOT change. Then the parallel **`CAPTAIN_ARGUS.md`** (attach_status L237; byte-aligned region BEGIN L253) and **`CAPTAIN_CATO.md`** (attach_status L200; byte-aligned region BEGIN L218).
 3. **`substrate/modules/save-verdict.md`** — clause (d) (attach_status belongs in the dispatch return) + the byte-aligned region + the exit-code/attach-failure posture (which STAYS unchanged in substance).
-4. **`substrate/modules/canonical-template-alignment.md`** — the P8 byte-alignment discipline the build-time `diff` enforces across the §7 region in all four homes.
+4. **`substrate/modules/canonical-template-alignment.md`** — the byte-alignment discipline (NOTE: it covers the within-a-single-`design.md` case; it does NOT provide an automated cross-FILE gate). The cross-home byte-identity of the §7 region across all four homes is enforced ONLY by a **manual four-home `diff`** — there is no automated CI/build check (no "P8" gate exists). The verifier and the close-gate MUST run that `diff` explicitly.
 
 ---
 
@@ -43,7 +43,7 @@ Coordinate on the charter `stoa--x5t`. Polybius_the_Stoa (user-level owner) moni
 
 - **DC1 — separate the attested body from the dispatch-return addendum (the core fix, all 3 reviewer role files).** Restructure each reviewer's §6 so the block that is (i) printf'd as `<verdict-body>`, (ii) sha-round-tripped, (iii) `bw attach`ed, and (iv) optionally posted as a bw comment EXCLUDES `attach_status`/`attach_failure`. Place `attach_status`/`attach_failure` in a clearly-labeled **dispatch-return-only addendum** the seat emits AFTER the §7 attach (it reports the attach outcome; it is never part of the sha-attested artifact). Keep the change identical in shape across VERA/ARGUS/CATO. State explicitly in each role file: the printf'd verdict body is FROZEN at the sha round-trip — never post-edit it (no post-attach body mutation).
 - **DC2 — `save-verdict.md` reinforcement.** Make explicit that the `<verdict-body>` written by the §7 printf is frozen at the round-trip and that `attach_status`/`attach_failure` are dispatch-return-only (clause d), and that the bw-attached copy is the byte-canonical attested artifact. Reinforce, do not contradict, the existing durability contract.
-- **DC3 — byte-aligned region must stay aligned (LOAD-BEARING constraint).** The §7 `printf → sha → attach` bash region (the SAVE-VERDICT-BYTE-ALIGNED-REGION between the BEGIN/END sentinels) should NOT need changing — it never wrote `attach_status` into the body. Confirm this. If the fix DOES require any change inside the sentinels, it MUST be re-aligned byte-identically across all four homes (save-verdict.md + the three role files) so the build-time P8 `diff` passes. Prefer a fix that leaves the region untouched.
+- **DC3 — byte-aligned region must stay aligned (LOAD-BEARING constraint).** The §7 `printf → sha → attach` bash region (the SAVE-VERDICT-BYTE-ALIGNED-REGION between the BEGIN/END sentinels) should NOT need changing — it never wrote `attach_status` into the body. Confirm this. If the fix DOES require any change inside the sentinels, it MUST be re-aligned byte-identically across all four homes (save-verdict.md + the three role files), verified by an EXPLICIT four-home `diff` of the BEGIN/END region (there is NO automated cross-file gate — it is a hand-run `diff` the verifier executes). Prefer a fix that leaves the region untouched.
 - **DC4 — optional mechanical guard (design call).** Now that the attested body excludes the post-attach field, a `committed-sha == cited/attested-sha` check becomes meaningful. DAEDALUS decides whether to add one and where it lives (a close-gate / NOMOS-on-merge assertion, or a save-verdict note that the bw-attached copy is the attested canonical) — do NOT bolt a check into the byte-aligned region if it would force a re-align for marginal value. A documented invariant may be sufficient; justify the choice.
 - **DC5 — honest stance + scope guard.** This is process/canon hygiene — `not threat-ratified` (no runtime attacker, no attack path; §35.5 carve-out). The bug was benign (attestation valid against the bw attachment). State plainly that the fix makes committed-sha == attested-sha hold for in-tree-tracked verdicts going forward; it does NOT change the durability contract, the attach-failure posture, the exit-code map, or the dispatch-return `attach_status` field itself (which stays — it just must not live in the attested body). Zero scope beyond the 3 role files + save-verdict.md (+ a guard if DC4 adds one).
 
@@ -61,7 +61,7 @@ Coordinate on the charter `stoa--x5t`. Polybius_the_Stoa (user-level owner) moni
 
 - **Mechanical (close-gate):**
   - `attach_status`/`attach_failure` removed from the sha-attested verdict body in all 3 reviewer role files; present only in the dispatch-return addendum; the change is parallel/consistent across VERA/ARGUS/CATO.
-  - The §7 byte-aligned region: UNCHANGED (the build-time P8 `canonical-template-alignment` `diff` over the four homes still passes) — or, if necessarily touched, re-aligned byte-identically across all four (P8 passes either way).
+  - The §7 byte-aligned region: UNCHANGED — verify by running an EXPLICIT four-home `diff` over the BEGIN/END region (there is no automated gate; the verifier/close-gate MUST run this `diff` by hand) — or, if necessarily touched, re-aligned byte-identically across all four and the four-home `diff` confirms identity.
   - **`npm run gen-data` is deterministic + the FULL app test suite is green** (editing role files re-derives the whole roster — run the full suite as the regression bar, not just "this arc edited no X"; per the gen-data-regen + full-suite-verify disciplines). The author-gate + stop-hook + any verdict-format/corpus tests green.
   - A demonstration probe: a verdict authored under the NEW format, sha-round-tripped and committed, has committed-sha == cited/attested-sha (the sos--yn2 divergence cannot recur).
   - `Author=PRINCIPAL` + the §28.9 seat trailer on the build commit(s); **NOMOS CONFORMANT** on the final commit.
@@ -81,7 +81,7 @@ Coordinate on the charter `stoa--x5t`. Polybius_the_Stoa (user-level owner) moni
 ## Discipline
 
 - Full gauntlet — a substrate-canon edit to verdict-integrity-critical role files; treat like a public-API change. Standard POLYBIUS+PLINY (no CHIRON/HAMILTON).
-- Keep the byte-aligned §7 region untouched if at all possible; if touched, re-align all four homes (P8 `diff` passes).
+- Keep the byte-aligned §7 region untouched if at all possible; if touched, re-align all four homes and confirm with an explicit four-home `diff` (no automated gate — run it by hand).
 - Parallel/consistent across VERA/ARGUS/CATO — the same restructuring in all three (a divergence between reviewers is an automatic route-back).
 - Run the FULL app test suite (gen-data deterministic + vitest) as the regression bar, not a narrow "we only edited role files" claim.
 - One coherent slice — the 3 role files + save-verdict.md (+ an optional DC4 guard). No drive-by scope.
@@ -91,7 +91,7 @@ Coordinate on the charter `stoa--x5t`. Polybius_the_Stoa (user-level owner) moni
 
 - **Phase A — design (DAEDALUS).** Resolve DC1-DC5; DC1 (the body/return separation) + DC3 (byte-alignment preserved) are load-bearing. Surface to the floor-manager for go/no-go before build.
 - **Phase B — build (ADA).** Restructure the 3 reviewer §6 blocks + the save-verdict.md reinforcement (+ DC4 guard if chosen).
-- **Phase C — verify (ARGUS/VERA/CATO + NOMOS).** P8 byte-alignment intact; gen-data deterministic + full suite green; the committed-sha == attested-sha demonstration; parallel across the 3 reviewers.
+- **Phase C — verify (ARGUS/VERA/CATO + NOMOS).** Four-home byte-alignment confirmed by an explicit `diff` (no automated gate exists — run it); gen-data deterministic + full suite green; the committed-sha == attested-sha demonstration; parallel across the 3 reviewers.
 - **Phase D — ship.** Commit; update `stoa--x5t` with the SHA + dispositions; hand back to the floor-manager for relay-up to user-tier for the close-gate + merge. (Post-merge, user-tier runs the `.claude/` self-apply + re-runs `install.sh` into stoa_of_science.)
 
 Standby, run.
