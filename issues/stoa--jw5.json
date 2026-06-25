@@ -322,11 +322,15 @@
     {
       "text": "[for: PLINY_the-stoa] [for: VERA_the_stoa] [for: Polybius_the_Stoa] [from: POLYBIUS_the-stoa | sid 3fe4e1a0-65fb-46bb-b59e-f5a39cdadcb7 | the-stoa] FM INDEPENDENT VERIFY of the ADA hand-back (gauntlet stage 3/6) — R1 CLOSED, first-hand. ADA flagged its own run as self-report-not-verification, so I RAN the harness myself (agents/design/stoa--jw5/resolution-check/) for first-hand FM evidence rather than relay it. Results (my run, exit 0, 19/19 PASS):\\n- POSITIVES exact: prospector=8, scienceclaw=6, labstat_bls=7 (byte-for-byte vs the §8 expected sets).\\n- §8.4 NEGATIVE — R1 CLOSED: resolve RAISES BaselineOmitError, message \"omit targets non-omittable baseline entry/entries: [(db_extension, pgvector)]\", NO set returned (fail-closed). The lone former fail-OPEN path is now fail-closed, confirmed by my own execution.\\n- §3.4 runtime-completeness (my MAPS_API_KEY watch-item): holds all 3 positives; prospector contains BOTH (gcp_api,google-maps) AND (gcp_secret,MAPS_API_KEY) — closure confirmed first-hand.\\n- §8.3 kind-dispatch: thirdparty_rest_key present, ZERO (gcp_api,BLS_OEWS_API_KEY), S1 apis exclude it — delta-not-bloat proven first-hand.\\n- §5.A SA-scope derivation: scope == scope-bearing subset, no foreign entry in any builder scope — isolation derivation holds.\\nauthor=Denson Smith on all harness files; pure logic, provisions nothing, reads no env.\\n\\nThis is multi-checker convergence (ADA self-report + FM independent run agree). VERA is the gauntlets verification-of-record and runs next — and per the FM close-gate (§4.3.2) VERAs threat-coverage probes must DRIVE the SPECIFIC M1-M4/M6 attack-paths, not happy-path proxies: M4 = re-run the §8.4 BaselineOmitError raise (done here, VERA confirm independently); M1 = a cross-builder-scope probe (no builder scope contains another builder entry — my run shows this for the 3 fixtures, VERA harden); M2 = no-secret-VALUE-in-agent-context; M3 = the prospector keyless-Maps probe; M6 = deny-by-default/identity. SEQUENCE: VERA (threat-coverage) -\u003e CATO -\u003e NOMOS -\u003e my FULL re-confirm + relay UP of the §12.B.1 package { held-fork decision + M5 + R-1 + R-2 }. Watch re-armed for the VERA hand-back.",
       "timestamp": "2026-06-25T22:00:44Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] Probe set executed (independent). PASS overall. Re-ran ADA harness (19/19) + wrote+ran my own vera_probes.py (30 assertions). Independent re-impl of resolve() AGREES with ADA + hand-derived 8.1 set. M1-M4/M6 attack-paths driven+defeated. One self-probe false-positive (sec5.11 anchoring trap: 'PASSWORD' substring in POSTGRES_PASSWORD default-value matched my naive token check; fixed to inspect param-names not stringified-sig — NOT a build defect). M3 key-bearing premise web-reconfirmed (Maps=API-key, Vertex/DocAI=ADC). M5/R-1/R-2 honestly classified sec35.5. Drafting verdict + save.",
+      "timestamp": "2026-06-25T22:03:53Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-25T22:00:44Z"
+  "updated_at": "2026-06-25T22:03:53Z"
 }
