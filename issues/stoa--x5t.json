@@ -142,11 +142,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96] NOMOS activated on close-gate merge dc71022 (arc-74 charter stoa--x5t). Auditing merge shape / authorship / scope / DC1-DC4 / regression bar against bw + repo + arc-74-build-directive.md. Read-only; no bw state change.",
       "timestamp": "2026-06-25T04:37:38Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96] CONFORMANT -- zero divergences on close-gate merge dc71022. All 9 items pass. (1) MERGE SHAPE: main HEAD==dc71022, real --no-ff merge, 2 parents dacb9fd+1c66556, merge tree==build tree e67a8e2 (no conflict drift). (2) AUTHORSHIP: Author=denson \u003cdensonsmith2@gmail.com\u003e on both dc71022 + 1c66556; merge carries Co-Authored-By Polybius_the_Stoa + Stoa-Session-Id 990b0750 (==my caller-sid); 1c66556 carries CAPTAIN_ADA_the-stoa seat trailer; no non-PRINCIPAL author-like field in the merged diff. (3) SCOPE: exactly 5 files (3 reviewers + save-verdict.md + agents.ts regen); v1-historical untouched. (4) DC1: attach_status/attach_failure removed from the attested verdict-format fenced block + relocated to the labeled dispatch-return-only addendum, frozen-body rule verbatim x3, bw-comment repointed at attested body; parallel across VERA/ARGUS/CATO. (5) DC3 LOAD-BEARING: four-home byte-aligned region byte-identical (content-sha 494b442e == cited baseline; w/sentinels 5a9e4e74) + UNCHANGED from pre-arc dacb9fd; pairwise diffs empty; ran the hand-diff myself. (6) DC2: zero P8 across all 4 files; clause-(d) body-freeze reinforcement + manual-four-home-diff framing present; durability/exit-code/attach-failure preserved. (7) REGRESSION: gen-data deterministic (empty generated diff, clean tree); vitest 41 passed (3 files). (8) DC4 thesis: attested fenced block contains NO post-attach field (confirmed programmatically x3) -\u003e committed-sha==attested-sha by construction. (9) stoa--x5t in_progress -- EXPECTED, user-tier closes post-audit. Merge may propagate. Returning.",
+      "timestamp": "2026-06-25T04:40:04Z"
     }
   ],
   "priority": 2,
   "status": "in_progress",
   "title": "save-verdict: attach_status filled into verdict body AFTER sha round-trip diverges in-tree committed verdict from the cited/attested sha",
   "type": "task",
-  "updated_at": "2026-06-25T04:37:38Z"
+  "updated_at": "2026-06-25T04:40:04Z"
 }
