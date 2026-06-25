@@ -6,9 +6,15 @@
   "description": "",
   "id": "stoa--eh4",
   "labels": [],
+  "comments": [
+    {
+      "text": "Two team-launcher tooling issues hit live during the Arc 74 (stoa--x5t) launch. (1) BRIEF-FILENAME BRITTLENESS: launch-team.ps1 -ArcId derives the brief filenames as HUMAN_paste-polybius_\u003cslug\u003e-\u003cArcId\u003e-instruction.md + HUMAN_paste-pliny-\u003cArcId\u003e-instruction.md with ArcId = the FULL ticket id, but the historical attachment convention is inconsistent (arc-61, arc67, yh2.1, stoa--xa4 all differ) -- so a brief attached under any other name silently fails to resolve and the -ArcId path cannot launch. I had to re-attach the Arc 74 briefs under the full-id names to make the script work. FIX: make the launcher resolve the brief robustly (glob attachments/\u003cArcId\u003e/HUMAN_paste-polybius_*-instruction.md + pliny, or accept an explicit --fm-brief/--pl-brief, or standardize + enforce the naming at attach time). (2) RECORD-SEAT PREFIX HARDCODE: record-seat writes the seat registry to stoa--reg regardless of project -- correct at the-stoa, but a non-the-stoa consumer (stoa_of_science) gets a mis-prefixed stoa--reg ticket in its own bw. FIX: derive the registry ticket prefix from the project's bw prefix, not hardcode stoa--reg. Both NON-BLOCKING; tooling hardening. [from: user-tier Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96]",
+      "timestamp": "2026-06-25T04:47:30Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "team-launcher hardening: brittle brief-filename convention + record-seat stoa--reg hardcode",
   "type": "task",
-  "updated_at": "2026-06-25T04:47:28Z"
+  "updated_at": "2026-06-25T04:47:30Z"
 }
