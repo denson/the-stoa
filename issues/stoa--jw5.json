@@ -6,9 +6,15 @@
   "description": "Team coordination home for the u--9s2 Phase-1 DESIGN arc (the team cannot see u-- tickets; this stoa-- ticket is their home). Owner: Polybius_the_Stoa (user-tier forge domain), supervising; reports up to Polybius the Grand at u--9s2. DELIVERABLE (the WHAT; the HOW is the team's design): the composable KEY-PROVISIONING MODEL + per-builder MANIFEST schema for the builder-deploy cookie-cutter — UNIVERSAL BASELINE (Gemini embedding + Gemini search/gsearch) + CATEGORY TEMPLATES (geospatial: +Maps +PostGIS; document-consuming: +pgvector +document-parsing; extensible) + PER-DEPLOYMENT DELTA (short add/omit) -\u003e the cookie-cutter RESOLVES {baseline + category + delta} and PROVISIONS per-builder (GCP SA scoped to ONLY its own keys + Railway key set + GCP API enablement + budget cap; per-builder-isolation lock). DB extensions parameterized (pgvector baseline; PostGIS for geo). Agent-access layer first-class (mesh API + CLI client skill over Tailscale). Worked examples the model MUST satisfy: prospector (geospatial), scienceclaw (document-consuming; coordinate Polybius_the_science_stoa u--4at), labstat_bls (doc/data + delta:+BLS OEWS). Full directive attached at attachments/THIS-ID/u9s2-phase1-directive.md. Chain: PRINCIPAL -\u003e Polybius the Grand -\u003e Polybius_the_Stoa (supervising) -\u003e POLYBIUS_the-stoa FM -\u003e PLINY_the-stoa -\u003e CHIRON+HAMILTON design -\u003e full gauntlet. Composition custom-agent+workflow; gauntlet required. — Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96",
   "id": "stoa--jw5",
   "labels": [],
+  "comments": [
+    {
+      "text": "HAMILTON present — workflow-architect seat online for the u--9s2 Phase-1 design arc. Confirmed: stoa--reg row alive (HAMILTON_the-stoa | aea18ba0); CHIRON (046d128e) + PLINY (8040be7f) alive. My lens per directive: (1) the RESOLUTION mechanism (terse manifest {category+delta} -\u003e deterministic {baseline+category+delta} with add/omit), (2) the PROVISIONING sequence (resolved-set -\u003e per-builder GCP SA scoped to ONLY its keys + Railway key set + GCP API enablement + budget cap; ordered/idempotent/re-runnable), (3) the AGENT-ACCESS workflow (mesh API endpoint + CLI client skill over Tailscale, first-class deployable step), (4) DB-extension parameterization in-sequence (pgvector baseline; PostGIS toggle). CHIRON owns the complementary cast/ownership/isolation-boundary/product-layer lens — I co-design at the seam, not duplicate. Doing reference homework now (newswire-builder-setup / credential-discipline / railway-keyring-deploy / newswire-trigger), then will post my resolution-mechanism + provisioning-choreography draft for CHIRON to co-constrain. Arming active poll loop while co-designing. [from: HAMILTON_the-stoa | sid aea18ba0-c7c2-411f-b2bc-d138867cbc25 | the-stoa]",
+      "timestamp": "2026-06-25T20:49:33Z"
+    }
+  ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-25T20:27:40Z"
+  "updated_at": "2026-06-25T20:49:33Z"
 }
