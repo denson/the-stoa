@@ -191,16 +191,18 @@ S6  VERIFY  (idempotent re-run = a no-op + a health probe)
 
 ## 5. The budget cap — capability SETTLED (STRABO), isolation-UNIT HELD for the Grand
 
-**The capability is settled** (STRABO independent current-docs verification, primary cloud.google.com
-pages, 2026-06-25 — corroborating my gsearch + CHIRON's + the FM's):
+**The capability is settled** (STRABO + VERA independent current-docs verification, primary
+cloud.google.com pages, 2026-06-25):
 1. **No per-SA spend cap exists.** Budgets scope to billing-account / org / folder / **project** /
    service / resource-label — never an SA; an SA's spend bills to its **project**.
-2. **Budgets are ALERTING-ONLY — no native hard cap at any scope.** STRABO, docs verbatim: *"Setting
-   a budget does not automatically cap usage or spending."* (This settles the native-auto-pause
-   discrepancy in favor of the alert-only reading — see note below.)
-3. **A hard per-builder cap ⇒ one GCP project per builder** (project = finest budget scope). The
-   kill-switch (budget → Pub/Sub → Cloud Function → detach-billing) is **reactive/lagging** ("may
-   take several hours"), **not** a hard cap.
+2. **No GA hard-DOLLAR cap exists at ANY granularity.** Classic Cloud Billing budgets are
+   **alerting-only** (docs verbatim: *"Setting a budget does not automatically cap … usage or
+   spending."*). A native auto-pause **Spend Caps** feature exists but is **Private Preview,
+   service-limited (Vertex/Maps/CloudRun), not GA**. Per-service **quotas** are real-time but cap
+   **rate/requests, not dollars**. (Full menu in the note + mechanism below.)
+3. **A hard per-builder budget boundary ⇒ one GCP project per builder** (project = finest scope any
+   dollar control binds to). The kill-switch (budget → Pub/Sub → Cloud Function → detach-billing) is
+   **reactive/lagging** ("may take several hours"), **not** a hard cap.
 
 **ISOLATION-UNIT decision is HELD ABOVE THE TEAM (FM relay of Polybius_the_Stoa, idx 17/18).** The
 finding *corrects a premise from Polybius the Grand* (his per-builder-SA + budget-cap implied
@@ -213,27 +215,33 @@ close the lock:
   deliver one). Real cost/quota implications either way.
 
 > **Native-spend-cap discrepancy — RESOLVED toward alert-only, one residual sub-question open.**
-> CHIRON's/the FM's first-pass gsearch said "native auto-pause Spend Caps (project-level)";
-> mine said alert-only. STRABO's primary-docs Q3 **refuted** a native auto-pause cap at any
-> scope — my reading held. CHIRON's residual hypothesis (a *distinct newer* "Spend Caps" feature,
-> service-limited, covering Vertex AI + Maps) is routed to STRABO to nail against the Spend Caps
-> page. **My budget mechanism below is robust either way** — per-service quotas give the real-time
-> hard cap on the dominant cost regardless of whether that newer feature exists.
+> **Updated to VERA's settled verdict (idx 27) + FM honest-precision (idx 29).** VERA re-fetched
+> the primary docs: classic Cloud Billing budgets ARE alert-only (my read held on that span), BUT
+> a native auto-pause **Spend Caps** feature DOES exist (GCP Next Apr-2026, **Private Preview**,
+> service-limited to Vertex/Maps/CloudRun, canonical docs page 404s) — so my earlier absolute "no
+> native auto-cap at any scope" was an overreach; CHIRON's discrepancy was real. The architecture
+> conclusion (per-builder project) **stands** (Spend Caps is itself project-level). I also retract
+> my earlier labeling of per-service **quota** as a dollar "hard cap": VERA confirms quotas are
+> **request/rate limits, not dollar caps** — they bound spend **velocity, not total**.
 
-**The budget MECHANISM (sound design — carries forward as the realization UNDER the
-per-builder-project branch; NOT itself a premise correction):**
-- **(a) per-project budget alert** — the native mechanism (threshold notifications); always set.
-- **(b) optional programmatic kill-switch** — budget → Pub/Sub → Cloud Function → Cloud Billing
-  API *detach billing* (hard stop). Carries a **latency caveat** (billing data lags minutes-to-
-  hours; a fast key-compromise burn can outrun it) and is **aggressive** (ungraceful shutdown).
-  Recommend it as an opt-in per-builder safety, with the caveat documented.
-- **(c) per-service QUOTA limits** — the *real* fast hard-cap on the dominant cost. Cap the
-  Vertex AI embedding request/token quota per project (and any other high-cost API). Quotas are
-  enforced in real time, unlike budgets. **This is the load-bearing runaway protection.**
+**The budget MECHANISM (sound design — FM-affirmed; carries forward as the realization UNDER the
+per-builder-project branch; NOT itself a premise correction). The honest truth: there is NO GA
+hard-DOLLAR cap at any granularity — per-builder-project delivers a MENU, not a single cap:**
+- **(a) per-project budget ALERT** — GA, but **alerting-only** (does not stop spend); always set.
+- **(b) native auto-pause Spend Caps** — a true auto-pause, but **PRIVATE PREVIEW, service-limited**
+  (Vertex/Maps/CloudRun), **not GA** → a *preview dependency*, not something to rely on yet.
+- **(c) opt-in kill-switch** — budget → Pub/Sub → Cloud Function → detach-billing; GA but
+  **reactive/lagging** (billing lags hours; detaching kills ALL project resources) — the GA
+  fallback, not a hard cap.
+- **(d) per-service QUOTA limits** — GA and real-time, but **rate/request caps, NOT dollar caps**:
+  they bound spend *velocity* (e.g. cap the Vertex embedding request/token rate), which contains a
+  runaway burn but does not cap total dollars. The load-bearing *velocity* protection.
 
-The spec's "budget boundary" (S0c) = (a) always + (c) on the cost-dominant APIs + (b) opt-in.
-This is the web-verify-tooling-premises discipline applied: the directive's word "budget cap"
-maps to alert+quota+optional-killswitch, because a literal hard "cap" is not a GCP primitive.
+The spec's "budget boundary" (S0c) = (a) always + (d) on cost-dominant APIs + (c) opt-in + (b) when
+it reaches GA. This is the web-verify-tooling-premises discipline applied twice: the directive's
+word "budget cap" has **no GA hard-dollar realization** — it maps to this alert/velocity/reactive
+menu, with the only auto-pause being a Preview dependency. (FM owns this honest-precision in the
+convergence package going UP to the Grand; my mechanism is unchanged, only the labeling is corrected.)
 
 ---
 
