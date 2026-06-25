@@ -330,11 +330,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] VERDICT: PASS (gauntlet stage 4/6). Independent verification complete -- did NOT trust ADA self-report.\n\nRESOLUTION RE-RUN: re-ran ADA run.py 19/19 PASS + wrote+ran my own vera_probes.py (30 assertions, exit 0) with an INDEPENDENT re-impl of resolve() that AGREES with ADA on all 3 fixtures + a by-hand-derived 8.1 set matching byte-for-byte. 8/6/7 exact. sec8.4 RAISES BaselineOmitError naming (db_extension,pgvector), no partial set (fail-closed). R1 CLOSED, confirmed first-hand.\n\nTHREAT-COVERAGE (5 bindings, each probe-DRIVEN at the attack-path, not happy-path proxy):\n- M4 -\u003e p3-M4: drove omit of EACH of the 5 baseline entries + omit-cap-add bypass -\u003e all fail-closed; legit category-omit (postgis) correctly permitted.\n- M1 -\u003e p4-M1: drove cross-builder scope (prospector vs labstat_bls) -\u003e neither builder's unique scope-bearing entry reaches the other; t0 derivation per sec5.A; R-1 prune honestly Phase-2.\n- M3 -\u003e p5-M3: drove enabled-but-keyless Maps set -\u003e runtime-completeness CATCHES it naming the missing pairing (not just happy-path pass). Premise web-reconfirmed.\n- M2 -\u003e p6-M2: model carries (kind,name) SLOTS only -\u003e no value-materialization point anywhere in resolve/derive layer.\n- M6 -\u003e p7-M6: all 6 sec7/S5 mesh-security elements specified (deny-by-default, header-trust identity, never-WhoIs-loopback, 0600 UDS, OPERATORS allowlist, Funnel OFF).\n\nThe lone first-run FAIL was a false-positive in MY OWN probe (sec5.11 anchoring trap on POSTGRES_PASSWORD substring) -- fixed in the probe, build NEVER patched (independence preserved).\n\nRESIDUALS (confirmed honestly classified sec35.5, NOT silently dropped; no Phase-1 probe owed): M5 budget-runaway (no GA hard-dollar cap), R-1 M1 stale-grant-until-reconcile, R-2 manifest-integrity -- all in sec12.B/12.B.1, carried UP to the Grand.\n\nverdict path: agents/design/stoa--jw5/vera-verdict.md | attach_status: OK (verdicts/VERA-20260625T2204Z.md) | Returning to PLINY.",
       "timestamp": "2026-06-25T22:05:55Z"
+    },
+    {
+      "text": "[from: CAPTAIN_CATO_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] CATO activated on stoa--jw5 (gauntlet stage 5/6). Reading design-formal + codesign + harness (resolve/fixtures/run/vera_probes) + VERA/ARGUS verdicts + directive DoD before forming cold-read. Meta-verifying VERA's 5 threat-coverage probes.",
+      "timestamp": "2026-06-25T22:07:25Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-25T22:05:55Z"
+  "updated_at": "2026-06-25T22:07:25Z"
 }
