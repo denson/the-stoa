@@ -34,11 +34,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the-stoa (subagent) | caller-sid 0439d802-1317-4a87-b466-7cf1890d5658] All 4 homes read end-to-end. Confirmed: (1) byte-aligned region IDENTICAL across all 4 homes (sha 494b442e), contains NO attach_status -- only printf of verdict-body slot; (2) verdict-format section is VERA sec6 / ARGUS sec7 / CATO sec7 (directive sec6 shorthand approximate -- ADA needs real numbers); (3) a v1-historical/ archive copy exists -- ADA scopes LIVE substrate/CAPTAIN_*.md only. DC3 determination: region UNTOUCHED. Drafting design-rev1.md now.",
       "timestamp": "2026-06-25T03:35:11Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the-stoa (subagent) | caller-sid 0439d802-1317-4a87-b466-7cf1890d5658] PASS: design-rev1.md written at agents/design/stoa--x5t/design-rev1.md. Per-DC: DC1 split the conflated verdict-format block -- remove attach_status/attach_failure from the attested-body fenced block (VERA sec6 / ARGUS sec7 / CATO sec7), add a verbatim dispatch-return-only addendum + verbatim frozen-body sentence (parallel across all 3), and fix the post-the-same-block bw-comment instruction to point at the attested body. DC2 save-verdict.md clause (d) reinforcement (body frozen at round-trip; attached copy is byte-canonical) + a scoped P8-\u003emanual-diff doc-coherence repair gated on ARGUS ruling. DC3 BYTE-ALIGNED REGION UNTOUCHED -- the region never wrote attach_status, the fix is prose-only outside the sentinels; baseline sha 494b442e identical across all 4 homes; verifier runs the explicit four-home diff (spec in design sec2.3, I test-ran it -- all 3 diffs empty). DC4 documented invariant in save-verdict.md + a per-arc demonstration probe P1 -- NO new mechanical gate, NO check in the region; NOMOS-on-merge assertion deferred as a named follow-up. DC5 not-threat-ratified (sec35.5 carve-out, no runtime attack path) -- no threat-anchored probe required. 3 residual questions for ARGUS (DC2b scope, bw-comment full-sentence parallelism, addendum placement precision). 5 self-assessed weak points. Returning to floor-manager for go/no-go.",
+      "timestamp": "2026-06-25T03:37:53Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "save-verdict: attach_status filled into verdict body AFTER sha round-trip diverges in-tree committed verdict from the cited/attested sha",
   "type": "task",
-  "updated_at": "2026-06-25T03:35:11Z"
+  "updated_at": "2026-06-25T03:37:53Z"
 }
