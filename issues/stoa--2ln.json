@@ -18,11 +18,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nProbes 2-6,9 done: merge-shape OK (HEAD=75f9da0, 2 parents 65dc61f+2387d1d, real --no-ff), authorship OK (Author=denson, seat trailer + Stoa-Session-Id on both), scope=2 files exactly (module+skill, no role-file/agents.ts), ai5 clause coherent, eh4 pt1 launcher all 3 smoke-tests PASS (canonical-amid-multimatch -\u003e full-id, glob-fallback -\u003e arc67+WARN, zero-match -\u003e throw exit1), pt2 cleanly deferred (0 registry/pt2 lines added). Now running probe7 four-home diff (494b442e baseline) + probe8 gen-data/vitest.",
       "timestamp": "2026-06-25T05:11:11Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nDIVERGENT (one MINOR ledger-sequencing gap; deliverable clean). Probes 1-9: waiver present+quoted (P1 OK), merge-shape OK (P2), authorship OK (P3), scope=2 files exactly (P4), ai5 clause coherent (P5), eh4 pt1 launcher all-3 smoke-tests PASS (P6), four-home region == 494b442e on all 4 homes (P7), gen-data empty-diff + vitest 41/41 (P8), pt2 cleanly deferred no half-build (P9). SOLE DIVERGENCE: build commit 2387d1d asserts 'Documented on stoa--eh4' (past tense) but eh4 carries only its 1 original problem-statement comment -- no pt2-deferral/rationale comment exists yet. Same class as Arc-64 (execute-bw-ledger-before-push). type=ticket-state, class=SIZE-DERAIL-no -\u003e WRONG-SPEC-no; it is a benign sequencing gap, cure = one post-audit 'bw comment' on eh4 documenting the deferral, OR the merge commit overstated (merge body correctly says only 'eh4 stays open for pt2'). Full verdict block returning to user-tier now.",
+      "timestamp": "2026-06-25T05:13:08Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Arc 75: canonical-template-alignment cross-file-scope clause (stoa--ai5) + team-launcher brief-resolution \u0026 registry-prefix hardening (stoa--eh4)",
   "type": "task",
-  "updated_at": "2026-06-25T05:11:11Z"
+  "updated_at": "2026-06-25T05:13:08Z"
 }
