@@ -120,10 +120,13 @@ remember to follow:
 > ALERT-ONLY.** Verified findings, primary sources fetched 2026-06-25:
 > - **No per-SA budget scope.** Budgets scope only to billing-account / org / folder / **project** /
 >   service / resource-label; a service account's spend bills to **its project**, never the SA.
-> - **Budgets are alerting-only — no native hard cap at any scope.** Docs verbatim: *"Setting a
->   budget does not automatically cap … usage or spending."* *(This REFUTES my first-pass gsearch
->   claim of "native auto-pause Spend Caps" — STRABO's primary-source check corrected it; I retract
->   that line. HAMILTON's "alert-only" read was the correct one.)*
+> - **Classic budgets are alerting-only.** Docs verbatim: *"Setting a budget does not automatically
+>   cap … usage or spending."*
+> - **Native auto-pause Spend Caps DO exist — Private Preview, not GA** (VERA verdict 2026-06-25,
+>   *partially vindicating my first-pass discrepancy*; correcting STRABO's over-absolute "no auto-cap
+>   at any scope"): a GCP-Next-2026 **project-level** auto-pause Spend Cap, **service-limited to
+>   Vertex AI / Maps / Cloud Run** (canonical doc 404s) — a **PREVIEW dependency**, not a GA
+>   guarantee. Itself project-level, so the per-project conclusion is unaffected.
 > - **Kill-switch (budget → Pub/Sub → Cloud Function → detach billing)** is Google-documented but
 >   **reactive/lagging** (notifications "may take several hours"; "doesn't guarantee that you won't
 >   spend more than your budget"; detaching billing shuts down ALL resources in the project) — a
