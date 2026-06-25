@@ -34,6 +34,19 @@ canonically in a different substrate file) are a separate concern handled by
 the substrate's existing single-source-of-truth discipline + cite-at-read-site
 convention; this §6.8 covers the within-design case.
 
+**Cross-FILE byte-aligned template *regions* (out of §6.8's scope — manual
+enforcement).** A distinct case is a byte-aligned template region replicated
+VERBATIM across multiple substrate files — the canonical example is the
+save-verdict `printf → sha256 → bw attach` region shared byte-identically
+across `modules/save-verdict.md` + `CAPTAIN_VERA.md` / `CAPTAIN_ARGUS.md` /
+`CAPTAIN_CATO.md` §7 (between the `SAVE-VERDICT-BYTE-ALIGNED-REGION` sentinels).
+That cross-file byte-identity is NOT covered by §6.8's within-design `diff`, and
+there is NO automated/CI gate for it (no "P8" check exists). It is enforced by a
+**manual four-home `diff`** of the region across all four homes, run explicitly
+at the build, verify, and close-gate steps; a change inside the region MUST
+re-align all homes and be re-confirmed by that hand-run `diff`. (Surfaced by
+Arc 75 / `stoa--ai5`; the Arc 74 close-gate ran this four-home `diff` by hand.)
+
 **Empirical anchor.** Arc 24 design.md (Phase 1 + Phase 2; surfaced on
 ARGUS re-audit per `agents/design/arc-24/design.md` §14.2 r5 line 1147): two
 inline copies of the canonical bw-poll-loop template at §3.1 Step 3 and §6.1
