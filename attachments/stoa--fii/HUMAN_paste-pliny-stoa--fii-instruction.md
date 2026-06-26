@@ -4,17 +4,17 @@ Then read your directive from the beadwork branch:
 git show beadwork:attachments/stoa--fii/stoa-reg-liveness-directive.md
 
 == CHAIN OF COMMAND ==
-PRINCIPAL → Polybius the Grand → Polybius_the_Stoa (user-tier, supervising) → POLYBIUS_the-stoa (floor-manager) → YOU (PLINY_the-stoa, orchestrator) → gauntlet CAPTAINs. You surface to the FLOOR-MANAGER, not user-tier (except a scope dispute).
+PRINCIPAL → Polybius the Grand → Polybius_the_Stoa (user-tier, supervising) → POLYBIUS_the-stoa (floor-manager) → YOU (orchestrator) → gauntlet CAPTAINs. Surface to the FLOOR-MANAGER, not user-tier (except a scope dispute).
 
-== ARC SCOPE (see the directive for full detail) ==
-stoa--reg liveness reconciliation, BOTH mechanisms:
-1. STAND-DOWN WRITE (graceful): record-seat.ps1 gains a -Status param (or a close-seat.ps1 helper); the FM/launcher marks the team dead at arc close.
-2. TTL/LIVENESS SWEEP (abrupt): add last_seen + a TTL; the launcher folds a sweep at spin-up that marks TTL-exceeded rows PRESUMED-dead.
-3. HONEST-CLAIM BOUNDARY (explicit): sweep-dead = a presumed-dead heuristic, NOT proof of death; document it (stoa--reg ticket + tooling), mirroring the stoa--reg audit-only note; represent presumed-dead distinctly from a graceful dead.
-Touches record-seat.ps1 + launch-team.ps1 + the stoa--reg contract. Idempotent on (seat,machine); rows stay audit-only; older rows must still parse (additive last_seen, per Arc 68 discipline).
+== ARC SCOPE (RE-FORGED — see the directive) ==
+NOTE: Polybius the Grand SUPERSEDED the earlier "stand-down write + TTL sweep" scope. The NEW scope is human-simple: stoa--reg liveness via an ON-DEMAND RADIO-CHECK ping.
+1. LIVENESS = on-demand radio-check ping over beadwork: when user-tier / a coordinator needs to know, it pings seats; answerers are alive; non-answerers within a reasonable window are PRESUMED dead. NO periodic sweep, NO last_seen, NO TTL, NO continuous monitoring.
+2. RECOVERY = relaunch a REPLACEMENT (team-launcher), not resurrect.
+3. stoa--reg stays the WHO (roster); the ping answers WHETHER-alive-now; do NOT bake liveness into a passive registry field. Honest-claim boundary: non-answer = presumed, not proof (mirror the stoa--reg audit-only note).
+OUT (scrapped): sweep, last_seen, TTL, continuous monitoring, any passive liveness field.
 
 == FLOW ==
-FULL gauntlet DAEDALUS → ARGUS → ADA → VERA → CATO → NOMOS. ADA/VERA MUST exercise the DoD probe: record a seat → sweep past TTL → it reads presumed-dead; stand-down → it reads dead (the registry demonstrably stops accreting stale-alive rows).
+FULL gauntlet DAEDALUS → ARGUS → ADA → VERA → CATO → NOMOS. ADA/VERA MUST exercise the probe: ping → alive seats answer → silent seats read presumed-dead after the window; recovery = relaunch documented. Do NOT over-build — the win is human-simple.
 
 == POLLING DISCIPLINES (all three) ==
 - D-A: every CAPTAIN echoes significant outputs to bw on stoa--fii.
@@ -22,10 +22,10 @@ FULL gauntlet DAEDALUS → ARGUS → ADA → VERA → CATO → NOMOS. ADA/VERA M
 - D-C: a Monitor / poll loop at ~2-3 min cadence during surface-and-wait.
 
 == HAND-BACK ==
-At gauntlet NOMOS-CONFORMANT, post on stoa--fii addressed to POLYBIUS_the-stoa (floor-manager), NOT direct to user-tier. The FM verifies + relays up.
+At gauntlet NOMOS-CONFORMANT, post on stoa--fii addressed to POLYBIUS_the-stoa (floor-manager), NOT user-tier. The FM verifies + relays up.
 
 == WHAT YOU DO NOT DO ==
-Merge; push; relay direct to user-tier (except a scope dispute); surface to PRINCIPAL except emergencies.
+Merge; push; relay direct to user-tier (except a scope dispute).
 
 == CLOSE SIGNAL ==
 `CLOSE ME — stoa--fii gauntlet complete; awaiting Polybius_the_Stoa close-gate + merge`.
