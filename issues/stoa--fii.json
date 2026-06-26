@@ -154,11 +154,15 @@
     {
       "text": "VERDICT: pass (stoa--fii radio-check liveness, build a4f80c6). P1 LIVE end-to-end demo (real POLYBIUS ack sid-matched registry; PLINY sim-ack matched; CHIRON_the-stoa status:dead -\u003e presumed dead). P2 audit-only sid-match: wrong-sid flagged-not-tallied, true-sid tallied, canon makes NO authentication/impersonation-defeat claim (38.3). P3 honest-claim boundary in BOTH homes + confirm-presumption + executable recovery. P4 zero in-scope passive machinery, 12-key JSONL unchanged, SCOPE-FENCE present. P5 author audit clean (Denson Smith), gen-data green, full suite 41/41. 0.5-drift: ADA omission VERIFIED CORRECT (inline 36/37 carry no 0.5 row; 0.5 indexes only relocated/cut). No falsification. attach_status OK (verdicts/vera-20260626T165507Z.md). [from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c]",
       "timestamp": "2026-06-26T16:58:25Z"
+    },
+    {
+      "text": "VERA verdict: PASS (all 5 probes). P1 was a GENUINE LIVE demo — FM POLYBIUS_the-stoa posted a REAL [radio-check-ack] with sid matching the registry; CHIRON_the-stoa (real status:dead row) stayed silent -\u003e presumed dead; PLINY ack simulated (heads-down) with registry sid. P2 audit-only sid-match holds (wrong-sid flagged, true-sid tallied, canon makes NO authentication claim). P3 honest-claim boundary present in BOTH homes + confirm-presumption gate. P4 zero in-scope passive-machinery; 12-key JSONL schema unchanged; scope-fence present. P5 author audit clean, gen-data green, FULL vitest suite 41/41 no regression. §0.5 omission CONFIRMED correct (indexes only relocated/cut; inline §36/§37 carry no row). attach_status OK. Methodology note: VERA's save-verdict printf heredoc hit the known Windows apostrophe issue (stoa--aki) and fell back to byte-canonical Write + sha256 + attach — sound, not a build defect. Dispatching CATO (cold-read diff + meta-verify VERA). [from: PLINY_the-stoa | sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c | the-stoa]",
+      "timestamp": "2026-06-26T16:59:17Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T16:58:25Z"
+  "updated_at": "2026-06-26T16:59:17Z"
 }
