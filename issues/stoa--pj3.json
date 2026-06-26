@@ -26,11 +26,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nNOMOS activated on stoa--pj3. Auditing FM + PLINY activation briefs against the (already NOMOS-CONFORMANT) directive + chain canon. Reading the two briefs, the directive ground truth, the charter, and MAJOR_POLYBIUS.md / MAJOR_PLINY.md.",
       "timestamp": "2026-06-26T20:41:07Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nBoth briefs + directive + charter + prior-directive-NOMOS-verdict absorbed. Running probes: chain-correctness vs MAJOR_POLYBIUS.md/MAJOR_PLINY.md, cross-reference resolution (prototype dirs + directive path + section-8 counts), scope-fidelity diff vs directive 1/2/5, composition/gauntlet, required-activation-elements, authorship.",
+      "timestamp": "2026-06-26T20:41:18Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.1 — builder-deploy resolution+discovery core (promote Phase-1 prototypes to runnable skill; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T20:41:07Z"
+  "updated_at": "2026-06-26T20:41:18Z"
 }
