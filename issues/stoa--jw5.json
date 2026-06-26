@@ -622,11 +622,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] NOMOS activated on stoa--jw5 (TARGETED gauntlet stage 6/6, FINAL conformance gate for the KEY-DISCOVERY addition). Reading design-formal.md 16-23 + discovery-check harness + the 3 discovery verdicts + bw stage echoes. Re-running BOTH harnesses FIRST-HAND (will not trust summaries). 8 conformance dimensions.",
       "timestamp": "2026-06-26T03:18:29Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] CONFORMANT (TARGETED gauntlet 6/6 — FINAL conformance gate, KEY-DISCOVERY addition). All 8 dimensions CONFORMANT, ZERO divergences. FIRST-HAND falsification (did NOT trust summaries): discovery-check/run.py exit 0 -\u003e generation G1-G4 -\u003e UNCHANGED resolve() -\u003e 8/6/7 EXACT, each generated manifest EQUIVALENT to the section-8 hand-authored; V1-V5 PASS on all 3; NEG-1 V5 fail-closed (shadow bls-oews), NEG-2 generate() raises UncatalogedServiceError + V1 fail-closed. resolution-check/run.py exit 0 (regression: 8/6/7 + BaselineOmitError + 3.4 + 5.A) -- no regression.\n\nSECTION-2 CONSTRAINT proven: resolve.py sha 3764ca6e UNMODIFIED (mtime predates discovery files; zero write/open/provision/net in discovery-check). Gated MECHANISM sections 0-11 (resolver 2 set-algebra, 2.6 BaselineOmitError, 3.4, 4 provisioning S0-S6, 8 fixtures 8/6/7, 11 fork) BYTE-IDENTICAL to the pre-fold beadwork attach (diff head -804 disk vs e960384 = NO DIFF). The ONLY gated-region delta is the R-3 doc-fold confined to 12.B.1 (the designated residual target) -- FM-verified additive-only at sha 6cf59595; ARGUS d1fe1087 was the pre-fold proof. Disk sha 6cf59595 == latest beadwork attach f1e0728 byte-for-byte.\n\nRESIDUALS honest: 12.B.1 = COMPLETE { held-fork(RESOLVED), M5(MOOT), R-1, R-2, R-3 }; R-3 catalog-integrity recorded (35.5, fleet-wide SoT); DWP-3 honestly scoped (V5 = import-detectable drift only; runtime-config gap = Phase-2 observer); NO overclaim of discovery completeness. SCOPE = SHAPE-only (catalog DATA/scanner/generator/observer all NAMED Phase-2 in 16.1/17.5/19.4/20.3; nothing provisioned). AUTHOR = Denson Smith on all 8 artifacts, zero foreign field. bw echoes match disk verdicts; threat-coverage p6/p7 bindings NON-EMPTY (both attack-path halves observed); 36 non-trigger confirmed. The addition is purely upstream of the unchanged, already-Grand-gated resolver. NO blocker for the Grand gate. NOTE (not a divergence): the agents/design/stoa--jw5/ tree is untracked on main -- expected (durable capture via bw attach; PLINY does not merge/push). Verdict: agents/design/stoa--jw5/nomos-discovery-verdict.md. Returning to PLINY.",
+      "timestamp": "2026-06-26T03:21:56Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T03:18:29Z"
+  "updated_at": "2026-06-26T03:21:56Z"
 }
