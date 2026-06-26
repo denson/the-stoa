@@ -802,10 +802,13 @@ Phase-2 residuals. Updated status:
   addressed ONLY the isolation-unit fork + M5):**
   - **R-1 — M1 stale-grant-until-reconcile:** subtractive scope not pruned until a Phase-2 reconcile (§5.A / §12.A / §12.B).
   - **R-2 — manifest integrity:** manifest authorship is an authz-relevant trust boundary; Phase-1 rests on git access-control + project-seat review, Phase-2 hardening = manifest-approval governance (§12.B).
+  - **R-3 — catalog integrity:** the §17 service→key catalog is a NEW **fleet-wide single-source-of-truth** that drives EVERY builder's provisioning, so a poisoned/erroneous catalog record is a **fleet-wide over-grant** — a **wider blast radius than R-2** (per-builder manifest integrity). DAEDALUS PROPOSED (§23.4 / §23.3 DWP-4), ARGUS CONFIRMED as a §35.5 named residual. Phase-1 rests on **catalog-authoring discipline at arc time** (T1 arc-review + git access-control, §17.3 / §17.4); Phase-2 hardening = **catalog-integrity governance** (§23.4).
 
-The relay-UP set carried UP was **{ held-fork (decision), M5, R-1, R-2 }**. After the Grand's
-pre-build gate, **{ held-fork, M5 } are RESOLVED** (fork → Branch A + prepaid card; M5 → moot) and
-**{ R-1, R-2 } remain Phase-2 named residuals**.
+The relay-UP residual set carried UP — now reading the **COMPLETE** set after the Grand's pre-build
+gate — is **{ held-fork (RESOLVED — Branch A / prepaid card), M5 (MOOT), R-1 (prune-on-removal), R-2
+(manifest-integrity), R-3 (catalog-integrity) }**. **{ held-fork, M5 } are RESOLVED** (fork → Branch A
++ prepaid card; M5 → moot at the Grand gate) and **{ R-1, R-2, R-3 } remain the live Phase-2 named
+residuals** (R-3 added per ARGUS's stage-2 confirmation of the discovery addition).
 
 ### 12.C Not-threat-ratified classifications (recorded so no security-relevant change carries NO classification — op-disc §35.1)
 
@@ -1200,8 +1203,16 @@ sets** — it changes only where a category's membership *comes from*. Confirms 
 When a service-bundle recurs across **≥2 builders' derived call-sets**, it is **promoted** to a named
 emergent category (or merged into one) via arc. Categories *grow from observed deltas* rather than
 being declared up front. This is the **same open-closed governance** as the original §3 graduation
-rule, now driving category **formation** (not just template extension). The threshold (≥2 builders) and
-its owner are flagged for ARGUS (§23.3 weak point — emergent-category bootstrapping).
+rule, now driving category **formation** (not just template extension).
+
+**OWNER of the ≥2-builder emergence-DETECTION (named, Phase-2 governance).** Detecting that a
+service-bundle has recurred across ≥2 builders' derived call-sets — and running the promotion arc — is
+a **Phase-2 governance responsibility of the project-fleet steward** (the seat that holds the
+cross-builder view of the live derived call-sets), executed as an **arc-gated promotion** (additive T1
+catalog/category edit under §17.4 open-closed review). The detection requires a live builder population
+(§21.5), so it is Phase-2 by construction; Phase-1 SEEDS the initial categories by hand (§21.5, §22)
+and this rule names who owns the forward detection+promotion rather than leaving it ownerless. The
+threshold (≥2 builders) remains flagged for ARGUS (§23.3 DWP-2 — emergent-category bootstrapping).
 
 ### 21.4 The delta is DERIVED + tier placement
 
@@ -1398,6 +1409,7 @@ so no element carries NO §35.1 classification:
 | Generation G1–G4 (§19) | **not threat-ratified** (correctness/derivation change; the BaselineOmitError preservation rides on existing M4, §12.A) |
 | Validation V1–V5 (§20) | **not threat-ratified** (V2/V4 are the discovery-side guarantee of the EXISTING M3/M4 properties — §20.2 REUSES the §2.6/§3.4 guards; introduces no new mitigation) |
 | Emergent-templates reframe (§21) | **not threat-ratified** (provenance-only change; the resolver + §8 sets + threat-maps are untouched, §21.2) |
+| Per-skill T3 `services:` declaration-integrity (§18.3) | **not threat-ratified — R-2 manifest-integrity LINEAGE, NOT a distinct threat.** A poisoned/incorrect T3 `services:` declaration drives the GENERATED manifest's scope (§19 G1 reads DECLARE as the source of truth), so a malicious/erroneous declaration *widens the generated manifest's scope* — which is exactly the **R-2 manifest-integrity** trust boundary (§12.B: a manifest edit that widens resolved scope), reached one step upstream at the declaration rather than the hand-authored manifest. It rests on the **same** git access-control + project-seat-review model R-2 rests on (a `services:` edit is a visible, reviewed T3 diff). It is therefore **R-2 lineage**, NOT a new named residual. (Confirmed by ARGUS at stage 2.) |
 | **Catalog as a fleet-wide SoT / trust boundary (§23.3 DWP-4)** | **CANDIDATE NEW residual R-3 (catalog-integrity)** — I PROPOSE this is authz-relevant (a bad catalog record is a fleet-wide over-grant, R-2-adjacent but wider blast radius). It is NOT defeated in Phase-1 (rests on T1 arc-review + git access-control, like R-2). **ARGUS: CONFIRM as a §35.5 named residual R-3, or downgrade to not-threat-ratified if the T1 arc-review model fully subsumes it.** |
 
 **Why no threat-anchored probe (op-disc §35.5 self-carve-out, §6.13):** every Part-2 element above is
