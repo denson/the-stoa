@@ -598,11 +598,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] VERDICT: pass (TARGETED gauntlet 4/6, INDEPENDENT re-execution — did NOT trust ADA). GENERATION re-run: discovery-check/run.py exit 0 -\u003e 8/6/7 EXACT, each generated manifest EQUIVALENT to the section-8 hand-authored fixtures; I hand-derived labstat_bls generation MYSELF (out-of-harness) and generate() matched byte-for-byte, resolves to 7. resolve.py REUSED UNMODIFIED — proven STRUCTURALLY (discovery-check has ZERO write/open calls; resolve.py mtime predates all discovery files; imported resolve = ../resolution-check/resolve.py; sha 3764ca6e). document/data-\u003edocument-consuming alias byte-identical (both [(gcp_api,document-parsing)]) = faithful, not a divergence. V1-V5 PASS on all 3; NEG-1 V5 fail-closed (shadow bls-oews), NEG-2 generate() raises UncatalogedServiceError + V1 fail. THREAT-COVERAGE (M3-lineage discovery-completeness) drove the ATTACK-PATH not a happy-path proxy: p6 V2 anti-under-provision = built a manifest that DROPPED the called bls-oews key -\u003e V2 BLOCKS it (called-but-unresolved BLS_OEWS_API_KEY) AND correct manifest passes; p7 V5 drift = undeclared-but-imported bls-oews -\u003e V5 fail-closed. Both bindings non-empty (defeats_via_probe p6/p7 in probes_executed, probe_evidence recorded). REGRESSION (section-2 constraint): resolution-check/run.py exit 0 (8/6/7 + BaselineOmitError + 3.4 + 5.A) — NO regression. RESIDUALS confirmed honest: DWP-3 (runtime-config no-import-signal -\u003e Phase-2 observer; V5 scope = import-detectable drift, not over-claimed) + R-3 (catalog-integrity section-35.5) — no Phase-1 probe owed for either. One NON-blocking note: resolve.py-unmodified is structural (tree is untracked, no committed baseline to diff). Verdict: agents/design/stoa--jw5/vera-discovery-verdict.md (attached, attach_status OK). Returning to PLINY.",
       "timestamp": "2026-06-26T03:11:35Z"
+    },
+    {
+      "text": "[from: CAPTAIN_CATO_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] CATO activated on stoa--jw5 (TARGETED gauntlet 5/6). Reading design-formal.md 16-23 + discovery-check harness + ARGUS/VERA verdicts before forming cold-read. Will re-run BOTH harnesses first-hand + re-derive resolve.py sha for the 2-constraint.",
+      "timestamp": "2026-06-26T03:12:54Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T03:11:35Z"
+  "updated_at": "2026-06-26T03:12:54Z"
 }
