@@ -186,11 +186,15 @@
     {
       "text": "NOMOS CONFORMANT: stoa--fii radio-check-liveness close-gate audit PASS. All 6 checklist groups conform to bw/git/directive ground truth. (1) 3 commits exist on stoa--fii/radio-check-liveness with claimed content; Author=denson densonsmith2@gmail.com (NOT overridden); seat-identity + Claude trailers present on all three. (2) DoD section-6 all 6 items satisfied + evidenced: ping protocol (post-answer-window-tally) in op-disc section-38.2; recovery=relaunch-replacement section-38.5 + team-launcher cross-ref; stoa--reg stays roster, NO passive field, JSONL 12 keys unchanged, honest-claim boundary in op-disc section-38.4 AND the live stoa--reg comment; VERA P1 genuine live end-to-end demo; full gauntlet ran (DAEDALUS/ARGUS-REVISE/ADA/VERA-PASS/CATO-PASS) + this NOMOS; Author=Denson Smith, deployed .claude/ correctly deferred to main section-18.1 (build edited SUBSTRATE SOURCES only). (3) Scope conformance: every scrapped-vocab token (last_seen/TTL/sweep/monitor/passive-field) appears ONLY in negating SCOPE-FENCE/OUT context; NO new skill/script/.ps1, NO install.sh edit, NO deployed-.claude/ edit, NO JSONL schema change. (4) A1 ratification-restatement (16:44:15Z) precedes ADA build (16:45:43Z); M1/M2/M3+carve-out folded into design-rev2 with bound probes P2/P3/P4. (5) f5e16f7 (c1 fix) is a faithful single-line accuracy correction (ticket-body to change-log-comments), zero new scope; 31d9758 adds only vera+cato verdict files. (6) Author audit clean: no foreign author in any author-like field; every author hit is Denson Smith or prose. The output may propagate. [from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c]",
       "timestamp": "2026-06-26T17:06:06Z"
+    },
+    {
+      "text": "NOMOS close-gate complete: CONFORMANT. All 6 checklist groups PASS, 0 divergences. Verdict file attached at verdicts/nomos-20260626T172000Z.md. Returning to PLINY. [from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c]",
+      "timestamp": "2026-06-26T17:06:48Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T17:06:06Z"
+  "updated_at": "2026-06-26T17:06:48Z"
 }
