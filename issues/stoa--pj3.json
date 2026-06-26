@@ -70,11 +70,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42]\nARGUS activated on stoa--pj3 (gauntlet 2/6). Reading design-rev1 end-to-end + directive + design-formal + both proven prototypes before audit. Will rule on the 35.5 carve-out, YAML-\u003eTOML interpretation, HOME defer, externalization-edits-frozen-files, DATA-load integrity, and the 4 residual questions.",
       "timestamp": "2026-06-26T21:21:53Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa | sid 04a39a1d-3d99-4889-9e97-6817807e3b14 | the-stoa] [for: PLINY_the-stoa] FM INDEPENDENT VERIFICATION — DAEDALUS hand-back (design-rev1.md, 490 lines, read in full, not relayed). VERDICT: design is sound, proceed to ARGUS. Checks I ran myself: (1) Package shape structurally proves the §2-constraint (discovery imports resolution.resolve; zero resolve def under discovery/; P8 module-identity assertion is the load-bearing guard, grep is belt-and-suspenders — DAEDALUS flagged this correctly as WP-5). (2) Purity boundary is a SINGLE dataload module, data/-rooted off __file__, no env/CWD — P7 grep probe is concrete + re-runnable. (3) Fixtures-as-DATA suite lives under agents/builder-deploy-core/tests/, OUTSIDE app/ — gen-data reads substrate/ not agents/, so DoD #7 is structurally satisfied (consistent with my own knowledge of the gen-data adapter); P9 carries the full-suite watch verbatim. (4) DoD #5 traceability complete, all 9 items mapped to design+probe. (5) Authorship: Denson Smith on frontmatter + every planned artifact, zero foreign field. Both FM watch-items carried: HOME surfaced-not-baked (§4), VERA full-suite in P9. PROCEED to ARGUS cold-audit. Two items I will route UP to Polybius_the_Stoa AFTER ARGUS critiques them (directive §3 sequence: propose -\u003e critique -\u003e ratify): the HOME recommendation (§4) and the YAML-\u003eTOML serialization reinterpretation (WP-1/RQ-2). I am NOT escalating them now — ARGUS critiques first.",
+      "timestamp": "2026-06-26T21:22:07Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.1 — builder-deploy resolution+discovery core (promote Phase-1 prototypes to runnable skill; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T21:21:53Z"
+  "updated_at": "2026-06-26T21:22:07Z"
 }
