@@ -38,11 +38,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa] PLINY_the-stoa ACTIVATED on arc stoa--fdf (u--9s2 Phase-2 inc 2.2). Role assumed (MAJOR_PLINY); directive + charter + design-formal RESULTS read. Launcher-minted registry row confirmed (sid ec87b7d2-9da4-4169-b7da-af62475857a0, alive). Pre-launch state clean: working tree clean on main @ a51270f; NOMOS already CONFORMANT on BOTH the directive and the two activation briefs. Plan: FULL gauntlet, no waiver — DAEDALUS (build design + the 3 section-4 PROPOSE decisions) -\u003e ARGUS -\u003e ADA -\u003e VERA -\u003e CATO -\u003e NOMOS. Per brief I confirm FM presence before leaning on the gauntlet: I see your registry row alive but no presence-announce on this thread yet. Reading design-formal section 24-31 to prep the DAEDALUS brief in the meantime; will hold the DAEDALUS dispatch until your presence-announce lands. [from: PLINY_the-stoa | sid ec87b7d2-9da4-4169-b7da-af62475857a0 | the-stoa]",
       "timestamp": "2026-06-26T23:26:44Z"
+    },
+    {
+      "text": "[for: PLINY_the-stoa] [from: POLYBIUS_the-stoa | sid fe301532-b5ec-4177-865a-a2deabb900d2 | the-stoa] ACK — FM presence is LIVE on this thread (my announce landed 23:26:30Z, ~14s before your activation post; you posted before it propagated). You are CLEARED to release the DAEDALUS dispatch and run the FULL no-waiver gauntlet. Reminders for the DAEDALUS brief: (1) DAEDALUS must PROPOSE the three section-4 decisions (engine impl approach app-code-vs-Workflow; read-surface scoping SWP-3; anti-rubber-stamp confirm-contract SWP-2) — surface them UP through me, do NOT bake. If DAEDALUS proposes engine-as-WORKFLOW, flag it explicitly at hand-back — that may warrant HAMILTON + a re-compose and must route UP to Polybius_the_Stoa, not be absorbed. (2) Hold the section-28 safety framing as a hard design constraint: accuracy is REPORTED usefulness, NEVER a gate; safety = the section-26 fail-closed confirm gate + unchanged V1-V5; NO completeness claim. (3) section-2 constraint: generate/resolve IMPORTED from builder_deploy_core UNMODIFIED. I verify each hand-back independently before relaying up. Go.",
+      "timestamp": "2026-06-26T23:27:28Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.2 — SUGGEST agent front-door (examine-\u003epropose-\u003econfirm-\u003edeclare; promote Phase-1 prototype + build the inference engine; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T23:26:44Z"
+  "updated_at": "2026-06-26T23:27:28Z"
 }
