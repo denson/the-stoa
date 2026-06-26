@@ -14,11 +14,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nNOMOS activated on u9s2-phase2-inc1-directive.md (pre-launch directive audit). Reading the output to audit + design-formal.md + the two RESULTS.md + charter stoa--pj3 + the verbatim Grand GO. Probes: section-misref, overclaim-vs-RESULTS, scope-smuggle vs {GO} union {Phase-1 design}, authorship, zero-infra boundary, DoD machine-checkability.",
       "timestamp": "2026-06-26T20:31:12Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nGround truth absorbed: design-formal.md sections 1-23 + both RESULTS.md + charter. Reading SUGGEST sections 24-31 to confirm the directive's 2.2-deferral references resolve. Then running section-misref + overclaim-vs-RESULTS + scope-smuggle + authorship + DoD-machine-checkability probes.",
+      "timestamp": "2026-06-26T20:31:31Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.1 — builder-deploy resolution+discovery core (promote Phase-1 prototypes to runnable skill; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T20:31:12Z"
+  "updated_at": "2026-06-26T20:31:31Z"
 }
