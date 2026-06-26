@@ -582,11 +582,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] ADA activated on stoa--jw5 (TARGETED gauntlet stage 3/6). Read design-formal.md end-to-end incl 16-23 mechanism (catalog 17/22, generation G1-G4 19, validation V1-V5 20). Read existing Part-1 resolve.py + fixtures.py + run.py. Building discovery-check/ harness: catalog.py + generate.py + validate.py + run.py REUSING resolve.py UNMODIFIED. Provisioning nothing. First commit pending.",
       "timestamp": "2026-06-26T03:00:59Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] PASS — discovery-check harness built + run. Path: agents/design/stoa--jw5/discovery-check/ (catalog.py 22-seed records + seeded emergent categories; generate.py G1-G4; validate.py V1-V5 REUSING resolve.py guards; run.py driver; RESULTS.md).\n\nPER-BUILDER (declared services -\u003e generated manifest -\u003e resolve UNCHANGED):\n- prospector [google-maps, spatial-db] -\u003e {category: geospatial, delta:{}} -\u003e resolves to 8 (8.1) ; manifest EQUIVALENT to 8 hand-authored.\n- scienceclaw [document-parsing] -\u003e {category: document-consuming, delta:{}} -\u003e resolves to 6 (8.2) ; EQUIVALENT.\n- labstat_bls [document-parsing, bls-oews] -\u003e {category: document-consuming, delta:{add:[thirdparty_rest_key BLS_OEWS_API_KEY]}} -\u003e resolves to 7 (8.3) ; EQUIVALENT. bls-oews is gcp_api:none so NO gcloud-enable, NO (gcp_api, BLS_OEWS_API_KEY); S1 gcp_api input excludes it. All three 8/6/7 byte-for-byte vs fixtures.py.\n\nV1-V5: all PASS on each generated manifest (V1 cataloged, V2 complete resolve\u003e=called, V3 minimal, V4 resolve-well-formed REUSING 2.6/3.4 guards, V5 no-undeclared-drift).\nNEGATIVE PROBES: NEG-1 undeclared-but-scanned service -\u003e V5 FAIL (fail-closed drift); NEG-2 uncataloged declared service -\u003e generate() RAISES UncatalogedServiceError + V1 FAIL (fail-closed). Both pass.\nREGRESSION: re-ran resolution-check/run.py -\u003e exit 0 (8/6/7 + BaselineOmitError + 3.4 + 5.A all still hold).\nresolve.py REUSED UNMODIFIED: imported via sys.path from ../resolution-check; discovery-check writes nothing (no open() calls); resolve.py mtime 15:57 predates discovery files 21:01-21:03. The 2-constraint is proven structurally.\n\nSPEC DISCREPANCY: NONE. Nuance (not a deviation): 23.1 generation yields category document-consuming for labstat_bls while 8.3 hand-authored used the alias document/data; per 22 only geospatial + document-consuming are seeded, so faithful G2 picks document-consuming exactly per 23.1 lines 1318-1322; document/data is a byte-identical alias so resolved sets + equivalence hold. Faithful reproduction.\n\nCOMMIT: NOT committed — whole agents/design/stoa--jw5/ tree is untracked (Part-1 + design-formal.md uncommitted too); committing would sweep DAEDALUS's design + Part-1 (out of my scope). Left for the orchestrator close-gate. discovery_check exit 0; regression exit 0. VERA re-verifies next.",
+      "timestamp": "2026-06-26T03:05:06Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T03:00:59Z"
+  "updated_at": "2026-06-26T03:05:06Z"
 }
