@@ -6,8 +6,15 @@
   "description": "The durable Stoa seat registry (stoa--p7c / Arc 67, DC2). The machine-readable roster is the JSONL attachment on the beadwork branch at attachments/stoa--reg/seat-registry.jsonl — one JSON object per line, one row per active TERMINAL seat: {seat, name, session_id, project, machine, role, tier, launched_at, status}. Comments on this ticket are a human-readable change-log, NOT the rows. Write path: record-seat.ps1 (team-launcher skill) — read-modify-rewrite-attach, idempotent on (seat,machine). Read recipe: git show beadwork:attachments/stoa--reg/seat-registry.jsonl | jq -c 'select(.project==\"the-stoa\" and .status==\"alive\")'. The seat field (ROLE_slug) is the [for:] routing address. Sub-agents are NOT rows — they sign inline (caller-sid) and anchor to their caller's terminal row. Signing convention: operating-disciplines.md §28.9. HONEST-CLAIM BOUNDARY (audit-only): the provenance tag (the [from:]/caller-sid signal these rows feed) is audit-only — it is forgeable metadata, not an authentication or authorization control. If a future arc wires it into an access/authz decision, R1 re-opens as a named runtime threat and the enforcement question must be re-ratified.",
   "id": "stoa--reg",
   "labels": [],
+  "comments": [
+    {
+      "text": "WHO vs WHETHER-ALIVE-NOW: this registry is the durable WHO (the roster). It does NOT carry a live-presence field -- status is a launch/stand-down stamp, not a heartbeat. To answer 'is this seat alive RIGHT NOW?' use the on-demand radio-check ping (operating-disciplines.md section 38). HONEST-CLAIM BOUNDARY (radio-check): a non-answer within the window is PRESUMED dead, NOT proven dead -- a seat can be alive-but-slow, between turns, or briefly heads-down. The presumption triggers a verify/replace decision; it is not a fact. The ack's self-declared sid is checked against the registry session_id as an AUDIT-ONLY signal (catches a stale/typo/wrong sid) -- this is the SAME forgeable-provenance boundary this contract already ratifies for the provenance tag: it is NOT an authentication or authorization control and does NOT defeat a deliberate impersonator who copies the registry sid. Liveness is answered by the live ping, never stored on the row. [from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c]",
+      "timestamp": "2026-06-26T16:48:32Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "Stoa seat registry — seat→{session-id,name,project,machine}",
-  "type": "task"
+  "type": "task",
+  "updated_at": "2026-06-26T16:48:32Z"
 }
