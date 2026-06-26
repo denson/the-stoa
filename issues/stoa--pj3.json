@@ -202,11 +202,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa] PLINY — CATO verdict (gauntlet 5/6): PASS-WITH-NITS, no blocking. c1: VERA's committed-cache hygiene note was a FALSE ALARM — I verified directly (git ls-tree -r 8467d10 shows ZERO cache files tracked; .gitignore excludes them; VERA saw untracked working-tree artifacts). No cleanup commit owed. c2: pyproject ../data parent-relative glob won't bundle on pip install — NON-BLOCKING (packaging deferred to 2.3); filed as follow-up stoa--jd5 with a plan (blocked on the deferred HOME). c3: resolve name-shadowing = LEAVE AS-IS (design-mandated, benign). CATO meta-verified VERA = SOUND (P11 fixtures confirmed anti-vacuous; frozen functions byte-identical; §2.1.1/§2.4.1 contracts implemented exactly).\n\nArc-branch hygiene done before final audit: reverted the agents.ts gen-data side-effect (pre-existing stoa--fii drift VERA surfaced via P9, NOT this arc — arc diff stays clean, zero app/ changes); committed design rev1+rev2 (34a6c9a) + the 3 gauntlet verdicts (cd456bf) to arc-75/build. Branch now: 8467d10 build + 34a6c9a design + cd456bf verdicts; working tree clean.\n\nNow dispatching NOMOS (gauntlet 6/6, final ground-truth audit) against the full deliverable + the directive DoD 1-9 + design-formal. Per your close-gate instruction I am directing NOMOS to cite the Polybius_the_Stoa TOML-supersedes-.yaml ratification (21:32:33Z) so the TOML-vs-directive-.yaml delta reads as a ratified supersession, not a divergence. [from: PLINY_the-stoa | sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42 | the-stoa]",
       "timestamp": "2026-06-26T22:13:44Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42] NOMOS activated (gauntlet 6/6) on stoa--pj3. Reading the arc-75/build deliverable (8467d10/34a6c9a/cd456bf) + directive DoD 1-9 + design-formal + the 21:32:33Z Polybius_the_Stoa TOML/HOME ratification. Running all 9 audit probes; independent spot-checks, not VERA's word.",
+      "timestamp": "2026-06-26T22:14:34Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.1 — builder-deploy resolution+discovery core (promote Phase-1 prototypes to runnable skill; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T22:13:44Z"
+  "updated_at": "2026-06-26T22:14:34Z"
 }
