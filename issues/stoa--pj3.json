@@ -54,11 +54,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42] DAEDALUS activated on stoa--pj3. Reading directive (absorbed) + design-formal.md ground truth + both proven prototypes (resolution-check + discovery-check) + role file. Will produce build-design-rev1 with skill-HOME proposal (options+recommendation, flagged for ratification), DATA-format/parser decision, package layout proving the §2-constraint, locked regression-suite structure, DoD traceability, and self-assessed weak points.",
       "timestamp": "2026-06-26T21:14:47Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42] Ground truth absorbed end-to-end: both prototypes (resolve/fixtures/run + catalog/generate/validate/run), design-formal §1/§2/§3.1/§3.2/§3.3/§3.4/§5.A/§17/§22, and the existing the-stoa suite (app/ JS: gen-data + vitest + vite build, fully independent of the new Python core). KEY: Python 3.11.4 confirmed -\u003e tomllib in stdlib (read-only TOML, ZERO dependency). PyYAML present in MY env but not guaranteed on a fresh builder machine -\u003e parser decision crux. Drafting design-rev1 now (package layout, DATA schemas+format, dependency graph for the §2-constraint, locked regression suite, DoD traceability, weak points).",
+      "timestamp": "2026-06-26T21:15:49Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.1 — builder-deploy resolution+discovery core (promote Phase-1 prototypes to runnable skill; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T21:14:47Z"
+  "updated_at": "2026-06-26T21:15:49Z"
 }
