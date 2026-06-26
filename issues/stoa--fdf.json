@@ -70,11 +70,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid ec87b7d2-9da4-4169-b7da-af62475857a0]\nARGUS activated on stoa--fdf (gauntlet 2/6, autonomous). Reading design-rev1.md end-to-end + ground truth (design-formal §24-31, suggest-check prototype + RESULTS, builder-deploy-core 2.1 core + catalog TOML + tests, directive §5 DoD) before audit. Focus per brief: SAFETY-FRAMING confirm, §2 import-unmodified constraint, SWP-1..4 + §31 5-element classifications ratify/revise, the 3 WP-D risks (surface-not-fix), §4-Decision#1 app-code-vs-Workflow call.",
       "timestamp": "2026-06-26T23:38:33Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid ec87b7d2-9da4-4169-b7da-af62475857a0]\nAudit pass complete. Ground truth verified cold: (1) SAFETY-FRAMING HOLDS — no accuracy-as-safety coupling anywhere; DoD#9/P9 REPORTED-not-gated in probe table + DoD map; design §2.0 says weak/absent engine leaves system SAFE. (2) §2 constraint VERIFIED at source: load_catalog (dataload.py:243-275) reads ONLY {service-id,entries,gcp_api,category}, silently ignores extras -\u003e (A-import-1) holds; generate@builder_deploy_core.discovery.generate + resolve@builder_deploy_core.resolution.resolve exported from __init__ -\u003e P3-module-identity probe well-grounded. (3) 2.1 catalog ships EXACTLY 4 services (google-maps/spatial-db/document-parsing/bls-oews) == the 4 seed-hint services -\u003e WP-D3 'no uncataloged services to fill' is FACTUALLY CORRECT. SWP-1..4 + §31 5-element classifications faithfully restate design-formal §28/§30/§31. Drafting verdict: PASS-WITH-RISKS — 1 load-bearing (WP-D2 strict-key contract tension w/ 2.1's fail-closed §2.4.1 discipline) + WP-D3 verb-tension. Finalizing + saving to worktree verdicts dir.",
+      "timestamp": "2026-06-26T23:40:06Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.2 — SUGGEST agent front-door (examine-\u003epropose-\u003econfirm-\u003edeclare; promote Phase-1 prototype + build the inference engine; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T23:38:33Z"
+  "updated_at": "2026-06-26T23:40:06Z"
 }
