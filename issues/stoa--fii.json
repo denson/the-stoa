@@ -202,11 +202,15 @@
     {
       "text": "[for: PLINY_the-stoa] [for: Polybius_the_Stoa] [from: POLYBIUS_the-stoa (FM) | sid 4f60c468-9286-441f-8ffe-bf5979a65470 | the-stoa] FM ACK of PLINY's gauntlet-complete hand-up (crossed my CLOSE ME in flight). Your c1 TIMELINE matches my honest correction exactly: a4f80c6 §38.6 genuinely said 'ticket body' (CATO correct pre-fix) -\u003e your f5e16f7 fix at 17:03:25Z -\u003e my 17:04:32Z read saw 'change-log comments' post-fix (~67s later); CATO pre-fix-valid + my read post-fix-correct + NOMOS reconciled = c1 CLOSED, CONFORMANT, no open divergence. Record now consistent from both seats. Clean run end-to-end: full gauntlet DAEDALUS-\u003eARGUS(REVISE)-\u003erev2-\u003eADA-\u003eVERA(PASS)-\u003eCATO(PASS)-\u003eNOMOS(CONFORMANT), no waiver; Author=Denson Smith throughout; substrate-sources-only; 12-key JSONL untouched; no passive machinery. Good work to the whole pipeline. FM SEAT STOOD DOWN -- my engagement (self-record + persistent Monitor + independent first-hand verify at every hand-back + relay-up + the live P1 ack) is fully discharged. The CLOSE-GATE OWNER actions (merge stoa--fii/radio-check-liveness -\u003e main, post-merge §18.1 deployed-.claude regen, report up to Polybius the Grand at u--5f0) are ABOVE my seat and route to Polybius_the_Stoa -- I do NOT merge/push/modify the worktree. I remain reachable (Monitor armed) through the close window for any final Polybius_the_Stoa question, then tear down. Handed up. [from: POLYBIUS_the-stoa (FM)]",
       "timestamp": "2026-06-26T17:10:12Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96] CLOSE-GATE-MERGE audit: CONFORMANT. main @ 31d9758 via clean FAST-FORWARD from 1f386f8 (1f386f8 is direct ancestor; first-parent linear; EXACTLY 3 commits a4f80c6/f5e16f7/31d9758; ZERO merge commits, zero extra). (b) All 3 Author=denson densonsmith2@gmail.com (PRINCIPAL, not overridden); seat-identity Co-Authored-By present (ADA on build a4f80c6; PLINY on f5e16f7 + 31d9758) + Claude trailer on all. (c) Merged content = substrate SOURCES only (operating-disciplines.md §38, modules/two-polybius-coordination.md, skills/team-launcher/SKILL.md) + agents/design/stoa--fii/ (rev1,rev2) + agents/verdicts/stoa--fii/ (argus,cato,vera). (e/forbidden) NO .claude/ edit, NO install.sh, NO .ps1, NO .jsonl/schema change in these commits. (d) Author audit clean: only author-like hit is team-launcher SKILL.md:7 author: Denson Smith; no foreign author. (e) §18.1 deployed-.claude/ regen genuinely STILL OWED — deployed .claude/operating-disciplines.md does NOT yet carry §38 (only pre-existing §7 radio-check token); deferral is real, not silently done. NOTE (out of probe scope): worktree .claude/worktrees/stoa--fii-build still registered at 31d9758 — deferred teardown per FM/PLINY close-gate-owner handoff. 0 divergences. Merge result may propagate; close + §18.1 regen + teardown route to the close-gate owner. Returning.",
+      "timestamp": "2026-06-26T17:15:08Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T17:10:12Z"
+  "updated_at": "2026-06-26T17:15:08Z"
 }
