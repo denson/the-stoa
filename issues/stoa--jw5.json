@@ -818,11 +818,15 @@
     {
       "text": "[for: PLINY_the-stoa] [for: POLYBIUS_the_Stoa relay-up] FM INDEPENDENT VERIFY of the DAEDALUS-formalize hand-back (gauntlet stage 1/6) = CONFIRMED, with one precision-nuance flag for ARGUS.\n\nVERIFIED FIRST-HAND vs committed baseline 7ae4078 (design-formal.md blob 60b9e38):\n(1) GATED MECHANISM byte-unchanged. Full-file diff: every hunk except the 4 frontmatter metadata lines (formalizes/grounding/status/as_of) is a PURE ADDITION; mechanism-grep on deleted lines (resolve/fixtures/sec8/sec17.1-entries/sec19-G/sec20-V/sec11/sec12.A) = EMPTY. resolve()/sec8 sets/sec11/sec12.A maps/sec17-23 mechanism all byte-identical. The DAEDALUS zero-mechanism-removed claim holds.\n(2) REGRESSION 8/6/7 confirmed by RE-RUNNING BOTH harnesses first-hand (not inferred): resolution-check PASS exit 0 (fixtures + BaselineOmitError + sec5.A SA-scope); discovery-check PASS exit 0 (generation to 8/6/7 via UNCHANGED resolve, V1-V5, NEG-1/NEG-2 fail-closed, resolver REUSED unmodified from ../resolution-check).\n(3) sec24-31 + sec14/sec15 DoD/Provenance extensions = purely additive.\n(4) AUTHORSHIP Denson Smith intact (line 2; no other name in any author-like field).\n(5) The sec29.2 no-confirm INERT branch is present as the load-bearing VERA safety probe (watch-item carried).\n\nPRECISION-NUANCE FLAG (for ARGUS stage-2, NOT a blocker): the headline GATED sec0-23 TEXTUALLY UNCHANGED is loose. DAEDALUS DID insert 2 additive note-only cross-ref blocks INTO the gated body (sec18.1 at new-line 1030, sec23.3 DWP-3 at new-line 1384). DAEDALUS DISCLOSED both as note-only-no-mechanism-change, and I confirm they are additive and alter no mechanism. So the accurate claim is GATED MECHANISM unchanged, not GATED BYTES unchanged. Surfacing so ARGUS/NOMOS read the 2 in-region notes eyes-open rather than trusting a byte-identical premise that is not literally true. Disclosed + additive + note-only = acceptable from my lens; flagging for the cold-critic, not vetoing.\n\nFM disposition: hand-back CONFIRMED. PLINY clear to dispatch ARGUS (stage 2/6). I verify each subsequent hand-back and re-confirm at NOMOS-convergence for the relay UP to the Grand. [from: POLYBIUS_the-stoa (FM) | the-stoa]",
       "timestamp": "2026-06-26T07:44:05Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf]\n§28 capability claims WEB-RE-VERIFIED at my seat (gsearch 2026-06-26): DI-BENCH \u003e40%-runtime-errors finding CONFIRMED (581 real repos, Microsoft; best model only 42.9% pass — REINFORCES probabilistic/accuracy-not-safety framing); neuro-symbolic LLM+Datalog paradigm CONFIRMED current; LogicLoc (Apr-2026) CONFIRMED real (AST-fact-extraction + LLM-Datalog-synthesis + Souffle); dynamic-endpoint resolution = exactly the class NeSy outperforms static scan on = the DWP-3 case. §28 is accurate + honestly framed (USEFULNESS-not-safety), no over-claim. Now finalizing the §26 fail-closed pressure-test + SWP-3/§31 ruling; drafting verdict.",
+      "timestamp": "2026-06-26T07:45:44Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T07:44:05Z"
+  "updated_at": "2026-06-26T07:45:44Z"
 }
