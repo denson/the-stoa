@@ -1,0 +1,60 @@
+---
+author: Denson Smith
+ticket: stoa--pj3 (u--9s2 Phase-2 increment 2.1)
+seat: CAPTAIN_ARGUS_the_stoa (PLAN-CRITIC)
+verdict: revise
+design_artifact_audited: agents/design/stoa--pj3/design-rev1.md (on arc-75/build worktree)
+as_of: 2026-06-26
+---
+
+# stoa--pj3 ARGUS cold-audit verdict (gauntlet 2/6)
+
+status: completed
+ticket: stoa--pj3
+verdict: revise
+design_artifact_audited: C:/Users/denso/claude_projects/the-stoa/.claude/worktrees/arc-75-build/agents/design/stoa--pj3/design-rev1.md
+
+## Rulings PLINY requested
+
+- 35.5 THREAT CARVE-OUT: CONFIRMED. 2.1 reads only its own bundled, version-controlled DATA; no network, no creds, no env, no clock; provisions nothing; reachable by no external actor. No runtime attack path at t0. The classification not-threat-ratified (process/tooling change, no runtime attack path) stands. NO threat-anchored probe owed. Caveat: the DATA-load boundary is the one place this could be wrong later (see r1/r2) -- but at t0 the DATA is in-repo + gauntlet-gated, not attacker-supplied, so it is a correctness surface, not a threat surface.
+
+- YAML->TOML interpretation: SOUND. Reading the directive literal .yaml as descriptive-of-the-asset (logical asset + layout + stem preserved) with serialization delegated to the architect explicit parser mandate (directive load-bearing req #1 / DoD #5) is a faithful read, NOT scope drift. tomllib is stdlib since Python 3.11 (web-verified; env 3.11.4 live); requires-python >=3.11 makes the zero-dependency property unconditional + version-floored. TOML over YAML+PyYAML is correct -- a pinned PyYAML would falsify the section-2.3 purity claim on a fresh builder machine. The 3.11 floor is acceptable for an in-the-stoa 2.1 build; the JSON fallback is correctly named for the deferred-HOME consumer-floor case.
+
+- HOME-defer: LEGITIMATE, not ducking the section-3 ask. The directive itself states 2.1 builds in the-stoa and relocation is additive; the package layout is HOME-independent by construction. The recommendation (Option-A-location-for-2.1 + permanent-HOME-deferred-to-2.3 with Option-B leading) is a real recommendation with a stated rationale, not a non-answer. One framing nit (r4, not load-bearing).
+
+## audit_block
+
+audit_block:
+  risks:
+  - id: r1
+    description: The externalization edit to resolve.py is NOT uniformly mechanical. resolve() has a literal-default seam (baseline=BASELINE, library=LIBRARY) that is genuinely mechanical to externalize -- but derive_sa_scope(resolved_set) and check_runtime_completeness(resolved_set) read the section-3.3 tables (SCOPE_BEARING_KINDS, KEY_BEARING_PAIRING) as MODULE GLOBALS, NOT as parameters. Externalizing kinds.toml therefore requires EITHER keeping those as module globals populated by dataload at import time OR changing two proven function signatures. The design section-2.1 what-moves claim (the functions already take baseline/library as parameters -- we remove the literal defaults) is accurate for resolve() but does NOT describe the kinds-table seam, which does not pre-exist for these two functions. ADA must be told which refactor shape to use; an unspecified choice risks a signature change to a frozen function or an import-time mutable-global pattern (load-order fragility).
+    evidence: resolution-check/resolve.py L60-76 (KIND_ENUM/SCOPE_BEARING_KINDS/KEY_BEARING_PAIRING module-level), L168-180 derive_sa_scope reads SCOPE_BEARING_KINDS global, L183-198 check_runtime_completeness reads KEY_BEARING_PAIRING global; vs design-rev1 section-2.1 L111-118 and WP-4 L468-475.
+    load_bearing: true
+    quadrant_classification: easy-easy
+  - id: r2
+    description: The dataload boundary (the single section-2.3 purity module, named the likeliest defect home in WP-6) has NO specified fail-closed behavior for malformed/incomplete DATA, and the section-8/section-23 fixtures would NOT catch the gap. The fixtures load the SAME well-formed data/ tree the core ships, exercising the happy path only. A data/baseline.toml that parses but is missing an entry (e.g. drops pgvector) would silently change the resolved baseline set from 5 to 4 and the section-8.4 BaselineOmitError guard would no longer fire for pgvector -- a fail-OPEN regression of the exact WP-6 fix the resolver was hardened for, invisible to a suite whose expected sets are themselves loaded from a parallel data file (WP-3 doubled-surface risk compounds this: if the same bad edit touches both data/ and tests/fixtures/expected/, the suite stays green against a wrong target). The design specs no probe that asserts dataload REJECTS a structurally-invalid DATA tree (missing required table, empty baseline, malformed entry record) rather than loading a degraded set. P6 only proves the resolver READS the file; it does not prove the loader VALIDATES it.
+    evidence: design-rev1 section-2.4 L224-232 (dataload single fs boundary, no load-validation contract stated), section-2.6/section-3 P1-P6 (all assert against shipped well-formed data + a same-loader expected file), WP-3 L460-467, WP-6 L482-490 (names DATA-file integrity as likeliest missed-defect home but authors no probe -- a CORRECTNESS fail-closed gap independent of the threat classification).
+    load_bearing: true
+    quadrant_classification: easy-hard
+  - id: r3
+    description: RQ-3 (the document/data alias filename). DAEDALUS asks whether document-data.toml as a separate file with a loader-held stem-to-name map is acceptable, or whether the alias should be an alias-key inside document-consuming.toml. Ruling: the SEPARATE-FILE representation is FAITHFUL to ground truth and should NOT be changed. design-formal section-3.2 (L211-223) itself encodes document/data as a SEPARATE top-level YAML key with an identical body -- one-template-under-an-alias rendered as two keys, not an alias-key. The design-rev1 separate-file shape mirrors design-formal exactly. The loader stem-to-name map is a real (minor) necessity because slash is not a portable filename char. NOT load-bearing; surfaced to discharge the RQ and prevent a needless rework toward an alias-key form that would DIVERGE from design-formal.
+    evidence: design-formal.md section-3.2 L218-223 (document-consuming + document/data as two separate top-level keys), L34-36 (one template under an alias, WP-4 split decision); design-rev1 section-2.1 L96 + RQ-3 L433-436.
+    load_bearing: false
+  - id: r4
+    description: The HOME recommendation framing has a latent tension a ratifier should see. The design builds 2.1 at agents/builder-deploy-core/ (called the Option-A the-stoa LOCATION) but recommends Option B (standalone) as the leading FUTURE home -- yet under Option A the artifact would ride install.sh/substrate lifecycle, while building under agents/ (NOT substrate/skills/) means it does NOT currently ride that lifecycle. So the 2.1 build location is neither fully Option A (not under substrate/, not install-deployed) nor Option B (not a standalone home) -- it is a neutral arc-scratch location. Arguably the RIGHT neutral choice for a deferred decision, but the section-4 prose conflates Option-A-location with the arc-build location, which could mislead ratification into thinking choosing-not-to-decide already leaned A. NOT load-bearing; the ratifier should read the build location as DECISION-NEUTRAL.
+    evidence: design-rev1 section-2.1 L69 (build location agents/builder-deploy-core/), section-4 Option A L344-348, section-4 recommendation L377-387.
+    load_bearing: false
+  non_findings:
+  - 35.5 carve-out runtime-attack-path search: checked network/creds/env/clock/subprocess/external-input surfaces against the prototype code + design -- none present; dataload reads only package-relative data/ off __file__, never env/CWD. Carve-out genuinely applies. Discharged.
+  - section-2-constraint enforcement: the package edge (discovery imports builder_deploy_core.resolution.resolve; zero resolve def under discovery/) genuinely replaces the prototype sys.path hack and structurally enforces the constraint. P8 module-identity assertion is the load-bearing guard (DAEDALUS correctly flagged the grep as belt-and-suspenders in WP-5). Sound; not a risk.
+  - DoD #7 full-suite isolation: gen-data reads substrate/, the new core lives under agents/, outside app/ -- structurally incapable of touching the roster/app. P9 carries the full-suite watch verbatim. Discharged.
+  - byte-for-byte 8/6/7 preservation: externalization moves data OUT of literals but the resolve/generate/validate ALGORITHM bytes are transcribed unchanged; P1/P3 re-run the proven behaviors against the externalized data, so a behavior-changing refactor would move the sets and fail the probe. The regression guard for r1 is real IF ADA keeps the suite. The residual r1 risk is about WHICH refactor shape, not whether it is caught.
+  - RQ-1 (3.11 floor) + RQ-2 (.yaml fidelity): ruled SOUND above; JSON fallback correctly named for the deferred-consumer-floor case. RQ-4 (__main__.py vs run.py): genuinely ADA call; the design correctly requires only runnability + reproduced PASS lines. No need to pin. Discharged.
+  - DoD machine-checkability: all 9 DoD items map to a concrete re-runnable probe P1-P10. Each is falsifiable as written. DoD #5 (DATA externalized) is the one whose probe (P6) proves READ but not VALIDATE -- that delta is r2, not a DoD-traceability gap.
+  - Scope fidelity: no OUT-list item creeps in. No infra (gcloud/Railway/creds/network/clock); kind recipes are NAMED in DATA but not executed; SUGGEST/section-24-31, choreography S0-S6, scienceclaw acceptance, R-1/R-2/R-3 all correctly deferred. The hard zero-infra boundary holds.
+  - Authorship: every planned artifact carries author Denson Smith; prototype files already do; P10 greps for foreign author fields. Zero foreign name. Clean.
+  threat_coverage_assessment: N/A -- section-35.5-carved-out arc (CONFIRMED): no threat-ratified mitigation, so no threat-anchored probe is owed or specified. The fail-closed probes (P2 BaselineOmitError, P4 NEG-1/NEG-2) verify CORRECTNESS invariants, not threat-defeat. r2 names a correctness-fail-closed gap at the DATA-load boundary independent of the (correctly absent) threat classification.
+
+summary: This is a faithful PROMOTION design: the resolve/generate/validate algorithm bytes are transcribed unchanged from the VERIFIED Phase-1 prototypes, the data is externalized to a TOML data/ tree behind a single dataload purity boundary, the prototype sys.path hack becomes a real package edge that structurally enforces the section-2-constraint, and the section-8/23/8.4 fixtures lock as a pytest regression suite outside app/. All three PLINY-requested rulings clear: the 35.5 threat carve-out is CONFIRMED (no runtime attack path at t0), the YAML->TOML reinterpretation is a SOUND read of the directive own parser mandate on a web-verified stdlib-since-3.11 zero-dependency basis, and the HOME-defer is legitimate given the directive makes relocation additive. Two load-bearing risks block a clean pass, both easy to address and neither a re-architecture: (r1) the externalization is NOT uniformly mechanical -- derive_sa_scope and check_runtime_completeness read the section-3.3 kind-tables as module GLOBALS, not parameters, so externalizing kinds.toml forces either a signature change to a frozen function or an import-time mutable-global pattern, and ADA must be told which; and (r2) the dataload boundary -- which DAEDALUS himself named the likeliest defect home -- has no specified fail-closed contract for malformed/incomplete DATA, and the fixtures (loading the same well-formed tree) would not catch a structurally-degraded DATA file that silently shrinks the baseline and re-opens the exact fail-OPEN regression the resolver was hardened against. The most important is r2: a missing data/baseline entry is a silent correctness regression invisible to the proven suite. Overall posture: minor revisions -- the design is structurally correct and the proven logic is preserved; it needs the kinds-table refactor shape pinned (r1) and a DATA-load-validation fail-closed probe specified (r2).
+
+gap_or_blocker: none.
