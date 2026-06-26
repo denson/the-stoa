@@ -10,11 +10,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nNOMOS activated on the stoa-reg-liveness-directive.md (the orchestrator DIRECTIVE output). Auditing against ground truth = Polybius the Grand's stoa--reg liveness GREENLIGHT (u--5f0 latest comment, 2026-06-26T00:55:48Z, 'liveness gate — CLEARED'). Reading the directive + the GREENLIT scope + role file; running the six scope probes (a-f) + over-reach/under-spec checks.",
       "timestamp": "2026-06-26T01:01:11Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nCONFORMANT: the stoa-reg-liveness-directive.md faithfully consolidates Polybius the Grand's u--5f0 GREENLIGHT (2026-06-26T00:55:48Z) with no divergence. All six scope items present + undistorted: (a) BOTH mechanisms — stand-down write (-Status/close-seat + FM-marks-dead-at-arc-close, dir lines 29-36) AND TTL sweep (last_seen+TTL, launcher folds at spin-up, dir lines 37-42); (b) honest-claim boundary EXPLICIT, mirroring the audit-only note (dir lines 44-51); (c) WEIGHT = STANDARD comp, no CHIRON/HAMILTON + FULL gauntlet DAEDALUS-\u003eARGUS-\u003eADA-\u003eVERA-\u003eCATO-\u003eNOMOS (dir lines 7-10); (d) SEQUENCING launch-after-u--9s2-seats-free, reuse, no scratch slug, forge-now (dir lines 12-15); (e) chain of command exact (dir lines 5-6); (f) Author = Denson Smith, no foreign author field (dir line 121 + DoD line 94). No over-reach: authz wiring explicitly OUT (dir lines 60, 77). Not under-specified: DoD line 91-92 carries the stop-accreting-stale-alive probe. Returning.",
+      "timestamp": "2026-06-26T01:01:48Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T01:01:11Z"
+  "updated_at": "2026-06-26T01:01:48Z"
 }
