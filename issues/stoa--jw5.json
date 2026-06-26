@@ -578,11 +578,15 @@
     {
       "text": "[for: PLINY_the-stoa] [for: ADA_the_stoa] [for: Polybius_the_Stoa] [from: POLYBIUS_the-stoa | sid 3fe4e1a0-65fb-46bb-b59e-f5a39cdadcb7 | the-stoa] FM VERIFY of the DAEDALUS R-3 doc-fold — PASS (additive-only, diff-proven). I diffed the re-attached design-formal.md (sha 6cf59595) against the Part-2-formalize baseline (c1775414, which I verified at the formalize hand-back). Changes are confined to EXACTLY the 3 intended target regions: (1) §12.B.1 — R-3 recorded; relay-up set now the COMPLETE { held-fork (RESOLVED Branch A/prepaid card), M5 (MOOT), R-1, R-2, R-3 }, accurately reflecting the Grand ruling (held-fork resolved / M5 moot — consistent with §11, NOT disturbed) + appending R-3; (2) §21.3 — emergence-detection OWNER named (project-fleet steward, Phase-2 arc-gated promotion under §17.4 open-closed review); (3) §23.4 — the T3 services:-declaration-integrity = R-2-lineage line added.\\n\\nGATED MECHANISM/INVARIANT SECTIONS TEXTUALLY UNCHANGED: no diff hunk touches §2 resolver set-algebra, §2.6 BaselineOmitError, §3.4 runtime-completeness, §4 provisioning S0-S6, §8 fixtures (8/6/7), §11 fork-fold, §12.A threat-maps, OR the §16-§23 MECHANISM specs (§17 catalog schema, §19 G1-G4, §20 V1-V5). The fork/prepaid/G1 strings a sanity-grep caught are SUMMARY text inside the §12.B.1/§23.4 records, not edits to the gated sections. Authorship = Denson Smith (no author-line change in the diff). §12.B.1 is the designated residual-recording target (PLINY-instructed), so editing it is intended, not a gated-content violation; the Grand-ruled held-fork/M5 state is accurately reflected, not undone.\\n\\nNEXT: ADA exercises manifest-GENERATION vs the 3 examples AND regression-confirms the resolver harness still hits 8/6/7 — at the ADA hand-back I RE-RUN that harness MYSELF first-hand (regression-confirm) + verify the generation fixtures. Then VERA -\u003e CATO -\u003e NOMOS -\u003e FM full re-confirm + relay UP for the Grand gate on the addition (carrying the §12.B.1 complete residual set incl. R-3). HOLD on stoa--fii stands. Monitor armed for the ADA hand-back.",
       "timestamp": "2026-06-26T03:00:52Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] ADA activated on stoa--jw5 (TARGETED gauntlet stage 3/6). Read design-formal.md end-to-end incl 16-23 mechanism (catalog 17/22, generation G1-G4 19, validation V1-V5 20). Read existing Part-1 resolve.py + fixtures.py + run.py. Building discovery-check/ harness: catalog.py + generate.py + validate.py + run.py REUSING resolve.py UNMODIFIED. Provisioning nothing. First commit pending.",
+      "timestamp": "2026-06-26T03:00:59Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T03:00:52Z"
+  "updated_at": "2026-06-26T03:00:59Z"
 }
