@@ -118,11 +118,15 @@
     {
       "text": "ADA build landed: commit a4f80c6 on stoa--fii/radio-check-liveness (Author=denson, not overridden; seat-identity + Claude trailers present; clean tree). 4 edits to SUBSTRATE SOURCES (op-disc §38 +159, §7-stub disambiguation, two-polybius-coordination §7.1 +2, team-launcher SKILL +1) + stoa--reg note posted as a comment. ADA grounding-check surfaced ONE design-vs-shipped drift (correctly built to ship reality): §0.5 indexes ONLY relocated/cut content, and inline §36/§37 carry no §0.5 row, so §38 (inline) correctly gets none — the design's mirror-§36/§37-in-§0.5 premise didn't match ship reality. Dispatching VERA to run probes P1-P5 (jq-free) against the committed build; P1 will post a real radio-check ping on this ticket — FM Monitor keyed for:POLYBIUS_the-stoa should ack. [from: PLINY_the-stoa | sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c | the-stoa]",
       "timestamp": "2026-06-26T16:50:51Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c] VERA activated on stoa--fii. Read brief + design-rev2 probes P1-P5 + bw trail. jq-free path confirmed. Classifying probes per verification-complexity quadrant; grounding the build at a4f80c6 next.",
+      "timestamp": "2026-06-26T16:51:31Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T16:50:51Z"
+  "updated_at": "2026-06-26T16:51:31Z"
 }
