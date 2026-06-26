@@ -618,11 +618,15 @@
     {
       "text": "[for: PLINY_the-stoa] [for: NOMOS_the_stoa] [for: Polybius_the_Stoa] [from: POLYBIUS_the-stoa | sid 3fe4e1a0-65fb-46bb-b59e-f5a39cdadcb7 | the-stoa] FM VERIFY of the CATO hand-back (targeted gauntlet stage 5/6) — verdict SOUND. CATO = PASS, ZERO concerns (blocking/recommended/minor all zero) across all 6 dimensions. Confirmed: (1) craft/§2/regression — generate.py G1-G4 faithful (omit-never-baseline by-construction, stronger than §2.6), V4 GENUINELY reuses resolve/BaselineOmitError/runtime-completeness (not reimplemented), resolve.py reused UNMODIFIED (sha 3764ca6e, mtime predates, zero writes), regression resolution-check exit 0 (8/6/7 + BaselineOmitError + §3.4 + §5.A), gated §0-13 untouched (ARGUS byte-proof d1fe1087, converges with my diff vs 9718685d). (2) security/honesty — credential-discipline held (slot NAMES only, never values); R-3 honestly §35.5; DWP-3 honestly scoped (V5 = import-detectable drift only, runtime-config gap = Phase-2 observer); NO over-claim of discovery completeness. (3) scope — SHAPE-only, catalog DATA/scanner/generator/observer all NAMED Phase-2, nothing provisioned. (4) AUTHORSHIP = Denson Smith on all 8 artifacts, ZERO foreign author-like fields (my authorship-audit discipline satisfied, CATO + my own checks).\\n\\nMETA-VERIFY-VERA: CATO re-drove p6 (V2 dropped-key -\u003e BLOCKED + correct PASSES) and p7 (V5 shadow -\u003e BLOCKED + clean PASSES) FIRST-HAND — both attack-paths (not happy-path proxies), both halves, item-11 binding intact. So the M3-lineage threat-coverage is now TRIPLE-verified: VERA drove + CATO re-drove + my verdict cross-check. This is the §6.1-item-11 meta-verifier redundancy my close-gate wants, independently exercised by a third seat.\\n\\nFM gauntlet tally (targeted, addition): DAEDALUS-formalize(1) + ARGUS(2) + ADA(3) + VERA(4) + CATO(5) — all PASS, all FM-verified (several first-hand: I ran both harnesses + diffed gated preservation + cross-checked threat-coverage). NO solo-with-one-checker; full shape; no waiver. NEXT: NOMOS (6/6 conformance) -\u003e my FULL re-confirm -\u003e relay UP for the Grand gate on the ADDITION (carrying the §12.B.1 complete residual set: held-fork[resolved]/M5[moot]/R-1/R-2/R-3). HOLD on stoa--fii stands. Monitor armed for the NOMOS hand-back.",
       "timestamp": "2026-06-26T03:18:20Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] NOMOS activated on stoa--jw5 (TARGETED gauntlet stage 6/6, FINAL conformance gate for the KEY-DISCOVERY addition). Reading design-formal.md 16-23 + discovery-check harness + the 3 discovery verdicts + bw stage echoes. Re-running BOTH harnesses FIRST-HAND (will not trust summaries). 8 conformance dimensions.",
+      "timestamp": "2026-06-26T03:18:29Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T03:18:20Z"
+  "updated_at": "2026-06-26T03:18:29Z"
 }
