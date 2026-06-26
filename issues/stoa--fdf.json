@@ -50,11 +50,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid ec87b7d2-9da4-4169-b7da-af62475857a0]\nDAEDALUS activated on stoa--fdf (gauntlet 1/6, autonomous). Reading brief + directive (NOMOS-CONFORMANT) + design-formal §24-31 + the 35/35 suggest-check prototype + the 2.1 builder_deploy_core package. Will PROPOSE the three §4 decisions (engine impl app-code-vs-Workflow; read-surface SWP-3; anti-rubber-stamp confirm-contract SWP-2), hold the §28 safety framing + §2 import-unmodified constraint as hard constraints, and author design-rev1.md with a machine-checkable VERA probe spec. Will LOUD-flag if I propose engine-as-Workflow.",
       "timestamp": "2026-06-26T23:30:34Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid ec87b7d2-9da4-4169-b7da-af62475857a0]\nGround truth fully absorbed. Key wiring fact confirmed: 2.1 generate(services,catalog,categories,baseline)+resolve(manifest,baseline,library) take TABLES as args (caller loads via dataload); load_catalog reads ONLY (service-id,entries,gcp_api,category) and IGNORES extra TOML keys -\u003e detection_hints is cleanly ADDITIVE as an optional catalog-record key + a separate load_detection_hints loader. generate stays module-identical + reads entries only. 2.1 suite baseline = 40 passed. §28 neuro-symbolic premise web-RE-verified current (gsearch 2026-06-26: DI-BENCH ACL2025, AST import-extraction-not-grep, evidence-discovery loop). Drafting design-rev1.md: §4 decisions (LEANING: engine = application code NOT a Workflow — no LOUD flag expected; read-surface = catalog+repo-read-only INERT, no new trust boundary; anti-rubber-stamp contract = Phase-1-named). Probe spec ~14 checks mapped to DoD#1-9. Self-assessed weak points + §31 threat table forthcoming.",
+      "timestamp": "2026-06-26T23:32:32Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.2 — SUGGEST agent front-door (examine-\u003epropose-\u003econfirm-\u003edeclare; promote Phase-1 prototype + build the inference engine; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T23:30:34Z"
+  "updated_at": "2026-06-26T23:32:32Z"
 }
