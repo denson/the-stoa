@@ -1,0 +1,8 @@
+# author: Denson Smith
+# §3.2 category template — document-consuming. File stem IS the category name.
+# pgvector is already in BASELINE; not re-listed here (§3.2).
+# Validated fail-closed on load by dataload.load_library (§2.4.1).
+
+[[entry]]
+kind = "gcp_api"
+name = "document-parsing"

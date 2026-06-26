@@ -1,0 +1,31 @@
+# author: Denson Smith
+# ticket: stoa--pj3 (u--9s2 Phase-2 increment 2.1)
+# design-ground-truth: agents/design/stoa--pj3/design-rev2.md §2.2 (parser decision) / §2.4 (zero runtime deps)
+#
+# builder_deploy_core package metadata. ZERO runtime third-party dependencies (the core imports
+# stdlib-only: tomllib is stdlib since 3.11). requires-python = ">=3.11" makes the zero-dependency
+# property UNCONDITIONAL + version-floored (tomllib is the §2.2 parser; JSON is the documented <3.11
+# fallback, not used here). The test extra adds pytest; the CORE never imports it.
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "builder-deploy-core"
+version = "0.2.1"
+description = "The builder-deploy resolution + discovery CORE (u--9s2 Phase-2 increment 2.1): pure, offline, environment-free key-provisioning resolution + discovery."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Denson Smith" }]
+license = { text = "MIT" }
+dependencies = []   # ZERO runtime third-party deps — stdlib-only (tomllib since 3.11)
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[tool.setuptools]
+packages = ["builder_deploy_core", "builder_deploy_core.resolution", "builder_deploy_core.discovery"]
+
+[tool.setuptools.package-data]
+builder_deploy_core = ["../data/**/*.toml"]

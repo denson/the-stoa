@@ -1,0 +1,14 @@
+# author: Denson Smith
+# §8.3 labstat_bls manifest fixture (DATA). category document/data (the alias), delta.add carries the
+# thirdparty_rest_key. declared_services drives discovery generation (G2 selects document-consuming,
+# the alias's primary; both resolve to the same 7-entry set).
+builder = "labstat_bls"
+category = "document/data"
+declared_services = ["document-parsing", "bls-oews"]
+expected_category = "document-consuming"
+expected_len = 7
+
+[delta]
+[[delta.add]]
+kind = "thirdparty_rest_key"
+name = "BLS_OEWS_API_KEY"

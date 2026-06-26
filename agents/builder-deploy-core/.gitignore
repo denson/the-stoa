@@ -1,0 +1,7 @@
+# build / test artifacts — never committed
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+dist/

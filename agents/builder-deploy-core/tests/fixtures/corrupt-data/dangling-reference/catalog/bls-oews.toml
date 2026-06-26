@@ -1,0 +1,12 @@
+# author: Denson Smith
+# §22 seed record — bls-oews. A BLS OEWS REST call, NOT a GCP API (gcp_api: none -> natively skips S1
+# enablement). category: none -> a per-builder special; rides delta.add, not a category (§22).
+# Validated fail-closed by dataload.load_catalog (§2.4.1).
+
+service-id = "bls-oews"
+gcp_api = "none"
+category = "none"
+
+[[entries]]
+kind = "thirdparty_rest_key"
+name = "BLS_OEWS_API_KEY"

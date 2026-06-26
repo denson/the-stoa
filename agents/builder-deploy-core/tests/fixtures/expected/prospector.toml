@@ -1,0 +1,26 @@
+# author: Denson Smith
+# §8.1 prospector EXPECTED resolved set (8 entries, sorted (kind,name) asc). The LOCKED regression target.
+[[entry]]
+kind = "db_extension"
+name = "pgvector"
+[[entry]]
+kind = "db_extension"
+name = "postgis"
+[[entry]]
+kind = "gcp_api"
+name = "gemini-embedding"
+[[entry]]
+kind = "gcp_api"
+name = "gemini-search"
+[[entry]]
+kind = "gcp_api"
+name = "google-maps"
+[[entry]]
+kind = "gcp_secret"
+name = "MAPS_API_KEY"
+[[entry]]
+kind = "gcp_secret"
+name = "POSTGRES_PASSWORD"
+[[entry]]
+kind = "railway_var"
+name = "DATABASE_URL"

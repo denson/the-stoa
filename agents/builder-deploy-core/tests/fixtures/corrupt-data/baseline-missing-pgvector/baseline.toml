@@ -1,0 +1,20 @@
+# author: Denson Smith
+# CORRUPT FIXTURE (P11): baseline with (db_extension, pgvector) REMOVED -> baseline of 4. The canonical
+# r2 attack-path: load_baseline MUST raise DataIntegrityError (set-equality vs EXPECTED_BASELINE),
+# never return a 4-entry baseline (which would silently stop the §8.4 guard firing for pgvector).
+
+[[entry]]
+kind = "gcp_api"
+name = "gemini-embedding"
+
+[[entry]]
+kind = "gcp_api"
+name = "gemini-search"
+
+[[entry]]
+kind = "railway_var"
+name = "DATABASE_URL"
+
+[[entry]]
+kind = "gcp_secret"
+name = "POSTGRES_PASSWORD"

@@ -1,0 +1,11 @@
+# author: Denson Smith
+# §22 seed record — spatial-db. gcp_api: none -> natively skips S1 enablement.
+# Validated fail-closed by dataload.load_catalog (§2.4.1).
+
+service-id = "spatial-db"
+gcp_api = "none"
+category = "geospatial"
+
+[[entries]]
+kind = "db_extension"
+name = "postgis"

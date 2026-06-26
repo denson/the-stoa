@@ -1,0 +1,15 @@
+# author: Denson Smith
+# §3.2 category template — geospatial. File stem IS the category name.
+# Validated fail-closed on load by dataload.load_library (§2.4.1).
+
+[[entry]]
+kind = "gcp_api"
+name = "google-maps"
+
+[[entry]]
+kind = "gcp_secret"
+name = "MAPS_API_KEY"        # §3.4 runtime-completeness: google-maps is key-bearing
+
+[[entry]]
+kind = "db_extension"
+name = "postgis"

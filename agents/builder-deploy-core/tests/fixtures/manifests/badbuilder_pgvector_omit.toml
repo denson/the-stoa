@@ -1,0 +1,12 @@
+# author: Denson Smith
+# §8.4 NEGATIVE manifest fixture (DATA). Attempts to omit a BASELINE entry (pgvector) -> resolve MUST
+# raise BaselineOmitError naming (db_extension, pgvector). No expected resolved set (fail-closed).
+builder = "badbuilder_pgvector_omit"
+category = "document-consuming"
+declared_services = []
+raises = "BaselineOmitError"
+
+[delta]
+[[delta.omit]]
+kind = "db_extension"
+name = "pgvector"
