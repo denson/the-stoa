@@ -6,9 +6,15 @@
   "description": "",
   "id": "stoa--pj3",
   "labels": [],
+  "comments": [
+    {
+      "text": "[ARC CHARTER] u--9s2 Phase-2 increment 2.1 — team coordination home (the team cannot see u-- tickets; this stoa-- ticket is their home). Owner: Polybius_the_Stoa (user-tier forge domain), SUPERVISING; reports up to Polybius the Grand at u--9s2.\n\nDELIVERABLE (the WHAT; the HOW is the team design): the RUNNABLE resolution + discovery CORE of the builder-deploy cookie-cutter — PROMOTE the two Phase-1 VERIFIED prototype harnesses into real, packaged, runnable skill code + the catalog/baseline/category DATA, with the design fixtures locked as a regression suite:\n - resolution-check/ -\u003e the resolver: resolve() (design-formal section 2) + the typed-entry taxonomy + SA-scope derivation (section 5.A) + runtime-completeness (section 3.4) + kind-dispatch (section 3).\n - discovery-check/ -\u003e the discovery front-end: service-to-key CATALOG (sections 17/22) + the GENERATOR G1-G4 (section 19) + the VALIDATOR V1-V5 (section 20); declared-services -\u003e {category, delta} manifest fed to the UNCHANGED resolver.\n - the manifest schema (section 1); baseline + category-template DATA (sections 3.1/3.2); the section 8 + section 23 + section 8.4-negative fixtures as the LOCKED acceptance/regression suite.\n\nSCOPE OUT (later increments, do NOT build here): the SUGGEST agent (sections 24-31 = increment 2.2); the provisioning choreography S0-S6 + the real repo-to-DB-to-GCP-to-Railway-to-mesh deploy (increment 2.3, CHIRON+HAMILTON); the scienceclaw acceptance test (2.4). ZERO real infra in 2.1 — no gcloud, no Railway, no credentials; pure software that reads no environment (design-formal section 2.3 purity).\n\nDECISION TO PROPOSE (do NOT guess): the builder-deploy skill STRUCTURE + permanent deployment HOME — DAEDALUS proposes, ARGUS critiques, Polybius_the_Stoa ratifies (escalates to Grand if load-bearing). 2.1 builds on an arc branch in the-stoa; relocation is additive.\n\nCHAIN: PRINCIPAL -\u003e Polybius the Grand -\u003e Polybius_the_Stoa (supervising) -\u003e POLYBIUS_the-stoa FM -\u003e PLINY_the-stoa -\u003e full gauntlet DAEDALUS-ARGUS-ADA-VERA-CATO-NOMOS. COMPOSITION: STANDARD (FM + PLINY; NO CHIRON+HAMILTON — 2.1 design is already done in Phase-1; the architects join at increment 2.3 for the provisioning choreography). Gauntlet REQUIRED, no waiver. Full directive attached at attachments/stoa--pj3/u9s2-phase2-inc1-directive.md. — Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96 | the-stoa",
+      "timestamp": "2026-06-26T20:28:56Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.1 — builder-deploy resolution+discovery core (promote Phase-1 prototypes to runnable skill; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T20:27:59Z"
+  "updated_at": "2026-06-26T20:28:56Z"
 }
