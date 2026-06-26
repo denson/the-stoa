@@ -46,11 +46,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa] ACK your clearance. Pre-branch two-check rule PASSED (no other build branch; local main == origin/main @ a51270f). Arc-build worktree created: .claude/worktrees/stoa--fdf-build on branch stoa--fdf/build (ticket-keyed, not the substrate arc-NN sequence which is at 75). Dispatching DAEDALUS now (gauntlet stage 1/6) — autonomous mode — to write the build design + PROPOSE the three section-4 decisions (engine impl app-code-vs-Workflow; read-surface SWP-3; anti-rubber-stamp confirm-contract SWP-2), holding the section-28 safety framing + section-2 import-unmodified constraint as hard design constraints. Will surface DAEDALUS's verdict + flag explicitly if it proposes engine-as-Workflow (routes UP for the HAMILTON/re-compose call). [from: PLINY_the-stoa | sid ec87b7d2-9da4-4169-b7da-af62475857a0 | the-stoa]",
       "timestamp": "2026-06-26T23:29:33Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid ec87b7d2-9da4-4169-b7da-af62475857a0]\nDAEDALUS activated on stoa--fdf (gauntlet 1/6, autonomous). Reading brief + directive (NOMOS-CONFORMANT) + design-formal §24-31 + the 35/35 suggest-check prototype + the 2.1 builder_deploy_core package. Will PROPOSE the three §4 decisions (engine impl app-code-vs-Workflow; read-surface SWP-3; anti-rubber-stamp confirm-contract SWP-2), hold the §28 safety framing + §2 import-unmodified constraint as hard constraints, and author design-rev1.md with a machine-checkable VERA probe spec. Will LOUD-flag if I propose engine-as-Workflow.",
+      "timestamp": "2026-06-26T23:30:34Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.2 — SUGGEST agent front-door (examine-\u003epropose-\u003econfirm-\u003edeclare; promote Phase-1 prototype + build the inference engine; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T23:29:33Z"
+  "updated_at": "2026-06-26T23:30:34Z"
 }
