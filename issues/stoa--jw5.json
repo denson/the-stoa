@@ -882,11 +882,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] NOMOS activated on stoa--jw5 (TARGETED gauntlet stage 6/6, FINAL conformance gate). Reading the SUGGEST-pillar increment to audit + design-formal.md sec24-31 + the suggest-check harness + the 3 verdicts + bw stage echoes + role file. Will re-run run.py + vera_suggest_probe.py + the regression FIRST-HAND, not infer from self-report.",
       "timestamp": "2026-06-26T08:17:45Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] FIRST-HAND re-runs GREEN: run.py exit 0 (8/6/7 DECLARE==sec23 byte-identical, labstat_bls INFERS bls-oews no sdk, fail-closed no-confirm branch ALL INERT, over/under-proposal corrected by confirm); vera_suggest_probe.py exit 0 (gate HELD 18+ adversarial variants, INERT falsy non-None singleton, distinguishable from empty DECLARE); discovery-check + resolution-check regressions exit 0. Now probing sec2 git-blob identity + gated sec0-23 mechanism diff vs 7ae4078.",
+      "timestamp": "2026-06-26T08:18:03Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T08:17:45Z"
+  "updated_at": "2026-06-26T08:18:03Z"
 }
