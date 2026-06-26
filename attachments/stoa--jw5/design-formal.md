@@ -855,6 +855,559 @@ is closed; DAEDALUS has recorded the gate outcome (§11 / §5.B / §12.B / §12.
 (NOTE: the non-omittable-baseline enforcement, previously a candidate hardening, is now **specified in
 §2.4/§2.6** — the WP-6 fix — and is no longer out of scope.)
 
+**Out of scope — the KEY-DISCOVERY PROCESS addition (Part 2, §16–§23; the Phase-2 implementation):**
+- **The catalog DATA** beyond the §22 seed records — Phase-2 (§16.1, §17.5). Phase-1 ships the record
+  STRUCTURE + the four seed records the §8 fixtures exercise.
+- **The static-scanner implementation** (the §20 V5 drift-detector) — Phase-2 (§16.1, §18.4). Phase-1
+  ships the declare-primary + scan-validator MODEL + precedence; scan is fail-closed-advisory, never a
+  generation input.
+- **The generator code** that runs §19 G1–G4 over a populated catalog — Phase-2 (§16.1, §19.4).
+  Phase-1 ships the deterministic algorithm + the §23.1 seed self-run.
+- **The runtime observer** (eBPF/OTel production call-detection, §18.1 pillar 3) — Phase-2; the named
+  closer for the §23.3 DWP-3 no-import-signal gap.
+- **Live-population emergence** — promoting NEW categories via the §21.3 ≥2-builder emergence rule
+  needs a live builder population; Phase-1 SEEDS `geospatial` + `document-consuming` (§21.5, §22).
+
+---
+
+# PART 2 — THE KEY-DISCOVERY PROCESS (the UPSTREAM front-end that GENERATES the manifest)
+
+> **Scope of Part 2 (added by the u--9s2 Phase-1 revision — the KEY-MODEL ADDITION, Grand/PRINCIPAL).**
+> Sections §16–§23 below formalize the **discovery / generation / validation** front-end that
+> **PRODUCES** the `{category, delta}` manifest the Part-1 resolver (§2) consumes. **This is strictly
+> UPSTREAM of `resolve()`** (§16.0). Formalized by DAEDALUS from the CHIRON+HAMILTON CO-DESIGN
+> CONVERGED unified doc (`agents/design/stoa--jw5/discovery-codesign.md`, with HAMILTON's lens at
+> `discovery-choreography-hamilton.md`).
+>
+> **THE LOAD-BEARING CONSTRAINT (held absolutely; §16.0).** The Part-1 resolver (§2 set-algebra),
+> provisioning choreography (§4 S0–S6), the §8 worked-example fixtures (prospector 8 / scienceclaw 6 /
+> labstat_bls 7), and the §12.A threat-maps are gauntlet-CONFORMANT + Grand-gated and **STAND
+> TEXTUALLY UNCHANGED**. Part 2 only adds a front-end that GENERATES the manifest those Part-1
+> mechanisms already validate. The §8 sets (8/6/7) are a **REGRESSION TARGET** Part 2 must still hit,
+> never re-derive. **Nothing in Part 2 changes `resolve()` (§2) or the §8 sets** — §23 self-runs the
+> three examples through generation and confirms 8/6/7.
+
+## 16. The key-discovery front-end — frame + the upstream constraint (Part-2 §0/§2)
+
+### 16.0 The pipeline + the load-bearing constraint (stated first, held absolutely)
+
+Part 1 took a **hand-authored** `{category, delta}` manifest (§1) as its input. The directive: the
+manifest must be **DISCOVERED / GENERATED from what the builder actually CALLS**, not hand-guessed. A
+builder that calls Google Maps + a BLS REST API gets those keys because the system **detected the
+calls**, not because a human remembered to declare them. Missing a called service = a runtime failure
+(the under-provision footgun §3.4 exists to prevent); provisioning an uncalled service = waste + scope
+bloat. Discovery makes the manifest a **derived, verifiable** artifact.
+
+The discovery process is a **front-end that PRODUCES** the manifest `resolve()` (§2) consumes:
+
+```
+services-called ──discover──▶ catalog lookup ──generate──▶ {category, delta} ──validate──▶
+   (§18 declare +              (§17 catalog)    (§19 G1-G4:     (§20 V1-V5:
+    scan-validate)                              emergent cat +   fail-closed,
+                                                derived delta)   BEFORE S0)
+                resolve()  [§2 UNCHANGED]  ──▶  resolved set  ──▶  provision [§4 S0-S6 UNCHANGED]
+```
+
+**THE CONSTRAINT (held absolutely).** `resolve()` (§2), provisioning (§4 S0–S6), the §8 fixtures, and
+the §12.A threat-maps **stand textually unchanged**. The §8 sets (8/6/7) are a **regression target
+Part 2 still hits**, never re-derives. Everything Part 2 adds is **upstream of `resolve()`**: it
+produces the same `{category, delta}` shape (§1.1) the resolver already validates; the category stays a
+named entry-set the resolver consumes (only its *provenance* changes — §21); the delta stays the same
+`{add, omit}` shape; the §2.6 `BaselineOmitError` guard is preserved **by construction** (§17.3). **No
+pressure on `resolve()` or the §8 sets arose → no dilemma to classify** (§23.2). If any future reframe
+DID pressure them, that is a scope breach → STOP + dilemma-classify to PLINY, never a silent change.
+
+### 16.1 Phase-1 vs Phase-2 boundary (SHAPE only — the implementation is Phase-2)
+
+Part 2 specifies the **SHAPE** of discovery — the catalog STRUCTURE, the generation/validation
+CHOREOGRAPHY, and the emergent-templates reframe — so the model is **complete + verifiable** now. The
+**IMPLEMENTATION is Phase-2** and is named as such throughout:
+
+| Concern | Phase | Where |
+|---|---|---|
+| Catalog **structure** (record schema, invariants, tier) | **Phase-1** (this spec) | §17 |
+| Catalog **DATA** (the populated service→key records beyond the §22 seed) | **Phase-2** | §17.5 |
+| Discovery **choreography** (declare-primary + scan-validator model) | **Phase-1** (this spec) | §18 |
+| Static **scanner implementation** (the V5 drift-detector code) | **Phase-2** | §18.4 |
+| Generation **algorithm** (G1–G4, deterministic) | **Phase-1** (this spec) | §19 |
+| Generation **code** (the generator that runs G1–G4) | **Phase-2** | §19.4 |
+| Validation **choreography** (V1–V5, fail-closed, before S0) | **Phase-1** (this spec) | §20 |
+| Emergent-templates **reframe** (category = emergent bundle; delta derived) | **Phase-1** (this spec) | §21 |
+| Runtime **observer** (eBPF/OTel production confirm) | **Phase-2** | §18.1 pillar (3) |
+
+**Phase-1 = the catalog STRUCTURE + the discovery/generation/validation CHOREOGRAPHY + the reframe.**
+The catalog DATA, the scanner, the generator code, and the runtime observer are Phase-2 (§13).
+
+---
+
+## 17. The service→key CATALOG (Part-2 DoD item 1; CHIRON lens)
+
+The **catalog** is the new T1 cookie-cutter asset that maps each external **service** to the typed
+credentials it requires. It is the **shared contract** at the discovery seam: it defines the structure
+the generation step (§19) reads.
+
+### 17.1 Exact per-service record schema
+
+```yaml
+# catalog/<service-id>.yaml  (one record per external service)
+- service-id: <stable-id>          # REQUIRED. the key skills DECLARE (§18 `services:` list).
+                                   #   pattern: ^[a-z][a-z0-9-]*$
+  entries:                          # REQUIRED, 1:N. the SET of typed §1.2/§3 entries this service
+                                    #   requires. EACH is an EXISTING design-formal entry
+                                    #   { kind, name } with kind ∈ the §3.3 enum
+                                    #   (gcp_api | gcp_secret | railway_var | db_extension |
+                                    #    thirdparty_rest_key). The catalog introduces NO new kind —
+                                    #   it MAPS a service to existing typed entries.
+    - { kind: <kind-enum>, name: <NAME> }
+    - ...                           #   1:N — one service may require several entries (§17.2)
+  gcp_api: <api-id | none>          # OPTIONAL denormalized convenience = the subset of `entries`
+                                    #   whose kind == gcp_api (the API to `gcloud services enable`).
+                                    #   `none` when the service enables no GCP API (e.g. bls-oews).
+  category: <emergent-category-tag | none>   # OPTIONAL. the emergent bundle (§21) this service
+                                    #   belongs to; `none` if it is a per-builder special (e.g. bls-oews).
+```
+
+### 17.2 Load-bearing structural invariants (the catalog's contract with Part 1)
+
+1. **Every catalog credential is a typed §3 entry (no new kind).** The catalog maps `service → set of
+   typed entries`; it adds no entry-kind. So the §19 G1 union (`⋃ entries`) is **well-typed** and flows
+   `db_extension` / `gcp_secret` / `thirdparty_rest_key` / `gcp_api` through one generation path.
+   Confirms HAMILTON seam-(a).
+
+2. **A service maps to a SET of entries (1:N), not 1:1 — this carries the §3.4 paired-credential rule
+   INTO the catalog as a CONSTRUCTION INVARIANT.** One service may require several credentials. The
+   `google-maps` record holds BOTH `{gcp_api, google-maps}` AND `{gcp_secret, MAPS_API_KEY}` in the
+   same record, so a single declared call to `google-maps` makes G1 pick up **both** —
+   **runtime-completeness (§3.4) becomes a catalog-construction invariant**, not a check the generator
+   must remember. (Catalog-authoring discipline, enforced at §21-emergence/arc time: adding a
+   key-bearing service REQUIRES its paired credential in the same record.) Confirms HAMILTON seam-(c)
+   and is the cleaner realization of §3.4 than a separate generator check.
+
+3. **Baseline is NOT in the catalog (the §2.6 guard preserved by construction).** Baseline
+   (`gemini-embedding`, `gemini-search`, `DATABASE_URL`, `POSTGRES_PASSWORD`, `pgvector` — §3.1) is
+   universal: it is prepended by the unchanged `resolve()` (`BASELINE ∪ …`, §2.1). The catalog covers
+   ONLY the **non-baseline, discoverable** services. So discovery determines the **category + delta**
+   layer only — **a generated `delta.omit` can NEVER target a baseline entry** (the generator never
+   sees baseline as a catalog/category member; §19 G3 omit = `category \ called`), so the §2.6
+   `BaselineOmitError` guard is **preserved by construction, not re-checked**.
+
+### 17.3 Tier placement
+
+| Catalog artifact | Tier | Owner | Note |
+|---|---|---|---|
+| **The CATALOG** (service→typed-entries records) | **T1** | cookie-cutter (substrate) | generic, versioned, reused whole; adding a service = additive arc (§17.4 open-closed) |
+| **Emergent category bundles** (§21) | **T1** | cookie-cutter | named entry-sets; membership emerges/promotes via the §21 EMERGENCE rule (arc) |
+
+(The per-skill `services:` declaration is **T3** and the generated `{category, delta}` manifest is
+**T2 (derived)** — see §18.3 and §21.4; the catalog itself is T1.)
+
+### 17.4 Additive extensibility (open-closed, unchanged from §3's governance)
+
+Adding a new service = **one additive T1 catalog record** (via arc). The generator (§19), the resolver
+(§2), baseline (§3.1), and existing records are **closed for modification** — open only for additive
+extension. This is the same open-closed governance the Part-1 category library (§3.2) already carries.
+
+### 17.5 Phase-1 vs Phase-2 (catalog)
+
+**Phase-1 (this spec):** the record SCHEMA (§17.1) + the three invariants (§17.2) + tier (§17.3) +
+the §22 SEED records (the four services driving the three worked examples). **Phase-2:** the populated
+catalog DATA beyond the seed (every other service the builder population calls). The §22 seed is the
+concrete initial state; it is exactly the services the §8 fixtures already exercise.
+
+---
+
+## 18. The DISCOVERY step — DECLARE-primary + SCAN-validator (Part-2 DoD item 2; HAMILTON lens)
+
+### 18.1 The model (web-verified recommendation — NOT asserted from memory)
+
+**Recommendation (HAMILTON, web-verified 2026-06-26 against current docs): explicit DECLARATION is
+authoritative; static SCAN is a build-time validator (drift / shadow-API cross-check), not the
+generator; a runtime observer is a named Phase-2 layer.**
+
+| Pillar | Binding | Role |
+|---|---|---|
+| **(1) DECLARE — authoritative** | each skill/component DECLARES `services: [<service-id>, …]` in its `SKILL.md` frontmatter (manifest-source) | the **source of truth** GENERATION (§19) reads |
+| **(2) SCAN — validator** | static scan flags any imported SDK / raw HTTP client / known-service reference whose service is **not declared** | a **drift / shadow-API guard** in VALIDATION (§20 V5) — **flags, never silently adds** |
+| **(3) RUNTIME observe — Phase-2** | eBPF / OTel detect actual outbound calls in the deployed builder | **named Phase-2** confirm-in-production; out of Phase-1 scope |
+
+### 18.2 Why scan cannot be the source of truth (the web-verified reasoning, recorded)
+
+Static analysis reliably detects **capability** (which SDK is imported) but is **unreliable for actual
+service calls** — high **false-negatives** on dynamic dispatch, dependency injection, config-driven
+endpoints (`fetch(${env.PARTNER_API_URL}/…)`), indirect HTTP wrappers, and codegen/declarative
+clients; and **false-positives** on test/dead code. For THIS model a false-negative is precisely the
+**under-provisioning runtime failure** the addition exists to prevent (a called service whose key was
+never provisioned → 401/500 at runtime); a false-positive is scope bloat. So scan cannot be the
+generator's source of truth.
+
+**The industry-pattern lineage (web-verified, recorded for the Grand gate):** OWASP **CycloneDX
+SaaSBOM** makes an **explicit declaration the design-time authorized inventory**, with static scanning
+as the **CI drift-detector** and runtime observability (eBPF/OpenTelemetry) as the production check.
+This model maps onto our three pillars exactly: DECLARE = authorized inventory; SCAN = CI drift-detect
+(V5); RUNTIME observe = production confirm (Phase-2). The declaration-burden-on-skill-authors is the
+acknowledged cost of this choice (recorded for the Grand gate, §10 WP-list extension §23.3).
+
+### 18.3 The services-called set + tier placement
+
+The builder's **services-called set** = the **union of `services:` declarations** across the skills/
+components it ships. Per-skill `SKILL.md` frontmatter is the natural home — **T3** (a property of the
+specific product skill; the project seat knows which services its skills call). So: the catalog +
+emergent categories are **T1** (§17.3); the per-skill `services:` declaration is **T3**; the generated
+`{category, delta}` manifest is **T2 (derived)** (§21.4).
+
+### 18.4 Precedence + Phase-1/Phase-2 (discovery)
+
+**Precedence (deterministic): DECLARE generates; SCAN validates.** A scan-detected-but-undeclared
+service is a **VALIDATION ERROR (§20 V5), fail-closed** — it BLOCKS generation until the declaration
+is reconciled (added or explicitly waived); **scan never auto-promotes** (a false-positive would
+provision an uncalled key; silently trusting scan would mask the very drift V5 exists to surface).
+Fail-closed-to-human is the safe default (consistent with the §4 S2c human gate + the §2.6 fail-closed
+posture). **Phase-1 (this spec):** the declare-primary + scan-validator MODEL + the precedence.
+**Phase-2:** the static-scanner IMPLEMENTATION (the V5 drift-detector code) + the runtime observer.
+
+---
+
+## 19. The manifest GENERATION choreography (G1–G4, deterministic; Part-2 DoD item 3; HAMILTON lens)
+
+Input: the builder's **services-called set** (from DECLARE, §18). Output: a `{category, delta}` manifest
+the **unchanged** resolver (§2) consumes. **Baseline is NOT discovered** — it is universal and prepended
+by `resolve()` (`BASELINE ∪ …`); generation determines only the **category + delta** layer.
+
+### 19.1 The algorithm
+
+```
+GENERATE(services_called):
+  G1  called_entries := ⋃  over service-id ∈ services_called  of  CATALOG[service-id].entries
+      #   union of typed §3 entries (any kind). A service-id ABSENT from the catalog → V1 error
+      #   (§20), fail-closed: STOP, do not emit. (kind-agnostic union — §17.2.1 well-typedness.)
+
+  G2  category := best_fit_emergent_category(called_entries)
+      #   = the emergent category (§21) whose entry-set is the LARGEST SUBSET of called_entries
+      #   (maximal coverage, no over-reach). Ties / no cover → category = none (delta carries all).
+
+  G3  delta.add  := called_entries  \  (BASELINE ∪ CATEGORY_TEMPLATE[category])
+      delta.omit := CATEGORY_TEMPLATE[category]  \  (called_entries ∪ BASELINE)
+      #   add  = called entries beyond baseline+category (the project-specific keys).
+      #   omit = category entries the builder does NOT call (trim the emergent bundle to actual calls).
+      #          omit can NEVER hit a baseline entry — baseline ∉ catalog/category (§17.2.3) →
+      #          the §2.6 BaselineOmitError guard is preserved BY CONSTRUCTION.
+
+  G4  emit { category, delta:{add, omit} }
+```
+
+### 19.2 Determinism
+
+`best_fit_emergent_category` is a **pure max-subset selection** over the catalog: same services-called +
+same catalog ⇒ **byte-identical** manifest. The generated manifest is **exactly the shape `resolve()`
+(§2) already validates** — the resolver is untouched; only its INPUT is now derived. (Where a tie must
+be broken — two categories of equal maximal coverage — break by category-tag ascending, so generation
+stays total + deterministic; no §8 example hits a tie.)
+
+### 19.3 The delta is DERIVED (the reframe's choreography half)
+
+`delta` is no longer hand-authored — it is the **mechanical remainder** `(called_entries) \ (baseline
+∪ chosen category)` for adds, and the called-trim `category \ (called ∪ baseline)` for omits. The delta
+is now *provably* "the project-specific keys this builder calls beyond the emergent bundle, plus the
+bundle-members it does not call." This is the data half of the §21 reframe.
+
+### 19.4 Phase-1 vs Phase-2 (generation)
+
+**Phase-1 (this spec):** the G1–G4 algorithm + its determinism property. **Phase-2:** the generator
+CODE that runs G1–G4 over a populated catalog. The §23 self-runs exercise G1–G4 by hand against the
+§22 seed to prove the algorithm hits 8/6/7.
+
+---
+
+## 20. The manifest VALIDATION choreography (V1–V5, fail-closed, before S0; Part-2 DoD item 4; HAMILTON lens)
+
+The generated manifest is validated **strictly BEFORE S0** (it produces + certifies the manifest S0
+consumes). Validation **REUSES the existing §2 guards** (it does not re-implement them) plus
+discovery-specific completeness/minimality checks.
+
+### 20.1 The checks
+
+```
+VALIDATE(services_called, generated_manifest):
+  V1  EVERY-SERVICE-CATALOGED: every service-id ∈ services_called has a CATALOG record.
+      else → ERROR "uncataloged service <id>" (cannot generate a complete manifest; add to catalog).
+
+  V2  COMPLETE (anti-under-provision; the §3.4 / M3 runtime-completeness lineage):
+      resolve(generated_manifest)  ⊇  called_entries
+      — every called service's typed entries are in the resolved set.
+      else → ERROR "service <id> called but not in resolved set".
+
+  V3  MINIMAL (anti-bloat):
+      resolve(generated_manifest) \ BASELINE has NO entry for an UNCALLED non-baseline service.
+      (Baseline is universal + exempt — always present by definition.)
+      else → ERROR "uncalled entry <kind,name> provisioned".
+
+  V4  RESOLVE-WELL-FORMED (REUSE the §2 guards, unchanged):
+      resolve(generated_manifest) raises NO BaselineOmitError (§2.6) AND satisfies §3.4
+      runtime-completeness (every key-bearing surface has its paired credential — e.g.
+      google-maps ⇒ MAPS_API_KEY, which §17.2.2 guarantees via the catalog record).
+      else → the existing §2/§4 error fires (discovery did not weaken it).
+
+  V5  NO-UNDECLARED-DRIFT (the scan pillar, §18):
+      no scan-detected service-call is undeclared.
+      else → ERROR "shadow service <id> detected but not declared" (reconcile declaration or waive).
+```
+
+### 20.2 Placement + the anti-under-provisioning spine
+
+**Placement:** V1–V5 run as a gate **strictly before S0** (§4), fail-closed — an invalid manifest is
+rejected with a named error and **never enters provisioning** (symmetric with §4's fail-closed
+property: a half/ill-formed input never reaches serving). **V2 + V4 are the anti-under-provisioning
+spine** — the discovery-side guarantee of the same property §3.4 / M3 gives the resolver: **a builder
+cannot deploy missing a key for a service it actually calls.** V4 specifically REUSES the §2.6 +
+§3.4 guards rather than re-implementing them, so Part 1's invariants remain the single source of truth.
+
+### 20.3 Phase-1 vs Phase-2 (validation)
+
+**Phase-1 (this spec):** the V1–V5 checks + placement + fail-closed posture. **Phase-2:** the validator
+CODE (and the V5 scanner it depends on, §18.4). V4's reuse of §2.6/§3.4 means the Part-1 guard code is
+the implementation; only V1–V3/V5 need new Phase-2 code.
+
+---
+
+## 21. The EMERGENT-TEMPLATES reframe (Part-2 DoD item 5; CHIRON lens)
+
+### 21.1 Before → after (the reframe)
+
+**Before:** category templates were **hand-curated static bundles** (geospatial = {Maps, PostGIS};
+document-consuming = {document-parsing}), authored via arc (§3.2).
+
+**After:** a category is an **EMERGENT common service-bundle** — *a named set of services (and their
+catalog entries) that frequently co-occurs across builders' services-called sets.*
+
+### 21.2 The §2-compliance precision (why the reframe is SAFE — does NOT change the resolver or §8)
+
+A category **REMAINS EXACTLY WHAT THE RESOLVER CONSUMES — a named entry-set.**
+`CATEGORY_TEMPLATE[category]` is still a set of typed entries, **unchanged in shape and in how
+`resolve()` (§2) reads it.** **ONLY its PROVENANCE changes:**
+
+| | Provenance of a category's membership |
+|---|---|
+| **Before** | a human hand-authored the bundle |
+| **After** | the bundle **emerges** from observed co-occurrence, **promoted** to a named category via the §21.3 EMERGENCE rule |
+
+So **the resolver (§2), the §3.2 category-template FORMAT, and the §8 expected sets (8/6/7) are
+UNTOUCHED.** **STATED EXPLICITLY: this reframe does NOT change `resolve()` and does NOT change the §8
+sets** — it changes only where a category's membership *comes from*. Confirms HAMILTON seam-(b): G2's
+`CATEGORY_TEMPLATE[category]` still resolves because a category is still a named entry-set.
+
+### 21.3 The EMERGENCE rule (the §3-graduation-rule, reframed to drive category FORMATION)
+
+When a service-bundle recurs across **≥2 builders' derived call-sets**, it is **promoted** to a named
+emergent category (or merged into one) via arc. Categories *grow from observed deltas* rather than
+being declared up front. This is the **same open-closed governance** as the original §3 graduation
+rule, now driving category **formation** (not just template extension). The threshold (≥2 builders) and
+its owner are flagged for ARGUS (§23.3 weak point — emergent-category bootstrapping).
+
+### 21.4 The delta is DERIVED + tier placement
+
+The per-builder delta is **no longer hand-authored** — it is the §19 G3 mechanical remainder. The tier
+model (T1 cookie-cutter / T2 manifest / T3 product) is **preserved, only the manifest's provenance
+shifts**:
+
+| Artifact | Tier | Owner | Note |
+|---|---|---|---|
+| The CATALOG (service→typed-entries) | **T1** | cookie-cutter | §17.3 |
+| Emergent category bundles | **T1** | cookie-cutter | named entry-sets; §21.3 emergence rule (arc) |
+| Per-skill `services:` DECLARATION | **T3** | the project seat | a property of the specific product skill (§18.3) |
+| The GENERATED `{category, delta}` manifest | **T2 (derived)** | generated, not hand-authored | mechanically produced at the seam from T3 declarations through the T1 catalog |
+
+**The clean ownership story:** the project seat (T3) declares what its skills call; the cookie-cutter
+(T1) owns service→key knowledge (the catalog) + the emergent categories; the per-builder manifest (T2)
+is **generated at the seam**. **No human hand-guesses the manifest** — the directive's goal. The reframe
+REPLACES the hand-authored T2 manifest with a T2 manifest *generated from T3 declarations via the T1
+catalog*; the tier model is preserved.
+
+### 21.5 Bootstrapping (the "no live population yet" answer)
+
+Emergence needs *observation*, which Phase-1 (design-time, no live builder population) lacks. So:
+- the **Phase-1 catalog SEEDS** the initial emergent categories — `geospatial` and `document-consuming`
+  — from the *known* co-occurrence in the three worked examples (Maps+PostGIS co-occur for geo
+  builders; document-parsing for doc builders). These are the first emergent bundles, recorded as the
+  initial state (§22). **They are EXACTLY the §3.2 bundles the gauntlet already validated, so the §8
+  sets hold.**
+- the **EMERGENCE rule (§21.3) governs how NEW categories form** as the population grows (Phase-2+).
+
+So "emergent" is the **provenance/governance model**; the §22 seed categories are the concrete initial
+state.
+
+---
+
+## 22. The catalog SEED records + emergent categories (driving the §23 worked examples)
+
+**Seed catalog records (Phase-1 initial state; the four services the §8 fixtures exercise):**
+
+```yaml
+- service-id: google-maps      # client-side Maps-JS surface = API-key-bearing (§3.4)
+  entries: [ {kind: gcp_api, name: google-maps}, {kind: gcp_secret, name: MAPS_API_KEY} ]
+  gcp_api: google-maps
+  category: geospatial
+- service-id: spatial-db
+  entries: [ {kind: db_extension, name: postgis} ]
+  gcp_api: none
+  category: geospatial
+- service-id: document-parsing
+  entries: [ {kind: gcp_api, name: document-parsing} ]
+  gcp_api: document-parsing
+  category: document-consuming
+- service-id: bls-oews          # a BLS OEWS REST call — NOT a GCP API
+  entries: [ {kind: thirdparty_rest_key, name: BLS_OEWS_API_KEY} ]
+  gcp_api: none
+  category: none                # a per-builder special; rides delta.add, not a category
+```
+
+**Seeded emergent categories (§21.5 bootstrap — identical to the §3.2 templates, so §8 holds):**
+
+```
+geospatial         = { (gcp_api, google-maps), (gcp_secret, MAPS_API_KEY), (db_extension, postgis) }
+                     (= google-maps ∪ spatial-db catalog entries)
+document-consuming = { (gcp_api, document-parsing) }
+```
+
+`MAPS_API_KEY` rides the `google-maps` record per §17.2.2 (the §3.4 paired-credential rule as a catalog
+invariant). Baseline (universal, prepended by `resolve()`) = the §3.1 five entries — **NOT in the
+catalog** (§17.2.3).
+
+---
+
+## 23. The three worked examples VIA DISCOVERY — machine-checkable generation fixtures (Part-2 DoD items 6+7)
+
+Each example gives `services-called → GENERATED {category, delta} → resolved set`. **These ARE ADA's
+GENERATION fixtures + VERA's generation probes:** `GENERATE(services_called) == EXPECTED_MANIFEST` and
+`sorted(resolve(EXPECTED_MANIFEST)) == EXPECTED_SET` (the §8 set) must BOTH hold. The resolved sets are
+the §8.1/§8.2/§8.3 sets **byte-for-byte** — Part 2 GENERATES the manifests Part 1 already validates.
+
+### 23.1 The three generation fixtures (self-run below)
+
+**prospector** — declares `services: [google-maps, spatial-db]`
+```
+G1 called_entries = { (gcp_api,google-maps), (gcp_secret,MAPS_API_KEY), (db_extension,postgis) }
+G2 category = geospatial            (its bundle ⊆ called_entries — maximal cover)
+G3 delta.add = ∅ ;  delta.omit = ∅  (called == baseline-free geospatial bundle)
+G4 GENERATED = { category: geospatial, delta: {} }
+   resolve() → BASELINE(5) ∪ geospatial(3) = 8     ✓ §8.1  (regression target HIT)
+```
+
+**scienceclaw** — declares `services: [document-parsing]`
+```
+G1 called_entries = { (gcp_api, document-parsing) }
+G2 category = document-consuming    ({document-parsing} ⊆ called)
+G3 delta = {}
+G4 GENERATED = { category: document-consuming, delta: {} }
+   resolve() → BASELINE(5) ∪ document-consuming(1) = 6   ✓ §8.2  (regression target HIT)
+```
+
+**labstat_bls** — declares `services: [document-parsing, bls-oews]`  (the load-bearing test)
+```
+G1 called_entries = { (gcp_api, document-parsing), (thirdparty_rest_key, BLS_OEWS_API_KEY) }
+G2 category = document-consuming    ({document-parsing} ⊆ called; bls-oews ∉ any category)
+G3 delta.add = { (thirdparty_rest_key, BLS_OEWS_API_KEY) }   (= called \ (baseline ∪ category))
+   delta.omit = ∅
+G4 GENERATED = { category: document-consuming,
+                 delta: { add: [ {kind: thirdparty_rest_key, name: BLS_OEWS_API_KEY} ] } }
+   resolve() → BASELINE(5) ∪ document-consuming(1) ∪ {BLS_OEWS_API_KEY}(1) = 7   ✓ §8.3 (target HIT)
+```
+**Load-bearing:** the BLS OEWS REST call is DECLARED → catalog-looked-up → GENERATES the
+`+BLS_OEWS_API_KEY` delta (kind `thirdparty_rest_key`, **NO gcloud-enable** — `gcp_api: none` in its
+§22 record), reproducing §8.3 EXACTLY. **The generated `{category: document-consuming, delta:{add:
+[BLS_OEWS_API_KEY]}}` is byte-identical to the §8.3 hand-authored manifest** — discovery produces the
+manifest the gauntlet already validated; the resolver is untouched.
+
+### 23.2 §2-constraint compliance + regression confirmation
+
+- `resolve()` (§2) + provisioning (§4 S0–S6) are **TEXTUALLY UNCHANGED** — discovery is a pure upstream
+  front-end emitting the same `{category, delta}` shape (§1.1) they already consume.
+- The §8 sets (8/6/7) are **HIT, not re-derived** — §23.1 generates manifests that resolve to exactly
+  those sets; labstat_bls's generated manifest is **byte-identical** to the §8.3 manifest.
+- The category stays a named entry-set the resolver consumes (§21.2 changes only provenance); the delta
+  stays the `{add, omit}` shape; the §2.6 `BaselineOmitError` guard is preserved by §17.2.3 construction.
+- The §12.A threat-maps (M1–M4/M6) are **untouched** — discovery defeats no new threat and weakens no
+  existing mitigation (V4 REUSES the §2.6/§3.4 guards). **NO pressure on `resolve()`, the §8 sets, or
+  the threat-maps arose → no dilemma to classify.** The targeted gauntlet **regression-confirms** the
+  resolver/provisioning and **exercises the NEW manifest-GENERATION** against §23.1.
+
+### 23.3 Self-assessed weak points — DISCOVERY ADDITION (for ARGUS to pressure-test)
+
+These are the Part-2-specific weak points (the Part-1 WP-1…WP-10 in §10 stand unchanged):
+
+- **DWP-1 — scan-validator feasibility is web-verified but Phase-2 implementation.** §18 RECOMMENDS
+  declare-primary + scan-validator and web-verifies *why scan cannot be the source of truth*, but the
+  V5 static-scanner is Phase-2 unbuilt code (§18.4). *Risk:* the V5 drift-guard's real-world
+  effectiveness (its false-positive rate on test/dead code, its false-negative rate on the very dynamic
+  patterns §18.2 names) is asserted from the literature, not measured. *Why this shape:* declare is the
+  source of truth regardless of scan quality — a weak scanner degrades V5 to a best-effort drift hint,
+  it does NOT corrupt generation (which reads DECLARE only). **ARGUS: confirm a weak/absent Phase-2
+  scanner leaves generation correct (V5 is advisory-to-fail-closed, never a generation input).**
+
+- **DWP-2 — emergent-category bootstrapping (Phase-1 seeds vs the emergence rule).** §21.5 SEEDS
+  `geospatial` + `document-consuming` by hand (design-time, no population), while §21.3's emergence
+  rule (≥2 builders → promote) governs Phase-2+. *Risk:* the "emergent" provenance is, in Phase-1,
+  still a hand-authored seed — the reframe's emergence property is unexercised until a live population
+  exists; the ≥2-builder threshold + its OWNER (who detects co-occurrence and runs the promotion arc)
+  are unspecified. *Why this shape:* the seed categories are EXACTLY the §3.2 bundles the gauntlet
+  validated, so §8 holds; emergence is the forward governance model, not a Phase-1 mechanism. **ARGUS:
+  is ≥2 the right threshold, who owns detection, and is "seed-now-emerge-later" honest provenance or a
+  relabel?**
+
+- **DWP-3 — declare-completeness: a service called WITHOUT an SDK import / via raw config.** V5 (§20)
+  catches an **imported** SDK / raw-HTTP-client whose service is undeclared. But a service reached
+  purely through **runtime config** (a base URL in an env var, a data-driven endpoint table) with **no
+  static import signal at all** is invisible to BOTH declare (author forgot) AND scan (nothing to
+  detect). *Risk:* such a service is silently absent from services-called → under-provisioned → the
+  exact 401/500 the addition exists to prevent — and V5 does NOT catch it. *Why this shape:* this is
+  precisely why pillar (3) RUNTIME-observe (§18.1) exists as a named Phase-2 layer (eBPF/OTel see the
+  actual outbound call regardless of how it was constructed); Phase-1 rests on declare-discipline +
+  scan for the import-bearing majority. **ARGUS: confirm the no-import-signal service is an
+  acknowledged Phase-1 gap closed only by the Phase-2 runtime observer — and that V5's scope is
+  honestly "import-detectable drift," not "all drift."**
+
+- **DWP-4 — the CATALOG is a new SoT / trust boundary (R-2-adjacent).** §17 makes the catalog the
+  authoritative service→key map that generation trusts by construction. *Risk:* a malicious or
+  erroneous catalog edit (e.g. adding an over-scoped entry to a service's record, or mis-pairing a
+  credential) would propagate to EVERY builder that declares that service — a wider blast radius than
+  the per-builder manifest integrity threat R-2 (§12.B) names. The catalog is a **shared** T1 asset, so
+  a bad record is a fleet-wide over-grant. *Why this shape:* the catalog is T1 cookie-cutter (§17.3),
+  edited only via additive arc (§17.4) under code-review — the same git-access-control + review trust
+  model R-2 rests on, but at T1 scope. **ARGUS: is the catalog a NEW authz-relevant trust boundary that
+  warrants its own named residual (R-3, catalog-integrity) alongside R-2, given its fleet-wide blast
+  radius? — I PROPOSE it is (see §23.4); confirm or downgrade.**
+
+- **DWP-5 — the SCOPE boundary: catalog DATA + scanner + generator = Phase-2 impl, not Phase-1.** §16.1
+  draws Phase-1 (catalog STRUCTURE + choreography + reframe) vs Phase-2 (catalog DATA, scanner code,
+  generator code, runtime observer). *Risk:* the §23.1 self-runs prove the CHOREOGRAPHY on a 4-record
+  SEED; the real generator's correctness over a *populated* catalog (tie-breaking at scale, the
+  best-fit max-subset selection on overlapping categories) is unexercised in Phase-1. *Why this shape:*
+  Phase-1's job is to prove the model is COMPLETE + the choreography hits 8/6/7; the generator code is a
+  Phase-2 build-and-verify surface (§16.1, §13). **ARGUS: confirm the Phase-1/Phase-2 line is drawn at the
+  right place — choreography proven now, code verified in Phase-2 — and that the §23.1 seed self-run is
+  sufficient Phase-1 evidence.**
+
+### 23.4 Discovery-addition threat classification (op-disc §35.1 — DAEDALUS PROPOSES; ARGUS CONFIRMS)
+
+The discovery addition is an **upstream SHAPE/choreography change**; I classify its security relevance
+so no element carries NO §35.1 classification:
+
+| Element (live §) | PROPOSED classification |
+|---|---|
+| Catalog structure / record schema (§17) | **not threat-ratified** (architectural/enabling structure; no runtime attack path of its own — the runtime-completeness it carries IS already M3, §12.A) |
+| DECLARE-primary + SCAN-validator model (§18) | **not threat-ratified** (process/choreography change; V5 drift-guard is a correctness aid, not a runtime mitigation) |
+| Generation G1–G4 (§19) | **not threat-ratified** (correctness/derivation change; the BaselineOmitError preservation rides on existing M4, §12.A) |
+| Validation V1–V5 (§20) | **not threat-ratified** (V2/V4 are the discovery-side guarantee of the EXISTING M3/M4 properties — §20.2 REUSES the §2.6/§3.4 guards; introduces no new mitigation) |
+| Emergent-templates reframe (§21) | **not threat-ratified** (provenance-only change; the resolver + §8 sets + threat-maps are untouched, §21.2) |
+| **Catalog as a fleet-wide SoT / trust boundary (§23.3 DWP-4)** | **CANDIDATE NEW residual R-3 (catalog-integrity)** — I PROPOSE this is authz-relevant (a bad catalog record is a fleet-wide over-grant, R-2-adjacent but wider blast radius). It is NOT defeated in Phase-1 (rests on T1 arc-review + git access-control, like R-2). **ARGUS: CONFIRM as a §35.5 named residual R-3, or downgrade to not-threat-ratified if the T1 arc-review model fully subsumes it.** |
+
+**Why no threat-anchored probe (op-disc §35.5 self-carve-out, §6.13):** every Part-2 element above is
+PROPOSED **not threat-ratified** (process/choreography/structure change with no NEW runtime attack
+path) — discovery DEFEATS no new threat; it generates the manifest whose EXISTING mitigations (M1–M4/M6,
+§12.A) already carry their threat-anchored probes. The one CANDIDATE security-relevant element (DWP-4 →
+R-3) is PROPOSED a **named residual (surfaced-not-defeated)**, which per §35.5 needs no threat-defeat
+probe — only honest naming for the Grand to gate with it in view. **ARGUS confirms or revises all
+classifications (§35.1 — cannot be self-exempted downstream).**
+
 ---
 
 ## 14. DoD coverage (directive §6 + brief's 10 elements)
@@ -874,6 +1427,20 @@ is closed; DAEDALUS has recorded the gate outcome (§11 / §5.B / §12.B / §12.
 | — | threat→mitigation map (op-disc §35.4 A3: M1–M4/M6 triples + M5 §35.5 residual + not-threat-ratified classifications; binds already-audited mechanisms) | §12 |
 | — | isolation-UNIT fork CLOSED at Grand pre-build gate (Branch A + per-builder prepaid card/billing account; M5 mooted) | §5.B, §11, §12.B, §12.D |
 
+**Part-2 DoD coverage (the KEY-DISCOVERY PROCESS addition — u--9s2 Phase-1 revision):**
+
+| # | Part-2 element | Where |
+|---|---|---|
+| P1 | service→key CATALOG (per-service record: typed §3 entries 1:N + gcp_api + category; baseline NOT in catalog; §3.4 paired-credential as a catalog invariant; T1; additive) | §17, §22 |
+| P2 | DISCOVERY step (DECLARE-primary authoritative + SCAN-validator fail-closed + runtime-observer Phase-2; web-verified reasoning + OWASP SaaSBOM lineage) | §18 |
+| P3 | manifest GENERATION (G1–G4 deterministic; services-called → catalog → union → best-fit emergent category → derived delta; baseline not discovered) | §19 |
+| P4 | manifest VALIDATION (V1–V5: cataloged + COMPLETE + MINIMAL + resolve-well-formed [REUSES §2.6/§3.4] + no-undeclared-drift; before S0, fail-closed) | §20 |
+| P5 | EMERGENT-TEMPLATES reframe (category = emergent bundle; provenance-only; delta DERIVED; emergence rule; Phase-1 seeds; STATED: does NOT change resolver or §8 sets) | §21, §22 |
+| P6 | tier placement (catalog + emergent categories = T1; per-skill `services:` = T3; generated `{category,delta}` manifest = T2 derived) | §17.3, §18.3, §21.4 |
+| P7 | 3 worked examples VIA DISCOVERY (services-called → generated manifest → 8/6/7; machine-checkable generation fixtures; labstat_bls bls-oews → +BLS_OEWS_API_KEY, no gcloud-enable, byte-identical to §8.3) | §23.1 |
+| P8 | self-assessed weak points for the discovery addition (DWP-1…DWP-5) + Part-2 threat classification (PROPOSED not-threat-ratified; candidate R-3 catalog-integrity) | §23.3, §23.4 |
+| — | §2-constraint compliance + regression confirm (resolver §2 + provisioning §4 + §8 sets + §12.A threat-maps TEXTUALLY UNCHANGED; 8/6/7 HIT not re-derived; no dilemma) | §16.0, §23.2 |
+
 ---
 
 ## 15. Provenance
@@ -883,4 +1450,16 @@ Formalized by **CAPTAIN_DAEDALUS_the_stoa** from the CHIRON+HAMILTON CO-DESIGN C
 redesign; formalization + tightening + weak-point surfacing only. The isolation-UNIT fork was carried
 UP to Polybius the Grand and **RESOLVED at his pre-build gate (2026-06-26): Branch A + per-builder
 prepaid card/billing account; M5 mooted** — recorded in this doc as a documentation-only fold of the
-gate decision (no design change; R-1/R-2 remain Phase-2 named residuals). **Author: Denson Smith.**
+gate decision (no design change; R-1/R-2 remain Phase-2 named residuals).
+
+**Part 2 (§16–§23, the KEY-DISCOVERY PROCESS addition — u--9s2 Phase-1 revision):** formalized by
+**CAPTAIN_DAEDALUS_the_stoa** from the CHIRON+HAMILTON **DISCOVERY CO-DESIGN CONVERGED** unified doc
+(`agents/design/stoa--jw5/discovery-codesign.md`; HAMILTON's lens at
+`discovery-choreography-hamilton.md`), web-verified for the declare-vs-scan recommendation (CHIRON
+catalog + emergent-templates reframe; HAMILTON discovery/generation/validation choreography; OWASP
+CycloneDX SaaSBOM precedent, 2026-06-26). Discovery is a **strictly upstream front-end** that GENERATES
+the `{category, delta}` manifest the Part-1 resolver consumes; **the Part-1 resolver (§2), provisioning
+(§4 S0–S6), §8 fixtures (8/6/7), and §12.A threat-maps STAND TEXTUALLY UNCHANGED** — Part 2 added new
+sections only (§16.0 load-bearing constraint; §23.1 self-run confirms 8/6/7; §23.2 regression-confirm).
+No redesign of Part 1; SHAPE-only addition (catalog STRUCTURE + choreography + reframe; the catalog
+DATA / scanner / generator code / runtime observer are Phase-2, §16.1 / §13). **Author: Denson Smith.**
