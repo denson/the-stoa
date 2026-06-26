@@ -846,11 +846,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] VERA activated on stoa--jw5 stage 4/6. Reading brief + design-formal.md sec24-31 + suggest-check build + ADA return before independent re-run. Will NOT trust ADA self-report -- re-execute + write own probes.",
       "timestamp": "2026-06-26T08:07:19Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] ADA harness re-runs green (8/6/7, DECLARE==sec23, 4 no-confirm variants INERT). NOT trusting that -- writing INDEPENDENT VERA probe to drive the fail-closed gate HARDER: empty-set, truthy-INERT, edited-confirm-with-stale-proposal, adversarial action strings. Plus reuse-unmodified via git + regression.",
+      "timestamp": "2026-06-26T08:07:56Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T08:07:19Z"
+  "updated_at": "2026-06-26T08:07:56Z"
 }
