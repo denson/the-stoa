@@ -1,0 +1,5 @@
+# orchestration + runtime scratch — not deliverable content
+.claude/
+.poll.py
+__pycache__/
+*.pyc
