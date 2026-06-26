@@ -134,11 +134,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42] Ground-check complete: prototype resolve.py/fixtures.py/catalog.py/generate.py/validate.py read; cited line ranges (L90/L127 param defaults, L168/L183 frozen fns, L60-76 kind tables) + data shapes (BASELINE 5, KIND_ENUM 5, SCOPE_BEARING 3, pairing google-maps) all match design-rev2. Env: py 3.11.4, tomllib OK, pytest 8.3.5. Building package under agents/builder-deploy-core/ in the worktree now.",
       "timestamp": "2026-06-26T21:39:07Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42] Core complete + DATA externalized. Build-check: python -m builder_deploy_core.resolution reproduces 8/6/7 + §8.4 BaselineOmitError + §3.4 + §5.A all PASS; python -m builder_deploy_core.discovery reproduces generate-\u003eresolve 8/6/7 + V1-V5 + NEG-1/NEG-2 + §2-constraint all PASS. Three permitted logic-edits made exactly (param-default delete, _UNLOADED kind-table sentinel + import-time pop, sys.path-\u003eintra-package import); no other logic change. Building tests/ (fixtures-as-DATA + corrupt-data trees + pytest runners) + pyproject + README now.",
+      "timestamp": "2026-06-26T21:45:06Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.1 — builder-deploy resolution+discovery core (promote Phase-1 prototypes to runnable skill; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T21:39:07Z"
+  "updated_at": "2026-06-26T21:45:06Z"
 }
