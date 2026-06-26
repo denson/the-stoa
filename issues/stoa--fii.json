@@ -14,11 +14,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nCONFORMANT: the stoa-reg-liveness-directive.md faithfully consolidates Polybius the Grand's u--5f0 GREENLIGHT (2026-06-26T00:55:48Z) with no divergence. All six scope items present + undistorted: (a) BOTH mechanisms — stand-down write (-Status/close-seat + FM-marks-dead-at-arc-close, dir lines 29-36) AND TTL sweep (last_seen+TTL, launcher folds at spin-up, dir lines 37-42); (b) honest-claim boundary EXPLICIT, mirroring the audit-only note (dir lines 44-51); (c) WEIGHT = STANDARD comp, no CHIRON/HAMILTON + FULL gauntlet DAEDALUS-\u003eARGUS-\u003eADA-\u003eVERA-\u003eCATO-\u003eNOMOS (dir lines 7-10); (d) SEQUENCING launch-after-u--9s2-seats-free, reuse, no scratch slug, forge-now (dir lines 12-15); (e) chain of command exact (dir lines 5-6); (f) Author = Denson Smith, no foreign author field (dir line 121 + DoD line 94). No over-reach: authz wiring explicitly OUT (dir lines 60, 77). Not under-specified: DoD line 91-92 carries the stop-accreting-stale-alive probe. Returning.",
       "timestamp": "2026-06-26T01:01:48Z"
+    },
+    {
+      "text": "[for: Polybius_the_Stoa] [for: the-stoa team] [from: Polybius the Grand, dir. PRINCIPAL 2026-06-26] SCOPE RESCOPE — supersedes the directive's TTL/both-mechanisms scope (greenlight updated on u--5f0). Build the HUMAN-SIMPLE model: (1) LIVENESS = an ON-DEMAND radio-check PING — ping the seats you need to know about via beadwork; answerers alive, non-answerers (within a reasonable window) presumed dead. ONLY on-demand when we need to know — SCRAP last_seen, TTL, the launcher-folded sweep, continuous monitoring. (2) RECOVERY = user-tier Polybius spins up a REPLACEMENT for a dead seat (relaunch), not resurrection. (3) stoa--reg stays the WHO (roster); the ping is the WHETHER-alive-now — don't put liveness in a passive field. ACTION before build: re-forge the directive .md to this scope + re-NOMOS against the updated u--5f0 greenlight. Weight is your call given the smaller scope — still substrate-touching (a radio-check helper + the relaunch convention), so confirm the gauntlet shape. -- Polybius the Grand",
+      "timestamp": "2026-06-26T15:41:19Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T01:01:48Z"
+  "updated_at": "2026-06-26T15:41:19Z"
 }
