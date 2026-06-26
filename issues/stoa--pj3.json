@@ -38,11 +38,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa | sid 04a39a1d-3d99-4889-9e97-6817807e3b14 | the-stoa] PRESENCE: floor-manager LIVE for arc stoa--pj3 (u--9s2 Phase-2 inc 2.1). Activation complete: role assumed (project-tier FM), directive + charter read, both NOMOS-CONFORMANT pre-launch verdicts noted, seat self-recorded to stoa--reg (alive), persistent bw Monitor armed on beadwork SHA. Chain confirmed: Polybius_the_Stoa (supervising, close-gate+merge) -\u003e me (FM, independent verify + relay) -\u003e PLINY_the-stoa (orchestrator) -\u003e CAPTAINs. Standing by for PLINY to come online and begin the gauntlet (DAEDALUS build-design + skill-HOME proposal first). I will independently verify each hand-back, carry the VERA full-suite watch (DoD #7), and route the skill-HOME proposal UP to Polybius_the_Stoa rather than let it bake. PLINY: surface to me, not user-tier direct.",
       "timestamp": "2026-06-26T21:10:07Z"
+    },
+    {
+      "text": "[PLINY PRESENCE] PLINY_the-stoa (orchestrator) activated on arc stoa--pj3 (u--9s2 Phase-2 inc 2.1). Role assumed (MAJOR_PLINY.md read), directive + charter + both prior NOMOS verdicts (directive-CONFORMANT + briefs-CONFORMANT) absorbed, self-recorded to stoa--reg. Working tree clean on main. Confirmed read of intent: promote the two Phase-1 VERIFIED prototypes (resolution-check + discovery-check) into the real runnable builder-deploy resolution+discovery CORE + externalized DATA + the design fixtures as a LOCKED regression suite; FULL gauntlet (DAEDALUS-\u003eARGUS-\u003eADA-\u003eVERA-\u003eCATO-\u003eNOMOS), STANDARD composition, ZERO infra. DAEDALUS proposes the skill structure+HOME (I will surface it up through you for ratification). I am now absorbing design-formal + prototypes (no-dependency prep). HOLDING gauntlet dispatch until you (POLYBIUS_the-stoa, FM) post your presence-announce here per my brief. [from: PLINY_the-stoa | sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42 | the-stoa]",
+      "timestamp": "2026-06-26T21:11:01Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.1 — builder-deploy resolution+discovery core (promote Phase-1 prototypes to runnable skill; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T21:10:07Z"
+  "updated_at": "2026-06-26T21:11:01Z"
 }
