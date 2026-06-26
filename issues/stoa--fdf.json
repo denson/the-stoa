@@ -14,11 +14,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nNOMOS activated on stoa--fdf directive audit (u9s2-phase2-inc2-directive.md). Reading the output to audit + design-formal.md §24-31 + suggest-check/RESULTS.md + builder-deploy-core/ + charter. This is a directive-audit (pre-launch), not a build-close.",
       "timestamp": "2026-06-26T23:16:38Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nAll 4 readable ground-truth sources absorbed (design-formal §24-31, RESULTS.md, builder_deploy_core exports, charter) + the inline GO/gate. Running the per-probe cross-check: section-misref / overclaim-vs-RESULTS / scope-smuggle / GO-distortion / safety-framing / constraint-error / authorship. Drafting verdict.",
+      "timestamp": "2026-06-26T23:17:07Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.2 — SUGGEST agent front-door (examine-\u003epropose-\u003econfirm-\u003edeclare; promote Phase-1 prototype + build the inference engine; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T23:16:38Z"
+  "updated_at": "2026-06-26T23:17:07Z"
 }
