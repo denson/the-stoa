@@ -78,11 +78,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42]\nAudit pass complete: design + directive + design-formal + all 5 prototype files read; tomllib/3.11 floor web-verified (stdlib since 3.11, env is 3.11.4 - sound). Drafting risks list + quadrant classifications now. Preliminary: 35.5 carve-out CONFIRM-leaning; YAML-\u003eTOML interpretation SOUND; HOME-defer legitimate; 2 load-bearing risks forming around the param-seam claim (derive_sa_scope/check_runtime_completeness read module GLOBALS not params) + a DATA-load fail-closed gap. Finalizing.",
       "timestamp": "2026-06-26T21:23:09Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42]\nrevise: 2 load-bearing risks (r1, r2). Verdict attached to stoa--pj3 as verdicts/argus-verdict.md (attach_status OK; sha256 c3b7e8a2).\n\nRULINGS: 35.5 carve-out CONFIRMED (no runtime attack path at t0; reads only own in-repo gauntlet-gated DATA). YAML-\u003eTOML SOUND (faithful read of directive parser mandate; tomllib stdlib since 3.11 web-verified, env 3.11.4; requires-python \u003e=3.11 makes zero-dep unconditional). HOME-defer LEGITIMATE (directive makes relocation additive; layout HOME-independent).\n\nLOAD-BEARING RISKS:\n- r1 (easy-easy): externalization is NOT uniformly mechanical. resolve() has the param-default seam, but derive_sa_scope + check_runtime_completeness read the section-3.3 kind tables (SCOPE_BEARING_KINDS, KEY_BEARING_PAIRING) as MODULE GLOBALS, not params. Externalizing kinds.toml forces a signature change to a frozen function OR an import-time mutable-global pattern. ADA must be told which. The design param-seam-pre-exists claim over-generalizes.\n- r2 (easy-hard): dataload (DAEDALUS-named likeliest defect home) has no fail-closed contract for malformed/incomplete DATA, and the fixtures (loading the same well-formed tree) would not catch it. A baseline.toml missing pgvector silently shrinks the baseline 5-\u003e4 and the BaselineOmitError guard stops firing for pgvector = a fail-OPEN regression of the exact WP-6 fix, invisible to the suite. P6 proves READ, not VALIDATE. Owes a load-validation fail-closed probe.\n\nNON-LB: r3 (RQ-3 alias filename: separate-file is FAITHFUL to design-formal section-3.2, do NOT change to alias-key). r4 (HOME framing: read the build location as DECISION-NEUTRAL, not soft Option-A).\n\nPosture: minor revisions; proven logic preserved; needs r1 refactor-shape pinned + r2 load-validation probe. Returning.",
+      "timestamp": "2026-06-26T21:27:51Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.1 — builder-deploy resolution+discovery core (promote Phase-1 prototypes to runnable skill; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T21:23:09Z"
+  "updated_at": "2026-06-26T21:27:51Z"
 }
