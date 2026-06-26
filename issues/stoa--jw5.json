@@ -838,11 +838,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] ADA activated on stoa--jw5 stage 3/6. Reading design-formal.md sec24-31 + ARGUS PASS verdict + Part-1 resolve.py + Part-2 generate.py before first build. Will REUSE both unmodified (sec2 proof).",
       "timestamp": "2026-06-26T08:01:10Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] PASS (stage 3/6, build+exercise). Harness: agents/design/stoa--jw5/suggest-check/ (catalog_hints.py + suggest.py + confirm.py + run.py + RESULTS.md). 35/35 checks PASS, exit 0.\n\nPER-BUILDER (examine signals -\u003e suggest -\u003e confirm(accept) -\u003e DECLARE == sec23 -\u003e generate()-\u003eresolve()):\n- prospector: Maps-JS sdk + maps url + spatial-data -\u003e [google-maps, spatial-db] -\u003e DECLARE==sec23 -\u003e 8 (sec8.1).\n- scienceclaw: doc-parse sdk + parse url -\u003e [document-parsing] -\u003e DECLARE==sec23 -\u003e 6 (sec8.2).\n- labstat_bls: doc-parse sdk + BLS url_pattern(api.bls.gov) + BLS config_key -\u003e agent INFERS bls-oews (the DWP-3 upgrade, NO SDK import) -\u003e [bls-oews, document-parsing] -\u003e DECLARE==sec23 -\u003e 7 (sec8.3). Resolved carries (thirdparty_rest_key, BLS_OEWS_API_KEY), NO (gcp_api, BLS_OEWS_API_KEY) (gcp_api:none, no gcloud-enable).\nAll three DECLARE sets byte-identical to the sec23 service sets; every candidate carries detection-hint evidence.\n\nFAIL-CLOSED NO-CONFIRM PROBE (sec29.2): the prospector proposal, human does NOT confirm. For ALL of REJECT / no-response / edits-pending / None -\u003e confirm()=BOTTOM (INERT), NO DECLARE produced, and INERT NEVER reaches generate() (downstream gated on is_declare, stays dark) -\u003e nothing provisions. INERT sentinel also falsy (naive if-guard fails closed too). No auto-promotion path exists.\n\nOVER-PROPOSAL probe: stray maps URL -\u003e suggest over-proposes google-maps -\u003e human REMOVES in confirm (edit-then-confirm) -\u003e DECLARE [document-parsing] -\u003e resolve==6, no google-maps/MAPS_API_KEY over-provisioned.\nUNDER-PROPOSAL probe: agent misses BLS endpoint (too dynamic) -\u003e proposes only [document-parsing] -\u003e human ADDS bls-oews -\u003e DECLARE [bls-oews, document-parsing] -\u003e resolve==7, BLS_OEWS_API_KEY present.\n\nREGRESSION: discovery-check/run.py PASS (exit 0); resolution-check/run.py PASS (exit 0). Both untouched.\n\nsec2 PROOF: generate.py + resolve.py REUSED UNMODIFIED -- confirmed two ways: (1) mtime no-write (pre==post byte-identical; git status shows only suggest-check/ new under this seat); (2) in-harness resolve/generate __file__ resolve to ../resolution-check + ../discovery-check.\n\nSPEC DISCREPANCY: none. Faithful sec24/25/26/29 impl hit sec29/sec8 8/6/7 with no fudging. author=Denson Smith on all headers; provisioned nothing. Self-report is NOT verification -- VERA re-runs next. Returning.",
+      "timestamp": "2026-06-26T08:06:07Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T08:01:10Z"
+  "updated_at": "2026-06-26T08:06:07Z"
 }
