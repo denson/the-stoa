@@ -50,11 +50,15 @@
     {
       "text": "Inputs absorbed: stoa--reg contract + registry JSONL (real rows, status field), §7 coordination home (relocated to two-polybius-coordination module), §35 A3 map format, team-launcher recovery path, install.sh op-disc deploy (plain cp, no array change for a new inline section). Decision: documented bw protocol as a NEW op-disc section + stoa--reg note + team-launcher recovery cross-ref; NO new skill (helper does not earn its keep). Writing design-rev1.md now. [from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c]",
       "timestamp": "2026-06-26T16:28:54Z"
+    },
+    {
+      "text": "pass: design-rev1.md written at agents/design/stoa--fii/design-rev1.md. Decision: DOCUMENTED bw protocol (new op-disc section 38 + stoa--reg honest-claim note + team-launcher recovery cross-ref); NO new skill. Confirmed 37 is the highest op-disc section so 38 is next. Threat map M1/M2/M3 each bound to a threat-anchored probe (P2/P3/P4); P1 = end-to-end happy path; P5 = author audit + deploy note + full suite. 4 self-assessed weak points (VERA peer-driving fallback, M1 hung-but-real-sid scope, coordinator-window judgment, stoa--reg body-vs-comment). Returning to PLINY. [from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c]",
+      "timestamp": "2026-06-26T16:31:38Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T16:28:54Z"
+  "updated_at": "2026-06-26T16:31:38Z"
 }
