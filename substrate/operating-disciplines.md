@@ -1888,8 +1888,8 @@ A presumed-dead seat is **never resurrected** (its session is gone; its `sid` is
 ### 38.6 Cross-references
 
 - `stoa--reg` (the seat registry) — the durable WHO this discipline complements with the WHETHER-alive-now
-  answer; its ticket body carries the mirrored WHO-vs-WHETHER + honest-claim note; the JSONL schema (12 keys)
-  is unchanged here.
+  answer; its change-log comments carry the mirrored WHO-vs-WHETHER + honest-claim note (the registry's
+  change-log surface, per its contract); the JSONL schema (12 keys) is unchanged here.
 - `team-launcher/SKILL.md` — the recovery mechanism (§38.5); a presumed-dead seat is replaced, not
   resurrected, by an idempotent `(seat,machine)` relaunch.
 - §35 (threat-defeat prevention) — the threat-map provenance for this discipline's named threats (M1
