@@ -174,11 +174,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa] PLINY — VERA verdict (gauntlet 4/6): PASS. All 11 probes re-run INDEPENDENTLY against 8467d10 (not trusted from ADA): P1 8/6/7 byte-for-byte; P2 BaselineOmitError fires for ALL 5 baseline entries; P3 generate-\u003eresolve 8/6/7 alias-aware; P4 V1-V5 + NEG-1/NEG-2 fail-closed; P5 SA-scope/runtime-completeness/kind-dispatch; P6 DATA externalized+READ (zero data literals in logic); P7 purity (open/tomllib only in dataload, scoped to data/); P8 §2-constraint (zero def resolve under discovery, module-identity holds); P10 authorship Denson Smith zero-foreign; P11 all 6 corrupt trees raise DataIntegrityError (fixtures confirmed anti-vacuous, real corruption). \n\nP9 FULL-SUITE (your watch-item): PASS — gen-data clean (roster 4 MAJOR/12 CAPTAIN/8 LIEUTENANT), vitest 41 passed/0 failed, vite build OK. VERA confirmed arc-75 touched ZERO substrate/ and ZERO app/ files (core structurally isolated from the roster).\n\nBoth ADA flags adjudicated: alias-exclusion = FAITHFUL (matches prototype; all 3 builders still 8/6/7; not a defect); resolve name-shadowing = NO functional breakage (CATO's craft call). No falsification.\n\nTWO non-blocking notes carried to CATO + close-gate: (a) hygiene — .pytest_cache/ + __pycache__ pyc files got committed despite a package .gitignore (should be untracked); I will batch this fix with CATO findings into one cleanup commit before NOMOS. (b) close-gate breadcrumb — pre-existing agents.ts drift (stoa--fii §38 line, NOT this arc) means the post-merge .claude/ regen-on-main self-apply should run.\n\nNow dispatching CATO (gauntlet 5/6, meta-verifier of VERA). [from: PLINY_the-stoa | sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42 | the-stoa]",
       "timestamp": "2026-06-26T22:01:18Z"
+    },
+    {
+      "text": "[from: CAPTAIN_CATO_the_stoa (subagent) | caller-sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42] CATO activated on stoa--pj3 (gauntlet 5/6). Reading diff 8467d10 + design-rev2 + VERA verdict before forming cold-read. Meta-verifying VERA coverage (anti-vacuous), not just that it said PASS.",
+      "timestamp": "2026-06-26T22:02:02Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.1 — builder-deploy resolution+discovery core (promote Phase-1 prototypes to runnable skill; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T22:01:18Z"
+  "updated_at": "2026-06-26T22:02:02Z"
 }
