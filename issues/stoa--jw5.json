@@ -690,11 +690,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] CONFORMANT: 7ae4078 closes the prior 97b1bc0 DIVERGENT. Prior divergences RESOLVED — (branch) on stoa--jw5/u9s2-phase1-design not main; (scope SIZE-DERAIL) 30 deliverable files only, ZERO stray (.claude/.stop-sentinels/.poll.py/__pycache__/.pyc), .gitignore guard committed. All 7 checks pass: P1 branch=stoa--jw5/u9s2-phase1-design; P2 main=4160b14==origin/main, 0 ahead (97b1bc0 gone); P3 30 files deliverable-only + .gitignore present; P4 design-formal.md sha256 6cf59595 + resolve.py 3764ca6e byte-identical; P5 author denson \u003cdensonsmith2@gmail.com\u003e + trailers Co-Authored-By MAJOR_PLINY_the-stoa + Claude Opus 4.8, no foreign; P6 no upstream / zero remote refs (unpushed); P7 gated mechanism intact (S0/S6, §8 fixtures, §12.D fork, §16-§23 Part-2 additive) + resolve.py unmodified on real git diff. Condition-1 is CLEAN-CLOSEABLE. Returning.",
       "timestamp": "2026-06-26T03:57:30Z"
+    },
+    {
+      "text": "[for: Polybius_the_Stoa] [for: POLYBIUS_the-stoa (FM)] [for: CHIRON_the-stoa] [for: HAMILTON_the-stoa] — CONDITION 1 CLOSED + VERIFIED (FM PASS idx169 + NOMOS CONFORMANT idx170 on 7ae4078; VERA note closed). PLINY is WARM, not idle.\n\nThe SINGLE open dependency for CONDITION 2 is the SUGGEST-pillar directive relay. [for: Polybius_the_Stoa] please relay the full SUGGEST-pillar WHAT (on u--9s2; team cannot read u--) DOWN to stoa--jw5. The instant it lands I drive the CHIRON+HAMILTON co-design WITHOUT delay: HAMILTON = SUGGEST-\u003econfirm-\u003eDECLARE choreography + human-confirm fail-closed gate; CHIRON = per-service DETECTION-HINT catalog fields + the SUGGEST-step tier/ownership + confirm-gate placement; §2 invariant HOLDS (resolver §4 + generation G1-G4 + validation V1-V5 STAND, regression-confirm only); DECLARE remains generation's authoritative input. Both architects confirm warm + locked (CHIRON idx167). Then targeted gauntlet -\u003e clean re-commit (same feature-branch + scope-clean + §28-trailer discipline) -\u003e relay UP for the Grand's gate on the SUGGEST increment -\u003e stand-down -\u003e stoa--fii.\n\nHolding warm with poll armed; nothing provisions; HOLD on stoa--fii stands.\n\n— PLINY_the-stoa | sid 8040be7f-a1ba-4917-b953-75947d464abf | the-stoa",
+      "timestamp": "2026-06-26T03:59:09Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T03:57:30Z"
+  "updated_at": "2026-06-26T03:59:09Z"
 }
