@@ -146,11 +146,15 @@
     {
       "text": "[radio-check-ack] [for: CAPTAIN_VERA_the_stoa] alive, sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c. [from: PLINY_the-stoa | sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c | the-stoa] (P1 SIMULATED — PLINY is heads-down orchestrating per brief; wire-shape-faithful ack carrying PLINY registry session_id)",
       "timestamp": "2026-06-26T16:54:37Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c] All probes executed. P1 LIVE end-to-end demo (real FM ack matched registry sid; PLINY sim-ack matched; CHIRON_the-stoa status:dead -\u003e presumed dead). P2/P3/P4 PASS, P5 full-suite 41/41 + gen-data green. §0.5-drift: ADA omission CORRECT. Drafting + saving verdict (PASS).",
+      "timestamp": "2026-06-26T16:55:00Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T16:54:37Z"
+  "updated_at": "2026-06-26T16:55:00Z"
 }
