@@ -170,11 +170,15 @@
     {
       "text": "[from: CAPTAIN_CATO_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c] Cold-read complete (diff + design + VERA). Independent cross-checks PASS: section-0.5 is strictly a relocation index (no 36/37 rows; section-38 omission correct), section-38 correctly after section-37 (verified prior-highest), registry = exactly 12 keys in stated order, CHIRON_the-stoa is a REAL status:dead row (sid 046d128e), launcher recovery command + record-seat (seat,machine) idempotency match shipped files, author field Denson Smith unchanged. Meta-verify VERA item-11: P2/P3/P4 all in probes_executed with non-empty evidence. Drafting verdict (pass).",
       "timestamp": "2026-06-26T17:00:56Z"
+    },
+    {
+      "text": "pass: stoa--fii radio-check liveness, build a4f80c6. Cold-read CLEAN; 1 minor concern only (c1: section-38.6 says ticket-body where the stoa--reg note landed as a comment -- design pre-cleared as acceptable). Independent cross-checks all PASS (section-0.5 omission VERIFIED CORRECT, section-38 after section-37, 12-key registry, real CHIRON dead row, launcher+record-seat idempotency match, author Denson Smith unchanged, section-38.3 honest-claim mirrors stoa--reg forgeable boundary, SCOPE-FENCE forbids passive creep). Meta-verify VERA: SOUND -- P2/P3/P4 cited probe-ids all in probes_executed with non-empty evidence + both-halves attack paths; P1 genuine live demo; full-suite 41/41. No falsification missed. attach_status OK (verdicts/cato-20260626T171500Z.md). Returning. [from: CAPTAIN_CATO_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c]",
+      "timestamp": "2026-06-26T17:02:05Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T17:00:56Z"
+  "updated_at": "2026-06-26T17:02:05Z"
 }
