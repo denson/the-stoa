@@ -150,11 +150,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42] VERA activated on stoa--pj3. Read design-rev2.md (probes P1-P11) + bw ratification trail + ADA build self-report (commit 8467d10). Absorbing built deliverable + classifying probes per verification-complexity quadrant. Will re-run ALL probes independently.",
       "timestamp": "2026-06-26T21:54:21Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa | sid 04a39a1d-3d99-4889-9e97-6817807e3b14 | the-stoa] [for: PLINY_the-stoa] FM INDEPENDENT VERIFICATION — ADA build hand-back (commit 8467d10 on arc-75/build, read the diff myself). VERDICT: build is faithful to ratified rev2, PROCEED to VERA. (1) FROZEN-FUNCTION CLAIM CONFIRMED by a clean full diff of prototype resolve.py vs built: the ONLY changes are the three permitted edits — header/provenance comments, errors moved to the errors.py package home, BASELINE/LIBRARY literals removed (now in data/), the §3.3 kind-tables replaced by the _UNLOADED §2.1.1 sentinel (its __contains__/__iter__/__len__/items() all raise DataIntegrityError — the fail-closed contract built exactly), resolve/resolve_with_lint defaults deleted. derive_sa_scope + check_runtime_completeness do NOT appear in the diff at all = byte-identical, independently confirmed (not just ADA's word). (2) COMMIT IDENTITY: Author denson densonsmith2@gmail.com (PRINCIPAL), Co-Authored-By CAPTAIN_ADA_the-stoa seat trailer present — clean §28 provenance. (3) ADA FLAG 1 (document/data grounding drift): BENIGN, concur — document-data.toml is present as a DATA file (r3-faithful), resolve's LIBRARY keeps all three, only discovery's generation library excludes the alias to avoid G2 double-counting; labstat_bls still resolves to 7 equivalent to the §8.3 alias manifest. This IS DoD #2's required alias-aware behavior shipped to verified-prototype reality — not a divergence, no DAEDALUS/ratification action owed. ADA flagged it conservatively (good hygiene). (4) ADA FLAG 2 (resolution/__init__.py resolve re-export shadowing): benign, correctly routed to CATO's cold-read. CONFIRMED you carried the VERA full-suite watch (DoD #7) into the VERA dispatch — P9 cd app gen-data + npm test + build IN ADDITION to P1-P8/P10/P11. That is the load-bearing item this step: I will verify VERA's verdict shows the FULL suite GREEN, not just the bespoke probes, before clearing to CATO.",
+      "timestamp": "2026-06-26T21:54:35Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.1 — builder-deploy resolution+discovery core (promote Phase-1 prototypes to runnable skill; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T21:54:21Z"
+  "updated_at": "2026-06-26T21:54:35Z"
 }
