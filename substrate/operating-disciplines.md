@@ -184,6 +184,8 @@ Empirical anchor: 2026-05-12, the bw → Ariadne integration arcs Phase 4 OPERAT
 
 Relocated to `.claude/modules/two-polybius-coordination.md` (CONDITIONAL — read when two POLYBIUS seats coordinate async via bw polling; CAPTAINs never coordinate two-POLYBIUS). The subsection headings below are stub anchors (cross-ref-resolvable); recover each subsection's BODY via `Read .claude/modules/two-polybius-coordination.md`. Relocation-index row in §0.5.
 
+Distinct from §38 (on-demand radio-check seat-liveness): §7's `[radio-check <self-seat-slug>]` is the PERIODIC two-POLYBIUS handshake; §38's `[radio-check] [for: <seat>]` is the ON-DEMAND liveness ping — same `radio-check` token, different scope; do not conflate in poll-filters.
+
 ### 7.1 Radio-check protocol
 Relocated → `two-polybius-coordination.md` §7.1.
 ### 7.2 Adaptive polling cadence
@@ -1740,6 +1742,163 @@ seat is recorded per-row to the ONE registry `stoa--reg` with additive `composit
   (`-Composition`, `-GauntletWaiver`) + the Option-B say-path-bare-word property live there.
 - `MAJOR_POLYBIUS.md` / `MAJOR_PLINY.md` — the role files that carry the chain substantively (the L2
   carrier for the bare-word say path under Option B).
+
+---
+
+## 38. On-demand radio-check seat-liveness
+
+`stoa--reg` answers **WHO is on the roster** (the durable JSONL roster). It does NOT answer **"is this
+seat alive RIGHT NOW?"** — the `status` field is a launch/stand-down stamp, not a live-presence signal:
+a seat whose session crashed, hung, or was closed still reads `status:alive` until something rewrites the
+row. This discipline adds the missing **WHETHER-alive-now** answer as an **on-demand radio-check PING over
+beadwork** — a coordinator posts a `[radio-check]` addressed to the seats it cares about; live seats answer
+within a stated window; non-answerers are tallied **PRESUMED dead**. (Anchor: `stoa--fii`. Helper-vs-protocol
+call: documented bw protocol, NOT a new skill/script — the whole protocol is a handful of bw ops a terminal
+seat already runs every poll; a skill cannot make a seat answer, so the load-bearing half is documentation.)
+
+### 38.1 WHO vs WHETHER-alive-now, and the SCOPE-FENCE
+
+`stoa--reg` is the durable **WHO**. The radio-check is the on-demand **WHETHER-alive-now**. These are
+distinct: the registry is a roster, not a heartbeat. Liveness is *answered by the live ping, never stored.*
+
+**SCOPE-FENCE (the hard line — do not re-create the scrapped passive machinery).** This discipline is
+**on-demand only**. The following are explicitly OUT and must NOT be added "for convenience":
+
+- **NO `last_seen` field, NO TTL, NO passive liveness field** on the `stoa--reg` row — the JSONL schema is
+  unchanged (the 12 keys `seat, name, session_id, project, machine, role, tier, composition, gauntlet,
+  chain_role, launched_at, status`). Liveness is the ping, never a field.
+- **NO periodic sweep, NO continuous monitor.** The ping is posted when a coordinator needs to know.
+- **The window is coordinator-stated PER-PING, never a baked constant** (a fixed constant IS the TTL this
+  scope scraps). The tally is a coordinator READ after the window, **never a sleeping process.**
+
+A future edit that adds any of the OUT items is scope-creep against this fence; ARGUS/CATO/NOMOS flag against
+this named anchor. (Provenance: the directive scrapped all passive machinery; NOMOS confirmed CONFORMANT x2.)
+
+### 38.2 The protocol — ping → answer → window → tally
+
+**Roles.** *Coordinator* = the seat that needs to know (user-tier POLYBIUS, a floor-manager, or any terminal
+seat). *Target* = each seat the coordinator names. Only **TERMINAL seats poll bw** (the `stoa--reg` rows) —
+a sub-agent CAPTAIN mid-dispatch does not poll, so the radio-check addresses registry rows, not sub-agents.
+
+**Step 1 — PING.** The coordinator resolves the current target seats from the registry. The registry is
+line-oriented JSONL (one seat per line, plain text), so the canonical resolve is **jq-free** — `grep` (bash)
+or `Select-String` (PowerShell). jq is NOT required (and is not installed on this host); use it only as an
+optional convenience if present.
+
+bash (canonical):
+```
+git show beadwork:attachments/stoa--reg/seat-registry.jsonl | grep '"project":"the-stoa"' | grep '"status":"alive"'
+```
+PowerShell (canonical):
+```
+git show beadwork:attachments/stoa--reg/seat-registry.jsonl | Select-String '"project":"the-stoa"' | Select-String '"status":"alive"'
+```
+optional, ONLY if jq is installed:
+```
+git show beadwork:attachments/stoa--reg/seat-registry.jsonl | jq -c 'select(.project=="the-stoa" and .status=="alive")'
+```
+Each matched line is one seat row; read its `"seat":"…"` and `"session_id":"…"` fields by eye (or
+`grep -o '"seat":"[^"]*"'` / `grep -o '"session_id":"[^"]*"'`). The coordinator then posts ONE bw comment on
+the coordination ticket (default: `stoa--reg`, or the active arc ticket), naming each target by its `seat`
+routing address and stating the window:
+```
+bw comment stoa--reg "[radio-check] [for: POLYBIUS_the-stoa] [for: PLINY_the-stoa] window: 15min from 2026-06-26T17:00Z. Answer with [radio-check-ack]. [from: <coordinator-seat> | sid <sid>]"
+```
+The `[for: <seat>]` tags ARE the address (per `stoa--reg`: the `seat` field (ROLE_slug) is the `[for:]`
+routing address). One ping comment covers many targets.
+
+**Step 2 — ANSWER.** Each named target, on its next bw poll, recognizes a `[radio-check]` addressed to its
+own seat and posts ONE reply on the same ticket:
+```
+bw comment stoa--reg "[radio-check-ack] [for: <coordinator-seat>] alive, sid <my-sid>. [from: POLYBIUS_the-stoa | sid 4f60c468-… | the-stoa]"
+```
+The ack carries the answerer's `seat` + live `sid` so the coordinator can run the **audit-only sid-match**
+in step 4 (§38.3). A target NOT named in the ping does not answer (avoids ack-storms). Recognizing a
+`[radio-check]` addressed to one's own seat and replying is a polling-discipline behavior, not an invocation
+— that is why the protocol is documentation, not a skill.
+
+**Step 3 — WINDOW.** A **coordinator-chosen "reasonable window"**, stated in the ping. Default **15 minutes**;
+the coordinator may widen it for known-slow conditions (a seat mid-long-dispatch, overnight low-activity). The
+window is *stated in the ping*, never a fixed constant baked into a tool — this keeps it on-demand and prevents
+drift into a TTL (§38.1 fence). Rationale for the 15-min default: the team's pull-heartbeat floor is 60 min
+and routine polls are faster; 15 min comfortably exceeds a normal poll interval while staying responsive. The
+coordinator waits the window by reading the ticket again after it elapses (a `bw show`), NOT by a sleeping
+process.
+
+**Step 4 — TALLY.** After the window, the coordinator reads the ticket (`bw show stoa--reg`) and, by eye,
+inspects the comments since the ping for a `[radio-check-ack]` from each named target, then classifies each:
+
+- **ANSWERED within window** → confirmed *present*, with an **audit-only sid check** (§38.3): compare the
+  ack's self-declared `sid` to the registry `session_id` for that `seat`. A MATCH is consistent with the
+  recorded session answering. A MISMATCH (or an ack from a `sid` not in the registry) is NOT tallied alive —
+  it is **flagged for escalation** (re-ping / investigate).
+- **SILENT past window** → **PRESUMED dead** (honest-claim boundary: presumed, not proven — §38.4).
+
+The tally is a coordinator judgment read, not an automated verdict.
+
+### 38.3 The audit-only sid-match (and its forgeable-text limit)
+
+When tallying an ack, the coordinator compares the ack's self-declared `sid` against the registry
+`session_id` for that `seat`. A mismatch — or an ack from a sid not in the registry — is **NOT tallied
+alive**; it is **flagged for escalation** (re-ping / investigate), never confirmed. This catches the
+**accidental stale / typo / wrong-sid false-alive** path (a hung/looping session, a wrongly-configured
+session, or a copy-pasted-from-an-old-ticket ack).
+
+**HONEST SCOPE (mirrors `stoa--reg`'s already-ratified forgeable-provenance boundary).** bw stores a comment
+as `{text, timestamp}` only — the `[from:|sid]` is **self-declared forgeable body text** with NO bw-enforced
+author identity, and the registry `session_id` is world-readable JSONL. So the sid-match is **AUDIT-ONLY: it
+does NOT defeat a deliberate impersonator who copies the registry sid, and is NOT an authentication or
+authorization control.** A truly hung session simply will not poll/answer and falls to SILENT → presumed-dead
+(the correct outcome — it gets replaced). The sid-match defeats only the *accidental-wrong-sid* slice; it
+makes no authentication claim. (If a future arc ever wires the sid into an access/authz decision, `stoa--reg`'s
+R1 re-opens as a named runtime threat — see §38.6.)
+
+### 38.4 Honest-claim boundary (presumed, not proven)
+
+A non-answer within the window is **PRESUMED dead, NOT proven dead** — a seat can be alive-but-slow, between
+turns, or briefly heads-down. The presumption is an operational default that triggers a verify/replace
+decision; it is not a fact. Before relaunching a replacement against a single silent seat, **confirm the
+presumption** (re-ping with a widened window, or check for any fresh bw activity from it — §38.5 step 1). This
+gates the wrongful-immediate-replacement failure mode (a too-short window double-seating an alive-but-slow
+role). The audit-only sid honesty (§38.3) is the same forgeable-provenance boundary `stoa--reg`'s own contract
+ratifies. Liveness is answered by the live ping, never stored on the row.
+
+### 38.5 Recovery — relaunch a replacement, never resurrect
+
+A presumed-dead seat is **never resurrected** (its session is gone; its `sid` is dead). **User-tier POLYBIUS**
+(the seat that owns launching the team) relaunches a **REPLACEMENT**:
+
+1. **Confirm the presumption** (per the honest-claim boundary, §38.4): re-ping the single silent seat with a
+   widened window, or check for any fresh bw activity from it. If still silent, proceed.
+2. **Relaunch via `team-launcher`** — bring up a fresh terminal seat for the dead role:
+   ```
+   .claude/skills/team-launcher/launch-team.ps1 -ProjectDir C:\Users\denso\claude_projects\the-stoa -Slug the-stoa
+   ```
+   (or a targeted single-seat relaunch using the same say/paste activation; the launcher mints a NEW `sid`
+   and `--name`.)
+3. **The replacement self-records / launcher-records** a fresh `stoa--reg` row via `record-seat.ps1` —
+   `(seat, machine)` idempotent: the new row REPLACES the dead seat's row for that `(seat, machine)` pair,
+   carrying the new live `sid` and `status:alive`. The dead session's old row is overwritten in place (no
+   orphan).
+4. **The dead seat's row is NOT manually flipped to `status:dead` as the liveness mechanism** — liveness is
+   the ping, not the field. The row is simply replaced by the relaunch's idempotent rewrite. (If a coordinator
+   wants a paper-trail of the death, a bw comment on `stoa--reg` is the change-log surface — comments are the
+   human-readable change-log per the ticket contract.)
+
+### 38.6 Cross-references
+
+- `stoa--reg` (the seat registry) — the durable WHO this discipline complements with the WHETHER-alive-now
+  answer; its ticket body carries the mirrored WHO-vs-WHETHER + honest-claim note; the JSONL schema (12 keys)
+  is unchanged here.
+- `team-launcher/SKILL.md` — the recovery mechanism (§38.5); a presumed-dead seat is replaced, not
+  resurrected, by an idempotent `(seat,machine)` relaunch.
+- §35 (threat-defeat prevention) — the threat-map provenance for this discipline's named threats (M1
+  audit-only sid-match, M2 honest-claim boundary, M3 scope-fence); the audit-only honesty (§38.3) is the
+  §35.5 honest-claim discipline applied to the ack's forgeable sid.
+- §7 / `.claude/modules/two-polybius-coordination.md` §7.1 (radio-check protocol) — **DISAMBIGUATION:** §7's
+  `[radio-check <self-seat-slug>]` is the **PERIODIC two-POLYBIUS** peer-failure handshake/heartbeat; §38's
+  `[radio-check] [for: <seat>]` is the **ON-DEMAND** seat-liveness ping any coordinator addresses to named
+  registry seats. Same `radio-check` token prefix, different scope — do not conflate in poll-filters.
 
 ---
 

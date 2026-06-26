@@ -92,6 +92,7 @@ For paste-trigger workspaces, use `-Activation paste` and paste each seat's file
 - **Panes/Tabs need Windows Terminal (`wt`)** — absent → falls back to separate windows.
 
 ## Cross-references
+- **Recovery (radio-check, op-disc §38):** a seat presumed-dead by an on-demand radio-check is REPLACED, not resurrected — relaunch here mints a fresh seat + an idempotent `(seat,machine)` registry row that overwrites the dead row. (The dead session's `sid` is gone; liveness is the ping, never a stored field.)
 - `launch-team.ps1` (this dir) — the tool. `-DryRun` previews the launch + record steps without running either.
 - `record-seat.ps1` (this dir) — the standalone registry write helper (mint+name+record / desktop self-record).
 - `whoami` skill — returns the seat's session-id from `$CLAUDE_CODE_SESSION_ID` (FAIL-LOUD if empty); the desktop self-record path uses it.
