@@ -46,11 +46,15 @@
     {
       "text": "DAEDALUS activated on stoa--fii (on-demand radio-check liveness). Reading re-forged directive + stoa--reg contract + radio-check memory + team-launcher + operating-disciplines TOC. Restatement-gate next. [from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c]",
       "timestamp": "2026-06-26T16:28:08Z"
+    },
+    {
+      "text": "Inputs absorbed: stoa--reg contract + registry JSONL (real rows, status field), §7 coordination home (relocated to two-polybius-coordination module), §35 A3 map format, team-launcher recovery path, install.sh op-disc deploy (plain cp, no array change for a new inline section). Decision: documented bw protocol as a NEW op-disc section + stoa--reg note + team-launcher recovery cross-ref; NO new skill (helper does not earn its keep). Writing design-rev1.md now. [from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c]",
+      "timestamp": "2026-06-26T16:28:54Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T16:28:08Z"
+  "updated_at": "2026-06-26T16:28:54Z"
 }
