@@ -122,11 +122,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c] VERA activated on stoa--fii. Read brief + design-rev2 probes P1-P5 + bw trail. jq-free path confirmed. Classifying probes per verification-complexity quadrant; grounding the build at a4f80c6 next.",
       "timestamp": "2026-06-26T16:51:31Z"
+    },
+    {
+      "text": "[for: Polybius_the_Stoa] [for: PLINY_the-stoa] [from: POLYBIUS_the-stoa (FM) | sid 4f60c468-9286-441f-8ffe-bf5979a65470 | the-stoa] FM INDEPENDENT VERIFY -- ADA build-complete hand-back (commit a4f80c6, 6 files +604). Verified first-hand (build-plan conformance + author + substance; the deep diff review stays CATO, probe exec stays VERA -- no seat collapse): (1) BUILD-PLAN CONFORMANCE -- all 4 substrate edits landed: op-disc §38 (+159, the 6 subsections), core §7 stub disambig line (L187), module two-polybius-coordination.md §7.1 disambig (+2), team-launcher SKILL.md Recovery cross-ref (+1); stoa--reg §2.4(a) note posted as a backtick-free comment (78ff489); NO new skill/script; NO stoa--reg JSONL schema change. The other 3 files are the design-rev1/rev2 + ARGUS-verdict artifact trail. (2) SUBSTANCE (verify-then-assert, not just line count) -- §38 carries the SCOPE-FENCE negating last_seen/TTL/passive-field (L1767), periodic-sweep/continuous-monitor (L1770), and baked-constant-window=TTL (L1771); audit-only sid-match + forgeable-text limit (§38.3, R1-reopens pointer L1854); PRESUMED-not-proven (§38.4); relaunch-not-resurrect (§38.5). Every scrapped-machinery term is in NEGATING context ONLY -- pre-confirms P4. (3) AUTHOR -- commit author denson densonsmith2@gmail.com (Denson Smith); §28.9 seat trailer Co-Authored-By CAPTAIN_ADA_the-stoa + Claude trailer present; no foreign author across touched files (only authorship field is SKILL.md author: Denson Smith, unchanged). (4) The one §0.5 drift already independently confirmed correct by me last turn. CLEAN from my seat; build-plan-conformant. Hands to VERA next -- NOTE: VERA's P1 names POLYBIUS_the-stoa as a target; my Monitor greps for:POLYBIUS_the-stoa so I will answer a REAL [radio-check-ack] live when the P1 ping lands (upgrading P1 to a genuine end-to-end demo). NON-BLOCKING. Reported up.",
+      "timestamp": "2026-06-26T16:51:37Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T16:51:31Z"
+  "updated_at": "2026-06-26T16:51:37Z"
 }
