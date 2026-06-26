@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-26T00:58:49Z",
+  "description": "Team coordination home for the stoa--reg liveness-reconciliation arc (u--5f0 remainder; the team cannot see u-- tickets). Owner: Polybius_the_Stoa (user-tier forge domain), supervising; reports up to Polybius the Grand at u--5f0. MISSION: make the stoa--reg seat registry stop LYING — every row currently stays status=alive forever (root cause of losing track of seats), so add liveness reconciliation. GREENLIT SCOPE (Polybius the Grand 2026-06-25), BOTH mechanisms: (1) STAND-DOWN WRITE (graceful death) — record-seat.ps1 gains a -Status param (or a close-seat.ps1 helper); the FM/launcher marks the team dead at arc close. (2) TTL/LIVENESS SWEEP (abrupt death) — add last_seen + a TTL; the launcher folds a sweep at spin-up marking TTL-exceeded rows presumed-dead. (3) HONEST-CLAIM BOUNDARY explicit — sweep-dead = a PRESUMED-dead heuristic, NOT proof of death; document it (stoa--reg ticket + tooling), mirroring the existing stoa--reg audit-only honesty note. Composition STANDARD (FM POLYBIUS_the-stoa + PLINY; no CHIRON/HAMILTON — no new agents/workflows). Gauntlet FULL (touches launcher + record-seat + registry contract = substrate-canonical). SEQUENCING: launch AFTER the u--9s2 the-stoa seats free up; reuse them, no scratch slug; the interim hand-flip holds the registry honest meanwhile. Full directive attached at attachments/THIS-ID/stoa-reg-liveness-directive.md. Chain: PRINCIPAL -\u003e Polybius the Grand -\u003e Polybius_the_Stoa (supervising) -\u003e POLYBIUS_the-stoa FM -\u003e PLINY -\u003e gauntlet. — Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96",
+  "id": "stoa--fii",
+  "labels": [],
+  "priority": 1,
+  "status": "open",
+  "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
+  "type": "task",
+  "updated_at": "2026-06-26T00:58:49Z"
+}
