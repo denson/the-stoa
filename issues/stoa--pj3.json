@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-26T22:41:45Z",
+  "close_reason": "u--9s2 Phase-2 inc 2.1 COMPLETE + MERGED. Full gauntlet DAEDALUS-ARGUS-ADA-VERA-CATO-NOMOS CONFORMANT 6/6; user-tier close-gate independently verified (re-ran entrypoints + pytest 40/40, arc diff agents/-only, authorship Denson Smith); merged to main 3ef5f92 (--no-ff); NOMOS-on-merge CONFORMANT. Follow-up stoa--jd5 (pyproject packaging glob, a 2.3 prerequisite). Relaying 2.1 UP to Polybius the Grand for the gate before 2.2 forges.",
   "created": "2026-06-26T20:27:59Z",
   "description": "",
   "id": "stoa--pj3",
@@ -237,8 +239,8 @@
     }
   ],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "[ARC] u--9s2 Phase-2 inc 2.1 — builder-deploy resolution+discovery core (promote Phase-1 prototypes to runnable skill; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T22:41:44Z"
+  "updated_at": "2026-06-26T22:41:45Z"
 }
