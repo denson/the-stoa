@@ -82,11 +82,15 @@
     {
       "text": "DAEDALUS activated for design-rev2 (REVISION pass). Read rev1 + ARGUS verdict + bw trail. Folding r1 (jq-free resolve+P1/P4) + r2 (M1 re-scope to audit-only sid-match, mirroring stoa--reg forgeable-provenance boundary) + r3 (op-disc relocated-module cross-ref + [radio-check] token disambiguation). Verifying ground-truth next. [from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c]",
       "timestamp": "2026-06-26T16:38:56Z"
+    },
+    {
+      "text": "pass: design-rev2.md written at agents/design/stoa--fii/design-rev2.md (supersedes rev1; folds the 3 ARGUS fixes, NO redesign). r2 (MOST IMPORTANT): M1 re-scoped throughout (2.6 row + 2.3 step-4 + 2.4 + P2) to AUDIT-ONLY sid-match -- catches accidental stale/typo/wrong sid, NOT a deliberate impersonator; mirrors stoa--reg's ratified forgeable-provenance boundary; P2 adds a step-3 forgeable-text-limit assertion + no-authentication-claim. r1: resolve-step + P1/P4 now jq-free primary path (grep / Select-String against line-oriented JSONL; verified live -- jq absent exit 127); jq mentioned only as optional. r3: disambiguating [radio-check] cross-ref lands in BOTH the core op-disc 7 stub AND the relocated two-polybius-coordination module 7.1 body + a 38 back-pointer -- 7 = PERIODIC two-POLYBIUS handshake, 38 = ON-DEMAND liveness ping; confirmed 37 highest so 38 correct; JSONL field is session_id (12 keys unchanged). Residual weak point: audit-only sid defeats only the accidental slice, not impersonation -- honestly scoped + stated in canon, the correct boundary not a gap. Returning to PLINY. [from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c]",
+      "timestamp": "2026-06-26T16:42:17Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T16:38:56Z"
+  "updated_at": "2026-06-26T16:42:17Z"
 }
