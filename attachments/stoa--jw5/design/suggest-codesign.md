@@ -1,7 +1,8 @@
 # SUGGEST CO-DESIGN — stoa--jw5 (u--9s2 Phase-1 revision): the SUGGEST-pillar discovery front-door
 
 **Arc:** stoa--jw5 / u--9s2 Phase-1 revision — the SUGGEST-pillar increment (CONDITION 2 of the
-Grand's Part-2 gate). **Status:** CHIRON half authored; HAMILTON choreography half pending fold.
+Grand's Part-2 gate). **Status:** CO-DESIGN CONVERGED — both halves folded (CHIRON §1/§2/§5/§6 +
+HAMILTON §3/§4); both architects co-signed; ready for the targeted gauntlet.
 
 **Co-authors (complementary lenses, shared contract = the CATALOG + its detection hints):**
 - **MAJOR_CHIRON** — per-service **detection-hint** catalog fields + the SUGGEST-step **tier/ownership**
@@ -272,7 +273,7 @@ exercises the NEW SUGGEST→confirm→DECLARE front-door against the §6 example
 
 ## §8 — DoD coverage (SUGGEST increment)
 
-- [x] SUGGEST→confirm→DECLARE front-door SHAPE specified — §0, §3 (pending HAMILTON fold), §4
+- [x] SUGGEST→confirm→DECLARE front-door SHAPE specified — §0, §3, §4
 - [x] what the agent EXAMINES → PROPOSES, via per-service `detection_hints` catalog fields — §1, §3
 - [x] human-CONFIRM **fail-closed** gate (no confirm ⇒ no DECLARE ⇒ no generation) — §4, §5.1
 - [x] how the confirmed suggestion FEEDS the EXISTING DECLARE/generation/validation — §2 frame, §6
