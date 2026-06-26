@@ -128,8 +128,9 @@ empty_confirmed = confirm(PROPOSAL, {"action": "confirm", "set": []})
 attack("empty-confirmed: confirm(edit->[]) is a DECLARE (is_declare True), NOT ⊥",
        is_declare(empty_confirmed) and empty_confirmed == [],
        f"result={empty_confirmed!r}")
-# the empty DECLARE flows to generate legitimately (human ratified an empty set -> baseline only)
-em, eres = generate(empty_confirmed, DISCOVERY_CATALOG, CATEGORIES, BASELINE), None
+# the empty DECLARE flows to generate legitimately (human ratified an empty set -> baseline only);
+# call it to prove no exception — result intentionally unused (demonstration, not an assertion)
+generate(empty_confirmed, DISCOVERY_CATALOG, CATEGORIES, BASELINE)
 # (b) a no-confirm INERT is NOT an empty list and is_declare False -> the two are not conflated
 inert = confirm(PROPOSAL, {"action": "reject"})
 attack("inert != empty-list: ⊥ is distinguishable from a confirmed empty DECLARE",
