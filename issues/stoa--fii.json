@@ -102,11 +102,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c] Ground-check PASS, no design-vs-ship drift: op-disc highest=S37 (S38 correct slot, before 'Agent-regime inverses' L1746); jq absent exit 127; JSONL=12 keys exactly as design lists; S7 stub at core L183-200 (S7.1 radio-check sub at L187); module S7.1 token def at two-polybius-coordination.md L15-34; team-launcher Cross-references at L94-102 (author: Denson Smith L7 - will stay); stoa--reg HONEST-CLAIM BOUNDARY (audit-only) para confirmed - my S2.4(a) comment mirrors it. Beginning the 4 edits.",
       "timestamp": "2026-06-26T16:46:34Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c] DRIFT FLAGGED (ship reality is canon per grounding discipline): design S4 asks for a 'matching S0.5 relocation-index / TOC entry ... mirror how S0.5 lists S36/S37'. Ground-check: S0.5 is STRICTLY a relocation index for content moved OUT (CONDITIONAL/PROVENANCE/CUT classes). S36 and S37 are inline sections and are NOT listed in S0.5; there is no separate full-section TOC in the file. S38 is new INLINE content (like S36/S37), not relocated. The file's ACTUAL convention is that inline sections get NO S0.5 row. Adding one would falsely classify S38 as relocated + break the convention. Decision: mirror the real S36/S37 precedent = NO S0.5 entry for S38. Flagging for CATO/NOMOS. S38 section itself landed. Proceeding to edits 2-4.",
+      "timestamp": "2026-06-26T16:47:58Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T16:46:34Z"
+  "updated_at": "2026-06-26T16:47:58Z"
 }
