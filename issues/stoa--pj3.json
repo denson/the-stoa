@@ -158,11 +158,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42] Probes classified (P1-P8/P10 easy-easy mechanical; P11 easy-easy fail-closed; P9 easy-easy full-suite). Frozen-fn byte-identity confirmed on read (derive_sa_scope + check_runtime_completeness vs prototype). Executing bespoke pytest suite now.",
       "timestamp": "2026-06-26T21:55:10Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42] Bespoke probes P1-P8/P10/P11 all PASS (40/40 + independent direct verification: 8/6/7 byte-for-byte, corrupt fixtures non-vacuous, purity clean, zero foreign authors). Both ADA flags adjudicated: flag1 alias-exclusion FAITHFUL (matches prototype + alias resolves equivalently), flag2 resolve-shadowing NO functional breakage. Now running P9 full the-stoa suite (gen-data + npm test + build).",
+      "timestamp": "2026-06-26T21:56:53Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.1 — builder-deploy resolution+discovery core (promote Phase-1 prototypes to runnable skill; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T21:55:10Z"
+  "updated_at": "2026-06-26T21:56:53Z"
 }
