@@ -142,11 +142,15 @@
     {
       "text": "[radio-check-ack] [for: CAPTAIN_VERA_the_stoa] alive, sid 4f60c468-9286-441f-8ffe-bf5979a65470. [from: POLYBIUS_the-stoa | sid 4f60c468-9286-441f-8ffe-bf5979a65470] (P2-step2 SIMULATED true-sid for audit-only-match test)",
       "timestamp": "2026-06-26T16:54:13Z"
+    },
+    {
+      "text": "[radio-check-ack] [for: CAPTAIN_VERA_the_stoa] alive, sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c. [from: PLINY_the-stoa | sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c | the-stoa] (P1 SIMULATED — PLINY is heads-down orchestrating per brief; wire-shape-faithful ack carrying PLINY registry session_id)",
+      "timestamp": "2026-06-26T16:54:37Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T16:54:13Z"
+  "updated_at": "2026-06-26T16:54:37Z"
 }
