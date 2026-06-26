@@ -162,11 +162,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42] Bespoke probes P1-P8/P10/P11 all PASS (40/40 + independent direct verification: 8/6/7 byte-for-byte, corrupt fixtures non-vacuous, purity clean, zero foreign authors). Both ADA flags adjudicated: flag1 alias-exclusion FAITHFUL (matches prototype + alias resolves equivalently), flag2 resolve-shadowing NO functional breakage. Now running P9 full the-stoa suite (gen-data + npm test + build).",
       "timestamp": "2026-06-26T21:56:53Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42] P9 full suite GREEN (gen-data clean roster 4/12/8; vitest 41/41; vite build OK 1595 modules). The one agents.ts diff is PRE-EXISTING substrate drift in the team-launcher LIEUTENANT skill (stoa--fii radio-check line not regenerated into this worktree snapshot) — arc-75 touched ZERO substrate/ + ZERO app/ files, confirming the new core cannot touch the roster. All probes done; drafting verdict (PASS expected).",
+      "timestamp": "2026-06-26T21:58:28Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.1 — builder-deploy resolution+discovery core (promote Phase-1 prototypes to runnable skill; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T21:56:53Z"
+  "updated_at": "2026-06-26T21:58:28Z"
 }
