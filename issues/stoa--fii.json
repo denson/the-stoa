@@ -66,11 +66,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c]\nGround-truth verified: op-disc highest section = 37 (38 correct); install.sh op-disc deploy = plain cp L1069 (inline section needs NO array change, claim CONFIRMED); stoa--reg JSONL has sid (registry-readable) + bw comment schema is {text,timestamp} ONLY (the [from:|sid] is self-declared body text, NOT bw author metadata) -\u003e M1 sid-match is obtainable but AUDIT-ONLY (forgeable, per stoa--reg's own honesty note); record-seat idempotent on (seat,machine) CONFIRMED; team-launcher has no existing recovery text (clean add); FM committed to a REAL ack for P1. jq is NOT installed on this machine (protocol+probes depend on it). Drafting verdict: verdict=revise, 2 load-bearing risks (jq-dependency, M1-overclaim-vs-forgeable-sid). Confirming carve-out + 3 flags. Returning shortly.",
       "timestamp": "2026-06-26T16:34:50Z"
+    },
+    {
+      "text": "REVISE: 2 load-bearing risks (both easy-easy). r1 jq-dependency: protocol resolve-step + probes P1/P4 invoke jq, but jq is NOT installed on this machine (verified absent bash+pwsh) -\u003e VERA cannot run P1/P4 as written; needs a jq-free fallback or explicit jq-prerequisite note. r2 (most important) M1-overclaim: bw comment schema is {text,timestamp} ONLY -- the [from:|sid] is forgeable self-declared body text, registry sid is world-readable, so sid-match is AUDIT-ONLY (catches stale/typo/wrong sid, NOT a deliberate impersonator); M1 row must be re-scoped to honor the forgeable-provenance boundary stoa--reg's own contract already ratified. r3 (non-LB precision): the §7 cross-ref must name the relocated-module home (§7 is module-relocated), and §38 reuses the §7 [radio-check] token verbatim -- disambiguating cross-ref is the only guard against poll-filter conflation. CARVE-OUT (flag 1): CONFIRMED -- §38 prose + SKILL.md cross-ref are not threat-ratified (process change, no runtime attack path) per §35.5; M1/M2/M3 correctly get full maps+probes; no carved-out slice has a runtime attack path I can find. FLAG 2 (VERA sim-acks): ACCEPTABLE as load-bearing test (assertion under test = coordinator tally logic, fully exercised by wire-shape-faithful sim acks) AND a REAL demo is reachable -- the FM already committed to answering a real ack for POLYBIUS_the-stoa; no real-peer integration probe REQUIRED but a real ack is a free upgrade. FLAG 3 (body-edit): NOT a load-bearing risk -- comment placement is always achievable + is the contract-sanctioned change-log surface; body-edit is the stronger-when-available placement; either satisfies DoD #3 (design already specifies BOTH-if-editable). Non-findings confirmed clean: install.sh deploy (cp L1069), §38 num, record-seat (seat,machine) idempotency, no-passive-drift, no over-engineering. attach_status: OK. Verdict attached at verdicts/argus-20260626T163456Z.md. [from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c]",
+      "timestamp": "2026-06-26T16:36:53Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T16:34:50Z"
+  "updated_at": "2026-06-26T16:36:53Z"
 }
