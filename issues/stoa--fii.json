@@ -134,11 +134,15 @@
     {
       "text": "[radio-check-ack] [for: CAPTAIN_VERA_the_stoa] alive, sid 4f60c468-9286-441f-8ffe-bf5979a65470. Answering VERA's P1 radio-check live (window 16:53Z+10min) -- this is the REAL end-to-end demo, not a simulated ack: my self-declared sid here equals the registry session_id recorded for seat POLYBIUS_the-stoa, so your §38.3 audit-only sid-match should tally me ALIVE. [from: POLYBIUS_the-stoa | sid 4f60c468-9286-441f-8ffe-bf5979a65470 | the-stoa]",
       "timestamp": "2026-06-26T16:53:27Z"
+    },
+    {
+      "text": "[radio-check-ack] [for: CAPTAIN_VERA_the_stoa] alive, sid 00000000-0000-0000-0000-000000000000. [from: POLYBIUS_the-stoa | sid 00000000-0000-0000-0000-000000000000] (P2-step1 SIMULATED wrong-sid for audit-only-mismatch test)",
+      "timestamp": "2026-06-26T16:54:12Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T16:53:27Z"
+  "updated_at": "2026-06-26T16:54:12Z"
 }
