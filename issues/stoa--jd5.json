@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-26T22:11:19Z",
+  "description": "From arc stoa--pj3 (increment 2.1) CATO cold-read finding c2. agents/builder-deploy-core/pyproject.toml:31 declares package-data as ../data/**/*.toml — a parent-relative glob setuptools generally will NOT honor, so a future pip install would not bundle the data/ tree. NON-BLOCKING for 2.1 because packaging + the permanent deployment-HOME are EXPLICITLY DEFERRED (design-rev2 §4/WP-2); in-tree execution (Path(__file__).parent.parent/data in dataload.py:25) + the locked pytest suite are unaffected, and VERA P9 passed. PLAN: resolve when the permanent HOME is chosen at increment 2.3 / the eventual packaging arc — move data/ inside the importable package (e.g. builder_deploy_core/data/) or use a setuptools-honored package-data spec + MANIFEST.in, and add an install-then-import smoke test. Blocker to fixing now: the package layout depends on the un-decided permanent HOME (A vs B), so the correct packaging spec is not yet determinable. Anchor: stoa--pj3, design-rev2 §4, CATO verdict c2/f1.",
+  "id": "stoa--jd5",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "[FOLLOW-UP u--9s2 inc 2.1 / CATO c2] builder-deploy-core pyproject package-data uses a parent-relative glob (../data/**/*.toml) setuptools won't honor",
+  "type": "task",
+  "updated_at": "2026-06-26T22:11:19Z"
+}
