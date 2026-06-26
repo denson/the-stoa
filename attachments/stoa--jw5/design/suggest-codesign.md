@@ -117,20 +117,84 @@ the manifest's provenance one notch further from "a human remembered" toward "de
 
 ---
 
-## §3 — HAMILTON (to fold): the SUGGEST→confirm→DECLARE choreography
+## §3 — The SUGGEST step: examine → match → propose (HAMILTON, folded)
 
-*[PENDING FOLD from `suggest-choreography-hamilton.md`. HAMILTON owns: how the agent EXAMINES the
-project (purpose/code/data-flows/behavior) and PROPOSES a service set by matching the §1
-`detection_hints`; the human-CONFIRM gate; how the confirmed set BECOMES the DECLARE that the existing
-generation consumes. CHIRON folds it here verbatim-faithful as sole writer.]*
+The SUGGEST agent (a T1 capability, §2) turns **"what the project is actually doing"** into a
+**proposed** service set, by matching the project against the catalog's `detection_hints` (§1). Its
+output is a **recommendation with evidence**, never a declaration.
+
+```
+SUGGEST(project, catalog):
+  S-1  EXAMINE — read the project across four signal surfaces (the neuro-symbolic shape, §3.1):
+         (i)   manifests / config       (package.json, requirements, pyproject, go.mod, compose,
+                                          k8s, .env(.example))                  → sdk_imports, config_keys
+         (ii)  code outbound-call sites (SDK init, HTTP/gRPC clients, custom wrappers,
+                                          dynamically-built endpoints)          → sdk_imports, url_patterns
+         (iii) data-flows / resources   (file types, data kinds e.g. spatial data, sinks) → data_signals
+         (iv)  intent docs              (README / onboarding / OpenAPI / inline docs — a prior to
+                                          reconcile against the code signals)   → cross-check
+  S-2  MATCH — each examined signal → CATALOG[*].detection_hints → candidate service-id.
+         CANDIDATE SPACE = the catalog (§1.2): only a CATALOGED service can be proposed. An examined
+         external-service signal with NO catalog match → surface "unknown service" to the human
+         (add-to-catalog path; the §20 V1 every-service-cataloged lineage, one layer up).
+  S-3  PROPOSE — emit { candidate-services, per-candidate EVIDENCE (which signal matched which hint) }.
+         The evidence is what lets the human adjudicate (§4). The proposal is a RECOMMENDATION ONLY —
+         NOT a DECLARE set, with NO downstream effect until the §4 human-confirm gate passes.
+```
+
+**The four examine surfaces (i)–(iv) map 1:1 onto the four §1 `detection_hints` kinds**
+(`sdk_imports`, `url_patterns`, `config_keys`, `data_signals`) — the catalog(+hints) is the shared
+contract: §1 supplies the signals, §3 matches them. *(Seam confirmed: §1 is unchanged.)*
+
+### §3.1 — Honest capability scope (web-verified; usefulness, NOT safety — FM watch-item 2)
+
+The premise "an agent can examine a project and propose a plausible service set" is **web-verified**
+(gsearch, current docs 2026-06-26 — not from memory): 2026 agents do this via a **neuro-symbolic**
+flow (manifest/config parse + AST/CPG outbound-call analysis + LLM resolution of dynamically-built
+endpoints + README/OpenAPI reconciliation), and they **outperform classical static scanners** exactly
+on the DWP-3 cases — custom wrappers, evolving APIs, `${env.GATEWAY_URL}`-style dynamic endpoints that
+declaration-from-memory and pure static scan miss. **That is the SUGGEST win.** But agent inference is
+**probabilistic, not authoritative**, with named failure modes the design must not paper over:
+**over-proposal** (hallucinated services from a `/billing` dir or a mock class), **under-proposal**
+(dynamic resolution / dead-or-legacy code), and **ambiguity** (mock-vs-active, internal-microservice-
+vs-external-SaaS, config-placeholder endpoints). **Therefore the capability is a USEFULNESS claim, not
+a safety one:** it governs how much SUGGEST reduces human effort + catches DWP-3 cases — *not* whether
+the system is safe. **Safety rests entirely on the §4 human-confirm gate + the unchanged fail-closed
+V1–V5** (the HITL sign-off the industry treats as essential for agent-proposed inventories, à la
+SBOM/SaaSBOM). Agent inference accuracy = **Phase-2 implementation**; Phase-1 specifies SHAPE only; no
+completeness claim — residual gaps are caught by human-confirm + the §18 SCAN-drift validator + the
+Phase-2 runtime-observer.
 
 ---
 
-## §4 — HAMILTON (to fold): the human-confirm FAIL-CLOSED gate (FM watch-item 1)
+## §4 — The human-confirm FAIL-CLOSED gate (HAMILTON, folded; FM watch-item 1, load-bearing)
 
-*[PENDING FOLD. The load-bearing safety property: **no human confirmation ⇒ NO DECLARE set ⇒ NO
-generation / NO provision.** An unconfirmed suggestion must NOT silently become DECLARE. This must
-not weaken the existing fail-closed V1–V5. HAMILTON specifies the gate's mechanics; CHIRON folds.]*
+The gate is the **only** edge from PROPOSE → DECLARE. **Fail-closed:** a proposal becomes a DECLARE
+set **iff** a human ratifies it.
+
+```
+CONFIRM(proposal):
+  C-1  PRESENT the proposed service set + per-candidate evidence (§3 S-3) to the human (project seat / operator).
+  C-2  human acts:  CONFIRM (accept) | EDIT (add/remove services, then confirm) | REJECT / no-response.
+  C-3  ONLY a CONFIRMED (possibly EDITED) set becomes the DECLARE set. The PROPOSE→DECLARE edge passes
+       through C-2 EXCLUSIVELY — there is NO auto-promotion path.
+  C-4  FAIL-CLOSED:  REJECT / no-response / edits-pending  ⇒  NO DECLARE set  ⇒  NO §18 input
+                     ⇒ NO §19 generation ⇒ NO resolved set ⇒ NOTHING provisions. An unconfirmed
+                     proposal is INERT — it never reaches the downstream.
+  C-5  FEED: the confirmed set IS the §18 DECLARE `services:` set — generation's authoritative input,
+       UNCHANGED. §18–§23 (DECLARE / SCAN / G1–G4 / V1–V5 / resolve) run exactly as today on the
+       confirmed DECLARE. SUGGEST adds NO downstream change and weakens NO V1–V5 check.
+```
+
+**Why fail-closed + HITL IS the safety mechanism (not gold-plating):** the §3.1 failure modes are
+exactly the cases only a human with operational context can adjudicate. The gate converts the agent's
+probabilistic proposal into a human-authoritative declaration: **over-proposal is caught** (human
+removes a hallucinated service → no bloat; and per §1.3 a wrong hint can only mis-propose, never
+mis-provision); **under-proposal is caught** (human adds a missed service → no under-provision);
+**downstream is unchanged** (V1–V5 still run on the confirmed DECLARE — V2 anti-under-provision, V4
+§3.4 runtime-completeness, V1 every-cataloged — so SUGGEST cannot weaken the proven guarantees). This
+is the structural expression of "safety = this gate, not the agent's accuracy," symmetric with the
+existing fail-closed posture (§20 V1–V5, §5 S2c human secret gate, §2.6 BaselineOmitError).
 
 ---
 
@@ -216,14 +280,16 @@ exercises the NEW SUGGEST→confirm→DECLARE front-door against the §6 example
 - [x] honest capability scope (SHAPE-only; agent accuracy = Phase-2; human gate makes it safe) — §1.3, §5.2
 - [x] three worked examples via SUGGEST generating the existing DECLARE sets → 8/6/7 regression, **+ the fail-closed no-confirm branch shown** — §6
 - [x] resolver §4 + generation G1-G4 + validation V1-V5 confirmed UNCHANGED — §7
-- [ ] HAMILTON folds §3/§4 (choreography + fail-closed gate); both architects co-sign CONVERGED
-- [ ] targeted gauntlet (DAEDALUS formalize into design-formal.md new sections, gated §0-§23 untouched → … → NOMOS)
+- [x] HAMILTON's §3/§4 (SUGGEST step + §3.1 honest scope + the fail-closed confirm gate) FOLDED here (CHIRON sole writer); the 4-examine-surfaces ↔ 4-detection_hints-kinds seam confirmed (§3); capability premise web-verified as usefulness-not-safety (§3.1)
+- [ ] both architects co-sign → "SUGGEST CO-DESIGN CONVERGED — stoa--jw5"
+- [ ] targeted gauntlet (DAEDALUS formalize into design-formal.md §24+, gated §0-§23 untouched → ARGUS → ADA exercise the front-door + regression-confirm 8/6/7 → VERA → CATO → NOMOS)
 
 ---
 
 ## §9 — Provenance
 
 Co-designed by **MAJOR_CHIRON_the-stoa** (detection-hint catalog fields + SUGGEST-step tier/ownership)
-+ **MAJOR_HAMILTON_the-stoa** (SUGGEST→confirm→DECLARE choreography + human-confirm gate; §3/§4 pending
-fold); unified by CHIRON (sole writer). Builds on the gauntlet-CONFORMANT Part-1 + Part-2 design
++ **MAJOR_HAMILTON_the-stoa** (SUGGEST→confirm→DECLARE choreography + human-confirm gate, §3/§4,
+web-verified capability scope); unified by CHIRON (sole writer; §3/§4 folded from
+`suggest-choreography-hamilton.md`). Builds on the gauntlet-CONFORMANT Part-1 + Part-2 design
 (`design-formal.md` §0–§23); resolver/generation/validation unchanged. Author: Denson Smith.
