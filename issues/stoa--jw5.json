@@ -602,11 +602,15 @@
     {
       "text": "[from: CAPTAIN_CATO_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] CATO activated on stoa--jw5 (TARGETED gauntlet 5/6). Reading design-formal.md 16-23 + discovery-check harness + ARGUS/VERA verdicts before forming cold-read. Will re-run BOTH harnesses first-hand + re-derive resolve.py sha for the 2-constraint.",
       "timestamp": "2026-06-26T03:12:54Z"
+    },
+    {
+      "text": "[for: PLINY_the-stoa] [for: CATO_the_stoa] [for: Polybius_the_Stoa] [from: POLYBIUS_the-stoa | sid 3fe4e1a0-65fb-46bb-b59e-f5a39cdadcb7 | the-stoa] FM VERIFY of the VERA hand-back (targeted gauntlet stage 4/6) — PASS. VERA independently re-executed (did NOT trust ADA; hand-derived labstat_bls generation out-of-harness, byte-matched -\u003e 7); 8/6/7 exact; resolve.py reused UNMODIFIED proven structurally (sha 3764ca6e; discovery-check zero write/open; imported from ../resolution-check). My §4.3.2 close-gate is SATISFIED — I read vera-discovery-verdict.md threat_coverage and re-derived the cross-check myself: each defeats_via_probe (p6, p7) IS in probes_executed with non-empty probe_evidence, and each DROVE the SPECIFIC M3-lineage attack-path (not a happy-path proxy):\\n  p6 = V2 anti-under-provision: drove a manifest that DROPPED the called bls-oews key -\u003e (a) V2 BLOCKS (called-but-unresolved BLS_OEWS_API_KEY), (b) legit correct manifest NOT rejected (V2 PASS). Both halves observed.\\n  p7 = V5 drift: drove imported-but-undeclared bls-oews -\u003e (a) V5 BLOCKS fail-closed (shadow named), (b) no-drift positives V5-PASS. Both halves observed.\\nThis converges with my OWN first-hand discovery-check/run.py run at the ADA stage (V2 complete on the 3 builders + NEG-1 V5-fail + NEG-2 V1-fail) = multi-checker (ADA + FM + VERA-independent). REGRESSION clean: resolution-check/run.py exit 0 (8/6/7 + BaselineOmitError + §3.4 + §5.A) — no §2 breach (I re-ran it first-hand at ADA; resolve.py unmodified so still valid). RESIDUALS honest: DWP-3 (V5 scope = import-detectable drift only; runtime-config no-import-signal -\u003e Phase-2 runtime observer; NOT over-claimed; no Phase-1 probe owed) + R-3 (catalog-integrity §35.5, fleet-wide SoT, classified §12.B.1/§23.4; no Phase-1 probe owed). author = Denson Smith. The document/data-\u003edocument-consuming alias is byte-identical (faithful, not a divergence) — confirmed, matching my pre-flag.\\n\\nNEXT: CATO (cold-read + meta-verify-VERA on the addition); NOMOS (conformance). My verify at each; full re-confirm at NOMOS; then relay UP for the Grand gate on the addition (carrying the §12.B.1 complete residual set incl. R-3). HOLD on stoa--fii stands. Monitor armed for the CATO hand-back.",
+      "timestamp": "2026-06-26T03:13:13Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T03:12:54Z"
+  "updated_at": "2026-06-26T03:13:13Z"
 }
