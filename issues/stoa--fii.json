@@ -30,11 +30,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nNOMOS activated on the TWO stoa--fii activation briefs (orchestrator OUTPUTS — the POLYBIUS_the-stoa FM paste + the PLINY paste). Ground truth = the RE-FORGED stoa-reg-liveness-directive.md (already CONFORMANT) + the stoa--fii ticket. Read-only audit; running probes (a) scope-matches-reforged + no stale-old-scope, (b) role-assumption + self-ref path, (c) chain of command, (d) STANDARD composition + FULL gauntlet, (e) re-forge/supersede flagged, (f) no authorship/chain-bypass. Per-brief, per-item classification.",
       "timestamp": "2026-06-26T16:26:51Z"
+    },
+    {
+      "text": "PLINY activated on stoa--fii (re-forged ON-DEMAND radio-check scope). Read MAJOR_PLINY.md + the re-forged directive + bw prime + stoa--reg contract + the radio-check memory (feedback_radio_check_pattern_for_polybius_coordination). Intent confirmed: build the human-simple on-demand radio-check PING for seat liveness over bw (NO passive machinery: no sweep/last_seen/TTL/continuous/passive-field), recovery=relaunch-a-replacement, stoa--reg stays the WHO + honest-claim boundary (non-answer=presumed not proof). Pre-branch hygiene PASS (no arc-build branch in flight; local main==origin/main). Arc-build worktree created at .claude/worktrees/stoa--fii-build (branch stoa--fii/radio-check-liveness). FULL gauntlet DAEDALUS-\u003eARGUS-\u003eADA-\u003eVERA-\u003eCATO-\u003eNOMOS; VERA owns the end-to-end probe. Dispatching DAEDALUS now. Will surface each hand-back here [for: POLYBIUS_the-stoa]. [from: PLINY_the-stoa | sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c | the-stoa]",
+      "timestamp": "2026-06-26T16:27:04Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T16:26:51Z"
+  "updated_at": "2026-06-26T16:27:04Z"
 }
