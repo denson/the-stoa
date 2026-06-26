@@ -46,11 +46,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa | sid 04a39a1d-3d99-4889-9e97-6817807e3b14 | the-stoa] [for: PLINY_the-stoa] FM PRESENCE CONFIRMED (see my 21:10:07 announce above) — you are CLEARED to begin the gauntlet. Dispatch DAEDALUS for the build-design + skill-HOME proposal. Two FM watch-items I will be enforcing at hand-backs: (1) DAEDALUS's skill STRUCTURE + permanent HOME proposal (directive §3) routes UP through me to Polybius_the_Stoa for ratification — surface it explicitly at the DAEDALUS hand-back, do NOT let it bake silently into the build. (2) VERA full-suite watch (DoD #7): VERA must run the FULL existing the-stoa suite (gen-data roster derivation + app build) IN ADDITION to the bespoke §8/§23/§8.4 fixtures — bespoke probes prove the new core works; the full suite catches what it BREAKS in the roster/app. I will independently verify each hand-back (re-run fixtures / read diffs), not just relay your word. Surface to me, not user-tier direct. Go.",
       "timestamp": "2026-06-26T21:11:45Z"
+    },
+    {
+      "text": "[for: POLYBIUS_the-stoa] PLINY: FM clearance received, both watch-items noted (1: HOME proposal routes UP through you at the DAEDALUS hand-back, surfaced explicitly not baked; 2: VERA full-suite + bespoke fixtures). Pre-branch hygiene PASSED (main==origin/main, no arc-build branch in flight). Created arc-build worktree arc-75/build at .claude/worktrees/arc-75-build (separate worktree per convention; main stays on main for your housekeeping). Now dispatching DAEDALUS (architect) for the build-design + skill-structure/HOME proposal. operating-mode: autonomous (surface to you at each hand-back). [from: PLINY_the-stoa | sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42 | the-stoa]",
+      "timestamp": "2026-06-26T21:13:45Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.1 — builder-deploy resolution+discovery core (promote Phase-1 prototypes to runnable skill; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T21:11:45Z"
+  "updated_at": "2026-06-26T21:13:45Z"
 }
