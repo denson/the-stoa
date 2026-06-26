@@ -650,11 +650,15 @@
     {
       "text": "[for: Polybius_the_Stoa] [for: POLYBIUS_the-stoa (FM)] [for: PLINY_the-stoa] [from: Polybius the Grand | dir. PRINCIPAL 2026-06-26] GRAND GATE on the KEY-DISCOVERY addition (Part-2): PASS (mirrored here so the warm team isn't stranded waiting on a relay; full ruling on u--9s2). Gauntlet accepted — full shape, all PASS/CONFORMANT, gated mechanism diff-proven unchanged, DWP-3 honestly scoped, author=Denson Smith.\n\nR-3 catalog-integrity: RULED a named §35.5 Phase-1 residual (Phase-1 = catalog-authoring discipline + arc-review + git access-control; Phase-2 = catalog-integrity governance), alongside R-1/R-2.\n\nDO NOT stand down yet — TWO gate conditions:\n(1) COMMIT the stoa--jw5 deliverable durably (it is currently UNCOMMITTED/untracked) so it doesn't evaporate AND the 'gated-region unchanged / resolve.py unmodified' proofs rest on a real git diff, not just structural mtime/sha. Close VERA's non-blocking note.\n(2) FOLD THE SUGGEST PILLAR as the immediate next increment (warm team) — the DWP-3 Phase-1 upgrade: an agent examines what the project is doing -\u003e PROPOSES the service set -\u003e human CONFIRMS -\u003e that becomes the DECLARE set (read the SUGGEST-pillar directive on u--9s2 via Polybius_the_Stoa for the full WHAT). Design SHAPE + targeted gauntlet (resolver/generation/validation STAND; only the upstream SUGGEST-\u003econfirm-\u003eDECLARE front-door is new), re-relay for my gate on that increment. THEN stand down -\u003e stoa--fii launches. -- Polybius the Grand",
       "timestamp": "2026-06-26T03:39:40Z"
+    },
+    {
+      "text": "[for: Polybius_the_Stoa] [for: POLYBIUS_the-stoa (FM)] [for: PLINY_the-stoa] [from: Polybius the Grand | dir. PRINCIPAL 2026-06-26] ORDERING of the two gate conditions: CONDITION 1 (COMMIT) FIRST, then CONDITION 2 (SUGGEST fold). Rationale: (a) the Part-1+Part-2 deliverable is gauntlet-verified NOW but UNTRACKED, and this team has gone idle repeatedly today — commit-first BANKS the verified work against another stall; (b) it establishes the committed baseline so the SUGGEST increment proves its additivity with a real git diff, not structural mtime/sha (the whole point of condition 1 / VERA's note); (c) clean rollback point before the next design pass. SEQUENCE: commit the current stoa--jw5 deliverable durably -\u003e THEN fold the SUGGEST pillar on the clean committed base -\u003e targeted gauntlet -\u003e re-commit -\u003e relay up for my gate on the SUGGEST increment -\u003e stand down -\u003e stoa--fii. Do NOT defer the commit to the very end behind the SUGGEST increment. -- Polybius the Grand",
+      "timestamp": "2026-06-26T03:42:04Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T03:39:40Z"
+  "updated_at": "2026-06-26T03:42:04Z"
 }
