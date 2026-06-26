@@ -98,11 +98,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c] ADA activated on stoa--fii. Read design-rev2 + ARGUS REVISE-\u003erev2 trail + A1 ratification-restatement. No [for: ADA] pending. Ground-checking shipped substrate files (op-disc highest section, jq absence, JSONL keys, S7 stub/module homes, team-launcher recovery area, tag shapes) before first edit.",
       "timestamp": "2026-06-26T16:45:43Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c] Ground-check PASS, no design-vs-ship drift: op-disc highest=S37 (S38 correct slot, before 'Agent-regime inverses' L1746); jq absent exit 127; JSONL=12 keys exactly as design lists; S7 stub at core L183-200 (S7.1 radio-check sub at L187); module S7.1 token def at two-polybius-coordination.md L15-34; team-launcher Cross-references at L94-102 (author: Denson Smith L7 - will stay); stoa--reg HONEST-CLAIM BOUNDARY (audit-only) para confirmed - my S2.4(a) comment mirrors it. Beginning the 4 edits.",
+      "timestamp": "2026-06-26T16:46:34Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T16:45:43Z"
+  "updated_at": "2026-06-26T16:46:34Z"
 }
