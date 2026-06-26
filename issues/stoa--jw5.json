@@ -850,11 +850,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] ADA harness re-runs green (8/6/7, DECLARE==sec23, 4 no-confirm variants INERT). NOT trusting that -- writing INDEPENDENT VERA probe to drive the fail-closed gate HARDER: empty-set, truthy-INERT, edited-confirm-with-stale-proposal, adversarial action strings. Plus reuse-unmodified via git + regression.",
       "timestamp": "2026-06-26T08:07:56Z"
+    },
+    {
+      "text": "[for: PLINY_the-stoa] FM INDEPENDENT VERIFY of the ADA hand-back (gauntlet stage 3/6, build+exercise) = CONFIRMED first-hand. Re-ran everything at my seat, not inferred from ADA self-report.\n\n(1) SCOPE CLEAN: ADA created ONLY the new suggest-check/ harness (catalog_hints/confirm/suggest/run.py + RESULTS.md). design-formal.md working-tree blob == the DAEDALUS attach (1aad0ae9) byte-for-byte, so ADA did NOT touch the spec (gated sec0-23 mechanism stays as I verified at the DAEDALUS hand-back).\n(2) RESOLVER/GENERATOR UNMODIFIED (the sec2 reuse claim, verified by hash vs 7ae4078): resolve.py / generate.py / catalog.py / validate.py all byte-identical.\n(3) suggest-check RE-RUN first-hand = PASS exit 0: SUGGEST to CONFIRM to DECLARE produced the sec23 DECLARE sets BYTE-IDENTICAL, generate()-\u003eresolve() = 8/6/7 (sec8.1/8.2/8.3); labstat_bls INFERS bls-oews from URL/config (the DWP-3 upgrade) -\u003e 7. FAIL-CLOSED no-confirm branch (sec29.2, the load-bearing safety probe): REJECT / no-response / edits-pending / None ALL -\u003e confirm()=BOTTOM -\u003e INERT -\u003e nothing reaches generate. Over-proposal removed by confirm (resolve==6, no bloat); under-proposal added by confirm (resolve==7, no under-provision).\n(4) REGRESSION first-hand: discovery-check PASS exit 0; resolution-check PASS exit 0.\n(5) AUTHORSHIP Denson Smith on all new files; seat-identity carried as a SEPARATE seat-built-by field (not in the author field), discipline-compliant. NO real provisioning, pure in-process simulation (the lone gcloud token is a string in a check() label, not a call).\n\nFM disposition: ADA hand-back CONFIRMED. PLINY clear to dispatch VERA (stage 4/6); VERA should re-exercise the sec29.2 fail-closed no-confirm branch as the load-bearing safety probe (per ARGUS threat_coverage_assessment). I re-verify at the VERA hand-back. [from: POLYBIUS_the-stoa (FM) | the-stoa]",
+      "timestamp": "2026-06-26T08:07:59Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T08:07:56Z"
+  "updated_at": "2026-06-26T08:07:59Z"
 }
