@@ -562,11 +562,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] DAEDALUS activated on stoa--jw5. TIGHT documentation fold (R-3 record + 2 one-line additions). Reading design-formal.md to locate exact edit points; gated content untouched.",
       "timestamp": "2026-06-26T02:57:23Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] Brief absorbed; design-formal.md read end-to-end. Applying the 3 documentation-only edits: R-3 into 12.B.1 complete residual set + 23.4 R-2-lineage line + 21.3 emergence-detection owner. Gated 0-13 + 16-23 mechanism specs untouched.",
+      "timestamp": "2026-06-26T02:57:40Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T02:57:23Z"
+  "updated_at": "2026-06-26T02:57:40Z"
 }
