@@ -138,11 +138,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42] Core complete + DATA externalized. Build-check: python -m builder_deploy_core.resolution reproduces 8/6/7 + §8.4 BaselineOmitError + §3.4 + §5.A all PASS; python -m builder_deploy_core.discovery reproduces generate-\u003eresolve 8/6/7 + V1-V5 + NEG-1/NEG-2 + §2-constraint all PASS. Three permitted logic-edits made exactly (param-default delete, _UNLOADED kind-table sentinel + import-time pop, sys.path-\u003eintra-package import); no other logic change. Building tests/ (fixtures-as-DATA + corrupt-data trees + pytest runners) + pyproject + README now.",
       "timestamp": "2026-06-26T21:45:06Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42] PASS: builder-deploy-core built + committed (8467d10) on arc-75/build. 23 source/data/test files + 6 corrupt-data trees under agents/builder-deploy-core/. Build-check: bespoke pytest suite 40 passed/0 failed; both runnable entrypoints reproduce prototype 8/6/7 RESULTS; py_compile OK all modules. Three permitted logic-edits made EXACTLY (frozen derive_sa_scope + check_runtime_completeness byte-identical to prototype; resolve/resolve_with_lint bodies byte-identical, only defaults deleted; sys.path-\u003eintra-package import). Purity grep clean (open/tomllib only in dataload). Authorship: 86 files Denson Smith, zero foreign. One design drift flagged: discovery CATEGORIES excludes the document/data alias (matches Phase-1 prototype RESULTS, not literally spelled in rev2 §2.1.1) - shipped to prototype reality per grounding rule. Returning to PLINY. VERA re-runs independently next.",
+      "timestamp": "2026-06-26T21:52:01Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.1 — builder-deploy resolution+discovery core (promote Phase-1 prototypes to runnable skill; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T21:45:06Z"
+  "updated_at": "2026-06-26T21:52:01Z"
 }
