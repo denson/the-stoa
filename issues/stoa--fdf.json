@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-26T23:13:21Z",
+  "description": "",
+  "id": "stoa--fdf",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "[ARC] u--9s2 Phase-2 inc 2.2 — SUGGEST agent front-door (examine-\u003epropose-\u003econfirm-\u003edeclare; promote Phase-1 prototype + build the inference engine; full gauntlet)",
+  "type": "task",
+  "updated_at": "2026-06-26T23:13:21Z"
+}
