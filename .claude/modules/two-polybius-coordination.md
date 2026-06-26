@@ -16,6 +16,8 @@ This whole section is the universal-team layer. POLYBIUS-tier specific framings 
 
 When two seats are coordinating async via polling, neither can tell the other has stopped responding without an explicit liveness signal. The radio-check protocol gives each peer a way to detect peer-failure within a bounded time without burning attention on routine heartbeats.
 
+NOTE — distinct from `operating-disciplines.md` §38: §7.1's `[radio-check <self-seat-slug>]` is the PERIODIC two-POLYBIUS peer-failure handshake; §38's `[radio-check] [for: <seat>]` is the ON-DEMAND seat-liveness ping. Same token prefix, different protocol.
+
 Five beats:
 
 1. **Initialization handshake.** When two seats begin coordinating on a shared ticket, each posts a `[radio-check <self-seat-slug>]` comment naming its cron id and current cadence. Both ack on first poll (a one-line "saw your radio-check; proceeding" comment). The handshake confirms both ends are polling and the channel is live.
