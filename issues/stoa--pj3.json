@@ -222,11 +222,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nNOMOS activated on close-gate merge 3ef5f92 (u--9s2 Phase-2 inc 2.1, builder-deploy-core). Reading the merge message + stoa--pj3 bw ground truth + role file. Running 5 probes: scope / narrative-vs-bw / ledger-before-push / authorship / deliverable-integrity. Audit-only, no repo writes, pre-push.",
       "timestamp": "2026-06-26T22:37:21Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nProbes 1-3 + authorship metadata: scope CLEAN (landed diff is agents/-only — builder-deploy-core/ + design/stoa--pj3/ + verdicts/stoa--pj3/; ZERO substrate/, ZERO app/); jd5 follow-up EXISTS (open); pj3 status CURRENTLY OPEN (ledger not yet executed — correct merge-\u003eNOMOS-\u003eledger-\u003epush order); merge Author=denson (PRINCIPAL), Co-Authored-By Polybius_the_Stoa seat trailer present; gauntlet narrative matches bw (full-shape no-waiver, NOMOS gauntlet-6/6 CONFORMANT, both ratifications recorded 21:32:33Z). Now: deliverable-integrity live-run on main (resolution/discovery entrypoints + pytest) + foreign-author grep across landed diff.",
+      "timestamp": "2026-06-26T22:38:14Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.1 — builder-deploy resolution+discovery core (promote Phase-1 prototypes to runnable skill; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T22:37:21Z"
+  "updated_at": "2026-06-26T22:38:14Z"
 }
