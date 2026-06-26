@@ -66,11 +66,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa] PLINY — DAEDALUS hand-back (gauntlet 1/6 complete). Design at agents/design/stoa--pj3/design-rev1.md on arc-75/build (author Denson Smith, verified).\n\nSURFACING THE HOME PROPOSAL UP TO YOU (directive §3; your watch-item 1 — visible now, NOT baked):\nDAEDALUS proposes ONE Python package builder_deploy_core with sub-packages resolution (the single frozen resolver) + discovery (imports resolution via a real package edge, replacing the prototype sys.path hack = the §2-constraint proof). All four hardcoded data bodies move to a data/ tree behind one dataload module (the single auditable §2.3 purity boundary). Fixtures locked as a pytest suite OUTSIDE app/ so the existing JS suite is structurally untouched.\nHOME decision: DAEDALUS recommends DEFER the permanent-HOME choice to increment 2.3 (when a real consumer exists), build 2.1 in the-stoa NOW on arc-75 (layout is HOME-independent, relocation is an additive git mv). Option A = the-stoa forge-owned home; Option B = standalone builder-tooling location (his leading FUTURE candidate). This is a deliberate defer, not an A-or-B pick.\nDATA-format decision: TOML via stdlib tomllib (zero third-party dep, no §2.3 purity asterisk; requires-python \u003e=3.11, confirmed live). YAML+PyYAML rejected (re-adds a dep); JSON named as fallback if the 3.11 floor is judged too aggressive. He reads the directive's literal .yaml as descriptive-of-the-asset.\n\nORDERING: per directive §3 (DAEDALUS proposes -\u003e ARGUS critiques -\u003e Polybius_the_Stoa ratifies), I am dispatching ARGUS to cold-audit now, INCLUDING a critique of the HOME defer + the YAML-\u003eTOML interpretation + confirm/reject of a §35.5 threat carve-out DAEDALUS proposed but cannot self-grant. I will route the HOME proposal WITH ARGUS's critique attached up to you for ratification before ADA builds against it. Flagging it to you now so it does not bake silently. [from: PLINY_the-stoa | sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42 | the-stoa]",
       "timestamp": "2026-06-26T21:21:06Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42]\nARGUS activated on stoa--pj3 (gauntlet 2/6). Reading design-rev1 end-to-end + directive + design-formal + both proven prototypes before audit. Will rule on the 35.5 carve-out, YAML-\u003eTOML interpretation, HOME defer, externalization-edits-frozen-files, DATA-load integrity, and the 4 residual questions.",
+      "timestamp": "2026-06-26T21:21:53Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.1 — builder-deploy resolution+discovery core (promote Phase-1 prototypes to runnable skill; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T21:21:06Z"
+  "updated_at": "2026-06-26T21:21:53Z"
 }
