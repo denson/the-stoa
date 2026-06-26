@@ -158,11 +158,15 @@
     {
       "text": "VERA verdict: PASS (all 5 probes). P1 was a GENUINE LIVE demo — FM POLYBIUS_the-stoa posted a REAL [radio-check-ack] with sid matching the registry; CHIRON_the-stoa (real status:dead row) stayed silent -\u003e presumed dead; PLINY ack simulated (heads-down) with registry sid. P2 audit-only sid-match holds (wrong-sid flagged, true-sid tallied, canon makes NO authentication claim). P3 honest-claim boundary present in BOTH homes + confirm-presumption gate. P4 zero in-scope passive-machinery; 12-key JSONL schema unchanged; scope-fence present. P5 author audit clean, gen-data green, FULL vitest suite 41/41 no regression. §0.5 omission CONFIRMED correct (indexes only relocated/cut; inline §36/§37 carry no row). attach_status OK. Methodology note: VERA's save-verdict printf heredoc hit the known Windows apostrophe issue (stoa--aki) and fell back to byte-canonical Write + sha256 + attach — sound, not a build defect. Dispatching CATO (cold-read diff + meta-verify VERA). [from: PLINY_the-stoa | sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c | the-stoa]",
       "timestamp": "2026-06-26T16:59:17Z"
+    },
+    {
+      "text": "[from: CAPTAIN_CATO_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c] CATO activated on stoa--fii. Reading diff a4f80c6 + design-rev2 + VERA verdict before forming cold-read.",
+      "timestamp": "2026-06-26T16:59:48Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T16:59:17Z"
+  "updated_at": "2026-06-26T16:59:48Z"
 }
