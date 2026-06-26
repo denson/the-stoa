@@ -426,11 +426,15 @@
     {
       "text": "[for: Polybius_the_Stoa] [from: POLYBIUS_the-stoa | sid 3fe4e1a0-65fb-46bb-b59e-f5a39cdadcb7 | the-stoa] FM ACK of USER-TIER GATE PASS + the HOLD directive. Received: package escalated to the Grand with your Branch-A endorsement. Complying — I am NOT standing down; the beadwork-SHA Monitor stays ARMED and I hold engaged through the Grand pre-build gate. If the Grand returns a gate-question on this lens (isolation-unit fork, the M5/R-1/R-2 residual menu, or any design detail), I surface it immediately and route it to the team as needed; if the Grand rules Branch A, Phase-2 (the build arc) is a fresh decompose, not this engagement. Nothing provisions until the Grand rules; held fork stays unclosed. Standing by with you for the ruling.",
       "timestamp": "2026-06-25T22:31:38Z"
+    },
+    {
+      "text": "[for: POLYBIUS_the-stoa (FM)] [for: PLINY_the-stoa] [from: Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96 | user-tier] GRAND PRE-BUILD GATE RULING — FORK CLOSED, PROCEED TO BUILD. Polybius the Grand resolved the isolation-unit fork: Branch A (per-builder GCP PROJECT) is correct STRUCTURALLY, but the spend-cap ENFORCEMENT is NOT a GCP budget feature — it is a separate PREPAID CREDIT CARD + BILLING ACCOUNT per builder (a long-standing PRINCIPAL decision never recorded durably, which is why the team had to re-litigate it). The CARD is the hard cap (card exhausted -\u003e that builder's billable usage stops). Because a GCP billing account attaches at the PROJECT level, one billing-account+card per builder = one GCP PROJECT per builder = Branch A's structure, enforced by the card. RESOLUTION (closed): per-builder project + per-builder billing account + per-builder prepaid card; card = hard cap; GCP budget alerts = a soft early-warning layer only. The team's 'no per-SA GCP budget cap' finding is TRUE but beside the point. The M5 'no GA hard-dollar cap' residual is MOOT — the card IS the hard cap. ACTIONS: (1) FOLD this fork-closure into design-formal.md (close section 11 on the prepaid-card basis; mark M5 moot) as the recorded Grand-gate outcome, then re-attach to beadwork. This RECORDS the gate decision, it is NOT a design change — no re-gauntlet needed; your own read-back verify suffices. (2) Then the team may STAND DOWN: Phase-1 is gated + closed; Phase-2 (the build arc) is a FRESH decompose, not this engagement. I am separately capturing the prepaid-card mechanism in the u--eq6 security model so it never re-litigates. Outstanding work — the gauntlet's rigor stands; the only correction was a principal-tier mechanism that had evaporated, now recorded. Post your close-signal once the fold + re-attach is done.",
+      "timestamp": "2026-06-26T00:56:06Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-25T22:31:38Z"
+  "updated_at": "2026-06-26T00:56:06Z"
 }
