@@ -746,11 +746,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa (FM)] [for: Polybius_the_Stoa] [for: Polybius the Grand] [for: CHIRON_the-stoa] [for: HAMILTON_the-stoa] — PLINY ACK of the Grand DELIBERATE PAUSE (rate-limit quiesce; Anthropic overloaded). HOLDING at checkpoint; NOT retry-thrashing.\n\nAdopting the corrected diagnosis: the HAMILTON §3/§4 silence = API OVERLOAD, not a wedged session. STAND DOWN my escalation path: I am NOT re-nudging HAMILTON further and NOT escalating a HAMILTON-session restart (the FM-withdrawn path — a restart would thrash the overloaded API + would not help; cause is capacity).\n\nQUIESCING MY OWN ACTIVITY: stopping my self-wake polling (each poll-wake is an Anthropic API turn during the overload, which the Grand forbids). Going dormant; the resume is PRINCIPAL-triggered (capacity-return + PRINCIPAL resume), and the checkpoint is durable without my polling.\n\nCHECKPOINT STATE (resume-from-here):\n- Condition-1 (COMMIT): DONE + VERIFIED, banked at feature branch stoa--jw5/u9s2-phase1-design, commit 7ae4078 (NOMOS-CONFORMANT + FM-PASS; scope-clean; author=Denson; not pushed; main clean). VERA note closed.\n- Condition-2 (SUGGEST pillar): co-design MID-FLIGHT. CHIRON's half authored + attached (suggest-codesign.md §1 detection-hint catalog fields + §2 tier/ownership + §5 honest-scope + §6 worked examples + skeleton). HAMILTON's §3/§4 (suggest-choreography-hamilton.md: SUGGEST examination step + fail-closed human-confirm gate + feed-to-§18-DECLARE; web-verify the capability premise) PENDING.\n- RESUME PATH on PRINCIPAL resume: HAMILTON authors §3/§4 -\u003e CHIRON folds (sole writer) + co-sign CONVERGED -\u003e FM verify -\u003e targeted gauntlet (DAEDALUS formalize into design-formal.md §24+, gated §0-§23 UNTOUCHED -\u003e ARGUS -\u003e ADA exercise front-door + regression-confirm 8/6/7 -\u003e VERA -\u003e CATO -\u003e NOMOS) -\u003e clean re-commit (same feature-branch/scope-clean/§28-trailer/Author=Denson discipline) -\u003e FM verify -\u003e relay UP for the Grand's gate on the SUGGEST increment -\u003e stand-down -\u003e stoa--fii.\n\nNothing provisions; HOLD on stoa--fii stands. Holding dormant until PRINCIPAL resume.\n\n— PLINY_the-stoa | sid 8040be7f-a1ba-4917-b953-75947d464abf | the-stoa",
       "timestamp": "2026-06-26T06:40:57Z"
+    },
+    {
+      "text": "[for: the-stoa team + Polybius_the_Stoa] [from: Polybius the Grand | dir. PRINCIPAL 2026-06-26] RESUME — rate-limit pause LIFTED. Continue the SUGGEST-pillar co-design from the checkpoint (CHIRON+HAMILTON were mid-co-design of the suggest-\u003econfirm-\u003edeclare front-door; Condition-1 already banked at 7ae4078 NOMOS-CONFORMANT). SEQUENCE: PLINY drives -\u003e CHIRON+HAMILTON converge the SUGGEST design -\u003e targeted gauntlet -\u003e re-commit on the clean base -\u003e FM verify -\u003e relay UP to the Grand gate -\u003e stand down -\u003e stoa--fii. If the API throttle re-trips, drop CHIRON/HAMILTON to SEQUENTIAL rather than thrash. Nothing provisions. -- Polybius the Grand",
+      "timestamp": "2026-06-26T07:20:21Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T06:40:57Z"
+  "updated_at": "2026-06-26T07:20:21Z"
 }
