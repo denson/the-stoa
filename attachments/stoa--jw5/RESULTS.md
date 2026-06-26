@@ -1,69 +1,62 @@
----
-author: Denson Smith
-ticket: stoa--jw5 (u--9s2 Phase-1)
-seat: CAPTAIN_ADA_the_stoa (EXECUTOR)
-design: agents/design/stoa--jw5/design-formal.md
-as_of: 2026-06-25
-status: harness built + exercised; ADA self-report (NOT verification — VERA re-runs)
----
+<!-- author: Denson Smith -->
+<!-- ticket: stoa--jw5 (u--9s2 Phase-1) -->
+<!-- seat-built-by: CAPTAIN_ADA_the_stoa (EXECUTOR) — TARGETED gauntlet stage 3/6 -->
+<!-- design-ground-truth: agents/design/stoa--jw5/design-formal.md §16-§23 (KEY-DISCOVERY PROCESS addition) -->
 
-# stoa--jw5 resolution-check — run results
+# discovery-check RESULTS — exercising manifest GENERATION (§19 G1–G4) vs the §23.1 examples
 
-Exercises the design's testable core (`resolve()` per §2.5) against the §8 worked-example
-fixtures so the central claim — the resolution rule — is **falsifiable**. **Provisions nothing**
-(no gcloud, no Railway, no credentials; pure logic, reads no environment per §2.3).
+**What this harness proves.** The KEY-DISCOVERY PROCESS addition's executable core
+(catalog → generation → validation) produces, from each builder's declared
+`services:` set, a `{category, delta}` manifest that the **UNCHANGED Part-1
+resolver** resolves to the §8 sets **8 / 6 / 7** — i.e. discovery is a purely
+upstream front-end and the §2 resolver is untouched.
 
-This is the EXECUTOR's build-confirmation run. It is **not** the gauntlet's verification —
-VERA re-runs this harness and adds threat-coverage probes (M1–M4/M6 attack-paths) independently.
+- **Harness path:** `agents/design/stoa--jw5/discovery-check/`
+  - `catalog.py` — §22 seed catalog (service-id → entries + gcp_api + category-tag) + §22 seeded emergent categories. The §3.4 pairing lives in the `google-maps` record (BOTH `(gcp_api, google-maps)` AND `(gcp_secret, MAPS_API_KEY)`).
+  - `generate.py` — `generate(services_called, catalog, categories, baseline)` per §19 G1–G4 (deterministic; baseline not discovered; tie-break category-tag asc).
+  - `validate.py` — V1–V5 per §20 (V4 **REUSES** `resolve` / `BaselineOmitError` / `check_runtime_completeness` from the unchanged `resolve.py`; never re-implements them).
+  - `run.py` — driver: for each of the 3 builders, generate → resolve (UNCHANGED) → assert 8/6/7 + manifest-equivalence to §8 + V1–V5; plus 2 negative probes; plus regression confirmation.
+- **`resolve()` is REUSED unmodified:** imported from `../resolution-check/resolve.py` via `sys.path` injection. discovery-check writes NO file (no `open()` calls); `resolve.py` mtime (15:57, Part-1 build) predates all discovery-check files (21:01–21:03). **Feeding the GENERATED manifest into the unchanged `resolve()` and getting 8/6/7 IS the §2-constraint proof.**
 
-## Harness
+## Per-builder generation result (`python discovery-check/run.py` → exit 0)
 
-| file | role |
-|---|---|
-| `resolve.py` | `resolve(manifest, BASELINE, LIBRARY)` (§2.5 verbatim) + `derive_sa_scope` (§5.A) + `check_runtime_completeness` (§3.4); BASELINE (§3.1) + category library (§3.2) encoded as data; `BaselineOmitError` / `ResolutionError` (§2.4). |
-| `fixtures.py` | the 4 §8 manifests + the 3 EXACT expected resolved sets (verbatim from §8). |
-| `run.py` | runs all 4 fixtures; asserts exact-match positives, the §8.4 fail-closed raise, runtime-completeness, kind-dispatch, and SA-scope derivation. |
+| builder | declared `services:` | G2 category | GENERATED manifest | resolve() | §8 target | manifest ≡ §8 hand-authored |
+|---|---|---|---|---|---|---|
+| **prospector** | `[google-maps, spatial-db]` | `geospatial` | `{category: geospatial, delta: {}}` | **8** | §8.1 ✓ | ✓ |
+| **scienceclaw** | `[document-parsing]` | `document-consuming` | `{category: document-consuming, delta: {}}` | **6** | §8.2 ✓ | ✓ |
+| **labstat_bls** | `[document-parsing, bls-oews]` | `document-consuming` | `{category: document-consuming, delta: {add: [{thirdparty_rest_key, BLS_OEWS_API_KEY}]}}` | **7** | §8.3 ✓ | ✓ |
 
-Run: `python run.py` (exit 0 = all checks held). Build-check: `python -m py_compile resolve.py fixtures.py run.py` → exit 0.
+All 8/6/7 resolved sets are **byte-for-byte equal** to the §8.1/§8.2/§8.3
+expected sets (asserted in `run.py` against `fixtures.py`).
 
-## Per-fixture result
+### labstat_bls load-bearing (§23.1 / §8.3)
+- generated `delta.add == [(thirdparty_rest_key, BLS_OEWS_API_KEY)]` (mechanically derived per G3, not hand-authored);
+- (i) resolved contains `(thirdparty_rest_key, BLS_OEWS_API_KEY)` ✓;
+- (ii) **no** `(gcp_api, BLS_OEWS_API_KEY)` — the `bls-oews` record is `gcp_api: none`, so NO API is minted ✓;
+- (iii) S1 `gcp_api` input = `['document-parsing', 'gemini-embedding', 'gemini-search']` — excludes BLS_OEWS_API_KEY (NO gcloud-enable) ✓.
 
-| fixture | manifest | expected | got | match |
-|---|---|---|---|---|
-| §8.1 prospector | `{geospatial, delta:{}}` | 8 entries | 8 entries | **PASS (exact)** |
-| §8.2 scienceclaw | `{document-consuming, delta:{}}` | 6 entries | 6 entries | **PASS (exact)** |
-| §8.3 labstat_bls | `{document/data, add:[thirdparty_rest_key BLS_OEWS_API_KEY]}` | 7 entries | 7 entries | **PASS (exact)** |
-| §8.4 badbuilder_pgvector_omit | `{document-consuming, omit:[db_extension pgvector]}` | RAISE `BaselineOmitError` | raised, no set returned | **PASS (fail-closed)** |
+## V1–V5 validation (§20) — all PASS on every generated manifest
+- **V1** every-service-cataloged ✓ — **V2** complete (`resolve(gen) ⊇ called_entries`) ✓ — **V3** minimal (no uncalled non-baseline entry) ✓ — **V4** resolve-well-formed (REUSES §2.6 + §3.4 guards) ✓ — **V5** no-undeclared-drift ✓ (× prospector, scienceclaw, labstat_bls).
 
-All three positives reproduced **byte-for-byte** from a faithful §2.5 implementation; the
-sorted resolved set equals the §8 enumeration exactly.
+## Negative probes (fail-closed)
+- **NEG-1** — scanner detects an UNDECLARED `bls-oews` against prospector's declaration → **V5 FAILS** ("shadow service(s) detected but not declared: ['bls-oews']"). Fail-closed drift ✓.
+- **NEG-2** — a declared service NOT in the catalog (`totally-uncataloged-svc`) → `generate()` **RAISES `UncatalogedServiceError`** (G1 fail-closed, no emit) AND **V1 FAILS** naming the uncataloged service ✓.
 
-## Per-check result (19 checks, all PASS)
+## Regression (the §2 constraint — resolver untouched)
+`python resolution-check/run.py` re-run → **exit 0**: §8.1/§8.2/§8.3 still resolve
+to 8/6/7 byte-for-byte; §8.4 still raises `BaselineOmitError`; §3.4
+runtime-completeness + §5.A SA-scope still hold. The resolver and its fixtures
+are textually unchanged by this stage.
 
-- **§8.4 negative (3):** (i) raises `BaselineOmitError` (named, not generic) with message
-  `omit targets non-omittable baseline entry/entries: [('db_extension', 'pgvector')]`;
-  (ii) no resolved set returned (fail-closed — no partial set); (iii) message names
-  `(db_extension, pgvector)`.
-- **§3.4 runtime-completeness (5):** holds for all 3 positives; prospector contains BOTH
-  `(gcp_api, google-maps)` AND `(gcp_secret, MAPS_API_KEY)` (the §8.1 probe).
-- **§8.3 kind-dispatch (3):** resolved set contains `(thirdparty_rest_key, BLS_OEWS_API_KEY)`;
-  ZERO `(gcp_api, BLS_OEWS_API_KEY)` (delta added no API); S1 `gcp_api` input list
-  `['document-parsing','gemini-embedding','gemini-search']` excludes `BLS_OEWS_API_KEY`.
-  Proves **delta ≠ template bloat** and `kind`-dispatch correctness.
-- **§5.A SA-scope (6):** scope = scope-bearing subset (`gcp_api` + `gcp_secret` +
-  `thirdparty_rest_key`); for every builder no entry outside its own resolved set appears in
-  its derived scope (`railway_var` / `db_extension` correctly excluded).
+## Grounding note (spec faithfulness — NO fudge)
+- §23.1 generation produces category `document-consuming` for labstat_bls; §8.3's
+  *hand-authored* fixture used the alias `document/data`. Per §22 only
+  `geospatial` + `document-consuming` are seeded as emergent categories, so a
+  faithful G2 (max-subset over the seeded categories) selects `document-consuming`
+  — exactly as §23.1 lines 1318–1322 state. Because `document/data` is a
+  byte-identical **alias** of `document-consuming` (§3.2 / WP-4), both resolve to
+  the same 7-entry set, so the generated manifest is **equivalent** to the §8.3
+  hand-authored manifest (asserted alias-aware in `run.py:_manifests_equivalent`).
+  This is a faithful reproduction of §23.1, not a deviation. **No spec discrepancy.**
 
-## R1-close generalization (FM watch-item)
-
-Beyond §8.4 (pgvector), the `BaselineOmitError` guard was exercised against an `omit` of **each
-of the 5 §2.6 non-omittable baseline entries** — all 5 raise:
-`(gcp_api, gemini-embedding)`, `(gcp_api, gemini-search)`, `(railway_var, DATABASE_URL)`,
-`(gcp_secret, POSTGRES_PASSWORD)`, `(db_extension, pgvector)`. The guard generalizes (it is
-derived from the baseline record, §2.6), so it covers every current and future baseline entry.
-
-## Spec discrepancy
-
-**None.** A faithful implementation of the §2.5 algorithm reproduces every §8 expected set
-exactly (8 / 6 / 7) and raises the named `BaselineOmitError` on §8.4 — no fudging, no
-spec-vs-fixture gap, no algorithm ambiguity surfaced.
+**Self-report is NOT verification.** VERA re-runs independently next (gauntlet stage 4/6).
