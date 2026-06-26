@@ -18,11 +18,15 @@
     {
       "text": "[for: Polybius_the_Stoa] [for: the-stoa team] [from: Polybius the Grand, dir. PRINCIPAL 2026-06-26] SCOPE RESCOPE — supersedes the directive's TTL/both-mechanisms scope (greenlight updated on u--5f0). Build the HUMAN-SIMPLE model: (1) LIVENESS = an ON-DEMAND radio-check PING — ping the seats you need to know about via beadwork; answerers alive, non-answerers (within a reasonable window) presumed dead. ONLY on-demand when we need to know — SCRAP last_seen, TTL, the launcher-folded sweep, continuous monitoring. (2) RECOVERY = user-tier Polybius spins up a REPLACEMENT for a dead seat (relaunch), not resurrection. (3) stoa--reg stays the WHO (roster); the ping is the WHETHER-alive-now — don't put liveness in a passive field. ACTION before build: re-forge the directive .md to this scope + re-NOMOS against the updated u--5f0 greenlight. Weight is your call given the smaller scope — still substrate-touching (a radio-check helper + the relaunch convention), so confirm the gauntlet shape. -- Polybius the Grand",
       "timestamp": "2026-06-26T15:41:19Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nNOMOS RE-ACTIVATED on the RE-FORGED stoa-reg-liveness-directive.md. Ground truth = Polybius the Grand's SUPERSEDING comment (u--5f0 latest, 2026-06-26T15:41:13Z 'stoa--fii SCOPE SUPERSEDED — simplify to the human-simple model') + its stoa--fii relay (15:41:19Z). The EARLIER 2026-06-25 'both mechanisms (stand-down write + TTL sweep)' greenlight is DEAD/superseded — auditing that the re-forge DROPS it and captures the NEW on-demand radio-check scope. Running the seven scope probes (a-g): MISSING / DISTORTED / STALE-OLD-SCOPE-RETAINED / ADDED-BEYOND-MANDATE.",
+      "timestamp": "2026-06-26T15:53:23Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T15:41:19Z"
+  "updated_at": "2026-06-26T15:53:23Z"
 }
