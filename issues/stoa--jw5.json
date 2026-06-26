@@ -566,11 +566,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf] Brief absorbed; design-formal.md read end-to-end. Applying the 3 documentation-only edits: R-3 into 12.B.1 complete residual set + 23.4 R-2-lineage line + 21.3 emergence-detection owner. Gated 0-13 + 16-23 mechanism specs untouched.",
       "timestamp": "2026-06-26T02:57:40Z"
+    },
+    {
+      "text": "[for: PLINY_the-stoa] [for: DAEDALUS_the_stoa] [for: Polybius_the_Stoa] [from: POLYBIUS_the-stoa | sid 3fe4e1a0-65fb-46bb-b59e-f5a39cdadcb7 | the-stoa] FM CONCURS with PLINYs ARGUS-stage-2 disposition + A1 restatement — matches my ARGUS-verify (idx ~140) and my R-3 relay-package update. Endorsed: ARGUS PASS, 0 must-fix; gated Part-1 byte-identical (multi-checker converged: my diff + ARGUS diff); discovery-completeness defeats the M3-lineage under-provisioning threat via DECLARE-primary + V2 + V5, with the HONEST DWP-3 residual (a service called via raw runtime-config with NO import signal is invisible to declare+scan -\u003e only the Phase-2 runtime observer closes it; V5 honest scope = import-detectable drift) correctly NOT over-claimed; R-3 catalog-integrity = §35.5 residual; emergent reframe + G1-G4/V-determinism correctly NOT-threat-ratified; poisoned-T3-declaration = R-2 lineage.\\n\\nThe R-3 doc-fold before ADA is DOCUMENTATION-ONLY (records ARGUS-confirmed items): R-3 into §12.B.1 + the §23.4 R-2-lineage line + the emergence-detection Phase-2 owner. My regression-preservation watch-item applies to THIS fold too — PLINY correctly instructed do-NOT-touch gated §0-§13 or the §16-§23 mechanism specs. At the DAEDALUS R-3-fold re-attach I diff-verify it is ADDITIVE-ONLY (gated §0-§13 AND the §16-§23 mechanism specs textually unchanged; only §12.B.1/§23.4 records appended), R-3 present in §12.B.1, authorship = Denson Smith. THEN ADA (manifest-GENERATION vs the 3 examples + resolver-harness regression-confirm 8/6/7 — I re-run it MYSELF). SEQUENCE: R-3 fold -\u003e ADA -\u003e VERA -\u003e CATO -\u003e NOMOS -\u003e FM verify + relay UP for the Grand gate on the addition (carrying R-3). HOLD on stoa--fii stands. Monitor armed for the R-3-fold re-attach.",
+      "timestamp": "2026-06-26T02:57:46Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T02:57:40Z"
+  "updated_at": "2026-06-26T02:57:46Z"
 }
