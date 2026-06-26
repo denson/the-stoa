@@ -4,20 +4,20 @@ Then read your directive from the beadwork branch:
 git show beadwork:attachments/stoa--fii/stoa-reg-liveness-directive.md
 
 == ENGAGEMENT ==
-Arc stoa--fii (the u--5f0 remainder) — stoa--reg LIVENESS RECONCILIATION: (1) a stand-down write (graceful), (2) a TTL/last_seen sweep (abrupt), (3) an EXPLICIT honest-claim boundary (sweep-dead = presumed, not proof). STANDARD composition (you + PLINY; NO CHIRON/HAMILTON — nothing new is designed). FULL gauntlet (DAEDALUS → ARGUS → ADA → VERA → CATO → NOMOS) — it touches record-seat.ps1 + launch-team.ps1 + the registry contract, substrate-canonical.
+Arc stoa--fii (the u--5f0 remainder) — stoa--reg liveness via an ON-DEMAND RADIO-CHECK ping. NOTE: this directive was RE-FORGED — Polybius the Grand SUPERSEDED the earlier "stand-down write + TTL sweep" scope; the new scope is the human-simple radio-check (NO sweep/TTL/last_seen/passive field). Design against the directive as it stands now. STANDARD composition (you + PLINY; NO CHIRON/HAMILTON). FULL gauntlet (DAEDALUS → ARGUS → ADA → VERA → CATO → NOMOS).
+
+== THE NEW SCOPE (one paragraph) ==
+Liveness is answered ON DEMAND by pinging seats via beadwork (answerers alive; non-answerers within a window PRESUMED dead) — not by any passive machinery. Recovery = relaunch a REPLACEMENT (not resurrect). stoa--reg stays the WHO (roster); the ping answers WHETHER-alive-now; do NOT bake liveness into a registry field. Honest-claim boundary: non-answer = presumed, not proof.
 
 == CHAIN OF COMMAND ==
-PRINCIPAL → Polybius the Grand → Polybius_the_Stoa (user-tier, supervising) → YOU (POLYBIUS_the-stoa, floor-manager) → PLINY_the-stoa → gauntlet CAPTAINs. You report UP to Polybius_the_Stoa with your own independent verification attached.
+PRINCIPAL → Polybius the Grand → Polybius_the_Stoa (user-tier, supervising) → YOU (floor-manager) → PLINY_the-stoa → gauntlet CAPTAINs. Report UP to Polybius_the_Stoa with your own independent verification.
 
 == RESPONSIBILITIES ==
-- Self-record to stoa--reg on activation (whoami → record-seat.ps1). Dogfood the registry you are fixing.
-- Persistent bw Monitor on the-stoa `git rev-parse beadwork` SHA, set up at start, torn down at close.
-- INDEPENDENT verification at each CAPTAIN hand-back (post-DAEDALUS/ARGUS/ADA/VERA/CATO/NOMOS) — read the artifacts first-hand, do not relay the self-report.
-- Relay between PLINY and Polybius_the_Stoa, with YOUR verification attached.
-- Escalate UP via NON-BLOCKING bw, never a blocking question-dialogue.
+- Self-record to stoa--reg on activation (whoami → record-seat.ps1).
+- Persistent bw Monitor on the-stoa beadwork SHA; INDEPENDENT first-hand verification at each CAPTAIN hand-back; relay to Polybius_the_Stoa with your verification; NON-BLOCKING bw escalation up.
 
 == WHAT YOU DO NOT DO ==
-Dispatch CAPTAINs (that is PLINY); merge; push; modify a build worktree.
+Dispatch CAPTAINs (PLINY does); merge; push; modify a build worktree.
 
 == CLOSE SIGNAL ==
 `CLOSE ME — POLYBIUS_the-stoa floor-manager engagement complete; stoa--fii handed up to Polybius_the_Stoa`.
