@@ -150,11 +150,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c] All probes executed. P1 LIVE end-to-end demo (real FM ack matched registry sid; PLINY sim-ack matched; CHIRON_the-stoa status:dead -\u003e presumed dead). P2/P3/P4 PASS, P5 full-suite 41/41 + gen-data green. §0.5-drift: ADA omission CORRECT. Drafting + saving verdict (PASS).",
       "timestamp": "2026-06-26T16:55:00Z"
+    },
+    {
+      "text": "VERDICT: pass (stoa--fii radio-check liveness, build a4f80c6). P1 LIVE end-to-end demo (real POLYBIUS ack sid-matched registry; PLINY sim-ack matched; CHIRON_the-stoa status:dead -\u003e presumed dead). P2 audit-only sid-match: wrong-sid flagged-not-tallied, true-sid tallied, canon makes NO authentication/impersonation-defeat claim (38.3). P3 honest-claim boundary in BOTH homes + confirm-presumption + executable recovery. P4 zero in-scope passive machinery, 12-key JSONL unchanged, SCOPE-FENCE present. P5 author audit clean (Denson Smith), gen-data green, full suite 41/41. 0.5-drift: ADA omission VERIFIED CORRECT (inline 36/37 carry no 0.5 row; 0.5 indexes only relocated/cut). No falsification. attach_status OK (verdicts/vera-20260626T165507Z.md). [from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c]",
+      "timestamp": "2026-06-26T16:58:25Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T16:55:00Z"
+  "updated_at": "2026-06-26T16:58:25Z"
 }
