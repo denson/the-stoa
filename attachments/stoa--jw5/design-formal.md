@@ -2,10 +2,10 @@
 author: Denson Smith
 ticket: stoa--jw5 (u--9s2 Phase-1)
 seat: CAPTAIN_DAEDALUS_the_stoa (ARCHITECT)
-formalizes: agents/design/stoa--jw5/design-codesign.md (CHIRON+HAMILTON CO-DESIGN CONVERGED)
-grounding: agents/design/stoa--jw5/strabo-gcp-budget-cap.md + vera-strabo-citations-verdict.md
-status: FORMAL — Phase-1 buildable spec; gauntlet-facing
-as_of: 2026-06-25
+formalizes: agents/design/stoa--jw5/design-codesign.md (Part-1+2) + suggest-codesign.md (Part-3 SUGGEST CO-DESIGN CONVERGED)
+grounding: agents/design/stoa--jw5/strabo-gcp-budget-cap.md + vera-strabo-citations-verdict.md + gsearch neuro-symbolic dependency-inference (2026-06-26, §28)
+status: FORMAL — Phase-1 buildable spec; gauntlet-facing (Part-3 SUGGEST front-door §24–§31 added)
+as_of: 2026-06-26
 ---
 
 # u--9s2 Phase-1 — FORMAL SPEC: composable key-provisioning model + per-builder manifest
@@ -1027,6 +1027,12 @@ concrete initial state; it is exactly the services the §8 fixtures already exer
 authoritative; static SCAN is a build-time validator (drift / shadow-API cross-check), not the
 generator; a runtime observer is a named Phase-2 layer.**
 
+> **PART-3 CROSS-REF (note only; this §18 mechanism is UNCHANGED).** As of the SUGGEST increment (§24–§31),
+> the `services:` DECLARE this section consumes is **PRODUCED by the SUGGEST front-door** — agent-proposed
+> (§24) + **human-confirmed** (§26, fail-closed) — rather than hand-remembered. §18 treats the confirmed
+> set EXACTLY as today (it is byte-identical to a hand-authored DECLARE); SUGGEST is strictly upstream and
+> changes only HOW the DECLARE is produced, not what §18–§23 do with it (§24.0).
+
 | Pillar | Binding | Role |
 |---|---|---|
 | **(1) DECLARE — authoritative** | each skill/component DECLARES `services: [<service-id>, …]` in its `SKILL.md` frontmatter (manifest-source) | the **source of truth** GENERATION (§19) reads |
@@ -1375,6 +1381,15 @@ These are the Part-2-specific weak points (the Part-1 WP-1…WP-10 in §10 stand
   scan for the import-bearing majority. **ARGUS: confirm the no-import-signal service is an
   acknowledged Phase-1 gap closed only by the Phase-2 runtime observer — and that V5's scope is
   honestly "import-detectable drift," not "all drift."**
+  > **PART-3 STATUS UPGRADE (note only; this DWP-3 analysis is UNCHANGED).** The SUGGEST pillar (§24–§31)
+  > **PARTIALLY closes DWP-3 in Phase-1**: the neuro-symbolic SUGGEST agent (§28) resolves many
+  > dynamically-built / runtime-config endpoints that declaration-from-memory AND static scan miss, and
+  > the human-confirm gate (§26) catches the under-proposal. So DWP-3 is no longer "Phase-2-runtime-
+  > observer-ONLY"; it is **Phase-1 partially-closed via agent-examine + human-confirm**. What REMAINS
+  > Phase-2: (a) the suggesting-agent IMPLEMENTATION (§24.1); (b) a service reached via a path the agent
+  > ALSO cannot trace (truly data-driven endpoint tables / fully-dynamic dispatch) — still the Phase-2
+  > runtime-observer's job for the fully-dynamic case. Honest scope: the human-confirm gate (NOT inference
+  > completeness) is what makes the residual safe (§30 SWP-4).
 
 - **DWP-4 — the CATALOG is a new SoT / trust boundary (R-2-adjacent).** §17 makes the catalog the
   authoritative service→key map that generation trusts by construction. *Risk:* a malicious or
@@ -1422,6 +1437,380 @@ classifications (§35.1 — cannot be self-exempted downstream).**
 
 ---
 
+## 24. PART 3 — THE SUGGEST FRONT-DOOR (the discovery front-end, UPSTREAM of DECLARE)
+
+### 24.0 Frame + the load-bearing constraint (stated first, held absolutely)
+
+Part-2's discovery made **DECLARE authoritative** (§18) but leaned on a human / skill-author to
+**remember** every service called — the **DWP-3 gap** (a service reached via runtime-config / dynamic /
+indirect paths is invisible to declaration-from-memory *and* static scan). The SUGGEST pillar
+**inverts** the front-door: an **agent EXAMINES what the project is actually doing** (purpose, code,
+data-flows, intent) and **PROPOSES** the service set; a **human CONFIRMS**; the confirmed proposal
+**BECOMES the §18 DECLARE set.** The agent does the figuring-out; the human ratifies. Human-in-the-loop
+at suggest→confirm is the **FEATURE, not a gap** — it makes suggest-agent imperfection safe.
+
+**THE LOAD-BEARING CONSTRAINT (the §16.0 invariant, one layer up).** The gated mechanism is the FULL
+**§0–§23** (Part-1 resolver §2 + provisioning §4 S0–S6 + §8 fixtures + §11 fork + §12.A maps; Part-2
+catalog §17 + DECLARE/SCAN §18 + generation §19 + validation §20 + emergent reframe §21 + §22 seed +
+§23 examples) — **ALL STANDS TEXTUALLY UNCHANGED.** SUGGEST is **strictly UPSTREAM of DECLARE (§18)**:
+it changes only **how the DECLARE set is PRODUCED** (from hand-remembered to agent-proposed +
+human-confirmed); it emits the confirmed `services:` set that §18 already treats as generation's
+authoritative input. **The confirmed set IS the §18 DECLARE — unchanged downstream.** SUGGEST weakens
+NO V1–V5 (§20). The §8 fixtures (prospector 8 / scienceclaw 6 / labstat_bls 7) are a **REGRESSION
+TARGET** that must still be HIT, not re-derived. If any reframe pressured DECLARE-as-generation-input,
+`resolve()` (§2), or the §8 sets, that is a scope breach → STOP + dilemma-classify. **Nothing here
+does** (regression-confirmed §29.2, §30.A).
+
+```
+PROJECT (purpose / code / data-flows / intent docs)
+   │  agent EXAMINES (4 signal surfaces) → MATCHES catalog detection_hints (§25)
+   ▼
+PROPOSED service set + per-candidate EVIDENCE              [recommendation-only; INERT]
+   │  human-CONFIRM gate (§26, FAIL-CLOSED — the ONLY PROPOSE→DECLARE edge)
+   ▼
+confirmed `services:` set  ═══ IS the §18 DECLARE set ═══▶  §18 → §19 generate → §20 validate → §2 resolve() → §4 provision
+                                                            (§0–§23 ALL UNCHANGED — regression target 8/6/7)
+```
+
+### 24.1 Phase-1 vs Phase-2 boundary (SHAPE only — the suggesting agent is Phase-2)
+
+**Phase-1 (this spec):** the SUGGEST→confirm→DECLARE front-door SHAPE (§24–§26), the additive
+`detection_hints` catalog FIELD STRUCTURE (§25), the tier/ownership model (§27), the honest capability
+scope (§28), and the three worked examples + the fail-closed no-confirm branch (§29). **Phase-2:** the
+suggesting-agent IMPLEMENTATION (the actual examination / inference engine), the `detection_hints`
+catalog DATA (beyond the §25.3 seed hints driving the worked examples), and the confirm-gate UI. The
+§29 self-runs prove the front-door CHOREOGRAPHY on the §22 seed; the inference engine's real-world
+accuracy is a Phase-2 build-and-measure surface (§28).
+
+---
+
+## 25. The per-service DETECTION-HINT catalog fields (additive, T1, ADVISORY)
+
+The SUGGEST agent needs a way to map **"what the project is doing"** → **candidate catalog services**.
+The §17 catalog record (the T1 service→typed-entries structure) gains **one additive, optional,
+per-service `detection_hints` field** — the recognizable signals the agent matches against the examined
+project. The §17.1 record schema is **otherwise unchanged**; this is a new optional field on it.
+
+```yaml
+# catalog/<service-id>.yaml  — the §17.1 record, with ONE additive optional field appended:
+- service-id: <id>
+  entries: [ ... ]                  # (§17.1) the HARD provisioning recipe — typed §3 entries, UNCHANGED + authoritative
+  gcp_api: <...> ; category: <...>  # (§17.1) UNCHANGED
+  detection_hints:                  # NEW (Part-3): ADVISORY inference signals for the SUGGEST agent (§24)
+    sdk_imports:   [ <library / SDK / package names that indicate this service> ]
+    url_patterns:  [ <hostname / endpoint / API-base-URL patterns the service is called at> ]
+    config_keys:   [ <env-var / config-key name patterns this service reads> ]
+    data_signals:  [ <data-flow / file-type / resource signals, e.g. spatial-data → a geo service> ]
+```
+
+### 25.1 ADVISORY hints, DISTINCT from the HARD recipe (the load-bearing distinction)
+
+`detection_hints` are **advisory inference signals** the SUGGEST agent uses to RECOGNIZE a service in
+the project. They are **NOT** the service's provisioning recipe. The hard recipe is the service's
+**`entries`** (the typed §17.1/§3 entries: the actual keys/APIs/extensions to provision) — **unchanged,
+authoritative, untouched by this increment.**
+
+**The load-bearing property: a wrong or missing hint can only mis-PROPOSE, NEVER mis-PROVISION.** Hints
+feed ONLY the agent's *proposal*; the human confirms (§26); and provisioning still runs off the
+**confirmed service's `entries`** (§17.1, via the unchanged §18→§19→§20→§2→§4 path). So a sloppy hint
+cannot mis-provision — it can only mis-*propose*, which the §26 human-confirm gate catches. (Symmetric
+with §17.2.2: runtime-completeness is a catalog-construction invariant on `entries`, which
+`detection_hints` never touches.)
+
+### 25.2 Structural invariants (the catalog-side contract for Part-3)
+
+1. **Additive + open-closed.** `detection_hints` is a new OPTIONAL field on the existing §17.1 record;
+   the resolver (§2), generation (§19), validation (§20), the §17.2 invariants, and every existing
+   record are **closed for modification, open only for additive extension** (§17.4 governance,
+   unchanged). The SUGGEST agent and generation are **hint-agnostic**: generation reads `entries` only;
+   ONLY the agent's *matching pass* (§24, S-2) reads `detection_hints`.
+2. **The catalog is the candidate-service SPACE.** The SUGGEST agent proposes ONLY services that EXIST
+   in the catalog (§17). An examined signal with NO catalog match → surface "unknown service — add to
+   catalog" (the §20 V1 every-service-cataloged lineage, one layer up — same V1 discipline). So the
+   catalog BOUNDS what can be suggested; the hints are how the agent RECOGNIZES the bounded set.
+3. **Runtime-completeness preserved.** A hint maps to a *service*; the service's `entries` (incl. the
+   §3.4 paired credential, e.g. google-maps ⇒ `MAPS_API_KEY`) come from the unchanged §17.1 record — so
+   a confirmed suggestion carries the FULL entry set into the unchanged generation (§17.2.2 invariant
+   holds; SUGGEST adds nothing the generator must remember).
+
+### 25.3 Phase-1 vs Phase-2 (detection hints)
+
+**Phase-1 (this spec):** the `detection_hints` field STRUCTURE (§25) + the four seed-hint sets the §29
+worked examples exercise (google-maps Maps-JS/maps-URL; spatial-db spatial-data signal; document-parsing
+parse-SDK/URL; bls-oews BLS-OEWS url_pattern/config_key). **Phase-2:** the populated `detection_hints`
+DATA for every other cataloged service. The seed hints are exactly the four §22 services the §8 fixtures
+already exercise — the concrete Phase-1 initial state.
+
+---
+
+## 26. The human-CONFIRM FAIL-CLOSED gate (the ONLY PROPOSE→DECLARE edge; load-bearing)
+
+The gate is the **only** edge from PROPOSE → DECLARE. **Fail-closed:** a proposal becomes a DECLARE set
+**iff** a human ratifies it.
+
+```
+CONFIRM(proposal):
+  C-1  PRESENT the proposed service set + per-candidate EVIDENCE (§24 S-3) to the human (project seat / operator).
+  C-2  human acts:  CONFIRM (accept) | EDIT (add/remove services, then confirm) | REJECT / no-response.
+  C-3  ONLY a CONFIRMED (possibly EDITED) set becomes the DECLARE set. The PROPOSE→DECLARE edge passes
+       through C-2 EXCLUSIVELY — there is NO auto-promotion path.
+  C-4  FAIL-CLOSED:  REJECT / no-response / edits-pending  ⇒  NO DECLARE set  ⇒  NO §18 input
+                     ⇒ NO §19 generation ⇒ NO §20 validation ⇒ NO resolved set ⇒ NOTHING provisions.
+                     An unconfirmed proposal is INERT — it never reaches the downstream.
+  C-5  FEED: the confirmed set IS the §18 DECLARE `services:` set — generation's authoritative input,
+       UNCHANGED. §18–§23 (DECLARE / SCAN / G1–G4 / V1–V5 / resolve / provision) run EXACTLY as today on
+       the confirmed DECLARE. SUGGEST adds NO downstream change and weakens NO V1–V5 check.
+```
+
+### 26.1 The fail-closed property, stated precisely
+
+Let `P` = the agent's proposed set and `D` = the §18 DECLARE set. The gate is the function
+`D := confirm(P)` with the EXCLUSIVE definition:
+
+- `confirm(P) = P` iff the human issues CONFIRM on `P` unedited;
+- `confirm(P) = P'` iff the human issues EDIT to `P'` then CONFIRM (the human's ratified set is authoritative);
+- `confirm(P) = ⊥` (NO DECLARE produced) on REJECT, no-response, or edits-pending.
+
+`⊥` is **inert**: with no `D`, §18 has no input, so §19/§20/§2/§4 never run — **nothing provisions.**
+There is **no path** by which `P` reaches §18 except through a human-issued CONFIRM (C-3 exclusivity).
+This is the structural expression of "safety = this gate, not the agent's accuracy," symmetric with the
+existing fail-closed posture (§20 V1–V5, §4 S2c human-secret gate, §2.6 `BaselineOmitError`).
+
+### 26.2 Why fail-closed + HITL IS the safety mechanism (not gold-plating)
+
+The §28 failure modes (over-/under-proposal, ambiguity) are exactly the cases only a human with
+operational context can adjudicate. The gate converts the agent's *probabilistic proposal* into a
+*human-authoritative declaration*:
+
+- **over-proposal is caught** — the human removes a hallucinated service → no bloat; and per §25.1 a
+  wrong hint can only mis-propose, never mis-provision;
+- **under-proposal is caught** — the human adds a missed service → no under-provision;
+- **downstream is unchanged** — V1–V5 (§20) still run on the confirmed DECLARE (V2 anti-under-provision,
+  V4 §3.4 runtime-completeness, V1 every-cataloged), so SUGGEST **cannot weaken** the proven guarantees.
+
+### 26.3 Phase-1 vs Phase-2 (confirm gate)
+
+**Phase-1 (this spec):** the gate's SHAPE + the fail-closed property (§26, §26.1) — the C-1…C-5 contract
+and the `D := confirm(P)` definition the downstream relies on. **Phase-2:** the confirm-gate UI (how the
+proposal + evidence are surfaced and how CONFIRM/EDIT/REJECT are captured). The fail-closed PROPERTY is
+Phase-1 (it is a contract the downstream depends on); only its presentation is Phase-2.
+
+---
+
+## 27. SUGGEST tier / ownership + the provenance through-line
+
+| Element | Tier | Owner | Note |
+|---|---|---|---|
+| The **SUGGEST agent** (examines → proposes) | **T1** | cookie-cutter capability | generic; any builder runs it; reads the T1 catalog(+hints) |
+| `detection_hints` catalog fields (§25) | **T1** | cookie-cutter | additive; arc-reviewed (R-3 catalog-integrity lineage, §23.4 / §31, applies) |
+| What the agent **examines** (project purpose/code/data-flows/intent) | **T3** | the project (its product) | the agent reads the project's actual behavior |
+| The **human-confirm gate** (§26) | human-in-the-loop | the project seat's human / operator | the fail-closed ratification — the FEATURE |
+| The **confirmed DECLARE set** | **T2** | derived (agent-proposed + human-ratified) | the per-builder declaration, no longer hand-remembered; IS the §18 input |
+
+**Provenance through-line (the manifest's source-of-truth, one notch further each pillar):**
+**P1** (Part-1) hand-authored manifest → **P2** (Part-2) manifest *derived from* T3 `services:`
+declarations through the T1 catalog → **P3** (Part-3) the declarations themselves
+**agent-proposed + human-ratified**, not hand-remembered. Each step pushes the manifest's provenance one
+notch further from "a human remembered" toward "derived + ratified"; the tier model is preserved
+throughout, and the manifest stays a **derived, human-gated** T2 artifact.
+
+---
+
+## 28. Honest capability scope (web-verified; USEFULNESS, not safety — FM watch-item 2)
+
+The premise "an agent can examine a project and propose a plausible service set" is **web-verified**
+(gsearch, current docs 2026-06-26 — NOT from memory; re-verified by DAEDALUS at formalization, on top of
+the co-design's gsearch check): 2026 agents do this via a **neuro-symbolic** flow (manifest/config parse
++ AST/CPG outbound-call analysis + LLM resolution of dynamically-built endpoints + README/OpenAPI
+reconciliation), and they **outperform classical static scanners** exactly on the DWP-3 cases — custom
+wrappers, evolving APIs, `https://{env.TENANT}.api.../v2`-style dynamic endpoints that
+declaration-from-memory and pure static scan miss. Microsoft's **DI-BENCH** records dependency-related
+issues as >40% of runtime errors in automated repos (the gap SUGGEST narrows); frameworks like
+**LogicLoc** translate discovered facts into Datalog for symbolic verification. **That is the SUGGEST win.**
+
+But agent inference is **probabilistic, not authoritative**, with named failure modes the design must
+NOT paper over:
+
+- **over-proposal / hallucination** — a service inferred from a `/billing` dir, a mock class, or a
+  README aspiration that the code never actually calls;
+- **under-proposal** — a service the agent misses (dynamic resolution it could not trace, dead/legacy code);
+- **ambiguity** — mock-vs-active, internal-microservice-vs-external-SaaS, config-placeholder endpoints.
+
+**Therefore the capability claim is a USEFULNESS claim, NOT a safety one.** It governs how much SUGGEST
+reduces human effort + catches DWP-3 cases — *not* whether the system is safe. **Safety rests ENTIRELY
+on the §26 human-confirm gate + the unchanged fail-closed V1–V5** (the HITL sign-off the industry treats
+as essential for agent-proposed inventories, à la SBOM/SaaSBOM). **Agent-inference ACCURACY = USEFULNESS,
+measured in Phase-2; it is NEVER a Phase-1 safety claim, and the design makes NO suggest-completeness
+claim.** Residual gaps are caught by human-confirm (§26) + the §18 SCAN-drift validator + the Phase-2
+runtime-observer.
+
+**Web-verification provenance:** gsearch (Gemini grounded search, current docs) 2026-06-26 — neuro-
+symbolic dependency-inference (DI-BENCH >40%-of-runtime-errors finding; LogicLoc Datalog verification;
+NeSy outperforms static analysis on dynamic/string-interpolated endpoints). NOT asserted from training
+memory; this is the §6.4 live-constraint check at the authoring seat.
+
+---
+
+## 29. The three worked examples VIA SUGGEST (regression target 8 / 6 / 7) + the fail-closed branch
+
+Each shows: agent EXAMINES → MATCHES `detection_hints` (§25) → PROPOSES + evidence → human CONFIRMS →
+**the same DECLARE set §23 already validated** → unchanged §18–§23 generation → 8/6/7. **These ARE ADA's
+SUGGEST fixtures + VERA's front-door probes:** `confirm(propose(examine(project))) == EXPECTED_DECLARE`
+(the §23 `services:` set) and then the unchanged §23 generation hits the §8 set. SUGGEST produces the
+**byte-identical** DECLARE sets; the downstream is untouched. (Self-run below; ADA/VERA verify independently.)
+
+### 29.1 The three SUGGEST fixtures (examine → propose → confirm → DECLARE → 8/6/7)
+
+**prospector** — agent examines a geo project (renders a client-side map; runs spatial queries):
+```
+EXAMINE: Maps-JS SDK import (surface i/ii) ; maps URL pattern (surface ii) ; spatial-data flow (surface iii)
+MATCH:   Maps-JS sdk_import / maps url_pattern → google-maps ;  spatial-data data_signal → spatial-db
+PROPOSE: [google-maps, spatial-db] + evidence{ google-maps: Maps-JS import+URL ; spatial-db: spatial-data signal }
+CONFIRM: human accepts → DECLARE services: [google-maps, spatial-db]      (== §23 prospector DECLARE)
+→ (§18→§19→§20→§2, UNCHANGED) GENERATED {category: geospatial, delta: {}} → resolve() = 8   ✓ §8.1 / §23.1 (target HIT)
+```
+
+**scienceclaw** — agent examines a doc-consuming project:
+```
+EXAMINE: document-parsing SDK import + parse URL (surfaces i/ii)
+MATCH:   document-parsing sdk_import/url_pattern → document-parsing
+PROPOSE: [document-parsing] + evidence{ document-parsing: parse-SDK import }
+CONFIRM: human accepts → DECLARE services: [document-parsing]             (== §23 scienceclaw DECLARE)
+→ (UNCHANGED) GENERATED {category: document-consuming, delta: {}} → resolve() = 6   ✓ §8.2 / §23.1 (target HIT)
+```
+
+**labstat_bls** — agent examines a doc/data project calling a BLS REST endpoint (the load-bearing DWP-3
+case declaration-from-memory might miss; the agent INFERS it from the BLS URL/config signal):
+```
+EXAMINE: document-parsing SDK (surface i/ii) ; BLS-OEWS base-URL + BLS_OEWS_API_KEY config key (surfaces ii/i)
+MATCH:   document-parsing → document-parsing ;  BLS-OEWS url_pattern/config_key → bls-oews
+PROPOSE: [document-parsing, bls-oews] + evidence{ bls-oews: BLS-OEWS URL + BLS_OEWS_API_KEY config-key signal }
+CONFIRM: human accepts → DECLARE services: [document-parsing, bls-oews]   (== §23 labstat_bls DECLARE)
+→ (UNCHANGED §19) GENERATED {category: document-consuming,
+                             delta: {add: [{kind: thirdparty_rest_key, name: BLS_OEWS_API_KEY}]}}
+→ resolve() = 7   ✓ §8.3 / §23.1 (target HIT)
+```
+**Load-bearing:** the agent *inferring* `bls-oews` from a URL/config signal — a service
+declaration-from-memory could have MISSED — then human-confirmed, is **exactly the DWP-3 upgrade**. The
+confirmed DECLARE `[document-parsing, bls-oews]` is **byte-identical** to the §23.1 labstat_bls DECLARE,
+which generates the §8.3 manifest byte-for-byte (kind `thirdparty_rest_key`, NO gcloud-enable —
+`gcp_api: none`). SUGGEST produces the DECLARE the gauntlet already validated; §18–§23 + the resolver are untouched.
+
+### 29.2 THE FAIL-CLOSED NO-CONFIRM BRANCH (FM watch-item 1 — the load-bearing safety probe)
+
+The same prospector proposal, human does NOT confirm:
+```
+EXAMINE → MATCH → PROPOSE [google-maps, spatial-db]
+human does NOT confirm  (REJECT / edits-pending / no-response)
+  → confirm(P) = ⊥   →  NO DECLARE set produced      (the proposal is NOT silently promoted to DECLARE)
+  → NO §18 input  →  NO §19 generation  →  NO §20 validation  →  NO resolved set  →  NOTHING provisions   [FAIL-CLOSED]
+```
+An unconfirmed proposal is **INERT** — it never becomes DECLARE, so it never reaches §18/§19/§20/§2/§4.
+This is the safety net for suggest-agent error (over- OR under-proposal): the §26 human-confirm gate is
+the only path from PROPOSE → DECLARE, and it is fail-closed. It does **not** weaken V1–V5 — those still
+run on whatever DECLARE the human *does* confirm; the no-confirm branch simply produces no DECLARE at
+all. *(Human EDITS a proposal — add/remove a service before confirming — then the EDITED-confirmed set
+becomes DECLARE; same gate, the human's ratified set is authoritative, per §26.1.)*
+
+### 29.3 §16.0/§24.0-constraint compliance + regression confirmation
+
+- `resolve()` (§2), provisioning (§4 S0–S6), discovery (§18), generation (§19 G1–G4), validation (§20
+  V1–V5), the emergent reframe (§21), the §22 seed, and the §23 examples are **TEXTUALLY UNCHANGED** —
+  SUGGEST is a pure upstream front-end that produces the same confirmed `services:` set §18 already consumes.
+- The §8 sets (8/6/7) are **HIT, not re-derived** (§29.1) — SUGGEST emits the §23 DECLARE sets, which
+  generate the §8 manifests byte-for-byte; labstat_bls's confirmed DECLARE is byte-identical to §23.1's.
+- The §12.A threat-maps (M1–M4/M6) and the §23.4 Part-2 classifications are **untouched** — SUGGEST
+  defeats no new threat and weakens no existing mitigation (V1–V5 still run on the confirmed DECLARE).
+  **NO pressure on `resolve()`, the §8 sets, the threat-maps, or the §0–§23 mechanism arose → no dilemma
+  to classify.** The targeted gauntlet **regression-confirms** the §0–§23 downstream and **exercises the
+  NEW SUGGEST→confirm→DECLARE front-door** (esp. the §29.2 fail-closed no-confirm branch) against §29.1.
+
+---
+
+## 30. Self-assessed weak points — SUGGEST ADDITION (for ARGUS to pressure-test)
+
+These are the Part-3-specific weak points (the Part-1 WP-1…WP-10 in §10 and the Part-2 DWP-1…DWP-5 in
+§23.3 stand unchanged; the §30.B note UPGRADES DWP-3's *status*, not its analysis):
+
+- **SWP-1 — the capability premise is web-verified but Phase-2 implementation.** §28 web-verifies
+  *that* a neuro-symbolic agent CAN infer services + outperform static scan (DI-BENCH / LogicLoc), but
+  the actual examination/inference engine is Phase-2 unbuilt code. *Risk:* the agent's real-world
+  recall/precision (its over-proposal rate on mock/aspirational signals, its under-proposal rate on the
+  very dynamic patterns §28 names) is asserted from the literature, not measured. *Why this shape
+  anyway:* accuracy = USEFULNESS, not safety (§28) — a weak agent degrades SUGGEST to a weaker effort-
+  saver, it does NOT corrupt the system, because the §26 fail-closed gate + unchanged V1–V5 make any
+  proposal safe regardless of inference quality. **ARGUS: confirm a weak/absent Phase-2 inference engine
+  leaves the system SAFE (the gate is load-bearing, not the agent's accuracy) and that the design makes
+  NO suggest-completeness claim.**
+
+- **SWP-2 — the confirm-gate UX / operational assumptions are unspecified (Phase-2).** §26 specifies the
+  fail-closed PROPERTY (`D := confirm(P)`, C-1…C-5) but not the gate's UX, nor the operational shape of
+  "no-response" (is it a timeout? a CI block? a one-time prompt?), nor how per-candidate EVIDENCE is
+  surfaced richly enough for a human to adjudicate the §28 ambiguity cases. *Risk:* a poorly-built gate
+  could pressure a human toward rubber-stamp-confirm (defeating the safety the gate exists for) or make
+  EDIT so painful that under-proposals slip through unedited. *Why this shape anyway:* the fail-closed
+  PROPERTY (the thing the downstream depends on) is Phase-1 and complete; the UX is a Phase-2 build
+  surface (§26.3). **ARGUS: is the fail-closed PROPERTY sufficient for Phase-1, or does the gate's
+  human-factors design (anti-rubber-stamp, evidence-richness) need to be a named Phase-1 contract rather
+  than deferred wholesale to Phase-2?**
+
+- **SWP-3 — does the SUGGEST agent reading the project cross a NEW trust boundary?** The SUGGEST agent
+  (T1, §27) reads T3 project behavior (code, config, data-flows). It is a NEW actor that ingests
+  potentially sensitive project material to produce a proposal. *Risk:* (a) if the agent's read surface
+  or its proposal channel were compromised, could it bias the proposal toward an over-scoped service set?
+  — but per §26 a biased proposal is still caught by the human gate and cannot mis-provision (§25.1), so
+  the blast radius is "wasted human-review attention," not over-grant. (b) The agent does NOT write the
+  catalog and does NOT provision — it only proposes; the existing R-2 (manifest-integrity) and the
+  §23.4-candidate R-3 (catalog-integrity) trust boundaries are **unchanged** by SUGGEST (the agent reads
+  the catalog, it does not edit it). *Why this shape anyway:* SUGGEST adds a READ-ONLY proposing actor
+  whose output is INERT until human-confirmed — it touches no provisioning authority. **I PROPOSE
+  SUGGEST introduces NO new threat-ratified mitigation and NO new named residual: the agent-read surface
+  is R-2/R-3-adjacent but its output is gated to inert, so it neither defeats a threat nor opens a new
+  attack path (§31). ARGUS: CONFIRM SUGGEST adds no new trust boundary beyond the existing R-2 / candidate
+  R-3 — or surface a distinct SUGGEST-specific residual (e.g. "proposal-channel integrity") if the
+  read-and-propose actor warrants its own naming.**
+
+- **SWP-4 — the DWP-3 upgrade honest scope: SUGGEST closes MORE, the GATE makes it safe (not
+  completeness).** §30.B upgrades DWP-3's status from "Phase-2-runtime-observer-only" to "Phase-1
+  partially closed via agent-examine + human-confirm." *Risk:* over-reading this as "DWP-3 solved" —
+  it is NOT. SUGGEST narrows the runtime-config gap (the agent's neuro-symbolic flow resolves
+  dynamically-built endpoints static scan misses, §28), but a service reached through a path the agent
+  ALSO cannot trace (truly data-driven endpoint tables, fully-dynamic dispatch) is still missed at
+  suggest-time; only human knowledge (caught at the §26 gate) or the Phase-2 runtime-observer closes
+  that fully. *Why this shape anyway:* the SAFETY does not depend on closing DWP-3 completely — the
+  human-confirm gate catches under-proposal regardless of the agent's reach, and the §18 SCAN + Phase-2
+  observer remain the named drift/runtime layers. **ARGUS: confirm DWP-3 is honestly stated as
+  "Phase-1 PARTIALLY closed by SUGGEST (more than declare-from-memory + scan), fully closed only by the
+  Phase-2 runtime-observer," and that the human-confirm gate — NOT inference completeness — is what makes
+  the residual safe.**
+
+---
+
+## 31. SUGGEST-addition threat classification (op-disc §35.1 — DAEDALUS PROPOSES; ARGUS CONFIRMS)
+
+SUGGEST is an **upstream SHAPE/choreography change**; I classify its security relevance so no element
+carries NO §35.1 classification:
+
+| Element (new §) | PROPOSED classification |
+|---|---|
+| `detection_hints` catalog field (§25) | **not threat-ratified** (additive ADVISORY structure; per §25.1 a wrong/missing hint can only mis-PROPOSE, never mis-provision — no runtime attack path; provisioning rides the unchanged §17.1 `entries` whose completeness IS already M3, §12.A) |
+| The SUGGEST examine→match→propose step (§24) | **not threat-ratified** (a READ-ONLY recommendation-producer; its output is INERT until the §26 gate — no provisioning authority, no runtime attack path) |
+| The human-CONFIRM fail-closed gate (§26) | **not threat-ratified — a FAIL-CLOSED SAFETY GATE, not a threat-defeating mitigation.** It is the structural reason SUGGEST cannot mis-provision (parallel to §20 V1–V5 / §4 S2c), but it defeats no NAMED threat with a runtime attack path; it makes an imperfect *proposal* safe. (It does NOT weaken any existing M1–M4/M6 or the fail-closed V1–V5.) |
+| SUGGEST tier/ownership + provenance (§27) | **not threat-ratified** (provenance/process change; the manifest stays a derived, human-gated T2 artifact — R-2 lineage UNCHANGED, reached one step further upstream at the proposal, but the human gate is the same review locus) |
+| The SUGGEST agent reading T3 project behavior (§27, SWP-3) | **not threat-ratified — R-2/R-3-ADJACENT, NOT a distinct threat.** A read-only proposing actor whose output is gated to INERT touches no provisioning authority; a biased read can only mis-PROPOSE (caught by §26), blast radius = wasted human-review attention, NOT over-grant. The existing R-2 (manifest-integrity) + §23.4-candidate R-3 (catalog-integrity) are unchanged (the agent reads, does not edit, the catalog). **ARGUS: CONFIRM no new named residual, OR surface a distinct "proposal-channel integrity" residual if the read-and-propose actor warrants its own naming.** |
+
+**Why no threat-anchored probe (op-disc §35.5 self-carve-out, §6.13):** every SUGGEST element above is
+PROPOSED **not threat-ratified** (process/choreography/structure change with NO new runtime attack path)
+— SUGGEST DEFEATS no new threat; it produces the §18 DECLARE whose EXISTING mitigations (M1–M4/M6, §12.A)
+already carry their threat-anchored probes, and the §26 gate is a fail-closed SAFETY gate (like V1–V5),
+not a named-threat defeat. The §29.2 fail-closed no-confirm branch is the load-bearing **safety probe**
+(VERA exercises it) but it verifies the gate's fail-closed PROPERTY, not a threat-defeat — consistent
+with §35.5 (the layer verifies named-threat COVERAGE; threat-ENUMERATION completeness stays ARGUS's
+residual). **ARGUS confirms or revises all classifications (§35.1 — cannot be self-exempted downstream),
+incl. the SWP-3 read-actor classification.**
+
+---
+
 ## 14. DoD coverage (directive §6 + brief's 10 elements)
 
 | # | Element | Where |
@@ -1453,6 +1842,20 @@ classifications (§35.1 — cannot be self-exempted downstream).**
 | P8 | self-assessed weak points for the discovery addition (DWP-1…DWP-5) + Part-2 threat classification (PROPOSED not-threat-ratified; candidate R-3 catalog-integrity) | §23.3, §23.4 |
 | — | §2-constraint compliance + regression confirm (resolver §2 + provisioning §4 + §8 sets + §12.A threat-maps TEXTUALLY UNCHANGED; 8/6/7 HIT not re-derived; no dilemma) | §16.0, §23.2 |
 
+**Part-3 DoD coverage (the SUGGEST front-door — u--9s2 Phase-1 increment; Part-3 brief §5):**
+
+| # | Part-3 element | Where |
+|---|---|---|
+| S1 | the SUGGEST step (agent EXAMINES 4 signal surfaces → MATCHES catalog detection_hints → PROPOSES candidate set + per-candidate evidence; candidate space BOUNDED by the catalog; uncataloged signal → "unknown service, add-to-catalog" V1 lineage; recommendation-only, INERT until the gate) | §24, §25.2.2 |
+| S2 | per-service `detection_hints` catalog fields (additive optional §17.1 field {sdk_imports,url_patterns,config_keys,data_signals}; ADVISORY, DISTINCT from the hard §17.1 `entries` recipe; a wrong hint only mis-PROPOSES, never mis-provisions) | §25 |
+| S3 | human-CONFIRM FAIL-CLOSED gate (the ONLY PROPOSE→DECLARE edge; D := confirm(P); no auto-promotion; reject/no-response/pending → ⊥ INERT → nothing provisions; confirmed set IS the §18 DECLARE; weakens no V1–V5) | §26 |
+| S4 | honest capability scope (web-verified neuro-symbolic, gsearch 2026-06-26; PROBABILISTIC with named failure modes over/under-proposal+ambiguity; accuracy = USEFULNESS Phase-2, NOT safety; gate makes imperfection safe; no completeness claim; web-verification provenance recorded) | §28 |
+| S5 | tier/ownership (SUGGEST agent T1 / examined project T3 / human-confirm HITL / confirmed DECLARE T2) + provenance through-line P1 hand-authored → P2 derived → P3 agent-proposed+human-ratified | §27 |
+| S6 | three worked examples VIA SUGGEST → DECLARE → 8/6/7 (machine-checkable SUGGEST fixtures; labstat_bls infers bls-oews from URL/config → +BLS_OEWS_API_KEY → 7) + the FAIL-CLOSED no-confirm INERT branch | §29.1, §29.2 |
+| S7 | self-assessed weak points for the SUGGEST addition (SWP-1…SWP-4) + Part-3 threat classification (PROPOSED not-threat-ratified; SWP-3 read-actor R-2/R-3-adjacent) | §30, §31 |
+| S8 | DWP-3 status UPGRADE (SUGGEST Phase-1 PARTIALLY closes the runtime-config gap; suggesting-agent IMPL + fully-dynamic case remain Phase-2; gate makes residual safe — honest, not over-claimed) | §23.3 (note), §30 SWP-4 |
+| — | §16.0/§24.0-constraint compliance + regression confirm (gated §0–§23 TEXTUALLY UNCHANGED; SUGGEST strictly upstream of §18; 8/6/7 HIT not re-derived; no dilemma) | §24.0, §29.3 |
+
 ---
 
 ## 15. Provenance
@@ -1475,3 +1878,19 @@ the `{category, delta}` manifest the Part-1 resolver consumes; **the Part-1 reso
 sections only (§16.0 load-bearing constraint; §23.1 self-run confirms 8/6/7; §23.2 regression-confirm).
 No redesign of Part 1; SHAPE-only addition (catalog STRUCTURE + choreography + reframe; the catalog
 DATA / scanner / generator code / runtime observer are Phase-2, §16.1 / §13). **Author: Denson Smith.**
+
+**Part 3 (§24–§31, the SUGGEST front-door — u--9s2 Phase-1 increment):** formalized by
+**CAPTAIN_DAEDALUS_the_stoa** from the CHIRON+HAMILTON **SUGGEST CO-DESIGN CONVERGED** unified doc
+(`agents/design/stoa--jw5/suggest-codesign.md`; HAMILTON's choreography half at
+`suggest-choreography-hamilton.md`), with the agent-inference capability premise **web-RE-verified at
+the formalization seat** (gsearch / current docs 2026-06-26: neuro-symbolic dependency-inference,
+DI-BENCH >40%-of-runtime-errors finding, LogicLoc Datalog verification — §28; the §6.4 live-constraint
+check, NOT memory). CHIRON's lens: per-service `detection_hints` catalog fields (advisory, distinct
+from the hard recipe) + SUGGEST-step tier/ownership. HAMILTON's lens: the SUGGEST→confirm→DECLARE
+choreography + the human-confirm fail-closed gate + the examination flow. SUGGEST is **strictly UPSTREAM
+of DECLARE (§18)** — it PRODUCES the confirmed `services:` set §18 already consumes; **the gated §0–§23
+(Part-1 resolver/provisioning/§8/maps + Part-2 catalog/discovery/generation/validation/reframe) STAND
+TEXTUALLY UNCHANGED** (regression target 8/6/7 HIT, not re-derived — §29). Part 3 added new sections only
+(§24–§31) plus two NOTE-ONLY cross-refs into the gated body (§18.1 DECLARE-input provenance; §23.3 DWP-3
+status upgrade) — neither changes any mechanism. SHAPE-only addition (the suggesting-agent IMPLEMENTATION
+/ `detection_hints` DATA / confirm-gate UI are Phase-2, §24.1 / §25.3 / §26.3). **Author: Denson Smith.**
