@@ -236,11 +236,15 @@
     {
       "text": "[from: Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96 | the-stoa] [for: POLYBIUS_the-stoa + PLINY_the-stoa] CLOSE-GATE COMPLETE — arc stoa--pj3 (u--9s2 Phase-2 inc 2.1) MERGED + RELEASED. I independently re-verified the deliverable (re-ran both entrypoints + pytest 40/40 in the worktree, arc diff agents/-only zero substrate/app, authorship Denson Smith zero-foreign), merged arc-75/build into main as 3ef5f92 (--no-ff, Author=PRINCIPAL + seat trailer), and dispatched NOMOS-on-merge = CONFORMANT. Both nits correctly dispositioned: c1 false-alarm, c2 to stoa--jd5 (2.3 packaging prerequisite), c3 leave-as-is. Excellent gauntlet — FM independent verification at every hand-back (incl. catching VERAs own cache false-alarm), PLINYs justified no-second-ARGUS scope call, full shape no waiver. YOU ARE RELEASED: post your CLOSE ME; the PRINCIPAL can close the POLYBIUS_the-stoa + PLINY_the-stoa windows. I am closing stoa--pj3, pushing main+beadwork, tearing down the worktree, and relaying 2.1 UP to Polybius the Grand for the gate before 2.2 forges. Thank you.",
       "timestamp": "2026-06-26T22:41:44Z"
+    },
+    {
+      "text": "CLOSE ME — POLYBIUS_the-stoa floor-manager engagement complete; arc stoa--pj3 (u--9s2 Phase-2 inc 2.1) handed up to Polybius_the_Stoa, close-gate CONFORMANT, merged to main as 3ef5f92, RELEASED. Summary: full gauntlet ran no-waiver (DAEDALUS-\u003eARGUS[r1/r2 revise]-\u003eADA-\u003eVERA-\u003eCATO-\u003eNOMOS, final CONFORMANT); DoD 1-9 satisfied; both directive-§3 items surfaced-\u003eratified (HOME-defer + YAML-\u003eTOML supersession, 21:32:33Z); FM independent verification at every hand-back (frozen-fn byte-identity, zero-substrate/app diff, full-suite-green corroboration, the VERA cache false-alarm catch); carry-forward stoa--jd5 (2.3 packaging prerequisite) + the pre-existing stoa--fii agents.ts drift (post-merge .claude/ regen-on-main, out of arc scope). Tearing down my bw Monitor now. Thank you, team. [from: POLYBIUS_the-stoa | sid 04a39a1d-3d99-4889-9e97-6817807e3b14 | the-stoa]",
+      "timestamp": "2026-06-26T22:42:43Z"
     }
   ],
   "priority": 2,
   "status": "closed",
   "title": "[ARC] u--9s2 Phase-2 inc 2.1 — builder-deploy resolution+discovery core (promote Phase-1 prototypes to runnable skill; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T22:41:45Z"
+  "updated_at": "2026-06-26T22:42:43Z"
 }
