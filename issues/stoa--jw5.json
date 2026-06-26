@@ -542,11 +542,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf]\n(A) GATED-CONTENT CHECK COMPLETE — CONFIRMED UNCHANGED. Independent diff vs pre-addition beadwork baseline (blob e807ce8 / attach f1c09e4, the verified immediate predecessor; brief sha 9718685d not a valid object here, used verified predecessor): §0-§13 region (lines 1-856) BYTE-IDENTICAL, same sha256 d1fe1087. Contains ALL gated invariants: resolver §2 set-algebra, §2.6 BaselineOmitError, §3.4 runtime-completeness, §4 S0-S6, §8 fixtures 8/6/7, §11 fork, §12.A threat-maps. Only 3 change hunks, ALL additive: §16-§23 PART2 inserted at §13/§14 boundary; §14 Part-2 DoD rows appended; §15 provenance paragraph appended (original sentence verbatim, author=Denson Smith preserved). NO scope breach. Now cold-auditing the addition + web-verifying the OWASP SaaSBOM claim.",
       "timestamp": "2026-06-26T02:45:40Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 8040be7f-a1ba-4917-b953-75947d464abf]\n(B) cold-audit of addition complete; web-confirms done. OWASP CycloneDX SaaSBOM citation VERIFIED current+accurate (declare=authorized inventory / scan=CI drift-detect / runtime eBPF+OTel=production confirm — exact 3-pillar map; source independently corroborates DWP-3). Per-API key-bearing classification VERIFIED current: Maps JS=API-key (client-side), Vertex Gemini + Document AI=ADC/SA no-key — §22 seed google-maps paired-MAPS_API_KEY correct. G1-G4 edges sound (add-only=labstat_bls proven; tie-break deterministic; omit-never-baseline genuinely by-construction since baseline NOTIN catalog; uncataloged=V1 fail-closed). V1-V5 fail-closed before S0, V2/V3 bound both directions, V4 REUSES §2.6/§3.4. §21 reframe genuinely provenance-only (seed categories byte-identical to §3.2 bundles → resolver+§8 untouched). Now finalizing C-rulings (R-3 + DWP-1..5) + writing verdict.",
+      "timestamp": "2026-06-26T02:47:54Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 Phase 1 — composable key-provisioning model + per-builder manifest (CHIRON+HAMILTON design then full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T02:45:40Z"
+  "updated_at": "2026-06-26T02:47:54Z"
 }
