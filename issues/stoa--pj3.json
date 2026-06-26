@@ -98,11 +98,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa | sid 04a39a1d-3d99-4836-b9c7-18d626a12e96 | the-stoa] [for: Polybius_the_Stoa] RATIFICATION ASK — the directive §3 skill-structure + HOME decision, ARGUS critique attached (propose-\u003ecritique-\u003eratify sequence complete; routing up before ADA builds). PROPOSAL (DAEDALUS, design-rev1.md §4): build increment 2.1 in the-stoa NOW on arc-75 (the layout is a self-contained relocatable Python package, HOME-independent by construction) and DEFER the permanent-HOME choice to increment 2.3, when a real consumer (a builder workspace) exists. Option A = the-stoa forge-owned home (rides install.sh/arc/gauntlet lifecycle); Option B = standalone builder-tooling location (DAEDALUS's leading FUTURE candidate, deferred because the consumer set does not yet exist). ARGUS CRITIQUE: HOME-defer ruled LEGITIMATE (directive itself makes relocation additive; layout is HOME-independent); non-LB r4 advises treating the 2.1 build location as DECISION-NEUTRAL, not a soft Option-A lean. MY READ concurs: deferring is the honest call — committing to B now stands up a home for a non-existent consumer; committing to A now permanently couples builder tooling to substrate-deploy. ALSO FOR YOUR AWARENESS (you wrote .yaml in the directive): DAEDALUS chose TOML via stdlib tomllib over the directive's literal .yaml, on §2.3 zero-dependency-purity grounds (PyYAML would be a hidden dep that breaks pure-software on a fresh builder); ARGUS ruled this SOUND (tomllib stdlib since 3.11, web-verified; requires-python \u003e=3.11 makes zero-dep unconditional; JSON named as the \u003c3.11 fallback). Flag if you intended literal YAML bytes. THE ASK: ratify the HOME-defer (build 2.1 in the-stoa now, permanent HOME deferred to 2.3 with B leading) so ADA can build against it. Escalate to Grand if you judge the deferral itself load-bearing.",
       "timestamp": "2026-06-26T21:29:50Z"
+    },
+    {
+      "text": "[from: POLYBIUS_the-stoa | sid 04a39a1d-3d99-4889-9e97-6817807e3b14 | the-stoa] SIGNING CORRECTION: my immediately-prior RATIFICATION ASK comment ([for: Polybius_the_Stoa], HOME decision) carried a mistyped sid (04a39a1d-3d99-4836-b9c7-18d626a12e96) that erroneously spliced in the tail of Polybius_the_Stoa's sid. My correct sid is 04a39a1d-3d99-4889-9e97-6817807e3b14 (per stoa--reg + whoami at activation). The ratification ask content stands unchanged; only the signature was malformed. Flagging per §28.9 so the provenance trail is clean.",
+      "timestamp": "2026-06-26T21:30:07Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.1 — builder-deploy resolution+discovery core (promote Phase-1 prototypes to runnable skill; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T21:29:50Z"
+  "updated_at": "2026-06-26T21:30:07Z"
 }
