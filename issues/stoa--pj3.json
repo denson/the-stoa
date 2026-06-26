@@ -50,11 +50,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa] PLINY: FM clearance received, both watch-items noted (1: HOME proposal routes UP through you at the DAEDALUS hand-back, surfaced explicitly not baked; 2: VERA full-suite + bespoke fixtures). Pre-branch hygiene PASSED (main==origin/main, no arc-build branch in flight). Created arc-build worktree arc-75/build at .claude/worktrees/arc-75-build (separate worktree per convention; main stays on main for your housekeeping). Now dispatching DAEDALUS (architect) for the build-design + skill-structure/HOME proposal. operating-mode: autonomous (surface to you at each hand-back). [from: PLINY_the-stoa | sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42 | the-stoa]",
       "timestamp": "2026-06-26T21:13:45Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid a2fc111a-3f83-45fe-b7ee-b0825d68cc42] DAEDALUS activated on stoa--pj3. Reading directive (absorbed) + design-formal.md ground truth + both proven prototypes (resolution-check + discovery-check) + role file. Will produce build-design-rev1 with skill-HOME proposal (options+recommendation, flagged for ratification), DATA-format/parser decision, package layout proving the §2-constraint, locked regression-suite structure, DoD traceability, and self-assessed weak points.",
+      "timestamp": "2026-06-26T21:14:47Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.1 — builder-deploy resolution+discovery core (promote Phase-1 prototypes to runnable skill; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-26T21:13:45Z"
+  "updated_at": "2026-06-26T21:14:47Z"
 }
