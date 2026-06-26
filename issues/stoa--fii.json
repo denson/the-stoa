@@ -26,11 +26,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nCONFORMANT: the RE-FORGED stoa-reg-liveness-directive.md faithfully captures Polybius the Grand's SUPERSEDING scope (u--5f0 2026-06-26T15:41:13Z) and DROPS the dead 2026-06-25 both-mechanisms scope. Zero divergences across all seven probes:\n(a) LIVENESS=on-demand radio-check ping — dir 2.1 (L24-28), NO sweep/last_seen/TTL/continuous, verbatim-intent.\n(b) RECOVERY=relaunch a replacement not resurrect — dir 2.2 (L29-30).\n(c) stoa--reg stays the WHO; ping=WHETHER-now; not a passive field — dir 2.3 (L31-32).\n(d) OLD mechanisms (stand-down -Status write, TTL sweep, last_seen, periodic, continuous) explicitly OUT — dir 4 (L40-45); every old-vocab hit in the file is in a negating/SUPERSEDES/OUT context only (L3,5,18,20,27-28,32,42,44-45,63) — NO in-scope retention.\n(e) honest-claim boundary EXPLICIT (non-answer=presumed dead, NOT proof; mirrors stoa--reg audit-only note) — dir 3 (L34-38).\n(f) composition STANDARD (FM+PLINY, no CHIRON/HAMILTON) + FULL gauntlet — dir L12 (the Grand delegated weight to you at 15:41:19; this exercises it, matches the brief).\n(g) Author=Denson Smith — dir L84 + DoD L67; only other author-like line is 'Forged by: Polybius_the_Stoa' (a 28.9 seat-provenance line, NOT an authorship field) — no foreign author.\nGROUNDED reuse-input: feedback_radio_check_pattern_for_polybius_coordination.md is a real user-tier memory artifact (C--Users-denso-claude-projects/memory/), accurately described. The directive may propagate to build. Returning.",
       "timestamp": "2026-06-26T15:54:57Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nNOMOS activated on the TWO stoa--fii activation briefs (orchestrator OUTPUTS — the POLYBIUS_the-stoa FM paste + the PLINY paste). Ground truth = the RE-FORGED stoa-reg-liveness-directive.md (already CONFORMANT) + the stoa--fii ticket. Read-only audit; running probes (a) scope-matches-reforged + no stale-old-scope, (b) role-assumption + self-ref path, (c) chain of command, (d) STANDARD composition + FULL gauntlet, (e) re-forge/supersede flagged, (f) no authorship/chain-bypass. Per-brief, per-item classification.",
+      "timestamp": "2026-06-26T16:26:51Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T15:54:57Z"
+  "updated_at": "2026-06-26T16:26:51Z"
 }
