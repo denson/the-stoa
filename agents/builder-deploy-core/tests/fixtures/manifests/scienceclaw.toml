@@ -1,0 +1,8 @@
+# author: Denson Smith
+# §8.2 scienceclaw manifest fixture (DATA). category document-consuming, empty delta.
+builder = "scienceclaw"
+category = "document-consuming"
+declared_services = ["document-parsing"]
+expected_category = "document-consuming"
+expected_len = 6
+[delta]

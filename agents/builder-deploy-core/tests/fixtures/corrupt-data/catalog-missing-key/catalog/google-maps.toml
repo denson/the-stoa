@@ -1,0 +1,15 @@
+# author: Denson Smith
+# CORRUPT FIXTURE (P11): a catalog record MISSING the required `category` key. load_catalog MUST raise
+# DataIntegrityError (required-keys invariant).
+
+service-id = "google-maps"
+gcp_api = "google-maps"
+# category key deliberately OMITTED -> missing required key, must raise
+
+[[entries]]
+kind = "gcp_api"
+name = "google-maps"
+
+[[entries]]
+kind = "gcp_secret"
+name = "MAPS_API_KEY"

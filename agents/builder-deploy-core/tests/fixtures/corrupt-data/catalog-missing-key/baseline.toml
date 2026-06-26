@@ -1,0 +1,23 @@
+# author: Denson Smith
+# §3.1 BASELINE — fixed T1, never per-builder. The 5 NON-OMITTABLE entries (§2.6).
+# Validated fail-closed on load by dataload.load_baseline (set-equality vs EXPECTED_BASELINE, §2.4.1).
+
+[[entry]]
+kind = "gcp_api"
+name = "gemini-embedding"   # every builder embeds
+
+[[entry]]
+kind = "gcp_api"
+name = "gemini-search"      # gsearch
+
+[[entry]]
+kind = "railway_var"
+name = "DATABASE_URL"
+
+[[entry]]
+kind = "gcp_secret"
+name = "POSTGRES_PASSWORD"
+
+[[entry]]
+kind = "db_extension"
+name = "pgvector"           # DECIDE-A: pgvector is BASELINE

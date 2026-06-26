@@ -1,0 +1,16 @@
+# author: Denson Smith
+# §17.1/§22 seed record — google-maps. client-side Maps-JS surface = API-key-bearing (§3.4).
+# The §3.4 pairing lives in THIS record: BOTH (gcp_api, google-maps) AND its paired (gcp_secret,
+# MAPS_API_KEY) — the §17.2 construction invariant. Validated fail-closed by dataload.load_catalog (§2.4.1).
+
+service-id = "google-maps"
+gcp_api = "google-maps"
+category = "geospatial"
+
+[[entries]]
+kind = "gcp_api"
+name = "google-maps"
+
+[[entries]]
+kind = "gcp_secret"
+name = "MAPS_API_KEY"

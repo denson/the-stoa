@@ -1,0 +1,8 @@
+# author: Denson Smith
+# §8.1 prospector manifest fixture (DATA). category geospatial, empty delta.
+builder = "prospector"
+category = "geospatial"
+declared_services = ["google-maps", "spatial-db"]
+expected_category = "geospatial"
+expected_len = 8
+[delta]

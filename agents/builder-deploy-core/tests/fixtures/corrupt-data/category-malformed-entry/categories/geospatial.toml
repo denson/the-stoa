@@ -1,0 +1,15 @@
+# author: Denson Smith
+# CORRUPT FIXTURE (P11): a category entry MISSING its `name` key. load_library MUST raise
+# DataIntegrityError (well-typed {kind,name} invariant).
+
+[[entry]]
+kind = "gcp_api"
+# name deliberately OMITTED -> malformed entry, must raise
+
+[[entry]]
+kind = "gcp_secret"
+name = "MAPS_API_KEY"        # §3.4 runtime-completeness: google-maps is key-bearing
+
+[[entry]]
+kind = "db_extension"
+name = "postgis"

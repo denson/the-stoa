@@ -1,0 +1,22 @@
+# author: Denson Smith
+# §3.3 kind enum + scope-bearing classification + §3.4 key-bearing pairing (was hardcoded in resolve.py).
+# Validated fail-closed on load by dataload.load_kinds (§2.4.1); populated into resolve's module globals
+# at import by resolution/__init__.py (§2.1.1).
+
+# §3.3 the 5-kind enum.
+kind_enum = ["gcp_api", "gcp_secret", "railway_var", "db_extension", "thirdparty_rest_key"]
+
+# scope-bearing kinds (§3.3): contribute to the derived SA scope (§5.A).
+#   gcp_api            -> API role (scope-bearing)
+#   gcp_secret         -> per-secret accessor (scope-bearing)
+#   thirdparty_rest_key-> per-secret accessor (scope-bearing) BUT no gcloud enable
+#   railway_var        -> not scope-bearing
+#   db_extension       -> not scope-bearing
+scope_bearing = ["gcp_api", "gcp_secret", "thirdparty_rest_key"]
+
+# §3.4 template-declared key-bearing pairing (the §3.2 in-band signal). An API is key-bearing iff its
+# template declares a paired (gcp_api -> gcp_secret) in the SAME record. For the current templates that
+# is exactly google-maps -> MAPS_API_KEY. Read from the templates, NOT a separate verifier-side table.
+[[key_bearing_pairing]]
+api = { kind = "gcp_api", name = "google-maps" }
+secret = { kind = "gcp_secret", name = "MAPS_API_KEY" }

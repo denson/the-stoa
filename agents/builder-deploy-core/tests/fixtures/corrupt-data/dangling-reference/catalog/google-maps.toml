@@ -1,0 +1,15 @@
+# author: Denson Smith
+# CORRUPT FIXTURE (P11): a catalog record naming a NON-EXISTENT category (cross-body dangling reference).
+# load_catalog MUST raise DataIntegrityError (cross-body dangling-reference invariant).
+
+service-id = "google-maps"
+gcp_api = "google-maps"
+category = "nonexistent-category"   # CORRUPT: no such categories/*.toml -> dangling reference, must raise
+
+[[entries]]
+kind = "gcp_api"
+name = "google-maps"
+
+[[entries]]
+kind = "gcp_secret"
+name = "MAPS_API_KEY"

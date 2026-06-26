@@ -1,0 +1,11 @@
+# author: Denson Smith
+# §3.2 category template — document/data (stem `document-data`; `/` is not a portable filename char,
+# the loader's stem->name map restores the design category name `document/data`, §2.2/§2.5).
+# This is the byte-identical ALIAS of document-consuming (§3.2 / WP-4). resolve's LIBRARY carries it so
+# a manifest with category `document/data` resolves; it is EXCLUDED from the discovery CATEGORIES bundle
+# (dataload._ALIAS_CATEGORIES) so G2 best-fit does not double-count it.
+# Validated fail-closed on load by dataload.load_library (§2.4.1).
+
+[[entry]]
+kind = "gcp_api"
+name = "document-parsing"

@@ -1,0 +1,10 @@
+# author: Denson Smith
+# §22 seed record — document-parsing. Validated fail-closed by dataload.load_catalog (§2.4.1).
+
+service-id = "document-parsing"
+gcp_api = "document-parsing"
+category = "document-consuming"
+
+[[entries]]
+kind = "gcp_api"
+name = "document-parsing"

@@ -1,0 +1,28 @@
+# author: Denson Smith
+# CORRUPT FIXTURE (P11): baseline with a 6th SPURIOUS entry added -> set-equality (not a length check)
+# MUST raise DataIntegrityError naming the unexpected entry. Proves the loader rejects extras, not just
+# a count mismatch.
+
+[[entry]]
+kind = "gcp_api"
+name = "spurious-extra-baseline-api"
+
+[[entry]]
+kind = "gcp_api"
+name = "gemini-embedding"   # every builder embeds
+
+[[entry]]
+kind = "gcp_api"
+name = "gemini-search"      # gsearch
+
+[[entry]]
+kind = "railway_var"
+name = "DATABASE_URL"
+
+[[entry]]
+kind = "gcp_secret"
+name = "POSTGRES_PASSWORD"
+
+[[entry]]
+kind = "db_extension"
+name = "pgvector"           # DECIDE-A: pgvector is BASELINE
