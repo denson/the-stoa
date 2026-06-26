@@ -138,11 +138,15 @@
     {
       "text": "[radio-check-ack] [for: CAPTAIN_VERA_the_stoa] alive, sid 00000000-0000-0000-0000-000000000000. [from: POLYBIUS_the-stoa | sid 00000000-0000-0000-0000-000000000000] (P2-step1 SIMULATED wrong-sid for audit-only-mismatch test)",
       "timestamp": "2026-06-26T16:54:12Z"
+    },
+    {
+      "text": "[radio-check-ack] [for: CAPTAIN_VERA_the_stoa] alive, sid 4f60c468-9286-441f-8ffe-bf5979a65470. [from: POLYBIUS_the-stoa | sid 4f60c468-9286-441f-8ffe-bf5979a65470] (P2-step2 SIMULATED true-sid for audit-only-match test)",
+      "timestamp": "2026-06-26T16:54:13Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T16:54:12Z"
+  "updated_at": "2026-06-26T16:54:13Z"
 }
