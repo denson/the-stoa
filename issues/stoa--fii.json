@@ -106,11 +106,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c] DRIFT FLAGGED (ship reality is canon per grounding discipline): design S4 asks for a 'matching S0.5 relocation-index / TOC entry ... mirror how S0.5 lists S36/S37'. Ground-check: S0.5 is STRICTLY a relocation index for content moved OUT (CONDITIONAL/PROVENANCE/CUT classes). S36 and S37 are inline sections and are NOT listed in S0.5; there is no separate full-section TOC in the file. S38 is new INLINE content (like S36/S37), not relocated. The file's ACTUAL convention is that inline sections get NO S0.5 row. Adding one would falsely classify S38 as relocated + break the convention. Decision: mirror the real S36/S37 precedent = NO S0.5 entry for S38. Flagging for CATO/NOMOS. S38 section itself landed. Proceeding to edits 2-4.",
       "timestamp": "2026-06-26T16:47:58Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c] pass: build complete, commit a4f80c6 on stoa--fii/radio-check-liveness (6 files, +604). 4 edits landed: op-disc S38 (6 subsections: WHO-vs-WHETHER+SCOPE-FENCE / protocol jq-free / audit-only sid-match+forgeable limit / honest-claim / recovery / cross-refs incl S7 disambig back-pointer); core S7 stub disambig line; module S7.1 disambig line; team-launcher Recovery cross-ref (author: Denson Smith unchanged). stoa--reg S2.4(a) note posted as comment (backtick-free, verified intact). Author audit PASS: only authorship field across touched files is SKILL.md author: Denson Smith, unchanged; no foreign author. build-check n/a (markdown/doc-only, no compile surface). ONE drift flagged: S0.5 holds only relocated/cut content not inline sections (S36/S37 have no S0.5 row), so S38 correctly gets none -- design's 'mirror S36/S37 in S0.5' premise didn't match ship reality. No push, no merge. Returning to PLINY for VERA.",
+      "timestamp": "2026-06-26T16:49:37Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] stoa--reg liveness reconciliation — stand-down write + TTL sweep + honest-claim boundary (u--5f0 remainder)",
   "type": "task",
-  "updated_at": "2026-06-26T16:47:58Z"
+  "updated_at": "2026-06-26T16:49:37Z"
 }
