@@ -13,8 +13,11 @@ as_of: 2026-06-25
 This is the **buildable formalization** of the CHIRON+HAMILTON converged co-design. It does not
 redesign; it tightens every contract to the point where the Phase-2 build arc can implement
 `resolve()` and the choreography verbatim, and where ADA/VERA can probe the worked examples
-machine-checkably. **It provisions nothing.** Exactly one decision is HELD OPEN for Polybius the
-Grand — the isolation UNIT (§5.B / §11) — and is carried unclosed here.
+machine-checkably. **It provisions nothing.** The one decision that was HELD OPEN for Polybius the
+Grand — the isolation UNIT (§5.B / §11) — has been **RESOLVED at the Grand's pre-build gate
+(2026-06-26): Branch A (per-builder GCP PROJECT), enforced by a per-builder PREPAID CARD + billing
+account (the card = hard cap).** That gate outcome is recorded throughout (§11 / §5.B / §12.B /
+§12.B.1 / §12.D); M5 is consequently MOOT.
 
 ## 0. Problem restatement (pre-work gate)
 
@@ -396,20 +399,25 @@ Reconcile/prune-on-removal (S6 asserting live-state == resolved-set, no extra gr
 prune is a destructive op against live IAM on the re-provision-after-edit / deprovision surface §13
 already defers.
 
-### 5.B Budget isolation — capability SETTLED, UNIT is a HELD FORK → Grand (NOT closed by DAEDALUS)
+### 5.B Budget isolation — RESOLVED at the Grand's pre-build gate (2026-06-26)
 
-Grounded by STRABO (current GCP primary docs, 2026-06-25) + VERA-confirmed verbatim. The
-**two-part premise-correction** is carried UP to Polybius the Grand faithfully and unclosed:
+Grounded by STRABO (current GCP primary docs, 2026-06-25) + VERA-confirmed verbatim. The two-part
+premise-correction was carried UP to Polybius the Grand and **RULED at the pre-build gate** — the
+record below is updated to the gate outcome:
 
-**Part 1 — the isolation UNIT (the structural fork).** The finest scope ANY dollar-denominated
-control binds to is the **PROJECT** (no per-SA budget scope exists). A per-builder budget boundary
-therefore **forces the isolation unit to be a per-builder GCP project** — which **corrects Grand's
-stated premise** ("per-builder SA + budget cap" implied shared-project + per-SA scoping). This is
-the §11 fork, held for the Grand.
+**Part 1 — the isolation UNIT (the structural fork) — CLOSED = Branch A.** The finest scope ANY
+GCP-native dollar-denominated control binds to is the **PROJECT** (no per-SA budget scope exists), so
+a per-builder boundary forces a **per-builder GCP project**. The Grand RULED **Branch A** (§11). The
+enforcement refinement: a **per-builder PREPAID CARD + per-builder BILLING ACCOUNT** attaches at the
+PROJECT level, so one card+billing-account per builder == one project per builder == Branch A,
+**enforced by the card** (card exhausted → that builder's billable usage stops).
 
-**Part 2 — the word "budget CAP" itself needs honest correction.** There is **NO GA hard-DOLLAR cap
-at ANY granularity** (per-SA OR per-project). A per-builder project delivers a **MENU, not a single
-hard cap**:
+**Part 2 — the word "budget CAP" — the hard cap exists OUT-OF-BAND, at the prepaid-card layer.** It
+is TRUE that there is **NO GA hard-DOLLAR cap among GCP's native budget features** at any granularity
+(per-SA OR per-project) — STRABO-cited, VERA-confirmed. But that finding is **superseded** by the
+Grand's ruling: the **per-builder prepaid card IS the hard dollar cap.** The GCP-native menu below is
+therefore a **SOFT defense-in-depth layer (early-warning / velocity-bounding / reactive backstop) UNDER
+the card's hard cap** — not the cap itself:
 
 | # | Control | GA status | What it actually does |
 |---|---|---|---|
@@ -418,10 +426,12 @@ hard cap**:
 | (c) | **kill-switch** (budget→Pub/Sub→Cloud Function→detach billing) | GA | **REACTIVE/lagging** (*"may take several hours"*; *"doesn't guarantee you won't spend more"*; detaching billing kills ALL project resources) — a footnote, not a tier |
 | (d) | per-service **QUOTAS** | GA, real-time | **RATE/request limits that bound spend VELOCITY, NOT total dollars** (*"aren't designed to act as a project-wide spending cap"*, VERA-verbatim) |
 
-The Grand must rule on the isolation unit **with this honest menu in front of him**, not on an
-implied per-project hard-dollar cap that does not GA-exist. This is **NOT** a redesign of the budget
-mechanism (which already splits alert + quota + opt-in killswitch and is sound) — it is the
-precision the convergence package carries. **DAEDALUS does not pick a branch.**
+The Grand ruled on the isolation unit **with this honest menu in front of him**: the hard cap is the
+per-builder prepaid card (out-of-band), and the (a)–(d) GCP-native controls are the **soft layer
+under it** — (a) alert = early-warning, (c) killswitch = reactive backstop, (d) quota = velocity
+bound. This is **NOT** a redesign of the budget mechanism (which already splits alert + quota +
+opt-in killswitch and is sound) — it is the precision the convergence package carried, now resolved.
+**Branch A is CLOSED (§11); the card is the hard cap.**
 
 ---
 
@@ -696,22 +706,37 @@ over-claim) is the carried premise-correction the whole gauntlet exists to harde
 
 ---
 
-## 11. THE ONE HELD FORK — isolation UNIT (surfaced UP to Polybius the Grand; NOT closed here)
+## 11. THE ONE FORK — isolation UNIT — CLOSED at the Grand's pre-build gate (2026-06-26)
 
-Everything else is converged. This single decision is **not** closed below the Grand because it
-corrects his stated premise (and per §5.B the correction is two-part: the isolation UNIT **and** the
-honest restatement that no GA hard-dollar cap exists at any granularity).
+**RESOLVED (Grand pre-build gate ruling, 2026-06-26).** This decision was held UP to Polybius the
+Grand because it corrected his stated premise. The Grand ruled at the pre-build gate. The fork is
+**CLOSED — Branch A (per-builder GCP PROJECT)**, with a critical refinement on the *enforcement*
+mechanism that the team had not had in front of it:
 
-| | **Branch A — per-builder GCP PROJECT** (evidence-forced recommendation) | **Branch B — shared project + per-SA scoping** (matches Grand's stated premise) |
+- **Structure:** Branch A — **per-builder GCP PROJECT** is structurally correct (per-SA access scope
+  inside a per-builder project boundary), exactly as the team recommended.
+- **Spend-cap ENFORCEMENT (the refinement):** the hard spend cap is **NOT** a GCP budget feature. It
+  is a **per-builder PREPAID CREDIT CARD + per-builder BILLING ACCOUNT** — a long-standing PRINCIPAL
+  decision that had never been recorded durably (which is why the team had to re-litigate it). A GCP
+  billing account attaches **at the PROJECT level**, so **one billing-account + prepaid card per
+  builder == one GCP project per builder == Branch A's structure, enforced by the card.**
+- **The CARD is the hard cap:** when a builder's prepaid card is exhausted, that builder's billable
+  usage stops. This is the hard-dollar bound the §5.B menu could not provide on its own.
+- **GCP budget alerts / quotas / killswitch = a SOFT early-warning + velocity-bounding layer only**,
+  sitting UNDER the card's hard cap (defense-in-depth), not the cap itself.
+
+| | **Branch A — per-builder GCP PROJECT** (RULED — enforced by per-builder prepaid card + billing account) | **Branch B — shared project + per-SA scoping** (rejected) |
 |---|---|---|
 | Access isolation | ✓ per-SA scope + per-secret accessor | ✓ per-SA scope + per-secret accessor |
-| Per-builder budget control (no GA hard-dollar cap exists anywhere — §5.B) | **best achievable** — the (a)–(d) menu binds **per builder** | **cannot deliver per-builder budget control at all** — the whole menu is project-wide, shared |
-| Premise impact | **corrects** Grand's SA→PROJECT premise | preserves Grand's stated premise |
-| Cost | more projects to create/manage | fewer projects; fails the per-builder budget intent |
+| Per-builder hard spend cap | ✓ **per-builder prepaid card + billing account = hard cap** (card exhausted → builder's billable usage stops); GCP budget menu = soft early-warning under it | ✗ a per-builder billing account/card **cannot** attach below the project level — fails the per-builder hard-cap intent |
+| Premise impact | corrected Grand's SA→PROJECT premise (Grand affirmed) | preserved the (rejected) premise |
+| Cost | more projects + one prepaid card/billing account per builder | fewer projects; fails the per-builder hard-cap intent |
 
-**Settled evidence forcing the fork:** §5.B (STRABO-cited, VERA-confirmed). **Team recommendation:**
-Branch A. **Decision owner:** Polybius the Grand (premise-correction). **Route:** converged package →
-FM independent re-confirm → Polybius_the_Stoa → Grand's gate. **DAEDALUS carries this unclosed.**
+**Decision owner:** Polybius the Grand. **Status:** RESOLVED at the pre-build gate (2026-06-26) — no
+longer an open fork. **Route taken:** converged package → FM independent re-confirm →
+Polybius_the_Stoa → Grand's gate → **ruled Branch A + per-builder prepaid-card/billing-account
+enforcement.** Recorded here as the Grand-gate outcome; this is a documentation fold of the gate
+decision, not a design change.
 
 ---
 
@@ -742,14 +767,16 @@ M1–M4/M6 exercise these named attack-paths (not the happy path); §8.4 is the 
 
 | ID | Named threat | attack-path | best-achievable Phase-1 posture (NOT a hard defeat) |
 |---|---|---|---|
-| **M5** | Budget runaway — **NO GA hard-dollar cap exists at any granularity** | a runaway loop or a compromised key in builder A burns unbounded spend before the reactive killswitch trips (budget alert = notify-only; killswitch lags hours; quota bounds VELOCITY, not total dollars) | **per-builder GCP project (Branch A) blast-radius** + **per-service quota (velocity bound)** + **reactive killswitch backstop** (§5.B menu (a)–(d)) |
+| **M5 — MOOT (Grand pre-build gate, 2026-06-26)** | Budget runaway — *was:* "no GA hard-dollar cap exists at any granularity" | a runaway loop or a compromised key in builder A burns unbounded spend before the reactive killswitch trips | **MOOTED:** the hard dollar cap exists **out-of-band** = the **per-builder PREPAID CARD + billing account** (card exhausted → builder's billable usage stops). The "no GA GCP-budget hard cap" finding is TRUE but **superseded** by the card. The per-builder GCP project (Branch A) blast-radius + per-service quota (velocity) + reactive killswitch are now the **SOFT layer UNDER the card** (§5.B menu (a)–(d)), not the cap. |
 | **R-1** | M1 stale-grant-until-reconcile (subtractive scope NOT pruned) — r1 | a builder's manifest *drops* an entry; the previously-granted `secretAccessor`/API-role is **NOT pruned** on re-provision and stands until reconcile → live IAM is a **superset** of the resolved set (slow-growing over-grant; M1's blast-radius walls still hold, so not an immediate cross-builder breach) | **M1 holds completely at t0 (initial provision)**; the ADD direction is total; the subtractive prune is the **Phase-2 builder-lifecycle property** (S6 `live-state == resolved-set`, §4 S6 / §5.A / §10 WP-10 / §13). Phase-1 = initial-provision correctness; prune is a destructive live-IAM op on the deferred deprovision surface. |
 | **R-2** | Manifest integrity (the manifest DRIVES resolved scope → manifest authorship is an authz-relevant trust boundary) — r2 | a malicious or erroneous edit to a builder's manifest *widens* its resolved scope (adds a scope-bearing entry it should not have) → the resolver faithfully grants the broadened scope, because `resolve` trusts its manifest input by construction (§2.3 purity reads the manifest as given) | **Phase-1 rests on repo / git access-control + project-seat review** of manifest edits (a manifest change is a visible, reviewed diff — §5.A's "no silent cross-builder path" depends on exactly this review). **Phase-2 hardening = manifest-approval governance** (e.g. signed/approved manifests, a manifest-change approval gate). NOT a Phase-1 mechanism. |
 
-**M5 is explicitly NOT a hard defeat.** No GA hard-dollar cap exists at per-SA OR per-project
-granularity (§5.B, STRABO-cited, VERA-confirmed verbatim). This residual is **surfaced UP to Polybius
-the Grand** via §5.B / §11 — it is the two-part premise-correction the convergence package carries,
-recorded here as a §35.5 named residual, **not overclaimed as mitigated**.
+**M5 is MOOT (Grand pre-build gate ruling, 2026-06-26).** It is TRUE that no GA hard-dollar cap exists
+among GCP's native budget features at per-SA OR per-project granularity (§5.B, STRABO-cited,
+VERA-confirmed verbatim) — but the Grand ruled the hard cap exists **out-of-band**: a **per-builder
+prepaid card + billing account** (the card is the hard cap). The §35.5 named-residual framing is
+therefore retired for M5; the runaway threat is bounded by the card, with the §5.B (a)–(d) GCP-native
+controls as the soft early-warning/velocity layer under it.
 
 **R-1 (r1)** and **R-2 (r2)** are likewise **§35.5 named residuals**, surfaced-not-defeated. They are
 classified here because each is **authz-relevant** and would otherwise carry NO §35.1 classification:
@@ -760,18 +787,25 @@ Grand to gate **with them in view**, exactly as M5 is.
 
 ### 12.B.1 Relay-UP residual package (the COMPLETE set carried UP to Polybius the Grand)
 
-So the Grand gates Phase-1 on the **complete** residual picture (not a partial one), the full package
-carried UP is **one decision + a named-residual set**:
+This package was carried UP and **gated by the Grand at the pre-build gate (2026-06-26)**. Its status
+on the two isolation-unit items is now **RESOLVED**; the two manifest-side residuals **REMAIN** as
+Phase-2 residuals. Updated status:
 
-- **DECISION (held fork, unclosed):** the isolation-UNIT premise-correction (per-builder SA → per-builder
-  GCP **project**; Branch A recommended; the Grand owns the choice). §5.B / §11 / §12.D.
-- **NAMED RESIDUALS (all §35.5 — surfaced, not defeated):**
-  - **M5 — budget runaway:** no GA hard-dollar cap at any granularity (§5.B / §12.B).
+- **DECISION (held fork) — CLOSED (Grand pre-build gate, 2026-06-26):** the isolation-UNIT
+  premise-correction is **RESOLVED = Branch A** (per-builder GCP **project**), enforced by a
+  **per-builder PREPAID CARD + per-builder BILLING ACCOUNT** (card = hard cap). No longer open.
+  §5.B / §11 / §12.D.
+- **RESOLVED RESIDUAL:**
+  - **M5 — budget runaway: MOOT (Grand pre-build gate).** The "no GA GCP-budget hard cap" finding is
+    TRUE but superseded by the per-builder prepaid card (the out-of-band hard cap). §5.B / §12.B.
+- **STILL-NAMED RESIDUALS (all §35.5 — surfaced, not defeated — UNCHANGED by the Grand ruling, which
+  addressed ONLY the isolation-unit fork + M5):**
   - **R-1 — M1 stale-grant-until-reconcile:** subtractive scope not pruned until a Phase-2 reconcile (§5.A / §12.A / §12.B).
   - **R-2 — manifest integrity:** manifest authorship is an authz-relevant trust boundary; Phase-1 rests on git access-control + project-seat review, Phase-2 hardening = manifest-approval governance (§12.B).
 
-The complete relay-UP set is therefore **{ held-fork (decision), M5, R-1, R-2 }** — DAEDALUS carries it
-unclosed; the FM re-confirms and relays it UP at NOMOS so the Grand gates with the full picture.
+The relay-UP set carried UP was **{ held-fork (decision), M5, R-1, R-2 }**. After the Grand's
+pre-build gate, **{ held-fork, M5 } are RESOLVED** (fork → Branch A + prepaid card; M5 → moot) and
+**{ R-1, R-2 } remain Phase-2 named residuals**.
 
 ### 12.C Not-threat-ratified classifications (recorded so no security-relevant change carries NO classification — op-disc §35.1)
 
@@ -787,12 +821,14 @@ Each is an architectural / correctness / process change with **no runtime attack
 | Category extensibility / graduation governance | not threat-ratified (process/governance change, no runtime attack path) |
 | stoa--reg alignment note (§9) | not threat-ratified (later-merge process note, no runtime attack path) |
 
-### 12.D Held fork — NOT a ratification (stays open)
+### 12.D Held fork — RATIFIED at the Grand's pre-build gate (2026-06-26)
 
-The §11 isolation-UNIT fork is **NOT swept by this A1 beat**. The isolation GOAL it serves is **M1
-(ratified)**; the unit CHOICE (Branch A vs B) is **unratified-by-design** — surfaced UP to the Grand,
-not closed in-team. The Grand's eventual ruling is a **post-A1 ratification** → a §35.5 named residual
-(Arc-B-class), not closed here. **DAEDALUS carries it unclosed.**
+The §11 isolation-UNIT fork was **NOT swept by the A1 beat** — it was surfaced UP to the Grand and
+**RULED at the pre-build gate (2026-06-26)**. The isolation GOAL it serves is **M1 (ratified)**; the
+unit CHOICE (Branch A vs B) was **surfaced UP rather than closed in-team**, and the Grand's pre-build
+gate ruling **CLOSED it = Branch A** (per-builder GCP project, enforced by per-builder prepaid card +
+billing account). This was the **post-A1 ratification** anticipated here — now executed. **The fork
+is closed; DAEDALUS has recorded the gate outcome (§11 / §5.B / §12.B / §12.B.1).**
 
 ---
 
@@ -829,14 +865,14 @@ not closed in-team. The Grand's eventual ruling is a **post-A1 ratification** �
 | 2 | resolution rule (algorithm, identity, precedence, add-wins, lint, purity) | §2 |
 | 3 | typed-entry taxonomy (kind enum, provisioning path, scope-bearing, gcloud-enable) | §3 |
 | 4 | provisioning choreography S0–S6 (emit-then-apply, kind-dispatch, ordered/idempotent/fail-closed, S2c gate, this-builder's-SA-key-only; per-step in/out/failure) | §4 |
-| 5 | per-builder isolation (settled access half + budget half; held fork carried, two-part premise-correction) | §5 |
+| 5 | per-builder isolation (settled access half + budget half; fork CLOSED at Grand pre-build gate = Branch A + per-builder prepaid card/billing account) | §5 |
 | 6 | DB-extension parameterization (pgvector baseline + PostGIS iff geo; DECIDE-C) | §6 |
 | 7 | agent-access layer SHAPE vs CONTENT (T1 scaffold vs T3 seat) | §7 |
 | 8 | three worked examples as concrete manifests + EXACT resolved sets (machine-checkable; labstat_bls delta proof) | §8 |
 | 9 | stoa--reg alignment note (no Phase-1 dependency) | §9 |
 | 10 | self-assessed weak points (seeded with carried items) | §10 |
 | — | threat→mitigation map (op-disc §35.4 A3: M1–M4/M6 triples + M5 §35.5 residual + not-threat-ratified classifications; binds already-audited mechanisms) | §12 |
-| — | held isolation-UNIT fork carried, NOT closed | §5.B, §11, §12.D |
+| — | isolation-UNIT fork CLOSED at Grand pre-build gate (Branch A + per-builder prepaid card/billing account; M5 mooted) | §5.B, §11, §12.B, §12.D |
 
 ---
 
@@ -844,5 +880,7 @@ not closed in-team. The Grand's eventual ruling is a **post-A1 ratification** �
 
 Formalized by **CAPTAIN_DAEDALUS_the_stoa** from the CHIRON+HAMILTON CO-DESIGN CONVERGED unified doc
 (`design-codesign.md`), grounded by STRABO's primary-GCP-docs check (VERA-confirmed verbatim). No
-redesign; formalization + tightening + weak-point surfacing only. The held isolation-UNIT fork is
-carried unclosed to Polybius the Grand. **Author: Denson Smith.**
+redesign; formalization + tightening + weak-point surfacing only. The isolation-UNIT fork was carried
+UP to Polybius the Grand and **RESOLVED at his pre-build gate (2026-06-26): Branch A + per-builder
+prepaid card/billing account; M5 mooted** — recorded in this doc as a documentation-only fold of the
+gate decision (no design change; R-1/R-2 remain Phase-2 named residuals). **Author: Denson Smith.**
