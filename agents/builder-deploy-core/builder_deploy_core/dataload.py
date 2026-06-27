@@ -300,3 +300,84 @@ def load_catalog(data_root: Path | None = None):
         if name not in _ALIAS_CATEGORIES
     }
     return catalog, categories
+
+
+# ===========================================================================
+# stoa--fdf (u--9s2 Phase-2 increment 2.2) — APPENDED SIBLING LOADER ONLY.
+# Everything ABOVE this banner (load_catalog / load_baseline / load_kinds / load_library + their
+# helpers) is BYTE-UNCHANGED from the 2.1 core (stoa--pj3) — the §2-constraint. The ONLY delta to
+# dataload.py in 2.2 is the additive load_detection_hints function below (FM-ratified location;
+# design-rev2 §2.0.1 / §2.3). load_catalog is NOT edited: its tolerance of the additive
+# [detection_hints] catalog block is pinned by test_load_catalog_admits_detection_hints (rev2 WP-D2),
+# NOT by a code change here.
+# ===========================================================================
+
+# §2.4.1 SSoT — the CLOSED set of detection_hints sub-keys (the four §25 EXAMINE surfaces). An unknown
+# sub-key under a [detection_hints] block is fail-closed-rejected (set-subset discipline, mirroring the
+# load_baseline / load_kinds set-equality precedent above).
+EXPECTED_HINT_SURFACES = {"sdk_imports", "url_patterns", "config_keys", "data_signals"}
+
+
+# ---------------------------------------------------------------------------
+# §25.3 detection_hints — fail-closed load + validation of the ADVISORY hint blocks (stoa--fdf).
+# Reads the SAME data/catalog/*.toml that load_catalog reads, but ONLY the optional [detection_hints]
+# block of each (hint-agnostic generation, §25.2 invariant 1: load_catalog reads the 4 record fields and
+# ignores hints; load_detection_hints reads + validates ONLY the hints). ALL detection_hints validation
+# lives HERE (the rev2 WP-D2 fold: load_catalog is byte-unchanged and does NO hints validation).
+# ---------------------------------------------------------------------------
+def load_detection_hints(data_root: Path | None = None) -> dict:
+    """Load + VALIDATE the §25 detection_hints blocks from data/catalog/*.toml.
+
+    Returns { service_id: {sdk_imports, url_patterns, config_keys, data_signals} } — the flat hints dict
+    suggest() consumes. A service-id with NO [detection_hints] block is OMITTED from the result (the
+    field is optional, §25); a service whose block is present contributes its surfaces (any subset of
+    EXPECTED_HINT_SURFACES, including empty).
+
+    §2.4.1 fail-closed invariants (per [detection_hints] block, if present):
+      - the block is a table (dict);
+      - its keys are a SUBSET of the closed set EXPECTED_HINT_SURFACES — an unknown sub-key raises
+        DataIntegrityError (mirrors the load_baseline/load_kinds set-discipline; the one tolerance
+        load_catalog has is deliberately NOT replicated here — hints are strictly validated);
+      - every present surface is an array of NON-EMPTY strings.
+    Any deviation raises DataIntegrityError, no partial load. A service keyed by its TOML service-id.
+    """
+    root = data_root if data_root is not None else _DATA_ROOT
+    cat_dir = root / "catalog"
+    if not cat_dir.is_dir():
+        raise DataIntegrityError(f"detection_hints: catalog directory missing: {cat_dir}")
+
+    hints: dict = {}
+    for path in sorted(cat_dir.glob("*.toml")):
+        doc = _read_toml(path)
+        sid = doc.get("service-id")
+        if not isinstance(sid, str) or not sid:
+            raise DataIntegrityError(
+                f"detection_hints[{path.stem}]: service-id must be a non-empty string")
+
+        block = doc.get("detection_hints")
+        if block is None:
+            continue  # §25 optional — a service with no hints block is allowed (omitted from result)
+        if not isinstance(block, dict):
+            raise DataIntegrityError(
+                f"detection_hints[{sid}]: [detection_hints] must be a table")
+
+        unknown = set(block.keys()) - EXPECTED_HINT_SURFACES
+        if unknown:
+            raise DataIntegrityError(
+                f"detection_hints[{sid}]: unknown sub-key(s) {sorted(unknown)} under [detection_hints] "
+                f"(allowed: {sorted(EXPECTED_HINT_SURFACES)})")
+
+        record = {}
+        for surface in sorted(EXPECTED_HINT_SURFACES):
+            tokens = block.get(surface, [])
+            if not isinstance(tokens, list) or not all(isinstance(t, str) for t in tokens):
+                raise DataIntegrityError(
+                    f"detection_hints[{sid}].{surface}: must be an array of strings")
+            for t in tokens:
+                if not t:
+                    raise DataIntegrityError(
+                        f"detection_hints[{sid}].{surface}: empty-string token not allowed")
+            record[surface] = list(tokens)
+        hints[sid] = record
+
+    return hints

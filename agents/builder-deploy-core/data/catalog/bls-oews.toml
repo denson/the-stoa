@@ -10,3 +10,12 @@ category = "none"
 [[entries]]
 kind = "thirdparty_rest_key"
 name = "BLS_OEWS_API_KEY"
+
+# §25 detection_hints — ADDITIVE, ADVISORY (stoa--fdf inc 2.2; verbatim from prototype catalog_hints).
+# The DWP-3 shape: no SDK — a raw REST call inferred from url_pattern + config_key (§29.1 labstat_bls).
+# load_catalog ignores it (byte-unchanged); load_detection_hints validates it. (§25.1 mis-propose-only.)
+[detection_hints]
+sdk_imports  = []
+url_patterns = ["api.bls.gov", "api.bls.gov/publicAPI/v2/timeseries", "bls.gov/oes"]
+config_keys  = ["BLS_OEWS_API_KEY", "BLS_API_KEY"]
+data_signals = ["oews-wage-data", "bls-occupation-stats"]

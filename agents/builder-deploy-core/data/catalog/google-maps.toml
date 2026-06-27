@@ -14,3 +14,15 @@ name = "google-maps"
 [[entries]]
 kind = "gcp_secret"
 name = "MAPS_API_KEY"
+
+# §25 detection_hints — ADDITIVE, ADVISORY recognition signals only (stoa--fdf, u--9s2 inc 2.2).
+# Migrated VERBATIM from the verified prototype catalog_hints.CATALOG_HINTS (stoa--jw5, 35/35 PASS).
+# load_catalog IGNORES this block (reads only entries/gcp_api/category — dataload.py:245-275, byte-unchanged);
+# load_detection_hints reads + fail-closed-validates it. A wrong/missing hint can only mis-PROPOSE, never
+# mis-provision (§25.1 — provisioning rides the unchanged entries). load_catalog's tolerance of this
+# additive block is PINNED by test_load_catalog_admits_detection_hints (rev2 WP-D2).
+[detection_hints]
+sdk_imports  = ["@googlemaps/js-api-loader", "google.maps", "@react-google-maps/api"]
+url_patterns = ["maps.googleapis.com", "maps.gstatic.com"]
+config_keys  = ["GOOGLE_MAPS_API_KEY", "MAPS_API_KEY", "NEXT_PUBLIC_MAPS_KEY"]
+data_signals = ["client-side-map-render", "map-tile-fetch"]
