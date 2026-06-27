@@ -122,11 +122,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid b14181ae-0c4e-4bf1-8bac-a4b44984c133] Ground-truth + core fully absorbed. KEY FOLD-COHERENCE CATCH for the jd5 fold: tests/test_dataload.py lines 61 + 84 use Path(dataload.__file__).resolve().parent.parent/'data' — after data/ moves INSIDE the package these MUST become .parent/'data' or test_dataload.py goes RED. Folding that into the spec's jd5 steps. Writing design-rev1.md now (module signatures, dataclass schemas, port ABC, 2-mode mock, full test inventory mapped to DoD 1-10, jd5 steps, relay-up generators, A3 map, self-assessed weak points).",
       "timestamp": "2026-06-27T04:41:23Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid b14181ae-0c4e-4bf1-8bac-a4b44984c133] pass: design-rev1.md written -\u003e agents/design/stoa--k48/design-rev1.md. Single buildable spec folding CHIRON (ownership/tier + STRICT §7 boundary + emit-then-apply + HOME-agnostic) + HAMILTON (S0-S6 + 2-mode mock + 3-wall TRIPWIRE + deploy-help) + jd5 fold + A3 map. KEY DECISIONS: (1) frozen line-refs VERIFIED exact (resolve L69 / resolve_with_lint L106 / derive_sa_scope L147 / check_runtime_completeness L162; dataload _DATA_ROOT L25; pyproject pkgs L28 / pkg-data L31). (2) jd5 fold = 6 steps incl the FOLD-COHERENCE CATCH: test_dataload.py L61+L84 must flip .parent.parent-\u003e.parent or it goes RED. (3) emit_spec PURE + value-free; Choreographer requires port (no default); MockProvisioner only concrete port; assert_value_free walks spec+ledger+mock. (4) W1 grep VERIFIED valid + clean against suggest/. (5) STRICT §7 probe kept verbatim (/run IS a leak). DoD 1-10 each mapped to a re-executable probe. SELF-ASSESSED WEAK POINTS for ARGUS: DW-1 sa/proj name granularity (FQN in applier?); DW-2 W1 sys-whitelist for __main__; DW-3 strict §7 grep is substring-scan (false-pos risk vs keep-strict, my lean=KEEP); DW-4/RQ-3 deploy-help library = PLAN-TEXT-ONLY in 2.3 (FLAGGED for PLINY: copy into skill dir now or defer to close/2.4?); DW-5 secret-backed railway vars = S3 actions naming source slots, not resolved railway_var entries. SEAM FOR PLINY: RQ-3 (skill-wrapper deploy-help copy 2.3 vs 2.4). Returning to PLINY.",
+      "timestamp": "2026-06-27T04:46:52Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.3 — provisioning choreography (repo-\u003eDB-\u003eper-builder GCP/SA-\u003eRailway-\u003eTailscale-mesh; CHIRON+HAMILTON one-pass design+build; mock-not-real + TRIPWIRE)",
   "type": "task",
-  "updated_at": "2026-06-27T04:41:23Z"
+  "updated_at": "2026-06-27T04:46:52Z"
 }
