@@ -14,11 +14,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nNOMOS activated on directive audit (u9s2-phase2-inc3-directive.md). Reading the output to audit + design-formal stoa--jw5 section refs + builder-deploy-core on main + reuse skills + charter stoa--k48. Directive audit, not a build close.",
       "timestamp": "2026-06-27T04:01:09Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nGround truth absorbed: design-formal stoa--jw5 read (sections 4 S0-S6 / 5.A/5.B / 6 / 7 all present + accurate); builder-deploy-core resolver+SUGGEST front-door confirmed on main HEAD 11ae949; reuse skills confirmed (credential-discipline in-repo; newswire-builder-setup + railway-keyring-deploy deployed at USER-tier .claude/skills, not in-repo — real + readable by a build machine); stoa--jd5/wmu/reg fold targets all exist. Now running the faithfulness check (a)-(f): directive vs Grand's two verbatim comments + section-misref pass + DoD machine-checkability. Drafting verdict next.",
+      "timestamp": "2026-06-27T04:02:14Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.3 — provisioning choreography (repo-\u003eDB-\u003eper-builder GCP/SA-\u003eRailway-\u003eTailscale-mesh; CHIRON+HAMILTON one-pass design+build; mock-not-real + TRIPWIRE)",
   "type": "task",
-  "updated_at": "2026-06-27T04:01:09Z"
+  "updated_at": "2026-06-27T04:02:14Z"
 }
