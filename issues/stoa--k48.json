@@ -246,11 +246,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nNOMOS activated on the close-gate merge 7d20b5f (arc-k48/build acc08e8 into main, was 11ae949) for u--9s2 Phase-2 inc 2.3. Reading the merge stat + bw stoa--k48 ground truth + role file. Running 7 probes: scope, frozen-resolver, 3-wall tripwire, narrative-vs-bw, ledger-before-push, authorship, deliverable-integrity (own pytest run).",
       "timestamp": "2026-06-27T06:29:44Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nProbes 1-6 absorbed + clean so far: scope agents/-only (litter grep EMPTY, no substrate/app), frozen resolver byte-identical (resolve.py adade158, resolution/ diff EMPTY), 3 walls hold (W1 grep EMPTY, W2 only MockProvisioner, W3 emit no port), narrative matches bw (full no-waiver gauntlet, c1 fixed in-envelope, 3 relay-up deliverables, HOME=A-with-trigger), ledger NOT-closed (k48 status open, merge claims no CLOSED), authorship Denson Smith zero-foreign. Running Probe 7 now: my OWN pytest -m pytest -q on main (expect 105 passed).",
+      "timestamp": "2026-06-27T06:30:48Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.3 — provisioning choreography (repo-\u003eDB-\u003eper-builder GCP/SA-\u003eRailway-\u003eTailscale-mesh; CHIRON+HAMILTON one-pass design+build; mock-not-real + TRIPWIRE)",
   "type": "task",
-  "updated_at": "2026-06-27T06:29:44Z"
+  "updated_at": "2026-06-27T06:30:48Z"
 }
