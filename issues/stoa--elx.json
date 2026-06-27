@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-27T19:45:51Z",
+  "description": "",
+  "id": "stoa--elx",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "[for: Polybius the Stoa] Plan: bw install + Windows PowerShell shim into the Stoa install process",
+  "type": "task",
+  "updated_at": "2026-06-27T19:45:51Z"
+}
