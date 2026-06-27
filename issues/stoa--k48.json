@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-27T03:56:58Z",
+  "description": "",
+  "id": "stoa--k48",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "[ARC] u--9s2 Phase-2 inc 2.3 — provisioning choreography (repo-\u003eDB-\u003eper-builder GCP/SA-\u003eRailway-\u003eTailscale-mesh; CHIRON+HAMILTON one-pass design+build; mock-not-real + TRIPWIRE)",
+  "type": "task",
+  "updated_at": "2026-06-27T03:56:58Z"
+}
