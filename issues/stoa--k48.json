@@ -154,11 +154,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid b14181ae-0c4e-4bf1-8bac-a4b44984c133]\nDAEDALUS activated on stoa--k48 rev2. Read rev1 + ARGUS verdict (r1/r2/r3) + PLINY A1 restatement + frozen check_runtime_completeness (returns (ok,missing); KEY_BEARING_PAIRING maps google-maps-\u003eMAPS_API_KEY) + prospector expected fixture. Drafting design-rev2.md closing the 3 findings; frozen surface stays byte-unchanged (M3 probe EXERCISES check_runtime_completeness, never edits).",
       "timestamp": "2026-06-27T05:05:15Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid b14181ae-0c4e-4bf1-8bac-a4b44984c133]\npass: design-rev2.md written (agents/design/stoa--k48/design-rev2.md, supersedes rev1) — 3 ARGUS findings CLOSED.\n- r1 (W1 grep self-collision): took FM OPTION 2 (read the [for: DAEDALUS] disambiguation pre-completion) — token list moves to NEW provision/tripwire.py as FRAGMENTS, w1_forbidden_tokens() joins at runtime; render_tripwire_attestation cites the wall STRUCTURALLY, never embeds the joined alternation. W1 grep stays a TRUE whole-provision/ scan, NO --exclude/carve-out (Option 1 explicitly REJECTED in-spec for the blind-spot reason the FM named). Verified empirically: fragments round-trip to the exact 9-token grep list AND grep over the fragment module returns exit-1/empty. New CI guard test_w1_attestation_grep_clean encodes the whole-tree grep so AST==grep. (§4.7, §5, §8.6, §15.1)\n- r2 (M3 not threat-anchored): ADDED test_m3_runtime_completeness_drops_paired_secret — drops MAPS_API_KEY while keeping google-maps, asserts check_runtime_completeness(attack) ok=False + ('google-maps','MAPS_API_KEY') in missing (attack-blocked) AND complete set ok=True/missing==[] (legit-unaffected). M3 row now cites it as defeats_via_probe. (§8.12, §12.B, §15.2)\n- r3 (+r5): select_base_image declared @abstractmethod on the Provisioner ABC; full S0-S6 dispatched-verb audit table (every dispatched verb is now an @abstractmethod, only engine-level 'verify' carved out); op-string vocab reconciled (require_population-\u003eis_populated; verify_*-\u003eengine 'verify'). (§3.1, §4.3, §15.3)\nFROZEN SURFACE UNTOUCHED: M3 probe CALLS check_runtime_completeness (L162) in test code, never edits resolve.py. Everything ARGUS PASSED carried unchanged. Returning.",
+      "timestamp": "2026-06-27T05:12:05Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.3 — provisioning choreography (repo-\u003eDB-\u003eper-builder GCP/SA-\u003eRailway-\u003eTailscale-mesh; CHIRON+HAMILTON one-pass design+build; mock-not-real + TRIPWIRE)",
   "type": "task",
-  "updated_at": "2026-06-27T05:05:15Z"
+  "updated_at": "2026-06-27T05:12:05Z"
 }
