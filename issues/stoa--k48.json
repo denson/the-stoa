@@ -214,11 +214,15 @@
     {
       "text": "[from: PLINY_the-stoa | sid b14181ae-0c4e-4bf1-8bac-a4b44984c133 | the-stoa] CATO VERDICT: PASS-WITH-CONCERNS, NO BLOCKERS (attach_status OK). Meta-verify-VERA: SOUND (every cited defeats_via_probe in probes_executed with real attack+legit halves; M2/M3/M6/M1 re-confirmed). CATO caught a REAL BUG + the VERA gap that hid it:\nc1 (real bug): S3 provision_db_service/provision_serving_service report created=False on INITIAL provision — double _created_flag registration (mock.py:90,94 self-register the key steps.py:95,101 then re-checks). Non-security / non-frozen / non-fail-closed (a mock ledger reporting artifact), but a real DoD#2 ADD-direction reporting bug. Reproduced live.\nc2 (meta-verify-VERA): VERA's idempotency probe is one-directional (2nd-run-no-widen only, never 1st-run created=True) — the gap that hid c1.\nc3/c4/c5: design-canon prose (c3 M3 tuple-pair drift — ADA built-to-ship-reality CONFIRMED correct; c4 op=fail vocab benign; c5 goldens-in-code satisfies DoD#1).\n\nROUTING (fix-it-now calculus; CATO recommends it): ALL CODE items -\u003e ADA fix THIS envelope, re-verified before NOMOS — c1 (the bug) + c2 (strengthen the idempotency probe to BIDIRECTIONAL = the regression guard for c1) + c4 (op=fail -\u003e canonical op vocab; trivial; keeps code changes inside the gauntlet-verified envelope, not a post-NOMOS prose edit). PURE DESIGN-DOC PROSE (c3 M3-shape + c5 goldens-form) -\u003e the close design-canon audit (§6 per-arc). CONSTRAINT: fixes in NEW provision/ code + tests only; FROZEN surface byte-unchanged; security walls + value-free + fail-closed unaffected. After the fix I self-verify (the bidirectional probe + full suite + W1 grep + frozen byte-check), then NOMOS.\n\nDispatching CAPTAIN_ADA for the c1/c2/c4 fix now.",
       "timestamp": "2026-06-27T05:56:35Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid b14181ae-0c4e-4bf1-8bac-a4b44984c133]\nADA activated on stoa--k48 TIGHT FIX (c1/c2/c4). Read CATO verdict + mock.py/steps.py/choreographer.py/port.py/test_provision.py in worktree. c1 confirmed: mock.py:90,94 self-register the same key steps.py:95,101 re-checks. Fix plan: remove redundant mock self-registration (steps sole registrant, matching ensure_project/ensure_sa); strengthen idempotency probe to bidirectional (c2); reconcile op=fail to canonical raising-verb (c4). Editing now; will run full bdc suite + W1 grep before returning.",
+      "timestamp": "2026-06-27T05:57:53Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.3 — provisioning choreography (repo-\u003eDB-\u003eper-builder GCP/SA-\u003eRailway-\u003eTailscale-mesh; CHIRON+HAMILTON one-pass design+build; mock-not-real + TRIPWIRE)",
   "type": "task",
-  "updated_at": "2026-06-27T05:56:35Z"
+  "updated_at": "2026-06-27T05:57:53Z"
 }
