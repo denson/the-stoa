@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-27T01:01:27Z",
+  "close_reason": "u--9s2 Phase-2 inc 2.2 (SUGGEST front-door) COMPLETE + MERGED. Full gauntlet DAEDALUS-ARGUS-ADA-VERA-CATO-NOMOS CONFORMANT, DoD section-5 1-10 green; user-tier close-gate independently verified (section-2 core byte-unchanged at source, 73 pytest pass, agents/-only, authorship Denson Smith, no stop-sentinel); merged to main 11ae949 (--no-ff); NOMOS-on-merge CONFORMANT. Record-note stoa--xj9 (stop-sentinel strangeness, fix planned). Relaying 2.2 UP to Polybius the Grand for the gate before 2.3.",
   "created": "2026-06-26T23:13:21Z",
   "description": "",
   "id": "stoa--fdf",
@@ -269,8 +271,8 @@
     }
   ],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "[ARC] u--9s2 Phase-2 inc 2.2 — SUGGEST agent front-door (examine-\u003epropose-\u003econfirm-\u003edeclare; promote Phase-1 prototype + build the inference engine; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-27T01:01:25Z"
+  "updated_at": "2026-06-27T01:01:27Z"
 }
