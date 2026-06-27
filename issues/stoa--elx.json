@@ -34,11 +34,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nNOMOS activated on arc-75-build-directive.md (DRAFT, untracked). Reading the output to audit + the gated v2 plan + charter stoa--elx + repo ground truth (install.sh, install-stoa SKILL, builder-deploy-core) + upstream ground truth (jallum/beadwork install.sh + releases/latest). By-the-book directive audit; adversarial on the upstream-installer + release-asset factual premises.",
       "timestamp": "2026-06-27T21:26:47Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nGround truth absorbed. Upstream install.sh fetched (61 lines): UNIX-ONLY (linux|darwin else fail), LATEST-ONLY (api releases/latest, no pin hook), NO checksum, INSTALL_DIR-honored-else-~/.local/bin-if-on-PATH-else-/usr/local/bin, pulls .tar.gz -- all four directive claims TRUE. releases/latest = v0.13.2 (\u003e= floor 0.13.2, not prerelease/draft); repo PUBLIC; windows_amd64.zip downloaded + listed = bw.exe (13.6MB) + CHANGELOG/LICENSE/README; downloaded SHA256 165ae24a MATCHES checksums.txt entry -- DC5 verify mechanism viable. install.sh = 2116 lines, calls bw init (L471) never obtains binary, has -h|--help. install-stoa SKILL at REPO ROOT (Beat 1 L37 + must-NOT L237/238 carry the reversed canon). builder-deploy-core/provision = mock spec-emitter (provisions NOTHING), no bw stand-up call-site. Running final faithfulness + hard-condition + scope pass; drafting verdict.",
+      "timestamp": "2026-06-27T21:28:11Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[for: Polybius the Stoa] Plan: bw install + Windows PowerShell shim into the Stoa install process",
   "type": "task",
-  "updated_at": "2026-06-27T21:26:47Z"
+  "updated_at": "2026-06-27T21:28:11Z"
 }
