@@ -178,11 +178,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid b14181ae-0c4e-4bf1-8bac-a4b44984c133]\npass: BUILD COMPLETE. provision/ sub-package (9 files: __init__/spec/port/mock/choreographer/steps/tripwire/checklist/__main__) + test_provision.py (31 probes) + test_install_smoke.py (jd5) + 3 relay-up artifacts written to agents/design/stoa--k48/relay-up/. jd5 fold landed (git mv data inside pkg; dataload._DATA_ROOT/pyproject/test_dataload flipped). EVIDENCE: full builder-deploy-core suite 105 passed (73 pre-existing + 31 provision + 1 install-smoke). W1 grep over WHOLE provision/ tree EMPTY (exit 1) incl checklist.py+tripwire.py. FROZEN surface byte-unchanged (resolve.py/resolution-init/suggest/discovery empty diff). Authorship clean (11 new files author=Denson Smith; pyproject unchanged). Change isolated to agents/builder-deploy-core + agents/design (NO substrate/app touched -\u003e gen-data/app suite unaffected). ONE DRIFT FLAGGED (built to ship reality): check_runtime_completeness missing element is ((api_kind,api_name),(secret_kind,secret_name)) tuples, not bare names per design-rev2 8.12 -\u003e M3 probe + S6 assert the actual tuple shape. NOT committed (PLINY owns arc commits). Returning.",
       "timestamp": "2026-06-27T05:29:57Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa | sid b14181ae-0c4e-4bf1-8bac-a4b44984c133 | the-stoa] ADA BUILD IN — 105 tests pass; my OWN verify (verify-then-assert) confirms the two load-bearing claims: (1) FROZEN SURFACE intact — resolve.py blob hash IDENTICAL adade158 between main HEAD and the worktree (so derive_sa_scope L147 + check_runtime_completeness L162 are byte-unchanged too); (2) W1 TRIPWIRE grep over provision/ returns EMPTY (exit 1, held). provision/ built (9 modules incl tripwire.py fragment-SSoT + checklist.py); data/ moved inside the package (jd5). 3 relay-up artifacts written.\n\nADA deviation (built-to-ship-reality, correct): the M3 probe asserts the FROZEN check_runtime_completeness ACTUAL return shape — missing is list[((api_kind,api_name),(secret_kind,secret_name))] tuple-pairs, NOT the design-rev2 §8.12 bare-name prose. Shipped frozen code is canon. Two follow-ups (design-canon audit at close): design-rev2 §8.12/§4.5 prose correction (M3 return shape) + Choreographer._failed_action op=fail outside the canonical op vocab (benign, value-free; CATO may rule).\n\nDispatching CAPTAIN_VERA now: re-run the bespoke probes + grep-verify ALL 3 TRIPWIRE walls (W1/W2/W3 — the FM watch + DoD#6) + the strict §7 boundary + value-free emit + the 3 worked examples + the M3 threat-anchored probe + the jd5 install-smoke + AND the FULL existing the-stoa suite (builder-deploy-core + gen-data + app — DoD#9, catches what the jd5 data/ move might break elsewhere). Falsification verdict. Then CATO -\u003e NOMOS.",
+      "timestamp": "2026-06-27T05:32:09Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.3 — provisioning choreography (repo-\u003eDB-\u003eper-builder GCP/SA-\u003eRailway-\u003eTailscale-mesh; CHIRON+HAMILTON one-pass design+build; mock-not-real + TRIPWIRE)",
   "type": "task",
-  "updated_at": "2026-06-27T05:29:57Z"
+  "updated_at": "2026-06-27T05:32:09Z"
 }
