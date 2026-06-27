@@ -134,11 +134,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid ec87b7d2-9da4-4169-b7da-af62475857a0] BUILD PROGRESS — core artifacts written + smoke-passing. Created suggest/ sub-package (suggest.py promoted logic-verbatim, confirm.py promoted + contract layer, examine.py Layer-S-deterministic+Layer-N-reported-hook, evidence.py CandidatePresentation+3 invariants, declare.py P3 wiring, __init__.py). dataload.py: appended load_detection_hints (the ONLY dataload delta; load_catalog + 4 existing loaders byte-untouched). 4 catalog TOMLs: additive [detection_hints] blocks (entries/gcp_api/category byte-identical). 5 §29.1 fixtures (prospector/scienceclaw/labstat_bls/over-proposal/under-proposal) carry REAL Layer-S signals. pyproject: +suggest package, version 0.2.1-\u003e0.2.2. Per-worktree .venv + pip install -e done. SMOKE (self-exercise, VERA is the gate): all 5 fixtures -\u003e correct proposed sets; full examine-\u003esuggest-\u003econfirm_presented-\u003eP3 declare-\u003egenerate-\u003eresolve hits 8/6/7; over-proposal EDIT-remove-\u003e6; under-proposal EDIT-add-\u003e7; fail-closed all 4 no-confirm-\u003eINERT-\u003edeclare_from_confirm None (generate NOT called). Now writing test_suggest.py (35-floor + new probes) + test_dataload.py additive (tolerance-PIN + hints-NEG). Then full suite run.",
       "timestamp": "2026-06-27T00:11:28Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid ec87b7d2-9da4-4169-b7da-af62475857a0] pass: BUILD COMPLETE — returning to PLINY. 1 commit a8cad9c on stoa--fdf/build; 21 files (1608 ins / 3 del). §2-CONSTRAINT HELD (verified by diff): dataload.py ZERO deleted lines (load_catalog + 4 loaders byte-unchanged; only delta = appended load_detection_hints); catalog TOMLs ZERO deleted lines (entries/gcp_api/category byte-identical; only additive [detection_hints]); generate/resolve/discovery/resolution not in the modified set (untouched, module-identity preserved — P3 test asserts declare.generate IS core_generate). SELF-EXERCISE (VERA is the gate, not me): full builder-deploy-core suite 73 passed (2.1 floor + 41 new suggest/dataload); 8/6/7 choreography on the 3 fixtures = [8,6,7]; over-proposal EDIT-remove-\u003e6 (no google-maps/MAPS_API_KEY); under-proposal EDIT-add-\u003e7 (BLS_OEWS_API_KEY present); fail-closed all 4 no-confirm (reject/no_response/edits_pending/None) -\u003e INERT -\u003e declare_from_confirm None with generate call-counter==0; tolerance-PIN + hints-NEG (unknown sub-key-\u003eDataIntegrityError) pass. P8 authorship: author: Denson Smith on every new artifact, zero foreign field. Commit Author = denson (PRINCIPAL identity, not overridden) + both Co-Authored-By trailers. .venv gitignored (not committed). NO design drift flagged — every grounded example matched ship reality. Surfacing to POLYBIUS for the post-ADA §2 git-diff gate.",
+      "timestamp": "2026-06-27T00:16:05Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.2 — SUGGEST agent front-door (examine-\u003epropose-\u003econfirm-\u003edeclare; promote Phase-1 prototype + build the inference engine; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-27T00:11:28Z"
+  "updated_at": "2026-06-27T00:16:05Z"
 }
