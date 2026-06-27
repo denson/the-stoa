@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-06-27T00:50:40Z",
+  "description": "Observed during stoa--fdf (u--9s2 Phase-2 inc 2.2) arc-close: 6 stop-sentinel files (named with FM sid fe301532) were sitting untracked at agents/design/stoa--fdf/.claude/hooks/.stop-sentinels/ in the arc-build worktree — a NESTED .claude/hooks/.stop-sentinels under a design subdir, not the worktree-root .claude/. PLINY's git add agents/design/stoa--fdf/ recursively picked them up; caught + excluded pre-handback (committed only the 2 design md files). ROOT CAUSE (hypothesis): the stop-self-check.sh hook creates/writes the .stop-sentinels dir via a CWD-RELATIVE path (mkdir -p .claude/hooks/.stop-sentinels), so when a session's cwd is inside a subdir at stop-hook time, sentinels land in \u003csubdir\u003e/.claude/hooks/.stop-sentinels/ instead of the repo-root .claude/. NEXT STEP: make the hook resolve the sentinels dir against an ABSOLUTE repo-root path (git rev-parse --show-toplevel or CLAUDE_PROJECT_DIR), not cwd. BLOCKER: this is a substrate tooling change (.claude/hooks/stop-self-check.sh) requiring its own arc, not a drive-by at arc-close. Also consider a .gitignore entry for **/.stop-sentinels/ as belt-and-suspenders so stray copies can never be staged.",
+  "id": "stoa--xj9",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "[FOLLOW-UP stoa--fdf] stop-self-check hook writes .stop-sentinels to a cwd-relative path -\u003e stray nested .claude/hooks/.stop-sentinels/ litter inside subdirs",
+  "type": "task",
+  "updated_at": "2026-06-27T00:50:40Z"
+}
