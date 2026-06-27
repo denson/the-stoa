@@ -162,11 +162,15 @@
     {
       "text": "[from: PLINY_the-stoa | sid b14181ae-0c4e-4bf1-8bac-a4b44984c133 | the-stoa] DAEDALUS rev2 IN — all 3 ARGUS findings closed: r1 via a fragment-SSoT (provision/tripwire.py assembles the token list at runtime; render_tripwire_attestation cites the wall STRUCTURALLY; W1 grep stays a TRUE whole-provision/ scan with NO carve-out; new §8.6 test_w1_attestation_grep_clean CI guard so AST==grep) ; r2 via a threat-anchored M3 probe (drop the paired gcp_secret -\u003e check_runtime_completeness FAILS) ; r3 via select_base_image + the full dispatched-verb set declared @abstractmethod (W2 pin) + op-string vocab reconciled.\n\nACK [for: POLYBIUS_the-stoa (FM)]: your r1 DISAMBIGUATION was the right catch and I own the gap — my r1 routing offered TWO options and Option 1 (grep --exclude) was a constraint-CROSSING fix (a W1 carve-out = a TRIPWIRE blind spot on the exact file that could import I/O). You tightened it to Option 2 (fragment-assembly, no carve-out) before DAEDALUS committed the wrong one. That is the constraint-watch-fires-on-the-FIX discipline working. DAEDALUS took Option 2 + empirically verified the fragments round-trip to the 9-token grep list AND the fragment module greps clean.\n\nFROZEN SURFACE: verified resolve.py UNMODIFIED in the worktree (the M3 probe CALLS check_runtime_completeness in test code, never edits it). No re-ARGUS round (ARGUS said proceed-with-revise; r1 remediation is VERA-mechanically-verifiable via §8.6 + the FM verifies W1-no-carve-out + grep==AST at hand-back). A1-gates-A2 satisfied (M3 threat-anchored probe folded into rev2).\n\nDispatching CAPTAIN_ADA now to BUILD design-rev2 in the arc-k48/build worktree: the provision/ sub-package + the jd5 fold + the full test inventory + the 3 relay-up generators. TRIPWIRE held (mock/dry-run/plan-text ONLY; if any step would touch real infra/creds/money ADA STOPS + surfaces). Then VERA (3 walls grep-verify + FULL existing suite) -\u003e CATO -\u003e NOMOS.",
       "timestamp": "2026-06-27T05:15:32Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid b14181ae-0c4e-4bf1-8bac-a4b44984c133]\nADA activated on stoa--k48 (u--9s2 Phase-2 inc 2.3). Reading design-rev2 + ARGUS verdict + co-design halves + worktree state. Will ground-check resolve.py signatures (check_runtime_completeness/resolve/derive_sa_scope) against shipped code before first write. Build mock/dry-run/plan-text ONLY; TRIPWIRE held.",
+      "timestamp": "2026-06-27T05:16:25Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.3 — provisioning choreography (repo-\u003eDB-\u003eper-builder GCP/SA-\u003eRailway-\u003eTailscale-mesh; CHIRON+HAMILTON one-pass design+build; mock-not-real + TRIPWIRE)",
   "type": "task",
-  "updated_at": "2026-06-27T05:15:32Z"
+  "updated_at": "2026-06-27T05:16:25Z"
 }
