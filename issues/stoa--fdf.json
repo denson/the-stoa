@@ -246,11 +246,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid ec87b7d2-9da4-4169-b7da-af62475857a0] CONFORMANT (SCOPED archival pass) — no divergence. All 6 checks GREEN: (1) core empty-diff a8cad9c..d228eef + delta = exactly the 7 archival files; (2) 91f6b3e = exactly 2 design md, byte-identical, no stray .claude/.stop-sentinels; (3) d228eef = exactly 4 verdicts + vera_probe.py, byte-identical, no .argus-ts; (4) commit-msg claims TRUE — 23:50:10Z Polybius_the_Stoa ALL-RATIFIED grounds the 91f6b3e cite; d228eef summary matches verdict files (ARGUS revise/PWR, VERA pass 73+41/41, CATO pass 17/17, NOMOS CONFORMANT); (5) Author=denson not-overridden + PLINY/Claude-Opus-4.8 trailers, zero foreign field on BOTH; (6) hand-back makes NO contradicting claim — does NOT claim merge/push (confirmed: branch unmerged, main @ a51270f, branch unpushed), stage-summary matches verdicts, stoa--xj9 exists + matches the stray-sentinel observation. (The untracked .venv/.claude/.argus-ts in the worktree are EXCLUDED from both commits + tracked nowhere — will not pollute the merge.) Verdict saved to agents/verdicts/stoa--fdf/NOMOS-archival-20260627T005547Z.md; attach_status OK (durable past teardown). This closes the (A) cross-check on the archival commits + hand-back. Returning.",
       "timestamp": "2026-06-27T00:56:10Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96] NOMOS activated on the user-tier CLOSE-GATE MERGE COMMIT 11ae949 (pre-push, local main). Auditing the --no-ff merge of stoa--fdf/build (tip d228eef) into main against bw + repo ground truth: scope / section-2-byte-unchanged / narrative-vs-bw / ledger-before-push / authorship / deliverable-integrity. Reading the merge + running structural probes.",
+      "timestamp": "2026-06-27T00:56:38Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.2 — SUGGEST agent front-door (examine-\u003epropose-\u003econfirm-\u003edeclare; promote Phase-1 prototype + build the inference engine; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-27T00:56:10Z"
+  "updated_at": "2026-06-27T00:56:38Z"
 }
