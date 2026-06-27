@@ -210,11 +210,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid ec87b7d2-9da4-4169-b7da-af62475857a0] Ground truth absorbed: directive DoD section-5 (8 gated + item 9 reported + item 10 ratify) + design-formal section-24-31 + diff main..a8cad9c (21 files +1608/-3). Now reading the build artifacts (suggest/ package, dataload delta, catalog TOMLs, fixtures, tests) + the 3 gauntlet verdicts (ARGUS/VERA/CATO) for the four conformance probes.",
       "timestamp": "2026-06-27T00:39:35Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid ec87b7d2-9da4-4169-b7da-af62475857a0] Probe 2/3 (commit-SHA + claimed-cleanup) progressing: section-2 byte-confirmed by MY OWN diff — core (generate/resolve/discovery/resolution/validate) NOT in changed set; dataload.py hunk = pure append (0 del, load_catalog byte-unchanged); 4 catalog TOMLs additive [detection_hints] only; pyproject 3 del = version/desc/packages (authors=Denson Smith unchanged). The ratified WP-D2 fold landed as-spec (new load_detection_hints sibling; load_catalog NOT edited; tolerance pinned by a regression test). Now INDEPENDENTLY running the full suite to ground DoD 1-7.",
+      "timestamp": "2026-06-27T00:40:10Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.2 — SUGGEST agent front-door (examine-\u003epropose-\u003econfirm-\u003edeclare; promote Phase-1 prototype + build the inference engine; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-27T00:39:35Z"
+  "updated_at": "2026-06-27T00:40:10Z"
 }
