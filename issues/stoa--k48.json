@@ -2,6 +2,8 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-06-27T06:35:38Z",
+  "close_reason": "u--9s2 Phase-2 inc 2.3 (provisioning choreography) COMPLETE + MERGED. One-pass full gauntlet DAEDALUS-ARGUS-ADA-VERA-CATO-NOMOS CONFORMANT; 3-wall structural TRIPWIRE held (real infra structurally unreachable); frozen 2.1 resolver byte-identical; user-tier close-gate independently verified (105 pytest, the 3 walls, authorship Denson Smith); merged to main 7d20b5f; NOMOS-on-merge CONFORMANT. HOME=A-with-trigger ratified (wmu). 3 relay-up deliverables produced. Relaying the COMPLETE increment UP to Grand single gate.",
   "created": "2026-06-27T03:56:58Z",
   "description": "",
   "id": "stoa--k48",
@@ -261,8 +263,8 @@
     }
   ],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "[ARC] u--9s2 Phase-2 inc 2.3 — provisioning choreography (repo-\u003eDB-\u003eper-builder GCP/SA-\u003eRailway-\u003eTailscale-mesh; CHIRON+HAMILTON one-pass design+build; mock-not-real + TRIPWIRE)",
   "type": "task",
-  "updated_at": "2026-06-27T06:35:36Z"
+  "updated_at": "2026-06-27T06:35:38Z"
 }
