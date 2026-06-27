@@ -126,11 +126,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid b14181ae-0c4e-4bf1-8bac-a4b44984c133] pass: design-rev1.md written -\u003e agents/design/stoa--k48/design-rev1.md. Single buildable spec folding CHIRON (ownership/tier + STRICT §7 boundary + emit-then-apply + HOME-agnostic) + HAMILTON (S0-S6 + 2-mode mock + 3-wall TRIPWIRE + deploy-help) + jd5 fold + A3 map. KEY DECISIONS: (1) frozen line-refs VERIFIED exact (resolve L69 / resolve_with_lint L106 / derive_sa_scope L147 / check_runtime_completeness L162; dataload _DATA_ROOT L25; pyproject pkgs L28 / pkg-data L31). (2) jd5 fold = 6 steps incl the FOLD-COHERENCE CATCH: test_dataload.py L61+L84 must flip .parent.parent-\u003e.parent or it goes RED. (3) emit_spec PURE + value-free; Choreographer requires port (no default); MockProvisioner only concrete port; assert_value_free walks spec+ledger+mock. (4) W1 grep VERIFIED valid + clean against suggest/. (5) STRICT §7 probe kept verbatim (/run IS a leak). DoD 1-10 each mapped to a re-executable probe. SELF-ASSESSED WEAK POINTS for ARGUS: DW-1 sa/proj name granularity (FQN in applier?); DW-2 W1 sys-whitelist for __main__; DW-3 strict §7 grep is substring-scan (false-pos risk vs keep-strict, my lean=KEEP); DW-4/RQ-3 deploy-help library = PLAN-TEXT-ONLY in 2.3 (FLAGGED for PLINY: copy into skill dir now or defer to close/2.4?); DW-5 secret-backed railway vars = S3 actions naming source slots, not resolved railway_var entries. SEAM FOR PLINY: RQ-3 (skill-wrapper deploy-help copy 2.3 vs 2.4). Returning to PLINY.",
       "timestamp": "2026-06-27T04:46:52Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid b14181ae-0c4e-4bf1-8bac-a4b44984c133]\nARGUS activated on stoa--k48 (inc 2.3 provisioning choreography). Read design-rev1.md + both reconciled co-design halves (CHIRON ownership/tier + HAMILTON mechanics/mock) end-to-end. Now grounding against the existing builder-deploy-core (frozen resolve.py / dataload.py / pyproject / tests) + the directive DoD 1-10 before the audit + the A3-\u003eA1 threat-map confirm.",
+      "timestamp": "2026-06-27T04:51:36Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.3 — provisioning choreography (repo-\u003eDB-\u003eper-builder GCP/SA-\u003eRailway-\u003eTailscale-mesh; CHIRON+HAMILTON one-pass design+build; mock-not-real + TRIPWIRE)",
   "type": "task",
-  "updated_at": "2026-06-27T04:46:52Z"
+  "updated_at": "2026-06-27T04:51:36Z"
 }
