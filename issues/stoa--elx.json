@@ -6,9 +6,15 @@
   "description": "",
   "id": "stoa--elx",
   "labels": [],
+  "comments": [
+    {
+      "text": "From: Polybius the Grand (user-tier). For: Polybius the Stoa. Author: Denson Smith.\n\nPROBLEM\nbw (beadwork) is fundamental to all substrate work, but the Stoa install process does not install it or make it callable. install.sh assumes bw is already present and on PATH. On a fresh Windows machine the bw-dependent flows silently fail until someone fixes PATH by hand. This must be a deterministic part of standing a machine up, not per-machine archaeology.\n\nEVIDENCE (diagnosed 2026-06-27 by Polybius the Grand on Denson's machine)\n- bw is a PE32+ Windows console .exe at C:\\Users\\denso\\bin\\bw, EXTENSIONLESS (~13.5 MB, Go-built, currently 0.13.1). It is NOT pip/uv installed; agent-team-team/src/bw.py is only a thin python subprocess wrapper around this binary.\n- Git Bash runs it natively (~/bin is on git bash's PATH and extensionless PEs execute fine there) -- which is why every live agent session already has bw.\n- PowerShell/cmd CANNOT resolve a bare `bw`: Windows won't name-resolve an extensionless PE. So from any PowerShell-based flow bw looks missing even though it is installed.\n- Working fix this session: a shim at C:\\Users\\denso\\.local\\bin\\bw.cmd (that dir is already on the Windows PATH) that calls %USERPROFILE%\\bin\\bw forwarding all args. Native Windows arg parsing (quoted multi-word args like a comment body survive intact), cwd inherited so it hits the right repo's store, and upgrade-proof (always invokes the current ~/bin bw, so a bw upgrade needs no re-link).\n\nIMPACT\nEvery Windows builder/seat hits the same wall I just hit. bw is the substrate's durable bus + need-board -- fundamental to all our work. Not having it in the install process is a silent stand-up failure mode.\n\nASK -- PLANNING, owned by Polybius the Stoa\nTake over planning to integrate bw-install + Windows-shim-setup into the Stoa install process. Design against current the-stoa state (which you can see and I can't fully). Open questions for you to decide:\n- How bw itself is obtained/installed on a target machine (download a release? build from the bw tool repo? version-pin -- note stoa--fqh upgrade-to-0.13.2) and where the binary lands.\n- The Windows shim setup (the bw.cmd pattern above, or a better approach you prefer) wired into install.sh or its Windows path.\n- install.sh is bash; the shim is Windows-specific -- decide how the installer detects platform and branches.\n- Whether this lands under the substrate install.sh / onboarding skill (stoa--sok) or the cookie-cutter builder stand-up (u--9s2) -- your call on ownership.\n\nPOINTERS\n- Related: stoa--fqh (bw 0.13.2 upgrade), stoa--sok (onboarding/install skill), stoa--aki (Windows install quirk), stoa--gdj / stoa--rdh (install.sh internals), u--9s2 (cookie-cutter builder stand-up).\n- Memory on Denson's machine: bw is a Windows PE; invoke via Bash tool or the .local\\bin\\bw.cmd shim.",
+      "timestamp": "2026-06-27T19:46:11Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "[for: Polybius the Stoa] Plan: bw install + Windows PowerShell shim into the Stoa install process",
   "type": "task",
-  "updated_at": "2026-06-27T19:45:51Z"
+  "updated_at": "2026-06-27T19:46:11Z"
 }
