@@ -15,7 +15,8 @@ from pathlib import Path
 
 import pytest
 
-# Package root = parent of tests/ (holds builder_deploy_core/ and data/).
+# Package root = parent of tests/ (holds builder_deploy_core/; data/ now lives INSIDE the package
+# after the jd5 fold, stoa--k48). _PKG_ROOT is used ONLY for sys.path, not a data read.
 _PKG_ROOT = Path(__file__).resolve().parent.parent
 if str(_PKG_ROOT) not in sys.path:
     sys.path.insert(0, str(_PKG_ROOT))

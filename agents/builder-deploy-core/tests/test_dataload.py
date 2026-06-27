@@ -58,7 +58,7 @@ def test_data_is_read_from_disk(tmp_path):
     invariant (the catalog) into a tmp data root, add a seed, and show load_catalog reflects it."""
     import shutil
 
-    src = Path(dataload.__file__).resolve().parent.parent / "data"
+    src = Path(dataload.__file__).resolve().parent / "data"
     dst = tmp_path / "data"
     shutil.copytree(src, dst)
 
@@ -81,7 +81,7 @@ def test_data_is_read_from_disk(tmp_path):
 # tolerance-PIN regression test. The 2.1 cases above are UNCHANGED.
 # ===========================================================================
 
-_REAL_DATA = Path(dataload.__file__).resolve().parent.parent / "data"
+_REAL_DATA = Path(dataload.__file__).resolve().parent / "data"
 
 
 # ---- P5a POS: load_detection_hints loads the four services' hint sets ----------------------

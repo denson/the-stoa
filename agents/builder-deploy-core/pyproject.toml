@@ -25,7 +25,14 @@ dependencies = []   # ZERO runtime third-party deps — stdlib-only (tomllib sin
 test = ["pytest>=8"]
 
 [tool.setuptools]
-packages = ["builder_deploy_core", "builder_deploy_core.resolution", "builder_deploy_core.discovery", "builder_deploy_core.suggest"]
+packages = ["builder_deploy_core", "builder_deploy_core.resolution", "builder_deploy_core.discovery", "builder_deploy_core.suggest", "builder_deploy_core.provision"]
 
 [tool.setuptools.package-data]
-builder_deploy_core = ["../data/**/*.toml"]
+builder_deploy_core = ["data/**/*.toml"]
+
+[tool.pytest.ini_options]
+# the jd5 install-then-import smoke (stoa--k48 §8.10) is marked slow (it builds + pip-installs into a
+# fresh venv). Registered here to avoid the PytestUnknownMarkWarning.
+markers = [
+    "slow: marks tests that build/install into a fresh venv (deselect with '-m \"not slow\"')",
+]
