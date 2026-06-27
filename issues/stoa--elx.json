@@ -38,11 +38,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nGround truth absorbed. Upstream install.sh fetched (61 lines): UNIX-ONLY (linux|darwin else fail), LATEST-ONLY (api releases/latest, no pin hook), NO checksum, INSTALL_DIR-honored-else-~/.local/bin-if-on-PATH-else-/usr/local/bin, pulls .tar.gz -- all four directive claims TRUE. releases/latest = v0.13.2 (\u003e= floor 0.13.2, not prerelease/draft); repo PUBLIC; windows_amd64.zip downloaded + listed = bw.exe (13.6MB) + CHANGELOG/LICENSE/README; downloaded SHA256 165ae24a MATCHES checksums.txt entry -- DC5 verify mechanism viable. install.sh = 2116 lines, calls bw init (L471) never obtains binary, has -h|--help. install-stoa SKILL at REPO ROOT (Beat 1 L37 + must-NOT L237/238 carry the reversed canon). builder-deploy-core/provision = mock spec-emitter (provisions NOTHING), no bw stand-up call-site. Running final faithfulness + hard-condition + scope pass; drafting verdict.",
       "timestamp": "2026-06-27T21:28:11Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nCONFORMANT: arc-75-build-directive.md faithfully encodes the GATED v2 plan + the Grand's gate. All 5 upstream-installer claims TRUE (UNIX-ONLY, LATEST-ONLY, NO-checksum, INSTALL_DIR-first-else-~/.local/bin-if-on-PATH-else-/usr/local/bin, .tar.gz). Release-asset claims TRUE (windows_amd64.zip = bw.exe 13.6MB + CHANGELOG/LICENSE/README; checksums.txt ships; downloaded SHA256 matches; latest v0.13.2 == floor 0.13.2, public). Repo claims TRUE (install.sh 2116L calls bw init L471 never obtains binary + has --help; install-stoa at REPO ROOT Beat1/must-NOT carry reversed canon; provision/ is mock spec-emitter, NO bw stand-up call-site; HEAD 7d20b5f). All 6 hard conditions PRESENT+CORRECT (registry-safe append DC2 DAEDALUS-owned; fail-loud; two-independent-checks DC3; ARGUS cold-audit; by-the-book not one-pass w/ DAEDALUS go/no-go; second Grand-gate Phase D). Scope/consistency clean; authorship = PRINCIPAL Denson Smith, zero foreign-author. ZERO divergences. The directive may propagate -- launch the gauntlet. Returning.",
+      "timestamp": "2026-06-27T21:29:03Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[for: Polybius the Stoa] Plan: bw install + Windows PowerShell shim into the Stoa install process",
   "type": "task",
-  "updated_at": "2026-06-27T21:28:11Z"
+  "updated_at": "2026-06-27T21:29:03Z"
 }
