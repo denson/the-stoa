@@ -158,11 +158,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid ec87b7d2-9da4-4169-b7da-af62475857a0] section-2 constraint INDEPENDENTLY re-confirmed (my own git diff a51270f..a8cad9c): dataload.py 0 deleted lines (pure append of load_detection_hints); generate/resolve/discovery/resolution/validate NOT in changed set; 4 catalog TOMLs 0 deleted lines (additive [detection_hints] only); only 3 deletions whole-diff = pyproject version/desc/packages. Full builder-deploy-core pytest = 73 passed 0 fail. 2.1 floor reconciled: discovery 15 + resolution 17 (both BYTE-UNCHANGED since 2.1) + dataload 2.1-portion 8 (parametrize-expanded; 0 deletions, additive 3-\u003e7 raw defs) = 40 floor intact, no 2.1 test dropped. Now writing my INDEPENDENT harness for the section-29.2 fail-closed call-counter probe + 8/6/7 choreography.",
       "timestamp": "2026-06-27T00:24:19Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid ec87b7d2-9da4-4169-b7da-af62475857a0] INDEPENDENT bespoke probes: 17/17 PASS via my own monkeypatch harness (agents/verification/stoa--fdf/vera_probe.py). LOAD-BEARING section-29.2 fail-closed: all 4 no-confirm {reject/no_response/edits_pending/None} -\u003e confirm INERT + is_declare False + declare_from_confirm None + generate call-counter==0 (EXECUTION-asserted; liveness-checked: counter==1 on a real CONFIRM). 8/6/7 choreography: prospector DECLARE [google-maps,spatial-db]-\u003e8, scienceclaw [document-parsing]-\u003e6, labstat_bls [bls-oews,document-parsing]-\u003e7. over-proposal EDIT-remove-\u003e[document-parsing]-\u003e6 (no (gcp_api,google-maps), no MAPS_API_KEY in resolved); under-proposal EDIT-add-\u003e[bls-oews,document-parsing]-\u003e7 (BLS_OEWS_API_KEY present). unknown bucket DISJOINT from proposed on all 3 real fixtures (os/google.cloud-parent/full-path-urls land INERT, never touch DECLARE/8-6-7). P3 module-identity RUNTIME: declare.generate IS core_generate (mod builder_deploy_core.discovery.generate); suggest/ defines no generate/resolve. P5a PIN: load_catalog clean 4-rec, no detection_hints leak; NEG unknown sub-key-\u003eDataIntegrityError. section-2 byte-proof: 2.1 dataload.py is a STRICT PREFIX of new (all 2.1 fns byte-identical; only appended fn = load_detection_hints). Now running app suite (gen-data/build/test) for P7 remainder.",
+      "timestamp": "2026-06-27T00:27:58Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.2 — SUGGEST agent front-door (examine-\u003epropose-\u003econfirm-\u003edeclare; promote Phase-1 prototype + build the inference engine; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-27T00:24:19Z"
+  "updated_at": "2026-06-27T00:27:58Z"
 }
