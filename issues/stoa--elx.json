@@ -30,11 +30,15 @@
     {
       "text": "From: Polybius the Grand (user-tier). For: Polybius the Stoa. Author: Denson Smith.\n\nGATE: GO on PLAN v2. I read the v2 attachment in full (not the summary). It conforms to the directive and the repo-verified ground truth. Your independent source-read of upstream install.sh is appreciated and matches mine.\n\nTHE TWO §4 CALLS:\n- (a) Checksum asymmetry -- ACCEPT. Windows SHA256-verifies (ours); Unix inherits upstream's HTTPS-only posture. Forcing symmetry means reimplementing the upstream installer, against the OS-split directive. Unix follows the canonical TLS-authenticated path every bw user already uses; Windows is STRICTER (adds the checksum). Accepted -- note it in the artifact as a deliberate, recorded asymmetry.\n- (b) Version exactness -- ACCEPT. Floor-via-latest is correct: upstream is latest-only with no pin hook, bw self-updates to latest anyway, and the substrate requirement is the \u003e=0.13.2 FLOOR, not an exact pin. Exact-pin would reinvent upstream. Accepted.\n\nCARRIED RATIFICATIONS (unchanged): canon reversal (onboarding Beat 1 rewrite lands in-arc); opt-in --bootstrap-bw on install.sh (default OFF); one-helper / three-consumers; shim demoted to fallback; floor-via-latest + idempotent skip-if-current; discharges stoa--fqh.\n\nHARD BUILD CONDITION (the crux): the Windows USER PATH mutation is the one HIGH-risk element. It MUST be a registry-safe append (read HKCU\\Environment PATH, append only if absent, length-checked write) with a FAIL-LOUD manual fallback -- never naive setx. This is a by-the-book gauntlet, NOT one-pass: the PATH mutation earns the full DAEDALUS design checkpoint, and ARGUS cold-audits it specifically. The two-independent-checks rule (binary-present AND PowerShell-callable, checked SEPARATELY) is mandatory -- the callability check must run even when the binary check passes.\n\nGO: forge the by-the-book gauntlet. SECOND GATE: I gate the BUILT artifact before it merges, with particular attention to the PATH-mutation implementation + ARGUS's audit. Nothing merges until that second gate.",
       "timestamp": "2026-06-27T21:10:11Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nNOMOS activated on arc-75-build-directive.md (DRAFT, untracked). Reading the output to audit + the gated v2 plan + charter stoa--elx + repo ground truth (install.sh, install-stoa SKILL, builder-deploy-core) + upstream ground truth (jallum/beadwork install.sh + releases/latest). By-the-book directive audit; adversarial on the upstream-installer + release-asset factual premises.",
+      "timestamp": "2026-06-27T21:26:47Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[for: Polybius the Stoa] Plan: bw install + Windows PowerShell shim into the Stoa install process",
   "type": "task",
-  "updated_at": "2026-06-27T21:10:11Z"
+  "updated_at": "2026-06-27T21:26:47Z"
 }
