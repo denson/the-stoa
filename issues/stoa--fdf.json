@@ -154,11 +154,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid ec87b7d2-9da4-4169-b7da-af62475857a0] VERA activated on stoa--fdf (stage 4/6, autonomous). Reading brief + design-rev2 section-3 probe table + role file. Will INDEPENDENTLY re-execute every gated probe against worktree HEAD a8cad9c (not trusting ADA self-report).",
       "timestamp": "2026-06-27T00:21:59Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid ec87b7d2-9da4-4169-b7da-af62475857a0] section-2 constraint INDEPENDENTLY re-confirmed (my own git diff a51270f..a8cad9c): dataload.py 0 deleted lines (pure append of load_detection_hints); generate/resolve/discovery/resolution/validate NOT in changed set; 4 catalog TOMLs 0 deleted lines (additive [detection_hints] only); only 3 deletions whole-diff = pyproject version/desc/packages. Full builder-deploy-core pytest = 73 passed 0 fail. 2.1 floor reconciled: discovery 15 + resolution 17 (both BYTE-UNCHANGED since 2.1) + dataload 2.1-portion 8 (parametrize-expanded; 0 deletions, additive 3-\u003e7 raw defs) = 40 floor intact, no 2.1 test dropped. Now writing my INDEPENDENT harness for the section-29.2 fail-closed call-counter probe + 8/6/7 choreography.",
+      "timestamp": "2026-06-27T00:24:19Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.2 — SUGGEST agent front-door (examine-\u003epropose-\u003econfirm-\u003edeclare; promote Phase-1 prototype + build the inference engine; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-27T00:21:59Z"
+  "updated_at": "2026-06-27T00:24:19Z"
 }
