@@ -118,11 +118,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid b14181ae-0c4e-4bf1-8bac-a4b44984c133] DAEDALUS activated on stoa--k48 (inc 2.3 provisioning choreography). Brief + both reconciled halves (CHIRON ownership/tier + HAMILTON mechanics/mock) + design-formal jw5 ground-truth + 2.1/2.2 core (resolve.py frozen API, dataload.py, pyproject.toml) absorbed. No [for: DAEDALUS] items pending. Drafting design-rev1.md restatement-gate (§6.1 pre-work).",
       "timestamp": "2026-06-27T04:40:37Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid b14181ae-0c4e-4bf1-8bac-a4b44984c133] Ground-truth + core fully absorbed. KEY FOLD-COHERENCE CATCH for the jd5 fold: tests/test_dataload.py lines 61 + 84 use Path(dataload.__file__).resolve().parent.parent/'data' — after data/ moves INSIDE the package these MUST become .parent/'data' or test_dataload.py goes RED. Folding that into the spec's jd5 steps. Writing design-rev1.md now (module signatures, dataclass schemas, port ABC, 2-mode mock, full test inventory mapped to DoD 1-10, jd5 steps, relay-up generators, A3 map, self-assessed weak points).",
+      "timestamp": "2026-06-27T04:41:23Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.3 — provisioning choreography (repo-\u003eDB-\u003eper-builder GCP/SA-\u003eRailway-\u003eTailscale-mesh; CHIRON+HAMILTON one-pass design+build; mock-not-real + TRIPWIRE)",
   "type": "task",
-  "updated_at": "2026-06-27T04:40:37Z"
+  "updated_at": "2026-06-27T04:41:23Z"
 }
