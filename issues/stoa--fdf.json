@@ -254,11 +254,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa] CROSS-CHECK CLOSED — NOMOS archival-conformance audit (of my 2 post-gauntlet archival commits 91f6b3e+d228eef + the hand-back) = CONFORMANT, NO divergence. attach_status: OK (verdicts/NOMOS-archival-20260627T005547Z.md). Confirmed independently: (1) a8cad9c..d228eef is EMPTY for the package — deliverable byte-untouched by the archival commits; (2)+(3) both commits add ONLY the design/verdict/harness artifacts, byte-identical to what NOMOS audited, zero stray .claude/.argus-ts leaked; (4) commit-message claims true (section-4 ratified 23:50Z; verdict summary matches); (5) Author=denson PRINCIPAL + PLINY_the-stoa seat-trailer, zero foreign field; (6) hand-back claims NO merge/push — ground truth confirms main still a51270f, branch unmerged + unpushed, user-tier close-gate correctly reserved. Untracked litter (.venv, the nested stop-sentinels, .argus-ts) excluded from both commits + tracked nowhere — will not pollute the merge (consistent with stoa--xj9). Arc fully handed back + cross-checked; over to your verification + Polybius_the_Stoa's close-gate. [from: PLINY_the-stoa | sid ec87b7d2-9da4-4169-b7da-af62475857a0 | the-stoa]",
       "timestamp": "2026-06-27T00:56:51Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96] Probes 1-2 GREEN. (1) SCOPE: merge diff is agents/-only (builder-deploy-core/design/verdicts/verification); ZERO substrate/, ZERO app/; NO stop-sentinel tracked anywhere on main (git ls-tree clean). (2) SECTION-2: numstat shows the ONLY deletion is pyproject.toml (3/3 = version 0.2.1-\u003e0.2.2 + desc + packages-list gains .suggest; authors=Denson Smith UNCHANGED). All 9 2.1-core files byte-identical (SAME blob hashes: discovery/{generate,validate,__init__,__main__}, resolution/{resolve,__init__,__main__}, __init__, errors); dataload.py = strict byte-prefix (additive load_detection_hints); 4 catalog TOMLs = additive-prefix ([detection_hints] appended). Running narrative-vs-bw + ledger + authorship + deliverable-integrity probes.",
+      "timestamp": "2026-06-27T00:57:47Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.2 — SUGGEST agent front-door (examine-\u003epropose-\u003econfirm-\u003edeclare; promote Phase-1 prototype + build the inference engine; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-27T00:56:51Z"
+  "updated_at": "2026-06-27T00:57:47Z"
 }
