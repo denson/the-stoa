@@ -126,11 +126,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid ec87b7d2-9da4-4169-b7da-af62475857a0] ADA activated on stoa--fdf. Read design-rev2 in full + FM section-2 PASS clearance (POLYBIUS 23:59:56Z) + no blocking [for: ADA]. Now running the MANDATORY grounding-check: reading the 2.1 core (dataload/generate/resolve/errors + 4 catalog TOMLs) + the 35/35 prototype (suggest.py/confirm.py/catalog_hints.py/run.py) to ground every concrete design example against shipped reality BEFORE first write. Will build into the arc-build worktree only.",
       "timestamp": "2026-06-27T00:02:31Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid ec87b7d2-9da4-4169-b7da-af62475857a0] GROUNDING-CHECK COMPLETE — every design example matches ship reality, NO drift to flag:\n - generate(services_called, catalog, categories, baseline) -\u003e (manifest, sorted(called_entries)) TUPLE; resolve(manifest, baseline, library) -\u003e sorted list. Confirmed.\n - load_catalog(data_root=None) -\u003e (catalog, categories); record shape {entries, gcp_api, category} (NO service-id key, NO detection_hints leak, dataload.py:271-275); required-keys loop dataload.py:245 checks PRESENCE only -\u003e tolerates extra [detection_hints]. Matches design section-2.3.1 citation exactly.\n - DataIntegrityError + UncatalogedServiceError exact class names in errors.py. Catalog TOML keys service-id/gcp_api/category/[[entries]].kind/.name confirmed byte-shape.\n - prototype catalog_hints.CATALOG_HINTS seed hints will transcribe verbatim into [detection_hints] TOML blocks.\n ONE build-shape note (NOT design drift): load_detection_hints returns {sid: {sdk_imports,...}} flat; prototype suggest() reads record.get('detection_hints') nested. I preserve suggest() match-logic verbatim but adapt the single access line so suggest(signals, detection_hints) consumes the flat hints dict per design section-2.2 API. Documented in the promoted file. Beginning build into the worktree now.",
+      "timestamp": "2026-06-27T00:03:39Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.2 — SUGGEST agent front-door (examine-\u003epropose-\u003econfirm-\u003edeclare; promote Phase-1 prototype + build the inference engine; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-27T00:02:31Z"
+  "updated_at": "2026-06-27T00:03:39Z"
 }
