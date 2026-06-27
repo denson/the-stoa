@@ -130,11 +130,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid ec87b7d2-9da4-4169-b7da-af62475857a0] GROUNDING-CHECK COMPLETE — every design example matches ship reality, NO drift to flag:\n - generate(services_called, catalog, categories, baseline) -\u003e (manifest, sorted(called_entries)) TUPLE; resolve(manifest, baseline, library) -\u003e sorted list. Confirmed.\n - load_catalog(data_root=None) -\u003e (catalog, categories); record shape {entries, gcp_api, category} (NO service-id key, NO detection_hints leak, dataload.py:271-275); required-keys loop dataload.py:245 checks PRESENCE only -\u003e tolerates extra [detection_hints]. Matches design section-2.3.1 citation exactly.\n - DataIntegrityError + UncatalogedServiceError exact class names in errors.py. Catalog TOML keys service-id/gcp_api/category/[[entries]].kind/.name confirmed byte-shape.\n - prototype catalog_hints.CATALOG_HINTS seed hints will transcribe verbatim into [detection_hints] TOML blocks.\n ONE build-shape note (NOT design drift): load_detection_hints returns {sid: {sdk_imports,...}} flat; prototype suggest() reads record.get('detection_hints') nested. I preserve suggest() match-logic verbatim but adapt the single access line so suggest(signals, detection_hints) consumes the flat hints dict per design section-2.2 API. Documented in the promoted file. Beginning build into the worktree now.",
       "timestamp": "2026-06-27T00:03:39Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid ec87b7d2-9da4-4169-b7da-af62475857a0] BUILD PROGRESS — core artifacts written + smoke-passing. Created suggest/ sub-package (suggest.py promoted logic-verbatim, confirm.py promoted + contract layer, examine.py Layer-S-deterministic+Layer-N-reported-hook, evidence.py CandidatePresentation+3 invariants, declare.py P3 wiring, __init__.py). dataload.py: appended load_detection_hints (the ONLY dataload delta; load_catalog + 4 existing loaders byte-untouched). 4 catalog TOMLs: additive [detection_hints] blocks (entries/gcp_api/category byte-identical). 5 §29.1 fixtures (prospector/scienceclaw/labstat_bls/over-proposal/under-proposal) carry REAL Layer-S signals. pyproject: +suggest package, version 0.2.1-\u003e0.2.2. Per-worktree .venv + pip install -e done. SMOKE (self-exercise, VERA is the gate): all 5 fixtures -\u003e correct proposed sets; full examine-\u003esuggest-\u003econfirm_presented-\u003eP3 declare-\u003egenerate-\u003eresolve hits 8/6/7; over-proposal EDIT-remove-\u003e6; under-proposal EDIT-add-\u003e7; fail-closed all 4 no-confirm-\u003eINERT-\u003edeclare_from_confirm None (generate NOT called). Now writing test_suggest.py (35-floor + new probes) + test_dataload.py additive (tolerance-PIN + hints-NEG). Then full suite run.",
+      "timestamp": "2026-06-27T00:11:28Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.2 — SUGGEST agent front-door (examine-\u003epropose-\u003econfirm-\u003edeclare; promote Phase-1 prototype + build the inference engine; full gauntlet)",
   "type": "task",
-  "updated_at": "2026-06-27T00:03:39Z"
+  "updated_at": "2026-06-27T00:11:28Z"
 }
