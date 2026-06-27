@@ -166,11 +166,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid b14181ae-0c4e-4bf1-8bac-a4b44984c133]\nADA activated on stoa--k48 (u--9s2 Phase-2 inc 2.3). Reading design-rev2 + ARGUS verdict + co-design halves + worktree state. Will ground-check resolve.py signatures (check_runtime_completeness/resolve/derive_sa_scope) against shipped code before first write. Build mock/dry-run/plan-text ONLY; TRIPWIRE held.",
       "timestamp": "2026-06-27T05:16:25Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid b14181ae-0c4e-4bf1-8bac-a4b44984c133]\nGround-check DONE against shipped code: check_runtime_completeness returns (ok,missing) missing=list[(api,secret)]; derive_sa_scope/resolve return sorted (kind,name); KEY_BEARING_PAIRING = google-maps-\u003eMAPS_API_KEY; expected sets (8/6/7) match design fixtures. NO design drift found. Baseline suite GREEN (73 passed). Python 3.11.4 + pytest 8.3.5, no venv (conftest sys.path). Starting jd5 fold (git mv data inside pkg) then provision/ build.",
+      "timestamp": "2026-06-27T05:17:56Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.3 — provisioning choreography (repo-\u003eDB-\u003eper-builder GCP/SA-\u003eRailway-\u003eTailscale-mesh; CHIRON+HAMILTON one-pass design+build; mock-not-real + TRIPWIRE)",
   "type": "task",
-  "updated_at": "2026-06-27T05:16:25Z"
+  "updated_at": "2026-06-27T05:17:56Z"
 }
