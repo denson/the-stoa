@@ -174,11 +174,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid b14181ae-0c4e-4bf1-8bac-a4b44984c133]\nBuild complete: provision/ sub-package (8 modules) + test_provision.py (31 tests) + test_install_smoke.py + jd5 fold. provision tests 31/31 GREEN; install-then-import smoke GREEN (real venv install, data/ bundled). DRIFT FLAGGED: check_runtime_completeness returns missing=list[((api_kind,api_name),(secret_kind,secret_name))] tuples, NOT bare names as design-rev2 8.12 wrote — built M3 probe + S6 to ship reality (shipped code is canon). Running FULL builder-deploy-core suite + W1 grep now.",
       "timestamp": "2026-06-27T05:27:42Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid b14181ae-0c4e-4bf1-8bac-a4b44984c133]\npass: BUILD COMPLETE. provision/ sub-package (9 files: __init__/spec/port/mock/choreographer/steps/tripwire/checklist/__main__) + test_provision.py (31 probes) + test_install_smoke.py (jd5) + 3 relay-up artifacts written to agents/design/stoa--k48/relay-up/. jd5 fold landed (git mv data inside pkg; dataload._DATA_ROOT/pyproject/test_dataload flipped). EVIDENCE: full builder-deploy-core suite 105 passed (73 pre-existing + 31 provision + 1 install-smoke). W1 grep over WHOLE provision/ tree EMPTY (exit 1) incl checklist.py+tripwire.py. FROZEN surface byte-unchanged (resolve.py/resolution-init/suggest/discovery empty diff). Authorship clean (11 new files author=Denson Smith; pyproject unchanged). Change isolated to agents/builder-deploy-core + agents/design (NO substrate/app touched -\u003e gen-data/app suite unaffected). ONE DRIFT FLAGGED (built to ship reality): check_runtime_completeness missing element is ((api_kind,api_name),(secret_kind,secret_name)) tuples, not bare names per design-rev2 8.12 -\u003e M3 probe + S6 assert the actual tuple shape. NOT committed (PLINY owns arc commits). Returning.",
+      "timestamp": "2026-06-27T05:29:57Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.3 — provisioning choreography (repo-\u003eDB-\u003eper-builder GCP/SA-\u003eRailway-\u003eTailscale-mesh; CHIRON+HAMILTON one-pass design+build; mock-not-real + TRIPWIRE)",
   "type": "task",
-  "updated_at": "2026-06-27T05:27:42Z"
+  "updated_at": "2026-06-27T05:29:57Z"
 }
