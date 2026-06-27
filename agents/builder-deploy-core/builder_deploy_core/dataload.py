@@ -19,10 +19,10 @@ from pathlib import Path
 
 from builder_deploy_core.errors import DataIntegrityError
 
-# The ONE DATA root: the package's own data/ tree, resolved relative to this file (§2.3 / §2.4).
-# builder_deploy_core/dataload.py -> parent is builder_deploy_core/ -> parent is the package root,
-# which holds data/ as a sibling of builder_deploy_core/.
-_DATA_ROOT = Path(__file__).resolve().parent.parent / "data"
+# The ONE DATA root: the package's own data/ subdir, resolved relative to this file (§2.3 / §2.4).
+# builder_deploy_core/dataload.py -> parent is builder_deploy_core/, which now holds data/ INSIDE the
+# package (jd5 fold, stoa--k48): the data root is the package's own data/ subdir, not a sibling.
+_DATA_ROOT = Path(__file__).resolve().parent / "data"
 
 
 # ---------------------------------------------------------------------------
