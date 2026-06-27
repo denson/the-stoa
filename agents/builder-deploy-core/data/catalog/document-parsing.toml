@@ -8,3 +8,11 @@ category = "document-consuming"
 [[entries]]
 kind = "gcp_api"
 name = "document-parsing"
+
+# §25 detection_hints — ADDITIVE, ADVISORY (stoa--fdf inc 2.2; verbatim from prototype catalog_hints).
+# load_catalog ignores it (byte-unchanged); load_detection_hints validates it. (§25.1 mis-propose-only.)
+[detection_hints]
+sdk_imports  = ["google.cloud.documentai", "google-cloud-documentai"]
+url_patterns = ["documentai.googleapis.com"]
+config_keys  = ["DOCAI_PROCESSOR_ID", "DOCUMENT_AI_LOCATION"]
+data_signals = ["pdf-ingest", "ocr-extract", "document-parse"]

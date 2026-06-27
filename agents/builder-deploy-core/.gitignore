@@ -5,3 +5,5 @@ __pycache__/
 *.egg-info/
 build/
 dist/
+# per-worktree virtualenv (stoa--fdf inc 2.2): created for editable-install self-exercise; never committed
+.venv/

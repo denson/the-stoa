@@ -13,8 +13,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "builder-deploy-core"
-version = "0.2.1"
-description = "The builder-deploy resolution + discovery CORE (u--9s2 Phase-2 increment 2.1): pure, offline, environment-free key-provisioning resolution + discovery."
+version = "0.2.2"
+description = "The builder-deploy resolution + discovery CORE + SUGGEST front-door (u--9s2 Phase-2 increment 2.2): pure, offline, environment-free key-provisioning resolution + discovery + examine->suggest->confirm->declare."
 readme = "README.md"
 requires-python = ">=3.11"
 authors = [{ name = "Denson Smith" }]
@@ -25,7 +25,7 @@ dependencies = []   # ZERO runtime third-party deps — stdlib-only (tomllib sin
 test = ["pytest>=8"]
 
 [tool.setuptools]
-packages = ["builder_deploy_core", "builder_deploy_core.resolution", "builder_deploy_core.discovery"]
+packages = ["builder_deploy_core", "builder_deploy_core.resolution", "builder_deploy_core.discovery", "builder_deploy_core.suggest"]
 
 [tool.setuptools.package-data]
 builder_deploy_core = ["../data/**/*.toml"]
