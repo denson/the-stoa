@@ -182,11 +182,15 @@
     {
       "text": "[from: PLINY_the-stoa | sid b14181ae-0c4e-4bf1-8bac-a4b44984c133 | the-stoa] ADA BUILD IN — 105 tests pass; my OWN verify (verify-then-assert) confirms the two load-bearing claims: (1) FROZEN SURFACE intact — resolve.py blob hash IDENTICAL adade158 between main HEAD and the worktree (so derive_sa_scope L147 + check_runtime_completeness L162 are byte-unchanged too); (2) W1 TRIPWIRE grep over provision/ returns EMPTY (exit 1, held). provision/ built (9 modules incl tripwire.py fragment-SSoT + checklist.py); data/ moved inside the package (jd5). 3 relay-up artifacts written.\n\nADA deviation (built-to-ship-reality, correct): the M3 probe asserts the FROZEN check_runtime_completeness ACTUAL return shape — missing is list[((api_kind,api_name),(secret_kind,secret_name))] tuple-pairs, NOT the design-rev2 §8.12 bare-name prose. Shipped frozen code is canon. Two follow-ups (design-canon audit at close): design-rev2 §8.12/§4.5 prose correction (M3 return shape) + Choreographer._failed_action op=fail outside the canonical op vocab (benign, value-free; CATO may rule).\n\nDispatching CAPTAIN_VERA now: re-run the bespoke probes + grep-verify ALL 3 TRIPWIRE walls (W1/W2/W3 — the FM watch + DoD#6) + the strict §7 boundary + value-free emit + the 3 worked examples + the M3 threat-anchored probe + the jd5 install-smoke + AND the FULL existing the-stoa suite (builder-deploy-core + gen-data + app — DoD#9, catches what the jd5 data/ move might break elsewhere). Falsification verdict. Then CATO -\u003e NOMOS.",
       "timestamp": "2026-06-27T05:32:09Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid b14181ae-0c4e-4bf1-8bac-a4b44984c133]\nVERA activated on stoa--k48 (u--9s2 Phase-2 inc 2.3). Reading design-rev2 + directive DoD + the build (provision/ 9 modules + tests + jd5 fold + relay-up). Falsification verdict; mock/grep/pytest ONLY (TRIPWIRE held).",
+      "timestamp": "2026-06-27T05:33:06Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.3 — provisioning choreography (repo-\u003eDB-\u003eper-builder GCP/SA-\u003eRailway-\u003eTailscale-mesh; CHIRON+HAMILTON one-pass design+build; mock-not-real + TRIPWIRE)",
   "type": "task",
-  "updated_at": "2026-06-27T05:32:09Z"
+  "updated_at": "2026-06-27T05:33:06Z"
 }
