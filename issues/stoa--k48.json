@@ -170,11 +170,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid b14181ae-0c4e-4bf1-8bac-a4b44984c133]\nGround-check DONE against shipped code: check_runtime_completeness returns (ok,missing) missing=list[(api,secret)]; derive_sa_scope/resolve return sorted (kind,name); KEY_BEARING_PAIRING = google-maps-\u003eMAPS_API_KEY; expected sets (8/6/7) match design fixtures. NO design drift found. Baseline suite GREEN (73 passed). Python 3.11.4 + pytest 8.3.5, no venv (conftest sys.path). Starting jd5 fold (git mv data inside pkg) then provision/ build.",
       "timestamp": "2026-06-27T05:17:56Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid b14181ae-0c4e-4bf1-8bac-a4b44984c133]\nBuild complete: provision/ sub-package (8 modules) + test_provision.py (31 tests) + test_install_smoke.py + jd5 fold. provision tests 31/31 GREEN; install-then-import smoke GREEN (real venv install, data/ bundled). DRIFT FLAGGED: check_runtime_completeness returns missing=list[((api_kind,api_name),(secret_kind,secret_name))] tuples, NOT bare names as design-rev2 8.12 wrote — built M3 probe + S6 to ship reality (shipped code is canon). Running FULL builder-deploy-core suite + W1 grep now.",
+      "timestamp": "2026-06-27T05:27:42Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.3 — provisioning choreography (repo-\u003eDB-\u003eper-builder GCP/SA-\u003eRailway-\u003eTailscale-mesh; CHIRON+HAMILTON one-pass design+build; mock-not-real + TRIPWIRE)",
   "type": "task",
-  "updated_at": "2026-06-27T05:17:56Z"
+  "updated_at": "2026-06-27T05:27:42Z"
 }
