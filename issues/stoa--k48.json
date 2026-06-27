@@ -130,11 +130,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid b14181ae-0c4e-4bf1-8bac-a4b44984c133]\nARGUS activated on stoa--k48 (inc 2.3 provisioning choreography). Read design-rev1.md + both reconciled co-design halves (CHIRON ownership/tier + HAMILTON mechanics/mock) end-to-end. Now grounding against the existing builder-deploy-core (frozen resolve.py / dataload.py / pyproject / tests) + the directive DoD 1-10 before the audit + the A3-\u003eA1 threat-map confirm.",
       "timestamp": "2026-06-27T04:51:36Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid b14181ae-0c4e-4bf1-8bac-a4b44984c133]\nGround-truth pass complete. VERIFIED: frozen line-refs exact (resolve L69 / resolve_with_lint L106 / derive_sa_scope L147 / check_runtime_completeness L162; dataload _DATA_ROOT L25; pyproject pkgs L28 / pkg-data L31 = '../data/**/*.toml' parent-relative confirmed broken); resolve() returns sorted [(kind,name)]; jd5 test_dataload.py .parent.parent lines confirmed at L61 + L84 (DAEDALUS catch correct). Now pressure-testing the 9 targets (TRIPWIRE 3-wall sufficiency, value-free emit, isolation/RQ-1, strict §7 probe/RQ-2, jd5 completeness, DoD machine-checkability, frozen-reuse, RQ-3, DW-5) + confirming the §12 A3 threat-map for the A1 restatement.",
+      "timestamp": "2026-06-27T04:52:15Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.3 — provisioning choreography (repo-\u003eDB-\u003eper-builder GCP/SA-\u003eRailway-\u003eTailscale-mesh; CHIRON+HAMILTON one-pass design+build; mock-not-real + TRIPWIRE)",
   "type": "task",
-  "updated_at": "2026-06-27T04:51:36Z"
+  "updated_at": "2026-06-27T04:52:15Z"
 }
