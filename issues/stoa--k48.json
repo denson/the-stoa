@@ -222,11 +222,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid b14181ae-0c4e-4bf1-8bac-a4b44984c133]\npass: c1/c2/c4 fix complete. 3 files changed, all in provision/ + tests/:\n- c1 mock.py:89-97 — removed redundant self._created_flag self-registration in provision_db_service + provision_serving_service; steps.py:95,101 is now sole registrant (matches ensure_project/ensure_sa). First run -\u003e created=True, 2nd run -\u003e created=False, both directions correct.\n- c2 test_provision.py:136-176 — test_idempotent_rerun_no_widen made BIDIRECTIONAL: now asserts (a) 1st run create-or-get verbs (incl provision_db_service/provision_serving_service, the c1 surface) created=True/OK AND (b) 2nd run widens nothing. Proven regression guard: RED before c1 fix (caught exactly the 2 S3 services SKIPPED), GREEN after.\n- c4 choreographer.py:75-87 — _failed_action op reconciled to canonical vocab: threads the raising verb out of the MockProvisionerFailure msg (S\u003cn\u003e:\u003cop\u003e) so op names the verb + target names it (was non-canonical op=fail/target=step); value-free preserved.\nEVIDENCE: full bdc suite 105 passed GREEN. W1 grep over provision/ EMPTY (exit 1). py_compile OK. Frozen surface byte-unchanged (resolve.py adade158, no diff to resolution/). Security walls / value-free / fail-closed unaffected (test_ledger_value_free, test_s2c_blocks, test_s0_abort, W1/W2/W3 all green). NOT committed (PLINY owns commits). Returning.",
       "timestamp": "2026-06-27T06:01:11Z"
+    },
+    {
+      "text": "[from: PLINY_the-stoa | sid b14181ae-0c4e-4bf1-8bac-a4b44984c133 | the-stoa] ADA c1/c2/c4 FIX IN + my self-verify CLEAN: full bdc suite 105 passed (re-run myself); the bidirectional idempotency probe is a PROVEN regression guard (re-introduce c1 -\u003e RED, restore -\u003e GREEN); W1 grep empty; frozen surface resolve.py blob adade158 byte-unchanged; ADA's git-stash mishap verified cleaned (arc69 stash@{0} preserved, .substrate-last-check back to HEAD no conflict markers, worktree only intended changes). c3 (M3 prose) + c5 (goldens-form) tracked for the close design-canon audit.\n\nCOMMITTED on arc-k48/build (off main 11ae949): 4b0bb54 feat (the provision/ choreography + jd5 fold + 3 relay-up deliverables) + c7272c4 chore (ARGUS+VERA+CATO verdicts). Author=Denson Smith; Co-Authored-By: PLINY_the-stoa + Stoa-Session-Id. Worktree clean.\n\nDispatching CAPTAIN_NOMOS now — the gauntlet-final ground-truth audit of the COMPLETE increment vs design-formal sec4-sec7 + the directive DoD 1-10 + bw ground truth (claimed-vs-actual commit SHAs + authorship trailers; the 3 walls re-grep; value-free emit; the 3 relay-up deliverables; the wmu decision-register HOME=A-with-trigger canonical entry). On NOMOS CONFORMANT I relay the COMPLETE increment UP to the FM (POLYBIUS_the-stoa) with the 3 relay-up deliverables for the user-tier close-gate -\u003e Grand single gate.",
+      "timestamp": "2026-06-27T06:07:04Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ARC] u--9s2 Phase-2 inc 2.3 — provisioning choreography (repo-\u003eDB-\u003eper-builder GCP/SA-\u003eRailway-\u003eTailscale-mesh; CHIRON+HAMILTON one-pass design+build; mock-not-real + TRIPWIRE)",
   "type": "task",
-  "updated_at": "2026-06-27T06:01:11Z"
+  "updated_at": "2026-06-27T06:07:04Z"
 }
