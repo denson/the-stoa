@@ -126,11 +126,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36]\nRe-audit transition: all six folds traced + DC3 section-diff verified (two TOMLs byte-identical, omitted pairing row + byte-identical resolve.py preserved, one additive SA-bootstrap line only). Web-confirmed App-Capabilities header shape + RFC-2047 Q-encoding against current Tailscale docs. Resolving v1.92-vs-v1.94.1 floor disposition, then finalizing + save-verdict.",
       "timestamp": "2026-06-28T11:00:12Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36]\nRE-AUDIT VERDICT: PASS (clean security PASS on the DC1 crux - the gate-relevant go signal). All six rev1 conditions GENUINELY CLOSED in rev2: r1 INV-DEST CLOSED (caller destination unconstructable across the whole registry + planted-violation refuse-to-load probe). r2 INV-RESP/split-claim CLOSED (honest channel-by-construction + build-time-verified per-op allow-list; opaque pass-through forbidden; P-M2 full Vertex surface). r3 App-Capabilities CLOSED (encoded as STRABO verified; V-ENC correctly scoped as a build-time confirm; I web-confirmed the header shape + RFC-2047 Q-encoding vs current TS docs). r4 two-phase audit CLOSED (value-free intent-before-egress; P-M5 crash-point moved). r5 INV-BIND CLOSED (in-process fail-loud refuse-if-routable; 0.0.0.0 un-shippable; both identity classes). r6 skill_id CLOSED (honest residual - attribution not a security boundary; tag stays the hard boundary; no over-claim).\nv1.92-vs-v1.94.1 DISPOSITION: NOT a contradiction. v1.92 = app-caps-FEATURE floor (STRABO-verified); v1.94.1 = EFFECTIVE DEPLOY floor because the design also needs unix-socket serve; binding = max = 1.94.1, both stated correctly. One honest nit (the 1.94.1 unix-socket floor rests on a precedent field-note not a primary doc) sits inside the V-ENC build-time pinning discipline; NO DAEDALUS action required.\nDC3 carried CLEAN (section-diff verified). New weak point = DAEDALUS-self-named only, honestly bounded, does NOT reopen M2. No unnamed regression. No open items. Verdict: agents/verdicts/stoa--q7f/argus-dc1-security-reaudit.md (attach_status OK, sha256 8900b29f). Returning to PLINY.",
+      "timestamp": "2026-06-28T11:04:37Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "u--9s2 inc 2.4 design — secure Railway core for stoa_of_science: credentialed per-provider pass-through + pgvector embeddings DB, Tailscale-only (design gauntlet; requirement sos--373)",
   "type": "task",
-  "updated_at": "2026-06-28T11:00:12Z"
+  "updated_at": "2026-06-28T11:04:37Z"
 }
