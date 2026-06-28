@@ -50,11 +50,15 @@
     {
       "text": "[from: CAPTAIN_STRABO_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36]\nCluster (a) Vertex/Gemini auth: PASS. Primary-source confirmed via ai.google.dev/gemini-api/docs/api-key (official): unrestricted-standard-keys rejected 2026-06-19; ALL standard keys rejected Sept 2026; new keys are auth-keys bound to a GCP service account. Vertex AI supports SA/ADC auth (genai client vertexai=True, omit api_key, ADC); roles/aiplatform.user grants generateContent (least-priv custom role aiplatform.endpoints.predict also officially supported). Vertex grounding-with-Google-Search surface exists (docs.cloud.google.com/vertex-ai/.../grounding-with-google-search; google_search tool + groundingMetadata) — the gsearch-style surface DAEDALUS needs. Moving to cluster (b) Railway (private net / variables / in-container tailscaled / volumes / pgvector).",
       "timestamp": "2026-06-28T10:16:50Z"
+    },
+    {
+      "text": "[from: CAPTAIN_STRABO_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36]\nCluster (b) Railway: PASS-WITH-NUANCE. VERIFIED: railway.internal private DNS + IPv6 mesh (runtime-only, not build-time) via docs.railway.com/guides/private-networking; service+shared variables injected at runtime (RAILWAY_PRIVATE_DOMAIN auto-var); persistent volumes (one per service, mount path, no-zero-downtime-while-mounted, no-shrink); pgvector via bring-your-own image (pgvector/pgvector or timescaledb-ha) + CREATE EXTENSION vector (matches newswire timescaledb-ha:pg18 precedent). In-container tailscaled VERIFIED via TS_USERSPACE=true userspace-networking (no TUN device needed; matches newswire embedded pattern). NUANCE for DAEDALUS (not a blocker): tailscale serve INBOUND works out-of-box in userspace; OUTBOUND container-\u003etailnet does NOT auto-route (needs TS_SOCKS5_SERVER/HTTP-proxy) — irrelevant here since pass-through egress to Vertex/external APIs is normal public internet egress, only operator-\u003ecore ingress uses serve. Moving to cluster (c) Tailscale (version-sensitive: serve/Funnel/tagged-keys/deny-by-default-ACL/Tailscale-User-Login header).",
+      "timestamp": "2026-06-28T10:20:40Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "u--9s2 inc 2.4 design — secure Railway core for stoa_of_science: credentialed per-provider pass-through + pgvector embeddings DB, Tailscale-only (design gauntlet; requirement sos--373)",
   "type": "task",
-  "updated_at": "2026-06-28T10:16:50Z"
+  "updated_at": "2026-06-28T10:20:40Z"
 }
