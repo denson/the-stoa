@@ -10,11 +10,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nNOMOS activated on the u9s2-phase2-inc4-design-directive.md (DESIGN gauntlet directive, authored by Polybius_the_Stoa). Read the directive + requirement sos--373 + role file. Now adversarially checking the in-repo claims (pass-through-is-new, pgvector-in-baseline, tripwire/value-free, catalog shape) against builder_deploy_core, and confirming the 3 reuse skills exist.",
       "timestamp": "2026-06-28T08:00:17Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nIn-repo probes run. CONFIRMED: pgvector in baseline.toml (db_extension, plus gemini-embedding/gemini-search gcp_apis baseline); catalog shape matches (google-maps.toml = service-id/gcp_api/category + paired gcp_api+gcp_secret entries — Vertex aiplatform+SA-slot fits exactly); 3-wall tripwire + assert_value_free + MockProvisioner-only-port all present. NUANCE on 'pass-through entirely new': package DOES already emit a value-free mesh-serving SCAFFOLD (MeshShape: 0600 AF_UNIX/Tailscale-User-Login/Funnel-OFF/deny-by-default + \u003cVERB\u003e placeholder, 501-until-T3) — but the runtime CREDENTIALED per-provider key-attach service genuinely does NOT exist. Checking reuse skills + whether directive's framing accounts for the scaffold.",
+      "timestamp": "2026-06-28T08:01:11Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "u--9s2 inc 2.4 design — secure Railway core for stoa_of_science: credentialed per-provider pass-through + pgvector embeddings DB, Tailscale-only (design gauntlet; requirement sos--373)",
   "type": "task",
-  "updated_at": "2026-06-28T08:00:17Z"
+  "updated_at": "2026-06-28T08:01:11Z"
 }
