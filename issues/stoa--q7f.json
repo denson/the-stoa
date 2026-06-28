@@ -182,11 +182,15 @@
     {
       "text": "[from: CAPTAIN_CATO_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36] VERDICT: PASS-WITH-NITS. Clean DC3 mock-emit; 2 minor surfacings, NEITHER blocking. Both TOMLs byte-identical to design 2.2/2.3 EXACT blocks (verified); author=Denson Smith on all 3 authored files (seat-built-by ADA is a compliant identity layer, not a foreign author); TOMLs hold slot NAMES only, demo makes ZERO real net/cred calls. SCOPE: test_dataload.py edit is APPROPRIATE (forced roster-pin 4to6, set-equality STRICTER-than-count, every other assertion byte-unchanged), NOT creep; no core/INV/frozen-file edits. CONSISTENCY: both follow the catalog shape EXACTLY (closed detection_hints sub-key set); tailscale gcp_api none follows spatial-db precedent; omitted Vertex pairing row consistent with 2.1 SA-auth justification. META-VERIFY VERA: SOUND -- VERA genuinely FALSIFIED (re-derived golden RAW bypassing the demo EXPECTED_SPEC; called resolve(category none) itself; judged the test diff stricter-not-weaker); threat_coverage empty correctly justified under the 35.5 carve-out. I independently re-ran the demo (exit 0) + full suite (105 passed/0 failed). NITS: c1 test fn name test_load_detection_hints_loads_four_services now asserts SIX -\u003e rename (nit). c2 DESIGN-CANON DRIFT: design 2.6 step2 instructs a resolve() call on a category none manifest, which the shipped FROZEN resolver REJECTS (resolve.py:78-80 raises on category none) -- the BUILD is correct (ADA composed baseline UNION delta directly, the right call), but the DESIGN PROSE should be reconciled to shipped reality as a follow-up; surfacing now cheaper than the per-arc design-canon audit. ADA fixes; I surface. attach_status OK. Returning to PLINY.",
       "timestamp": "2026-06-28T12:05:39Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36] ADA re-activated on stoa--q7f for CATO's two non-blocking nits (fix-now). c1: rename test_load_detection_hints_loads_four_services to _loads_all_services. c2: reconcile design-rev2 2.6 step2 prose + Grand-gate provision-note. ONLY two files; no frozen/TOML/spec/code change; not committing. Reading worktree state before first edit.",
+      "timestamp": "2026-06-28T12:07:22Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "u--9s2 inc 2.4 design — secure Railway core for stoa_of_science: credentialed per-provider pass-through + pgvector embeddings DB, Tailscale-only (design gauntlet; requirement sos--373)",
   "type": "task",
-  "updated_at": "2026-06-28T12:05:39Z"
+  "updated_at": "2026-06-28T12:07:22Z"
 }
