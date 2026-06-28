@@ -74,11 +74,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36]\npass: DC1 decision = PER-PROVIDER SCOPED PASS-THROUGH (a closed server-side registry of named provider operations), NOT an authenticated allowlisted egress proxy. Justification: a per-provider design has NO caller-supplied URL/host at all, so SSRF is closed BY CONSTRUCTION (no destination input to attack) — strictly stronger than a URL allowlist (which is a filter-bypass surface). Generalizes newswire-serving: serve --https=443 -\u003e 0600 AF_UNIX socket -\u003e gated handler; the closed verb set fills the existing MeshShape \u003cVERB\u003e 501-until-T3 stub.\n\nThreats M1-M6 each with mitigation + threat-anchored probe (P-M1..P-M6, design-time for the future core build): M1 SSRF (no caller URL, closed registry), M2 key-exfil (server-side attach + allow-list redaction + value-free audit), M3 identity-forgery (0600 AF_UNIX bind precondition — THE crux; non-routable listener), M4 over-broad authz (per-(identity-class,provider,operation) scopes, deny-by-default), M5 audit-gap (write-before-respond value-free record), M6 quota-DoS (per-identity token-bucket + shared-quota concurrency cap). Identity: human=Tailscale-User-Login; TAGGED builder=App-Capabilities/tag (POLYBIUS enrichment — does NOT get user-login).\n\nDC3 mock-emit GROUND-CHECKED against live machinery (emit_spec + assert_value_free PASS, predictions match exactly). Two new catalog records, exact TOML in the design: data/catalog/vertex-gemini.toml (gcp_api=aiplatform + paired gcp_secret=GCP_SA_KEY_B64, category=none, SA-auth so NO key_bearing_pairing row) + data/catalog/tailscale.toml (thirdparty_rest_key=TS_AUTHKEY, gcp_api=none, category=none). NO edit to spec.py/port.py/mock.py/resolve.py/dataload.py/baseline.toml/kinds.toml — frozen resolver byte-identical, tripwire holds.\n\nDesign artifact: agents/design/stoa--q7f/design-rev1.md. 5 self-assessed weak points (push hardest: tagged-builder identity mechanism; redaction completeness; no-Vertex-pairing-row correctness; P-M3 bind-verification probe). Returning to PLINY.",
       "timestamp": "2026-06-28T10:32:13Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36]\nARGUS activated on stoa--q7f (u--9s2 inc 2.4 DC1 security cold-audit). Reading design-rev1 end-to-end + STRABO DC2 premises + sos--373 + cookie-cutter ground truth before audit. Default: skepticism on the credentialed pass-through (SSRF/key-exfil/identity-forgery/tagged-builder/authz/audit/quota).",
+      "timestamp": "2026-06-28T10:34:09Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "u--9s2 inc 2.4 design — secure Railway core for stoa_of_science: credentialed per-provider pass-through + pgvector embeddings DB, Tailscale-only (design gauntlet; requirement sos--373)",
   "type": "task",
-  "updated_at": "2026-06-28T10:32:13Z"
+  "updated_at": "2026-06-28T10:34:09Z"
 }
