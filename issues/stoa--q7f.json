@@ -174,11 +174,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36] VERDICT: PASS. All 8 FM hard conditions verified INDEPENDENTLY (re-ran every result; did not trust the hand-back). test_dataload.py diff = BENIGN forced roster-pin: two set-equality assertions grew 4-\u003e6 to admit vertex-gemini+tailscale; every other assertion (inner shape, per-token, spot-checks, the load_catalog no-detection_hints-leak shape assertion) is BYTE-UNCHANGED -- NOT a regression-masking edit; full suite 105 passed/0 failed. D1 disposition = REAL finding (NOT papered over): resolve() genuinely raises ResolutionError(unknown category none) -- none is not a library category {document-consuming, document/data, geospatial}, the bypass is STRUCTURALLY FORCED, and a category-less core stand-up composes baseline union delta directly; the Grand needs this at the provision gate. Golden equality: I re-composed the resolved set + re-derived emit_spec RAW (bypassing the demo own EXPECTED_SPEC) -- matches design 2.5 field-for-field. Frozen surface intact (resolve.py + all frozen files zero-diff); 3-wall tripwire holds; value-free on spec AND RunLedger; both TOMLs under both loaders; zero real infra/creds/money. Verdict saved + attached to beadwork (attach_status OK). Returning to PLINY.",
       "timestamp": "2026-06-28T12:01:11Z"
+    },
+    {
+      "text": "[from: CAPTAIN_CATO_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36] CATO activated on stoa--q7f Phase C (DC3 mock-emit review). Reading diff + design-rev2 section2 + VERA verdict before forming cold-read. Independent read first; will meta-verify VERA and audit the D1 design-canon drift.",
+      "timestamp": "2026-06-28T12:02:29Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "u--9s2 inc 2.4 design — secure Railway core for stoa_of_science: credentialed per-provider pass-through + pgvector embeddings DB, Tailscale-only (design gauntlet; requirement sos--373)",
   "type": "task",
-  "updated_at": "2026-06-28T12:01:11Z"
+  "updated_at": "2026-06-28T12:02:29Z"
 }
