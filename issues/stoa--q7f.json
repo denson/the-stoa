@@ -42,11 +42,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nGround truth absorbed: both briefs + directive + sos--373 read; role files present at .claude/; reuse skills + cookie-cutter package present. Running the 6 brief-correctness probes (role-assumption, chain-of-command, hard-conditions, scope, gauntlet-shape, authorship) — comparing each brief instruction against the directive.",
       "timestamp": "2026-06-28T10:14:36Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nverdict: CONFORMANT\nchecked_output: the two activation briefs (FM HUMAN_paste-polybius...md + PLINY HUMAN_paste-pliny...md, both on beadwork @ attachments/stoa--q7f/) vs the inc-2.4 design directive + requirement sos--373.\nAll 6 brief-correctness probes pass. (1) Role-assumption: FM reads MAJOR_POLYBIUS.md -\u003e POLYBIUS_the-stoa; PLINY reads MAJOR_PLINY.md -\u003e PLINY_the-stoa; both bw prime + whoami + correct signing form. Role files present at .claude/. (2) Chain: FM=verify+relay, does NOT dispatch CAPTAINs/merge/provision (corroborated MAJOR_POLYBIUS.md L43); PLINY surfaces to the FM not user-tier-direct, dispatches CAPTAINs, does NOT merge/provision (corroborated MAJOR_PLINY.md L19). Neither holds the other's authority. (3) Hard conditions all present + faithful: emit-only/mock + ZERO real infra/creds/money; STRABO web-verify mandate (DC2); ARGUS cold-audit of the pass-through shape as the crux (DC1); by-the-book NOT one-pass w/ DAEDALUS go/no-go before ADA; core designed-not-built / ADA mock-emit only; relay-UP-to-Grand w/ nothing-real-until-gated-AND-provision-go. (4) PLINY scope in/out matches the directive verbatim-in-substance (out: real provisioning, core SERVICE build, first-slice build, client skills, arc-75). (5) Gauntlet shape STRABO-\u003eDAEDALUS-\u003eARGUS-\u003eADA-\u003eVERA-\u003eCATO-\u003eNOMOS, standard composition no CHIRON/HAMILTON; D-A/D-B/D-C in PLINY, beadwork-SHA Monitor in FM; close signals present; compaction-recovery footers point at the real on-disk beadwork paths (both attachments verified present). (6) No foreign author-like field; seat-signing framing is not an authorship claim. Briefs faithfully derive from the directive; team may proceed. Returning.",
+      "timestamp": "2026-06-28T10:15:29Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "u--9s2 inc 2.4 design — secure Railway core for stoa_of_science: credentialed per-provider pass-through + pgvector embeddings DB, Tailscale-only (design gauntlet; requirement sos--373)",
   "type": "task",
-  "updated_at": "2026-06-28T10:14:36Z"
+  "updated_at": "2026-06-28T10:15:29Z"
 }
