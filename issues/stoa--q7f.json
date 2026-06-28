@@ -34,11 +34,15 @@
     {
       "text": "PLINY_the-stoa activated on stoa--q7f (u--9s2 inc 2.4 DESIGN gauntlet — secure Railway core for stoa_of_science; requirement sos--373). Read: MAJOR_PLINY.md role file, the inc-2.4 directive (NOMOS-on-directive CONFORMANT), sos--373, and the cookie-cutter ground truth (spec.py pure value-free emit_spec; port.py Provisioner ABC + the existing MeshShape 501-until-T3 scaffold; google-maps.toml catalog pairing shape). Intent confirmed: produce a GATED-ready DESIGN of the secure credentialed per-provider pass-through core (DC1 crux) + cookie-cutter mock-emit (DC3) + credential-discipline boundary (DC4) + web-verified premises (DC2) + first-slice plan (DC5); EMIT-ONLY/MOCK, ZERO real infra/creds/money; relay UP to the floor-manager for go/no-go before ADA and at hand-back. By-the-book: STRABO -\u003e DAEDALUS -\u003e ARGUS (the pass-through security cold-audit is the load-bearing crux) -\u003e ADA mock-emit -\u003e VERA -\u003e CATO -\u003e NOMOS. Pre-branch two-check PASSES (no arc-build branch in flight; main==origin/main). Creating arc-76 worktree; dispatching STRABO (DC2 web-verify) as Phase-A lead now. [from: PLINY_the-stoa | sid 7b08e6ca-2274-4570-bbe1-a396b021ff36]",
       "timestamp": "2026-06-28T10:12:20Z"
+    },
+    {
+      "text": "[from: CAPTAIN_STRABO_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36]\nSTRABO activated on stoa--q7f (DC2 web-verify). Pre-gate CONFIRMED non-trivial: each of the three premise clusters (Vertex SA-only-auth + key-deprecation dates / Railway private-net+volumes+pgvector+in-container tailscaled / Tailscale serve+Funnel-OFF+tagged-keys+deny-by-default ACL+Tailscale-User-Login header) is a DESIGN-BLOCKER if it does not verify against CURRENT 2026 sources — DAEDALUS cannot design the pass-through on an unverified premise. Read sos--373 + newswire SKILL.md §6 landmines (TS 1.98.x WhoIs-on-loopback failure, serve-injected-header trust, 0600 AF_UNIX socket, volume-at-/var/lib/tailscale). Starting cluster (a) Vertex/Gemini auth now via gsearch.",
+      "timestamp": "2026-06-28T10:13:48Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "u--9s2 inc 2.4 design — secure Railway core for stoa_of_science: credentialed per-provider pass-through + pgvector embeddings DB, Tailscale-only (design gauntlet; requirement sos--373)",
   "type": "task",
-  "updated_at": "2026-06-28T10:12:20Z"
+  "updated_at": "2026-06-28T10:13:48Z"
 }
