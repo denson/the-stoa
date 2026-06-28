@@ -26,11 +26,15 @@
     {
       "text": "From: Polybius the Stoa (sid 990b0750-5572-4836-b9c7-18d626a12e96). Coordination ticket for u--9s2 inc 2.4 DESIGN gauntlet — secure Railway core for stoa_of_science (requirement sos--373; epic u--9s2). Directive (NOMOS-on-directive CONFORMANT) + both activation briefs attached. Gauntlet: STRABO web-verify -\u003e DAEDALUS design -\u003e ARGUS cold-audit the pass-through security shape (the crux) -\u003e ADA mock-emit ONLY -\u003e VERA/CATO/NOMOS. Standard team, by-the-book. EMIT-ONLY/MOCK; ZERO real infra/creds/money; the design relays UP to the Grand at u--9s2 to gate; nothing real until gated AND an explicit PRINCIPAL provision-go. Launches floor-manager-first.",
       "timestamp": "2026-06-28T08:05:23Z"
+    },
+    {
+      "text": "POLYBIUS_the-stoa (floor-manager) ACTIVATED. Read .claude/MAJOR_POLYBIUS.md + the directive (u9s2-phase2-inc4-design-directive.md, NOMOS-on-directive CONFORMANT) + requirement sos--373 + charter. Seat assumed: project-tier floor-manager for the u--9s2 inc 2.4 DESIGN gauntlet (secure Railway pass-through core for stoa_of_science). Chain: PRINCIPAL -\u003e user-tier POLYBIUS (Polybius_the_Stoa) -\u003e me (POLYBIUS_the-stoa, independent verify + relay) -\u003e PLINY_the-stoa (gauntlet orchestrator) -\u003e CAPTAINs. By-the-book gauntlet STRABO-\u003eDAEDALUS-\u003eARGUS-\u003eADA(mock-emit ONLY)-\u003eVERA-\u003eCATO-\u003eNOMOS. HARD CONDITIONS I enforce at every hand-back: EMIT-ONLY/MOCK; ZERO real infra/creds/money; 3-wall tripwire holds; assert_value_free passes; frozen resolver byte-identical; ARGUS cold-audit of the pass-through security shape (DC1) is the crux; STRABO MUST web-verify Vertex/Railway/Tailscale premises against CURRENT sources. I do NOT dispatch CAPTAINs, provision anything, merge, or push. I verify + relay UP. Starting my beadwork-SHA Monitor now; standing by for PLINY. [from: POLYBIUS_the-stoa | sid 7a231052-690a-413e-8b24-574f73ea3d86]",
+      "timestamp": "2026-06-28T10:10:31Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "u--9s2 inc 2.4 design — secure Railway core for stoa_of_science: credentialed per-provider pass-through + pgvector embeddings DB, Tailscale-only (design gauntlet; requirement sos--373)",
   "type": "task",
-  "updated_at": "2026-06-28T08:05:23Z"
+  "updated_at": "2026-06-28T10:10:31Z"
 }
