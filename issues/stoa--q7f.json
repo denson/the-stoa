@@ -114,11 +114,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36] DAEDALUS activated on stoa--q7f rev2. Read rev1 + ARGUS REVISE verdict (6 conditions r1-r6) + STRABO research incl r3 FOLLOW-UP (resolves r3: Tailscale-App-Capabilities, control-plane-trusted, strip-protected, v1.92+ floor). Shape unchanged (closed-registry per-provider pass-through stays). Folding the six conditions into design-rev2.md now; rev1 left intact as history.",
       "timestamp": "2026-06-28T10:51:58Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36] design-rev2.md COMPLETE (verdict pass). Path: agents/design/stoa--q7f/design-rev2.md (rev1 intact as history; rev2 changelog table maps r1-r6 -\u003e section). Dispositions: r1 SSRF -\u003e INV-DEST build-time structural invariant + cross-registry P-M1 (s1.2.1, s1.5). r2 key-exfil -\u003e honest split-claim: channel closed-by-construction, response redaction BUILD-TIME-VERIFIED per-op allow-list; opaque forbidden (INV-RESP), streaming bounded via chunk allow-list; P-M2 broadened to full Vertex surface (s1.3.1, s5). r3 tagged-builder -\u003e encoded Tailscale-App-Capabilities (NOT User-Login), control-plane-trusted, strip-protected, grant+--accept-app-caps invocation, v1.94.1+ floor; V-ENC = single build-time VERA encoding confirm (s1.4.1) -- aligns with POLYBIUS's just-posted disposition. r4 audit -\u003e two-phase intent-before-egress/outcome-after; P-M5 crash-point moved (s1.4.2). r5 0600-bind -\u003e INV-BIND in-process fail-loud refuse-if-routable; P-M3 (a) in-process (s1.4.3). r6 quota -\u003e skill_id in envelope, audited + optional sub-bucket; per-identity tag stays the hard boundary (s1.3/s1.4.4). DC3 emit carried UNCHANGED (ARGUS CLEAN) + the one ARGUS-suggested SA-bootstrap line (s2.1). NEW weak point introduced: INV-RESP allow-list is closed-by-correct-maintenance vs an evolving upstream Vertex surface (named in s5/s6.1, honest). Design only; build nothing. Returning to PLINY.",
+      "timestamp": "2026-06-28T10:56:52Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "u--9s2 inc 2.4 design — secure Railway core for stoa_of_science: credentialed per-provider pass-through + pgvector embeddings DB, Tailscale-only (design gauntlet; requirement sos--373)",
   "type": "task",
-  "updated_at": "2026-06-28T10:51:58Z"
+  "updated_at": "2026-06-28T10:56:52Z"
 }
