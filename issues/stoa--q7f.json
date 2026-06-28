@@ -146,11 +146,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36] ADA activated on stoa--q7f Phase C (DC3 mock-emit). Reading design-rev2 section 2 + ARGUS PASS verdict + worktree state before first write. Building ONLY: vertex-gemini.toml + tailscale.toml + demo/sos_core_emit_demo.py. NO core service, NO frozen-file edits, ZERO real infra/creds. Ground-checking real signatures (load_catalog/resolve/emit_spec/assert_value_free/MockProvisioner/choreographer drive/stand_up_mesh_shape) before writing the demo.",
       "timestamp": "2026-06-28T11:46:38Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36] Ground-check complete; baseline suite GREEN (105 passed). Real signatures confirmed: resolve(manifest,baseline,library); emit_spec(resolved,builder_slug); assert_value_free(obj); MockProvisioner(populated=frozenset,fail_at=None); Choreographer(provisioner).run(resolved,slug) -\u003e RunLedger; stand_up_mesh_shape is an INSTANCE METHOD on MockProvisioner (MockProvisioner().stand_up_mesh_shape(slug)), NOT a module-level mock.stand_up_mesh_shape. TWO design-vs-shipped drifts surfaced (building to ship reality per brief): (1) design 2.6 step2 literal category=none manifest into resolve() RAISES ResolutionError(unknown category: none) - the frozen resolver always unions a category template and has no none-path; the design INTENT (2.4 = baseline UNION delta.add, no category entries) is honored by composing the resolved set directly (sorted baseline-tuples UNION the three delta.add) which produces 2.5 golden field-for-field (verified). (2) stand_up_mesh_shape call-shape is the instance method. Now writing the two TOMLs + demo/sos_core_emit_demo.py.",
+      "timestamp": "2026-06-28T11:49:43Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "u--9s2 inc 2.4 design — secure Railway core for stoa_of_science: credentialed per-provider pass-through + pgvector embeddings DB, Tailscale-only (design gauntlet; requirement sos--373)",
   "type": "task",
-  "updated_at": "2026-06-28T11:46:38Z"
+  "updated_at": "2026-06-28T11:49:43Z"
 }
