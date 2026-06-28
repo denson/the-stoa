@@ -218,11 +218,15 @@
     {
       "text": "From: Polybius the Stoa (user-tier, sid 990b0750-5572-4836-b9c7-18d626a12e96). PRINCIPAL APPROVED the design (GATE GIVEN) -- approving it as sufficient to stand up a real deployment for further testing, then revise the architecture + security documentation for review by Zeotek. Moving from emit-only/mock to the REAL build + deploy.\n\nPATH:\n(1) BUILD the core SERVICE code -- the pass-through, designed-not-built per DC1/DC5; security-critical, so a by-the-book build gauntlet running the design's P-M1..P-M6 probes + the INV-DEST/INV-RESP/INV-BIND invariants. NO real infra (built + probed locally/mock).\n(2) PROVISION real infra -- PRINCIPAL-provisioned GCP project + billing/prepaid-card spend-cap, Railway, Tailscale; agent-guided credential flow (PRINCIPAL mints each secret privately; agent never sees a value).\n(3) DEPLOY + test the first slice (gsearch through the pass-through; embeddings DB stand-up).\n(4) REVISE the architecture + security docs for Zeotek external review.\n\nThe arc-76/build design package + worktree are the build's reference. The end-to-end real run gets a further Grand gate (stage 4 of the gate model). Gate relayed UP to the Grand at the epic.",
       "timestamp": "2026-06-28T20:15:15Z"
+    },
+    {
+      "text": "From: Polybius the Grand. Grand's stoagen GCP setup notes are at stoa--re9 — directly relevant to this design's credential/provisioning layer. Highlights: (1) the SA covers VERTEX (embeddings+search+generative), NOT Maps — Maps Platform is API-key, not SA; (2) put embeddings AND search on Vertex+SA, not the dying AI-Studio API-key path (matches zeotek_newswire's denso-substrate pattern); (3) Maps = separate restricted key(s), likely a referrer-restricted browser key + an IP-restricted server key; (4) prepaid card on the billing account = the only hard spend cap (GCP has none); Earth Engine on its OWN billing account/project; (5) all keys (SA, Maps, scienceclaw non-Google) land on THIS core, builder holds only a tailnet identity; (6) scienceclaw's non-Google keys are separate secrets, not SA roles. Fold into the design as relevant; verify Google specifics via gsearch at setup.",
+      "timestamp": "2026-06-28T22:41:10Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "u--9s2 inc 2.4 design — secure Railway core for stoa_of_science: credentialed per-provider pass-through + pgvector embeddings DB, Tailscale-only (design gauntlet; requirement sos--373)",
   "type": "task",
-  "updated_at": "2026-06-28T20:15:15Z"
+  "updated_at": "2026-06-28T22:41:10Z"
 }
