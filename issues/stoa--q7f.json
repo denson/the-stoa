@@ -78,11 +78,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36]\nARGUS activated on stoa--q7f (u--9s2 inc 2.4 DC1 security cold-audit). Reading design-rev1 end-to-end + STRABO DC2 premises + sos--373 + cookie-cutter ground truth before audit. Default: skepticism on the credentialed pass-through (SSRF/key-exfil/identity-forgery/tagged-builder/authz/audit/quota).",
       "timestamp": "2026-06-28T10:34:09Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36]\nDesign + STRABO + sos--373 + cookie-cutter ground truth all read. DC3 emit cross-checked against live spec.py/_derive_acquisition/derive_sa_scope/dataload — §2.5 ProvisioningSpec is consistent, no-pairing-row claim confirmed sound against check_runtime_completeness. Now finalizing DC1 security risk list (SSRF residual, redaction completeness, tagged-builder premise-gap, audit-ordering).",
+      "timestamp": "2026-06-28T10:35:04Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "u--9s2 inc 2.4 design — secure Railway core for stoa_of_science: credentialed per-provider pass-through + pgvector embeddings DB, Tailscale-only (design gauntlet; requirement sos--373)",
   "type": "task",
-  "updated_at": "2026-06-28T10:34:09Z"
+  "updated_at": "2026-06-28T10:35:04Z"
 }
