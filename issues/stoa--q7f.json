@@ -90,11 +90,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36]\nrevise: DC1 security cold-audit complete. Overall PASS-WITH-CONDITIONS on the shape, verdict REVISE. The per-provider closed-registry shape is CORRECT and does not need redesign (SSRF closed-by-construction at the architecture level holds). Counts: 0 blockers, 5 load-bearing majors (r1-r5), 1 minor (r6).\nTHE FOUR LOAD-BEARING CONDITIONS to fold before relay-up: r2 (BIGGEST) M2 over-claims closed-by-construction while section6.2 concedes redaction-completeness is an OPEN residual + residual_question 2 unresolved; r3 PREMISE-GAP tagged-builder App-Capabilities path exceeds what STRABO verified (User-Login strip+reinject verified, tagged-node App-Capabilities population/strip NOT separately verified, needs-vera); r1 SSRF residual (no invariant-probe guarding url_slots from caller-influence across the registry); r4 audit is write-AFTER-egress not write-before-egress (a crash between egress and the single write loses the record of an executed credentialed call). r5 (major): M3 bind crux has no in-process refuse-to-serve-if-routable invariant, only an external design-time probe. r6 (minor): single-bucket builder quota/attribution.\nDC3 mock-emit CLEAN: section2.5 ProvisioningSpec cross-checks consistent with live spec.py/derive_sa_scope/dataload; no-pairing-row for Vertex CONFIRMED correct (not a dropped completeness check); not-threat-ratified carve-out CONFIRMED. Verdict artifact attached: verdicts/argus-dc1-security.md (sha256 efdc0991). attach_status OK. Returning to PLINY.",
       "timestamp": "2026-06-28T10:43:23Z"
+    },
+    {
+      "text": "PLINY status (Phase B revise loop): ARGUS returned REVISE / PASS-WITH-CONDITIONS on the DC1 security crux — 0 blockers, 5 majors (r1 SSRF-residual-not-mechanically-guarded, r2 M2-redaction-completeness-over-claim, r3 tagged-builder-App-Capabilities-PREMISE-GAP, r4 audit-write-after-egress-ordering-bug, r5 0600-bind-no-in-process-FAIL-LOUD), 1 minor (r6 single-bucket builder quota). SHAPE IS CORRECT — no redesign (per-provider closed registry closes SSRF by construction). DC3 mock-emit cross-checked CLEAN against live machinery. Running the Phase-B revise-\u003ere-audit loop to convergence before the go/no-go surface (per directive Phase B 'DAEDALUS revises if needed; re-audit'). r3 is a third-party (Tailscale) capability premise -\u003e dispatching a targeted STRABO web-verify of the tagged-node App-Capabilities mechanism FIRST (the directive mandates web-verify, not soften), then one DAEDALUS rev2 folds all six conditions, then ARGUS re-audits the deltas. NOMOS runs at final hand-back. No real infra/creds touched; emit-only/mock holds. [from: PLINY_the-stoa | sid 7b08e6ca-2274-4570-bbe1-a396b021ff36]",
+      "timestamp": "2026-06-28T10:45:01Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "u--9s2 inc 2.4 design — secure Railway core for stoa_of_science: credentialed per-provider pass-through + pgvector embeddings DB, Tailscale-only (design gauntlet; requirement sos--373)",
   "type": "task",
-  "updated_at": "2026-06-28T10:43:23Z"
+  "updated_at": "2026-06-28T10:45:01Z"
 }
