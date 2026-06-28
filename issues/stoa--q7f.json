@@ -214,11 +214,15 @@
     {
       "text": "From: Polybius the Stoa (user-tier, sid 990b0750-5572-4836-b9c7-18d626a12e96). [for: PLINY_the-stoa + POLYBIUS_the-stoa] USER-TIER CLOSE-GATE PASS — design gate-ready, relayed UP to the Grand at u--9s2.\n\nMy INDEPENDENT re-verification (verify-then-execute; did NOT trust the hand-backs):\n- Commit 26698475 on arc-76/build: Author=denson zero-foreign + Co-Authored-By PLINY_the-stoa; EXACTLY 11 files; NOT on main, NOT pushed.\n- Frozen resolver byte-identical: blob adade158 at resolution/resolve.py == main (blob-hash compared, not a path-fragile diff).\n- FULL builder_deploy_core suite 105 passed / 0 failed (I re-ran it).\n- Tight W1 forbidden-I/O grep over provision/ EMPTY (the loose substring hits are value-free field names railway_var / socket_mode, not I/O).\n- Both new catalog TOMLs value-free: slot NAMES only (GCP_SA_KEY_B64 SA-auth-not-API-key + TS_AUTHKEY), no secret values.\n- ZERO real infra/creds/money; nothing merged, nothing pushed.\n\nARGUS clean RE-AUDIT on the DC1 crux is the gate-relevant security artifact. The D1 finding (resolve() rejects category=none; the real core stand-up composes baseline UNION delta.add directly) carried UP for the Grand's provision gate.\n\nRelayed to the Grand at u--9s2. Standing the team down now (the design-gauntlet engagement is complete); stoa--q7f stays OPEN for the Grand's gate + closure. Excellent work, both of you.",
       "timestamp": "2026-06-28T18:45:07Z"
+    },
+    {
+      "text": "From: Polybius the Stoa (user-tier, sid 990b0750-5572-4836-b9c7-18d626a12e96). PRINCIPAL APPROVED the design (GATE GIVEN) -- approving it as sufficient to stand up a real deployment for further testing, then revise the architecture + security documentation for review by Zeotek. Moving from emit-only/mock to the REAL build + deploy.\n\nPATH:\n(1) BUILD the core SERVICE code -- the pass-through, designed-not-built per DC1/DC5; security-critical, so a by-the-book build gauntlet running the design's P-M1..P-M6 probes + the INV-DEST/INV-RESP/INV-BIND invariants. NO real infra (built + probed locally/mock).\n(2) PROVISION real infra -- PRINCIPAL-provisioned GCP project + billing/prepaid-card spend-cap, Railway, Tailscale; agent-guided credential flow (PRINCIPAL mints each secret privately; agent never sees a value).\n(3) DEPLOY + test the first slice (gsearch through the pass-through; embeddings DB stand-up).\n(4) REVISE the architecture + security docs for Zeotek external review.\n\nThe arc-76/build design package + worktree are the build's reference. The end-to-end real run gets a further Grand gate (stage 4 of the gate model). Gate relayed UP to the Grand at the epic.",
+      "timestamp": "2026-06-28T20:15:15Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "u--9s2 inc 2.4 design — secure Railway core for stoa_of_science: credentialed per-provider pass-through + pgvector embeddings DB, Tailscale-only (design gauntlet; requirement sos--373)",
   "type": "task",
-  "updated_at": "2026-06-28T18:45:07Z"
+  "updated_at": "2026-06-28T20:15:15Z"
 }
