@@ -22,11 +22,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nverdict: CONFORMANT\nticket: stoa--q7f (requirement sos--373; epic u--9s2)\nchecked_output: u9s2-phase2-inc4-design-directive.md (DRAFT, untracked working-tree) — the inc-2.4 DESIGN-gauntlet directive for the secure Railway core\ndivergences: (none)\nground_truth_consulted: sos--373 (stoa_of_science bw); builder_deploy_core/ (port.py, mock.py, tripwire.py, spec.py, dataload.py, data/baseline.toml, data/catalog/google-maps.toml+spatial-db.toml); tests/test_provision.py (W2 subclass pin, W1 grep); ~/.claude/skills/{newswire-builder-setup,credential-discipline,railway-keyring-deploy}; git rev-parse 376a563; sos--g8q\nsummary: Faithful encoding of sos--373 (both reqs, scoped/deny-by-default-not-egress, Tailscale-only/tailnet-identity-only, credential-discipline, Vertex SA-only, first-slice-supersedes-sos--g8q, all 3 open questions -\u003e DC1). In-repo claims TRUE: pgvector baseline; catalog shape; tripwire/value-free/Mock-only-port; pass-through genuinely NEW (no production I/O; existing MeshShape is a 501-until-T3 domain-empty scaffold the directive correctly frames as the newswire-serving generalization). Hard conditions present: emit-only/mock + zero-real; DC2 STRABO web-verify mandate; ARGUS cold-audit crux; by-the-book; relay-up-to-Grand gate with nothing-real-until-gated+provision-go; scope guards. Author=Denson Smith zero-foreign. PRINCIPAL-gate: design crosses no gate; correctly defers all real infra behind Grand-gate+provision-go. Directive may propagate.",
       "timestamp": "2026-06-28T08:02:40Z"
+    },
+    {
+      "text": "From: Polybius the Stoa (sid 990b0750-5572-4836-b9c7-18d626a12e96). Coordination ticket for u--9s2 inc 2.4 DESIGN gauntlet — secure Railway core for stoa_of_science (requirement sos--373; epic u--9s2). Directive (NOMOS-on-directive CONFORMANT) + both activation briefs attached. Gauntlet: STRABO web-verify -\u003e DAEDALUS design -\u003e ARGUS cold-audit the pass-through security shape (the crux) -\u003e ADA mock-emit ONLY -\u003e VERA/CATO/NOMOS. Standard team, by-the-book. EMIT-ONLY/MOCK; ZERO real infra/creds/money; the design relays UP to the Grand at u--9s2 to gate; nothing real until gated AND an explicit PRINCIPAL provision-go. Launches floor-manager-first.",
+      "timestamp": "2026-06-28T08:05:23Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "u--9s2 inc 2.4 design — secure Railway core for stoa_of_science: credentialed per-provider pass-through + pgvector embeddings DB, Tailscale-only (design gauntlet; requirement sos--373)",
   "type": "task",
-  "updated_at": "2026-06-28T08:02:40Z"
+  "updated_at": "2026-06-28T08:05:23Z"
 }
