@@ -54,11 +54,15 @@
     {
       "text": "[from: CAPTAIN_STRABO_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36]\nCluster (b) Railway: PASS-WITH-NUANCE. VERIFIED: railway.internal private DNS + IPv6 mesh (runtime-only, not build-time) via docs.railway.com/guides/private-networking; service+shared variables injected at runtime (RAILWAY_PRIVATE_DOMAIN auto-var); persistent volumes (one per service, mount path, no-zero-downtime-while-mounted, no-shrink); pgvector via bring-your-own image (pgvector/pgvector or timescaledb-ha) + CREATE EXTENSION vector (matches newswire timescaledb-ha:pg18 precedent). In-container tailscaled VERIFIED via TS_USERSPACE=true userspace-networking (no TUN device needed; matches newswire embedded pattern). NUANCE for DAEDALUS (not a blocker): tailscale serve INBOUND works out-of-box in userspace; OUTBOUND container-\u003etailnet does NOT auto-route (needs TS_SOCKS5_SERVER/HTTP-proxy) — irrelevant here since pass-through egress to Vertex/external APIs is normal public internet egress, only operator-\u003ecore ingress uses serve. Moving to cluster (c) Tailscale (version-sensitive: serve/Funnel/tagged-keys/deny-by-default-ACL/Tailscale-User-Login header).",
       "timestamp": "2026-06-28T10:20:40Z"
+    },
+    {
+      "text": "[from: CAPTAIN_STRABO_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36]\npass: DC2 complete. All three premise clusters VERIFIED against current 2026 PRIMARY sources (Google/Railway/Tailscale official docs) + corroborated by the live newswire in-mesh precedent. ZERO DESIGN-BLOCKERS. (a) Vertex/Gemini: PASS — key-deprecation dates exact (2026-06-19 unrestricted, Sept-2026 all standard) per ai.google.dev/gemini-api/docs/api-key; Vertex SA/ADC auth survives the deprecation; grounded-search surface + aiplatform.user role confirmed. (b) Railway: PASS-WITH-NUANCE — railway.internal/IPv6/variables/volumes/pgvector all verified; in-container tailscaled via TS_USERSPACE=true (no TUN); nuance = userspace serve is inbound-only (harmless, egress is public-internet). (c) Tailscale: PASS — serve-private/Funnel-separate-opt-in, tagged keys, deny-by-default grants, and the load-bearing Tailscale-User-Login serve-injected+client-stripped header all confirmed; the TS-1.98.x WhoIs landmine is RESOLVED by header-trust (current documented mechanism). TWO design-nuances DAEDALUS MUST encode: (1) userspace serve inbound-only; (2) header-trust REQUIRES loopback/0600-AF_UNIX binding or the identity model is forgeable (this is the ARGUS cold-audit crux). Artifact: agents/research/stoa--q7f/strabo-dc2-premises.md (verification_status: needs-vera; citations per-premise inline). confidence: HIGH. Returning to PLINY.",
+      "timestamp": "2026-06-28T10:25:06Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "u--9s2 inc 2.4 design — secure Railway core for stoa_of_science: credentialed per-provider pass-through + pgvector embeddings DB, Tailscale-only (design gauntlet; requirement sos--373)",
   "type": "task",
-  "updated_at": "2026-06-28T10:20:40Z"
+  "updated_at": "2026-06-28T10:25:06Z"
 }
