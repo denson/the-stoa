@@ -84,12 +84,19 @@ def test_data_is_read_from_disk(tmp_path):
 _REAL_DATA = Path(dataload.__file__).resolve().parent / "data"
 
 
-# ---- P5a POS: load_detection_hints loads the four services' hint sets ----------------------
-def test_load_detection_hints_loads_four_services():
-    """P5a (POS): load_detection_hints() loads the four cataloged services' hint sets from the real
-    catalog TOMLs, in the flat { sid: {sdk_imports, url_patterns, config_keys, data_signals} } shape."""
+# ---- P5a POS: load_detection_hints loads every cataloged service's hint set --------------------
+def test_load_detection_hints_loads_all_services():
+    """P5a (POS): load_detection_hints() loads every cataloged service's hint set from the real catalog
+    TOMLs, in the flat { sid: {sdk_imports, url_patterns, config_keys, data_signals} } shape.
+
+    Roster pin (set-equality over the canonical catalog). The roster grew from the original 4 to 6 with
+    the stoa--q7f DC3 additive records (vertex-gemini + tailscale); both carry a [detection_hints] block,
+    so both appear here. If a future additive catalog record lands without updating this set, the test
+    fails LOUD — extend this roster (or move the hints) deliberately, do not silently widen the load."""
     hints = dataload.load_detection_hints()
-    assert set(hints.keys()) == {"google-maps", "spatial-db", "document-parsing", "bls-oews"}, hints.keys()
+    assert set(hints.keys()) == {
+        "google-maps", "spatial-db", "document-parsing", "bls-oews", "vertex-gemini", "tailscale",
+    }, hints.keys()
     for sid, surfaces in hints.items():
         assert set(surfaces.keys()) == {"sdk_imports", "url_patterns", "config_keys", "data_signals"}, sid
         for surface, tokens in surfaces.items():
@@ -103,12 +110,15 @@ def test_load_detection_hints_loads_four_services():
 def test_load_catalog_admits_detection_hints():
     """P5a-PIN (rev2 WP-D2) — PINS load_catalog's tolerance of the additive [detection_hints] key.
 
-    Loads the REAL 4-record catalog (each record now carrying its [detection_hints] block) through the
-    UNCHANGED load_catalog and asserts:
+    Loads the REAL catalog (each record carrying its [detection_hints] block) through the UNCHANGED
+    load_catalog and asserts:
       (a) the load succeeds (no DataIntegrityError);
-      (b) all four records load;
+      (b) every catalog record loads;
       (c) each record's returned shape is the unchanged {entries, gcp_api, category} — NO detection_hints
           key leaks into the catalog output (load_catalog still reads only its four fields).
+
+    Roster pin: the canonical roster grew from the original 4 to 6 with the stoa--q7f DC3 additive records
+    (vertex-gemini + tailscale), each carrying a [detection_hints] block that load_catalog must IGNORE.
 
     INTENT (the documented fail-LOUD tripwire): this test PINS load_catalog's tolerance of the additive
     [detection_hints] key. If a FUTURE strict-key hardening of load_catalog rejects [detection_hints],
@@ -118,7 +128,9 @@ def test_load_catalog_admits_detection_hints():
     test, not by a core edit.)
     """
     catalog, _categories = dataload.load_catalog()  # the real data/ root — records carry [detection_hints]
-    assert set(catalog.keys()) == {"google-maps", "spatial-db", "document-parsing", "bls-oews"}, catalog.keys()
+    assert set(catalog.keys()) == {
+        "google-maps", "spatial-db", "document-parsing", "bls-oews", "vertex-gemini", "tailscale",
+    }, catalog.keys()
     for sid, record in catalog.items():
         assert set(record.keys()) == {"entries", "gcp_api", "category"}, (
             f"{sid}: load_catalog record shape changed (detection_hints must NOT leak into the catalog "
