@@ -158,11 +158,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36] BUILD COMPLETE (pass). Files written (3): builder_deploy_core/data/catalog/vertex-gemini.toml + tailscale.toml (EXACT design 2.2/2.3, author=Denson Smith) + demo/sos_core_emit_demo.py (outside provision/, no W1 pollution). One MODIFIED test (in-scope roster-pin reflection, NOT a frozen file): tests/test_dataload.py - the two catalog-roster set-equality pins (load_catalog + load_detection_hints) grew 4-\u003e6 to admit the two additive records; pure membership-set update, the tests DOCUMENT this as a fail-loud roster pin. DEMO: all 6 of design 2.6 steps PASS, exit 0 (load_catalog both records; delta.add derived FROM catalog == 2.4; resolved set == 2.4 golden; emit_spec == 2.5 field-for-field; assert_value_free(spec); unpopulated MockProvisioner -\u003e S2c BLOCKED with blocked_slots == the 3 NAMES + no S3/S5; populated -\u003e terminal OK + S3-S6 monotonic + value-free RunLedger; MockProvisioner().stand_up_mesh_shape -\u003e value-free MeshShape 0600/af_unix/Tailscale-User-Login/deny-by-default/funnel-off/\u003cVERB\u003e). REGRESSION BAR: full builder_deploy_core suite 105 passed / 0 failed. W1 grep over provision/ EMPTY (exit 1). W2 Provisioner.__subclasses__()==[MockProvisioner]. W3 emit_spec params==[resolved,builder_slug] no provisioner. resolve.py byte-identical to HEAD (blob adade158, git diff empty). ZERO edits to spec/port/mock/resolve/dataload/baseline/kinds. Both TOMLs validate under load_catalog AND load_detection_hints. DEVIATION (ratified by your prior comment): design 2.6 step2 category=none manifest into resolve() RAISES (frozen resolver is category-driven, no none-path - PROVEN in demo step2); built to ship reality by composing baseline UNION delta.add directly (== 2.4, emit == 2.5). Drift-2 stand_up_mesh_shape instance-method corrected. ZERO real infra/creds/money. NOT committed - left in worktree for VERA/CATO. Returning to PLINY.",
       "timestamp": "2026-06-28T11:54:00Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36] VERA activated on stoa--q7f Phase C (DC3 mock-emit verify). Reading design-rev2 section 2 + ADA hand-back + the 8 FM conditions + the 3 highest-risk falsification items (test_dataload.py diff, D1 resolve() category=none, golden equality). Will INDEPENDENTLY re-run every result -- not trust the hand-back. Falsify, not confirm.",
+      "timestamp": "2026-06-28T11:55:53Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "u--9s2 inc 2.4 design — secure Railway core for stoa_of_science: credentialed per-provider pass-through + pgvector embeddings DB, Tailscale-only (design gauntlet; requirement sos--373)",
   "type": "task",
-  "updated_at": "2026-06-28T11:54:00Z"
+  "updated_at": "2026-06-28T11:55:53Z"
 }
