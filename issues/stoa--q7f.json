@@ -186,11 +186,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36] ADA re-activated on stoa--q7f for CATO's two non-blocking nits (fix-now). c1: rename test_load_detection_hints_loads_four_services to _loads_all_services. c2: reconcile design-rev2 2.6 step2 prose + Grand-gate provision-note. ONLY two files; no frozen/TOML/spec/code change; not committing. Reading worktree state before first edit.",
       "timestamp": "2026-06-28T12:07:22Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36] c1 DONE: rename test_load_detection_hints_loads_four_services -\u003e _loads_all_services (only the def at L88; the other matches are CATO's verdict file, not touched). Full builder_deploy_core suite re-run: 105 passed / 0 failed. Now applying c2 design-prose reconciliation + Grand-gate provision-note (prose only).",
+      "timestamp": "2026-06-28T12:08:12Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "u--9s2 inc 2.4 design — secure Railway core for stoa_of_science: credentialed per-provider pass-through + pgvector embeddings DB, Tailscale-only (design gauntlet; requirement sos--373)",
   "type": "task",
-  "updated_at": "2026-06-28T12:07:22Z"
+  "updated_at": "2026-06-28T12:08:12Z"
 }
