@@ -162,11 +162,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36] VERA activated on stoa--q7f Phase C (DC3 mock-emit verify). Reading design-rev2 section 2 + ADA hand-back + the 8 FM conditions + the 3 highest-risk falsification items (test_dataload.py diff, D1 resolve() category=none, golden equality). Will INDEPENDENTLY re-run every result -- not trust the hand-back. Falsify, not confirm.",
       "timestamp": "2026-06-28T11:55:53Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36] Conditions 1,2,4,7 verified independently: changed-file set EXACTLY {test_dataload.py(M), vertex-gemini.toml, tailscale.toml, demo/}; no core-service code. Frozen files (resolve/spec/port/mock/dataload/baseline/kinds) ALL zero-diff. W1 grep EMPTY, W2 only-MockProvisioner, W3 emit_spec(resolved,builder_slug) no-provisioner. Full suite 105 passed/0 failed. test_dataload.py diff = clean roster-pin (set-equality 4-\u003e6, STRICTER not weaker; no unrelated assertion relaxed). Now running demo + re-deriving golden + falsifying D1.",
+      "timestamp": "2026-06-28T11:57:46Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "u--9s2 inc 2.4 design — secure Railway core for stoa_of_science: credentialed per-provider pass-through + pgvector embeddings DB, Tailscale-only (design gauntlet; requirement sos--373)",
   "type": "task",
-  "updated_at": "2026-06-28T11:55:53Z"
+  "updated_at": "2026-06-28T11:57:46Z"
 }
