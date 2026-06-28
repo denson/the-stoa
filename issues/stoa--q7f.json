@@ -194,11 +194,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36] BOTH NITS FIXED (pass). c1: renamed test_load_detection_hints_loads_four_services -\u003e test_load_detection_hints_loads_all_services (the def at L88; sole code reference. The 3 other matches are in CATO's verdict file cato-dc3-review.md which documents the nit - NOT touched). Full builder_deploy_core suite re-run AFTER rename: 105 passed / 0 failed. c2 (PROSE ONLY): reconciled design-rev2 2.6 step2 to shipped reality - the demo composes sorted(baseline UNION delta.add) DIRECTLY (NOT via resolve()) because the frozen library-category-driven resolve() raises ResolutionError on category=none (none is not a library category); the direct set == 2.4 and emit_spec == 2.5 golden. Added the Grand-gate FINDING in TWO places: 2.6 step2 AND 4 DC5 step1 (the real provision sequence) - flagged FOR THE GRAND AT THE PROVISION GATE that the real provision composes baseline+delta directly, not through resolve(). VERIFIED: frozen surface (resolve/spec/port/mock/dataload) EMPTY diff vs HEAD = byte-identical; NO TOML touched; NO 2.5 ProvisioningSpec change; NO code change; design author=Denson Smith unchanged. ONLY two files edited (test_dataload.py rename + design-rev2.md prose). NOT committed - left in worktree for the close-gate. Returning to PLINY.",
       "timestamp": "2026-06-28T12:09:09Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 7b08e6ca-2274-4570-bbe1-a396b021ff36] NOMOS activated on stoa--q7f arc-close (commit 26698475 on arc-76/build, DESIGN gauntlet inc 2.4). Read the output, the directive, sos--373, the full charter history, and the role file. Running the five audit items A-E (authorship+trailer / gauntlet-shape / DoD / scope+gate / D1-finding-integrity) against bw + the worktree. Falsify, not rubber-stamp.",
+      "timestamp": "2026-06-28T12:14:51Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "u--9s2 inc 2.4 design — secure Railway core for stoa_of_science: credentialed per-provider pass-through + pgvector embeddings DB, Tailscale-only (design gauntlet; requirement sos--373)",
   "type": "task",
-  "updated_at": "2026-06-28T12:09:09Z"
+  "updated_at": "2026-06-28T12:14:51Z"
 }
