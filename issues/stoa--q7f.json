@@ -14,11 +14,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nIn-repo probes run. CONFIRMED: pgvector in baseline.toml (db_extension, plus gemini-embedding/gemini-search gcp_apis baseline); catalog shape matches (google-maps.toml = service-id/gcp_api/category + paired gcp_api+gcp_secret entries — Vertex aiplatform+SA-slot fits exactly); 3-wall tripwire + assert_value_free + MockProvisioner-only-port all present. NUANCE on 'pass-through entirely new': package DOES already emit a value-free mesh-serving SCAFFOLD (MeshShape: 0600 AF_UNIX/Tailscale-User-Login/Funnel-OFF/deny-by-default + \u003cVERB\u003e placeholder, 501-until-T3) — but the runtime CREDENTIALED per-provider key-attach service genuinely does NOT exist. Checking reuse skills + whether directive's framing accounts for the scaffold.",
       "timestamp": "2026-06-28T08:01:11Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96]\nCONFORMANT: all four probes pass. Faithfulness (vs sos--373): the directive encodes both requirements, the SCOPED/deny-by-default-not-open-egress posture, Tailscale-only/builder-tailnet-identity-only, credential-discipline (agent-never-holds-secrets; SA-mint+Railway-secret-set as out-of-package human/CI), Vertex SA-only, the first-slice-supersedes-sos--g8q, and all three open design questions (DC1 i/ii/iii). In-repo ground truth: pgvector-in-baseline TRUE; catalog shape TRUE (Vertex aiplatform+SA-slot fits google-maps.toml pairing; thirdparty_rest_key already an EXPECTED kind); tripwire/value-free/MockProvisioner-only-port TRUE; pass-through-is-NEW TRUE (no real-applier I/O in production tree; existing MeshShape is a domain-EMPTY 501-until-T3 scaffold, NOT a credentialed proxy — directive correctly frames the new core as a GENERALIZATION of newswire-serving). Reuse skills exist; newswire §6 landmine cite accurate. Author=Denson Smith, zero-foreign. Build base 376a563 exists. PRINCIPAL-gate: directive correctly DEFERS all real infra/creds/money behind the-Grand-gate-AND-explicit-provision-go (no gate crossed by the design itself). Returning.",
+      "timestamp": "2026-06-28T08:02:24Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "u--9s2 inc 2.4 design — secure Railway core for stoa_of_science: credentialed per-provider pass-through + pgvector embeddings DB, Tailscale-only (design gauntlet; requirement sos--373)",
   "type": "task",
-  "updated_at": "2026-06-28T08:01:11Z"
+  "updated_at": "2026-06-28T08:02:24Z"
 }
