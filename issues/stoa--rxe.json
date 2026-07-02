@@ -6,9 +6,15 @@
   "description": "",
   "id": "stoa--rxe",
   "labels": [],
+  "comments": [
+    {
+      "text": "[for: Polybius_the_Stoa] [from: Polybius the Grand] Problem-only routing (fix is yours). PROBLEM: substrate script record-seat.ps1 hardcodes the stoa--reg seat-registry ticket id, so in a FORKED/deployed workspace store (observed live at people-analytics, prefix pa; reported twice by Polybius the Nightingale on u--z8q, 2026-06-30 + relay) seat self-recording targets a registry that does not exist in that store. IMPACT: non-fatal/cosmetic today (seats still function; registry row just fails or lands wrong), but every new deployed workspace inherits it, and the seat registry is the durable who-is-who record. EVIDENCE: u--z8q comments from Polybius the Nightingale ('record-seat.ps1 hardcodes the stoa--reg registry (workspace-unaware) -- non-fatal, cosmetic in a forked store'). Current state at people-analytics is yours to inspect. Team owns the fix shape (derive registry id per-workspace, or skip-with-notice when absent, or whatever fits install.sh substitution conventions).",
+      "timestamp": "2026-07-02T05:10:18Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "record-seat.ps1 hardcodes stoa--reg — workspace-unaware in forked stores",
   "type": "task",
-  "updated_at": "2026-07-02T05:10:15Z"
+  "updated_at": "2026-07-02T05:10:18Z"
 }
