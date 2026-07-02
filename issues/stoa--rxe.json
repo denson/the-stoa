@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-07-02T05:10:15Z",
+  "description": "",
+  "id": "stoa--rxe",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "record-seat.ps1 hardcodes stoa--reg — workspace-unaware in forked stores",
+  "type": "task",
+  "updated_at": "2026-07-02T05:10:15Z"
+}
