@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-07-02T09:39:56Z",
+  "description": "Surfaced by ARGUS during stoagen arc sos--g09; routed up by POLYBIUS_stoagen -\u003e Polybius_the_science_stoa as a substrate-tier tooling note (NOT a g09 item). The save-verdict path builds the verdict file via a single printf template, which is fragile/fails for large verdict bodies on Windows git-bash; ARGUS worked around it by falling back to chunked cat heredocs. [for: Polybius the Stoa - substrate owner]. Suggested next step: make save-verdict chunk large bodies (write-in-parts / cat heredoc) instead of one printf, and verify on Windows git-bash with a multi-KB verdict body. Belongs to the parked substrate-maintenance conversation (drift-signal + 4 dropped skills) that Polybius_the_science_stoa owes PRINCIPAL + Polybius_the_Stoa.",
+  "id": "stoa--bu3",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "save-verdict single-printf template fragile on Windows git-bash for large verdict bodies",
+  "type": "bug",
+  "updated_at": "2026-07-02T09:39:56Z"
+}
