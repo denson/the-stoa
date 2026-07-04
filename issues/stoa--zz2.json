@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-07-04T14:16:47Z",
+  "description": "OBSERVED (2026-07-04, stoagen arc sos--1ue launch): driving launch-team.ps1 from a shell whose cwd is NOT a git repo (e.g. C:/Users/denso/claude_projects, the parent of all repos) launches the seat fine but record-seat.ps1 fails — 'error: not a git repository' from bw attach — so the seat is LAUNCHED but NOT recorded to stoa--reg. Root cause: record-seat.ps1's 'git show beadwork:...' and 'bw attach' run in the CALLER'S cwd; bw is cwd-dependent (must run from the store repo). Intermittent-looking because the driving shell's cwd drifts between calls — same launcher succeeded minutes earlier when cwd happened to be the project dir. PROBLEM FOR THE SUBSTRATE TEAM: the substrate-source team-launcher has this latent bug in every deployed workspace. A hot-fix is deployed + verified at stoagen (commit on stoagen main: record-seat.ps1 gains -StoreDir param defaulting to cwd, pinning git -C / Push-Location / bash 'cd' on all three call paths; launch-team.ps1 passes -StoreDir $ProjectDir + gotchas note). Adversarially verified: re-ran record-seat from the exact non-repo cwd — succeeds pinned, git rev-parse confirms cwd was not a repo. Reference diff: stoagen .claude/skills/team-launcher/. The fix shape is the substrate team's call — fold back as-is or redesign.",
+  "id": "stoa--zz2",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "team-launcher record-seat: git/bw calls cwd-unpinned — seat launches but is NOT recorded when the launcher is driven from a non-repo cwd",
+  "type": "bug",
+  "updated_at": "2026-07-04T14:16:47Z"
+}
