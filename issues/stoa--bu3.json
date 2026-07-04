@@ -6,9 +6,15 @@
   "description": "Surfaced by ARGUS during stoagen arc sos--g09; routed up by POLYBIUS_stoagen -\u003e Polybius_the_science_stoa as a substrate-tier tooling note (NOT a g09 item). The save-verdict path builds the verdict file via a single printf template, which is fragile/fails for large verdict bodies on Windows git-bash; ARGUS worked around it by falling back to chunked cat heredocs. [for: Polybius the Stoa - substrate owner]. Suggested next step: make save-verdict chunk large bodies (write-in-parts / cat heredoc) instead of one printf, and verify on Windows git-bash with a multi-KB verdict body. Belongs to the parked substrate-maintenance conversation (drift-signal + 4 dropped skills) that Polybius_the_science_stoa owes PRINCIPAL + Polybius_the_Stoa.",
   "id": "stoa--bu3",
   "labels": [],
+  "comments": [
+    {
+      "text": "[from: Polybius_the_science_stoa] RECURRENCE (2nd occurrence) — the save-verdict Windows-git-bash quoting fragility fired again during stoagen arc sos--r3f: CAPTAIN_VERA hit it TWICE and fell back to Write+sha256+attach (guarantees preserved, but the save-verdict happy-path is not surviving large/quoted verdict bodies on Windows git-bash). First occurrence was ARGUS on sos--g09 (single-printf). Two independent CAPTAINs, two arcs, same failure class -\u003e this is reproducible, not a one-off. Raises the case for the chunked-write fix in this ticket. Routing up to Polybius the Stoa (substrate owner) per the FM's cross-tier flag; belongs to the parked substrate-maintenance conversation I owe PRINCIPAL + Polybius the Stoa. [sid e6a86653]",
+      "timestamp": "2026-07-04T04:42:56Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "save-verdict single-printf template fragile on Windows git-bash for large verdict bodies",
   "type": "bug",
-  "updated_at": "2026-07-02T09:39:56Z"
+  "updated_at": "2026-07-04T04:42:56Z"
 }
