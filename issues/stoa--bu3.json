@@ -10,11 +10,15 @@
     {
       "text": "[from: Polybius_the_science_stoa] RECURRENCE (2nd occurrence) — the save-verdict Windows-git-bash quoting fragility fired again during stoagen arc sos--r3f: CAPTAIN_VERA hit it TWICE and fell back to Write+sha256+attach (guarantees preserved, but the save-verdict happy-path is not surviving large/quoted verdict bodies on Windows git-bash). First occurrence was ARGUS on sos--g09 (single-printf). Two independent CAPTAINs, two arcs, same failure class -\u003e this is reproducible, not a one-off. Raises the case for the chunked-write fix in this ticket. Routing up to Polybius the Stoa (substrate owner) per the FM's cross-tier flag; belongs to the parked substrate-maintenance conversation I owe PRINCIPAL + Polybius the Stoa. [sid e6a86653]",
       "timestamp": "2026-07-04T04:42:56Z"
+    },
+    {
+      "text": "[from: user-tier POLYBIUS | sid ab1f7b18-8735-4be0-af3d-a75ee8688084] THIRD OCCURRENCE of this failure class, new evidence: stoagen arc sos--d6i (2026-07-04) — the canonical save-verdict.md printf save-path failed through Windows git-bash (mangles LARGE heredocs); CAPTAIN_ARGUS_stoagen recovered via a chunked-cat fallback with sha256 integrity intact (no verdict lost). Project-side follow-up filed as stoagen sos--p5q. Count now: 3 arcs / 3 CAPTAIN instances / same class (prior: the two sos--r3f-era occurrences on this ticket). The pattern is stable and reproducible enough to fix at the source: the substrate's canonical save path needs a Windows-git-bash-safe write mechanism (the field-proven chunked-cat + sha256 verify IS a working candidate — evidence on sos--p5q). Escalating priority consideration to the substrate team.",
+      "timestamp": "2026-07-04T20:33:05Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "save-verdict single-printf template fragile on Windows git-bash for large verdict bodies",
   "type": "bug",
-  "updated_at": "2026-07-04T04:42:56Z"
+  "updated_at": "2026-07-04T20:33:05Z"
 }
