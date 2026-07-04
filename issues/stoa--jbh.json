@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-07-04T18:02:56Z",
+  "description": "AMBIGUITY surfaced at stoagen arc sos--1ue close (NOMOS DIVERGENT, classified WRONG-SPEC; user-tier ruled accept-as-is, no history rewrite): 3 PLINY_stoagen-executed design commits carried only the harness model trailer, no seat-identity trailer. §28 as written targets CAPTAIN commits + pre-commit discipline at the WRITING seat (CAPTAIN_ADA.md §5.5); orchestrator-executed commits are arguably not covered. PROBLEM FOR THE SUBSTRATE TEAM: clarify the canon — (a) does the seat-trailer convention extend to orchestrator/MAJOR-executed commits? (b) if yes, who signs — the executing MAJOR or the writing CAPTAIN? (c) mechanical note from the incident: passing the trailer as a separate -m paragraph makes git's trailer parser keep only the LAST trailer block — whatever the ruling, the canon should carry the single-block gotcha. Reference: stoagen sos--1ue close ratification comment (2026-07-04) + NOMOS audit.",
+  "id": "stoa--jbh",
+  "labels": [],
+  "priority": 3,
+  "status": "open",
+  "title": "§28 seat-trailer canon: does the convention extend to orchestrator-executed commits (MAJOR seats), and who signs?",
+  "type": "task",
+  "updated_at": "2026-07-04T18:02:56Z"
+}
