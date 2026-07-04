@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-07-04T18:02:58Z",
+  "description": "INCIDENT (stoagen arc sos--1ue, 2026-07-04, caught by the floor-manager's direct verification): an early NOMOS ground-truth audit claimed 'commit f246754 ... Co-Authored-By: PLINY_stoagen seat trailer present.' Ground truth: that commit carried only the model trailer — and a commit hash cannot change trailers without changing the hash, so the sub-claim was FALSE WHEN MADE (attestation-confabulation, not staleness). A later NOMOS pass corrected it; the authorship hard-rule was never at risk. PROBLEM FOR THE SUBSTRATE TEAM: checker reliability is load-bearing for everything the substrate certifies — a ground-truth auditor that asserts unverified specifics defeats its purpose. The seat/canon fix shape is yours (e.g. evidence-quoting discipline: an attestation must quote the raw command output it rests on, per the never-parse-own-prose family). Reference: stoagen sos--1ue ticket, FM comment 2026-07-04T17:00:01Z ('FLAG FOR THE RECORD').",
+  "id": "stoa--p2v",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "Checker attestation-confabulation incident: a NOMOS audit asserted a commit trailer that provably did not exist",
+  "type": "bug",
+  "updated_at": "2026-07-04T18:02:58Z"
+}
