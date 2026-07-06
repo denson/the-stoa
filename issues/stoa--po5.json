@@ -6,9 +6,15 @@
   "description": "",
   "id": "stoa--po5",
   "labels": [],
+  "comments": [
+    {
+      "text": "[ARC SCOPE — arc-77 / stoa--po5] [from: user-tier Polybius_the_Stoa | sid 990b0750-5572-4836-b9c7-18d626a12e96 | the-stoa] u--9s2 inc 2.4 Phase-1 — build the secure-core credentialed per-provider pass-through service.\n\nFULL DIRECTIVE (authoritative): git show beadwork:attachments/stoa--po5/arc-77-build-directive.md\nDESIGN BEING BUILT: agents/design/stoa--q7f/design-rev2.md (arc-76/build, commit 26698475) + runbook docs/secure-core/deployment-plan.md.\n\nSHAPE: Composition custom-agent+workflow (FM POLYBIUS_the-stoa + PLINY_the-stoa + CHIRON_the-stoa + HAMILTON_the-stoa + gauntlet CAPTAINs). Two sub-phases: (A) CHIRON+HAMILTON revise the build brief — reframe the core as the CONSOLIDATION center all lanes consume (science sos--373 + newswire store nws-1n7 + future builders) + fold the Grand-ratified canons (seal-every-secret + fail-closed seal-audit u--84m; Railway-setup skill sos--1bk; in-harness-workflows canon — LLM-adjudication in-harness on subscription OAuth, never keyed CI); (B) by-the-book build gauntlet builds the REAL pass-through from design-rev2, verifying with the design's P-M1..P-M6 probes + INV-DEST/INV-RESP/INV-BIND fail-loud + the seal-audit fail-closed gate.\n\nSCOPE FENCE (hard): DESIGN-REVISION + BUILD-CODE + VERIFY only. NO real Railway/GCP/Tailscale, NO real secrets, NO money, nothing merged/pushed. Phase 2 (provisioning) is a separate PRINCIPAL-gated step.\n\nGATE: Phase-1 build relays UP (FM -\u003e user-tier Polybius_the_Stoa -\u003e Polybius the Grand at u--9s2) for the Grand's Phase-1 gate BEFORE Phase 2. Nothing real until the Grand gates + the PRINCIPAL gives the provision-go.\n\nBriefs on beadwork at attachments/stoa--po5/. Launching FM-first-then-PLINY. NOMOS-on-directive check runs before launch.",
+      "timestamp": "2026-07-06T02:38:26Z"
+    }
+  ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T02:35:39Z"
+  "updated_at": "2026-07-06T02:38:26Z"
 }
