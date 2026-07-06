@@ -306,11 +306,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e] Pass 1 done: read design-rev5 (835L) + rev4 + VERA finding + redact.py/registry.py. Confirmed current code IS depth-2 (redact.py emits sub-key value whole; _check_inv_resp checks truthiness only; registry uses bare-list nodes). Now: diffing rev4-\u003erev5 for no-other-regression + constructing SCALAR-slot / PASS_WHOLE-misuse leak attempts before finalizing.",
       "timestamp": "2026-07-06T07:00:02Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e] Audit complete; drafting verdict. Delta confirmed confined to the INV-RESP fold (rev4 multi-lane authz / INV-PRINCIPAL / seal-audit / INV-DEST/BIND/LANE / M1,M3-M7 all carried verbatim, none weakened). Core delta SOUND: OBJECT-node depth recursion drops a depth-3 undeclared sub-key by construction + P-M2(a.2) falsifies a depth-2 build + loader refuses a bare-list node = fails closed at load. TWO load-bearing-UNCERTAIN residuals in the by-construction GENERALITY claim -\u003e PASS-WITH-CONDITIONS. Writing verdict + attaching.",
+      "timestamp": "2026-07-06T07:02:53Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T07:00:02Z"
+  "updated_at": "2026-07-06T07:02:53Z"
 }
