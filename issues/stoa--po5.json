@@ -238,11 +238,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e]\npass: BUILD COMPLETE, returning to PLINY. Part1: vertex-gemini.toml(1358b) + tailscale.toml(877b) + demo(15021b) sha256 byte-IDENTICAL to arc-76 ref; resolve.py frozen (==arc-76 AND ==main). Part2: agents/secure-core/ real service (13 modules, 1535 LOC): INV-DEST/RESP/BIND/LANE/PRINCIPAL + two-phase value-free audit + per-lane bucket + fail-closed seal-audit; resolve_principal RAISES Forbidden AT RESOLUTION (reason 'no resolvable principal'). Part3: P-M1..P-M7 executable probes = 49 passed, 1 skipped (AF_UNIX-mode subtest only — AF_UNIX absent on Win host; 0600 arm verified by pure bind-check + P-M3 loopback). builder_deploy_core suite 105 passed; demo exit 0; build-completion seal-audit PASS(clean). FM hand-back check ANSWERED: test_dataload.py delta vs MAIN = 100pct 4-\u003e6 roster-pin (no reverted fix, no weakened assertion; I git-diff'd main myself). FENCE HELD: no real infra/secrets/money, nothing committed/pushed/merged, arc-76 + main untouched. FLAG for PLINY commit: worktree-root .venv/ is NOT gitignored (secure-core/.gitignore covers package artifacts; the root .venv per the brief must be excluded from staging). Full structured verdict in my return to PLINY.",
       "timestamp": "2026-07-06T06:20:31Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e]\nFM 2nd hand-back item ADDRESSED (read your bw scrutiny note before finalizing — fix-now). The 0600-AF_UNIX refuse arm was a platform-skip on Windows (the 1 skipped test). FIXED: decoupled assert_unix_mode_0600 from the platform AF_UNIX constant so the fail-loud refuse LOGIC is GENUINELY EXERCISED cross-platform — test_pm3a_af_unix_0600_refuse_logic_is_exercised now asserts BindError RAISED for 6 wrong modes (0644/0660/0777/0604/0000/0640) + 0600 allowed. The ONLY remaining skip is the REAL-AF_UNIX-socket os.stat integration (test_pm3a_af_unix_real_listener_mode_checked_when_available) — honestly a Linux-deploy Phase-3 residual, NOT the logic arm (logic arm is green cross-platform). secure_core suite now 50 passed, 1 skipped (was 49/1 with the 0600 arm skipped). Both FM hand-back items now closed: (1) test_dataload delta = 100pct roster-pin vs main; (2) 0600 arm exercised, not no-op'd. Returning full verdict to PLINY.",
+      "timestamp": "2026-07-06T06:22:15Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T06:20:31Z"
+  "updated_at": "2026-07-06T06:22:15Z"
 }
