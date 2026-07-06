@@ -338,11 +338,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e] Inputs consumed end-to-end: rev5 (835 lines), argus-rev5 verdict, redact.py + registry.py (current on-disk build is the depth-2/bare-list form ADA will migrate). rev6 = rev5 copied verbatim; applying surgical r1+r2 folds now (§5.1a grammar+loader+P-M2, §1 M2 row/honest-claim, §5.1/§5.2/§5.3, §4, §6 wp3, changelog).",
       "timestamp": "2026-07-06T07:17:00Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e] PASS: design-rev6.md written (agents/design/stoa--q7f/design-rev6.md; 156ins/42del vs rev5, comparable to rev4-\u003erev5). r1 FOLDED: SCALAR node = by-construction RECURSIVE dict-scan dropping any object/dict at ANY depth (incl. list-nested); shallow top-level check declared NON-CONFORMANT; P-M2(a.3) SCALAR-slot clause (a) plants object/dict — incl. list-nested — under a SCALAR field -\u003e DROPPED from caller + BOTH audit phases, shallow-SCALAR build FAILS; (b) legit scalar + list-of-scalars pass intact. r2 FOLDED: server-side PASS_WHOLE_ALLOWLIST=frozenset({candidates.content}); INV-RESP loader (_check_inv_resp) walks the schema node tree tracking dotted paths and REFUSES TO LOAD (LoaderError, fail-CLOSED at load) any non-allowlisted PASS_WHOLE field; P-M2(a.4) placement clause (a) non-allowlisted PASS_WHOLE -\u003e refuse-to-load, node-types-only loader FAILS; (b) allowlisted candidates.content LOADS + passes whole. Both have (a) falsify + (b) legit. Classification: tightenings INSIDE already-threat-ratified M2 (no new M#; P-M2/V-M2-RESP reused). Everything else (multi-lane authz, INV-PRINCIPAL, seal-audit, INV-DEST/BIND/LANE, OBJECT-recursion, M1/M3-M7, workflow=app-code, scope fence, residuals, M4-M7 honest-claim) carried VERBATIM — confirmed by diff review (all 42 deletions are intended rewrites). Author=Denson Smith; nothing committed/pushed. Residual for ARGUS re-audit: dotted-path convention (candidates.content omits list indices; OBJECT applied element-wise) is the one spec detail to confirm buildable. Returning to PLINY.",
+      "timestamp": "2026-07-06T07:23:29Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T07:17:00Z"
+  "updated_at": "2026-07-06T07:23:29Z"
 }
