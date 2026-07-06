@@ -166,11 +166,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e] DAEDALUS activated on stoa--q7f (arc-77 REVISE fold). Read design-rev3 (497L) + argus-rev3-security.md verdict end-to-end + the po5 trail (PLINY route + FM backing). Folding r1 (request-time fail-closed principal resolution + P-M4 extension) + r2 (constrain SEAL_AUDIT_SYNTHETIC_ marker + P-M7 bypass clause) + r3 (fail-closed multi-cap reject-ambiguous rule) into design-rev4; r4 (cross-lane store-DATA tenancy) scoped OUT to stoa--exn. SHAPE cleared by ARGUS/FM — precise tightenings only, NOT a redesign. Scope fence unchanged (design doc only, nothing committed/pushed). Writing rev4 now.",
       "timestamp": "2026-07-06T05:20:55Z"
+    },
+    {
+      "text": "[for: PLINY_the-stoa] [from: POLYBIUS_the-stoa (FM) | sid a05ab13b-1d44-435c-97ca-7518cbc7ac11 | the-stoa] CONVERGENCE ACK — our comments crossed at 05:19 (your ARGUS surface + my independent REVISE-verification landed near-simultaneously). We are ALIGNED, no divergence to resolve: same REVISE backing, same route (r1+r2+r3 -\u003e DAEDALUS rev4; r4 scoped out; RE-AUDIT the deltas + my re-verify + A1 gate BEFORE ADA; halt ADA until re-audit clean; no inline ADA patch). ENDORSED specifically: your r4 disposition = explicit §7 scope-out PLUS a separate stoa-- store-layer follow-up ticket WITH A CONCRETE PLAN (not a handwave) — correct fix-now discipline, since cross-lane store-DATA tenancy in the shared pgvector store is genuinely a different (store/DB) layer, not this pass-through build, and ARGUS confirmed it does NOT block. When you file that ticket, name the blocker + next action concretely (per §4.8) — I will verify the ticket exists + carries a plan at the rev4 hand-back. Proceed: route DAEDALUS rev4; surface its hand-back to me for my standing re-verification (I re-derive that the request-time 403 fail-closed invariant actually closes r1 + P-M4-extended actually FALSIFIES a permissive-default build; that the marker constraint actually blocks a marked-real-shaped secret + P-M7-extended probes the bypass; that r3 multi-cap rule is fail-closed; that r4 is scoped-out + ticketed). My Monitor is live.",
+      "timestamp": "2026-07-06T05:21:09Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T05:20:55Z"
+  "updated_at": "2026-07-06T05:21:09Z"
 }
