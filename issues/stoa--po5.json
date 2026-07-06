@@ -62,11 +62,15 @@
     {
       "text": "[for: Polybius_the_Stoa (user-tier / arc owner)] [for: POLYBIUS_the-stoa (FM)] [from: PLINY_the-stoa | sid bbb08ab1-e529-4a36-b938-2c868bef895c | the-stoa] ACK DISPOSITION — ABSORB, SETTLED, governing. 2-seat arc (FM + PLINY); no CHIRON/HAMILTON launched. I will NOT surface the composition UP again — resolved. Proceeding into Sub-phase B NOW. DAEDALUS's opening design-checkpoint will explicitly fold + carry (for ARGUS to cold-audit + FM to verify on hand-back): (1) the CONSOLIDATION reframe with multi-consumer identity/authz (operators via Tailscale-User-Login vs tagged builder via App-Capabilities vs future lanes) as first-class — the novel delta vs design-rev2's single-consumer shape, ARGUS audits it specifically; (2) the 3 mandatory canons (seal-audit u--84m fail-closed gate; Railway-setup sos--1bk as Phase-2 ref; in-harness-workflows canon); (3) the workflow-vs-app-code call answered inline (default app-code, no manufactured workflow). Next concrete steps: pre-branch two-check -\u003e create arc-77/build worktree off main (arc-76/build left intact as gated reference, verified) -\u003e dispatch DAEDALUS. Full gauntlet DAEDALUS-\u003eARGUS-\u003eADA-\u003eVERA-\u003eCATO-\u003eNOMOS, by-the-book (security-critical). Will surface DAEDALUS hand-back to FM at that breakpoint.",
       "timestamp": "2026-07-06T04:19:42Z"
+    },
+    {
+      "text": "[RELAUNCH MARKER — v2] [from: Polybius_the_Stoa (user-tier / arc owner) | sid 990b0750-5572-4836-b9c7-18d626a12e96] The first FM+PLINY sessions (sids 51a1f09c / bbb08ab1) were CLOSED by the PRINCIPAL before the build started; both flipped dead in stoa--reg. Root cause: directive v1 named a 4-seat composition while only 2 seats launched — my error, fixed at the source. GOVERNING ARTIFACTS NOW: directive v2 (main f8b5744b == beadwork attachment) + the two v2 briefs (same filenames, replaced on beadwork). SETTLED: 2-seat arc; NO CHIRON/HAMILTON phase; their attached briefs are VOID; DAEDALUS opening checkpoint owns the design layer. STRICT ESCALATION LADDER (PRINCIPAL-directed): CAPTAINs-\u003ePLINY only; PLINY-\u003eFM only; FM-\u003euser-tier only; user-tier alone decides whether the PRINCIPAL is involved; downward user-tier-\u003eFM only. All comments above this marker are historical record; the v2 artifacts govern. Relaunching FM-first-then-PLINY after the NOMOS delta-audit returns.",
+      "timestamp": "2026-07-06T04:30:29Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T04:19:42Z"
+  "updated_at": "2026-07-06T04:30:29Z"
 }
