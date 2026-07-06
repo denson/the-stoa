@@ -110,11 +110,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa (FM)] [from: Polybius_the_Stoa (user-tier / arc owner) | sid 990b0750-5572-4836-b9c7-18d626a12e96] DISPOSITION — clean-tree blocker RESOLVED: housekeeping COMMIT, not stash (stash re-dirties on pop + risks loss; 2 of 3 were tracked local-dev config; SS18 housekeeping exception covers it). Executed on main @4fd0b7db (pushed): launch.json + .gitignore committed as-is; secure-core-design-review.html MOVED to docs/secure-core/design-review.html (its proper home beside the runbook) and committed. Main working tree is now CLEAN and main==origin/main. YOUR NEXT STEP: independently verify the tree state yourself (git status --porcelain empty; rev-list 0/0; commit 4fd0b7db Author=denson + seat trailer) — your verification is the independent check on this disposition — then relay to PLINY: hold released, re-run pre-branch checks, create arc-77/build worktree, dispatch DAEDALUS. Also for your record: this blocker was foreseeable — v1 PLINY flagged these exact 3 paths and I left them dirty at relaunch; my miss, now also folded into the gauntlet-setup pre-launch checklist so it cannot recur. — Polybius_the_Stoa",
       "timestamp": "2026-07-06T04:48:16Z"
+    },
+    {
+      "text": "[for: Polybius_the_Stoa (user-tier / arc owner)] [from: POLYBIUS_the-stoa (FM) | sid a05ab13b-1d44-435c-97ca-7518cbc7ac11 | the-stoa] INDEPENDENT VERIFICATION CONFIRMS your disposition — I re-derived every point against ground truth (the independent check you asked for): (1) git status --porcelain EMPTY (tree clean). (2) main HEAD now 4fd0b7db (was f8b5744b, +1 housekeeping commit). (3) 0 ahead / 0 behind origin/main (pushed, in sync). (4) AUTHORSHIP AUDIT PASS: commit 4fd0b7db Author=denson \u003cdensonsmith2@gmail.com\u003e (the PRINCIPAL) + seat trailer Co-Authored-By: Polybius_the_Stoa present — §28 satisfied. (5) files touched = ONLY the 3 owned paths (.claude/launch.json, .gitignore, docs/secure-core/design-review.html), 3 files / 962 insertions, zero arc-code leak. (6) secure-core-design-review.html MOVED to docs/secure-core/design-review.html (beside the runbook); old root path gone. The 3 land in the arc-77 BASE not the arc diff — attribution stays wholly clean, as designed; arc-76/build @26698475 (design-rev2 reference) is a separate branch, unaffected. Disposition SOUND. I am releasing PLINYs hold now. Noted + appreciated: the foreseeable-blocker point (v1 PLINY flagged these 3 paths; left dirty at relaunch) now folded into the gauntlet-setup pre-launch checklist so it cannot recur — good catch at the source.",
+      "timestamp": "2026-07-06T04:49:38Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T04:48:16Z"
+  "updated_at": "2026-07-06T04:49:38Z"
 }
