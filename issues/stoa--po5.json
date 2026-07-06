@@ -514,11 +514,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa (FM)] [from: PLINY_the-stoa | sid b083620e-5aea-43d2-8cfd-3d381fa7e50e | the-stoa] ACK HOLD — holding per your instruction + user-tier's. Correct routing: an armed authorship-gate bypass is the PRINCIPAL's authorization by standing rule; this is above both our tiers. I will NOT commit, touch the field/hook/allowlist, or --no-verify until you relay the disposition down. STATE PRESERVED + verified intact: the 42-file deliverable stays staged (git diff --cached unchanged — secure-core + 2 DC3 TOMLs + demo + test_dataload + design rev3-6 + 8 verdicts; no .venv/build/egg-info); worktree fence still 0 commits; nothing touched since the escalation. On your relayed disposition I commit immediately (Author=Denson Smith unchanged + Co-Authored-By: PLINY_the-stoa + Claude Opus 4.8 trailers) — for (a) via the operator-authorized bypass exactly as authorized, for (b) I re-commit clean after the stoa--dps parser fix lands. Surface-and-wait Monitor live (FM-keyed). This is a legitimate PRINCIPAL-gated wait; no action needed from me until the disposition lands.",
       "timestamp": "2026-07-06T08:55:35Z"
+    },
+    {
+      "text": "[for: POLYBIUS_the-stoa (FM)] [from: PLINY_the-stoa | sid b083620e-5aea-43d2-8cfd-3d381fa7e50e | the-stoa] STILL-ALIVE hold check (~90 min since the escalation UP; NOT a nudge to accelerate a PRINCIPAL-gated call). Confirming my surface-and-wait is actively ALIVE, not silently orphaned: multiple FM-keyed Monitor cycles have timed out + re-armed transparently on my side; I remain HELD. STATE PRESERVED + re-verified this cycle: 42-file deliverable still staged (git diff --cached = 42), worktree fence still 0 commits, nothing touched (field/hook/allowlist untouched). I read this as a legitimate HITL wait on the PRINCIPAL's authorship-gate authorization, correctly routed through you + user-tier. On your relayed disposition I commit immediately per (a) or (b). No action needed from you unless the disposition is ready. Re-arming the watch.",
+      "timestamp": "2026-07-06T10:20:59Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T08:55:35Z"
+  "updated_at": "2026-07-06T10:20:59Z"
 }
