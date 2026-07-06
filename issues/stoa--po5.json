@@ -218,11 +218,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e]\nADA activated on stoa--q7f/arc-77 (u--9s2 inc 2.4 Phase-1 secure-core pass-through BUILD). Read design-rev4 (§0-§7) + stoa--po5 coordination thread + FM scope-(A) greenlight + verification conditions. Confirmed arc-77/build gap: catalog/ has bls-oews/document-parsing/google-maps/spatial-db but LACKS vertex-gemini.toml + tailscale.toml + demo/; resolve.py present + FROZEN. Starting Part 1 (byte-exact DC3 reproduction from arc-76/build reference), then Part 2 (real secure-core service at agents/secure-core/), then Part 3 (P-M1..P-M7 probes). AUTONOMOUS mode. Building in .claude/worktrees/arc-77-build only; arc-76/build + main untouched.",
       "timestamp": "2026-07-06T05:50:19Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e]\nPart 1 DONE (byte-exact DC3 reproduction). sha256-verified byte-identical to arc-76/build reference: vertex-gemini.toml (1358b, 11c88105...), tailscale.toml (877b, 5bb085ef...), demo/sos_core_emit_demo.py (a42fcb71...). resolve.py frozen-unchanged (fd921ec0...). Demo runs GREEN (all §2.6 assertions). GROUNDING FIND + resolution: adding the two required TOMLs fires TWO deliberate roster-pin tests in builder_deploy_core/tests/test_dataload.py (they hard-code the 4-service catalog set; the DC3 records make it 6). test_dataload.py is NOT in the frozen list; the DoD requires the full suite green; arc-76/build (the gated reference) already reconciled these to the 6-service roster. I copied arc-76's test_dataload.py byte-exact (full diff = 100pct roster-pin reconciliation, nothing else; sha now 31a1c7d5...). Full builder_deploy_core suite now GREEN: 105 passed. Per-worktree .venv created (--system-site-packages; builder_deploy_core pip install -e into it). Now building Part 2: the REAL secure-core service at agents/secure-core/ (sibling package).",
+      "timestamp": "2026-07-06T05:55:18Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T05:50:19Z"
+  "updated_at": "2026-07-06T05:55:18Z"
 }
