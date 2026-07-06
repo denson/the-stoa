@@ -4,7 +4,7 @@
 
 **Arc:** arc-77 (fresh build decompose) · **Coordination ticket:** stoa--po5 (the-stoa) · **Design ref:** stoa--q7f
 **Owner:** user-tier Polybius_the_Stoa · **Gate authority:** Polybius the Grand (u--9s2)
-**Composition:** custom-agent+workflow — POLYBIUS_the-stoa (FM) + PLINY_the-stoa + CHIRON_the-stoa + HAMILTON_the-stoa + the gauntlet CAPTAINs
+**Composition (SETTLED — v2, PRINCIPAL-directed 2026-07-06):** standard 2-seat — POLYBIUS_the-stoa (FM) + PLINY_the-stoa + the gauntlet CAPTAINs. **There is NO CHIRON/HAMILTON phase and none will be launched**; DAEDALUS's opening design-checkpoint owns the entire design layer (§3). Any CHIRON/HAMILTON briefs still attached to stoa--po5 are VOID (bw has no detach — stoa--l9x); this directive supersedes them. The composition is not a question — do not hold on it, do not surface it.
 
 ---
 
@@ -30,19 +30,18 @@ The gated design is **`agents/design/stoa--q7f/design-rev2.md`** (762 lines) on 
 
 **The structural invariants (design-rev2, fail-loud):** `INV-DEST` (no caller-supplied destination constructable), `INV-RESP` (no credential byte reaches a caller — response allow-list), `INV-BIND` (a non-private network binding refuses to start). Plus the **two-phase audit** and the **M1–M6 threat-anchored probes (P-M1..P-M6)**.
 
-## 3. The work — two sub-phases on the floor
+## 3. The work — one gauntlet; DAEDALUS's opening checkpoint owns the design layer
 
-### (A) CHIRON+HAMILTON build-brief revision — FIRST, before the build gauntlet
+### (A) DAEDALUS opening design-checkpoint (the whole design layer — no separate seats)
 
-Revise the build brief (design-formal delta, not a re-gauntlet of the gated design) to:
+The first gauntlet step is DAEDALUS. Its opening checkpoint folds — and ARGUS cold-audits — three things (this replaces the v1 CHIRON+HAMILTON sub-phase; it is DAEDALUS's work now):
 
-1. **Reframe as the CONSOLIDATION center** — the core serves science (sos--373) + the newswire store (nws-1n7) + future builders, not stoagen alone. Multi-consumer identity/authz on the pass-through (operators vs tagged builders vs future lanes) is a first-class design concern, not a science detail.
-2. **Fold the MANDATORY cookie-cutter canon (Grand-ratified 2026-07-06):**
+1. **The CONSOLIDATION reframe** — the core serves science (sos--373) + the newswire store (nws-1n7) + future builders, not stoagen alone. Multi-consumer identity/authz on the pass-through (operators via `Tailscale-User-Login` vs the tagged builder via App-Capabilities vs future lanes) is a first-class design concern — the one genuinely-novel delta vs design-rev2's single-consumer shape; ARGUS audits it specifically.
+2. **The MANDATORY cookie-cutter canon (Grand-ratified 2026-07-06), folded into the design:**
    - **Seal-every-secret + fail-closed seal-audit** (the u--84m lesson made a gate — see §4).
    - **Railway-setup skill (sos--1bk)** as the provisioning-choreography reference the Phase-2 path will use.
-   - **In-harness-workflows canon (ratified on u--o49; report at `docs/research/anthropic-workflows-report.md`):** any LLM-adjudication step runs **in-harness on subscription OAuth**, NEVER a keyed CI call, and NOT routed through `CLAUDE_CODE_OAUTH_TOKEN` for a shared pipeline (ToS = individual interactive use). HAMILTON assesses whether any step in this core warrants a Stoa Workflow vs plain application code, and records the call honestly (the prior inc ratified engine=app-code / no-workflow for SUGGEST — the same honest call applies; do not manufacture a workflow that isn't load-bearing).
-
-Relay the revised brief posture to user-tier for awareness; the Grand gates at the built-artifact hand-back, not mid-revision.
+   - **In-harness-workflows canon (ratified on u--o49; report at `docs/research/anthropic-workflows-report.md`):** any LLM-adjudication step runs **in-harness on subscription OAuth**, NEVER a keyed CI call, and NOT routed through `CLAUDE_CODE_OAUTH_TOKEN` for a shared pipeline (ToS = individual interactive use).
+3. **The workflow-vs-app-code call, answered inline by DAEDALUS.** Default expectation: application code (a request/response pass-through is not a Stoa Workflow), matching the prior inc's engine=app-code/no-workflow ratification for SUGGEST. Name a workflow only if a step genuinely warrants one; do not manufacture one.
 
 ### (B) By-the-book build gauntlet — DAEDALUS → ARGUS → ADA → VERA → CATO → NOMOS
 
@@ -69,9 +68,17 @@ Extend the design's value-free discipline (slot NAMES only; `assert_value_free`)
 - **Seal-audit fail-closed PASS** (no secret value anywhere; slot-names-only).
 - Frozen resolver byte-identical; the full `builder_deploy_core` suite green (re-run, not asserted).
 - **NOMOS CONFORMANT** on the build; **authorship = Denson Smith** with the seat-identity Co-Authored-By trailers (§28); commit on the arc-77 build branch, **NOT merged, NOT pushed**.
-- The CHIRON+HAMILTON brief-revision folded the consolidation reframe + the three canons; HAMILTON's workflow-vs-app-code call recorded.
+- DAEDALUS's opening checkpoint folded the consolidation reframe + the three canons; the workflow-vs-app-code call recorded inline (§3A).
 - **Relay the Phase-1 build UP to the Grand** (via user-tier Polybius_the_Stoa) for the Phase-1 gate before Phase 2.
 
-## 7. Chain of command
+## 7. Chain of command + escalation ladder (PRINCIPAL-directed, 2026-07-06 — strict)
 
-PRINCIPAL → **user-tier Polybius_the_Stoa** (arc owner; relays to the Grand) → **POLYBIUS_the-stoa** (FM; independent verification + relay) → **PLINY_the-stoa** (orchestrator; dispatches CHIRON/HAMILTON then the gauntlet CAPTAINs) → CAPTAINs. Hand-up at build-complete goes to the FM → user-tier → the Grand. Escalations/scope disputes go UP the same chain, never to the PRINCIPAL directly except emergencies.
+PRINCIPAL → **user-tier Polybius_the_Stoa** (arc owner; relays to the Grand) → **POLYBIUS_the-stoa** (FM; independent verification + relay + **the team's only escalation surface**) → **PLINY_the-stoa** (orchestrator; dispatches the gauntlet CAPTAINs) → CAPTAINs.
+
+**The escalation ladder is one-step-up, no skipping, no exceptions:**
+1. A CAPTAIN escalates to **PLINY** only.
+2. PLINY escalates to **POLYBIUS_the-stoa (FM)** only — never to user-tier, never to the PRINCIPAL.
+3. The FM resolves what it can; what it cannot, it escalates to **user-tier Polybius_the_Stoa** only — never to the PRINCIPAL. The FM's terminal output is a status surface, not an ask-channel: it must never pose a decision to the PRINCIPAL.
+4. **User-tier alone decides whether anything reaches the PRINCIPAL.** Downward flows mirror this: user-tier addresses the FM (`[for: POLYBIUS_the-stoa]`), never PLINY directly; the FM relays to PLINY.
+
+Hand-up at build-complete: PLINY → FM (verification) → user-tier (close-gate) → the Grand (Phase-1 gate).
