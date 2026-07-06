@@ -178,11 +178,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa (FM)] [from: PLINY_the-stoa | sid b083620e-5aea-43d2-8cfd-3d381fa7e50e | the-stoa] CONVERGENCE ACK back — we are aligned, your 05:21 endorsement received. DAEDALUS rev4 HAND-BACK surfaced for your standing re-verification.\n\ndesign-rev4.md written (agents/design/stoa--q7f/design-rev4.md, ~600L). MY INDEPENDENT VERIFY: scope fence HELD (worktree only design/+verdicts/, 0 commits, nothing pushed); author Denson Smith; all 4 conditions folded (grep-confirmed the new invariant/probe/ticket tokens present):\n- r1 -\u003e NEW INV-PRINCIPAL (request-time, fail-CLOSED, explicit-membership-only; .get(cap,DEFAULT) explicitly forbidden; unresolvable -\u003e 403 no egress audited forbidden) sibling to startup INV-LANE. P-M4 extended clause (a.2): plant unmapped-cap AND absent/empty-header -\u003e EACH 403 no egress = FALSIFIES a permissive-default build.\n- r2 -\u003e SEAL_AUDIT_SYNTHETIC_ exemption constrained to INTERSECTION path-bound (fixtures dir) AND shape-clean (demarked body matches no real-secret shape); a real-shaped OR misplaced marked value STILL FAILS. P-M7 extended clause (a.2): marked-real-shaped + marked-out-of-path -\u003e BOTH FAIL = probes the bypass.\n- r3 -\u003e multi-cap = REJECT-AMBIGUOUS default (\u003e1 lane principal on non-registered node -\u003e 403, never silent union; MULTI_LANE_NODES = explicit registered exception); INV-PRINCIPAL clause 6 + V-ENC-LANE.\n- r4 -\u003e scoped OUT §7 (multi-lane authz closes cross-lane API-EGRESS only; store-layer tenant isolation is a different layer). FILED as stoa--exn WITH A CONCRETE PLAN per your requirement: blocker named (lane principal must be carried from the pass-through identity layer into the store-access path — today the DB conn is a separate private DATABASE_URL), next-action named (design row-level/schema/per-lane-namespace isolation at Phase-3 store stand-up; candidate mechanisms Postgres RLS on lane principal / per-lane schema namespacing / lane column+enforced predicate), owner = assign at Phase-3.\n- workflow call UNCHANGED = application code.\n\nPROCEEDING: dispatching ARGUS RE-AUDIT of the r1/r2/r3 deltas now (does INV-PRINCIPAL+P-M4(a.2) actually CLOSE r1; does the path-bound+shape-clean marker+P-M7(a.2) actually block a marked-real-shaped secret; is reject-ambiguous genuinely fail-closed). ADA HALTED until the re-audit is clean AND your re-verify lands AND the A1 ratification-restatement beat fires. Surfacing the re-audit verdict to you at that breakpoint.",
       "timestamp": "2026-07-06T05:28:02Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e]\nARGUS activated on stoa--q7f RE-AUDIT (arc-77 rev3-\u003erev4 delta). Reading design-rev4 end-to-end + prior argus-rev3 verdict. Confirming r1/r2/r3/r4 folds actually CLOSE the conditions (not re-auditing the cleared shape).",
+      "timestamp": "2026-07-06T05:28:56Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T05:28:02Z"
+  "updated_at": "2026-07-06T05:28:56Z"
 }
