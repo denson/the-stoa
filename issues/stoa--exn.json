@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-07-06T05:19:56Z",
+  "description": "Surfaced by CAPTAIN_ARGUS cold-audit of design-rev3 (arc-77, stoa--q7f), condition r4 (uncertain-severity, store/DB layer). The multi-lane identity/authz model (design-rev3/rev4 §2) closes cross-lane API-EGRESS (one lane's tag cannot invoke another lane's provider/operation, deny-by-default via per-op scopes + INV-LANE). It does NOT address cross-lane DATA-tenancy WITHIN the shared pgvector embeddings store on the core's db service: whether lane:newswire can READ lane:science rows (or vice versa) in the shared store. ARGUS: does NOT block the arc-77 pass-through build (a distinct store-layer concern); scoped OUT of arc-77 design-rev4 §7 explicitly. PLAN / next-step: when the embeddings DB is stood up (u--9s2 Phase-3, design-rev2 §4 DC5 step 4 'stand up the embeddings DB + point the KG pipeline at it'), design row-level / schema / per-lane-namespace tenant isolation in the shared pgvector store (candidate mechanisms: Postgres RLS keyed on lane principal; per-lane schema/table namespacing; a lane column + enforced predicate). Blocker to resolve first: the lane principal must be carried from the pass-through identity layer into the store-access path (today the pass-through attaches the credential server-side; the DB connection is a separate private DATABASE_URL). Owner: to be assigned at Phase-3 store stand-up. Anchor: ARGUS argus-rev3-security.md r4; design-rev3/rev4 §2 + §7.",
+  "id": "stoa--exn",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "[FOLLOW-UP arc-77 / ARGUS r4] Cross-lane DATA-tenancy isolation in the shared pgvector store (store-layer, separate from pass-through API-egress authz)",
+  "type": "task",
+  "updated_at": "2026-07-06T05:19:56Z"
+}
