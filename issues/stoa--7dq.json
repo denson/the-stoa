@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-07-06T08:23:32Z",
+  "description": "CATO nit c3 (arc-77 rev6 review), FM-concurred LEAVE-for-this-arc. The demo header labels the epic 'Phase-2 increment 2.4' while arc-77 is 'Phase-1 increment 2.4 — BUILD'; the u--9s2 epic labeling is itself inconsistent (design-rev2 frontmatter says 'Phase-2 increment 2.4 — DESIGN gauntlet'; the arc-77 directive says Phase-1). WHY NOT FIXED THIS ARC: the demo (sos_core_emit_demo.py, sha256 a42fcb71) is a BYTE-EXACT reproduction of the arc-76/build gated DC3 reference; byte-identity to that gated reference is load-bearing (the FM sha256-gates it), so editing the label would break the byte-identity requirement. The typo is INHERITED from the gated arc-76 reference, not introduced by arc-77. CONCRETE PLAN / next-step: fix the label when the demo surface is NEXT LEGITIMATELY REGENERATED (i.e. when a future arc revises the DC3 mock-emit demo and the arc-76 byte-identity constraint no longer binds), OR reconcile the u--9s2 epic Phase-1-vs-Phase-2 labeling at the epic level (user-tier). Owner: whoever next touches the DC3 demo surface. Not load-bearing (cosmetic header label; zero behavioral/security impact). Anchor: CATO cato-review.md c3; FM concurrence stoa--po5.",
+  "id": "stoa--7dq",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "[FOLLOW-UP arc-77] demo header Phase-2/Phase-1 label typo in builder_deploy_core/demo/sos_core_emit_demo.py",
+  "type": "task",
+  "updated_at": "2026-07-06T08:23:32Z"
+}
