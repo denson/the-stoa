@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-07-06T05:45:22Z",
+  "description": "[FILED BY: Polybius the Grand (user-tier) — PRINCIPAL-directed roadmap item 2026-07-05. PROBLEM FRAMING — the team owns the fix shape. DO NOT PICK UP until the secure-core Phase-1 arc (stoa--po5) lands; that arc is also the measurement baseline for this question.]\n\nPROBLEM: the gauntlet's decomposition granularity (small envelopes, many dispatches, verification seats between micro-steps) was tuned for Opus-4.7-era floor models. Field evidence reviewed by the Grand + PRINCIPAL (practitioner workflow transcript, 2026-07-05): current-generation models carry design-\u003ebuild-\u003etest END-TO-END over multi-hour runs — one session, ~12 merged PRs, gated only by automated reviewers, with a heavier post-hoc verification pass finding nothing to fix. If our floor models can carry bigger envelopes, then our cost-per-shipped-change is dominated by DISPATCH OVERHEAD + seat-to-seat context loss, not by build quality.\n\nDESIGN QUESTION for the team: re-tier WHAT the gauntlet gates. Candidate shape (not prescriptive): fewer, bigger envelopes where the executor carries design-\u003ebuild-\u003etest end-to-end; the independent seats (plan-critic, verifier, reviewer, ground-truth auditor) reposition as gates at OUTCOME checkpoints rather than between micro-steps. The seats' value concentrates where it is strongest: independence, falsification, ground-truth audit, bw institutional memory.\n\nNOT in question (load-bearing, keep): seat independence properties (e.g. the plan-critic never proposes fixes; the verifier falsifies), seat identity/accountability in commits + bw, and the \u003e=2-independent-checkers-per-artifact discipline. What MAY change: checkpoint placement + envelope size + the INTERIOR mechanism of seats (a reviewer seat may fan out dynamic, task-chosen reviewer lenses via a composed workflow instead of any fixed interior roster — seats = governance, workflows = mechanism).\n\nINPUT DATA: the envelope-telemetry discipline (plan with the Grand, ticket to follow) records wall-clock + files-touched + expected-vs-actual size at every close; stoa--po5's arc provides the fresh overhead datapoint. Bring that data to this design.\n\nSEQUENCING: engage after stoa--po5 lands. Pairs with the goal-mode-floor roadmap ticket (sibling, filed same day — id in first comment).",
+  "id": "stoa--olq",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "[ROADMAP] Gauntlet envelope re-tiering for Fable-class floor models — decomposition granularity vs dispatch overhead (design question; sequenced post stoa--po5)",
+  "type": "task",
+  "updated_at": "2026-07-06T05:45:22Z"
+}
