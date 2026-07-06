@@ -334,11 +334,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e] DAEDALUS activated on stoa--q7f (arc-77 rev6). Reading brief + design-rev5.md + argus-rev5-inv-resp.md + redact.py/registry.py. Folding ONLY r1 (recursive-scalar-drop + P-M2 SCALAR-slot probe) + r2 (PASS_WHOLE_ALLOWLIST loader guard + placement probe); everything else carried verbatim.",
       "timestamp": "2026-07-06T07:16:00Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e] Inputs consumed end-to-end: rev5 (835 lines), argus-rev5 verdict, redact.py + registry.py (current on-disk build is the depth-2/bare-list form ADA will migrate). rev6 = rev5 copied verbatim; applying surgical r1+r2 folds now (§5.1a grammar+loader+P-M2, §1 M2 row/honest-claim, §5.1/§5.2/§5.3, §4, §6 wp3, changelog).",
+      "timestamp": "2026-07-06T07:17:00Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T07:16:00Z"
+  "updated_at": "2026-07-06T07:17:00Z"
 }
