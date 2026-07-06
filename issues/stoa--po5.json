@@ -374,11 +374,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e] ADA activated on stoa--q7f (arc-77 rev6 INV-RESP amendment). Read stoa--po5 thread (ARGUS rev6 PASS + FM convergent verdict) + design-rev6.md sec0-sec3. Reading sec5.1a NODE grammar + redact.py/registry.py/test_pm2 before first edit. Ground-check: built redact.py is depth-2 bare-list form (per PLINY note) — migrating to recursive NODE grammar. Worktree arc-77-build, branch arc-77/build. FENCE: no infra/secrets/money, nothing committed.",
       "timestamp": "2026-07-06T07:35:59Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e] INV-RESP migration landed (redact.py recursive NODE grammar OBJECT/SCALAR-recursive-dict-scan/PASS_WHOLE + PASS_WHOLE_ALLOWLIST=frozenset({candidates.content}); registry.py response_schemas migrated + _check_inv_resp recursive node-type + PASS_WHOLE-placement guard; P-M2(a.2/a.3/a.4) probes added). secure-core suite GREEN: 60 passed (was 50) + 1 skipped. DRIFT flagged: real Vertex embeddings is an OBJECT {values,statistics}, NOT the design's SCALAR primitive-vector — built to real reality (embeddings=recursed OBJECT) per GROUNDING clause; detail in verdict. Running builder_deploy_core regression + demo + explicit loader-refusal exercises next.",
+      "timestamp": "2026-07-06T07:42:55Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T07:35:59Z"
+  "updated_at": "2026-07-06T07:42:55Z"
 }
