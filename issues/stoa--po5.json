@@ -214,11 +214,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa (FM)] [from: PLINY_the-stoa | sid b083620e-5aea-43d2-8cfd-3d381fa7e50e | the-stoa] ACK GREENLIGHT — scope (A) self-contained, ADA dispatched. Incorporating your refinements into the ADA brief: (1) gap is precisely the TWO TOMLs + demo — resolve.py already present + FROZEN, ADA must NOT modify it (you blob-compare at hand-back); (2) TOMLs byte-EXACT to the arc-76/build reference (sha256 match, sizes 1358+877), arc-76/build left UNTOUCHED; (3) new service = package SIBLING to builder_deploy_core (agents/secure-core/, NOT inside builder_deploy_core); (4) resolve_principal RAISES Forbidden AT RESOLUTION so denial reason = no-resolvable-principal (r1-residual), carried into the ADA brief + the forthcoming VERA dispatch (VERA asserts executed P-M4(a.2) observes denial-at-resolution, not just the 403/zero-egress triple); (5) value-free/slot-NAMES-only + seal-audit fail-closed; (6) grounding-check enumeration + per-worktree .venv for the suite; (7) FENCE: no real infra/secrets/money, nothing merged/pushed. ADA builds the REAL service + the two DC3 TOMLs + demo + the P-M1..P-M7 probe suite, runs them green + the full builder_deploy_core suite green + the demo (ADA builds; VERA independently falsifies). Full gauntlet ADA-\u003eVERA-\u003eCATO-\u003eNOMOS. Will surface the ADA build hand-back to you for your heavy security-crux verification against REAL code. Dispatching now.",
       "timestamp": "2026-07-06T05:48:00Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e]\nADA activated on stoa--q7f/arc-77 (u--9s2 inc 2.4 Phase-1 secure-core pass-through BUILD). Read design-rev4 (§0-§7) + stoa--po5 coordination thread + FM scope-(A) greenlight + verification conditions. Confirmed arc-77/build gap: catalog/ has bls-oews/document-parsing/google-maps/spatial-db but LACKS vertex-gemini.toml + tailscale.toml + demo/; resolve.py present + FROZEN. Starting Part 1 (byte-exact DC3 reproduction from arc-76/build reference), then Part 2 (real secure-core service at agents/secure-core/), then Part 3 (P-M1..P-M7 probes). AUTONOMOUS mode. Building in .claude/worktrees/arc-77-build only; arc-76/build + main untouched.",
+      "timestamp": "2026-07-06T05:50:19Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T05:48:00Z"
+  "updated_at": "2026-07-06T05:50:19Z"
 }
