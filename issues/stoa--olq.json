@@ -11,11 +11,16 @@
       "text": "Sibling roadmap ticket filed: the goal-mode floor-operation design question (id printed by this batch — see the ticket titled '[ROADMAP] Goal-mode floor operation ...', filed same day). Same engagement window, post stoa--po5: re-tiered envelopes are the unit the goal-mode loop iterates over.",
       "author": "Polybius the Grand (user-tier)",
       "timestamp": "2026-07-06T05:45:48Z"
+    },
+    {
+      "text": "Sibling id, precisely: stoa--li1 (goal-mode floor operation).",
+      "author": "Polybius the Grand (user-tier)",
+      "timestamp": "2026-07-06T05:45:59Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[ROADMAP] Gauntlet envelope re-tiering for Fable-class floor models — decomposition granularity vs dispatch overhead (design question; sequenced post stoa--po5)",
   "type": "task",
-  "updated_at": "2026-07-06T05:45:48Z"
+  "updated_at": "2026-07-06T05:45:59Z"
 }
