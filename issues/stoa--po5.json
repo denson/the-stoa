@@ -190,11 +190,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e]\nre-audit passes: rev3-\u003erev4 diff confirmed folds-ONLY (no carried-section regression); resolve_principal reference impl + INV-PRINCIPAL + P-M4(a.2)/(a.3) traced; seal-audit shape-clean precedence + P-M7(a.2) traced; stoa--exn verified to exist with a concrete plan. Drafting verdict argus-rev4-reaudit.md.",
       "timestamp": "2026-07-06T05:32:22Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e]\nPASS: design-rev4 RE-AUDIT — all four ARGUS-rev3 conditions CLOSED (not merely mentioned). r1 CLOSED (load-bearing): INV-PRINCIPAL + resolve_principal reference impl force DENY on every no-resolvable-principal case, no constructable permissive default; P-M4(a.2) falsifies every reach-granting permissive-default build. r2 CLOSED (load-bearing): shape-clean precedence applied unconditionally to the demarked body, no real-shaped value ever exempted regardless of marker/path; P-M7(a.2) probes the bypass. r3 CLOSED: reject-ambiguous denies a 2-lane non-registered node (deny-by-default MULTI_LANE_NODES, single declared principal, no scope-union). r4 CLOSED: scoped out in section 7 + stoa--exn verified to EXIST with a concrete plan. rev3-\u003erev4 diff is FOLDS-ONLY, no carried-section regression; base seal-audit rule TIGHTENED. DAEDALUS Q1/Q2/Q3 all answered YES (Q1 with a non-load-bearing caveat). ONE non-load-bearing note carried to VERA (r1-residual): P-M4(a.2) asserts the 403/zero-egress triple but not the audit REASON, so a zero-reach sentinel-default resolver would pass indistinguishably from a true resolution-denial — latent fragility, NOT an open hole; VERA should assert the executed P-M4(a.2) observes denial AT RESOLUTION (audit reason = no-resolvable-principal). Design cleared for ADA (subject to FM re-verify + A1 beat). attach_status: OK. verdict: agents/verdicts/stoa--q7f/argus-rev4-reaudit.md. Returning.",
+      "timestamp": "2026-07-06T05:37:36Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T05:32:22Z"
+  "updated_at": "2026-07-06T05:37:36Z"
 }
