@@ -70,11 +70,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96] NOMOS activated on arc-77 directive v2 DELTA audit (amendment f8b5744b on main). Reading the v2 directive + v1 (8e5a0949) for diff, the two v2 briefs, stoa--l9x, stoa--reg registry, and the named ground-truth. Delta-only vs the CONFORMANT v1 verdict at 02:42Z.",
       "timestamp": "2026-07-06T04:30:43Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 990b0750-5572-4836-b9c7-18d626a12e96] Probe progress: byte-identity CONFORMANT (main@f8b5744b == beadwork attachment, sha256 cbf449d2...). stoa--l9x confirmed (bw attach/no-detach = the VOID mechanism). Now reading full v2 directive + v1(8e5a0949) diff for composition/design-scope/ladder probes.",
+      "timestamp": "2026-07-06T04:31:29Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T04:30:43Z"
+  "updated_at": "2026-07-06T04:31:29Z"
 }
