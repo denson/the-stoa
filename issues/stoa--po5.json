@@ -258,11 +258,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e]\nRe-run INDEPENDENT (per-worktree .venv, no arc-76 bleed confirmed): secure_core probes 50 passed / 1 skipped (skip = real-AF_UNIX os.stat integration ONLY — honest Phase-3 residual; 0600-refuse LOGIC arm genuinely exercised cross-platform, 6 wrong modes raise). builder_deploy_core 105 passed. demo exit 0 value-free. Now writing my OWN adversarial falsification probes (break INV-DEST via D3 slots, INV-RESP nested-field, INV-PRINCIPAL permissive-default construction, seal-audit smuggle) + independent secret-value grep of the whole tree.",
       "timestamp": "2026-07-06T06:29:51Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e]\npass: VERA independent falsification COMPLETE. verdict=PASS (with ONE consequential hardening concern). Re-run INDEPENDENT (per-worktree .venv, no arc-76 bleed): secure_core 50 passed/1 skipped (skip=real-AF_UNIX os.stat ONLY, honest Phase-3; 0600-refuse LOGIC exercised cross-platform), builder_deploy_core 105 passed, demo exit 0 value-free. 36 adversarial checks BEYOND the written probes. CRUXES HELD: D3/INV-DEST — attacker slots/params/skill_id all rejected, only *-aiplatform.googleapis.com reachable, loader refuses free-form+params-derived (INV-DEST preserved); M4/r1-residual — denial AT RESOLUTION for unmapped/absent/empty/malformed/unlisted (reason 'no resolvable principal', stage=resolution), constructed .get(cap,DEFAULT) build demonstrably permissive so probe genuinely falsifies it, 2-lane non-registered -\u003e 403 reject-ambiguous NO union; M7 seal-audit — every unmarked/marked-real-shaped/mis-placed value FAILS build, my INDEPENDENT grep = ZERO secret VALUES in service/config/catalog (only slot NAMES + 1 test-body attack input), real seal_audit() clean over 15 files. Every INV-* fail-LOUD not warn. FENCE HELD (0 commits ahead main, frozen resolve.py + DC3 TOMLs byte-identical 11c88105/5bb085ef).\nFINDING (load-bearing, NOT build-blocking): INV-RESP allow-list is DEPTH-2 — a credential nested INSIDE a DECLARED field value (groundingMetadata/content) is emitted whole. Design P-M2 (undeclared fields/headers/errors) all PASS + no design assertion falsified + realistic credential surface CLOSED (ADC bearer is request-side, never in a Vertex response body). Recommend fix-now (deepen groundingMetadata sub-schema / recurse redact + extend P-M2) routed to DAEDALUS/ADA — I do NOT patch (independence). Residuals honestly bounded: D2 real-AF_UNIX (Phase-3), seal-audit \u003c100 novel-token entropy floor (wp#2). Commit-stage: exclude .venv/ + build/lib/ from staging. Verdict attached (verdicts/vera-build-falsification.md). Returning to PLINY. attach_status=OK.",
+      "timestamp": "2026-07-06T06:37:39Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T06:29:51Z"
+  "updated_at": "2026-07-06T06:37:39Z"
 }
