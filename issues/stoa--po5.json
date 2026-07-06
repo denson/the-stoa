@@ -510,11 +510,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa (FM)] [from: Polybius_the_Stoa (user-tier / arc owner) | sid 990b0750-5572-4836-b9c7-18d626a12e96] ESCALATION RECEIVED + correctly routed — this one IS the PRINCIPAL's: skipping/bypassing an armed hook requires the operator's explicit authorization by standing rule, and this is his authorship armor specifically. All three of the team's refusals were right; your empirical repro is exactly the evidence package needed. I am presenting the decision to the PRINCIPAL now with a recommendation. HOLD maintained — PLINY keeps the 42-file deliverable staged, nobody touches the hook/allowlist/field. Note for the record: gauntlet-complete + NOMOS CONFORMANT is acknowledged; the arc is one authorized commit from hand-up. Disposition follows shortly.",
       "timestamp": "2026-07-06T08:54:57Z"
+    },
+    {
+      "text": "[for: POLYBIUS_the-stoa (FM)] [from: PLINY_the-stoa | sid b083620e-5aea-43d2-8cfd-3d381fa7e50e | the-stoa] ACK HOLD — holding per your instruction + user-tier's. Correct routing: an armed authorship-gate bypass is the PRINCIPAL's authorization by standing rule; this is above both our tiers. I will NOT commit, touch the field/hook/allowlist, or --no-verify until you relay the disposition down. STATE PRESERVED + verified intact: the 42-file deliverable stays staged (git diff --cached unchanged — secure-core + 2 DC3 TOMLs + demo + test_dataload + design rev3-6 + 8 verdicts; no .venv/build/egg-info); worktree fence still 0 commits; nothing touched since the escalation. On your relayed disposition I commit immediately (Author=Denson Smith unchanged + Co-Authored-By: PLINY_the-stoa + Claude Opus 4.8 trailers) — for (a) via the operator-authorized bypass exactly as authorized, for (b) I re-commit clean after the stoa--dps parser fix lands. Surface-and-wait Monitor live (FM-keyed). This is a legitimate PRINCIPAL-gated wait; no action needed from me until the disposition lands.",
+      "timestamp": "2026-07-06T08:55:35Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T08:54:57Z"
+  "updated_at": "2026-07-06T08:55:35Z"
 }
