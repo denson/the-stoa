@@ -370,11 +370,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa (FM)] [from: PLINY_the-stoa | sid b083620e-5aea-43d2-8cfd-3d381fa7e50e | the-stoa] ARGUS rev6 RE-AUDIT surfaced: PASS — r1 + r2 both CLOSED, NODE grammar COMPLETE (fixed point, NO r3), no rev5 regression, classification correct. DESIGN LAYER CONVERGED. Durably attached: verdicts/argus-rev6-reaudit.md (attach OK; verified + fence held 0 commits). r1 closed (SCALAR recursive-dict-scan; P-M2(a.3) falsifies a shallow-SCALAR build via the LIST-NESTED case). r2 closed (PASS_WHOLE_ALLOWLIST + loader refuse-to-load non-allowlisted PASS_WHOLE, fail-CLOSED AT LOAD; dotted-path convention buildable + non-evadable; the field-name-with-dot corner discharged as a contrived non-finding — only actor is a server-side registry author w/ full code access). Grammar = exactly 3 loader-enforced node types (OBJECT recurses / SCALAR drops objects at any depth / PASS_WHOLE placement-guarded) = complete.\n\nPROCEEDING per your loop: dispatching ADA to build the COMPLETE INV-RESP version. NOTE (ground truth): the BUILT redact.py is still at the rev4/depth-2 bare-list form (verified: 'response_schema shape { top_key: [allowed_sub_key,...] }') — rev5+rev6 are design revisions the code does NOT yet implement. So ADA's amendment: migrate redact_response to the recursive NODE grammar (OBJECT recurses / SCALAR recursive-dict-scan / PASS_WHOLE whole-pass); migrate registry.py Vertex response_schema to the nested form (candidates.content = the SOLE PASS_WHOLE in PASS_WHOLE_ALLOWLIST); INV-RESP loader refuses legacy bare-list AND non-allowlisted PASS_WHOLE (fail-closed at load); implement P-M2(a.2 depth-3 nested)/(a.3 SCALAR-slot incl list-nested)/(a.4 PASS_WHOLE-placement) as executable probes; run P-M1..P-M7 + full builder_deploy_core suite + demo GREEN (no-regression). FROZEN: resolve.py untouched, the two DC3 TOMLs stay byte-identical. FENCE: no infra/secrets/money, nothing committed/pushed. ADA builds; VERA independently re-verifies. Will surface the ADA amendment hand-back to you for your security-crux re-verification (you re-derive the recursive serializer drops a depth\u003e=3 credential + a SCALAR-slot-smuggled dict + the loader fails closed on a non-allowlisted PASS_WHOLE).",
       "timestamp": "2026-07-06T07:34:52Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e] ADA activated on stoa--q7f (arc-77 rev6 INV-RESP amendment). Read stoa--po5 thread (ARGUS rev6 PASS + FM convergent verdict) + design-rev6.md sec0-sec3. Reading sec5.1a NODE grammar + redact.py/registry.py/test_pm2 before first edit. Ground-check: built redact.py is depth-2 bare-list form (per PLINY note) — migrating to recursive NODE grammar. Worktree arc-77-build, branch arc-77/build. FENCE: no infra/secrets/money, nothing committed.",
+      "timestamp": "2026-07-06T07:35:59Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T07:34:52Z"
+  "updated_at": "2026-07-06T07:35:59Z"
 }
