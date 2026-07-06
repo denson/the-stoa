@@ -358,11 +358,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e]\nrev6 read end-to-end + redact.py/registry.py (current depth-2 form ADA migrates). Mechanical rev5-\u003erev6 diff = 156ins/42del, delta CONFINED to r1+r2 (no §2/INV-PRINCIPAL/seal-audit/INV-DEST-BIND-LANE/M1/M3-M7/§4/§7 touch). r1 CLOSED (recursive dict-scan drops any mapping at any depth; P-M2 a.3 list-nested case genuinely falsifies a shallow-SCALAR build); r2 CLOSED (PASS_WHOLE_ALLOWLIST loader refuse-to-load fail-closed AT LOAD; P-M2 a.4). Grammar complete (3 node types, loader-enforced closed set; no r3). Finalizing verdict -\u003e PASS.",
       "timestamp": "2026-07-06T07:27:31Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e]\nPASS: rev6 r1+r2 CLOSED; node grammar COMPLETE (no r3); cleared for ADA. Verdict attached (verdicts/argus-rev6-reaudit.md, sha256 2aa8304c). attach_status OK. Returning.\n\nr1 CLOSED — SCALAR is a by-construction RECURSIVE DICT-SCAN dropping any mapping at any depth; P-M2(a.3) genuinely falsifies a shallow-SCALAR build via the LIST-NESTED case (shallow emits [ok,{dict}]; recursive drops it), (b) legit clause pins no-over-drop. No mapping rides a SCALAR slot at any depth.\nr2 CLOSED — PASS_WHOLE_ALLOWLIST={candidates.content}; loader refuse-to-load a non-allowlisted PASS_WHOLE, fail-CLOSED AT LOAD (not runtime); P-M2(a.4). Deny-by-default; a future credential-in-body mis-mark caught at startup.\nGRAMMAR COMPLETE — 3 loader-enforced node types (OBJECT recurses / SCALAR drops objects any depth / PASS_WHOLE placement-guarded); no fourth type, no unguarded combo = fixed point, no r3.\nNO REGRESSION — rev5-\u003erev6 156ins/42del mechanically confined to r1+r2; sec2/INV-PRINCIPAL/seal-audit/INV-DEST-BIND-LANE/M1/M3-M7/sec4/sec7 untouched. Classification CONFIRMED (tightening inside already-ratified M2, no new M#; A4).\nONE non-finding (DISCHARGED, not load-bearing): dotted-path string convention has a theoretical embedded-dot collision; discharged for the identifier field-name surface (contrived shape + server-side-registry-author actor already holds full code access). Named for completeness; no remediation prescribed.",
+      "timestamp": "2026-07-06T07:33:12Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T07:27:31Z"
+  "updated_at": "2026-07-06T07:33:12Z"
 }
