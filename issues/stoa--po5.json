@@ -402,11 +402,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e]\nBaseline GREEN: secure-core 60 passed/1 skip (honest AF_UNIX Phase-3 residual, unchanged); builder_deploy_core 105 passed; demo exit 0 value-free. P-M2 now 15 green incl a.2/a.3/a.4. Writing my OWN adversarial recursive-grammar + deepcopy meta-check probes (deeper nesting than ADA planted).",
       "timestamp": "2026-07-06T07:53:17Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e]\nAdversarial recursive-grammar HELD (39 checks; the 4 initial FAILs were MY §5.11 substring false-positive on the allowlist-enumeration printed in the refusal msg — refined+anchored on the quoted violating field: 5/5 PASS). DEEPCOPY META-CHECK CONFIRMED: refusal names the ACTUAL violating field (candidates.finishReason), NOT candidates.content; a shattered-identity marker WOULD misfire at content (teeth). EMBEDDINGS PIN web-verified vs current Vertex text-embedding-005 :predict = EXACT match {values:[float], statistics:{token_count,truncated}}. Running seal-audit regression + secret-value grep + fence next.",
+      "timestamp": "2026-07-06T07:55:51Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T07:53:17Z"
+  "updated_at": "2026-07-06T07:55:51Z"
 }
