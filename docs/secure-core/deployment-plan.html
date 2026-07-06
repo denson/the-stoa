@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Denson Smith">
+<title>Secure Service Core — Deployment Plan & Runbook</title>
+<style>
+  :root{--ink:#1c2230;--muted:#5b6573;--line:#e3e7ee;--bg:#fff;--soft:#f6f8fb;
+    --accent:#2f6df6;--good:#15803d;--code:#0f172a;--code-bg:#f5f6f8;--warn:#9a3412;--warn-soft:#fff7ed}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16.5px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px 120px}
+  header.banner{max-width:880px;margin:0 auto;padding:38px 22px 4px}
+  .badge{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--good);background:#e9f7ef;border:1px solid #bfe6cd;border-radius:999px;padding:4px 12px}
+  .badge.live{color:#1f3a8a;background:#eaf1ff;border-color:#cfe0ff;margin-left:6px}
+  h1.title{font-size:29px;line-height:1.2;margin:14px 0 6px;letter-spacing:-.01em}
+  .sub{color:var(--muted);font-size:15px;margin:0}
+  .toc{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:10px 18px;margin:22px 0}
+  .toc::before{content:"Contents";display:block;font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:4px 0 6px}
+  .toc ul{margin:0;padding-left:18px}.toc>ul{padding-left:2px;list-style:none}.toc>ul>li{margin:3px 0}
+  .toc a{color:#2b3a55;text-decoration:none}.toc a:hover{text-decoration:underline;color:var(--accent)}
+  .doc h1{font-size:23px;margin:6px 0 8px}
+  .doc h1:first-child{position:absolute;left:-9999px}  /* hide duplicate title (it's in the banner) */
+  .doc h2{font-size:21px;margin:36px 0 10px;padding-top:16px;border-top:2px solid var(--line)}
+  .doc h3{font-size:16.5px;margin:22px 0 6px;color:#22304a}
+  .doc p{margin:10px 0}.doc a{color:var(--accent)}.doc strong{color:#16203a}
+  .doc ul,.doc ol{margin:10px 0;padding-left:24px}.doc li{margin:5px 0}
+  .doc hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+  .doc>p:first-of-type,.doc>p:nth-of-type(2){background:var(--soft);border-left:4px solid var(--accent);
+    border-radius:0 8px 8px 0;padding:10px 16px;margin:12px 0}
+  code{font-family:"SFMono-Regular",ui-monospace,"Cascadia Code",Consolas,monospace;font-size:13.5px;
+    background:var(--code-bg);color:var(--code);padding:1.5px 5px;border-radius:5px}
+  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;overflow:auto;margin:14px 0}
+  pre code{background:none;padding:0;font-size:13px}
+  table{border-collapse:collapse;width:100%;margin:16px 0;font-size:14.5px;display:block;overflow-x:auto}
+  th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+  th{background:var(--soft);font-weight:700;color:#22304a}
+  tbody tr:nth-child(even){background:#fbfcfe}
+  em{color:var(--warn)}
+  .foot{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px}
+  @media print{.toc{break-inside:avoid}body{font-size:11pt}}
+</style></head>
+<body>
+<header class="banner">
+  <span class="badge">Design approved &middot; mock-only until provisioning</span><span class="badge live">Living document</span>
+  <h1 class="title">Secure Service Core — Deployment Plan & Runbook</h1>
+  <p class="sub">Secure service core for the Science Stoa &mdash; plan, runbook, and the basis for the Zeotek architecture &amp; security review.</p>
+</header>
+<div class="wrap">
+  <div class="toc">
+<ul>
+<li><a href="#1-what-this-is">1. What this is</a></li>
+<li><a href="#2-architecture-at-a-glance">2. Architecture at a glance</a></li>
+<li><a href="#3-the-four-phases">3. The four phases</a><ul>
+<li><a href="#phase-1-build-the-core-service-no-real-infrastructure-no-cost">Phase 1 — Build the core service · no real infrastructure, no cost</a></li>
+<li><a href="#phase-2-provision-the-real-infrastructure-real-money-starts-here">Phase 2 — Provision the real infrastructure · real money starts here</a></li>
+<li><a href="#phase-3-deploy-test">Phase 3 — Deploy + test</a></li>
+<li><a href="#phase-4-revise-the-architecture-security-documentation-for-zeotek">Phase 4 — Revise the architecture + security documentation for Zeotek</a></li>
+</ul>
+</li>
+<li><a href="#4-prerequisites-needed-before-phase-2">4. Prerequisites (needed before Phase 2)</a></li>
+<li><a href="#5-credential-discipline-boundary-who-does-what">5. Credential-discipline boundary (who does what)</a></li>
+<li><a href="#6-provisioning-checklist-phase-2-detail">6. Provisioning checklist (Phase 2 detail)</a></li>
+<li><a href="#7-status-next-step">7. Status &amp; next step</a></li>
+</ul>
+</div>
+
+  <article class="doc">
+  <h1 id="secure-service-core-deployment-plan-runbook">Secure Service Core — Deployment Plan &amp; Runbook</h1>
+<p><strong>Status:</strong> Design approved (gate given). Phase 1 (build the core service) is next. Everything remains mock-only with <strong>zero real infrastructure, credentials, or cost</strong> until the Phase 2 provisioning steps — which require an explicit go and a bounded spend cap.</p>
+<p><strong>Audience &amp; purpose:</strong> Denson Smith (operator) and future deployment sessions. This is a <strong>living document</strong> — it is revised as the deployment proceeds, and becomes the architecture + security documentation submitted to Zeotek for review.</p>
+<hr />
+<h2 id="1-what-this-is">1. What this is</h2>
+<p>A <strong>secure service core</strong> for the Science Stoa: a small, always-on server that holds <strong>all external API keys</strong> (Google Vertex / Gemini first, for search and embeddings) plus a <strong>vector database</strong>, so the individual skills on a builder machine never hold a credential. Skills reach the core only over a private Tailscale network.</p>
+<p><strong>The problem it solves.</strong> As the project's skills increasingly need API credentials (~46 of 338 skills), keeping keys on the builder machine is the recurring security risk. The core moves every key server-side and hands it out to no one.</p>
+<h2 id="2-architecture-at-a-glance">2. Architecture at a glance</h2>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Credentialed per-provider pass-through</strong></td>
+<td>A skill names a provider + a pre-registered call; the core attaches that provider's key, makes the call, and returns only the declared result. The key never leaves the core.</td>
+</tr>
+<tr>
+<td><strong>Scoped / deny-by-default</strong></td>
+<td>The core can only reach providers in a closed, server-side registry — there is <strong>no caller-supplied address</strong> — so it cannot be turned into an open relay. The leak / abuse risk (SSRF, key-exfil) is closed by the structure itself, not patched.</td>
+</tr>
+<tr>
+<td><strong>pgvector embeddings DB</strong></td>
+<td>Postgres + pgvector on the core: the knowledge-graph store and skill/retrieval embeddings.</td>
+</tr>
+<tr>
+<td><strong>Tailscale-only ingress</strong></td>
+<td>The core is reachable only over the private tailnet; a builder holds <strong>only a tailnet identity</strong> — no Railway token, no service-account key, no API keys.</td>
+</tr>
+<tr>
+<td><strong>Credential-discipline</strong></td>
+<td>The agent never holds or sees a secret. Minting service accounts and setting secrets is a human / CI step.</td>
+</tr>
+</tbody>
+</table>
+<p>The full approved architecture is in the design document (<code>design-rev2</code>).</p>
+<h2 id="3-the-four-phases">3. The four phases</h2>
+<h3 id="phase-1-build-the-core-service-no-real-infrastructure-no-cost">Phase 1 — Build the core service · <em>no real infrastructure, no cost</em></h3>
+<p>The architecture is designed but the service code is not yet built. This phase builds the pass-through service itself — the Tailscale-serve front, the closed provider registry, the per-provider handlers, the response allow-list, and the two-phase audit — and verifies it by <strong>re-running the design's own attack probes against the real code</strong>: no caller-supplied address is constructable; no credential byte reaches a caller; a non-private network binding refuses to start. Built and tested locally / against mocks. Security-critical, so it runs as a full by-the-book review gauntlet.</p>
+<h3 id="phase-2-provision-the-real-infrastructure-real-money-starts-here">Phase 2 — Provision the real infrastructure · <em>real money starts here</em></h3>
+<p>Stand up the actual cloud resources. <strong>This is the only phase that costs money</strong>, and nothing in it happens without an explicit start and a spend cap already in place.</p>
+<ul>
+<li>Prerequisites: Section 4.</li>
+<li>The agent drives each dashboard to the edge; <strong>you generate every secret privately</strong> (the agent never sees a value); the agent then helps you deploy it.</li>
+<li>Who-does-what credential boundary: Section 5.</li>
+</ul>
+<h3 id="phase-3-deploy-test">Phase 3 — Deploy + test</h3>
+<p>Push the built core to Railway, wire Vertex / Gemini through the pass-through, stand up the embeddings DB, and exercise the first slice end-to-end — search and embeddings through the core, from a builder holding only a tailnet identity.</p>
+<h3 id="phase-4-revise-the-architecture-security-documentation-for-zeotek">Phase 4 — Revise the architecture + security documentation for Zeotek</h3>
+<p>Once the core is real and exercised, revise this document and the security design to reflect the <strong>actual</strong> deployment. That revised pair is the artifact submitted for <strong>Zeotek's external review</strong>.</p>
+<h2 id="4-prerequisites-needed-before-phase-2">4. Prerequisites (needed before Phase 2)</h2>
+<table>
+<thead>
+<tr>
+<th>Prerequisite</th>
+<th>Purpose</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A <strong>GCP project</strong> for the core</td>
+<td>Hosts the Vertex service account + API enablement</td>
+<td><em>to confirm</em></td>
+</tr>
+<tr>
+<td>A <strong>prepaid card / billing account</strong></td>
+<td>The <strong>hard spend cap</strong> — bounds all real cost</td>
+<td><em>to confirm</em></td>
+</tr>
+<tr>
+<td>A <strong>Railway account</strong></td>
+<td>Hosts the <code>db</code> (Postgres + pgvector) and <code>serving</code> (the core) services</td>
+<td><em>to confirm</em></td>
+</tr>
+<tr>
+<td>A <strong>Tailscale tailnet</strong></td>
+<td>The private network the core is reachable on</td>
+<td><em>to confirm</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-credential-discipline-boundary-who-does-what">5. Credential-discipline boundary (who does what)</h2>
+<table>
+<thead>
+<tr>
+<th>Secret</th>
+<th>Human / you</th>
+<th>Agent</th>
+<th>Where it lives</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vertex service-account key</strong> (<code>GCP_SA_KEY_B64</code>)</td>
+<td>Create the SA in the core's GCP project, grant least-privilege, get the key (or use Workload Identity Federation)</td>
+<td>Names the slot only; never decodes or logs it</td>
+<td>Railway secret (server-side); decoded to a <code>0600</code> temp file at startup</td>
+</tr>
+<tr>
+<td><strong>Postgres password</strong> (<code>POSTGRES_PASSWORD</code>)</td>
+<td>— (the agent generates it into the OS keyring, never printed)</td>
+<td>Pipes it into Railway via stdin — never sees the value</td>
+<td>Railway secret; private <code>DATABASE_URL</code> (in-network only)</td>
+</tr>
+<tr>
+<td><strong>Tailscale auth-key</strong> (<code>TS_AUTHKEY</code>)</td>
+<td>Mint a <strong>reusable, tagged</strong> key in the Tailscale admin console</td>
+<td>Names the slot only</td>
+<td>Railway secret; consumed by the container at start</td>
+</tr>
+</tbody>
+</table>
+<p>The Railway account token itself lives in the OS keyring (the <code>railway-keyring-deploy</code> pattern); the agent reads it only into the Railway CLI subprocess, never into its own view.</p>
+<h2 id="6-provisioning-checklist-phase-2-detail">6. Provisioning checklist (Phase 2 detail)</h2>
+<p><strong>Order matters — the repo + Railway services come FIRST; every secret is then minted straight into the existing Railway service var, never stashed locally first.</strong> (An earlier draft had this backwards — minting keys before the destination existed forced an unnecessary keyring detour.)</p>
+<ol start="0">
+<li>Confirm prerequisites (Section 4); set the spend cap. Confirm the <strong>GitHub repo exists</strong> and the deployable app is <strong>committed + pushed</strong> — Railway clones the repo at that commit and builds it.</li>
+<li><strong>Provision the Railway project + both services</strong> — <code>db</code> (Postgres + pgvector) and <code>serving</code> (the core) — with the secret <strong>names declared</strong> (<code>GCP_SA_KEY_B64</code>, <code>POSTGRES_PASSWORD</code>, <code>TS_AUTHKEY</code>) and values left empty.</li>
+<li><strong>Now mint each secret and paste it directly into its Railway service var</strong> — the destination already exists, so there is no local keyring detour:
+   - Postgres password → <code>POSTGRES_PASSWORD</code> on <code>db</code> (or generated locally and piped in via the <code>railway-keyring-deploy</code> stdin pattern — never printed).
+   - Vertex <strong>service-account key</strong> (SA/ADC, not an API key; least-priv <code>roles/aiplatform.user</code>) → base64 → <code>GCP_SA_KEY_B64</code> on <code>serving</code>.
+   - reusable, <strong>tagged</strong> Tailscale auth-key (<code>tag:stoagen-catalog</code>) → <code>TS_AUTHKEY</code> on <code>serving</code>.</li>
+<li><strong>Redeploy <code>serving</code></strong> so it picks up the secrets; the container brings up <code>tailscaled → serve → 0600 UDS trigger → uvicorn</code> and passes the platform healthcheck.</li>
+<li><strong>First slice:</strong> exercise the catalog over the mesh; then wire Vertex / gsearch through the pass-through and point the pgvector store at the knowledge-graph pipeline.</li>
+</ol>
+<p>This reuses two already-proven skills — <code>newswire-builder-setup</code> and <code>railway-keyring-deploy</code> — that carried this exact Tailscale-serve / Railway pattern through to a live deployment, so the mechanics are battle-tested.</p>
+<h2 id="7-status-next-step">7. Status &amp; next step</h2>
+<ul>
+<li><strong>Design approved</strong> (gate given); recorded up to the program epic.</li>
+<li><strong>Next:</strong> Phase 1 — build the core service (no cost). Real provisioning waits on the prerequisites and an explicit start.</li>
+</ul>
+<hr />
+<p><em>This is a living document. It is revised through deployment and testing, and becomes the architecture + security documentation for Zeotek's review.</em></p>
+  </article>
+  <div class="foot">Prepared for Denson Smith &middot; living document. Nothing in this plan is built, deployed, or provisioned until the Phase&nbsp;2 steps, which require an explicit go and a spend cap.</div>
+</div></body></html>
