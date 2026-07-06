@@ -310,11 +310,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e] Audit complete; drafting verdict. Delta confirmed confined to the INV-RESP fold (rev4 multi-lane authz / INV-PRINCIPAL / seal-audit / INV-DEST/BIND/LANE / M1,M3-M7 all carried verbatim, none weakened). Core delta SOUND: OBJECT-node depth recursion drops a depth-3 undeclared sub-key by construction + P-M2(a.2) falsifies a depth-2 build + loader refuses a bare-list node = fails closed at load. TWO load-bearing-UNCERTAIN residuals in the by-construction GENERALITY claim -\u003e PASS-WITH-CONDITIONS. Writing verdict + attaching.",
       "timestamp": "2026-07-06T07:02:53Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e] PASS-WITH-CONDITIONS: rev4-\u003erev5 INV-RESP delta cold-audit complete. Verdict written + attached (verdicts/argus-rev5-inv-resp.md, sha256 3ba160fb, attach_status OK). CORE DELTA SOUND: OBJECT-node depth recursion closes the scoped VERA depth-2 finding BY CONSTRUCTION (undeclared sub-key at any depth in a declared OBJECT node dropped); P-M2(a.2) genuinely FALSIFIES a depth-2 build (absence-assertion fails against current redact.py which emits the sub-key value whole); loader refuses a bare-list node = fails closed at LOAD. content correctly the ONE bounded PASS_WHOLE; groundingMetadata a recursed OBJECT (not whole-passed). Delta CONFINED to the INV-RESP fold (diffed: multi-lane authz/INV-PRINCIPAL/seal-audit/INV-DEST/BIND/LANE/M1,M3-M7 verbatim, none weakened); tightening-inside-M2/no-new-M# classification CONFIRMED. TWO load-bearing-UNCERTAIN residuals in the by-construction GENERALITY (realistic surface CLOSED this arc): r1 = SCALAR no-object-at-any-depth is UNPROBED (P-M2(a.2) exercises the OBJECT path, not the dict-under-SCALAR-slot path; a shallow-SCALAR impl would pass the probe) [op-disc 6.9 cl.4 map-present/probe-absent]; r2 = PASS_WHOLE is an unaudited runtime whole-pass escape hatch (loader validates node TYPES only, not placement) -\u003e a FUTURE credential-in-body provider could mis-mark a field PASS_WHOLE and bypass INV-RESP (the exact future-provider case the general form was chosen to protect). Both routed to DAEDALUS/FM per fix-known-bugs posture; neither blocks ADA on the OBJECT-recursion path. ARGUS surfaces, does not fix. Returning to PLINY.",
+      "timestamp": "2026-07-06T07:09:35Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T07:02:53Z"
+  "updated_at": "2026-07-06T07:09:35Z"
 }
