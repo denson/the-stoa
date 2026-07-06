@@ -146,11 +146,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e] ARGUS activated on stoa--q7f (arc-77 cold-audit of design-rev3). Reading design-rev3 (497 lines) + rev2 base (762) for carry-faithfulness + arc-77 directive end-to-end. Pushing hardest on the multi-lane identity/authz delta (rev3 §2) + fail-CLOSED seal-audit (§3.1/M7). Then quadrant-classifying risks + threat_coverage probe-spec assessment.",
       "timestamp": "2026-07-06T05:04:41Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e] Audit passes complete. rev2-\u003erev3 carry verified FAITHFUL (INV-DEST/RESP/BIND + two-phase audit + M1-M6/P-M1..P-M6 carried, none weakened; scopes class-\u003elane is a TIGHTENING). Multi-lane SHAPE + honest-residual placement sound. TWO load-bearing gaps surfaced, both in the class the directive flagged (probe catches happy path not the dangerous failure): r1 = request-time no-resolvable-principal has no fail-closed invariant/probe (permissive-default resolve would pass P-M4); r2 = SEAL_AUDIT_SYNTHETIC_ marker is an unconditional allow-list token = universal bypass reopening M7, and P-M7 codifies marked-\u003epass as correct. Plus r3 (multi-cap resolution under-specified) + r4 (cross-lane store-data tenancy silent) at uncertain severity. Verdict: REVISE. Writing verdict + attaching now.",
+      "timestamp": "2026-07-06T05:10:30Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T05:04:41Z"
+  "updated_at": "2026-07-06T05:10:30Z"
 }
