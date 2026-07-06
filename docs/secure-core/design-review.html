@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Denson Smith">
+<title>Secure Service Core &mdash; Design Review</title>
+<style>
+  :root{
+    --ink:#1c2230; --muted:#5b6573; --line:#e3e7ee; --bg:#ffffff; --soft:#f6f8fb;
+    --accent:#2f6df6; --accent-soft:#eaf1ff; --warn:#b45309; --warn-soft:#fff7ed;
+    --good:#15803d; --code:#0f172a; --code-bg:#f5f6f8;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16.5px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px 120px}
+  header.banner{max-width:880px;margin:0 auto;padding:38px 22px 6px}
+  .badge{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--good);background:#e9f7ef;border:1px solid #bfe6cd;
+    border-radius:999px;padding:4px 12px}
+  h1.title{font-size:30px;line-height:1.2;margin:14px 0 6px;letter-spacing:-.01em}
+  .sub{color:var(--muted);font-size:15px;margin:0 0 4px}
+  /* the ask box */
+  .ask{background:var(--accent-soft);border:1px solid #cfe0ff;border-left:5px solid var(--accent);
+    border-radius:12px;padding:20px 22px;margin:22px 0 10px}
+  .ask h2{margin:0 0 10px;font-size:19px;color:#15399b;border:0;padding:0}
+  .ask p{margin:9px 0}
+  .ask ul{margin:8px 0 8px 2px}
+  .ask li{margin:5px 0}
+  .ask .howto{margin-top:12px;padding-top:12px;border-top:1px dashed #bcd0fb;color:#2b3a55;font-size:15px}
+  /* toc */
+  .toc{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:10px 18px;margin:22px 0}
+  .toc::before{content:"On this page";display:block;font-weight:700;font-size:13px;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--muted);margin:4px 0 6px}
+  .toc ul{margin:0;padding-left:18px}
+  .toc>ul{padding-left:2px;list-style:none}
+  .toc>ul>li{margin:3px 0}
+  .toc a{color:#2b3a55;text-decoration:none}
+  .toc a:hover{text-decoration:underline;color:var(--accent)}
+  /* body */
+  .doc h1{font-size:23px;margin:40px 0 8px;padding-top:8px}
+  .doc h2{font-size:21px;margin:38px 0 10px;padding-top:16px;border-top:2px solid var(--line)}
+  .doc h3{font-size:17px;margin:24px 0 6px;color:#22304a}
+  .doc h4{font-size:15px;margin:18px 0 4px;color:var(--muted);text-transform:none}
+  .doc p{margin:10px 0}
+  .doc a{color:var(--accent)}
+  .doc strong{color:#16203a}
+  .doc ul,.doc ol{margin:10px 0;padding-left:24px}
+  .doc li{margin:4px 0}
+  .doc hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+  blockquote{margin:12px 0;padding:2px 16px;border-left:4px solid #d6deea;color:#3a455b;background:var(--soft);border-radius:0 8px 8px 0}
+  code{font-family:"SFMono-Regular",ui-monospace,"Cascadia Code",Consolas,monospace;font-size:13.5px;
+    background:var(--code-bg);color:var(--code);padding:1.5px 5px;border-radius:5px}
+  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;
+    overflow:auto;margin:14px 0}
+  pre code{background:none;padding:0;font-size:13px;line-height:1.5}
+  table{border-collapse:collapse;width:100%;margin:16px 0;font-size:14.5px;display:block;overflow-x:auto}
+  th,td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top}
+  th{background:var(--soft);font-weight:700;color:#22304a}
+  tbody tr:nth-child(even){background:#fbfcfe}
+  .foot{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px}
+  @media print{.toc{break-inside:avoid}body{font-size:11pt}.ask{background:#fff;border-color:#999}}
+</style>
+</head>
+<body>
+<header class="banner">
+  <span class="badge">Design only &middot; nothing deployed</span>
+  <h1 class="title">Secure Service Core for the Science Stoa</h1>
+  <p class="sub">A design for your review &mdash; credentialed per-provider API pass-through + a pgvector embeddings database, reachable only over your private network.</p>
+</header>
+<div class="wrap">
+  
+<section class="ask">
+  <h2>What this is &mdash; and what I need from you</h2>
+  <p><strong>What this is.</strong> A complete <em>security design</em> for a &ldquo;secure core&rdquo; &mdash; a small, always-on server that holds <strong>all your external API keys</strong> (starting with Google Vertex&nbsp;/&nbsp;Gemini for search and embeddings) plus a vector database, so the individual skills on your machine never hold a credential. Skills reach the core only over your private Tailscale network. <strong>This is the design only</strong> &mdash; nothing has been built or deployed, no cloud accounts created, no money spent, no keys minted.</p>
+  <p><strong>The one question it answers.</strong> How do we put all the keys in one place <em>without</em> creating a single box an attacker could trick into leaking them, or into calling arbitrary things on the internet? The design&rsquo;s answer: a <strong>per-provider &ldquo;scoped&rdquo; pass-through</strong> &mdash; the core can only reach the specific providers we pre-register, and there is never a caller-supplied address, so the leak/abuse risk is closed by the structure itself, not just patched over. (Section&nbsp;1 is where this lives &mdash; it&rsquo;s the part worth your attention.)</p>
+  <p><strong>What I need from you.</strong> Read it &mdash; especially <strong>Section&nbsp;1</strong> (the security shape), <strong>Section&nbsp;5</strong> (the honest limits: what it does and does <em>not</em> protect against), and <strong>Section&nbsp;7</strong> (what&rsquo;s deliberately left for later). Then tell me one of:</p>
+  <ul>
+    <li><strong>Approve</strong> &rarr; the next step is the real setup: I walk you through creating the accounts and minting each credential, where <em>you</em> generate every secret privately and I never see it.</li>
+    <li><strong>Concerns</strong> &rarr; name them and I route them back into the design before anything real happens.</li>
+  </ul>
+  <p class="howto"><strong>How it&rsquo;s organized.</strong> The design is in six parts (the architect labels them DC1&ndash;DC6). <strong>DC1</strong> = the security core (the important one). <strong>DC3</strong> = the small piece actually built so far (a mock that proves the setup wiring while touching nothing real). <strong>DC4</strong> = exactly what you&rsquo;d provision. <strong>DC5</strong> = the first feature (search and embeddings through the core).</p>
+</section>
+
+  <div class="toc">
+<ul>
+<li><a href="#rev2-changelog-each-argus-condition-r1-r6-how-folded-section-ref">rev2 changelog — each ARGUS condition r1-r6 → how folded (section ref)</a></li>
+<li><a href="#0-problem-restatement-61-pre-work-gate">§0 Problem restatement (6.1 pre-work gate)</a></li>
+<li><a href="#1-dc1-the-pass-through-core-shape-the-argus-security-crux">§1 DC1 — The pass-through core shape (the ARGUS security crux)</a><ul>
+<li><a href="#11-threat-model-explicit">§1.1 Threat model (explicit)</a></li>
+<li><a href="#12-the-shape-decision-dc1i-per-provider-scoped-pass-through-not-an-egress-proxy-unchanged">§1.2 The shape decision (DC1.i): per-provider scoped pass-through, NOT an egress proxy (unchanged)</a></li>
+<li><a href="#121-r1-build-time-structural-invariant-inv-dest-the-ssrf-guard-made-mechanical">§1.2.1 (r1) Build-time STRUCTURAL invariant INV-DEST — the SSRF guard, made mechanical</a></li>
+<li><a href="#13-the-client-contract-dc1ii-a-closed-validated-request-shape-never-a-raw-url">§1.3 The client contract (DC1.ii): a closed, validated request shape — never a raw URL</a></li>
+<li><a href="#131-r2-response-redaction-the-honest-claim-allow-list-per-op-opaquestreaming-bounded">§1.3.1 (r2) Response redaction — the HONEST claim, allow-list per op, opaque/streaming bounded</a></li>
+<li><a href="#14-auth-audit-rate-limit-shared-quota-dc1iii">§1.4 Auth, audit, rate-limit, shared-quota (DC1.iii)</a></li>
+<li><a href="#15-dc1-threat-mitigation-probe-map-the-gate-relevant-output-612-a3-author-duty-613">§1.5 DC1 threat → mitigation → probe map (the gate-relevant output; 6.12 A3 author duty + 6.13)</a></li>
+</ul>
+</li>
+<li><a href="#2-dc3-the-cookie-cutter-emit-mock-only-the-only-thing-ada-builds-this-gauntlet-unchanged-from-rev1">§2 DC3 — The cookie-cutter emit (MOCK-ONLY; the ONLY thing ADA builds this gauntlet) — UNCHANGED from rev1</a><ul>
+<li><a href="#21-why-no-kindstoml-baselinetoml-pairing-edit-is-needed-ground-checked-against-the-machinery">§2.1 Why no kinds.toml / baseline.toml / pairing edit is needed (ground-checked against the machinery)</a></li>
+<li><a href="#22-new-catalog-record-1-datacatalogvertex-geminitoml-exact-buildable-toml-unchanged">§2.2 New catalog record 1 — data/catalog/vertex-gemini.toml (EXACT buildable TOML) — UNCHANGED</a></li>
+<li><a href="#23-new-catalog-record-2-datacatalogtailscaletoml-exact-buildable-toml-unchanged">§2.3 New catalog record 2 — data/catalog/tailscale.toml (EXACT buildable TOML) — UNCHANGED</a></li>
+<li><a href="#24-the-manifest-the-core-builder-resolves-the-cookie-cutter-input-unchanged">§2.4 The manifest the core builder resolves (the cookie-cutter INPUT) — UNCHANGED</a></li>
+<li><a href="#25-the-expected-provisioningspec-what-emit_spec-emits-exact-for-vera-zero-guesswork-unchanged">§2.5 The expected ProvisioningSpec (what emit_spec emits — exact, for VERA zero-guesswork) — UNCHANGED</a></li>
+<li><a href="#26-the-mock-emit-demonstration-what-ada-builds-runs-exact-steps-for-vera-re-execution-unchanged">§2.6 The mock-emit demonstration (what ADA builds + runs — exact steps for VERA re-execution) — UNCHANGED</a></li>
+<li><a href="#27-dc3-threat-coverage-note-612-self-classification-unchanged-argus-confirmed">§2.7 DC3 threat-coverage note (6.12 self-classification) — UNCHANGED (ARGUS CONFIRMED)</a></li>
+</ul>
+</li>
+<li><a href="#3-dc4-credential-discipline-boundary-who-may-do-what-unchanged-from-rev1">§3 DC4 — Credential-discipline boundary (who may do what) — UNCHANGED from rev1</a></li>
+<li><a href="#4-dc5-first-slice-plan-design-only-build-is-a-follow-on-after-the-gate-provision-go-unchanged">§4 DC5 — First-slice PLAN (design only; build is a follow-on after the gate + provision-go) — UNCHANGED</a></li>
+<li><a href="#5-dc6-honest-stance-threat-posture-revised-per-r1r2">§5 DC6 — Honest stance + threat posture (revised per r1/r2)</a></li>
+<li><a href="#6-self-assessed-weak-points-62-post-work-where-argus-should-push-hardest-on-the-deltas">§6 Self-assessed weak points (6.2 post-work; where ARGUS should push hardest on the DELTAS)</a></li>
+<li><a href="#7-out-of-scope-deliberately-not-addressed-ada-scope-fence-argus-frame-unchanged">§7 Out of scope (deliberately not addressed; ADA scope-fence + ARGUS frame) — UNCHANGED</a></li>
+</ul>
+</div>
+
+  <article class="doc">
+  <h1 id="secure-railway-core-for-the-science-stoa-credentialed-per-provider-api-pass-through-pgvector-embeddings-db-rev2">Secure Railway core for the Science Stoa — credentialed per-provider API pass-through + pgvector embeddings DB (rev2)</h1>
+<h2 id="rev2-changelog-each-argus-condition-r1-r6-how-folded-section-ref">rev2 changelog — each ARGUS condition r1-r6 → how folded (section ref)</h2>
+<p>ARGUS returned REVISE (PASS-WITH-CONDITIONS): the DC1 SHAPE is correct (no redesign). The
+closed-registry per-provider pass-through is carried forward unchanged. Six conditions folded:</p>
+<table>
+<thead>
+<tr>
+<th>Cond</th>
+<th>ARGUS finding (one line)</th>
+<th>How folded in rev2</th>
+<th>Section</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>r1</strong></td>
+<td>SSRF closed-by-construction but NOT mechanically guarded — a future op with a free-form url_slot or an interpolated <code>params</code> value silently reopens M1.</td>
+<td>Folded a <strong>build-time STRUCTURAL invariant</strong> (<code>INV-DEST</code>) on the <code>PROVIDER_REGISTRY</code> schema: every destination component comes ONLY from server-pinned templates/enums; <code>params</code> is NEVER interpolated into host/scheme/authority/path. <strong>P-M1 rewritten</strong> to assert the cross-registry invariant (no op CAN introduce a caller destination), not one injection instance.</td>
+<td>§1.2.1, §1.5 P-M1</td>
+</tr>
+<tr>
+<td><strong>r2</strong></td>
+<td>M2 over-claims "closed by construction" while conceding redaction completeness is open — contradiction; opaque-body case unresolved; P-M2 tests one echo path.</td>
+<td><strong>Resolved the contradiction with an honest split-claim</strong>: destination + no-caller-URL = closed BY CONSTRUCTION; response redaction = <strong>BUILD-TIME-VERIFIED per-op allow-list</strong> (declared response schema; anything undeclared dropped). Named the opaque/streaming case (SSE) and bounded it WITHOUT reopening M2 (declared-streaming + per-chunk field allow-list; no opaque pass-through permitted). <strong>P-M2 broadened</strong> to the full Vertex response surface.</td>
+<td>§1.3.1, §1.5 P-M2, §5</td>
+</tr>
+<tr>
+<td><strong>r3</strong></td>
+<td>Tagged-builder auth premise exceeded what STRABO verified.</td>
+<td>STRABO r3 FOLLOW-UP <strong>closed it (cited)</strong>: encoded the exact mechanism — auth keys off <strong><code>Tailscale-App-Capabilities</code></strong> (NOT User-Login, empty for tagged nodes), control-plane-trusted, strip-protected same as User-Login; grant shape, <code>--accept-app-caps</code> serve invocation, <strong>v1.92+</strong> floor. Moved from designed-on-as-settled → verified-premise + ONE build-time VERA encoding confirmation.</td>
+<td>§1.4.1, §1.5 P-M3, build-time VERA item V-ENC</td>
+</tr>
+<tr>
+<td><strong>r4</strong></td>
+<td>Audit "write-before-respond" is actually write-AFTER-egress — a crash between egress and the single write loses the record of an executed credentialed call.</td>
+<td>Folded <strong>two-phase audit</strong>: write a value-free <strong>INTENT record BEFORE egress</strong>, then <strong>UPDATE with outcome AFTER egress</strong>. <strong>P-M5 crash-inject point moved</strong> to between-egress-and-outcome-write; asserts the INTENT record survives (no executed call ever unrecorded).</td>
+<td>§1.4.2, §1.5 P-M5</td>
+</tr>
+<tr>
+<td><strong>r5</strong></td>
+<td>M3 0600-bind crux relies on an EXTERNAL probe only; nothing makes a <code>0.0.0.0</code> bind un-shippable.</td>
+<td>Folded an <strong>IN-PROCESS startup FAIL-LOUD invariant</strong> (<code>INV-BIND</code>): the handler asserts its listener is a 0600 AF_UNIX / non-routable socket and <strong>refuses to serve (fail-loud exit)</strong> if it would bind a routable address. <strong>P-M3 augmented</strong> to assert the in-process refuse-if-routable, not only <code>ss</code>/<code>netstat</code>.</td>
+<td>§1.4.3, §1.5 P-M3</td>
+</tr>
+<tr>
+<td><strong>r6</strong></td>
+<td>One tag = one builder identity → per-identity token-bucket lumps all builder skills into one bucket; audit can't attribute which skill flooded.</td>
+<td>Folded a <strong>declared <code>skill_id</code> field in the closed request envelope</strong> (audited; optionally sub-bucketed). Per-identity bucket stays the security boundary; <code>skill_id</code> gives attribution + optional sub-fairness. Stated as the chosen disposition (not deferred).</td>
+<td>§1.3 envelope, §1.4.4, §1.5 P-M6</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Carried UNCHANGED from rev1</strong> (ARGUS cross-checked CLEAN — do not re-touch): the entire DC3
+mock-emit (§2; two catalog TOMLs <code>vertex-gemini</code> + <code>tailscale</code>, the omitted Vertex
+<code>key_bearing_pairing</code> row CONFIRMED correct, frozen <code>resolve.py</code> byte-identical, <code>assert_value_free</code>
+passes). One ARGUS-suggested design LINE added (SA-key presence enforced by the startup
+<code>bootstrap_adc</code> path, not the resolver) — §2.1, additive prose only, no TOML/spec change.</p>
+<hr />
+<h2 id="0-problem-restatement-61-pre-work-gate">§0 Problem restatement (6.1 pre-work gate)</h2>
+<p>the Science Stoa's skills increasingly need external API credentials (~46 of 338 skills; Vertex/Gemini
+for gsearch first) plus a Postgres/pgvector embeddings store. Keeping API keys on the builder machine
+is the recurring security problem. <strong>Design</strong> (do not build) a secure Railway core that holds ALL
+provider keys server-side and exposes a <strong>credentialed per-provider pass-through</strong>: a local skill names
+a provider + a closed call, the core attaches that provider's key, calls the external API, and returns
+the result — the key never leaves the core. The core also hosts a Postgres+pgvector embeddings DB. The
+core is reachable ONLY over Tailscale; the builder holds ONLY a tailnet identity (no Railway token, no
+SA key, no API keys). This gauntlet produces a <strong>buildable design that relays UP to be gated</strong> — build
+nothing real, deploy nothing, mint/set no credentials. ADA builds ONLY the DC3 cookie-cutter mock-emit.</p>
+<p><strong>Imported assumptions (named per 6.1):</strong>
+1. <strong>Tagged-builder identity does NOT populate <code>Tailscale-User-Login</code>; it carries
+   <code>Tailscale-App-Capabilities</code>.</strong> STRABO's r3 FOLLOW-UP verified this against current (2026) Tailscale
+   primary docs (§1.4.1 cites it): a TAGGED device has no user identity, so the User-<em> headers are
+   empty/omitted; the identity the core keys builder auth off is <code>Tailscale-App-Capabilities</code>,
+   </em><em>control-plane-resolved from the policy <code>grants</code> block (NOT self-asserted)</em><em> and </em><em>strip-protected /
+   re-injected by serve under the SAME guarantee as User-Login</em><em> (including the underscore/case
+   normalization defense), under the SAME loopback/0600-bind precondition (M3). Version floor
+   </em><em>Tailscale v1.92+</em><em>; <code>--accept-app-caps</code> is opt-in and fail-closed. This is no longer a thin premise
+   — it is a verified one with a single build-time encoding confirmation (V-ENC).
+2. </em><em>Egress is public-internet, not tailnet</em><em> (STRABO nuance 1). Only operator/builder → core INGRESS
+   uses Tailscale serve; the core's calls to Vertex/provider APIs go out the normal public internet.
+   Userspace <code>tailscale serve</code> is inbound-only; sufficient and correct here.
+3. </em><em>The core SERVICE is an entirely new runtime service</em>*, a generalization of <code>newswire-serving</code>. It
+   is NOT in <code>builder_deploy_core</code> (a value-free one-shot PROVISIONING emitter). DC3 stands the core up
+   via the existing emitter; the service code itself is designed in DC1 and built in a later gated arc.</p>
+<p>The restatement converges with the brief. No load-bearing divergence; the assumptions above are
+encoded in the design from the start. (Unchanged from rev1 except assumption 1, now verified-not-thin.)</p>
+<hr />
+<h2 id="1-dc1-the-pass-through-core-shape-the-argus-security-crux">§1 DC1 — The pass-through core shape (the ARGUS security crux)</h2>
+<h3 id="11-threat-model-explicit">§1.1 Threat model (explicit)</h3>
+<p>This is the most security-sensitive component the team has designed: <strong>a single internet-egress box
+that holds ALL provider API keys.</strong> If it is compromised, every provider key is exfiltrable and the box
+becomes an open relay. The named threats (M1..M6):</p>
+<table>
+<thead>
+<tr>
+<th>M#</th>
+<th>Named threat</th>
+<th>Realized how (attack path)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M1</td>
+<td><strong>SSRF / forward-anything egress</strong></td>
+<td>A caller induces the core to make an outbound request to an attacker-chosen URL/host (cloud metadata <code>169.254.169.254</code>, internal services, arbitrary exfil endpoint).</td>
+</tr>
+<tr>
+<td>M2</td>
+<td><strong>Key-exfil</strong></td>
+<td>A caller gets the core to return a provider key in a response body, error, or log; or routes a provider key to an attacker-controlled destination.</td>
+</tr>
+<tr>
+<td>M3</td>
+<td><strong>Identity-header forgery via non-loopback bind</strong></td>
+<td>The pass-through handler listens on a routable address (<code>0.0.0.0</code>); a local/colocated process connects directly, bypassing serve, and forges <code>Tailscale-User-Login</code> / <code>Tailscale-App-Capabilities</code>.</td>
+</tr>
+<tr>
+<td>M4</td>
+<td><strong>Over-broad provider/operator authorization</strong></td>
+<td>Any tailnet identity that can reach the core can invoke ANY provider (no per-identity scoping), widening blast radius beyond least-privilege.</td>
+</tr>
+<tr>
+<td>M5</td>
+<td><strong>Audit gap</strong></td>
+<td>A pass-through call (who, which provider, which operation, outcome) is not durably recorded, so abuse/compromise is undetectable and unattributable.</td>
+</tr>
+<tr>
+<td>M6</td>
+<td><strong>Quota exhaustion / DoS</strong></td>
+<td>A caller (or a runaway skill) floods the core, exhausting the shared Gemini/Vertex quota or the core's resources, denying service to everyone on the shared quota.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Honest-claim posture (per ARGUS r2, made precise):</strong> M1 and M3 are <strong>closed BY CONSTRUCTION</strong> (no
+destination input exists; no routable listener exists). M2 is <strong>closed BY CONSTRUCTION at the channel
+level</strong> (credential attached server-side; no caller-URL) <strong>PLUS a BUILD-TIME-VERIFIED property</strong> for
+response redaction (per-op allow-list; §1.3.1) — NOT a by-construction guarantee for the response
+surface. M4 is closed by construction (per-op <code>scopes</code>). M5/M6 are build-time-verified properties.</p>
+<h3 id="12-the-shape-decision-dc1i-per-provider-scoped-pass-through-not-an-egress-proxy-unchanged">§1.2 The shape decision (DC1.i): <strong>per-provider scoped pass-through, NOT an egress proxy</strong> (unchanged)</h3>
+<p><strong>Decision: per-provider endpoints (a closed registry of named provider operations), NOT an
+authenticated allowlisted egress proxy.</strong> (Carried from rev1 — ARGUS confirmed the shape.)</p>
+<p>An egress proxy — even allowlisted — takes a URL/host from the caller and forwards: a forward-anything
+primitive with a filter bolted on, and filters are the classic bypass surface (DNS rebinding,
+redirect-following, IP-literal vs hostname, IPv6/decimal encodings). A per-provider design has <strong>no
+caller-supplied URL at all</strong>: the caller names a <code>provider</code> + <code>operation</code> from a <strong>closed, code-defined
+registry</strong>; the core holds the URL template, method, allowed parameter schema, and key binding for that
+exact operation. SSRF is closed by construction because there is no "destination" input to attack —
+only a finite enum of operations the core knows how to perform. Strictly more restrictive than
+deny-by-default allowlisting: deny-by-default over a <strong>closed verb set</strong>, not over an open URL space.</p>
+<p>This generalizes <code>newswire-serving</code>: newswire exposed ONE domain verb (<code>POST /run</code>) over the mesh; this
+core exposes a <strong>closed set</strong> of provider operations (<code>POST /call</code>). The <code>&lt;VERB&gt;</code> placeholder in the
+existing <code>MeshShape</code> scaffold is where this registry plugs in at T3.</p>
+<h3 id="121-r1-build-time-structural-invariant-inv-dest-the-ssrf-guard-made-mechanical">§1.2.1 (r1) Build-time STRUCTURAL invariant <code>INV-DEST</code> — the SSRF guard, made mechanical</h3>
+<p>rev1 stated "no caller-supplied URL" as prose. rev2 makes it a <strong>schema-enforced invariant the build
+verifies across the WHOLE registry</strong>, so a future op cannot silently reopen M1:</p>
+<p><strong><code>INV-DEST</code> (PROVIDER_REGISTRY schema invariant):</strong> every component of an outbound destination —
+<strong>scheme, host/authority, port, path</strong> — is derived ONLY from a <strong>server-pinned template</strong> whose slots
+are <strong>FIXED values or closed ENUMs declared in code</strong>. A registry operation's declared <code>param_schema</code>
+(the caller-influenced surface) is <strong>structurally forbidden</strong> from contributing to any destination
+component:
+- <code>url_slots</code> accept ONLY <code>FIXED(&lt;value&gt;)</code> or <code>ENUM([...])</code> slot types. A free-form / open-string slot
+  type is <strong>not representable</strong> in the schema (the schema has no "free string url slot" constructor).
+- No <code>param_schema</code> key may be referenced by a <code>url_slots</code> interpolation. The two namespaces are
+  <strong>disjoint by construction</strong>: <code>url_slots</code> draw only from the server-pinned set; <code>params</code> draw only
+  from the caller envelope; the registry loader <strong>rejects at startup</strong> any operation whose URL template
+  references a name that resolves to a <code>param_schema</code> key (cross-namespace reference = fail-loud refuse
+  to load).
+- The outbound HTTP client is configured <strong>redirect-following OFF</strong> for registry egress (a <code>3xx</code> to an
+  attacker host is returned as a <code>provider_error</code>, never followed) — closes the response-side
+  SSRF-via-redirect variant ARGUS flagged in its honest-claim boundary.</p>
+<p><code>INV-DEST</code> is enforced two ways, both build-time-verifiable: (1) the registry schema type makes a
+caller-derived destination <strong>unconstructable</strong>; (2) a startup loader self-check <strong>refuses to serve</strong>
+(fail-loud) if any operation violates the disjointness/redirect rules. This is the cross-registry
+invariant P-M1 now asserts (not one injection instance).</p>
+<h3 id="13-the-client-contract-dc1ii-a-closed-validated-request-shape-never-a-raw-url">§1.3 The client contract (DC1.ii): a closed, validated request shape — never a raw URL</h3>
+<p>A local skill names a call to the core with a <strong>closed request envelope</strong>, transported over the mesh to
+<code>https://&lt;core&gt;.&lt;tailnet-domain&gt;/call</code> (Tailscale serve → 0600 AF_UNIX socket → handler):</p>
+<pre><code>POST /call
+Content-Type: application/json
+{
+  &quot;provider&quot;:  &quot;vertex&quot;,                  # MUST match a key in the server-side PROVIDER_REGISTRY
+  &quot;operation&quot;: &quot;generate_grounded&quot;,       # MUST match a registered operation under that provider
+  &quot;skill_id&quot;:  &quot;gsearch&quot;,                 # (r6) declared caller skill — audited + optionally sub-bucketed
+  &quot;params&quot;:    { ... }                    # validated against that operation's PARAM SCHEMA (closed)
+}
+</code></pre>
+<p>Rules enforced server-side (the validation gate, before any egress):
+- <code>provider</code> and <code>operation</code> MUST resolve to an entry in the <strong>server-side</strong> <code>PROVIDER_REGISTRY</code>
+  (code, not caller data). Unknown provider/operation → <code>400</code>, no egress, audited as <code>rejected</code>.
+- <code>params</code> MUST validate against that operation's declared <strong>closed param schema</strong> (allowed keys,
+  types, value bounds). No key/URL/host/header field is ever accepted from the caller. An unexpected
+  param key → <code>400</code>, no egress. <strong><code>params</code> is NEVER interpolated into a destination component (<code>INV-DEST</code>).</strong>
+- <code>skill_id</code> (r6) MUST validate against a closed <code>[a-z0-9_-]{1,64}</code> shape — it is an <strong>attribution
+  label only</strong>, NEVER interpolated into the destination, the credential, or any header (it rides the
+  same disjointness fence as <code>params</code>). It is audited and MAY drive an optional per-<code>(identity, skill_id)</code>
+  sub-bucket; the per-identity bucket remains the security boundary (§1.4.4).
+- The core constructs the outbound request entirely from the registry entry: URL template + method +
+  server-side-attached credential + validated params interpolated into <strong>declared <code>param_schema</code> slots
+  ONLY</strong> (never destination slots).
+- The response returned to the caller is the <strong>registry-op's declared response schema</strong> (allow-list;
+  §1.3.1) — never the raw upstream body, never upstream headers.</p>
+<p>The registry entry shape (server-side, illustrative — built in the later gated arc, NOT now):</p>
+<pre><code class="language-python">PROVIDER_REGISTRY = {
+  &quot;vertex&quot;: {
+    &quot;auth&quot;: &quot;adc_sa&quot;,                                  # use server-side ADC (SA), never an API key
+    &quot;operations&quot;: {
+      &quot;generate_grounded&quot;: {
+        &quot;method&quot;: &quot;POST&quot;,
+        &quot;url&quot;: &quot;https://{location}-aiplatform.googleapis.com/v1/projects/{project}&quot;
+               &quot;/locations/{location}/publishers/google/models/{model}:generateContent&quot;,
+        &quot;url_slots&quot;: {                                 # (INV-DEST) FIXED / ENUM ONLY — no free-form slot type
+          &quot;location&quot;: ENUM([&quot;us-central1&quot;, &quot;us-east4&quot;]),
+          &quot;project&quot;:  FIXED(&quot;proj-sos_core&quot;),          # server-pinned to the core's OWN GCP project
+          &quot;model&quot;:    ENUM([&quot;gemini-2.5-flash&quot;, &quot;gemini-2.5-pro&quot;]),
+        },
+        &quot;param_schema&quot;: {&quot;contents&quot;: ..., &quot;tools&quot;: {&quot;google_search&quot;: {}}},  # closed; disjoint from url_slots
+        &quot;response_schema&quot;: {                           # (r2) ALLOW-LIST: only these fields reach the caller
+          &quot;candidates&quot;: [&quot;content&quot;, &quot;finishReason&quot;, &quot;groundingMetadata&quot;],
+          &quot;usageMetadata&quot;: [&quot;promptTokenCount&quot;, &quot;candidatesTokenCount&quot;, &quot;totalTokenCount&quot;],
+        },                                             # anything not listed (incl. any echoed cred/header) is DROPPED
+        &quot;stream&quot;: False,
+        &quot;scopes&quot;: [&quot;operators&quot;, &quot;builders&quot;],           # which identity classes may call this op
+      },
+      &quot;embed&quot;: {
+        &quot;method&quot;: &quot;POST&quot;,
+        &quot;url&quot;: &quot;.../publishers/google/models/{model}:predict&quot;,
+        &quot;url_slots&quot;: {&quot;location&quot;: ENUM([...]), &quot;project&quot;: FIXED(&quot;proj-sos_core&quot;), &quot;model&quot;: ENUM([...])},
+        &quot;param_schema&quot;: {&quot;instances&quot;: ...},
+        &quot;response_schema&quot;: {&quot;predictions&quot;: [&quot;embeddings&quot;]},   # allow-list
+        &quot;stream&quot;: False,
+        &quot;scopes&quot;: [&quot;operators&quot;, &quot;builders&quot;],
+      },
+    },
+  },
+}
+</code></pre>
+<p>The <code>url_slots</code> are server-pinned ENUM/FIXED, NOT free caller input — <code>project</code> and <code>location</code> are
+pinned to the core's own GCP project; <code>model</code> is a closed enum. The caller cannot steer the
+destination. This is <code>INV-DEST</code> made concrete.</p>
+<h3 id="131-r2-response-redaction-the-honest-claim-allow-list-per-op-opaquestreaming-bounded">§1.3.1 (r2) Response redaction — the HONEST claim, allow-list per op, opaque/streaming bounded</h3>
+<p><strong>The contradiction rev1 carried</strong> ("M2 closed by construction" while conceding redaction completeness
+is open) is resolved by <strong>splitting the claim</strong>:</p>
+<ul>
+<li><strong>Closed BY CONSTRUCTION (no further proof needed):</strong> the credential is attached server-side from a
+  Railway secret; there is no caller-URL/host (<code>INV-DEST</code>); a provider key cannot be <em>routed</em> to an
+  attacker destination. The <em>channel</em> is closed.</li>
+<li><strong>BUILD-TIME-VERIFIED property (NOT by-construction):</strong> that no key/credential byte reaches the caller
+  or the audit log <strong>via the response body</strong>. This rests on the <strong>per-op <code>response_schema</code> allow-list</strong>:
+  each operation declares the EXACT fields returned to the caller; the response serializer <strong>emits only
+  declared fields and DROPS everything else</strong> (allow-list, not deny-list — a key echoed in an
+  un-anticipated field is dropped because it was never declared, not because a deny-rule caught it).
+  Error bodies are returned as <code>{status, provider_error_class}</code> ONLY — never the raw upstream error,
+  never upstream headers. This property is <strong>verified at build time by P-M2</strong> against the full Vertex
+  response surface; it is honestly a verified property, not a by-construction guarantee.</li>
+</ul>
+<p><strong>(b) Opaque / streaming case — named and bounded WITHOUT reopening M2.</strong> ARGUS asked whether any Vertex
+op needs opaque pass-through of an upstream body.
+- <strong>No registry op is permitted opaque pass-through.</strong> Opaque pass-through (returning an
+  un-field-modelled upstream body) is <strong>forbidden by <code>INV-DEST</code>'s sibling rule</strong> <code>INV-RESP</code>: an
+  operation with no declared <code>response_schema</code> <strong>refuses to load</strong> (fail-loud at startup). There is no
+  "just forward the body" escape hatch — that would reopen M2.
+- <strong>Streaming (SSE) — the one shape that can't be modelled as a single body — is handled as
+  declared-streaming with per-chunk field allow-listing.</strong> An operation may set <code>stream: True</code> and
+  declare a <code>chunk_schema</code> (the allow-list applied to EACH decoded SSE <code>data:</code> chunk). The core decodes
+  each SSE chunk, applies the chunk allow-list, re-serializes ONLY declared fields, and re-emits — the
+  caller never receives a raw upstream chunk. Undeclared fields in any chunk are dropped exactly as in
+  the unary case. No chunk is ever passed opaque. (The rev1 vertex ops <code>generate_grounded</code> / <code>embed</code> are
+  <code>stream: False</code>; <code>chunk_schema</code> is specified for the FUTURE streaming-gsearch op so the build has the
+  pattern, but rev2 does not introduce a streaming op into the rev1 surface.)</p>
+<p><strong>(c) The honest claim, stated:</strong> <em>destination + no-caller-URL is closed BY CONSTRUCTION; response
+redaction (unary AND streaming) is a BUILD-TIME-VERIFIED property — a per-op allow-list, proven complete
+against the actual Vertex response surface by P-M2, with opaque pass-through structurally forbidden.</em>
+This replaces rev1's over-claim.</p>
+<h3 id="14-auth-audit-rate-limit-shared-quota-dc1iii">§1.4 Auth, audit, rate-limit, shared-quota (DC1.iii)</h3>
+<h4 id="141-r3-identity-at-the-core-m3m4-the-tagged-builder-path-verified-encoded">§1.4.1 (r3) Identity at the core (M3/M4) — the tagged-builder path, VERIFIED + encoded</h4>
+<p>Two identity classes, both resolved from serve-injected, daemon-verified headers (serve strips client
+copies and re-injects verified values — STRABO (c)(iv) for User-Login; STRABO r3 FOLLOW-UP Items 1-4
+for App-Capabilities):</p>
+<ul>
+<li><strong>Human operator</strong> (untagged tailnet node): carries <code>Tailscale-User-Login</code>. Authorized against an
+  operator allowlist (the <code>&lt;CORE&gt;_OPERATORS</code> env, generalizing newswire's <code>NEWSWIRE_OPERATORS</code>).</li>
+<li><strong>In-mesh builder</strong> (TAGGED node): <strong>carries NO <code>Tailscale-User-Login</code></strong> (empty/omitted for a tagged
+  node — STRABO r3 Item 1). Builder auth <strong>keys off <code>Tailscale-App-Capabilities</code></strong>, a JSON object keyed
+  by capability name. The capability is <strong>control-plane-resolved from the policy <code>grants</code> block, NOT
+  self-asserted</strong> (STRABO r3 Item 2): a node cannot grant itself a capability it was not assigned. The
+  core reads the capability, confirms the expected cap key is present, and maps it to the <code>builders</code>
+  identity class. <strong>Do NOT key builder auth on User-Login</strong> (it is empty for tagged nodes — keying on it
+  would fail-open or deny-all).</li>
+</ul>
+<p><strong>The exact mechanism the build MUST encode (STRABO r3 VERDICT, cited):</strong>
+- <strong>Grant shape</strong> (modern <code>grants</code> block; cap name is reverse-DNS; control-plane-trusted):
+  <code>json
+  "grants": [
+    { "src": ["tag:builder"],
+      "dst": ["tag:sos-core"],
+      "app": { "&lt;domain&gt;/cap/sos-core-client": [ { "role": "builder", "scope": ["provision"] } ] } }
+  ]</code>
+- <strong>Serve invocation MUST opt-in</strong> to the capability or the builder gets NO header (fail-closed):
+  <code>tailscale serve --accept-app-caps=&lt;domain&gt;/cap/sos-core-client unix:/run/.../core.sock</code>
+  (the cap name MUST match the grant; absent the flag → no header → builder auth FAILS CLOSED).
+- <strong>Version floor: Tailscale v1.92+</strong> (HTTP-header delivery of app capabilities via serve is new in
+  v1.92; before that it required the Go <code>tsnet</code> library). Pin the deployed TS version ≥ v1.92.
+- <strong>Strip guarantee:</strong> <code>Tailscale-App-Capabilities</code> is INSIDE serve's strip-and-reinject class, SAME as
+  User-Login, INCLUDING the underscore/case-normalization defense (<code>Tailscale_App_Capabilities</code>,
+  mixed-case) — so it is NOT client-forgeable, <strong>provided the 0600/loopback bind holds</strong> (§1.4.3). M3's
+  bind crux therefore covers BOTH identity classes.</p>
+<p><strong>Build-time VERA item <code>V-ENC</code> (record, do NOT design around it):</strong> the exact on-the-wire encoding of
+the App-Capabilities header value (Q-encoded vs serialized-JSON string) is to be <strong>VERA-confirmed at
+build time against the pinned running TS version</strong>. The design requirement is fixed: <em>the backend
+decodes <code>Tailscale-App-Capabilities</code> per the SAME header-value rules it uses for the <code>Tailscale-User-*</code>
+headers, then JSON-parses the result.</em> (The newswire build hit TS 1.98.x identity-header landmines; pin
+the version and re-confirm header name + encoding at build.) This is the SINGLE remaining build-time
+confirmation on the r3 path — the premise itself is verified (STRABO r3, HIGH confidence, primary
+tailscale.com/kb citations).</p>
+<p>Both classes are checked <strong>per operation</strong>: <code>PROVIDER_REGISTRY[provider].operations[op].scopes</code> declares
+which identity classes may invoke it. An identity outside the op's <code>scopes</code> → <code>403</code>, no egress, audited.
+This is M4 closed: authorization is per-(identity-class, provider, operation), deny-by-default.</p>
+<h4 id="142-r4-audit-two-phase-intent-before-egress-outcome-after">§1.4.2 (r4) Audit — TWO-PHASE: intent-before-egress, outcome-after</h4>
+<p>rev1's single "write-before-respond" record was actually written AFTER egress — a crash between the
+external call and the write loses the record of an already-executed credentialed call. rev2 folds a
+<strong>two-phase audit</strong> so no executed call is ever unrecorded:</p>
+<ol>
+<li><strong>INTENT record — written BEFORE egress</strong> (after the validation gate passes, before the outbound
+   provider call leaves the box): <code>{audit_id, ts_intent, identity_class, identity (login or cap),
+   skill_id, provider, operation, params_digest, phase: "intent"}</code>. <strong>Value-free</strong>: <code>params_digest</code> is a
+   one-way digest of the validated params (for correlation/replay-detection), <strong>never the param values</strong>;
+   no credential; no response. This record proves a credentialed egress was ABOUT to happen, with full
+   attribution, BEFORE it could happen.</li>
+<li><strong>OUTCOME update — written AFTER egress</strong> (keyed by the same <code>audit_id</code>): <code>{audit_id, ts_outcome,
+   outcome (ok|rejected|forbidden|provider_error|rate_limited), upstream_status, latency_ms,
+   phase: "outcome"}</code>. Still value-free (no body, no credential).</li>
+</ol>
+<p>A crash/kill in the window between egress and the outcome write leaves a <strong>durable INTENT record</strong> of an
+executed credentialed call (attributable: who, which skill, which provider/op). The event that most
+needs attribution — the egress itself — can NEVER occur un-recorded. Rejected/forbidden/rate_limited
+calls (no egress) get an INTENT record with an immediate terminal OUTCOME (they never egressed, so the
+window doesn't apply). P-M5 crash-injects in the egress→outcome window and asserts the INTENT record
+survives.</p>
+<h4 id="143-r5-the-bind-precondition-m3-the-crux-in-process-fail-loud-inv-bind">§1.4.3 (r5) The bind precondition (M3, the crux) — IN-PROCESS fail-loud <code>INV-BIND</code></h4>
+<p>The handler MUST listen ONLY on a <code>0600</code> AF_UNIX socket (or loopback), NEVER <code>0.0.0.0</code>.
+<code>tailscale serve --https=443 --accept-app-caps=&lt;domain&gt;/cap/sos-core-client unix:/run/.../core.sock</code>
+(supported TS ≥ 1.94.1; app-caps opt-in needs ≥ v1.92, so the effective floor is <strong>v1.94.1+</strong>). With no
+network-reachable listener, the identity headers (BOTH User-Login and App-Capabilities) are trustworthy
+because the ONLY path to the handler is through serve, which strips-and-reinjects.</p>
+<p>rev1 relied on an EXTERNAL <code>ss</code>/<code>netstat</code> probe alone. rev2 folds an <strong>IN-PROCESS startup invariant</strong>:</p>
+<p><strong><code>INV-BIND</code> (in-process, fail-loud):</strong> at startup, BEFORE accepting any connection, the handler
+<strong>inspects its own listener</strong> and asserts it is a <strong>0600 AF_UNIX socket OR a loopback (<code>127.0.0.1</code>/<code>::1</code>)
+address</strong>. If the listener is bound to ANY routable address (<code>0.0.0.0</code>, a tailnet IP, any non-loopback
+interface), the handler <strong>logs a fatal identity-trust violation and EXITS non-zero — it refuses to
+serve</strong>. A <code>0.0.0.0</code> bind is therefore <strong>un-shippable</strong>: it crashes the process at startup rather than
+serving a forgeable identity surface. This backs the external CI probe with a runtime guarantee — the
+single most load-bearing security property no longer depends on a future implementer not making one
+mistake. (For AF_UNIX, <code>INV-BIND</code> also asserts the socket file mode is <code>0600</code>.)</p>
+<h4 id="144-r6-rate-limit-shared-quota-m6-per-identity-boundary-skill_id-attribution">§1.4.4 (r6) Rate-limit + shared-quota (M6) — per-identity boundary + skill_id attribution</h4>
+<p>Two layers, plus the r6 attribution fold:
+- <strong>Per-identity token-bucket rate limit</strong> (e.g. N calls/identity/window), refused <code>429</code> + audited
+  <code>rate_limited</code>. Identity = operator-login OR builder-cap. This is the <strong>security boundary</strong> and is
+  unchanged.
+- <strong>Shared-quota fairness for Vertex/Gemini:</strong> a core-level concurrency cap + a per-identity share of the
+  shared Vertex quota, so one operator/skill cannot starve the shared Gemini quota. Over-cap → <code>429</code>,
+  not unbounded queue.
+- <strong>(r6) <code>skill_id</code> attribution + optional sub-bucket:</strong> because one builder tag = one identity, the
+  per-identity bucket lumps every builder skill into one bucket. The declared <code>skill_id</code> (§1.3 envelope)
+  is <strong>audited on every call</strong> (INTENT record) so the log CAN attribute which skill flooded — closing the
+  rev1 attribution gap. <strong>Disposition (stated, not deferred):</strong> rev2 ADDS <code>skill_id</code> to the envelope +
+  audit now (the attribution fix), and specifies an <strong>optional per-<code>(identity, skill_id)</code> sub-bucket</strong> as
+  a tunable the build MAY enable for intra-builder fairness. The per-identity bucket remains the hard
+  security limit regardless of sub-bucketing. Honest residual: <code>skill_id</code> is a caller-declared label
+  (attribution/fairness, not a security boundary) — a hostile builder could mislabel, but it is the SAME
+  trusted tag identity either way, so mislabeling cannot exceed that identity's bucket; it only muddies
+  intra-identity attribution. Named follow-up: per-skill HARD quotas would need a server-trusted
+  skill identity (out of scope for the first slice; the trusted boundary stays the tag).</p>
+<p><strong>Funnel OFF (no public ingress).</strong> The core has no public door; <code>serve</code> is private-tailnet only
+(STRABO (c)(i)). M1's external-reachability variant is closed: the box is not internet-reachable inbound.</p>
+<h3 id="15-dc1-threat-mitigation-probe-map-the-gate-relevant-output-612-a3-author-duty-613">§1.5 DC1 threat → mitigation → probe map (the gate-relevant output; 6.12 A3 author duty + 6.13)</h3>
+<p>Each row: mitigation + a threat-anchored probe (6.13: exercises the named attack path, asserts BOTH
+attack-blocked AND legit-unaffected). These are <strong>design-time</strong> specs for the FUTURE core service (built
+in the later gated arc); ADA does NOT execute them this gauntlet (DC3 is mock-emit only). They are the
+falsifiable checks ARGUS re-audits (the deltas) and VERA/CATO re-run when the core is built. Stable
+probe-ids. <strong>Tightened per r1/r2/r4/r5; r3/r6 folds reflected.</strong></p>
+<table>
+<thead>
+<tr>
+<th>M#</th>
+<th>Mitigation (how — honest claim)</th>
+<th>Threat-anchored probe (id)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>M1</strong> SSRF</td>
+<td><strong>By construction + <code>INV-DEST</code> (r1):</strong> no caller-supplied URL/host; destination built from server-pinned FIXED/ENUM slots; <code>params</code>/<code>skill_id</code> disjoint from <code>url_slots</code>; redirect-following OFF.</td>
+<td><strong>P-M1 (rewritten, r1 — asserts the CROSS-REGISTRY INVARIANT, not one injection):</strong> (a) <strong>STRUCTURAL:</strong> a build-time check enumerates EVERY operation in <code>PROVIDER_REGISTRY</code> and asserts (i) every <code>url_slot</code> is <code>FIXED</code>/<code>ENUM</code> (no free-form slot type representable), (ii) no URL-template name resolves to a <code>param_schema</code>/<code>skill_id</code> key (namespace disjointness), (iii) the egress client has redirect-following OFF — and asserts the startup loader <strong>refuses to serve</strong> (fail-loud exit) on a deliberately-planted violating op (a synthetic op with a free-form host slot / a params-derived host). (b) <strong>INSTANCE:</strong> POST <code>/call</code> with <code>params.url</code> / <code>params.project=169.254.169.254</code> / an extra <code>endpoint</code> key → <code>400</code>, ZERO non-registry hosts contacted (egress recorder), AND a <code>3xx</code>-to-attacker-host from a mock upstream is NOT followed. (c) <strong>LEGIT:</strong> <code>{vertex, generate_grounded, valid contents}</code> reaches ONLY the pinned <code>*-aiplatform.googleapis.com</code> host, succeeds.</td>
+</tr>
+<tr>
+<td><strong>M2</strong> key-exfil</td>
+<td><strong>Channel closed by construction</strong> (server-side cred, no caller-URL); <strong>response redaction = BUILD-TIME-VERIFIED per-op allow-list</strong> (<code>response_schema</code>/<code>chunk_schema</code>; undeclared dropped; opaque pass-through forbidden — <code>INV-RESP</code>).</td>
+<td><strong>P-M2 (broadened, r2 — FULL Vertex response surface):</strong> (a) for EACH of <code>generateContent</code> body / <code>predict</code> body / <code>groundingMetadata</code> field / a streaming SSE chunk sequence / an upstream ERROR body — inject a (mock) credential value AND an <code>Authorization</code>/<code>x-goog-api-key</code> header into an UNDECLARED response field/header at each surface → assert the caller-facing output contains the value at NONE of them (allow-list dropped it) and the error path returns only <code>{status, provider_error_class}</code>; grep the (two-phase) audit records for the mock secret → absent in BOTH intent and outcome records. (b) assert the startup loader <strong>refuses to serve</strong> an op declared with NO <code>response_schema</code> (opaque pass-through forbidden, <code>INV-RESP</code>). (c) <strong>LEGIT:</strong> a real call returns the declared payload fields intact (redaction did not break the feature).</td>
+</tr>
+<tr>
+<td><strong>M3</strong> identity forgery</td>
+<td><strong>By construction:</strong> <code>INV-BIND</code> (r5) in-process refuse-to-serve-if-routable + 0600 AF_UNIX; serve strips+reinjects BOTH <code>Tailscale-User-Login</code> AND <code>Tailscale-App-Capabilities</code> (r3, incl. underscore/case defense).</td>
+<td><strong>P-M3 (augmented, r5+r3):</strong> (a) <strong>IN-PROCESS:</strong> start the handler configured to bind a routable address (<code>0.0.0.0</code>) → assert it <strong>EXITS non-zero / refuses to serve</strong> (<code>INV-BIND</code> fired), NOT merely that <code>ss</code>/<code>netstat</code> later shows a bad bind. (b) <strong>EXTERNAL:</strong> with a correct 0600 bind, attempt a direct connection bypassing serve sending a forged <code>Tailscale-User-Login</code> AND a forged <code>Tailscale-App-Capabilities</code> (hyphen, underscore, mixed-case variants) → connection refused (no routable listener) OR all forged-header variants ignored; <code>ss</code>/<code>netstat</code> shows the unix socket / loopback, NOT <code>0.0.0.0</code>. (c) <strong>LEGIT:</strong> a serve-routed operator call (User-Login) AND a serve-routed tagged-builder call (App-Capabilities) each carry the verified header and are authorized to their class.</td>
+</tr>
+<tr>
+<td><strong>M4</strong> over-broad authz</td>
+<td><strong>By construction:</strong> per-(identity-class, provider, operation) <code>scopes</code>, deny-by-default.</td>
+<td><strong>P-M4:</strong> (a) an identity authorized for <code>vertex.embed</code> calls an op NOT in its scopes → <code>403</code>, no egress, audited <code>forbidden</code>; a builder (App-Capabilities) and an operator (User-Login) are EACH checked against the op's <code>scopes</code>. (b) the same identity calls an in-scope op → authorized, succeeds.</td>
+</tr>
+<tr>
+<td><strong>M5</strong> audit gap</td>
+<td><strong>Two-phase (r4):</strong> value-free INTENT record BEFORE egress, OUTCOME update AFTER.</td>
+<td><strong>P-M5 (crash-point moved, r4):</strong> (a) issue ok/rejected/forbidden/rate_limited calls → each produces an INTENT record (correct identity, skill_id, provider, op, params_digest) and a matching OUTCOME; <strong>crash-inject in the window AFTER egress, BEFORE the outcome write</strong> → assert the INTENT record STILL EXISTS (the executed credentialed call is recorded even though it never completed). (b) NO record (intent or outcome) contains param VALUES or any credential byte; <code>params_digest</code> is present and is not reversible to values.</td>
+</tr>
+<tr>
+<td><strong>M6</strong> quota DoS</td>
+<td>Per-identity token-bucket (security boundary) + shared-quota concurrency cap; <strong>(r6)</strong> <code>skill_id</code> audited for attribution + optional per-<code>(identity,skill_id)</code> sub-bucket.</td>
+<td><strong>P-M6:</strong> (a) one identity bursts &gt; N calls/window → the (N+1)th is <code>429</code> <code>rate_limited</code>, audited; shared-quota cap holds under load (no unbounded queue). (b) a SECOND identity issuing in-policy low-rate calls is NOT throttled (per-identity; feature unbroken). (c) <strong>(r6 attribution)</strong> two DISTINCT <code>skill_id</code>s under the SAME builder identity each appear correctly in the audit log; if the optional sub-bucket is enabled, one runaway <code>skill_id</code> is sub-throttled WITHOUT throttling the sibling skill under the same identity.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-dc3-the-cookie-cutter-emit-mock-only-the-only-thing-ada-builds-this-gauntlet-unchanged-from-rev1">§2 DC3 — The cookie-cutter emit (MOCK-ONLY; the ONLY thing ADA builds this gauntlet) — UNCHANGED from rev1</h2>
+<p>ARGUS cross-checked the entire DC3 emit CLEAN (non-findings: ProvisioningSpec consistent with live
+machinery; no-<code>key_bearing_pairing</code>-row CONFIRMED correct; <code>category="none"</code> correct; detection_hints
+structurally valid; not-threat-ratified carve-out CONFIRMED). It is <strong>carried forward byte-for-byte</strong>.
+The ONLY rev2 change in §2 is one ADDITIVE prose line ARGUS suggested (§2.1, last bullet).</p>
+<p>The core SERVICE is designed in §1. To STAND IT UP, the existing value-free provisioning emitter runs
+the project requirement's services through <code>resolve → emit_spec</code> to produce a names-only <code>ProvisioningSpec</code>. The frozen
+resolver (<code>resolve.py</code>) stays <strong>byte-identical</strong>; the 3-wall tripwire holds; <code>assert_value_free</code> passes.
+The ONLY new code is <strong>two additive catalog TOML records</strong> + a demonstration script. No edit to
+<code>spec.py</code>, <code>port.py</code>, <code>mock.py</code>, <code>resolve.py</code>, <code>dataload.py</code>, <code>baseline.toml</code>, or <code>kinds.toml</code>.</p>
+<h3 id="21-why-no-kindstoml-baselinetoml-pairing-edit-is-needed-ground-checked-against-the-machinery">§2.1 Why no kinds.toml / baseline.toml / pairing edit is needed (ground-checked against the machinery)</h3>
+<ul>
+<li><strong>pgvector + gemini-search + gemini-embedding + DATABASE_URL + POSTGRES_PASSWORD are ALREADY baseline</strong>
+  (<code>baseline.toml</code>, confirmed). The embeddings DB needs zero catalog work — it is the baseline.</li>
+<li><strong><code>thirdparty_rest_key</code> is already an expected kind</strong> (<code>kinds.toml</code> <code>kind_enum</code>; <code>EXPECTED_KIND_ENUM</code>
+  in <code>dataload.py</code>). Tailscale's <code>TS_AUTHKEY</code> slot uses it directly.</li>
+<li><strong><code>gcp_api</code> + paired <code>gcp_secret</code> is the existing pairing shape</strong> (google-maps.toml: <code>gcp_api =
+  "google-maps"</code> + <code>[[entries]] gcp_api google-maps</code> + <code>[[entries]] gcp_secret MAPS_API_KEY</code>). The Vertex
+  record follows this EXACTLY: <code>gcp_api = "aiplatform"</code> + paired <code>gcp_secret</code> SA-key slot.</li>
+<li><strong>The Vertex pairing does NOT need a <code>kinds.toml [[key_bearing_pairing]]</code> row.</strong> That table drives
+  <code>check_runtime_completeness</code> (a <code>gcp_api</code> that is key-bearing must have its paired secret resolved).
+  Vertex authenticates via a <strong>service-account (ADC)</strong>, not an API key bound 1:1 to the <code>aiplatform</code>
+  API call. The SA-key <code>gcp_secret</code> is the SA credential slot, not a per-API key in the google-maps
+  sense. Adding a <code>key_bearing_pairing</code> row would be <strong>semantically wrong</strong> (it would assert "the
+  aiplatform API is unusable without secret X resolved in the same set"), and it would require editing
+  <code>kinds.toml</code> — out of scope and unnecessary. <strong>DECISION: no <code>key_bearing_pairing</code> row for Vertex.</strong> The
+  SA-key slot is emitted as an ordinary <code>gcp_secret</code> (scope-bearing → per-secret accessor in
+  <code>derive_sa_scope</code>), which is exactly right. (Flagged for ARGUS in §6: a deliberate divergence from the
+  google-maps pairing — justified because Vertex is SA-auth, not API-key-auth. ARGUS CONFIRMED.)</li>
+<li><strong>The catalog records must reference a KNOWN category</strong> or <code>'none'</code> (<code>load_catalog</code> dangling-ref
+  check). Vertex/Gemini and Tailscale are not geospatial/document categories; both use <strong><code>category =
+  "none"</code></strong> (explicitly accepted by <code>load_catalog</code>) because they are baseline-infra-adjacent direct
+  catalog entries, not members of an emergent discovery category.</li>
+<li><strong>(ARGUS-suggested design line, ADDED rev2):</strong> there is <strong>no mechanical in-set check that
+  <code>GCP_SA_KEY_B64</code> is present when <code>aiplatform</code> is enabled</strong> — and that is correct: Vertex SA presence is
+  <strong>enforced by the startup <code>bootstrap_adc</code> path</strong> (DC4 — base64 SA-key → 0600 <code>/tmp</code> file → ADC at core
+  boot; fail-loud if absent), NOT by the resolver's <code>check_runtime_completeness</code>. The resolver
+  deliberately asserts no false API-key pairing invariant (it is SA-auth); the SA-key's
+  must-be-present-at-runtime property lives at the bootstrap boundary, not in the emit/resolve layer.</li>
+</ul>
+<h3 id="22-new-catalog-record-1-datacatalogvertex-geminitoml-exact-buildable-toml-unchanged">§2.2 New catalog record 1 — <code>data/catalog/vertex-gemini.toml</code> (EXACT buildable TOML) — UNCHANGED</h3>
+<pre><code class="language-toml"># author: Denson Smith
+# §22 seed record — vertex-gemini. The credentialed pass-through's FIRST provider (gsearch + embeddings).
+# Vertex is SERVICE-ACCOUNT (ADC) auth, NOT a standalone API key (2026 key-deprecation; DC2 verified).
+# So the paired gcp_secret is the SA-KEY SLOT NAME (server-side ADC), not an API key in the google-maps
+# sense — hence NO kinds.toml key_bearing_pairing row (that table is for API-key-bound APIs). The
+# gcp_api &quot;aiplatform&quot; + paired gcp_secret GCP_SA_KEY_B64 ride the SAME entries shape as google-maps.
+# Validated fail-closed by dataload.load_catalog (§2.4.1).
+
+service-id = &quot;vertex-gemini&quot;
+gcp_api = &quot;aiplatform&quot;
+category = &quot;none&quot;
+
+[[entries]]
+kind = &quot;gcp_api&quot;
+name = &quot;aiplatform&quot;
+
+[[entries]]
+kind = &quot;gcp_secret&quot;
+name = &quot;GCP_SA_KEY_B64&quot;
+
+# §25 detection_hints — ADDITIVE, ADVISORY recognition signals only. load_catalog IGNORES this block
+# (reads only entries/gcp_api/category — byte-unchanged); load_detection_hints reads + fail-closed-validates.
+[detection_hints]
+sdk_imports  = [&quot;google.genai&quot;, &quot;google-genai&quot;, &quot;vertexai&quot;, &quot;google.cloud.aiplatform&quot;]
+url_patterns = [&quot;aiplatform.googleapis.com&quot;, &quot;generativelanguage.googleapis.com&quot;]
+config_keys  = [&quot;GCP_SA_KEY_B64&quot;, &quot;GOOGLE_APPLICATION_CREDENTIALS&quot;, &quot;GOOGLE_CLOUD_PROJECT&quot;]
+data_signals = [&quot;embedding-generate&quot;, &quot;grounded-search&quot;, &quot;gemini-generateContent&quot;]
+</code></pre>
+<p>Emit consequence: <code>aiplatform</code> joins <code>apis</code> (the <code>gcp_api</code> set, scope-bearing → API role); <code>GCP_SA_KEY_B64</code>
+joins <code>secret_slots</code> as a <code>gcp_secret</code> with <code>acquisition = "mint-via-gcp-console"</code> (per
+<code>_derive_acquisition</code>: a key-bearing <code>gcp_secret</code> that is not POSTGRES_PASSWORD / TS_AUTHKEY) and joins
+<code>sa_scope</code> as a per-secret accessor.</p>
+<h3 id="23-new-catalog-record-2-datacatalogtailscaletoml-exact-buildable-toml-unchanged">§2.3 New catalog record 2 — <code>data/catalog/tailscale.toml</code> (EXACT buildable TOML) — UNCHANGED</h3>
+<pre><code class="language-toml"># author: Denson Smith
+# §22 seed record — tailscale. The in-mesh transport identity for the secure core. TS_AUTHKEY is a
+# thirdparty_rest_key (already an expected kind) — the tagged, reusable auth-key the container joins the
+# tailnet with. NO gcp_api (the auth-key is not a GCP surface): gcp_api = &quot;none&quot; -&gt; natively skips S1
+# enablement (the spatial-db.toml precedent for a non-GCP service). Validated fail-closed by load_catalog.
+
+service-id = &quot;tailscale&quot;
+gcp_api = &quot;none&quot;
+category = &quot;none&quot;
+
+[[entries]]
+kind = &quot;thirdparty_rest_key&quot;
+name = &quot;TS_AUTHKEY&quot;
+
+# §25 detection_hints — ADDITIVE, ADVISORY. load_catalog ignores it; load_detection_hints validates it.
+[detection_hints]
+sdk_imports  = [&quot;tailscale&quot;]
+url_patterns = [&quot;api.tailscale.com&quot;, &quot;*.ts.net&quot;]
+config_keys  = [&quot;TS_AUTHKEY&quot;, &quot;TS_USERSPACE&quot;]
+data_signals = [&quot;tailnet-join&quot;, &quot;serve-https&quot;, &quot;mesh-ingress&quot;]
+</code></pre>
+<p>Emit consequence: <code>TS_AUTHKEY</code> joins <code>secret_slots</code> as a <code>thirdparty_rest_key</code> with <code>acquisition =
+"mint-via-thirdparty"</code> (per <code>_derive_acquisition</code>); it is scope-bearing → per-secret accessor in
+<code>sa_scope</code>; <code>gcp_api = "none"</code> means it contributes NO API to <code>apis</code> (skips S1 enablement). No
+<code>gcp_secret</code>, no <code>key_bearing_pairing</code>.</p>
+<h3 id="24-the-manifest-the-core-builder-resolves-the-cookie-cutter-input-unchanged">§2.4 The manifest the core builder resolves (the cookie-cutter INPUT) — UNCHANGED</h3>
+<pre><code>builder slug: sos_core
+baseline (always):    (gcp_api, gemini-embedding), (gcp_api, gemini-search),
+                      (railway_var, DATABASE_URL), (gcp_secret, POSTGRES_PASSWORD),
+                      (db_extension, pgvector)
+delta.add (from the two new catalog records):
+                      (gcp_api, aiplatform), (gcp_secret, GCP_SA_KEY_B64),
+                      (thirdparty_rest_key, TS_AUTHKEY)
+</code></pre>
+<h3 id="25-the-expected-provisioningspec-what-emit_spec-emits-exact-for-vera-zero-guesswork-unchanged">§2.5 The expected <code>ProvisioningSpec</code> (what <code>emit_spec</code> emits — exact, for VERA zero-guesswork) — UNCHANGED</h3>
+<pre><code>ProvisioningSpec(
+  builder_slug = &quot;sos_core&quot;,
+  project      = &quot;proj-sos_core&quot;,
+  sa           = &quot;sa-sos_core&quot;,
+  apis         = (&quot;aiplatform&quot;, &quot;gemini-embedding&quot;, &quot;gemini-search&quot;),          # sorted gcp_api names
+  secret_slots = (
+    SlotSpec(name=&quot;GCP_SA_KEY_B64&quot;,   kind=&quot;gcp_secret&quot;,          acquisition=&quot;mint-via-gcp-console&quot;, populated=False),
+    SlotSpec(name=&quot;POSTGRES_PASSWORD&quot;,kind=&quot;gcp_secret&quot;,          acquisition=&quot;generate-locally&quot;,     populated=False),
+    SlotSpec(name=&quot;TS_AUTHKEY&quot;,       kind=&quot;thirdparty_rest_key&quot;, acquisition=&quot;mint-via-thirdparty&quot;,  populated=False),
+  ),                                                                            # sorted by name
+  railway_vars = (&quot;DATABASE_URL&quot;,),
+  db_extensions = (&quot;pgvector&quot;,),
+  sa_scope = (                                                                  # derive_sa_scope: scope-bearing only, sorted
+    (&quot;gcp_api&quot;, &quot;aiplatform&quot;), (&quot;gcp_api&quot;, &quot;gemini-embedding&quot;), (&quot;gcp_api&quot;, &quot;gemini-search&quot;),
+    (&quot;gcp_secret&quot;, &quot;GCP_SA_KEY_B64&quot;), (&quot;gcp_secret&quot;, &quot;POSTGRES_PASSWORD&quot;),
+    (&quot;thirdparty_rest_key&quot;, &quot;TS_AUTHKEY&quot;),
+  ),
+  needs_postgis_base_image = False,                                             # no postgis in the set
+  budget_boundary_required = True,
+)
+</code></pre>
+<p>Note the <strong>secret-slot NAMES only</strong> — every <code>populated=False</code>, no value anywhere. The Vertex SA key, the
+Postgres password, and the Tailscale auth-key are all NAMES the human/CI populates out-of-package (DC4),
+never values the emitter holds.</p>
+<h3 id="26-the-mock-emit-demonstration-what-ada-builds-runs-exact-steps-for-vera-re-execution-unchanged">§2.6 The mock-emit demonstration (what ADA builds + runs — exact steps for VERA re-execution) — UNCHANGED</h3>
+<p>ADA writes a demonstration script (e.g. <code>agents/builder-deploy-core/demo/sos_core_emit_demo.py</code>) and the
+two catalog TOML files above. The demonstration:</p>
+<ol>
+<li>Loads the catalog via <code>dataload.load_catalog()</code> → asserts both new records load (fail-closed
+   validation passes; <code>vertex-gemini</code> and <code>tailscale</code> present in the returned catalog dict).</li>
+<li>Builds the resolved set by composing <code>sorted(baseline ∪ delta.add)</code> <strong>directly</strong> (the two records'
+   entries unioned onto the baseline) → asserts the resolved set equals §2.4 (sorted). <strong>It does NOT route
+   this set through <code>resolve(...)</code></strong> and that is correct: the FROZEN <code>resolve()</code> is <strong>library-category-
+   driven</strong> — it raises <code>ResolutionError</code> on an unknown category, and <code>none</code> is <strong>not</strong> a library category
+   (the library categories are document-consuming / document-data / geospatial). A <code>category="none"</code> core
+   stand-up has <strong>no library category to resolve against</strong>, so the demo composes <code>baseline ∪ delta.add</code>
+   directly — which is exactly what <code>resolve()</code> would return for an empty-category template. The directly-
+   composed set equals §2.4, and <code>emit_spec</code> on it equals the §2.5 golden field-for-field. <strong>FINDING (for
+   the GRAND at the PROVISION gate, §4 step 1):</strong> the cookie-cutter <code>resolve()</code> cannot express a category-
+   less manifest; a <code>category="none"</code> core stand-up therefore composes <code>baseline + delta.add</code> directly
+   rather than routing through <code>resolve()</code>. The real provision sequence (§4 step 1) inherits this — the
+   resolved set fed to the real emit is the direct <code>baseline ∪ delta.add</code> composition, NOT a <code>resolve()</code>
+   call (which would raise on <code>category="none"</code>). This is a shipped-machinery property the GRAND should
+   confirm at the provision gate, not a design defect: the resolved set is identical either way (an empty-
+   category template resolves to baseline + delta), but the code path is the direct composition.</li>
+<li>Calls <code>emit_spec(resolved, "sos_core")</code> → asserts the <code>ProvisioningSpec</code> equals §2.5 EXACTLY
+   (golden-file / field-by-field equality; <code>apis</code>, <code>secret_slots</code>, <code>sa_scope</code> sorted as shown).</li>
+<li>Calls <code>assert_value_free(spec)</code> → passes (no <code>ValueLeakError</code>).</li>
+<li>Drives the spec against <code>MockProvisioner()</code> (default: everything unpopulated) → asserts S2c BLOCKS
+   (the human-gate fail-closed: secret slots unpopulated halts before S3/S5); then against
+   <code>MockProvisioner(populated={"GCP_SA_KEY_B64","POSTGRES_PASSWORD","TS_AUTHKEY"})</code> → asserts S3-S6 run
+   (synthetic ids only, NO value held); <code>assert_value_free</code> on the resulting <code>RunLedger</code> passes.</li>
+<li>Calls <code>mock.stand_up_mesh_shape("sos_core")</code> → asserts the value-free <code>MeshShape</code> (socket_mode
+   <code>0600</code>, transport <code>af_unix</code>, identity_header <code>Tailscale-User-Login</code>, deny_by_default True, funnel_off
+   True, <code>&lt;VERB&gt;</code> placeholder) — the 501-until-T3 scaffold the DC1 core fills at T3.</li>
+</ol>
+<p><strong>Tripwire / frozen-resolver assertions (the regression bar) — UNCHANGED:</strong>
+- <strong>W1</strong> (no-I/O imports) grep over <code>provision/</code> returns EMPTY (the demo lives OUTSIDE <code>provision/</code>,
+  under <code>demo/</code>, so it does not pollute the W1 surface).
+- <strong>W2</strong> MockProvisioner remains the only concrete <code>Provisioner</code>.
+- <strong>W3</strong> <code>emit_spec</code> takes no provisioner and does no I/O.
+- <strong><code>resolve.py</code> blob is byte-identical</strong> (<code>git show HEAD:...resolve.py</code> hash == working-tree hash).
+- <strong>The FULL <code>builder_deploy_core</code> test suite is green</strong> (per the gauntlet-verify full-suite discipline).</p>
+<h3 id="27-dc3-threat-coverage-note-612-self-classification-unchanged-argus-confirmed">§2.7 DC3 threat-coverage note (6.12 self-classification) — UNCHANGED (ARGUS CONFIRMED)</h3>
+<p>The DC3 work (two additive catalog records + a demonstration) is a <strong>process/data change with no runtime
+attack path</strong> — it emits NAMES only against a MockProvisioner, touches no real infra/creds/network.
+<strong>PROPOSED classification: NOT threat-ratified (data/config addition, no runtime attack path; §35.5
+carve-out — emit-only, value-free, mock).</strong> ARGUS CONFIRMED. The named threats M1..M6 live entirely in
+the DC1 core-service design (the future build); DC3 carries no threat-anchored probe of its own beyond
+the value-free / tripwire / frozen-resolver assertions above.</p>
+<hr />
+<h2 id="3-dc4-credential-discipline-boundary-who-may-do-what-unchanged-from-rev1">§3 DC4 — Credential-discipline boundary (who may do what) — UNCHANGED from rev1</h2>
+<p>The agent/package NEVER holds or sees a secret value. The boundary, composing <code>credential-discipline</code>
+(CI/WIF), <code>railway-keyring-deploy</code> (local), and the newswire mesh pattern:</p>
+<table>
+<thead>
+<tr>
+<th>Secret</th>
+<th>Minted/set by (OUT-of-package human/CI step)</th>
+<th>The agent/package may</th>
+<th>The value lives</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vertex SA + key</strong> (<code>GCP_SA_KEY_B64</code>)</td>
+<td>HUMAN/CI: create the SA in the core's GCP project, grant least-priv (<code>roles/aiplatform.user</code> OR the custom <code>aiplatform.endpoints.predict</code> role — DC2 (a)(iii)); prefer <strong>WIF</strong> where the runtime supports it, else key JSON → base64 → Railway secret.</td>
+<td>emit the SLOT NAME <code>GCP_SA_KEY_B64</code>; reference it in the registry as <code>auth: adc_sa</code>. NEVER decode/print/log it.</td>
+<td>Railway secret (server-side); decoded to a <code>0600 /tmp</code> file at core startup (<code>bootstrap_adc</code> — the SA-presence enforcement point, §2.1), <code>GOOGLE_APPLICATION_CREDENTIALS</code>, never str/repr/logged.</td>
+</tr>
+<tr>
+<td><strong>Postgres password</strong> (<code>POSTGRES_PASSWORD</code>)</td>
+<td>HUMAN/CI: generate locally; set as a Railway secret on <code>db</code> + injected into the private <code>DATABASE_URL</code>.</td>
+<td>emit the SLOT NAME.</td>
+<td>Railway secret; <code>DATABASE_URL</code> private (<code>*.railway.internal</code>), in-network only.</td>
+</tr>
+<tr>
+<td><strong>Tailscale auth-key</strong> (<code>TS_AUTHKEY</code>)</td>
+<td>HUMAN: mint a <strong>reusable, TAGGED</strong> (<code>tag:sos-core-node</code>) auth-key in the Tailscale admin console; set as a Railway secret.</td>
+<td>emit the SLOT NAME.</td>
+<td>Railway secret; consumed by <code>tailscaled</code> at container start (userspace, <code>TS_USERSPACE=true</code>).</td>
+</tr>
+<tr>
+<td><strong>Provider keys</strong> (future providers beyond Vertex)</td>
+<td>HUMAN/CI per provider: set as Railway secrets, registered in <code>PROVIDER_REGISTRY[provider].auth</code>.</td>
+<td>emit the SLOT NAME; reference in the registry.</td>
+<td>Railway secret (server-side); attached by the core, never returned to the caller.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The builder holds ONLY a tailnet identity</strong> — no Railway token, no SA key, no API keys, no provider
+keys. It reaches the core over the mesh with its <strong>tagged</strong> tailnet identity (authorized via
+<code>Tailscale-App-Capabilities</code>, §1.4.1); every credentialed call runs server-side on the core. The Railway
+PAT (for the out-of-package deploy step) lives in the OS keyring per <code>railway-keyring-deploy</code>; the agent
+never holds it. The recurring "keys on the builder machine" problem is structurally removed.</p>
+<hr />
+<h2 id="4-dc5-first-slice-plan-design-only-build-is-a-follow-on-after-the-gate-provision-go-unchanged">§4 DC5 — First-slice PLAN (design only; build is a follow-on after the gate + provision-go) — UNCHANGED</h2>
+<p>The build sequence once the design is gated AND the PRINCIPAL gives provision-go (each a separate gated
+action; NOT this gauntlet):</p>
+<ol>
+<li><strong>Provision the core (2.4-PROVISION step).</strong> Run the DC3-emitted spec for real (real Railway project
+   <code>proj-sos_core</code>, real GCP SA, real tagged Tailscale node, real budget cap). Out-of-package human/CI
+   does the credential steps (DC4). <code>db</code> = Postgres+pgvector; <code>serving</code> = the pass-through core service.
+   <strong>FINDING for the GRAND at the provision gate (carried from §2.6 step 2):</strong> the resolved set fed to the
+   real <code>emit_spec</code> is composed as <code>sorted(baseline ∪ delta.add)</code> <strong>directly</strong>, NOT via a <code>resolve()</code> call.
+   The cookie-cutter <code>resolve()</code> is library-category-driven and <strong>raises <code>ResolutionError</code> on
+   <code>category="none"</code></strong> (<code>none</code> is not a library category), so a category-less core stand-up cannot route
+   through <code>resolve()</code>. The resolved set is identical to what an empty-category template would resolve to
+   (baseline + delta), so §2.4/§2.5 hold unchanged — but the GRAND should confirm the provision path uses
+   the direct composition, not a <code>resolve()</code> call, when standing the core up for real.</li>
+<li><strong>Wire Vertex/Gemini as the FIRST provider through the pass-through.</strong> Register <code>vertex</code> in
+   <code>PROVIDER_REGISTRY</code> with <code>generate_grounded</code> (grounded search — DC2 (a)(iii)) and <code>embed</code> operations,
+   both <code>auth: adc_sa</code>. This is the T3 product that fills the <code>&lt;VERB&gt;</code> 501 stub. (Both ops carry a
+   declared <code>response_schema</code> per <code>INV-RESP</code>, §1.3.1.)</li>
+<li><strong>Build gsearch as the FIRST thin-client skill — ONCE, as a core-client (SUPERSEDES the existing gsearch skill).</strong>
+   gsearch becomes a thin client that POSTs <code>{provider:"vertex", operation:"generate_grounded",
+   skill_id:"gsearch", params:{...}}</code> to the core over the mesh and returns the grounded result. No API
+   key on the builder. (Client skill built in the Science Stoa — this design specifies only the client
+   CONTRACT, §1.3.)</li>
+<li><strong>Stand up the embeddings DB + point the KG pipeline at it.</strong> The pgvector DB on <code>db</code> is the home for
+   BOTH the KG pipeline store AND skill/retrieval embeddings. Embedding calls go through the SAME
+   pass-through (<code>{provider:"vertex", operation:"embed"}</code>), so embedding credentials also never touch the
+   builder. Point the KG pipeline's embedding writes at the private <code>DATABASE_URL</code> (in-network) and its
+   embedding generation at the core's <code>embed</code> operation.</li>
+</ol>
+<p>Sequencing note (DC2 (b)(i)): Railway private networking is runtime-only — the DB connection from
+<code>serving</code> to <code>db</code> must be established at runtime (start command), not build-time. The volume on <code>db</code> is
+mounted (no zero-downtime redeploy while mounted — acceptable for the DB; DC2 (b)(iv)).</p>
+<hr />
+<h2 id="5-dc6-honest-stance-threat-posture-revised-per-r1r2">§5 DC6 — Honest stance + threat posture (revised per r1/r2)</h2>
+<p><strong>How the SSRF/key-exfil surface is closed (honest claim, no over-claim):</strong>
+- <strong>SSRF (M1): closed by construction + mechanically guarded (<code>INV-DEST</code>, r1).</strong> There is no
+  caller-supplied URL/host/destination input; the destination is built entirely from server-pinned
+  FIXED/ENUM templates; <code>params</code>/<code>skill_id</code> are disjoint from <code>url_slots</code> by schema, the loader
+  fail-loud-refuses any op that violates disjointness, and redirect-following is OFF. The rev1 residual
+  ("a future op could add a free-form host slot and nothing catches it") is now CLOSED: a free-form
+  destination slot is unconstructable in the schema AND a violating op refuses to load. P-M1 asserts the
+  cross-registry invariant.
+- <strong>Key-exfil (M2): channel closed by construction; response redaction a BUILD-TIME-VERIFIED property
+  (r2 — the contradiction resolved).</strong> The credential is attached server-side; there is no caller-URL.
+  The response surface is governed by a <strong>per-op allow-list (<code>response_schema</code>/<code>chunk_schema</code>)</strong>: only
+  declared fields reach the caller, everything else (including any echoed credential in an un-anticipated
+  field) is DROPPED; opaque pass-through is <strong>forbidden</strong> (<code>INV-RESP</code> — an op with no declared response
+  schema refuses to load); streaming is declared-streaming with per-chunk allow-listing. rev2 does NOT
+  claim this is by-construction for the response body — it is honestly a property <strong>proven at build time
+  by P-M2 against the full Vertex response surface</strong> (generateContent / predict / groundingMetadata /
+  SSE chunks / error bodies). A misimplemented allow-list serializer is a real build risk VERA owns.
+- <strong>Identity (M3): closed by construction IFF the 0600/loopback bind holds — now backed by an in-process
+  FAIL-LOUD invariant (<code>INV-BIND</code>, r5).</strong> A <code>0.0.0.0</code> bind is un-shippable: the handler refuses to serve
+  and exits. The strip-and-reinject guarantee covers BOTH <code>Tailscale-User-Login</code> and
+  <code>Tailscale-App-Capabilities</code> (r3, STRABO-verified, incl. the underscore/case defense). The remaining
+  build-time confirmation is the App-Capabilities on-the-wire encoding (V-ENC).</p>
+<p><strong>What this design does NOT claim:</strong> it does not claim invulnerability if the Railway secret store itself
+is breached (a Railway-level compromise exposes the keys regardless — platform trust boundary, bounded
+by least-priv SA scope + budget cap, not eliminated). It does not claim quota fairness is perfect under
+adversarial load — only that single-caller flood and gross shared-quota starvation are bounded by the
+rate-limit + concurrency cap, with <code>skill_id</code> giving intra-builder attribution (not a hard per-skill
+quota — §1.4.4). It does not represent M1..M6 as a proven-COMPLETE threat set: per ARGUS's honest-claim
+boundary, response-side redirect SSRF is now closed (<code>INV-DEST</code> redirect-OFF), but cross-provider key
+confusion and timing/error-class side-channels remain the gate's residual enumeration judgment, not a
+mechanized guarantee.</p>
+<p>This component is <strong>threat-ratified</strong> (the DC1 core design); ARGUS owns the security verdict. The DC3
+emit is <strong>not threat-ratified</strong> (process/data change, no runtime attack path — §2.7).</p>
+<hr />
+<h2 id="6-self-assessed-weak-points-62-post-work-where-argus-should-push-hardest-on-the-deltas">§6 Self-assessed weak points (6.2 post-work; where ARGUS should push hardest on the DELTAS)</h2>
+<ol>
+<li>
+<p><strong><code>INV-RESP</code> allow-list completeness against an EVOLVING Vertex response surface (r2 residual, now
+   build-time-verified not by-construction).</strong> The honest claim is explicit that response redaction is a
+   build-time property, not a by-construction guarantee. The residual: Google can add a NEW field to
+   <code>generateContent</code>/<code>predict</code>/<code>groundingMetadata</code> that a future legit feature wants surfaced; widening
+   the allow-list to include it is a change that must be re-proven not to carry a credential echo. <strong>ARGUS
+   should confirm the build-time framing is the honest ceiling here (it is — an allow-list over an
+   upstream you don't control is closed-by-correct-maintenance, and the design says so).</strong>
+   <em>Why this shape anyway:</em> allow-list is strictly safer than deny-list, and forbidding opaque
+   pass-through (<code>INV-RESP</code>) removes the only escape hatch; build-time verification (P-M2) over the full
+   surface is the correct discipline for an upstream the core doesn't own.</p>
+</li>
+<li>
+<p><strong><code>skill_id</code> is caller-declared, not server-trusted (r6 fold).</strong> It gives attribution + optional soft
+   sub-fairness but is NOT a security boundary — a hostile builder under the trusted tag could mislabel
+   <code>skill_id</code>. The per-identity (tag) bucket is the hard limit and is unaffected by mislabeling. <strong>ARGUS
+   should confirm this is the right boundary placement (it is — the trusted identity stays the tag; per
+   the named follow-up, a hard per-skill quota would need a server-trusted skill identity, out of scope
+   for the first slice).</strong>
+   <em>Why this shape anyway:</em> the requirement gives the builder ONE tagged identity; inventing a
+   server-trusted per-skill identity now would be scope creep. Attribution-now + a named follow-up for
+   hard per-skill quotas is the honest increment.</p>
+</li>
+<li>
+<p><strong><code>INV-BIND</code> and <code>INV-DEST</code>/<code>INV-RESP</code> are startup/loader self-checks the FUTURE build must implement
+   (r1/r5 folds).</strong> They convert design intentions into fail-loud runtime invariants, which is the right
+   shape, but they are still specified-not-built; a build that ships them as warnings-not-exits, or omits
+   the loader self-check, silently weakens the guarantee. <strong>ARGUS should confirm the probes (P-M1 (a)
+   structural, P-M3 (a) in-process) actually FALSIFY a warnings-only or missing-self-check
+   implementation — they are written to (they assert refuse-to-serve / non-zero exit, not just a log
+   line).</strong>
+   <em>Why this shape anyway:</em> an in-process fail-loud invariant + a probe that asserts the exit is the
+   strongest design-time mechanism available without building the service this gauntlet; it is exactly
+   the A3 author duty (6.13).</p>
+</li>
+<li>
+<p><strong>V-ENC: the App-Capabilities on-the-wire encoding is the one open build-time confirmation on the
+   otherwise-verified r3 path.</strong> STRABO verified the premise (HIGH confidence, primary citations); the
+   exact Q-encoded-vs-serialized-JSON encoding is a VERA build-time item, not a design unknown. <strong>ARGUS
+   should confirm this is correctly scoped as a build-time VERA confirmation (not a design gap) — the
+   requirement "decode per the same rules as Tailscale-User-* then JSON-parse" is fixed; only the byte
+   encoding is to be confirmed against the pinned TS version.</strong>
+   <em>Why this shape anyway:</em> the newswire build hit TS-version identity-header landmines; pinning the
+   version and re-confirming the exact encoding at build is the proven discipline, not something to guess
+   at design time.</p>
+</li>
+<li>
+<p><strong>The threat-anchored probes (P-M1..P-M6) remain design-time specs for a service not built this
+   gauntlet.</strong> They are tightened (P-M1 structural-invariant, P-M2 full-surface, P-M3 in-process, P-M5
+   intent-survives-crash) and falsifiable, but exercise the FUTURE core; ADA does not run them now.
+   <strong>ARGUS should pressure-test P-M2 (full-response-surface redaction) and P-M3 (a) (in-process
+   refuse-if-routable) hardest — they are the two load-bearing deltas most dependent on the real
+   serve/socket/HTTP runtime.</strong>
+   <em>Why this shape anyway:</em> the gauntlet's job is a buildable design that relays up to be gated; the
+   tightened probes are the verification contract the later build arc executes.</p>
+</li>
+</ol>
+<hr />
+<h2 id="7-out-of-scope-deliberately-not-addressed-ada-scope-fence-argus-frame-unchanged">§7 Out of scope (deliberately not addressed; ADA scope-fence + ARGUS frame) — UNCHANGED</h2>
+<ul>
+<li><strong>ALL real provisioning</strong> — no Railway project, no GCP SA mint, no Railway secret set, no Tailscale
+  node, no DB stand-up. Waits for the gate + the PRINCIPAL's provision-go. <em>Reason: design may change at
+  the gate; emit-only/mock this gauntlet.</em></li>
+<li><strong>The core SERVICE code</strong> — DESIGNED here (DC1), NOT built. ADA builds ONLY the DC3 mock-emit.
+  <em>Reason: directive scope; the service is a later gated build arc.</em></li>
+<li><strong>The first-slice BUILD</strong> (gsearch thin-client, embeddings stand-up) — PLANNED (DC5), not built.
+  <em>Reason: follow-on after gate + provision-go.</em></li>
+<li><strong>The the Science Stoa CLIENT skills</strong> — theirs. This design specifies the client CONTRACT (§1.3) only.
+  <em>Reason: ownership split per the project requirement.</em></li>
+<li><strong>Multi-provider registry beyond Vertex</strong> — the design accommodates it (N-provider registry), but only
+  Vertex is specified now. <em>Reason: Vertex is the first provider; others added per-provider later, each
+  following the §1.3 registry shape + §1.3.1 response-schema + §3 credential boundary.</em></li>
+<li><strong>Hard per-skill quotas</strong> (a server-trusted per-skill identity) — the named r6 follow-up. <em>Reason: the
+  first slice's trusted boundary is the tag; per-skill HARD limits need a server-trusted skill identity,
+  out of scope now.</em></li>
+<li><strong>A streaming-gsearch op</strong> — the <code>chunk_schema</code> pattern is specified (§1.3.1) so the build has it, but
+  no streaming op is introduced into the rev1 vertex surface this gauntlet. <em>Reason: rev1 ops are
+  <code>stream: False</code>; streaming is a later additive op following the declared-streaming pattern.</em></li>
+<li><strong>arc-75 (bw-bootstrap)</strong> — parked, separate. <em>Reason: unrelated; not touched here.</em>
+</content>
+</invoke></li>
+</ul>
+  </article>
+  <div class="foot">Prepared for Denson Smith &middot; design document, review copy. Nothing in this design has been built, deployed, or provisioned; no credentials exist and no money has been spent. Approval is required before any real setup begins.</div>
+</div>
+</body>
+</html>

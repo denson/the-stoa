@@ -25,6 +25,8 @@ agents/**/_body-*.tmp.md
 /HANDOFF_*.md
 /HUMAN_paste-*.md
 /PLAN_*.md
+# Chrome MCP browser/tab-group handle — ephemeral working state, re-read on resume (see the memory of the same name)
+/BROWSER_SESSION.json
 # session backup dirs + Stop-hook runtime sentinels (runtime/throwaway)
 .claude.bak-*/
 .claude/hooks/.stop-sentinels/

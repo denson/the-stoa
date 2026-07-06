@@ -18,6 +18,42 @@
       "runtimeExecutable": "python",
       "runtimeArgs": ["-m", "http.server", "8765", "--directory", "docs"],
       "port": 8765
+    },
+    {
+      "name": "design-review",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8137", "--directory", "."],
+      "port": 8137
+    },
+    {
+      "name": "ssc-demo",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8138", "--directory", "C:/Users/denso/claude_projects/stoagen/demos/ssc-triangle"],
+      "port": 8138
+    },
+    {
+      "name": "cannabis-demo",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8139", "--directory", "C:/Users/denso/claude_projects/stoagen/demos/cannabis-dementia"],
+      "port": 8139
+    },
+    {
+      "name": "aroma-demo",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8140", "--directory", "C:/Users/denso/claude_projects/stoagen/demos/aroma-molecules"],
+      "port": 8140
+    },
+    {
+      "name": "skill-catalog",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8141", "--directory", "C:/Users/denso/claude_projects/stoagen/catalog-site/site"],
+      "port": 8141
+    },
+    {
+      "name": "builder-doc",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8142", "--directory", "C:/Users/denso/claude_projects/zeotek_newswire/docs"],
+      "port": 8142
     }
   ]
 }
