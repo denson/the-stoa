@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-07-06T05:45:46Z",
+  "description": "[FILED BY: Polybius the Grand (user-tier) — PRINCIPAL-directed roadmap item 2026-07-05. PROBLEM FRAMING — the team owns the fix shape. DO NOT PICK UP until the secure-core Phase-1 arc (stoa--po5) lands.]\n\nPROBLEM: the floor is turn-paced — work advances only when an orchestrator is actively dispatching, so momentum dies whenever no one is driving (violates the always-forward-motion doctrine). Field evidence reviewed by the Grand + PRINCIPAL (practitioner workflow transcript, 2026-07-05): a goal/loop mode over a triaged to-do list — standing permission to branch/rebase/merge, with the HARD condition \"do not merge until the automated reviewers approve,\" inside a blast-radius container (merge reaches staging only; production stays human-gated) — ran ~5 hours unattended and shipped a month of backlog. That merge-gate pattern is our critic-gate doctrine generalized to code: the machine gate replaces the human approve-gate pre-merge; the human relocates to supervisor + async reviewer.\n\nDESIGN QUESTION for the team: define the Stoa equivalent. Candidate shape (not prescriptive): the orchestrator runs a continuous loop over a bw-backed work list; independent-seat approvals (reviewer + verifier, ground-truth audit where it applies) are the MERGE CONDITION; every envelope stays inside a blast-radius container (nothing irreversible reachable — membrane law intact); progress + stalls surface per the comms doctrine (bw for agents, Slack when a human is in the audience).\n\nHARD PRECONDITIONS (verify before any unattended run):\n1. stoa--x4j — the autonomous gauntlet silently blocking on a sub-agent permission prompt, indistinguishable from a stall via bw — must be closed or reliably worked around. Silence must never mean failure: an external dead-man heartbeat gates arming-unattended (an in-process loop cannot report its own death).\n2. Blast-radius audit of what a floor session can reach in goal mode (credentials, remotes, deploy surfaces) — default-deny.\n\nSEQUENCING: engage after stoa--po5 lands. Pairs with stoa--olq (envelope re-tiering — same engagement window; re-tiered envelopes are what the loop iterates over).",
+  "id": "stoa--li1",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "[ROADMAP] Goal-mode floor operation — continuous bw-backed work loop with independent-seat gates as the merge condition (design question; sequenced post stoa--po5)",
+  "type": "task",
+  "updated_at": "2026-07-06T05:45:46Z"
+}
