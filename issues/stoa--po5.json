@@ -406,11 +406,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e]\nAdversarial recursive-grammar HELD (39 checks; the 4 initial FAILs were MY §5.11 substring false-positive on the allowlist-enumeration printed in the refusal msg — refined+anchored on the quoted violating field: 5/5 PASS). DEEPCOPY META-CHECK CONFIRMED: refusal names the ACTUAL violating field (candidates.finishReason), NOT candidates.content; a shattered-identity marker WOULD misfire at content (teeth). EMBEDDINGS PIN web-verified vs current Vertex text-embedding-005 :predict = EXACT match {values:[float], statistics:{token_count,truncated}}. Running seal-audit regression + secret-value grep + fence next.",
       "timestamp": "2026-07-06T07:55:51Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e]\nPASS: rev6 INV-RESP amendment HOLDS + no regression. Verdict attached durably (verdicts/vera-rev6-reverify.md, sha256 6fa9b254, attach_status OK). RE-RUN: secure-core 60 passed/1 skip (honest AF_UNIX Phase-3 residual; +10 vs rev4 = the a.2/a.3/a.4 clauses); builder_deploy_core 105 passed; demo exit 0. ADVERSARIAL (my own deeper probes): a.2 credential at depth 3/4/5 in undeclared sub-keys of the declared recursed OBJECT tree DROPPED, declared siblings intact; a.3 object smuggled under SCALAR direct/list/doubly/triply-nested/tuple/deep-mixed DROPPED whole (genuine recursive dict-scan), legit scalars+arrays NOT over-dropped; a.4 non-allowlisted PASS_WHOLE at 3 specific fields REFUSES TO LOAD naming the RIGHT field. DEEPCOPY META-CHECK CONFIRMED RIGHT-REASON: deepcopy+plant PASS_WHOLE@candidates.finishReason fails-closed naming finishReason NOT candidates.content; markers survive deepcopy/copy/pickle as singletons; TEETH: a shattered fresh marker WOULD misfire at content (the exact bug the fix closes). EMBEDDINGS PIN web-verified (gsearch) vs CURRENT real Vertex text-embedding-005 :predict = EXACT match {values:[float], statistics:{token_count,truncated}}; legit intact while undeclared sub-keys + object-under-SCALAR-values DROP; design illustrative SCALAR would over-drop, drift-to-OBJECT is a V-RESP-GROUNDING correctness fix. SECRET-VALUE GREP: real seal_audit() over 50 files = 0 findings + fails-closed on planted secret; independent grep = ZERO secret values (only the gate's own regex + slot NAMES). FENCE: 0 commits ahead of main, resolve.py byte-frozen, DC3 TOMLs byte-identical (vertex 11c88105 / tailscale 5bb085ef), author=Denson Smith x3. One methodology note = MY probe (§5.11 substring false-positive on the allowlist-in-message, corrected by anchoring on the quoted field token), not a build defect. Returning to PLINY.",
+      "timestamp": "2026-07-06T08:01:05Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T07:55:51Z"
+  "updated_at": "2026-07-06T08:01:05Z"
 }
