@@ -354,11 +354,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e]\nARGUS activated on stoa--q7f (arc-77 rev6 FOCUSED re-audit). Reading design-rev6.md end-to-end + argus-rev5-inv-resp.md (r1+r2) + rev5 for verbatim-carry + redact.py/registry.py. Confirming r1 (SCALAR recursive-dict-scan) + r2 (PASS_WHOLE_ALLOWLIST fail-closed-at-load) CLOSE the two named holes; verifying grammar completeness (no r3).",
       "timestamp": "2026-07-06T07:25:14Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e]\nrev6 read end-to-end + redact.py/registry.py (current depth-2 form ADA migrates). Mechanical rev5-\u003erev6 diff = 156ins/42del, delta CONFINED to r1+r2 (no §2/INV-PRINCIPAL/seal-audit/INV-DEST-BIND-LANE/M1/M3-M7/§4/§7 touch). r1 CLOSED (recursive dict-scan drops any mapping at any depth; P-M2 a.3 list-nested case genuinely falsifies a shallow-SCALAR build); r2 CLOSED (PASS_WHOLE_ALLOWLIST loader refuse-to-load fail-closed AT LOAD; P-M2 a.4). Grammar complete (3 node types, loader-enforced closed set; no r3). Finalizing verdict -\u003e PASS.",
+      "timestamp": "2026-07-06T07:27:31Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T07:25:14Z"
+  "updated_at": "2026-07-06T07:27:31Z"
 }
