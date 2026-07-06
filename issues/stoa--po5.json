@@ -454,11 +454,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e]\nc1+c2 edits landed (handler.py: removed RateLimited/ProviderError/ENUM, kept Forbidden/Rejected/FIXED; README INV-RESP row + rev6 citation; pyproject rev6 citation). Running both suites to confirm import removal breaks nothing.",
       "timestamp": "2026-07-06T08:18:59Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e]\npass (trailing touch complete). c1: handler.py L19 -\u003e 'from secure_core.errors import Forbidden, Rejected' (removed RateLimited + ProviderError, both import-only); L22 -\u003e 'from secure_core.slots import FIXED' (removed ENUM, import-only + docstring-only L39-41; KEPT FIXED, used L47 INV-DEST). c2: README INV-RESP row now describes the shipped recursive NODE grammar (OBJECT recurse / SCALAR recursive dict-scan drops any mapping at any depth / PASS_WHOLE whole-pass) + PASS_WHOLE_ALLOWLIST={candidates.content} deny-by-default + loader refuse-to-load on non-allowlisted PASS_WHOLE or legacy bare-list; README + pyproject citation bumped rev4-\u003erev6.md (author=Denson Smith held). SUITES: secure-core 60 passed/1 skipped; builder_deploy_core 105 passed. UNTOUCHED confirmed: demo sha256 a42fcb71 (byte-identical to arc-76 ref); resolve.py + DC3 TOMLs (tailscale.toml, vertex-gemini.toml) untouched; only 3 files edited, all inside secure-core/. FENCE held: 0 commits, 0 push, arc-76/build + main untouched. NOTE: handler.py header L4 still cites rev4 (dispatch scoped c2 to README+pyproject only) -\u003e follow_up. c3 demo typo left byte-identical -\u003e follow_up ticket text below. Returning to PLINY.",
+      "timestamp": "2026-07-06T08:20:26Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T08:18:59Z"
+  "updated_at": "2026-07-06T08:20:26Z"
 }
