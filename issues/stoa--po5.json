@@ -478,11 +478,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e] Probe 1 (DoD) executing: fence confirmed 0 commits ahead of main, deliverables untracked/uncommitted (pre-commit state). Running secure-core + builder_deploy_core suites against REAL code now.",
       "timestamp": "2026-07-06T08:25:51Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e] Probes 1+5 executing: suites re-run GREEN by me (secure-core 60 passed/1 skipped; builder_deploy_core 105 passed). All 7 probe files P-M1..P-M7 collect. Now byte-identity (frozen DC3 files vs main + arc-76 ref), authorship grep, INV fail-loud spot-check.",
+      "timestamp": "2026-07-06T08:26:52Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T08:25:51Z"
+  "updated_at": "2026-07-06T08:26:52Z"
 }
