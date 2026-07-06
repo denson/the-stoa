@@ -398,11 +398,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e]\nDesign + amended code absorbed. probe set executing: full secure-core P-M1..P-M7 (per-worktree .venv), builder_deploy_core 105 regression bar, demo exit-0, then adversarial recursive-grammar + deepcopy meta-check + embeddings web-verify + secret-value grep.",
       "timestamp": "2026-07-06T07:51:34Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e]\nBaseline GREEN: secure-core 60 passed/1 skip (honest AF_UNIX Phase-3 residual, unchanged); builder_deploy_core 105 passed; demo exit 0 value-free. P-M2 now 15 green incl a.2/a.3/a.4. Writing my OWN adversarial recursive-grammar + deepcopy meta-check probes (deeper nesting than ADA planted).",
+      "timestamp": "2026-07-06T07:53:17Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T07:51:34Z"
+  "updated_at": "2026-07-06T07:53:17Z"
 }
