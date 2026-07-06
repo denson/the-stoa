@@ -474,11 +474,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e] NOMOS activated on arc-77/build (u--9s2 inc 2.4 Phase-1 secure-core pass-through). Reading the directive (attachments/stoa--po5/arc-77-build-directive.md §6 DoD/§5 fence/§3A), design-rev6, the gauntlet verdicts, and the deliverable tree. Running the 6 probe families against tree+tests ground truth (not reports). Read-before-write done on stoa--po5.",
       "timestamp": "2026-07-06T08:25:06Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e] Probe 1 (DoD) executing: fence confirmed 0 commits ahead of main, deliverables untracked/uncommitted (pre-commit state). Running secure-core + builder_deploy_core suites against REAL code now.",
+      "timestamp": "2026-07-06T08:25:51Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T08:25:06Z"
+  "updated_at": "2026-07-06T08:25:51Z"
 }
