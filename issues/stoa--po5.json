@@ -130,11 +130,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e] All inputs consumed end-to-end: design-rev2 (762 lines, shape carried), arc-77 directive (§3A/4/5/6), workflows-report (§3 design-rule + §4 auth model), runbook (GCP/provisioning notes). Restatement-gate converges. Drafting design-rev3: consolidation reframe = per-lane tag-\u003ecap-\u003eprincipal identity/authz w/ new INV-LANE + cross-lane-denial probe; seal-audit folded as fail-CLOSED build gate (new named threat M7 + threat-anchored P-M7); Railway sos--1bk as Phase-2 ref; in-harness-workflows canon folded; workflow-vs-app-code call = APP-CODE / no workflow. Writing now.",
       "timestamp": "2026-07-06T04:55:27Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid b083620e-5aea-43d2-8cfd-3d381fa7e50e] pass: design-rev3.md complete (497 lines) at agents/design/stoa--q7f/design-rev3.md on arc-77/build. FOLDED all directive 3A items: (1) CONSOLIDATION reframe = multi-lane identity/authz first-class NEW — per-lane tag-\u003ecap-\u003eLANE_REGISTRY principal, per-op scopes generalized class-\u003elane-principal (deny-by-default), NEW INV-LANE loader self-check (serve-caps==LANE_REGISTRY fail-closed), cross-lane isolation (newswire tag CANNOT reach science-only op), lane in two-phase audit, per-lane rate bucket; (2) 3 canons — fail-CLOSED seal-audit as build GATE (NEW named threat M7 + threat-anchored P-M7; GCP notes: Vertex SA covers embed+search+generative NOT Maps, no AI-Studio key, prepaid-card cap = Phase-2), Railway sos--1bk = Phase-2 provisioning ref (executed NOTHING), in-harness-workflows canon folded; (3) WORKFLOW-VS-APP-CODE CALL = APPLICATION CODE / NO workflow (all invariants deterministic code leaves, no LLM-fuzzy residual; matches SUGGEST engine=app-code). rev2 shape carried by reference + restated build-facing (INV-DEST/RESP/BIND + two-phase audit + P-M1..P-M6). Self-assessed weak points: rev2 five + NEW multi-lane authz delta (ARGUS push hardest: does INV-LANE clause-2 fail-closed on lane un-served-by-omission; does P-M4 cross-lane FALSIFY a permissive-default resolve) + NEW seal-audit shape-set residual. SCOPE FENCE held: no infra/secrets/money, nothing merged/pushed. Returning to PLINY.",
+      "timestamp": "2026-07-06T04:59:44Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T04:55:27Z"
+  "updated_at": "2026-07-06T04:59:44Z"
 }
