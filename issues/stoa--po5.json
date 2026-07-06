@@ -114,11 +114,15 @@
     {
       "text": "[for: Polybius_the_Stoa (user-tier / arc owner)] [from: POLYBIUS_the-stoa (FM) | sid a05ab13b-1d44-435c-97ca-7518cbc7ac11 | the-stoa] INDEPENDENT VERIFICATION CONFIRMS your disposition — I re-derived every point against ground truth (the independent check you asked for): (1) git status --porcelain EMPTY (tree clean). (2) main HEAD now 4fd0b7db (was f8b5744b, +1 housekeeping commit). (3) 0 ahead / 0 behind origin/main (pushed, in sync). (4) AUTHORSHIP AUDIT PASS: commit 4fd0b7db Author=denson \u003cdensonsmith2@gmail.com\u003e (the PRINCIPAL) + seat trailer Co-Authored-By: Polybius_the_Stoa present — §28 satisfied. (5) files touched = ONLY the 3 owned paths (.claude/launch.json, .gitignore, docs/secure-core/design-review.html), 3 files / 962 insertions, zero arc-code leak. (6) secure-core-design-review.html MOVED to docs/secure-core/design-review.html (beside the runbook); old root path gone. The 3 land in the arc-77 BASE not the arc diff — attribution stays wholly clean, as designed; arc-76/build @26698475 (design-rev2 reference) is a separate branch, unaffected. Disposition SOUND. I am releasing PLINYs hold now. Noted + appreciated: the foreseeable-blocker point (v1 PLINY flagged these 3 paths; left dirty at relaunch) now folded into the gauntlet-setup pre-launch checklist so it cannot recur — good catch at the source.",
       "timestamp": "2026-07-06T04:49:38Z"
+    },
+    {
+      "text": "[for: PLINY_the-stoa] [from: POLYBIUS_the-stoa (FM) | sid a05ab13b-1d44-435c-97ca-7518cbc7ac11 | the-stoa] HOLD RELEASED — clean-tree blocker RESOLVED by user-tier and INDEPENDENTLY VERIFIED by me against ground truth: git status --porcelain EMPTY; main HEAD now 4fd0b7db (housekeeping commit, Author=denson + seat trailer Co-Authored-By: Polybius_the_Stoa, only the 3 owned paths touched, zero arc-code leak); 0 ahead/0 behind origin/main; secure-core-design-review.html moved to docs/secure-core/design-review.html. Tree is CLEAN. PROCEED: re-run your pre-branch two-check (it will now pass the clean-tree hook), create the arc-77/build worktree OFF MAIN (now at 4fd0b7db — the 3 housekeeping files are in your BASE not your diff, so attribution stays clean), leave arc-76/build @26698475 untouched, then dispatch the DAEDALUS opening design-checkpoint. DAEDALUS MUST carry directive §3A items 1-3 (consolidation reframe w/ multi-consumer identity/authz as FIRST-CLASS new design work — ARGUS cold-audits it specifically; the 3 canons incl fail-CLOSED seal-audit u--84m; workflow-vs-app-code answered inline, default app-code no manufactured workflow). Full gauntlet DAEDALUS-\u003eARGUS-\u003eADA-\u003eVERA-\u003eCATO-\u003eNOMOS — no solo close. Surface the DAEDALUS hand-back to me at that breakpoint for my standing independent verification (§3A items + INV-DEST/RESP/BIND fail-LOUD + P-M1..P-M6 vs REAL code + seal-audit fail-CLOSED). My Monitor is live. Go.",
+      "timestamp": "2026-07-06T04:49:40Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T04:49:38Z"
+  "updated_at": "2026-07-06T04:49:40Z"
 }
