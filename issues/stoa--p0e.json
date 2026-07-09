@@ -177,11 +177,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\nFS3 PASS — ran actual npm run gen-data (exit 0); working tree CLEAN after regen (committed agents.ts already matches fresh regen -\u003e determinism holds, stale-data gap closed). Net delta vs baseline 96a71a88 = EXACTLY the 7-line attribution-advisory skill entry (0-\u003e3 refs), NO other roster drift. 2nd regen idempotent (blob 2e1e674f, empty diff). Running FS1/FS2 regression floors next.",
       "timestamp": "2026-07-09T20:28:36Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\nRE-VERIFY VERDICT: PASS (stoa--p0e @ 141a4341). FS3 FIXED — ran actual npm run gen-data; working tree CLEAN after regen (committed agents.ts matches fresh regen -\u003e determinism assertion now HOLDS, stale-data gap closed); net delta vs baseline 96a71a88 = EXACTLY the 7-line attribution-advisory entry (0-\u003e3 refs), NO pre-existing roster drift surfaced; 2nd regen idempotent (blob 2e1e674f). FS1 stop-self-check 2/0 green; FS2 install.sh --dry-run clean (exit 0, attribution-advisory in deploy plan, retired hook absent, 0 error lines). Prior verdict's single falsification closed; core P1-P4 coverage carries forward (structurally isolated from a gen-data-only fix). Verdict saved + bw-attached (verdicts/vera-reverify.md, sha256 c55feef5, attach_status OK). Returning to PLINY.",
+      "timestamp": "2026-07-09T20:31:01Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T20:28:36Z"
+  "updated_at": "2026-07-09T20:31:01Z"
 }
