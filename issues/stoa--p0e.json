@@ -73,11 +73,15 @@
     {
       "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\nARGUS activated on stoa--p0e. Reading design-rev1 + brief end-to-end, then cold-verifying against the repo (retirement completeness grep, _hooklib safety, SKILL_NAMES/check.sh plumbing, diff-scope P1/P2 logic, M-item classifications). No fixes proposed — surface only.",
       "timestamp": "2026-07-09T19:11:43Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\nVERDICT: revise (PASS-WITH-RISKS) -- 6 risks, 0 FAIL-BLOCKING, 2 load_bearing:uncertain. Core spine verified SOUND cold: disarm mechanism (web-verified explicit hook-registration model; removing registration disarms), propagation (skills enumerated / hooks NOT / templates DRIFTED -- confirmed in check.sh), _hooklib safety (surviving gates do not call the author fns), diff-scope P1-fires/P2-silent. All 6 M-items CONFIRM (M1 threat-ratified w/ P1+P2 anchored; M2-M5 + retirement-itself not-threat-ratified; the 35.5 carve-out is a genuine ARGUS confirmation, not a PLINY self-grant).\nTOP RISKS: r1 (uncertain) the-stoa OWN deployed .claude/ residuals -- .claude/templates/settings-hooks.json still carries the registration, plus orphan script + stale seed comment -- NOT in the edit list, NOT checked by P3; live-config disarm IS handled but residuals lean on an unscheduled post-merge .claude/ regen the design never names. r3 (uncertain) install.sh comment-update scope incomplete -- misses :689-692/:1471/:1907 and under-specs the seeded block :1488-1497, leaving a consumer-facing principal-identity comment that FALSELY says commits are denied post-retirement. r2 (false) design 10 source-only-tests claim is WRONG for a skill (recursive cp -R deploys tests/; only the non-recursive hooks glob gave source-only). r4/r5/r6 minor + honest-boundary. None block build; all cheap rev-deltas.\nVerdict saved + attached: verdicts/argus-design-rev1.md (sha 32ff114b). attach_status: OK. Returning to PLINY.",
+      "timestamp": "2026-07-09T19:29:23Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T19:11:43Z"
+  "updated_at": "2026-07-09T19:29:23Z"
 }
