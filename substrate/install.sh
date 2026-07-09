@@ -82,8 +82,9 @@
 # config) but prints a manual-merge runbook. When --enable-hooks is OFF (the
 # default), the scripts + candidate template deploy and NOTHING is armed. This
 # is the HARD SAFETY CONSTRAINT: no install auto-arms a hook in a live session.
-# Subproject-tier hook deploy is deferred (Arc 46 §11). The author-field gate
-# reads a PRINCIPAL-identity allow-list seeded at .claude/hooks/principal-identity.
+# Subproject-tier hook deploy is deferred (Arc 46 §11). The attribution-advisory
+# skill's SECONDARY check reads a PRINCIPAL-identity allow-list seeded at
+# .claude/hooks/principal-identity.
 #
 # Arc C (stoa--xyb.14) adds TWO more candidate mechanisms, BOTH default-OFF,
 # BOTH mirroring the inert-candidate + separate-arming posture above:
@@ -234,6 +235,7 @@ SKILL_NAMES=(
   team-launcher
   gauntlet-setup
   whoami
+  attribution-advisory
 )
 # Arc 63 / stoa--p41.2: check-substrate-updates + check-bw-release were REMOVED
 # from SKILL_NAMES (retired from the model-invokable skill menu — their SKILL.md
@@ -689,8 +691,9 @@ while [ "$#" -gt 0 ]; do
       # stoa--iyl: the PRINCIPAL's display NAME as it appears in author-like
       # fields (e.g. "Denson Smith", "Marianne <Lastname>") — distinct from the
       # git handle in `git config user.name` (which may be a short handle like
-      # "denson"). Seeded into the author-field gate's allow-list so the gate
-      # recognizes the PRINCIPAL's own authored artifacts and does not false-block.
+      # "denson"). Seeded into the attribution-advisory allow-list so the
+      # advisory's SECONDARY check recognizes the PRINCIPAL's own authored
+      # artifacts and does not false-report.
       [ "$#" -ge 2 ] || err "--principal-name requires a name"
       PRINCIPAL_NAME="$2"
       shift 2
@@ -1468,14 +1471,15 @@ if [ -n "$DEST_HOOKS_DIR" ]; then
       echo "deployed: ${DEST_HOOKS_DIR}/README.md"
     fi
   fi
-  # Write the PRINCIPAL-identity allow-list the author-field gate reads, IF it
-  # does not already exist (never clobber an operator-curated list). It is the
-  # gate's CONFIG — the PRINCIPAL identity to compare against — NOT an author
+  # Write the PRINCIPAL-identity allow-list the attribution-advisory skill reads,
+  # IF it does not already exist (never clobber an operator-curated list). It is
+  # the skill's CONFIG — the PRINCIPAL identity to compare against — NOT an author
   # field of any artifact. At project tier we cannot know the PRINCIPAL's name
   # mechanically, so we seed it from `git config` in the target if available,
-  # else write a commented template the operator fills in. The gate FAIL-OPENs
-  # (allows) when the list is absent or empty, so an unfilled template never
-  # blocks a legit commit — it just leaves the gate dormant until populated.
+  # else write a commented template the operator fills in. The advisory's
+  # SECONDARY check is SKIPPED when the list is absent or empty (fail-open), so
+  # an unfilled template never produces a false report — it just leaves the
+  # SECONDARY check dormant until populated (PRIMARY still runs, name-agnostic).
   PRINCIPAL_ID_FILE="${DEST_HOOKS_DIR}/principal-identity"
   if [ -f "$PRINCIPAL_ID_FILE" ]; then
     log "principal-identity allow-list already exists (not clobbered): $PRINCIPAL_ID_FILE"
@@ -1485,16 +1489,16 @@ if [ -n "$DEST_HOOKS_DIR" ]; then
     _seed_name="$(git config --global user.name 2>/dev/null || true)"
     _seed_email="$(git config --global user.email 2>/dev/null || true)"
     {
-      echo "# Stoa author-field gate — PRINCIPAL identity allow-list."
+      echo "# Stoa attribution-advisory — PRINCIPAL identity allow-list."
       echo "# One accepted name or email per line ('#' comments + blanks ignored)."
-      echo "# The pretooluse-author-field-audit.sh gate compares commit author"
-      echo "# identity + staged author-like fields against this list; a value not"
-      echo "# on the list is treated as 'not the PRINCIPAL' and the commit is denied"
-      echo "# with a message naming this file. This is the GATE'S CONFIG, not an"
-      echo "# author field of any repo artifact. Widen it when a legit PRINCIPAL"
-      echo "# identity is missing. An ABSENT or EMPTY list leaves the gate dormant"
-      echo "# (fail-open). Seeded from the target's global git identity + any"
-      echo "# --principal-name passed at install (the author-field display name)."
+      echo "# The attribution-advisory skill's SECONDARY check compares NEW author-like"
+      echo "# field VALUES (added in a diff, outside vendored paths) against this list;"
+      echo "# a value not on the list is REPORTED for review in the advisory report."
+      echo "# It is NEVER blocked or denied — the advisory is report-only. This is the"
+      echo "# SKILL'S CONFIG, not an author field of any repo artifact. Widen it when a"
+      echo "# legit PRINCIPAL identity is missing. An ABSENT or EMPTY list SKIPS the"
+      echo "# SECONDARY check (PRIMARY still runs, name-agnostic). Seeded from the"
+      echo "# target's global git identity + any --principal-name passed at install."
       [ -n "$_seed_name" ]  && echo "$_seed_name"
       [ -n "$_seed_email" ] && echo "$_seed_email"
       [ -n "${PRINCIPAL_NAME:-}" ] && echo "$PRINCIPAL_NAME"
@@ -1904,7 +1908,7 @@ fi
 # (substrate/hooks/*.sh) + the README, mirroring the modules scan. File-only
 # single-segment shape. CARVE-OUTS: the gate's runtime CONFIG/STATE files are
 # NOT substrate-source and must NOT be flagged obsolete —
-#   - principal-identity  : operator-curated allow-list (the gate's config)
+#   - principal-identity  : operator-curated allow-list (the attribution-advisory skill's SECONDARY-check config)
 #   - .stop-sentinels/    : per-turn loop-guard state (a directory; skipped by
 #                           the [ -f ] file-only filter anyway, carved out for clarity)
 # Skipped in subproject mode (DEST_HOOKS_DIR empty — Arc 46 §11).
