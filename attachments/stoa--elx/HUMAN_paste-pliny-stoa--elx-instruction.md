@@ -1,31 +1,42 @@
-Read .claude/MAJOR_PLINY.md and assume the orchestrator role for the-stoa. Run `bw prime` and the `whoami` skill at activation; sign every bw comment `[from: PLINY_the-stoa | sid <your-sid>]`. Post a one-line activation comment on `stoa--elx`.
+# Engagement brief — PLINY_the-stoa (orchestrator) — stoa--elx: bw bootstrap into the install process (arc-75)
 
-ENGAGEMENT: Arc 75 — bw bootstrap into the Stoa install process. You orchestrate the full gauntlet DAEDALUS → ARGUS → ADA → VERA → CATO → NOMOS, BY-THE-BOOK (NOT one-pass): DAEDALUS designs in a separate Phase A and you surface the design to the floor-manager (POLYBIUS_the-stoa) for a go/no-go BEFORE you dispatch ADA. Standard team — no CHIRON/HAMILTON. Coordinate on charter `stoa--elx`. You surface to the floor-manager, NOT to user-tier POLYBIUS direct.
+Read .claude/MAJOR_PLINY.md and assume the orchestrator role for the-stoa.
 
-YOUR SPEC (read fully before dispatching DAEDALUS):
-- The directive: `substrate/arcs/arc-75-build-directive.md` on main @ 376a563. Carries DC1-DC8, deliverables, DoD, scope, phasing.
-- The gated v2 plan: `git show beadwork:attachments/stoa--elx/plan-bw-bootstrap-v2.md`.
+## Chain of command (supersedes the directive's comms section on ONE point)
 
-SCOPE (from the directive — the in/out):
-- IN: `substrate/bootstrap-bw.sh` (NEW — the idempotent OS-split helper); `substrate/install.sh` opt-in `--bootstrap-bw` flag (default OFF; absent-flag behavior BYTE-UNCHANGED); `skills/install-stoa/SKILL.md` Beat 1 + "What you must NOT do" canon reversal (RATIFIED).
-- OUT: the cookie-cutter (u--9s2) stand-up call-site (the helper is built `--yes`-ready, but wiring is u--9s2); this machine's real Windows PATH (VERA uses throwaway probes only); the `bw upgrade` flow; editing the historical arc-19 directive; deploying install-stoa into `substrate/skills/`.
+PRINCIPAL → Polybius the Grand → Polybius the Decider (user-tier) → POLYBIUS_the-stoa (FM — **your only up-channel**) → YOU → CAPTAINs. The directive names the retired "Polybius_the_Stoa" as owner — the user-tier seat is now **Polybius the Decider**, reached through the FM only. Everything else in the directive stands.
 
-DESIGN DECISIONS TO FLAG FOR DAEDALUS (Phase A; surface at the design hand-back for go/no-go):
-- DC2 (LOAD-BEARING, the crux): the Windows USER PATH mutation — registry-safe HKCU\Environment append-if-absent, length-checked, NEVER a naive `setx`; fail-loud manual fallback. DAEDALUS OWNS this design; ARGUS cold-audits it specifically.
-- DC3 (MANDATORY): two-independent-checks — binary-present AND PowerShell-callable, checked SEPARATELY (git-bash false-greens). The PowerShell-callability fix runs even when the binary check passes.
-- DC4: Unix delegates to upstream install.sh (do NOT reinvent); prep ~/.local/bin on PATH + pin INSTALL_DIR; floor-via-latest (>=0.13.2); accept upstream's no-checksum HTTPS posture (Grand §4a ACCEPTED).
-- DC5: Windows — download `beadwork_<ver>_windows_<arch>.zip`, SHA256-verify against checksums.txt (FAIL-CLOSED), extract bw.exe, place in the DC2 dir.
-- DC1/DC6/DC7/DC8: the helper's idempotent skip-if-(bw>=floor); the install.sh flag; the onboarding-skill reversal; the honest threat posture (supply-chain + PATH mutation — ARGUS weighs it).
+## Authoritative spec (read in order; do NOT re-derive from memory)
 
-POLLING DISCIPLINES (all three — per MAJOR_PLINY.md §5.8):
-- D-A (bw-copy-all-output): every CAPTAIN echoes significant outputs to bw on `stoa--elx`.
-- D-B (polling-at-breakpoints): read bw between every CAPTAIN dispatch (sources: floor-manager + user-tier POLYBIUS + PRINCIPAL).
-- D-C (polling-during-surface-and-wait): run a Monitor (or sleep loop) at ~2-3 min cadence during surface-and-wait.
+1. `substrate/arcs/arc-75-build-directive.md` on main — DC1–DC8, deliverables, DoD, out-of-scope, phasing. It is your work order.
+2. `git show beadwork:attachments/stoa--elx/plan-bw-bootstrap-v2.md` — the Grand-GATED plan; authoritative on conflicts.
+3. The stoa--elx comment trail (the Grand's GATED GO + hard conditions).
 
-HAND-BACK: at CATO PASS → NOMOS CONFORMANT, post on `stoa--elx` addressed to POLYBIUS_the-stoa (floor-manager) — NOT direct to user-tier. The floor-manager runs final verification + relays up. Then: user-tier close-gate → the Grand's SECOND gate of the BUILT ARTIFACT → merge. NOTHING MERGES until the Grand gates the built artifact.
+## Base-drift warning
 
-WHAT YOU DO NOT DO: merge, push to main, apply to cloud, relay direct to user-tier (except scope disputes), surface to the PRINCIPAL except emergencies, or touch this machine's real Windows PATH.
+Directive anchored at main @7d20b5f; you build off CURRENT main **@cfd683d7**. Arc-p0e has since EDITED install.sh (comment fixes, SKILL_NAMES, author-gate retirement) — GROUND-CHECK every cited install.sh/SKILL.md anchor against current main before DAEDALUS designs and before ADA edits. The author deny-gate no longer exists; authorship is enforced by doctrine audits + the attribution advisory (report-only).
 
-CLOSE SIGNAL: when the gauntlet completes + is handed to the floor-manager, post `CLOSE ME — arc-75 gauntlet complete; awaiting user-tier POLYBIUS close-gate + Grand's second gate + merge`.
+## Execution shape (from the directive — BY-THE-BOOK, not one-pass)
 
-COMPACTION RECOVERY: re-read this brief at `git show beadwork:attachments/stoa--elx/HUMAN_paste-pliny-stoa--elx-instruction.md`, re-read .claude/MAJOR_PLINY.md, and re-anchor on `stoa--elx` + the directive.
+- Isolated worktree + `stoa--elx/build` branch off clean main. Pre-branch hygiene disclosure first (the parked arc-76-build worktree is KNOWN and dispositioned LEAVE — do not touch, do not re-ask).
+- **Phase A**: DAEDALUS resolves DC1–DC8 (DC2 registry-safe Windows USER PATH append + DC3 two-independent-checks are load-bearing); ARGUS cold-audits the PATH mechanism + supply-chain surface; surface to the FM for go/no-go BEFORE build.
+- **Phase B**: ADA builds the one slice — helper + install.sh `--bootstrap-bw` flag + install-stoa canon reversal.
+- **Phase C**: VERA real-execution probes (idempotent skip on THIS machine; registry-safe append exercised against a THROWAWAY value — NEVER this machine's real USER PATH; DC3 false-green demonstrably caught; SHA256 fail-closed on a corrupted zip; Unix delegates to upstream; install.sh absent-flag byte-unchanged via dry-run diff) + full app suite (gen-data deterministic + vitest) + CATO + NOMOS.
+- **Phase D**: commit(s) Author = Denson Smith + your/ADA seat trailers per §28; update stoa--elx with SHA + per-DC dispositions; hand back to the FM. **NOT merged, NOT pushed — this arc has a SECOND GRAND GATE on the built artifact before any merge.**
+
+## Disciplines
+
+- D-A / D-B (re-read bw immediately before any irreversible-ish act) / D-C; quiesce-cold at gates; supersede-must-revoke; 10-minute liveness on expected pickups; coverage claims precise per-commit.
+- bw: positional `bw comment`, no backticks/`$()` in bodies; `bw prime` at activation; sign `[from: PLINY_the-stoa | sid <sid>]`.
+
+## What you do NOT do
+
+Merge; push; mutate this machine's real Windows USER PATH or its working bw; re-implement upstream's Unix installer; wire the u--9s2 call-site; edit the historical arc-19 directive; move install-stoa into substrate/skills; surface to user-tier direct (except scope disputes) or PRINCIPAL ever.
+
+## Close signal
+
+`CLOSE ME — stoa--elx gauntlet complete; awaiting FM verification + user-tier close-gate + the Grand's built-artifact gate`
+
+## Compaction recovery
+
+`git show beadwork:attachments/stoa--elx/HUMAN_paste-pliny-stoa--elx-instruction.md`
