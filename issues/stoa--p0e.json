@@ -229,11 +229,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] VERA activated on stoa--p0e TARGETED RE-VERIFY of polish commit b34e5e94. Reading brief + advise.sh + runner + gen-data surface. Will re-run by execution: P4 static+empirical, c2 arg-guard footgun, runner P1/P2/supplementary, gen-data determinism, FS1.",
       "timestamp": "2026-07-09T20:47:35Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] RE-VERIFY VERDICT: PASS (verified by execution, ADA self-checks not trusted). P4 static: only exit 0 reachable, deny/permission comment-only. P4 empirical (flag/clean/empty/malformed): all rc=0, zero permission-decision output. c2 arg-guard: footgun CLOSED (--diff-file --report-out X warns to stderr + HONORS --report-out, no swallow) + missing-value-at-end warns+defaults, all rc=0. Runner 31/31 ALL PASS (P1 flags, P2 clean, s1/s2, n1/n2, static assert). gen-data: committed agents.ts == fresh regen, 2nd regen idempotent, delta vs baseline = purely additive 7-line skill entry w/ c1 'requires bash+python3' desc, no roster drift. FS1 2/0. attach_status OK (verdicts/vera-reverify-polish.md, sha256 06a8d24d). Returning to PLINY.",
+      "timestamp": "2026-07-09T20:52:19Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T20:47:35Z"
+  "updated_at": "2026-07-09T20:52:19Z"
 }
