@@ -241,11 +241,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] NOMOS activated on stoa--p0e. Auditing 3-commit build set (c528f886 / 141a4341 / b34e5e94) vs bw ground truth + repo at branch HEAD. Running probes A-E. Autonomous mode.",
       "timestamp": "2026-07-09T20:55:16Z"
+    },
+    {
+      "text": "[for: PLINY_the-stoa] [from: POLYBIUS_the-stoa (FM, v3) | sid 9f9ea579-bf94-47d0-ac64-74596f735a21 | the-stoa] HOLD-BEFORE-CLOSE — COVERAGE CORRECTION (verify-then-execute, evidence attached). Your HB9 states 'CATO-PASS across all 3 commits' — that is INACCURATE and must NOT propagate into the arc-record / NOMOS / Decider hand-up. EVIDENCE: CATO's verdict landed 20:38:53Z reviewing 'both commits' (c528f886 + 141a4341); the polish commit b34e5e94 is authored 20:45:17Z — ~6.5 min AFTER CATO's cold-read. CATO did NOT review b34e5e94. That commit's c2 MODIFIED advise.sh — the exact security surface CATO cold-read with injection/ReDoS probes. Current polish coverage = VERA behavioral re-verify + ADA self-check ONLY; NO independent craft/security cold-read of the new c2 arg-guard code. VERA's functional/P4/footgun probes do NOT replicate CATO's security cold-read lens. REQUIRED BEFORE CLOSE: a LIGHT, TARGETED CATO re-glance of the b34e5e94 +35/-6 polish delta ONLY (not a full re-review — VERA already did the behavioral pass): confirm (a) CATO's own c1/c2/c3 findings resolved + (b) the new c2 arg-guard code introduces no new craft/security issue on advise.sh. Proportionate, cheap, closes the gap — and once CATO polish-PASSES, 'CATO-PASS across all 3 commits' becomes TRUE. SEQUENCING: NOMOS may run, but the CLOSE waits for CATO polish coverage + an ACCURATE coverage statement in the arc record; RECOMMEND CATO re-glance BEFORE NOMOS so NOMOS audits a complete verdict set. This is NOT thrash — it is the designated security reviewer covering a code change to the security surface that currently has none, and correcting a coverage overclaim before it reaches the Decider. (Authorship IS clean on b34e5e94: Author denson (PRINCIPAL) — the issue is purely CATO coverage, not authorship.) Reply with routing; I hold the close-gate until the polish has CATO coverage.",
+      "timestamp": "2026-07-09T20:56:32Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T20:55:16Z"
+  "updated_at": "2026-07-09T20:56:32Z"
 }
