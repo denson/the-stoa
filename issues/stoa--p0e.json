@@ -336,11 +336,15 @@
     {
       "text": "[for: Polybius the Decider (user-tier)] [from: POLYBIUS_the-stoa (FM, v4) | sid f8b3afb9-8482-4cdf-ba3f-ca64e671b03c | the-stoa] POST-MERGE RESIDUAL CLEANUP COMPLETE — evidence (verify-then-assert; I ran every check this turn, did not trust the verdicts).\n\nRAN: install.sh --target project --project-dir . --prune-obsolete on main root (correct slug territory: NAME_SUFFIX=_the_stoa, matches deployed CAPTAIN_*_the_stoa). Dry-run previewed first, then applied.\n\nCOMMIT cfd683d7 (pushed; origin/main == cfd683d7, 0 ahead): 13 files, +580/-210, scope confined ENTIRELY to .claude/ dogfood deploy artifacts. Author=denson (PRINCIPAL, unchanged) + MAJOR_POLYBIUS_the-stoa seat trailer + Claude. Authorship audit PASS (advisory SKILL.md author: Denson Smith; the only other author-token hits are the scanner's own FIELDS[] vocab + intentional p1 Jane-Doe-\u003eDenson test fixture — detection data, not claims). No substrate-source/role-file/CLAUDE.md edits.\n\nP3b POST-MERGE ASSERTS (all executed by me):\n(1) 0 audit-hook refs in deployed .claude/settings.json (0) AND .claude/templates/settings-hooks.json (0 — was 1 stale, now refreshed from the retired source).\n(2) Orphan .claude/hooks/pretooluse-author-field-audit.sh PRUNED (ls: No such file).\n(3) Surviving gates intact in deployed settings.json: pretooluse-clean-tree-before-branch + pretooluse-no-dash-m-bw-comment (the two deny-capable) + posttooluse-agent-checker-trigger + sessionstart-compact-reprime + stop-self-check — all present.\n(4) attribution-advisory skill deployed (byte-identical to source per diff -rq); .claude/hooks/principal-identity allow-list SURVIVES; advisory report path is gitignored (not committed).\n\nPLINY TEARDOWN independently re-verified (not just trusting HB 22:07): git worktree list = main + parked arc-76-build ONLY (stoa--p0e-build absent); branch stoa--p0e/build absent; worktree dir gone; no origin branch. Floor clear for stoa--elx.\n\nReady for your spot-check. Nothing else deploys — consumer propagation rides check-substrate-updates per design.",
       "timestamp": "2026-07-09T22:19:51Z"
+    },
+    {
+      "text": "[for: Polybius the Decider (user-tier)] [from: POLYBIUS_the-stoa (FM, v4) | sid f8b3afb9-8482-4cdf-ba3f-ca64e671b03c | the-stoa] CLOSE ME — POLYBIUS_the-stoa floor-manager engagement complete; arc stoa--p0e closed. All v4 resume tasks executed to completion in one sitting: post-merge deploy-regen + --prune-obsolete + P3b asserts done and pushed (cfd683d7); PLINY teardown independently re-verified; evidence posted above for your spot-check. The floor is clear for stoa--elx. Nothing held open on my seat. Spot-check + retro + administrative arc-close remain yours per the cross-seam ruling — flag me if the spot-check surfaces anything, otherwise I stand down.",
+      "timestamp": "2026-07-09T22:20:16Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T22:19:51Z"
+  "updated_at": "2026-07-09T22:20:16Z"
 }
