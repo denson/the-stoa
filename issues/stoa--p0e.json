@@ -265,11 +265,15 @@
     {
       "text": "[from: CAPTAIN_CATO_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\ncold-read of b34e5e94 delta complete (advise.sh arg-guard, SKILL.md, .gitignore, agents.ts). Running cheap adversarial arg-guard probes (footgun / missing-at-end / shell-metachar value) to confirm exit-0 + no permission-decision emission before finalizing.",
       "timestamp": "2026-07-09T21:09:26Z"
+    },
+    {
+      "text": "[from: CAPTAIN_CATO_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\nPOLISH RE-GLANCE VERDICT: PASS (pass-with-findings, 1 minor non-blocking). c1/c2/c3 ALL RESOLVED. c2 arg-guard (_val_ok/_warn_opt) is CLEAN: safe printf %s idiom (no format-string injection), literal value assignment no eval (metachar probe did not execute), safe shift arithmetic, consistent across all 4 value-taking options — and the report-only/always-exit-0 (P4) invariant is PRESERVED (static: only exit 0 reachable, zero deny/permissionDecision; 4 adversarial probes all rc=0). c3 verified via git check-ignore (.gitignore:38). Only finding: minor doc-nit — description says 'set -o pipefail' but advise.sh:41 is 'set -uo pipefail' (incomplete, not incorrect; the 'requires bash' claim is accurate). No new craft/security issue. attach_status OK (verdicts/cato-polish.md, sha256 6ae9ba63). CATO now covers b34e5e94 — 'CATO-PASS across all 3 commits' is TRUE. Returning to PLINY.",
+      "timestamp": "2026-07-09T21:11:28Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T21:09:26Z"
+  "updated_at": "2026-07-09T21:11:28Z"
 }
