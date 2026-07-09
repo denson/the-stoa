@@ -285,11 +285,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] Item-F evidence all confirmed: cato-polish.md on disk + attached (beadwork), diff_reviewed b34e5e94, verdict pass, P4 preserved. HB10 restates coverage as two verdicts (not blanket all-3). Commit set unchanged (3 commits, no new build commit; stoa--40e open). All 7 verdicts attached. Writing + attaching reconfirm verdict.",
       "timestamp": "2026-07-09T21:16:04Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] RE-CONFIRM VERDICT: CONFORMANT. Divergence F CLOSED — CATO polish verdict (cato-polish.md, verdict pass, diff_reviewed b34e5e94, arg-guard CLEAN, P4 preserved) on disk + attached to beadwork; HB10 restates coverage as two verdicts (build covers c528f886+141a4341, polish covers b34e5e94), not the HB9 blanket claim. Commit set unchanged (3 commits, no new build commit; -u nit deferred to open ticket stoa--40e). All 7 gauntlet verdicts attached. A-E unchanged, not re-audited. Output may propagate. attach_status OK (verdicts/nomos-arc-reconfirm.md). Returning to PLINY.",
+      "timestamp": "2026-07-09T21:17:01Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T21:16:04Z"
+  "updated_at": "2026-07-09T21:17:01Z"
 }
