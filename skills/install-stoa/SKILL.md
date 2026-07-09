@@ -34,9 +34,9 @@ ls <target>/.claude/MAJOR_POLYBIUS*.md <target>/.claude/MAJOR_PLINY*.md 2>/dev/n
 
 If any match, **stop the fresh-install dialog and route to the update path** — `check-substrate-updates` (read-only `check.sh` → consent-gated `apply.sh` → `revert.sh` net), not this skill. The `deploy-stoa` router automates this detect-and-branch and hands fresh installs back to this skill. If no match, this is a genuine fresh install — continue to Beat 1.
 
-### Beat 1 — verify `bw` is installed
+### Beat 1 — ensure `bw` is installed (guided bootstrap if missing)
 
-The substrate uses beadworks (`bw`) as durable substrate. The install script does not initialize `bw` (POLYBIUS does that interactively after install), but the deployed substrate is unusable without `bw` on the PATH.
+The substrate uses beadworks (`bw`) as its durable bus + memory layer. The install script does not initialize `bw` (POLYBIUS does that interactively after install), but the deployed substrate is unusable without `bw` on the PATH — and on Windows it can be *silently* unusable: `bw.exe` can work from git-bash while PowerShell/cmd cannot see it, because its dir is not on the Windows USER PATH (a PATH problem, not an extension problem).
 
 Run:
 
@@ -44,11 +44,16 @@ Run:
 bw --version
 ```
 
-If it returns a version, continue. If it returns "command not found" or similar:
+If it returns a version, continue. If it returns "command not found" or similar, **drive the guided, consented bootstrap** rather than pausing (canon reversal, Arc 75 / stoa--elx — see justification below):
 
-> The Stoa substrate uses beadworks (`bw`) as its durable message bus and memory layer. I don't see `bw` on your PATH. Before we can usefully deploy, you'll need to install `bw` from its own repo — that lives separately from The Stoa. I'm going to pause here; once `bw --version` returns a version on your machine, come back and we'll continue. Want me to surface the bw repo URL, or do you have it?
+1. **Show the plan first.** Name the release source (`github.com/jallum/beadwork`, public, no credentials, floor `>=0.13.2`, self-updating thereafter via `bw upgrade`), and on Windows the SHA256-verification step and the registry-safe USER PATH append (`~/.local/bin` added to `HKCU\Environment` Path, length-checked, fail-loud — never a blind `setx`).
+2. **Dry-run first.** Run `bash substrate/bootstrap-bw.sh --dry-run` and show the planned actions (no download, no mutation). The dry-run-first discipline is not waived.
+3. **Get consent, then run for real.** On yes, run `bash substrate/bootstrap-bw.sh` — it obtains bw for the host OS (Unix delegates to upstream's installer; Windows is downloaded + SHA256-verified + extracted + PATH-appended by us), then verifies two independent ways: the binary is present AND (Windows) PowerShell can resolve `bw` from the registry PATH.
+4. **On decline, fall back to the prereq-pause.** If the PRINCIPAL declines the bootstrap, pause here until `bw --version` returns a version, and offer the bw repo URL.
 
-**Do not try to install `bw` from this skill.** `bw` lives in a separate repo with its own install path. Naming it as a prerequisite is correct; trying to wrap it is out of scope.
+> The Stoa substrate uses beadworks (`bw`) as its durable message bus and memory layer, and I don't see it on your PATH. I can bootstrap it for you: it's a public, SHA256-verified download from `jallum/beadwork` placed in `~/.local/bin`, and on Windows I'll add that dir to your USER PATH the registry-safe way (length-checked, fail-loud, never a blind `setx`). I'll show you a `--dry-run` of exactly what it does first. Want me to run the dry-run — or would you rather install `bw` yourself?
+
+**Why this reverses the old "STOP, install it yourself" prereq (justification, recorded per DC7):** `bw` is fundamental substrate, not an optional dependency; on Windows the old posture left machines *silently* broken (git-bash-green, PowerShell-blind); and obtention is now safe by construction — public + floor-pinned + SHA256-verified (Windows) + registry-safe-append + fail-loud + self-updating. The one-helper opt-in design keeps the separation-of-concerns spirit (the helper bootstraps the FIRST binary only; `bw init` stays POLYBIUS's job). Consent + dry-run remain mandatory; the registry-safe PATH append is the only system change and it fails loud rather than risk clobbering PATH.
 
 ### Beat 2 — verify the git working tree (if installing into an existing project)
 
@@ -234,9 +239,9 @@ If they decline, that's fine — leave them with the `next steps` block `install
 
 - **Do not run install without `--dry-run` first.** Every install gets a dry-run beat. No exceptions.
 - **Do not run with `--modify-claude-md` without explicit consent.** Default-off in conversation; flip on only after the PRINCIPAL says yes.
-- **Do not proceed if `bw` isn't installed.** Surface the blocker, name `bw` as a prerequisite, stop. Do not try to install `bw` from this skill.
-- **Do not try to install `bw` itself.** `bw` lives in a separate repo with its own install path. Out of scope here.
-- **Do not modify the PRINCIPAL's git config or any system files.** The install only writes under `<DEST>/.claude/` and (with consent) one `CLAUDE.md`. Anything beyond that is out of scope.
+- **Do install `bw` when it's missing — but only via the guided, consented `bootstrap-bw.sh` front-door (Beat 1).** The old "bw is a prereq, STOP" posture is reversed (Arc 75 / stoa--elx): bw is fundamental substrate, obtention is public + floor-pinned + SHA256-verified (Windows) + self-updating, so a fresh machine gets a working, PowerShell-callable bw as a consented install outcome. Show the release source + (Windows) the SHA256 + the registry-safe PATH change, dry-run first, get consent; on decline, fall back to the prereq-pause.
+- **Do not install `bw` by any path other than `bootstrap-bw.sh`.** Don't hand-roll a download, a `setx`, or a raw PATH edit. The one helper owns obtention (OS-split: Unix delegates to upstream; Windows is ours end-to-end) and the registry-safe PATH mutation; anything else is out of scope.
+- **Do not modify the PRINCIPAL's git config or unrelated system files.** The install writes under `<DEST>/.claude/` and (with consent) one `CLAUDE.md`. The ONE consented exception is `bootstrap-bw.sh`'s registry-safe Windows USER PATH append (Beat 1) — length-checked, fail-loud, never a blind `setx`, and only after the dry-run + consent. No other system-file changes.
 - **Do not skip the dry-run beat even if the PRINCIPAL asks.** "Just do it" doesn't override the discipline. The dry-run runs; reading the output is optional; running for real without it isn't.
 - **Do not auto-initialize `bw` after install.** `install.sh` deliberately doesn't run `bw init`; that's POLYBIUS's job during onboarding (consent prompt §3 in `substrate/templates/consent-prompts.md`). Don't pre-empt POLYBIUS's interview.
 - **Do not refer to the human as "the user."** PRINCIPAL or, once a name is captured, the name. Voice discipline (`u--7yg.20`).

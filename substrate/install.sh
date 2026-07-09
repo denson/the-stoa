@@ -23,8 +23,8 @@
 # PRINCIPAL in the loop.
 #
 # Usage:
-#   ./install.sh --target user [--modify-claude-md] [--no-captains] [--no-templates] [--prune-obsolete] [--enable-hooks] [--enable-env-block] [--dry-run]
-#   ./install.sh --target project --project-dir <path> [--modify-claude-md] [--no-captains] [--no-templates] [--prune-obsolete] [--enable-hooks] [--enable-env-block] [--dry-run]
+#   ./install.sh --target user [--modify-claude-md] [--no-captains] [--no-templates] [--prune-obsolete] [--enable-hooks] [--enable-env-block] [--bootstrap-bw] [--dry-run]
+#   ./install.sh --target project --project-dir <path> [--modify-claude-md] [--no-captains] [--no-templates] [--prune-obsolete] [--enable-hooks] [--enable-env-block] [--bootstrap-bw] [--dry-run]
 #   ./install.sh --target subproject --parent-dir <path> --subproject <slug> [--no-captains] [--prune-obsolete] [--dry-run]
 #   ./install.sh --help
 #
@@ -150,6 +150,7 @@ WITH_TEMPLATES=1
 PRUNE_OBSOLETE=0
 ENABLE_HOOKS=0          # Arc 46: arm enforcement hooks. DEFAULT OFF (HARD SAFETY CONSTRAINT). When 0, hook scripts + the candidate settings-hooks.json deploy but NO hook is registered in any settings.json.
 ENABLE_ENV_BLOCK=0      # Arc C (stoa--xyb.14 / op-disc §13): merge the candidate settings-env-block.json (PYTHONUTF8/PYTHONIOENCODING) into the TARGET's settings.json. DEFAULT OFF (same posture as --enable-hooks). When 0, the candidate env-block JSON deploys but NO env var is ever written into a running config.
+BOOTSTRAP_BW=0          # Arc 75 (stoa--elx): opt-in bw bootstrap pre-flight (substrate/bootstrap-bw.sh). DEFAULT OFF → install.sh --dry-run output is byte-unchanged when the flag is absent.
 
 # Source files live next to this script.
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -739,6 +740,10 @@ while [ "$#" -gt 0 ]; do
       ENABLE_ENV_BLOCK=1
       shift
       ;;
+    --bootstrap-bw)
+      BOOTSTRAP_BW=1
+      shift
+      ;;
     -h|--help)
       usage 0
       ;;
@@ -751,6 +756,14 @@ done
 # ----- validation ------------------------------------------------------------
 
 [ -n "$TARGET" ] || err "--target is required (user|project|subproject)"
+
+# ----- Arc 75 (stoa--elx): optional bw bootstrap pre-flight (after --target validation,
+#        before the case dispatch — target-independent: runs for user|project|subproject) -----
+if [ "$BOOTSTRAP_BW" -eq 1 ]; then
+  _bootstrap="${SCRIPT_DIR}/bootstrap-bw.sh"
+  [ -f "$_bootstrap" ] || err "--bootstrap-bw: helper not found at $_bootstrap"
+  if [ "$DRY_RUN" -eq 1 ]; then bash "$_bootstrap" --dry-run; else bash "$_bootstrap" --yes; fi
+fi
 
 # Tracks whether MAJOR_POLYBIUS.md / MAJOR_PLINY.md should be deployed with the
 # _<slug> filename suffix. True only in subproject mode — at user-tier and
