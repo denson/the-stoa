@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-07-09T22:26:38Z",
+  "description": "[FILED BY: Polybius the Decider (user-tier), relaying the Grand's 2026-07-09 finding. PROBLEM FRAMING — team owns the fix shape. QUEUE: after stoa--elx per the confirmed floor order, BUT a WARNING patch may be justified sooner — team's call.] PROBLEM: check-substrate-updates classifies any workspace file at a substrate-deployable path that is no longer in substrate source as OBSOLETE. That conflates two populations: (a) genuinely dropped-from-source substrate files (safe to prune — e.g. the retired author-gate hook, correctly pruned by arc p0e's cleanup at PROJECT tier), and (b) files NEVER substrate-managed at all. The Grand's user-tier run lists 43 obsolete including LIVE hand-installed user-local skills (gsearch, railway-keyring-deploy, newswire-trigger, team-launcher, gauntlet-setup...). A --prune-obsolete run at user tier would DELETE working, load-bearing tooling — gsearch alone is the fleet's mandated search path. NEEDED (shape = team's): a third classification (LOCAL-ONLY / unmanaged) or an exclusion mechanism (manifest of substrate-managed paths as the prune allowlist — prune only what the manifest once shipped), plus a fail-safe: prune NEVER deletes a path the manifest has no record of ever deploying. Until fixed: do NOT run --prune-obsolete on any user-tier workspace; project-tier prunes remain safe where the manifest covers them. Cross-ref: stoa--sok (install-stoa skills deliberately NOT in substrate/skills), arc p0e (newest prune consumer).",
+  "id": "stoa--u6s",
+  "labels": [],
+  "priority": 1,
+  "status": "open",
+  "title": "check-substrate-updates OBSOLETE class conflates dropped-from-source with never-substrate-managed — user-tier --prune-obsolete would DELETE live hand-installed skills (data-loss footgun)",
+  "type": "bug",
+  "updated_at": "2026-07-09T22:26:38Z"
+}
