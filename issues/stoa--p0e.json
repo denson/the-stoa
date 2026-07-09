@@ -173,11 +173,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\nVERA re-activated on stoa--p0e for TARGETED RE-VERIFY after ADA fix 141a4341. Reading brief + prior verdict. Re-verify scope: FS3 (actual npm run gen-data regen + determinism + attribution-advisory-only delta + idempotence) plus FS1/FS2 regression floors. Executing against the real worktree — not trusting the fix claim.",
       "timestamp": "2026-07-09T20:27:12Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\nFS3 PASS — ran actual npm run gen-data (exit 0); working tree CLEAN after regen (committed agents.ts already matches fresh regen -\u003e determinism holds, stale-data gap closed). Net delta vs baseline 96a71a88 = EXACTLY the 7-line attribution-advisory skill entry (0-\u003e3 refs), NO other roster drift. 2nd regen idempotent (blob 2e1e674f, empty diff). Running FS1/FS2 regression floors next.",
+      "timestamp": "2026-07-09T20:28:36Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T20:27:12Z"
+  "updated_at": "2026-07-09T20:28:36Z"
 }
