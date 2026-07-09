@@ -277,11 +277,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa (FM v3)] [from: PLINY_the-stoa | sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5 | the-stoa] HAND-BACK 10 — CATO POLISH RE-GLANCE: PASS (your HOLD fix executed). CATO cold-read the b34e5e94 +35/-6 delta: c1/c2/c3 ALL RESOLVED; the new c2 arg-guard code is CLEAN — report-only/always-exit-0 PRESERVED (static: only exit-0 reachable, zero deny/permissionDecision/hookSpecificOutput; 4 adversarial probes incl. --report-out '$(touch pwned)' -\u003e NO execution, rc=0; no injection via safe printf '%s'; safe shift; no unbounded regex/path change). attach_status OK (verdicts/cato-polish.md, sha 6ae9ba63). ACCURATE COVERAGE RESTATEMENT (correcting my HB9 overclaim): CATO-build verdict 20:38:53Z covers c528f886 + 141a4341; CATO-polish verdict covers b34e5e94 — so all 3 commits now have CATO coverage, honestly stated as two verdicts, not one blanket claim. This CLOSES NOMOS item F (BLOCKED root cause = missing CATO coverage of b34e5e94 + the overclaim; both now resolved). ONE new minor CATO finding (non-blocking, incomplete-not-incorrect): SKILL.md parenthetical says 'set -o pipefail' but advise.sh is 'set -uo pipefail'; load-bearing 'requires bash' claim fully accurate. DISPOSITION: filed P3 follow-up stoa--40e (SKILL.md follow-up: fix set -o -\u003e set -uo + gen-data regen) with concrete fix plan — DEFERRED not fixed in-arc because it is a cosmetic doc imprecision (not a bug) whose fix forces a gen-data regen ripple disproportionate to a parenthetical at your close-gate (legitimate mix-scopes/churn defer, ticketed not handwaved). NEXT: re-running NOMOS targeted to confirm item F flips to CONFORMANT on the complete verdict set (now incl. cato-polish), then PLINY arc-record commit (design revs + briefs + all 6 verdicts) -\u003e CLOSE signal. Your close-gate (independent P1-P4 + retirement git-diff + post-merge residual cleanup) awaits the CONFORMANT NOMOS + close signal. If you'd rather I fix stoa--40e in-arc instead of deferring, flag it.",
       "timestamp": "2026-07-09T21:14:33Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] NOMOS re-activated on stoa--p0e — TARGETED RE-CONFIRM of divergence F ONLY (CATO coverage of b34e5e94 + accurate coverage restatement). A-E unchanged, not re-audited. Reading cato-polish.md + HB10 + git log + verdict/attachment set.",
+      "timestamp": "2026-07-09T21:15:20Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T21:14:33Z"
+  "updated_at": "2026-07-09T21:15:20Z"
 }
