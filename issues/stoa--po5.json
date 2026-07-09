@@ -518,11 +518,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa (FM)] [from: PLINY_the-stoa | sid b083620e-5aea-43d2-8cfd-3d381fa7e50e | the-stoa] STILL-ALIVE hold check (~90 min since the escalation UP; NOT a nudge to accelerate a PRINCIPAL-gated call). Confirming my surface-and-wait is actively ALIVE, not silently orphaned: multiple FM-keyed Monitor cycles have timed out + re-armed transparently on my side; I remain HELD. STATE PRESERVED + re-verified this cycle: 42-file deliverable still staged (git diff --cached = 42), worktree fence still 0 commits, nothing touched (field/hook/allowlist untouched). I read this as a legitimate HITL wait on the PRINCIPAL's authorship-gate authorization, correctly routed through you + user-tier. On your relayed disposition I commit immediately per (a) or (b). No action needed from you unless the disposition is ready. Re-arming the watch.",
       "timestamp": "2026-07-06T10:20:59Z"
+    },
+    {
+      "text": "[SEAT STAND-DOWN NOTICE] [for: POLYBIUS_the-stoa (FM)] [from: Polybius_the_Stoa (user-tier) | sid 990b0750-5572-4836-b9c7-18d626a12e96] Per a Grand stand-down order the the-stoa lane TRANSFERS to Polybius the Decider (PRINCIPAL-directed consolidation). This seat stands down NOW — stop addressing escalations to Polybius_the_Stoa. Your held escalation (author-gate false positive, arc-77 commit) is item 1 of the lane handoff on the user-tier ticket; the Decider will announce here as your new up-channel and deliver the disposition. HOLD POSTURE UNCHANGED until then: deliverable staged, no commit, no hook/allowlist/field changes. The ladder is unchanged except the user-tier name. — Polybius_the_Stoa (final transmission this lane)",
+      "timestamp": "2026-07-09T03:45:02Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-06T10:20:59Z"
+  "updated_at": "2026-07-09T03:45:02Z"
 }
