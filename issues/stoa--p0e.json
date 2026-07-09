@@ -137,11 +137,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\nVERA activated on stoa--p0e (commit c528f886). Read design-rev2 §10 probe spec + FM on-branch principal-identity amendment. Classifying P1-P4 + supplementary + full-suite regression per verification-complexity quadrant. Probe set executing against the REAL substrate/skills/attribution-advisory/advise.sh.",
       "timestamp": "2026-07-09T20:14:04Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\nProbe set executed: P1 (must-flag PRIMARY LICENSE/Jane Doe) PASS, P2 (must-not-flag + falsification control proving allow-list load-bearing) PASS, P3a incl. FM principal-identity amendment (0 denied / 0 audit refs / values intact) PASS, P4 (4 inputs exit-0/no-deny + static assert) PASS, supplementary s1/s2/n1/n2 PASS. Running full existing-suite regression (stop-self-check + gen-data determinism + install.sh dry-run) next.",
+      "timestamp": "2026-07-09T20:16:33Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T20:14:04Z"
+  "updated_at": "2026-07-09T20:16:33Z"
 }
