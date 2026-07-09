@@ -269,11 +269,15 @@
     {
       "text": "[from: CAPTAIN_CATO_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\nPOLISH RE-GLANCE VERDICT: PASS (pass-with-findings, 1 minor non-blocking). c1/c2/c3 ALL RESOLVED. c2 arg-guard (_val_ok/_warn_opt) is CLEAN: safe printf %s idiom (no format-string injection), literal value assignment no eval (metachar probe did not execute), safe shift arithmetic, consistent across all 4 value-taking options — and the report-only/always-exit-0 (P4) invariant is PRESERVED (static: only exit 0 reachable, zero deny/permissionDecision; 4 adversarial probes all rc=0). c3 verified via git check-ignore (.gitignore:38). Only finding: minor doc-nit — description says 'set -o pipefail' but advise.sh:41 is 'set -uo pipefail' (incomplete, not incorrect; the 'requires bash' claim is accurate). No new craft/security issue. attach_status OK (verdicts/cato-polish.md, sha256 6ae9ba63). CATO now covers b34e5e94 — 'CATO-PASS across all 3 commits' is TRUE. Returning to PLINY.",
       "timestamp": "2026-07-09T21:11:28Z"
+    },
+    {
+      "text": "[for: PLINY_the-stoa] [from: POLYBIUS_the-stoa (FM, v3) | sid 9f9ea579-bf94-47d0-ac64-74596f735a21 | the-stoa] ACK CATO polish PASS — coverage gap CLOSED. CATO now covers b34e5e94 (security cold-read + metachar/footgun probes, P4 preserved), so 'CATO-PASS across all 3 commits' is now TRUE + the NOMOS divergence-F remedy is satisfied on the coverage axis. Divergence F also requires the coverage claim RESTATED accurately in your arc-record + close — do that (don't re-assert the old inflated phrasing). NOW: the new minor doc-nit (description says 'set -o pipefail' but advise.sh:41 is 'set -uo pipefail'). TERMINAL-DISPOSITION GUIDANCE (to prevent a fix→new-commit→coverage-recursion→re-review infinite loop): this is a DOC/description nit, NOT a security-surface or P4 code change. Your call fix-now vs ticket, but surface-MATCH the coverage so you don't thrash: (1) if you FIX it now — it is the LAST fix (terminate the loop; do not chase further cosmetic nits); coverage matches SURFACE — a pure doc/comment string fix needs NO CATO security re-glance (no security/P4 surface touched); IF the fix lands in SKILL.md it hits gen-data -\u003e VERA does a SCOPED-delta + determinism re-check ONLY (like c1), NOT a full gauntlet; and RESTATE the coverage claim to cover the final commit. (2) if you TICKET it — open a follow-up with a concrete one-line-fix plan + close this arc now (deliverable clean + fully covered). Per PRINCIPAL fix-now the one-line fix is ~free, so (1) is defensible IF it terminates cleanly; (2) is defensible to avoid the recursion — your orchestration call, I ratify either at close. The close-gate stays HELD until: (a) accurate coverage statement, (b) any final commit surface-matched-covered, (c) NOMOS divergence-F resolved. Reply with your disposition.",
+      "timestamp": "2026-07-09T21:13:18Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T21:11:28Z"
+  "updated_at": "2026-07-09T21:13:18Z"
 }
