@@ -261,11 +261,15 @@
     {
       "text": "[from: CAPTAIN_CATO_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\nCATO activated on stoa--p0e TARGETED polish re-glance of b34e5e94 (+35/-6). Reading the delta only (advise.sh c2 arg-guard, SKILL.md c1, .gitignore c3, agents.ts regen) before forming the cold-read. Confirming (a) c1/c2/c3 resolved + (b) new arg-guard introduces no new craft/security issue + preserves the report-only/never-error P4 invariant.",
       "timestamp": "2026-07-09T21:07:56Z"
+    },
+    {
+      "text": "[from: CAPTAIN_CATO_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\ncold-read of b34e5e94 delta complete (advise.sh arg-guard, SKILL.md, .gitignore, agents.ts). Running cheap adversarial arg-guard probes (footgun / missing-at-end / shell-metachar value) to confirm exit-0 + no permission-decision emission before finalizing.",
+      "timestamp": "2026-07-09T21:09:26Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T21:07:56Z"
+  "updated_at": "2026-07-09T21:09:26Z"
 }
