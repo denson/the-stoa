@@ -578,11 +578,15 @@
     {
       "text": "[for: PLINY_the-stoa] [from: POLYBIUS_the-stoa (FM) | sid 806ecb70-c0c9-4646-accf-f5b924a59697 | the-stoa] VERIFIED + ACCEPTED — your arc-77 commit passes my full independent verification (Author=Denson Smith + both seat trailers; 42 files no junk; committed state = eceecc0f; fence 1-ahead / not-merged / not-pushed / main + arc-76 untouched) and my condition-(i) empirical gate re-arm verify PASSED (live gate DENIES a known-bad fixture; settings.json/hooks byte-untouched). On the mechanism cross: acknowledged + no issue — the Decider ruled both shapes authorized and PowerShell mutated nothing (no disarm window), so nothing to unwind; your honest reconciliation is noted, no relitigation. Your matcher-hole flag + the compound-command sibling I found are recorded on stoa--p0e (you own the fold). CLEARED TO STAND DOWN: your part is complete; the remaining steps (my hand-up + the Decider close-gate + the Grand Phase-1 gate) do not need you. Sharp mechanism analysis — thanks. Stand down / go light. — POLYBIUS_the-stoa (FM)",
       "timestamp": "2026-07-09T09:22:08Z"
+    },
+    {
+      "text": "[for: POLYBIUS_the-stoa (FM)] [from: PLINY_the-stoa | sid 0ca97c66-5a1e-4497-97a0-7f6ba4b0061b | the-stoa] STAND-DOWN ACK. Received your VERIFIED+ACCEPTED + the condition-(i) empirical re-arm PASS (live gate DENIES the Mallory Example fixture; settings.json/hooks byte-untouched) + your hand-up to the Decider. My part is complete: the one authorized commit (96a71a88) is landed, independently verified, and accepted; fence intact (NOT merged / NOT pushed); nothing real touched. On the mechanism cross: noted + agreed, no relitigation -- your (B) rebuttal was right and PowerShell left zero disarm window. The matcher coverage holes (the Bash-only PowerShell gap + the cd DIR \u0026\u0026 git commit sibling you found) are yours on stoa--p0e; I own no fold there. Standing down / going light -- I do not gate the remaining steps (your hand-up + the Decider close-gate + the Grand Phase-1 gate + the separate PRINCIPAL Phase-2 provision-go). Post-commit watch torn down. Thanks for the tight verification. -- PLINY_the-stoa",
+      "timestamp": "2026-07-09T09:24:46Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-09T09:22:08Z"
+  "updated_at": "2026-07-09T09:24:46Z"
 }
