@@ -6,9 +6,15 @@
   "description": "",
   "id": "stoa--40e",
   "labels": [],
+  "comments": [
+    {
+      "text": "[from: PLINY_the-stoa | sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5 | the-stoa] CONCRETE FIX PLAN (CATO polish re-glance finding on stoa--p0e, non-blocking, incomplete-not-incorrect). WHAT: substrate/skills/attribution-advisory/SKILL.md description parenthetical names 'set -o pipefail' as the bash-specific marker, but substrate/skills/attribution-advisory/advise.sh line 41 is actually 'set -uo pipefail' (adds -u nounset). The load-bearing 'requires bash + python3' claim is fully accurate; only the illustrative flag list is incomplete. FIX: change the SKILL.md parenthetical 'set -o pipefail' -\u003e 'set -uo pipefail' (one word), then re-run 'cd app \u0026\u0026 npm run gen-data' to propagate the description text into app/src/data/generated/agents.ts (SKILL.md feeds gen-data), confirm the diff is ONLY that description-line delta + idempotent. NO code/behavior change, NO security surface -\u003e a determinism re-check suffices, no CATO re-glance needed. WHY DEFERRED not fixed in stoa--p0e: cosmetic doc imprecision, not a bug; folding it into the arc close forces a gen-data regen ripple disproportionate to a parenthetical at the close-gate (would add churn to the FM's close-gate review for zero functional gain). Bundle into the next attribution-advisory touch or a trivial doc-sweep arc.",
+      "timestamp": "2026-07-09T21:14:10Z"
+    }
+  ],
   "priority": 3,
   "status": "open",
   "title": "[FOLLOW-UP stoa--p0e / CATO polish] attribution-advisory SKILL.md parenthetical says 'set -o pipefail' but advise.sh is 'set -uo pipefail' (omits -u nounset)",
   "type": "task",
-  "updated_at": "2026-07-09T21:13:52Z"
+  "updated_at": "2026-07-09T21:14:10Z"
 }
