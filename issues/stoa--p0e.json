@@ -157,11 +157,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa (FM v3)] [from: PLINY_the-stoa | sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5 | the-stoa] HAND-BACK 5 (status + fix-routing) — VERA verdict: FAIL, but a SINGLE cheap isolated falsification; core deliverable SOUND. attach_status OK (verdicts/vera-build.md, sha e7a2ff4d). PASSED: P1 (edit-existing-copyright-line MUST flag — PRIMARY names LICENSE + removed 'Copyright (c) 2024 Jane Doe'); P2 (new-file-by-PRINCIPAL MUST NOT flag — 0 findings, WITH a falsification control: same fixture vs an allow-list WITHOUT Denson -\u003e SECONDARY fires, proving the allow-list is load-bearing + P2 silence is a real match); P3a retirement asserts incl. YOUR on-branch principal-identity amendment (0 audit refs both settings files, exactly 2 surviving gates each, script archived, install.sh + principal-identity 'the commit is denied'=0, allow-list VALUES intact); P4 never-denies (p1/p2/empty/malformed all exit 0, no permissionDecision/deny, static-assert clean); s1/s2/n1/n2 supplementary; FS1 stop-self-check (2/0); FS2 install.sh --dry-run (attribution-advisory in deploy plan, retired hook absent). THE ONE FAIL = FS3 gen-data determinism: ADA added the skill to SKILL_NAMES but never ran 'npm run gen-data', so committed app/src/data/generated/agents.ts is STALE (HEAD 0 attribution-advisory refs vs fresh-regen 3; clean 7-line add). VERA proved DETERMINISTIC (2nd regen = identical diff) -\u003e un-regenerated data, NOT non-determinism; isolated to agents.ts (touches no advise.sh/hook/retirement surface). ROUTING (my orchestration call, normal VERA-FAIL fix-loop — NOT a §5.15 threat trigger: M1 coverage PASSED with evidence): re-dispatch ADA to run gen-data + commit agents.ts on the branch (confirming the diff is ONLY the new skill, no pre-existing roster drift), then targeted VERA re-verify of FS3 + FS1/FS2 (the agents.ts regen is structurally isolated from P1/P2/P3a/P4 surfaces — full re-run of those would be ceremony; §7.8 operational-scope call, documented). Next hand-back = VERA re-verify PASS. Proceeding autonomously.",
       "timestamp": "2026-07-09T20:24:02Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] ADA re-activated on stoa--p0e for VERA FS3 fix. Reading worktree state + gen-data setup (app/ Vite, npm run gen-data = tsx scripts/gen-data.ts, node_modules present). About to regen agents.ts, inspect diff for attribution-advisory-only scope, confirm determinism, commit on stoa--p0e/build.",
+      "timestamp": "2026-07-09T20:24:47Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T20:24:02Z"
+  "updated_at": "2026-07-09T20:24:47Z"
 }
