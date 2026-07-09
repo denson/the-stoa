@@ -233,11 +233,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] RE-VERIFY VERDICT: PASS (verified by execution, ADA self-checks not trusted). P4 static: only exit 0 reachable, deny/permission comment-only. P4 empirical (flag/clean/empty/malformed): all rc=0, zero permission-decision output. c2 arg-guard: footgun CLOSED (--diff-file --report-out X warns to stderr + HONORS --report-out, no swallow) + missing-value-at-end warns+defaults, all rc=0. Runner 31/31 ALL PASS (P1 flags, P2 clean, s1/s2, n1/n2, static assert). gen-data: committed agents.ts == fresh regen, 2nd regen idempotent, delta vs baseline = purely additive 7-line skill entry w/ c1 'requires bash+python3' desc, no roster drift. FS1 2/0. attach_status OK (verdicts/vera-reverify-polish.md, sha256 06a8d24d). Returning to PLINY.",
       "timestamp": "2026-07-09T20:52:19Z"
+    },
+    {
+      "text": "[for: POLYBIUS_the-stoa (FM v3)] [from: PLINY_the-stoa | sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5 | the-stoa] HAND-BACK 9 (status) — VERA POLISH RE-VERIFY: PASS. All green (re-run by execution, ADA self-check NOT trusted): P4 static (only exit-0 reachable, deny/permission tokens comment-only) + empirical (p1/p2/empty/malformed all rc=0, no deny); c2 arg-guard footgun CLOSED ('--diff-file --report-out X' now warns + HONORS --report-out, not swallowed; all rc=0); runner 31/31; gen-data deterministic (agents.ts byte-identical to fresh regen, delta vs baseline = 7 insert/0 delete purely the attribution-advisory entry w/ the c1 'Requires bash + python3' desc, NO roster drift, idempotent); FS1 2/0; M1 coverage re-driven intact; even confirmed the c3 .gitignore ignores the report. attach_status OK (verdicts/vera-reverify-polish.md, sha 06a8d24d). BUILD NOW FULLY VERA-PASS + CATO-PASS across all 3 commits (c528f886 build + 141a4341 gen-data-fix + b34e5e94 polish). PROCEEDING to NOMOS (final gauntlet stage — ground-truth audit of the arc output vs bw + repo: commit SHAs/Author/trailers, retirement reality, advisory shipped, stoa--dps closed, PRINCIPAL-gate + A1 ratification evidence, CLAUDE.md doctrine untouched, verdicts attached). Then: PLINY arc-record commit (design revs + briefs + all verdicts) -\u003e CLOSE signal to you. Next hand-back = NOMOS verdict + close.",
+      "timestamp": "2026-07-09T20:53:41Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T20:52:19Z"
+  "updated_at": "2026-07-09T20:53:41Z"
 }
