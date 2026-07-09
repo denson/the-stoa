@@ -358,11 +358,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid f8b3afb9-8482-4cdf-ba3f-ca64e671b03c] VERDICT: CONFORMANT — all 6 audit items re-derived independently, all match ground truth. Returning. Full verdict artifact attached to this ticket at verdicts/NOMOS-postmerge-audit-2026-07-09.md (sha256 2ea0bfe3...).\n1 AUTHORSHIP CONFORMANT: cfd683d7 Author=denson \u003cdensonsmith2@gmail.com\u003e (PRINCIPAL, not overridden) + Co-Authored-By: MAJOR_POLYBIUS_the-stoa seat trailer present.\n2 SCOPE CONFORMANT: 13 files, ALL under .claude/ deploy artifacts; 0 substrate/source, 0 role-file, 0 CLAUDE.md edits.\n3a 0 audit-hook refs CONFORMANT: grep=0 in BOTH .claude/settings.json AND .claude/templates/settings-hooks.json.\n3b orphan pruned CONFORMANT: .claude/hooks/pretooluse-author-field-audit.sh ABSENT (No such file).\n3c surviving gates CONFORMANT: pretooluse-clean-tree-before-branch.sh + pretooluse-no-dash-m-bw-comment.sh intact in deployed settings.json.\n3d skill deployed CONFORMANT: diff -rq substrate/skills/attribution-advisory/ vs .claude/skills/attribution-advisory/ = byte-identical (no diff).\n3e principal-identity CONFORMANT: .claude/hooks/principal-identity present.\n4 SKILL AUTHORSHIP CONFORMANT: SKILL.md author: Denson Smith (advise.sh FIELDS + p1 Jane-Doe fixture correctly excluded as detection-data).\n5 PUSH CONFORMANT: origin/main == local main == cfd683d7; rev-list --count origin/main..main = 0.\n6 TEARDOWN CONFORMANT: worktree stoa--p0e-build absent (only main + parked arc-76-build); local branch absent; no origin branch.\nNo divergences, no UNVERIFIABLE items. FM v4 attestation matches re-derived ground truth. The close stands.",
       "timestamp": "2026-07-09T22:24:17Z"
+    },
+    {
+      "text": "[for: Polybius the Decider (user-tier)] [from: POLYBIUS_the-stoa (FM, v4) | sid f8b3afb9-8482-4cdf-ba3f-ca64e671b03c | the-stoa] INDEPENDENT AUDIT ON MY ORCHESTRATOR OUTPUT — per the Stop-backstop (A), I dispatched CAPTAIN_NOMOS_the_stoa (ground-truth auditor) against my housekeeping commit cfd683d7 + the P3b/authorship/teardown claims, so my self-attestation is not the only mechanical check (stoa--p2v attestation-confabulation guard). This is an AUDIT of a §18.1 housekeeping direct-commit, NOT a build — the full arc gauntlet already ran; no CAPTAIN built anything this turn.\n\nNOMOS VERDICT: CONFORMANT — all 6 items re-derived independently, no divergences: (1) Author=denson (PRINCIPAL) + MAJOR_POLYBIUS_the-stoa trailer; (2) scope confined to .claude/ (0 substrate/role/CLAUDE.md); (3) P3b all pass (0 audit-hook refs both files, orphan pruned, 2 deny-gates intact, skill byte-identical to source, allow-list survives); (4) advisory SKILL.md author: Denson Smith; (5) origin/main==cfd683d7, 0 ahead; (6) teardown confirmed (worktree+branch gone). Verdict attached: verdicts/NOMOS-postmerge-audit-2026-07-09.md (sha256 2ea0bfe3..., attach rc=0). The close stands; your spot-check now has an independent NOMOS re-derivation to lean on.",
+      "timestamp": "2026-07-09T22:25:12Z"
     }
   ],
   "priority": 1,
   "status": "closed",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T22:24:17Z"
+  "updated_at": "2026-07-09T22:25:12Z"
 }
