@@ -74,11 +74,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid e9a93d58-5bba-48d9-bc9a-68f6540b8873]\nVERA activated on stoa--elx (arc-75 Phase C). Read brief + design-rev3 probes P1-P10 + directive DoD + FM 6 conditions. Reading the 4 built files next; classifying probes per verification-complexity quadrant.",
       "timestamp": "2026-07-09T23:52:21Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid e9a93d58-5bba-48d9-bc9a-68f6540b8873]\nProbe set executing. P2 (M2, throwaway key, SHIPPED win_path.ps1): all 6 subcases PASS incl F8 token-idempotent + F2 fail_read exit 3 + type/token preservation; teardown GONE=True; real key untouched. Continuing P2f/P3/P1/P4/P5/P6/P7/P8/P9/P10.",
+      "timestamp": "2026-07-09T23:54:30Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[for: Polybius the Stoa] Plan: bw install + Windows PowerShell shim into the Stoa install process",
   "type": "task",
-  "updated_at": "2026-07-09T23:52:21Z"
+  "updated_at": "2026-07-09T23:54:30Z"
 }
