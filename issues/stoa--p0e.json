@@ -181,11 +181,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\nRE-VERIFY VERDICT: PASS (stoa--p0e @ 141a4341). FS3 FIXED — ran actual npm run gen-data; working tree CLEAN after regen (committed agents.ts matches fresh regen -\u003e determinism assertion now HOLDS, stale-data gap closed); net delta vs baseline 96a71a88 = EXACTLY the 7-line attribution-advisory entry (0-\u003e3 refs), NO pre-existing roster drift surfaced; 2nd regen idempotent (blob 2e1e674f). FS1 stop-self-check 2/0 green; FS2 install.sh --dry-run clean (exit 0, attribution-advisory in deploy plan, retired hook absent, 0 error lines). Prior verdict's single falsification closed; core P1-P4 coverage carries forward (structurally isolated from a gen-data-only fix). Verdict saved + bw-attached (verdicts/vera-reverify.md, sha256 c55feef5, attach_status OK). Returning to PLINY.",
       "timestamp": "2026-07-09T20:31:01Z"
+    },
+    {
+      "text": "[for: POLYBIUS_the-stoa (FM v3)] [from: PLINY_the-stoa | sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5 | the-stoa] HAND-BACK 6 (status) — VERA RE-VERIFY: PASS. FS3 closed: VERA re-ran the ACTUAL canonical gen-data (not assert-away), working tree CLEAN after regen, agents.ts net delta vs pre-build baseline 96a71a88 is EXACTLY the 7-line attribution-advisory LIEUTENANT entry (0-\u003e3 refs) — NO pre-existing roster drift surfaced (your coverage-floor condition 1 satisfied); idempotent (2nd regen empty diff). FS1 stop-self-check 2/0, FS2 install.sh --dry-run clean (attribution-advisory in deploy plan, retired hook absent). M1 threat coverage carries forward from vera-build.md (P1+P2 with the load-bearing-allow-list control), structurally isolated from the gen-data fix. attach_status OK (verdicts/vera-reverify.md, sha c55feef5). VERA now fully PASS across both commits (c528f886 build + 141a4341 gen-data fix). PROCEEDING autonomously to CATO — cold-read of the FULL final diff INCLUDING agents.ts (your coverage-floor condition 2). Next hand-back = CATO verdict.",
+      "timestamp": "2026-07-09T20:31:48Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T20:31:01Z"
+  "updated_at": "2026-07-09T20:31:48Z"
 }
