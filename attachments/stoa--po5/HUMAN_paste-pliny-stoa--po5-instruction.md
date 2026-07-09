@@ -1,54 +1,45 @@
+# Engagement brief v3 — PLINY_the-stoa (orchestrator) — arc-77 RESUME (stoa--po5)
+
 Read .claude/MAJOR_PLINY.md and assume the orchestrator role for the-stoa.
 
-# Engagement brief v2 — PLINY_the-stoa (orchestrator) — arc-77 / stoa--po5
+**This is a RESUME, not a fresh arc.** Your v2 predecessor session (sid b083620e) is DEAD — terminal closed. The gauntlet it ran is ALREADY COMPLETE (DAEDALUS→ARGUS→ADA→VERA→CATO→NOMOS CONFORMANT, eceecc0f). **Do NOT re-run any CAPTAIN. Do NOT re-stage. One task remains: the authorized commit.**
 
-**This is the RELAUNCH brief (v2, 2026-07-06).** The prior FM+PLINY sessions were closed by the PRINCIPAL before the build started. The composition they held on is **SETTLED**: 2-seat arc (FM + you); **there is NO CHIRON/HAMILTON phase and none will be launched; any CHIRON/HAMILTON briefs still attached to stoa--po5 are VOID.** DAEDALUS's opening design-checkpoint owns the entire design layer. Do not hold on, ask about, or surface the composition — it is not a question.
+## Chain of command (changed since v2)
 
-## What this is
-You orchestrate **arc-77** — the **u--9s2 inc 2.4 Phase-1 BUILD** of the secure-core credentialed per-provider pass-through service: the full build gauntlet **DAEDALUS → ARGUS → ADA → VERA → CATO → NOMOS**, sequential, by-the-book (security-critical; no one-pass), verifying at each breakpoint.
+PRINCIPAL → Polybius the Grand → Polybius the Decider (user-tier) → POLYBIUS_the-stoa (FM — **your only up-channel**) → YOU → CAPTAINs (none needed this engagement).
 
-**Your first act:** read the arc directive v2 — your authoritative scope:
-`git show beadwork:attachments/stoa--po5/arc-77-build-directive.md`
-Then the design being built: `agents/design/stoa--q7f/design-rev2.md` (arc-76/build worktree, commit 26698475 — leave that worktree untouched; it is the gated reference) + runbook `docs/secure-core/deployment-plan.md`. DAEDALUS reads design-rev2 in full.
+Polybius_the_Stoa is RETIRED; the user-tier seat is now Polybius the Decider — but you never address user-tier directly. You surface to the FM ONLY. Terminals are status surfaces, never ask-channels.
 
-## THE ESCALATION LADDER (PRINCIPAL-directed — strict, one-step-up, no skipping)
-1. CAPTAINs escalate to **you** only.
-2. **You escalate to POLYBIUS_the-stoa (FM) only** — never to user-tier Polybius_the_Stoa, never to the PRINCIPAL, no exceptions (including scope disputes: those also go to the FM, who carries them up if needed).
-3. The FM escalates to user-tier; user-tier alone decides whether anything reaches the PRINCIPAL.
-4. Downward: instructions reach you FROM the FM. User-tier will not address you directly.
-Your terminal output is a status surface, not an ask-channel — never pose a decision or option list to the PRINCIPAL there.
+## State you inherit (re-verify before acting — trust nothing)
 
-## The work
+Worktree `.claude/worktrees/arc-77-build`, branch `arc-77/build`: the 42-file deliverable your predecessor staged BY-PATH is still staged (verify: `git diff --cached --numstat | wc -l` = 42; NO `.venv/`, `build/lib/`, `secure_core.egg-info/` staged; fence 0 commits ahead; nothing merged/pushed). The commit was HELD on the armed author-gate's PEP 621 false positive (stoa--dps).
 
-### DAEDALUS's opening design-checkpoint (the whole design layer — directive §3A)
-DAEDALUS folds — and ARGUS cold-audits — three things:
-1. **The CONSOLIDATION reframe:** the core is the canonical center all lanes consume (science sos--373 + newswire store nws-1n7 + future builders). **Multi-consumer identity/authz on the pass-through** (operators via `Tailscale-User-Login` vs the tagged builder via App-Capabilities vs future lanes) is first-class design — the one genuinely-novel delta vs design-rev2's single-consumer shape; ARGUS audits it specifically.
-2. **The three mandatory canons** (directive §3–4): seal-every-secret + **fail-closed seal-audit** (u--84m); Railway-setup skill (sos--1bk) as the Phase-2 provisioning reference; the in-harness-workflows canon (`docs/research/anthropic-workflows-report.md`).
-3. **The workflow-vs-app-code call, answered inline** (default: application code — a request/response pass-through is not a Stoa Workflow, matching the prior inc's engine=app-code ratification for SUGGEST; name a workflow only if genuinely warranted).
+## The resume point — your ONE task (settled call, execute)
 
-### The build
-Build the **REAL** pass-through from design-rev2: Tailscale-serve front, closed `PROVIDER_REGISTRY`, per-provider handlers, response allow-list, two-phase audit, seal-audit gate. Verify by re-running the design's own attack probes against the real code:
-- **P-M1..P-M6** PASS against real code.
-- **INV-DEST / INV-RESP / INV-BIND** hold, each **fail-loud verified** (violation refuses to start/respond).
-- **Seal-audit fail-closed:** build refuses if any secret value appears in code/config/catalog/logs; slot-names-only (`GCP_SA_KEY_B64` SA-auth-not-API-key, `POSTGRES_PASSWORD`, `TS_AUTHKEY`).
-Built + probed **locally/against mocks**. Pre-branch hygiene, then an isolated **arc-77/build** worktree off committed main HEAD (the 3 pre-existing uncommitted main changes are user-tier local state — leave untouched, outside your fence).
+PRINCIPAL RULING (via the Grand → the Decider; the binding AUTHORIZATION RECORD is the Decider's stoa--po5 comment of 2026-07-09 08:44 — read it in full first): **operator-authorized ONE-COMMIT AGENT BYPASS** of the author-field gate for exactly this staged deliverable.
 
-### Out of scope (SCOPE FENCE — hard)
-NO real Railway/GCP/Tailscale provisioning, NO real secrets, NO money, NO touching a live core or the arc-76/build reference, nothing merged/pushed. Phase 2 (provisioning) is separately PRINCIPAL-gated. Any drift toward real infra — stop and escalate to the FM.
+Execute, on the FM's go (it confirms ground state first):
 
-### Definition of Done
-Pass-through runs locally; P-M1..P-M6 PASS; INV-* fail-loud verified; seal-audit fail-closed PASS; frozen resolver byte-identical; full builder_deploy_core suite green (re-run, not asserted); NOMOS CONFORMANT; authorship=Denson Smith + seat-identity Co-Authored-By trailers; commit on arc-77/build, NOT merged/pushed. Hand-back addressed to **POLYBIUS_the-stoa (FM)**, who verifies and relays up.
+1. Verify the staged state (above) — if ANYTHING deviates (count ≠ 42, unexpected paths, fence broken), STOP and surface to the FM; do not repair on your own authority.
+2. Commit on `arc-77/build`: **Author = Denson Smith (unchanged, never overridden) + `Co-Authored-By: PLINY_the-stoa` seat-identity trailer per §28** (the k48 precedent form your predecessor had prepared). Message: cite arc-77 / stoa--po5, the NOMOS verdict eceecc0f, and the bypass authorization record.
+3. The bypass mechanism: coordinate the specific mechanism with the FM within the authorized scope — **it must not persist beyond this one commit** (condition (i)). You still do NOT touch the allowlist with malformed values, do NOT drop/reformat the PEP 621 field, do NOT leave the gate disarmed. The FM verifies re-arm empirically after your commit.
+4. NOT merged. NOT pushed. Fence stays intact.
+5. Hand back to the FM on stoa--po5 with: the commit sha, `git show --stat` path list, and confirmation the mechanism is gone.
 
 ## Polling disciplines (all three)
-- **D-A (bw-copy-all-output):** every CAPTAIN echoes significant outputs to bw on stoa--po5.
-- **D-B (polling-at-breakpoints):** read bw between every CAPTAIN dispatch — your instruction source is the FM.
-- **D-C (polling-during-surface-and-wait):** Monitor (or sleep loop) at ~2–3 min cadence during any wait.
+
+- **D-A**: echo significant output to bw on stoa--po5.
+- **D-B**: read bw before and after your action (FM + the Decider + PRINCIPAL-relayed rulings land there).
+- **D-C**: Monitor/sleep ~2–3 min during surface-and-wait; keep your watch FM-keyed but count-based, not keyword-string-based.
 
 ## What you do NOT do
-Merge. Push to any deployment. Provision real infra / mint secrets / touch a live core. Contact user-tier or the PRINCIPAL (see the ladder — the FM is your only up-channel). Re-open the composition (settled). Solo/one-checker close (AR-7 shape) — the full gauntlet is mandatory; no waiver exists on this arc.
+
+Merge; push; re-run CAPTAINs; modify the hook/allowlist/pyproject authors field; relay direct to user-tier (except scope disputes); surface to PRINCIPAL ever; anything real (infra/secrets/money).
 
 ## Close signal
-`CLOSE ME — arc-77 (inc 2.4 Phase-1 build) gauntlet complete; awaiting floor-manager verification + user-tier close-gate + Grand Phase-1 gate`
 
-## Compaction-recovery footer
-If reset: you are PLINY_the-stoa, orchestrator for arc-77 (stoa--po5), v2 relaunch. Re-read this brief (`git show beadwork:attachments/stoa--po5/HUMAN_paste-pliny-stoa--po5-instruction.md`) + the directive v2 (`beadwork:attachments/stoa--po5/arc-77-build-directive.md`), re-anchor from `bw show stoa--po5` + MAJOR_PLINY.md §5.8, resume the cadence. The escalation ladder above governs.
+`CLOSE ME — stoa--po5 arc-77 commit landed per authorized bypass; awaiting FM verification + user-tier close-gate`
+
+## Compaction recovery
+
+Re-fetch this brief: `git show beadwork:attachments/stoa--po5/HUMAN_paste-pliny-stoa--po5-instruction.md`
