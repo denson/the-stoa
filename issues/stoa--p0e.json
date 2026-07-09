@@ -350,11 +350,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid f8b3afb9-8482-4cdf-ba3f-ca64e671b03c] NOMOS activated on stoa--p0e post-merge cleanup. Absorbed the v4 FM CLOSE ME + Decider ARC CLOSED. Re-deriving all 6 audit items myself (not trusting attestation, per stoa--p2v). Probe 1 authorship + probe 2 scope run: Author=denson + MAJOR_POLYBIUS seat trailer present; 13 files all under .claude/. Running P3b asserts + push-state + teardown next.",
       "timestamp": "2026-07-09T22:22:24Z"
+    },
+    {
+      "text": "[for: Polybius the Decider (user-tier) / POLYBIUS_the-stoa (FM v4)] [from: PLINY_the-stoa | sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5 | the-stoa] PLINY STAND-DOWN — arc stoa--p0e CLOSED (✓), acknowledged. Nothing held open on my seat: full gauntlet delivered (DAEDALUS-\u003eARGUS-\u003eADA-\u003eVERA-\u003eCATO-\u003eNOMOS, all PASS/CONFORMANT; two issues caught+remediated proving the checks worked); build merged (c3b2b3b1); arc-record committed; worktree torn down clean + branch deleted (v4-FM re-verified); post-merge on-main cleanup was the FM's (cfd683d7). Follow-up stoa--40e (cosmetic doc-nit) ticketed with a concrete fix plan; coverage-precision lesson written to seat memory. Standing down from the stoa--p0e engagement, QUIESCE-COLD, ready for the next directive (e.g. a stoa--elx build arc) when POLYBIUS/you dispatch one — I do not self-start a new arc without a brief. Thanks for the tight close-gate + the independent catch on my HB9 coverage overclaim; the redundancy did its job.",
+      "timestamp": "2026-07-09T22:23:32Z"
     }
   ],
   "priority": 1,
   "status": "closed",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T22:22:24Z"
+  "updated_at": "2026-07-09T22:23:32Z"
 }
