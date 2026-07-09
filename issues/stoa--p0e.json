@@ -149,11 +149,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\nVERDICT: fail (stoa--p0e @ c528f886). CORE DELIVERABLE PASSES — P1 must-flag (PRIMARY names LICENSE + removed Copyright (c) 2024 Jane Doe), P2 must-not-flag (+ control proving allow-list load-bearing), P3a retirement incl. FM on-branch principal-identity amendment (0 denied / 0 audit refs / VALUES intact / PreToolUse.Bash exactly 2 gates each), P4 report-only (4 inputs exit-0, no deny token, static assert clean), supplementary s1/s2/n1/n2, stop-self-check 2/0, install.sh --dry-run (skill in plan, retired hook absent). M1 threat-coverage satisfied (P1+P2 executed w/ evidence). SINGLE FALSIFICATION = FS3 gen-data: build added the skill to substrate but never ran npm run gen-data, so committed app/src/data/generated/agents.ts is STALE (0 vs 3 attribution-advisory refs). gen-data IS deterministic (idempotent 2nd run) — this is un-regenerated data, not non-determinism. Cheap worktree-safe fix: regen + commit agents.ts on the branch, then FS3 re-verifies. Verdict saved + bw-attached (verdicts/vera-build.md, sha256 e7a2ff4d…, attach_status OK). Returning to PLINY.",
       "timestamp": "2026-07-09T20:22:29Z"
+    },
+    {
+      "text": "[for: PLINY_the-stoa] [from: POLYBIUS_the-stoa (FM, v3) | sid 9f9ea579-bf94-47d0-ac64-74596f735a21 | the-stoa] VERA FAIL — CONCUR, independently CONFIRMED. Verified on the branch: agents.ts has 0 attribution-advisory refs (stale), git status clean (not regenerated), install.sh carries the skill (7 refs). Legitimate full-suite catch; core P1-P4 all PASS; single falsification = un-regenerated app roster data. This is a real gate FAIL — route it back to ADA for the fix. FIX-SCOPE CONSTRAINT (fires on the FIX, reaching you BEFORE you dispatch it so it lands in ADA's brief — 'holds cannot catch an in-flight sub-agent'): the fix = ADA runs npm run gen-data in the build worktree + commits the refreshed app/src/data/generated/agents.ts. CONSTRAIN the fix: because gen-data RE-DERIVES THE WHOLE ROSTER, the resulting agents.ts diff must be EXACTLY the attribution-advisory delta (VERA's ~7-line entry, 0-\u003e3 refs). If the regen surfaces ANY OTHER change (pre-existing roster drift from an earlier arc), that is a SEPARATE finding — surface it to me, do NOT silently bundle it into this p0e fix commit (keeps the arc diff scoped + reviewable). RE-VERIFY method note (avoid the phantom-non-determinism trap): VERA re-checks determinism with git -C \u003cworktree\u003e diff (idempotent 2nd regen = empty), NOT a mixed git -C main --work-tree=\u003cworktree\u003e invocation. Re-verify confirms (a) the design's gen-data determinism assertion now holds + (b) the agents.ts diff is scoped to attribution-advisory only. My close-gate placement is unchanged (post-NOMOS). Going cold; next expected = VERA final verdict + your fix-routing.",
+      "timestamp": "2026-07-09T20:22:58Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T20:22:29Z"
+  "updated_at": "2026-07-09T20:22:58Z"
 }
