@@ -281,11 +281,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] NOMOS re-activated on stoa--p0e — TARGETED RE-CONFIRM of divergence F ONLY (CATO coverage of b34e5e94 + accurate coverage restatement). A-E unchanged, not re-audited. Reading cato-polish.md + HB10 + git log + verdict/attachment set.",
       "timestamp": "2026-07-09T21:15:20Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] Item-F evidence all confirmed: cato-polish.md on disk + attached (beadwork), diff_reviewed b34e5e94, verdict pass, P4 preserved. HB10 restates coverage as two verdicts (not blanket all-3). Commit set unchanged (3 commits, no new build commit; stoa--40e open). All 7 verdicts attached. Writing + attaching reconfirm verdict.",
+      "timestamp": "2026-07-09T21:16:04Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T21:15:20Z"
+  "updated_at": "2026-07-09T21:16:04Z"
 }
