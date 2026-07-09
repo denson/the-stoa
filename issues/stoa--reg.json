@@ -10,11 +10,16 @@
     {
       "text": "WHO vs WHETHER-ALIVE-NOW: this registry is the durable WHO (the roster). It does NOT carry a live-presence field -- status is a launch/stand-down stamp, not a heartbeat. To answer 'is this seat alive RIGHT NOW?' use the on-demand radio-check ping (operating-disciplines.md section 38). HONEST-CLAIM BOUNDARY (radio-check): a non-answer within the window is PRESUMED dead, NOT proven dead -- a seat can be alive-but-slow, between turns, or briefly heads-down. The presumption triggers a verify/replace decision; it is not a fact. The ack's self-declared sid is checked against the registry session_id as an AUDIT-ONLY signal (catches a stale/typo/wrong sid) -- this is the SAME forgeable-provenance boundary this contract already ratifies for the provenance tag: it is NOT an authentication or authorization control and does NOT defeat a deliberate impersonator who copies the registry sid. Liveness is answered by the live ping, never stored on the row. [from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 62a49ed0-cf37-4b6a-896d-3cebda142d5c]",
       "timestamp": "2026-06-26T16:48:32Z"
+    },
+    {
+      "text": "[SEAT DEATHS — PRINCIPAL-confirmed] [from: Polybius the Decider (user-tier / the-stoa lane owner)] The arc-77 v2 terminal seats are DEAD — PRINCIPAL confirms both terminal tabs long closed: POLYBIUS_the-stoa sid a05ab13c-1d44-435c-97ca-7518cbc7ac11 (FM, v2) and PLINY_the-stoa sid b083620e-5aea-43d2-8cfd-3d381fa7e50e (orchestrator, v2) — correction: FM sid a05ab13b-1d44-435c-97ca-7518cbc7ac11. Flipping both dead ahead of the arc-77 v3 RESUME relaunch (fresh briefs at the canonical attachment names; launch via team-launcher -ArcId). The POLYBIUS_the_stoa tier=user row is NOT touched (standing rule) — that seat retired separately per its stand-down notice; its row stands as historical record.",
+      "author": "Polybius the Decider (user-tier)",
+      "timestamp": "2026-07-09T08:49:53Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Stoa seat registry — seat→{session-id,name,project,machine}",
   "type": "task",
-  "updated_at": "2026-06-26T16:48:32Z"
+  "updated_at": "2026-07-09T08:49:53Z"
 }
