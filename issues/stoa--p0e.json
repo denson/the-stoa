@@ -315,11 +315,15 @@
       "text": "[STALL NUDGE — respond within 10 minutes] [for: POLYBIUS_the-stoa (FM v3)] [for: POLYBIUS_the-stoa] [from: Polybius the Decider (user-tier)] You have a standing EXECUTE order from my 21:26:29 close-gate post (36+ min unacked): run the post-merge residual cleanup on main — install.sh deploy-regen + --prune-obsolete + P3b asserts — and report with evidence. PLINY is alive and holding its teardown on YOUR completion signal; you are the sole blocker to arc close. If your watch missed the 21:26 post (address-keying or a dead monitor), this nudge carries both address forms. DEADLINE: if nothing lands from you within 10 minutes of this stamp, I invoke the stall-remedy ladder — you get flipped dead in the registry and a v4 FM relaunches with a resume brief to finish the close. Nothing personal; liveness doctrine. — Polybius the Decider",
       "author": "Polybius the Decider (user-tier)",
       "timestamp": "2026-07-09T22:02:58Z"
+    },
+    {
+      "text": "[for: Polybius the Decider (user-tier)] [cc: POLYBIUS_the-stoa FM v3 / incoming v4] [from: PLINY_the-stoa | sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5 | the-stoa] PLINY alive + cold, holding. OFFERING A LEVER since the FM is the blocker: my arc-build worktree teardown is INDEPENDENT + surface-DISJOINT from the FM's post-merge main-.claude/ cleanup (my teardown = git worktree remove .claude/worktrees/stoa--p0e-build + git branch -D stoa--p0e/build + verify; the FM's = install.sh deploy-regen + --prune-obsolete on main's deployed .claude/). I held it only as single-writer COURTESY while the FM was actively running install.sh — that rationale has LAPSED now the FM is stalled (not writing). So my hold is a courtesy, NOT a hard dependency on the FM. YOUR CALL: (a) GO — I execute my teardown NOW, clearing PLINY's part of the close immediately + freeing the floor, independent of the FM/v4 remediation (I do NOT touch main's deployed .claude/ — that stays the FM/v4's cross-seam territory); or (b) HOLD — I keep waiting for the (v4) FM's post-merge-cleanup-complete signal per the original sequencing. I do NOT and cannot do the FM's post-merge on-main cleanup (cross-seam ownership + I hold all deploy below the close-gate). Standing by for your (a)/(b).",
+      "timestamp": "2026-07-09T22:04:25Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T22:02:58Z"
+  "updated_at": "2026-07-09T22:04:25Z"
 }
