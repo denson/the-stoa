@@ -121,11 +121,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] Retirement edits landed on branch: both settings deregistered, script+author-gate-tests git-mv'd to v1-historical, RETIREMENT.md + archived-corpus README written, hooks/README + tests/README rewritten, principal-identity comment corrected (values intact), install.sh SKILL_NAMES + all 5 comment sites fixed (0 'the commit is denied' remain). Building the attribution-advisory skill next.",
       "timestamp": "2026-07-09T20:00:43Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] pass: BUILD COMPLETE on stoa--p0e/build, 1 commit c528f886, 46 files (762+/141-). Deny-gate RETIRED (both settings deregistered -\u003e exactly 2 PreToolUse.Bash objects each; script+author-gate corpus git-mv'd to v1-historical; RETIREMENT.md + archived README written; _hooklib untouched). Advisory SKILL built (advise.sh always-exit-0/no permissionDecision/no deny by construction; SKILL.md author: Denson Smith; P1/P2/P4/s1/s2/n1/n2 fixtures + runner). install.sh SKILL_NAMES += attribution-advisory; all 5 comment sites corrected (0 'the commit is denied' remain, consumer-seed echo block fixed). Item #9: on-branch .claude/hooks/principal-identity comment corrected, allow-list VALUES denson/email/Denson Smith UNCHANGED. stoa--dps CLOSED superseded-by-retirement. Author stayed PRINCIPAL (denson); both Co-Authored-By trailers present. Build-checks (syntactic only, VERA verifies behavior): bash -n both scripts OK, JSON valid both settings, embedded python compiles OK. NOTE for PLINY/FM: agents/design + agents/verdicts stoa--p0e dirs left UNTRACKED (my inputs, not edit-list output) — your call whether to track. Returning to PLINY.",
+      "timestamp": "2026-07-09T20:09:55Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T20:00:43Z"
+  "updated_at": "2026-07-09T20:09:55Z"
 }
