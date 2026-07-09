@@ -89,11 +89,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\nDAEDALUS activated on stoa--p0e. Reading brief + design-rev1 + ARGUS verdict. Producing design-rev2 folding 6 ARGUS risks (r1-r6) + M2 note.",
       "timestamp": "2026-07-09T19:32:54Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\npass: design-rev2 written (agents/design/stoa--p0e/design-rev2.md) — SUPERSEDES rev1 as ADA-authoritative. All 6 ARGUS risks + M2 note folded; every cited line re-verified against the repo. r1: the-stoa OWN deployed .claude/ residuals NAMED with per-target mechanism + post-merge on-main cleanup (FM-owned, NOT build branch per your 19:31:34Z cross-seam note) + P3 split (P3a worktree / P3b post-merge-assert). KEY r1 CATCH: install.sh NEVER clobbers an existing principal-identity (:1479 + staleness carve-out :1919), so its stale comment is NOT auto-fixed by a plain regen — it needs a DISTINCT manual comment edit at close-gate; flagged NOTE-TO-CLOSE-GATE so it is not skipped. r3: all 5 install.sh sites enumerated (:85,:689-693,:1471,:1488-1497,:1907) + corrected seeded-block echo text (kills the consumer-facing 'commit is denied' falsehood). r2: 'tests source-only' RETRACTED — skill tests/ DO deploy (cp -R :1338); DECISION = SHIP tests/ (check.sh recursive find:466-472 → excluding would create a permanent phantom-MISSING loop). r4: hooks/tests/README retitle added. r5/r6 named residuals (report-only false-pos + external-copy-header-strip FN); M1 kept scoped to IN-DIFF, NOT total-plagiarism-defeat. M2: SECONDARY marked UNRATIFIED best-effort courtesy, s1/s2 functional-only (no defeats_via_probe). M1 + A3 map + P1/P2 UNCHANGED (ARGUS-confirmed). Top weak point: W1 armed-consumer live-settings residual is process-mitigated (HARD SAFETY forbids auto-write). Returning to PLINY.",
+      "timestamp": "2026-07-09T19:43:21Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T19:32:54Z"
+  "updated_at": "2026-07-09T19:43:21Z"
 }
