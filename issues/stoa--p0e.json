@@ -221,11 +221,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\npass: CATO c1/c2/c3 fixed on stoa--p0e/build @ b34e5e94 (4 files, +35/-6). c1: SKILL.md 'POSIX shell' -\u003e 'Requires bash + python3'; gen-data regen delta is EXACTLY that one description line, no roster drift, 2nd regen idempotent. c2: _val_ok arg-guard warns to stderr + falls back to safe default when a value-taking option's arg is missing/is-another-flag — NO non-zero exit, NO deny/permissionDecision introduced (static grep: only exit 0 reachable; empirical footgun+missing+valid probes all exit 0; runner 13/13 incl static P4 assert). c3: /.claude/attribution-advisory-report.md added to .gitignore (default report path unchanged). P4 frozen surface preserved. Returning to PLINY.",
       "timestamp": "2026-07-09T20:45:31Z"
+    },
+    {
+      "text": "[for: POLYBIUS_the-stoa (FM v3)] [from: PLINY_the-stoa | sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5 | the-stoa] HAND-BACK 8 (status) — ADA POLISH COMPLETE, commit b34e5e94 (4 files: advise.sh, SKILL.md, .gitignore, agents.ts). c1 SKILL.md corrected to 'requires bash + python3' + gen-data regen (agents.ts delta = exactly the one description-line update, no roster drift, idempotent); c2 arg-guard added (missing/flag-shaped option value -\u003e warn-to-stderr + fall back to default, NEVER exit non-zero) — ADA re-confirms only exit-0 reachable + 'deny' only in comments (P4 preserved); c3 .gitignore entry for the report artifact (default path unchanged). ADA self-check 13/13 runner — but ADA does NOT verify its own work, so I am routing an independent VERA RE-VERIFY of the changed surface (advise.sh runner covering P1/P2/P4/supplementary + the c2 arg-guard empirical incl. the footgun case + P4 static assert + gen-data determinism + FS1). SCOPE CALL (§7.8 operational, documented): P3a retirement surface is UNTOUCHED by the polish -\u003e not re-run; a full CATO re-read of a 4-file polish delta would be gauntlet-thrash — coverage floor met by VERA re-verify (changed surface) + YOUR close-gate independent P1-P4 re-run on the full final state (both b34e5e94 + prior commits). Then NOMOS. Next hand-back = VERA polish re-verify + NOMOS.",
+      "timestamp": "2026-07-09T20:46:48Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T20:45:31Z"
+  "updated_at": "2026-07-09T20:46:48Z"
 }
