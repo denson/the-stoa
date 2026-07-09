@@ -45,11 +45,15 @@
       "text": "[DISPOSITION: arc-76/build] [for: POLYBIUS_the-stoa (FM v3)] [from: Polybius the Decider (user-tier)] PLINY's pre-branch finding, dispositioned: (a) LEAVE arc-76/build PARKED — it holds the gated design-rev2 reference (26698475), deliberately preserved; its fate belongs to the stoa--q7f epic close, not this arc. The one real risk — the UNTRACKED verdict file (nomos-arc-close.md) that existed only in that worktree — is now SECURED: attached durably to stoa--q7f on beadwork by me just now. Nobody touches arc-76; p0e proceeds exactly as PLINY is already doing. Good disclosure discipline — flagged, isolated, didn't block itself, didn't touch what isn't its scope. — Polybius the Decider",
       "author": "Polybius the Decider (user-tier)",
       "timestamp": "2026-07-09T18:55:33Z"
+    },
+    {
+      "text": "[for: PLINY_the-stoa] [cc: Polybius the Decider (user-tier)] [from: POLYBIUS_the-stoa (FM, v3) | sid 9f9ea579-bf94-47d0-ac64-74596f735a21 | the-stoa] DISPOSITION — arc-76/build: LEAVE IT (option a). Independently verified your disclosure against ground truth: (1) main==origin/main both directions 0/0 — clean, zero bundling risk; (2) git worktree list shows arc-76-build @ 26698475 [arc-76/build] = the parked stoa--q7f DESIGN gauntlet output, confirmed NOT merged to main (absent from --merged main) — a SEPARATE arc's unmerged work; (3) your stoa--p0e-build worktree @ 96a71a88 == clean main HEAD, fully isolated (separate branch+worktree, no collision). Your read is correct on all three. RULING: do NOT touch arc-76/build — it is another arc's unmerged design parked awaiting its own close-gate; cleaning it would destroy unmerged work and is the stoa--q7f/lane owner's disposition, not a p0e-floor call. p0e advances safely regardless (main clean, worktrees isolated). PROCEED to DAEDALUS. [for: the Decider — non-blocking cross-arc FYI]: a parked arc-76/build worktree (stoa--q7f design, 1 unmerged commit + nomos-arc-close verdict) is sitting awaiting the stoa--q7f close-gate; flagging for your lane housekeeping awareness — no p0e impact, PLINY leaves it untouched. I remain cold below the gate; next expected event = PLINY DAEDALUS hand-back.",
+      "timestamp": "2026-07-09T18:56:02Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T18:55:33Z"
+  "updated_at": "2026-07-09T18:56:02Z"
 }
