@@ -1,0 +1,185 @@
+agent-substrate install — plan
+  target           : project
+  destination dir  : /tmp/tmp.IWNUVioYch/.claude
+  modify CLAUDE.md : no
+  deploy CAPTAINs  : yes (12 envelopes to /tmp/tmp.IWNUVioYch/.claude/agents)
+  CAPTAIN suffix   : _tmp_IWNUVioYch (slug: tmp_IWNUVioYch)
+  deploy templates : yes (9 files to /tmp/tmp.IWNUVioYch/.claude/templates)
+  deploy skills    : yes (9 skills to /tmp/tmp.IWNUVioYch/.claude/skills)
+  deploy modules   : yes (43 module(s) to /tmp/tmp.IWNUVioYch/.claude/modules)
+  deploy hooks     : yes (7 script(s) to /tmp/tmp.IWNUVioYch/.claude/hooks) [INERT — not armed]
+  arm hooks        : no (default OFF — scripts deploy inert; no settings.json written)
+  arm env block    : no (default OFF — candidate settings-env-block.json deploys inert; no settings.json written)
+  git hook (§28)   : candidate-only -> /tmp/tmp.IWNUVioYch/.claude/githooks-candidate/prepare-commit-msg (INERT; never auto-armed into .git/hooks/ — manual arming per its README)
+  prune obsolete   : no (warn-only)
+  dry-run          : yes
+
+[dry-run] mkdir -p "/tmp/tmp.IWNUVioYch/.claude"
+[dry-run] deploy: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/MAJOR_POLYBIUS.md -> /tmp/tmp.IWNUVioYch/.claude/MAJOR_POLYBIUS.md (substitute {{NAME_SUFFIX}} -> '_tmp_IWNUVioYch')
+[dry-run] deploy: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/MAJOR_PLINY.md -> /tmp/tmp.IWNUVioYch/.claude/MAJOR_PLINY.md (substitute {{NAME_SUFFIX}} -> '_tmp_IWNUVioYch')
+[dry-run] deploy: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/MAJOR_CHIRON.md -> /tmp/tmp.IWNUVioYch/.claude/MAJOR_CHIRON.md (substitute {{NAME_SUFFIX}} -> '_tmp_IWNUVioYch')
+[dry-run] deploy: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/MAJOR_HAMILTON.md -> /tmp/tmp.IWNUVioYch/.claude/MAJOR_HAMILTON.md (substitute {{NAME_SUFFIX}} -> '_tmp_IWNUVioYch')
+[dry-run] deploy: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/operating-disciplines.md -> /tmp/tmp.IWNUVioYch/.claude/operating-disciplines.md
+[dry-run] mkdir -p "/tmp/tmp.IWNUVioYch/.claude/agents"
+[dry-run] deploy: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/CAPTAIN_DAEDALUS.md -> /tmp/tmp.IWNUVioYch/.claude/agents/CAPTAIN_DAEDALUS_tmp_IWNUVioYch.md (substitute {{NAME_SUFFIX}} -> '_tmp_IWNUVioYch')
+[dry-run] deploy: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/CAPTAIN_ARGUS.md -> /tmp/tmp.IWNUVioYch/.claude/agents/CAPTAIN_ARGUS_tmp_IWNUVioYch.md (substitute {{NAME_SUFFIX}} -> '_tmp_IWNUVioYch')
+[dry-run] deploy: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/CAPTAIN_ADA.md -> /tmp/tmp.IWNUVioYch/.claude/agents/CAPTAIN_ADA_tmp_IWNUVioYch.md (substitute {{NAME_SUFFIX}} -> '_tmp_IWNUVioYch')
+[dry-run] deploy: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/CAPTAIN_VERA.md -> /tmp/tmp.IWNUVioYch/.claude/agents/CAPTAIN_VERA_tmp_IWNUVioYch.md (substitute {{NAME_SUFFIX}} -> '_tmp_IWNUVioYch')
+[dry-run] deploy: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/CAPTAIN_CATO.md -> /tmp/tmp.IWNUVioYch/.claude/agents/CAPTAIN_CATO_tmp_IWNUVioYch.md (substitute {{NAME_SUFFIX}} -> '_tmp_IWNUVioYch')
+[dry-run] deploy: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/CAPTAIN_NOMOS.md -> /tmp/tmp.IWNUVioYch/.claude/agents/CAPTAIN_NOMOS_tmp_IWNUVioYch.md (substitute {{NAME_SUFFIX}} -> '_tmp_IWNUVioYch')
+[dry-run] deploy: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/CAPTAIN_STRABO.md -> /tmp/tmp.IWNUVioYch/.claude/agents/CAPTAIN_STRABO_tmp_IWNUVioYch.md (substitute {{NAME_SUFFIX}} -> '_tmp_IWNUVioYch')
+[dry-run] deploy: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/CAPTAIN_BARTLEBY.md -> /tmp/tmp.IWNUVioYch/.claude/agents/CAPTAIN_BARTLEBY_tmp_IWNUVioYch.md (substitute {{NAME_SUFFIX}} -> '_tmp_IWNUVioYch')
+[dry-run] deploy: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/CAPTAIN_HERALD.md -> /tmp/tmp.IWNUVioYch/.claude/agents/CAPTAIN_HERALD_tmp_IWNUVioYch.md (substitute {{NAME_SUFFIX}} -> '_tmp_IWNUVioYch')
+[dry-run] deploy: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/CAPTAIN_CURATOR.md -> /tmp/tmp.IWNUVioYch/.claude/agents/CAPTAIN_CURATOR_tmp_IWNUVioYch.md (substitute {{NAME_SUFFIX}} -> '_tmp_IWNUVioYch')
+[dry-run] deploy: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/CAPTAIN_ZENO.md -> /tmp/tmp.IWNUVioYch/.claude/agents/CAPTAIN_ZENO_tmp_IWNUVioYch.md (substitute {{NAME_SUFFIX}} -> '_tmp_IWNUVioYch')
+[dry-run] deploy: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/CAPTAIN_TIRO.md -> /tmp/tmp.IWNUVioYch/.claude/agents/CAPTAIN_TIRO_tmp_IWNUVioYch.md (substitute {{NAME_SUFFIX}} -> '_tmp_IWNUVioYch')
+[dry-run] mkdir -p "/tmp/tmp.IWNUVioYch/.claude/templates"
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/templates/paste-instruction-template.md" "/tmp/tmp.IWNUVioYch/.claude/templates/paste-instruction-template.md"
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/templates/onboarding-questions.md" "/tmp/tmp.IWNUVioYch/.claude/templates/onboarding-questions.md"
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/templates/consent-prompts.md" "/tmp/tmp.IWNUVioYch/.claude/templates/consent-prompts.md"
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/templates/polling-cron-prompt-template.md" "/tmp/tmp.IWNUVioYch/.claude/templates/polling-cron-prompt-template.md"
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/templates/activation-paste-cheatsheet.md" "/tmp/tmp.IWNUVioYch/.claude/templates/activation-paste-cheatsheet.md"
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/templates/autonomous-mode-activation-template.md" "/tmp/tmp.IWNUVioYch/.claude/templates/autonomous-mode-activation-template.md"
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/templates/handoff-doc-template.md" "/tmp/tmp.IWNUVioYch/.claude/templates/handoff-doc-template.md"
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/templates/settings-hooks.json" "/tmp/tmp.IWNUVioYch/.claude/templates/settings-hooks.json"
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/templates/settings-env-block.json" "/tmp/tmp.IWNUVioYch/.claude/templates/settings-env-block.json"
+[dry-run] mkdir -p "/tmp/tmp.IWNUVioYch/.claude/skills"
+[dry-run] deploy skill: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/skills/credential-discipline/ -> /tmp/tmp.IWNUVioYch/.claude/skills/credential-discipline/ (cp -R)
+[dry-run] post-copy pycache cleanup: /tmp/tmp.IWNUVioYch/.claude/skills/credential-discipline (find __pycache__/*.pyc -delete)
+[dry-run] deploy skill: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/skills/handoff-author/ -> /tmp/tmp.IWNUVioYch/.claude/skills/handoff-author/ (cp -R)
+[dry-run] post-copy pycache cleanup: /tmp/tmp.IWNUVioYch/.claude/skills/handoff-author (find __pycache__/*.pyc -delete)
+[dry-run] deploy skill: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/skills/workflow-composer/ -> /tmp/tmp.IWNUVioYch/.claude/skills/workflow-composer/ (cp -R)
+[dry-run] post-copy pycache cleanup: /tmp/tmp.IWNUVioYch/.claude/skills/workflow-composer (find __pycache__/*.pyc -delete)
+[dry-run] deploy skill: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/skills/interactive-html-preview/ -> /tmp/tmp.IWNUVioYch/.claude/skills/interactive-html-preview/ (cp -R)
+[dry-run] post-copy pycache cleanup: /tmp/tmp.IWNUVioYch/.claude/skills/interactive-html-preview (find __pycache__/*.pyc -delete)
+[dry-run] deploy skill: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/skills/decision-surface/ -> /tmp/tmp.IWNUVioYch/.claude/skills/decision-surface/ (cp -R)
+[dry-run] post-copy pycache cleanup: /tmp/tmp.IWNUVioYch/.claude/skills/decision-surface (find __pycache__/*.pyc -delete)
+[dry-run] deploy skill: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/skills/team-launcher/ -> /tmp/tmp.IWNUVioYch/.claude/skills/team-launcher/ (cp -R)
+[dry-run] post-copy pycache cleanup: /tmp/tmp.IWNUVioYch/.claude/skills/team-launcher (find __pycache__/*.pyc -delete)
+[dry-run] deploy skill: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/skills/gauntlet-setup/ -> /tmp/tmp.IWNUVioYch/.claude/skills/gauntlet-setup/ (cp -R)
+[dry-run] post-copy pycache cleanup: /tmp/tmp.IWNUVioYch/.claude/skills/gauntlet-setup (find __pycache__/*.pyc -delete)
+[dry-run] deploy skill: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/skills/whoami/ -> /tmp/tmp.IWNUVioYch/.claude/skills/whoami/ (cp -R)
+[dry-run] post-copy pycache cleanup: /tmp/tmp.IWNUVioYch/.claude/skills/whoami (find __pycache__/*.pyc -delete)
+[dry-run] deploy skill: /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/skills/attribution-advisory/ -> /tmp/tmp.IWNUVioYch/.claude/skills/attribution-advisory/ (cp -R)
+[dry-run] post-copy pycache cleanup: /tmp/tmp.IWNUVioYch/.claude/skills/attribution-advisory (find __pycache__/*.pyc -delete)
+[dry-run] deploy operator-tool (carve-out, non-SKILL_NAMES): /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/skills/check-substrate-updates/ -> /tmp/tmp.IWNUVioYch/.claude/skills/check-substrate-updates/ (cp -R)
+[dry-run] post-copy pycache cleanup: /tmp/tmp.IWNUVioYch/.claude/skills/check-substrate-updates (find __pycache__/*.pyc -delete)
+[dry-run] deploy operator-tool (carve-out, non-SKILL_NAMES): /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/skills/check-bw-release/ -> /tmp/tmp.IWNUVioYch/.claude/skills/check-bw-release/ (cp -R)
+[dry-run] post-copy pycache cleanup: /tmp/tmp.IWNUVioYch/.claude/skills/check-bw-release (find __pycache__/*.pyc -delete)
+[dry-run] deploy operator-tool (carve-out, non-SKILL_NAMES): /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/skills/validate-spec/ -> /tmp/tmp.IWNUVioYch/.claude/skills/validate-spec/ (cp -R)
+[dry-run] post-copy pycache cleanup: /tmp/tmp.IWNUVioYch/.claude/skills/validate-spec (find __pycache__/*.pyc -delete)
+[dry-run] deploy operator-tool (carve-out, non-SKILL_NAMES): /c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/skills/inspect-script-output/ -> /tmp/tmp.IWNUVioYch/.claude/skills/inspect-script-output/ (cp -R)
+[dry-run] post-copy pycache cleanup: /tmp/tmp.IWNUVioYch/.claude/skills/inspect-script-output (find __pycache__/*.pyc -delete)
+[dry-run] mkdir -p "/tmp/tmp.IWNUVioYch/.claude/modules"
+[dry-run] deploy module: README.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/README.md" "/tmp/tmp.IWNUVioYch/.claude/modules/README.md"
+[dry-run] deploy module: ada-brief-preamble.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/ada-brief-preamble.md" "/tmp/tmp.IWNUVioYch/.claude/modules/ada-brief-preamble.md"
+[dry-run] deploy module: api-docs-dont-generalize.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/api-docs-dont-generalize.md" "/tmp/tmp.IWNUVioYch/.claude/modules/api-docs-dont-generalize.md"
+[dry-run] deploy module: arc-close-hygiene.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/arc-close-hygiene.md" "/tmp/tmp.IWNUVioYch/.claude/modules/arc-close-hygiene.md"
+[dry-run] deploy module: autonomous-mode-setup.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/autonomous-mode-setup.md" "/tmp/tmp.IWNUVioYch/.claude/modules/autonomous-mode-setup.md"
+[dry-run] deploy module: background-dispatch-hygiene.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/background-dispatch-hygiene.md" "/tmp/tmp.IWNUVioYch/.claude/modules/background-dispatch-hygiene.md"
+[dry-run] deploy module: bw-fit-matrix.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/bw-fit-matrix.md" "/tmp/tmp.IWNUVioYch/.claude/modules/bw-fit-matrix.md"
+[dry-run] deploy module: bw-upgrade.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/bw-upgrade.md" "/tmp/tmp.IWNUVioYch/.claude/modules/bw-upgrade.md"
+[dry-run] deploy module: canonical-code-block-fix.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/canonical-code-block-fix.md" "/tmp/tmp.IWNUVioYch/.claude/modules/canonical-code-block-fix.md"
+[dry-run] deploy module: canonical-template-alignment.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/canonical-template-alignment.md" "/tmp/tmp.IWNUVioYch/.claude/modules/canonical-template-alignment.md"
+[dry-run] deploy module: complaint-callback.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/complaint-callback.md" "/tmp/tmp.IWNUVioYch/.claude/modules/complaint-callback.md"
+[dry-run] deploy module: credential-discipline-detail.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/credential-discipline-detail.md" "/tmp/tmp.IWNUVioYch/.claude/modules/credential-discipline-detail.md"
+[dry-run] deploy module: credential-flow-design.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/credential-flow-design.md" "/tmp/tmp.IWNUVioYch/.claude/modules/credential-flow-design.md"
+[dry-run] deploy module: decision-register.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/decision-register.md" "/tmp/tmp.IWNUVioYch/.claude/modules/decision-register.md"
+[dry-run] deploy module: dilemma-classifier.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/dilemma-classifier.md" "/tmp/tmp.IWNUVioYch/.claude/modules/dilemma-classifier.md"
+[dry-run] deploy module: four-layer-identity.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/four-layer-identity.md" "/tmp/tmp.IWNUVioYch/.claude/modules/four-layer-identity.md"
+[dry-run] deploy module: incomplete-unverifiable-routing.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/incomplete-unverifiable-routing.md" "/tmp/tmp.IWNUVioYch/.claude/modules/incomplete-unverifiable-routing.md"
+[dry-run] deploy module: inspect-script-output.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/inspect-script-output.md" "/tmp/tmp.IWNUVioYch/.claude/modules/inspect-script-output.md"
+[dry-run] deploy module: jsdom-timing-discipline.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/jsdom-timing-discipline.md" "/tmp/tmp.IWNUVioYch/.claude/modules/jsdom-timing-discipline.md"
+[dry-run] deploy module: mechanical-inspection-split.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/mechanical-inspection-split.md" "/tmp/tmp.IWNUVioYch/.claude/modules/mechanical-inspection-split.md"
+[dry-run] deploy module: multi-team-interop.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/multi-team-interop.md" "/tmp/tmp.IWNUVioYch/.claude/modules/multi-team-interop.md"
+[dry-run] deploy module: onboarding.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/onboarding.md" "/tmp/tmp.IWNUVioYch/.claude/modules/onboarding.md"
+[dry-run] deploy module: oss-dep-and-latency.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/oss-dep-and-latency.md" "/tmp/tmp.IWNUVioYch/.claude/modules/oss-dep-and-latency.md"
+[dry-run] deploy module: pair-programmer-authoring.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/pair-programmer-authoring.md" "/tmp/tmp.IWNUVioYch/.claude/modules/pair-programmer-authoring.md"
+[dry-run] deploy module: pair-programming-prototyping.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/pair-programming-prototyping.md" "/tmp/tmp.IWNUVioYch/.claude/modules/pair-programming-prototyping.md"
+[dry-run] deploy module: per-worktree-venv.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/per-worktree-venv.md" "/tmp/tmp.IWNUVioYch/.claude/modules/per-worktree-venv.md"
+[dry-run] deploy module: pliny-polling-pattern.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/pliny-polling-pattern.md" "/tmp/tmp.IWNUVioYch/.claude/modules/pliny-polling-pattern.md"
+[dry-run] deploy module: post-strabo-vera.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/post-strabo-vera.md" "/tmp/tmp.IWNUVioYch/.claude/modules/post-strabo-vera.md"
+[dry-run] deploy module: pre-branch-hygiene.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/pre-branch-hygiene.md" "/tmp/tmp.IWNUVioYch/.claude/modules/pre-branch-hygiene.md"
+[dry-run] deploy module: principal-gate-design.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/principal-gate-design.md" "/tmp/tmp.IWNUVioYch/.claude/modules/principal-gate-design.md"
+[dry-run] deploy module: probe-grounding.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/probe-grounding.md" "/tmp/tmp.IWNUVioYch/.claude/modules/probe-grounding.md"
+[dry-run] deploy module: save-verdict.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/save-verdict.md" "/tmp/tmp.IWNUVioYch/.claude/modules/save-verdict.md"
+[dry-run] deploy module: seat-identity-brief.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/seat-identity-brief.md" "/tmp/tmp.IWNUVioYch/.claude/modules/seat-identity-brief.md"
+[dry-run] deploy module: smoke-beat-deploy-check.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/smoke-beat-deploy-check.md" "/tmp/tmp.IWNUVioYch/.claude/modules/smoke-beat-deploy-check.md"
+[dry-run] deploy module: ssot-with-why.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/ssot-with-why.md" "/tmp/tmp.IWNUVioYch/.claude/modules/ssot-with-why.md"
+[dry-run] deploy module: sub-agent-transcript-discipline.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/sub-agent-transcript-discipline.md" "/tmp/tmp.IWNUVioYch/.claude/modules/sub-agent-transcript-discipline.md"
+[dry-run] deploy module: sub-agent-watchdog.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/sub-agent-watchdog.md" "/tmp/tmp.IWNUVioYch/.claude/modules/sub-agent-watchdog.md"
+[dry-run] deploy module: sub-project-spawning.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/sub-project-spawning.md" "/tmp/tmp.IWNUVioYch/.claude/modules/sub-project-spawning.md"
+[dry-run] deploy module: substrate-component-design.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/substrate-component-design.md" "/tmp/tmp.IWNUVioYch/.claude/modules/substrate-component-design.md"
+[dry-run] deploy module: substrate-update-check.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/substrate-update-check.md" "/tmp/tmp.IWNUVioYch/.claude/modules/substrate-update-check.md"
+[dry-run] deploy module: tool-selection-taxonomy.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/tool-selection-taxonomy.md" "/tmp/tmp.IWNUVioYch/.claude/modules/tool-selection-taxonomy.md"
+[dry-run] deploy module: two-polybius-coordination.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/two-polybius-coordination.md" "/tmp/tmp.IWNUVioYch/.claude/modules/two-polybius-coordination.md"
+[dry-run] deploy module: validate-spec.md
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/modules/validate-spec.md" "/tmp/tmp.IWNUVioYch/.claude/modules/validate-spec.md"
+[dry-run] mkdir -p "/tmp/tmp.IWNUVioYch/.claude/hooks"
+[dry-run] deploy hook: _hooklib.sh
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/hooks/_hooklib.sh" "/tmp/tmp.IWNUVioYch/.claude/hooks/_hooklib.sh" (sourced lib — no chmod +x)
+[dry-run] deploy hook: posttooluse-agent-checker-trigger.sh
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/hooks/posttooluse-agent-checker-trigger.sh" "/tmp/tmp.IWNUVioYch/.claude/hooks/posttooluse-agent-checker-trigger.sh" && chmod +x "/tmp/tmp.IWNUVioYch/.claude/hooks/posttooluse-agent-checker-trigger.sh"
+[dry-run] deploy hook: pretooluse-clean-tree-before-branch.sh
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/hooks/pretooluse-clean-tree-before-branch.sh" "/tmp/tmp.IWNUVioYch/.claude/hooks/pretooluse-clean-tree-before-branch.sh" && chmod +x "/tmp/tmp.IWNUVioYch/.claude/hooks/pretooluse-clean-tree-before-branch.sh"
+[dry-run] deploy hook: pretooluse-no-dash-m-bw-comment.sh
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/hooks/pretooluse-no-dash-m-bw-comment.sh" "/tmp/tmp.IWNUVioYch/.claude/hooks/pretooluse-no-dash-m-bw-comment.sh" && chmod +x "/tmp/tmp.IWNUVioYch/.claude/hooks/pretooluse-no-dash-m-bw-comment.sh"
+[dry-run] deploy hook: sessionstart-compact-reprime.sh
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/hooks/sessionstart-compact-reprime.sh" "/tmp/tmp.IWNUVioYch/.claude/hooks/sessionstart-compact-reprime.sh" && chmod +x "/tmp/tmp.IWNUVioYch/.claude/hooks/sessionstart-compact-reprime.sh"
+[dry-run] deploy hook: sessionstart-substrate-check.sh
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/hooks/sessionstart-substrate-check.sh" "/tmp/tmp.IWNUVioYch/.claude/hooks/sessionstart-substrate-check.sh" && chmod +x "/tmp/tmp.IWNUVioYch/.claude/hooks/sessionstart-substrate-check.sh"
+[dry-run] deploy hook: stop-self-check.sh
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/hooks/stop-self-check.sh" "/tmp/tmp.IWNUVioYch/.claude/hooks/stop-self-check.sh" && chmod +x "/tmp/tmp.IWNUVioYch/.claude/hooks/stop-self-check.sh"
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/hooks/README.md" "/tmp/tmp.IWNUVioYch/.claude/hooks/README.md"
+[dry-run] seed principal-identity allow-list: /tmp/tmp.IWNUVioYch/.claude/hooks/principal-identity
+[dry-run] mkdir -p "/tmp/tmp.IWNUVioYch/.claude/githooks-candidate"
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/githooks/prepare-commit-msg" "/tmp/tmp.IWNUVioYch/.claude/githooks-candidate/prepare-commit-msg" && chmod +x (INERT candidate — NOT armed into .git/hooks/)
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/githooks/README.md" "/tmp/tmp.IWNUVioYch/.claude/githooks-candidate/README.md"
+[dry-run] cp "/c/Users/denso/claude_projects/the-stoa/.claude/worktrees/stoa--p0e-build/substrate/githooks/.gitattributes" "/tmp/tmp.IWNUVioYch/.claude/githooks-candidate/.gitattributes" (pins LF eol)
+[dry-run] CLAUDE.md modification skipped (no --modify-claude-md flag; consent not given)
+[dry-run] write: /tmp/tmp.IWNUVioYch/.claude/.substrate-manifest (tier=project, deployed_at=2026-07-09T20:19:39Z, substrate_sha=c528f886)
+[dry-run] write: /tmp/tmp.IWNUVioYch/.claude/.gitignore (substrate-transient paths: scheduled_tasks.lock, worktrees/, .substrate-last-check, .substrate-check-hook-stamp, .substrate-drift-signal, __pycache__/, *.pyc)
+
+install.sh: done (dry-run, no writes)
