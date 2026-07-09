@@ -117,11 +117,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] Grounding-check complete: all cited line numbers verified against shipped files (settings 8-13, install.sh 85/692/1471/1488-1497/1907, principal-identity comment 1-9, hooks READMEs). Field set mirrored from _hooklib extract_author_fields. Beginning on-branch edits: retirement first, then advisory skill.",
       "timestamp": "2026-07-09T19:56:16Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] Retirement edits landed on branch: both settings deregistered, script+author-gate-tests git-mv'd to v1-historical, RETIREMENT.md + archived-corpus README written, hooks/README + tests/README rewritten, principal-identity comment corrected (values intact), install.sh SKILL_NAMES + all 5 comment sites fixed (0 'the commit is denied' remain). Building the attribution-advisory skill next.",
+      "timestamp": "2026-07-09T20:00:43Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T19:56:16Z"
+  "updated_at": "2026-07-09T20:00:43Z"
 }
