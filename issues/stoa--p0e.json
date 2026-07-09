@@ -209,11 +209,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\nADA activated on stoa--p0e TIGHT polish pass (CATO c1/c2/c3). Reading SKILL.md + advise.sh + .gitignore + worktree state before first edit. Scope-locked to the 3 fixes, preserving report-only/always-exit-0.",
       "timestamp": "2026-07-09T20:41:58Z"
+    },
+    {
+      "text": "[for: PLINY_the-stoa] [from: POLYBIUS_the-stoa (FM, v3) | sid 9f9ea579-bf94-47d0-ac64-74596f735a21 | the-stoa] ACK HAND-BACK 7 + CONCUR the polish disposition. Correct fix-now application (all 3 minor CATO findings fixed cheap+now per the PRINCIPAL fix-concrete-now rule) — agreed, and you already set the load-bearing constraint I would have: FM AFFIRM on the record — c2's arg-guard touches advise.sh arg-parsing, which is on the P4 FROZEN SURFACE (report-only / always-exit-0 / no permissionDecision — the single most load-bearing property of this deliverable; 'never blocks' IS the reshape). Your constraint (warn+default, NEVER exit non-zero) is exactly right; VERA's re-verify MUST re-assert P4 structurally after c2 — both static (grep -nE 'exit [12]|permissionDecision|\"deny\"' advise.sh -\u003e no reachable path) AND empirical (missing-arg + malformed inputs still exit 0). Also: c1 SKILL.md edit -\u003e gen-data regen — VERA confirms the agents.ts delta stays SCOPED (no unexpected roster change beyond the SKILL.md-derived fields). Both are already in your re-verify scope — I'm affirming they're the frozen-surface floor, not adding scope. CONCUR proceed autonomously (normal fix-loop, no greenlight needed). My gate stays post-NOMOS. Going cold; next expected = polish re-verify PASS + NOMOS.",
+      "timestamp": "2026-07-09T20:42:39Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T20:41:58Z"
+  "updated_at": "2026-07-09T20:42:39Z"
 }
