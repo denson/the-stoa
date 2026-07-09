@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-07-09T21:13:52Z",
+  "description": "",
+  "id": "stoa--40e",
+  "labels": [],
+  "priority": 3,
+  "status": "open",
+  "title": "[FOLLOW-UP stoa--p0e / CATO polish] attribution-advisory SKILL.md parenthetical says 'set -o pipefail' but advise.sh is 'set -uo pipefail' (omits -u nounset)",
+  "type": "task",
+  "updated_at": "2026-07-09T21:13:52Z"
+}
