@@ -44,8 +44,6 @@ instruction, not a reference to it.
 
 Worked examples (all from the gates in this directory):
 
-- author-field deny: names the *field*, the *file*, the *wrong value*, the fix (`git config ...` /
-  re-stage), AND how to widen the allow-list if the value is a legitimate PRINCIPAL identity.
 - clean-tree deny: names the *dirty paths inline* and the three resolution verbs (commit / stash /
   clean), not "see the branch-hygiene discipline".
 - no-`-m` deny: shows the *wrong form*, the *correct positional form*, and *why* the footgun loses
@@ -82,7 +80,6 @@ When you author a new trigger payload anywhere in the substrate, this is the rul
 
 | Script | Event | Narrowing `if` | Blocks |
 |---|---|---|---|
-| `pretooluse-author-field-audit.sh` | PreToolUse | `Bash(git commit*)` | a commit whose git author identity OR a staged author-like field (config files incl. `LICENSE.md` / `*.claude-plugin/*.md` whole-file; prose `.md` frontmatter only — see §7) names someone other than the PRINCIPAL |
 | `pretooluse-clean-tree-before-branch.sh` | PreToolUse | `Bash(git *)` | arc-build branch / worktree creation when the tree is dirty |
 | `pretooluse-no-dash-m-bw-comment.sh` | PreToolUse | `Bash(bw comment*)` | the `bw comment <id> -m "..."` data-loss footgun |
 | `stop-self-check.sh` | Stop | (none) | once per turn: a self-check backstop (checker-dispatched? gate not dodged? commit attributed?) |
@@ -95,10 +92,23 @@ When you author a new trigger payload anywhere in the substrate, this is the rul
 | `sessionstart-compact-reprime.sh` | SessionStart | `compact` | on a compact-triggered resume: re-prime the orchestrator's standing engagement context (seat, open epic, polling cadence, dispatch-NOMOS reminder). Payload from `.claude/hooks/reprime-context` if present, else a generic role reprime. |
 | `sessionstart-substrate-check.sh` (Arc 63) | SessionStart | `startup\|resume` | on a normal start/resume: run check-substrate-updates + check-bw-release CHECK logic once/session-start (throttled ~once/day, silent-when-current, fail-open) and surface drift. **NOT a best-effort hook** — its `startup\|resume` additionalContext is a WORKING channel (v2.1.170; §6 NARROW SCOPE) AND it writes a P-FALLBACK `.substrate-drift-signal` read by the Stop self-check clause (D) + CLAUDE.md, so drift surfaces off-additionalContext too. Listed here as a SessionStart sibling, but it is a reliable carrier, not Stage-2 best-effort. |
 
-The PRINCIPAL allow-list the author-field gate reads is `.claude/hooks/principal-identity` (one
-name/email per line; `#` comments + blanks ignored), written at install time. It is the gate's
-CONFIG (the PRINCIPAL identity the gate compares against) — **not an author-like field of any repo
-artifact**, and so is exempt from the audit the gate performs.
+The PRINCIPAL allow-list the **attribution-advisory skill's SECONDARY check** reads is
+`.claude/hooks/principal-identity` (one name/email per line; `#` comments + blanks ignored),
+written at install time. It is the skill's CONFIG (the PRINCIPAL identity the advisory compares NEW
+author-like field values against) — **not an author-like field of any repo artifact**. The advisory
+only REPORTS a value not on the list; it never blocks.
+
+### Retired gates (Arc — stoa--p0e)
+
+The authorship deny-gate `pretooluse-author-field-audit.sh` (formerly a `PreToolUse` /
+`Bash(git commit*)` gate that could DENY a commit) was **retired** in Arc `stoa--p0e` per the
+PRINCIPAL SCOPE-RESHAPE ruling. The script + its regression corpus are archived under
+`substrate/v1-historical/hooks/` — see `substrate/v1-historical/hooks/RETIREMENT.md` for the WHY.
+Its replacement is the **report-only `attribution-advisory` skill**
+(`substrate/skills/attribution-advisory/`), which surfaces attribution-line MODIFY/DELETE hunks (the
+plagiarism / license-breach direction) into `.claude/attribution-advisory-report.md` and NEVER
+denies. The `.claude/hooks/principal-identity` allow-list survives the retirement — the advisory's
+SECONDARY check reuses it.
 
 ---
 
@@ -136,7 +146,8 @@ When an operator genuinely wants the gates live on a target workspace:
    `<target>/.claude/settings.json`, never the running session), OR at user tier follow the printed
    manual-merge instruction to merge the block into `~/.claude/settings.json` yourself.
 3. Confirm `.claude/hooks/principal-identity` lists every valid PRINCIPAL name/email (the
-   author-field gate denies any value not on the list, with a widen-the-list message).
+   `attribution-advisory` skill's SECONDARY check REPORTS — never denies — any NEW author-field
+   value not on the list, with a widen-the-list note in the advisory report).
 4. The gates are now live for that workspace's sessions. To disarm, remove the `hooks` block from
    that `settings.json`.
 
@@ -212,7 +223,14 @@ arc ships layer-2's read path ahead of its write site.
 
 ---
 
-## 7. The `.md` frontmatter-only narrowing (Arc 65 / stoa--z2b)
+## 7. The `.md` frontmatter-only narrowing (Arc 65 / stoa--z2b) — HISTORICAL (retired gate)
+
+> **HISTORICAL to the RETIRED gate (Arc stoa--p0e).** This section documents the `.md`-matcher
+> narrowing of `pretooluse-author-field-audit.sh`, which was RETIRED (see "Retired gates" in §4 and
+> `substrate/v1-historical/hooks/RETIREMENT.md`). It is preserved as the durable record of the z2b
+> narrowing lore — the `classify_author_file` / `extract_author_fields` functions it describes still
+> exist in `_hooklib.sh` but are now DEAD (no surviving caller). Read it as history, not as an
+> active-gate reference.
 
 The author-field gate (`pretooluse-author-field-audit.sh` sub-check 2) used to treat **every** `*.md`
 file as an author-encoding file and run the multiline, anywhere-in-blob author-field regex over its
@@ -259,6 +277,8 @@ naming a non-PRINCIPAL in those two classes still BLOCKs). By contrast `NOTICE.m
 line is the delegated residual above. The carve-out is encoded as `case`-arm ORDER (config arms tested
 FIRST) and is mechanically guarded by the regression corpus, not just by comment.
 
-**The regression corpus** at `substrate/hooks/tests/` is the guard for both directions of this narrowing
-(false-positives now pass; true-positives — including the two collision classes — still block). It is
-**source-only** (it does not deploy). Run `bash substrate/hooks/tests/run-author-gate-tests.sh`.
+**The regression corpus** (now ARCHIVED at `substrate/v1-historical/hooks/tests/` after the Arc
+`stoa--p0e` retirement) was the guard for both directions of this narrowing (false-positives pass;
+true-positives — including the two collision classes — block). It was **source-only** (it did not
+deploy). It still runs against the archived script + the surviving `_hooklib.sh`:
+`bash substrate/v1-historical/hooks/tests/run-author-gate-tests.sh`.
