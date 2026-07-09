@@ -32,6 +32,10 @@ agents/**/_body-*.tmp.md
 .claude/hooks/.stop-sentinels/
 # stray data file (not a repo artifact)
 /LA_sea_level_data.csv
+# attribution-advisory bare-run default report — written into the source tree when
+# advise.sh runs with no --report-out; the report is the intended DEPLOYED-workspace
+# surface, but from the source tree it is untracked litter (Arc stoa--p0e / CATO c3).
+/.claude/attribution-advisory-report.md
 
 # Per-operator consumer-workspace registry — machine-specific (absolute project paths).
 # check-substrate-updates/check.sh reads it locally; ship consumer-workspaces.txt.example

@@ -52,13 +52,38 @@ DIFF_FILE=""
 REPORT_OUT="${WORKSPACE}/.claude/attribution-advisory-report.md"
 PRINCIPAL_ID_FILE="${STOA_PRINCIPAL_IDENTITY_FILE:-${WORKSPACE}/.claude/hooks/principal-identity}"
 
+# A value-taking option must be followed by a REAL value — not end-of-args and not
+# another --flag. Without this guard `--diff-file --report-out X` would silently
+# swallow `--report-out` as the diff-file path. When the expected value is missing
+# or is itself a --flag, we WARN to stderr and fall back to the safe default: we do
+# NOT consume the next token, do NOT error, and do NOT change the exit status. This
+# preserves the load-bearing never-block / always-exit-0 contract (§ the-never-blocks
+# contract) while closing the silent next-flag-swallow footgun.
+_val_ok() {  # true iff the token is present AND not empty AND not itself a --flag
+  case "${1-__STOA_MISSING__}" in
+    ""|__STOA_MISSING__|--*) return 1 ;;
+    *)                       return 0 ;;
+  esac
+}
+_warn_opt() {  # $1 = option name, $2 = the offending next token (may be empty)
+  printf '%s\n' "attribution-advisory: warning: ${1} expects a value but none was given (next token: '${2:-<end-of-args>}'); ignoring it and using the default." >&2
+}
+
 while [ "$#" -gt 0 ]; do
   case "${1:-}" in
-    --diff-file)          MODE="difffile"; DIFF_FILE="${2:-}"; shift 2 2>/dev/null || shift ;;
-    --range)              MODE="range";    RANGE="${2:-}";     shift 2 2>/dev/null || shift ;;
+    --diff-file)
+      if _val_ok "${2-__STOA_MISSING__}"; then MODE="difffile"; DIFF_FILE="$2"; shift 2
+      else _warn_opt --diff-file "${2:-}"; shift; fi ;;
+    --range)
+      if _val_ok "${2-__STOA_MISSING__}"; then MODE="range"; RANGE="$2"; shift 2
+      else _warn_opt --range "${2:-}"; shift; fi ;;
     --stdin)              MODE="stdin";                        shift ;;
-    --report-out)         REPORT_OUT="${2:-}";                shift 2 2>/dev/null || shift ;;
-    --principal-identity) PRINCIPAL_ID_FILE="${2:-}";         shift 2 2>/dev/null || shift ;;
+    --report-out)
+      if _val_ok "${2-__STOA_MISSING__}"; then REPORT_OUT="$2"; shift 2
+      else _warn_opt --report-out "${2:-}"; shift; fi ;;
+    --principal-identity)
+      if _val_ok "${2-__STOA_MISSING__}"; then PRINCIPAL_ID_FILE="$2"; shift 2
+      else _warn_opt --principal-identity "${2:-}"; shift; fi ;;
     *)                                                        shift ;;   # ignore unknown args; never error
   esac
 done

@@ -3,7 +3,7 @@ name: attribution-advisory
 description: |
   Report-only, NEVER-BLOCKING attribution advisory. Scans a unified diff and surfaces attribution changes into a durable report at `.claude/attribution-advisory-report.md` — it NEVER denies, blocks, or fails a commit. Its PRIMARY check flags a diff hunk that MODIFIES or DELETES an existing author/copyright/license/attribution line (the plagiarism / license-breach direction — another author's credit erased or replaced). Its SECONDARY best-effort check flags a NEW non-PRINCIPAL author-like field in a non-vendored path, using the `.claude/hooks/principal-identity` allow-list (fail-open when absent). Replaces the retired authorship deny-gate (Arc stoa--p0e).
 
-  Invoke when reviewing a diff / staged changes / a branch range for attribution integrity before a commit or merge — e.g. "check this diff for attribution problems", "did any license or copyright line change", "run the attribution advisory". Operator- or gauntlet-seat-invoked. Runs anywhere python3 + a POSIX shell are present.
+  Invoke when reviewing a diff / staged changes / a branch range for attribution integrity before a commit or merge — e.g. "check this diff for attribution problems", "did any license or copyright line change", "run the attribution advisory". Operator- or gauntlet-seat-invoked. Requires bash + python3 (the wrapper is a bash script — `#!/usr/bin/env bash` with `set -o pipefail`; the scanner is python3).
 author: Denson Smith
 ---
 
