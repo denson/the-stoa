@@ -145,11 +145,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\nFull-suite regression done. stop-self-check 2/0 PASS; install.sh --dry-run PASS (attribution-advisory in deploy plan, retired hook absent, surviving gates deployed, no errors). gen-data: FALSIFIES the design's determinism assertion — regen adds a 7-line attribution-advisory entry to app/src/data/generated/agents.ts (committed=0 refs, regen=3). gen-data IS deterministic (idempotent 2nd run); the build did NOT regenerate agents.ts after adding the skill, so committed generated roster data is STALE vs substrate. Cheap worktree-safe fix. Drafting FAIL verdict (core deliverable P1-P4 all pass; single falsification = un-regenerated app data).",
       "timestamp": "2026-07-09T20:20:23Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\nVERDICT: fail (stoa--p0e @ c528f886). CORE DELIVERABLE PASSES — P1 must-flag (PRIMARY names LICENSE + removed Copyright (c) 2024 Jane Doe), P2 must-not-flag (+ control proving allow-list load-bearing), P3a retirement incl. FM on-branch principal-identity amendment (0 denied / 0 audit refs / VALUES intact / PreToolUse.Bash exactly 2 gates each), P4 report-only (4 inputs exit-0, no deny token, static assert clean), supplementary s1/s2/n1/n2, stop-self-check 2/0, install.sh --dry-run (skill in plan, retired hook absent). M1 threat-coverage satisfied (P1+P2 executed w/ evidence). SINGLE FALSIFICATION = FS3 gen-data: build added the skill to substrate but never ran npm run gen-data, so committed app/src/data/generated/agents.ts is STALE (0 vs 3 attribution-advisory refs). gen-data IS deterministic (idempotent 2nd run) — this is un-regenerated data, not non-determinism. Cheap worktree-safe fix: regen + commit agents.ts on the branch, then FS3 re-verifies. Verdict saved + bw-attached (verdicts/vera-build.md, sha256 e7a2ff4d…, attach_status OK). Returning to PLINY.",
+      "timestamp": "2026-07-09T20:22:29Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T20:20:23Z"
+  "updated_at": "2026-07-09T20:22:29Z"
 }
