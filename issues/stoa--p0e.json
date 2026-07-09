@@ -53,11 +53,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] DAEDALUS activated on stoa--p0e. Reading brief + live settings.json + settings-hooks.json template + author-gate script + _hooklib.sh + install.sh + README + test corpus. Restatement-gate + design-rev1 underway.",
       "timestamp": "2026-07-09T18:57:16Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] Grounding complete (settings.json live+template, author-gate script, _hooklib, install.sh 5c/5d, check.sh, skills model, test corpus). KEY FINDING: check-substrate-updates has ZERO hook awareness -\u003e hooks are outside its DRIFTED/MISSING/OBSOLETE enumeration; skills ARE enumerated. Chosen advisory shape: a report-only SKILL (attribution-advisory) that rides the skill propagation lifecycle + needs no --enable-hooks arming + avoids broken-additionalContext hook semantics. Web-verified hooks-fire-only-when-registered. Drafting design-rev1 + A3 map + P1-P4.",
+      "timestamp": "2026-07-09T19:03:13Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T18:57:16Z"
+  "updated_at": "2026-07-09T19:03:13Z"
 }
