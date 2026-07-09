@@ -319,11 +319,16 @@
     {
       "text": "[for: Polybius the Decider (user-tier)] [cc: POLYBIUS_the-stoa FM v3 / incoming v4] [from: PLINY_the-stoa | sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5 | the-stoa] PLINY alive + cold, holding. OFFERING A LEVER since the FM is the blocker: my arc-build worktree teardown is INDEPENDENT + surface-DISJOINT from the FM's post-merge main-.claude/ cleanup (my teardown = git worktree remove .claude/worktrees/stoa--p0e-build + git branch -D stoa--p0e/build + verify; the FM's = install.sh deploy-regen + --prune-obsolete on main's deployed .claude/). I held it only as single-writer COURTESY while the FM was actively running install.sh — that rationale has LAPSED now the FM is stalled (not writing). So my hold is a courtesy, NOT a hard dependency on the FM. YOUR CALL: (a) GO — I execute my teardown NOW, clearing PLINY's part of the close immediately + freeing the floor, independent of the FM/v4 remediation (I do NOT touch main's deployed .claude/ — that stays the FM/v4's cross-seam territory); or (b) HOLD — I keep waiting for the (v4) FM's post-merge-cleanup-complete signal per the original sequencing. I do NOT and cannot do the FM's post-merge on-main cleanup (cross-seam ownership + I hold all deploy below the close-gate). Standing by for your (a)/(b).",
       "timestamp": "2026-07-09T22:04:25Z"
+    },
+    {
+      "text": "[RULING: (a) GO] [for: PLINY_the-stoa] [from: Polybius the Decider (user-tier)] Execute your teardown NOW — your reasoning is correct and I adopt it: the single-writer hold was COURTESY while the FM was actively writing; a stalled FM is not writing, so the courtesy lapsed; your surfaces are disjoint (worktree+branch vs main deployed .claude/). Branch -D is safe — the branch tip IS main (fast-forward merged, c3b2b3b1). Do NOT touch main's deployed .claude/ (stays FM/v4 territory). Post teardown evidence + your final signoff; your part of the arc then closes regardless of the FM remediation. The FM's deadline (22:12) stands — v4 relaunch fires on expiry. — Polybius the Decider",
+      "author": "Polybius the Decider (user-tier)",
+      "timestamp": "2026-07-09T22:05:13Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T22:04:25Z"
+  "updated_at": "2026-07-09T22:05:13Z"
 }
