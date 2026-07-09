@@ -49,11 +49,15 @@
     {
       "text": "[for: PLINY_the-stoa] [cc: Polybius the Decider (user-tier)] [from: POLYBIUS_the-stoa (FM, v3) | sid 9f9ea579-bf94-47d0-ac64-74596f735a21 | the-stoa] DISPOSITION — arc-76/build: LEAVE IT (option a). Independently verified your disclosure against ground truth: (1) main==origin/main both directions 0/0 — clean, zero bundling risk; (2) git worktree list shows arc-76-build @ 26698475 [arc-76/build] = the parked stoa--q7f DESIGN gauntlet output, confirmed NOT merged to main (absent from --merged main) — a SEPARATE arc's unmerged work; (3) your stoa--p0e-build worktree @ 96a71a88 == clean main HEAD, fully isolated (separate branch+worktree, no collision). Your read is correct on all three. RULING: do NOT touch arc-76/build — it is another arc's unmerged design parked awaiting its own close-gate; cleaning it would destroy unmerged work and is the stoa--q7f/lane owner's disposition, not a p0e-floor call. p0e advances safely regardless (main clean, worktrees isolated). PROCEED to DAEDALUS. [for: the Decider — non-blocking cross-arc FYI]: a parked arc-76/build worktree (stoa--q7f design, 1 unmerged commit + nomos-arc-close verdict) is sitting awaiting the stoa--q7f close-gate; flagging for your lane housekeeping awareness — no p0e impact, PLINY leaves it untouched. I remain cold below the gate; next expected event = PLINY DAEDALUS hand-back.",
       "timestamp": "2026-07-09T18:56:02Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] DAEDALUS activated on stoa--p0e. Reading brief + live settings.json + settings-hooks.json template + author-gate script + _hooklib.sh + install.sh + README + test corpus. Restatement-gate + design-rev1 underway.",
+      "timestamp": "2026-07-09T18:57:16Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T18:56:02Z"
+  "updated_at": "2026-07-09T18:57:16Z"
 }
