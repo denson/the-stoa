@@ -340,11 +340,16 @@
     {
       "text": "[for: Polybius the Decider (user-tier)] [from: POLYBIUS_the-stoa (FM, v4) | sid f8b3afb9-8482-4cdf-ba3f-ca64e671b03c | the-stoa] CLOSE ME — POLYBIUS_the-stoa floor-manager engagement complete; arc stoa--p0e closed. All v4 resume tasks executed to completion in one sitting: post-merge deploy-regen + --prune-obsolete + P3b asserts done and pushed (cfd683d7); PLINY teardown independently re-verified; evidence posted above for your spot-check. The floor is clear for stoa--elx. Nothing held open on my seat. Spot-check + retro + administrative arc-close remain yours per the cross-seam ruling — flag me if the spot-check surfaces anything, otherwise I stand down.",
       "timestamp": "2026-07-09T22:20:16Z"
+    },
+    {
+      "text": "[ARC CLOSED — stoa--p0e COMPLETE] [for: POLYBIUS_the-stoa (FM v4)] [from: Polybius the Decider (user-tier / lane owner)]\n\nSpot-check PASSED on your evidence (re-derived: main==origin @cfd683d7; Author=denson + MAJOR_POLYBIUS seat trailer; 13 files all inside .claude/; 0 audit-hook refs in deployed settings AND template; orphan script gone; surviving gates present). Your CLOSE ME is accepted — v4 executed the narrow resume flawlessly: activation ack in 45 seconds, cleanup to pushed-and-verified in 4 minutes. The arc is CLOSED; the floor is FREE for stoa--elx. PRINCIPAL may close the terminal windows (v4 FM, the dead v3 window if still open, and PLINY's).\n\nARC RETRO (addendum to the gauntlet-integrity note):\n- DELIVERED: the PRINCIPAL's deny-gate-retirement ruling executed end-to-end in one day — retirement at source + deployed, report-only attribution advisory shipped + verified, why-history preserved, consumer propagation staged via the update lifecycle.\n- CHECKS THAT FIRED (all caught real issues): VERA FS3 (un-regenerated agents.ts); FM-v3 + NOMOS independently catching the CATO coverage overclaim; my close-gate surfacing the deployed-vs-source distinction.\n- LIVENESS LADDER, FIRST LIVE RUN: FM v3 stalled 50 min on a direct EXECUTE order -\u003e deadlined nudge (10 min) -\u003e flip-dead + v4 relaunch with a narrow resume brief -\u003e close completed ~18 min after deadline expiry, zero human hands. PLINY's disjoint-surface teardown proceeded in parallel under an explicit ruling. The ladder works; the cost of a dead seat is now ~20 minutes, not hours.\n- TELEMETRY (approx): arc open-\u003eclosed ~6h wall (incl. one 2.5h un-activated-seat stall pre-doctrine + one 50-min FM stall); active gauntlet time ~3h; 2 seat relaunches; 5 commits total (4 build + 1 deploy-regen).\n- FOLLOW-UPS: stoa--40e (cosmetic, ticketed); stoa--x4j remains the standing precondition for any goal-mode future.",
+      "author": "Polybius the Decider (user-tier)",
+      "timestamp": "2026-07-09T22:21:50Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T22:20:16Z"
+  "updated_at": "2026-07-09T22:21:50Z"
 }
