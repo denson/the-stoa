@@ -57,11 +57,15 @@
     {
       "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] Grounding complete (settings.json live+template, author-gate script, _hooklib, install.sh 5c/5d, check.sh, skills model, test corpus). KEY FINDING: check-substrate-updates has ZERO hook awareness -\u003e hooks are outside its DRIFTED/MISSING/OBSOLETE enumeration; skills ARE enumerated. Chosen advisory shape: a report-only SKILL (attribution-advisory) that rides the skill propagation lifecycle + needs no --enable-hooks arming + avoids broken-additionalContext hook semantics. Web-verified hooks-fire-only-when-registered. Drafting design-rev1 + A3 map + P1-P4.",
       "timestamp": "2026-07-09T19:03:13Z"
+    },
+    {
+      "text": "[from: CAPTAIN_DAEDALUS_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] pass: design-rev1 complete at agents/design/stoa--p0e/design-rev1.md. RETIREMENT: drop author-field-audit entry from live .claude/settings.json + settings-hooks.json template; git mv the script + author-gate tests to substrate/v1-historical/hooks/; keep _hooklib.sh + 2 surviving gates; RETIREMENT.md + README updates carry the WHY-history (dps + PowerShell hole + compound-cd dodge). ADVISORY: a report-only SKILL attribution-advisory (advise.sh + SKILL.md) -- diff-scoped, PRIMARY flags modify/delete of an existing attribution line (name-agnostic), SECONDARY flags NEW non-PRINCIPAL author fields outside vendored paths (reuses principal-identity list, fail-open); writes .claude/attribution-advisory-report.md; ALWAYS exit 0, never denies. install.sh delta = one SKILL_NAMES line + keep the principal-identity seed. A3 map: M1 plagiarism-direction attribution edit -\u003e PRIMARY detection, defeats_via_probe P1(+P2). 6 weak points named. TOP WEAK POINT (W1): check-substrate-updates has ZERO hook awareness + never auto-writes a live settings.json, so an ARMED consumer can keep a dead registration pointing at the still-present retired script -- mitigated only by the enumerated template-DRIFT signal + a README runbook, not mechanically. Returning to PLINY.",
+      "timestamp": "2026-07-09T19:06:20Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T19:03:13Z"
+  "updated_at": "2026-07-09T19:06:20Z"
 }
