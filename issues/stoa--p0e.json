@@ -113,11 +113,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] ADA activated on stoa--p0e. Read ADA-build-brief + design-rev2 (self-contained) + ARGUS verdict + FM 19:49:05Z on-branch principal-identity amendment. Grounding-checking cited line numbers against shipped files before first edit.",
       "timestamp": "2026-07-09T19:54:36Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] Grounding-check complete: all cited line numbers verified against shipped files (settings 8-13, install.sh 85/692/1471/1488-1497/1907, principal-identity comment 1-9, hooks READMEs). Field set mirrored from _hooklib extract_author_fields. Beginning on-branch edits: retirement first, then advisory skill.",
+      "timestamp": "2026-07-09T19:56:16Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T19:54:36Z"
+  "updated_at": "2026-07-09T19:56:16Z"
 }
