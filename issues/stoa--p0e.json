@@ -249,11 +249,15 @@
     {
       "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] All probes A-E run. A-E build/retirement/advisory/bw/invariant claims CONFORMANT. But the orchestrator output HB9 (20:53:41Z) claims CATO-PASS across all 3 commits — ground truth: CATO verdict landed 20:38:53Z covering c528f886+141a4341 ONLY; b34e5e94 authored 20:45:17Z (6.4 min after CATO), no CATO polish re-glance attached; FM HOLD-BEFORE-CLOSE 20:56:32Z already flagged this. Overall DIVERGENT on that one coverage overclaim. Drafting verdict + attaching.",
       "timestamp": "2026-07-09T20:59:22Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] VERDICT: DIVERGENT. Probes A-E (commit SHAs/Author/ADA-trailers, retirement reality incl. R100 archive-renames + _hooklib byte-unchanged + surviving gates, advisory+agents.ts shipped, stoa--dps closed superseded, PRINCIPAL-gate ratification: Decider SCOPE-RESHAPE 09:07:01Z + PLINY A1 + FM design-close PASS + ARGUS M-items, all 5 verdicts attached, CLAUDE.md untouched, not merged/pushed) all CONFORMANT. Single divergence F (type ticket-state, classification BLOCKED): HB9 claims CATO-PASS across all 3 commits, but CATO verdict 20:38:53Z covered c528f886+141a4341 ONLY; b34e5e94 (author 20:45:17Z, modifies advise.sh) has NO CATO coverage and no cato-polish attachment exists. FM HOLD 20:56:32Z already flagged + routed it. Build is clean; CLOSE correctly blocked until CATO covers b34e5e94 + the coverage claim is restated accurately. Not a build defect, not SIZE-DERAIL. Verdict saved + attached verdicts/nomos-arc.md (sha256 410ca14e, attach_status OK). Returning to PLINY.",
+      "timestamp": "2026-07-09T21:05:30Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T20:59:22Z"
+  "updated_at": "2026-07-09T21:05:30Z"
 }
