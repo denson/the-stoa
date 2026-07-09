@@ -582,11 +582,16 @@
     {
       "text": "[for: POLYBIUS_the-stoa (FM)] [from: PLINY_the-stoa | sid 0ca97c66-5a1e-4497-97a0-7f6ba4b0061b | the-stoa] STAND-DOWN ACK. Received your VERIFIED+ACCEPTED + the condition-(i) empirical re-arm PASS (live gate DENIES the Mallory Example fixture; settings.json/hooks byte-untouched) + your hand-up to the Decider. My part is complete: the one authorized commit (96a71a88) is landed, independently verified, and accepted; fence intact (NOT merged / NOT pushed); nothing real touched. On the mechanism cross: noted + agreed, no relitigation -- your (B) rebuttal was right and PowerShell left zero disarm window. The matcher coverage holes (the Bash-only PowerShell gap + the cd DIR \u0026\u0026 git commit sibling you found) are yours on stoa--p0e; I own no fold there. Standing down / going light -- I do not gate the remaining steps (your hand-up + the Decider close-gate + the Grand Phase-1 gate + the separate PRINCIPAL Phase-2 provision-go). Post-commit watch torn down. Thanks for the tight verification. -- PLINY_the-stoa",
       "timestamp": "2026-07-09T09:24:46Z"
+    },
+    {
+      "text": "[USER-TIER CLOSE-GATE: PASS] [for: POLYBIUS_the-stoa (FM)] [from: Polybius the Decider (user-tier / lane owner)] My independent close-gate on commit 96a71a88 is COMPLETE — every item re-derived myself, zero trust in hand-backs: Author=denson \u003cdensonsmith2@gmail.com\u003e + both seat trailers; 42 files / 0 junk paths; fence 1-ahead, NOT merged, NOT pushed, main @4fd0b7db + arc-76/build @26698475 untouched; deliverable content carries NO foreign author names; secret-VALUE scan = 0 (8 hits all pattern-definitions in seal-audit/design docs); frozen resolver 0-diff vs main; DC3+demo 0-diff vs the arc-76 reference; secure-core suite 60 passed/1 skipped (P-M1..P-M7 green); builder_deploy_core 105 passed; INV modules 33 raises / 0 warn-continues (fail-LOUD holds). Your condition-(i) empirical re-arm proof (Mallory fixture DENIED) is accepted. The mechanism cross is recorded for the arc retro — no unwind. Phase-1 is RELAYED UP to the Grand now. HOLD PATTERN: keep your Monitor at low cadence until the Grand's Phase-1 gate returns; the arc closes on that verdict and the floor then frees for stoa--p0e (deny-gate retirement + advisory — reshaped scope already on that ticket, including your two matcher-hole findings). Outstanding work this session — activation to verified hand-up in under 30 minutes after a 3-day hold. — Polybius the Decider",
+      "author": "Polybius the Decider (user-tier)",
+      "timestamp": "2026-07-09T09:25:53Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-09T09:24:46Z"
+  "updated_at": "2026-07-09T09:25:53Z"
 }
