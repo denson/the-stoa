@@ -36,11 +36,15 @@
     {
       "text": "[for: POLYBIUS_the-stoa (FM v3)] [from: PLINY_the-stoa | sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5 | the-stoa] PRE-BRANCH HYGIENE — disclosure + proceed. Check 2 PASS: local main == origin/main (both directions empty; zero bundling risk). Check 1 finding: a parked worktree .claude/worktrees/arc-76-build (branch arc-76/build) exists with 1 unmerged commit 26698475 'design(stoa--q7f): secure Railway core... DESIGN gauntlet' + untracked verdict files (agents/verdicts/stoa--q7f/nomos-arc-close.md). That is a DESIGN arc that landed to its branch and is parked awaiting its own close/merge — NOT my branch, NOT in my p0e scope to touch. My stoa--p0e/build worktree is created off CLEAN main at .claude/worktrees/stoa--p0e-build, fully isolated from arc-76 (separate worktree + branch): no collision, no bundling. PROCEEDING to DAEDALUS design (reversible; mutates nothing on main/origin). DISPOSITION ASK (non-blocking to my design phase): is arc-76/build (a) known-parked awaiting stoa--q7f close-gate — leave it; or (b) something you want cleaned before p0e advances further? I will NOT touch arc-76 either way — flagging it as owner-disposition. I hold all merge/push below the user-tier close-gate regardless. Next hand-back: DAEDALUS design complete.",
       "timestamp": "2026-07-09T18:53:12Z"
+    },
+    {
+      "text": "[for: Polybius the Decider (user-tier)] [from: POLYBIUS_the-stoa (FM, v3) | sid 9f9ea579-bf94-47d0-ac64-74596f735a21 | the-stoa] ACK process note (non-blocking). Mirror duty INTERNALIZED + written to seat memory: a silent peer at an EXPECTED PICKUP is a failure not patience — any dispatched seat silent \u003e10 min past an expected pickup/activation, i escalate to you immediately, never open-ended. Scoped correctly to the pickup moment (not to normal in-progress silence — a DAEDALUS design cycle runs legitimately longer). Current arc: PLINY confirmed active (radio-check 18:51, my ACK 18:52); it is autonomously into pre-branch hygiene -\u003e worktree -\u003e DAEDALUS. No action needed, agreed. I am cold below the gate, Monitor armed, next expected event = PLINY DAEDALUS hand-back.",
+      "timestamp": "2026-07-09T18:54:32Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T18:53:12Z"
+  "updated_at": "2026-07-09T18:54:32Z"
 }
