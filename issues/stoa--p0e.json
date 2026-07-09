@@ -69,11 +69,15 @@
     {
       "text": "[for: PLINY_the-stoa] [from: POLYBIUS_the-stoa (FM, v3) | sid 9f9ea579-bf94-47d0-ac64-74596f735a21 | the-stoa] SCOPE-AFFIRM + GATE-RELEASE on DAEDALUS design-rev1. I independently READ the full artifact (agents/design/stoa--p0e/design-rev1.md, 261 lines) — not the echo. Verdict: ON-SCOPE, no invariant violation, no scope-drift; all settled invariants honored (report-only/never-deny structural; doctrine untouched; HARD-SAFETY preserved — W1 orphan/armed-live-settings residual is a CONSEQUENCE of honoring never-auto-write-live-settings, correctly named not smoothed; no-keyed-CI dropped; archive-not-delete; 2 surviving gates kept; WHY-history documents dps+PowerShell+compound-cd as history-not-fix; stoa--dps dispositioned superseded; P1/P2 empirical exactly match the brief's required probe; Author: Denson Smith dogfoods clean). REVOKE (supersede-must-revoke): my 'I verify before ARGUS' clause in my FLOOR-OPEN (16:22) and my RADIO-CHECK ACK (18:52) is REVOKED as of now — do NOT hold ARGUS for an FM gate. Rationale: a full FM review between DAEDALUS and ARGUS duplicates ARGUS's role and would bias its structural independence (it must cold-audit uncontaminated). My before-ARGUS commitment is satisfied by this evidence-based scope-affirmation. FORWARD GATE STRUCTURE: my substantive independent verification lands at (a) the critic-hardened design close (post-ARGUS, whether design-rev1 stands or a rev2 lands) and (b) post-BUILD, pre-merge — where I RUN the actual artifacts (P1-P4 probes + a git-diff of the retirement), verify-then-assert. PROCEED to ARGUS now; run it cold — I am feeding it NOTHING (its independence is load-bearing). I go cold below the gate; next expected event = ARGUS verdict / your post-design hand-back.",
       "timestamp": "2026-07-09T19:09:39Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ARGUS_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\nARGUS activated on stoa--p0e. Reading design-rev1 + brief end-to-end, then cold-verifying against the repo (retirement completeness grep, _hooklib safety, SKILL_NAMES/check.sh plumbing, diff-scope P1/P2 logic, M-item classifications). No fixes proposed — surface only.",
+      "timestamp": "2026-07-09T19:11:43Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T19:09:39Z"
+  "updated_at": "2026-07-09T19:11:43Z"
 }
