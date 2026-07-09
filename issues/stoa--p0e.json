@@ -169,11 +169,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] pass: FS3 FIXED on stoa--p0e/build, commit 141a4341. npm run gen-data (app/ Vite) regenerated app/src/data/generated/agents.ts — ONLY file changed, exactly the 7-line attribution-advisory LIEUTENANT-skill entry (0-\u003e3 refs), NO other roster drift. Determinism confirmed: 2nd regen identical blob hash 2e1e674f, no further change. Author stayed denson (PRINCIPAL, not overridden); both Co-Authored-By trailers present (CAPTAIN_ADA_the-stoa + Claude Opus 4.8). Scope-locked: touched nothing else. Ready for VERA FS3 re-verify. Returning to PLINY.",
       "timestamp": "2026-07-09T20:25:44Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\nVERA re-activated on stoa--p0e for TARGETED RE-VERIFY after ADA fix 141a4341. Reading brief + prior verdict. Re-verify scope: FS3 (actual npm run gen-data regen + determinism + attribution-advisory-only delta + idempotence) plus FS1/FS2 regression floors. Executing against the real worktree — not trusting the fix claim.",
+      "timestamp": "2026-07-09T20:27:12Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T20:25:44Z"
+  "updated_at": "2026-07-09T20:27:12Z"
 }
