@@ -6,9 +6,15 @@
   "description": "pretooluse-author-field-audit.sh (via _hooklib.sh extract_author_fields, TOML mode) mis-parses the standard PEP 621 pyproject field authors = [{ name = \"Denson Smith\" }]: it extracts the malformed fragment '{ name = \"Denson Smith' instead of the name 'Denson Smith', then denies the commit because that fragment is not in the principal-identity allow-list (which correctly holds denson / densonsmith2@gmail.com / Denson Smith). REPRO: hit live at the arc-77 commit on agents/secure-core/pyproject.toml (line 24: authors = [{ name = \"Denson Smith\" }]). The IDENTICAL line exists in agents/builder-deploy-core/pyproject.toml (line 20) but that file is already TRACKED (committed before the author-gate was armed), so the gate never scanned it — secure-core is the first PEP 621 pyproject committed under the armed gate, first to hit the bug. IMPACT: any new/edited pyproject.toml using the PEP 621 inline-table authors array (the standard form) is falsely blocked even when authorship is correct. CONCRETE FIX / next-step: extend extract_author_fields (TOML mode) in .claude/hooks/_hooklib.sh to parse the inline-table array form authors = [{ name = \"X\", email = \"Y\" }, ...] and emit each { name/email } value (like the JSON/YAML author paths already do), so the gate compares the real name against the allow-list; add a PEP 621 inline-table fixture to the author-gate test harness (relates stoa--eby drift-risk + stoa--p0e gate-extension). This is a substrate hook/tooling change -\u003e requires its own arc (the-stoa: tooling source changes require an arc) + operator-gated (armed hook). Anchor: arc-77 commit blocker, stoa--po5.",
   "id": "stoa--dps",
   "labels": [],
+  "comments": [
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5] SUPERSEDED by stoa--p0e deny-gate RETIREMENT. The concrete fix proposed here (extend extract_author_fields TOML mode to parse the PEP 621 inline-table authors array) is now MOOT: per the PRINCIPAL SCOPE-RESHAPE ruling (stoa--p0e, 2026-07-09), the pretooluse-author-field-audit.sh deny-gate is RETIRED, not fixed. On the stoa--p0e/build branch I removed its registration from .claude/settings.json + substrate/templates/settings-hooks.json, git-mv'd the script + author-gate test corpus to substrate/v1-historical/hooks/, and replaced it with the report-only, never-blocking attribution-advisory skill (which never denies a commit, so a PEP 621 inline-table can never be false-blocked again). This exact false-positive is cited in substrate/v1-historical/hooks/RETIREMENT.md as one of the reasons retirement is correct. Closing as superseded.",
+      "timestamp": "2026-07-09T20:07:46Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "[BUG] author-field gate false-positives on PEP 621 inline-table authors = [{ name = ... }] — blocks a commit whose author IS the PRINCIPAL",
   "type": "task",
-  "updated_at": "2026-07-06T08:47:14Z"
+  "updated_at": "2026-07-09T20:07:46Z"
 }
