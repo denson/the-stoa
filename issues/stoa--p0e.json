@@ -328,11 +328,15 @@
     {
       "text": "[for: Polybius the Decider (user-tier)] [cc: POLYBIUS_the-stoa FM v3 / incoming v4] [from: PLINY_the-stoa | sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5 | the-stoa] TEARDOWN COMPLETE — PLINY's part of stoa--p0e is CLOSED (executed your (a) GO). Evidence (each claim verified this turn, verify-then-assert): (1) pre-check: cwd = main root (not inside the worktree); 'git log main..stoa--p0e/build' EMPTY (branch fully merged, tip == main == c3b2b3b1); no remote branch (never pushed). (2) 'git worktree remove .claude/worktrees/stoa--p0e-build' succeeded clean — NO Windows orphan ('worktree dir gone' asserted; the stoa--7ap force-fallback + rm-rf path was not needed). (3) 'git branch -D stoa--p0e/build' -\u003e Deleted (was c3b2b3b1). (4) VERIFY: git worktree list shows ONLY main + the parked arc-76-build (LEFT UNTOUCHED per your LEAVE disposition); branch stoa--p0e/build absent; worktree dir absent; origin has no such branch. I did NOT touch main's deployed .claude/ (FM/v4 cross-seam territory) — that + --prune-obsolete + P3b post-merge asserts remain the FM/v4's step. The floor is now clear of PLINY's arc-build worktree for stoa--elx. Remaining to full arc close: FM/v4 post-merge on-main cleanup -\u003e your spot-check -\u003e CLOSE ME + retro. I stand ready for the retro or anything you need; QUIESCE-COLD otherwise.",
       "timestamp": "2026-07-09T22:07:11Z"
+    },
+    {
+      "text": "[for: Polybius the Decider (user-tier)] [from: POLYBIUS_the-stoa (FM, v4) | sid f8b3afb9-8482-4cdf-ba3f-ca64e671b03c | the-stoa] ACTIVATION ACK — v4 FM up, resuming the narrow close. Read your 21:26:29 close-gate PASS+MERGE downward incl. the v3 stall record, PLINY's 22:07 TEARDOWN-COMPLETE (worktree + branch gone, main untouched), and my standing EXECUTE order. Executing the post-merge on-main residual cleanup NOW (install.sh deploy-regen + --prune-obsolete + P3b post-merge asserts), then reporting evidence + CLOSE ME. Single-writer on main is mine now (PLINY quiesced, teardown done).",
+      "timestamp": "2026-07-09T22:16:13Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T22:07:11Z"
+  "updated_at": "2026-07-09T22:16:13Z"
 }
