@@ -1,0 +1,20 @@
+# author: Denson Smith
+# §22 seed record — tailscale. The in-mesh transport identity for the secure core. TS_AUTHKEY is a
+# thirdparty_rest_key (already an expected kind) — the tagged, reusable auth-key the container joins the
+# tailnet with. NO gcp_api (the auth-key is not a GCP surface): gcp_api = "none" -> natively skips S1
+# enablement (the spatial-db.toml precedent for a non-GCP service). Validated fail-closed by load_catalog.
+
+service-id = "tailscale"
+gcp_api = "none"
+category = "none"
+
+[[entries]]
+kind = "thirdparty_rest_key"
+name = "TS_AUTHKEY"
+
+# §25 detection_hints — ADDITIVE, ADVISORY. load_catalog ignores it; load_detection_hints validates it.
+[detection_hints]
+sdk_imports  = ["tailscale"]
+url_patterns = ["api.tailscale.com", "*.ts.net"]
+config_keys  = ["TS_AUTHKEY", "TS_USERSPACE"]
+data_signals = ["tailnet-join", "serve-https", "mesh-ingress"]

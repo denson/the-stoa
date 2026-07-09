@@ -1,0 +1,35 @@
+# author: Denson Smith
+# ticket: stoa--q7f (u--9s2 Phase-1 increment 2.4 — the REAL secure-core pass-through service)
+# design-ground-truth: agents/design/stoa--q7f/design-rev6.md §2/§3/§5 (multi-lane authz + seal-audit +
+#                       invariant/probe contract incl. §5.1a the INV-RESP recursive NODE grammar) carrying
+#                       rev2 §1 (INV-DEST/RESP/BIND, two-phase audit).
+#
+# secure_core package metadata. ZERO runtime third-party dependencies (stdlib-only: the pass-through is a
+# deterministic request/response over stdlib socket/http.server/urllib; tomllib is stdlib since 3.11). The
+# service is a SIBLING package to builder_deploy_core (NOT inside it) — builder_deploy_core is the value-free
+# PROVISIONING emitter; secure_core is the runtime pass-through the emitter stands up. requires-python
+# ">=3.11" makes the zero-dependency property unconditional + version-floored. The test extra adds pytest;
+# the CORE never imports it.
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "secure-core"
+version = "0.1.0"
+description = "The CONSOLIDATION secure core (u--9s2 Phase-1 increment 2.4): credentialed per-provider multi-lane pass-through — closed PROVIDER_REGISTRY, fail-closed lane authz (INV-LANE/INV-PRINCIPAL), INV-DEST/RESP/BIND, two-phase value-free audit, fail-closed seal-audit gate."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Denson Smith" }]
+license = { text = "MIT" }
+dependencies = []   # ZERO runtime third-party deps — stdlib-only
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[tool.setuptools]
+packages = ["secure_core"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

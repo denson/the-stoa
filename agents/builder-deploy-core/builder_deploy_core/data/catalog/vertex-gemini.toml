@@ -1,0 +1,27 @@
+# author: Denson Smith
+# §22 seed record — vertex-gemini. The credentialed pass-through's FIRST provider (gsearch + embeddings).
+# Vertex is SERVICE-ACCOUNT (ADC) auth, NOT a standalone API key (2026 key-deprecation; DC2 verified).
+# So the paired gcp_secret is the SA-KEY SLOT NAME (server-side ADC), not an API key in the google-maps
+# sense — hence NO kinds.toml key_bearing_pairing row (that table is for API-key-bound APIs). The
+# gcp_api "aiplatform" + paired gcp_secret GCP_SA_KEY_B64 ride the SAME entries shape as google-maps.
+# Validated fail-closed by dataload.load_catalog (§2.4.1).
+
+service-id = "vertex-gemini"
+gcp_api = "aiplatform"
+category = "none"
+
+[[entries]]
+kind = "gcp_api"
+name = "aiplatform"
+
+[[entries]]
+kind = "gcp_secret"
+name = "GCP_SA_KEY_B64"
+
+# §25 detection_hints — ADDITIVE, ADVISORY recognition signals only. load_catalog IGNORES this block
+# (reads only entries/gcp_api/category — byte-unchanged); load_detection_hints reads + fail-closed-validates.
+[detection_hints]
+sdk_imports  = ["google.genai", "google-genai", "vertexai", "google.cloud.aiplatform"]
+url_patterns = ["aiplatform.googleapis.com", "generativelanguage.googleapis.com"]
+config_keys  = ["GCP_SA_KEY_B64", "GOOGLE_APPLICATION_CREDENTIALS", "GOOGLE_CLOUD_PROJECT"]
+data_signals = ["embedding-generate", "grounded-search", "gemini-generateContent"]

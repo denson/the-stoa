@@ -1,0 +1,9 @@
+# build / test artifacts — never committed
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+# per-worktree virtualenv (stoa--q7f arc-77): created for editable-install self-exercise; never committed
+.venv/

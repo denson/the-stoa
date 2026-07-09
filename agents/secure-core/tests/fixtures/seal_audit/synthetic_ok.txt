@@ -1,0 +1,7 @@
+author: Denson Smith
+This is the DESIGNATED seal-audit fixtures path (design-rev4 §3.1). A SEAL_AUDIT_SYNTHETIC_-marked value is
+exempt ONLY when it is BOTH path-bound (here) AND shape-clean (its demarked body matches no real-secret
+shape). The token below is obviously-fake and shape-clean, so seal_audit exempts it. A real-shaped marked
+value, or a marked value outside this path, STILL FAILS the build (P-M7(a.2)).
+
+TS_AUTHKEY = SEAL_AUDIT_SYNTHETIC_obviously_fake_body_not_a_real_secret
