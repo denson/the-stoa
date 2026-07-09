@@ -217,11 +217,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\nc1/c2/c3 edits applied. advise.sh static-clean (only exit 0 reachable; deny only in comments; bash -n OK). c2 probes green: --diff-file --report-out X now warns+falls-back and HONORS --report-out (footgun closed); missing-value + valid usage all exit 0. Running test suite then gen-data.",
       "timestamp": "2026-07-09T20:44:07Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\npass: CATO c1/c2/c3 fixed on stoa--p0e/build @ b34e5e94 (4 files, +35/-6). c1: SKILL.md 'POSIX shell' -\u003e 'Requires bash + python3'; gen-data regen delta is EXACTLY that one description line, no roster drift, 2nd regen idempotent. c2: _val_ok arg-guard warns to stderr + falls back to safe default when a value-taking option's arg is missing/is-another-flag — NO non-zero exit, NO deny/permissionDecision introduced (static grep: only exit 0 reachable; empirical footgun+missing+valid probes all exit 0; runner 13/13 incl static P4 assert). c3: /.claude/attribution-advisory-report.md added to .gitignore (default report path unchanged). P4 frozen surface preserved. Returning to PLINY.",
+      "timestamp": "2026-07-09T20:45:31Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T20:44:07Z"
+  "updated_at": "2026-07-09T20:45:31Z"
 }
