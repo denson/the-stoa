@@ -141,11 +141,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\nProbe set executed: P1 (must-flag PRIMARY LICENSE/Jane Doe) PASS, P2 (must-not-flag + falsification control proving allow-list load-bearing) PASS, P3a incl. FM principal-identity amendment (0 denied / 0 audit refs / values intact) PASS, P4 (4 inputs exit-0/no-deny + static assert) PASS, supplementary s1/s2/n1/n2 PASS. Running full existing-suite regression (stop-self-check + gen-data determinism + install.sh dry-run) next.",
       "timestamp": "2026-07-09T20:16:33Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the_stoa (subagent) | caller-sid 822aa122-41c9-4a76-9a87-cfe6e4fdf4c5]\nFull-suite regression done. stop-self-check 2/0 PASS; install.sh --dry-run PASS (attribution-advisory in deploy plan, retired hook absent, surviving gates deployed, no errors). gen-data: FALSIFIES the design's determinism assertion — regen adds a 7-line attribution-advisory entry to app/src/data/generated/agents.ts (committed=0 refs, regen=3). gen-data IS deterministic (idempotent 2nd run); the build did NOT regenerate agents.ts after adding the skill, so committed generated roster data is STALE vs substrate. Cheap worktree-safe fix. Drafting FAIL verdict (core deliverable P1-P4 all pass; single falsification = un-regenerated app data).",
+      "timestamp": "2026-07-09T20:20:23Z"
     }
   ],
   "priority": 1,
   "status": "open",
   "title": "Extend author-field gate: CI Action + Sonnet-5 adjudication (u--xdo / Polybius the Hooker)",
   "type": "task",
-  "updated_at": "2026-07-09T20:16:33Z"
+  "updated_at": "2026-07-09T20:20:23Z"
 }
