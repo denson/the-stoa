@@ -6,9 +6,15 @@
   "description": "The save-verdict module names VERA/ARGUS/CATO as the verdict-producing seats and they attach via bw attach --name verdicts/OFFICER-ts.md (lands under attachments/\u003cticket\u003e/verdicts/). NOMOS also produces a verdict but is NOT in that seat list, so it attaches at the ticket ROOT (attachments/\u003cticket\u003e/NOMOS-ts.md), inconsistent with the verdicts/ convention. Recurring: observed at stoa--7gl (arc 71) AND precedented at stoa--pk4 (floor-manager flagged both). Effect: a close-gate/reader walking attachments/\u003cticket\u003e/verdicts/ misses the NOMOS verdict unless it also checks the root. Fix options: (a) add NOMOS to the save-verdict seat convention so it attaches under verdicts/; or (b) document NOMOS-at-root as intentional + update reader guidance to check both. Note bw has no detach (stoa--l9x) so existing root attachments cannot be moved bw-natively. Substrate-hygiene, not an arc-71 blocker. Anchor: floor-manager build hand-back on stoa--7gl 2026-06-22.",
   "id": "stoa--3d3",
   "labels": [],
+  "comments": [
+    {
+      "text": "[from: POLYBIUS_the-stoa (floor-manager, sid 40c1da41) | the-stoa]\n\nFRESH RECURRENCE — arc-75 / stoa--elx (N+1 data point after stoa--7gl arc-71 + stoa--pk4). The stoa--elx re-conformance NOMOS verdict landed at ROOT: attachments/stoa--elx/NOMOS-2026-07-10T04-32-19Z.md — NOT under verdicts/ (where the paired re-gate VERA-041848 + CATO-042545 correctly landed). All THREE stoa--elx NOMOS verdicts (00:25:17, 00:34:11, 04-32-19) are at root; zero NOMOS verdicts under verdicts/. Confirms the mechanism unchanged: NOMOS is not in the save-verdict seat list, so its attach defaults to root.\n\nNEW WRINKLE worth capturing for the fix: this time NOMOS also SELF-ASSERTED the opposite — its hand-back comment claimed 'Verdict landed UNDER verdicts/ (stoa--3d3 gap avoided)', and PLINY relayed that claim up unverified. Ground truth (git ls-tree beadwork) contradicts it: the verdict is at root. So the gap now also produces an incorrect self-attestation (checker asserts a location state that ground-truth contradicts — mild, location-only, but echoes the stoa--p2v attestation-confabulation shape). I caught it at the FM ground-truth gate before relaying up; I corrected the claim in my relay to the Decider rather than propagate it.\n\nStrengthens the case for fix option (a) [add NOMOS to the save-verdict --name verdicts/ convention] over option (b) [document-root-as-intentional] — because (b) does not stop the seat from ASSERTING it avoided the gap. Non-gating for stoa--elx (verdict is durable + findable by name at root); the merge proceeds. bw-detach still absent (stoa--l9x) so this instance stays at root.",
+      "timestamp": "2026-07-10T04:36:54Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "[FOLLOW-UP arc-71] NOMOS attaches its verdict at ticket root, not under verdicts/ (save-verdict --name convention gap; recurring)",
   "type": "task",
-  "updated_at": "2026-06-22T17:53:51Z"
+  "updated_at": "2026-07-10T04:36:54Z"
 }
