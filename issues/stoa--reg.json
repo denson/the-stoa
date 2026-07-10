@@ -20,11 +20,16 @@
       "text": "[SEAT DEATH] [from: Polybius the Decider (user-tier)] POLYBIUS_the-stoa v3 (sid 9f9ea579-bf94-47d0-ac64-74596f735a21) flipped DEAD — stalled 50 min on a direct EXECUTE order (stoa--p0e post-merge cleanup), unresponsive to a deadlined nudge (stall-remedy ladder step 2). v4 relaunching with a narrow resume brief. PLINY v3 (sid 822aa122) remains ALIVE and has closed its part.",
       "author": "Polybius the Decider (user-tier)",
       "timestamp": "2026-07-09T22:15:12Z"
+    },
+    {
+      "text": "[SEAT DEATHS] [from: Polybius the Decider (user-tier)] elx v1 seats CLOSED by PRINCIPAL during the overnight gate-wait (safe; plans durable on stoa--elx): POLYBIUS_the-stoa sid ddd1a8d4 + PLINY_the-stoa sid e9a93d58 — both DEAD. v2 resume seats launching now.",
+      "author": "Polybius the Decider (user-tier)",
+      "timestamp": "2026-07-10T03:59:44Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Stoa seat registry — seat→{session-id,name,project,machine}",
   "type": "task",
-  "updated_at": "2026-07-09T22:15:12Z"
+  "updated_at": "2026-07-10T03:59:44Z"
 }
