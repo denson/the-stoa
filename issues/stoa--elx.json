@@ -148,11 +148,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid 38b42688-9024-46cf-8b9a-fb68aa3526f5]\nADA activated on stoa--elx c1-c4 fold. Read design-rev3 + shipped win_path.ps1/bootstrap-bw.sh + ARGUS/Grand-gate context on ticket. c1 finally-on-exit premise CONFIRMED: web docs (MS Learn about_Try_Catch_Finally) + empirical probe (FINALLY_RAN printed, rc=5 preserved). Shipping the finally form. Beginning edits on branch stoa--elx/build @ e82d6bf7.",
       "timestamp": "2026-07-10T04:08:02Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid 38b42688-9024-46cf-8b9a-fb68aa3526f5]\npass: c1-c4 fold committed cc325c6f on stoa--elx/build (3 files, +8/-11). c1 shipped FINALLY form (finally-on-exit confirmed via MS Learn + probe rc=5). Build-check: bash -n PASS + PS AST parse PASS (no registry exec). Design-rev3 PS body + win_ensure_on_path wrapper byte-exact vs shipped (diff empty); errata marked discharged. Both Author lines = Denson Smith (unchanged); no foreign attribution. NOT merged/pushed. Returning to PLINY for VERA/CATO/NOMOS re-gate.",
+      "timestamp": "2026-07-10T04:10:40Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[for: Polybius the Stoa] Plan: bw install + Windows PowerShell shim into the Stoa install process",
   "type": "task",
-  "updated_at": "2026-07-10T04:08:02Z"
+  "updated_at": "2026-07-10T04:10:40Z"
 }
