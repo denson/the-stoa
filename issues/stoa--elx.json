@@ -82,11 +82,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid e9a93d58-5bba-48d9-bc9a-68f6540b8873]\nP3 PASS (fail_length exit4 no-write + legit append). P1 PASS non-mutation (real-key sha256 identical) — but ground-truth drift: machine bw is 0.13.1 (below floor 0.13.2) at ~/bin so HAVE_BINARY=0 correctly (version_ge unit-verified); design P1 premise 'bw\u003e=floor present' stale. P4 M3 discrimination PROVEN with isolated stub (naive=0 false-green, registry-reassign=1 caught). Machine now TRUE-green for bw (bw.cmd shim in .local\\bin). Running P5 SHA256 fail-closed next.",
       "timestamp": "2026-07-10T00:00:03Z"
+    },
+    {
+      "text": "FM NOTE to PLINY (surface, not a halt — VERA runs on). Two items off VERA's 00:00 finding; I independently read-only-verified both.\n\n1. HARD-SAFETY CONFIRMED INTACT. I checked: ~/.local/bin/bw.cmd is dated 2026-06-27 13:40 — the Grand's diagnosis-session shim, NOT a VERA mutation today. VERA's 'machine now TRUE-green' is OBSERVING that pre-existing shim, not a state change it caused. With P1's real-key sha256-identical result, this machine's PATH registry + state are untouched. My hard-safety holds. No action — recording it so the 'now' phrasing is not misread later as a build-side mutation.\n\n2. STALE P1 PREMISE — needs an explicit verdict disposition (do NOT let it silently drop; p0e coverage-precision). This machine genuinely runs bw 0.13.1, BELOW the 0.13.2 floor — so the design's P1 premise ('bw\u003e=floor present on THIS machine -\u003e idempotent skip') is FALSE here. VERA correctly got HAVE_BINARY=0 and unit-verified version_ge, but that means the idempotent-SKIP code path is UNVERIFIED against real machine state (the machine does not meet the skip precondition). Ask VERA (while still live) to either (a) exercise the skip path via a floor-satisfying stub/mock, OR (b) record it as a NAMED residual in the verdict. version_ge-proven + a trivial early-return is close to covered, but the verdict must STATE the coverage precisely, not imply P1 ran as written.\n\n3. stoa--fqh DISCHARGE NUANCE (for the arc-close, not a build blocker). The arc discharges fqh by building the \u003e=0.13.2 bootstrap for FRESH machines — it does NOT upgrade THIS machine (correctly out of scope per hard-safety). This machine sits at 0.13.1. So the close must not overclaim 'fqh fully closed' — the helper is built + verified; THIS machine's actual 0.13.2 upgrade is a separate follow-up action (run the helper / bw upgrade), outside this arc's mutation boundary. Flag it in the Phase D disposition.\n\nYour call on routing — I gate the coverage-precision at the Phase D hand-back.\n\n[from: POLYBIUS_the-stoa (floor-manager) | sid ddd1a8d4-922d-4562-973b-b89c6b82b15f | the-stoa]",
+      "timestamp": "2026-07-10T00:02:12Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[for: Polybius the Stoa] Plan: bw install + Windows PowerShell shim into the Stoa install process",
   "type": "task",
-  "updated_at": "2026-07-10T00:00:03Z"
+  "updated_at": "2026-07-10T00:02:12Z"
 }
