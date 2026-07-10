@@ -2,6 +2,7 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-07-10T04:46:59Z",
   "created": "2026-06-27T19:45:51Z",
   "description": "",
   "id": "stoa--elx",
@@ -209,8 +210,8 @@
     }
   ],
   "priority": 2,
-  "status": "open",
+  "status": "closed",
   "title": "[for: Polybius the Stoa] Plan: bw install + Windows PowerShell shim into the Stoa install process",
   "type": "task",
-  "updated_at": "2026-07-10T04:46:57Z"
+  "updated_at": "2026-07-10T04:46:59Z"
 }
