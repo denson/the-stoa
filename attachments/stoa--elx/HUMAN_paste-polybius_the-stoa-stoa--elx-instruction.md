@@ -1,42 +1,31 @@
-# Engagement brief — POLYBIUS_the-stoa (floor-manager) — stoa--elx: bw bootstrap into the install process (arc-75)
+# Engagement brief v2 — POLYBIUS_the-stoa (floor-manager) — stoa--elx RESUME: post-gate polish + close
 
-Read .claude/MAJOR_POLYBIUS.md and assume the project-tier role for the-stoa (floor-manager instance). You are POLYBIUS_the-stoa for this engagement.
+Read .claude/MAJOR_POLYBIUS.md and assume the project-tier role for the-stoa (floor-manager instance). You are POLYBIUS_the-stoa, successor to the closed ddd1a8d4 seat.
 
-## Chain of command (supersedes the directive's comms section on ONE point)
+**NARROW RESUME.** The stoa--elx gauntlet is COMPLETE, the user-tier close-gate PASSED, and the Grand's SECOND GATE PASSED (build SHA b698f4ef held unmerged on stoa--elx/build). Only the ruled polish sequence remains. Do NOT re-run the gauntlet.
 
-PRINCIPAL → Polybius the Grand → **Polybius the Decider (user-tier — YOUR up-channel)** → YOU (FM) → PLINY_the-stoa → CAPTAINs.
-The committed directive names "Polybius_the_Stoa" as the user-level owner — that seat is RETIRED; every up-relay and escalation goes to **Polybius the Decider**. Everything else in the directive stands. Strict ladder; terminals are status surfaces.
+## Chain
 
-## The engagement
+PRINCIPAL → Polybius the Grand → **Polybius the Decider (your only up-channel)** → YOU → PLINY_the-stoa → CAPTAINs. Strict ladder; terminals are status surfaces.
 
-Arc = **stoa--elx** (arc-75), full BY-THE-BOOK gauntlet (DAEDALUS design phase with a go/no-go BEFORE build → ARGUS cold-audit → ADA → VERA → CATO → NOMOS; no CHIRON/HAMILTON). AUTHORITATIVE SPEC (read, do not re-derive):
-1. The committed directive: `substrate/arcs/arc-75-build-directive.md` (main).
-2. The Grand-GATED v2 plan: `git show beadwork:attachments/stoa--elx/plan-bw-bootstrap-v2.md` (authoritative on any conflict).
-3. The stoa--elx comment trail.
+## Orient from the ticket (not session memory)
 
-One-sentence scope: an idempotent OS-split `substrate/bootstrap-bw.sh` helper (Unix delegates to upstream's installer; Windows end-to-end with SHA256 fail-closed + REGISTRY-SAFE Windows USER PATH append + the two-independent-checks rule), wired behind an opt-in `--bootstrap-bw` install.sh flag (absent-flag = byte-unchanged) + the install-stoa onboarding-skill canon reversal.
+Read stoa--elx from PLINY's 00:30 Phase-D hand-back downward — especially: the prior FM's 00:40 fold-scope, PLINY's 00:57 LOCKED fold plan, and the Decider's ruling relay (Grand PASS + the ruled sequence + one SUPERSEDE: the polish commit's own bounded CATO re-glance is now REQUIRED).
 
-## Base-drift warning (new since the directive was authored)
+## Your tasks (settled — supervise, verify, relay)
 
-The directive says "builds on main @7d20b5f" — main is now **@cfd683d7** (arc-77 secure-core + arc-p0e gate-retirement landed since, and p0e EDITED install.sh — comment fixes + SKILL_NAMES — and retired the author-gate hook). All cited install.sh line anchors may have drifted. PLINY/DAEDALUS MUST ground-check every cited anchor against CURRENT main before design/edits (grounding discipline). The retirement also means the author deny-gate NO LONGER EXISTS — commits are checked by doctrine audits + the attribution advisory, not a blocking hook.
+1. Post activation ack to the Decider within 10 minutes of launch; confirm you've absorbed the locked fold scope + the CATO-re-glance supersede.
+2. Direct PLINY (relaunched after your confirm) to fire the locked fold in one shot: ADA polish commit (c1 finally-close, c2 remove dead -Broadcast stub, c3 guard mktemp, c4 local rc, design-rev3 DC2 body sync) → VERA targeted re-run (P2/P2b/P3 vs the THROWAWAY key only, bash -n, P7 all-3-targets byte-unchanged, P10 authorship, P9 FULL suite) → **CATO bounded re-glance on the polish diff (required per the Grand's ratification)** → NOMOS re-conformance on the final polished commit.
+3. Independently verify the hand-back (run the artifacts; coverage stated per-commit), then hand UP to the Decider for the merge. NOT merged/pushed from the floor.
+4. Trailing at close (non-gating): adjudicate PLINY's arc-77/build stale-branch observation (fold if trivial, ticket if not).
 
-## Your responsibilities
+## Hard safety (unchanged; auto route-back on violation)
 
-- Independent verification at every hand-back (verify-then-assert; run the artifacts).
-- Hold the go/no-go at the DAEDALUS design hand-back (DC2 registry-safe PATH mutation + DC3 two-checks are the load-bearing items; ARGUS cold-audit is the Grand's hard condition).
-- HARD SAFETY you personally enforce: nothing in build/verify mutates THIS machine's real Windows USER PATH (VERA uses throwaway probes only) — this machine's bw already works.
-- **SECOND GATE SEQUENCING (differs from the last arc):** at gauntlet completion you hand UP to the Decider for the user-tier close-gate, and NOTHING MERGES until the Grand gates the BUILT ARTIFACT. Decider relays up; the Grand gates; THEN the Decider merges.
+All registry probes use the throwaway key with finally teardown; this machine's real HKCU\Environment Path is never touched. No mutation of this machine's working bw.
 
-## Disciplines (all load-bearing)
+## Disciplines
 
-- Liveness: your FIRST post (activation + Monitor armed, addressed to the Decider) within 10 minutes of launch. Any dispatched seat silent >10 min past an expected pickup → escalate to the Decider immediately.
-- Quiesce-cold at gates: resume brief + drop your monitors when your only next event is up-tier; the Decider's lane watch covers the silence.
-- Supersede-must-revoke: any superseded standing order is explicitly revoked by timestamp; executors re-read bw immediately before irreversible-ish acts.
-- Coverage claims stated precisely (which commits each verdict covers — the p0e lesson).
-
-## What you do NOT do
-
-Dispatch CAPTAINs yourself; merge; push to main; mutate this machine's PATH/bw; touch the u--9s2 cookie-cutter call-site (out of scope); contact the Grand or PRINCIPAL directly.
+10-min liveness on every expected pickup (silent peer = escalate to the Decider); quiesce-cold only at genuine up-tier gates; supersede-by-timestamp; D-A/B/C on the floor.
 
 ## Close signal
 
