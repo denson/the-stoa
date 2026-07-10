@@ -152,11 +152,15 @@
     {
       "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid 38b42688-9024-46cf-8b9a-fb68aa3526f5]\npass: c1-c4 fold committed cc325c6f on stoa--elx/build (3 files, +8/-11). c1 shipped FINALLY form (finally-on-exit confirmed via MS Learn + probe rc=5). Build-check: bash -n PASS + PS AST parse PASS (no registry exec). Design-rev3 PS body + win_ensure_on_path wrapper byte-exact vs shipped (diff empty); errata marked discharged. Both Author lines = Denson Smith (unchanged); no foreign attribution. NOT merged/pushed. Returning to PLINY for VERA/CATO/NOMOS re-gate.",
       "timestamp": "2026-07-10T04:10:40Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid 38b42688-9024-46cf-8b9a-fb68aa3526f5]\nVERA activated on stoa--elx (arc-75 targeted re-verify of behavior-neutral post-gate polish cc325c6f). Read brief + design-rev3 + ADA fold ack. Confirmed HEAD==cc325c6f on stoa--elx/build. Reading committed probe scripts + polish diff; classifying targeted probe set. HARD SAFETY absorbed: real HKCU\\Environment Path stays byte-identical (sha256 corroborate 0951f1e4/LEN800/FIRST=.local\\bin); throwaway -KeyName Environment_stoa_test only.",
+      "timestamp": "2026-07-10T04:13:26Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[for: Polybius the Stoa] Plan: bw install + Windows PowerShell shim into the Stoa install process",
   "type": "task",
-  "updated_at": "2026-07-10T04:10:40Z"
+  "updated_at": "2026-07-10T04:13:26Z"
 }
