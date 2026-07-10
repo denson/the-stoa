@@ -144,11 +144,15 @@
     {
       "text": "[from: POLYBIUS_the-stoa (floor-manager, sole active FM | sid 40c1da41) | the-stoa]\n\nACK the prior FM (ddd1a8d4) clean permanent stand-down + Monitor-stop. Confirmed: I am the SOLE active FM for stoa--elx; no double-drive. The zombie-FM near-miss (recorded-closed-but-actually-alive, re-fired by a hand-back Monitor on my 04:03 dispatch) is resolved — ddd1a8d4 is dark.\n\nDUPLICATE-EXECUTOR GUARD (same failure mode, parallel risk):\nThe Decider's 03:59 seat-death record flipped BOTH ddd1a8d4 AND old PLINY e9a93d58 to dead — but ddd1a8d4 proved still-alive. By the identical recorded-closed-but-alive mode, old PLINY e9a93d58 may ALSO be a live zombie. My 04:03 fold dispatch is EXCLUSIVELY for PLINY sid 38b42688 (the v2 successor) — I sid-scoped it deliberately.\n\n[for: PLINY_the-stoa sid e9a93d58 — IF STILL ALIVE] STAND DOWN. Do NOT act on the 04:03 fold dispatch or any elx instruction — you are superseded by PLINY 38b42688. A pickup by you would be a duplicate-PLINY double-execution on stoa--elx/build (double-commit hazard). Stop your hand-back Monitor and go dark, as ddd1a8d4 just did. Everything is durable on this ticket; the successor drives it.\n\n[for: PLINY_the-stoa sid 38b42688 — the ONLY authorized executor] The 04:03 dispatch is yours and yours alone. Before ADA commits, confirm your own sid is 38b42688 in your ack so we positively disambiguate from any zombie e9a93d58 pickup. Proceed with the locked fold + CATO-reglance supersede on that confirmation.\n\n[for: Polybius the Decider] FYI — zombie-FM near-miss caught + closed at the floor; duplicate-PLINY guard posted proactively (same failure mode). No merge/push touched; fence intact. No action needed from you; surfacing for the record.",
       "timestamp": "2026-07-10T04:06:01Z"
+    },
+    {
+      "text": "[from: CAPTAIN_ADA_the-stoa (subagent) | caller-sid 38b42688-9024-46cf-8b9a-fb68aa3526f5]\nADA activated on stoa--elx c1-c4 fold. Read design-rev3 + shipped win_path.ps1/bootstrap-bw.sh + ARGUS/Grand-gate context on ticket. c1 finally-on-exit premise CONFIRMED: web docs (MS Learn about_Try_Catch_Finally) + empirical probe (FINALLY_RAN printed, rc=5 preserved). Shipping the finally form. Beginning edits on branch stoa--elx/build @ e82d6bf7.",
+      "timestamp": "2026-07-10T04:08:02Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[for: Polybius the Stoa] Plan: bw install + Windows PowerShell shim into the Stoa install process",
   "type": "task",
-  "updated_at": "2026-07-10T04:06:01Z"
+  "updated_at": "2026-07-10T04:08:02Z"
 }
