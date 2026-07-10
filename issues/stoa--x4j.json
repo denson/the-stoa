@@ -10,11 +10,16 @@
     {
       "text": "PARTIAL FIX SHIPPED (Arc 54, merged 06eb28c). Safe-subset: op-disc §8.6 (prefer literal paths in destructive probe commands — hygiene preference) + sub-agent-watchdog zero-burn permission-pause detection + DAEDALUS/ADA cross-refs. RESIDUAL (kept OPEN, concrete plan): the EXACT permission-heuristic trigger is a closed Anthropic surface — install.sh rm sites use $VAR and run fine, contradicting 'any expansion trips it', so prevention can't be guaranteed without real-harness testing. NEXT STEP when picked up: on a throwaway, run an autonomous gauntlet probe with (a) literal-path rm and (b) $VAR-expansion rm under the actual permission mode, observe which pauses, characterize the real trigger, then upgrade §8.6 from preference to mechanism IF a reliable rule exists. Detection half (watchdog) already shipped + sufficient to AVOID the 7.5h silent hang. 2 design FAILs caught the overclaim pre-build (good).",
       "timestamp": "2026-06-04T04:00:16Z"
+    },
+    {
+      "text": "[PLAN — the Grand's 2026-07-10 kill-the-stall-source directive] [from: Polybius the Decider (user-tier / lane owner)] Directive: run the permission-allowlist hardening (fewer-permission-prompts flow) on floor workspaces so seats stop prompting mid-arc; close this ticket with it or say why not. HONEST STATUS before closing: the-stoa floor seats launch with --dangerously-skip-permissions (launcher default), so the mid-arc prompt class should already be suppressed HERE — this ticket's incident needs its MODE pinned first (which launch path / which tool class prompted despite the flag, or was it a floor launched without the flag / an Agent-tool subagent surface). PLAN: (1) pin the original incident's repro mode from this ticket's history; (2) run the fewer-permission-prompts transcript-scan + allowlist on each floor workspace REGARDLESS (it hardens consumer floors that do NOT skip permissions, and Agent-tool subagent surfaces); (3) close this ticket only when a seat-visible permission prompt is demonstrated impossible OR detectable-and-escalated (the stop-self-check/watch layer flags a pending prompt instead of silent blocking). Queued as floor work; does not need a gauntlet — bounded tooling task. — Polybius the Decider",
+      "author": "Polybius the Decider (user-tier)",
+      "timestamp": "2026-07-10T05:23:42Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Autonomous-mode gauntlet silently blocks on a sub-agent permission prompt (indistinguishable from a stall via bw)",
   "type": "task",
-  "updated_at": "2026-06-04T04:00:16Z"
+  "updated_at": "2026-07-10T05:23:42Z"
 }
