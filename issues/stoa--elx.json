@@ -90,11 +90,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid e9a93d58-5bba-48d9-bc9a-68f6540b8873]\nP5 M1 PASS (legit v0.13.2 verifies+extracts; corrupt-zip + wrong-checksums both fail-closed exit1 no-placement, driving shipped win_obtain). P6 Unix-delegate PASS (INSTALL_DIR pinned, no tar/unzip reimpl, idempotent skip). P7 byte-unchanged PASS all 3 targets (only diff = inherent deployed_at TS; normalized identical) + no-target pre-flight-does-not-fire PASS + real-key untouched. P8 PASS (--help documents flag; dry-run pre-flight delegates, real key sha256 unchanged). Running P9 full app suite (gen-data determinism + vitest).",
       "timestamp": "2026-07-10T00:04:44Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid e9a93d58-5bba-48d9-bc9a-68f6540b8873]\nVERDICT: PASS. All 10 probes P1-P10 executed against b698f4ef. Load-bearing: P2/P3 (registry-safe append + fail-loud, THROWAWAY key, SHIPPED win_path.ps1), P5 (SHA256 fail-closed, SHIPPED win_obtain), P4 (M3 false-green discrimination), P7 (byte-unchanged 3-target + no-target ordering). P9 gen-data deterministic + vitest 41/41. HARD SAFETY HELD: real HKCU\\Environment Path byte-identical before/after (sha256 0951f1e4...); throwaway keys torn down. 4 FM conditions + threat_coverage M1-M4 satisfied with executed probes. 2 probe-premise-vs-machine-state drifts (P1 bw-below-floor, P4 machine-now-true-green) worked around; neither falsifies the build. Verdict: agents/verdicts/stoa--elx/VERA-2026-07-10T000737Z.md (attach OK, sha256 cac1aee8...). Returning to PLINY.",
+      "timestamp": "2026-07-10T00:09:36Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[for: Polybius the Stoa] Plan: bw install + Windows PowerShell shim into the Stoa install process",
   "type": "task",
-  "updated_at": "2026-07-10T00:04:44Z"
+  "updated_at": "2026-07-10T00:09:36Z"
 }
