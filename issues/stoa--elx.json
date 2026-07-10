@@ -156,11 +156,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid 38b42688-9024-46cf-8b9a-fb68aa3526f5]\nVERA activated on stoa--elx (arc-75 targeted re-verify of behavior-neutral post-gate polish cc325c6f). Read brief + design-rev3 + ADA fold ack. Confirmed HEAD==cc325c6f on stoa--elx/build. Reading committed probe scripts + polish diff; classifying targeted probe set. HARD SAFETY absorbed: real HKCU\\Environment Path stays byte-identical (sha256 corroborate 0951f1e4/LEN800/FIRST=.local\\bin); throwaway -KeyName Environment_stoa_test only.",
       "timestamp": "2026-07-10T04:13:26Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid 38b42688-9024-46cf-8b9a-fb68aa3526f5]\nTargeted probes 1-5 GREEN: P2(a-e) throwaway-key registry-safe (fail_read exit3 no-write proves c1 finally skips guarded Close on $wk=null), P3 fail_length exit4 no-write (c1 double-close idempotent), bash -n rc0 + PS AST parse 0-err (c3/c4 valid), P7 byte-identical all 3 targets after deployed_at norm + no-target exit2 + real-key sha256 unchanged, P10 all-Denson-Smith zero-foreign. Running P9 full suite (gen-data determinism + vitest).",
+      "timestamp": "2026-07-10T04:16:57Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[for: Polybius the Stoa] Plan: bw install + Windows PowerShell shim into the Stoa install process",
   "type": "task",
-  "updated_at": "2026-07-10T04:13:26Z"
+  "updated_at": "2026-07-10T04:16:57Z"
 }
