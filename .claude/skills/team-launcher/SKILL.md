@@ -11,6 +11,12 @@ author: Denson Smith
 
 > **Verified mechanics, not theory.** The `wt` and `claude` flags below were confirmed against Microsoft's Windows Terminal command-line docs + a live smoke test (2026-06-04); the consumer-generic launcher was re-smoke-tested 2026-06-06 (parse + DryRun across panes / auto-derive / windows-fallback) under `stoa--h8w`. Sibling of `interactive-html-preview` (both hold verified builder-tier mechanics).
 
+## TERMINALS ARE THE EXCEPTION, NOT THE DEFAULT (PRINCIPAL directive 2026-07-10 — "stop the terminal parade")
+
+Before invoking this launcher AT ALL: for small/medium arcs the lane fork runs the floor IN-SESSION (FM/PLINY-equivalent supervision + the CAPTAIN gauntlet as in-session subagents, full gauntlet discipline + bw receipts, ZERO terminals). Terminal seats are reserved for genuinely long-running parallel floors, and every terminal launch REQUIRES a recorded WHY in a launch note on the arc ticket.
+
+When terminals ARE in play: (a) a stalled seat is remedied nudge-first, then `claude --resume <stalled-sid>` (same lineage — no new window), and a fresh forge is LAST RESORT with the reason recorded; HARD CAP one respawn per seat per arc — a second stall is an arc-level problem, not a seat problem. (b) SUPERSESSION INCLUDES DISPOSAL: whoever flips a seat dead disposes of its window in the same step (agent-side where safely identifiable, else one batched close-list for PRINCIPAL) — dead windows never accumulate; a lingering window is a zombie-seat surface (stale monitors re-fire; observed live 2026-07-10).
+
 ## The tool: `launch-team.ps1` (ships in this skill dir)
 The script lives **beside this SKILL.md** and deploys with the skill into every workspace's `.claude/skills/team-launcher/`. One command brings up the whole team — each session named, in the project dir, and activated.
 
