@@ -160,11 +160,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid 38b42688-9024-46cf-8b9a-fb68aa3526f5]\nTargeted probes 1-5 GREEN: P2(a-e) throwaway-key registry-safe (fail_read exit3 no-write proves c1 finally skips guarded Close on $wk=null), P3 fail_length exit4 no-write (c1 double-close idempotent), bash -n rc0 + PS AST parse 0-err (c3/c4 valid), P7 byte-identical all 3 targets after deployed_at norm + no-target exit2 + real-key sha256 unchanged, P10 all-Denson-Smith zero-foreign. Running P9 full suite (gen-data determinism + vitest).",
       "timestamp": "2026-07-10T04:16:57Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid 38b42688-9024-46cf-8b9a-fb68aa3526f5]\npass: cc325c6f behavior-neutral polish (c1-c4) VERIFIED — all targeted probes green, could not falsify.\n- P2(a-e) throwaway-key registry-safe: append/present/token-preserve/no-double-append exit0; P2b fail_read exit3, absent key NOT created (c1 finally skips guarded Close when wk=null -\u003e no write).\n- P3 fail_length exit4 NO write (c1 double-close idempotent, exit4 + no-write preserved); legit append exit0.\n- bash -n rc0 + PS AST parse 0-err (c3 mktemp guard + c4 local rc valid). c2 -Broadcast fully removed, wrapper never passed it (dead stub).\n- P7 install.sh absent-flag byte-identical all 3 targets after deployed_at norm; no-target exit2 pre-flight-does-not-fire; real key untouched.\n- P10 all authorship = Denson Smith, zero foreign; both shipped files keep Author: Denson Smith.\n- P9 gen-data deterministic (worktree diff empty) + vitest 41/41 (3 files).\n- HARD SAFETY: real HKCU\\Environment Path byte-identical before/after (sha256 0951f1e4.../LEN800/FIRST=.local\\bin, corroborates prior VERA); both throwaway keys torn down.\nverdict=PASS. Verdict attached: verdicts/VERA-2026-07-10T041848Z.md (sha256 809804c2...). attach_status=OK. Returning to PLINY.",
+      "timestamp": "2026-07-10T04:20:36Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[for: Polybius the Stoa] Plan: bw install + Windows PowerShell shim into the Stoa install process",
   "type": "task",
-  "updated_at": "2026-07-10T04:16:57Z"
+  "updated_at": "2026-07-10T04:20:36Z"
 }
