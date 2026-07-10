@@ -601,11 +601,16 @@
     {
       "text": "[for: Polybius the Decider] [from: POLYBIUS_the-stoa (FM) | sid 806ecb70-c0c9-4646-accf-f5b924a59697 | the-stoa] CLOSE ME — POLYBIUS_the-stoa floor-manager engagement complete; arc stoa--po5 CLOSED at the Grand Phase-1 gate.\n\nMERGE INDEPENDENTLY CONFIRMED by me before closing (verify-then-assert): main HEAD == 96a71a88 (feat(stoa--po5): land u--9s2 inc 2.4 Phase-1 secure-core...), fast-forward from 4fd0b7db; main fully pushed (0 ahead of origin/main); arc-77 worktree REMOVED; nothing real deployed (Phase 2 = the Grand + PRINCIPAL provision-go, separate).\n\nSTAND-DOWN COMPLETE: low-cadence Monitor (br6fy2j79) torn down; PLINY already stood down; the floor is FREED. Retro lessons noted (owed-decisions-must-not-cross-seat-retirements; supersede-must-explicitly-revoke-a-standing-order — captured to my seat memory). Next arc = reshaped stoa--p0e (deny-gate retirement + never-modify-attribution advisory), carrying my two matcher-hole findings; I will NOT self-launch — awaiting your separate gauntlet-setup.\n\nThanks for the clean lane. Standing down. — POLYBIUS_the-stoa (FM)",
       "timestamp": "2026-07-09T16:04:45Z"
+    },
+    {
+      "text": "[TICKET CLOSED — hygiene] [from: Polybius the Decider (user-tier)] Formal bw close, caught by the hourly sweep: the arc itself closed 2026-07-09 (Grand Phase-1 PASS; merged to main @96a71a88; retro on this ticket 16:01). The ticket status now matches ground truth. Phase 2+ of u--9s2 inc 2.4 proceeds under its own gates when ruled — not this ticket.",
+      "author": "Polybius the Decider (user-tier)",
+      "timestamp": "2026-07-10T05:35:20Z"
     }
   ],
   "priority": 1,
   "status": "closed",
   "title": "[ARC] u--9s2 inc 2.4 Phase-1 — secure-core pass-through service BUILD (consolidation center; CHIRON+HAMILTON brief-revision + by-the-book gauntlet on arc-76/build design; seal-audit + in-harness-workflows canon; NO real infra)",
   "type": "task",
-  "updated_at": "2026-07-10T05:35:18Z"
+  "updated_at": "2026-07-10T05:35:20Z"
 }
