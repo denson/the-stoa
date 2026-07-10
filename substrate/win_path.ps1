@@ -14,7 +14,7 @@
 #
 # Author: Denson Smith
 param([Parameter(Mandatory=$true)][string]$Dir, [string]$KeyName='Environment',
-      [int]$Ceiling=4095, [switch]$DryRun, [switch]$Broadcast)
+      [int]$Ceiling=4095, [switch]$DryRun)
 $ErrorActionPreference = 'Stop'
 $root = [Microsoft.Win32.Registry]::CurrentUser
 try {
@@ -46,8 +46,6 @@ try {
   if ($DryRun) { $wk.Close(); Write-Output "RESULT=would_append kind=$kind"; exit 0 }
   $wk.SetValue('Path', $newUser, $kind)
   $wk.Close()
-  # 7. Best-effort WM_SETTINGCHANGE broadcast so already-open shells refresh (non-fatal; DC3 reads
-  #    the registry directly regardless).
-  if ($Broadcast) { <# SendMessageTimeout HWND_BROADCAST WM_SETTINGCHANGE "Environment" #> }
   Write-Output 'RESULT=appended'; exit 0
 } catch { Write-Output "RESULT=fail_exception $($_.Exception.Message)"; exit 5 }
+finally { if ($null -ne $wk) { $wk.Close() } }

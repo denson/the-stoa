@@ -194,7 +194,7 @@ win_ensure_on_path() {
   [ "${DRY_RUN_MODE:-0}" -eq 1 ] && extra+=(-DryRun)
   # Capture stdout (the RESULT= line) AND the exit code. rc=$? is on the IMMEDIATELY-following line;
   # no pipe, no `|| true` — a pipeline or a `|| true` would replace the PS exit with something else.
-  local out
+  local out rc
   out="$(powershell.exe -NoProfile -ExecutionPolicy Bypass \
           -File "$(cygpath -w "$ps1")" \
           -Dir "$dir_win" -KeyName "${WIN_PATH_KEY:-Environment}" -Ceiling 4095 "${extra[@]}")"
@@ -287,6 +287,7 @@ win_obtain() {
   local sums_url="${GH_RELEASE_BASE}/v${ver}/beadwork_${ver}_checksums.txt"
 
   local tmp; tmp="$(mktemp -d)"
+  [ -d "$tmp" ] || fail "mktemp -d failed"
   local zip="${tmp}/${base}.zip"
   local sums="${tmp}/checksums.txt"
 

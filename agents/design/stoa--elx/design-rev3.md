@@ -11,7 +11,7 @@
 Two accuracy corrections from the Phase-C gauntlet (VERA PASS + CATO PASS-WITH-NITS + NOMOS CONFORMANT on build b698f4ef). Neither changed the built artifact; both are recorded here so the design canon matches shipped reality.
 
 - **DC2.0 stale-machine-state claim.** DC2.0's empirical read of the reference machine's PATH registry value (REG_SZ / raw length 800 / `C:\Users\denso\.local\bin` first entry) is accurate. But the accompanying assumption that "bw ≥ 0.13.2 is present → the idempotent-skip is the reference-machine path" is STALE: VERA found the actual bw on PATH is **0.13.1** (below the 0.13.2 floor), so on this machine in its current state `HAVE_BINARY=0` and the helper would **OBTAIN**, not skip. The shipped `version_ge`/`HAVE_BINARY` logic correctly does NOT skip on a below-floor version (VERA unit-verified `version_ge "0.13.1" "0.13.2"` = false). The idempotent-skip narrative in DC1/DC2.0 applies to a genuinely ≥floor machine — not this reference box, which is itself exactly the below-floor state the floor + helper exist to fix (ties to stoa--fqh). No build defect; design-narrative correction only.
-- **CATO NITs c1–c4 (behavior-neutral hygiene, CATO-rated shippable; documented post-gate polish).** c1 = `win_path.ps1` catch/exit-5 path omits `$wk.Close()` (process exits immediately, handle released by the OS, `SetValue` never reached on that path); c2 = the `-Broadcast` switch is a documented no-op stub (DC3 reads the registry directly); c3 = `bootstrap-bw.sh` `tmp="$(mktemp -d)"` unguarded (every downstream `rm -rf "$tmp"` is quoted → an empty `$tmp` is a harmless no-op); c4 = the `win_ensure_on_path` `rc=$?` is a non-local global (read immediately by the next `case`; matches this design's N2 sketch verbatim). All four are byte-neutral; c1/c2 live in the twice-ARGUS-audited byte-exact `win_path.ps1` crux, so the polish is deferred to a single reviewed commit AFTER the Grand's second gate to preserve the fully-gauntleted single-SHA provenance of the built artifact.
+- **CATO NITs c1–c4 (behavior-neutral hygiene, CATO-rated shippable; documented post-gate polish).** c1 = `win_path.ps1` catch/exit-5 path omits `$wk.Close()` (process exits immediately, handle released by the OS, `SetValue` never reached on that path); c2 = the `-Broadcast` switch is a documented no-op stub (DC3 reads the registry directly); c3 = `bootstrap-bw.sh` `tmp="$(mktemp -d)"` unguarded (every downstream `rm -rf "$tmp"` is quoted → an empty `$tmp` is a harmless no-op); c4 = the `win_ensure_on_path` `rc=$?` is a non-local global (read immediately by the next `case`; matches this design's N2 sketch verbatim). All four are byte-neutral; c1/c2 live in the twice-ARGUS-audited byte-exact `win_path.ps1` crux, so the polish was deferred to a single reviewed commit AFTER the Grand's second gate to preserve the fully-gauntleted single-SHA provenance of the built artifact (deferral rationale retained for the record). **DISCHARGED:** c1–c4 were APPLIED in the post-gate polish commit (Grand-ratified fold-first sequence); the `win_path.ps1` body and the `win_ensure_on_path` wrapper embedded above are synced byte-exact to the shipped files after those edits (c1 = `finally { if ($null -ne $wk) { $wk.Close() } }`; c2 = `-Broadcast` param token + no-op stub removed; c3 = `[ -d "$tmp" ] || fail "mktemp -d failed"` guard in `win_obtain`, not embedded here; c4 = `local out rc`).
 
 ## What rev3 changes (delta from rev2)
 
@@ -292,7 +292,7 @@ the exact body ADA commits as `substrate/win_path.ps1`** (validated end-to-end i
 
 ```powershell
 param([Parameter(Mandatory=$true)][string]$Dir, [string]$KeyName='Environment',
-      [int]$Ceiling=4095, [switch]$DryRun, [switch]$Broadcast)
+      [int]$Ceiling=4095, [switch]$DryRun)
 $ErrorActionPreference = 'Stop'
 $root = [Microsoft.Win32.Registry]::CurrentUser
 try {
@@ -324,11 +324,9 @@ try {
   if ($DryRun) { $wk.Close(); Write-Output "RESULT=would_append kind=$kind"; exit 0 }
   $wk.SetValue('Path', $newUser, $kind)
   $wk.Close()
-  # 7. Best-effort WM_SETTINGCHANGE broadcast so already-open shells refresh (non-fatal; DC3 reads
-  #    the registry directly regardless).
-  if ($Broadcast) { <# SendMessageTimeout HWND_BROADCAST WM_SETTINGCHANGE "Environment" #> }
   Write-Output 'RESULT=appended'; exit 0
 } catch { Write-Output "RESULT=fail_exception $($_.Exception.Message)"; exit 5 }
+finally { if ($null -ne $wk) { $wk.Close() } }
 ```
 
 ### The bash wrapper `win_ensure_on_path` — rev3 N2: exit-code capture PINNED
@@ -349,7 +347,7 @@ win_ensure_on_path() {
   [ "${DRY_RUN_MODE:-0}" -eq 1 ] && extra+=(-DryRun)
   # Capture stdout (the RESULT= line) AND the exit code. rc=$? is on the IMMEDIATELY-following line;
   # no pipe, no `|| true` — a pipeline or a `|| true` would replace the PS exit with something else.
-  local out
+  local out rc
   out="$(powershell.exe -NoProfile -ExecutionPolicy Bypass \
           -File "$(cygpath -w "$ps1")" \
           -Dir "$dir_win" -KeyName "${WIN_PATH_KEY:-Environment}" -Ceiling 4095 "${extra[@]}")"
