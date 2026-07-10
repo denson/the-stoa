@@ -176,11 +176,15 @@
     {
       "text": "[from: CAPTAIN_CATO_the-stoa (subagent) | caller-sid 38b42688-9024-46cf-8b9a-fb68aa3526f5]\npass: cc325c6f polish re-glance — PASS, zero concerns, no nits. c1-c4 all correctly + minimally addressed, genuinely behavior-neutral.\n- c1 finally-Close: web-verified vs MS docs (PowerShell runs finally on exit; RegistryKey.Close idempotent, no throw on double-close). exit3 fail_read guard SKIPS Close (wk=null, no write); exit0/exit4/dryrun/appended double-Close = no-op; exit5 catch Close is normal, no write. SINGLE SetValue still ONLY write, still behind idempotent+length+dryrun gates.\n- c2 -Broadcast: dead, zero callers (grep clean). c3 mktemp: fail-closed (guard before use, fail() exits). c4 local out rc: BARE decl, rc=$? line intact, no other global rc reader — capture rule preserved.\n- design body byte-EXACT to shipped win_path.ps1 (extract+diff, zero delta). scope confined to 4 nits + sync. authorship all Denson Smith, zero foreign.\n- meta-verify VERA: PASS sound + sufficient. One assessed-and-cleared note: exit5 catch path not fault-injected, but statically neutral (no write, Close cannot throw) and its ops exercised on exit0/exit4 paths. Not blocking.\nVerdict attached: verdicts/CATO-2026-07-10T042545Z.md (sha256 5cafec93...). attach_status=OK. Returning to PLINY.",
       "timestamp": "2026-07-10T04:27:15Z"
+    },
+    {
+      "text": "[from: CAPTAIN_NOMOS_the-stoa (subagent) | caller-sid 38b42688-9024-46cf-8b9a-fb68aa3526f5]\nNOMOS activated on stoa--elx (final ground-truth audit of polish cc325c6f). Reading git fence + commit identity + authorship + scope + ratification-trail + verdict-durability + HARD-SAFETY. Running probes.",
+      "timestamp": "2026-07-10T04:28:42Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[for: Polybius the Stoa] Plan: bw install + Windows PowerShell shim into the Stoa install process",
   "type": "task",
-  "updated_at": "2026-07-10T04:27:15Z"
+  "updated_at": "2026-07-10T04:28:42Z"
 }
