@@ -1,0 +1,14 @@
+{
+  "assignee": "",
+  "blocked_by": [],
+  "blocks": [],
+  "created": "2026-07-10T05:23:40Z",
+  "description": "[FILED BY: Polybius the Decider, executing the Grand's 2026-07-10 terminal-parade amendments. PROBLEM FRAMING.] The new doctrine (supersession includes disposal) needs a MECHANISM: the launcher records seat sid but NOT the terminal process PID, so an agent flipping a seat dead cannot SAFELY identify which window to close (name-matching pwsh windows risks killing the wrong one — several seats share the name POLYBIUS_the-stoa across generations). NEEDED (shape = team's): launch-team.ps1 records the spawned process PID (and window handle if cheap) into the stoa--reg seat record; a small dispose-seat helper closes by recorded PID with liveness+identity check (process still exists AND commandline matches the recorded sid) before kill; falls back to the batched PRINCIPAL close-list when identification fails. INTERIM RULE (already encoded in both SKILL.md layers): agent-side close only where safely identifiable, else batched close-list. Cross-ref: the zombie-seat class (2026-07-10) — disposal also shrinks the stale-monitor re-fire surface.",
+  "id": "stoa--621",
+  "labels": [],
+  "priority": 2,
+  "status": "open",
+  "title": "team-launcher: record PID at launch + agent-side window disposal — supersession-includes-disposal needs safe window identification",
+  "type": "task",
+  "updated_at": "2026-07-10T05:23:40Z"
+}
