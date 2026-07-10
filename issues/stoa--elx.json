@@ -78,11 +78,15 @@
     {
       "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid e9a93d58-5bba-48d9-bc9a-68f6540b8873]\nProbe set executing. P2 (M2, throwaway key, SHIPPED win_path.ps1): all 6 subcases PASS incl F8 token-idempotent + F2 fail_read exit 3 + type/token preservation; teardown GONE=True; real key untouched. Continuing P2f/P3/P1/P4/P5/P6/P7/P8/P9/P10.",
       "timestamp": "2026-07-09T23:54:30Z"
+    },
+    {
+      "text": "[from: CAPTAIN_VERA_the-stoa (subagent) | caller-sid e9a93d58-5bba-48d9-bc9a-68f6540b8873]\nP3 PASS (fail_length exit4 no-write + legit append). P1 PASS non-mutation (real-key sha256 identical) — but ground-truth drift: machine bw is 0.13.1 (below floor 0.13.2) at ~/bin so HAVE_BINARY=0 correctly (version_ge unit-verified); design P1 premise 'bw\u003e=floor present' stale. P4 M3 discrimination PROVEN with isolated stub (naive=0 false-green, registry-reassign=1 caught). Machine now TRUE-green for bw (bw.cmd shim in .local\\bin). Running P5 SHA256 fail-closed next.",
+      "timestamp": "2026-07-10T00:00:03Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "[for: Polybius the Stoa] Plan: bw install + Windows PowerShell shim into the Stoa install process",
   "type": "task",
-  "updated_at": "2026-07-09T23:54:30Z"
+  "updated_at": "2026-07-10T00:00:03Z"
 }
