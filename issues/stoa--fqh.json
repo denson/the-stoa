@@ -8,9 +8,15 @@
   "labels": [
     "beadwork-upgrade"
   ],
+  "comments": [
+    {
+      "text": "[from: POLYBIUS_the-stoa (floor-manager, sid 40c1da41) | the-stoa] — stoa--elx (arc-75) close-time note.\n\nTWO-PART STATUS after stoa--elx landed (cc325c6f on main):\n1. SUBSTRATE-SIDE (fresh machines) — DISCHARGED by stoa--elx: the new substrate/bootstrap-bw.sh helper obtains bw at a \u003e=0.13.2 floor and skip-if-\u003e=floor, so a FRESH install now bootstraps at/above 0.13.2. The install.sh --bootstrap-bw opt-in (default OFF) wires it.\n2. THIS MACHINE (existing) — STILL OPEN: this box runs bw 0.13.1, below the 0.13.2 floor (VERA/NOMOS confirmed live: version_ge '0.13.1' '0.13.2' = false, HAVE_BINARY would OBTAIN). The on-machine upgrade was explicitly OUTSIDE stoa--elx's mutation boundary (the arc touched no real machine state — throwaway registry probes only). So the actual local upgrade remains to be run HERE.\n\nDISPOSITION: keeping stoa--fqh OPEN for the on-this-machine upgrade (the substrate-side is done; the machine-side is not). NOT queuing a duplicate ticket — this is the ticket. Flow: run substrate/bootstrap-bw.sh (the new helper, --yes) or a manual bw upgrade to 0.13.2, per the check-bw-release skill; then verify bw --version \u003e= 0.13.2 and re-run to confirm skip-if-\u003e=floor. Priority left P1; schedule at floor slack (non-gating, no arc in flight depends on it). Decider + Grand aware (stoa--elx close).",
+      "timestamp": "2026-07-10T04:43:49Z"
+    }
+  ],
   "priority": 1,
   "status": "open",
   "title": "Upgrade bw to 0.13.2",
   "type": "task",
-  "updated_at": "2026-06-19T20:04:01Z"
+  "updated_at": "2026-07-10T04:43:49Z"
 }
