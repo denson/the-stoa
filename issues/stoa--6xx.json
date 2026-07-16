@@ -2,6 +2,7 @@
   "assignee": "",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-07-16T23:57:34Z",
   "created": "2026-07-16T23:37:16Z",
   "description": "Arc ticket per the Grand's 2026-07-16 brief. SCOPE: (1) package substrate as plugin 'stoa' (.claude-plugin/plugin.json + marketplace per CURRENT spec, gsearch-verified; agents/skills/commands at plugin root; v0.1.0 tagged); (2) runtime-parametrization refactor of role files (install-time \u003cproject\u003e substitution -\u003e run-time derivation; minimal + reversible + documented); (3) install into newswire_core via marketplace, smoke by CHANGED BEHAVIOR (say-trigger wakes seats with derived identity newswire_core); (4) launch the team myself via launch-team.ps1 (terminal WHY: standing pilot floor for the newswire_core product queue — Discovery-to-Record adaptation adopt/object, SHARED split from PORT_RECORD, critique-pass prep). BOUNDARIES: pilot consumer = newswire_core ONLY; no fleet migration; newswire_core beyond .claude install is Codex's; commit+push every pass. AUTHORSHIP: identity-by-hosting (author=Denson Smith, url github.com/denson, resolving fields); canonical manifest template; ADVISORY release check; signed-tags = PRINCIPAL FYI. WATCHER-EXISTS note: the Watcher is DEAD BY DESIGN pending the planning session (PRINCIPAL ruling) — recorded here instead of spinning one. Fleet stays parked; this arc only.",
   "id": "stoa--6xx",
@@ -19,8 +20,8 @@
     }
   ],
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "[ARC] Stoa substrate as Claude Code plugin (stoa@v0.1.0) — pilot into newswire_core (PRINCIPAL-sanctioned unpark; brief: user-beadwork/briefs/BRIEF_DECIDER_stoa-plugin-pilot_2026-07-16.md)",
   "type": "task",
-  "updated_at": "2026-07-16T23:57:32Z"
+  "updated_at": "2026-07-16T23:57:34Z"
 }
