@@ -37,11 +37,23 @@ PREAMBLE = """\
 > `${CLAUDE_PLUGIN_ROOT}/modules/` and `${CLAUDE_PLUGIN_ROOT}/templates/`.
 """
 
-def transform(text: str) -> str:
+def transform(text: str, prose: bool = False) -> str:
+    if prose:
+        # copied skills/modules/templates may mention the tokens AS PROSE
+        # (doc comments about the install-time mechanism) — de-tokenize to the
+        # plain name instead of deleting, so no dangling sentences (CATO #2)
+        text = text.replace("{{NAME_SUFFIX}}", "NAME_SUFFIX")
+        text = re.sub(r"`?\{\{USER_TIER_DIR\}\}/user-beadwork/?`?",
+                      "the sibling `user-beadwork` repo under the projects root "
+                      "(the parent directory of the workspace cwd)", text)
+        text = text.replace("{{USER_TIER_DIR}}", "USER_TIER_DIR")
+        return text
     text = text.replace("{{NAME_SUFFIX}}", "")
     text = re.sub(r"`?\{\{USER_TIER_DIR\}\}/user-beadwork/?`?",
                   "the sibling `user-beadwork` repo under the projects root "
                   "(the parent directory of the workspace cwd)", text)
+    text = text.replace("{{USER_TIER_DIR}}", "the projects root (the parent "
+                        "directory of the workspace cwd)")
     return text
 
 def inject_preamble(text: str) -> str:
@@ -73,7 +85,7 @@ def main():
             for f in (DEST / d).rglob("*"):
                 if f.is_file() and f.suffix in (".md", ".json", ".sh", ".ps1", ".py", ".txt"):
                     t = f.read_text(encoding="utf-8", errors="ignore")
-                    t2 = transform(t)
+                    t2 = transform(t, prose=True)
                     if t2 != t:
                         f.write_text(t2, encoding="utf-8", newline="\n")
 
@@ -92,7 +104,11 @@ Follow the role file's activation discipline (bw prime, Monitor, chain of comman
 """, encoding="utf-8", newline="\n")
 
     residual = []
-    for f in DEST.rglob("*.md"):
+    # scan EVERY suffix the transform touches, not just .md (CATO #1 — the
+    # self-check must be at least as wide as the transformation it verifies)
+    for f in DEST.rglob("*"):
+        if not (f.is_file() and f.suffix in (".md", ".json", ".sh", ".ps1", ".py", ".txt")):
+            continue
         t = f.read_text(encoding="utf-8", errors="ignore")
         # only the two INSTALL-TIME tokens are failures; use-time slots survive
         if "{{NAME_SUFFIX}}" in t or "{{USER_TIER_DIR}}" in t:

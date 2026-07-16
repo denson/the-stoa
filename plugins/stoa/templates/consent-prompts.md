@@ -75,7 +75,7 @@ Stakes: low if the project has no prior beadwork; medium if there's existing wor
 
 ## Prompt 4 — deploy CAPTAIN sub-agent envelopes to `.claude/agents/`
 
-**Action:** copy `CAPTAIN_*.md` files into `<project>/.claude/agents/` (or `~/.claude/agents/` for user-tier deployment). Fills the `` slot in each envelope's frontmatter so the agents have project-scoped names.
+**Action:** copy `CAPTAIN_*.md` files into `<project>/.claude/agents/` (or `~/.claude/agents/` for user-tier deployment). Fills the `NAME_SUFFIX` slot in each envelope's frontmatter so the agents have project-scoped names.
 
 **Reversibility:** fully reversible by deletion; CAPTAIN files don't reach into other parts of the system.
 

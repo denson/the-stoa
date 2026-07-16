@@ -95,7 +95,7 @@ normalize_lf() {
 # and CAPTAIN files; templates and skills are deployed verbatim via `cp` / `cp -R`
 # (install.sh ~lines 681, 711). Templates and skills MUST NOT be substituted at
 # check time, otherwise prose that documents the placeholder (e.g., consent-prompts.md
-# referencing ``) creates false-positive drift. See design §2.4 table.
+# referencing `NAME_SUFFIX`) creates false-positive drift. See design §2.4 table.
 #
 # Substitution policy by deployed-relative path:
 #   .claude/MAJOR_*.md              : NAME_SUFFIX (and USER_TIER_DIR at user-tier; out of v0 scope)
@@ -119,7 +119,7 @@ apply_substitutions() {
       # Same sed shape install.sh uses; the '|' delimiter for USER_TIER_DIR is
       # documented but USER_TIER_DIR substitution at user-tier is out of v0 scope
       # (see SKILL.md / design §10.2).
-      sed "s//${name_suffix}/g" "$source_file"
+      sed "s/NAME_SUFFIX/${name_suffix}/g" "$source_file"
       ;;
     *)
       # Templates and skills (and any future verbatim-deployed file class) — no substitution.
@@ -201,8 +201,8 @@ apply_substitutions_from_manifest() {
       # Without step 2, a future manifest entry whose replacement contains '&'
       # would silently mangle the substitution: sed reads bare '&' in the RHS
       # of s|...|...| as a back-reference to the entire matched pattern.
-      # install.sh's current writers (Arc 38 baseline) emit only 
-      # and {{USER_TIER_DIR}} replacements (neither contains '&' in any
+      # install.sh's current writers (Arc 38 baseline) emit only NAME_SUFFIX
+      # and USER_TIER_DIR replacements (neither contains '&' in any
       # plausible deploy), so the in-tree symptom is latent — but the reader
       # must always be safe. Per CATO Arc 38 rev1 c2 finding (defensive
       # read-site escape; writer may extend later). Cross-ref:

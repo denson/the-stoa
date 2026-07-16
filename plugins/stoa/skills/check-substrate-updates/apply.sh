@@ -95,7 +95,7 @@ apply_substitutions() {
   esac
   case "$dep_rel" in
     .claude/MAJOR_*.md|.claude/agents/CAPTAIN_*.md)
-      sed "s//${name_suffix}/g" "$source_file"
+      sed "s/NAME_SUFFIX/${name_suffix}/g" "$source_file"
       ;;
     *)
       cat "$source_file"
