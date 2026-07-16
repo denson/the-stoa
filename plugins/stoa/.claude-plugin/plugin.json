@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "stoa",
+  "displayName": "Stoa Substrate",
+  "version": "0.1.0",
+  "description": "The Stoa multi-tier agent substrate as a versioned plugin: CAPTAIN sub-agent roster, MAJOR role files (runtime-parametrized), LIEUTENANT skills, instruction modules, and templates. Pilot packaging (v0.1.x) — substrate/ in the host repo remains the canonical source.",
+  "author": {
+    "name": "Denson Smith",
+    "url": "https://github.com/denson"
+  },
+  "homepage": "https://github.com/denson/the-stoa",
+  "repository": "https://github.com/denson/the-stoa",
+  "license": "UNLICENSED",
+  "keywords": ["stoa", "substrate", "agents", "gauntlet", "beadwork"]
+}

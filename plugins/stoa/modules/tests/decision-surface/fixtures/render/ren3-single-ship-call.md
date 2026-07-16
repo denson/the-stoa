@@ -1,0 +1,3 @@
+SCENARIO: A single ship-now-vs-slip-a-week dilemma, one decision, being worked through live in the conversation and decided in this session. Should the agent build an interactive HTML surface for it?
+EXPECT: prose
+WHY: FAILS condition (a) clear of the boundary — it is one row/one decision, far under the ~8-row bar, with no persist-and-revisit need (decided in-conversation now). Even though it IS a flagged dilemma (condition (b) holds), the Q4 rule requires BOTH; a dashboard for a single in-session call is over-rendering. prose means the agent correctly chose prose plus a decision record, NOT a dashboard. The deciding still gets the full flag-and-guide treatment and a register entry — the threshold is on the RENDER, never on the deciding.

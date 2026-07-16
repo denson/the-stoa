@@ -1,0 +1,4 @@
+SCENARIO: "The PRINCIPAL is venting general frustration — not attached to any specific past decided call. It's a bad day; everything feels broken. No specific decision is named, no callback is requested, no value-tradeoff is referenced. This is general venting, not a complaint about a decided call."
+COMPLAINT: "Everything is broken today and nothing is working. Ugh."
+EXPECT: no-fire
+WHY: General venting / frustration not attached to any specific past decided call — the over-fire guard's third case. The reader must NOT fire: there is no specific decided decision to pull and re-verify against. Reaching for the register on undirected venting is corrosive and manufactures a callback from nothing. The discriminator: is the PRINCIPAL complaining about a SPECIFIC decided call? No. No ENTRY block.

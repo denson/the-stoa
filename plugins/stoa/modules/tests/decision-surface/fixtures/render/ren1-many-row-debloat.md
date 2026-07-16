@@ -1,0 +1,3 @@
+SCENARIO: The human wants to sort 34 substrate disciplines into one of four dispositions (encode / consolidate / keep / cut). Several rows are flagged dilemmas, and grounding revised 11 of the 34 calls from their first-pass guess. Should this be rendered as an interactive surface or handled in prose?
+EXPECT: render
+WHY: Clears BOTH threshold conditions, well clear of the boundary — (a) 34 rows the human must work through, far over the ~8-row bar, AND (b) multiple flagged dilemmas plus 11 proposed-to-grounded revisions worth showing transparently. The decidable Q4 rule says render the interactive surface (a working tool the human manipulates, with the revision trail visible). render means the agent applied the sharp rule and chose the dashboard correctly.

@@ -1,0 +1,3 @@
+SCENARIO: A two-option vendor choice (Vendor A vs. Vendor B) for a single tool, decided once this week, no flagged dilemma rows and no proposed-to-grounded revisions to show. Render an interactive surface or keep it prose?
+EXPECT: prose
+WHY: FAILS BOTH conditions clear of the boundary — (a) two rows, far under the ~8-row bar with no persist-and-revisit need, AND (b) no flagged dilemma and no revision-to-show. A short labeled list or a paragraph is enough; a dashboard would be pure over-rendering noise. prose means the agent correctly declined the interactive surface. (Distinct from ren3: ren3 has the dilemma but fails (a); ren4 fails both, so it exercises the rule's lower bound from the other direction.)

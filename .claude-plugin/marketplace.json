@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "stoa-marketplace",
+  "description": "Marketplace for the Stoa substrate plugin family. Hosted in the the-stoa repository under github.com/denson — the hosting namespace is the identity credential.",
+  "owner": {
+    "name": "Denson Smith",
+    "email": "densonsmith2@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "stoa",
+      "description": "The Stoa multi-tier agent substrate: CAPTAIN roster, MAJOR roles (runtime-parametrized), skills, modules, templates.",
+      "version": "0.1.0",
+      "author": { "name": "Denson Smith", "url": "https://github.com/denson" },
+      "source": { "type": "path", "path": "./plugins/stoa" }
+    }
+  ]
+}

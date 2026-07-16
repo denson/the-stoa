@@ -1,0 +1,15 @@
+{
+  "_TEMPLATE": "Canonical plugin.json starting point for every future Stoa-family plugin. COPY, fill <>, delete _TEMPLATE keys. AUTHORSHIP RULE (PRINCIPAL-ruled, identity-by-hosting): author.name is ALWAYS 'Denson Smith'; author.url + homepage + repository MUST resolve into the github.com/denson namespace — the hosting is the credential. A name/body may REFERENCE other people's work; author-like FIELDS never carry another person's name. Audit every author-like field before commit (standing global rule; manifests are the historical failure zone). Run plugins/release-check.sh before any tag/push (ADVISORY, report-only — deny-gates are retired doctrine).",
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "<kebab-case-plugin-name>",
+  "displayName": "<Human Name>",
+  "version": "0.1.0",
+  "description": "<what it does>",
+  "author": {
+    "name": "Denson Smith",
+    "url": "https://github.com/denson"
+  },
+  "homepage": "https://github.com/denson/<repo>",
+  "repository": "https://github.com/denson/<repo>",
+  "license": "UNLICENSED"
+}

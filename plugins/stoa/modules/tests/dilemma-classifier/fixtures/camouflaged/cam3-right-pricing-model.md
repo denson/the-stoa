@@ -1,0 +1,3 @@
+SCENARIO: "We've done the market research and surveyed customers. Given all that data, what's the right pricing model — per-seat or usage-based?"
+EXPECT: dilemma
+WHY: [DIFFICULTY: medium] Harder than cam1/cam2 because the asker front-loads "we've done the research / given all that data," which makes it FEEL like the answer is now derivable — a solved problem awaiting computation. It is not: per-seat (predictable revenue, penalizes growing teams) vs. usage-based (aligns price with value, unpredictable revenue, harder to forecast) is a strategic value-tradeoff about which business risk you prefer. Data informs the tradeoff; it does not dissolve it. The camouflage is the implied "the data decides," not a value-word.
