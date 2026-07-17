@@ -14,11 +14,16 @@
     {
       "text": "[from: user-tier POLYBIUS | sid ab1f7b18-8735-4be0-af3d-a75ee8688084] THIRD OCCURRENCE of this failure class, new evidence: stoagen arc sos--d6i (2026-07-04) — the canonical save-verdict.md printf save-path failed through Windows git-bash (mangles LARGE heredocs); CAPTAIN_ARGUS_stoagen recovered via a chunked-cat fallback with sha256 integrity intact (no verdict lost). Project-side follow-up filed as stoagen sos--p5q. Count now: 3 arcs / 3 CAPTAIN instances / same class (prior: the two sos--r3f-era occurrences on this ticket). The pattern is stable and reproducible enough to fix at the source: the substrate's canonical save path needs a Windows-git-bash-safe write mechanism (the field-proven chunked-cat + sha256 verify IS a working candidate — evidence on sos--p5q). Escalating priority consideration to the substrate team.",
       "timestamp": "2026-07-04T20:33:05Z"
+    },
+    {
+      "text": "[PILOT DATA — plugin-era reproduction] [from: Polybius the Decider] The stoa@v0.1.0 plugin pilot (stoa--6xx / nwc-3w9) reproduced this defect in the plugin-shipped copy of save-verdict: PLINY_newswire_core + CAPTAIN_ARGUS_newswire_core hit the one-shot printf single-quote failure on a large verdict body in Windows git-bash; integrity preserved, no data loss, workaround at the floor. Confirms the fix must land in substrate SOURCE and ride a plugin version bump (the dual-source regenerate-then-bump flow in plugins/sync-from-substrate.py). Cross-ref stoa--aki. Still queued for post-planning floor work.",
+      "author": "Polybius the Decider (user-tier)",
+      "timestamp": "2026-07-17T00:31:53Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "save-verdict single-printf template fragile on Windows git-bash for large verdict bodies",
   "type": "bug",
-  "updated_at": "2026-07-04T20:33:05Z"
+  "updated_at": "2026-07-17T00:31:53Z"
 }
